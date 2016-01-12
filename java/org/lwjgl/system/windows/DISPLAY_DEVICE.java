@@ -121,62 +121,6 @@ public class DISPLAY_DEVICE extends Struct {
 
 	/** Sets the specified value to the {@code cb} field. */
 	public DISPLAY_DEVICE cb(int value) { ncb(address(), value); return this; }
-	/** Copies the specified encoded string to the {@code DeviceName} field. */
-	public DISPLAY_DEVICE DeviceName(ByteBuffer value) { nDeviceName(address(), value); return this; }
-	/** Encodes the specified {@link CharSequence} to the {@code DeviceName} field. */
-	public DISPLAY_DEVICE DeviceName(CharSequence value) { nDeviceName(address(), value); return this; }
-	/** Copies the specified encoded string to the {@code DeviceString} field. */
-	public DISPLAY_DEVICE DeviceString(ByteBuffer value) { nDeviceString(address(), value); return this; }
-	/** Encodes the specified {@link CharSequence} to the {@code DeviceString} field. */
-	public DISPLAY_DEVICE DeviceString(CharSequence value) { nDeviceString(address(), value); return this; }
-	/** Sets the specified value to the {@code StateFlags} field. */
-	public DISPLAY_DEVICE StateFlags(int value) { nStateFlags(address(), value); return this; }
-	/** Copies the specified encoded string to the {@code DeviceID} field. */
-	public DISPLAY_DEVICE DeviceID(ByteBuffer value) { nDeviceID(address(), value); return this; }
-	/** Encodes the specified {@link CharSequence} to the {@code DeviceID} field. */
-	public DISPLAY_DEVICE DeviceID(CharSequence value) { nDeviceID(address(), value); return this; }
-	/** Copies the specified encoded string to the {@code DeviceKey} field. */
-	public DISPLAY_DEVICE DeviceKey(ByteBuffer value) { nDeviceKey(address(), value); return this; }
-	/** Encodes the specified {@link CharSequence} to the {@code DeviceKey} field. */
-	public DISPLAY_DEVICE DeviceKey(CharSequence value) { nDeviceKey(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public DISPLAY_DEVICE set(
-		int cb,
-		ByteBuffer DeviceName,
-		ByteBuffer DeviceString,
-		int StateFlags,
-		ByteBuffer DeviceID,
-		ByteBuffer DeviceKey
-	) {
-		cb(cb);
-		DeviceName(DeviceName);
-		DeviceString(DeviceString);
-		StateFlags(StateFlags);
-		DeviceID(DeviceID);
-		DeviceKey(DeviceKey);
-
-		return this;
-	}
-
-	/** Initializes this struct with the specified values. */
-	public DISPLAY_DEVICE set(
-		int cb,
-		CharSequence DeviceName,
-		CharSequence DeviceString,
-		int StateFlags,
-		CharSequence DeviceID,
-		CharSequence DeviceKey
-	) {
-		cb(cb);
-		DeviceName(DeviceName);
-		DeviceString(DeviceString);
-		StateFlags(StateFlags);
-		DeviceID(DeviceID);
-		DeviceKey(DeviceKey);
-
-		return this;
-	}
 
 	/** Unsafe version of {@link #set(DISPLAY_DEVICE) set}. */
 	public DISPLAY_DEVICE nset(long struct) {
@@ -284,48 +228,6 @@ public class DISPLAY_DEVICE extends Struct {
 
 	/** Unsafe version of {@link #cb(int) cb}. */
 	public static void ncb(long struct, int value) { memPutInt(struct + DISPLAY_DEVICE.CB, value); }
-	/** Unsafe version of {@link #DeviceName(ByteBuffer) DeviceName}. */
-	public static void nDeviceName(long struct, ByteBuffer value) {
-		if ( CHECKS ) {
-			checkNT2(value);
-			checkBufferGT(value, 64);
-		}
-		memCopy(memAddress(value), struct + DISPLAY_DEVICE.DEVICENAME, value.remaining());
-	}
-	/** Unsafe version of {@link #DeviceName(CharSequence) DeviceName}. */
-	public static void nDeviceName(long struct, CharSequence value) { memEncodeUTF16(value, true, memByteBuffer(struct + DISPLAY_DEVICE.DEVICENAME, 64)); }
-	/** Unsafe version of {@link #DeviceString(ByteBuffer) DeviceString}. */
-	public static void nDeviceString(long struct, ByteBuffer value) {
-		if ( CHECKS ) {
-			checkNT2(value);
-			checkBufferGT(value, 256);
-		}
-		memCopy(memAddress(value), struct + DISPLAY_DEVICE.DEVICESTRING, value.remaining());
-	}
-	/** Unsafe version of {@link #DeviceString(CharSequence) DeviceString}. */
-	public static void nDeviceString(long struct, CharSequence value) { memEncodeUTF16(value, true, memByteBuffer(struct + DISPLAY_DEVICE.DEVICESTRING, 256)); }
-	/** Unsafe version of {@link #StateFlags(int) StateFlags}. */
-	public static void nStateFlags(long struct, int value) { memPutInt(struct + DISPLAY_DEVICE.STATEFLAGS, value); }
-	/** Unsafe version of {@link #DeviceID(ByteBuffer) DeviceID}. */
-	public static void nDeviceID(long struct, ByteBuffer value) {
-		if ( CHECKS ) {
-			checkNT2(value);
-			checkBufferGT(value, 256);
-		}
-		memCopy(memAddress(value), struct + DISPLAY_DEVICE.DEVICEID, value.remaining());
-	}
-	/** Unsafe version of {@link #DeviceID(CharSequence) DeviceID}. */
-	public static void nDeviceID(long struct, CharSequence value) { memEncodeUTF16(value, true, memByteBuffer(struct + DISPLAY_DEVICE.DEVICEID, 256)); }
-	/** Unsafe version of {@link #DeviceKey(ByteBuffer) DeviceKey}. */
-	public static void nDeviceKey(long struct, ByteBuffer value) {
-		if ( CHECKS ) {
-			checkNT2(value);
-			checkBufferGT(value, 256);
-		}
-		memCopy(memAddress(value), struct + DISPLAY_DEVICE.DEVICEKEY, value.remaining());
-	}
-	/** Unsafe version of {@link #DeviceKey(CharSequence) DeviceKey}. */
-	public static void nDeviceKey(long struct, CharSequence value) { memEncodeUTF16(value, true, memByteBuffer(struct + DISPLAY_DEVICE.DEVICEKEY, 256)); }
 
 	// -----------------------------------
 
@@ -392,24 +294,6 @@ public class DISPLAY_DEVICE extends Struct {
 
 		/** Sets the specified value to the {@code cb} field. */
 		public DISPLAY_DEVICE.Buffer cb(int value) { DISPLAY_DEVICE.ncb(address(), value); return this; }
-		/** Copies the specified encoded string to the {@code DeviceName} field. */
-		public DISPLAY_DEVICE.Buffer DeviceName(ByteBuffer value) { DISPLAY_DEVICE.nDeviceName(address(), value); return this; }
-		/** Encodes the specified {@link CharSequence} to the {@code DeviceName} field. */
-		public DISPLAY_DEVICE.Buffer DeviceName(CharSequence value) { DISPLAY_DEVICE.nDeviceName(address(), value); return this; }
-		/** Copies the specified encoded string to the {@code DeviceString} field. */
-		public DISPLAY_DEVICE.Buffer DeviceString(ByteBuffer value) { DISPLAY_DEVICE.nDeviceString(address(), value); return this; }
-		/** Encodes the specified {@link CharSequence} to the {@code DeviceString} field. */
-		public DISPLAY_DEVICE.Buffer DeviceString(CharSequence value) { DISPLAY_DEVICE.nDeviceString(address(), value); return this; }
-		/** Sets the specified value to the {@code StateFlags} field. */
-		public DISPLAY_DEVICE.Buffer StateFlags(int value) { DISPLAY_DEVICE.nStateFlags(address(), value); return this; }
-		/** Copies the specified encoded string to the {@code DeviceID} field. */
-		public DISPLAY_DEVICE.Buffer DeviceID(ByteBuffer value) { DISPLAY_DEVICE.nDeviceID(address(), value); return this; }
-		/** Encodes the specified {@link CharSequence} to the {@code DeviceID} field. */
-		public DISPLAY_DEVICE.Buffer DeviceID(CharSequence value) { DISPLAY_DEVICE.nDeviceID(address(), value); return this; }
-		/** Copies the specified encoded string to the {@code DeviceKey} field. */
-		public DISPLAY_DEVICE.Buffer DeviceKey(ByteBuffer value) { DISPLAY_DEVICE.nDeviceKey(address(), value); return this; }
-		/** Encodes the specified {@link CharSequence} to the {@code DeviceKey} field. */
-		public DISPLAY_DEVICE.Buffer DeviceKey(CharSequence value) { DISPLAY_DEVICE.nDeviceKey(address(), value); return this; }
 
 	}
 

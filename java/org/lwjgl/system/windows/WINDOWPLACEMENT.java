@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -107,6 +108,62 @@ public class WINDOWPLACEMENT extends Struct {
 	/** Returns a {@link RECT} view of the {@code rcNormalPosition} field. */
 	public RECT rcNormalPosition() { return nrcNormalPosition(address()); }
 
+	/** Sets the specified value to the {@code length} field. */
+	public WINDOWPLACEMENT length(int value) { nlength(address(), value); return this; }
+	/** Sets the specified value to the {@code flags} field. */
+	public WINDOWPLACEMENT flags(int value) { nflags(address(), value); return this; }
+	/** Sets the specified value to the {@code showCmd} field. */
+	public WINDOWPLACEMENT showCmd(int value) { nshowCmd(address(), value); return this; }
+	/** Copies the specified {@link POINT} to the {@code ptMinPosition} field. */
+	public WINDOWPLACEMENT ptMinPosition(POINT value) { nptMinPosition(address(), value); return this; }
+	/** Copies the specified {@link POINT} to the {@code ptMaxPosition} field. */
+	public WINDOWPLACEMENT ptMaxPosition(POINT value) { nptMaxPosition(address(), value); return this; }
+	/** Copies the specified {@link RECT} to the {@code rcNormalPosition} field. */
+	public WINDOWPLACEMENT rcNormalPosition(RECT value) { nrcNormalPosition(address(), value); return this; }
+
+	/** Initializes this struct with the specified values. */
+	public WINDOWPLACEMENT set(
+		int length,
+		int flags,
+		int showCmd,
+		POINT ptMinPosition,
+		POINT ptMaxPosition,
+		RECT rcNormalPosition
+	) {
+		length(length);
+		flags(flags);
+		showCmd(showCmd);
+		ptMinPosition(ptMinPosition);
+		ptMaxPosition(ptMaxPosition);
+		rcNormalPosition(rcNormalPosition);
+
+		return this;
+	}
+
+	/** Unsafe version of {@link #set(WINDOWPLACEMENT) set}. */
+	public WINDOWPLACEMENT nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
+
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @return this struct
+	 */
+	public WINDOWPLACEMENT set(WINDOWPLACEMENT src) {
+		return nset(src.address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set(WINDOWPLACEMENT) set}. */
+	public WINDOWPLACEMENT set(ByteBuffer struct) {
+		if ( CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
 	// -----------------------------------
 
 	/** Returns a new {@link WINDOWPLACEMENT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -179,6 +236,19 @@ public class WINDOWPLACEMENT extends Struct {
 	/** Unsafe version of {@link #rcNormalPosition}. */
 	public static RECT nrcNormalPosition(long struct) { return RECT.create(struct + WINDOWPLACEMENT.RCNORMALPOSITION); }
 
+	/** Unsafe version of {@link #length(int) length}. */
+	public static void nlength(long struct, int value) { memPutInt(struct + WINDOWPLACEMENT.LENGTH, value); }
+	/** Unsafe version of {@link #flags(int) flags}. */
+	public static void nflags(long struct, int value) { memPutInt(struct + WINDOWPLACEMENT.FLAGS, value); }
+	/** Unsafe version of {@link #showCmd(int) showCmd}. */
+	public static void nshowCmd(long struct, int value) { memPutInt(struct + WINDOWPLACEMENT.SHOWCMD, value); }
+	/** Unsafe version of {@link #ptMinPosition(POINT) ptMinPosition}. */
+	public static void nptMinPosition(long struct, POINT value) { memCopy(value.address(), struct + WINDOWPLACEMENT.PTMINPOSITION, POINT.SIZEOF); }
+	/** Unsafe version of {@link #ptMaxPosition(POINT) ptMaxPosition}. */
+	public static void nptMaxPosition(long struct, POINT value) { memCopy(value.address(), struct + WINDOWPLACEMENT.PTMAXPOSITION, POINT.SIZEOF); }
+	/** Unsafe version of {@link #rcNormalPosition(RECT) rcNormalPosition}. */
+	public static void nrcNormalPosition(long struct, RECT value) { memCopy(value.address(), struct + WINDOWPLACEMENT.RCNORMALPOSITION, RECT.SIZEOF); }
+
 	// -----------------------------------
 
 	/** An array of {@link WINDOWPLACEMENT} structs. */
@@ -233,6 +303,19 @@ public class WINDOWPLACEMENT extends Struct {
 		public POINT ptMaxPosition() { return WINDOWPLACEMENT.nptMaxPosition(address()); }
 		/** Returns a {@link RECT} view of the {@code rcNormalPosition} field. */
 		public RECT rcNormalPosition() { return WINDOWPLACEMENT.nrcNormalPosition(address()); }
+
+		/** Sets the specified value to the {@code length} field. */
+		public WINDOWPLACEMENT.Buffer length(int value) { WINDOWPLACEMENT.nlength(address(), value); return this; }
+		/** Sets the specified value to the {@code flags} field. */
+		public WINDOWPLACEMENT.Buffer flags(int value) { WINDOWPLACEMENT.nflags(address(), value); return this; }
+		/** Sets the specified value to the {@code showCmd} field. */
+		public WINDOWPLACEMENT.Buffer showCmd(int value) { WINDOWPLACEMENT.nshowCmd(address(), value); return this; }
+		/** Copies the specified {@link POINT} to the {@code ptMinPosition} field. */
+		public WINDOWPLACEMENT.Buffer ptMinPosition(POINT value) { WINDOWPLACEMENT.nptMinPosition(address(), value); return this; }
+		/** Copies the specified {@link POINT} to the {@code ptMaxPosition} field. */
+		public WINDOWPLACEMENT.Buffer ptMaxPosition(POINT value) { WINDOWPLACEMENT.nptMaxPosition(address(), value); return this; }
+		/** Copies the specified {@link RECT} to the {@code rcNormalPosition} field. */
+		public WINDOWPLACEMENT.Buffer rcNormalPosition(RECT value) { WINDOWPLACEMENT.nrcNormalPosition(address(), value); return this; }
 
 	}
 

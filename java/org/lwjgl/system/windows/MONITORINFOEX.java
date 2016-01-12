@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -108,6 +109,33 @@ public class MONITORINFOEX extends Struct {
 	/** Decodes the null-terminated string stored in the {@code szDevice} field. */
 	public String szDeviceString() { return nszDeviceString(address()); }
 
+	/** Sets the specified value to the {@code cbSize} field. */
+	public MONITORINFOEX cbSize(int value) { ncbSize(address(), value); return this; }
+
+	/** Unsafe version of {@link #set(MONITORINFOEX) set}. */
+	public MONITORINFOEX nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
+
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @return this struct
+	 */
+	public MONITORINFOEX set(MONITORINFOEX src) {
+		return nset(src.address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set(MONITORINFOEX) set}. */
+	public MONITORINFOEX set(ByteBuffer struct) {
+		if ( CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
 	// -----------------------------------
 
 	/** Returns a new {@link MONITORINFOEX} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -180,6 +208,9 @@ public class MONITORINFOEX extends Struct {
 	/** Unsafe version of {@link #szDeviceString}. */
 	public static String nszDeviceString(long struct) { return memDecodeUTF16(struct + MONITORINFOEX.SZDEVICE); }
 
+	/** Unsafe version of {@link #cbSize(int) cbSize}. */
+	public static void ncbSize(long struct, int value) { memPutInt(struct + MONITORINFOEX.CBSIZE, value); }
+
 	// -----------------------------------
 
 	/** An array of {@link MONITORINFOEX} structs. */
@@ -234,6 +265,9 @@ public class MONITORINFOEX extends Struct {
 		public ByteBuffer szDevice() { return MONITORINFOEX.nszDevice(address()); }
 		/** Decodes the null-terminated string stored in the {@code szDevice} field. */
 		public String szDeviceString() { return MONITORINFOEX.nszDeviceString(address()); }
+
+		/** Sets the specified value to the {@code cbSize} field. */
+		public MONITORINFOEX.Buffer cbSize(int value) { MONITORINFOEX.ncbSize(address(), value); return this; }
 
 	}
 
