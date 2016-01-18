@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link KHRDebug#eglDebugMessageControlKHR} method. */
-public abstract class EGLDebugMessageKHRCallback extends Closure.Void {
+public abstract class EGLDebugMessageKHRCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(6);

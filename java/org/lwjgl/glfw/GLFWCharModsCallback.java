@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCharModsCallback} method. */
-public abstract class GLFWCharModsCallback extends Closure.Void {
+public abstract class GLFWCharModsCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(3);

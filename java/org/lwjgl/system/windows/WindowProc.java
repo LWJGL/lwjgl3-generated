@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** An application-defined function that processes messages sent to a window. */
-public abstract class WindowProc extends Closure.Ptr {
+public abstract class WindowProc extends Closure.P {
 
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(4);

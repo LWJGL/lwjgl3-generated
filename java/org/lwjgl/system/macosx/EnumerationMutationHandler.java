@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** A mutation handler. */
-public abstract class EnumerationMutationHandler extends Closure.Void {
+public abstract class EnumerationMutationHandler extends Closure.V {
 
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(1);

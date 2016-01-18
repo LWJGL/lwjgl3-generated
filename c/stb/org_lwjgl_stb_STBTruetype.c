@@ -10,6 +10,8 @@ DISABLE_WARNINGS()
 #endif
 #define STB_TRUETYPE_IMPLEMENTATION
 #define STBTT_assert
+#define STBTT_malloc(x,u)  ((void)(u),lwjgl_malloc(x))
+#define STBTT_free(x,u)    ((void)(u),lwjgl_free(x))
 #include "stb_rect_pack.h"
 #include "stb_truetype.h"
 ENABLE_WARNINGS()

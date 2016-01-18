@@ -22,7 +22,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetErrorCallback} method. */
-public abstract class GLFWErrorCallback extends Closure.Void {
+public abstract class GLFWErrorCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(2);

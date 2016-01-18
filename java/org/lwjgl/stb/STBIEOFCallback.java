@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct. */
-public abstract class STBIEOFCallback extends Closure.Int {
+public abstract class STBIEOFCallback extends Closure.I {
 
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(1);

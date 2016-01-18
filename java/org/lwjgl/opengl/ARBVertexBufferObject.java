@@ -360,6 +360,26 @@ public class ARBVertexBufferObject {
 		nglBufferSubDataARB(target, offset, data.remaining(), memAddress(data));
 	}
 
+	/** ShortBuffer version of: {@link #glBufferSubDataARB BufferSubDataARB} */
+	public static void glBufferSubDataARB(int target, long offset, ShortBuffer data) {
+		nglBufferSubDataARB(target, offset, data.remaining() << 1, memAddress(data));
+	}
+
+	/** IntBuffer version of: {@link #glBufferSubDataARB BufferSubDataARB} */
+	public static void glBufferSubDataARB(int target, long offset, IntBuffer data) {
+		nglBufferSubDataARB(target, offset, data.remaining() << 2, memAddress(data));
+	}
+
+	/** FloatBuffer version of: {@link #glBufferSubDataARB BufferSubDataARB} */
+	public static void glBufferSubDataARB(int target, long offset, FloatBuffer data) {
+		nglBufferSubDataARB(target, offset, data.remaining() << 2, memAddress(data));
+	}
+
+	/** DoubleBuffer version of: {@link #glBufferSubDataARB BufferSubDataARB} */
+	public static void glBufferSubDataARB(int target, long offset, DoubleBuffer data) {
+		nglBufferSubDataARB(target, offset, data.remaining() << 3, memAddress(data));
+	}
+
 	// --- [ glGetBufferSubDataARB ] ---
 
 	/** Unsafe version of {@link #glGetBufferSubDataARB GetBufferSubDataARB} */

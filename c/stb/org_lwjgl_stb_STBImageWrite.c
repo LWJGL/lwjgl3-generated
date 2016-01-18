@@ -6,15 +6,18 @@
 #ifdef LWJGL_WINDOWS
 	__pragma(warning(disable : 4710))
 #endif
-#define STBIW_ASSERT(x)
 #include "common_tools.h"
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
 	__pragma(warning(disable : 4242 4244 4701 4702 4711 4738 4996))
 #endif
 #define STB_IMAGE_WRITE_IMPLEMENTATION
+#define STB_IMAGE_WRITE_STATIC
+#define STBIW_ASSERT(x)
+#define STBIW_MALLOC(sz)    lwjgl_malloc(sz)
+#define STBIW_REALLOC(p,sz) lwjgl_realloc(p,sz)
+#define STBIW_FREE(p)       lwjgl_free(p)
 #include "stb_image_write.h"
-#define stbi_write_func_p stbi_write_func *
 ENABLE_WARNINGS()
 
 EXTERN_C_ENTER
@@ -53,7 +56,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr(JNIEnv
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1png_1to_1func(JNIEnv *__env, jclass clazz, jlong funcAddress, jlong contextAddress, jint w, jint h, jint comp, jlong dataAddress, jint stride_in_bytes) {
-	stbi_write_func_p func = (stbi_write_func_p)(intptr_t)funcAddress;
+	stbi_write_func *func = (stbi_write_func *)(intptr_t)funcAddress;
 	void *context = (void *)(intptr_t)contextAddress;
 	const void *data = (const void *)(intptr_t)dataAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -61,7 +64,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1png_1to_1f
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1bmp_1to_1func(JNIEnv *__env, jclass clazz, jlong funcAddress, jlong contextAddress, jint w, jint h, jint comp, jlong dataAddress) {
-	stbi_write_func_p func = (stbi_write_func_p)(intptr_t)funcAddress;
+	stbi_write_func *func = (stbi_write_func *)(intptr_t)funcAddress;
 	void *context = (void *)(intptr_t)contextAddress;
 	const void *data = (const void *)(intptr_t)dataAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -69,7 +72,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1bmp_1to_1f
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1tga_1to_1func(JNIEnv *__env, jclass clazz, jlong funcAddress, jlong contextAddress, jint w, jint h, jint comp, jlong dataAddress) {
-	stbi_write_func_p func = (stbi_write_func_p)(intptr_t)funcAddress;
+	stbi_write_func *func = (stbi_write_func *)(intptr_t)funcAddress;
 	void *context = (void *)(intptr_t)contextAddress;
 	const void *data = (const void *)(intptr_t)dataAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -77,7 +80,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1tga_1to_1f
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr_1to_1func(JNIEnv *__env, jclass clazz, jlong funcAddress, jlong contextAddress, jint w, jint h, jint comp, jlong dataAddress) {
-	stbi_write_func_p func = (stbi_write_func_p)(intptr_t)funcAddress;
+	stbi_write_func *func = (stbi_write_func *)(intptr_t)funcAddress;
 	void *context = (void *)(intptr_t)contextAddress;
 	const float *data = (const float *)(intptr_t)dataAddress;
 	UNUSED_PARAMS(__env, clazz)

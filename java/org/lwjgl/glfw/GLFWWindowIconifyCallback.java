@@ -18,7 +18,7 @@ import org.lwjgl.opengl.GL11;
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowIconifyCallback} method. */
-public abstract class GLFWWindowIconifyCallback extends Closure.Void {
+public abstract class GLFWWindowIconifyCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(2);

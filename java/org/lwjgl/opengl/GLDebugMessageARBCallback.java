@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link ARBDebugOutput#glDebugMessageCallbackARB} method. */
-public abstract class GLDebugMessageARBCallback extends Closure.Void {
+public abstract class GLDebugMessageARBCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(7);
