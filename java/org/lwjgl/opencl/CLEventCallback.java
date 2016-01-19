@@ -10,16 +10,17 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.libffi.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link CL11#clSetEventCallback} method. */
 public abstract class CLEventCallback extends Closure.V {
 
-	private static final FFICIF        CIF  = staticAllocCIF();
-	private static final PointerBuffer ARGS = staticAllocPointer(3);
+	private static final FFICIF        CIF  = apiClosureCIF();
+	private static final PointerBuffer ARGS = apiClosureArgs(3);
 
-	private static final long CLASSPATH = staticAllocText("org.lwjgl.opencl.CLEventCallback");
+	private static final long CLASSPATH = apiClosureText("org.lwjgl.opencl.CLEventCallback");
 
 	static {
 		prepareCIF(

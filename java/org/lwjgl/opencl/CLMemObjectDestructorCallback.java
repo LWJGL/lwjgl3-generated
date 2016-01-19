@@ -10,16 +10,17 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.libffi.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link CL11#clSetMemObjectDestructorCallback} method. */
 public abstract class CLMemObjectDestructorCallback extends Closure.V {
 
-	private static final FFICIF        CIF  = staticAllocCIF();
-	private static final PointerBuffer ARGS = staticAllocPointer(2);
+	private static final FFICIF        CIF  = apiClosureCIF();
+	private static final PointerBuffer ARGS = apiClosureArgs(2);
 
-	private static final long CLASSPATH = staticAllocText("org.lwjgl.opencl.CLMemObjectDestructorCallback");
+	private static final long CLASSPATH = apiClosureText("org.lwjgl.opencl.CLMemObjectDestructorCallback");
 
 	static {
 		prepareCIF(

@@ -10,16 +10,17 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.libffi.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** An application-defined function that processes messages sent to a window. */
 public abstract class WindowProc extends Closure.P {
 
-	private static final FFICIF        CIF  = staticAllocCIF();
-	private static final PointerBuffer ARGS = staticAllocPointer(4);
+	private static final FFICIF        CIF  = apiClosureCIF();
+	private static final PointerBuffer ARGS = apiClosureArgs(4);
 
-	private static final long CLASSPATH = staticAllocText("org.lwjgl.system.windows.WindowProc");
+	private static final long CLASSPATH = apiClosureText("org.lwjgl.system.windows.WindowProc");
 
 	static {
 		prepareCIF(

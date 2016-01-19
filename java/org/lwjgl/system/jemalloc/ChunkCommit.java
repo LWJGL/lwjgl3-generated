@@ -10,16 +10,17 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.libffi.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
 public abstract class ChunkCommit extends Closure.Z {
 
-	private static final FFICIF        CIF  = staticAllocCIF();
-	private static final PointerBuffer ARGS = staticAllocPointer(5);
+	private static final FFICIF        CIF  = apiClosureCIF();
+	private static final PointerBuffer ARGS = apiClosureArgs(5);
 
-	private static final long CLASSPATH = staticAllocText("org.lwjgl.system.jemalloc.ChunkCommit");
+	private static final long CLASSPATH = apiClosureText("org.lwjgl.system.jemalloc.ChunkCommit");
 
 	static {
 		prepareCIF(

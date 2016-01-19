@@ -10,16 +10,17 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.libffi.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD} method. */
 public abstract class GLDebugMessageAMDCallback extends Closure.V {
 
-	private static final FFICIF        CIF  = staticAllocCIF();
-	private static final PointerBuffer ARGS = staticAllocPointer(6);
+	private static final FFICIF        CIF  = apiClosureCIF();
+	private static final PointerBuffer ARGS = apiClosureArgs(6);
 
-	private static final long CLASSPATH = staticAllocText("org.lwjgl.opengl.GLDebugMessageAMDCallback");
+	private static final long CLASSPATH = apiClosureText("org.lwjgl.opengl.GLDebugMessageAMDCallback");
 
 	static {
 		prepareCIF(

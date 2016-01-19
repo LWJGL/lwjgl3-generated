@@ -10,16 +10,17 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.libffi.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** A mutation handler. */
 public abstract class EnumerationMutationHandler extends Closure.V {
 
-	private static final FFICIF        CIF  = staticAllocCIF();
-	private static final PointerBuffer ARGS = staticAllocPointer(1);
+	private static final FFICIF        CIF  = apiClosureCIF();
+	private static final PointerBuffer ARGS = apiClosureArgs(1);
 
-	private static final long CLASSPATH = staticAllocText("org.lwjgl.system.macosx.EnumerationMutationHandler");
+	private static final long CLASSPATH = apiClosureText("org.lwjgl.system.macosx.EnumerationMutationHandler");
 
 	static {
 		prepareCIF(
