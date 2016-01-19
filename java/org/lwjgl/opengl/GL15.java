@@ -335,7 +335,7 @@ public class GL15 {
 
 	/** Alternative version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, long size, int usage) {
-		nglBufferData(target, size, 0L, usage);
+		nglBufferData(target, size, NULL, usage);
 	}
 
 	/** ByteBuffer version of: {@link #glBufferData BufferData} */

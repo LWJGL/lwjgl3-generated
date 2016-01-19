@@ -705,7 +705,7 @@ public class GL45 {
 
 	/** Alternative version of: {@link #glNamedBufferStorage NamedBufferStorage} */
 	public static void glNamedBufferStorage(int buffer, long size, int flags) {
-		nglNamedBufferStorage(buffer, size, 0L, flags);
+		nglNamedBufferStorage(buffer, size, NULL, flags);
 	}
 
 	/** ByteBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage} */
@@ -760,7 +760,7 @@ public class GL45 {
 
 	/** Alternative version of: {@link #glNamedBufferData NamedBufferData} */
 	public static void glNamedBufferData(int buffer, long size, int usage) {
-		nglNamedBufferData(buffer, size, 0L, usage);
+		nglNamedBufferData(buffer, size, NULL, usage);
 	}
 
 	/** ByteBuffer version of: {@link #glNamedBufferData NamedBufferData} */

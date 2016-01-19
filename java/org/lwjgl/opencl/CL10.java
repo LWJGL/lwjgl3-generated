@@ -1182,7 +1182,7 @@ public class CL10 {
 	public static long clCreateBuffer(long context, long flags, long size, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		return nclCreateBuffer(context, flags, size, 0L, memAddressSafe(errcode_ret));
+		return nclCreateBuffer(context, flags, size, NULL, memAddressSafe(errcode_ret));
 	}
 
 	/** ByteBuffer version of: {@link #clCreateBuffer CreateBuffer} */
@@ -3684,7 +3684,7 @@ public class CL10 {
 
 	/** Alternative version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(long kernel, int arg_index, long arg_size) {
-		return nclSetKernelArg(kernel, arg_index, arg_size, 0L);
+		return nclSetKernelArg(kernel, arg_index, arg_size, NULL);
 	}
 
 	/** ByteBuffer version of: {@link #clSetKernelArg SetKernelArg} */

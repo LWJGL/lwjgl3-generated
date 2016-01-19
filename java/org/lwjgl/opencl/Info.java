@@ -5,8 +5,7 @@
  */
 package org.lwjgl.opencl;
 
-import org.lwjgl.PointerBuffer;
-
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.opencl.CL10.*;
 import static org.lwjgl.opencl.CL12.*;
 import static org.lwjgl.opencl.CL20.*;
@@ -360,7 +359,7 @@ public final class Info {
 	private static final InfoQueryObject KERNEL_SUBGROUP = new InfoQueryObject() {
 		@Override
 		protected int get(long pointer, long arg, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-			return nclGetKernelSubGroupInfo(pointer, arg, param_name, 0, 0L, param_value_size, param_value, param_value_size_ret);
+			return nclGetKernelSubGroupInfo(pointer, arg, param_name, 0, NULL, param_value_size, param_value, param_value_size_ret);
 		}
 	};
 

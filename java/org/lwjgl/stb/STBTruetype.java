@@ -420,7 +420,7 @@ public class STBTruetype {
 	public static int stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding) {
 		if ( CHECKS )
 			checkBuffer(pixels, width * height);
-		return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, 0L);
+		return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, NULL);
 	}
 
 	// --- [ stbtt_PackEnd ] ---

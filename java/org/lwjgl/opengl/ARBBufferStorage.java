@@ -156,7 +156,7 @@ public class ARBBufferStorage {
 
 	/** Alternative version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, long size, int flags) {
-		nglBufferStorage(target, size, 0L, flags);
+		nglBufferStorage(target, size, NULL, flags);
 	}
 
 	/** ByteBuffer version of: {@link #glBufferStorage BufferStorage} */
@@ -248,7 +248,7 @@ public class ARBBufferStorage {
 
 	/** Alternative version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
 	public static void glNamedBufferStorageEXT(int buffer, long size, int flags) {
-		nglNamedBufferStorageEXT(buffer, size, 0L, flags);
+		nglNamedBufferStorageEXT(buffer, size, NULL, flags);
 	}
 
 	/** ByteBuffer version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */

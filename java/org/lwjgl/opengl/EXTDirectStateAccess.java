@@ -3546,7 +3546,7 @@ public class EXTDirectStateAccess {
 
 	/** Alternative version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, long size, int usage) {
-		nglNamedBufferDataEXT(buffer, size, 0L, usage);
+		nglNamedBufferDataEXT(buffer, size, NULL, usage);
 	}
 
 	/** ByteBuffer version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */

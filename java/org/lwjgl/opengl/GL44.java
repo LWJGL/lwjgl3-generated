@@ -223,7 +223,7 @@ public class GL44 {
 
 	/** Alternative version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, long size, int flags) {
-		nglBufferStorage(target, size, 0L, flags);
+		nglBufferStorage(target, size, NULL, flags);
 	}
 
 	/** ByteBuffer version of: {@link #glBufferStorage BufferStorage} */

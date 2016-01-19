@@ -304,7 +304,7 @@ public class ARBVertexBufferObject {
 
 	/** Alternative version of: {@link #glBufferDataARB BufferDataARB} */
 	public static void glBufferDataARB(int target, long size, int usage) {
-		nglBufferDataARB(target, size, 0L, usage);
+		nglBufferDataARB(target, size, NULL, usage);
 	}
 
 	/** ByteBuffer version of: {@link #glBufferDataARB BufferDataARB} */

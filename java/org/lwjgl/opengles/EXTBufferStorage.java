@@ -101,7 +101,7 @@ public class EXTBufferStorage {
 
 	/** Alternative version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, long size, int flags) {
-		nglBufferStorageEXT(target, size, 0L, flags);
+		nglBufferStorageEXT(target, size, NULL, flags);
 	}
 
 	/** ByteBuffer version of: {@link #glBufferStorageEXT BufferStorageEXT} */
