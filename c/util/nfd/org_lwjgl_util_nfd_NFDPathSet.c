@@ -9,7 +9,7 @@
 
 EXTERN_C_EXIT
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_nfd_NFDPathSet_offsets(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_nfd_NFDPathSet_offsets(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 
 	return sizeof(nfdpathset_t);

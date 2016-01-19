@@ -109,10 +109,10 @@ public class LibFFI {
 	 * Prepares an {@link FFICIF} structure for use with {@link #ffi_call call}.
 	 *
 	 * @param cif    the {@link FFICIF} structure to prepare
-	 * @param abi    the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
-	 * @param nargs  the number of arguments
-	 * @param rtype  points to an {@link FFIType} that describes the data type, size and alignment of the return value
-	 * @param atypes an array of {@code nargs} pointers to {@link FFIType} structs that describe the data type, size and alignment of each argument
+	 * @param abi    the ABI to use; normally {@link #FFI_DEFAULT_ABI DEFAULT_ABI} is what you want. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
+	 * @param nargs  the number of arguments that this function accepts
+	 * @param rtype  a pointer to an {@link FFIType} structure that describes the data type, size and alignment of the return value
+	 * @param atypes an array of {@code nargs} pointers to {@link FFIType} structures that describe the data type, size and alignment of each argument
 	 *
 	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
@@ -136,13 +136,17 @@ public class LibFFI {
 
 	/**
 	 * Prepares an {@link FFICIF} structure for use with {@link #ffi_call call} for variadic functions.
+	 * 
+	 * <p>Note that, different cif's must be prepped for calls to the same function when different numbers of arguments are passed.</p>
+	 * 
+	 * <p>Also note that a call to {@code ffi_prep_cif_var} with {@code nfixedargs == ntotalargs} is NOT equivalent to a call to {@link #ffi_prep_cif prep_cif}.</p>
 	 *
 	 * @param cif        the {@link FFICIF} structure to prepare
 	 * @param abi        the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
-	 * @param nfixedargs the number of fixed (non-variadic) arguments
-	 * @param ntotalargs the total number of arguments
-	 * @param rtype      points to an {@link FFIType} that describes the data type, size and alignment of the return value
-	 * @param atypes     an array of {@code ntotalargs} pointers to {@link FFIType} structs that describe the data type, size and alignment of each argument
+	 * @param nfixedargs the number of fixed arguments, prior to any variadic arguments. It must be greater than zero.
+	 * @param ntotalargs the total number of arguments, including variadic and fixed arguments
+	 * @param rtype      a pointer to an {@link FFIType} structure that describes the data type, size and alignment of the return value
+	 * @param atypes     an array of {@code ntotalargs} pointers to {@link FFIType} structures that describe the data type, size and alignment of each argument
 	 *
 	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.

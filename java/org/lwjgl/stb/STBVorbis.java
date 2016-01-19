@@ -217,8 +217,8 @@ public class STBVorbis {
 	 * from the first channel, and {@code (*output)[1][0]} contains the first sample from the second channel.</p>
 	 *
 	 * @param f                         an ogg vorbis file decoder
-	 * @param datablock                 
-	 * @param datablock_length_in_bytes 
+	 * @param datablock                 the data block containing the audio sample data
+	 * @param datablock_length_in_bytes the length of {@code datablock}, in bytes
 	 * @param channels                  place to write number of {@code float *} buffers
 	 * @param output                    place to write float ** array of float * buffers
 	 * @param samples                   place to write number of output samples
@@ -587,9 +587,12 @@ public class STBVorbis {
 	public static native int nstb_vorbis_get_frame_short(long f, int num_c, long buffer, int num_samples);
 
 	/**
-	 * Decodes the next frame and return the number of samples per channel. The data is coerced to the number of channels you request according to the channel
-	 * coercion rules (see below). You must pass in the size of your buffer(s) so that stb_vorbis will not overwrite the end of the buffer. The maximum buffer
-	 * size needed can be gotten from {@link #stb_vorbis_get_info get_info}; however, the Vorbis I specification implies an absolute maximum of 4096 samples per channel.
+	 * Decodes the next frame and returns the number of <b>samples</b> per channel. Note that for interleaved data, you pass in the number of shorts (the size
+	 * of your array), but the return value is the number of samples per channel, not the total number of samples.
+	 * 
+	 * <p>The data is coerced to the number of channels you request according to the channel coercion rules (see below). You must pass in the size of your
+	 * buffer(s) so that stb_vorbis will not overwrite the end of the buffer. The maximum buffer size needed can be gotten from {@link #stb_vorbis_get_info get_info}; however, the
+	 * Vorbis I specification implies an absolute maximum of 4096 samples per channel.</p>
 	 * 
 	 * <h3>Channel coercion rules</h3>
 	 * 
