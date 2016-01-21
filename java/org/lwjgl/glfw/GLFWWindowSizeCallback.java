@@ -54,8 +54,8 @@ public abstract class GLFWWindowSizeCallback extends Closure.V {
 	 * Will be called when the specified window is resized.
 	 *
 	 * @param window the window that was resized
-	 * @param width  the new width, in pixels, of the window
-	 * @param height the new height, in pixels, of the window
+	 * @param width  the new width, in screen coordinates, of the window
+	 * @param height the new height, in screen coordinates, of the window
 	 */
 	public abstract void invoke(long window, int width, int height);
 
