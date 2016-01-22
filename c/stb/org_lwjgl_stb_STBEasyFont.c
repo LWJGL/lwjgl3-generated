@@ -19,6 +19,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBEasyFont_nstb_1easy_1font_1width(JN
 	return (jint)stb_easy_font_width(text);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBEasyFont_nstb_1easy_1font_1height(JNIEnv *__env, jclass clazz, jlong textAddress) {
+	char *text = (char *)(intptr_t)textAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)stb_easy_font_height(text);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBEasyFont_nstb_1easy_1font_1print(JNIEnv *__env, jclass clazz, jfloat x, jfloat y, jlong textAddress, jlong colorAddress, jlong vertex_bufferAddress, jint vbuf_size) {
 	char *text = (char *)(intptr_t)textAddress;
 	unsigned char *color = (unsigned char *)(intptr_t)colorAddress;

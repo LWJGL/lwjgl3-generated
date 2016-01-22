@@ -65,7 +65,7 @@ public class STBEasyFont {
 	public static native int nstb_easy_font_width(long text);
 
 	/**
-	 * Takes a string without newlines and returns the horizontal size.
+	 * Takes a string and returns the horizontal size.
 	 *
 	 * @param text an ASCII string
 	 *
@@ -82,6 +82,32 @@ public class STBEasyFont {
 		APIBuffer __buffer = apiBuffer();
 		int textEncoded = __buffer.stringParamASCII(text, true);
 		return nstb_easy_font_width(__buffer.address(textEncoded));
+	}
+
+	// --- [ stb_easy_font_height ] ---
+
+	/** JNI method for {@link #stb_easy_font_height easy_font_height} */
+	@JavadocExclude
+	public static native int nstb_easy_font_height(long text);
+
+	/**
+	 * Takes a string and returns the vertical size (which can vary if {@code text} has newlines).
+	 *
+	 * @param text an ASCII string
+	 *
+	 * @return the vertical size, in pixels
+	 */
+	public static int stb_easy_font_height(ByteBuffer text) {
+		if ( CHECKS )
+			checkNT1(text);
+		return nstb_easy_font_height(memAddress(text));
+	}
+
+	/** CharSequence version of: {@link #stb_easy_font_height easy_font_height} */
+	public static int stb_easy_font_height(CharSequence text) {
+		APIBuffer __buffer = apiBuffer();
+		int textEncoded = __buffer.stringParamASCII(text, true);
+		return nstb_easy_font_height(__buffer.address(textEncoded));
 	}
 
 	// --- [ stb_easy_font_print ] ---
