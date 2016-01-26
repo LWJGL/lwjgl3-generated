@@ -25,6 +25,7 @@ typedef intptr_t (APIENTRY *SetWindowLongPtrPROC) (intptr_t, jint, intptr_t);
 typedef intptr_t (APIENTRY *GetWindowLongPtrPROC) (intptr_t, jint);
 typedef intptr_t (APIENTRY *SetClassLongPtrPROC) (intptr_t, jint, intptr_t);
 typedef intptr_t (APIENTRY *GetClassLongPtrPROC) (intptr_t, jint);
+typedef jint (APIENTRY *SetLayeredWindowAttributesPROC) (intptr_t, jint, jbyte, jint);
 typedef intptr_t (APIENTRY *LoadIconPROC) (intptr_t, intptr_t);
 typedef intptr_t (APIENTRY *LoadCursorPROC) (intptr_t, intptr_t);
 typedef jint (APIENTRY *RegisterTouchWindowPROC) (intptr_t, jint);
@@ -231,6 +232,16 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_User32_nGetClassLongPtr(JN
 	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jlong)GetClassLongPtr(hWnd, nIndex);
+	saveLastError();
+	return __result;
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nSetLayeredWindowAttributes(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hwndAddress, jint crKey, jbyte bAlpha, jint dwFlags) {
+	SetLayeredWindowAttributesPROC SetLayeredWindowAttributes = (SetLayeredWindowAttributesPROC)(intptr_t)__functionAddress;
+	intptr_t hwnd = (intptr_t)hwndAddress;
+	jint __result;
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)SetLayeredWindowAttributes(hwnd, crKey, bAlpha, dwFlags);
 	saveLastError();
 	return __result;
 }

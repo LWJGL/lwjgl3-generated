@@ -729,6 +729,11 @@ public class User32 {
 		WPF_RESTORETOMAXIMIZED   = 0x2,
 		WPF_ASYNCWINDOWPLACEMENT = 0x4;
 
+	/** Actions for {@link #SetLayeredWindowAttributes}. */
+	public static final int
+		LWA_COLORKEY = 0x1,
+		LWA_ALPHA    = 0x2;
+
 	/** {@link #GetSystemMetrics} codes. */
 	public static final int
 		SM_CXSCREEN                    = 0x0,
@@ -933,6 +938,7 @@ public class User32 {
 		__GetWindowLongPtr,
 		__SetClassLongPtr,
 		__GetClassLongPtr,
+		__SetLayeredWindowAttributes,
 		__LoadIcon,
 		__LoadCursor,
 		__GetDC,
@@ -985,6 +991,7 @@ public class User32 {
 		__GetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 ? "GetWindowLongPtrW" : "GetWindowLongW"));
 		__SetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 ? "SetClassLongPtrW" : "SetClassLongW"));
 		__GetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 ? "GetClassLongPtrW" : "GetClassLongW"));
+		__SetLayeredWindowAttributes = checkFunctionAddress(provider.getFunctionAddress("SetLayeredWindowAttributes"));
 		__LoadIcon = checkFunctionAddress(provider.getFunctionAddress("LoadIconW"));
 		__LoadCursor = checkFunctionAddress(provider.getFunctionAddress("LoadCursorW"));
 		__GetDC = checkFunctionAddress(provider.getFunctionAddress("GetDC"));
@@ -1711,6 +1718,30 @@ public class User32 {
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nGetClassLongPtr(__functionAddress, hWnd, nIndex);
+	}
+
+	// --- [ SetLayeredWindowAttributes ] ---
+
+	/** JNI method for {@link #SetLayeredWindowAttributes} */
+	@JavadocExclude
+	public static native int nSetLayeredWindowAttributes(long __functionAddress, long hwnd, int crKey, byte bAlpha, int dwFlags);
+
+	/**
+	 * 
+	 *
+	 * @param hwnd    a handle to the layered window. A layered window is created by specifying {@link #WS_EX_LAYERED} when creating the window with the {@link #CreateWindowEx}
+	 *                function or by setting {@link #WS_EX_LAYERED} via {@link #SetWindowLongPtr} after the window has been created.
+	 * @param crKey   the transparency color key (0x00bbggrr) to be used when composing the layered window. All pixels painted by the window in this color will be
+	 *                transparent.
+	 * @param bAlpha  the alpha value used to describe the opacity of the layered window. When {@code bAlpha} is 0, the window is completely transparent. When
+	 *                {@code bAlpha} is 255, the window is opaque.
+	 * @param dwFlags an action to be taken. One or more of:<br>{@link #LWA_COLORKEY}, {@link #LWA_ALPHA}
+	 */
+	public static int SetLayeredWindowAttributes(long hwnd, int crKey, byte bAlpha, int dwFlags) {
+		long __functionAddress = getInstance().__SetLayeredWindowAttributes;
+		if ( CHECKS )
+			checkPointer(hwnd);
+		return nSetLayeredWindowAttributes(__functionAddress, hwnd, crKey, bAlpha, dwFlags);
 	}
 
 	// --- [ LoadIcon ] ---
