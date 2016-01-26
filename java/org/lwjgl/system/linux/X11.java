@@ -107,7 +107,7 @@ public class X11 {
 		OwnerGrabButtonMask      = 1 << 24;
 
 	/**
-	 * Event names. Used in "type" field in {@link XEvent} structures. Not to be confused with event masks above. They start from 2 because 0 and 1 are reserved in
+	 * Event names. Used in "type" field in {@code XEvent} structures. Not to be confused with event masks above. They start from 2 because 0 and 1 are reserved in
 	 * the protocol for errors and replies.
 	 */
 	public static final int
@@ -253,18 +253,18 @@ public class X11 {
 		AsyncBoth      = 0x6,
 		SyncBoth       = 0x7;
 
-	/** For {@link Xlib#XCreateColormap}. */
+	/** For {@link #XCreateColormap}. */
 	public static final int
 		AllocNone = 0x0,
 		AllocAll  = 0x1;
 
-	/** Used in {@link Xlib#XSetInputFocus}, {@link Xlib#XGetInputFocus}. */
+	/** Used in XSetInputFocus(), XGetInputFocus(). */
 	public static final int
 		RevertToNone        = None,
 		RevertToPointerRoot = PointerRoot,
 		RevertToParent      = 0x2;
 
-	/** Window classes used by {@link Xlib#XCreateWindow}. */
+	/** Window classes used by {@link #XCreateWindow}. */
 	public static final int
 		InputOutput = 0x1,
 		InputOnly   = 0x2;
@@ -535,7 +535,7 @@ public class X11 {
 	 * Deletes the association between the {@code colormap} resource ID and the {@code colormap} and frees the {@code colormap} storage. However, this function
 	 * has no effect on the default colormap for a screen. If the specified {@code colormap} is an installed map for a screen, it is uninstalled. If the
 	 * specified {@code colormap} is defined as the {@code colormap} for a window, {@code XFreeColormap()} changes the colormap associated with the window to
-	 * {@link X#GrabSuccess} and generates a {@code ColormapNotify} event. X does not define the colors displayed for a window with a colormap of {@link X#GrabSuccess}.
+	 * {@link #None} and generates a {@code ColormapNotify} event. X does not define the colors displayed for a window with a colormap of {@link #None}.
 	 *
 	 * @param display  the connection to the X server
 	 * @param colormap the colormap to destroy
@@ -577,9 +577,9 @@ public class X11 {
 	 * @param width        the window width
 	 * @param height       the window height
 	 * @param border_width the border width
-	 * @param depth        the window's depth. A depth of {@link X#GrabSuccess} means the depth is taken from the parent.
-	 * @param windowClass  the created window's class. One of:<br>{@link X#InputOutput}, {@link X#InputOnly}, {@link X#CopyFromParent}
-	 * @param visual       the visual type. A visual of {@link X#GrabSuccess} means the visual type is taken from the parent.
+	 * @param depth        the window's depth. A depth of {@link #CopyFromParent} means the depth is taken from the parent.
+	 * @param windowClass  the created window's class. One of:<br>{@link #InputOutput}, {@link #InputOnly}, {@link #CopyFromParent}
+	 * @param visual       the visual type. A visual of {@link #CopyFromParent} means the visual type is taken from the parent.
 	 * @param valuemask    which window attributes are defined in the attributes argument. This mask is the bitwise inclusive OR of the valid attribute mask bits. If
 	 *                     {@code valuemask} is zero, the attributes are ignored and are not referenced.
 	 * @param attributes   the structure from which the values (as specified by the value mask) are to be taken

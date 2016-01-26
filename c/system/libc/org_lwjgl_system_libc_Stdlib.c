@@ -9,12 +9,14 @@
 	#define aligned_alloc(alignment, size) _aligned_malloc(size, alignment)
 	#define aligned_free _aligned_free
 #else
+	#ifndef __USE_ISOC11
 	inline void* aligned_alloc(size_t alignment, size_t size) {
 		void *p;
 		if ( !posix_memalign(&p, alignment, size) )
 			return p;
 		return NULL;
 	}
+	#endif
 	#define aligned_free free
 #endif
 

@@ -416,7 +416,7 @@ public class ALC10 {
 	/**
 	 * Obtains string value(s) from ALC.
 	 * 
-	 * <p><b>LWJGL note</b>: Use {@link ALC#getStringList} for those tokens that return multiple values.</p>
+	 * <p><b>LWJGL note</b>: Use {@link ALUtil#getStringList} for those tokens that return multiple values.</p>
 	 *
 	 * @param deviceHandle the device to query
 	 * @param token        the information to query. One of:<br>{@link #ALC_DEFAULT_DEVICE_SPECIFIER DEFAULT_DEVICE_SPECIFIER}, {@link #ALC_DEVICE_SPECIFIER DEVICE_SPECIFIER}, {@link #ALC_EXTENSIONS EXTENSIONS}, {@link ALC11#ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER CAPTURE_DEFAULT_DEVICE_SPECIFIER}, {@link ALC11#ALC_CAPTURE_DEVICE_SPECIFIER CAPTURE_DEVICE_SPECIFIER}

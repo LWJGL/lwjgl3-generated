@@ -112,7 +112,7 @@ public class NanoVGGLES2 {
 	public static native void nnvgluBindFramebuffer(long ctx, long fb);
 
 	/**
-	 * Binds the framebuffer object associated with the specified {@link #NVG_NVGLUFramebuffer NVGLUFramebuffer}.
+	 * Binds the framebuffer object associated with the specified {@link NVGLUFramebuffer}.
 	 *
 	 * @param ctx the NanoVG context
 	 * @param fb  the framebuffer to bind
@@ -151,7 +151,7 @@ public class NanoVGGLES2 {
 	public static native void nnvgluDeleteFramebuffer(long ctx, long fb);
 
 	/**
-	 * Deletes an {@link #NVG_NVGLUFramebuffer NVGLUFramebuffer}.
+	 * Deletes an {@link NVGLUFramebuffer}.
 	 *
 	 * @param ctx the NanoVG context
 	 * @param fb  the framebuffer to delete
