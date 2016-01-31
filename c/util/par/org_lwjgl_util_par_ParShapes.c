@@ -190,7 +190,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1unweld(JN
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1weld(JNIEnv *__env, jclass clazz, jlong meshAddress, jfloat epsilon, jlong mappingAddress) {
 	const par_shapes_mesh *mesh = (const par_shapes_mesh *)(intptr_t)meshAddress;
-	uint16_t *mapping = (uint16_t *)(intptr_t)mappingAddress;
+	PAR_SHAPES_T *mapping = (PAR_SHAPES_T *)(intptr_t)mappingAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)par_shapes_weld(mesh, epsilon, mapping);
 }

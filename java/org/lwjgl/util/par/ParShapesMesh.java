@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * struct par_shapes_mesh {
  *     float * points;
  *     int npoints;
- *     uint16_t * triangles;
+ *     PAR_SHAPES_T * triangles;
  *     int ntriangles;
  *     float * normals;
  *     float * tcoords;

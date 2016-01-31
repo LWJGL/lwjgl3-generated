@@ -10,10 +10,11 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * A range of packed character data, returned by {@link STBTruetype#stbtt_PackFontRanges}
+ * A range of packed character data, used by {@link STBTruetype#stbtt_PackFontRanges}
  * 
  * <h3>Layout</h3>
  * 
@@ -103,6 +104,58 @@ public class STBTTPackRange extends Struct {
 	/** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
 	public STBTTPackedchar.Buffer chardata_for_range(int capacity) { return nchardata_for_range(address(), capacity); }
 
+	/** Sets the specified value to the {@code font_size} field. */
+	public STBTTPackRange font_size(float value) { nfont_size(address(), value); return this; }
+	/** Sets the specified value to the {@code first_unicode_codepoint_in_range} field. */
+	public STBTTPackRange first_unicode_codepoint_in_range(int value) { nfirst_unicode_codepoint_in_range(address(), value); return this; }
+	/** Sets the address of the specified {@link IntBuffer} to the {@code array_of_unicode_codepoints} field. */
+	public STBTTPackRange array_of_unicode_codepoints(IntBuffer value) { narray_of_unicode_codepoints(address(), value); return this; }
+	/** Sets the specified value to the {@code num_chars} field. */
+	public STBTTPackRange num_chars(int value) { nnum_chars(address(), value); return this; }
+	/** Sets the address of the specified {@link STBTTPackedchar.Buffer} to the {@code chardata_for_range} field. */
+	public STBTTPackRange chardata_for_range(STBTTPackedchar.Buffer value) { nchardata_for_range(address(), value); return this; }
+
+	/** Initializes this struct with the specified values. */
+	public STBTTPackRange set(
+		float font_size,
+		int first_unicode_codepoint_in_range,
+		IntBuffer array_of_unicode_codepoints,
+		int num_chars,
+		STBTTPackedchar.Buffer chardata_for_range
+	) {
+		font_size(font_size);
+		first_unicode_codepoint_in_range(first_unicode_codepoint_in_range);
+		array_of_unicode_codepoints(array_of_unicode_codepoints);
+		num_chars(num_chars);
+		chardata_for_range(chardata_for_range);
+
+		return this;
+	}
+
+	/** Unsafe version of {@link #set(STBTTPackRange) set}. */
+	public STBTTPackRange nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
+
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @return this struct
+	 */
+	public STBTTPackRange set(STBTTPackRange src) {
+		return nset(src.address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set(STBTTPackRange) set}. */
+	public STBTTPackRange set(ByteBuffer struct) {
+		if ( CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
 	// -----------------------------------
 
 	/** Returns a new {@link STBTTPackRange} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -173,6 +226,17 @@ public class STBTTPackRange extends Struct {
 	/** Unsafe version of {@link #chardata_for_range}. */
 	public static STBTTPackedchar.Buffer nchardata_for_range(long struct, int capacity) { return STBTTPackedchar.create(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE), capacity); }
 
+	/** Unsafe version of {@link #font_size(float) font_size}. */
+	public static void nfont_size(long struct, float value) { memPutFloat(struct + STBTTPackRange.FONT_SIZE, value); }
+	/** Unsafe version of {@link #first_unicode_codepoint_in_range(int) first_unicode_codepoint_in_range}. */
+	public static void nfirst_unicode_codepoint_in_range(long struct, int value) { memPutInt(struct + STBTTPackRange.FIRST_UNICODE_CODEPOINT_IN_RANGE, value); }
+	/** Unsafe version of {@link #array_of_unicode_codepoints(IntBuffer) array_of_unicode_codepoints}. */
+	public static void narray_of_unicode_codepoints(long struct, IntBuffer value) { memPutAddress(struct + STBTTPackRange.ARRAY_OF_UNICODE_CODEPOINTS, memAddressSafe(value)); }
+	/** Unsafe version of {@link #num_chars(int) num_chars}. */
+	public static void nnum_chars(long struct, int value) { memPutInt(struct + STBTTPackRange.NUM_CHARS, value); }
+	/** Unsafe version of {@link #chardata_for_range(STBTTPackedchar.Buffer) chardata_for_range}. */
+	public static void nchardata_for_range(long struct, STBTTPackedchar.Buffer value) { memPutAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE, value.address()); }
+
 	// -----------------------------------
 
 	/** An array of {@link STBTTPackRange} structs. */
@@ -229,6 +293,17 @@ public class STBTTPackRange extends Struct {
 		public int num_chars() { return STBTTPackRange.nnum_chars(address()); }
 		/** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
 		public STBTTPackedchar.Buffer chardata_for_range(int capacity) { return STBTTPackRange.nchardata_for_range(address(), capacity); }
+
+		/** Sets the specified value to the {@code font_size} field. */
+		public STBTTPackRange.Buffer font_size(float value) { STBTTPackRange.nfont_size(address(), value); return this; }
+		/** Sets the specified value to the {@code first_unicode_codepoint_in_range} field. */
+		public STBTTPackRange.Buffer first_unicode_codepoint_in_range(int value) { STBTTPackRange.nfirst_unicode_codepoint_in_range(address(), value); return this; }
+		/** Sets the address of the specified {@link IntBuffer} to the {@code array_of_unicode_codepoints} field. */
+		public STBTTPackRange.Buffer array_of_unicode_codepoints(IntBuffer value) { STBTTPackRange.narray_of_unicode_codepoints(address(), value); return this; }
+		/** Sets the specified value to the {@code num_chars} field. */
+		public STBTTPackRange.Buffer num_chars(int value) { STBTTPackRange.nnum_chars(address(), value); return this; }
+		/** Sets the address of the specified {@link STBTTPackedchar.Buffer} to the {@code chardata_for_range} field. */
+		public STBTTPackRange.Buffer chardata_for_range(STBTTPackedchar.Buffer value) { STBTTPackRange.nchardata_for_range(address(), value); return this; }
 
 	}
 
