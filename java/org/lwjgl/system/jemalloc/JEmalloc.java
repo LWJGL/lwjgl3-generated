@@ -86,7 +86,7 @@ public class JEmalloc {
 	private static final JEmalloc instance;
 
 	static {
-		JEMALLOC = Library.loadNative(Configuration.LIBRARY_NAME_JEMALLOC.get(Pointer.BITS64 ? "jemalloc" : "jemalloc32"));
+		JEMALLOC = Library.loadNative(Configuration.LIBRARY_NAME_JEMALLOC.get(System.getProperty("os.arch").contains("64") ? "jemalloc" : "jemalloc32"));
 		instance = new JEmalloc(JEMALLOC);
 	}
 
