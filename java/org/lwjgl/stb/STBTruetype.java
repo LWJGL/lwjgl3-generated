@@ -1112,6 +1112,8 @@ public class STBTruetype {
 	 * @param vertices the array of {@link STBTTVertex} structs to free
 	 */
 	public static void stbtt_FreeShape(STBTTFontinfo info, STBTTVertex.Buffer vertices) {
+		if ( CHECKS )
+			checkBuffer(vertices, 1);
 		nstbtt_FreeShape(info.address(), vertices.address());
 	}
 

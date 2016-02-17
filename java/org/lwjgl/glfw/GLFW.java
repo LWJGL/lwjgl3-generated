@@ -262,15 +262,14 @@ public class GLFW {
 	public static final int GLFW_OUT_OF_MEMORY = 0x10005;
 
 	/**
-	 * GLFW could not find support for the requested client API on the system. If emitted by functions other than {@link #glfwCreateWindow CreateWindow}, no supported client API was
-	 * found.
+	 * GLFW could not find support for the requested API on the system.
 	 * 
-	 * <p>The installed graphics driver does not support the requested client API, or does not support it via the chosen context creation backend. Below are a
-	 * few examples:</p>
+	 * <p>The installed graphics driver does not support the requested API, or does not support it via the chosen context creation backend. Below are a few
+	 * examples:</p>
 	 * 
 	 * <p>Some pre-installed Windows graphics drivers do not support OpenGL. AMD only supports OpenGL ES via EGL, while Nvidia and Intel only support it via a
 	 * WGL or GLX extension. OS X does not provide OpenGL ES at all. The Mesa EGL, OpenGL and OpenGL ES libraries do not interface with the Nvidia binary
-	 * driver.</p>
+	 * driver. Older graphics drivers do not support Vulkan.</p>
 	 */
 	public static final int GLFW_API_UNAVAILABLE = 0x10006;
 
@@ -491,7 +490,9 @@ public class GLFW {
 		SwapBuffers,
 		SwapInterval,
 		ExtensionSupported,
-		GetProcAddress;
+		GetProcAddress,
+		VulkanSupported,
+		GetRequiredInstanceExtensions;
 
 	@JavadocExclude
 	protected GLFW() {
@@ -582,6 +583,8 @@ public class GLFW {
 		SwapInterval = checkFunctionAddress(provider.getFunctionAddress("glfwSwapInterval"));
 		ExtensionSupported = checkFunctionAddress(provider.getFunctionAddress("glfwExtensionSupported"));
 		GetProcAddress = checkFunctionAddress(provider.getFunctionAddress("glfwGetProcAddress"));
+		VulkanSupported = checkFunctionAddress(provider.getFunctionAddress("glfwVulkanSupported"));
+		GetRequiredInstanceExtensions = checkFunctionAddress(provider.getFunctionAddress("glfwGetRequiredInstanceExtensions"));
 	}
 
 	// --- [ Function Addresses ] ---
@@ -618,14 +621,14 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function must only be called from the main thread.</li>
 	 * <li><b>Mac OS X</b>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the application's
 	 * bundle, if present.</li>
 	 * </ul>
 	 *
 	 * @return {@link #GLFW_TRUE TRUE} if successful, or {@link #GLFW_FALSE FALSE} if an error occured.
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static int glfwInit() {
 		long __functionAddress = getInstance().Init;
@@ -645,8 +648,8 @@ public class GLFW {
 	 * 
 	 * <ul>
 	 * <li>This function may be called before {@link #glfwInit Init}.</li>
-	 * <li>This function may only be called from the main thread.</li>
-	 * <li>This function may not be called from a callback.</li>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
 	 * <li>No window's context may be current on another thread when this function is called.</li>
 	 * </ul>
 	 */
@@ -681,7 +684,7 @@ public class GLFW {
 	 * @param minor where to store the minor version number, or {@code NULL}
 	 * @param rev   where to store the revision number, or {@code NULL}
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static void glfwGetVersion(ByteBuffer major, ByteBuffer minor, ByteBuffer rev) {
 		if ( CHECKS ) {
@@ -713,10 +716,10 @@ public class GLFW {
 
 	/**
 	 * Returns the compile-time generated version string of the GLFW library binary. It describes the version, platform, compiler and any platform-specific
-	 * compile-time options.
+	 * compile-time options. It should not be confused with the OpenGL or OpenGL ES version string, queried with {@code glGetString}.
 	 * 
-	 * <p><b>Do not use the version string</b> to parse the GLFW library version. The {@link #glfwGetVersion GetVersion} function already provides the version of the
-	 * running library binary.</p>
+	 * <p><b>Do not use the version string</b> to parse the GLFW library version. The {@link #glfwGetVersion GetVersion} function already provides the version of the library binary
+	 * in numerical format.</p>
 	 * 
 	 * <p>Notes:</p>
 	 * 
@@ -727,13 +730,13 @@ public class GLFW {
 	 * <li>The returned string is static and compile-time generated.</li>
 	 * </ul>
 	 *
-	 * @return the GLFW version string
+	 * @return the ASCII encoded GLFW version string
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static String glfwGetVersionString() {
 		long __result = nglfwGetVersionString();
-		return memDecodeUTF8(__result);
+		return memDecodeASCII(__result);
 	}
 
 	// --- [ glfwSetErrorCallback ] ---
@@ -753,14 +756,14 @@ public class GLFW {
 	 * 
 	 * <ul>
 	 * <li>This function may be called before {@link #glfwInit Init}.</li>
-	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function must only be called from the main thread.</li>
 	 * </ul>
 	 *
 	 * @param cbfun the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static GLFWErrorCallback glfwSetErrorCallback(GLFWErrorCallback cbfun) {
 		long __functionAddress = getInstance().SetErrorCallback;
@@ -783,11 +786,11 @@ public class GLFW {
 	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is guaranteed to be valid only until the monitor configuration
 	 * changes or the library is terminated.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @return an array of monitor handlers, or {@code NULL} if no monitors were found or if an error occured
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static PointerBuffer glfwGetMonitors() {
 		APIBuffer __buffer = apiBuffer();
@@ -801,13 +804,13 @@ public class GLFW {
 	/**
 	 * Returns the primary monitor. This is usually the monitor where elements like the task bar or global menu bar are located.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 * 
 	 * <p>The primary monitor is always first in the array returned by {@link #glfwGetMonitors GetMonitors}.</p>
 	 *
 	 * @return the primary monitor, or {@code NULL} if no monitors were found or if an error occured
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static long glfwGetPrimaryMonitor() {
 		long __functionAddress = getInstance().GetPrimaryMonitor;
@@ -830,13 +833,13 @@ public class GLFW {
 	 * 
 	 * <p>Any or all of the position arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} position arguments will be set to zero.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param monitor the monitor to query
 	 * @param xpos    where to store the monitor x-coordinate, or {@code NULL}
 	 * @param ypos    where to store the monitor y-coordinate, or {@code NULL}
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwGetMonitorPos(long monitor, ByteBuffer xpos, ByteBuffer ypos) {
 		if ( CHECKS ) {
@@ -878,7 +881,7 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function must only be called from the main thread.</li>
 	 * <li><b>Windows</b>: The OS calculates the returned physical size from the current resolution and system DPI instead of querying the monitor EDID data.</li>
 	 * </ul>
 	 *
@@ -886,7 +889,7 @@ public class GLFW {
 	 * @param widthMM  where to store the width, in millimetres, of the monitor's display area, or {@code NULL}
 	 * @param heightMM where to store the height, in millimetres, of the monitor's display area, or {@code NULL}
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwGetMonitorPhysicalSize(long monitor, ByteBuffer widthMM, ByteBuffer heightMM) {
 		if ( CHECKS ) {
@@ -923,13 +926,13 @@ public class GLFW {
 	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified monitor is disconnected or the
 	 * library is terminated.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param monitor the monitor to query
 	 *
 	 * @return the UTF-8 encoded name of the monitor, or {@code NULL} if an error occured
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static String glfwGetMonitorName(long monitor) {
 		long __result = nglfwGetMonitorName(monitor);
@@ -942,13 +945,13 @@ public class GLFW {
 	 * Sets the monitor configuration callback, or removes the currently set callback. This is called when a monitor is connected to or disconnected from the
 	 * system.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param cbfun the new callback, or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been initialized
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static GLFWMonitorCallback glfwSetMonitorCallback(GLFWMonitorCallback cbfun) {
 		long __functionAddress = getInstance().SetMonitorCallback;
@@ -973,14 +976,14 @@ public class GLFW {
 	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified monitor is disconnected, this
 	 * function is called again for that monitor or the library is terminated.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param monitor the monitor to query
 	 * @param count   where to store the number of video modes in the returned array. This is set to zero if an error occurred.
 	 *
 	 * @return an array of video modes, or {@code NULL} if an error occured
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static GLFWVidMode.Buffer glfwGetVideoModes(long monitor) {
 		APIBuffer __buffer = apiBuffer();
@@ -1007,13 +1010,13 @@ public class GLFW {
 	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified monitor is disconnected or the
 	 * library is terminated.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param monitor the monitor to query
 	 *
 	 * @return the current mode of the monitor, or {@code NULL} if an error occurred
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static GLFWVidMode glfwGetVideoMode(long monitor) {
 		long __result = nglfwGetVideoMode(monitor);
@@ -1026,12 +1029,12 @@ public class GLFW {
 	 * Generates a 256-element gamma ramp from the specified exponent and then calls {@link #glfwSetGammaRamp SetGammaRamp} with it. The value must be a finite number greater than
 	 * zero.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param monitor the monitor whose gamma ramp to set
 	 * @param gamma   the desired exponent
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwSetGamma(long monitor, float gamma) {
 		long __functionAddress = getInstance().SetGamma;
@@ -1057,13 +1060,13 @@ public class GLFW {
 	 * <p>The returned structure and its arrays are allocated and freed by GLFW. You should not free them yourself. They are valid until the specified monitor is
 	 * disconnected, this function is called again for that monitor or the library is terminated.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param monitor the monitor to query
 	 *
 	 * @return the current gamma ramp, or {@code NULL} if an error occurred
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static GLFWGammaRamp glfwGetGammaRamp(long monitor) {
 		long __result = nglfwGetGammaRamp(monitor);
@@ -1088,7 +1091,7 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function must only be called from the main thread.</li>
 	 * <li>Gamma ramp sizes other than 256 are not supported by all hardware</li>
 	 * <li><b>Windows</b>: The gamma ramp size must be 256.</li>
 	 * <li>The specified gamma ramp is copied before this function returns.</li>
@@ -1097,7 +1100,7 @@ public class GLFW {
 	 * @param monitor the monitor whose gamma ramp to set
 	 * @param ramp    the gamma ramp to use
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwSetGammaRamp(long monitor, GLFWGammaRamp ramp) {
 		nglfwSetGammaRamp(monitor, ramp.address());
@@ -1108,7 +1111,7 @@ public class GLFW {
 	/**
 	 * Resets all window hints to their default values. See {@link #glfwWindowHint WindowHint} for details.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 */
 	public static void glfwDefaultWindowHints() {
 		long __functionAddress = getInstance().DefaultWindowHints;
@@ -1120,6 +1123,9 @@ public class GLFW {
 	/**
 	 * Sets hints for the next call to {@link #glfwCreateWindow CreateWindow}. The hints, once set, retain their values until changed by a call to glfwWindowHint or
 	 * {@link #glfwDefaultWindowHints DefaultWindowHints}, or until the library is terminated.
+	 * 
+	 * <p>This function does not check whether the specified hint values are valid. If you set hints to invalid values this will instead be reported by the next
+	 * call to {@link #glfwCreateWindow CreateWindow}.</p>
 	 * 
 	 * <h3>Supported and default values</h3>
 	 * 
@@ -1155,16 +1161,16 @@ public class GLFW {
 	 * <tr><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE}</td><td>{@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE} {@link #GLFW_OPENGL_CORE_PROFILE OPENGL_CORE_PROFILE} {@link #GLFW_OPENGL_COMPAT_PROFILE OPENGL_COMPAT_PROFILE}</td></tr>
 	 * </table>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
-	 * @param target the window hint to set. One of:<br>{@link #GLFW_RESIZABLE RESIZABLE}, {@link #GLFW_VISIBLE VISIBLE}, {@link #GLFW_DECORATED DECORATED}, {@link #GLFW_CLIENT_API CLIENT_API}, {@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}, {@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}, {@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}, {@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}, {@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}, {@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}, {@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}, {@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}, {@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}, {@link #GLFW_RED_BITS RED_BITS}, {@link #GLFW_GREEN_BITS GREEN_BITS}, {@link #GLFW_BLUE_BITS BLUE_BITS}, {@link #GLFW_ALPHA_BITS ALPHA_BITS}, {@link #GLFW_DEPTH_BITS DEPTH_BITS}, {@link #GLFW_STENCIL_BITS STENCIL_BITS}, {@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}, {@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}, {@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}, {@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}, {@link #GLFW_AUX_BUFFERS AUX_BUFFERS}, {@link #GLFW_STEREO STEREO}, {@link #GLFW_SAMPLES SAMPLES}, {@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}, {@link #GLFW_REFRESH_RATE REFRESH_RATE}, {@link #GLFW_DOUBLE_BUFFER DOUBLE_BUFFER}
-	 * @param hint   the new value of the window hint
+	 * @param hint  the window hint to set. One of:<br>{@link #GLFW_RESIZABLE RESIZABLE}, {@link #GLFW_VISIBLE VISIBLE}, {@link #GLFW_DECORATED DECORATED}, {@link #GLFW_CLIENT_API CLIENT_API}, {@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}, {@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}, {@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}, {@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}, {@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}, {@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}, {@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}, {@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}, {@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}, {@link #GLFW_RED_BITS RED_BITS}, {@link #GLFW_GREEN_BITS GREEN_BITS}, {@link #GLFW_BLUE_BITS BLUE_BITS}, {@link #GLFW_ALPHA_BITS ALPHA_BITS}, {@link #GLFW_DEPTH_BITS DEPTH_BITS}, {@link #GLFW_STENCIL_BITS STENCIL_BITS}, {@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}, {@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}, {@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}, {@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}, {@link #GLFW_AUX_BUFFERS AUX_BUFFERS}, {@link #GLFW_STEREO STEREO}, {@link #GLFW_SAMPLES SAMPLES}, {@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}, {@link #GLFW_REFRESH_RATE REFRESH_RATE}, {@link #GLFW_DOUBLE_BUFFER DOUBLE_BUFFER}
+	 * @param value the new value of the window hint
 	 *
-	 * @since GLFW 2.2
+	 * @since version 2.2
 	 */
-	public static void glfwWindowHint(int target, int hint) {
+	public static void glfwWindowHint(int hint, int value) {
 		long __functionAddress = getInstance().WindowHint;
-		invokeIIV(__functionAddress, target, hint);
+		invokeIIV(__functionAddress, hint, value);
 	}
 
 	// --- [ glfwCreateWindow ] ---
@@ -1211,8 +1217,8 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
-	 * <li>This function may not be called from a callback.</li>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
 	 * <li><b>Windows</b>: Window creation will fail if the Microsoft GDI software OpenGL implementation is the only one available.</li>
 	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the icon for the window. If no such icon
 	 * is present, the {@code IDI_WINLOGO} icon will be used instead.</li>
@@ -1243,7 +1249,7 @@ public class GLFW {
 	 *
 	 * @return the handle of the created window, or {@code NULL} if an error occurred
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static long glfwCreateWindow(int width, int height, ByteBuffer title, long monitor, long share) {
 		EventLoop.OffScreen.check();
@@ -1270,14 +1276,14 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
-	 * <li>This function may not be called from a callback.</li>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
 	 * <li>The context of the specified window must not be current on any other thread when this function is called.</li>
 	 * </ul>
 	 *
 	 * @param window the window to destroy
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static void glfwDestroyWindow(long window) {
 		long __functionAddress = getInstance().DestroyWindow;
@@ -1297,7 +1303,7 @@ public class GLFW {
 	 *
 	 * @return the value of the close flag
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static int glfwWindowShouldClose(long window) {
 		long __functionAddress = getInstance().WindowShouldClose;
@@ -1317,7 +1323,7 @@ public class GLFW {
 	 * @param window the window whose flag to change
 	 * @param value  the new value
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwSetWindowShouldClose(long window, int value) {
 		long __functionAddress = getInstance().SetWindowShouldClose;
@@ -1340,14 +1346,14 @@ public class GLFW {
 	/**
 	 * Sets the window title, encoded as UTF-8, of the specified window.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 * 
 	 * <p><b>OS X</b>: The window title will not be updated until the next time you process events.</p>
 	 *
 	 * @param window the window whose title to change
 	 * @param title  the UTF-8 encoded window title
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static void glfwSetWindowTitle(long window, ByteBuffer title) {
 		if ( CHECKS )
@@ -1378,13 +1384,13 @@ public class GLFW {
 	 * 
 	 * <p>Any or all of the position arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} position arguments will be set to zero.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to query
 	 * @param xpos   where to store the x-coordinate of the upper-left corner of the client area, or {@code NULL}
 	 * @param ypos   where to store the y-coordinate of the upper-left corner of the client area, or {@code NULL}
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwGetWindowPos(long window, ByteBuffer xpos, ByteBuffer ypos) {
 		if ( CHECKS ) {
@@ -1414,13 +1420,13 @@ public class GLFW {
 	 * 
 	 * <p>The window manager may put limits on what positions are allowed. GLFW cannot and should not override these limits.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to query
 	 * @param xpos   the x-coordinate of the upper-left corner of the client area
 	 * @param ypos   the y-coordinate of the upper-left corner of the client area
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static void glfwSetWindowPos(long window, int xpos, int ypos) {
 		long __functionAddress = getInstance().SetWindowPos;
@@ -1446,13 +1452,13 @@ public class GLFW {
 	 * 
 	 * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose size to retrieve
 	 * @param width  where to store the width, in screen coordinates, of the client area, or {@code NULL}
 	 * @param height where to store the height, in screen coordinates, of the client area, or {@code NULL}
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static void glfwGetWindowSize(long window, ByteBuffer width, ByteBuffer height) {
 		if ( CHECKS ) {
@@ -1479,7 +1485,7 @@ public class GLFW {
 	 * <p>The size limits are applied immediately and may cause the window to be resized. If you set size limits and an aspect ratio that conflict, the results
 	 * are undefined.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window    the window to set limits for
 	 * @param minwidth  the minimum width, in screen coordinates, of the client area, or {@link #GLFW_DONT_CARE DONT_CARE}
@@ -1487,7 +1493,7 @@ public class GLFW {
 	 * @param maxwidth  the maximum width, in screen coordinates, of the client area, or {@link #GLFW_DONT_CARE DONT_CARE}
 	 * @param maxheight the maximum height, in screen coordinates, of the client area, or {@link #GLFW_DONT_CARE DONT_CARE}
 	 *
-	 * @since GLFW 3.2
+	 * @since version 3.2
 	 */
 	public static void glfwSetWindowSizeLimits(long window, int minwidth, int minheight, int maxwidth, int maxheight) {
 		long __functionAddress = getInstance().SetWindowSizeLimits;
@@ -1509,13 +1515,13 @@ public class GLFW {
 	 * <p>The aspect ratio is applied immediately and may cause the window to be  resized. If you set size limits and an aspect ratio that conflict, the results
 	 * are undefined.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to set limits for
 	 * @param numer  the numerator of the desired aspect ratio, or {@link #GLFW_DONT_CARE DONT_CARE}
 	 * @param denom  the denominator of the desired aspect ratio, or {@link #GLFW_DONT_CARE DONT_CARE}
 	 *
-	 * @since GLFW 3.2
+	 * @since version 3.2
 	 */
 	public static void glfwSetWindowAspectRatio(long window, int numer, int denom) {
 		long __functionAddress = getInstance().SetWindowAspectRatio;
@@ -1534,13 +1540,13 @@ public class GLFW {
 	 * 
 	 * <p>The window manager may put limits on what sizes are allowed. GLFW cannot and should not override these limits.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to resize
 	 * @param width  the desired width of the specified window
 	 * @param height the desired height of the specified window
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static void glfwSetWindowSize(long window, int width, int height) {
 		long __functionAddress = getInstance().SetWindowSize;
@@ -1566,13 +1572,13 @@ public class GLFW {
 	 * 
 	 * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose framebuffer to query
 	 * @param width  where to store the width, in pixels, of the framebuffer, or {@code NULL}
 	 * @param height where to store the height, in pixels, of the framebuffer, or {@code NULL}
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwGetFramebufferSize(long window, ByteBuffer width, ByteBuffer height) {
 		if ( CHECKS ) {
@@ -1612,7 +1618,7 @@ public class GLFW {
 	 * 
 	 * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose frame size to query
 	 * @param left   where to store the size, in screen coordinates, of the left edge of the window frame, or {@code NULL}
@@ -1620,7 +1626,7 @@ public class GLFW {
 	 * @param right  where to store the size, in screen coordinates, of the right edge of the window frame, or {@code NULL}
 	 * @param bottom where to store the size, in screen coordinates, of the bottom edge of the window frame, or {@code NULL}
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static void glfwGetWindowFrameSize(long window, ByteBuffer left, ByteBuffer top, ByteBuffer right, ByteBuffer bottom) {
 		if ( CHECKS ) {
@@ -1650,11 +1656,11 @@ public class GLFW {
 	 * 
 	 * <p>If the specified window is a full screen window, the original monitor resolution is restored until the window is restored.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to iconify
 	 *
-	 * @since GLFW 2.1
+	 * @since version 2.1
 	 */
 	public static void glfwIconifyWindow(long window) {
 		long __functionAddress = getInstance().IconifyWindow;
@@ -1670,11 +1676,11 @@ public class GLFW {
 	 * 
 	 * <p>If the specified window is a full screen window, the resolution chosen for the window is restored on the selected monitor.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to restore
 	 *
-	 * @since GLFW 2.1
+	 * @since version 2.1
 	 */
 	public static void glfwRestoreWindow(long window) {
 		long __functionAddress = getInstance().RestoreWindow;
@@ -1688,11 +1694,11 @@ public class GLFW {
 	/**
 	 * Makes the specified window visible if it was previously hidden. If the window is already visible or is in full screen mode, this function does nothing.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to make visible
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwShowWindow(long window) {
 		long __functionAddress = getInstance().ShowWindow;
@@ -1707,11 +1713,11 @@ public class GLFW {
 	/**
 	 * Hides the specified window, if it was previously visible. If the window is already hidden or is in full screen mode, this function does nothing.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to hide
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwHideWindow(long window) {
 		long __functionAddress = getInstance().HideWindow;
@@ -1725,13 +1731,13 @@ public class GLFW {
 	/**
 	 * Returns the handle of the monitor that the specified window is in full screen on.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to query
 	 *
 	 * @return the monitor, or {@code NULL} if the window is in windowed mode or an error occurred
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static long glfwGetWindowMonitor(long window) {
 		long __functionAddress = getInstance().GetWindowMonitor;
@@ -1745,7 +1751,7 @@ public class GLFW {
 	/**
 	 * Returns the value of an attribute of the specified window or its OpenGL or OpenGL ES context.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 * 
 	 * <p>Framebuffer related hints are not window attributes.</p>
 	 * 
@@ -1757,7 +1763,7 @@ public class GLFW {
 	 *
 	 * @return the value of the attribute, or zero if an error occured
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static int glfwGetWindowAttrib(long window, int attrib) {
 		long __functionAddress = getInstance().GetWindowAttrib;
@@ -1776,7 +1782,7 @@ public class GLFW {
 	 * @param window  the window whose pointer to set
 	 * @param pointer the new value
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwSetWindowUserPointer(long window, long pointer) {
 		long __functionAddress = getInstance().SetWindowUserPointer;
@@ -1794,7 +1800,7 @@ public class GLFW {
 	 *
 	 * @param window the window whose pointer to return
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static long glfwGetWindowUserPointer(long window) {
 		long __functionAddress = getInstance().GetWindowUserPointer;
@@ -1809,7 +1815,7 @@ public class GLFW {
 	 * Sets the position callback of the specified window, which is called when the window is moved. The callback is provided with the screen position of the
 	 * upper-left corner of the client area of the window.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1817,7 +1823,7 @@ public class GLFW {
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
 	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static GLFWWindowPosCallback glfwSetWindowPosCallback(long window, GLFWWindowPosCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowPosCallback;
@@ -1832,7 +1838,7 @@ public class GLFW {
 	 * Sets the size callback of the specified window, which is called when the window is resized. The callback is provided with the size, in screen
 	 * coordinates, of the client area of the window.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1840,7 +1846,7 @@ public class GLFW {
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
 	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(long window, GLFWWindowSizeCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowSizeCallback;
@@ -1862,7 +1868,7 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function must only be called from the main thread.</li>
 	 * <li><b>Mac OS X:</b> Selecting Quit from the application menu will trigger the close callback for all windows.</li>
 	 * </ul>
 	 *
@@ -1872,7 +1878,7 @@ public class GLFW {
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
 	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
-	 * @since GLFW 2.5
+	 * @since version 2.5
 	 */
 	public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(long window, GLFWWindowCloseCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowCloseCallback;
@@ -1890,7 +1896,7 @@ public class GLFW {
 	 * <p>On compositing window systems such as Aero, Compiz or Aqua, where the window contents are saved off-screen, this callback may be called only very
 	 * infrequently or never at all.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1898,7 +1904,7 @@ public class GLFW {
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
 	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
-	 * @since GLFW 2.5
+	 * @since version 2.5
 	 */
 	public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(long window, GLFWWindowRefreshCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowRefreshCallback;
@@ -1915,7 +1921,7 @@ public class GLFW {
 	 * <p>After the focus callback is called for a window that lost input focus, synthetic key and mouse button release events will be generated for all such
 	 * that had been pressed. For more information, see {@link #glfwSetKeyCallback SetKeyCallback} and {@link #glfwSetMouseButtonCallback SetMouseButtonCallback}.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1923,7 +1929,7 @@ public class GLFW {
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
 	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(long window, GLFWWindowFocusCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowFocusCallback;
@@ -1937,7 +1943,7 @@ public class GLFW {
 	/**
 	 * Sets the iconification callback of the specified window, which is called when the window is iconified or restored.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1945,7 +1951,7 @@ public class GLFW {
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
 	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowIconifyCallback;
@@ -1959,7 +1965,7 @@ public class GLFW {
 	/**
 	 * Sets the framebuffer resize callback of the specified window, which is called when the framebuffer of the specified window is resized.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1967,7 +1973,7 @@ public class GLFW {
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
 	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(long window, GLFWFramebufferSizeCallback cbfun) {
 		long __functionAddress = getInstance().SetFramebufferSizeCallback;
@@ -1996,8 +2002,8 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
-	 * <li>This function may not be called from a callback.</li>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
 	 * </ul>
 	 */
 	public static void glfwPollEvents() {
@@ -2032,8 +2038,8 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
-	 * <li>This function may not be called from a callback.</li>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
 	 * <li>On some platforms, certain callbacks may be called outside of a call to one of the event processing functions.</li>
 	 * </ul>
 	 */
@@ -2063,14 +2069,14 @@ public class GLFW {
 	/**
 	 * Returns the value of an input option for the specified window.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to query
 	 * @param mode   the input mode whose value to return. One of:<br>{@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS}, {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
 	 *
 	 * @return the input mode value
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static int glfwGetInputMode(long window, int mode) {
 		long __functionAddress = getInstance().GetInputMode;
@@ -2102,7 +2108,7 @@ public class GLFW {
 	 * time it is called even if the mouse button had been released before the call. This is useful when you are only interested in whether mouse buttons have
 	 * been pressed but not when or in which order.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose input mode to set
 	 * @param mode   the input mode to set. One of:<br>{@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS}, {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
@@ -2134,14 +2140,14 @@ public class GLFW {
 	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the next call to {@link #glfwGetKeyName GetKeyName}, or until the
 	 * library is terminated.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param key      the key to query, or {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}
 	 * @param scancode the scancode of the key to query
 	 *
 	 * @return the localized name of the key
 	 *
-	 * @since GLFW 3.2
+	 * @since version 3.2
 	 */
 	public static String glfwGetKeyName(int key, int scancode) {
 		long __result = nglfwGetKeyName(key, scancode);
@@ -2167,7 +2173,7 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function must only be called from the main thread.</li>
 	 * <li>{@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN} is not a valid key for this function.</li>
 	 * </ul>
 	 *
@@ -2176,7 +2182,7 @@ public class GLFW {
 	 *
 	 * @return one of {@link #GLFW_PRESS PRESS} or {@link #GLFW_RELEASE RELEASE}
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static int glfwGetKey(long window, int key) {
 		long __functionAddress = getInstance().GetKey;
@@ -2194,14 +2200,14 @@ public class GLFW {
 	 * <p>If the {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS} input mode is enabled, this function returns {@link #GLFW_PRESS PRESS} the first time you call it for a mouse button that has been pressed,
 	 * even if that mouse button has already been released.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the desired window
 	 * @param button the desired mouse button
 	 *
 	 * @return one of {@link #GLFW_PRESS PRESS} or {@link #GLFW_RELEASE RELEASE}
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static int glfwGetMouseButton(long window, int button) {
 		long __functionAddress = getInstance().GetMouseButton;
@@ -2232,13 +2238,13 @@ public class GLFW {
 	 * 
 	 * <p>Any or all of the position arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} position arguments will be set to zero.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the desired window
 	 * @param xpos   where to store the cursor x-coordinate, relative to the left edge of the client area, or {@code NULL}
 	 * @param ypos   where to store the cursor y-coordinate, relative to the to top edge of the client area, or {@code NULL}.
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static void glfwGetCursorPos(long window, ByteBuffer xpos, ByteBuffer ypos) {
 		if ( CHECKS ) {
@@ -2271,7 +2277,7 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function must only be called from the main thread.</li>
 	 * <li><b>X11:</b> Due to the asynchronous nature of X11, it may take a moment for the window focus event to arrive. This means you may not be able to set
 	 * the cursor position directly after window creation.</li>
 	 * </ul>
@@ -2280,7 +2286,7 @@ public class GLFW {
 	 * @param xpos   the desired x-coordinate, relative to the left edge of the client area
 	 * @param ypos   the desired y-coordinate, relative to the top edge of the client area
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static void glfwSetCursorPos(long window, double xpos, double ypos) {
 		long __functionAddress = getInstance().SetCursorPos;
@@ -2311,8 +2317,8 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
-	 * <li>This function may not be called from a callback.</li>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
 	 * <li>The specified image data is copied before this function returns.</li>
 	 * </ul>
 	 *
@@ -2322,7 +2328,7 @@ public class GLFW {
 	 *
 	 * @return the handle of the created cursor, or {@code NULL} if an error occurred
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static long glfwCreateCursor(GLFWImage image, int xhot, int yhot) {
 		return nglfwCreateCursor(image.address(), xhot, yhot);
@@ -2336,8 +2342,8 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
-	 * <li>This function may not be called from a callback.</li>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
 	 * <li>The specified image data is copied before this function returns.</li>
 	 * </ul>
 	 *
@@ -2345,7 +2351,7 @@ public class GLFW {
 	 *
 	 * @return a new cursor ready to use or {@code NULL} if an error occurred
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static long glfwCreateStandardCursor(int shape) {
 		long __functionAddress = getInstance().CreateStandardCursor;
@@ -2360,13 +2366,13 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
-	 * <li>This function may not be called from a callback.</li>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
 	 * </ul>
 	 *
 	 * @param cursor the cursor object to destroy
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static void glfwDestroyCursor(long cursor) {
 		long __functionAddress = getInstance().DestroyCursor;
@@ -2383,12 +2389,12 @@ public class GLFW {
 	 * 
 	 * <p>On some platforms, the set cursor may not be visible unless the window also has input focus.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to set the system cursor for
 	 * @param cursor the cursor to set, or {@code NULL} to switch back to the default arrow cursor
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static void glfwSetCursor(long window, long cursor) {
 		long __functionAddress = getInstance().SetCursor;
@@ -2414,14 +2420,14 @@ public class GLFW {
 	 * 
 	 * <p>Sometimes GLFW needs to generate synthetic key events, in which case the scancode may be zero.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static GLFWKeyCallback glfwSetKeyCallback(long window, GLFWKeyCallback cbfun) {
 		long __functionAddress = getInstance().SetKeyCallback;
@@ -2442,14 +2448,14 @@ public class GLFW {
 	 * <p>The character callback behaves as system text input normally does and will not be called if modifier keys are held down that would prevent normal text
 	 * input on that platform, for example a Super (Command) key on OS X or Alt key on Windows. There is {@link #glfwSetCharModsCallback SetCharModsCallback} that receives these events.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set
 	 *
-	 * @since GLFW 2.4
+	 * @since version 2.4
 	 */
 	public static GLFWCharCallback glfwSetCharCallback(long window, GLFWCharCallback cbfun) {
 		long __functionAddress = getInstance().SetCharCallback;
@@ -2469,14 +2475,14 @@ public class GLFW {
 	 * Characters do not map 1:1 to physical keys, as a key may produce zero, one or more characters. If you want to know whether a specific physical key was
 	 * pressed or released, see {@link #glfwSetKeyCallback SetKeyCallback} instead.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static GLFWCharModsCallback glfwSetCharModsCallback(long window, GLFWCharModsCallback cbfun) {
 		long __functionAddress = getInstance().SetCharModsCallback;
@@ -2494,14 +2500,14 @@ public class GLFW {
 	 * user-generated events by the fact that the synthetic ones are generated after the focus loss event has been processed, i.e. after the window focus
 	 * callback has been called.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(long window, GLFWMouseButtonCallback cbfun) {
 		long __functionAddress = getInstance().SetMouseButtonCallback;
@@ -2516,14 +2522,14 @@ public class GLFW {
 	 * Sets the cursor position callback of the specified window, which is called when the cursor is moved. The callback is provided with the position, in
 	 * screen coordinates, relative to the upper-left corner of the client area of the window.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static GLFWCursorPosCallback glfwSetCursorPosCallback(long window, GLFWCursorPosCallback cbfun) {
 		long __functionAddress = getInstance().SetCursorPosCallback;
@@ -2537,14 +2543,14 @@ public class GLFW {
 	/**
 	 * Sets the cursor boundary crossing callback of the specified window, which is called when the cursor enters or leaves the client area of the window.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(long window, GLFWCursorEnterCallback cbfun) {
 		long __functionAddress = getInstance().SetCursorEnterCallback;
@@ -2560,14 +2566,14 @@ public class GLFW {
 	 * 
 	 * <p>The scroll callback receives all scrolling input, like that from a mouse wheel or a touchpad scrolling area.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set
 	 *
-	 * @since GLFW 2.1
+	 * @since version 2.1
 	 */
 	public static GLFWScrollCallback glfwSetScrollCallback(long window, GLFWScrollCallback cbfun) {
 		long __functionAddress = getInstance().SetScrollCallback;
@@ -2584,14 +2590,14 @@ public class GLFW {
 	 * <p>Because the path array and its strings may have been generated specifically for that event, they are not guaranteed to be valid after the callback has
 	 * returned. If you wish to use them after the callback returns, you need to make a deep copy.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static GLFWDropCallback glfwSetDropCallback(long window, GLFWDropCallback cbfun) {
 		long __functionAddress = getInstance().SetDropCallback;
@@ -2605,13 +2611,13 @@ public class GLFW {
 	/**
 	 * Returns whether the specified joystick is present.
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param joy joystick to query
 	 *
 	 * @return {@link #GLFW_TRUE TRUE} if the joystick is present, or {@link #GLFW_FALSE FALSE} otherwise
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static int glfwJoystickPresent(int joy) {
 		long __functionAddress = getInstance().JoystickPresent;
@@ -2630,16 +2636,19 @@ public class GLFW {
 	/**
 	 * Returns the values of all axes of the specified joystick. Each element in the array is a value between -1.0 and 1.0.
 	 * 
+	 * <p>Querying a joystick slot with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+	 * presence.</p>
+	 * 
 	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
 	 * function is called again for that joystick or the library is terminated.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param joy the joystick to query
 	 *
 	 * @return an array of axis values, or {@code NULL} if the joystick is not present
 	 *
-	 * @since GLFW 2.2
+	 * @since version 2.2
 	 */
 	public static FloatBuffer glfwGetJoystickAxes(int joy) {
 		APIBuffer __buffer = apiBuffer();
@@ -2660,16 +2669,19 @@ public class GLFW {
 	/**
 	 * Returns the state of all buttons of the specified joystick. Each element in the array is either {@link #GLFW_PRESS PRESS} or {@link #GLFW_RELEASE RELEASE}.
 	 * 
+	 * <p>Querying a joystick slot with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+	 * presence.</p>
+	 * 
 	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
 	 * function is called again for that joystick or the library is terminated.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param joy the joystick to query
 	 *
 	 * @return an array of button states, or {@code NULL} if the joystick is not present
 	 *
-	 * @since GLFW 2.2
+	 * @since version 2.2
 	 */
 	public static ByteBuffer glfwGetJoystickButtons(int joy) {
 		APIBuffer __buffer = apiBuffer();
@@ -2690,16 +2702,19 @@ public class GLFW {
 	/**
 	 * Returns the name, encoded as UTF-8, of the specified joystick.
 	 * 
+	 * <p>Querying a joystick slot with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+	 * presence.</p>
+	 * 
 	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
 	 * function is called again for that joystick or the library is terminated.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param joy the joystick to query
 	 *
 	 * @return the UTF-8 encoded name of the joystick, or {@code NULL} if the joystick is not present
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static String glfwGetJoystickName(int joy) {
 		long __result = nglfwGetJoystickName(joy);
@@ -2722,12 +2737,12 @@ public class GLFW {
 	 * 
 	 * <p>The specified string is copied before this function returns.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window that will own the clipboard contents
 	 * @param string a UTF-8 encoded string
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwSetClipboardString(long window, ByteBuffer string) {
 		if ( CHECKS )
@@ -2763,7 +2778,7 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function must only be called from the main thread.</li>
 	 * <li>The returned string is allocated and freed by GLFW.  You should not free it yourself.</li>
 	 * <li>The returned string is valid only until the next call to {@link #glfwGetClipboardString GetClipboardString} or {@link #glfwSetClipboardString SetClipboardString}.</li>
 	 * </ul>
@@ -2772,7 +2787,7 @@ public class GLFW {
 	 *
 	 * @return the contents of the clipboard as a UTF-8 encoded string, or {@code NULL} if an error occurred
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static String glfwGetClipboardString(long window) {
 		long __result = nglfwGetClipboardString(window);
@@ -2791,7 +2806,7 @@ public class GLFW {
 	 *
 	 * @return the current value, in seconds, or zero if an error occurred
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static double glfwGetTime() {
 		long __functionAddress = getInstance().GetTime;
@@ -2807,11 +2822,11 @@ public class GLFW {
 	 * <p>The upper limit of the timer is calculated as <code style="font-family: monospace">floor((2<sup>64</sup> - 1) / 10<sup>9</sup>)</code> and is due to implementations storing nanoseconds
 	 * in 64 bits. The limit may be increased in the future.</p>
 	 * 
-	 * <p>This function may only be called from the main thread.</p>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param time the new value, in seconds
 	 *
-	 * @since GLFW 2.2
+	 * @since version 2.2
 	 */
 	public static void glfwSetTime(double time) {
 		long __functionAddress = getInstance().SetTime;
@@ -2834,7 +2849,7 @@ public class GLFW {
 	 *
 	 * @param window the window whose context to make current, or {@code NULL} to detach the current context
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static void glfwMakeContextCurrent(long window) {
 		long __functionAddress = getInstance().MakeContextCurrent;
@@ -2850,7 +2865,7 @@ public class GLFW {
 	 *
 	 * @return the window whose context is current, or {@code NULL} if no window's context is current
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static long glfwGetCurrentContext() {
 		long __functionAddress = getInstance().GetCurrentContext;
@@ -2865,11 +2880,13 @@ public class GLFW {
 	 * 
 	 * <p>The specified window must have an OpenGL or OpenGL ES context. Specifying a window without a context will generate a {@link #GLFW_NO_WINDOW_CONTEXT NO_WINDOW_CONTEXT} error.</p>
 	 * 
+	 * <p><b>EGL</b>: The context of the specified window must be current on the calling thread.</p>
+	 * 
 	 * <p>This function may be called from any thread.</p>
 	 *
 	 * @param window the window whose buffers to swap
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static void glfwSwapBuffers(long window) {
 		long __functionAddress = getInstance().SwapBuffers;
@@ -2903,7 +2920,7 @@ public class GLFW {
 	 *
 	 * @param interval the minimum number of screen updates to wait for until the buffers are swapped by {@link #glfwSwapBuffers SwapBuffers}
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static void glfwSwapInterval(int interval) {
 		long __functionAddress = getInstance().SwapInterval;
@@ -2934,7 +2951,7 @@ public class GLFW {
 	 *
 	 * @return {@link #GLFW_TRUE TRUE} if the extension is available, or {@link #GLFW_FALSE FALSE} otherwise
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static int glfwExtensionSupported(ByteBuffer extension) {
 		if ( CHECKS )
@@ -2978,7 +2995,7 @@ public class GLFW {
 	 *
 	 * @return the address of the function, or {@code NULL} if an error occured
 	 *
-	 * @since GLFW 1.0
+	 * @since version 1.0
 	 */
 	public static long glfwGetProcAddress(ByteBuffer procname) {
 		if ( CHECKS )
@@ -2991,6 +3008,68 @@ public class GLFW {
 		APIBuffer __buffer = apiBuffer();
 		int procnameEncoded = __buffer.stringParamASCII(procname, true);
 		return nglfwGetProcAddress(__buffer.address(procnameEncoded));
+	}
+
+	// --- [ glfwVulkanSupported ] ---
+
+	/**
+	 * Returns whether the Vulkan loader has been found. This check is performed by {@link #glfwInit Init}.
+	 * 
+	 * <p>The availability of a Vulkan loader does not by itself guarantee that window surface creation or even device creation is possible. Call
+	 * {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} to check whether the extensions necessary for Vulkan surface creation are available and
+	 * {@link #glfwGetPhysicalDevicePresentationSupport GetPhysicalDevicePresentationSupport} to check whether a queue family of a physical device supports image presentation.</p>
+	 * 
+	 * <p>Possible errors include {@link #GLFW_NOT_INITIALIZED NOT_INITIALIZED}.</p>
+	 * 
+	 * <p>This function may be called from any thread.</p>
+	 *
+	 * @return {@link #GLFW_TRUE TRUE} if Vulkan is available, or {@link #GLFW_FALSE FALSE} otherwise
+	 *
+	 * @since version 3.2
+	 */
+	public static int glfwVulkanSupported() {
+		long __functionAddress = getInstance().VulkanSupported;
+		return invokeI(__functionAddress);
+	}
+
+	// --- [ glfwGetRequiredInstanceExtensions ] ---
+
+	/** Unsafe version of {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} */
+	@JavadocExclude
+	public static long nglfwGetRequiredInstanceExtensions(long count) {
+		long __functionAddress = getInstance().GetRequiredInstanceExtensions;
+		return invokePP(__functionAddress, count);
+	}
+
+	/**
+	 * Returns an array of names of Vulkan instance extensions required by GLFW for creating Vulkan surfaces for GLFW windows. If successful, the list will
+	 * always contain {@code VK_KHR_surface}, so if you don't require any additional extensions you can pass this list directly to the
+	 * {@code VkInstanceCreateInfo} struct.
+	 * 
+	 * <p>If Vulkan is not available on the machine, this function returns {@code NULL} and generates a {@link #GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check whether
+	 * Vulkan is available.</p>
+	 * 
+	 * <p>If Vulkan is available but no set of extensions allowing window surface creation was found, this function returns {@code NULL}. You may still use Vulkan for
+	 * off-screen rendering and compute work.</p>
+	 * 
+	 * <p>Additional extensions may be required by future versions of GLFW. You should check if any extensions you wish to enable are already in the returned
+	 * array, as it is an error to specify an extension more than once in the {@code VkInstanceCreateInfo} struct.</p>
+	 * 
+	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is guaranteed to be valid only until the library is terminated.</p>
+	 * 
+	 * <p>This function may be called from any thread.</p>
+	 * 
+	 * <p>Possible errors include {@link #GLFW_NOT_INITIALIZED NOT_INITIALIZED} and {@link #GLFW_API_UNAVAILABLE API_UNAVAILABLE}.</p>
+	 *
+	 * @return an array of ASCII encoded extension names, or {@code NULL} if an error occurred
+	 *
+	 * @since version 3.2
+	 */
+	public static PointerBuffer glfwGetRequiredInstanceExtensions() {
+		APIBuffer __buffer = apiBuffer();
+		int count = __buffer.intParam();
+		long __result = nglfwGetRequiredInstanceExtensions(__buffer.address(count));
+		return memPointerBuffer(__result, __buffer.intValue(count));
 	}
 
 }
