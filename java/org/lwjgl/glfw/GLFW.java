@@ -490,9 +490,7 @@ public class GLFW {
 		SwapBuffers,
 		SwapInterval,
 		ExtensionSupported,
-		GetProcAddress,
-		VulkanSupported,
-		GetRequiredInstanceExtensions;
+		GetProcAddress;
 
 	@JavadocExclude
 	protected GLFW() {
@@ -583,8 +581,6 @@ public class GLFW {
 		SwapInterval = checkFunctionAddress(provider.getFunctionAddress("glfwSwapInterval"));
 		ExtensionSupported = checkFunctionAddress(provider.getFunctionAddress("glfwExtensionSupported"));
 		GetProcAddress = checkFunctionAddress(provider.getFunctionAddress("glfwGetProcAddress"));
-		VulkanSupported = checkFunctionAddress(provider.getFunctionAddress("glfwVulkanSupported"));
-		GetRequiredInstanceExtensions = checkFunctionAddress(provider.getFunctionAddress("glfwGetRequiredInstanceExtensions"));
 	}
 
 	// --- [ Function Addresses ] ---
@@ -3008,68 +3004,6 @@ public class GLFW {
 		APIBuffer __buffer = apiBuffer();
 		int procnameEncoded = __buffer.stringParamASCII(procname, true);
 		return nglfwGetProcAddress(__buffer.address(procnameEncoded));
-	}
-
-	// --- [ glfwVulkanSupported ] ---
-
-	/**
-	 * Returns whether the Vulkan loader has been found. This check is performed by {@link #glfwInit Init}.
-	 * 
-	 * <p>The availability of a Vulkan loader does not by itself guarantee that window surface creation or even device creation is possible. Call
-	 * {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} to check whether the extensions necessary for Vulkan surface creation are available and
-	 * {@link #glfwGetPhysicalDevicePresentationSupport GetPhysicalDevicePresentationSupport} to check whether a queue family of a physical device supports image presentation.</p>
-	 * 
-	 * <p>Possible errors include {@link #GLFW_NOT_INITIALIZED NOT_INITIALIZED}.</p>
-	 * 
-	 * <p>This function may be called from any thread.</p>
-	 *
-	 * @return {@link #GLFW_TRUE TRUE} if Vulkan is available, or {@link #GLFW_FALSE FALSE} otherwise
-	 *
-	 * @since version 3.2
-	 */
-	public static int glfwVulkanSupported() {
-		long __functionAddress = getInstance().VulkanSupported;
-		return invokeI(__functionAddress);
-	}
-
-	// --- [ glfwGetRequiredInstanceExtensions ] ---
-
-	/** Unsafe version of {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} */
-	@JavadocExclude
-	public static long nglfwGetRequiredInstanceExtensions(long count) {
-		long __functionAddress = getInstance().GetRequiredInstanceExtensions;
-		return invokePP(__functionAddress, count);
-	}
-
-	/**
-	 * Returns an array of names of Vulkan instance extensions required by GLFW for creating Vulkan surfaces for GLFW windows. If successful, the list will
-	 * always contain {@code VK_KHR_surface}, so if you don't require any additional extensions you can pass this list directly to the
-	 * {@code VkInstanceCreateInfo} struct.
-	 * 
-	 * <p>If Vulkan is not available on the machine, this function returns {@code NULL} and generates a {@link #GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check whether
-	 * Vulkan is available.</p>
-	 * 
-	 * <p>If Vulkan is available but no set of extensions allowing window surface creation was found, this function returns {@code NULL}. You may still use Vulkan for
-	 * off-screen rendering and compute work.</p>
-	 * 
-	 * <p>Additional extensions may be required by future versions of GLFW. You should check if any extensions you wish to enable are already in the returned
-	 * array, as it is an error to specify an extension more than once in the {@code VkInstanceCreateInfo} struct.</p>
-	 * 
-	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is guaranteed to be valid only until the library is terminated.</p>
-	 * 
-	 * <p>This function may be called from any thread.</p>
-	 * 
-	 * <p>Possible errors include {@link #GLFW_NOT_INITIALIZED NOT_INITIALIZED} and {@link #GLFW_API_UNAVAILABLE API_UNAVAILABLE}.</p>
-	 *
-	 * @return an array of ASCII encoded extension names, or {@code NULL} if an error occurred
-	 *
-	 * @since version 3.2
-	 */
-	public static PointerBuffer glfwGetRequiredInstanceExtensions() {
-		APIBuffer __buffer = apiBuffer();
-		int count = __buffer.intParam();
-		long __result = nglfwGetRequiredInstanceExtensions(__buffer.address(count));
-		return memPointerBuffer(__result, __buffer.intValue(count));
 	}
 
 }
