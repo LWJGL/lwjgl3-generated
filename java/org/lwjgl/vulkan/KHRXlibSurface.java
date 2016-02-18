@@ -7,13 +7,11 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /**
  * The {@code VK_KHR_xlib_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the
@@ -83,12 +81,12 @@ public class KHRXlibSurface {
 	 */
 	public static int vkCreateXlibSurfaceKHR(long instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
 		if ( CHECKS )
-			checkBuffer(pSurface, 1 << POINTER_SHIFT);
+			checkBuffer(pSurface, 1 << 3);
 		return nvkCreateXlibSurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
 	}
 
 	/** Alternative version of: {@link #vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR} */
-	public static int vkCreateXlibSurfaceKHR(long instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pSurface) {
+	public static int vkCreateXlibSurfaceKHR(long instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1);
 		return nvkCreateXlibSurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));

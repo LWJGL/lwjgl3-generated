@@ -45,7 +45,7 @@ public class VkSparseMemoryBind extends Struct {
 		Layout layout = __struct(
 			__member(8),
 			__member(8),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(8),
 			__member(4)
 		);
@@ -204,7 +204,7 @@ public class VkSparseMemoryBind extends Struct {
 	/** Unsafe version of {@link #size}. */
 	public static long nsize(long struct) { return memGetLong(struct + VkSparseMemoryBind.SIZE); }
 	/** Unsafe version of {@link #memory}. */
-	public static long nmemory(long struct) { return memGetAddress(struct + VkSparseMemoryBind.MEMORY); }
+	public static long nmemory(long struct) { return memGetLong(struct + VkSparseMemoryBind.MEMORY); }
 	/** Unsafe version of {@link #memoryOffset}. */
 	public static long nmemoryOffset(long struct) { return memGetLong(struct + VkSparseMemoryBind.MEMORYOFFSET); }
 	/** Unsafe version of {@link #flags}. */
@@ -215,7 +215,7 @@ public class VkSparseMemoryBind extends Struct {
 	/** Unsafe version of {@link #size(long) size}. */
 	public static void nsize(long struct, long value) { memPutLong(struct + VkSparseMemoryBind.SIZE, value); }
 	/** Unsafe version of {@link #memory(long) memory}. */
-	public static void nmemory(long struct, long value) { memPutAddress(struct + VkSparseMemoryBind.MEMORY, value); }
+	public static void nmemory(long struct, long value) { memPutLong(struct + VkSparseMemoryBind.MEMORY, value); }
 	/** Unsafe version of {@link #memoryOffset(long) memoryOffset}. */
 	public static void nmemoryOffset(long struct, long value) { memPutLong(struct + VkSparseMemoryBind.MEMORYOFFSET, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */

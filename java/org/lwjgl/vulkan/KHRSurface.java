@@ -148,11 +148,9 @@ public class KHRSurface {
 	@JavadocExclude
 	public static void nvkDestroySurfaceKHR(long instance, long surface, long pAllocator) {
 		long __functionAddress = getInstance().DestroySurfaceKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(instance);
-			checkPointer(surface);
-		}
-		callPPPV(__functionAddress, instance, surface, pAllocator);
+		callPJPV(__functionAddress, instance, surface, pAllocator);
 	}
 
 	/**
@@ -172,11 +170,9 @@ public class KHRSurface {
 	@JavadocExclude
 	public static int nvkGetPhysicalDeviceSurfaceSupportKHR(long physicalDevice, int queueFamilyIndex, long surface, long pSupported) {
 		long __functionAddress = getInstance().GetPhysicalDeviceSurfaceSupportKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(physicalDevice);
-			checkPointer(surface);
-		}
-		return callPIPPI(__functionAddress, physicalDevice, queueFamilyIndex, surface, pSupported);
+		return callPIJPI(__functionAddress, physicalDevice, queueFamilyIndex, surface, pSupported);
 	}
 
 	/**
@@ -206,11 +202,9 @@ public class KHRSurface {
 	@JavadocExclude
 	public static int nvkGetPhysicalDeviceSurfaceCapabilitiesKHR(long physicalDevice, long surface, long pSurfaceCapabilities) {
 		long __functionAddress = getInstance().GetPhysicalDeviceSurfaceCapabilitiesKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(physicalDevice);
-			checkPointer(surface);
-		}
-		return callPPPI(__functionAddress, physicalDevice, surface, pSurfaceCapabilities);
+		return callPJPI(__functionAddress, physicalDevice, surface, pSurfaceCapabilities);
 	}
 
 	/**
@@ -230,11 +224,9 @@ public class KHRSurface {
 	@JavadocExclude
 	public static int nvkGetPhysicalDeviceSurfaceFormatsKHR(long physicalDevice, long surface, long pSurfaceFormatCount, long pSurfaceFormats) {
 		long __functionAddress = getInstance().GetPhysicalDeviceSurfaceFormatsKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(physicalDevice);
-			checkPointer(surface);
-		}
-		return callPPPPI(__functionAddress, physicalDevice, surface, pSurfaceFormatCount, pSurfaceFormats);
+		return callPJPPI(__functionAddress, physicalDevice, surface, pSurfaceFormatCount, pSurfaceFormats);
 	}
 
 	/**
@@ -264,11 +256,9 @@ public class KHRSurface {
 	@JavadocExclude
 	public static int nvkGetPhysicalDeviceSurfacePresentModesKHR(long physicalDevice, long surface, long pPresentModeCount, long pPresentModes) {
 		long __functionAddress = getInstance().GetPhysicalDeviceSurfacePresentModesKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(physicalDevice);
-			checkPointer(surface);
-		}
-		return callPPPPI(__functionAddress, physicalDevice, surface, pPresentModeCount, pPresentModes);
+		return callPJPPI(__functionAddress, physicalDevice, surface, pPresentModeCount, pPresentModes);
 	}
 
 	/**

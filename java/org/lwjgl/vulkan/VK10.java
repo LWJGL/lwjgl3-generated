@@ -2990,7 +2990,7 @@ public class VK10 {
 		long __functionAddress = getInstance().QueueSubmit;
 		if ( CHECKS )
 			checkPointer(queue);
-		return callPIPPI(__functionAddress, queue, submitCount, pSubmits, fence);
+		return callPIPJI(__functionAddress, queue, submitCount, pSubmits, fence);
 	}
 
 	/**
@@ -3066,12 +3066,12 @@ public class VK10 {
 	 */
 	public static int vkAllocateMemory(long device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pMemory) {
 		if ( CHECKS )
-			checkBuffer(pMemory, 1 << POINTER_SHIFT);
+			checkBuffer(pMemory, 1 << 3);
 		return nvkAllocateMemory(device, pAllocateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pMemory));
 	}
 
 	/** Alternative version of: {@link #vkAllocateMemory AllocateMemory} */
-	public static int vkAllocateMemory(long device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pMemory) {
+	public static int vkAllocateMemory(long device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, LongBuffer pMemory) {
 		if ( CHECKS )
 			checkBuffer(pMemory, 1);
 		return nvkAllocateMemory(device, pAllocateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pMemory));
@@ -3083,11 +3083,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkFreeMemory(long device, long memory, long pAllocator) {
 		long __functionAddress = getInstance().FreeMemory;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(memory);
-		}
-		callPPPV(__functionAddress, device, memory, pAllocator);
+		callPJPV(__functionAddress, device, memory, pAllocator);
 	}
 
 	/**
@@ -3107,11 +3105,9 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkMapMemory(long device, long memory, long offset, long size, int flags, long ppData) {
 		long __functionAddress = getInstance().MapMemory;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(memory);
-		}
-		return callPPJJIPI(__functionAddress, device, memory, offset, size, flags, ppData);
+		return callPJJJIPI(__functionAddress, device, memory, offset, size, flags, ppData);
 	}
 
 	/**
@@ -3147,11 +3143,9 @@ public class VK10 {
 	 */
 	public static void vkUnmapMemory(long device, long memory) {
 		long __functionAddress = getInstance().UnmapMemory;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(memory);
-		}
-		callPPV(__functionAddress, device, memory);
+		callPJV(__functionAddress, device, memory);
 	}
 
 	// --- [ vkFlushMappedMemoryRanges ] ---
@@ -3228,11 +3222,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkGetDeviceMemoryCommitment(long device, long memory, long pCommittedMemoryInBytes) {
 		long __functionAddress = getInstance().GetDeviceMemoryCommitment;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(memory);
-		}
-		callPPPV(__functionAddress, device, memory, pCommittedMemoryInBytes);
+		callPJPV(__functionAddress, device, memory, pCommittedMemoryInBytes);
 	}
 
 	/**
@@ -3267,12 +3259,9 @@ public class VK10 {
 	 */
 	public static int vkBindBufferMemory(long device, long buffer, long memory, long memoryOffset) {
 		long __functionAddress = getInstance().BindBufferMemory;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(buffer);
-			checkPointer(memory);
-		}
-		return callPPPJI(__functionAddress, device, buffer, memory, memoryOffset);
+		return callPJJJI(__functionAddress, device, buffer, memory, memoryOffset);
 	}
 
 	// --- [ vkBindImageMemory ] ---
@@ -3287,12 +3276,9 @@ public class VK10 {
 	 */
 	public static int vkBindImageMemory(long device, long image, long memory, long memoryOffset) {
 		long __functionAddress = getInstance().BindImageMemory;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(image);
-			checkPointer(memory);
-		}
-		return callPPPJI(__functionAddress, device, image, memory, memoryOffset);
+		return callPJJJI(__functionAddress, device, image, memory, memoryOffset);
 	}
 
 	// --- [ vkGetBufferMemoryRequirements ] ---
@@ -3301,11 +3287,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkGetBufferMemoryRequirements(long device, long buffer, long pMemoryRequirements) {
 		long __functionAddress = getInstance().GetBufferMemoryRequirements;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(buffer);
-		}
-		callPPPV(__functionAddress, device, buffer, pMemoryRequirements);
+		callPJPV(__functionAddress, device, buffer, pMemoryRequirements);
 	}
 
 	/**
@@ -3325,11 +3309,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkGetImageMemoryRequirements(long device, long image, long pMemoryRequirements) {
 		long __functionAddress = getInstance().GetImageMemoryRequirements;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(image);
-		}
-		callPPPV(__functionAddress, device, image, pMemoryRequirements);
+		callPJPV(__functionAddress, device, image, pMemoryRequirements);
 	}
 
 	/**
@@ -3349,11 +3331,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkGetImageSparseMemoryRequirements(long device, long image, long pSparseMemoryRequirementCount, long pSparseMemoryRequirements) {
 		long __functionAddress = getInstance().GetImageSparseMemoryRequirements;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(image);
-		}
-		callPPPPV(__functionAddress, device, image, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
+		callPJPPV(__functionAddress, device, image, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
 	}
 
 	/**
@@ -3429,7 +3409,7 @@ public class VK10 {
 		long __functionAddress = getInstance().QueueBindSparse;
 		if ( CHECKS )
 			checkPointer(queue);
-		return callPIPPI(__functionAddress, queue, bindInfoCount, pBindInfo, fence);
+		return callPIPJI(__functionAddress, queue, bindInfoCount, pBindInfo, fence);
 	}
 
 	/**
@@ -3477,12 +3457,12 @@ public class VK10 {
 	 */
 	public static int vkCreateFence(long device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pFence) {
 		if ( CHECKS )
-			checkBuffer(pFence, 1 << POINTER_SHIFT);
+			checkBuffer(pFence, 1 << 3);
 		return nvkCreateFence(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pFence));
 	}
 
 	/** Alternative version of: {@link #vkCreateFence CreateFence} */
-	public static int vkCreateFence(long device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pFence) {
+	public static int vkCreateFence(long device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pFence) {
 		if ( CHECKS )
 			checkBuffer(pFence, 1);
 		return nvkCreateFence(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pFence));
@@ -3494,11 +3474,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyFence(long device, long fence, long pAllocator) {
 		long __functionAddress = getInstance().DestroyFence;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(fence);
-		}
-		callPPPV(__functionAddress, device, fence, pAllocator);
+		callPJPV(__functionAddress, device, fence, pAllocator);
 	}
 
 	/**
@@ -3532,19 +3510,19 @@ public class VK10 {
 	 */
 	public static int vkResetFences(long device, int fenceCount, ByteBuffer pFences) {
 		if ( CHECKS )
-			checkBuffer(pFences, fenceCount << POINTER_SHIFT);
+			checkBuffer(pFences, fenceCount << 3);
 		return nvkResetFences(device, fenceCount, memAddress(pFences));
 	}
 
 	/** Alternative version of: {@link #vkResetFences ResetFences} */
-	public static int vkResetFences(long device, PointerBuffer pFences) {
+	public static int vkResetFences(long device, LongBuffer pFences) {
 		return nvkResetFences(device, pFences.remaining(), memAddress(pFences));
 	}
 
 	/** Single value version of: {@link #vkResetFences ResetFences} */
 	public static int vkResetFences(long device, long pFence) {
 		APIBuffer __buffer = apiBuffer();
-		int pFences = __buffer.pointerParam(pFence);
+		int pFences = __buffer.longParam(pFence);
 		return nvkResetFences(device, 1, __buffer.address(pFences));
 	}
 
@@ -3558,11 +3536,9 @@ public class VK10 {
 	 */
 	public static int vkGetFenceStatus(long device, long fence) {
 		long __functionAddress = getInstance().GetFenceStatus;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(fence);
-		}
-		return callPPI(__functionAddress, device, fence);
+		return callPJI(__functionAddress, device, fence);
 	}
 
 	// --- [ vkWaitForFences ] ---
@@ -3587,19 +3563,19 @@ public class VK10 {
 	 */
 	public static int vkWaitForFences(long device, int fenceCount, ByteBuffer pFences, int waitAll, long timeout) {
 		if ( CHECKS )
-			checkBuffer(pFences, fenceCount << POINTER_SHIFT);
+			checkBuffer(pFences, fenceCount << 3);
 		return nvkWaitForFences(device, fenceCount, memAddress(pFences), waitAll, timeout);
 	}
 
 	/** Alternative version of: {@link #vkWaitForFences WaitForFences} */
-	public static int vkWaitForFences(long device, PointerBuffer pFences, int waitAll, long timeout) {
+	public static int vkWaitForFences(long device, LongBuffer pFences, int waitAll, long timeout) {
 		return nvkWaitForFences(device, pFences.remaining(), memAddress(pFences), waitAll, timeout);
 	}
 
 	/** Single value version of: {@link #vkWaitForFences WaitForFences} */
 	public static int vkWaitForFences(long device, long pFence, int waitAll, long timeout) {
 		APIBuffer __buffer = apiBuffer();
-		int pFences = __buffer.pointerParam(pFence);
+		int pFences = __buffer.longParam(pFence);
 		return nvkWaitForFences(device, 1, __buffer.address(pFences), waitAll, timeout);
 	}
 
@@ -3624,12 +3600,12 @@ public class VK10 {
 	 */
 	public static int vkCreateSemaphore(long device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSemaphore) {
 		if ( CHECKS )
-			checkBuffer(pSemaphore, 1 << POINTER_SHIFT);
+			checkBuffer(pSemaphore, 1 << 3);
 		return nvkCreateSemaphore(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSemaphore));
 	}
 
 	/** Alternative version of: {@link #vkCreateSemaphore CreateSemaphore} */
-	public static int vkCreateSemaphore(long device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pSemaphore) {
+	public static int vkCreateSemaphore(long device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSemaphore) {
 		if ( CHECKS )
 			checkBuffer(pSemaphore, 1);
 		return nvkCreateSemaphore(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSemaphore));
@@ -3641,11 +3617,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroySemaphore(long device, long semaphore, long pAllocator) {
 		long __functionAddress = getInstance().DestroySemaphore;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(semaphore);
-		}
-		callPPPV(__functionAddress, device, semaphore, pAllocator);
+		callPJPV(__functionAddress, device, semaphore, pAllocator);
 	}
 
 	/**
@@ -3680,12 +3654,12 @@ public class VK10 {
 	 */
 	public static int vkCreateEvent(long device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pEvent) {
 		if ( CHECKS )
-			checkBuffer(pEvent, 1 << POINTER_SHIFT);
+			checkBuffer(pEvent, 1 << 3);
 		return nvkCreateEvent(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pEvent));
 	}
 
 	/** Alternative version of: {@link #vkCreateEvent CreateEvent} */
-	public static int vkCreateEvent(long device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pEvent) {
+	public static int vkCreateEvent(long device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pEvent) {
 		if ( CHECKS )
 			checkBuffer(pEvent, 1);
 		return nvkCreateEvent(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pEvent));
@@ -3699,7 +3673,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyEvent;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, event, pAllocator);
+		callPJPV(__functionAddress, device, event, pAllocator);
 	}
 
 	/**
@@ -3723,11 +3697,9 @@ public class VK10 {
 	 */
 	public static int vkGetEventStatus(long device, long event) {
 		long __functionAddress = getInstance().GetEventStatus;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(event);
-		}
-		return callPPI(__functionAddress, device, event);
+		return callPJI(__functionAddress, device, event);
 	}
 
 	// --- [ vkSetEvent ] ---
@@ -3740,11 +3712,9 @@ public class VK10 {
 	 */
 	public static int vkSetEvent(long device, long event) {
 		long __functionAddress = getInstance().SetEvent;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(event);
-		}
-		return callPPI(__functionAddress, device, event);
+		return callPJI(__functionAddress, device, event);
 	}
 
 	// --- [ vkResetEvent ] ---
@@ -3757,11 +3727,9 @@ public class VK10 {
 	 */
 	public static int vkResetEvent(long device, long event) {
 		long __functionAddress = getInstance().ResetEvent;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(event);
-		}
-		return callPPI(__functionAddress, device, event);
+		return callPJI(__functionAddress, device, event);
 	}
 
 	// --- [ vkCreateQueryPool ] ---
@@ -3785,12 +3753,12 @@ public class VK10 {
 	 */
 	public static int vkCreateQueryPool(long device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pQueryPool) {
 		if ( CHECKS )
-			checkBuffer(pQueryPool, 1 << POINTER_SHIFT);
+			checkBuffer(pQueryPool, 1 << 3);
 		return nvkCreateQueryPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pQueryPool));
 	}
 
 	/** Alternative version of: {@link #vkCreateQueryPool CreateQueryPool} */
-	public static int vkCreateQueryPool(long device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pQueryPool) {
+	public static int vkCreateQueryPool(long device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pQueryPool) {
 		if ( CHECKS )
 			checkBuffer(pQueryPool, 1);
 		return nvkCreateQueryPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pQueryPool));
@@ -3804,7 +3772,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyQueryPool;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, queryPool, pAllocator);
+		callPJPV(__functionAddress, device, queryPool, pAllocator);
 	}
 
 	/**
@@ -3824,11 +3792,9 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkGetQueryPoolResults(long device, long queryPool, int firstQuery, int queryCount, long dataSize, long pData, long stride, int flags) {
 		long __functionAddress = getInstance().GetQueryPoolResults;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(queryPool);
-		}
-		return callPPIIPPJII(__functionAddress, device, queryPool, firstQuery, queryCount, dataSize, pData, stride, flags);
+		return callPJIIPPJII(__functionAddress, device, queryPool, firstQuery, queryCount, dataSize, pData, stride, flags);
 	}
 
 	/**
@@ -3875,12 +3841,12 @@ public class VK10 {
 	 */
 	public static int vkCreateBuffer(long device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pBuffer) {
 		if ( CHECKS )
-			checkBuffer(pBuffer, 1 << POINTER_SHIFT);
+			checkBuffer(pBuffer, 1 << 3);
 		return nvkCreateBuffer(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pBuffer));
 	}
 
 	/** Alternative version of: {@link #vkCreateBuffer CreateBuffer} */
-	public static int vkCreateBuffer(long device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pBuffer) {
+	public static int vkCreateBuffer(long device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pBuffer) {
 		if ( CHECKS )
 			checkBuffer(pBuffer, 1);
 		return nvkCreateBuffer(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pBuffer));
@@ -3894,7 +3860,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyBuffer;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, buffer, pAllocator);
+		callPJPV(__functionAddress, device, buffer, pAllocator);
 	}
 
 	/**
@@ -3929,12 +3895,12 @@ public class VK10 {
 	 */
 	public static int vkCreateBufferView(long device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pView) {
 		if ( CHECKS )
-			checkBuffer(pView, 1 << POINTER_SHIFT);
+			checkBuffer(pView, 1 << 3);
 		return nvkCreateBufferView(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pView));
 	}
 
 	/** Alternative version of: {@link #vkCreateBufferView CreateBufferView} */
-	public static int vkCreateBufferView(long device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pView) {
+	public static int vkCreateBufferView(long device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pView) {
 		if ( CHECKS )
 			checkBuffer(pView, 1);
 		return nvkCreateBufferView(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pView));
@@ -3948,7 +3914,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyBufferView;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, bufferView, pAllocator);
+		callPJPV(__functionAddress, device, bufferView, pAllocator);
 	}
 
 	/**
@@ -3983,12 +3949,12 @@ public class VK10 {
 	 */
 	public static int vkCreateImage(long device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pImage) {
 		if ( CHECKS )
-			checkBuffer(pImage, 1 << POINTER_SHIFT);
+			checkBuffer(pImage, 1 << 3);
 		return nvkCreateImage(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pImage));
 	}
 
 	/** Alternative version of: {@link #vkCreateImage CreateImage} */
-	public static int vkCreateImage(long device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pImage) {
+	public static int vkCreateImage(long device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pImage) {
 		if ( CHECKS )
 			checkBuffer(pImage, 1);
 		return nvkCreateImage(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pImage));
@@ -4002,7 +3968,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyImage;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, image, pAllocator);
+		callPJPV(__functionAddress, device, image, pAllocator);
 	}
 
 	/**
@@ -4022,11 +3988,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkGetImageSubresourceLayout(long device, long image, long pSubresource, long pLayout) {
 		long __functionAddress = getInstance().GetImageSubresourceLayout;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(image);
-		}
-		callPPPPV(__functionAddress, device, image, pSubresource, pLayout);
+		callPJPPV(__functionAddress, device, image, pSubresource, pLayout);
 	}
 
 	/**
@@ -4064,12 +4028,12 @@ public class VK10 {
 	 */
 	public static int vkCreateImageView(long device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pView) {
 		if ( CHECKS )
-			checkBuffer(pView, 1 << POINTER_SHIFT);
+			checkBuffer(pView, 1 << 3);
 		return nvkCreateImageView(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pView));
 	}
 
 	/** Alternative version of: {@link #vkCreateImageView CreateImageView} */
-	public static int vkCreateImageView(long device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pView) {
+	public static int vkCreateImageView(long device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pView) {
 		if ( CHECKS )
 			checkBuffer(pView, 1);
 		return nvkCreateImageView(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pView));
@@ -4083,7 +4047,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyImageView;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, imageView, pAllocator);
+		callPJPV(__functionAddress, device, imageView, pAllocator);
 	}
 
 	/**
@@ -4118,12 +4082,12 @@ public class VK10 {
 	 */
 	public static int vkCreateShaderModule(long device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pShaderModule) {
 		if ( CHECKS )
-			checkBuffer(pShaderModule, 1 << POINTER_SHIFT);
+			checkBuffer(pShaderModule, 1 << 3);
 		return nvkCreateShaderModule(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pShaderModule));
 	}
 
 	/** Alternative version of: {@link #vkCreateShaderModule CreateShaderModule} */
-	public static int vkCreateShaderModule(long device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pShaderModule) {
+	public static int vkCreateShaderModule(long device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pShaderModule) {
 		if ( CHECKS )
 			checkBuffer(pShaderModule, 1);
 		return nvkCreateShaderModule(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pShaderModule));
@@ -4137,7 +4101,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyShaderModule;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, shaderModule, pAllocator);
+		callPJPV(__functionAddress, device, shaderModule, pAllocator);
 	}
 
 	/**
@@ -4172,12 +4136,12 @@ public class VK10 {
 	 */
 	public static int vkCreatePipelineCache(long device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pPipelineCache) {
 		if ( CHECKS )
-			checkBuffer(pPipelineCache, 1 << POINTER_SHIFT);
+			checkBuffer(pPipelineCache, 1 << 3);
 		return nvkCreatePipelineCache(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelineCache));
 	}
 
 	/** Alternative version of: {@link #vkCreatePipelineCache CreatePipelineCache} */
-	public static int vkCreatePipelineCache(long device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pPipelineCache) {
+	public static int vkCreatePipelineCache(long device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pPipelineCache) {
 		if ( CHECKS )
 			checkBuffer(pPipelineCache, 1);
 		return nvkCreatePipelineCache(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelineCache));
@@ -4191,7 +4155,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyPipelineCache;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, pipelineCache, pAllocator);
+		callPJPV(__functionAddress, device, pipelineCache, pAllocator);
 	}
 
 	/**
@@ -4211,11 +4175,9 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkGetPipelineCacheData(long device, long pipelineCache, long pDataSize, long pData) {
 		long __functionAddress = getInstance().GetPipelineCacheData;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(pipelineCache);
-		}
-		return callPPPPI(__functionAddress, device, pipelineCache, pDataSize, pData);
+		return callPJPPI(__functionAddress, device, pipelineCache, pDataSize, pData);
 	}
 
 	/**
@@ -4249,11 +4211,9 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkMergePipelineCaches(long device, long dstCache, int srcCacheCount, long pSrcCaches) {
 		long __functionAddress = getInstance().MergePipelineCaches;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(dstCache);
-		}
-		return callPPIPI(__functionAddress, device, dstCache, srcCacheCount, pSrcCaches);
+		return callPJIPI(__functionAddress, device, dstCache, srcCacheCount, pSrcCaches);
 	}
 
 	/**
@@ -4266,12 +4226,12 @@ public class VK10 {
 	 */
 	public static int vkMergePipelineCaches(long device, long dstCache, int srcCacheCount, ByteBuffer pSrcCaches) {
 		if ( CHECKS )
-			checkBuffer(pSrcCaches, srcCacheCount << POINTER_SHIFT);
+			checkBuffer(pSrcCaches, srcCacheCount << 3);
 		return nvkMergePipelineCaches(device, dstCache, srcCacheCount, memAddress(pSrcCaches));
 	}
 
 	/** Alternative version of: {@link #vkMergePipelineCaches MergePipelineCaches} */
-	public static int vkMergePipelineCaches(long device, long dstCache, PointerBuffer pSrcCaches) {
+	public static int vkMergePipelineCaches(long device, long dstCache, LongBuffer pSrcCaches) {
 		return nvkMergePipelineCaches(device, dstCache, pSrcCaches.remaining(), memAddress(pSrcCaches));
 	}
 
@@ -4281,11 +4241,9 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateGraphicsPipelines(long device, long pipelineCache, int createInfoCount, long pCreateInfos, long pAllocator, long pPipelines) {
 		long __functionAddress = getInstance().CreateGraphicsPipelines;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(pipelineCache);
-		}
-		return callPPIPPPI(__functionAddress, device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
+		return callPJIPPPI(__functionAddress, device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 	}
 
 	/**
@@ -4301,13 +4259,13 @@ public class VK10 {
 	public static int vkCreateGraphicsPipelines(long device, long pipelineCache, int createInfoCount, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, ByteBuffer pPipelines) {
 		if ( CHECKS ) {
 			checkBuffer(pCreateInfos, createInfoCount);
-			checkBuffer(pPipelines, createInfoCount << POINTER_SHIFT);
+			checkBuffer(pPipelines, createInfoCount << 3);
 		}
 		return nvkCreateGraphicsPipelines(device, pipelineCache, createInfoCount, pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelines));
 	}
 
 	/** Alternative version of: {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines} */
-	public static int vkCreateGraphicsPipelines(long device, long pipelineCache, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, PointerBuffer pPipelines) {
+	public static int vkCreateGraphicsPipelines(long device, long pipelineCache, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pPipelines) {
 		if ( CHECKS )
 			checkBuffer(pPipelines, pCreateInfos.remaining());
 		return nvkCreateGraphicsPipelines(device, pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelines));
@@ -4319,11 +4277,9 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateComputePipelines(long device, long pipelineCache, int createInfoCount, long pCreateInfos, long pAllocator, long pPipelines) {
 		long __functionAddress = getInstance().CreateComputePipelines;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(pipelineCache);
-		}
-		return callPPIPPPI(__functionAddress, device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
+		return callPJIPPPI(__functionAddress, device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 	}
 
 	/**
@@ -4338,12 +4294,12 @@ public class VK10 {
 	 */
 	public static int vkCreateComputePipelines(long device, long pipelineCache, int createInfoCount, VkComputePipelineCreateInfo pCreateInfos, VkAllocationCallbacks pAllocator, ByteBuffer pPipelines) {
 		if ( CHECKS )
-			checkBuffer(pPipelines, 1 << POINTER_SHIFT);
+			checkBuffer(pPipelines, 1 << 3);
 		return nvkCreateComputePipelines(device, pipelineCache, createInfoCount, pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelines));
 	}
 
 	/** Alternative version of: {@link #vkCreateComputePipelines CreateComputePipelines} */
-	public static int vkCreateComputePipelines(long device, long pipelineCache, int createInfoCount, VkComputePipelineCreateInfo pCreateInfos, VkAllocationCallbacks pAllocator, PointerBuffer pPipelines) {
+	public static int vkCreateComputePipelines(long device, long pipelineCache, int createInfoCount, VkComputePipelineCreateInfo pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pPipelines) {
 		if ( CHECKS )
 			checkBuffer(pPipelines, 1);
 		return nvkCreateComputePipelines(device, pipelineCache, createInfoCount, pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelines));
@@ -4357,7 +4313,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyPipeline;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, pipeline, pAllocator);
+		callPJPV(__functionAddress, device, pipeline, pAllocator);
 	}
 
 	/**
@@ -4392,12 +4348,12 @@ public class VK10 {
 	 */
 	public static int vkCreatePipelineLayout(long device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pPipelineLayout) {
 		if ( CHECKS )
-			checkBuffer(pPipelineLayout, 1 << POINTER_SHIFT);
+			checkBuffer(pPipelineLayout, 1 << 3);
 		return nvkCreatePipelineLayout(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelineLayout));
 	}
 
 	/** Alternative version of: {@link #vkCreatePipelineLayout CreatePipelineLayout} */
-	public static int vkCreatePipelineLayout(long device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pPipelineLayout) {
+	public static int vkCreatePipelineLayout(long device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pPipelineLayout) {
 		if ( CHECKS )
 			checkBuffer(pPipelineLayout, 1);
 		return nvkCreatePipelineLayout(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelineLayout));
@@ -4411,7 +4367,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyPipelineLayout;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, pipelineLayout, pAllocator);
+		callPJPV(__functionAddress, device, pipelineLayout, pAllocator);
 	}
 
 	/**
@@ -4446,12 +4402,12 @@ public class VK10 {
 	 */
 	public static int vkCreateSampler(long device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSampler) {
 		if ( CHECKS )
-			checkBuffer(pSampler, 1 << POINTER_SHIFT);
+			checkBuffer(pSampler, 1 << 3);
 		return nvkCreateSampler(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSampler));
 	}
 
 	/** Alternative version of: {@link #vkCreateSampler CreateSampler} */
-	public static int vkCreateSampler(long device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pSampler) {
+	public static int vkCreateSampler(long device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSampler) {
 		if ( CHECKS )
 			checkBuffer(pSampler, 1);
 		return nvkCreateSampler(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSampler));
@@ -4465,7 +4421,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroySampler;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, sampler, pAllocator);
+		callPJPV(__functionAddress, device, sampler, pAllocator);
 	}
 
 	/**
@@ -4500,12 +4456,12 @@ public class VK10 {
 	 */
 	public static int vkCreateDescriptorSetLayout(long device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSetLayout) {
 		if ( CHECKS )
-			checkBuffer(pSetLayout, 1 << POINTER_SHIFT);
+			checkBuffer(pSetLayout, 1 << 3);
 		return nvkCreateDescriptorSetLayout(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSetLayout));
 	}
 
 	/** Alternative version of: {@link #vkCreateDescriptorSetLayout CreateDescriptorSetLayout} */
-	public static int vkCreateDescriptorSetLayout(long device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pSetLayout) {
+	public static int vkCreateDescriptorSetLayout(long device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSetLayout) {
 		if ( CHECKS )
 			checkBuffer(pSetLayout, 1);
 		return nvkCreateDescriptorSetLayout(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSetLayout));
@@ -4519,7 +4475,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyDescriptorSetLayout;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, descriptorSetLayout, pAllocator);
+		callPJPV(__functionAddress, device, descriptorSetLayout, pAllocator);
 	}
 
 	/**
@@ -4554,12 +4510,12 @@ public class VK10 {
 	 */
 	public static int vkCreateDescriptorPool(long device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pDescriptorPool) {
 		if ( CHECKS )
-			checkBuffer(pDescriptorPool, 1 << POINTER_SHIFT);
+			checkBuffer(pDescriptorPool, 1 << 3);
 		return nvkCreateDescriptorPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pDescriptorPool));
 	}
 
 	/** Alternative version of: {@link #vkCreateDescriptorPool CreateDescriptorPool} */
-	public static int vkCreateDescriptorPool(long device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pDescriptorPool) {
+	public static int vkCreateDescriptorPool(long device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pDescriptorPool) {
 		if ( CHECKS )
 			checkBuffer(pDescriptorPool, 1);
 		return nvkCreateDescriptorPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pDescriptorPool));
@@ -4573,7 +4529,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyDescriptorPool;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, descriptorPool, pAllocator);
+		callPJPV(__functionAddress, device, descriptorPool, pAllocator);
 	}
 
 	/**
@@ -4598,11 +4554,9 @@ public class VK10 {
 	 */
 	public static int vkResetDescriptorPool(long device, long descriptorPool, int flags) {
 		long __functionAddress = getInstance().ResetDescriptorPool;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(descriptorPool);
-		}
-		return callPPII(__functionAddress, device, descriptorPool, flags);
+		return callPJII(__functionAddress, device, descriptorPool, flags);
 	}
 
 	// --- [ vkAllocateDescriptorSets ] ---
@@ -4618,12 +4572,12 @@ public class VK10 {
 
 	public static int vkAllocateDescriptorSets(long device, VkDescriptorSetAllocateInfo pAllocateInfo, ByteBuffer pDescriptorSets) {
 		if ( CHECKS )
-			checkBuffer(pDescriptorSets, 1 << POINTER_SHIFT);
+			checkBuffer(pDescriptorSets, 1 << 3);
 		return nvkAllocateDescriptorSets(device, pAllocateInfo.address(), memAddress(pDescriptorSets));
 	}
 
 	/** Alternative version of: {@link #vkAllocateDescriptorSets AllocateDescriptorSets} */
-	public static int vkAllocateDescriptorSets(long device, VkDescriptorSetAllocateInfo pAllocateInfo, PointerBuffer pDescriptorSets) {
+	public static int vkAllocateDescriptorSets(long device, VkDescriptorSetAllocateInfo pAllocateInfo, LongBuffer pDescriptorSets) {
 		if ( CHECKS )
 			checkBuffer(pDescriptorSets, 1);
 		return nvkAllocateDescriptorSets(device, pAllocateInfo.address(), memAddress(pDescriptorSets));
@@ -4635,11 +4589,9 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkFreeDescriptorSets(long device, long descriptorPool, int descriptorSetCount, long pDescriptorSets) {
 		long __functionAddress = getInstance().FreeDescriptorSets;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(descriptorPool);
-		}
-		return callPPIPI(__functionAddress, device, descriptorPool, descriptorSetCount, pDescriptorSets);
+		return callPJIPI(__functionAddress, device, descriptorPool, descriptorSetCount, pDescriptorSets);
 	}
 
 	/**
@@ -4652,19 +4604,19 @@ public class VK10 {
 	 */
 	public static int vkFreeDescriptorSets(long device, long descriptorPool, int descriptorSetCount, ByteBuffer pDescriptorSets) {
 		if ( CHECKS )
-			checkBuffer(pDescriptorSets, descriptorSetCount << POINTER_SHIFT);
+			checkBuffer(pDescriptorSets, descriptorSetCount << 3);
 		return nvkFreeDescriptorSets(device, descriptorPool, descriptorSetCount, memAddress(pDescriptorSets));
 	}
 
 	/** Alternative version of: {@link #vkFreeDescriptorSets FreeDescriptorSets} */
-	public static int vkFreeDescriptorSets(long device, long descriptorPool, PointerBuffer pDescriptorSets) {
+	public static int vkFreeDescriptorSets(long device, long descriptorPool, LongBuffer pDescriptorSets) {
 		return nvkFreeDescriptorSets(device, descriptorPool, pDescriptorSets.remaining(), memAddress(pDescriptorSets));
 	}
 
 	/** Single value version of: {@link #vkFreeDescriptorSets FreeDescriptorSets} */
 	public static int vkFreeDescriptorSets(long device, long descriptorPool, long pDescriptorSet) {
 		APIBuffer __buffer = apiBuffer();
-		int pDescriptorSets = __buffer.pointerParam(pDescriptorSet);
+		int pDescriptorSets = __buffer.longParam(pDescriptorSet);
 		return nvkFreeDescriptorSets(device, descriptorPool, 1, __buffer.address(pDescriptorSets));
 	}
 
@@ -4722,12 +4674,12 @@ public class VK10 {
 	 */
 	public static int vkCreateFramebuffer(long device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pFramebuffer) {
 		if ( CHECKS )
-			checkBuffer(pFramebuffer, 1 << POINTER_SHIFT);
+			checkBuffer(pFramebuffer, 1 << 3);
 		return nvkCreateFramebuffer(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pFramebuffer));
 	}
 
 	/** Alternative version of: {@link #vkCreateFramebuffer CreateFramebuffer} */
-	public static int vkCreateFramebuffer(long device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pFramebuffer) {
+	public static int vkCreateFramebuffer(long device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pFramebuffer) {
 		if ( CHECKS )
 			checkBuffer(pFramebuffer, 1);
 		return nvkCreateFramebuffer(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pFramebuffer));
@@ -4741,7 +4693,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyFramebuffer;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, framebuffer, pAllocator);
+		callPJPV(__functionAddress, device, framebuffer, pAllocator);
 	}
 
 	/**
@@ -4776,12 +4728,12 @@ public class VK10 {
 	 */
 	public static int vkCreateRenderPass(long device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pRenderPass) {
 		if ( CHECKS )
-			checkBuffer(pRenderPass, 1 << POINTER_SHIFT);
+			checkBuffer(pRenderPass, 1 << 3);
 		return nvkCreateRenderPass(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pRenderPass));
 	}
 
 	/** Alternative version of: {@link #vkCreateRenderPass CreateRenderPass} */
-	public static int vkCreateRenderPass(long device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pRenderPass) {
+	public static int vkCreateRenderPass(long device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pRenderPass) {
 		if ( CHECKS )
 			checkBuffer(pRenderPass, 1);
 		return nvkCreateRenderPass(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pRenderPass));
@@ -4795,7 +4747,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyRenderPass;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, renderPass, pAllocator);
+		callPJPV(__functionAddress, device, renderPass, pAllocator);
 	}
 
 	/**
@@ -4815,11 +4767,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkGetRenderAreaGranularity(long device, long renderPass, long pGranularity) {
 		long __functionAddress = getInstance().GetRenderAreaGranularity;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(renderPass);
-		}
-		callPPPV(__functionAddress, device, renderPass, pGranularity);
+		callPJPV(__functionAddress, device, renderPass, pGranularity);
 	}
 
 	/**
@@ -4854,12 +4804,12 @@ public class VK10 {
 	 */
 	public static int vkCreateCommandPool(long device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pCommandPool) {
 		if ( CHECKS )
-			checkBuffer(pCommandPool, 1 << POINTER_SHIFT);
+			checkBuffer(pCommandPool, 1 << 3);
 		return nvkCreateCommandPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pCommandPool));
 	}
 
 	/** Alternative version of: {@link #vkCreateCommandPool CreateCommandPool} */
-	public static int vkCreateCommandPool(long device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pCommandPool) {
+	public static int vkCreateCommandPool(long device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pCommandPool) {
 		if ( CHECKS )
 			checkBuffer(pCommandPool, 1);
 		return nvkCreateCommandPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pCommandPool));
@@ -4873,7 +4823,7 @@ public class VK10 {
 		long __functionAddress = getInstance().DestroyCommandPool;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, commandPool, pAllocator);
+		callPJPV(__functionAddress, device, commandPool, pAllocator);
 	}
 
 	/**
@@ -4898,11 +4848,9 @@ public class VK10 {
 	 */
 	public static int vkResetCommandPool(long device, long commandPool, int flags) {
 		long __functionAddress = getInstance().ResetCommandPool;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(commandPool);
-		}
-		return callPPII(__functionAddress, device, commandPool, flags);
+		return callPJII(__functionAddress, device, commandPool, flags);
 	}
 
 	// --- [ vkAllocateCommandBuffers ] ---
@@ -4935,11 +4883,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkFreeCommandBuffers(long device, long commandPool, int commandBufferCount, long pCommandBuffers) {
 		long __functionAddress = getInstance().FreeCommandBuffers;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(commandPool);
-		}
-		callPPIPV(__functionAddress, device, commandPool, commandBufferCount, pCommandBuffers);
+		callPJIPV(__functionAddress, device, commandPool, commandBufferCount, pCommandBuffers);
 	}
 
 	/**
@@ -5029,11 +4975,9 @@ public class VK10 {
 	 */
 	public static void vkCmdBindPipeline(long commandBuffer, int pipelineBindPoint, long pipeline) {
 		long __functionAddress = getInstance().CmdBindPipeline;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(pipeline);
-		}
-		callPIPV(__functionAddress, commandBuffer, pipelineBindPoint, pipeline);
+		callPIJV(__functionAddress, commandBuffer, pipelineBindPoint, pipeline);
 	}
 
 	// --- [ vkCmdSetViewport ] ---
@@ -5198,11 +5142,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdBindDescriptorSets(long commandBuffer, int pipelineBindPoint, long layout, int firstSet, int descriptorSetCount, long pDescriptorSets, int dynamicOffsetCount, long pDynamicOffsets) {
 		long __functionAddress = getInstance().CmdBindDescriptorSets;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(layout);
-		}
-		callPIPIIPIPV(__functionAddress, commandBuffer, pipelineBindPoint, layout, firstSet, descriptorSetCount, pDescriptorSets, dynamicOffsetCount, pDynamicOffsets);
+		callPIJIIPIPV(__functionAddress, commandBuffer, pipelineBindPoint, layout, firstSet, descriptorSetCount, pDescriptorSets, dynamicOffsetCount, pDynamicOffsets);
 	}
 
 	/**
@@ -5219,14 +5161,14 @@ public class VK10 {
 	 */
 	public static void vkCmdBindDescriptorSets(long commandBuffer, int pipelineBindPoint, long layout, int firstSet, int descriptorSetCount, ByteBuffer pDescriptorSets, int dynamicOffsetCount, ByteBuffer pDynamicOffsets) {
 		if ( CHECKS ) {
-			checkBuffer(pDescriptorSets, descriptorSetCount << POINTER_SHIFT);
+			checkBuffer(pDescriptorSets, descriptorSetCount << 3);
 			checkBuffer(pDynamicOffsets, dynamicOffsetCount << 2);
 		}
 		nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, descriptorSetCount, memAddress(pDescriptorSets), dynamicOffsetCount, memAddress(pDynamicOffsets));
 	}
 
 	/** Alternative version of: {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets} */
-	public static void vkCmdBindDescriptorSets(long commandBuffer, int pipelineBindPoint, long layout, int firstSet, PointerBuffer pDescriptorSets, IntBuffer pDynamicOffsets) {
+	public static void vkCmdBindDescriptorSets(long commandBuffer, int pipelineBindPoint, long layout, int firstSet, LongBuffer pDescriptorSets, IntBuffer pDynamicOffsets) {
 		nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, pDescriptorSets.remaining(), memAddress(pDescriptorSets), pDynamicOffsets.remaining(), memAddress(pDynamicOffsets));
 	}
 
@@ -5242,11 +5184,9 @@ public class VK10 {
 	 */
 	public static void vkCmdBindIndexBuffer(long commandBuffer, long buffer, long offset, int indexType) {
 		long __functionAddress = getInstance().CmdBindIndexBuffer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(buffer);
-		}
-		callPPJIV(__functionAddress, commandBuffer, buffer, offset, indexType);
+		callPJJIV(__functionAddress, commandBuffer, buffer, offset, indexType);
 	}
 
 	// --- [ vkCmdBindVertexBuffers ] ---
@@ -5271,14 +5211,14 @@ public class VK10 {
 	 */
 	public static void vkCmdBindVertexBuffers(long commandBuffer, int firstBinding, int bindingCount, ByteBuffer pBuffers, ByteBuffer pOffsets) {
 		if ( CHECKS ) {
-			checkBuffer(pBuffers, bindingCount << POINTER_SHIFT);
+			checkBuffer(pBuffers, bindingCount << 3);
 			checkBuffer(pOffsets, bindingCount << 3);
 		}
 		nvkCmdBindVertexBuffers(commandBuffer, firstBinding, bindingCount, memAddress(pBuffers), memAddress(pOffsets));
 	}
 
 	/** Alternative version of: {@link #vkCmdBindVertexBuffers CmdBindVertexBuffers} */
-	public static void vkCmdBindVertexBuffers(long commandBuffer, int firstBinding, PointerBuffer pBuffers, LongBuffer pOffsets) {
+	public static void vkCmdBindVertexBuffers(long commandBuffer, int firstBinding, LongBuffer pBuffers, LongBuffer pOffsets) {
 		if ( CHECKS )
 			checkBuffer(pOffsets, pBuffers.remaining());
 		nvkCmdBindVertexBuffers(commandBuffer, firstBinding, pBuffers.remaining(), memAddress(pBuffers), memAddress(pOffsets));
@@ -5334,11 +5274,9 @@ public class VK10 {
 	 */
 	public static void vkCmdDrawIndirect(long commandBuffer, long buffer, long offset, int drawCount, int stride) {
 		long __functionAddress = getInstance().CmdDrawIndirect;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(buffer);
-		}
-		callPPJIIV(__functionAddress, commandBuffer, buffer, offset, drawCount, stride);
+		callPJJIIV(__functionAddress, commandBuffer, buffer, offset, drawCount, stride);
 	}
 
 	// --- [ vkCmdDrawIndexedIndirect ] ---
@@ -5354,11 +5292,9 @@ public class VK10 {
 	 */
 	public static void vkCmdDrawIndexedIndirect(long commandBuffer, long buffer, long offset, int drawCount, int stride) {
 		long __functionAddress = getInstance().CmdDrawIndexedIndirect;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(buffer);
-		}
-		callPPJIIV(__functionAddress, commandBuffer, buffer, offset, drawCount, stride);
+		callPJJIIV(__functionAddress, commandBuffer, buffer, offset, drawCount, stride);
 	}
 
 	// --- [ vkCmdDispatch ] ---
@@ -5389,11 +5325,9 @@ public class VK10 {
 	 */
 	public static void vkCmdDispatchIndirect(long commandBuffer, long buffer, long offset) {
 		long __functionAddress = getInstance().CmdDispatchIndirect;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(buffer);
-		}
-		callPPJV(__functionAddress, commandBuffer, buffer, offset);
+		callPJJV(__functionAddress, commandBuffer, buffer, offset);
 	}
 
 	// --- [ vkCmdCopyBuffer ] ---
@@ -5402,12 +5336,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdCopyBuffer(long commandBuffer, long srcBuffer, long dstBuffer, int regionCount, long pRegions) {
 		long __functionAddress = getInstance().CmdCopyBuffer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(srcBuffer);
-			checkPointer(dstBuffer);
-		}
-		callPPPIPV(__functionAddress, commandBuffer, srcBuffer, dstBuffer, regionCount, pRegions);
+		callPJJIPV(__functionAddress, commandBuffer, srcBuffer, dstBuffer, regionCount, pRegions);
 	}
 
 	/**
@@ -5436,12 +5367,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdCopyImage(long commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = getInstance().CmdCopyImage;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(srcImage);
-			checkPointer(dstImage);
-		}
-		callPPIPIIPV(__functionAddress, commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
+		callPJIJIIPV(__functionAddress, commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
 	}
 
 	/**
@@ -5472,12 +5400,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdBlitImage(long commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions, int filter) {
 		long __functionAddress = getInstance().CmdBlitImage;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(srcImage);
-			checkPointer(dstImage);
-		}
-		callPPIPIIPIV(__functionAddress, commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions, filter);
+		callPJIJIIPIV(__functionAddress, commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions, filter);
 	}
 
 	/**
@@ -5509,12 +5434,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdCopyBufferToImage(long commandBuffer, long srcBuffer, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = getInstance().CmdCopyBufferToImage;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(srcBuffer);
-			checkPointer(dstImage);
-		}
-		callPPPIIPV(__functionAddress, commandBuffer, srcBuffer, dstImage, dstImageLayout, regionCount, pRegions);
+		callPJJIIPV(__functionAddress, commandBuffer, srcBuffer, dstImage, dstImageLayout, regionCount, pRegions);
 	}
 
 	/**
@@ -5544,12 +5466,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdCopyImageToBuffer(long commandBuffer, long srcImage, int srcImageLayout, long dstBuffer, int regionCount, long pRegions) {
 		long __functionAddress = getInstance().CmdCopyImageToBuffer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(srcImage);
-			checkPointer(dstBuffer);
-		}
-		callPPIPIPV(__functionAddress, commandBuffer, srcImage, srcImageLayout, dstBuffer, regionCount, pRegions);
+		callPJIJIPV(__functionAddress, commandBuffer, srcImage, srcImageLayout, dstBuffer, regionCount, pRegions);
 	}
 
 	/**
@@ -5579,11 +5498,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdUpdateBuffer(long commandBuffer, long dstBuffer, long dstOffset, long dataSize, long pData) {
 		long __functionAddress = getInstance().CmdUpdateBuffer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(dstBuffer);
-		}
-		callPPJJPV(__functionAddress, commandBuffer, dstBuffer, dstOffset, dataSize, pData);
+		callPJJJPV(__functionAddress, commandBuffer, dstBuffer, dstOffset, dataSize, pData);
 	}
 
 	/**
@@ -5619,11 +5536,9 @@ public class VK10 {
 	 */
 	public static void vkCmdFillBuffer(long commandBuffer, long dstBuffer, long dstOffset, long size, int data) {
 		long __functionAddress = getInstance().CmdFillBuffer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(dstBuffer);
-		}
-		callPPJJIV(__functionAddress, commandBuffer, dstBuffer, dstOffset, size, data);
+		callPJJJIV(__functionAddress, commandBuffer, dstBuffer, dstOffset, size, data);
 	}
 
 	// --- [ vkCmdClearColorImage ] ---
@@ -5632,11 +5547,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdClearColorImage(long commandBuffer, long image, int imageLayout, long pColor, int rangeCount, long pRanges) {
 		long __functionAddress = getInstance().CmdClearColorImage;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(image);
-		}
-		callPPIPIPV(__functionAddress, commandBuffer, image, imageLayout, pColor, rangeCount, pRanges);
+		callPJIPIPV(__functionAddress, commandBuffer, image, imageLayout, pColor, rangeCount, pRanges);
 	}
 
 	/**
@@ -5671,11 +5584,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdClearDepthStencilImage(long commandBuffer, long image, int imageLayout, long pDepthStencil, int rangeCount, long pRanges) {
 		long __functionAddress = getInstance().CmdClearDepthStencilImage;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(image);
-		}
-		callPPIPIPV(__functionAddress, commandBuffer, image, imageLayout, pDepthStencil, rangeCount, pRanges);
+		callPJIPIPV(__functionAddress, commandBuffer, image, imageLayout, pDepthStencil, rangeCount, pRanges);
 	}
 
 	/**
@@ -5743,12 +5654,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdResolveImage(long commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = getInstance().CmdResolveImage;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(srcImage);
-			checkPointer(dstImage);
-		}
-		callPPIPIIPV(__functionAddress, commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
+		callPJIJIIPV(__functionAddress, commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
 	}
 
 	/**
@@ -5789,11 +5697,9 @@ public class VK10 {
 	 */
 	public static void vkCmdSetEvent(long commandBuffer, long event, int stageMask) {
 		long __functionAddress = getInstance().CmdSetEvent;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(event);
-		}
-		callPPIV(__functionAddress, commandBuffer, event, stageMask);
+		callPJIV(__functionAddress, commandBuffer, event, stageMask);
 	}
 
 	// --- [ vkCmdResetEvent ] ---
@@ -5807,11 +5713,9 @@ public class VK10 {
 	 */
 	public static void vkCmdResetEvent(long commandBuffer, long event, int stageMask) {
 		long __functionAddress = getInstance().CmdResetEvent;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(event);
-		}
-		callPPIV(__functionAddress, commandBuffer, event, stageMask);
+		callPJIV(__functionAddress, commandBuffer, event, stageMask);
 	}
 
 	// --- [ vkCmdWaitEvents ] ---
@@ -5842,7 +5746,7 @@ public class VK10 {
 	 */
 	public static void vkCmdWaitEvents(long commandBuffer, int eventCount, ByteBuffer pEvents, int srcStageMask, int dstStageMask, int memoryBarrierCount, VkMemoryBarrier.Buffer pMemoryBarriers, int bufferMemoryBarrierCount, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, int imageMemoryBarrierCount, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
 		if ( CHECKS ) {
-			checkBuffer(pEvents, eventCount << POINTER_SHIFT);
+			checkBuffer(pEvents, eventCount << 3);
 			if ( pMemoryBarriers != null ) checkBuffer(pMemoryBarriers, memoryBarrierCount);
 			if ( pBufferMemoryBarriers != null ) checkBuffer(pBufferMemoryBarriers, bufferMemoryBarrierCount);
 			if ( pImageMemoryBarriers != null ) checkBuffer(pImageMemoryBarriers, imageMemoryBarrierCount);
@@ -5851,7 +5755,7 @@ public class VK10 {
 	}
 
 	/** Alternative version of: {@link #vkCmdWaitEvents CmdWaitEvents} */
-	public static void vkCmdWaitEvents(long commandBuffer, PointerBuffer pEvents, int srcStageMask, int dstStageMask, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
+	public static void vkCmdWaitEvents(long commandBuffer, LongBuffer pEvents, int srcStageMask, int dstStageMask, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
 		nvkCmdWaitEvents(commandBuffer, pEvents.remaining(), memAddress(pEvents), srcStageMask, dstStageMask, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), pMemoryBarriers == null ? NULL : pMemoryBarriers.address(), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), pBufferMemoryBarriers == null ? NULL : pBufferMemoryBarriers.address(), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), pImageMemoryBarriers == null ? NULL : pImageMemoryBarriers.address());
 	}
 
@@ -5906,11 +5810,9 @@ public class VK10 {
 	 */
 	public static void vkCmdBeginQuery(long commandBuffer, long queryPool, int query, int flags) {
 		long __functionAddress = getInstance().CmdBeginQuery;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(queryPool);
-		}
-		callPPIIV(__functionAddress, commandBuffer, queryPool, query, flags);
+		callPJIIV(__functionAddress, commandBuffer, queryPool, query, flags);
 	}
 
 	// --- [ vkCmdEndQuery ] ---
@@ -5924,11 +5826,9 @@ public class VK10 {
 	 */
 	public static void vkCmdEndQuery(long commandBuffer, long queryPool, int query) {
 		long __functionAddress = getInstance().CmdEndQuery;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(queryPool);
-		}
-		callPPIV(__functionAddress, commandBuffer, queryPool, query);
+		callPJIV(__functionAddress, commandBuffer, queryPool, query);
 	}
 
 	// --- [ vkCmdResetQueryPool ] ---
@@ -5943,11 +5843,9 @@ public class VK10 {
 	 */
 	public static void vkCmdResetQueryPool(long commandBuffer, long queryPool, int firstQuery, int queryCount) {
 		long __functionAddress = getInstance().CmdResetQueryPool;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(queryPool);
-		}
-		callPPIIV(__functionAddress, commandBuffer, queryPool, firstQuery, queryCount);
+		callPJIIV(__functionAddress, commandBuffer, queryPool, firstQuery, queryCount);
 	}
 
 	// --- [ vkCmdWriteTimestamp ] ---
@@ -5962,11 +5860,9 @@ public class VK10 {
 	 */
 	public static void vkCmdWriteTimestamp(long commandBuffer, int pipelineStage, long queryPool, int query) {
 		long __functionAddress = getInstance().CmdWriteTimestamp;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(queryPool);
-		}
-		callPIPIV(__functionAddress, commandBuffer, pipelineStage, queryPool, query);
+		callPIJIV(__functionAddress, commandBuffer, pipelineStage, queryPool, query);
 	}
 
 	// --- [ vkCmdCopyQueryPoolResults ] ---
@@ -5985,12 +5881,9 @@ public class VK10 {
 	 */
 	public static void vkCmdCopyQueryPoolResults(long commandBuffer, long queryPool, int firstQuery, int queryCount, long dstBuffer, long dstOffset, long stride, int flags) {
 		long __functionAddress = getInstance().CmdCopyQueryPoolResults;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(queryPool);
-			checkPointer(dstBuffer);
-		}
-		callPPIIPJJIV(__functionAddress, commandBuffer, queryPool, firstQuery, queryCount, dstBuffer, dstOffset, stride, flags);
+		callPJIIJJJIV(__functionAddress, commandBuffer, queryPool, firstQuery, queryCount, dstBuffer, dstOffset, stride, flags);
 	}
 
 	// --- [ vkCmdPushConstants ] ---
@@ -5999,11 +5892,9 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdPushConstants(long commandBuffer, long layout, int stageFlags, int offset, int size, long pValues) {
 		long __functionAddress = getInstance().CmdPushConstants;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(commandBuffer);
-			checkPointer(layout);
-		}
-		callPPIIIPV(__functionAddress, commandBuffer, layout, stageFlags, offset, size, pValues);
+		callPJIIIPV(__functionAddress, commandBuffer, layout, stageFlags, offset, size, pValues);
 	}
 
 	/**

@@ -51,8 +51,8 @@ public class VkComputePipelineCreateInfo extends Struct {
 			__member(POINTER_SIZE),
 			__member(4),
 			__member(VkPipelineShaderStageCreateInfo.SIZEOF, VkPipelineShaderStageCreateInfo.__ALIGNMENT),
-			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
+			__member(8),
+			__member(8),
 			__member(4)
 		);
 
@@ -228,9 +228,9 @@ public class VkComputePipelineCreateInfo extends Struct {
 	/** Unsafe version of {@link #stage}. */
 	public static VkPipelineShaderStageCreateInfo nstage(long struct) { return VkPipelineShaderStageCreateInfo.create(struct + VkComputePipelineCreateInfo.STAGE); }
 	/** Unsafe version of {@link #layout}. */
-	public static long nlayout(long struct) { return memGetAddress(struct + VkComputePipelineCreateInfo.LAYOUT); }
+	public static long nlayout(long struct) { return memGetLong(struct + VkComputePipelineCreateInfo.LAYOUT); }
 	/** Unsafe version of {@link #basePipelineHandle}. */
-	public static long nbasePipelineHandle(long struct) { return memGetAddress(struct + VkComputePipelineCreateInfo.BASEPIPELINEHANDLE); }
+	public static long nbasePipelineHandle(long struct) { return memGetLong(struct + VkComputePipelineCreateInfo.BASEPIPELINEHANDLE); }
 	/** Unsafe version of {@link #basePipelineIndex}. */
 	public static int nbasePipelineIndex(long struct) { return memGetInt(struct + VkComputePipelineCreateInfo.BASEPIPELINEINDEX); }
 
@@ -243,9 +243,9 @@ public class VkComputePipelineCreateInfo extends Struct {
 	/** Unsafe version of {@link #stage(VkPipelineShaderStageCreateInfo) stage}. */
 	public static void nstage(long struct, VkPipelineShaderStageCreateInfo value) { memCopy(value.address(), struct + VkComputePipelineCreateInfo.STAGE, VkPipelineShaderStageCreateInfo.SIZEOF); }
 	/** Unsafe version of {@link #layout(long) layout}. */
-	public static void nlayout(long struct, long value) { memPutAddress(struct + VkComputePipelineCreateInfo.LAYOUT, value); }
+	public static void nlayout(long struct, long value) { memPutLong(struct + VkComputePipelineCreateInfo.LAYOUT, value); }
 	/** Unsafe version of {@link #basePipelineHandle(long) basePipelineHandle}. */
-	public static void nbasePipelineHandle(long struct, long value) { memPutAddress(struct + VkComputePipelineCreateInfo.BASEPIPELINEHANDLE, value); }
+	public static void nbasePipelineHandle(long struct, long value) { memPutLong(struct + VkComputePipelineCreateInfo.BASEPIPELINEHANDLE, value); }
 	/** Unsafe version of {@link #basePipelineIndex(int) basePipelineIndex}. */
 	public static void nbasePipelineIndex(long struct, int value) { memPutInt(struct + VkComputePipelineCreateInfo.BASEPIPELINEINDEX, value); }
 

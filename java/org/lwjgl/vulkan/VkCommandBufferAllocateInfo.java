@@ -45,7 +45,7 @@ public class VkCommandBufferAllocateInfo extends Struct {
 		Layout layout = __struct(
 			__member(4),
 			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4),
 			__member(4)
 		);
@@ -204,7 +204,7 @@ public class VkCommandBufferAllocateInfo extends Struct {
 	/** Unsafe version of {@link #pNext}. */
 	public static long npNext(long struct) { return memGetAddress(struct + VkCommandBufferAllocateInfo.PNEXT); }
 	/** Unsafe version of {@link #commandPool}. */
-	public static long ncommandPool(long struct) { return memGetAddress(struct + VkCommandBufferAllocateInfo.COMMANDPOOL); }
+	public static long ncommandPool(long struct) { return memGetLong(struct + VkCommandBufferAllocateInfo.COMMANDPOOL); }
 	/** Unsafe version of {@link #level}. */
 	public static int nlevel(long struct) { return memGetInt(struct + VkCommandBufferAllocateInfo.LEVEL); }
 	/** Unsafe version of {@link #commandBufferCount}. */
@@ -215,7 +215,7 @@ public class VkCommandBufferAllocateInfo extends Struct {
 	/** Unsafe version of {@link #pNext(long) pNext}. */
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkCommandBufferAllocateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #commandPool(long) commandPool}. */
-	public static void ncommandPool(long struct, long value) { memPutAddress(struct + VkCommandBufferAllocateInfo.COMMANDPOOL, value); }
+	public static void ncommandPool(long struct, long value) { memPutLong(struct + VkCommandBufferAllocateInfo.COMMANDPOOL, value); }
 	/** Unsafe version of {@link #level(int) level}. */
 	public static void nlevel(long struct, int value) { memPutInt(struct + VkCommandBufferAllocateInfo.LEVEL, value); }
 	/** Unsafe version of {@link #commandBufferCount(int) commandBufferCount}. */

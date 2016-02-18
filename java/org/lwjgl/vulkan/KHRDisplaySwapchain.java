@@ -7,13 +7,11 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /** This extension provides an API to create a swapchain directly on a device's display without any underlying window system. */
 public class KHRDisplaySwapchain {
@@ -81,13 +79,13 @@ public class KHRDisplaySwapchain {
 	public static int vkCreateSharedSwapchainsKHR(long device, int swapchainCount, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, ByteBuffer pSwapchains) {
 		if ( CHECKS ) {
 			checkBuffer(pCreateInfos, swapchainCount);
-			checkBuffer(pSwapchains, swapchainCount << POINTER_SHIFT);
+			checkBuffer(pSwapchains, swapchainCount << 3);
 		}
 		return nvkCreateSharedSwapchainsKHR(device, swapchainCount, pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSwapchains));
 	}
 
 	/** Alternative version of: {@link #vkCreateSharedSwapchainsKHR CreateSharedSwapchainsKHR} */
-	public static int vkCreateSharedSwapchainsKHR(long device, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, PointerBuffer pSwapchains) {
+	public static int vkCreateSharedSwapchainsKHR(long device, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pSwapchains) {
 		if ( CHECKS )
 			checkBuffer(pSwapchains, pCreateInfos.remaining());
 		return nvkCreateSharedSwapchainsKHR(device, pCreateInfos.remaining(), pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSwapchains));

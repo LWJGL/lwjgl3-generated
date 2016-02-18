@@ -49,8 +49,8 @@ public class VkRenderPassBeginInfo extends Struct {
 		Layout layout = __struct(
 			__member(4),
 			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
+			__member(8),
+			__member(8),
 			__member(VkRect2D.SIZEOF, VkRect2D.__ALIGNMENT),
 			__member(4),
 			__member(POINTER_SIZE)
@@ -224,9 +224,9 @@ public class VkRenderPassBeginInfo extends Struct {
 	/** Unsafe version of {@link #pNext}. */
 	public static long npNext(long struct) { return memGetAddress(struct + VkRenderPassBeginInfo.PNEXT); }
 	/** Unsafe version of {@link #renderPass}. */
-	public static long nrenderPass(long struct) { return memGetAddress(struct + VkRenderPassBeginInfo.RENDERPASS); }
+	public static long nrenderPass(long struct) { return memGetLong(struct + VkRenderPassBeginInfo.RENDERPASS); }
 	/** Unsafe version of {@link #framebuffer}. */
-	public static long nframebuffer(long struct) { return memGetAddress(struct + VkRenderPassBeginInfo.FRAMEBUFFER); }
+	public static long nframebuffer(long struct) { return memGetLong(struct + VkRenderPassBeginInfo.FRAMEBUFFER); }
 	/** Unsafe version of {@link #renderArea}. */
 	public static VkRect2D nrenderArea(long struct) { return VkRect2D.create(struct + VkRenderPassBeginInfo.RENDERAREA); }
 	/** Unsafe version of {@link #clearValueCount}. */
@@ -239,9 +239,9 @@ public class VkRenderPassBeginInfo extends Struct {
 	/** Unsafe version of {@link #pNext(long) pNext}. */
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkRenderPassBeginInfo.PNEXT, value); }
 	/** Unsafe version of {@link #renderPass(long) renderPass}. */
-	public static void nrenderPass(long struct, long value) { memPutAddress(struct + VkRenderPassBeginInfo.RENDERPASS, value); }
+	public static void nrenderPass(long struct, long value) { memPutLong(struct + VkRenderPassBeginInfo.RENDERPASS, value); }
 	/** Unsafe version of {@link #framebuffer(long) framebuffer}. */
-	public static void nframebuffer(long struct, long value) { memPutAddress(struct + VkRenderPassBeginInfo.FRAMEBUFFER, value); }
+	public static void nframebuffer(long struct, long value) { memPutLong(struct + VkRenderPassBeginInfo.FRAMEBUFFER, value); }
 	/** Unsafe version of {@link #renderArea(VkRect2D) renderArea}. */
 	public static void nrenderArea(long struct, VkRect2D value) { memCopy(value.address(), struct + VkRenderPassBeginInfo.RENDERAREA, VkRect2D.SIZEOF); }
 	/** Unsafe version of {@link #clearValueCount(int) clearValueCount}. */

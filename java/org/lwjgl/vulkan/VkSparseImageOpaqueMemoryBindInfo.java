@@ -39,7 +39,7 @@ public class VkSparseImageOpaqueMemoryBindInfo extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4),
 			__member(POINTER_SIZE)
 		);
@@ -180,14 +180,14 @@ public class VkSparseImageOpaqueMemoryBindInfo extends Struct {
 	}
 
 	/** Unsafe version of {@link #image}. */
-	public static long nimage(long struct) { return memGetAddress(struct + VkSparseImageOpaqueMemoryBindInfo.IMAGE); }
+	public static long nimage(long struct) { return memGetLong(struct + VkSparseImageOpaqueMemoryBindInfo.IMAGE); }
 	/** Unsafe version of {@link #bindCount}. */
 	public static int nbindCount(long struct) { return memGetInt(struct + VkSparseImageOpaqueMemoryBindInfo.BINDCOUNT); }
 	/** Unsafe version of {@link #pBinds}. */
 	public static VkSparseMemoryBind npBinds(long struct) { return VkSparseMemoryBind.create(memGetAddress(struct + VkSparseImageOpaqueMemoryBindInfo.PBINDS)); }
 
 	/** Unsafe version of {@link #image(long) image}. */
-	public static void nimage(long struct, long value) { memPutAddress(struct + VkSparseImageOpaqueMemoryBindInfo.IMAGE, value); }
+	public static void nimage(long struct, long value) { memPutLong(struct + VkSparseImageOpaqueMemoryBindInfo.IMAGE, value); }
 	/** Unsafe version of {@link #bindCount(int) bindCount}. */
 	public static void nbindCount(long struct, int value) { memPutInt(struct + VkSparseImageOpaqueMemoryBindInfo.BINDCOUNT, value); }
 	/** Unsafe version of {@link #pBinds(VkSparseMemoryBind) pBinds}. */

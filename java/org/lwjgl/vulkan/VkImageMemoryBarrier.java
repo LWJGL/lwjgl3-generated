@@ -61,7 +61,7 @@ public class VkImageMemoryBarrier extends Struct {
 			__member(4),
 			__member(4),
 			__member(4),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(VkImageSubresourceRange.SIZEOF, VkImageSubresourceRange.__ALIGNMENT)
 		);
 
@@ -266,7 +266,7 @@ public class VkImageMemoryBarrier extends Struct {
 	/** Unsafe version of {@link #dstQueueFamilyIndex}. */
 	public static int ndstQueueFamilyIndex(long struct) { return memGetInt(struct + VkImageMemoryBarrier.DSTQUEUEFAMILYINDEX); }
 	/** Unsafe version of {@link #image}. */
-	public static long nimage(long struct) { return memGetAddress(struct + VkImageMemoryBarrier.IMAGE); }
+	public static long nimage(long struct) { return memGetLong(struct + VkImageMemoryBarrier.IMAGE); }
 	/** Unsafe version of {@link #subresourceRange}. */
 	public static VkImageSubresourceRange nsubresourceRange(long struct) { return VkImageSubresourceRange.create(struct + VkImageMemoryBarrier.SUBRESOURCERANGE); }
 
@@ -287,7 +287,7 @@ public class VkImageMemoryBarrier extends Struct {
 	/** Unsafe version of {@link #dstQueueFamilyIndex(int) dstQueueFamilyIndex}. */
 	public static void ndstQueueFamilyIndex(long struct, int value) { memPutInt(struct + VkImageMemoryBarrier.DSTQUEUEFAMILYINDEX, value); }
 	/** Unsafe version of {@link #image(long) image}. */
-	public static void nimage(long struct, long value) { memPutAddress(struct + VkImageMemoryBarrier.IMAGE, value); }
+	public static void nimage(long struct, long value) { memPutLong(struct + VkImageMemoryBarrier.IMAGE, value); }
 	/** Unsafe version of {@link #subresourceRange(VkImageSubresourceRange) subresourceRange}. */
 	public static void nsubresourceRange(long struct, VkImageSubresourceRange value) { memCopy(value.address(), struct + VkImageMemoryBarrier.SUBRESOURCERANGE, VkImageSubresourceRange.SIZEOF); }
 

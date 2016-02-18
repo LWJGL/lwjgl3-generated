@@ -45,7 +45,7 @@ public class VkMappedMemoryRange extends Struct {
 		Layout layout = __struct(
 			__member(4),
 			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(8),
 			__member(8)
 		);
@@ -204,7 +204,7 @@ public class VkMappedMemoryRange extends Struct {
 	/** Unsafe version of {@link #pNext}. */
 	public static long npNext(long struct) { return memGetAddress(struct + VkMappedMemoryRange.PNEXT); }
 	/** Unsafe version of {@link #memory}. */
-	public static long nmemory(long struct) { return memGetAddress(struct + VkMappedMemoryRange.MEMORY); }
+	public static long nmemory(long struct) { return memGetLong(struct + VkMappedMemoryRange.MEMORY); }
 	/** Unsafe version of {@link #offset}. */
 	public static long noffset(long struct) { return memGetLong(struct + VkMappedMemoryRange.OFFSET); }
 	/** Unsafe version of {@link #size}. */
@@ -215,7 +215,7 @@ public class VkMappedMemoryRange extends Struct {
 	/** Unsafe version of {@link #pNext(long) pNext}. */
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkMappedMemoryRange.PNEXT, value); }
 	/** Unsafe version of {@link #memory(long) memory}. */
-	public static void nmemory(long struct, long value) { memPutAddress(struct + VkMappedMemoryRange.MEMORY, value); }
+	public static void nmemory(long struct, long value) { memPutLong(struct + VkMappedMemoryRange.MEMORY, value); }
 	/** Unsafe version of {@link #offset(long) offset}. */
 	public static void noffset(long struct, long value) { memPutLong(struct + VkMappedMemoryRange.OFFSET, value); }
 	/** Unsafe version of {@link #size(long) size}. */

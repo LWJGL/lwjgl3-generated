@@ -53,10 +53,10 @@ public class VkCopyDescriptorSet extends Struct {
 		Layout layout = __struct(
 			__member(4),
 			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4),
 			__member(4),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4),
 			__member(4),
 			__member(4)
@@ -244,13 +244,13 @@ public class VkCopyDescriptorSet extends Struct {
 	/** Unsafe version of {@link #pNext}. */
 	public static long npNext(long struct) { return memGetAddress(struct + VkCopyDescriptorSet.PNEXT); }
 	/** Unsafe version of {@link #srcSet}. */
-	public static long nsrcSet(long struct) { return memGetAddress(struct + VkCopyDescriptorSet.SRCSET); }
+	public static long nsrcSet(long struct) { return memGetLong(struct + VkCopyDescriptorSet.SRCSET); }
 	/** Unsafe version of {@link #srcBinding}. */
 	public static int nsrcBinding(long struct) { return memGetInt(struct + VkCopyDescriptorSet.SRCBINDING); }
 	/** Unsafe version of {@link #srcArrayElement}. */
 	public static int nsrcArrayElement(long struct) { return memGetInt(struct + VkCopyDescriptorSet.SRCARRAYELEMENT); }
 	/** Unsafe version of {@link #dstSet}. */
-	public static long ndstSet(long struct) { return memGetAddress(struct + VkCopyDescriptorSet.DSTSET); }
+	public static long ndstSet(long struct) { return memGetLong(struct + VkCopyDescriptorSet.DSTSET); }
 	/** Unsafe version of {@link #dstBinding}. */
 	public static int ndstBinding(long struct) { return memGetInt(struct + VkCopyDescriptorSet.DSTBINDING); }
 	/** Unsafe version of {@link #dstArrayElement}. */
@@ -263,13 +263,13 @@ public class VkCopyDescriptorSet extends Struct {
 	/** Unsafe version of {@link #pNext(long) pNext}. */
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkCopyDescriptorSet.PNEXT, value); }
 	/** Unsafe version of {@link #srcSet(long) srcSet}. */
-	public static void nsrcSet(long struct, long value) { memPutAddress(struct + VkCopyDescriptorSet.SRCSET, value); }
+	public static void nsrcSet(long struct, long value) { memPutLong(struct + VkCopyDescriptorSet.SRCSET, value); }
 	/** Unsafe version of {@link #srcBinding(int) srcBinding}. */
 	public static void nsrcBinding(long struct, int value) { memPutInt(struct + VkCopyDescriptorSet.SRCBINDING, value); }
 	/** Unsafe version of {@link #srcArrayElement(int) srcArrayElement}. */
 	public static void nsrcArrayElement(long struct, int value) { memPutInt(struct + VkCopyDescriptorSet.SRCARRAYELEMENT, value); }
 	/** Unsafe version of {@link #dstSet(long) dstSet}. */
-	public static void ndstSet(long struct, long value) { memPutAddress(struct + VkCopyDescriptorSet.DSTSET, value); }
+	public static void ndstSet(long struct, long value) { memPutLong(struct + VkCopyDescriptorSet.DSTSET, value); }
 	/** Unsafe version of {@link #dstBinding(int) dstBinding}. */
 	public static void ndstBinding(long struct, int value) { memPutInt(struct + VkCopyDescriptorSet.DSTBINDING, value); }
 	/** Unsafe version of {@link #dstArrayElement(int) dstArrayElement}. */

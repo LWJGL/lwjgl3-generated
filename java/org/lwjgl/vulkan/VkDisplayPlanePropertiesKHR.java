@@ -37,7 +37,7 @@ public class VkDisplayPlanePropertiesKHR extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4)
 		);
 
@@ -170,12 +170,12 @@ public class VkDisplayPlanePropertiesKHR extends Struct {
 	}
 
 	/** Unsafe version of {@link #currentDisplay}. */
-	public static long ncurrentDisplay(long struct) { return memGetAddress(struct + VkDisplayPlanePropertiesKHR.CURRENTDISPLAY); }
+	public static long ncurrentDisplay(long struct) { return memGetLong(struct + VkDisplayPlanePropertiesKHR.CURRENTDISPLAY); }
 	/** Unsafe version of {@link #currentStackIndex}. */
 	public static int ncurrentStackIndex(long struct) { return memGetInt(struct + VkDisplayPlanePropertiesKHR.CURRENTSTACKINDEX); }
 
 	/** Unsafe version of {@link #currentDisplay(long) currentDisplay}. */
-	public static void ncurrentDisplay(long struct, long value) { memPutAddress(struct + VkDisplayPlanePropertiesKHR.CURRENTDISPLAY, value); }
+	public static void ncurrentDisplay(long struct, long value) { memPutLong(struct + VkDisplayPlanePropertiesKHR.CURRENTDISPLAY, value); }
 	/** Unsafe version of {@link #currentStackIndex(int) currentStackIndex}. */
 	public static void ncurrentStackIndex(long struct, int value) { memPutInt(struct + VkDisplayPlanePropertiesKHR.CURRENTSTACKINDEX, value); }
 

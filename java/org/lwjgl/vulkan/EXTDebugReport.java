@@ -7,13 +7,11 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /**
  * Due to the nature of the Vulkan interface, there is very little error information available to the developer/application. By enabling optional
@@ -187,12 +185,12 @@ public class EXTDebugReport {
 
 	public static int vkCreateDebugReportCallbackEXT(long instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pCallback) {
 		if ( CHECKS )
-			checkBuffer(pCallback, 1 << POINTER_SHIFT);
+			checkBuffer(pCallback, 1 << 3);
 		return nvkCreateDebugReportCallbackEXT(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pCallback));
 	}
 
 	/** Alternative version of: {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT} */
-	public static int vkCreateDebugReportCallbackEXT(long instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pCallback) {
+	public static int vkCreateDebugReportCallbackEXT(long instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pCallback) {
 		if ( CHECKS )
 			checkBuffer(pCallback, 1);
 		return nvkCreateDebugReportCallbackEXT(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pCallback));
@@ -206,7 +204,7 @@ public class EXTDebugReport {
 		long __functionAddress = getInstance().DestroyDebugReportCallbackEXT;
 		if ( CHECKS )
 			checkPointer(instance);
-		callPPPV(__functionAddress, instance, callback, pAllocator);
+		callPJPV(__functionAddress, instance, callback, pAllocator);
 	}
 
 	public static void vkDestroyDebugReportCallbackEXT(long instance, long callback, VkAllocationCallbacks pAllocator) {

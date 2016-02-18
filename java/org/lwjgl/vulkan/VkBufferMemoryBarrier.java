@@ -57,7 +57,7 @@ public class VkBufferMemoryBarrier extends Struct {
 			__member(4),
 			__member(4),
 			__member(4),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(8),
 			__member(8)
 		);
@@ -252,7 +252,7 @@ public class VkBufferMemoryBarrier extends Struct {
 	/** Unsafe version of {@link #dstQueueFamilyIndex}. */
 	public static int ndstQueueFamilyIndex(long struct) { return memGetInt(struct + VkBufferMemoryBarrier.DSTQUEUEFAMILYINDEX); }
 	/** Unsafe version of {@link #buffer}. */
-	public static long nbuffer(long struct) { return memGetAddress(struct + VkBufferMemoryBarrier.BUFFER); }
+	public static long nbuffer(long struct) { return memGetLong(struct + VkBufferMemoryBarrier.BUFFER); }
 	/** Unsafe version of {@link #offset}. */
 	public static long noffset(long struct) { return memGetLong(struct + VkBufferMemoryBarrier.OFFSET); }
 	/** Unsafe version of {@link #size}. */
@@ -271,7 +271,7 @@ public class VkBufferMemoryBarrier extends Struct {
 	/** Unsafe version of {@link #dstQueueFamilyIndex(int) dstQueueFamilyIndex}. */
 	public static void ndstQueueFamilyIndex(long struct, int value) { memPutInt(struct + VkBufferMemoryBarrier.DSTQUEUEFAMILYINDEX, value); }
 	/** Unsafe version of {@link #buffer(long) buffer}. */
-	public static void nbuffer(long struct, long value) { memPutAddress(struct + VkBufferMemoryBarrier.BUFFER, value); }
+	public static void nbuffer(long struct, long value) { memPutLong(struct + VkBufferMemoryBarrier.BUFFER, value); }
 	/** Unsafe version of {@link #offset(long) offset}. */
 	public static void noffset(long struct, long value) { memPutLong(struct + VkBufferMemoryBarrier.OFFSET, value); }
 	/** Unsafe version of {@link #size(long) size}. */

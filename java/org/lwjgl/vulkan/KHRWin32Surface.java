@@ -7,13 +7,11 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /**
  * The {@code VK_KHR_win32_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the
@@ -82,12 +80,12 @@ public class KHRWin32Surface {
 	 */
 	public static int vkCreateWin32SurfaceKHR(long instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
 		if ( CHECKS )
-			checkBuffer(pSurface, 1 << POINTER_SHIFT);
+			checkBuffer(pSurface, 1 << 3);
 		return nvkCreateWin32SurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
 	}
 
 	/** Alternative version of: {@link #vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR} */
-	public static int vkCreateWin32SurfaceKHR(long instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pSurface) {
+	public static int vkCreateWin32SurfaceKHR(long instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1);
 		return nvkCreateWin32SurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));

@@ -7,13 +7,11 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /** This extension provides the API to enumerate displays and available modes on a given device. */
 public class KHRDisplay {
@@ -174,13 +172,13 @@ public class KHRDisplay {
 	public static int vkGetDisplayPlaneSupportedDisplaysKHR(long physicalDevice, int planeIndex, ByteBuffer pDisplayCount, ByteBuffer pDisplays) {
 		if ( CHECKS ) {
 			checkBuffer(pDisplayCount, 1 << 2);
-			if ( pDisplays != null ) checkBuffer(pDisplays, pDisplayCount.getInt(pDisplayCount.position()) << POINTER_SHIFT);
+			if ( pDisplays != null ) checkBuffer(pDisplays, pDisplayCount.getInt(pDisplayCount.position()) << 3);
 		}
 		return nvkGetDisplayPlaneSupportedDisplaysKHR(physicalDevice, planeIndex, memAddress(pDisplayCount), memAddressSafe(pDisplays));
 	}
 
 	/** Alternative version of: {@link #vkGetDisplayPlaneSupportedDisplaysKHR GetDisplayPlaneSupportedDisplaysKHR} */
-	public static int vkGetDisplayPlaneSupportedDisplaysKHR(long physicalDevice, int planeIndex, IntBuffer pDisplayCount, PointerBuffer pDisplays) {
+	public static int vkGetDisplayPlaneSupportedDisplaysKHR(long physicalDevice, int planeIndex, IntBuffer pDisplayCount, LongBuffer pDisplays) {
 		if ( CHECKS ) {
 			checkBuffer(pDisplayCount, 1);
 			if ( pDisplays != null ) checkBuffer(pDisplays, pDisplayCount.get(pDisplayCount.position()));
@@ -194,11 +192,9 @@ public class KHRDisplay {
 	@JavadocExclude
 	public static int nvkGetDisplayModePropertiesKHR(long physicalDevice, long display, long pPropertyCount, long pProperties) {
 		long __functionAddress = getInstance().GetDisplayModePropertiesKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(physicalDevice);
-			checkPointer(display);
-		}
-		return callPPPPI(__functionAddress, physicalDevice, display, pPropertyCount, pProperties);
+		return callPJPPI(__functionAddress, physicalDevice, display, pPropertyCount, pProperties);
 	}
 
 	/**
@@ -232,11 +228,9 @@ public class KHRDisplay {
 	@JavadocExclude
 	public static int nvkCreateDisplayModeKHR(long physicalDevice, long display, long pCreateInfo, long pAllocator, long pMode) {
 		long __functionAddress = getInstance().CreateDisplayModeKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(physicalDevice);
-			checkPointer(display);
-		}
-		return callPPPPPI(__functionAddress, physicalDevice, display, pCreateInfo, pAllocator, pMode);
+		return callPJPPPI(__functionAddress, physicalDevice, display, pCreateInfo, pAllocator, pMode);
 	}
 
 	/**
@@ -250,12 +244,12 @@ public class KHRDisplay {
 	 */
 	public static int vkCreateDisplayModeKHR(long physicalDevice, long display, VkDisplayModeCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pMode) {
 		if ( CHECKS )
-			checkBuffer(pMode, 1 << POINTER_SHIFT);
+			checkBuffer(pMode, 1 << 3);
 		return nvkCreateDisplayModeKHR(physicalDevice, display, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pMode));
 	}
 
 	/** Alternative version of: {@link #vkCreateDisplayModeKHR CreateDisplayModeKHR} */
-	public static int vkCreateDisplayModeKHR(long physicalDevice, long display, VkDisplayModeCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pMode) {
+	public static int vkCreateDisplayModeKHR(long physicalDevice, long display, VkDisplayModeCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pMode) {
 		if ( CHECKS )
 			checkBuffer(pMode, 1);
 		return nvkCreateDisplayModeKHR(physicalDevice, display, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pMode));
@@ -267,11 +261,9 @@ public class KHRDisplay {
 	@JavadocExclude
 	public static int nvkGetDisplayPlaneCapabilitiesKHR(long physicalDevice, long mode, int planeIndex, long pCapabilities) {
 		long __functionAddress = getInstance().GetDisplayPlaneCapabilitiesKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(physicalDevice);
-			checkPointer(mode);
-		}
-		return callPPIPI(__functionAddress, physicalDevice, mode, planeIndex, pCapabilities);
+		return callPJIPI(__functionAddress, physicalDevice, mode, planeIndex, pCapabilities);
 	}
 
 	/**
@@ -307,12 +299,12 @@ public class KHRDisplay {
 	 */
 	public static int vkCreateDisplayPlaneSurfaceKHR(long instance, VkDisplaySurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
 		if ( CHECKS )
-			checkBuffer(pSurface, 1 << POINTER_SHIFT);
+			checkBuffer(pSurface, 1 << 3);
 		return nvkCreateDisplayPlaneSurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
 	}
 
 	/** Alternative version of: {@link #vkCreateDisplayPlaneSurfaceKHR CreateDisplayPlaneSurfaceKHR} */
-	public static int vkCreateDisplayPlaneSurfaceKHR(long instance, VkDisplaySurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pSurface) {
+	public static int vkCreateDisplayPlaneSurfaceKHR(long instance, VkDisplaySurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1);
 		return nvkCreateDisplayPlaneSurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));

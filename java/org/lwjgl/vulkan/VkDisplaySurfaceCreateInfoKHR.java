@@ -56,7 +56,7 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct {
 			__member(4),
 			__member(POINTER_SIZE),
 			__member(4),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4),
 			__member(4),
 			__member(4),
@@ -256,7 +256,7 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct {
 	/** Unsafe version of {@link #flags}. */
 	public static int nflags(long struct) { return memGetInt(struct + VkDisplaySurfaceCreateInfoKHR.FLAGS); }
 	/** Unsafe version of {@link #displayMode}. */
-	public static long ndisplayMode(long struct) { return memGetAddress(struct + VkDisplaySurfaceCreateInfoKHR.DISPLAYMODE); }
+	public static long ndisplayMode(long struct) { return memGetLong(struct + VkDisplaySurfaceCreateInfoKHR.DISPLAYMODE); }
 	/** Unsafe version of {@link #planeIndex}. */
 	public static int nplaneIndex(long struct) { return memGetInt(struct + VkDisplaySurfaceCreateInfoKHR.PLANEINDEX); }
 	/** Unsafe version of {@link #planeStackIndex}. */
@@ -277,7 +277,7 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct {
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkDisplaySurfaceCreateInfoKHR.FLAGS, value); }
 	/** Unsafe version of {@link #displayMode(long) displayMode}. */
-	public static void ndisplayMode(long struct, long value) { memPutAddress(struct + VkDisplaySurfaceCreateInfoKHR.DISPLAYMODE, value); }
+	public static void ndisplayMode(long struct, long value) { memPutLong(struct + VkDisplaySurfaceCreateInfoKHR.DISPLAYMODE, value); }
 	/** Unsafe version of {@link #planeIndex(int) planeIndex}. */
 	public static void nplaneIndex(long struct, int value) { memPutInt(struct + VkDisplaySurfaceCreateInfoKHR.PLANEINDEX, value); }
 	/** Unsafe version of {@link #planeStackIndex(int) planeStackIndex}. */

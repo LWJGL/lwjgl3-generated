@@ -51,7 +51,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 			__member(POINTER_SIZE),
 			__member(4),
 			__member(4),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE)
 		);
@@ -238,7 +238,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 	/** Unsafe version of {@link #stage}. */
 	public static int nstage(long struct) { return memGetInt(struct + VkPipelineShaderStageCreateInfo.STAGE); }
 	/** Unsafe version of {@link #module}. */
-	public static long nmodule(long struct) { return memGetAddress(struct + VkPipelineShaderStageCreateInfo.MODULE); }
+	public static long nmodule(long struct) { return memGetLong(struct + VkPipelineShaderStageCreateInfo.MODULE); }
 	/** Unsafe version of {@link #pName}. */
 	public static ByteBuffer npName(long struct) { return memByteBufferNT1(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME)); }
 	/** Unsafe version of {@link #pNameString}. */
@@ -255,7 +255,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 	/** Unsafe version of {@link #stage(int) stage}. */
 	public static void nstage(long struct, int value) { memPutInt(struct + VkPipelineShaderStageCreateInfo.STAGE, value); }
 	/** Unsafe version of {@link #module(long) module}. */
-	public static void nmodule(long struct, long value) { memPutAddress(struct + VkPipelineShaderStageCreateInfo.MODULE, value); }
+	public static void nmodule(long struct, long value) { memPutLong(struct + VkPipelineShaderStageCreateInfo.MODULE, value); }
 	/** Unsafe version of {@link #pName(ByteBuffer) pName}. */
 	public static void npName(long struct, ByteBuffer value) { 
 		if ( CHECKS && value != null ) checkNT1(value); 

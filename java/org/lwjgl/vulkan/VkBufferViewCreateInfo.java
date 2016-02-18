@@ -50,7 +50,7 @@ public class VkBufferViewCreateInfo extends Struct {
 			__member(4),
 			__member(POINTER_SIZE),
 			__member(4),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4),
 			__member(8),
 			__member(8)
@@ -226,7 +226,7 @@ public class VkBufferViewCreateInfo extends Struct {
 	/** Unsafe version of {@link #flags}. */
 	public static int nflags(long struct) { return memGetInt(struct + VkBufferViewCreateInfo.FLAGS); }
 	/** Unsafe version of {@link #buffer}. */
-	public static long nbuffer(long struct) { return memGetAddress(struct + VkBufferViewCreateInfo.BUFFER); }
+	public static long nbuffer(long struct) { return memGetLong(struct + VkBufferViewCreateInfo.BUFFER); }
 	/** Unsafe version of {@link #format}. */
 	public static int nformat(long struct) { return memGetInt(struct + VkBufferViewCreateInfo.FORMAT); }
 	/** Unsafe version of {@link #offset}. */
@@ -241,7 +241,7 @@ public class VkBufferViewCreateInfo extends Struct {
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkBufferViewCreateInfo.FLAGS, value); }
 	/** Unsafe version of {@link #buffer(long) buffer}. */
-	public static void nbuffer(long struct, long value) { memPutAddress(struct + VkBufferViewCreateInfo.BUFFER, value); }
+	public static void nbuffer(long struct, long value) { memPutLong(struct + VkBufferViewCreateInfo.BUFFER, value); }
 	/** Unsafe version of {@link #format(int) format}. */
 	public static void nformat(long struct, int value) { memPutInt(struct + VkBufferViewCreateInfo.FORMAT, value); }
 	/** Unsafe version of {@link #offset(long) offset}. */

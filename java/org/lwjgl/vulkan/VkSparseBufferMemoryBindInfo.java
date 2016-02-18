@@ -39,7 +39,7 @@ public class VkSparseBufferMemoryBindInfo extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4),
 			__member(POINTER_SIZE)
 		);
@@ -180,14 +180,14 @@ public class VkSparseBufferMemoryBindInfo extends Struct {
 	}
 
 	/** Unsafe version of {@link #buffer}. */
-	public static long nbuffer(long struct) { return memGetAddress(struct + VkSparseBufferMemoryBindInfo.BUFFER); }
+	public static long nbuffer(long struct) { return memGetLong(struct + VkSparseBufferMemoryBindInfo.BUFFER); }
 	/** Unsafe version of {@link #bindCount}. */
 	public static int nbindCount(long struct) { return memGetInt(struct + VkSparseBufferMemoryBindInfo.BINDCOUNT); }
 	/** Unsafe version of {@link #pBinds}. */
 	public static VkSparseMemoryBind npBinds(long struct) { return VkSparseMemoryBind.create(memGetAddress(struct + VkSparseBufferMemoryBindInfo.PBINDS)); }
 
 	/** Unsafe version of {@link #buffer(long) buffer}. */
-	public static void nbuffer(long struct, long value) { memPutAddress(struct + VkSparseBufferMemoryBindInfo.BUFFER, value); }
+	public static void nbuffer(long struct, long value) { memPutLong(struct + VkSparseBufferMemoryBindInfo.BUFFER, value); }
 	/** Unsafe version of {@link #bindCount(int) bindCount}. */
 	public static void nbindCount(long struct, int value) { memPutInt(struct + VkSparseBufferMemoryBindInfo.BINDCOUNT, value); }
 	/** Unsafe version of {@link #pBinds(VkSparseMemoryBind) pBinds}. */

@@ -52,7 +52,7 @@ public class VkImageViewCreateInfo extends Struct {
 			__member(4),
 			__member(POINTER_SIZE),
 			__member(4),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4),
 			__member(4),
 			__member(VkComponentMapping.SIZEOF, VkComponentMapping.__ALIGNMENT),
@@ -236,7 +236,7 @@ public class VkImageViewCreateInfo extends Struct {
 	/** Unsafe version of {@link #flags}. */
 	public static int nflags(long struct) { return memGetInt(struct + VkImageViewCreateInfo.FLAGS); }
 	/** Unsafe version of {@link #image}. */
-	public static long nimage(long struct) { return memGetAddress(struct + VkImageViewCreateInfo.IMAGE); }
+	public static long nimage(long struct) { return memGetLong(struct + VkImageViewCreateInfo.IMAGE); }
 	/** Unsafe version of {@link #viewType}. */
 	public static int nviewType(long struct) { return memGetInt(struct + VkImageViewCreateInfo.VIEWTYPE); }
 	/** Unsafe version of {@link #format}. */
@@ -253,7 +253,7 @@ public class VkImageViewCreateInfo extends Struct {
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkImageViewCreateInfo.FLAGS, value); }
 	/** Unsafe version of {@link #image(long) image}. */
-	public static void nimage(long struct, long value) { memPutAddress(struct + VkImageViewCreateInfo.IMAGE, value); }
+	public static void nimage(long struct, long value) { memPutLong(struct + VkImageViewCreateInfo.IMAGE, value); }
 	/** Unsafe version of {@link #viewType(int) viewType}. */
 	public static void nviewType(long struct, int value) { memPutInt(struct + VkImageViewCreateInfo.VIEWTYPE, value); }
 	/** Unsafe version of {@link #format(int) format}. */

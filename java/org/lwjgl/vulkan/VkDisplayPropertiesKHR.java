@@ -47,7 +47,7 @@ public class VkDisplayPropertiesKHR extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(POINTER_SIZE),
 			__member(VkExtent2D.SIZEOF, VkExtent2D.__ALIGNMENT),
 			__member(VkExtent2D.SIZEOF, VkExtent2D.__ALIGNMENT),
@@ -230,7 +230,7 @@ public class VkDisplayPropertiesKHR extends Struct {
 	}
 
 	/** Unsafe version of {@link #display}. */
-	public static long ndisplay(long struct) { return memGetAddress(struct + VkDisplayPropertiesKHR.DISPLAY); }
+	public static long ndisplay(long struct) { return memGetLong(struct + VkDisplayPropertiesKHR.DISPLAY); }
 	/** Unsafe version of {@link #displayName}. */
 	public static ByteBuffer ndisplayName(long struct) { return memByteBufferNT1(memGetAddress(struct + VkDisplayPropertiesKHR.DISPLAYNAME)); }
 	/** Unsafe version of {@link #displayNameString}. */
@@ -247,7 +247,7 @@ public class VkDisplayPropertiesKHR extends Struct {
 	public static int npersistentContent(long struct) { return memGetInt(struct + VkDisplayPropertiesKHR.PERSISTENTCONTENT); }
 
 	/** Unsafe version of {@link #display(long) display}. */
-	public static void ndisplay(long struct, long value) { memPutAddress(struct + VkDisplayPropertiesKHR.DISPLAY, value); }
+	public static void ndisplay(long struct, long value) { memPutLong(struct + VkDisplayPropertiesKHR.DISPLAY, value); }
 	/** Unsafe version of {@link #displayName(ByteBuffer) displayName}. */
 	public static void ndisplayName(long struct, ByteBuffer value) { 
 		if ( CHECKS && value != null ) checkNT1(value); 

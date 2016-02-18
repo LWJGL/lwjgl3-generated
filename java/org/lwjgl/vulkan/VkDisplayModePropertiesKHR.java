@@ -37,7 +37,7 @@ public class VkDisplayModePropertiesKHR extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(VkDisplayModeParametersKHR.SIZEOF, VkDisplayModeParametersKHR.__ALIGNMENT)
 		);
 
@@ -170,12 +170,12 @@ public class VkDisplayModePropertiesKHR extends Struct {
 	}
 
 	/** Unsafe version of {@link #displayMode}. */
-	public static long ndisplayMode(long struct) { return memGetAddress(struct + VkDisplayModePropertiesKHR.DISPLAYMODE); }
+	public static long ndisplayMode(long struct) { return memGetLong(struct + VkDisplayModePropertiesKHR.DISPLAYMODE); }
 	/** Unsafe version of {@link #parameters}. */
 	public static VkDisplayModeParametersKHR nparameters(long struct) { return VkDisplayModeParametersKHR.create(struct + VkDisplayModePropertiesKHR.PARAMETERS); }
 
 	/** Unsafe version of {@link #displayMode(long) displayMode}. */
-	public static void ndisplayMode(long struct, long value) { memPutAddress(struct + VkDisplayModePropertiesKHR.DISPLAYMODE, value); }
+	public static void ndisplayMode(long struct, long value) { memPutLong(struct + VkDisplayModePropertiesKHR.DISPLAYMODE, value); }
 	/** Unsafe version of {@link #parameters(VkDisplayModeParametersKHR) parameters}. */
 	public static void nparameters(long struct, VkDisplayModeParametersKHR value) { memCopy(value.address(), struct + VkDisplayModePropertiesKHR.PARAMETERS, VkDisplayModeParametersKHR.SIZEOF); }
 

@@ -72,7 +72,7 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 			__member(4),
 			__member(POINTER_SIZE),
 			__member(4),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4),
 			__member(4),
 			__member(4),
@@ -86,7 +86,7 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 			__member(4),
 			__member(4),
 			__member(4),
-			__member(POINTER_SIZE)
+			__member(8)
 		);
 
 		SIZEOF = layout.getSize();
@@ -340,7 +340,7 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 	/** Unsafe version of {@link #flags}. */
 	public static int nflags(long struct) { return memGetInt(struct + VkSwapchainCreateInfoKHR.FLAGS); }
 	/** Unsafe version of {@link #surface}. */
-	public static long nsurface(long struct) { return memGetAddress(struct + VkSwapchainCreateInfoKHR.SURFACE); }
+	public static long nsurface(long struct) { return memGetLong(struct + VkSwapchainCreateInfoKHR.SURFACE); }
 	/** Unsafe version of {@link #minImageCount}. */
 	public static int nminImageCount(long struct) { return memGetInt(struct + VkSwapchainCreateInfoKHR.MINIMAGECOUNT); }
 	/** Unsafe version of {@link #imageFormat}. */
@@ -368,7 +368,7 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 	/** Unsafe version of {@link #clipped}. */
 	public static int nclipped(long struct) { return memGetInt(struct + VkSwapchainCreateInfoKHR.CLIPPED); }
 	/** Unsafe version of {@link #oldSwapchain}. */
-	public static long noldSwapchain(long struct) { return memGetAddress(struct + VkSwapchainCreateInfoKHR.OLDSWAPCHAIN); }
+	public static long noldSwapchain(long struct) { return memGetLong(struct + VkSwapchainCreateInfoKHR.OLDSWAPCHAIN); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.STYPE, value); }
@@ -377,7 +377,7 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.FLAGS, value); }
 	/** Unsafe version of {@link #surface(long) surface}. */
-	public static void nsurface(long struct, long value) { memPutAddress(struct + VkSwapchainCreateInfoKHR.SURFACE, value); }
+	public static void nsurface(long struct, long value) { memPutLong(struct + VkSwapchainCreateInfoKHR.SURFACE, value); }
 	/** Unsafe version of {@link #minImageCount(int) minImageCount}. */
 	public static void nminImageCount(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.MINIMAGECOUNT, value); }
 	/** Unsafe version of {@link #imageFormat(int) imageFormat}. */
@@ -405,7 +405,7 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 	/** Unsafe version of {@link #clipped(int) clipped}. */
 	public static void nclipped(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.CLIPPED, value); }
 	/** Unsafe version of {@link #oldSwapchain(long) oldSwapchain}. */
-	public static void noldSwapchain(long struct, long value) { memPutAddress(struct + VkSwapchainCreateInfoKHR.OLDSWAPCHAIN, value); }
+	public static void noldSwapchain(long struct, long value) { memPutLong(struct + VkSwapchainCreateInfoKHR.OLDSWAPCHAIN, value); }
 
 	// -----------------------------------
 

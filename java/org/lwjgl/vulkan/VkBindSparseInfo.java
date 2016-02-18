@@ -112,11 +112,11 @@ public class VkBindSparseInfo extends Struct {
 	/** Returns the value of the {@code waitSemaphoreCount} field. */
 	public int waitSemaphoreCount() { return nwaitSemaphoreCount(address()); }
 	/**
-	 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code pWaitSemaphores} field.
+	 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link PointerBuffer}
+	 * @param capacity the number of elements in the returned {@link LongBuffer}
 	 */
-	public PointerBuffer pWaitSemaphores(int capacity) { return npWaitSemaphores(address(), capacity); }
+	public LongBuffer pWaitSemaphores(int capacity) { return npWaitSemaphores(address(), capacity); }
 	/** Returns the value of the {@code bufferBindCount} field. */
 	public int bufferBindCount() { return nbufferBindCount(address()); }
 	/** Returns a {@link VkSparseBufferMemoryBindInfo} view of the struct pointed to by the {@code pBufferBinds} field. */
@@ -132,11 +132,11 @@ public class VkBindSparseInfo extends Struct {
 	/** Returns the value of the {@code signalSemaphoreCount} field. */
 	public int signalSemaphoreCount() { return nsignalSemaphoreCount(address()); }
 	/**
-	 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code pSignalSemaphores} field.
+	 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphores} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link PointerBuffer}
+	 * @param capacity the number of elements in the returned {@link LongBuffer}
 	 */
-	public PointerBuffer pSignalSemaphores(int capacity) { return npSignalSemaphores(address(), capacity); }
+	public LongBuffer pSignalSemaphores(int capacity) { return npSignalSemaphores(address(), capacity); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkBindSparseInfo sType(int value) { nsType(address(), value); return this; }
@@ -144,8 +144,8 @@ public class VkBindSparseInfo extends Struct {
 	public VkBindSparseInfo pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code waitSemaphoreCount} field. */
 	public VkBindSparseInfo waitSemaphoreCount(int value) { nwaitSemaphoreCount(address(), value); return this; }
-	/** Sets the address of the specified {@link PointerBuffer} to the {@code pWaitSemaphores} field. */
-	public VkBindSparseInfo pWaitSemaphores(PointerBuffer value) { npWaitSemaphores(address(), value); return this; }
+	/** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
+	public VkBindSparseInfo pWaitSemaphores(LongBuffer value) { npWaitSemaphores(address(), value); return this; }
 	/** Sets the specified value to the {@code bufferBindCount} field. */
 	public VkBindSparseInfo bufferBindCount(int value) { nbufferBindCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkSparseBufferMemoryBindInfo} to the {@code pBufferBinds} field. */
@@ -160,15 +160,15 @@ public class VkBindSparseInfo extends Struct {
 	public VkBindSparseInfo pImageBinds(VkSparseImageMemoryBindInfo value) { npImageBinds(address(), value); return this; }
 	/** Sets the specified value to the {@code signalSemaphoreCount} field. */
 	public VkBindSparseInfo signalSemaphoreCount(int value) { nsignalSemaphoreCount(address(), value); return this; }
-	/** Sets the address of the specified {@link PointerBuffer} to the {@code pSignalSemaphores} field. */
-	public VkBindSparseInfo pSignalSemaphores(PointerBuffer value) { npSignalSemaphores(address(), value); return this; }
+	/** Sets the address of the specified {@link LongBuffer} to the {@code pSignalSemaphores} field. */
+	public VkBindSparseInfo pSignalSemaphores(LongBuffer value) { npSignalSemaphores(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkBindSparseInfo set(
 		int sType,
 		long pNext,
 		int waitSemaphoreCount,
-		PointerBuffer pWaitSemaphores,
+		LongBuffer pWaitSemaphores,
 		int bufferBindCount,
 		VkSparseBufferMemoryBindInfo pBufferBinds,
 		int imageOpaqueBindCount,
@@ -176,7 +176,7 @@ public class VkBindSparseInfo extends Struct {
 		int imageBindCount,
 		VkSparseImageMemoryBindInfo pImageBinds,
 		int signalSemaphoreCount,
-		PointerBuffer pSignalSemaphores
+		LongBuffer pSignalSemaphores
 	) {
 		sType(sType);
 		pNext(pNext);
@@ -284,7 +284,7 @@ public class VkBindSparseInfo extends Struct {
 	/** Unsafe version of {@link #waitSemaphoreCount}. */
 	public static int nwaitSemaphoreCount(long struct) { return memGetInt(struct + VkBindSparseInfo.WAITSEMAPHORECOUNT); }
 	/** Unsafe version of {@link #pWaitSemaphores(int) pWaitSemaphores}. */
-	public static PointerBuffer npWaitSemaphores(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VkBindSparseInfo.PWAITSEMAPHORES), capacity); }
+	public static LongBuffer npWaitSemaphores(long struct, int capacity) { return memLongBuffer(memGetAddress(struct + VkBindSparseInfo.PWAITSEMAPHORES), capacity); }
 	/** Unsafe version of {@link #bufferBindCount}. */
 	public static int nbufferBindCount(long struct) { return memGetInt(struct + VkBindSparseInfo.BUFFERBINDCOUNT); }
 	/** Unsafe version of {@link #pBufferBinds}. */
@@ -300,7 +300,7 @@ public class VkBindSparseInfo extends Struct {
 	/** Unsafe version of {@link #signalSemaphoreCount}. */
 	public static int nsignalSemaphoreCount(long struct) { return memGetInt(struct + VkBindSparseInfo.SIGNALSEMAPHORECOUNT); }
 	/** Unsafe version of {@link #pSignalSemaphores(int) pSignalSemaphores}. */
-	public static PointerBuffer npSignalSemaphores(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VkBindSparseInfo.PSIGNALSEMAPHORES), capacity); }
+	public static LongBuffer npSignalSemaphores(long struct, int capacity) { return memLongBuffer(memGetAddress(struct + VkBindSparseInfo.PSIGNALSEMAPHORES), capacity); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkBindSparseInfo.STYPE, value); }
@@ -308,8 +308,8 @@ public class VkBindSparseInfo extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkBindSparseInfo.PNEXT, value); }
 	/** Unsafe version of {@link #waitSemaphoreCount(int) waitSemaphoreCount}. */
 	public static void nwaitSemaphoreCount(long struct, int value) { memPutInt(struct + VkBindSparseInfo.WAITSEMAPHORECOUNT, value); }
-	/** Unsafe version of {@link #pWaitSemaphores(PointerBuffer) pWaitSemaphores}. */
-	public static void npWaitSemaphores(long struct, PointerBuffer value) { memPutAddress(struct + VkBindSparseInfo.PWAITSEMAPHORES, memAddressSafe(value)); }
+	/** Unsafe version of {@link #pWaitSemaphores(LongBuffer) pWaitSemaphores}. */
+	public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkBindSparseInfo.PWAITSEMAPHORES, memAddressSafe(value)); }
 	/** Unsafe version of {@link #bufferBindCount(int) bufferBindCount}. */
 	public static void nbufferBindCount(long struct, int value) { memPutInt(struct + VkBindSparseInfo.BUFFERBINDCOUNT, value); }
 	/** Unsafe version of {@link #pBufferBinds(VkSparseBufferMemoryBindInfo) pBufferBinds}. */
@@ -324,8 +324,8 @@ public class VkBindSparseInfo extends Struct {
 	public static void npImageBinds(long struct, VkSparseImageMemoryBindInfo value) { memPutAddress(struct + VkBindSparseInfo.PIMAGEBINDS, value.address()); }
 	/** Unsafe version of {@link #signalSemaphoreCount(int) signalSemaphoreCount}. */
 	public static void nsignalSemaphoreCount(long struct, int value) { memPutInt(struct + VkBindSparseInfo.SIGNALSEMAPHORECOUNT, value); }
-	/** Unsafe version of {@link #pSignalSemaphores(PointerBuffer) pSignalSemaphores}. */
-	public static void npSignalSemaphores(long struct, PointerBuffer value) { memPutAddress(struct + VkBindSparseInfo.PSIGNALSEMAPHORES, memAddressSafe(value)); }
+	/** Unsafe version of {@link #pSignalSemaphores(LongBuffer) pSignalSemaphores}. */
+	public static void npSignalSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkBindSparseInfo.PSIGNALSEMAPHORES, memAddressSafe(value)); }
 
 	// -----------------------------------
 
@@ -376,11 +376,11 @@ public class VkBindSparseInfo extends Struct {
 		/** Returns the value of the {@code waitSemaphoreCount} field. */
 		public int waitSemaphoreCount() { return VkBindSparseInfo.nwaitSemaphoreCount(address()); }
 		/**
-		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code pWaitSemaphores} field.
+		 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link PointerBuffer}
+		 * @param capacity the number of elements in the returned {@link LongBuffer}
 		 */
-		public PointerBuffer pWaitSemaphores(int capacity) { return VkBindSparseInfo.npWaitSemaphores(address(), capacity); }
+		public LongBuffer pWaitSemaphores(int capacity) { return VkBindSparseInfo.npWaitSemaphores(address(), capacity); }
 		/** Returns the value of the {@code bufferBindCount} field. */
 		public int bufferBindCount() { return VkBindSparseInfo.nbufferBindCount(address()); }
 		/** Returns a {@link VkSparseBufferMemoryBindInfo} view of the struct pointed to by the {@code pBufferBinds} field. */
@@ -396,11 +396,11 @@ public class VkBindSparseInfo extends Struct {
 		/** Returns the value of the {@code signalSemaphoreCount} field. */
 		public int signalSemaphoreCount() { return VkBindSparseInfo.nsignalSemaphoreCount(address()); }
 		/**
-		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code pSignalSemaphores} field.
+		 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphores} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link PointerBuffer}
+		 * @param capacity the number of elements in the returned {@link LongBuffer}
 		 */
-		public PointerBuffer pSignalSemaphores(int capacity) { return VkBindSparseInfo.npSignalSemaphores(address(), capacity); }
+		public LongBuffer pSignalSemaphores(int capacity) { return VkBindSparseInfo.npSignalSemaphores(address(), capacity); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkBindSparseInfo.Buffer sType(int value) { VkBindSparseInfo.nsType(address(), value); return this; }
@@ -408,8 +408,8 @@ public class VkBindSparseInfo extends Struct {
 		public VkBindSparseInfo.Buffer pNext(long value) { VkBindSparseInfo.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code waitSemaphoreCount} field. */
 		public VkBindSparseInfo.Buffer waitSemaphoreCount(int value) { VkBindSparseInfo.nwaitSemaphoreCount(address(), value); return this; }
-		/** Sets the address of the specified {@link PointerBuffer} to the {@code pWaitSemaphores} field. */
-		public VkBindSparseInfo.Buffer pWaitSemaphores(PointerBuffer value) { VkBindSparseInfo.npWaitSemaphores(address(), value); return this; }
+		/** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
+		public VkBindSparseInfo.Buffer pWaitSemaphores(LongBuffer value) { VkBindSparseInfo.npWaitSemaphores(address(), value); return this; }
 		/** Sets the specified value to the {@code bufferBindCount} field. */
 		public VkBindSparseInfo.Buffer bufferBindCount(int value) { VkBindSparseInfo.nbufferBindCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkSparseBufferMemoryBindInfo} to the {@code pBufferBinds} field. */
@@ -424,8 +424,8 @@ public class VkBindSparseInfo extends Struct {
 		public VkBindSparseInfo.Buffer pImageBinds(VkSparseImageMemoryBindInfo value) { VkBindSparseInfo.npImageBinds(address(), value); return this; }
 		/** Sets the specified value to the {@code signalSemaphoreCount} field. */
 		public VkBindSparseInfo.Buffer signalSemaphoreCount(int value) { VkBindSparseInfo.nsignalSemaphoreCount(address(), value); return this; }
-		/** Sets the address of the specified {@link PointerBuffer} to the {@code pSignalSemaphores} field. */
-		public VkBindSparseInfo.Buffer pSignalSemaphores(PointerBuffer value) { VkBindSparseInfo.npSignalSemaphores(address(), value); return this; }
+		/** Sets the address of the specified {@link LongBuffer} to the {@code pSignalSemaphores} field. */
+		public VkBindSparseInfo.Buffer pSignalSemaphores(LongBuffer value) { VkBindSparseInfo.npSignalSemaphores(address(), value); return this; }
 
 	}
 

@@ -7,13 +7,11 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /**
  * The {@code VK_KHR_swapchain} extension is the device-level companion to the {@code VK_KHR_surface} extension. It introduces {@code VkSwapchainKHR}
@@ -98,12 +96,12 @@ public class KHRSwapchain {
 	 */
 	public static int vkCreateSwapchainKHR(long device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSwapchain) {
 		if ( CHECKS )
-			checkBuffer(pSwapchain, 1 << POINTER_SHIFT);
+			checkBuffer(pSwapchain, 1 << 3);
 		return nvkCreateSwapchainKHR(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSwapchain));
 	}
 
 	/** Alternative version of: {@link #vkCreateSwapchainKHR CreateSwapchainKHR} */
-	public static int vkCreateSwapchainKHR(long device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pSwapchain) {
+	public static int vkCreateSwapchainKHR(long device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSwapchain) {
 		if ( CHECKS )
 			checkBuffer(pSwapchain, 1);
 		return nvkCreateSwapchainKHR(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSwapchain));
@@ -117,7 +115,7 @@ public class KHRSwapchain {
 		long __functionAddress = getInstance().DestroySwapchainKHR;
 		if ( CHECKS )
 			checkPointer(device);
-		callPPPV(__functionAddress, device, swapchain, pAllocator);
+		callPJPV(__functionAddress, device, swapchain, pAllocator);
 	}
 
 	/**
@@ -137,11 +135,9 @@ public class KHRSwapchain {
 	@JavadocExclude
 	public static int nvkGetSwapchainImagesKHR(long device, long swapchain, long pSwapchainImageCount, long pSwapchainImages) {
 		long __functionAddress = getInstance().GetSwapchainImagesKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(swapchain);
-		}
-		return callPPPPI(__functionAddress, device, swapchain, pSwapchainImageCount, pSwapchainImages);
+		return callPJPPI(__functionAddress, device, swapchain, pSwapchainImageCount, pSwapchainImages);
 	}
 
 	/**
@@ -155,13 +151,13 @@ public class KHRSwapchain {
 	public static int vkGetSwapchainImagesKHR(long device, long swapchain, ByteBuffer pSwapchainImageCount, ByteBuffer pSwapchainImages) {
 		if ( CHECKS ) {
 			checkBuffer(pSwapchainImageCount, 1 << 2);
-			if ( pSwapchainImages != null ) checkBuffer(pSwapchainImages, pSwapchainImageCount.getInt(pSwapchainImageCount.position()) << POINTER_SHIFT);
+			if ( pSwapchainImages != null ) checkBuffer(pSwapchainImages, pSwapchainImageCount.getInt(pSwapchainImageCount.position()) << 3);
 		}
 		return nvkGetSwapchainImagesKHR(device, swapchain, memAddress(pSwapchainImageCount), memAddressSafe(pSwapchainImages));
 	}
 
 	/** Alternative version of: {@link #vkGetSwapchainImagesKHR GetSwapchainImagesKHR} */
-	public static int vkGetSwapchainImagesKHR(long device, long swapchain, IntBuffer pSwapchainImageCount, PointerBuffer pSwapchainImages) {
+	public static int vkGetSwapchainImagesKHR(long device, long swapchain, IntBuffer pSwapchainImageCount, LongBuffer pSwapchainImages) {
 		if ( CHECKS ) {
 			checkBuffer(pSwapchainImageCount, 1);
 			if ( pSwapchainImages != null ) checkBuffer(pSwapchainImages, pSwapchainImageCount.get(pSwapchainImageCount.position()));
@@ -175,13 +171,9 @@ public class KHRSwapchain {
 	@JavadocExclude
 	public static int nvkAcquireNextImageKHR(long device, long swapchain, long timeout, long semaphore, long fence, long pImageIndex) {
 		long __functionAddress = getInstance().AcquireNextImageKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(device);
-			checkPointer(swapchain);
-			checkPointer(semaphore);
-			checkPointer(fence);
-		}
-		return callPPJPPPI(__functionAddress, device, swapchain, timeout, semaphore, fence, pImageIndex);
+		return callPJJJJPI(__functionAddress, device, swapchain, timeout, semaphore, fence, pImageIndex);
 	}
 
 	/**

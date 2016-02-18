@@ -86,11 +86,11 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 	/** Returns the value of the {@code stageFlags} field. */
 	public int stageFlags() { return nstageFlags(address()); }
 	/**
-	 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code pImmutableSamplers} field.
+	 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pImmutableSamplers} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link PointerBuffer}
+	 * @param capacity the number of elements in the returned {@link LongBuffer}
 	 */
-	public PointerBuffer pImmutableSamplers(int capacity) { return npImmutableSamplers(address(), capacity); }
+	public LongBuffer pImmutableSamplers(int capacity) { return npImmutableSamplers(address(), capacity); }
 
 	/** Sets the specified value to the {@code binding} field. */
 	public VkDescriptorSetLayoutBinding binding(int value) { nbinding(address(), value); return this; }
@@ -100,8 +100,8 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 	public VkDescriptorSetLayoutBinding descriptorCount(int value) { ndescriptorCount(address(), value); return this; }
 	/** Sets the specified value to the {@code stageFlags} field. */
 	public VkDescriptorSetLayoutBinding stageFlags(int value) { nstageFlags(address(), value); return this; }
-	/** Sets the address of the specified {@link PointerBuffer} to the {@code pImmutableSamplers} field. */
-	public VkDescriptorSetLayoutBinding pImmutableSamplers(PointerBuffer value) { npImmutableSamplers(address(), value); return this; }
+	/** Sets the address of the specified {@link LongBuffer} to the {@code pImmutableSamplers} field. */
+	public VkDescriptorSetLayoutBinding pImmutableSamplers(LongBuffer value) { npImmutableSamplers(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkDescriptorSetLayoutBinding set(
@@ -109,7 +109,7 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 		int descriptorType,
 		int descriptorCount,
 		int stageFlags,
-		PointerBuffer pImmutableSamplers
+		LongBuffer pImmutableSamplers
 	) {
 		binding(binding);
 		descriptorType(descriptorType);
@@ -212,7 +212,7 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 	/** Unsafe version of {@link #stageFlags}. */
 	public static int nstageFlags(long struct) { return memGetInt(struct + VkDescriptorSetLayoutBinding.STAGEFLAGS); }
 	/** Unsafe version of {@link #pImmutableSamplers(int) pImmutableSamplers}. */
-	public static PointerBuffer npImmutableSamplers(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VkDescriptorSetLayoutBinding.PIMMUTABLESAMPLERS), capacity); }
+	public static LongBuffer npImmutableSamplers(long struct, int capacity) { return memLongBuffer(memGetAddress(struct + VkDescriptorSetLayoutBinding.PIMMUTABLESAMPLERS), capacity); }
 
 	/** Unsafe version of {@link #binding(int) binding}. */
 	public static void nbinding(long struct, int value) { memPutInt(struct + VkDescriptorSetLayoutBinding.BINDING, value); }
@@ -222,8 +222,8 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 	public static void ndescriptorCount(long struct, int value) { memPutInt(struct + VkDescriptorSetLayoutBinding.DESCRIPTORCOUNT, value); }
 	/** Unsafe version of {@link #stageFlags(int) stageFlags}. */
 	public static void nstageFlags(long struct, int value) { memPutInt(struct + VkDescriptorSetLayoutBinding.STAGEFLAGS, value); }
-	/** Unsafe version of {@link #pImmutableSamplers(PointerBuffer) pImmutableSamplers}. */
-	public static void npImmutableSamplers(long struct, PointerBuffer value) { memPutAddress(struct + VkDescriptorSetLayoutBinding.PIMMUTABLESAMPLERS, memAddressSafe(value)); }
+	/** Unsafe version of {@link #pImmutableSamplers(LongBuffer) pImmutableSamplers}. */
+	public static void npImmutableSamplers(long struct, LongBuffer value) { memPutAddress(struct + VkDescriptorSetLayoutBinding.PIMMUTABLESAMPLERS, memAddressSafe(value)); }
 
 	// -----------------------------------
 
@@ -276,11 +276,11 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 		/** Returns the value of the {@code stageFlags} field. */
 		public int stageFlags() { return VkDescriptorSetLayoutBinding.nstageFlags(address()); }
 		/**
-		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code pImmutableSamplers} field.
+		 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pImmutableSamplers} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link PointerBuffer}
+		 * @param capacity the number of elements in the returned {@link LongBuffer}
 		 */
-		public PointerBuffer pImmutableSamplers(int capacity) { return VkDescriptorSetLayoutBinding.npImmutableSamplers(address(), capacity); }
+		public LongBuffer pImmutableSamplers(int capacity) { return VkDescriptorSetLayoutBinding.npImmutableSamplers(address(), capacity); }
 
 		/** Sets the specified value to the {@code binding} field. */
 		public VkDescriptorSetLayoutBinding.Buffer binding(int value) { VkDescriptorSetLayoutBinding.nbinding(address(), value); return this; }
@@ -290,8 +290,8 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 		public VkDescriptorSetLayoutBinding.Buffer descriptorCount(int value) { VkDescriptorSetLayoutBinding.ndescriptorCount(address(), value); return this; }
 		/** Sets the specified value to the {@code stageFlags} field. */
 		public VkDescriptorSetLayoutBinding.Buffer stageFlags(int value) { VkDescriptorSetLayoutBinding.nstageFlags(address(), value); return this; }
-		/** Sets the address of the specified {@link PointerBuffer} to the {@code pImmutableSamplers} field. */
-		public VkDescriptorSetLayoutBinding.Buffer pImmutableSamplers(PointerBuffer value) { VkDescriptorSetLayoutBinding.npImmutableSamplers(address(), value); return this; }
+		/** Sets the address of the specified {@link LongBuffer} to the {@code pImmutableSamplers} field. */
+		public VkDescriptorSetLayoutBinding.Buffer pImmutableSamplers(LongBuffer value) { VkDescriptorSetLayoutBinding.npImmutableSamplers(address(), value); return this; }
 
 	}
 

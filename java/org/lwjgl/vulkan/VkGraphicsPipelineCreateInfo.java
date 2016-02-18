@@ -85,10 +85,10 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
+			__member(8),
+			__member(8),
 			__member(4),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4)
 		);
 
@@ -368,13 +368,13 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 	/** Unsafe version of {@link #pDynamicState}. */
 	public static VkPipelineDynamicStateCreateInfo npDynamicState(long struct) { return VkPipelineDynamicStateCreateInfo.create(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PDYNAMICSTATE)); }
 	/** Unsafe version of {@link #layout}. */
-	public static long nlayout(long struct) { return memGetAddress(struct + VkGraphicsPipelineCreateInfo.LAYOUT); }
+	public static long nlayout(long struct) { return memGetLong(struct + VkGraphicsPipelineCreateInfo.LAYOUT); }
 	/** Unsafe version of {@link #renderPass}. */
-	public static long nrenderPass(long struct) { return memGetAddress(struct + VkGraphicsPipelineCreateInfo.RENDERPASS); }
+	public static long nrenderPass(long struct) { return memGetLong(struct + VkGraphicsPipelineCreateInfo.RENDERPASS); }
 	/** Unsafe version of {@link #subpass}. */
 	public static int nsubpass(long struct) { return memGetInt(struct + VkGraphicsPipelineCreateInfo.SUBPASS); }
 	/** Unsafe version of {@link #basePipelineHandle}. */
-	public static long nbasePipelineHandle(long struct) { return memGetAddress(struct + VkGraphicsPipelineCreateInfo.BASEPIPELINEHANDLE); }
+	public static long nbasePipelineHandle(long struct) { return memGetLong(struct + VkGraphicsPipelineCreateInfo.BASEPIPELINEHANDLE); }
 	/** Unsafe version of {@link #basePipelineIndex}. */
 	public static int nbasePipelineIndex(long struct) { return memGetInt(struct + VkGraphicsPipelineCreateInfo.BASEPIPELINEINDEX); }
 
@@ -407,13 +407,13 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 	/** Unsafe version of {@link #pDynamicState(VkPipelineDynamicStateCreateInfo) pDynamicState}. */
 	public static void npDynamicState(long struct, VkPipelineDynamicStateCreateInfo value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PDYNAMICSTATE, value.address()); }
 	/** Unsafe version of {@link #layout(long) layout}. */
-	public static void nlayout(long struct, long value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.LAYOUT, value); }
+	public static void nlayout(long struct, long value) { memPutLong(struct + VkGraphicsPipelineCreateInfo.LAYOUT, value); }
 	/** Unsafe version of {@link #renderPass(long) renderPass}. */
-	public static void nrenderPass(long struct, long value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.RENDERPASS, value); }
+	public static void nrenderPass(long struct, long value) { memPutLong(struct + VkGraphicsPipelineCreateInfo.RENDERPASS, value); }
 	/** Unsafe version of {@link #subpass(int) subpass}. */
 	public static void nsubpass(long struct, int value) { memPutInt(struct + VkGraphicsPipelineCreateInfo.SUBPASS, value); }
 	/** Unsafe version of {@link #basePipelineHandle(long) basePipelineHandle}. */
-	public static void nbasePipelineHandle(long struct, long value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.BASEPIPELINEHANDLE, value); }
+	public static void nbasePipelineHandle(long struct, long value) { memPutLong(struct + VkGraphicsPipelineCreateInfo.BASEPIPELINEHANDLE, value); }
 	/** Unsafe version of {@link #basePipelineIndex(int) basePipelineIndex}. */
 	public static void nbasePipelineIndex(long struct, int value) { memPutInt(struct + VkGraphicsPipelineCreateInfo.BASEPIPELINEINDEX, value); }
 

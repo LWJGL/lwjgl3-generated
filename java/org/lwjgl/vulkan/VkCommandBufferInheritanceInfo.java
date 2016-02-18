@@ -51,9 +51,9 @@ public class VkCommandBufferInheritanceInfo extends Struct {
 		Layout layout = __struct(
 			__member(4),
 			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4),
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(4),
 			__member(4),
 			__member(4)
@@ -234,11 +234,11 @@ public class VkCommandBufferInheritanceInfo extends Struct {
 	/** Unsafe version of {@link #pNext}. */
 	public static long npNext(long struct) { return memGetAddress(struct + VkCommandBufferInheritanceInfo.PNEXT); }
 	/** Unsafe version of {@link #renderPass}. */
-	public static long nrenderPass(long struct) { return memGetAddress(struct + VkCommandBufferInheritanceInfo.RENDERPASS); }
+	public static long nrenderPass(long struct) { return memGetLong(struct + VkCommandBufferInheritanceInfo.RENDERPASS); }
 	/** Unsafe version of {@link #subpass}. */
 	public static int nsubpass(long struct) { return memGetInt(struct + VkCommandBufferInheritanceInfo.SUBPASS); }
 	/** Unsafe version of {@link #framebuffer}. */
-	public static long nframebuffer(long struct) { return memGetAddress(struct + VkCommandBufferInheritanceInfo.FRAMEBUFFER); }
+	public static long nframebuffer(long struct) { return memGetLong(struct + VkCommandBufferInheritanceInfo.FRAMEBUFFER); }
 	/** Unsafe version of {@link #occlusionQueryEnable}. */
 	public static int nocclusionQueryEnable(long struct) { return memGetInt(struct + VkCommandBufferInheritanceInfo.OCCLUSIONQUERYENABLE); }
 	/** Unsafe version of {@link #queryFlags}. */
@@ -251,11 +251,11 @@ public class VkCommandBufferInheritanceInfo extends Struct {
 	/** Unsafe version of {@link #pNext(long) pNext}. */
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkCommandBufferInheritanceInfo.PNEXT, value); }
 	/** Unsafe version of {@link #renderPass(long) renderPass}. */
-	public static void nrenderPass(long struct, long value) { memPutAddress(struct + VkCommandBufferInheritanceInfo.RENDERPASS, value); }
+	public static void nrenderPass(long struct, long value) { memPutLong(struct + VkCommandBufferInheritanceInfo.RENDERPASS, value); }
 	/** Unsafe version of {@link #subpass(int) subpass}. */
 	public static void nsubpass(long struct, int value) { memPutInt(struct + VkCommandBufferInheritanceInfo.SUBPASS, value); }
 	/** Unsafe version of {@link #framebuffer(long) framebuffer}. */
-	public static void nframebuffer(long struct, long value) { memPutAddress(struct + VkCommandBufferInheritanceInfo.FRAMEBUFFER, value); }
+	public static void nframebuffer(long struct, long value) { memPutLong(struct + VkCommandBufferInheritanceInfo.FRAMEBUFFER, value); }
 	/** Unsafe version of {@link #occlusionQueryEnable(int) occlusionQueryEnable}. */
 	public static void nocclusionQueryEnable(long struct, int value) { memPutInt(struct + VkCommandBufferInheritanceInfo.OCCLUSIONQUERYENABLE, value); }
 	/** Unsafe version of {@link #queryFlags(int) queryFlags}. */

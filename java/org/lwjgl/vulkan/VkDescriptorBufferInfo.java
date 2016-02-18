@@ -39,7 +39,7 @@ public class VkDescriptorBufferInfo extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(POINTER_SIZE),
+			__member(8),
 			__member(8),
 			__member(8)
 		);
@@ -180,14 +180,14 @@ public class VkDescriptorBufferInfo extends Struct {
 	}
 
 	/** Unsafe version of {@link #buffer}. */
-	public static long nbuffer(long struct) { return memGetAddress(struct + VkDescriptorBufferInfo.BUFFER); }
+	public static long nbuffer(long struct) { return memGetLong(struct + VkDescriptorBufferInfo.BUFFER); }
 	/** Unsafe version of {@link #offset}. */
 	public static long noffset(long struct) { return memGetLong(struct + VkDescriptorBufferInfo.OFFSET); }
 	/** Unsafe version of {@link #range}. */
 	public static long nrange(long struct) { return memGetLong(struct + VkDescriptorBufferInfo.RANGE); }
 
 	/** Unsafe version of {@link #buffer(long) buffer}. */
-	public static void nbuffer(long struct, long value) { memPutAddress(struct + VkDescriptorBufferInfo.BUFFER, value); }
+	public static void nbuffer(long struct, long value) { memPutLong(struct + VkDescriptorBufferInfo.BUFFER, value); }
 	/** Unsafe version of {@link #offset(long) offset}. */
 	public static void noffset(long struct, long value) { memPutLong(struct + VkDescriptorBufferInfo.OFFSET, value); }
 	/** Unsafe version of {@link #range(long) range}. */
