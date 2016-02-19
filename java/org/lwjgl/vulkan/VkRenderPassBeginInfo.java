@@ -97,8 +97,8 @@ public class VkRenderPassBeginInfo extends Struct {
 	public VkRect2D renderArea() { return nrenderArea(address()); }
 	/** Returns the value of the {@code clearValueCount} field. */
 	public int clearValueCount() { return nclearValueCount(address()); }
-	/** Returns a {@link VkClearValue} view of the struct pointed to by the {@code pClearValues} field. */
-	public VkClearValue pClearValues() { return npClearValues(address()); }
+	/** Returns a {@link VkClearValue.Buffer} view of the struct array pointed to by the {@code pClearValues} field. */
+	public VkClearValue.Buffer pClearValues(int capacity) { return npClearValues(address(), capacity); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkRenderPassBeginInfo sType(int value) { nsType(address(), value); return this; }
@@ -112,8 +112,8 @@ public class VkRenderPassBeginInfo extends Struct {
 	public VkRenderPassBeginInfo renderArea(VkRect2D value) { nrenderArea(address(), value); return this; }
 	/** Sets the specified value to the {@code clearValueCount} field. */
 	public VkRenderPassBeginInfo clearValueCount(int value) { nclearValueCount(address(), value); return this; }
-	/** Sets the address of the specified {@link VkClearValue} to the {@code pClearValues} field. */
-	public VkRenderPassBeginInfo pClearValues(VkClearValue value) { npClearValues(address(), value); return this; }
+	/** Sets the address of the specified {@link VkClearValue.Buffer} to the {@code pClearValues} field. */
+	public VkRenderPassBeginInfo pClearValues(VkClearValue.Buffer value) { npClearValues(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkRenderPassBeginInfo set(
@@ -123,7 +123,7 @@ public class VkRenderPassBeginInfo extends Struct {
 		long framebuffer,
 		VkRect2D renderArea,
 		int clearValueCount,
-		VkClearValue pClearValues
+		VkClearValue.Buffer pClearValues
 	) {
 		sType(sType);
 		pNext(pNext);
@@ -232,7 +232,7 @@ public class VkRenderPassBeginInfo extends Struct {
 	/** Unsafe version of {@link #clearValueCount}. */
 	public static int nclearValueCount(long struct) { return memGetInt(struct + VkRenderPassBeginInfo.CLEARVALUECOUNT); }
 	/** Unsafe version of {@link #pClearValues}. */
-	public static VkClearValue npClearValues(long struct) { return VkClearValue.create(memGetAddress(struct + VkRenderPassBeginInfo.PCLEARVALUES)); }
+	public static VkClearValue.Buffer npClearValues(long struct, int capacity) { return VkClearValue.create(memGetAddress(struct + VkRenderPassBeginInfo.PCLEARVALUES), capacity); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkRenderPassBeginInfo.STYPE, value); }
@@ -246,8 +246,8 @@ public class VkRenderPassBeginInfo extends Struct {
 	public static void nrenderArea(long struct, VkRect2D value) { memCopy(value.address(), struct + VkRenderPassBeginInfo.RENDERAREA, VkRect2D.SIZEOF); }
 	/** Unsafe version of {@link #clearValueCount(int) clearValueCount}. */
 	public static void nclearValueCount(long struct, int value) { memPutInt(struct + VkRenderPassBeginInfo.CLEARVALUECOUNT, value); }
-	/** Unsafe version of {@link #pClearValues(VkClearValue) pClearValues}. */
-	public static void npClearValues(long struct, VkClearValue value) { memPutAddress(struct + VkRenderPassBeginInfo.PCLEARVALUES, value.address()); }
+	/** Unsafe version of {@link #pClearValues(VkClearValue.Buffer) pClearValues}. */
+	public static void npClearValues(long struct, VkClearValue.Buffer value) { memPutAddress(struct + VkRenderPassBeginInfo.PCLEARVALUES, value.address()); }
 
 	// -----------------------------------
 
@@ -303,8 +303,8 @@ public class VkRenderPassBeginInfo extends Struct {
 		public VkRect2D renderArea() { return VkRenderPassBeginInfo.nrenderArea(address()); }
 		/** Returns the value of the {@code clearValueCount} field. */
 		public int clearValueCount() { return VkRenderPassBeginInfo.nclearValueCount(address()); }
-		/** Returns a {@link VkClearValue} view of the struct pointed to by the {@code pClearValues} field. */
-		public VkClearValue pClearValues() { return VkRenderPassBeginInfo.npClearValues(address()); }
+		/** Returns a {@link VkClearValue.Buffer} view of the struct array pointed to by the {@code pClearValues} field. */
+		public VkClearValue.Buffer pClearValues(int capacity) { return VkRenderPassBeginInfo.npClearValues(address(), capacity); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkRenderPassBeginInfo.Buffer sType(int value) { VkRenderPassBeginInfo.nsType(address(), value); return this; }
@@ -318,8 +318,8 @@ public class VkRenderPassBeginInfo extends Struct {
 		public VkRenderPassBeginInfo.Buffer renderArea(VkRect2D value) { VkRenderPassBeginInfo.nrenderArea(address(), value); return this; }
 		/** Sets the specified value to the {@code clearValueCount} field. */
 		public VkRenderPassBeginInfo.Buffer clearValueCount(int value) { VkRenderPassBeginInfo.nclearValueCount(address(), value); return this; }
-		/** Sets the address of the specified {@link VkClearValue} to the {@code pClearValues} field. */
-		public VkRenderPassBeginInfo.Buffer pClearValues(VkClearValue value) { VkRenderPassBeginInfo.npClearValues(address(), value); return this; }
+		/** Sets the address of the specified {@link VkClearValue.Buffer} to the {@code pClearValues} field. */
+		public VkRenderPassBeginInfo.Buffer pClearValues(VkClearValue.Buffer value) { VkRenderPassBeginInfo.npClearValues(address(), value); return this; }
 
 	}
 

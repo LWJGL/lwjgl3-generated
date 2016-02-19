@@ -73,21 +73,21 @@ public class VkSparseImageOpaqueMemoryBindInfo extends Struct {
 	public long image() { return nimage(address()); }
 	/** Returns the value of the {@code bindCount} field. */
 	public int bindCount() { return nbindCount(address()); }
-	/** Returns a {@link VkSparseMemoryBind} view of the struct pointed to by the {@code pBinds} field. */
-	public VkSparseMemoryBind pBinds() { return npBinds(address()); }
+	/** Returns a {@link VkSparseMemoryBind.Buffer} view of the struct array pointed to by the {@code pBinds} field. */
+	public VkSparseMemoryBind.Buffer pBinds(int capacity) { return npBinds(address(), capacity); }
 
 	/** Sets the specified value to the {@code image} field. */
 	public VkSparseImageOpaqueMemoryBindInfo image(long value) { nimage(address(), value); return this; }
 	/** Sets the specified value to the {@code bindCount} field. */
 	public VkSparseImageOpaqueMemoryBindInfo bindCount(int value) { nbindCount(address(), value); return this; }
-	/** Sets the address of the specified {@link VkSparseMemoryBind} to the {@code pBinds} field. */
-	public VkSparseImageOpaqueMemoryBindInfo pBinds(VkSparseMemoryBind value) { npBinds(address(), value); return this; }
+	/** Sets the address of the specified {@link VkSparseMemoryBind.Buffer} to the {@code pBinds} field. */
+	public VkSparseImageOpaqueMemoryBindInfo pBinds(VkSparseMemoryBind.Buffer value) { npBinds(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkSparseImageOpaqueMemoryBindInfo set(
 		long image,
 		int bindCount,
-		VkSparseMemoryBind pBinds
+		VkSparseMemoryBind.Buffer pBinds
 	) {
 		image(image);
 		bindCount(bindCount);
@@ -184,14 +184,14 @@ public class VkSparseImageOpaqueMemoryBindInfo extends Struct {
 	/** Unsafe version of {@link #bindCount}. */
 	public static int nbindCount(long struct) { return memGetInt(struct + VkSparseImageOpaqueMemoryBindInfo.BINDCOUNT); }
 	/** Unsafe version of {@link #pBinds}. */
-	public static VkSparseMemoryBind npBinds(long struct) { return VkSparseMemoryBind.create(memGetAddress(struct + VkSparseImageOpaqueMemoryBindInfo.PBINDS)); }
+	public static VkSparseMemoryBind.Buffer npBinds(long struct, int capacity) { return VkSparseMemoryBind.create(memGetAddress(struct + VkSparseImageOpaqueMemoryBindInfo.PBINDS), capacity); }
 
 	/** Unsafe version of {@link #image(long) image}. */
 	public static void nimage(long struct, long value) { memPutLong(struct + VkSparseImageOpaqueMemoryBindInfo.IMAGE, value); }
 	/** Unsafe version of {@link #bindCount(int) bindCount}. */
 	public static void nbindCount(long struct, int value) { memPutInt(struct + VkSparseImageOpaqueMemoryBindInfo.BINDCOUNT, value); }
-	/** Unsafe version of {@link #pBinds(VkSparseMemoryBind) pBinds}. */
-	public static void npBinds(long struct, VkSparseMemoryBind value) { memPutAddress(struct + VkSparseImageOpaqueMemoryBindInfo.PBINDS, value.address()); }
+	/** Unsafe version of {@link #pBinds(VkSparseMemoryBind.Buffer) pBinds}. */
+	public static void npBinds(long struct, VkSparseMemoryBind.Buffer value) { memPutAddress(struct + VkSparseImageOpaqueMemoryBindInfo.PBINDS, value.address()); }
 
 	// -----------------------------------
 
@@ -239,15 +239,15 @@ public class VkSparseImageOpaqueMemoryBindInfo extends Struct {
 		public long image() { return VkSparseImageOpaqueMemoryBindInfo.nimage(address()); }
 		/** Returns the value of the {@code bindCount} field. */
 		public int bindCount() { return VkSparseImageOpaqueMemoryBindInfo.nbindCount(address()); }
-		/** Returns a {@link VkSparseMemoryBind} view of the struct pointed to by the {@code pBinds} field. */
-		public VkSparseMemoryBind pBinds() { return VkSparseImageOpaqueMemoryBindInfo.npBinds(address()); }
+		/** Returns a {@link VkSparseMemoryBind.Buffer} view of the struct array pointed to by the {@code pBinds} field. */
+		public VkSparseMemoryBind.Buffer pBinds(int capacity) { return VkSparseImageOpaqueMemoryBindInfo.npBinds(address(), capacity); }
 
 		/** Sets the specified value to the {@code image} field. */
 		public VkSparseImageOpaqueMemoryBindInfo.Buffer image(long value) { VkSparseImageOpaqueMemoryBindInfo.nimage(address(), value); return this; }
 		/** Sets the specified value to the {@code bindCount} field. */
 		public VkSparseImageOpaqueMemoryBindInfo.Buffer bindCount(int value) { VkSparseImageOpaqueMemoryBindInfo.nbindCount(address(), value); return this; }
-		/** Sets the address of the specified {@link VkSparseMemoryBind} to the {@code pBinds} field. */
-		public VkSparseImageOpaqueMemoryBindInfo.Buffer pBinds(VkSparseMemoryBind value) { VkSparseImageOpaqueMemoryBindInfo.npBinds(address(), value); return this; }
+		/** Sets the address of the specified {@link VkSparseMemoryBind.Buffer} to the {@code pBinds} field. */
+		public VkSparseImageOpaqueMemoryBindInfo.Buffer pBinds(VkSparseMemoryBind.Buffer value) { VkSparseImageOpaqueMemoryBindInfo.npBinds(address(), value); return this; }
 
 	}
 

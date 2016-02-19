@@ -91,8 +91,8 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 	public int maxSets() { return nmaxSets(address()); }
 	/** Returns the value of the {@code poolSizeCount} field. */
 	public int poolSizeCount() { return npoolSizeCount(address()); }
-	/** Returns a {@link VkDescriptorPoolSize} view of the struct pointed to by the {@code pPoolSizes} field. */
-	public VkDescriptorPoolSize pPoolSizes() { return npPoolSizes(address()); }
+	/** Returns a {@link VkDescriptorPoolSize.Buffer} view of the struct array pointed to by the {@code pPoolSizes} field. */
+	public VkDescriptorPoolSize.Buffer pPoolSizes(int capacity) { return npPoolSizes(address(), capacity); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkDescriptorPoolCreateInfo sType(int value) { nsType(address(), value); return this; }
@@ -104,8 +104,8 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 	public VkDescriptorPoolCreateInfo maxSets(int value) { nmaxSets(address(), value); return this; }
 	/** Sets the specified value to the {@code poolSizeCount} field. */
 	public VkDescriptorPoolCreateInfo poolSizeCount(int value) { npoolSizeCount(address(), value); return this; }
-	/** Sets the address of the specified {@link VkDescriptorPoolSize} to the {@code pPoolSizes} field. */
-	public VkDescriptorPoolCreateInfo pPoolSizes(VkDescriptorPoolSize value) { npPoolSizes(address(), value); return this; }
+	/** Sets the address of the specified {@link VkDescriptorPoolSize.Buffer} to the {@code pPoolSizes} field. */
+	public VkDescriptorPoolCreateInfo pPoolSizes(VkDescriptorPoolSize.Buffer value) { npPoolSizes(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkDescriptorPoolCreateInfo set(
@@ -114,7 +114,7 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 		int flags,
 		int maxSets,
 		int poolSizeCount,
-		VkDescriptorPoolSize pPoolSizes
+		VkDescriptorPoolSize.Buffer pPoolSizes
 	) {
 		sType(sType);
 		pNext(pNext);
@@ -220,7 +220,7 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 	/** Unsafe version of {@link #poolSizeCount}. */
 	public static int npoolSizeCount(long struct) { return memGetInt(struct + VkDescriptorPoolCreateInfo.POOLSIZECOUNT); }
 	/** Unsafe version of {@link #pPoolSizes}. */
-	public static VkDescriptorPoolSize npPoolSizes(long struct) { return VkDescriptorPoolSize.create(memGetAddress(struct + VkDescriptorPoolCreateInfo.PPOOLSIZES)); }
+	public static VkDescriptorPoolSize.Buffer npPoolSizes(long struct, int capacity) { return VkDescriptorPoolSize.create(memGetAddress(struct + VkDescriptorPoolCreateInfo.PPOOLSIZES), capacity); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkDescriptorPoolCreateInfo.STYPE, value); }
@@ -232,8 +232,8 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 	public static void nmaxSets(long struct, int value) { memPutInt(struct + VkDescriptorPoolCreateInfo.MAXSETS, value); }
 	/** Unsafe version of {@link #poolSizeCount(int) poolSizeCount}. */
 	public static void npoolSizeCount(long struct, int value) { memPutInt(struct + VkDescriptorPoolCreateInfo.POOLSIZECOUNT, value); }
-	/** Unsafe version of {@link #pPoolSizes(VkDescriptorPoolSize) pPoolSizes}. */
-	public static void npPoolSizes(long struct, VkDescriptorPoolSize value) { memPutAddress(struct + VkDescriptorPoolCreateInfo.PPOOLSIZES, value.address()); }
+	/** Unsafe version of {@link #pPoolSizes(VkDescriptorPoolSize.Buffer) pPoolSizes}. */
+	public static void npPoolSizes(long struct, VkDescriptorPoolSize.Buffer value) { memPutAddress(struct + VkDescriptorPoolCreateInfo.PPOOLSIZES, value.address()); }
 
 	// -----------------------------------
 
@@ -287,8 +287,8 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 		public int maxSets() { return VkDescriptorPoolCreateInfo.nmaxSets(address()); }
 		/** Returns the value of the {@code poolSizeCount} field. */
 		public int poolSizeCount() { return VkDescriptorPoolCreateInfo.npoolSizeCount(address()); }
-		/** Returns a {@link VkDescriptorPoolSize} view of the struct pointed to by the {@code pPoolSizes} field. */
-		public VkDescriptorPoolSize pPoolSizes() { return VkDescriptorPoolCreateInfo.npPoolSizes(address()); }
+		/** Returns a {@link VkDescriptorPoolSize.Buffer} view of the struct array pointed to by the {@code pPoolSizes} field. */
+		public VkDescriptorPoolSize.Buffer pPoolSizes(int capacity) { return VkDescriptorPoolCreateInfo.npPoolSizes(address(), capacity); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkDescriptorPoolCreateInfo.Buffer sType(int value) { VkDescriptorPoolCreateInfo.nsType(address(), value); return this; }
@@ -300,8 +300,8 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 		public VkDescriptorPoolCreateInfo.Buffer maxSets(int value) { VkDescriptorPoolCreateInfo.nmaxSets(address(), value); return this; }
 		/** Sets the specified value to the {@code poolSizeCount} field. */
 		public VkDescriptorPoolCreateInfo.Buffer poolSizeCount(int value) { VkDescriptorPoolCreateInfo.npoolSizeCount(address(), value); return this; }
-		/** Sets the address of the specified {@link VkDescriptorPoolSize} to the {@code pPoolSizes} field. */
-		public VkDescriptorPoolCreateInfo.Buffer pPoolSizes(VkDescriptorPoolSize value) { VkDescriptorPoolCreateInfo.npPoolSizes(address(), value); return this; }
+		/** Sets the address of the specified {@link VkDescriptorPoolSize.Buffer} to the {@code pPoolSizes} field. */
+		public VkDescriptorPoolCreateInfo.Buffer pPoolSizes(VkDescriptorPoolSize.Buffer value) { VkDescriptorPoolCreateInfo.npPoolSizes(address(), value); return this; }
 
 	}
 

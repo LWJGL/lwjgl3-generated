@@ -105,8 +105,8 @@ public class VkDeviceCreateInfo extends Struct {
 	public int flags() { return nflags(address()); }
 	/** Returns the value of the {@code queueCreateInfoCount} field. */
 	public int queueCreateInfoCount() { return nqueueCreateInfoCount(address()); }
-	/** Returns a {@link VkDeviceQueueCreateInfo} view of the struct pointed to by the {@code pQueueCreateInfos} field. */
-	public VkDeviceQueueCreateInfo pQueueCreateInfos() { return npQueueCreateInfos(address()); }
+	/** Returns a {@link VkDeviceQueueCreateInfo.Buffer} view of the struct array pointed to by the {@code pQueueCreateInfos} field. */
+	public VkDeviceQueueCreateInfo.Buffer pQueueCreateInfos(int capacity) { return npQueueCreateInfos(address(), capacity); }
 	/** Returns the value of the {@code enabledLayerCount} field. */
 	public int enabledLayerCount() { return nenabledLayerCount(address()); }
 	/**
@@ -134,8 +134,8 @@ public class VkDeviceCreateInfo extends Struct {
 	public VkDeviceCreateInfo flags(int value) { nflags(address(), value); return this; }
 	/** Sets the specified value to the {@code queueCreateInfoCount} field. */
 	public VkDeviceCreateInfo queueCreateInfoCount(int value) { nqueueCreateInfoCount(address(), value); return this; }
-	/** Sets the address of the specified {@link VkDeviceQueueCreateInfo} to the {@code pQueueCreateInfos} field. */
-	public VkDeviceCreateInfo pQueueCreateInfos(VkDeviceQueueCreateInfo value) { npQueueCreateInfos(address(), value); return this; }
+	/** Sets the address of the specified {@link VkDeviceQueueCreateInfo.Buffer} to the {@code pQueueCreateInfos} field. */
+	public VkDeviceCreateInfo pQueueCreateInfos(VkDeviceQueueCreateInfo.Buffer value) { npQueueCreateInfos(address(), value); return this; }
 	/** Sets the specified value to the {@code enabledLayerCount} field. */
 	public VkDeviceCreateInfo enabledLayerCount(int value) { nenabledLayerCount(address(), value); return this; }
 	/** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledLayerNames} field. */
@@ -153,7 +153,7 @@ public class VkDeviceCreateInfo extends Struct {
 		long pNext,
 		int flags,
 		int queueCreateInfoCount,
-		VkDeviceQueueCreateInfo pQueueCreateInfos,
+		VkDeviceQueueCreateInfo.Buffer pQueueCreateInfos,
 		int enabledLayerCount,
 		PointerBuffer ppEnabledLayerNames,
 		int enabledExtensionCount,
@@ -266,7 +266,7 @@ public class VkDeviceCreateInfo extends Struct {
 	/** Unsafe version of {@link #queueCreateInfoCount}. */
 	public static int nqueueCreateInfoCount(long struct) { return memGetInt(struct + VkDeviceCreateInfo.QUEUECREATEINFOCOUNT); }
 	/** Unsafe version of {@link #pQueueCreateInfos}. */
-	public static VkDeviceQueueCreateInfo npQueueCreateInfos(long struct) { return VkDeviceQueueCreateInfo.create(memGetAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS)); }
+	public static VkDeviceQueueCreateInfo.Buffer npQueueCreateInfos(long struct, int capacity) { return VkDeviceQueueCreateInfo.create(memGetAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS), capacity); }
 	/** Unsafe version of {@link #enabledLayerCount}. */
 	public static int nenabledLayerCount(long struct) { return memGetInt(struct + VkDeviceCreateInfo.ENABLEDLAYERCOUNT); }
 	/** Unsafe version of {@link #ppEnabledLayerNames(int) ppEnabledLayerNames}. */
@@ -286,8 +286,8 @@ public class VkDeviceCreateInfo extends Struct {
 	public static void nflags(long struct, int value) { memPutInt(struct + VkDeviceCreateInfo.FLAGS, value); }
 	/** Unsafe version of {@link #queueCreateInfoCount(int) queueCreateInfoCount}. */
 	public static void nqueueCreateInfoCount(long struct, int value) { memPutInt(struct + VkDeviceCreateInfo.QUEUECREATEINFOCOUNT, value); }
-	/** Unsafe version of {@link #pQueueCreateInfos(VkDeviceQueueCreateInfo) pQueueCreateInfos}. */
-	public static void npQueueCreateInfos(long struct, VkDeviceQueueCreateInfo value) { memPutAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS, value.address()); }
+	/** Unsafe version of {@link #pQueueCreateInfos(VkDeviceQueueCreateInfo.Buffer) pQueueCreateInfos}. */
+	public static void npQueueCreateInfos(long struct, VkDeviceQueueCreateInfo.Buffer value) { memPutAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS, value.address()); }
 	/** Unsafe version of {@link #enabledLayerCount(int) enabledLayerCount}. */
 	public static void nenabledLayerCount(long struct, int value) { memPutInt(struct + VkDeviceCreateInfo.ENABLEDLAYERCOUNT, value); }
 	/** Unsafe version of {@link #ppEnabledLayerNames(PointerBuffer) ppEnabledLayerNames}. */
@@ -349,8 +349,8 @@ public class VkDeviceCreateInfo extends Struct {
 		public int flags() { return VkDeviceCreateInfo.nflags(address()); }
 		/** Returns the value of the {@code queueCreateInfoCount} field. */
 		public int queueCreateInfoCount() { return VkDeviceCreateInfo.nqueueCreateInfoCount(address()); }
-		/** Returns a {@link VkDeviceQueueCreateInfo} view of the struct pointed to by the {@code pQueueCreateInfos} field. */
-		public VkDeviceQueueCreateInfo pQueueCreateInfos() { return VkDeviceCreateInfo.npQueueCreateInfos(address()); }
+		/** Returns a {@link VkDeviceQueueCreateInfo.Buffer} view of the struct array pointed to by the {@code pQueueCreateInfos} field. */
+		public VkDeviceQueueCreateInfo.Buffer pQueueCreateInfos(int capacity) { return VkDeviceCreateInfo.npQueueCreateInfos(address(), capacity); }
 		/** Returns the value of the {@code enabledLayerCount} field. */
 		public int enabledLayerCount() { return VkDeviceCreateInfo.nenabledLayerCount(address()); }
 		/**
@@ -378,8 +378,8 @@ public class VkDeviceCreateInfo extends Struct {
 		public VkDeviceCreateInfo.Buffer flags(int value) { VkDeviceCreateInfo.nflags(address(), value); return this; }
 		/** Sets the specified value to the {@code queueCreateInfoCount} field. */
 		public VkDeviceCreateInfo.Buffer queueCreateInfoCount(int value) { VkDeviceCreateInfo.nqueueCreateInfoCount(address(), value); return this; }
-		/** Sets the address of the specified {@link VkDeviceQueueCreateInfo} to the {@code pQueueCreateInfos} field. */
-		public VkDeviceCreateInfo.Buffer pQueueCreateInfos(VkDeviceQueueCreateInfo value) { VkDeviceCreateInfo.npQueueCreateInfos(address(), value); return this; }
+		/** Sets the address of the specified {@link VkDeviceQueueCreateInfo.Buffer} to the {@code pQueueCreateInfos} field. */
+		public VkDeviceCreateInfo.Buffer pQueueCreateInfos(VkDeviceQueueCreateInfo.Buffer value) { VkDeviceCreateInfo.npQueueCreateInfos(address(), value); return this; }
 		/** Sets the specified value to the {@code enabledLayerCount} field. */
 		public VkDeviceCreateInfo.Buffer enabledLayerCount(int value) { VkDeviceCreateInfo.nenabledLayerCount(address(), value); return this; }
 		/** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledLayerNames} field. */
