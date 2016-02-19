@@ -133,7 +133,7 @@ public class VkExtensionProperties extends Struct {
 	/** Unsafe version of {@link #extensionName}. */
 	public static ByteBuffer nextensionName(long struct) { return memByteBuffer(struct + VkExtensionProperties.EXTENSIONNAME, 256); }
 	/** Unsafe version of {@link #extensionNameString}. */
-	public static String nextensionNameString(long struct) { return memDecodeASCII(struct + VkExtensionProperties.EXTENSIONNAME); }
+	public static String nextensionNameString(long struct) { return memDecodeUTF8(struct + VkExtensionProperties.EXTENSIONNAME); }
 	/** Unsafe version of {@link #specVersion}. */
 	public static int nspecVersion(long struct) { return memGetInt(struct + VkExtensionProperties.SPECVERSION); }
 

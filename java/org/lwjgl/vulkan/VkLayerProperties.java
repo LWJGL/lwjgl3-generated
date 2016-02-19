@@ -147,7 +147,7 @@ public class VkLayerProperties extends Struct {
 	/** Unsafe version of {@link #layerName}. */
 	public static ByteBuffer nlayerName(long struct) { return memByteBuffer(struct + VkLayerProperties.LAYERNAME, 256); }
 	/** Unsafe version of {@link #layerNameString}. */
-	public static String nlayerNameString(long struct) { return memDecodeASCII(struct + VkLayerProperties.LAYERNAME); }
+	public static String nlayerNameString(long struct) { return memDecodeUTF8(struct + VkLayerProperties.LAYERNAME); }
 	/** Unsafe version of {@link #specVersion}. */
 	public static int nspecVersion(long struct) { return memGetInt(struct + VkLayerProperties.SPECVERSION); }
 	/** Unsafe version of {@link #implementationVersion}. */

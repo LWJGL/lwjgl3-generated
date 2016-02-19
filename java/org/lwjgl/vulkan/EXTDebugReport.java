@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -223,7 +224,19 @@ public class EXTDebugReport {
 	}
 
 	public static void vkDebugReportMessageEXT(long instance, int flags, int objectType, long object, long location, int messageCode, ByteBuffer pLayerPrefix, ByteBuffer pMessage) {
+		if ( CHECKS ) {
+			checkNT1(pLayerPrefix);
+			checkNT1(pMessage);
+		}
 		nvkDebugReportMessageEXT(instance, flags, objectType, object, location, messageCode, memAddress(pLayerPrefix), memAddress(pMessage));
+	}
+
+	/** CharSequence version of: {@link #vkDebugReportMessageEXT DebugReportMessageEXT} */
+	public static void vkDebugReportMessageEXT(long instance, int flags, int objectType, long object, long location, int messageCode, CharSequence pLayerPrefix, CharSequence pMessage) {
+		APIBuffer __buffer = apiBuffer();
+		int pLayerPrefixEncoded = __buffer.stringParamUTF8(pLayerPrefix, true);
+		int pMessageEncoded = __buffer.stringParamUTF8(pMessage, true);
+		nvkDebugReportMessageEXT(instance, flags, objectType, object, location, messageCode, __buffer.address(pLayerPrefixEncoded), __buffer.address(pMessageEncoded));
 	}
 
 }

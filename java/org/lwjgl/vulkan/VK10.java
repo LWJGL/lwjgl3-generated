@@ -2843,7 +2843,7 @@ public class VK10 {
 			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
 		APIBuffer __buffer = apiBuffer();
-		int pLayerNameEncoded = pLayerName == null ? 0 : __buffer.stringParamASCII(pLayerName, true);
+		int pLayerNameEncoded = pLayerName == null ? 0 : __buffer.stringParamUTF8(pLayerName, true);
 		return nvkEnumerateInstanceExtensionProperties(__buffer.addressSafe(pLayerName, pLayerNameEncoded), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
 	}
 
@@ -2868,6 +2868,7 @@ public class VK10 {
 	 */
 	public static int vkEnumerateDeviceExtensionProperties(long physicalDevice, ByteBuffer pLayerName, ByteBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
+			if ( pLayerName != null ) checkNT1(pLayerName);
 			checkBuffer(pPropertyCount, 1 << 2);
 			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.getInt(pPropertyCount.position()));
 		}
@@ -2881,6 +2882,17 @@ public class VK10 {
 			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
 		return nvkEnumerateDeviceExtensionProperties(physicalDevice, memAddressSafe(pLayerName), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
+	}
+
+	/** CharSequence version of: {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties} */
+	public static int vkEnumerateDeviceExtensionProperties(long physicalDevice, CharSequence pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+		if ( CHECKS ) {
+			checkBuffer(pPropertyCount, 1);
+			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
+		}
+		APIBuffer __buffer = apiBuffer();
+		int pLayerNameEncoded = pLayerName == null ? 0 : __buffer.stringParamUTF8(pLayerName, true);
+		return nvkEnumerateDeviceExtensionProperties(physicalDevice, __buffer.addressSafe(pLayerName, pLayerNameEncoded), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
 	}
 
 	// --- [ vkEnumerateInstanceLayerProperties ] ---
