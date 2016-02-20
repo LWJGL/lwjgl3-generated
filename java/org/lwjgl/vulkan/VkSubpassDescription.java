@@ -104,23 +104,19 @@ public class VkSubpassDescription extends Struct {
 	/** Returns the value of the {@code inputAttachmentCount} field. */
 	public int inputAttachmentCount() { return ninputAttachmentCount(address()); }
 	/** Returns a {@link VkAttachmentReference.Buffer} view of the struct array pointed to by the {@code pInputAttachments} field. */
-	public VkAttachmentReference.Buffer pInputAttachments(int capacity) { return npInputAttachments(address(), capacity); }
+	public VkAttachmentReference.Buffer pInputAttachments() { return npInputAttachments(address()); }
 	/** Returns the value of the {@code colorAttachmentCount} field. */
 	public int colorAttachmentCount() { return ncolorAttachmentCount(address()); }
 	/** Returns a {@link VkAttachmentReference.Buffer} view of the struct array pointed to by the {@code pColorAttachments} field. */
-	public VkAttachmentReference.Buffer pColorAttachments(int capacity) { return npColorAttachments(address(), capacity); }
+	public VkAttachmentReference.Buffer pColorAttachments() { return npColorAttachments(address()); }
 	/** Returns a {@link VkAttachmentReference.Buffer} view of the struct array pointed to by the {@code pResolveAttachments} field. */
-	public VkAttachmentReference.Buffer pResolveAttachments(int capacity) { return npResolveAttachments(address(), capacity); }
+	public VkAttachmentReference.Buffer pResolveAttachments() { return npResolveAttachments(address()); }
 	/** Returns a {@link VkAttachmentReference} view of the struct pointed to by the {@code pDepthStencilAttachment} field. */
 	public VkAttachmentReference pDepthStencilAttachment() { return npDepthStencilAttachment(address()); }
 	/** Returns the value of the {@code preserveAttachmentCount} field. */
 	public int preserveAttachmentCount() { return npreserveAttachmentCount(address()); }
-	/**
-	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pPreserveAttachments} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link IntBuffer}
-	 */
-	public IntBuffer pPreserveAttachments(int capacity) { return npPreserveAttachments(address(), capacity); }
+	/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pPreserveAttachments} field. */
+	public IntBuffer pPreserveAttachments() { return npPreserveAttachments(address()); }
 
 	/** Sets the specified value to the {@code flags} field. */
 	public VkSubpassDescription flags(int value) { nflags(address(), value); return this; }
@@ -147,24 +143,21 @@ public class VkSubpassDescription extends Struct {
 	public VkSubpassDescription set(
 		int flags,
 		int pipelineBindPoint,
-		int inputAttachmentCount,
 		VkAttachmentReference.Buffer pInputAttachments,
-		int colorAttachmentCount,
 		VkAttachmentReference.Buffer pColorAttachments,
 		VkAttachmentReference.Buffer pResolveAttachments,
 		VkAttachmentReference pDepthStencilAttachment,
-		int preserveAttachmentCount,
 		IntBuffer pPreserveAttachments
 	) {
 		flags(flags);
 		pipelineBindPoint(pipelineBindPoint);
-		inputAttachmentCount(inputAttachmentCount);
+		inputAttachmentCount(pInputAttachments != null ? pInputAttachments.remaining() : 0);
 		pInputAttachments(pInputAttachments);
-		colorAttachmentCount(colorAttachmentCount);
+		colorAttachmentCount(pColorAttachments != null ? pColorAttachments.remaining() : (pResolveAttachments != null ? pResolveAttachments.remaining() : 0));
 		pColorAttachments(pColorAttachments);
 		pResolveAttachments(pResolveAttachments);
 		pDepthStencilAttachment(pDepthStencilAttachment);
-		preserveAttachmentCount(preserveAttachmentCount);
+		preserveAttachmentCount(pPreserveAttachments != null ? pPreserveAttachments.remaining() : 0);
 		pPreserveAttachments(pPreserveAttachments);
 
 		return this;
@@ -185,13 +178,6 @@ public class VkSubpassDescription extends Struct {
 	 */
 	public VkSubpassDescription set(VkSubpassDescription src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkSubpassDescription) set}. */
-	public VkSubpassDescription set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -260,19 +246,19 @@ public class VkSubpassDescription extends Struct {
 	/** Unsafe version of {@link #inputAttachmentCount}. */
 	public static int ninputAttachmentCount(long struct) { return memGetInt(struct + VkSubpassDescription.INPUTATTACHMENTCOUNT); }
 	/** Unsafe version of {@link #pInputAttachments}. */
-	public static VkAttachmentReference.Buffer npInputAttachments(long struct, int capacity) { return VkAttachmentReference.create(memGetAddress(struct + VkSubpassDescription.PINPUTATTACHMENTS), capacity); }
+	public static VkAttachmentReference.Buffer npInputAttachments(long struct) { return VkAttachmentReference.create(memGetAddress(struct + VkSubpassDescription.PINPUTATTACHMENTS), ninputAttachmentCount(struct)); }
 	/** Unsafe version of {@link #colorAttachmentCount}. */
 	public static int ncolorAttachmentCount(long struct) { return memGetInt(struct + VkSubpassDescription.COLORATTACHMENTCOUNT); }
 	/** Unsafe version of {@link #pColorAttachments}. */
-	public static VkAttachmentReference.Buffer npColorAttachments(long struct, int capacity) { return VkAttachmentReference.create(memGetAddress(struct + VkSubpassDescription.PCOLORATTACHMENTS), capacity); }
+	public static VkAttachmentReference.Buffer npColorAttachments(long struct) { return VkAttachmentReference.create(memGetAddress(struct + VkSubpassDescription.PCOLORATTACHMENTS), ncolorAttachmentCount(struct)); }
 	/** Unsafe version of {@link #pResolveAttachments}. */
-	public static VkAttachmentReference.Buffer npResolveAttachments(long struct, int capacity) { return VkAttachmentReference.create(memGetAddress(struct + VkSubpassDescription.PRESOLVEATTACHMENTS), capacity); }
+	public static VkAttachmentReference.Buffer npResolveAttachments(long struct) { return VkAttachmentReference.create(memGetAddress(struct + VkSubpassDescription.PRESOLVEATTACHMENTS), ncolorAttachmentCount(struct)); }
 	/** Unsafe version of {@link #pDepthStencilAttachment}. */
 	public static VkAttachmentReference npDepthStencilAttachment(long struct) { return VkAttachmentReference.create(memGetAddress(struct + VkSubpassDescription.PDEPTHSTENCILATTACHMENT)); }
 	/** Unsafe version of {@link #preserveAttachmentCount}. */
 	public static int npreserveAttachmentCount(long struct) { return memGetInt(struct + VkSubpassDescription.PRESERVEATTACHMENTCOUNT); }
-	/** Unsafe version of {@link #pPreserveAttachments(int) pPreserveAttachments}. */
-	public static IntBuffer npPreserveAttachments(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + VkSubpassDescription.PPRESERVEATTACHMENTS), capacity); }
+	/** Unsafe version of {@link #pPreserveAttachments() pPreserveAttachments}. */
+	public static IntBuffer npPreserveAttachments(long struct) { return memIntBuffer(memGetAddress(struct + VkSubpassDescription.PPRESERVEATTACHMENTS), npreserveAttachmentCount(struct)); }
 
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkSubpassDescription.FLAGS, value); }
@@ -344,23 +330,19 @@ public class VkSubpassDescription extends Struct {
 		/** Returns the value of the {@code inputAttachmentCount} field. */
 		public int inputAttachmentCount() { return VkSubpassDescription.ninputAttachmentCount(address()); }
 		/** Returns a {@link VkAttachmentReference.Buffer} view of the struct array pointed to by the {@code pInputAttachments} field. */
-		public VkAttachmentReference.Buffer pInputAttachments(int capacity) { return VkSubpassDescription.npInputAttachments(address(), capacity); }
+		public VkAttachmentReference.Buffer pInputAttachments() { return VkSubpassDescription.npInputAttachments(address()); }
 		/** Returns the value of the {@code colorAttachmentCount} field. */
 		public int colorAttachmentCount() { return VkSubpassDescription.ncolorAttachmentCount(address()); }
 		/** Returns a {@link VkAttachmentReference.Buffer} view of the struct array pointed to by the {@code pColorAttachments} field. */
-		public VkAttachmentReference.Buffer pColorAttachments(int capacity) { return VkSubpassDescription.npColorAttachments(address(), capacity); }
+		public VkAttachmentReference.Buffer pColorAttachments() { return VkSubpassDescription.npColorAttachments(address()); }
 		/** Returns a {@link VkAttachmentReference.Buffer} view of the struct array pointed to by the {@code pResolveAttachments} field. */
-		public VkAttachmentReference.Buffer pResolveAttachments(int capacity) { return VkSubpassDescription.npResolveAttachments(address(), capacity); }
+		public VkAttachmentReference.Buffer pResolveAttachments() { return VkSubpassDescription.npResolveAttachments(address()); }
 		/** Returns a {@link VkAttachmentReference} view of the struct pointed to by the {@code pDepthStencilAttachment} field. */
 		public VkAttachmentReference pDepthStencilAttachment() { return VkSubpassDescription.npDepthStencilAttachment(address()); }
 		/** Returns the value of the {@code preserveAttachmentCount} field. */
 		public int preserveAttachmentCount() { return VkSubpassDescription.npreserveAttachmentCount(address()); }
-		/**
-		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pPreserveAttachments} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link IntBuffer}
-		 */
-		public IntBuffer pPreserveAttachments(int capacity) { return VkSubpassDescription.npPreserveAttachments(address(), capacity); }
+		/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pPreserveAttachments} field. */
+		public IntBuffer pPreserveAttachments() { return VkSubpassDescription.npPreserveAttachments(address()); }
 
 		/** Sets the specified value to the {@code flags} field. */
 		public VkSubpassDescription.Buffer flags(int value) { VkSubpassDescription.nflags(address(), value); return this; }

@@ -215,13 +215,6 @@ public class CLImageDesc extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(CLImageDesc) set}. */
-	public CLImageDesc set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link CLImageDesc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

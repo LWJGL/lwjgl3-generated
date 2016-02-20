@@ -112,13 +112,6 @@ public class OVRPosef extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRPosef) set}. */
-	public OVRPosef set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRPosef} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

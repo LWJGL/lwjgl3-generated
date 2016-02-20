@@ -134,13 +134,6 @@ public class OVRQuatf extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRQuatf) set}. */
-	public OVRQuatf set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRQuatf} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

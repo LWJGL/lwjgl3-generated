@@ -112,13 +112,6 @@ public class OVRVector2f extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRVector2f) set}. */
-	public OVRVector2f set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRVector2f} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

@@ -156,13 +156,6 @@ public class STBRPRect extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(STBRPRect) set}. */
-	public STBRPRect set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link STBRPRect} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

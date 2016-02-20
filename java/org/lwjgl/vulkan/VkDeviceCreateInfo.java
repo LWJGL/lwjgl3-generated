@@ -106,23 +106,15 @@ public class VkDeviceCreateInfo extends Struct {
 	/** Returns the value of the {@code queueCreateInfoCount} field. */
 	public int queueCreateInfoCount() { return nqueueCreateInfoCount(address()); }
 	/** Returns a {@link VkDeviceQueueCreateInfo.Buffer} view of the struct array pointed to by the {@code pQueueCreateInfos} field. */
-	public VkDeviceQueueCreateInfo.Buffer pQueueCreateInfos(int capacity) { return npQueueCreateInfos(address(), capacity); }
+	public VkDeviceQueueCreateInfo.Buffer pQueueCreateInfos() { return npQueueCreateInfos(address()); }
 	/** Returns the value of the {@code enabledLayerCount} field. */
 	public int enabledLayerCount() { return nenabledLayerCount(address()); }
-	/**
-	 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link PointerBuffer}
-	 */
-	public PointerBuffer ppEnabledLayerNames(int capacity) { return nppEnabledLayerNames(address(), capacity); }
+	/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field. */
+	public PointerBuffer ppEnabledLayerNames() { return nppEnabledLayerNames(address()); }
 	/** Returns the value of the {@code enabledExtensionCount} field. */
 	public int enabledExtensionCount() { return nenabledExtensionCount(address()); }
-	/**
-	 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link PointerBuffer}
-	 */
-	public PointerBuffer ppEnabledExtensionNames(int capacity) { return nppEnabledExtensionNames(address(), capacity); }
+	/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field. */
+	public PointerBuffer ppEnabledExtensionNames() { return nppEnabledExtensionNames(address()); }
 	/** Returns a {@link VkPhysicalDeviceFeatures} view of the struct pointed to by the {@code pEnabledFeatures} field. */
 	public VkPhysicalDeviceFeatures pEnabledFeatures() { return npEnabledFeatures(address()); }
 
@@ -152,22 +144,19 @@ public class VkDeviceCreateInfo extends Struct {
 		int sType,
 		long pNext,
 		int flags,
-		int queueCreateInfoCount,
 		VkDeviceQueueCreateInfo.Buffer pQueueCreateInfos,
-		int enabledLayerCount,
 		PointerBuffer ppEnabledLayerNames,
-		int enabledExtensionCount,
 		PointerBuffer ppEnabledExtensionNames,
 		VkPhysicalDeviceFeatures pEnabledFeatures
 	) {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		queueCreateInfoCount(queueCreateInfoCount);
+		queueCreateInfoCount(pQueueCreateInfos != null ? pQueueCreateInfos.remaining() : 0);
 		pQueueCreateInfos(pQueueCreateInfos);
-		enabledLayerCount(enabledLayerCount);
+		enabledLayerCount(ppEnabledLayerNames != null ? ppEnabledLayerNames.remaining() : 0);
 		ppEnabledLayerNames(ppEnabledLayerNames);
-		enabledExtensionCount(enabledExtensionCount);
+		enabledExtensionCount(ppEnabledExtensionNames != null ? ppEnabledExtensionNames.remaining() : 0);
 		ppEnabledExtensionNames(ppEnabledExtensionNames);
 		pEnabledFeatures(pEnabledFeatures);
 
@@ -189,13 +178,6 @@ public class VkDeviceCreateInfo extends Struct {
 	 */
 	public VkDeviceCreateInfo set(VkDeviceCreateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkDeviceCreateInfo) set}. */
-	public VkDeviceCreateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -266,15 +248,15 @@ public class VkDeviceCreateInfo extends Struct {
 	/** Unsafe version of {@link #queueCreateInfoCount}. */
 	public static int nqueueCreateInfoCount(long struct) { return memGetInt(struct + VkDeviceCreateInfo.QUEUECREATEINFOCOUNT); }
 	/** Unsafe version of {@link #pQueueCreateInfos}. */
-	public static VkDeviceQueueCreateInfo.Buffer npQueueCreateInfos(long struct, int capacity) { return VkDeviceQueueCreateInfo.create(memGetAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS), capacity); }
+	public static VkDeviceQueueCreateInfo.Buffer npQueueCreateInfos(long struct) { return VkDeviceQueueCreateInfo.create(memGetAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS), nqueueCreateInfoCount(struct)); }
 	/** Unsafe version of {@link #enabledLayerCount}. */
 	public static int nenabledLayerCount(long struct) { return memGetInt(struct + VkDeviceCreateInfo.ENABLEDLAYERCOUNT); }
-	/** Unsafe version of {@link #ppEnabledLayerNames(int) ppEnabledLayerNames}. */
-	public static PointerBuffer nppEnabledLayerNames(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VkDeviceCreateInfo.PPENABLEDLAYERNAMES), capacity); }
+	/** Unsafe version of {@link #ppEnabledLayerNames() ppEnabledLayerNames}. */
+	public static PointerBuffer nppEnabledLayerNames(long struct) { return memPointerBuffer(memGetAddress(struct + VkDeviceCreateInfo.PPENABLEDLAYERNAMES), nenabledLayerCount(struct)); }
 	/** Unsafe version of {@link #enabledExtensionCount}. */
 	public static int nenabledExtensionCount(long struct) { return memGetInt(struct + VkDeviceCreateInfo.ENABLEDEXTENSIONCOUNT); }
-	/** Unsafe version of {@link #ppEnabledExtensionNames(int) ppEnabledExtensionNames}. */
-	public static PointerBuffer nppEnabledExtensionNames(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VkDeviceCreateInfo.PPENABLEDEXTENSIONNAMES), capacity); }
+	/** Unsafe version of {@link #ppEnabledExtensionNames() ppEnabledExtensionNames}. */
+	public static PointerBuffer nppEnabledExtensionNames(long struct) { return memPointerBuffer(memGetAddress(struct + VkDeviceCreateInfo.PPENABLEDEXTENSIONNAMES), nenabledExtensionCount(struct)); }
 	/** Unsafe version of {@link #pEnabledFeatures}. */
 	public static VkPhysicalDeviceFeatures npEnabledFeatures(long struct) { return VkPhysicalDeviceFeatures.create(memGetAddress(struct + VkDeviceCreateInfo.PENABLEDFEATURES)); }
 
@@ -350,23 +332,15 @@ public class VkDeviceCreateInfo extends Struct {
 		/** Returns the value of the {@code queueCreateInfoCount} field. */
 		public int queueCreateInfoCount() { return VkDeviceCreateInfo.nqueueCreateInfoCount(address()); }
 		/** Returns a {@link VkDeviceQueueCreateInfo.Buffer} view of the struct array pointed to by the {@code pQueueCreateInfos} field. */
-		public VkDeviceQueueCreateInfo.Buffer pQueueCreateInfos(int capacity) { return VkDeviceCreateInfo.npQueueCreateInfos(address(), capacity); }
+		public VkDeviceQueueCreateInfo.Buffer pQueueCreateInfos() { return VkDeviceCreateInfo.npQueueCreateInfos(address()); }
 		/** Returns the value of the {@code enabledLayerCount} field. */
 		public int enabledLayerCount() { return VkDeviceCreateInfo.nenabledLayerCount(address()); }
-		/**
-		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link PointerBuffer}
-		 */
-		public PointerBuffer ppEnabledLayerNames(int capacity) { return VkDeviceCreateInfo.nppEnabledLayerNames(address(), capacity); }
+		/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field. */
+		public PointerBuffer ppEnabledLayerNames() { return VkDeviceCreateInfo.nppEnabledLayerNames(address()); }
 		/** Returns the value of the {@code enabledExtensionCount} field. */
 		public int enabledExtensionCount() { return VkDeviceCreateInfo.nenabledExtensionCount(address()); }
-		/**
-		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link PointerBuffer}
-		 */
-		public PointerBuffer ppEnabledExtensionNames(int capacity) { return VkDeviceCreateInfo.nppEnabledExtensionNames(address(), capacity); }
+		/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field. */
+		public PointerBuffer ppEnabledExtensionNames() { return VkDeviceCreateInfo.nppEnabledExtensionNames(address()); }
 		/** Returns a {@link VkPhysicalDeviceFeatures} view of the struct pointed to by the {@code pEnabledFeatures} field. */
 		public VkPhysicalDeviceFeatures pEnabledFeatures() { return VkDeviceCreateInfo.npEnabledFeatures(address()); }
 

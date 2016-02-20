@@ -133,13 +133,6 @@ public class VkImageSubresourceRange extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkImageSubresourceRange) set}. */
-	public VkImageSubresourceRange set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkImageSubresourceRange} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

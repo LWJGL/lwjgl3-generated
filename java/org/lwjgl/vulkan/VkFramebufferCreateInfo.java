@@ -103,12 +103,8 @@ public class VkFramebufferCreateInfo extends Struct {
 	public long renderPass() { return nrenderPass(address()); }
 	/** Returns the value of the {@code attachmentCount} field. */
 	public int attachmentCount() { return nattachmentCount(address()); }
-	/**
-	 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pAttachments} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link LongBuffer}
-	 */
-	public LongBuffer pAttachments(int capacity) { return npAttachments(address(), capacity); }
+	/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pAttachments} field. */
+	public LongBuffer pAttachments() { return npAttachments(address()); }
 	/** Returns the value of the {@code width} field. */
 	public int width() { return nwidth(address()); }
 	/** Returns the value of the {@code height} field. */
@@ -141,7 +137,6 @@ public class VkFramebufferCreateInfo extends Struct {
 		long pNext,
 		int flags,
 		long renderPass,
-		int attachmentCount,
 		LongBuffer pAttachments,
 		int width,
 		int height,
@@ -151,7 +146,7 @@ public class VkFramebufferCreateInfo extends Struct {
 		pNext(pNext);
 		flags(flags);
 		renderPass(renderPass);
-		attachmentCount(attachmentCount);
+		attachmentCount(pAttachments != null ? pAttachments.remaining() : 0);
 		pAttachments(pAttachments);
 		width(width);
 		height(height);
@@ -175,13 +170,6 @@ public class VkFramebufferCreateInfo extends Struct {
 	 */
 	public VkFramebufferCreateInfo set(VkFramebufferCreateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkFramebufferCreateInfo) set}. */
-	public VkFramebufferCreateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -253,8 +241,8 @@ public class VkFramebufferCreateInfo extends Struct {
 	public static long nrenderPass(long struct) { return memGetLong(struct + VkFramebufferCreateInfo.RENDERPASS); }
 	/** Unsafe version of {@link #attachmentCount}. */
 	public static int nattachmentCount(long struct) { return memGetInt(struct + VkFramebufferCreateInfo.ATTACHMENTCOUNT); }
-	/** Unsafe version of {@link #pAttachments(int) pAttachments}. */
-	public static LongBuffer npAttachments(long struct, int capacity) { return memLongBuffer(memGetAddress(struct + VkFramebufferCreateInfo.PATTACHMENTS), capacity); }
+	/** Unsafe version of {@link #pAttachments() pAttachments}. */
+	public static LongBuffer npAttachments(long struct) { return memLongBuffer(memGetAddress(struct + VkFramebufferCreateInfo.PATTACHMENTS), nattachmentCount(struct)); }
 	/** Unsafe version of {@link #width}. */
 	public static int nwidth(long struct) { return memGetInt(struct + VkFramebufferCreateInfo.WIDTH); }
 	/** Unsafe version of {@link #height}. */
@@ -333,12 +321,8 @@ public class VkFramebufferCreateInfo extends Struct {
 		public long renderPass() { return VkFramebufferCreateInfo.nrenderPass(address()); }
 		/** Returns the value of the {@code attachmentCount} field. */
 		public int attachmentCount() { return VkFramebufferCreateInfo.nattachmentCount(address()); }
-		/**
-		 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pAttachments} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link LongBuffer}
-		 */
-		public LongBuffer pAttachments(int capacity) { return VkFramebufferCreateInfo.npAttachments(address(), capacity); }
+		/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pAttachments} field. */
+		public LongBuffer pAttachments() { return VkFramebufferCreateInfo.npAttachments(address()); }
 		/** Returns the value of the {@code width} field. */
 		public int width() { return VkFramebufferCreateInfo.nwidth(address()); }
 		/** Returns the value of the {@code height} field. */

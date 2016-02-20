@@ -96,7 +96,7 @@ public class ParShapesMesh extends Struct {
 	/**
 	 * Returns a {@link FloatBuffer} view of the data pointed to by the {@code points} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link FloatBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public FloatBuffer points(int capacity) { return npoints(address(), capacity); }
 	/** Returns the value of the {@code npoints} field. */
@@ -104,7 +104,7 @@ public class ParShapesMesh extends Struct {
 	/**
 	 * Returns a {@link ShortBuffer} view of the data pointed to by the {@code triangles} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link ShortBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public ShortBuffer triangles(int capacity) { return ntriangles(address(), capacity); }
 	/** Returns the value of the {@code ntriangles} field. */
@@ -112,13 +112,13 @@ public class ParShapesMesh extends Struct {
 	/**
 	 * Returns a {@link FloatBuffer} view of the data pointed to by the {@code normals} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link FloatBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public FloatBuffer normals(int capacity) { return nnormals(address(), capacity); }
 	/**
 	 * Returns a {@link FloatBuffer} view of the data pointed to by the {@code tcoords} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link FloatBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public FloatBuffer tcoords(int capacity) { return ntcoords(address(), capacity); }
 
@@ -239,7 +239,7 @@ public class ParShapesMesh extends Struct {
 		/**
 		 * Returns a {@link FloatBuffer} view of the data pointed to by the {@code points} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link FloatBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public FloatBuffer points(int capacity) { return ParShapesMesh.npoints(address(), capacity); }
 		/** Returns the value of the {@code npoints} field. */
@@ -247,7 +247,7 @@ public class ParShapesMesh extends Struct {
 		/**
 		 * Returns a {@link ShortBuffer} view of the data pointed to by the {@code triangles} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link ShortBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public ShortBuffer triangles(int capacity) { return ParShapesMesh.ntriangles(address(), capacity); }
 		/** Returns the value of the {@code ntriangles} field. */
@@ -255,13 +255,13 @@ public class ParShapesMesh extends Struct {
 		/**
 		 * Returns a {@link FloatBuffer} view of the data pointed to by the {@code normals} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link FloatBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public FloatBuffer normals(int capacity) { return ParShapesMesh.nnormals(address(), capacity); }
 		/**
 		 * Returns a {@link FloatBuffer} view of the data pointed to by the {@code tcoords} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link FloatBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public FloatBuffer tcoords(int capacity) { return ParShapesMesh.ntcoords(address(), capacity); }
 

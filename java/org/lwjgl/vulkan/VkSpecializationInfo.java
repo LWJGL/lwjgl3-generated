@@ -76,7 +76,7 @@ public class VkSpecializationInfo extends Struct {
 	/** Returns the value of the {@code mapEntryCount} field. */
 	public int mapEntryCount() { return nmapEntryCount(address()); }
 	/** Returns a {@link VkSpecializationMapEntry.Buffer} view of the struct array pointed to by the {@code pMapEntries} field. */
-	public VkSpecializationMapEntry.Buffer pMapEntries(int capacity) { return npMapEntries(address(), capacity); }
+	public VkSpecializationMapEntry.Buffer pMapEntries() { return npMapEntries(address()); }
 	/** Returns the value of the {@code dataSize} field. */
 	public long dataSize() { return ndataSize(address()); }
 	/** Returns the value of the {@code pData} field. */
@@ -93,12 +93,11 @@ public class VkSpecializationInfo extends Struct {
 
 	/** Initializes this struct with the specified values. */
 	public VkSpecializationInfo set(
-		int mapEntryCount,
 		VkSpecializationMapEntry.Buffer pMapEntries,
 		long dataSize,
 		long pData
 	) {
-		mapEntryCount(mapEntryCount);
+		mapEntryCount(pMapEntries != null ? pMapEntries.remaining() : 0);
 		pMapEntries(pMapEntries);
 		dataSize(dataSize);
 		pData(pData);
@@ -121,13 +120,6 @@ public class VkSpecializationInfo extends Struct {
 	 */
 	public VkSpecializationInfo set(VkSpecializationInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkSpecializationInfo) set}. */
-	public VkSpecializationInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -192,7 +184,7 @@ public class VkSpecializationInfo extends Struct {
 	/** Unsafe version of {@link #mapEntryCount}. */
 	public static int nmapEntryCount(long struct) { return memGetInt(struct + VkSpecializationInfo.MAPENTRYCOUNT); }
 	/** Unsafe version of {@link #pMapEntries}. */
-	public static VkSpecializationMapEntry.Buffer npMapEntries(long struct, int capacity) { return VkSpecializationMapEntry.create(memGetAddress(struct + VkSpecializationInfo.PMAPENTRIES), capacity); }
+	public static VkSpecializationMapEntry.Buffer npMapEntries(long struct) { return VkSpecializationMapEntry.create(memGetAddress(struct + VkSpecializationInfo.PMAPENTRIES), nmapEntryCount(struct)); }
 	/** Unsafe version of {@link #dataSize}. */
 	public static long ndataSize(long struct) { return memGetAddress(struct + VkSpecializationInfo.DATASIZE); }
 	/** Unsafe version of {@link #pData}. */
@@ -252,7 +244,7 @@ public class VkSpecializationInfo extends Struct {
 		/** Returns the value of the {@code mapEntryCount} field. */
 		public int mapEntryCount() { return VkSpecializationInfo.nmapEntryCount(address()); }
 		/** Returns a {@link VkSpecializationMapEntry.Buffer} view of the struct array pointed to by the {@code pMapEntries} field. */
-		public VkSpecializationMapEntry.Buffer pMapEntries(int capacity) { return VkSpecializationInfo.npMapEntries(address(), capacity); }
+		public VkSpecializationMapEntry.Buffer pMapEntries() { return VkSpecializationInfo.npMapEntries(address()); }
 		/** Returns the value of the {@code dataSize} field. */
 		public long dataSize() { return VkSpecializationInfo.ndataSize(address()); }
 		/** Returns the value of the {@code pData} field. */

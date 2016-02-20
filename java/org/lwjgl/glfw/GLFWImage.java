@@ -86,7 +86,7 @@ public class GLFWImage extends Struct {
 	/**
 	 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pixels} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link ByteBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public ByteBuffer pixels(int capacity) { return npixels(address(), capacity); }
 
@@ -125,13 +125,6 @@ public class GLFWImage extends Struct {
 	 */
 	public GLFWImage set(GLFWImage src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(GLFWImage) set}. */
-	public GLFWImage set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -256,7 +249,7 @@ public class GLFWImage extends Struct {
 		/**
 		 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pixels} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link ByteBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public ByteBuffer pixels(int capacity) { return GLFWImage.npixels(address(), capacity); }
 

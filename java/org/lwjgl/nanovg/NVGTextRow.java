@@ -156,13 +156,6 @@ public class NVGTextRow extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(NVGTextRow) set}. */
-	public NVGTextRow set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link NVGTextRow} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

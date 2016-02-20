@@ -125,13 +125,6 @@ public class OVRTimewarpProjectionDesc extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRTimewarpProjectionDesc) set}. */
-	public OVRTimewarpProjectionDesc set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRTimewarpProjectionDesc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

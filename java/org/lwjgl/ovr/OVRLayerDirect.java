@@ -133,13 +133,6 @@ public class OVRLayerDirect extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRLayerDirect) set}. */
-	public OVRLayerDirect set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRLayerDirect} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

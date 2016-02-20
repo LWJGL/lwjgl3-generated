@@ -91,12 +91,8 @@ public class VkDeviceQueueCreateInfo extends Struct {
 	public int queueFamilyIndex() { return nqueueFamilyIndex(address()); }
 	/** Returns the value of the {@code queueCount} field. */
 	public int queueCount() { return nqueueCount(address()); }
-	/**
-	 * Returns a {@link FloatBuffer} view of the data pointed to by the {@code pQueuePriorities} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link FloatBuffer}
-	 */
-	public FloatBuffer pQueuePriorities(int capacity) { return npQueuePriorities(address(), capacity); }
+	/** Returns a {@link FloatBuffer} view of the data pointed to by the {@code pQueuePriorities} field. */
+	public FloatBuffer pQueuePriorities() { return npQueuePriorities(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkDeviceQueueCreateInfo sType(int value) { nsType(address(), value); return this; }
@@ -117,14 +113,13 @@ public class VkDeviceQueueCreateInfo extends Struct {
 		long pNext,
 		int flags,
 		int queueFamilyIndex,
-		int queueCount,
 		FloatBuffer pQueuePriorities
 	) {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
 		queueFamilyIndex(queueFamilyIndex);
-		queueCount(queueCount);
+		queueCount(pQueuePriorities != null ? pQueuePriorities.remaining() : 0);
 		pQueuePriorities(pQueuePriorities);
 
 		return this;
@@ -145,13 +140,6 @@ public class VkDeviceQueueCreateInfo extends Struct {
 	 */
 	public VkDeviceQueueCreateInfo set(VkDeviceQueueCreateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkDeviceQueueCreateInfo) set}. */
-	public VkDeviceQueueCreateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -223,8 +211,8 @@ public class VkDeviceQueueCreateInfo extends Struct {
 	public static int nqueueFamilyIndex(long struct) { return memGetInt(struct + VkDeviceQueueCreateInfo.QUEUEFAMILYINDEX); }
 	/** Unsafe version of {@link #queueCount}. */
 	public static int nqueueCount(long struct) { return memGetInt(struct + VkDeviceQueueCreateInfo.QUEUECOUNT); }
-	/** Unsafe version of {@link #pQueuePriorities(int) pQueuePriorities}. */
-	public static FloatBuffer npQueuePriorities(long struct, int capacity) { return memFloatBuffer(memGetAddress(struct + VkDeviceQueueCreateInfo.PQUEUEPRIORITIES), capacity); }
+	/** Unsafe version of {@link #pQueuePriorities() pQueuePriorities}. */
+	public static FloatBuffer npQueuePriorities(long struct) { return memFloatBuffer(memGetAddress(struct + VkDeviceQueueCreateInfo.PQUEUEPRIORITIES), nqueueCount(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkDeviceQueueCreateInfo.STYPE, value); }
@@ -291,12 +279,8 @@ public class VkDeviceQueueCreateInfo extends Struct {
 		public int queueFamilyIndex() { return VkDeviceQueueCreateInfo.nqueueFamilyIndex(address()); }
 		/** Returns the value of the {@code queueCount} field. */
 		public int queueCount() { return VkDeviceQueueCreateInfo.nqueueCount(address()); }
-		/**
-		 * Returns a {@link FloatBuffer} view of the data pointed to by the {@code pQueuePriorities} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link FloatBuffer}
-		 */
-		public FloatBuffer pQueuePriorities(int capacity) { return VkDeviceQueueCreateInfo.npQueuePriorities(address(), capacity); }
+		/** Returns a {@link FloatBuffer} view of the data pointed to by the {@code pQueuePriorities} field. */
+		public FloatBuffer pQueuePriorities() { return VkDeviceQueueCreateInfo.npQueuePriorities(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkDeviceQueueCreateInfo.Buffer sType(int value) { VkDeviceQueueCreateInfo.nsType(address(), value); return this; }

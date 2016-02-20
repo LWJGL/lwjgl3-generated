@@ -163,13 +163,6 @@ public class VkCommandBufferInheritanceInfo extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkCommandBufferInheritanceInfo) set}. */
-	public VkCommandBufferInheritanceInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkCommandBufferInheritanceInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

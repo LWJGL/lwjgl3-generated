@@ -113,13 +113,6 @@ public class CLImageFormat extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(CLImageFormat) set}. */
-	public CLImageFormat set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link CLImageFormat} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

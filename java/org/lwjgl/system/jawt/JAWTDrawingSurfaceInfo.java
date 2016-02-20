@@ -96,8 +96,8 @@ public class JAWTDrawingSurfaceInfo extends Struct {
 	public JAWTRectangle bounds() { return nbounds(address()); }
 	/** Returns the value of the {@code clipSize} field. */
 	public int clipSize() { return nclipSize(address()); }
-	/** Returns a {@link JAWTRectangle} view of the struct pointed to by the {@code clip} field. */
-	public JAWTRectangle clip() { return nclip(address()); }
+	/** Returns a {@link JAWTRectangle.Buffer} view of the struct array pointed to by the {@code clip} field. */
+	public JAWTRectangle.Buffer clip() { return nclip(address()); }
 
 	// -----------------------------------
 
@@ -167,7 +167,7 @@ public class JAWTDrawingSurfaceInfo extends Struct {
 	/** Unsafe version of {@link #clipSize}. */
 	public static int nclipSize(long struct) { return memGetInt(struct + JAWTDrawingSurfaceInfo.CLIPSIZE); }
 	/** Unsafe version of {@link #clip}. */
-	public static JAWTRectangle nclip(long struct) { return JAWTRectangle.create(memGetAddress(struct + JAWTDrawingSurfaceInfo.CLIP)); }
+	public static JAWTRectangle.Buffer nclip(long struct) { return JAWTRectangle.create(memGetAddress(struct + JAWTDrawingSurfaceInfo.CLIP), nclipSize(struct)); }
 
 	// -----------------------------------
 
@@ -219,8 +219,8 @@ public class JAWTDrawingSurfaceInfo extends Struct {
 		public JAWTRectangle bounds() { return JAWTDrawingSurfaceInfo.nbounds(address()); }
 		/** Returns the value of the {@code clipSize} field. */
 		public int clipSize() { return JAWTDrawingSurfaceInfo.nclipSize(address()); }
-		/** Returns a {@link JAWTRectangle} view of the struct pointed to by the {@code clip} field. */
-		public JAWTRectangle clip() { return JAWTDrawingSurfaceInfo.nclip(address()); }
+		/** Returns a {@link JAWTRectangle.Buffer} view of the struct array pointed to by the {@code clip} field. */
+		public JAWTRectangle.Buffer clip() { return JAWTDrawingSurfaceInfo.nclip(address()); }
 
 	}
 

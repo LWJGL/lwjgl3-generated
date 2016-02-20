@@ -163,13 +163,6 @@ public class VkAllocationCallbacks extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkAllocationCallbacks) set}. */
-	public VkAllocationCallbacks set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkAllocationCallbacks} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

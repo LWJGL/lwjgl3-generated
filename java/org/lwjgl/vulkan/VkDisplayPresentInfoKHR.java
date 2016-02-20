@@ -133,13 +133,6 @@ public class VkDisplayPresentInfoKHR extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkDisplayPresentInfoKHR) set}. */
-	public VkDisplayPresentInfoKHR set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkDisplayPresentInfoKHR} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

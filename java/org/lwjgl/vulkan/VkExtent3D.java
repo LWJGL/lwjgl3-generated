@@ -113,13 +113,6 @@ public class VkExtent3D extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkExtent3D) set}. */
-	public VkExtent3D set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkExtent3D} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

@@ -3015,13 +3015,13 @@ public class VK10 {
 	 */
 	public static int vkQueueSubmit(long queue, int submitCount, VkSubmitInfo.Buffer pSubmits, long fence) {
 		if ( CHECKS )
-			checkBuffer(pSubmits, submitCount);
-		return nvkQueueSubmit(queue, submitCount, pSubmits.address(), fence);
+			if ( pSubmits != null ) checkBuffer(pSubmits, submitCount);
+		return nvkQueueSubmit(queue, submitCount, pSubmits == null ? NULL : pSubmits.address(), fence);
 	}
 
 	/** Alternative version of: {@link #vkQueueSubmit QueueSubmit} */
 	public static int vkQueueSubmit(long queue, VkSubmitInfo.Buffer pSubmits, long fence) {
-		return nvkQueueSubmit(queue, pSubmits.remaining(), pSubmits.address(), fence);
+		return nvkQueueSubmit(queue, pSubmits == null ? 0 : pSubmits.remaining(), pSubmits == null ? NULL : pSubmits.address(), fence);
 	}
 
 	/** Single value version of: {@link #vkQueueSubmit QueueSubmit} */

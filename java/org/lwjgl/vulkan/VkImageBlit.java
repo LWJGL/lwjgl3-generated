@@ -131,13 +131,6 @@ public class VkImageBlit extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkImageBlit) set}. */
-	public VkImageBlit set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkImageBlit} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

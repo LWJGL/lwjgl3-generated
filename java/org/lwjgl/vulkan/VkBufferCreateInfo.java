@@ -103,12 +103,8 @@ public class VkBufferCreateInfo extends Struct {
 	public int sharingMode() { return nsharingMode(address()); }
 	/** Returns the value of the {@code queueFamilyIndexCount} field. */
 	public int queueFamilyIndexCount() { return nqueueFamilyIndexCount(address()); }
-	/**
-	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link IntBuffer}
-	 */
-	public IntBuffer pQueueFamilyIndices(int capacity) { return npQueueFamilyIndices(address(), capacity); }
+	/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
+	public IntBuffer pQueueFamilyIndices() { return npQueueFamilyIndices(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkBufferCreateInfo sType(int value) { nsType(address(), value); return this; }
@@ -135,7 +131,6 @@ public class VkBufferCreateInfo extends Struct {
 		long size,
 		int usage,
 		int sharingMode,
-		int queueFamilyIndexCount,
 		IntBuffer pQueueFamilyIndices
 	) {
 		sType(sType);
@@ -144,7 +139,7 @@ public class VkBufferCreateInfo extends Struct {
 		size(size);
 		usage(usage);
 		sharingMode(sharingMode);
-		queueFamilyIndexCount(queueFamilyIndexCount);
+		queueFamilyIndexCount(pQueueFamilyIndices != null ? pQueueFamilyIndices.remaining() : 0);
 		pQueueFamilyIndices(pQueueFamilyIndices);
 
 		return this;
@@ -165,13 +160,6 @@ public class VkBufferCreateInfo extends Struct {
 	 */
 	public VkBufferCreateInfo set(VkBufferCreateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkBufferCreateInfo) set}. */
-	public VkBufferCreateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -247,8 +235,8 @@ public class VkBufferCreateInfo extends Struct {
 	public static int nsharingMode(long struct) { return memGetInt(struct + VkBufferCreateInfo.SHARINGMODE); }
 	/** Unsafe version of {@link #queueFamilyIndexCount}. */
 	public static int nqueueFamilyIndexCount(long struct) { return memGetInt(struct + VkBufferCreateInfo.QUEUEFAMILYINDEXCOUNT); }
-	/** Unsafe version of {@link #pQueueFamilyIndices(int) pQueueFamilyIndices}. */
-	public static IntBuffer npQueueFamilyIndices(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + VkBufferCreateInfo.PQUEUEFAMILYINDICES), capacity); }
+	/** Unsafe version of {@link #pQueueFamilyIndices() pQueueFamilyIndices}. */
+	public static IntBuffer npQueueFamilyIndices(long struct) { return memIntBuffer(memGetAddress(struct + VkBufferCreateInfo.PQUEUEFAMILYINDICES), nqueueFamilyIndexCount(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkBufferCreateInfo.STYPE, value); }
@@ -323,12 +311,8 @@ public class VkBufferCreateInfo extends Struct {
 		public int sharingMode() { return VkBufferCreateInfo.nsharingMode(address()); }
 		/** Returns the value of the {@code queueFamilyIndexCount} field. */
 		public int queueFamilyIndexCount() { return VkBufferCreateInfo.nqueueFamilyIndexCount(address()); }
-		/**
-		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link IntBuffer}
-		 */
-		public IntBuffer pQueueFamilyIndices(int capacity) { return VkBufferCreateInfo.npQueueFamilyIndices(address(), capacity); }
+		/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
+		public IntBuffer pQueueFamilyIndices() { return VkBufferCreateInfo.npQueueFamilyIndices(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkBufferCreateInfo.Buffer sType(int value) { VkBufferCreateInfo.nsType(address(), value); return this; }

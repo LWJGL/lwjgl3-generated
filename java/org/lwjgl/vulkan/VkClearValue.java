@@ -92,13 +92,6 @@ public class VkClearValue extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkClearValue) set}. */
-	public VkClearValue set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkClearValue} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

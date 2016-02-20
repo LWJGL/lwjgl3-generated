@@ -88,7 +88,7 @@ public class VkShaderModuleCreateInfo extends Struct {
 	/**
 	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pCode} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link IntBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public IntBuffer pCode(int capacity) { return npCode(address(), capacity); }
 
@@ -135,13 +135,6 @@ public class VkShaderModuleCreateInfo extends Struct {
 	 */
 	public VkShaderModuleCreateInfo set(VkShaderModuleCreateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkShaderModuleCreateInfo) set}. */
-	public VkShaderModuleCreateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -278,7 +271,7 @@ public class VkShaderModuleCreateInfo extends Struct {
 		/**
 		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pCode} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link IntBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public IntBuffer pCode(int capacity) { return VkShaderModuleCreateInfo.npCode(address(), capacity); }
 

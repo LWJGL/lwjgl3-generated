@@ -134,13 +134,6 @@ public class NVGLUFramebuffer extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(NVGLUFramebuffer) set}. */
-	public NVGLUFramebuffer set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link NVGLUFramebuffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

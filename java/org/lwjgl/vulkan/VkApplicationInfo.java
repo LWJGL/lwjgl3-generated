@@ -173,13 +173,6 @@ public class VkApplicationInfo extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkApplicationInfo) set}. */
-	public VkApplicationInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkApplicationInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

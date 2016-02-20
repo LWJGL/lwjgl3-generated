@@ -99,20 +99,12 @@ public class VkInstanceCreateInfo extends Struct {
 	public VkApplicationInfo pApplicationInfo() { return npApplicationInfo(address()); }
 	/** Returns the value of the {@code enabledLayerCount} field. */
 	public int enabledLayerCount() { return nenabledLayerCount(address()); }
-	/**
-	 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link PointerBuffer}
-	 */
-	public PointerBuffer ppEnabledLayerNames(int capacity) { return nppEnabledLayerNames(address(), capacity); }
+	/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field. */
+	public PointerBuffer ppEnabledLayerNames() { return nppEnabledLayerNames(address()); }
 	/** Returns the value of the {@code enabledExtensionCount} field. */
 	public int enabledExtensionCount() { return nenabledExtensionCount(address()); }
-	/**
-	 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link PointerBuffer}
-	 */
-	public PointerBuffer ppEnabledExtensionNames(int capacity) { return nppEnabledExtensionNames(address(), capacity); }
+	/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field. */
+	public PointerBuffer ppEnabledExtensionNames() { return nppEnabledExtensionNames(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkInstanceCreateInfo sType(int value) { nsType(address(), value); return this; }
@@ -137,18 +129,16 @@ public class VkInstanceCreateInfo extends Struct {
 		long pNext,
 		int flags,
 		VkApplicationInfo pApplicationInfo,
-		int enabledLayerCount,
 		PointerBuffer ppEnabledLayerNames,
-		int enabledExtensionCount,
 		PointerBuffer ppEnabledExtensionNames
 	) {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
 		pApplicationInfo(pApplicationInfo);
-		enabledLayerCount(enabledLayerCount);
+		enabledLayerCount(ppEnabledLayerNames != null ? ppEnabledLayerNames.remaining() : 0);
 		ppEnabledLayerNames(ppEnabledLayerNames);
-		enabledExtensionCount(enabledExtensionCount);
+		enabledExtensionCount(ppEnabledExtensionNames != null ? ppEnabledExtensionNames.remaining() : 0);
 		ppEnabledExtensionNames(ppEnabledExtensionNames);
 
 		return this;
@@ -169,13 +159,6 @@ public class VkInstanceCreateInfo extends Struct {
 	 */
 	public VkInstanceCreateInfo set(VkInstanceCreateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkInstanceCreateInfo) set}. */
-	public VkInstanceCreateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -247,12 +230,12 @@ public class VkInstanceCreateInfo extends Struct {
 	public static VkApplicationInfo npApplicationInfo(long struct) { return VkApplicationInfo.create(memGetAddress(struct + VkInstanceCreateInfo.PAPPLICATIONINFO)); }
 	/** Unsafe version of {@link #enabledLayerCount}. */
 	public static int nenabledLayerCount(long struct) { return memGetInt(struct + VkInstanceCreateInfo.ENABLEDLAYERCOUNT); }
-	/** Unsafe version of {@link #ppEnabledLayerNames(int) ppEnabledLayerNames}. */
-	public static PointerBuffer nppEnabledLayerNames(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDLAYERNAMES), capacity); }
+	/** Unsafe version of {@link #ppEnabledLayerNames() ppEnabledLayerNames}. */
+	public static PointerBuffer nppEnabledLayerNames(long struct) { return memPointerBuffer(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDLAYERNAMES), nenabledLayerCount(struct)); }
 	/** Unsafe version of {@link #enabledExtensionCount}. */
 	public static int nenabledExtensionCount(long struct) { return memGetInt(struct + VkInstanceCreateInfo.ENABLEDEXTENSIONCOUNT); }
-	/** Unsafe version of {@link #ppEnabledExtensionNames(int) ppEnabledExtensionNames}. */
-	public static PointerBuffer nppEnabledExtensionNames(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDEXTENSIONNAMES), capacity); }
+	/** Unsafe version of {@link #ppEnabledExtensionNames() ppEnabledExtensionNames}. */
+	public static PointerBuffer nppEnabledExtensionNames(long struct) { return memPointerBuffer(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDEXTENSIONNAMES), nenabledExtensionCount(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.STYPE, value); }
@@ -323,20 +306,12 @@ public class VkInstanceCreateInfo extends Struct {
 		public VkApplicationInfo pApplicationInfo() { return VkInstanceCreateInfo.npApplicationInfo(address()); }
 		/** Returns the value of the {@code enabledLayerCount} field. */
 		public int enabledLayerCount() { return VkInstanceCreateInfo.nenabledLayerCount(address()); }
-		/**
-		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link PointerBuffer}
-		 */
-		public PointerBuffer ppEnabledLayerNames(int capacity) { return VkInstanceCreateInfo.nppEnabledLayerNames(address(), capacity); }
+		/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field. */
+		public PointerBuffer ppEnabledLayerNames() { return VkInstanceCreateInfo.nppEnabledLayerNames(address()); }
 		/** Returns the value of the {@code enabledExtensionCount} field. */
 		public int enabledExtensionCount() { return VkInstanceCreateInfo.nenabledExtensionCount(address()); }
-		/**
-		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link PointerBuffer}
-		 */
-		public PointerBuffer ppEnabledExtensionNames(int capacity) { return VkInstanceCreateInfo.nppEnabledExtensionNames(address(), capacity); }
+		/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field. */
+		public PointerBuffer ppEnabledExtensionNames() { return VkInstanceCreateInfo.nppEnabledExtensionNames(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkInstanceCreateInfo.Buffer sType(int value) { VkInstanceCreateInfo.nsType(address(), value); return this; }

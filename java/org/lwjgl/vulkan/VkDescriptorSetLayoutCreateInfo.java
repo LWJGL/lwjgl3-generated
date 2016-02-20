@@ -86,7 +86,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct {
 	/** Returns the value of the {@code bindingCount} field. */
 	public int bindingCount() { return nbindingCount(address()); }
 	/** Returns a {@link VkDescriptorSetLayoutBinding.Buffer} view of the struct array pointed to by the {@code pBindings} field. */
-	public VkDescriptorSetLayoutBinding.Buffer pBindings(int capacity) { return npBindings(address(), capacity); }
+	public VkDescriptorSetLayoutBinding.Buffer pBindings() { return npBindings(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkDescriptorSetLayoutCreateInfo sType(int value) { nsType(address(), value); return this; }
@@ -104,13 +104,12 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct {
 		int sType,
 		long pNext,
 		int flags,
-		int bindingCount,
 		VkDescriptorSetLayoutBinding.Buffer pBindings
 	) {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		bindingCount(bindingCount);
+		bindingCount(pBindings != null ? pBindings.remaining() : 0);
 		pBindings(pBindings);
 
 		return this;
@@ -131,13 +130,6 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct {
 	 */
 	public VkDescriptorSetLayoutCreateInfo set(VkDescriptorSetLayoutCreateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkDescriptorSetLayoutCreateInfo) set}. */
-	public VkDescriptorSetLayoutCreateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -208,7 +200,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct {
 	/** Unsafe version of {@link #bindingCount}. */
 	public static int nbindingCount(long struct) { return memGetInt(struct + VkDescriptorSetLayoutCreateInfo.BINDINGCOUNT); }
 	/** Unsafe version of {@link #pBindings}. */
-	public static VkDescriptorSetLayoutBinding.Buffer npBindings(long struct, int capacity) { return VkDescriptorSetLayoutBinding.create(memGetAddress(struct + VkDescriptorSetLayoutCreateInfo.PBINDINGS), capacity); }
+	public static VkDescriptorSetLayoutBinding.Buffer npBindings(long struct) { return VkDescriptorSetLayoutBinding.create(memGetAddress(struct + VkDescriptorSetLayoutCreateInfo.PBINDINGS), nbindingCount(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkDescriptorSetLayoutCreateInfo.STYPE, value); }
@@ -272,7 +264,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct {
 		/** Returns the value of the {@code bindingCount} field. */
 		public int bindingCount() { return VkDescriptorSetLayoutCreateInfo.nbindingCount(address()); }
 		/** Returns a {@link VkDescriptorSetLayoutBinding.Buffer} view of the struct array pointed to by the {@code pBindings} field. */
-		public VkDescriptorSetLayoutBinding.Buffer pBindings(int capacity) { return VkDescriptorSetLayoutCreateInfo.npBindings(address(), capacity); }
+		public VkDescriptorSetLayoutBinding.Buffer pBindings() { return VkDescriptorSetLayoutCreateInfo.npBindings(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkDescriptorSetLayoutCreateInfo.Buffer sType(int value) { VkDescriptorSetLayoutCreateInfo.nsType(address(), value); return this; }

@@ -112,13 +112,6 @@ public class OVRTextureHeader extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRTextureHeader) set}. */
-	public OVRTextureHeader set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRTextureHeader} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

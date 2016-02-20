@@ -132,13 +132,6 @@ public class ObjCPropertyAttribute extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(ObjCPropertyAttribute) set}. */
-	public ObjCPropertyAttribute set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link ObjCPropertyAttribute} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

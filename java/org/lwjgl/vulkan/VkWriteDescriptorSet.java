@@ -111,16 +111,12 @@ public class VkWriteDescriptorSet extends Struct {
 	public int descriptorCount() { return ndescriptorCount(address()); }
 	/** Returns the value of the {@code descriptorType} field. */
 	public int descriptorType() { return ndescriptorType(address()); }
-	/** Returns a {@link VkDescriptorImageInfo} view of the struct pointed to by the {@code pImageInfo} field. */
-	public VkDescriptorImageInfo pImageInfo() { return npImageInfo(address()); }
-	/** Returns a {@link VkDescriptorBufferInfo} view of the struct pointed to by the {@code pBufferInfo} field. */
-	public VkDescriptorBufferInfo pBufferInfo() { return npBufferInfo(address()); }
-	/**
-	 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pTexelBufferView} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link LongBuffer}
-	 */
-	public LongBuffer pTexelBufferView(int capacity) { return npTexelBufferView(address(), capacity); }
+	/** Returns a {@link VkDescriptorImageInfo.Buffer} view of the struct array pointed to by the {@code pImageInfo} field. */
+	public VkDescriptorImageInfo.Buffer pImageInfo() { return npImageInfo(address()); }
+	/** Returns a {@link VkDescriptorBufferInfo.Buffer} view of the struct array pointed to by the {@code pBufferInfo} field. */
+	public VkDescriptorBufferInfo.Buffer pBufferInfo() { return npBufferInfo(address()); }
+	/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pTexelBufferView} field. */
+	public LongBuffer pTexelBufferView() { return npTexelBufferView(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkWriteDescriptorSet sType(int value) { nsType(address(), value); return this; }
@@ -136,10 +132,10 @@ public class VkWriteDescriptorSet extends Struct {
 	public VkWriteDescriptorSet descriptorCount(int value) { ndescriptorCount(address(), value); return this; }
 	/** Sets the specified value to the {@code descriptorType} field. */
 	public VkWriteDescriptorSet descriptorType(int value) { ndescriptorType(address(), value); return this; }
-	/** Sets the address of the specified {@link VkDescriptorImageInfo} to the {@code pImageInfo} field. */
-	public VkWriteDescriptorSet pImageInfo(VkDescriptorImageInfo value) { npImageInfo(address(), value); return this; }
-	/** Sets the address of the specified {@link VkDescriptorBufferInfo} to the {@code pBufferInfo} field. */
-	public VkWriteDescriptorSet pBufferInfo(VkDescriptorBufferInfo value) { npBufferInfo(address(), value); return this; }
+	/** Sets the address of the specified {@link VkDescriptorImageInfo.Buffer} to the {@code pImageInfo} field. */
+	public VkWriteDescriptorSet pImageInfo(VkDescriptorImageInfo.Buffer value) { npImageInfo(address(), value); return this; }
+	/** Sets the address of the specified {@link VkDescriptorBufferInfo.Buffer} to the {@code pBufferInfo} field. */
+	public VkWriteDescriptorSet pBufferInfo(VkDescriptorBufferInfo.Buffer value) { npBufferInfo(address(), value); return this; }
 	/** Sets the address of the specified {@link LongBuffer} to the {@code pTexelBufferView} field. */
 	public VkWriteDescriptorSet pTexelBufferView(LongBuffer value) { npTexelBufferView(address(), value); return this; }
 
@@ -150,10 +146,9 @@ public class VkWriteDescriptorSet extends Struct {
 		long dstSet,
 		int dstBinding,
 		int dstArrayElement,
-		int descriptorCount,
 		int descriptorType,
-		VkDescriptorImageInfo pImageInfo,
-		VkDescriptorBufferInfo pBufferInfo,
+		VkDescriptorImageInfo.Buffer pImageInfo,
+		VkDescriptorBufferInfo.Buffer pBufferInfo,
 		LongBuffer pTexelBufferView
 	) {
 		sType(sType);
@@ -161,7 +156,7 @@ public class VkWriteDescriptorSet extends Struct {
 		dstSet(dstSet);
 		dstBinding(dstBinding);
 		dstArrayElement(dstArrayElement);
-		descriptorCount(descriptorCount);
+		descriptorCount(pImageInfo != null ? pImageInfo.remaining() : (pBufferInfo != null ? pBufferInfo.remaining() : (pTexelBufferView != null ? pTexelBufferView.remaining() : 0)));
 		descriptorType(descriptorType);
 		pImageInfo(pImageInfo);
 		pBufferInfo(pBufferInfo);
@@ -185,13 +180,6 @@ public class VkWriteDescriptorSet extends Struct {
 	 */
 	public VkWriteDescriptorSet set(VkWriteDescriptorSet src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkWriteDescriptorSet) set}. */
-	public VkWriteDescriptorSet set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -268,11 +256,11 @@ public class VkWriteDescriptorSet extends Struct {
 	/** Unsafe version of {@link #descriptorType}. */
 	public static int ndescriptorType(long struct) { return memGetInt(struct + VkWriteDescriptorSet.DESCRIPTORTYPE); }
 	/** Unsafe version of {@link #pImageInfo}. */
-	public static VkDescriptorImageInfo npImageInfo(long struct) { return VkDescriptorImageInfo.create(memGetAddress(struct + VkWriteDescriptorSet.PIMAGEINFO)); }
+	public static VkDescriptorImageInfo.Buffer npImageInfo(long struct) { return VkDescriptorImageInfo.create(memGetAddress(struct + VkWriteDescriptorSet.PIMAGEINFO), ndescriptorCount(struct)); }
 	/** Unsafe version of {@link #pBufferInfo}. */
-	public static VkDescriptorBufferInfo npBufferInfo(long struct) { return VkDescriptorBufferInfo.create(memGetAddress(struct + VkWriteDescriptorSet.PBUFFERINFO)); }
-	/** Unsafe version of {@link #pTexelBufferView(int) pTexelBufferView}. */
-	public static LongBuffer npTexelBufferView(long struct, int capacity) { return memLongBuffer(memGetAddress(struct + VkWriteDescriptorSet.PTEXELBUFFERVIEW), capacity); }
+	public static VkDescriptorBufferInfo.Buffer npBufferInfo(long struct) { return VkDescriptorBufferInfo.create(memGetAddress(struct + VkWriteDescriptorSet.PBUFFERINFO), ndescriptorCount(struct)); }
+	/** Unsafe version of {@link #pTexelBufferView() pTexelBufferView}. */
+	public static LongBuffer npTexelBufferView(long struct) { return memLongBuffer(memGetAddress(struct + VkWriteDescriptorSet.PTEXELBUFFERVIEW), ndescriptorCount(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkWriteDescriptorSet.STYPE, value); }
@@ -288,10 +276,10 @@ public class VkWriteDescriptorSet extends Struct {
 	public static void ndescriptorCount(long struct, int value) { memPutInt(struct + VkWriteDescriptorSet.DESCRIPTORCOUNT, value); }
 	/** Unsafe version of {@link #descriptorType(int) descriptorType}. */
 	public static void ndescriptorType(long struct, int value) { memPutInt(struct + VkWriteDescriptorSet.DESCRIPTORTYPE, value); }
-	/** Unsafe version of {@link #pImageInfo(VkDescriptorImageInfo) pImageInfo}. */
-	public static void npImageInfo(long struct, VkDescriptorImageInfo value) { memPutAddress(struct + VkWriteDescriptorSet.PIMAGEINFO, addressSafe(value)); }
-	/** Unsafe version of {@link #pBufferInfo(VkDescriptorBufferInfo) pBufferInfo}. */
-	public static void npBufferInfo(long struct, VkDescriptorBufferInfo value) { memPutAddress(struct + VkWriteDescriptorSet.PBUFFERINFO, addressSafe(value)); }
+	/** Unsafe version of {@link #pImageInfo(VkDescriptorImageInfo.Buffer) pImageInfo}. */
+	public static void npImageInfo(long struct, VkDescriptorImageInfo.Buffer value) { memPutAddress(struct + VkWriteDescriptorSet.PIMAGEINFO, addressSafe(value)); }
+	/** Unsafe version of {@link #pBufferInfo(VkDescriptorBufferInfo.Buffer) pBufferInfo}. */
+	public static void npBufferInfo(long struct, VkDescriptorBufferInfo.Buffer value) { memPutAddress(struct + VkWriteDescriptorSet.PBUFFERINFO, addressSafe(value)); }
 	/** Unsafe version of {@link #pTexelBufferView(LongBuffer) pTexelBufferView}. */
 	public static void npTexelBufferView(long struct, LongBuffer value) { memPutAddress(struct + VkWriteDescriptorSet.PTEXELBUFFERVIEW, memAddressSafe(value)); }
 
@@ -351,16 +339,12 @@ public class VkWriteDescriptorSet extends Struct {
 		public int descriptorCount() { return VkWriteDescriptorSet.ndescriptorCount(address()); }
 		/** Returns the value of the {@code descriptorType} field. */
 		public int descriptorType() { return VkWriteDescriptorSet.ndescriptorType(address()); }
-		/** Returns a {@link VkDescriptorImageInfo} view of the struct pointed to by the {@code pImageInfo} field. */
-		public VkDescriptorImageInfo pImageInfo() { return VkWriteDescriptorSet.npImageInfo(address()); }
-		/** Returns a {@link VkDescriptorBufferInfo} view of the struct pointed to by the {@code pBufferInfo} field. */
-		public VkDescriptorBufferInfo pBufferInfo() { return VkWriteDescriptorSet.npBufferInfo(address()); }
-		/**
-		 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pTexelBufferView} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link LongBuffer}
-		 */
-		public LongBuffer pTexelBufferView(int capacity) { return VkWriteDescriptorSet.npTexelBufferView(address(), capacity); }
+		/** Returns a {@link VkDescriptorImageInfo.Buffer} view of the struct array pointed to by the {@code pImageInfo} field. */
+		public VkDescriptorImageInfo.Buffer pImageInfo() { return VkWriteDescriptorSet.npImageInfo(address()); }
+		/** Returns a {@link VkDescriptorBufferInfo.Buffer} view of the struct array pointed to by the {@code pBufferInfo} field. */
+		public VkDescriptorBufferInfo.Buffer pBufferInfo() { return VkWriteDescriptorSet.npBufferInfo(address()); }
+		/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pTexelBufferView} field. */
+		public LongBuffer pTexelBufferView() { return VkWriteDescriptorSet.npTexelBufferView(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkWriteDescriptorSet.Buffer sType(int value) { VkWriteDescriptorSet.nsType(address(), value); return this; }
@@ -376,10 +360,10 @@ public class VkWriteDescriptorSet extends Struct {
 		public VkWriteDescriptorSet.Buffer descriptorCount(int value) { VkWriteDescriptorSet.ndescriptorCount(address(), value); return this; }
 		/** Sets the specified value to the {@code descriptorType} field. */
 		public VkWriteDescriptorSet.Buffer descriptorType(int value) { VkWriteDescriptorSet.ndescriptorType(address(), value); return this; }
-		/** Sets the address of the specified {@link VkDescriptorImageInfo} to the {@code pImageInfo} field. */
-		public VkWriteDescriptorSet.Buffer pImageInfo(VkDescriptorImageInfo value) { VkWriteDescriptorSet.npImageInfo(address(), value); return this; }
-		/** Sets the address of the specified {@link VkDescriptorBufferInfo} to the {@code pBufferInfo} field. */
-		public VkWriteDescriptorSet.Buffer pBufferInfo(VkDescriptorBufferInfo value) { VkWriteDescriptorSet.npBufferInfo(address(), value); return this; }
+		/** Sets the address of the specified {@link VkDescriptorImageInfo.Buffer} to the {@code pImageInfo} field. */
+		public VkWriteDescriptorSet.Buffer pImageInfo(VkDescriptorImageInfo.Buffer value) { VkWriteDescriptorSet.npImageInfo(address(), value); return this; }
+		/** Sets the address of the specified {@link VkDescriptorBufferInfo.Buffer} to the {@code pBufferInfo} field. */
+		public VkWriteDescriptorSet.Buffer pBufferInfo(VkDescriptorBufferInfo.Buffer value) { VkWriteDescriptorSet.npBufferInfo(address(), value); return this; }
 		/** Sets the address of the specified {@link LongBuffer} to the {@code pTexelBufferView} field. */
 		public VkWriteDescriptorSet.Buffer pTexelBufferView(LongBuffer value) { VkWriteDescriptorSet.npTexelBufferView(address(), value); return this; }
 

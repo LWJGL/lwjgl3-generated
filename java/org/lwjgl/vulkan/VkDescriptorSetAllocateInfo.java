@@ -85,12 +85,8 @@ public class VkDescriptorSetAllocateInfo extends Struct {
 	public long descriptorPool() { return ndescriptorPool(address()); }
 	/** Returns the value of the {@code descriptorSetCount} field. */
 	public int descriptorSetCount() { return ndescriptorSetCount(address()); }
-	/**
-	 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pSetLayouts} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link LongBuffer}
-	 */
-	public LongBuffer pSetLayouts(int capacity) { return npSetLayouts(address(), capacity); }
+	/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSetLayouts} field. */
+	public LongBuffer pSetLayouts() { return npSetLayouts(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkDescriptorSetAllocateInfo sType(int value) { nsType(address(), value); return this; }
@@ -108,13 +104,12 @@ public class VkDescriptorSetAllocateInfo extends Struct {
 		int sType,
 		long pNext,
 		long descriptorPool,
-		int descriptorSetCount,
 		LongBuffer pSetLayouts
 	) {
 		sType(sType);
 		pNext(pNext);
 		descriptorPool(descriptorPool);
-		descriptorSetCount(descriptorSetCount);
+		descriptorSetCount(pSetLayouts != null ? pSetLayouts.remaining() : 0);
 		pSetLayouts(pSetLayouts);
 
 		return this;
@@ -135,13 +130,6 @@ public class VkDescriptorSetAllocateInfo extends Struct {
 	 */
 	public VkDescriptorSetAllocateInfo set(VkDescriptorSetAllocateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkDescriptorSetAllocateInfo) set}. */
-	public VkDescriptorSetAllocateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -211,8 +199,8 @@ public class VkDescriptorSetAllocateInfo extends Struct {
 	public static long ndescriptorPool(long struct) { return memGetLong(struct + VkDescriptorSetAllocateInfo.DESCRIPTORPOOL); }
 	/** Unsafe version of {@link #descriptorSetCount}. */
 	public static int ndescriptorSetCount(long struct) { return memGetInt(struct + VkDescriptorSetAllocateInfo.DESCRIPTORSETCOUNT); }
-	/** Unsafe version of {@link #pSetLayouts(int) pSetLayouts}. */
-	public static LongBuffer npSetLayouts(long struct, int capacity) { return memLongBuffer(memGetAddress(struct + VkDescriptorSetAllocateInfo.PSETLAYOUTS), capacity); }
+	/** Unsafe version of {@link #pSetLayouts() pSetLayouts}. */
+	public static LongBuffer npSetLayouts(long struct) { return memLongBuffer(memGetAddress(struct + VkDescriptorSetAllocateInfo.PSETLAYOUTS), ndescriptorSetCount(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkDescriptorSetAllocateInfo.STYPE, value); }
@@ -275,12 +263,8 @@ public class VkDescriptorSetAllocateInfo extends Struct {
 		public long descriptorPool() { return VkDescriptorSetAllocateInfo.ndescriptorPool(address()); }
 		/** Returns the value of the {@code descriptorSetCount} field. */
 		public int descriptorSetCount() { return VkDescriptorSetAllocateInfo.ndescriptorSetCount(address()); }
-		/**
-		 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pSetLayouts} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link LongBuffer}
-		 */
-		public LongBuffer pSetLayouts(int capacity) { return VkDescriptorSetAllocateInfo.npSetLayouts(address(), capacity); }
+		/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSetLayouts} field. */
+		public LongBuffer pSetLayouts() { return VkDescriptorSetAllocateInfo.npSetLayouts(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkDescriptorSetAllocateInfo.Buffer sType(int value) { VkDescriptorSetAllocateInfo.nsType(address(), value); return this; }

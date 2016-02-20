@@ -84,24 +84,12 @@ public class GLFWGammaRamp extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/**
-	 * Returns a {@link ShortBuffer} view of the data pointed to by the {@code red} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link ShortBuffer}
-	 */
-	public ShortBuffer red(int capacity) { return nred(address(), capacity); }
-	/**
-	 * Returns a {@link ShortBuffer} view of the data pointed to by the {@code green} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link ShortBuffer}
-	 */
-	public ShortBuffer green(int capacity) { return ngreen(address(), capacity); }
-	/**
-	 * Returns a {@link ShortBuffer} view of the data pointed to by the {@code blue} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link ShortBuffer}
-	 */
-	public ShortBuffer blue(int capacity) { return nblue(address(), capacity); }
+	/** Returns a {@link ShortBuffer} view of the data pointed to by the {@code red} field. */
+	public ShortBuffer red() { return nred(address()); }
+	/** Returns a {@link ShortBuffer} view of the data pointed to by the {@code green} field. */
+	public ShortBuffer green() { return ngreen(address()); }
+	/** Returns a {@link ShortBuffer} view of the data pointed to by the {@code blue} field. */
+	public ShortBuffer blue() { return nblue(address()); }
 	/** Returns the value of the {@code size} field. */
 	public int size() { return nsize(address()); }
 
@@ -118,13 +106,12 @@ public class GLFWGammaRamp extends Struct {
 	public GLFWGammaRamp set(
 		ShortBuffer red,
 		ShortBuffer green,
-		ShortBuffer blue,
-		int size
+		ShortBuffer blue
 	) {
 		red(red);
 		green(green);
 		blue(blue);
-		size(size);
+		size(red != null ? red.remaining() : (green != null ? green.remaining() : (blue != null ? blue.remaining() : 0)));
 
 		return this;
 	}
@@ -144,13 +131,6 @@ public class GLFWGammaRamp extends Struct {
 	 */
 	public GLFWGammaRamp set(GLFWGammaRamp src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(GLFWGammaRamp) set}. */
-	public GLFWGammaRamp set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -212,12 +192,12 @@ public class GLFWGammaRamp extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
-	/** Unsafe version of {@link #red(int) red}. */
-	public static ShortBuffer nred(long struct, int capacity) { return memShortBuffer(memGetAddress(struct + GLFWGammaRamp.RED), capacity); }
-	/** Unsafe version of {@link #green(int) green}. */
-	public static ShortBuffer ngreen(long struct, int capacity) { return memShortBuffer(memGetAddress(struct + GLFWGammaRamp.GREEN), capacity); }
-	/** Unsafe version of {@link #blue(int) blue}. */
-	public static ShortBuffer nblue(long struct, int capacity) { return memShortBuffer(memGetAddress(struct + GLFWGammaRamp.BLUE), capacity); }
+	/** Unsafe version of {@link #red() red}. */
+	public static ShortBuffer nred(long struct) { return memShortBuffer(memGetAddress(struct + GLFWGammaRamp.RED), nsize(struct)); }
+	/** Unsafe version of {@link #green() green}. */
+	public static ShortBuffer ngreen(long struct) { return memShortBuffer(memGetAddress(struct + GLFWGammaRamp.GREEN), nsize(struct)); }
+	/** Unsafe version of {@link #blue() blue}. */
+	public static ShortBuffer nblue(long struct) { return memShortBuffer(memGetAddress(struct + GLFWGammaRamp.BLUE), nsize(struct)); }
 	/** Unsafe version of {@link #size}. */
 	public static int nsize(long struct) { return memGetInt(struct + GLFWGammaRamp.SIZE); }
 
@@ -272,24 +252,12 @@ public class GLFWGammaRamp extends Struct {
 			return SIZEOF;
 		}
 
-		/**
-		 * Returns a {@link ShortBuffer} view of the data pointed to by the {@code red} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link ShortBuffer}
-		 */
-		public ShortBuffer red(int capacity) { return GLFWGammaRamp.nred(address(), capacity); }
-		/**
-		 * Returns a {@link ShortBuffer} view of the data pointed to by the {@code green} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link ShortBuffer}
-		 */
-		public ShortBuffer green(int capacity) { return GLFWGammaRamp.ngreen(address(), capacity); }
-		/**
-		 * Returns a {@link ShortBuffer} view of the data pointed to by the {@code blue} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link ShortBuffer}
-		 */
-		public ShortBuffer blue(int capacity) { return GLFWGammaRamp.nblue(address(), capacity); }
+		/** Returns a {@link ShortBuffer} view of the data pointed to by the {@code red} field. */
+		public ShortBuffer red() { return GLFWGammaRamp.nred(address()); }
+		/** Returns a {@link ShortBuffer} view of the data pointed to by the {@code green} field. */
+		public ShortBuffer green() { return GLFWGammaRamp.ngreen(address()); }
+		/** Returns a {@link ShortBuffer} view of the data pointed to by the {@code blue} field. */
+		public ShortBuffer blue() { return GLFWGammaRamp.nblue(address()); }
 		/** Returns the value of the {@code size} field. */
 		public int size() { return GLFWGammaRamp.nsize(address()); }
 

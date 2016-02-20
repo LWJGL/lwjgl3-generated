@@ -104,7 +104,7 @@ public class OVRSwapTextureSet extends Struct {
 	public int sizeof() { return SIZEOF; }
 
 	/** Returns a {@link OVRTexture.Buffer} view of the struct array pointed to by the {@code Textures} field. */
-	public OVRTexture.Buffer Textures(int capacity) { return nTextures(address(), capacity); }
+	public OVRTexture.Buffer Textures() { return nTextures(address()); }
 	/** Returns the value of the {@code TextureCount} field. */
 	public int TextureCount() { return nTextureCount(address()); }
 	/** Returns the value of the {@code CurrentIndex} field. */
@@ -120,11 +120,10 @@ public class OVRSwapTextureSet extends Struct {
 	/** Initializes this struct with the specified values. */
 	public OVRSwapTextureSet set(
 		OVRTexture.Buffer Textures,
-		int TextureCount,
 		int CurrentIndex
 	) {
 		Textures(Textures);
-		TextureCount(TextureCount);
+		TextureCount(Textures != null ? Textures.remaining() : 0);
 		CurrentIndex(CurrentIndex);
 
 		return this;
@@ -145,13 +144,6 @@ public class OVRSwapTextureSet extends Struct {
 	 */
 	public OVRSwapTextureSet set(OVRSwapTextureSet src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(OVRSwapTextureSet) set}. */
-	public OVRSwapTextureSet set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -214,7 +206,7 @@ public class OVRSwapTextureSet extends Struct {
 	}
 
 	/** Unsafe version of {@link #Textures}. */
-	public static OVRTexture.Buffer nTextures(long struct, int capacity) { return OVRTexture.create(memGetAddress(struct + OVRSwapTextureSet.TEXTURES), capacity); }
+	public static OVRTexture.Buffer nTextures(long struct) { return OVRTexture.create(memGetAddress(struct + OVRSwapTextureSet.TEXTURES), nTextureCount(struct)); }
 	/** Unsafe version of {@link #TextureCount}. */
 	public static int nTextureCount(long struct) { return memGetInt(struct + OVRSwapTextureSet.TEXTURECOUNT); }
 	/** Unsafe version of {@link #CurrentIndex}. */
@@ -270,7 +262,7 @@ public class OVRSwapTextureSet extends Struct {
 		}
 
 		/** Returns a {@link OVRTexture.Buffer} view of the struct array pointed to by the {@code Textures} field. */
-		public OVRTexture.Buffer Textures(int capacity) { return OVRSwapTextureSet.nTextures(address(), capacity); }
+		public OVRTexture.Buffer Textures() { return OVRSwapTextureSet.nTextures(address()); }
 		/** Returns the value of the {@code TextureCount} field. */
 		public int TextureCount() { return OVRSwapTextureSet.nTextureCount(address()); }
 		/** Returns the value of the {@code CurrentIndex} field. */

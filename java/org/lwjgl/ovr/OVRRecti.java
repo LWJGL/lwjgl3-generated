@@ -112,13 +112,6 @@ public class OVRRecti extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRRecti) set}. */
-	public OVRRecti set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRRecti} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

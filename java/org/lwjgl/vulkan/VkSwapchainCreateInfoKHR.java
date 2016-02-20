@@ -153,12 +153,8 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 	public int imageSharingMode() { return nimageSharingMode(address()); }
 	/** Returns the value of the {@code queueFamilyIndexCount} field. */
 	public int queueFamilyIndexCount() { return nqueueFamilyIndexCount(address()); }
-	/**
-	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link IntBuffer}
-	 */
-	public IntBuffer pQueueFamilyIndices(int capacity) { return npQueueFamilyIndices(address(), capacity); }
+	/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
+	public IntBuffer pQueueFamilyIndices() { return npQueueFamilyIndices(address()); }
 	/** Returns the value of the {@code preTransform} field. */
 	public int preTransform() { return npreTransform(address()); }
 	/** Returns the value of the {@code compositeAlpha} field. */
@@ -220,7 +216,6 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 		int imageArrayLayers,
 		int imageUsage,
 		int imageSharingMode,
-		int queueFamilyIndexCount,
 		IntBuffer pQueueFamilyIndices,
 		int preTransform,
 		int compositeAlpha,
@@ -239,7 +234,7 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 		imageArrayLayers(imageArrayLayers);
 		imageUsage(imageUsage);
 		imageSharingMode(imageSharingMode);
-		queueFamilyIndexCount(queueFamilyIndexCount);
+		queueFamilyIndexCount(pQueueFamilyIndices != null ? pQueueFamilyIndices.remaining() : 0);
 		pQueueFamilyIndices(pQueueFamilyIndices);
 		preTransform(preTransform);
 		compositeAlpha(compositeAlpha);
@@ -265,13 +260,6 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 	 */
 	public VkSwapchainCreateInfoKHR set(VkSwapchainCreateInfoKHR src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkSwapchainCreateInfoKHR) set}. */
-	public VkSwapchainCreateInfoKHR set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -357,8 +345,8 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 	public static int nimageSharingMode(long struct) { return memGetInt(struct + VkSwapchainCreateInfoKHR.IMAGESHARINGMODE); }
 	/** Unsafe version of {@link #queueFamilyIndexCount}. */
 	public static int nqueueFamilyIndexCount(long struct) { return memGetInt(struct + VkSwapchainCreateInfoKHR.QUEUEFAMILYINDEXCOUNT); }
-	/** Unsafe version of {@link #pQueueFamilyIndices(int) pQueueFamilyIndices}. */
-	public static IntBuffer npQueueFamilyIndices(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + VkSwapchainCreateInfoKHR.PQUEUEFAMILYINDICES), capacity); }
+	/** Unsafe version of {@link #pQueueFamilyIndices() pQueueFamilyIndices}. */
+	public static IntBuffer npQueueFamilyIndices(long struct) { return memIntBuffer(memGetAddress(struct + VkSwapchainCreateInfoKHR.PQUEUEFAMILYINDICES), nqueueFamilyIndexCount(struct)); }
 	/** Unsafe version of {@link #preTransform}. */
 	public static int npreTransform(long struct) { return memGetInt(struct + VkSwapchainCreateInfoKHR.PRETRANSFORM); }
 	/** Unsafe version of {@link #compositeAlpha}. */
@@ -473,12 +461,8 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 		public int imageSharingMode() { return VkSwapchainCreateInfoKHR.nimageSharingMode(address()); }
 		/** Returns the value of the {@code queueFamilyIndexCount} field. */
 		public int queueFamilyIndexCount() { return VkSwapchainCreateInfoKHR.nqueueFamilyIndexCount(address()); }
-		/**
-		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link IntBuffer}
-		 */
-		public IntBuffer pQueueFamilyIndices(int capacity) { return VkSwapchainCreateInfoKHR.npQueueFamilyIndices(address(), capacity); }
+		/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
+		public IntBuffer pQueueFamilyIndices() { return VkSwapchainCreateInfoKHR.npQueueFamilyIndices(address()); }
 		/** Returns the value of the {@code preTransform} field. */
 		public int preTransform() { return VkSwapchainCreateInfoKHR.npreTransform(address()); }
 		/** Returns the value of the {@code compositeAlpha} field. */

@@ -108,7 +108,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct {
 	/**
 	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pSampleMask} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link IntBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public IntBuffer pSampleMask(int capacity) { return npSampleMask(address(), capacity); }
 	/** Returns the value of the {@code alphaToCoverageEnable} field. */
@@ -175,13 +175,6 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct {
 	 */
 	public VkPipelineMultisampleStateCreateInfo set(VkPipelineMultisampleStateCreateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkPipelineMultisampleStateCreateInfo) set}. */
-	public VkPipelineMultisampleStateCreateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -338,7 +331,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct {
 		/**
 		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pSampleMask} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link IntBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public IntBuffer pSampleMask(int capacity) { return VkPipelineMultisampleStateCreateInfo.npSampleMask(address(), capacity); }
 		/** Returns the value of the {@code alphaToCoverageEnable} field. */

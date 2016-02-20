@@ -103,13 +103,6 @@ public class VkAttachmentReference extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkAttachmentReference) set}. */
-	public VkAttachmentReference set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkAttachmentReference} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

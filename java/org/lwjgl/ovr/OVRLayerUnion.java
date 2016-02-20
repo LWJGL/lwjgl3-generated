@@ -124,13 +124,6 @@ public class OVRLayerUnion extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRLayerUnion) set}. */
-	public OVRLayerUnion set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRLayerUnion} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

@@ -113,13 +113,6 @@ public class VkClearRect extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkClearRect) set}. */
-	public VkClearRect set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkClearRect} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

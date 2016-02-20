@@ -88,7 +88,7 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 	/**
 	 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pImmutableSamplers} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link LongBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public LongBuffer pImmutableSamplers(int capacity) { return npImmutableSamplers(address(), capacity); }
 
@@ -135,13 +135,6 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 	 */
 	public VkDescriptorSetLayoutBinding set(VkDescriptorSetLayoutBinding src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkDescriptorSetLayoutBinding) set}. */
-	public VkDescriptorSetLayoutBinding set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -278,7 +271,7 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 		/**
 		 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pImmutableSamplers} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link LongBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public LongBuffer pImmutableSamplers(int capacity) { return VkDescriptorSetLayoutBinding.npImmutableSamplers(address(), capacity); }
 

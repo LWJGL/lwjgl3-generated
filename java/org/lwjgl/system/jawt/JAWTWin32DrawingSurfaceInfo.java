@@ -101,7 +101,7 @@ public class JAWTWin32DrawingSurfaceInfo extends Struct {
 	/**
 	 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pbits} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link ByteBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public ByteBuffer pbits(int capacity) { return npbits(address(), capacity); }
 	/** Returns the value of the {@code hdc} field. */
@@ -228,7 +228,7 @@ public class JAWTWin32DrawingSurfaceInfo extends Struct {
 		/**
 		 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pbits} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link ByteBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public ByteBuffer pbits(int capacity) { return JAWTWin32DrawingSurfaceInfo.npbits(address(), capacity); }
 		/** Returns the value of the {@code hdc} field. */

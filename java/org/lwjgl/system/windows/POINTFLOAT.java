@@ -112,13 +112,6 @@ public class POINTFLOAT extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(POINTFLOAT) set}. */
-	public POINTFLOAT set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link POINTFLOAT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

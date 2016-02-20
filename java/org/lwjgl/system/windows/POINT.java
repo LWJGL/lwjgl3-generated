@@ -112,13 +112,6 @@ public class POINT extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(POINT) set}. */
-	public POINT set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link POINT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

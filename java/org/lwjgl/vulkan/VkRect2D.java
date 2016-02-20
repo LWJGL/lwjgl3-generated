@@ -103,13 +103,6 @@ public class VkRect2D extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkRect2D) set}. */
-	public VkRect2D set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkRect2D} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

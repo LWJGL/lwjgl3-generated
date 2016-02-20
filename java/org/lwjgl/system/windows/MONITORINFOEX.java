@@ -129,13 +129,6 @@ public class MONITORINFOEX extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(MONITORINFOEX) set}. */
-	public MONITORINFOEX set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link MONITORINFOEX} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

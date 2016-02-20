@@ -185,13 +185,6 @@ public class XVisualInfo extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(XVisualInfo) set}. */
-	public XVisualInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link XVisualInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

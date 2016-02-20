@@ -85,12 +85,8 @@ public class VkPipelineDynamicStateCreateInfo extends Struct {
 	public int flags() { return nflags(address()); }
 	/** Returns the value of the {@code dynamicStateCount} field. */
 	public int dynamicStateCount() { return ndynamicStateCount(address()); }
-	/**
-	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pDynamicStates} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link IntBuffer}
-	 */
-	public IntBuffer pDynamicStates(int capacity) { return npDynamicStates(address(), capacity); }
+	/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDynamicStates} field. */
+	public IntBuffer pDynamicStates() { return npDynamicStates(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkPipelineDynamicStateCreateInfo sType(int value) { nsType(address(), value); return this; }
@@ -108,13 +104,12 @@ public class VkPipelineDynamicStateCreateInfo extends Struct {
 		int sType,
 		long pNext,
 		int flags,
-		int dynamicStateCount,
 		IntBuffer pDynamicStates
 	) {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		dynamicStateCount(dynamicStateCount);
+		dynamicStateCount(pDynamicStates != null ? pDynamicStates.remaining() : 0);
 		pDynamicStates(pDynamicStates);
 
 		return this;
@@ -135,13 +130,6 @@ public class VkPipelineDynamicStateCreateInfo extends Struct {
 	 */
 	public VkPipelineDynamicStateCreateInfo set(VkPipelineDynamicStateCreateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkPipelineDynamicStateCreateInfo) set}. */
-	public VkPipelineDynamicStateCreateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -211,8 +199,8 @@ public class VkPipelineDynamicStateCreateInfo extends Struct {
 	public static int nflags(long struct) { return memGetInt(struct + VkPipelineDynamicStateCreateInfo.FLAGS); }
 	/** Unsafe version of {@link #dynamicStateCount}. */
 	public static int ndynamicStateCount(long struct) { return memGetInt(struct + VkPipelineDynamicStateCreateInfo.DYNAMICSTATECOUNT); }
-	/** Unsafe version of {@link #pDynamicStates(int) pDynamicStates}. */
-	public static IntBuffer npDynamicStates(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + VkPipelineDynamicStateCreateInfo.PDYNAMICSTATES), capacity); }
+	/** Unsafe version of {@link #pDynamicStates() pDynamicStates}. */
+	public static IntBuffer npDynamicStates(long struct) { return memIntBuffer(memGetAddress(struct + VkPipelineDynamicStateCreateInfo.PDYNAMICSTATES), ndynamicStateCount(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkPipelineDynamicStateCreateInfo.STYPE, value); }
@@ -275,12 +263,8 @@ public class VkPipelineDynamicStateCreateInfo extends Struct {
 		public int flags() { return VkPipelineDynamicStateCreateInfo.nflags(address()); }
 		/** Returns the value of the {@code dynamicStateCount} field. */
 		public int dynamicStateCount() { return VkPipelineDynamicStateCreateInfo.ndynamicStateCount(address()); }
-		/**
-		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pDynamicStates} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link IntBuffer}
-		 */
-		public IntBuffer pDynamicStates(int capacity) { return VkPipelineDynamicStateCreateInfo.npDynamicStates(address(), capacity); }
+		/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDynamicStates} field. */
+		public IntBuffer pDynamicStates() { return VkPipelineDynamicStateCreateInfo.npDynamicStates(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkPipelineDynamicStateCreateInfo.Buffer sType(int value) { VkPipelineDynamicStateCreateInfo.nsType(address(), value); return this; }

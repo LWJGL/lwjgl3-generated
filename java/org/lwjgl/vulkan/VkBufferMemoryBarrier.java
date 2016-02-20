@@ -173,13 +173,6 @@ public class VkBufferMemoryBarrier extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkBufferMemoryBarrier) set}. */
-	public VkBufferMemoryBarrier set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkBufferMemoryBarrier} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

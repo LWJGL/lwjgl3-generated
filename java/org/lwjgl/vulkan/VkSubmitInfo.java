@@ -99,34 +99,18 @@ public class VkSubmitInfo extends Struct {
 	public long pNext() { return npNext(address()); }
 	/** Returns the value of the {@code waitSemaphoreCount} field. */
 	public int waitSemaphoreCount() { return nwaitSemaphoreCount(address()); }
-	/**
-	 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link LongBuffer}
-	 */
-	public LongBuffer pWaitSemaphores(int capacity) { return npWaitSemaphores(address(), capacity); }
-	/**
-	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pWaitDstStageMask} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link IntBuffer}
-	 */
-	public IntBuffer pWaitDstStageMask(int capacity) { return npWaitDstStageMask(address(), capacity); }
+	/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+	public LongBuffer pWaitSemaphores() { return npWaitSemaphores(address()); }
+	/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pWaitDstStageMask} field. */
+	public IntBuffer pWaitDstStageMask() { return npWaitDstStageMask(address()); }
 	/** Returns the value of the {@code commandBufferCount} field. */
 	public int commandBufferCount() { return ncommandBufferCount(address()); }
-	/**
-	 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code pCommandBuffers} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link PointerBuffer}
-	 */
-	public PointerBuffer pCommandBuffers(int capacity) { return npCommandBuffers(address(), capacity); }
+	/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code pCommandBuffers} field. */
+	public PointerBuffer pCommandBuffers() { return npCommandBuffers(address()); }
 	/** Returns the value of the {@code signalSemaphoreCount} field. */
 	public int signalSemaphoreCount() { return nsignalSemaphoreCount(address()); }
-	/**
-	 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphores} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link LongBuffer}
-	 */
-	public LongBuffer pSignalSemaphores(int capacity) { return npSignalSemaphores(address(), capacity); }
+	/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphores} field. */
+	public LongBuffer pSignalSemaphores() { return npSignalSemaphores(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkSubmitInfo sType(int value) { nsType(address(), value); return this; }
@@ -151,22 +135,19 @@ public class VkSubmitInfo extends Struct {
 	public VkSubmitInfo set(
 		int sType,
 		long pNext,
-		int waitSemaphoreCount,
 		LongBuffer pWaitSemaphores,
 		IntBuffer pWaitDstStageMask,
-		int commandBufferCount,
 		PointerBuffer pCommandBuffers,
-		int signalSemaphoreCount,
 		LongBuffer pSignalSemaphores
 	) {
 		sType(sType);
 		pNext(pNext);
-		waitSemaphoreCount(waitSemaphoreCount);
+		waitSemaphoreCount(pWaitSemaphores != null ? pWaitSemaphores.remaining() : (pWaitDstStageMask != null ? pWaitDstStageMask.remaining() : 0));
 		pWaitSemaphores(pWaitSemaphores);
 		pWaitDstStageMask(pWaitDstStageMask);
-		commandBufferCount(commandBufferCount);
+		commandBufferCount(pCommandBuffers != null ? pCommandBuffers.remaining() : 0);
 		pCommandBuffers(pCommandBuffers);
-		signalSemaphoreCount(signalSemaphoreCount);
+		signalSemaphoreCount(pSignalSemaphores != null ? pSignalSemaphores.remaining() : 0);
 		pSignalSemaphores(pSignalSemaphores);
 
 		return this;
@@ -187,13 +168,6 @@ public class VkSubmitInfo extends Struct {
 	 */
 	public VkSubmitInfo set(VkSubmitInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkSubmitInfo) set}. */
-	public VkSubmitInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -261,18 +235,18 @@ public class VkSubmitInfo extends Struct {
 	public static long npNext(long struct) { return memGetAddress(struct + VkSubmitInfo.PNEXT); }
 	/** Unsafe version of {@link #waitSemaphoreCount}. */
 	public static int nwaitSemaphoreCount(long struct) { return memGetInt(struct + VkSubmitInfo.WAITSEMAPHORECOUNT); }
-	/** Unsafe version of {@link #pWaitSemaphores(int) pWaitSemaphores}. */
-	public static LongBuffer npWaitSemaphores(long struct, int capacity) { return memLongBuffer(memGetAddress(struct + VkSubmitInfo.PWAITSEMAPHORES), capacity); }
-	/** Unsafe version of {@link #pWaitDstStageMask(int) pWaitDstStageMask}. */
-	public static IntBuffer npWaitDstStageMask(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK), capacity); }
+	/** Unsafe version of {@link #pWaitSemaphores() pWaitSemaphores}. */
+	public static LongBuffer npWaitSemaphores(long struct) { return memLongBuffer(memGetAddress(struct + VkSubmitInfo.PWAITSEMAPHORES), nwaitSemaphoreCount(struct)); }
+	/** Unsafe version of {@link #pWaitDstStageMask() pWaitDstStageMask}. */
+	public static IntBuffer npWaitDstStageMask(long struct) { return memIntBuffer(memGetAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK), nwaitSemaphoreCount(struct)); }
 	/** Unsafe version of {@link #commandBufferCount}. */
 	public static int ncommandBufferCount(long struct) { return memGetInt(struct + VkSubmitInfo.COMMANDBUFFERCOUNT); }
-	/** Unsafe version of {@link #pCommandBuffers(int) pCommandBuffers}. */
-	public static PointerBuffer npCommandBuffers(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VkSubmitInfo.PCOMMANDBUFFERS), capacity); }
+	/** Unsafe version of {@link #pCommandBuffers() pCommandBuffers}. */
+	public static PointerBuffer npCommandBuffers(long struct) { return memPointerBuffer(memGetAddress(struct + VkSubmitInfo.PCOMMANDBUFFERS), ncommandBufferCount(struct)); }
 	/** Unsafe version of {@link #signalSemaphoreCount}. */
 	public static int nsignalSemaphoreCount(long struct) { return memGetInt(struct + VkSubmitInfo.SIGNALSEMAPHORECOUNT); }
-	/** Unsafe version of {@link #pSignalSemaphores(int) pSignalSemaphores}. */
-	public static LongBuffer npSignalSemaphores(long struct, int capacity) { return memLongBuffer(memGetAddress(struct + VkSubmitInfo.PSIGNALSEMAPHORES), capacity); }
+	/** Unsafe version of {@link #pSignalSemaphores() pSignalSemaphores}. */
+	public static LongBuffer npSignalSemaphores(long struct) { return memLongBuffer(memGetAddress(struct + VkSubmitInfo.PSIGNALSEMAPHORES), nsignalSemaphoreCount(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkSubmitInfo.STYPE, value); }
@@ -341,34 +315,18 @@ public class VkSubmitInfo extends Struct {
 		public long pNext() { return VkSubmitInfo.npNext(address()); }
 		/** Returns the value of the {@code waitSemaphoreCount} field. */
 		public int waitSemaphoreCount() { return VkSubmitInfo.nwaitSemaphoreCount(address()); }
-		/**
-		 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link LongBuffer}
-		 */
-		public LongBuffer pWaitSemaphores(int capacity) { return VkSubmitInfo.npWaitSemaphores(address(), capacity); }
-		/**
-		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pWaitDstStageMask} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link IntBuffer}
-		 */
-		public IntBuffer pWaitDstStageMask(int capacity) { return VkSubmitInfo.npWaitDstStageMask(address(), capacity); }
+		/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+		public LongBuffer pWaitSemaphores() { return VkSubmitInfo.npWaitSemaphores(address()); }
+		/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pWaitDstStageMask} field. */
+		public IntBuffer pWaitDstStageMask() { return VkSubmitInfo.npWaitDstStageMask(address()); }
 		/** Returns the value of the {@code commandBufferCount} field. */
 		public int commandBufferCount() { return VkSubmitInfo.ncommandBufferCount(address()); }
-		/**
-		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code pCommandBuffers} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link PointerBuffer}
-		 */
-		public PointerBuffer pCommandBuffers(int capacity) { return VkSubmitInfo.npCommandBuffers(address(), capacity); }
+		/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code pCommandBuffers} field. */
+		public PointerBuffer pCommandBuffers() { return VkSubmitInfo.npCommandBuffers(address()); }
 		/** Returns the value of the {@code signalSemaphoreCount} field. */
 		public int signalSemaphoreCount() { return VkSubmitInfo.nsignalSemaphoreCount(address()); }
-		/**
-		 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphores} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link LongBuffer}
-		 */
-		public LongBuffer pSignalSemaphores(int capacity) { return VkSubmitInfo.npSignalSemaphores(address(), capacity); }
+		/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphores} field. */
+		public LongBuffer pSignalSemaphores() { return VkSubmitInfo.npSignalSemaphores(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkSubmitInfo.Buffer sType(int value) { VkSubmitInfo.nsType(address(), value); return this; }

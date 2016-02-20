@@ -96,13 +96,6 @@ public class OVRMatrix4f extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRMatrix4f) set}. */
-	public OVRMatrix4f set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRMatrix4f} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

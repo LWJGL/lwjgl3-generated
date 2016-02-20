@@ -67,12 +67,8 @@ public class STBVorbisAlloc extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/**
-	 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code alloc_buffer} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link ByteBuffer}
-	 */
-	public ByteBuffer alloc_buffer(int capacity) { return nalloc_buffer(address(), capacity); }
+	/** Returns a {@link ByteBuffer} view of the data pointed to by the {@code alloc_buffer} field. */
+	public ByteBuffer alloc_buffer() { return nalloc_buffer(address()); }
 	/** Returns the value of the {@code alloc_buffer_length_in_bytes} field. */
 	public int alloc_buffer_length_in_bytes() { return nalloc_buffer_length_in_bytes(address()); }
 
@@ -83,11 +79,10 @@ public class STBVorbisAlloc extends Struct {
 
 	/** Initializes this struct with the specified values. */
 	public STBVorbisAlloc set(
-		ByteBuffer alloc_buffer,
-		int alloc_buffer_length_in_bytes
+		ByteBuffer alloc_buffer
 	) {
 		alloc_buffer(alloc_buffer);
-		alloc_buffer_length_in_bytes(alloc_buffer_length_in_bytes);
+		alloc_buffer_length_in_bytes(alloc_buffer != null ? alloc_buffer.remaining() : 0);
 
 		return this;
 	}
@@ -107,13 +102,6 @@ public class STBVorbisAlloc extends Struct {
 	 */
 	public STBVorbisAlloc set(STBVorbisAlloc src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(STBVorbisAlloc) set}. */
-	public STBVorbisAlloc set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -175,8 +163,8 @@ public class STBVorbisAlloc extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
-	/** Unsafe version of {@link #alloc_buffer(int) alloc_buffer}. */
-	public static ByteBuffer nalloc_buffer(long struct, int capacity) { return memByteBuffer(memGetAddress(struct + STBVorbisAlloc.ALLOC_BUFFER), capacity); }
+	/** Unsafe version of {@link #alloc_buffer() alloc_buffer}. */
+	public static ByteBuffer nalloc_buffer(long struct) { return memByteBuffer(memGetAddress(struct + STBVorbisAlloc.ALLOC_BUFFER), nalloc_buffer_length_in_bytes(struct)); }
 	/** Unsafe version of {@link #alloc_buffer_length_in_bytes}. */
 	public static int nalloc_buffer_length_in_bytes(long struct) { return memGetInt(struct + STBVorbisAlloc.ALLOC_BUFFER_LENGTH_IN_BYTES); }
 
@@ -227,12 +215,8 @@ public class STBVorbisAlloc extends Struct {
 			return SIZEOF;
 		}
 
-		/**
-		 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code alloc_buffer} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link ByteBuffer}
-		 */
-		public ByteBuffer alloc_buffer(int capacity) { return STBVorbisAlloc.nalloc_buffer(address(), capacity); }
+		/** Returns a {@link ByteBuffer} view of the data pointed to by the {@code alloc_buffer} field. */
+		public ByteBuffer alloc_buffer() { return STBVorbisAlloc.nalloc_buffer(address()); }
 		/** Returns the value of the {@code alloc_buffer_length_in_bytes} field. */
 		public int alloc_buffer_length_in_bytes() { return STBVorbisAlloc.nalloc_buffer_length_in_bytes(address()); }
 

@@ -123,13 +123,6 @@ public class OVRVector3f extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRVector3f) set}. */
-	public OVRVector3f set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRVector3f} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

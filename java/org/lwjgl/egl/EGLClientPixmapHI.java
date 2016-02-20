@@ -90,7 +90,7 @@ public class EGLClientPixmapHI extends Struct {
 	/**
 	 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link ByteBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public ByteBuffer pData(int capacity) { return npData(address(), capacity); }
 	/** Returns the value of the {@code iWidth} field. */
@@ -139,13 +139,6 @@ public class EGLClientPixmapHI extends Struct {
 	 */
 	public EGLClientPixmapHI set(EGLClientPixmapHI src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(EGLClientPixmapHI) set}. */
-	public EGLClientPixmapHI set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -270,7 +263,7 @@ public class EGLClientPixmapHI extends Struct {
 		/**
 		 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link ByteBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public ByteBuffer pData(int capacity) { return EGLClientPixmapHI.npData(address(), capacity); }
 		/** Returns the value of the {@code iWidth} field. */

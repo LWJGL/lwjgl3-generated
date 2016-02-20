@@ -95,32 +95,16 @@ public class VkPresentInfoKHR extends Struct {
 	public long pNext() { return npNext(address()); }
 	/** Returns the value of the {@code waitSemaphoreCount} field. */
 	public int waitSemaphoreCount() { return nwaitSemaphoreCount(address()); }
-	/**
-	 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link LongBuffer}
-	 */
-	public LongBuffer pWaitSemaphores(int capacity) { return npWaitSemaphores(address(), capacity); }
+	/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+	public LongBuffer pWaitSemaphores() { return npWaitSemaphores(address()); }
 	/** Returns the value of the {@code swapchainCount} field. */
 	public int swapchainCount() { return nswapchainCount(address()); }
-	/**
-	 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pSwapchains} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link LongBuffer}
-	 */
-	public LongBuffer pSwapchains(int capacity) { return npSwapchains(address(), capacity); }
-	/**
-	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pImageIndices} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link IntBuffer}
-	 */
-	public IntBuffer pImageIndices(int capacity) { return npImageIndices(address(), capacity); }
-	/**
-	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pResults} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link IntBuffer}
-	 */
-	public IntBuffer pResults(int capacity) { return npResults(address(), capacity); }
+	/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSwapchains} field. */
+	public LongBuffer pSwapchains() { return npSwapchains(address()); }
+	/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pImageIndices} field. */
+	public IntBuffer pImageIndices() { return npImageIndices(address()); }
+	/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pResults} field. */
+	public IntBuffer pResults() { return npResults(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkPresentInfoKHR sType(int value) { nsType(address(), value); return this; }
@@ -143,18 +127,16 @@ public class VkPresentInfoKHR extends Struct {
 	public VkPresentInfoKHR set(
 		int sType,
 		long pNext,
-		int waitSemaphoreCount,
 		LongBuffer pWaitSemaphores,
-		int swapchainCount,
 		LongBuffer pSwapchains,
 		IntBuffer pImageIndices,
 		IntBuffer pResults
 	) {
 		sType(sType);
 		pNext(pNext);
-		waitSemaphoreCount(waitSemaphoreCount);
+		waitSemaphoreCount(pWaitSemaphores != null ? pWaitSemaphores.remaining() : 0);
 		pWaitSemaphores(pWaitSemaphores);
-		swapchainCount(swapchainCount);
+		swapchainCount(pSwapchains != null ? pSwapchains.remaining() : (pImageIndices != null ? pImageIndices.remaining() : (pResults != null ? pResults.remaining() : 0)));
 		pSwapchains(pSwapchains);
 		pImageIndices(pImageIndices);
 		pResults(pResults);
@@ -177,13 +159,6 @@ public class VkPresentInfoKHR extends Struct {
 	 */
 	public VkPresentInfoKHR set(VkPresentInfoKHR src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkPresentInfoKHR) set}. */
-	public VkPresentInfoKHR set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -251,16 +226,16 @@ public class VkPresentInfoKHR extends Struct {
 	public static long npNext(long struct) { return memGetAddress(struct + VkPresentInfoKHR.PNEXT); }
 	/** Unsafe version of {@link #waitSemaphoreCount}. */
 	public static int nwaitSemaphoreCount(long struct) { return memGetInt(struct + VkPresentInfoKHR.WAITSEMAPHORECOUNT); }
-	/** Unsafe version of {@link #pWaitSemaphores(int) pWaitSemaphores}. */
-	public static LongBuffer npWaitSemaphores(long struct, int capacity) { return memLongBuffer(memGetAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES), capacity); }
+	/** Unsafe version of {@link #pWaitSemaphores() pWaitSemaphores}. */
+	public static LongBuffer npWaitSemaphores(long struct) { return memLongBuffer(memGetAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES), nwaitSemaphoreCount(struct)); }
 	/** Unsafe version of {@link #swapchainCount}. */
 	public static int nswapchainCount(long struct) { return memGetInt(struct + VkPresentInfoKHR.SWAPCHAINCOUNT); }
-	/** Unsafe version of {@link #pSwapchains(int) pSwapchains}. */
-	public static LongBuffer npSwapchains(long struct, int capacity) { return memLongBuffer(memGetAddress(struct + VkPresentInfoKHR.PSWAPCHAINS), capacity); }
-	/** Unsafe version of {@link #pImageIndices(int) pImageIndices}. */
-	public static IntBuffer npImageIndices(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + VkPresentInfoKHR.PIMAGEINDICES), capacity); }
-	/** Unsafe version of {@link #pResults(int) pResults}. */
-	public static IntBuffer npResults(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + VkPresentInfoKHR.PRESULTS), capacity); }
+	/** Unsafe version of {@link #pSwapchains() pSwapchains}. */
+	public static LongBuffer npSwapchains(long struct) { return memLongBuffer(memGetAddress(struct + VkPresentInfoKHR.PSWAPCHAINS), nswapchainCount(struct)); }
+	/** Unsafe version of {@link #pImageIndices() pImageIndices}. */
+	public static IntBuffer npImageIndices(long struct) { return memIntBuffer(memGetAddress(struct + VkPresentInfoKHR.PIMAGEINDICES), nswapchainCount(struct)); }
+	/** Unsafe version of {@link #pResults() pResults}. */
+	public static IntBuffer npResults(long struct) { return memIntBuffer(memGetAddress(struct + VkPresentInfoKHR.PRESULTS), nswapchainCount(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkPresentInfoKHR.STYPE, value); }
@@ -327,32 +302,16 @@ public class VkPresentInfoKHR extends Struct {
 		public long pNext() { return VkPresentInfoKHR.npNext(address()); }
 		/** Returns the value of the {@code waitSemaphoreCount} field. */
 		public int waitSemaphoreCount() { return VkPresentInfoKHR.nwaitSemaphoreCount(address()); }
-		/**
-		 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link LongBuffer}
-		 */
-		public LongBuffer pWaitSemaphores(int capacity) { return VkPresentInfoKHR.npWaitSemaphores(address(), capacity); }
+		/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+		public LongBuffer pWaitSemaphores() { return VkPresentInfoKHR.npWaitSemaphores(address()); }
 		/** Returns the value of the {@code swapchainCount} field. */
 		public int swapchainCount() { return VkPresentInfoKHR.nswapchainCount(address()); }
-		/**
-		 * Returns a {@link LongBuffer} view of the data pointed to by the {@code pSwapchains} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link LongBuffer}
-		 */
-		public LongBuffer pSwapchains(int capacity) { return VkPresentInfoKHR.npSwapchains(address(), capacity); }
-		/**
-		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pImageIndices} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link IntBuffer}
-		 */
-		public IntBuffer pImageIndices(int capacity) { return VkPresentInfoKHR.npImageIndices(address(), capacity); }
-		/**
-		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pResults} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link IntBuffer}
-		 */
-		public IntBuffer pResults(int capacity) { return VkPresentInfoKHR.npResults(address(), capacity); }
+		/** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSwapchains} field. */
+		public LongBuffer pSwapchains() { return VkPresentInfoKHR.npSwapchains(address()); }
+		/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pImageIndices} field. */
+		public IntBuffer pImageIndices() { return VkPresentInfoKHR.npImageIndices(address()); }
+		/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pResults} field. */
+		public IntBuffer pResults() { return VkPresentInfoKHR.npResults(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkPresentInfoKHR.Buffer sType(int value) { VkPresentInfoKHR.nsType(address(), value); return this; }

@@ -98,7 +98,7 @@ public class VkRenderPassBeginInfo extends Struct {
 	/** Returns the value of the {@code clearValueCount} field. */
 	public int clearValueCount() { return nclearValueCount(address()); }
 	/** Returns a {@link VkClearValue.Buffer} view of the struct array pointed to by the {@code pClearValues} field. */
-	public VkClearValue.Buffer pClearValues(int capacity) { return npClearValues(address(), capacity); }
+	public VkClearValue.Buffer pClearValues() { return npClearValues(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkRenderPassBeginInfo sType(int value) { nsType(address(), value); return this; }
@@ -122,7 +122,6 @@ public class VkRenderPassBeginInfo extends Struct {
 		long renderPass,
 		long framebuffer,
 		VkRect2D renderArea,
-		int clearValueCount,
 		VkClearValue.Buffer pClearValues
 	) {
 		sType(sType);
@@ -130,7 +129,7 @@ public class VkRenderPassBeginInfo extends Struct {
 		renderPass(renderPass);
 		framebuffer(framebuffer);
 		renderArea(renderArea);
-		clearValueCount(clearValueCount);
+		clearValueCount(pClearValues != null ? pClearValues.remaining() : 0);
 		pClearValues(pClearValues);
 
 		return this;
@@ -151,13 +150,6 @@ public class VkRenderPassBeginInfo extends Struct {
 	 */
 	public VkRenderPassBeginInfo set(VkRenderPassBeginInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkRenderPassBeginInfo) set}. */
-	public VkRenderPassBeginInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -232,7 +224,7 @@ public class VkRenderPassBeginInfo extends Struct {
 	/** Unsafe version of {@link #clearValueCount}. */
 	public static int nclearValueCount(long struct) { return memGetInt(struct + VkRenderPassBeginInfo.CLEARVALUECOUNT); }
 	/** Unsafe version of {@link #pClearValues}. */
-	public static VkClearValue.Buffer npClearValues(long struct, int capacity) { return VkClearValue.create(memGetAddress(struct + VkRenderPassBeginInfo.PCLEARVALUES), capacity); }
+	public static VkClearValue.Buffer npClearValues(long struct) { return VkClearValue.create(memGetAddress(struct + VkRenderPassBeginInfo.PCLEARVALUES), nclearValueCount(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkRenderPassBeginInfo.STYPE, value); }
@@ -304,7 +296,7 @@ public class VkRenderPassBeginInfo extends Struct {
 		/** Returns the value of the {@code clearValueCount} field. */
 		public int clearValueCount() { return VkRenderPassBeginInfo.nclearValueCount(address()); }
 		/** Returns a {@link VkClearValue.Buffer} view of the struct array pointed to by the {@code pClearValues} field. */
-		public VkClearValue.Buffer pClearValues(int capacity) { return VkRenderPassBeginInfo.npClearValues(address(), capacity); }
+		public VkClearValue.Buffer pClearValues() { return VkRenderPassBeginInfo.npClearValues(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkRenderPassBeginInfo.Buffer sType(int value) { VkRenderPassBeginInfo.nsType(address(), value); return this; }

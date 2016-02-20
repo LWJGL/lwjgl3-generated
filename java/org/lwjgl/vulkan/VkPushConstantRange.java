@@ -113,13 +113,6 @@ public class VkPushConstantRange extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkPushConstantRange) set}. */
-	public VkPushConstantRange set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkPushConstantRange} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

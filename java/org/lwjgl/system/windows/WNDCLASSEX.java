@@ -33,6 +33,25 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     LPCTSTR lpszClassName;
  *     HICON hIconSm;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>cbSize</td><td>the size, in bytes, of this structure</td></tr>
+ * <tr><td>style</td><td>the class style(s)</td></tr>
+ * <tr><td>lpfnWndProc</td><td>a pointer to the window procedure</td></tr>
+ * <tr><td>cbClsExtra</td><td>the number of extra bytes to allocate following the window-class structure. The system initializes the bytes to zero.</td></tr>
+ * <tr><td>cbWndExtra</td><td>the number of extra bytes to allocate following the window instance. The system initializes the bytes to zero.</td></tr>
+ * <tr><td>hInstance</td><td>a handle to the instance that contains the window procedure for the class</td></tr>
+ * <tr><td>hIcon</td><td>a handle to the class icon. This member must be a handle to an icon resource. If this member is {@code NULL}, the system provides a default icon.</td></tr>
+ * <tr><td>hCursor</td><td>a handle to the class cursor. This member must be a handle to a cursor resource. If this member is {@code NULL}, an application must explicitly set the cursor
+ * shape whenever the mouse moves into the application's window.</td></tr>
+ * <tr><td>hbrBackground</td><td>a handle to the class background brush. This member can be a handle to the brush to be used for painting the background, or it can be a color value.</td></tr>
+ * <tr><td>lpszMenuName</td><td>pointer to a null-terminated character string that specifies the resource name of the class menu, as the name appears in the resource file</td></tr>
+ * <tr><td>lpszClassName</td><td>a pointer to a null-terminated string or is an atom</td></tr>
+ * <tr><td>hIconSm</td><td>a handle to a small icon that is associated with the window class. If this member is {@code NULL}, the system searches the icon resource specified by the
+ * {@code hIcon} member for an icon of the appropriate size to use as the small icon.</td></tr>
+ * </table>
  */
 public class WNDCLASSEX extends Struct {
 
@@ -227,13 +246,6 @@ public class WNDCLASSEX extends Struct {
 	 */
 	public WNDCLASSEX set(WNDCLASSEX src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(WNDCLASSEX) set}. */
-	public WNDCLASSEX set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------

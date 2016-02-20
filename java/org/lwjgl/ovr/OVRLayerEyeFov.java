@@ -176,13 +176,6 @@ public class OVRLayerEyeFov extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRLayerEyeFov) set}. */
-	public OVRLayerEyeFov set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRLayerEyeFov} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

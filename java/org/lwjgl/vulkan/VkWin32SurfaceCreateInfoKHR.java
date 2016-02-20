@@ -133,13 +133,6 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkWin32SurfaceCreateInfoKHR) set}. */
-	public VkWin32SurfaceCreateInfoKHR set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkWin32SurfaceCreateInfoKHR} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

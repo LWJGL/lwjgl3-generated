@@ -96,12 +96,16 @@ public class STBTTPackRange extends Struct {
 	/**
 	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code array_of_unicode_codepoints} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link IntBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public IntBuffer array_of_unicode_codepoints(int capacity) { return narray_of_unicode_codepoints(address(), capacity); }
 	/** Returns the value of the {@code num_chars} field. */
 	public int num_chars() { return nnum_chars(address()); }
-	/** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
+	/**
+	 * Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field.
+	 *
+	 * @param capacity the number of elements in the returned buffer
+	 */
 	public STBTTPackedchar.Buffer chardata_for_range(int capacity) { return nchardata_for_range(address(), capacity); }
 
 	/** Sets the specified value to the {@code font_size} field. */
@@ -147,13 +151,6 @@ public class STBTTPackRange extends Struct {
 	 */
 	public STBTTPackRange set(STBTTPackRange src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(STBTTPackRange) set}. */
-	public STBTTPackRange set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -286,12 +283,16 @@ public class STBTTPackRange extends Struct {
 		/**
 		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code array_of_unicode_codepoints} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link IntBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public IntBuffer array_of_unicode_codepoints(int capacity) { return STBTTPackRange.narray_of_unicode_codepoints(address(), capacity); }
 		/** Returns the value of the {@code num_chars} field. */
 		public int num_chars() { return STBTTPackRange.nnum_chars(address()); }
-		/** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
+		/**
+		 * Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field.
+		 *
+		 * @param capacity the number of elements in the returned buffer
+		 */
 		public STBTTPackedchar.Buffer chardata_for_range(int capacity) { return STBTTPackRange.nchardata_for_range(address(), capacity); }
 
 		/** Sets the specified value to the {@code font_size} field. */

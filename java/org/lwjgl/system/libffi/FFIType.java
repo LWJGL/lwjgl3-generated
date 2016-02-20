@@ -93,7 +93,7 @@ public class FFIType extends Struct {
 	/**
 	 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code elements} field.
 	 *
-	 * @param capacity the number of elements in the returned {@link PointerBuffer}
+	 * @param capacity the number of elements in the returned buffer
 	 */
 	public PointerBuffer elements(int capacity) { return nelements(address(), capacity); }
 
@@ -136,13 +136,6 @@ public class FFIType extends Struct {
 	 */
 	public FFIType set(FFIType src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(FFIType) set}. */
-	public FFIType set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -273,7 +266,7 @@ public class FFIType extends Struct {
 		/**
 		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code elements} field.
 		 *
-		 * @param capacity the number of elements in the returned {@link PointerBuffer}
+		 * @param capacity the number of elements in the returned buffer
 		 */
 		public PointerBuffer elements(int capacity) { return FFIType.nelements(address(), capacity); }
 

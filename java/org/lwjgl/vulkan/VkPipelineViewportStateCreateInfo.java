@@ -94,11 +94,11 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 	/** Returns the value of the {@code viewportCount} field. */
 	public int viewportCount() { return nviewportCount(address()); }
 	/** Returns a {@link VkViewport.Buffer} view of the struct array pointed to by the {@code pViewports} field. */
-	public VkViewport.Buffer pViewports(int capacity) { return npViewports(address(), capacity); }
+	public VkViewport.Buffer pViewports() { return npViewports(address()); }
 	/** Returns the value of the {@code scissorCount} field. */
 	public int scissorCount() { return nscissorCount(address()); }
 	/** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pScissors} field. */
-	public VkRect2D.Buffer pScissors(int capacity) { return npScissors(address(), capacity); }
+	public VkRect2D.Buffer pScissors() { return npScissors(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkPipelineViewportStateCreateInfo sType(int value) { nsType(address(), value); return this; }
@@ -120,17 +120,15 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 		int sType,
 		long pNext,
 		int flags,
-		int viewportCount,
 		VkViewport.Buffer pViewports,
-		int scissorCount,
 		VkRect2D.Buffer pScissors
 	) {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		viewportCount(viewportCount);
+		viewportCount(pViewports != null ? pViewports.remaining() : 0);
 		pViewports(pViewports);
-		scissorCount(scissorCount);
+		scissorCount(pScissors != null ? pScissors.remaining() : 0);
 		pScissors(pScissors);
 
 		return this;
@@ -151,13 +149,6 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 	 */
 	public VkPipelineViewportStateCreateInfo set(VkPipelineViewportStateCreateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkPipelineViewportStateCreateInfo) set}. */
-	public VkPipelineViewportStateCreateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -228,11 +219,11 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 	/** Unsafe version of {@link #viewportCount}. */
 	public static int nviewportCount(long struct) { return memGetInt(struct + VkPipelineViewportStateCreateInfo.VIEWPORTCOUNT); }
 	/** Unsafe version of {@link #pViewports}. */
-	public static VkViewport.Buffer npViewports(long struct, int capacity) { return VkViewport.create(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS), capacity); }
+	public static VkViewport.Buffer npViewports(long struct) { return VkViewport.create(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS), nviewportCount(struct)); }
 	/** Unsafe version of {@link #scissorCount}. */
 	public static int nscissorCount(long struct) { return memGetInt(struct + VkPipelineViewportStateCreateInfo.SCISSORCOUNT); }
 	/** Unsafe version of {@link #pScissors}. */
-	public static VkRect2D.Buffer npScissors(long struct, int capacity) { return VkRect2D.create(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS), capacity); }
+	public static VkRect2D.Buffer npScissors(long struct) { return VkRect2D.create(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS), nscissorCount(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkPipelineViewportStateCreateInfo.STYPE, value); }
@@ -300,11 +291,11 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 		/** Returns the value of the {@code viewportCount} field. */
 		public int viewportCount() { return VkPipelineViewportStateCreateInfo.nviewportCount(address()); }
 		/** Returns a {@link VkViewport.Buffer} view of the struct array pointed to by the {@code pViewports} field. */
-		public VkViewport.Buffer pViewports(int capacity) { return VkPipelineViewportStateCreateInfo.npViewports(address(), capacity); }
+		public VkViewport.Buffer pViewports() { return VkPipelineViewportStateCreateInfo.npViewports(address()); }
 		/** Returns the value of the {@code scissorCount} field. */
 		public int scissorCount() { return VkPipelineViewportStateCreateInfo.nscissorCount(address()); }
 		/** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pScissors} field. */
-		public VkRect2D.Buffer pScissors(int capacity) { return VkPipelineViewportStateCreateInfo.npScissors(address(), capacity); }
+		public VkRect2D.Buffer pScissors() { return VkPipelineViewportStateCreateInfo.npScissors(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkPipelineViewportStateCreateInfo.Buffer sType(int value) { VkPipelineViewportStateCreateInfo.nsType(address(), value); return this; }

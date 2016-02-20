@@ -173,13 +173,6 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(VkDisplayPlaneCapabilitiesKHR) set}. */
-	public VkDisplayPlaneCapabilitiesKHR set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link VkDisplayPlaneCapabilitiesKHR} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

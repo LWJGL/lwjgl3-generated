@@ -148,7 +148,7 @@ public class VkPhysicalDeviceMemoryProperties extends Struct {
 	public static int nmemoryTypeCount(long struct) { return memGetInt(struct + VkPhysicalDeviceMemoryProperties.MEMORYTYPECOUNT); }
 	/** Unsafe version of {@link #memoryTypes}. */
 	public static VkMemoryType.Buffer nmemoryTypes(long struct) {
-		return VkMemoryType.create(struct + VkPhysicalDeviceMemoryProperties.MEMORYTYPES, 32);
+		return VkMemoryType.create(struct + VkPhysicalDeviceMemoryProperties.MEMORYTYPES, nmemoryTypeCount(struct));
 	}
 	/** Unsafe version of {@link #memoryTypes(int) memoryTypes}. */
 	public static VkMemoryType nmemoryTypes(long struct, int index) {
@@ -158,7 +158,7 @@ public class VkPhysicalDeviceMemoryProperties extends Struct {
 	public static int nmemoryHeapCount(long struct) { return memGetInt(struct + VkPhysicalDeviceMemoryProperties.MEMORYHEAPCOUNT); }
 	/** Unsafe version of {@link #memoryHeaps}. */
 	public static VkMemoryHeap.Buffer nmemoryHeaps(long struct) {
-		return VkMemoryHeap.create(struct + VkPhysicalDeviceMemoryProperties.MEMORYHEAPS, 16);
+		return VkMemoryHeap.create(struct + VkPhysicalDeviceMemoryProperties.MEMORYHEAPS, nmemoryHeapCount(struct));
 	}
 	/** Unsafe version of {@link #memoryHeaps(int) memoryHeaps}. */
 	public static VkMemoryHeap nmemoryHeaps(long struct, int index) {

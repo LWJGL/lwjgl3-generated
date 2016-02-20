@@ -142,7 +142,7 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 	/** Returns the value of the {@code stageCount} field. */
 	public int stageCount() { return nstageCount(address()); }
 	/** Returns a {@link VkPipelineShaderStageCreateInfo.Buffer} view of the struct array pointed to by the {@code pStages} field. */
-	public VkPipelineShaderStageCreateInfo.Buffer pStages(int capacity) { return npStages(address(), capacity); }
+	public VkPipelineShaderStageCreateInfo.Buffer pStages() { return npStages(address()); }
 	/** Returns a {@link VkPipelineVertexInputStateCreateInfo} view of the struct pointed to by the {@code pVertexInputState} field. */
 	public VkPipelineVertexInputStateCreateInfo pVertexInputState() { return npVertexInputState(address()); }
 	/** Returns a {@link VkPipelineInputAssemblyStateCreateInfo} view of the struct pointed to by the {@code pInputAssemblyState} field. */
@@ -216,7 +216,6 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 		int sType,
 		long pNext,
 		int flags,
-		int stageCount,
 		VkPipelineShaderStageCreateInfo.Buffer pStages,
 		VkPipelineVertexInputStateCreateInfo pVertexInputState,
 		VkPipelineInputAssemblyStateCreateInfo pInputAssemblyState,
@@ -236,7 +235,7 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		stageCount(stageCount);
+		stageCount(pStages != null ? pStages.remaining() : 0);
 		pStages(pStages);
 		pVertexInputState(pVertexInputState);
 		pInputAssemblyState(pInputAssemblyState);
@@ -271,13 +270,6 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 	 */
 	public VkGraphicsPipelineCreateInfo set(VkGraphicsPipelineCreateInfo src) {
 		return nset(src.address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set(VkGraphicsPipelineCreateInfo) set}. */
-	public VkGraphicsPipelineCreateInfo set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
 	}
 
 	// -----------------------------------
@@ -348,7 +340,7 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 	/** Unsafe version of {@link #stageCount}. */
 	public static int nstageCount(long struct) { return memGetInt(struct + VkGraphicsPipelineCreateInfo.STAGECOUNT); }
 	/** Unsafe version of {@link #pStages}. */
-	public static VkPipelineShaderStageCreateInfo.Buffer npStages(long struct, int capacity) { return VkPipelineShaderStageCreateInfo.create(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PSTAGES), capacity); }
+	public static VkPipelineShaderStageCreateInfo.Buffer npStages(long struct) { return VkPipelineShaderStageCreateInfo.create(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PSTAGES), nstageCount(struct)); }
 	/** Unsafe version of {@link #pVertexInputState}. */
 	public static VkPipelineVertexInputStateCreateInfo npVertexInputState(long struct) { return VkPipelineVertexInputStateCreateInfo.create(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PVERTEXINPUTSTATE)); }
 	/** Unsafe version of {@link #pInputAssemblyState}. */
@@ -468,7 +460,7 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 		/** Returns the value of the {@code stageCount} field. */
 		public int stageCount() { return VkGraphicsPipelineCreateInfo.nstageCount(address()); }
 		/** Returns a {@link VkPipelineShaderStageCreateInfo.Buffer} view of the struct array pointed to by the {@code pStages} field. */
-		public VkPipelineShaderStageCreateInfo.Buffer pStages(int capacity) { return VkGraphicsPipelineCreateInfo.npStages(address(), capacity); }
+		public VkPipelineShaderStageCreateInfo.Buffer pStages() { return VkGraphicsPipelineCreateInfo.npStages(address()); }
 		/** Returns a {@link VkPipelineVertexInputStateCreateInfo} view of the struct pointed to by the {@code pVertexInputState} field. */
 		public VkPipelineVertexInputStateCreateInfo pVertexInputState() { return VkGraphicsPipelineCreateInfo.npVertexInputState(address()); }
 		/** Returns a {@link VkPipelineInputAssemblyStateCreateInfo} view of the struct pointed to by the {@code pInputAssemblyState} field. */

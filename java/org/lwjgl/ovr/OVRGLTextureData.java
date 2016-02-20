@@ -112,13 +112,6 @@ public class OVRGLTextureData extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set(OVRGLTextureData) set}. */
-	public OVRGLTextureData set(ByteBuffer struct) {
-		if ( CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRGLTextureData} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

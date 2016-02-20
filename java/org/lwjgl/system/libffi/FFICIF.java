@@ -86,12 +86,8 @@ public class FFICIF extends Struct {
 	public int abi() { return nabi(address()); }
 	/** Returns the value of the {@code nargs} field. */
 	public int nargs() { return nnargs(address()); }
-	/**
-	 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code arg_types} field.
-	 *
-	 * @param capacity the number of elements in the returned {@link PointerBuffer}
-	 */
-	public PointerBuffer arg_types(int capacity) { return narg_types(address(), capacity); }
+	/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code arg_types} field. */
+	public PointerBuffer arg_types() { return narg_types(address()); }
 	/** Returns a {@link FFIType} view of the struct pointed to by the {@code rtype} field. */
 	public FFIType rtype() { return nrtype(address()); }
 	/** Returns the value of the {@code bytes} field. */
@@ -162,8 +158,8 @@ public class FFICIF extends Struct {
 	public static int nabi(long struct) { return memGetInt(struct + FFICIF.ABI); }
 	/** Unsafe version of {@link #nargs}. */
 	public static int nnargs(long struct) { return memGetInt(struct + FFICIF.NARGS); }
-	/** Unsafe version of {@link #arg_types(int) arg_types}. */
-	public static PointerBuffer narg_types(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + FFICIF.ARG_TYPES), capacity); }
+	/** Unsafe version of {@link #arg_types() arg_types}. */
+	public static PointerBuffer narg_types(long struct) { return memPointerBuffer(memGetAddress(struct + FFICIF.ARG_TYPES), nnargs(struct)); }
 	/** Unsafe version of {@link #rtype}. */
 	public static FFIType nrtype(long struct) { return FFIType.create(memGetAddress(struct + FFICIF.RTYPE)); }
 	/** Unsafe version of {@link #bytes}. */
@@ -217,12 +213,8 @@ public class FFICIF extends Struct {
 		public int abi() { return FFICIF.nabi(address()); }
 		/** Returns the value of the {@code nargs} field. */
 		public int nargs() { return FFICIF.nnargs(address()); }
-		/**
-		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code arg_types} field.
-		 *
-		 * @param capacity the number of elements in the returned {@link PointerBuffer}
-		 */
-		public PointerBuffer arg_types(int capacity) { return FFICIF.narg_types(address(), capacity); }
+		/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code arg_types} field. */
+		public PointerBuffer arg_types() { return FFICIF.narg_types(address()); }
 		/** Returns a {@link FFIType} view of the struct pointed to by the {@code rtype} field. */
 		public FFIType rtype() { return FFICIF.nrtype(address()); }
 		/** Returns the value of the {@code bytes} field. */
