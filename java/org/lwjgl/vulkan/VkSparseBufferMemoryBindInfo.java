@@ -191,7 +191,7 @@ public class VkSparseBufferMemoryBindInfo extends Struct {
 	/** Unsafe version of {@link #bindCount(int) bindCount}. */
 	public static void nbindCount(long struct, int value) { memPutInt(struct + VkSparseBufferMemoryBindInfo.BINDCOUNT, value); }
 	/** Unsafe version of {@link #pBinds(VkSparseMemoryBind.Buffer) pBinds}. */
-	public static void npBinds(long struct, VkSparseMemoryBind.Buffer value) { memPutAddress(struct + VkSparseBufferMemoryBindInfo.PBINDS, value.address()); }
+	public static void npBinds(long struct, VkSparseMemoryBind.Buffer value) { memPutAddress(struct + VkSparseBufferMemoryBindInfo.PBINDS, addressSafe(value)); }
 
 	// -----------------------------------
 

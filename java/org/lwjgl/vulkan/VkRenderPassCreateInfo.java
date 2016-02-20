@@ -267,15 +267,15 @@ public class VkRenderPassCreateInfo extends Struct {
 	/** Unsafe version of {@link #attachmentCount(int) attachmentCount}. */
 	public static void nattachmentCount(long struct, int value) { memPutInt(struct + VkRenderPassCreateInfo.ATTACHMENTCOUNT, value); }
 	/** Unsafe version of {@link #pAttachments(VkAttachmentDescription.Buffer) pAttachments}. */
-	public static void npAttachments(long struct, VkAttachmentDescription.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PATTACHMENTS, value.address()); }
+	public static void npAttachments(long struct, VkAttachmentDescription.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PATTACHMENTS, addressSafe(value)); }
 	/** Unsafe version of {@link #subpassCount(int) subpassCount}. */
 	public static void nsubpassCount(long struct, int value) { memPutInt(struct + VkRenderPassCreateInfo.SUBPASSCOUNT, value); }
 	/** Unsafe version of {@link #pSubpasses(VkSubpassDescription.Buffer) pSubpasses}. */
-	public static void npSubpasses(long struct, VkSubpassDescription.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PSUBPASSES, value.address()); }
+	public static void npSubpasses(long struct, VkSubpassDescription.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PSUBPASSES, addressSafe(value)); }
 	/** Unsafe version of {@link #dependencyCount(int) dependencyCount}. */
 	public static void ndependencyCount(long struct, int value) { memPutInt(struct + VkRenderPassCreateInfo.DEPENDENCYCOUNT, value); }
 	/** Unsafe version of {@link #pDependencies(VkSubpassDependency.Buffer) pDependencies}. */
-	public static void npDependencies(long struct, VkSubpassDependency.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PDEPENDENCIES, value.address()); }
+	public static void npDependencies(long struct, VkSubpassDependency.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PDEPENDENCIES, addressSafe(value)); }
 
 	// -----------------------------------
 

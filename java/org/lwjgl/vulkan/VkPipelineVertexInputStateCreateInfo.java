@@ -243,11 +243,11 @@ public class VkPipelineVertexInputStateCreateInfo extends Struct {
 	/** Unsafe version of {@link #vertexBindingDescriptionCount(int) vertexBindingDescriptionCount}. */
 	public static void nvertexBindingDescriptionCount(long struct, int value) { memPutInt(struct + VkPipelineVertexInputStateCreateInfo.VERTEXBINDINGDESCRIPTIONCOUNT, value); }
 	/** Unsafe version of {@link #pVertexBindingDescriptions(VkVertexInputBindingDescription.Buffer) pVertexBindingDescriptions}. */
-	public static void npVertexBindingDescriptions(long struct, VkVertexInputBindingDescription.Buffer value) { memPutAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXBINDINGDESCRIPTIONS, value.address()); }
+	public static void npVertexBindingDescriptions(long struct, VkVertexInputBindingDescription.Buffer value) { memPutAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXBINDINGDESCRIPTIONS, addressSafe(value)); }
 	/** Unsafe version of {@link #vertexAttributeDescriptionCount(int) vertexAttributeDescriptionCount}. */
 	public static void nvertexAttributeDescriptionCount(long struct, int value) { memPutInt(struct + VkPipelineVertexInputStateCreateInfo.VERTEXATTRIBUTEDESCRIPTIONCOUNT, value); }
 	/** Unsafe version of {@link #pVertexAttributeDescriptions(VkVertexInputAttributeDescription.Buffer) pVertexAttributeDescriptions}. */
-	public static void npVertexAttributeDescriptions(long struct, VkVertexInputAttributeDescription.Buffer value) { memPutAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXATTRIBUTEDESCRIPTIONS, value.address()); }
+	public static void npVertexAttributeDescriptions(long struct, VkVertexInputAttributeDescription.Buffer value) { memPutAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXATTRIBUTEDESCRIPTIONS, addressSafe(value)); }
 
 	// -----------------------------------
 

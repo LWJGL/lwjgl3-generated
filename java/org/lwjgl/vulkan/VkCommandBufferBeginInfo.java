@@ -205,7 +205,7 @@ public class VkCommandBufferBeginInfo extends Struct {
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkCommandBufferBeginInfo.FLAGS, value); }
 	/** Unsafe version of {@link #pInheritanceInfo(VkCommandBufferInheritanceInfo) pInheritanceInfo}. */
-	public static void npInheritanceInfo(long struct, VkCommandBufferInheritanceInfo value) { memPutAddress(struct + VkCommandBufferBeginInfo.PINHERITANCEINFO, value.address()); }
+	public static void npInheritanceInfo(long struct, VkCommandBufferInheritanceInfo value) { memPutAddress(struct + VkCommandBufferBeginInfo.PINHERITANCEINFO, addressSafe(value)); }
 
 	// -----------------------------------
 

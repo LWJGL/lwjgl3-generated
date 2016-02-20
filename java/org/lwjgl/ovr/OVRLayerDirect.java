@@ -226,7 +226,7 @@ public class OVRLayerDirect extends Struct {
 		memCopy(memAddress(value), struct + OVRLayerDirect.COLORTEXTURE, value.remaining() * POINTER_SIZE);
 	}
 	/** Unsafe version of {@link #ColorTexture(int, OVRSwapTextureSet) ColorTexture}. */
-	public static void nColorTexture(long struct, int index, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerDirect.COLORTEXTURE + index * POINTER_SIZE, value.address()); }
+	public static void nColorTexture(long struct, int index, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerDirect.COLORTEXTURE + index * POINTER_SIZE, addressSafe(value)); }
 	/** Unsafe version of {@link #Viewport(OVRRecti.Buffer) Viewport}. */
 	public static void nViewport(long struct, OVRRecti.Buffer value) {
 		if ( CHECKS ) checkBufferGT(value, 2);

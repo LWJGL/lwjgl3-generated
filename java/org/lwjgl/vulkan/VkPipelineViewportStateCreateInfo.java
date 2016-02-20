@@ -243,11 +243,11 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 	/** Unsafe version of {@link #viewportCount(int) viewportCount}. */
 	public static void nviewportCount(long struct, int value) { memPutInt(struct + VkPipelineViewportStateCreateInfo.VIEWPORTCOUNT, value); }
 	/** Unsafe version of {@link #pViewports(VkViewport.Buffer) pViewports}. */
-	public static void npViewports(long struct, VkViewport.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS, value.address()); }
+	public static void npViewports(long struct, VkViewport.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS, addressSafe(value)); }
 	/** Unsafe version of {@link #scissorCount(int) scissorCount}. */
 	public static void nscissorCount(long struct, int value) { memPutInt(struct + VkPipelineViewportStateCreateInfo.SCISSORCOUNT, value); }
 	/** Unsafe version of {@link #pScissors(VkRect2D.Buffer) pScissors}. */
-	public static void npScissors(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS, value.address()); }
+	public static void npScissors(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS, addressSafe(value)); }
 
 	// -----------------------------------
 

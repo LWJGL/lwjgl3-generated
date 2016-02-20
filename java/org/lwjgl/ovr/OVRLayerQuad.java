@@ -232,7 +232,7 @@ public class OVRLayerQuad extends Struct {
 	/** Unsafe version of {@link #Header(OVRLayerHeader) Header}. */
 	public static void nHeader(long struct, OVRLayerHeader value) { memCopy(value.address(), struct + OVRLayerQuad.HEADER, OVRLayerHeader.SIZEOF); }
 	/** Unsafe version of {@link #ColorTexture(OVRSwapTextureSet) ColorTexture}. */
-	public static void nColorTexture(long struct, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerQuad.COLORTEXTURE, value.address()); }
+	public static void nColorTexture(long struct, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerQuad.COLORTEXTURE, addressSafe(value)); }
 	/** Unsafe version of {@link #Viewport(OVRRecti) Viewport}. */
 	public static void nViewport(long struct, OVRRecti value) { memCopy(value.address(), struct + OVRLayerQuad.VIEWPORT, OVRRecti.SIZEOF); }
 	/** Unsafe version of {@link #QuadPoseCenter(OVRPosef) QuadPoseCenter}. */

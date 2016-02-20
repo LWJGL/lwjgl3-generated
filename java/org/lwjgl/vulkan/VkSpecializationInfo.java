@@ -201,7 +201,7 @@ public class VkSpecializationInfo extends Struct {
 	/** Unsafe version of {@link #mapEntryCount(int) mapEntryCount}. */
 	public static void nmapEntryCount(long struct, int value) { memPutInt(struct + VkSpecializationInfo.MAPENTRYCOUNT, value); }
 	/** Unsafe version of {@link #pMapEntries(VkSpecializationMapEntry.Buffer) pMapEntries}. */
-	public static void npMapEntries(long struct, VkSpecializationMapEntry.Buffer value) { memPutAddress(struct + VkSpecializationInfo.PMAPENTRIES, value.address()); }
+	public static void npMapEntries(long struct, VkSpecializationMapEntry.Buffer value) { memPutAddress(struct + VkSpecializationInfo.PMAPENTRIES, addressSafe(value)); }
 	/** Unsafe version of {@link #dataSize(long) dataSize}. */
 	public static void ndataSize(long struct, long value) { memPutAddress(struct + VkSpecializationInfo.DATASIZE, value); }
 	/** Unsafe version of {@link #pData(long) pData}. */

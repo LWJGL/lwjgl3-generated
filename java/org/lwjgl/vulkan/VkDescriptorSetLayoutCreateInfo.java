@@ -219,7 +219,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct {
 	/** Unsafe version of {@link #bindingCount(int) bindingCount}. */
 	public static void nbindingCount(long struct, int value) { memPutInt(struct + VkDescriptorSetLayoutCreateInfo.BINDINGCOUNT, value); }
 	/** Unsafe version of {@link #pBindings(VkDescriptorSetLayoutBinding.Buffer) pBindings}. */
-	public static void npBindings(long struct, VkDescriptorSetLayoutBinding.Buffer value) { memPutAddress(struct + VkDescriptorSetLayoutCreateInfo.PBINDINGS, value.address()); }
+	public static void npBindings(long struct, VkDescriptorSetLayoutBinding.Buffer value) { memPutAddress(struct + VkDescriptorSetLayoutCreateInfo.PBINDINGS, addressSafe(value)); }
 
 	// -----------------------------------
 

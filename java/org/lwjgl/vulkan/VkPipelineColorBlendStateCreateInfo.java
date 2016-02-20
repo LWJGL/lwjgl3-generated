@@ -267,7 +267,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct {
 	/** Unsafe version of {@link #attachmentCount(int) attachmentCount}. */
 	public static void nattachmentCount(long struct, int value) { memPutInt(struct + VkPipelineColorBlendStateCreateInfo.ATTACHMENTCOUNT, value); }
 	/** Unsafe version of {@link #pAttachments(VkPipelineColorBlendAttachmentState.Buffer) pAttachments}. */
-	public static void npAttachments(long struct, VkPipelineColorBlendAttachmentState.Buffer value) { memPutAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS, value.address()); }
+	public static void npAttachments(long struct, VkPipelineColorBlendAttachmentState.Buffer value) { memPutAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS, addressSafe(value)); }
 	/** Unsafe version of {@link #blendConstants(FloatBuffer) blendConstants}. */
 	public static void nblendConstants(long struct, FloatBuffer value) {
 		if ( CHECKS ) checkBufferGT(value, 4);

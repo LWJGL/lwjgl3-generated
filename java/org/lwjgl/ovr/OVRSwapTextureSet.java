@@ -221,7 +221,7 @@ public class OVRSwapTextureSet extends Struct {
 	public static int nCurrentIndex(long struct) { return memGetInt(struct + OVRSwapTextureSet.CURRENTINDEX); }
 
 	/** Unsafe version of {@link #Textures(OVRTexture.Buffer) Textures}. */
-	public static void nTextures(long struct, OVRTexture.Buffer value) { memPutAddress(struct + OVRSwapTextureSet.TEXTURES, value.address()); }
+	public static void nTextures(long struct, OVRTexture.Buffer value) { memPutAddress(struct + OVRSwapTextureSet.TEXTURES, addressSafe(value)); }
 	/** Unsafe version of {@link #TextureCount(int) TextureCount}. */
 	public static void nTextureCount(long struct, int value) { memPutInt(struct + OVRSwapTextureSet.TEXTURECOUNT, value); }
 	/** Unsafe version of {@link #CurrentIndex(int) CurrentIndex}. */

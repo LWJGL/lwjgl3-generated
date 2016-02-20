@@ -266,7 +266,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 	/** Unsafe version of {@link #pNameFree}. */
 	public static void npNameFree(long struct) { nmemFree(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME)); }
 	/** Unsafe version of {@link #pSpecializationInfo(VkSpecializationInfo) pSpecializationInfo}. */
-	public static void npSpecializationInfo(long struct, VkSpecializationInfo value) { memPutAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO, value.address()); }
+	public static void npSpecializationInfo(long struct, VkSpecializationInfo value) { memPutAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO, addressSafe(value)); }
 
 	// -----------------------------------
 

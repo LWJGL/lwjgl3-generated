@@ -287,7 +287,7 @@ public class VkDeviceCreateInfo extends Struct {
 	/** Unsafe version of {@link #queueCreateInfoCount(int) queueCreateInfoCount}. */
 	public static void nqueueCreateInfoCount(long struct, int value) { memPutInt(struct + VkDeviceCreateInfo.QUEUECREATEINFOCOUNT, value); }
 	/** Unsafe version of {@link #pQueueCreateInfos(VkDeviceQueueCreateInfo.Buffer) pQueueCreateInfos}. */
-	public static void npQueueCreateInfos(long struct, VkDeviceQueueCreateInfo.Buffer value) { memPutAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS, value.address()); }
+	public static void npQueueCreateInfos(long struct, VkDeviceQueueCreateInfo.Buffer value) { memPutAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS, addressSafe(value)); }
 	/** Unsafe version of {@link #enabledLayerCount(int) enabledLayerCount}. */
 	public static void nenabledLayerCount(long struct, int value) { memPutInt(struct + VkDeviceCreateInfo.ENABLEDLAYERCOUNT, value); }
 	/** Unsafe version of {@link #ppEnabledLayerNames(PointerBuffer) ppEnabledLayerNames}. */
@@ -297,7 +297,7 @@ public class VkDeviceCreateInfo extends Struct {
 	/** Unsafe version of {@link #ppEnabledExtensionNames(PointerBuffer) ppEnabledExtensionNames}. */
 	public static void nppEnabledExtensionNames(long struct, PointerBuffer value) { memPutAddress(struct + VkDeviceCreateInfo.PPENABLEDEXTENSIONNAMES, memAddressSafe(value)); }
 	/** Unsafe version of {@link #pEnabledFeatures(VkPhysicalDeviceFeatures) pEnabledFeatures}. */
-	public static void npEnabledFeatures(long struct, VkPhysicalDeviceFeatures value) { memPutAddress(struct + VkDeviceCreateInfo.PENABLEDFEATURES, value.address()); }
+	public static void npEnabledFeatures(long struct, VkPhysicalDeviceFeatures value) { memPutAddress(struct + VkDeviceCreateInfo.PENABLEDFEATURES, addressSafe(value)); }
 
 	// -----------------------------------
 

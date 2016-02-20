@@ -261,7 +261,7 @@ public class VkInstanceCreateInfo extends Struct {
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.FLAGS, value); }
 	/** Unsafe version of {@link #pApplicationInfo(VkApplicationInfo) pApplicationInfo}. */
-	public static void npApplicationInfo(long struct, VkApplicationInfo value) { memPutAddress(struct + VkInstanceCreateInfo.PAPPLICATIONINFO, value.address()); }
+	public static void npApplicationInfo(long struct, VkApplicationInfo value) { memPutAddress(struct + VkInstanceCreateInfo.PAPPLICATIONINFO, addressSafe(value)); }
 	/** Unsafe version of {@link #enabledLayerCount(int) enabledLayerCount}. */
 	public static void nenabledLayerCount(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.ENABLEDLAYERCOUNT, value); }
 	/** Unsafe version of {@link #ppEnabledLayerNames(PointerBuffer) ppEnabledLayerNames}. */

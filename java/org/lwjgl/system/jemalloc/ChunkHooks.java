@@ -136,31 +136,31 @@ public class ChunkHooks extends Struct {
 	/** Sets the specified function address to the {@code alloc} field. */
 	public ChunkHooks alloc(long value) { nalloc(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkAlloc} to the {@code alloc} field. */
-	public ChunkHooks alloc(ChunkAlloc value) { return alloc(value.address()); }
+	public ChunkHooks alloc(ChunkAlloc value) { return alloc(addressSafe(value)); }
 	/** Sets the specified function address to the {@code dalloc} field. */
 	public ChunkHooks dalloc(long value) { ndalloc(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkDalloc} to the {@code dalloc} field. */
-	public ChunkHooks dalloc(ChunkDalloc value) { return dalloc(value.address()); }
+	public ChunkHooks dalloc(ChunkDalloc value) { return dalloc(addressSafe(value)); }
 	/** Sets the specified function address to the {@code commit} field. */
 	public ChunkHooks commit(long value) { ncommit(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkCommit} to the {@code commit} field. */
-	public ChunkHooks commit(ChunkCommit value) { return commit(value.address()); }
+	public ChunkHooks commit(ChunkCommit value) { return commit(addressSafe(value)); }
 	/** Sets the specified function address to the {@code decommit} field. */
 	public ChunkHooks decommit(long value) { ndecommit(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkDecommit} to the {@code decommit} field. */
-	public ChunkHooks decommit(ChunkDecommit value) { return decommit(value.address()); }
+	public ChunkHooks decommit(ChunkDecommit value) { return decommit(addressSafe(value)); }
 	/** Sets the specified function address to the {@code purge} field. */
 	public ChunkHooks purge(long value) { npurge(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkPurge} to the {@code purge} field. */
-	public ChunkHooks purge(ChunkPurge value) { return purge(value.address()); }
+	public ChunkHooks purge(ChunkPurge value) { return purge(addressSafe(value)); }
 	/** Sets the specified function address to the {@code split} field. */
 	public ChunkHooks split(long value) { nsplit(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkSplit} to the {@code split} field. */
-	public ChunkHooks split(ChunkSplit value) { return split(value.address()); }
+	public ChunkHooks split(ChunkSplit value) { return split(addressSafe(value)); }
 	/** Sets the specified function address to the {@code merge} field. */
 	public ChunkHooks merge(long value) { nmerge(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkMerge} to the {@code merge} field. */
-	public ChunkHooks merge(ChunkMerge value) { return merge(value.address()); }
+	public ChunkHooks merge(ChunkMerge value) { return merge(addressSafe(value)); }
 
 	/** Initializes this struct with the specified values. */
 	public ChunkHooks set(
@@ -384,31 +384,31 @@ public class ChunkHooks extends Struct {
 		/** Sets the specified function address to the {@code alloc} field. */
 		public ChunkHooks.Buffer alloc(long value) { ChunkHooks.nalloc(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkAlloc} to the {@code alloc} field. */
-		public ChunkHooks.Buffer alloc(ChunkAlloc value) { return alloc(value.address()); }
+		public ChunkHooks.Buffer alloc(ChunkAlloc value) { return alloc(addressSafe(value)); }
 		/** Sets the specified function address to the {@code dalloc} field. */
 		public ChunkHooks.Buffer dalloc(long value) { ChunkHooks.ndalloc(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkDalloc} to the {@code dalloc} field. */
-		public ChunkHooks.Buffer dalloc(ChunkDalloc value) { return dalloc(value.address()); }
+		public ChunkHooks.Buffer dalloc(ChunkDalloc value) { return dalloc(addressSafe(value)); }
 		/** Sets the specified function address to the {@code commit} field. */
 		public ChunkHooks.Buffer commit(long value) { ChunkHooks.ncommit(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkCommit} to the {@code commit} field. */
-		public ChunkHooks.Buffer commit(ChunkCommit value) { return commit(value.address()); }
+		public ChunkHooks.Buffer commit(ChunkCommit value) { return commit(addressSafe(value)); }
 		/** Sets the specified function address to the {@code decommit} field. */
 		public ChunkHooks.Buffer decommit(long value) { ChunkHooks.ndecommit(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkDecommit} to the {@code decommit} field. */
-		public ChunkHooks.Buffer decommit(ChunkDecommit value) { return decommit(value.address()); }
+		public ChunkHooks.Buffer decommit(ChunkDecommit value) { return decommit(addressSafe(value)); }
 		/** Sets the specified function address to the {@code purge} field. */
 		public ChunkHooks.Buffer purge(long value) { ChunkHooks.npurge(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkPurge} to the {@code purge} field. */
-		public ChunkHooks.Buffer purge(ChunkPurge value) { return purge(value.address()); }
+		public ChunkHooks.Buffer purge(ChunkPurge value) { return purge(addressSafe(value)); }
 		/** Sets the specified function address to the {@code split} field. */
 		public ChunkHooks.Buffer split(long value) { ChunkHooks.nsplit(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkSplit} to the {@code split} field. */
-		public ChunkHooks.Buffer split(ChunkSplit value) { return split(value.address()); }
+		public ChunkHooks.Buffer split(ChunkSplit value) { return split(addressSafe(value)); }
 		/** Sets the specified function address to the {@code merge} field. */
 		public ChunkHooks.Buffer merge(long value) { ChunkHooks.nmerge(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkMerge} to the {@code merge} field. */
-		public ChunkHooks.Buffer merge(ChunkMerge value) { return merge(value.address()); }
+		public ChunkHooks.Buffer merge(ChunkMerge value) { return merge(addressSafe(value)); }
 
 	}
 

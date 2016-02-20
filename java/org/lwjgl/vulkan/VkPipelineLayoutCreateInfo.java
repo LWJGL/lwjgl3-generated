@@ -251,7 +251,7 @@ public class VkPipelineLayoutCreateInfo extends Struct {
 	/** Unsafe version of {@link #pushConstantRangeCount(int) pushConstantRangeCount}. */
 	public static void npushConstantRangeCount(long struct, int value) { memPutInt(struct + VkPipelineLayoutCreateInfo.PUSHCONSTANTRANGECOUNT, value); }
 	/** Unsafe version of {@link #pPushConstantRanges(VkPushConstantRange.Buffer) pPushConstantRanges}. */
-	public static void npPushConstantRanges(long struct, VkPushConstantRange.Buffer value) { memPutAddress(struct + VkPipelineLayoutCreateInfo.PPUSHCONSTANTRANGES, value.address()); }
+	public static void npPushConstantRanges(long struct, VkPushConstantRange.Buffer value) { memPutAddress(struct + VkPipelineLayoutCreateInfo.PPUSHCONSTANTRANGES, addressSafe(value)); }
 
 	// -----------------------------------
 

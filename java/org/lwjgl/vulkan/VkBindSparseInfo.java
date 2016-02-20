@@ -313,15 +313,15 @@ public class VkBindSparseInfo extends Struct {
 	/** Unsafe version of {@link #bufferBindCount(int) bufferBindCount}. */
 	public static void nbufferBindCount(long struct, int value) { memPutInt(struct + VkBindSparseInfo.BUFFERBINDCOUNT, value); }
 	/** Unsafe version of {@link #pBufferBinds(VkSparseBufferMemoryBindInfo.Buffer) pBufferBinds}. */
-	public static void npBufferBinds(long struct, VkSparseBufferMemoryBindInfo.Buffer value) { memPutAddress(struct + VkBindSparseInfo.PBUFFERBINDS, value.address()); }
+	public static void npBufferBinds(long struct, VkSparseBufferMemoryBindInfo.Buffer value) { memPutAddress(struct + VkBindSparseInfo.PBUFFERBINDS, addressSafe(value)); }
 	/** Unsafe version of {@link #imageOpaqueBindCount(int) imageOpaqueBindCount}. */
 	public static void nimageOpaqueBindCount(long struct, int value) { memPutInt(struct + VkBindSparseInfo.IMAGEOPAQUEBINDCOUNT, value); }
 	/** Unsafe version of {@link #pImageOpaqueBinds(VkSparseImageOpaqueMemoryBindInfo.Buffer) pImageOpaqueBinds}. */
-	public static void npImageOpaqueBinds(long struct, VkSparseImageOpaqueMemoryBindInfo.Buffer value) { memPutAddress(struct + VkBindSparseInfo.PIMAGEOPAQUEBINDS, value.address()); }
+	public static void npImageOpaqueBinds(long struct, VkSparseImageOpaqueMemoryBindInfo.Buffer value) { memPutAddress(struct + VkBindSparseInfo.PIMAGEOPAQUEBINDS, addressSafe(value)); }
 	/** Unsafe version of {@link #imageBindCount(int) imageBindCount}. */
 	public static void nimageBindCount(long struct, int value) { memPutInt(struct + VkBindSparseInfo.IMAGEBINDCOUNT, value); }
 	/** Unsafe version of {@link #pImageBinds(VkSparseImageMemoryBindInfo.Buffer) pImageBinds}. */
-	public static void npImageBinds(long struct, VkSparseImageMemoryBindInfo.Buffer value) { memPutAddress(struct + VkBindSparseInfo.PIMAGEBINDS, value.address()); }
+	public static void npImageBinds(long struct, VkSparseImageMemoryBindInfo.Buffer value) { memPutAddress(struct + VkBindSparseInfo.PIMAGEBINDS, addressSafe(value)); }
 	/** Unsafe version of {@link #signalSemaphoreCount(int) signalSemaphoreCount}. */
 	public static void nsignalSemaphoreCount(long struct, int value) { memPutInt(struct + VkBindSparseInfo.SIGNALSEMAPHORECOUNT, value); }
 	/** Unsafe version of {@link #pSignalSemaphores(LongBuffer) pSignalSemaphores}. */

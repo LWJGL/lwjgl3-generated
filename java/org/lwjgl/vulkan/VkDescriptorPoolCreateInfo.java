@@ -233,7 +233,7 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 	/** Unsafe version of {@link #poolSizeCount(int) poolSizeCount}. */
 	public static void npoolSizeCount(long struct, int value) { memPutInt(struct + VkDescriptorPoolCreateInfo.POOLSIZECOUNT, value); }
 	/** Unsafe version of {@link #pPoolSizes(VkDescriptorPoolSize.Buffer) pPoolSizes}. */
-	public static void npPoolSizes(long struct, VkDescriptorPoolSize.Buffer value) { memPutAddress(struct + VkDescriptorPoolCreateInfo.PPOOLSIZES, value.address()); }
+	public static void npPoolSizes(long struct, VkDescriptorPoolSize.Buffer value) { memPutAddress(struct + VkDescriptorPoolCreateInfo.PPOOLSIZES, addressSafe(value)); }
 
 	// -----------------------------------
 

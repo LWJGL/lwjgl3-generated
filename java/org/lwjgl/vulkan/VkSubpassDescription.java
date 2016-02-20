@@ -281,15 +281,15 @@ public class VkSubpassDescription extends Struct {
 	/** Unsafe version of {@link #inputAttachmentCount(int) inputAttachmentCount}. */
 	public static void ninputAttachmentCount(long struct, int value) { memPutInt(struct + VkSubpassDescription.INPUTATTACHMENTCOUNT, value); }
 	/** Unsafe version of {@link #pInputAttachments(VkAttachmentReference.Buffer) pInputAttachments}. */
-	public static void npInputAttachments(long struct, VkAttachmentReference.Buffer value) { memPutAddress(struct + VkSubpassDescription.PINPUTATTACHMENTS, value.address()); }
+	public static void npInputAttachments(long struct, VkAttachmentReference.Buffer value) { memPutAddress(struct + VkSubpassDescription.PINPUTATTACHMENTS, addressSafe(value)); }
 	/** Unsafe version of {@link #colorAttachmentCount(int) colorAttachmentCount}. */
 	public static void ncolorAttachmentCount(long struct, int value) { memPutInt(struct + VkSubpassDescription.COLORATTACHMENTCOUNT, value); }
 	/** Unsafe version of {@link #pColorAttachments(VkAttachmentReference.Buffer) pColorAttachments}. */
-	public static void npColorAttachments(long struct, VkAttachmentReference.Buffer value) { memPutAddress(struct + VkSubpassDescription.PCOLORATTACHMENTS, value.address()); }
+	public static void npColorAttachments(long struct, VkAttachmentReference.Buffer value) { memPutAddress(struct + VkSubpassDescription.PCOLORATTACHMENTS, addressSafe(value)); }
 	/** Unsafe version of {@link #pResolveAttachments(VkAttachmentReference.Buffer) pResolveAttachments}. */
-	public static void npResolveAttachments(long struct, VkAttachmentReference.Buffer value) { memPutAddress(struct + VkSubpassDescription.PRESOLVEATTACHMENTS, value.address()); }
+	public static void npResolveAttachments(long struct, VkAttachmentReference.Buffer value) { memPutAddress(struct + VkSubpassDescription.PRESOLVEATTACHMENTS, addressSafe(value)); }
 	/** Unsafe version of {@link #pDepthStencilAttachment(VkAttachmentReference) pDepthStencilAttachment}. */
-	public static void npDepthStencilAttachment(long struct, VkAttachmentReference value) { memPutAddress(struct + VkSubpassDescription.PDEPTHSTENCILATTACHMENT, value.address()); }
+	public static void npDepthStencilAttachment(long struct, VkAttachmentReference value) { memPutAddress(struct + VkSubpassDescription.PDEPTHSTENCILATTACHMENT, addressSafe(value)); }
 	/** Unsafe version of {@link #preserveAttachmentCount(int) preserveAttachmentCount}. */
 	public static void npreserveAttachmentCount(long struct, int value) { memPutInt(struct + VkSubpassDescription.PRESERVEATTACHMENTCOUNT, value); }
 	/** Unsafe version of {@link #pPreserveAttachments(IntBuffer) pPreserveAttachments}. */

@@ -289,9 +289,9 @@ public class VkWriteDescriptorSet extends Struct {
 	/** Unsafe version of {@link #descriptorType(int) descriptorType}. */
 	public static void ndescriptorType(long struct, int value) { memPutInt(struct + VkWriteDescriptorSet.DESCRIPTORTYPE, value); }
 	/** Unsafe version of {@link #pImageInfo(VkDescriptorImageInfo) pImageInfo}. */
-	public static void npImageInfo(long struct, VkDescriptorImageInfo value) { memPutAddress(struct + VkWriteDescriptorSet.PIMAGEINFO, value.address()); }
+	public static void npImageInfo(long struct, VkDescriptorImageInfo value) { memPutAddress(struct + VkWriteDescriptorSet.PIMAGEINFO, addressSafe(value)); }
 	/** Unsafe version of {@link #pBufferInfo(VkDescriptorBufferInfo) pBufferInfo}. */
-	public static void npBufferInfo(long struct, VkDescriptorBufferInfo value) { memPutAddress(struct + VkWriteDescriptorSet.PBUFFERINFO, value.address()); }
+	public static void npBufferInfo(long struct, VkDescriptorBufferInfo value) { memPutAddress(struct + VkWriteDescriptorSet.PBUFFERINFO, addressSafe(value)); }
 	/** Unsafe version of {@link #pTexelBufferView(LongBuffer) pTexelBufferView}. */
 	public static void npTexelBufferView(long struct, LongBuffer value) { memPutAddress(struct + VkWriteDescriptorSet.PTEXELBUFFERVIEW, memAddressSafe(value)); }
 

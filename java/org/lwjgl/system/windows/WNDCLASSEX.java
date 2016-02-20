@@ -145,7 +145,7 @@ public class WNDCLASSEX extends Struct {
 	/** Sets the specified function address to the {@code lpfnWndProc} field. */
 	public WNDCLASSEX lpfnWndProc(long value) { nlpfnWndProc(address(), value); return this; }
 	/** Sets the address of the specified {@link WindowProc} to the {@code lpfnWndProc} field. */
-	public WNDCLASSEX lpfnWndProc(WindowProc value) { return lpfnWndProc(value.address()); }
+	public WNDCLASSEX lpfnWndProc(WindowProc value) { return lpfnWndProc(addressSafe(value)); }
 	/** Sets the specified value to the {@code cbClsExtra} field. */
 	public WNDCLASSEX cbClsExtra(int value) { ncbClsExtra(address(), value); return this; }
 	/** Sets the specified value to the {@code cbWndExtra} field. */
@@ -445,7 +445,7 @@ public class WNDCLASSEX extends Struct {
 		/** Sets the specified function address to the {@code lpfnWndProc} field. */
 		public WNDCLASSEX.Buffer lpfnWndProc(long value) { WNDCLASSEX.nlpfnWndProc(address(), value); return this; }
 		/** Sets the address of the specified {@link WindowProc} to the {@code lpfnWndProc} field. */
-		public WNDCLASSEX.Buffer lpfnWndProc(WindowProc value) { return lpfnWndProc(value.address()); }
+		public WNDCLASSEX.Buffer lpfnWndProc(WindowProc value) { return lpfnWndProc(addressSafe(value)); }
 		/** Sets the specified value to the {@code cbClsExtra} field. */
 		public WNDCLASSEX.Buffer cbClsExtra(int value) { WNDCLASSEX.ncbClsExtra(address(), value); return this; }
 		/** Sets the specified value to the {@code cbWndExtra} field. */

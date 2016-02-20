@@ -247,7 +247,7 @@ public class VkRenderPassBeginInfo extends Struct {
 	/** Unsafe version of {@link #clearValueCount(int) clearValueCount}. */
 	public static void nclearValueCount(long struct, int value) { memPutInt(struct + VkRenderPassBeginInfo.CLEARVALUECOUNT, value); }
 	/** Unsafe version of {@link #pClearValues(VkClearValue.Buffer) pClearValues}. */
-	public static void npClearValues(long struct, VkClearValue.Buffer value) { memPutAddress(struct + VkRenderPassBeginInfo.PCLEARVALUES, value.address()); }
+	public static void npClearValues(long struct, VkClearValue.Buffer value) { memPutAddress(struct + VkRenderPassBeginInfo.PCLEARVALUES, addressSafe(value)); }
 
 	// -----------------------------------
 

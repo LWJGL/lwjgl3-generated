@@ -113,7 +113,7 @@ public class OVRInitParams extends Struct {
 	/** Sets the specified function address to the {@code LogCallback} field. */
 	public OVRInitParams LogCallback(long value) { nLogCallback(address(), value); return this; }
 	/** Sets the address of the specified {@link OVRLogCallback} to the {@code LogCallback} field. */
-	public OVRInitParams LogCallback(OVRLogCallback value) { return LogCallback(value.address()); }
+	public OVRInitParams LogCallback(OVRLogCallback value) { return LogCallback(addressSafe(value)); }
 	/** Sets the specified value to the {@code UserData} field. */
 	public OVRInitParams UserData(long value) { nUserData(address(), value); return this; }
 	/** Sets the specified value to the {@code ConnectionTimeoutMS} field. */
@@ -305,7 +305,7 @@ public class OVRInitParams extends Struct {
 		/** Sets the specified function address to the {@code LogCallback} field. */
 		public OVRInitParams.Buffer LogCallback(long value) { OVRInitParams.nLogCallback(address(), value); return this; }
 		/** Sets the address of the specified {@link OVRLogCallback} to the {@code LogCallback} field. */
-		public OVRInitParams.Buffer LogCallback(OVRLogCallback value) { return LogCallback(value.address()); }
+		public OVRInitParams.Buffer LogCallback(OVRLogCallback value) { return LogCallback(addressSafe(value)); }
 		/** Sets the specified value to the {@code UserData} field. */
 		public OVRInitParams.Buffer UserData(long value) { OVRInitParams.nUserData(address(), value); return this; }
 		/** Sets the specified value to the {@code ConnectionTimeoutMS} field. */

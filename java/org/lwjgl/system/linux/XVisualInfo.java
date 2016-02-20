@@ -273,7 +273,7 @@ public class XVisualInfo extends Struct {
 	public static int nbits_per_rgb(long struct) { return memGetInt(struct + XVisualInfo.BITS_PER_RGB); }
 
 	/** Unsafe version of {@link #visual(Visual) visual}. */
-	public static void nvisual(long struct, Visual value) { memPutAddress(struct + XVisualInfo.VISUAL, value.address()); }
+	public static void nvisual(long struct, Visual value) { memPutAddress(struct + XVisualInfo.VISUAL, addressSafe(value)); }
 	/** Unsafe version of {@link #visualid(long) visualid}. */
 	public static void nvisualid(long struct, long value) { memPutAddress(struct + XVisualInfo.VISUALID, value); }
 	/** Unsafe version of {@link #screen(int) screen}. */

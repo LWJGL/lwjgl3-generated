@@ -109,23 +109,23 @@ public class VkAllocationCallbacks extends Struct {
 	/** Sets the specified function address to the {@code pfnAllocation} field. */
 	public VkAllocationCallbacks pfnAllocation(long value) { npfnAllocation(address(), value); return this; }
 	/** Sets the address of the specified {@link VkAllocationFunction} to the {@code pfnAllocation} field. */
-	public VkAllocationCallbacks pfnAllocation(VkAllocationFunction value) { return pfnAllocation(value.address()); }
+	public VkAllocationCallbacks pfnAllocation(VkAllocationFunction value) { return pfnAllocation(addressSafe(value)); }
 	/** Sets the specified function address to the {@code pfnReallocation} field. */
 	public VkAllocationCallbacks pfnReallocation(long value) { npfnReallocation(address(), value); return this; }
 	/** Sets the address of the specified {@link VkReallocationFunction} to the {@code pfnReallocation} field. */
-	public VkAllocationCallbacks pfnReallocation(VkReallocationFunction value) { return pfnReallocation(value.address()); }
+	public VkAllocationCallbacks pfnReallocation(VkReallocationFunction value) { return pfnReallocation(addressSafe(value)); }
 	/** Sets the specified function address to the {@code pfnFree} field. */
 	public VkAllocationCallbacks pfnFree(long value) { npfnFree(address(), value); return this; }
 	/** Sets the address of the specified {@link VkFreeFunction} to the {@code pfnFree} field. */
-	public VkAllocationCallbacks pfnFree(VkFreeFunction value) { return pfnFree(value.address()); }
+	public VkAllocationCallbacks pfnFree(VkFreeFunction value) { return pfnFree(addressSafe(value)); }
 	/** Sets the specified function address to the {@code pfnInternalAllocation} field. */
 	public VkAllocationCallbacks pfnInternalAllocation(long value) { npfnInternalAllocation(address(), value); return this; }
 	/** Sets the address of the specified {@link VkInternalAllocationNotification} to the {@code pfnInternalAllocation} field. */
-	public VkAllocationCallbacks pfnInternalAllocation(VkInternalAllocationNotification value) { return pfnInternalAllocation(value.address()); }
+	public VkAllocationCallbacks pfnInternalAllocation(VkInternalAllocationNotification value) { return pfnInternalAllocation(addressSafe(value)); }
 	/** Sets the specified function address to the {@code pfnInternalFree} field. */
 	public VkAllocationCallbacks pfnInternalFree(long value) { npfnInternalFree(address(), value); return this; }
 	/** Sets the address of the specified {@link VkInternalFreeNotification} to the {@code pfnInternalFree} field. */
-	public VkAllocationCallbacks pfnInternalFree(VkInternalFreeNotification value) { return pfnInternalFree(value.address()); }
+	public VkAllocationCallbacks pfnInternalFree(VkInternalFreeNotification value) { return pfnInternalFree(addressSafe(value)); }
 
 	/** Initializes this struct with the specified values. */
 	public VkAllocationCallbacks set(
@@ -335,23 +335,23 @@ public class VkAllocationCallbacks extends Struct {
 		/** Sets the specified function address to the {@code pfnAllocation} field. */
 		public VkAllocationCallbacks.Buffer pfnAllocation(long value) { VkAllocationCallbacks.npfnAllocation(address(), value); return this; }
 		/** Sets the address of the specified {@link VkAllocationFunction} to the {@code pfnAllocation} field. */
-		public VkAllocationCallbacks.Buffer pfnAllocation(VkAllocationFunction value) { return pfnAllocation(value.address()); }
+		public VkAllocationCallbacks.Buffer pfnAllocation(VkAllocationFunction value) { return pfnAllocation(addressSafe(value)); }
 		/** Sets the specified function address to the {@code pfnReallocation} field. */
 		public VkAllocationCallbacks.Buffer pfnReallocation(long value) { VkAllocationCallbacks.npfnReallocation(address(), value); return this; }
 		/** Sets the address of the specified {@link VkReallocationFunction} to the {@code pfnReallocation} field. */
-		public VkAllocationCallbacks.Buffer pfnReallocation(VkReallocationFunction value) { return pfnReallocation(value.address()); }
+		public VkAllocationCallbacks.Buffer pfnReallocation(VkReallocationFunction value) { return pfnReallocation(addressSafe(value)); }
 		/** Sets the specified function address to the {@code pfnFree} field. */
 		public VkAllocationCallbacks.Buffer pfnFree(long value) { VkAllocationCallbacks.npfnFree(address(), value); return this; }
 		/** Sets the address of the specified {@link VkFreeFunction} to the {@code pfnFree} field. */
-		public VkAllocationCallbacks.Buffer pfnFree(VkFreeFunction value) { return pfnFree(value.address()); }
+		public VkAllocationCallbacks.Buffer pfnFree(VkFreeFunction value) { return pfnFree(addressSafe(value)); }
 		/** Sets the specified function address to the {@code pfnInternalAllocation} field. */
 		public VkAllocationCallbacks.Buffer pfnInternalAllocation(long value) { VkAllocationCallbacks.npfnInternalAllocation(address(), value); return this; }
 		/** Sets the address of the specified {@link VkInternalAllocationNotification} to the {@code pfnInternalAllocation} field. */
-		public VkAllocationCallbacks.Buffer pfnInternalAllocation(VkInternalAllocationNotification value) { return pfnInternalAllocation(value.address()); }
+		public VkAllocationCallbacks.Buffer pfnInternalAllocation(VkInternalAllocationNotification value) { return pfnInternalAllocation(addressSafe(value)); }
 		/** Sets the specified function address to the {@code pfnInternalFree} field. */
 		public VkAllocationCallbacks.Buffer pfnInternalFree(long value) { VkAllocationCallbacks.npfnInternalFree(address(), value); return this; }
 		/** Sets the address of the specified {@link VkInternalFreeNotification} to the {@code pfnInternalFree} field. */
-		public VkAllocationCallbacks.Buffer pfnInternalFree(VkInternalFreeNotification value) { return pfnInternalFree(value.address()); }
+		public VkAllocationCallbacks.Buffer pfnInternalFree(VkInternalFreeNotification value) { return pfnInternalFree(addressSafe(value)); }
 
 	}
 
