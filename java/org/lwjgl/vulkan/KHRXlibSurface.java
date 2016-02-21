@@ -42,33 +42,41 @@ public class KHRXlibSurface {
 
 	@JavadocExclude
 	public KHRXlibSurface(FunctionProvider provider) {
-		CreateXlibSurfaceKHR = checkFunctionAddress(provider.getFunctionAddress("vkCreateXlibSurfaceKHR"));
-		GetPhysicalDeviceXlibPresentationSupportKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetPhysicalDeviceXlibPresentationSupportKHR"));
+		CreateXlibSurfaceKHR = provider.getFunctionAddress("vkCreateXlibSurfaceKHR");
+		GetPhysicalDeviceXlibPresentationSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceXlibPresentationSupportKHR");
 	}
 
 	// --- [ Function Addresses ] ---
 
-	private static final KHRXlibSurface instance = new KHRXlibSurface(getLibrary());
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return VK10.getLibrary();
+	/** Returns the {@link KHRXlibSurface} instance from the specified dispatchable handle. */
+	public static KHRXlibSurface getInstance(DispatchableHandle handle) {
+		return getInstance(handle.getCapabilities());
 	}
 
-	/** Returns the {@link KHRXlibSurface} instance. */
-	public static KHRXlibSurface getInstance() {
-		return instance;
+	/** Returns the {@link KHRXlibSurface} instance of the specified {@link VKCapabilities}. */
+	public static KHRXlibSurface getInstance(VKCapabilities caps) {
+		return checkFunctionality(caps.__KHRXlibSurface);
+	}
+
+	static KHRXlibSurface create(FunctionProvider provider) {
+		KHRXlibSurface funcs = new KHRXlibSurface(provider);
+
+		boolean supported = checkFunctions(
+			funcs.CreateXlibSurfaceKHR, funcs.GetPhysicalDeviceXlibPresentationSupportKHR
+		);
+
+		return supported ? funcs : null;
 	}
 
 	// --- [ vkCreateXlibSurfaceKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR} */
 	@JavadocExclude
-	public static int nvkCreateXlibSurfaceKHR(long instance, long pCreateInfo, long pAllocator, long pSurface) {
-		long __functionAddress = getInstance().CreateXlibSurfaceKHR;
+	public static int nvkCreateXlibSurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
+		long __functionAddress = getInstance(instance).CreateXlibSurfaceKHR;
 		if ( CHECKS )
-			checkPointer(instance);
-		return callPPPPI(__functionAddress, instance, pCreateInfo, pAllocator, pSurface);
+			checkFunctionAddress(__functionAddress);
+		return callPPPPI(__functionAddress, instance.address(), pCreateInfo, pAllocator, pSurface);
 	}
 
 	/**
@@ -79,14 +87,14 @@ public class KHRXlibSurface {
 	 * @param pAllocator  the allocator used for host memory allocated for the surface object
 	 * @param pSurface    the resulting surface object handle is returned in {@code pSurface}
 	 */
-	public static int vkCreateXlibSurfaceKHR(long instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
+	public static int vkCreateXlibSurfaceKHR(VkInstance instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1 << 3);
 		return nvkCreateXlibSurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
 	}
 
 	/** Alternative version of: {@link #vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR} */
-	public static int vkCreateXlibSurfaceKHR(long instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
+	public static int vkCreateXlibSurfaceKHR(VkInstance instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1);
 		return nvkCreateXlibSurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
@@ -102,13 +110,13 @@ public class KHRXlibSurface {
 	 * @param dpy              pointer to an Xlib Display
 	 * @param visualID         an X11 VisualID
 	 */
-	public static int vkGetPhysicalDeviceXlibPresentationSupportKHR(long physicalDevice, int queueFamilyIndex, long dpy, long visualID) {
-		long __functionAddress = getInstance().GetPhysicalDeviceXlibPresentationSupportKHR;
+	public static int vkGetPhysicalDeviceXlibPresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long dpy, long visualID) {
+		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceXlibPresentationSupportKHR;
 		if ( CHECKS ) {
-			checkPointer(physicalDevice);
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPIPPI(__functionAddress, physicalDevice, queueFamilyIndex, dpy, visualID);
+		return callPIPPI(__functionAddress, physicalDevice.address(), queueFamilyIndex, dpy, visualID);
 	}
 
 }

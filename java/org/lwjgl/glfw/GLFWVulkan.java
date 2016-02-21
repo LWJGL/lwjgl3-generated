@@ -158,17 +158,17 @@ public class GLFWVulkan {
 	 *
 	 * @since version 3.2
 	 */
-	public static long glfwGetInstanceProcAddress(long instance, ByteBuffer procname) {
+	public static long glfwGetInstanceProcAddress(VkInstance instance, ByteBuffer procname) {
 		if ( CHECKS )
 			checkNT1(procname);
-		return nglfwGetInstanceProcAddress(instance, memAddress(procname));
+		return nglfwGetInstanceProcAddress(instance == null ? NULL : instance.address(), memAddress(procname));
 	}
 
 	/** CharSequence version of: {@link #glfwGetInstanceProcAddress GetInstanceProcAddress} */
-	public static long glfwGetInstanceProcAddress(long instance, CharSequence procname) {
+	public static long glfwGetInstanceProcAddress(VkInstance instance, CharSequence procname) {
 		APIBuffer __buffer = apiBuffer();
 		int procnameEncoded = __buffer.stringParamASCII(procname, true);
-		return nglfwGetInstanceProcAddress(instance, __buffer.address(procnameEncoded));
+		return nglfwGetInstanceProcAddress(instance == null ? NULL : instance.address(), __buffer.address(procnameEncoded));
 	}
 
 	// --- [ glfwGetPhysicalDevicePresentationSupport ] ---
@@ -192,13 +192,9 @@ public class GLFWVulkan {
 	 *
 	 * @since version 3.2
 	 */
-	public static int glfwGetPhysicalDevicePresentationSupport(long instance, long device, int queuefamily) {
+	public static int glfwGetPhysicalDevicePresentationSupport(VkInstance instance, VkPhysicalDevice device, int queuefamily) {
 		long __functionAddress = getInstance().GetPhysicalDevicePresentationSupport;
-		if ( CHECKS ) {
-			checkPointer(instance);
-			checkPointer(device);
-		}
-		return invokePPII(__functionAddress, instance, device, queuefamily);
+		return invokePPII(__functionAddress, instance.address(), device.address(), queuefamily);
 	}
 
 	// --- [ glfwCreateWindowSurface ] ---
@@ -207,10 +203,8 @@ public class GLFWVulkan {
 	@JavadocExclude
 	public static int nglfwCreateWindowSurface(long instance, long window, long allocator, long surface) {
 		long __functionAddress = getInstance().CreateWindowSurface;
-		if ( CHECKS ) {
-			checkPointer(instance);
+		if ( CHECKS )
 			checkPointer(window);
-		}
 		return invokePPPPI(__functionAddress, instance, window, allocator, surface);
 	}
 
@@ -243,17 +237,17 @@ public class GLFWVulkan {
 	 *
 	 * @since version 3.2
 	 */
-	public static int glfwCreateWindowSurface(long instance, long window, VkAllocationCallbacks allocator, ByteBuffer surface) {
+	public static int glfwCreateWindowSurface(VkInstance instance, long window, VkAllocationCallbacks allocator, ByteBuffer surface) {
 		if ( CHECKS )
 			checkBuffer(surface, 1 << 3);
-		return nglfwCreateWindowSurface(instance, window, allocator == null ? NULL : allocator.address(), memAddress(surface));
+		return nglfwCreateWindowSurface(instance.address(), window, allocator == null ? NULL : allocator.address(), memAddress(surface));
 	}
 
 	/** Alternative version of: {@link #glfwCreateWindowSurface CreateWindowSurface} */
-	public static int glfwCreateWindowSurface(long instance, long window, VkAllocationCallbacks allocator, LongBuffer surface) {
+	public static int glfwCreateWindowSurface(VkInstance instance, long window, VkAllocationCallbacks allocator, LongBuffer surface) {
 		if ( CHECKS )
 			checkBuffer(surface, 1);
-		return nglfwCreateWindowSurface(instance, window, allocator == null ? NULL : allocator.address(), memAddress(surface));
+		return nglfwCreateWindowSurface(instance.address(), window, allocator == null ? NULL : allocator.address(), memAddress(surface));
 	}
 
 }

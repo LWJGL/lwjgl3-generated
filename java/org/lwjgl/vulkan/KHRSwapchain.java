@@ -54,36 +54,44 @@ public class KHRSwapchain {
 
 	@JavadocExclude
 	public KHRSwapchain(FunctionProvider provider) {
-		CreateSwapchainKHR = checkFunctionAddress(provider.getFunctionAddress("vkCreateSwapchainKHR"));
-		DestroySwapchainKHR = checkFunctionAddress(provider.getFunctionAddress("vkDestroySwapchainKHR"));
-		GetSwapchainImagesKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetSwapchainImagesKHR"));
-		AcquireNextImageKHR = checkFunctionAddress(provider.getFunctionAddress("vkAcquireNextImageKHR"));
-		QueuePresentKHR = checkFunctionAddress(provider.getFunctionAddress("vkQueuePresentKHR"));
+		CreateSwapchainKHR = provider.getFunctionAddress("vkCreateSwapchainKHR");
+		DestroySwapchainKHR = provider.getFunctionAddress("vkDestroySwapchainKHR");
+		GetSwapchainImagesKHR = provider.getFunctionAddress("vkGetSwapchainImagesKHR");
+		AcquireNextImageKHR = provider.getFunctionAddress("vkAcquireNextImageKHR");
+		QueuePresentKHR = provider.getFunctionAddress("vkQueuePresentKHR");
 	}
 
 	// --- [ Function Addresses ] ---
 
-	private static final KHRSwapchain instance = new KHRSwapchain(getLibrary());
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return VK10.getLibrary();
+	/** Returns the {@link KHRSwapchain} instance from the specified dispatchable handle. */
+	public static KHRSwapchain getInstance(DispatchableHandle handle) {
+		return getInstance(handle.getCapabilities());
 	}
 
-	/** Returns the {@link KHRSwapchain} instance. */
-	public static KHRSwapchain getInstance() {
-		return instance;
+	/** Returns the {@link KHRSwapchain} instance of the specified {@link VKCapabilities}. */
+	public static KHRSwapchain getInstance(VKCapabilities caps) {
+		return checkFunctionality(caps.__KHRSwapchain);
+	}
+
+	static KHRSwapchain create(FunctionProvider provider) {
+		KHRSwapchain funcs = new KHRSwapchain(provider);
+
+		boolean supported = checkFunctions(
+			funcs.CreateSwapchainKHR, funcs.DestroySwapchainKHR, funcs.GetSwapchainImagesKHR, funcs.AcquireNextImageKHR, funcs.QueuePresentKHR
+		);
+
+		return supported ? funcs : null;
 	}
 
 	// --- [ vkCreateSwapchainKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateSwapchainKHR CreateSwapchainKHR} */
 	@JavadocExclude
-	public static int nvkCreateSwapchainKHR(long device, long pCreateInfo, long pAllocator, long pSwapchain) {
-		long __functionAddress = getInstance().CreateSwapchainKHR;
+	public static int nvkCreateSwapchainKHR(VkDevice device, long pCreateInfo, long pAllocator, long pSwapchain) {
+		long __functionAddress = getInstance(device).CreateSwapchainKHR;
 		if ( CHECKS )
-			checkPointer(device);
-		return callPPPPI(__functionAddress, device, pCreateInfo, pAllocator, pSwapchain);
+			checkFunctionAddress(__functionAddress);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pSwapchain);
 	}
 
 	/**
@@ -94,14 +102,14 @@ public class KHRSwapchain {
 	 * @param pAllocator  the allocator used for host memory allocated for the surface object
 	 * @param pSwapchain  the resulting swapchain
 	 */
-	public static int vkCreateSwapchainKHR(long device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSwapchain) {
+	public static int vkCreateSwapchainKHR(VkDevice device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSwapchain) {
 		if ( CHECKS )
 			checkBuffer(pSwapchain, 1 << 3);
 		return nvkCreateSwapchainKHR(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSwapchain));
 	}
 
 	/** Alternative version of: {@link #vkCreateSwapchainKHR CreateSwapchainKHR} */
-	public static int vkCreateSwapchainKHR(long device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSwapchain) {
+	public static int vkCreateSwapchainKHR(VkDevice device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSwapchain) {
 		if ( CHECKS )
 			checkBuffer(pSwapchain, 1);
 		return nvkCreateSwapchainKHR(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSwapchain));
@@ -111,11 +119,11 @@ public class KHRSwapchain {
 
 	/** Unsafe version of {@link #vkDestroySwapchainKHR DestroySwapchainKHR} */
 	@JavadocExclude
-	public static void nvkDestroySwapchainKHR(long device, long swapchain, long pAllocator) {
-		long __functionAddress = getInstance().DestroySwapchainKHR;
+	public static void nvkDestroySwapchainKHR(VkDevice device, long swapchain, long pAllocator) {
+		long __functionAddress = getInstance(device).DestroySwapchainKHR;
 		if ( CHECKS )
-			checkPointer(device);
-		callPJPV(__functionAddress, device, swapchain, pAllocator);
+			checkFunctionAddress(__functionAddress);
+		callPJPV(__functionAddress, device.address(), swapchain, pAllocator);
 	}
 
 	/**
@@ -125,7 +133,7 @@ public class KHRSwapchain {
 	 * @param swapchain  the swapchain to destroy
 	 * @param pAllocator the allocator used for host memory allocated for the swapchain object
 	 */
-	public static void vkDestroySwapchainKHR(long device, long swapchain, VkAllocationCallbacks pAllocator) {
+	public static void vkDestroySwapchainKHR(VkDevice device, long swapchain, VkAllocationCallbacks pAllocator) {
 		nvkDestroySwapchainKHR(device, swapchain, pAllocator == null ? NULL : pAllocator.address());
 	}
 
@@ -133,11 +141,11 @@ public class KHRSwapchain {
 
 	/** Unsafe version of {@link #vkGetSwapchainImagesKHR GetSwapchainImagesKHR} */
 	@JavadocExclude
-	public static int nvkGetSwapchainImagesKHR(long device, long swapchain, long pSwapchainImageCount, long pSwapchainImages) {
-		long __functionAddress = getInstance().GetSwapchainImagesKHR;
+	public static int nvkGetSwapchainImagesKHR(VkDevice device, long swapchain, long pSwapchainImageCount, long pSwapchainImages) {
+		long __functionAddress = getInstance(device).GetSwapchainImagesKHR;
 		if ( CHECKS )
-			checkPointer(device);
-		return callPJPPI(__functionAddress, device, swapchain, pSwapchainImageCount, pSwapchainImages);
+			checkFunctionAddress(__functionAddress);
+		return callPJPPI(__functionAddress, device.address(), swapchain, pSwapchainImageCount, pSwapchainImages);
 	}
 
 	/**
@@ -148,7 +156,7 @@ public class KHRSwapchain {
 	 * @param pSwapchainImageCount the number of elements in the array pointed by {@code pSwapchainImages}
 	 * @param pSwapchainImages     the returned array of images
 	 */
-	public static int vkGetSwapchainImagesKHR(long device, long swapchain, ByteBuffer pSwapchainImageCount, ByteBuffer pSwapchainImages) {
+	public static int vkGetSwapchainImagesKHR(VkDevice device, long swapchain, ByteBuffer pSwapchainImageCount, ByteBuffer pSwapchainImages) {
 		if ( CHECKS ) {
 			checkBuffer(pSwapchainImageCount, 1 << 2);
 			if ( pSwapchainImages != null ) checkBuffer(pSwapchainImages, pSwapchainImageCount.getInt(pSwapchainImageCount.position()) << 3);
@@ -157,7 +165,7 @@ public class KHRSwapchain {
 	}
 
 	/** Alternative version of: {@link #vkGetSwapchainImagesKHR GetSwapchainImagesKHR} */
-	public static int vkGetSwapchainImagesKHR(long device, long swapchain, IntBuffer pSwapchainImageCount, LongBuffer pSwapchainImages) {
+	public static int vkGetSwapchainImagesKHR(VkDevice device, long swapchain, IntBuffer pSwapchainImageCount, LongBuffer pSwapchainImages) {
 		if ( CHECKS ) {
 			checkBuffer(pSwapchainImageCount, 1);
 			if ( pSwapchainImages != null ) checkBuffer(pSwapchainImages, pSwapchainImageCount.get(pSwapchainImageCount.position()));
@@ -169,11 +177,11 @@ public class KHRSwapchain {
 
 	/** Unsafe version of {@link #vkAcquireNextImageKHR AcquireNextImageKHR} */
 	@JavadocExclude
-	public static int nvkAcquireNextImageKHR(long device, long swapchain, long timeout, long semaphore, long fence, long pImageIndex) {
-		long __functionAddress = getInstance().AcquireNextImageKHR;
+	public static int nvkAcquireNextImageKHR(VkDevice device, long swapchain, long timeout, long semaphore, long fence, long pImageIndex) {
+		long __functionAddress = getInstance(device).AcquireNextImageKHR;
 		if ( CHECKS )
-			checkPointer(device);
-		return callPJJJJPI(__functionAddress, device, swapchain, timeout, semaphore, fence, pImageIndex);
+			checkFunctionAddress(__functionAddress);
+		return callPJJJJPI(__functionAddress, device.address(), swapchain, timeout, semaphore, fence, pImageIndex);
 	}
 
 	/**
@@ -186,14 +194,14 @@ public class KHRSwapchain {
 	 * @param fence       a {@code VkFence} that will become signaled when the presentation engine has released ownership of the image
 	 * @param pImageIndex a pointer to an integer that is set to the index of the next image to use
 	 */
-	public static int vkAcquireNextImageKHR(long device, long swapchain, long timeout, long semaphore, long fence, ByteBuffer pImageIndex) {
+	public static int vkAcquireNextImageKHR(VkDevice device, long swapchain, long timeout, long semaphore, long fence, ByteBuffer pImageIndex) {
 		if ( CHECKS )
 			checkBuffer(pImageIndex, 1 << 2);
 		return nvkAcquireNextImageKHR(device, swapchain, timeout, semaphore, fence, memAddress(pImageIndex));
 	}
 
 	/** Alternative version of: {@link #vkAcquireNextImageKHR AcquireNextImageKHR} */
-	public static int vkAcquireNextImageKHR(long device, long swapchain, long timeout, long semaphore, long fence, IntBuffer pImageIndex) {
+	public static int vkAcquireNextImageKHR(VkDevice device, long swapchain, long timeout, long semaphore, long fence, IntBuffer pImageIndex) {
 		if ( CHECKS )
 			checkBuffer(pImageIndex, 1);
 		return nvkAcquireNextImageKHR(device, swapchain, timeout, semaphore, fence, memAddress(pImageIndex));
@@ -203,11 +211,11 @@ public class KHRSwapchain {
 
 	/** Unsafe version of {@link #vkQueuePresentKHR QueuePresentKHR} */
 	@JavadocExclude
-	public static int nvkQueuePresentKHR(long queue, long pPresentInfo) {
-		long __functionAddress = getInstance().QueuePresentKHR;
+	public static int nvkQueuePresentKHR(VkQueue queue, long pPresentInfo) {
+		long __functionAddress = getInstance(queue).QueuePresentKHR;
 		if ( CHECKS )
-			checkPointer(queue);
-		return callPPI(__functionAddress, queue, pPresentInfo);
+			checkFunctionAddress(__functionAddress);
+		return callPPI(__functionAddress, queue.address(), pPresentInfo);
 	}
 
 	/**
@@ -216,7 +224,7 @@ public class KHRSwapchain {
 	 * @param queue        a {@code VkQueue} that is capable of presentation to the target surface
 	 * @param pPresentInfo a pointer to a {@link VkPresentInfoKHR} structure specifying the parameters of the presentation
 	 */
-	public static int vkQueuePresentKHR(long queue, VkPresentInfoKHR pPresentInfo) {
+	public static int vkQueuePresentKHR(VkQueue queue, VkPresentInfoKHR pPresentInfo) {
 		return nvkQueuePresentKHR(queue, pPresentInfo.address());
 	}
 

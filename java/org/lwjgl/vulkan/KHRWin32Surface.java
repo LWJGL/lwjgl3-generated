@@ -41,33 +41,41 @@ public class KHRWin32Surface {
 
 	@JavadocExclude
 	public KHRWin32Surface(FunctionProvider provider) {
-		CreateWin32SurfaceKHR = checkFunctionAddress(provider.getFunctionAddress("vkCreateWin32SurfaceKHR"));
-		GetPhysicalDeviceWin32PresentationSupportKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetPhysicalDeviceWin32PresentationSupportKHR"));
+		CreateWin32SurfaceKHR = provider.getFunctionAddress("vkCreateWin32SurfaceKHR");
+		GetPhysicalDeviceWin32PresentationSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceWin32PresentationSupportKHR");
 	}
 
 	// --- [ Function Addresses ] ---
 
-	private static final KHRWin32Surface instance = new KHRWin32Surface(getLibrary());
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return VK10.getLibrary();
+	/** Returns the {@link KHRWin32Surface} instance from the specified dispatchable handle. */
+	public static KHRWin32Surface getInstance(DispatchableHandle handle) {
+		return getInstance(handle.getCapabilities());
 	}
 
-	/** Returns the {@link KHRWin32Surface} instance. */
-	public static KHRWin32Surface getInstance() {
-		return instance;
+	/** Returns the {@link KHRWin32Surface} instance of the specified {@link VKCapabilities}. */
+	public static KHRWin32Surface getInstance(VKCapabilities caps) {
+		return checkFunctionality(caps.__KHRWin32Surface);
+	}
+
+	static KHRWin32Surface create(FunctionProvider provider) {
+		KHRWin32Surface funcs = new KHRWin32Surface(provider);
+
+		boolean supported = checkFunctions(
+			funcs.CreateWin32SurfaceKHR, funcs.GetPhysicalDeviceWin32PresentationSupportKHR
+		);
+
+		return supported ? funcs : null;
 	}
 
 	// --- [ vkCreateWin32SurfaceKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR} */
 	@JavadocExclude
-	public static int nvkCreateWin32SurfaceKHR(long instance, long pCreateInfo, long pAllocator, long pSurface) {
-		long __functionAddress = getInstance().CreateWin32SurfaceKHR;
+	public static int nvkCreateWin32SurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
+		long __functionAddress = getInstance(instance).CreateWin32SurfaceKHR;
 		if ( CHECKS )
-			checkPointer(instance);
-		return callPPPPI(__functionAddress, instance, pCreateInfo, pAllocator, pSurface);
+			checkFunctionAddress(__functionAddress);
+		return callPPPPI(__functionAddress, instance.address(), pCreateInfo, pAllocator, pSurface);
 	}
 
 	/**
@@ -78,14 +86,14 @@ public class KHRWin32Surface {
 	 * @param pAllocator  the allocator used for host memory allocated for the surface object
 	 * @param pSurface    the resulting surface object handle is returned in {@code pSurface}
 	 */
-	public static int vkCreateWin32SurfaceKHR(long instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
+	public static int vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1 << 3);
 		return nvkCreateWin32SurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
 	}
 
 	/** Alternative version of: {@link #vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR} */
-	public static int vkCreateWin32SurfaceKHR(long instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
+	public static int vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1);
 		return nvkCreateWin32SurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
@@ -99,11 +107,11 @@ public class KHRWin32Surface {
 	 * @param physicalDevice   a physical device handle
 	 * @param queueFamilyIndex index to a queue family
 	 */
-	public static int vkGetPhysicalDeviceWin32PresentationSupportKHR(long physicalDevice, int queueFamilyIndex) {
-		long __functionAddress = getInstance().GetPhysicalDeviceWin32PresentationSupportKHR;
+	public static int vkGetPhysicalDeviceWin32PresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex) {
+		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceWin32PresentationSupportKHR;
 		if ( CHECKS )
-			checkPointer(physicalDevice);
-		return callPII(__functionAddress, physicalDevice, queueFamilyIndex);
+			checkFunctionAddress(__functionAddress);
+		return callPII(__functionAddress, physicalDevice.address(), queueFamilyIndex);
 	}
 
 }

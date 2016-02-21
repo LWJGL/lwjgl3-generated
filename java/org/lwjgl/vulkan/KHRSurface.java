@@ -121,36 +121,45 @@ public class KHRSurface {
 
 	@JavadocExclude
 	public KHRSurface(FunctionProvider provider) {
-		DestroySurfaceKHR = checkFunctionAddress(provider.getFunctionAddress("vkDestroySurfaceKHR"));
-		GetPhysicalDeviceSurfaceSupportKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceSupportKHR"));
-		GetPhysicalDeviceSurfaceCapabilitiesKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceCapabilitiesKHR"));
-		GetPhysicalDeviceSurfaceFormatsKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceFormatsKHR"));
-		GetPhysicalDeviceSurfacePresentModesKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetPhysicalDeviceSurfacePresentModesKHR"));
+		DestroySurfaceKHR = provider.getFunctionAddress("vkDestroySurfaceKHR");
+		GetPhysicalDeviceSurfaceSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceSupportKHR");
+		GetPhysicalDeviceSurfaceCapabilitiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceCapabilitiesKHR");
+		GetPhysicalDeviceSurfaceFormatsKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceFormatsKHR");
+		GetPhysicalDeviceSurfacePresentModesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfacePresentModesKHR");
 	}
 
 	// --- [ Function Addresses ] ---
 
-	private static final KHRSurface instance = new KHRSurface(getLibrary());
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return VK10.getLibrary();
+	/** Returns the {@link KHRSurface} instance from the specified dispatchable handle. */
+	public static KHRSurface getInstance(DispatchableHandle handle) {
+		return getInstance(handle.getCapabilities());
 	}
 
-	/** Returns the {@link KHRSurface} instance. */
-	public static KHRSurface getInstance() {
-		return instance;
+	/** Returns the {@link KHRSurface} instance of the specified {@link VKCapabilities}. */
+	public static KHRSurface getInstance(VKCapabilities caps) {
+		return checkFunctionality(caps.__KHRSurface);
+	}
+
+	static KHRSurface create(FunctionProvider provider) {
+		KHRSurface funcs = new KHRSurface(provider);
+
+		boolean supported = checkFunctions(
+			funcs.DestroySurfaceKHR, funcs.GetPhysicalDeviceSurfaceSupportKHR, funcs.GetPhysicalDeviceSurfaceCapabilitiesKHR, 
+			funcs.GetPhysicalDeviceSurfaceFormatsKHR, funcs.GetPhysicalDeviceSurfacePresentModesKHR
+		);
+
+		return supported ? funcs : null;
 	}
 
 	// --- [ vkDestroySurfaceKHR ] ---
 
 	/** Unsafe version of {@link #vkDestroySurfaceKHR DestroySurfaceKHR} */
 	@JavadocExclude
-	public static void nvkDestroySurfaceKHR(long instance, long surface, long pAllocator) {
-		long __functionAddress = getInstance().DestroySurfaceKHR;
+	public static void nvkDestroySurfaceKHR(VkInstance instance, long surface, long pAllocator) {
+		long __functionAddress = getInstance(instance).DestroySurfaceKHR;
 		if ( CHECKS )
-			checkPointer(instance);
-		callPJPV(__functionAddress, instance, surface, pAllocator);
+			checkFunctionAddress(__functionAddress);
+		callPJPV(__functionAddress, instance.address(), surface, pAllocator);
 	}
 
 	/**
@@ -160,7 +169,7 @@ public class KHRSurface {
 	 * @param surface    the handle of the surface to destroy
 	 * @param pAllocator the allocator used for host memory allocated for the surface object
 	 */
-	public static void vkDestroySurfaceKHR(long instance, long surface, VkAllocationCallbacks pAllocator) {
+	public static void vkDestroySurfaceKHR(VkInstance instance, long surface, VkAllocationCallbacks pAllocator) {
 		nvkDestroySurfaceKHR(instance, surface, pAllocator == null ? NULL : pAllocator.address());
 	}
 
@@ -168,11 +177,11 @@ public class KHRSurface {
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR} */
 	@JavadocExclude
-	public static int nvkGetPhysicalDeviceSurfaceSupportKHR(long physicalDevice, int queueFamilyIndex, long surface, long pSupported) {
-		long __functionAddress = getInstance().GetPhysicalDeviceSurfaceSupportKHR;
+	public static int nvkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long surface, long pSupported) {
+		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfaceSupportKHR;
 		if ( CHECKS )
-			checkPointer(physicalDevice);
-		return callPIJPI(__functionAddress, physicalDevice, queueFamilyIndex, surface, pSupported);
+			checkFunctionAddress(__functionAddress);
+		return callPIJPI(__functionAddress, physicalDevice.address(), queueFamilyIndex, surface, pSupported);
 	}
 
 	/**
@@ -183,14 +192,14 @@ public class KHRSurface {
 	 * @param surface          the surface to query
 	 * @param pSupported       indicates is presentation is supported
 	 */
-	public static int vkGetPhysicalDeviceSurfaceSupportKHR(long physicalDevice, int queueFamilyIndex, long surface, ByteBuffer pSupported) {
+	public static int vkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long surface, ByteBuffer pSupported) {
 		if ( CHECKS )
 			checkBuffer(pSupported, 1 << 2);
 		return nvkGetPhysicalDeviceSurfaceSupportKHR(physicalDevice, queueFamilyIndex, surface, memAddress(pSupported));
 	}
 
 	/** Alternative version of: {@link #vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR} */
-	public static int vkGetPhysicalDeviceSurfaceSupportKHR(long physicalDevice, int queueFamilyIndex, long surface, IntBuffer pSupported) {
+	public static int vkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long surface, IntBuffer pSupported) {
 		if ( CHECKS )
 			checkBuffer(pSupported, 1);
 		return nvkGetPhysicalDeviceSurfaceSupportKHR(physicalDevice, queueFamilyIndex, surface, memAddress(pSupported));
@@ -200,11 +209,11 @@ public class KHRSurface {
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} */
 	@JavadocExclude
-	public static int nvkGetPhysicalDeviceSurfaceCapabilitiesKHR(long physicalDevice, long surface, long pSurfaceCapabilities) {
-		long __functionAddress = getInstance().GetPhysicalDeviceSurfaceCapabilitiesKHR;
+	public static int nvkGetPhysicalDeviceSurfaceCapabilitiesKHR(VkPhysicalDevice physicalDevice, long surface, long pSurfaceCapabilities) {
+		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfaceCapabilitiesKHR;
 		if ( CHECKS )
-			checkPointer(physicalDevice);
-		return callPJPI(__functionAddress, physicalDevice, surface, pSurfaceCapabilities);
+			checkFunctionAddress(__functionAddress);
+		return callPJPI(__functionAddress, physicalDevice.address(), surface, pSurfaceCapabilities);
 	}
 
 	/**
@@ -214,7 +223,7 @@ public class KHRSurface {
 	 * @param surface              the surface to query
 	 * @param pSurfaceCapabilities a pointer to an instance of {@link VkSurfaceCapabilitiesKHR} that will be filled
 	 */
-	public static int vkGetPhysicalDeviceSurfaceCapabilitiesKHR(long physicalDevice, long surface, VkSurfaceCapabilitiesKHR pSurfaceCapabilities) {
+	public static int vkGetPhysicalDeviceSurfaceCapabilitiesKHR(VkPhysicalDevice physicalDevice, long surface, VkSurfaceCapabilitiesKHR pSurfaceCapabilities) {
 		return nvkGetPhysicalDeviceSurfaceCapabilitiesKHR(physicalDevice, surface, pSurfaceCapabilities.address());
 	}
 
@@ -222,11 +231,11 @@ public class KHRSurface {
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfaceFormatsKHR GetPhysicalDeviceSurfaceFormatsKHR} */
 	@JavadocExclude
-	public static int nvkGetPhysicalDeviceSurfaceFormatsKHR(long physicalDevice, long surface, long pSurfaceFormatCount, long pSurfaceFormats) {
-		long __functionAddress = getInstance().GetPhysicalDeviceSurfaceFormatsKHR;
+	public static int nvkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, long surface, long pSurfaceFormatCount, long pSurfaceFormats) {
+		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfaceFormatsKHR;
 		if ( CHECKS )
-			checkPointer(physicalDevice);
-		return callPJPPI(__functionAddress, physicalDevice, surface, pSurfaceFormatCount, pSurfaceFormats);
+			checkFunctionAddress(__functionAddress);
+		return callPJPPI(__functionAddress, physicalDevice.address(), surface, pSurfaceFormatCount, pSurfaceFormats);
 	}
 
 	/**
@@ -237,14 +246,14 @@ public class KHRSurface {
 	 * @param pSurfaceFormatCount the number of elements in the array pointed by {@code pSurfaceFormats}
 	 * @param pSurfaceFormats     a pointer to an array of {@link VkSurfaceFormatKHR}
 	 */
-	public static int vkGetPhysicalDeviceSurfaceFormatsKHR(long physicalDevice, long surface, ByteBuffer pSurfaceFormatCount, VkSurfaceFormatKHR.Buffer pSurfaceFormats) {
+	public static int vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, long surface, ByteBuffer pSurfaceFormatCount, VkSurfaceFormatKHR.Buffer pSurfaceFormats) {
 		if ( CHECKS )
 			if ( pSurfaceFormats != null ) checkBuffer(pSurfaceFormats, pSurfaceFormatCount.getInt(pSurfaceFormatCount.position()));
 		return nvkGetPhysicalDeviceSurfaceFormatsKHR(physicalDevice, surface, memAddress(pSurfaceFormatCount), pSurfaceFormats == null ? NULL : pSurfaceFormats.address());
 	}
 
 	/** Alternative version of: {@link #vkGetPhysicalDeviceSurfaceFormatsKHR GetPhysicalDeviceSurfaceFormatsKHR} */
-	public static int vkGetPhysicalDeviceSurfaceFormatsKHR(long physicalDevice, long surface, IntBuffer pSurfaceFormatCount, VkSurfaceFormatKHR.Buffer pSurfaceFormats) {
+	public static int vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, long surface, IntBuffer pSurfaceFormatCount, VkSurfaceFormatKHR.Buffer pSurfaceFormats) {
 		if ( CHECKS )
 			if ( pSurfaceFormats != null ) checkBuffer(pSurfaceFormats, pSurfaceFormatCount.get(pSurfaceFormatCount.position()));
 		return nvkGetPhysicalDeviceSurfaceFormatsKHR(physicalDevice, surface, memAddress(pSurfaceFormatCount), pSurfaceFormats == null ? NULL : pSurfaceFormats.address());
@@ -254,11 +263,11 @@ public class KHRSurface {
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfacePresentModesKHR GetPhysicalDeviceSurfacePresentModesKHR} */
 	@JavadocExclude
-	public static int nvkGetPhysicalDeviceSurfacePresentModesKHR(long physicalDevice, long surface, long pPresentModeCount, long pPresentModes) {
-		long __functionAddress = getInstance().GetPhysicalDeviceSurfacePresentModesKHR;
+	public static int nvkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, long surface, long pPresentModeCount, long pPresentModes) {
+		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfacePresentModesKHR;
 		if ( CHECKS )
-			checkPointer(physicalDevice);
-		return callPJPPI(__functionAddress, physicalDevice, surface, pPresentModeCount, pPresentModes);
+			checkFunctionAddress(__functionAddress);
+		return callPJPPI(__functionAddress, physicalDevice.address(), surface, pPresentModeCount, pPresentModes);
 	}
 
 	/**
@@ -269,14 +278,14 @@ public class KHRSurface {
 	 * @param pPresentModeCount the number of elements in the array pointed by {@code pPresentModes}
 	 * @param pPresentModes     a pointer to an array of {@code VkPresentModeKHR}
 	 */
-	public static int vkGetPhysicalDeviceSurfacePresentModesKHR(long physicalDevice, long surface, ByteBuffer pPresentModeCount, ByteBuffer pPresentModes) {
+	public static int vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, long surface, ByteBuffer pPresentModeCount, ByteBuffer pPresentModes) {
 		if ( CHECKS )
 			if ( pPresentModes != null ) checkBuffer(pPresentModes, pPresentModeCount.getInt(pPresentModeCount.position()) << 2);
 		return nvkGetPhysicalDeviceSurfacePresentModesKHR(physicalDevice, surface, memAddress(pPresentModeCount), memAddressSafe(pPresentModes));
 	}
 
 	/** Alternative version of: {@link #vkGetPhysicalDeviceSurfacePresentModesKHR GetPhysicalDeviceSurfacePresentModesKHR} */
-	public static int vkGetPhysicalDeviceSurfacePresentModesKHR(long physicalDevice, long surface, IntBuffer pPresentModeCount, IntBuffer pPresentModes) {
+	public static int vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, long surface, IntBuffer pPresentModeCount, IntBuffer pPresentModes) {
 		if ( CHECKS )
 			if ( pPresentModes != null ) checkBuffer(pPresentModes, pPresentModeCount.get(pPresentModeCount.position()));
 		return nvkGetPhysicalDeviceSurfacePresentModesKHR(physicalDevice, surface, memAddress(pPresentModeCount), memAddressSafe(pPresentModes));

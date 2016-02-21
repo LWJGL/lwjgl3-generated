@@ -154,44 +154,52 @@ public class EXTDebugReport {
 
 	@JavadocExclude
 	public EXTDebugReport(FunctionProvider provider) {
-		CreateDebugReportCallbackEXT = checkFunctionAddress(provider.getFunctionAddress("vkCreateDebugReportCallbackEXT"));
-		DestroyDebugReportCallbackEXT = checkFunctionAddress(provider.getFunctionAddress("vkDestroyDebugReportCallbackEXT"));
-		DebugReportMessageEXT = checkFunctionAddress(provider.getFunctionAddress("vkDebugReportMessageEXT"));
+		CreateDebugReportCallbackEXT = provider.getFunctionAddress("vkCreateDebugReportCallbackEXT");
+		DestroyDebugReportCallbackEXT = provider.getFunctionAddress("vkDestroyDebugReportCallbackEXT");
+		DebugReportMessageEXT = provider.getFunctionAddress("vkDebugReportMessageEXT");
 	}
 
 	// --- [ Function Addresses ] ---
 
-	private static final EXTDebugReport instance = new EXTDebugReport(getLibrary());
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return VK10.getLibrary();
+	/** Returns the {@link EXTDebugReport} instance from the specified dispatchable handle. */
+	public static EXTDebugReport getInstance(DispatchableHandle handle) {
+		return getInstance(handle.getCapabilities());
 	}
 
-	/** Returns the {@link EXTDebugReport} instance. */
-	public static EXTDebugReport getInstance() {
-		return instance;
+	/** Returns the {@link EXTDebugReport} instance of the specified {@link VKCapabilities}. */
+	public static EXTDebugReport getInstance(VKCapabilities caps) {
+		return checkFunctionality(caps.__EXTDebugReport);
+	}
+
+	static EXTDebugReport create(FunctionProvider provider) {
+		EXTDebugReport funcs = new EXTDebugReport(provider);
+
+		boolean supported = checkFunctions(
+			funcs.CreateDebugReportCallbackEXT, funcs.DestroyDebugReportCallbackEXT, funcs.DebugReportMessageEXT
+		);
+
+		return supported ? funcs : null;
 	}
 
 	// --- [ vkCreateDebugReportCallbackEXT ] ---
 
 	/** Unsafe version of {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT} */
 	@JavadocExclude
-	public static int nvkCreateDebugReportCallbackEXT(long instance, long pCreateInfo, long pAllocator, long pCallback) {
-		long __functionAddress = getInstance().CreateDebugReportCallbackEXT;
+	public static int nvkCreateDebugReportCallbackEXT(VkInstance instance, long pCreateInfo, long pAllocator, long pCallback) {
+		long __functionAddress = getInstance(instance).CreateDebugReportCallbackEXT;
 		if ( CHECKS )
-			checkPointer(instance);
-		return callPPPPI(__functionAddress, instance, pCreateInfo, pAllocator, pCallback);
+			checkFunctionAddress(__functionAddress);
+		return callPPPPI(__functionAddress, instance.address(), pCreateInfo, pAllocator, pCallback);
 	}
 
-	public static int vkCreateDebugReportCallbackEXT(long instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pCallback) {
+	public static int vkCreateDebugReportCallbackEXT(VkInstance instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pCallback) {
 		if ( CHECKS )
 			checkBuffer(pCallback, 1 << 3);
 		return nvkCreateDebugReportCallbackEXT(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pCallback));
 	}
 
 	/** Alternative version of: {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT} */
-	public static int vkCreateDebugReportCallbackEXT(long instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pCallback) {
+	public static int vkCreateDebugReportCallbackEXT(VkInstance instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pCallback) {
 		if ( CHECKS )
 			checkBuffer(pCallback, 1);
 		return nvkCreateDebugReportCallbackEXT(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pCallback));
@@ -201,14 +209,14 @@ public class EXTDebugReport {
 
 	/** Unsafe version of {@link #vkDestroyDebugReportCallbackEXT DestroyDebugReportCallbackEXT} */
 	@JavadocExclude
-	public static void nvkDestroyDebugReportCallbackEXT(long instance, long callback, long pAllocator) {
-		long __functionAddress = getInstance().DestroyDebugReportCallbackEXT;
+	public static void nvkDestroyDebugReportCallbackEXT(VkInstance instance, long callback, long pAllocator) {
+		long __functionAddress = getInstance(instance).DestroyDebugReportCallbackEXT;
 		if ( CHECKS )
-			checkPointer(instance);
-		callPJPV(__functionAddress, instance, callback, pAllocator);
+			checkFunctionAddress(__functionAddress);
+		callPJPV(__functionAddress, instance.address(), callback, pAllocator);
 	}
 
-	public static void vkDestroyDebugReportCallbackEXT(long instance, long callback, VkAllocationCallbacks pAllocator) {
+	public static void vkDestroyDebugReportCallbackEXT(VkInstance instance, long callback, VkAllocationCallbacks pAllocator) {
 		nvkDestroyDebugReportCallbackEXT(instance, callback, pAllocator == null ? NULL : pAllocator.address());
 	}
 
@@ -216,14 +224,14 @@ public class EXTDebugReport {
 
 	/** Unsafe version of {@link #vkDebugReportMessageEXT DebugReportMessageEXT} */
 	@JavadocExclude
-	public static void nvkDebugReportMessageEXT(long instance, int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage) {
-		long __functionAddress = getInstance().DebugReportMessageEXT;
+	public static void nvkDebugReportMessageEXT(VkInstance instance, int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage) {
+		long __functionAddress = getInstance(instance).DebugReportMessageEXT;
 		if ( CHECKS )
-			checkPointer(instance);
-		callPIIJPIPPV(__functionAddress, instance, flags, objectType, object, location, messageCode, pLayerPrefix, pMessage);
+			checkFunctionAddress(__functionAddress);
+		callPIIJPIPPV(__functionAddress, instance.address(), flags, objectType, object, location, messageCode, pLayerPrefix, pMessage);
 	}
 
-	public static void vkDebugReportMessageEXT(long instance, int flags, int objectType, long object, long location, int messageCode, ByteBuffer pLayerPrefix, ByteBuffer pMessage) {
+	public static void vkDebugReportMessageEXT(VkInstance instance, int flags, int objectType, long object, long location, int messageCode, ByteBuffer pLayerPrefix, ByteBuffer pMessage) {
 		if ( CHECKS ) {
 			checkNT1(pLayerPrefix);
 			checkNT1(pMessage);
@@ -232,7 +240,7 @@ public class EXTDebugReport {
 	}
 
 	/** CharSequence version of: {@link #vkDebugReportMessageEXT DebugReportMessageEXT} */
-	public static void vkDebugReportMessageEXT(long instance, int flags, int objectType, long object, long location, int messageCode, CharSequence pLayerPrefix, CharSequence pMessage) {
+	public static void vkDebugReportMessageEXT(VkInstance instance, int flags, int objectType, long object, long location, int messageCode, CharSequence pLayerPrefix, CharSequence pMessage) {
 		APIBuffer __buffer = apiBuffer();
 		int pLayerPrefixEncoded = __buffer.stringParamUTF8(pLayerPrefix, true);
 		int pMessageEncoded = __buffer.stringParamUTF8(pMessage, true);

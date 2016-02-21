@@ -39,32 +39,40 @@ public class KHRDisplaySwapchain {
 
 	@JavadocExclude
 	public KHRDisplaySwapchain(FunctionProvider provider) {
-		CreateSharedSwapchainsKHR = checkFunctionAddress(provider.getFunctionAddress("vkCreateSharedSwapchainsKHR"));
+		CreateSharedSwapchainsKHR = provider.getFunctionAddress("vkCreateSharedSwapchainsKHR");
 	}
 
 	// --- [ Function Addresses ] ---
 
-	private static final KHRDisplaySwapchain instance = new KHRDisplaySwapchain(getLibrary());
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return VK10.getLibrary();
+	/** Returns the {@link KHRDisplaySwapchain} instance from the specified dispatchable handle. */
+	public static KHRDisplaySwapchain getInstance(DispatchableHandle handle) {
+		return getInstance(handle.getCapabilities());
 	}
 
-	/** Returns the {@link KHRDisplaySwapchain} instance. */
-	public static KHRDisplaySwapchain getInstance() {
-		return instance;
+	/** Returns the {@link KHRDisplaySwapchain} instance of the specified {@link VKCapabilities}. */
+	public static KHRDisplaySwapchain getInstance(VKCapabilities caps) {
+		return checkFunctionality(caps.__KHRDisplaySwapchain);
+	}
+
+	static KHRDisplaySwapchain create(FunctionProvider provider) {
+		KHRDisplaySwapchain funcs = new KHRDisplaySwapchain(provider);
+
+		boolean supported = checkFunctions(
+			funcs.CreateSharedSwapchainsKHR
+		);
+
+		return supported ? funcs : null;
 	}
 
 	// --- [ vkCreateSharedSwapchainsKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateSharedSwapchainsKHR CreateSharedSwapchainsKHR} */
 	@JavadocExclude
-	public static int nvkCreateSharedSwapchainsKHR(long device, int swapchainCount, long pCreateInfos, long pAllocator, long pSwapchains) {
-		long __functionAddress = getInstance().CreateSharedSwapchainsKHR;
+	public static int nvkCreateSharedSwapchainsKHR(VkDevice device, int swapchainCount, long pCreateInfos, long pAllocator, long pSwapchains) {
+		long __functionAddress = getInstance(device).CreateSharedSwapchainsKHR;
 		if ( CHECKS )
-			checkPointer(device);
-		return callPIPPPI(__functionAddress, device, swapchainCount, pCreateInfos, pAllocator, pSwapchains);
+			checkFunctionAddress(__functionAddress);
+		return callPIPPPI(__functionAddress, device.address(), swapchainCount, pCreateInfos, pAllocator, pSwapchains);
 	}
 
 	/**
@@ -76,7 +84,7 @@ public class KHRDisplaySwapchain {
 	 * @param pAllocator     the allocator used for host memory allocated for the swapchain objects
 	 * @param pSwapchains    the array of created swapchains
 	 */
-	public static int vkCreateSharedSwapchainsKHR(long device, int swapchainCount, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, ByteBuffer pSwapchains) {
+	public static int vkCreateSharedSwapchainsKHR(VkDevice device, int swapchainCount, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, ByteBuffer pSwapchains) {
 		if ( CHECKS ) {
 			checkBuffer(pCreateInfos, swapchainCount);
 			checkBuffer(pSwapchains, swapchainCount << 3);
@@ -85,7 +93,7 @@ public class KHRDisplaySwapchain {
 	}
 
 	/** Alternative version of: {@link #vkCreateSharedSwapchainsKHR CreateSharedSwapchainsKHR} */
-	public static int vkCreateSharedSwapchainsKHR(long device, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pSwapchains) {
+	public static int vkCreateSharedSwapchainsKHR(VkDevice device, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pSwapchains) {
 		if ( CHECKS )
 			checkBuffer(pSwapchains, pCreateInfos.remaining());
 		return nvkCreateSharedSwapchainsKHR(device, pCreateInfos.remaining(), pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSwapchains));

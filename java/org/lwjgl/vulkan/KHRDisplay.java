@@ -57,38 +57,47 @@ public class KHRDisplay {
 
 	@JavadocExclude
 	public KHRDisplay(FunctionProvider provider) {
-		GetPhysicalDeviceDisplayPropertiesKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPropertiesKHR"));
-		GetPhysicalDeviceDisplayPlanePropertiesKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPlanePropertiesKHR"));
-		GetDisplayPlaneSupportedDisplaysKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetDisplayPlaneSupportedDisplaysKHR"));
-		GetDisplayModePropertiesKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetDisplayModePropertiesKHR"));
-		CreateDisplayModeKHR = checkFunctionAddress(provider.getFunctionAddress("vkCreateDisplayModeKHR"));
-		GetDisplayPlaneCapabilitiesKHR = checkFunctionAddress(provider.getFunctionAddress("vkGetDisplayPlaneCapabilitiesKHR"));
-		CreateDisplayPlaneSurfaceKHR = checkFunctionAddress(provider.getFunctionAddress("vkCreateDisplayPlaneSurfaceKHR"));
+		GetPhysicalDeviceDisplayPropertiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPropertiesKHR");
+		GetPhysicalDeviceDisplayPlanePropertiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
+		GetDisplayPlaneSupportedDisplaysKHR = provider.getFunctionAddress("vkGetDisplayPlaneSupportedDisplaysKHR");
+		GetDisplayModePropertiesKHR = provider.getFunctionAddress("vkGetDisplayModePropertiesKHR");
+		CreateDisplayModeKHR = provider.getFunctionAddress("vkCreateDisplayModeKHR");
+		GetDisplayPlaneCapabilitiesKHR = provider.getFunctionAddress("vkGetDisplayPlaneCapabilitiesKHR");
+		CreateDisplayPlaneSurfaceKHR = provider.getFunctionAddress("vkCreateDisplayPlaneSurfaceKHR");
 	}
 
 	// --- [ Function Addresses ] ---
 
-	private static final KHRDisplay instance = new KHRDisplay(getLibrary());
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return VK10.getLibrary();
+	/** Returns the {@link KHRDisplay} instance from the specified dispatchable handle. */
+	public static KHRDisplay getInstance(DispatchableHandle handle) {
+		return getInstance(handle.getCapabilities());
 	}
 
-	/** Returns the {@link KHRDisplay} instance. */
-	public static KHRDisplay getInstance() {
-		return instance;
+	/** Returns the {@link KHRDisplay} instance of the specified {@link VKCapabilities}. */
+	public static KHRDisplay getInstance(VKCapabilities caps) {
+		return checkFunctionality(caps.__KHRDisplay);
+	}
+
+	static KHRDisplay create(FunctionProvider provider) {
+		KHRDisplay funcs = new KHRDisplay(provider);
+
+		boolean supported = checkFunctions(
+			funcs.GetPhysicalDeviceDisplayPropertiesKHR, funcs.GetPhysicalDeviceDisplayPlanePropertiesKHR, funcs.GetDisplayPlaneSupportedDisplaysKHR, 
+			funcs.GetDisplayModePropertiesKHR, funcs.CreateDisplayModeKHR, funcs.GetDisplayPlaneCapabilitiesKHR, funcs.CreateDisplayPlaneSurfaceKHR
+		);
+
+		return supported ? funcs : null;
 	}
 
 	// --- [ vkGetPhysicalDeviceDisplayPropertiesKHR ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceDisplayPropertiesKHR GetPhysicalDeviceDisplayPropertiesKHR} */
 	@JavadocExclude
-	public static int nvkGetPhysicalDeviceDisplayPropertiesKHR(long physicalDevice, long pPropertyCount, long pProperties) {
-		long __functionAddress = getInstance().GetPhysicalDeviceDisplayPropertiesKHR;
+	public static int nvkGetPhysicalDeviceDisplayPropertiesKHR(VkPhysicalDevice physicalDevice, long pPropertyCount, long pProperties) {
+		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceDisplayPropertiesKHR;
 		if ( CHECKS )
-			checkPointer(physicalDevice);
-		return callPPPI(__functionAddress, physicalDevice, pPropertyCount, pProperties);
+			checkFunctionAddress(__functionAddress);
+		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties);
 	}
 
 	/**
@@ -98,7 +107,7 @@ public class KHRDisplay {
 	 * @param pPropertyCount the number of entries in the array pointed to by {@code pProperties}
 	 * @param pProperties    a pointer to an array of {@code pPropertyCount} {@link kDisplayPropertiesKHR} structures
 	 */
-	public static int vkGetPhysicalDeviceDisplayPropertiesKHR(long physicalDevice, ByteBuffer pPropertyCount, VkDisplayPropertiesKHR.Buffer pProperties) {
+	public static int vkGetPhysicalDeviceDisplayPropertiesKHR(VkPhysicalDevice physicalDevice, ByteBuffer pPropertyCount, VkDisplayPropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1 << 2);
 			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.getInt(pPropertyCount.position()));
@@ -107,7 +116,7 @@ public class KHRDisplay {
 	}
 
 	/** Alternative version of: {@link #vkGetPhysicalDeviceDisplayPropertiesKHR GetPhysicalDeviceDisplayPropertiesKHR} */
-	public static int vkGetPhysicalDeviceDisplayPropertiesKHR(long physicalDevice, IntBuffer pPropertyCount, VkDisplayPropertiesKHR.Buffer pProperties) {
+	public static int vkGetPhysicalDeviceDisplayPropertiesKHR(VkPhysicalDevice physicalDevice, IntBuffer pPropertyCount, VkDisplayPropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
 			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
@@ -119,11 +128,11 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceDisplayPlanePropertiesKHR GetPhysicalDeviceDisplayPlanePropertiesKHR} */
 	@JavadocExclude
-	public static int nvkGetPhysicalDeviceDisplayPlanePropertiesKHR(long physicalDevice, long pPropertyCount, long pProperties) {
-		long __functionAddress = getInstance().GetPhysicalDeviceDisplayPlanePropertiesKHR;
+	public static int nvkGetPhysicalDeviceDisplayPlanePropertiesKHR(VkPhysicalDevice physicalDevice, long pPropertyCount, long pProperties) {
+		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceDisplayPlanePropertiesKHR;
 		if ( CHECKS )
-			checkPointer(physicalDevice);
-		return callPPPI(__functionAddress, physicalDevice, pPropertyCount, pProperties);
+			checkFunctionAddress(__functionAddress);
+		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties);
 	}
 
 	/**
@@ -133,7 +142,7 @@ public class KHRDisplay {
 	 * @param pPropertyCount the number of entries in the array pointed to by {@code pProperties}
 	 * @param pProperties    a pointer to an array of {@code pPropertyCount} {@link VkDisplayPlanePropertiesKHR} structures.
 	 */
-	public static int vkGetPhysicalDeviceDisplayPlanePropertiesKHR(long physicalDevice, ByteBuffer pPropertyCount, VkDisplayPlanePropertiesKHR.Buffer pProperties) {
+	public static int vkGetPhysicalDeviceDisplayPlanePropertiesKHR(VkPhysicalDevice physicalDevice, ByteBuffer pPropertyCount, VkDisplayPlanePropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1 << 2);
 			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.getInt(pPropertyCount.position()));
@@ -142,7 +151,7 @@ public class KHRDisplay {
 	}
 
 	/** Alternative version of: {@link #vkGetPhysicalDeviceDisplayPlanePropertiesKHR GetPhysicalDeviceDisplayPlanePropertiesKHR} */
-	public static int vkGetPhysicalDeviceDisplayPlanePropertiesKHR(long physicalDevice, IntBuffer pPropertyCount, VkDisplayPlanePropertiesKHR.Buffer pProperties) {
+	public static int vkGetPhysicalDeviceDisplayPlanePropertiesKHR(VkPhysicalDevice physicalDevice, IntBuffer pPropertyCount, VkDisplayPlanePropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
 			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
@@ -154,11 +163,11 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkGetDisplayPlaneSupportedDisplaysKHR GetDisplayPlaneSupportedDisplaysKHR} */
 	@JavadocExclude
-	public static int nvkGetDisplayPlaneSupportedDisplaysKHR(long physicalDevice, int planeIndex, long pDisplayCount, long pDisplays) {
-		long __functionAddress = getInstance().GetDisplayPlaneSupportedDisplaysKHR;
+	public static int nvkGetDisplayPlaneSupportedDisplaysKHR(VkPhysicalDevice physicalDevice, int planeIndex, long pDisplayCount, long pDisplays) {
+		long __functionAddress = getInstance(physicalDevice).GetDisplayPlaneSupportedDisplaysKHR;
 		if ( CHECKS )
-			checkPointer(physicalDevice);
-		return callPIPPI(__functionAddress, physicalDevice, planeIndex, pDisplayCount, pDisplays);
+			checkFunctionAddress(__functionAddress);
+		return callPIPPI(__functionAddress, physicalDevice.address(), planeIndex, pDisplayCount, pDisplays);
 	}
 
 	/**
@@ -169,7 +178,7 @@ public class KHRDisplay {
 	 * @param pDisplayCount  the number of entries in the array pointed to by {@code pDisplays}
 	 * @param pDisplays      a pointer to an array of {@code pDisplayCount} {@code VkDisplayKHR} handles.
 	 */
-	public static int vkGetDisplayPlaneSupportedDisplaysKHR(long physicalDevice, int planeIndex, ByteBuffer pDisplayCount, ByteBuffer pDisplays) {
+	public static int vkGetDisplayPlaneSupportedDisplaysKHR(VkPhysicalDevice physicalDevice, int planeIndex, ByteBuffer pDisplayCount, ByteBuffer pDisplays) {
 		if ( CHECKS ) {
 			checkBuffer(pDisplayCount, 1 << 2);
 			if ( pDisplays != null ) checkBuffer(pDisplays, pDisplayCount.getInt(pDisplayCount.position()) << 3);
@@ -178,7 +187,7 @@ public class KHRDisplay {
 	}
 
 	/** Alternative version of: {@link #vkGetDisplayPlaneSupportedDisplaysKHR GetDisplayPlaneSupportedDisplaysKHR} */
-	public static int vkGetDisplayPlaneSupportedDisplaysKHR(long physicalDevice, int planeIndex, IntBuffer pDisplayCount, LongBuffer pDisplays) {
+	public static int vkGetDisplayPlaneSupportedDisplaysKHR(VkPhysicalDevice physicalDevice, int planeIndex, IntBuffer pDisplayCount, LongBuffer pDisplays) {
 		if ( CHECKS ) {
 			checkBuffer(pDisplayCount, 1);
 			if ( pDisplays != null ) checkBuffer(pDisplays, pDisplayCount.get(pDisplayCount.position()));
@@ -190,11 +199,11 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkGetDisplayModePropertiesKHR GetDisplayModePropertiesKHR} */
 	@JavadocExclude
-	public static int nvkGetDisplayModePropertiesKHR(long physicalDevice, long display, long pPropertyCount, long pProperties) {
-		long __functionAddress = getInstance().GetDisplayModePropertiesKHR;
+	public static int nvkGetDisplayModePropertiesKHR(VkPhysicalDevice physicalDevice, long display, long pPropertyCount, long pProperties) {
+		long __functionAddress = getInstance(physicalDevice).GetDisplayModePropertiesKHR;
 		if ( CHECKS )
-			checkPointer(physicalDevice);
-		return callPJPPI(__functionAddress, physicalDevice, display, pPropertyCount, pProperties);
+			checkFunctionAddress(__functionAddress);
+		return callPJPPI(__functionAddress, physicalDevice.address(), display, pPropertyCount, pProperties);
 	}
 
 	/**
@@ -205,7 +214,7 @@ public class KHRDisplay {
 	 * @param pPropertyCount the number of entries in the array pointed to by {@code pProperties}
 	 * @param pProperties    a pointer to an array of {@code pPropertyCount} {@link VkDisplayModePropertiesKHR} structures
 	 */
-	public static int vkGetDisplayModePropertiesKHR(long physicalDevice, long display, ByteBuffer pPropertyCount, VkDisplayModePropertiesKHR.Buffer pProperties) {
+	public static int vkGetDisplayModePropertiesKHR(VkPhysicalDevice physicalDevice, long display, ByteBuffer pPropertyCount, VkDisplayModePropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1 << 2);
 			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.getInt(pPropertyCount.position()));
@@ -214,7 +223,7 @@ public class KHRDisplay {
 	}
 
 	/** Alternative version of: {@link #vkGetDisplayModePropertiesKHR GetDisplayModePropertiesKHR} */
-	public static int vkGetDisplayModePropertiesKHR(long physicalDevice, long display, IntBuffer pPropertyCount, VkDisplayModePropertiesKHR.Buffer pProperties) {
+	public static int vkGetDisplayModePropertiesKHR(VkPhysicalDevice physicalDevice, long display, IntBuffer pPropertyCount, VkDisplayModePropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
 			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
@@ -226,11 +235,11 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkCreateDisplayModeKHR CreateDisplayModeKHR} */
 	@JavadocExclude
-	public static int nvkCreateDisplayModeKHR(long physicalDevice, long display, long pCreateInfo, long pAllocator, long pMode) {
-		long __functionAddress = getInstance().CreateDisplayModeKHR;
+	public static int nvkCreateDisplayModeKHR(VkPhysicalDevice physicalDevice, long display, long pCreateInfo, long pAllocator, long pMode) {
+		long __functionAddress = getInstance(physicalDevice).CreateDisplayModeKHR;
 		if ( CHECKS )
-			checkPointer(physicalDevice);
-		return callPJPPPI(__functionAddress, physicalDevice, display, pCreateInfo, pAllocator, pMode);
+			checkFunctionAddress(__functionAddress);
+		return callPJPPPI(__functionAddress, physicalDevice.address(), display, pCreateInfo, pAllocator, pMode);
 	}
 
 	/**
@@ -242,14 +251,14 @@ public class KHRDisplay {
 	 * @param pAllocator     the allocator used for host memory allocated for the mode object
 	 * @param pMode          returns the handle of the mode created
 	 */
-	public static int vkCreateDisplayModeKHR(long physicalDevice, long display, VkDisplayModeCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pMode) {
+	public static int vkCreateDisplayModeKHR(VkPhysicalDevice physicalDevice, long display, VkDisplayModeCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pMode) {
 		if ( CHECKS )
 			checkBuffer(pMode, 1 << 3);
 		return nvkCreateDisplayModeKHR(physicalDevice, display, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pMode));
 	}
 
 	/** Alternative version of: {@link #vkCreateDisplayModeKHR CreateDisplayModeKHR} */
-	public static int vkCreateDisplayModeKHR(long physicalDevice, long display, VkDisplayModeCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pMode) {
+	public static int vkCreateDisplayModeKHR(VkPhysicalDevice physicalDevice, long display, VkDisplayModeCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pMode) {
 		if ( CHECKS )
 			checkBuffer(pMode, 1);
 		return nvkCreateDisplayModeKHR(physicalDevice, display, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pMode));
@@ -259,11 +268,11 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkGetDisplayPlaneCapabilitiesKHR GetDisplayPlaneCapabilitiesKHR} */
 	@JavadocExclude
-	public static int nvkGetDisplayPlaneCapabilitiesKHR(long physicalDevice, long mode, int planeIndex, long pCapabilities) {
-		long __functionAddress = getInstance().GetDisplayPlaneCapabilitiesKHR;
+	public static int nvkGetDisplayPlaneCapabilitiesKHR(VkPhysicalDevice physicalDevice, long mode, int planeIndex, long pCapabilities) {
+		long __functionAddress = getInstance(physicalDevice).GetDisplayPlaneCapabilitiesKHR;
 		if ( CHECKS )
-			checkPointer(physicalDevice);
-		return callPJIPI(__functionAddress, physicalDevice, mode, planeIndex, pCapabilities);
+			checkFunctionAddress(__functionAddress);
+		return callPJIPI(__functionAddress, physicalDevice.address(), mode, planeIndex, pCapabilities);
 	}
 
 	/**
@@ -274,7 +283,7 @@ public class KHRDisplay {
 	 * @param planeIndex     the plane which the application intends to use with the display
 	 * @param pCapabilities  a pointer to a {@link VkDisplayPlaneCapabilitiesKHR} struct
 	 */
-	public static int vkGetDisplayPlaneCapabilitiesKHR(long physicalDevice, long mode, int planeIndex, VkDisplayPlaneCapabilitiesKHR pCapabilities) {
+	public static int vkGetDisplayPlaneCapabilitiesKHR(VkPhysicalDevice physicalDevice, long mode, int planeIndex, VkDisplayPlaneCapabilitiesKHR pCapabilities) {
 		return nvkGetDisplayPlaneCapabilitiesKHR(physicalDevice, mode, planeIndex, pCapabilities.address());
 	}
 
@@ -282,11 +291,11 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkCreateDisplayPlaneSurfaceKHR CreateDisplayPlaneSurfaceKHR} */
 	@JavadocExclude
-	public static int nvkCreateDisplayPlaneSurfaceKHR(long instance, long pCreateInfo, long pAllocator, long pSurface) {
-		long __functionAddress = getInstance().CreateDisplayPlaneSurfaceKHR;
+	public static int nvkCreateDisplayPlaneSurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
+		long __functionAddress = getInstance(instance).CreateDisplayPlaneSurfaceKHR;
 		if ( CHECKS )
-			checkPointer(instance);
-		return callPPPPI(__functionAddress, instance, pCreateInfo, pAllocator, pSurface);
+			checkFunctionAddress(__functionAddress);
+		return callPPPPI(__functionAddress, instance.address(), pCreateInfo, pAllocator, pSurface);
 	}
 
 	/**
@@ -297,14 +306,14 @@ public class KHRDisplay {
 	 * @param pAllocator  the allocator used for host memory allocated for the surface object
 	 * @param pSurface    the resulting surface object handle is returned in {@code pSurface}
 	 */
-	public static int vkCreateDisplayPlaneSurfaceKHR(long instance, VkDisplaySurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
+	public static int vkCreateDisplayPlaneSurfaceKHR(VkInstance instance, VkDisplaySurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1 << 3);
 		return nvkCreateDisplayPlaneSurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
 	}
 
 	/** Alternative version of: {@link #vkCreateDisplayPlaneSurfaceKHR CreateDisplayPlaneSurfaceKHR} */
-	public static int vkCreateDisplayPlaneSurfaceKHR(long instance, VkDisplaySurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
+	public static int vkCreateDisplayPlaneSurfaceKHR(VkInstance instance, VkDisplaySurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1);
 		return nvkCreateDisplayPlaneSurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
