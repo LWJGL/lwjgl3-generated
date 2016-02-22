@@ -89,19 +89,12 @@ public class VK10 {
 	public static final long VK_WHOLE_SIZE = (~0L);
 
 	/** VkPipelineCacheHeaderVersion */
-	public static final int VK_PIPELINE_CACHE_HEADER_VERSION_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_PIPELINE_CACHE_HEADER_VERSION_ONE = 0x1;
-
-	/**  */
-	public static final int VK_PIPELINE_CACHE_HEADER_VERSION_BEGIN_RANGE = VK_PIPELINE_CACHE_HEADER_VERSION_ONE;
-
-	/**  */
-	public static final int VK_PIPELINE_CACHE_HEADER_VERSION_END_RANGE = VK_PIPELINE_CACHE_HEADER_VERSION_ONE;
-
-	/**  */
-	public static final int VK_PIPELINE_CACHE_HEADER_VERSION_RANGE_SIZE = VK_PIPELINE_CACHE_HEADER_VERSION_ONE - VK_PIPELINE_CACHE_HEADER_VERSION_ONE + 1;
+	public static final int
+		VK_PIPELINE_CACHE_HEADER_VERSION_ONE         = 1,
+		VK_PIPELINE_CACHE_HEADER_VERSION_BEGIN_RANGE = VK_PIPELINE_CACHE_HEADER_VERSION_ONE,
+		VK_PIPELINE_CACHE_HEADER_VERSION_END_RANGE   = VK_PIPELINE_CACHE_HEADER_VERSION_ONE,
+		VK_PIPELINE_CACHE_HEADER_VERSION_RANGE_SIZE  = VK_PIPELINE_CACHE_HEADER_VERSION_ONE - VK_PIPELINE_CACHE_HEADER_VERSION_ONE + 1,
+		VK_PIPELINE_CACHE_HEADER_VERSION_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** VkResult */
 	public static final int
@@ -127,2039 +120,863 @@ public class VK10 {
 		VK_RESULT_RANGE_SIZE           = VK_INCOMPLETE - VK_ERROR_FORMAT_NOT_SUPPORTED + 1,
 		VK_RESULT_MAX_ENUM             = 0x7FFFFFFF;
 
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_APPLICATION_INFO = 0x0;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO = 0x1;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO = 0x2;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO = 0x3;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_SUBMIT_INFO = 0x4;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO = 0x5;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE = 0x6;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_BIND_SPARSE_INFO = 0x7;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_FENCE_CREATE_INFO = 0x8;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO = 0x9;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_EVENT_CREATE_INFO = 0xA;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO = 0xB;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO = 0xC;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO = 0xD;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO = 0xE;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO = 0xF;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO = 0x10;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO = 0x11;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO = 0x12;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO = 0x13;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO = 0x14;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO = 0x15;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO = 0x16;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO = 0x17;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO = 0x18;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO = 0x19;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO = 0x1A;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO = 0x1B;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO = 0x1C;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO = 0x1D;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO = 0x1E;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO = 0x1F;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO = 0x20;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO = 0x21;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO = 0x22;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET = 0x23;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET = 0x24;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO = 0x25;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO = 0x26;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO = 0x27;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO = 0x28;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO = 0x29;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO = 0x2A;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO = 0x2B;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER = 0x2C;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER = 0x2D;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_MEMORY_BARRIER = 0x2E;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_LOADER_INSTANCE_CREATE_INFO = 0x2F;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO = 0x30;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_BEGIN_RANGE = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_END_RANGE = VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_RANGE_SIZE = VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO - VK_STRUCTURE_TYPE_APPLICATION_INFO + 1;
-
-	/**  */
-	public static final int VK_STRUCTURE_TYPE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_SYSTEM_ALLOCATION_SCOPE_COMMAND = 0x0;
-
-	/**  */
-	public static final int VK_SYSTEM_ALLOCATION_SCOPE_OBJECT = 0x1;
-
-	/**  */
-	public static final int VK_SYSTEM_ALLOCATION_SCOPE_CACHE = 0x2;
-
-	/**  */
-	public static final int VK_SYSTEM_ALLOCATION_SCOPE_DEVICE = 0x3;
-
-	/**  */
-	public static final int VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE = 0x4;
-
-	/**  */
-	public static final int VK_SYSTEM_ALLOCATION_SCOPE_BEGIN_RANGE = VK_SYSTEM_ALLOCATION_SCOPE_COMMAND;
-
-	/**  */
-	public static final int VK_SYSTEM_ALLOCATION_SCOPE_END_RANGE = VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE;
-
-	/**  */
-	public static final int VK_SYSTEM_ALLOCATION_SCOPE_RANGE_SIZE = VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE - VK_SYSTEM_ALLOCATION_SCOPE_COMMAND + 1;
-
-	/**  */
-	public static final int VK_SYSTEM_ALLOCATION_SCOPE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE = 0x0;
-
-	/**  */
-	public static final int VK_INTERNAL_ALLOCATION_TYPE_BEGIN_RANGE = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE;
-
-	/**  */
-	public static final int VK_INTERNAL_ALLOCATION_TYPE_END_RANGE = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE;
-
-	/**  */
-	public static final int VK_INTERNAL_ALLOCATION_TYPE_RANGE_SIZE = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE - VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE + 1;
-
-	/**  */
-	public static final int VK_INTERNAL_ALLOCATION_TYPE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_FORMAT_UNDEFINED = 0x0;
-
-	/**  */
-	public static final int VK_FORMAT_R4G4_UNORM_PACK8 = 0x1;
-
-	/**  */
-	public static final int VK_FORMAT_R4G4B4A4_UNORM_PACK16 = 0x2;
-
-	/**  */
-	public static final int VK_FORMAT_B4G4R4A4_UNORM_PACK16 = 0x3;
-
-	/**  */
-	public static final int VK_FORMAT_R5G6B5_UNORM_PACK16 = 0x4;
-
-	/**  */
-	public static final int VK_FORMAT_B5G6R5_UNORM_PACK16 = 0x5;
-
-	/**  */
-	public static final int VK_FORMAT_R5G5B5A1_UNORM_PACK16 = 0x6;
-
-	/**  */
-	public static final int VK_FORMAT_B5G5R5A1_UNORM_PACK16 = 0x7;
-
-	/**  */
-	public static final int VK_FORMAT_A1R5G5B5_UNORM_PACK16 = 0x8;
-
-	/**  */
-	public static final int VK_FORMAT_R8_UNORM = 0x9;
-
-	/**  */
-	public static final int VK_FORMAT_R8_SNORM = 0xA;
-
-	/**  */
-	public static final int VK_FORMAT_R8_USCALED = 0xB;
-
-	/**  */
-	public static final int VK_FORMAT_R8_SSCALED = 0xC;
-
-	/**  */
-	public static final int VK_FORMAT_R8_UINT = 0xD;
-
-	/**  */
-	public static final int VK_FORMAT_R8_SINT = 0xE;
-
-	/**  */
-	public static final int VK_FORMAT_R8_SRGB = 0xF;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8_UNORM = 0x10;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8_SNORM = 0x11;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8_USCALED = 0x12;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8_SSCALED = 0x13;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8_UINT = 0x14;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8_SINT = 0x15;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8_SRGB = 0x16;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8_UNORM = 0x17;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8_SNORM = 0x18;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8_USCALED = 0x19;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8_SSCALED = 0x1A;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8_UINT = 0x1B;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8_SINT = 0x1C;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8_SRGB = 0x1D;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8_UNORM = 0x1E;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8_SNORM = 0x1F;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8_USCALED = 0x20;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8_SSCALED = 0x21;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8_UINT = 0x22;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8_SINT = 0x23;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8_SRGB = 0x24;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8A8_UNORM = 0x25;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8A8_SNORM = 0x26;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8A8_USCALED = 0x27;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8A8_SSCALED = 0x28;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8A8_UINT = 0x29;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8A8_SINT = 0x2A;
-
-	/**  */
-	public static final int VK_FORMAT_R8G8B8A8_SRGB = 0x2B;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8A8_UNORM = 0x2C;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8A8_SNORM = 0x2D;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8A8_USCALED = 0x2E;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8A8_SSCALED = 0x2F;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8A8_UINT = 0x30;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8A8_SINT = 0x31;
-
-	/**  */
-	public static final int VK_FORMAT_B8G8R8A8_SRGB = 0x32;
-
-	/**  */
-	public static final int VK_FORMAT_A8B8G8R8_UNORM_PACK32 = 0x33;
-
-	/**  */
-	public static final int VK_FORMAT_A8B8G8R8_SNORM_PACK32 = 0x34;
-
-	/**  */
-	public static final int VK_FORMAT_A8B8G8R8_USCALED_PACK32 = 0x35;
-
-	/**  */
-	public static final int VK_FORMAT_A8B8G8R8_SSCALED_PACK32 = 0x36;
-
-	/**  */
-	public static final int VK_FORMAT_A8B8G8R8_UINT_PACK32 = 0x37;
-
-	/**  */
-	public static final int VK_FORMAT_A8B8G8R8_SINT_PACK32 = 0x38;
-
-	/**  */
-	public static final int VK_FORMAT_A8B8G8R8_SRGB_PACK32 = 0x39;
-
-	/**  */
-	public static final int VK_FORMAT_A2R10G10B10_UNORM_PACK32 = 0x3A;
-
-	/**  */
-	public static final int VK_FORMAT_A2R10G10B10_SNORM_PACK32 = 0x3B;
-
-	/**  */
-	public static final int VK_FORMAT_A2R10G10B10_USCALED_PACK32 = 0x3C;
-
-	/**  */
-	public static final int VK_FORMAT_A2R10G10B10_SSCALED_PACK32 = 0x3D;
-
-	/**  */
-	public static final int VK_FORMAT_A2R10G10B10_UINT_PACK32 = 0x3E;
-
-	/**  */
-	public static final int VK_FORMAT_A2R10G10B10_SINT_PACK32 = 0x3F;
-
-	/**  */
-	public static final int VK_FORMAT_A2B10G10R10_UNORM_PACK32 = 0x40;
-
-	/**  */
-	public static final int VK_FORMAT_A2B10G10R10_SNORM_PACK32 = 0x41;
-
-	/**  */
-	public static final int VK_FORMAT_A2B10G10R10_USCALED_PACK32 = 0x42;
-
-	/**  */
-	public static final int VK_FORMAT_A2B10G10R10_SSCALED_PACK32 = 0x43;
-
-	/**  */
-	public static final int VK_FORMAT_A2B10G10R10_UINT_PACK32 = 0x44;
-
-	/**  */
-	public static final int VK_FORMAT_A2B10G10R10_SINT_PACK32 = 0x45;
-
-	/**  */
-	public static final int VK_FORMAT_R16_UNORM = 0x46;
-
-	/**  */
-	public static final int VK_FORMAT_R16_SNORM = 0x47;
-
-	/**  */
-	public static final int VK_FORMAT_R16_USCALED = 0x48;
-
-	/**  */
-	public static final int VK_FORMAT_R16_SSCALED = 0x49;
-
-	/**  */
-	public static final int VK_FORMAT_R16_UINT = 0x4A;
-
-	/**  */
-	public static final int VK_FORMAT_R16_SINT = 0x4B;
-
-	/**  */
-	public static final int VK_FORMAT_R16_SFLOAT = 0x4C;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16_UNORM = 0x4D;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16_SNORM = 0x4E;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16_USCALED = 0x4F;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16_SSCALED = 0x50;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16_UINT = 0x51;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16_SINT = 0x52;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16_SFLOAT = 0x53;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16_UNORM = 0x54;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16_SNORM = 0x55;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16_USCALED = 0x56;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16_SSCALED = 0x57;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16_UINT = 0x58;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16_SINT = 0x59;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16_SFLOAT = 0x5A;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16A16_UNORM = 0x5B;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16A16_SNORM = 0x5C;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16A16_USCALED = 0x5D;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16A16_SSCALED = 0x5E;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16A16_UINT = 0x5F;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16A16_SINT = 0x60;
-
-	/**  */
-	public static final int VK_FORMAT_R16G16B16A16_SFLOAT = 0x61;
-
-	/**  */
-	public static final int VK_FORMAT_R32_UINT = 0x62;
-
-	/**  */
-	public static final int VK_FORMAT_R32_SINT = 0x63;
-
-	/**  */
-	public static final int VK_FORMAT_R32_SFLOAT = 0x64;
-
-	/**  */
-	public static final int VK_FORMAT_R32G32_UINT = 0x65;
-
-	/**  */
-	public static final int VK_FORMAT_R32G32_SINT = 0x66;
-
-	/**  */
-	public static final int VK_FORMAT_R32G32_SFLOAT = 0x67;
-
-	/**  */
-	public static final int VK_FORMAT_R32G32B32_UINT = 0x68;
-
-	/**  */
-	public static final int VK_FORMAT_R32G32B32_SINT = 0x69;
-
-	/**  */
-	public static final int VK_FORMAT_R32G32B32_SFLOAT = 0x6A;
-
-	/**  */
-	public static final int VK_FORMAT_R32G32B32A32_UINT = 0x6B;
-
-	/**  */
-	public static final int VK_FORMAT_R32G32B32A32_SINT = 0x6C;
-
-	/**  */
-	public static final int VK_FORMAT_R32G32B32A32_SFLOAT = 0x6D;
-
-	/**  */
-	public static final int VK_FORMAT_R64_UINT = 0x6E;
-
-	/**  */
-	public static final int VK_FORMAT_R64_SINT = 0x6F;
-
-	/**  */
-	public static final int VK_FORMAT_R64_SFLOAT = 0x70;
-
-	/**  */
-	public static final int VK_FORMAT_R64G64_UINT = 0x71;
-
-	/**  */
-	public static final int VK_FORMAT_R64G64_SINT = 0x72;
-
-	/**  */
-	public static final int VK_FORMAT_R64G64_SFLOAT = 0x73;
-
-	/**  */
-	public static final int VK_FORMAT_R64G64B64_UINT = 0x74;
-
-	/**  */
-	public static final int VK_FORMAT_R64G64B64_SINT = 0x75;
-
-	/**  */
-	public static final int VK_FORMAT_R64G64B64_SFLOAT = 0x76;
-
-	/**  */
-	public static final int VK_FORMAT_R64G64B64A64_UINT = 0x77;
-
-	/**  */
-	public static final int VK_FORMAT_R64G64B64A64_SINT = 0x78;
-
-	/**  */
-	public static final int VK_FORMAT_R64G64B64A64_SFLOAT = 0x79;
-
-	/**  */
-	public static final int VK_FORMAT_B10G11R11_UFLOAT_PACK32 = 0x7A;
-
-	/**  */
-	public static final int VK_FORMAT_E5B9G9R9_UFLOAT_PACK32 = 0x7B;
-
-	/**  */
-	public static final int VK_FORMAT_D16_UNORM = 0x7C;
-
-	/**  */
-	public static final int VK_FORMAT_X8_D24_UNORM_PACK32 = 0x7D;
-
-	/**  */
-	public static final int VK_FORMAT_D32_SFLOAT = 0x7E;
-
-	/**  */
-	public static final int VK_FORMAT_S8_UINT = 0x7F;
-
-	/**  */
-	public static final int VK_FORMAT_D16_UNORM_S8_UINT = 0x80;
-
-	/**  */
-	public static final int VK_FORMAT_D24_UNORM_S8_UINT = 0x81;
-
-	/**  */
-	public static final int VK_FORMAT_D32_SFLOAT_S8_UINT = 0x82;
-
-	/**  */
-	public static final int VK_FORMAT_BC1_RGB_UNORM_BLOCK = 0x83;
-
-	/**  */
-	public static final int VK_FORMAT_BC1_RGB_SRGB_BLOCK = 0x84;
-
-	/**  */
-	public static final int VK_FORMAT_BC1_RGBA_UNORM_BLOCK = 0x85;
-
-	/**  */
-	public static final int VK_FORMAT_BC1_RGBA_SRGB_BLOCK = 0x86;
-
-	/**  */
-	public static final int VK_FORMAT_BC2_UNORM_BLOCK = 0x87;
-
-	/**  */
-	public static final int VK_FORMAT_BC2_SRGB_BLOCK = 0x88;
-
-	/**  */
-	public static final int VK_FORMAT_BC3_UNORM_BLOCK = 0x89;
-
-	/**  */
-	public static final int VK_FORMAT_BC3_SRGB_BLOCK = 0x8A;
-
-	/**  */
-	public static final int VK_FORMAT_BC4_UNORM_BLOCK = 0x8B;
-
-	/**  */
-	public static final int VK_FORMAT_BC4_SNORM_BLOCK = 0x8C;
-
-	/**  */
-	public static final int VK_FORMAT_BC5_UNORM_BLOCK = 0x8D;
-
-	/**  */
-	public static final int VK_FORMAT_BC5_SNORM_BLOCK = 0x8E;
-
-	/**  */
-	public static final int VK_FORMAT_BC6H_UFLOAT_BLOCK = 0x8F;
-
-	/**  */
-	public static final int VK_FORMAT_BC6H_SFLOAT_BLOCK = 0x90;
-
-	/**  */
-	public static final int VK_FORMAT_BC7_UNORM_BLOCK = 0x91;
-
-	/**  */
-	public static final int VK_FORMAT_BC7_SRGB_BLOCK = 0x92;
-
-	/**  */
-	public static final int VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK = 0x93;
-
-	/**  */
-	public static final int VK_FORMAT_ETC2_R8G8B8_SRGB_BLOCK = 0x94;
-
-	/**  */
-	public static final int VK_FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK = 0x95;
-
-	/**  */
-	public static final int VK_FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK = 0x96;
-
-	/**  */
-	public static final int VK_FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK = 0x97;
-
-	/**  */
-	public static final int VK_FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK = 0x98;
-
-	/**  */
-	public static final int VK_FORMAT_EAC_R11_UNORM_BLOCK = 0x99;
-
-	/**  */
-	public static final int VK_FORMAT_EAC_R11_SNORM_BLOCK = 0x9A;
-
-	/**  */
-	public static final int VK_FORMAT_EAC_R11G11_UNORM_BLOCK = 0x9B;
-
-	/**  */
-	public static final int VK_FORMAT_EAC_R11G11_SNORM_BLOCK = 0x9C;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_4x4_UNORM_BLOCK = 0x9D;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_4x4_SRGB_BLOCK = 0x9E;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_5x4_UNORM_BLOCK = 0x9F;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_5x4_SRGB_BLOCK = 0xA0;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_5x5_UNORM_BLOCK = 0xA1;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_5x5_SRGB_BLOCK = 0xA2;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_6x5_UNORM_BLOCK = 0xA3;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_6x5_SRGB_BLOCK = 0xA4;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_6x6_UNORM_BLOCK = 0xA5;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_6x6_SRGB_BLOCK = 0xA6;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_8x5_UNORM_BLOCK = 0xA7;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_8x5_SRGB_BLOCK = 0xA8;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_8x6_UNORM_BLOCK = 0xA9;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_8x6_SRGB_BLOCK = 0xAA;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_8x8_UNORM_BLOCK = 0xAB;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_8x8_SRGB_BLOCK = 0xAC;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_10x5_UNORM_BLOCK = 0xAD;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_10x5_SRGB_BLOCK = 0xAE;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_10x6_UNORM_BLOCK = 0xAF;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_10x6_SRGB_BLOCK = 0xB0;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_10x8_UNORM_BLOCK = 0xB1;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_10x8_SRGB_BLOCK = 0xB2;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_10x10_UNORM_BLOCK = 0xB3;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_10x10_SRGB_BLOCK = 0xB4;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_12x10_UNORM_BLOCK = 0xB5;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_12x10_SRGB_BLOCK = 0xB6;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_12x12_UNORM_BLOCK = 0xB7;
-
-	/**  */
-	public static final int VK_FORMAT_ASTC_12x12_SRGB_BLOCK = 0xB8;
-
-	/**  */
-	public static final int VK_FORMAT_BEGIN_RANGE = VK_FORMAT_UNDEFINED;
-
-	/**  */
-	public static final int VK_FORMAT_END_RANGE = VK_FORMAT_ASTC_12x12_SRGB_BLOCK;
-
-	/**  */
-	public static final int VK_FORMAT_RANGE_SIZE = VK_FORMAT_ASTC_12x12_SRGB_BLOCK - VK_FORMAT_UNDEFINED + 1;
-
-	/**  */
-	public static final int VK_FORMAT_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_IMAGE_TYPE_1D = 0x0;
-
-	/**  */
-	public static final int VK_IMAGE_TYPE_2D = 0x1;
-
-	/**  */
-	public static final int VK_IMAGE_TYPE_3D = 0x2;
-
-	/**  */
-	public static final int VK_IMAGE_TYPE_BEGIN_RANGE = VK_IMAGE_TYPE_1D;
-
-	/**  */
-	public static final int VK_IMAGE_TYPE_END_RANGE = VK_IMAGE_TYPE_3D;
-
-	/**  */
-	public static final int VK_IMAGE_TYPE_RANGE_SIZE = VK_IMAGE_TYPE_3D - VK_IMAGE_TYPE_1D + 1;
-
-	/**  */
-	public static final int VK_IMAGE_TYPE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_IMAGE_TILING_OPTIMAL = 0x0;
-
-	/**  */
-	public static final int VK_IMAGE_TILING_LINEAR = 0x1;
-
-	/**  */
-	public static final int VK_IMAGE_TILING_BEGIN_RANGE = VK_IMAGE_TILING_OPTIMAL;
-
-	/**  */
-	public static final int VK_IMAGE_TILING_END_RANGE = VK_IMAGE_TILING_LINEAR;
-
-	/**  */
-	public static final int VK_IMAGE_TILING_RANGE_SIZE = VK_IMAGE_TILING_LINEAR - VK_IMAGE_TILING_OPTIMAL + 1;
-
-	/**  */
-	public static final int VK_IMAGE_TILING_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_PHYSICAL_DEVICE_TYPE_OTHER = 0x0;
-
-	/**  */
-	public static final int VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU = 0x1;
-
-	/**  */
-	public static final int VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU = 0x2;
-
-	/**  */
-	public static final int VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU = 0x3;
-
-	/**  */
-	public static final int VK_PHYSICAL_DEVICE_TYPE_CPU = 0x4;
-
-	/**  */
-	public static final int VK_PHYSICAL_DEVICE_TYPE_BEGIN_RANGE = VK_PHYSICAL_DEVICE_TYPE_OTHER;
-
-	/**  */
-	public static final int VK_PHYSICAL_DEVICE_TYPE_END_RANGE = VK_PHYSICAL_DEVICE_TYPE_CPU;
-
-	/**  */
-	public static final int VK_PHYSICAL_DEVICE_TYPE_RANGE_SIZE = VK_PHYSICAL_DEVICE_TYPE_CPU - VK_PHYSICAL_DEVICE_TYPE_OTHER + 1;
-
-	/**  */
-	public static final int VK_PHYSICAL_DEVICE_TYPE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_QUERY_TYPE_OCCLUSION = 0x0;
-
-	/**  */
-	public static final int VK_QUERY_TYPE_PIPELINE_STATISTICS = 0x1;
-
-	/**  */
-	public static final int VK_QUERY_TYPE_TIMESTAMP = 0x2;
-
-	/**  */
-	public static final int VK_QUERY_TYPE_BEGIN_RANGE = VK_QUERY_TYPE_OCCLUSION;
-
-	/**  */
-	public static final int VK_QUERY_TYPE_END_RANGE = VK_QUERY_TYPE_TIMESTAMP;
-
-	/**  */
-	public static final int VK_QUERY_TYPE_RANGE_SIZE = VK_QUERY_TYPE_TIMESTAMP - VK_QUERY_TYPE_OCCLUSION + 1;
-
-	/**  */
-	public static final int VK_QUERY_TYPE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_SHARING_MODE_EXCLUSIVE = 0x0;
-
-	/**  */
-	public static final int VK_SHARING_MODE_CONCURRENT = 0x1;
-
-	/**  */
-	public static final int VK_SHARING_MODE_BEGIN_RANGE = VK_SHARING_MODE_EXCLUSIVE;
-
-	/**  */
-	public static final int VK_SHARING_MODE_END_RANGE = VK_SHARING_MODE_CONCURRENT;
-
-	/**  */
-	public static final int VK_SHARING_MODE_RANGE_SIZE = VK_SHARING_MODE_CONCURRENT - VK_SHARING_MODE_EXCLUSIVE + 1;
-
-	/**  */
-	public static final int VK_SHARING_MODE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_UNDEFINED = 0x0;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_GENERAL = 0x1;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL = 0x2;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL = 0x3;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL = 0x4;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL = 0x5;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL = 0x6;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL = 0x7;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_PREINITIALIZED = 0x8;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_BEGIN_RANGE = VK_IMAGE_LAYOUT_UNDEFINED;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_END_RANGE = VK_IMAGE_LAYOUT_PREINITIALIZED;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_RANGE_SIZE = VK_IMAGE_LAYOUT_PREINITIALIZED - VK_IMAGE_LAYOUT_UNDEFINED + 1;
-
-	/**  */
-	public static final int VK_IMAGE_LAYOUT_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_IMAGE_VIEW_TYPE_1D = 0x0;
-
-	/**  */
-	public static final int VK_IMAGE_VIEW_TYPE_2D = 0x1;
-
-	/**  */
-	public static final int VK_IMAGE_VIEW_TYPE_3D = 0x2;
-
-	/**  */
-	public static final int VK_IMAGE_VIEW_TYPE_CUBE = 0x3;
-
-	/**  */
-	public static final int VK_IMAGE_VIEW_TYPE_1D_ARRAY = 0x4;
-
-	/**  */
-	public static final int VK_IMAGE_VIEW_TYPE_2D_ARRAY = 0x5;
-
-	/**  */
-	public static final int VK_IMAGE_VIEW_TYPE_CUBE_ARRAY = 0x6;
-
-	/**  */
-	public static final int VK_IMAGE_VIEW_TYPE_BEGIN_RANGE = VK_IMAGE_VIEW_TYPE_1D;
-
-	/**  */
-	public static final int VK_IMAGE_VIEW_TYPE_END_RANGE = VK_IMAGE_VIEW_TYPE_CUBE_ARRAY;
-
-	/**  */
-	public static final int VK_IMAGE_VIEW_TYPE_RANGE_SIZE = VK_IMAGE_VIEW_TYPE_CUBE_ARRAY - VK_IMAGE_VIEW_TYPE_1D + 1;
-
-	/**  */
-	public static final int VK_IMAGE_VIEW_TYPE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_COMPONENT_SWIZZLE_IDENTITY = 0x0;
-
-	/**  */
-	public static final int VK_COMPONENT_SWIZZLE_ZERO = 0x1;
-
-	/**  */
-	public static final int VK_COMPONENT_SWIZZLE_ONE = 0x2;
-
-	/**  */
-	public static final int VK_COMPONENT_SWIZZLE_R = 0x3;
-
-	/**  */
-	public static final int VK_COMPONENT_SWIZZLE_G = 0x4;
-
-	/**  */
-	public static final int VK_COMPONENT_SWIZZLE_B = 0x5;
-
-	/**  */
-	public static final int VK_COMPONENT_SWIZZLE_A = 0x6;
-
-	/**  */
-	public static final int VK_COMPONENT_SWIZZLE_BEGIN_RANGE = VK_COMPONENT_SWIZZLE_IDENTITY;
-
-	/**  */
-	public static final int VK_COMPONENT_SWIZZLE_END_RANGE = VK_COMPONENT_SWIZZLE_A;
-
-	/**  */
-	public static final int VK_COMPONENT_SWIZZLE_RANGE_SIZE = VK_COMPONENT_SWIZZLE_A - VK_COMPONENT_SWIZZLE_IDENTITY + 1;
-
-	/**  */
-	public static final int VK_COMPONENT_SWIZZLE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_VERTEX_INPUT_RATE_VERTEX = 0x0;
-
-	/**  */
-	public static final int VK_VERTEX_INPUT_RATE_INSTANCE = 0x1;
-
-	/**  */
-	public static final int VK_VERTEX_INPUT_RATE_BEGIN_RANGE = VK_VERTEX_INPUT_RATE_VERTEX;
-
-	/**  */
-	public static final int VK_VERTEX_INPUT_RATE_END_RANGE = VK_VERTEX_INPUT_RATE_INSTANCE;
-
-	/**  */
-	public static final int VK_VERTEX_INPUT_RATE_RANGE_SIZE = VK_VERTEX_INPUT_RATE_INSTANCE - VK_VERTEX_INPUT_RATE_VERTEX + 1;
-
-	/**  */
-	public static final int VK_VERTEX_INPUT_RATE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_POINT_LIST = 0x0;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_LINE_LIST = 0x1;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_LINE_STRIP = 0x2;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST = 0x3;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP = 0x4;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_FAN = 0x5;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_LINE_LIST_WITH_ADJACENCY = 0x6;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_LINE_STRIP_WITH_ADJACENCY = 0x7;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST_WITH_ADJACENCY = 0x8;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP_WITH_ADJACENCY = 0x9;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_PATCH_LIST = 0xA;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_BEGIN_RANGE = VK_PRIMITIVE_TOPOLOGY_POINT_LIST;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_END_RANGE = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_RANGE_SIZE = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST - VK_PRIMITIVE_TOPOLOGY_POINT_LIST + 1;
-
-	/**  */
-	public static final int VK_PRIMITIVE_TOPOLOGY_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_POLYGON_MODE_FILL = 0x0;
-
-	/**  */
-	public static final int VK_POLYGON_MODE_LINE = 0x1;
-
-	/**  */
-	public static final int VK_POLYGON_MODE_POINT = 0x2;
-
-	/**  */
-	public static final int VK_POLYGON_MODE_BEGIN_RANGE = VK_POLYGON_MODE_FILL;
-
-	/**  */
-	public static final int VK_POLYGON_MODE_END_RANGE = VK_POLYGON_MODE_POINT;
-
-	/**  */
-	public static final int VK_POLYGON_MODE_RANGE_SIZE = VK_POLYGON_MODE_POINT - VK_POLYGON_MODE_FILL + 1;
-
-	/**  */
-	public static final int VK_POLYGON_MODE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_FRONT_FACE_COUNTER_CLOCKWISE = 0x0;
-
-	/**  */
-	public static final int VK_FRONT_FACE_CLOCKWISE = 0x1;
-
-	/**  */
-	public static final int VK_FRONT_FACE_BEGIN_RANGE = VK_FRONT_FACE_COUNTER_CLOCKWISE;
-
-	/**  */
-	public static final int VK_FRONT_FACE_END_RANGE = VK_FRONT_FACE_CLOCKWISE;
-
-	/**  */
-	public static final int VK_FRONT_FACE_RANGE_SIZE = VK_FRONT_FACE_CLOCKWISE - VK_FRONT_FACE_COUNTER_CLOCKWISE + 1;
-
-	/**  */
-	public static final int VK_FRONT_FACE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_COMPARE_OP_NEVER = 0x0;
-
-	/**  */
-	public static final int VK_COMPARE_OP_LESS = 0x1;
-
-	/**  */
-	public static final int VK_COMPARE_OP_EQUAL = 0x2;
-
-	/**  */
-	public static final int VK_COMPARE_OP_LESS_OR_EQUAL = 0x3;
-
-	/**  */
-	public static final int VK_COMPARE_OP_GREATER = 0x4;
-
-	/**  */
-	public static final int VK_COMPARE_OP_NOT_EQUAL = 0x5;
-
-	/**  */
-	public static final int VK_COMPARE_OP_GREATER_OR_EQUAL = 0x6;
-
-	/**  */
-	public static final int VK_COMPARE_OP_ALWAYS = 0x7;
-
-	/**  */
-	public static final int VK_COMPARE_OP_BEGIN_RANGE = VK_COMPARE_OP_NEVER;
-
-	/**  */
-	public static final int VK_COMPARE_OP_END_RANGE = VK_COMPARE_OP_ALWAYS;
-
-	/**  */
-	public static final int VK_COMPARE_OP_RANGE_SIZE = VK_COMPARE_OP_ALWAYS - VK_COMPARE_OP_NEVER + 1;
-
-	/**  */
-	public static final int VK_COMPARE_OP_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_STENCIL_OP_KEEP = 0x0;
-
-	/**  */
-	public static final int VK_STENCIL_OP_ZERO = 0x1;
-
-	/**  */
-	public static final int VK_STENCIL_OP_REPLACE = 0x2;
-
-	/**  */
-	public static final int VK_STENCIL_OP_INCREMENT_AND_CLAMP = 0x3;
-
-	/**  */
-	public static final int VK_STENCIL_OP_DECREMENT_AND_CLAMP = 0x4;
-
-	/**  */
-	public static final int VK_STENCIL_OP_INVERT = 0x5;
-
-	/**  */
-	public static final int VK_STENCIL_OP_INCREMENT_AND_WRAP = 0x6;
-
-	/**  */
-	public static final int VK_STENCIL_OP_DECREMENT_AND_WRAP = 0x7;
-
-	/**  */
-	public static final int VK_STENCIL_OP_BEGIN_RANGE = VK_STENCIL_OP_KEEP;
-
-	/**  */
-	public static final int VK_STENCIL_OP_END_RANGE = VK_STENCIL_OP_DECREMENT_AND_WRAP;
-
-	/**  */
-	public static final int VK_STENCIL_OP_RANGE_SIZE = VK_STENCIL_OP_DECREMENT_AND_WRAP - VK_STENCIL_OP_KEEP + 1;
-
-	/**  */
-	public static final int VK_STENCIL_OP_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_LOGIC_OP_CLEAR = 0x0;
-
-	/**  */
-	public static final int VK_LOGIC_OP_AND = 0x1;
-
-	/**  */
-	public static final int VK_LOGIC_OP_AND_REVERSE = 0x2;
-
-	/**  */
-	public static final int VK_LOGIC_OP_COPY = 0x3;
-
-	/**  */
-	public static final int VK_LOGIC_OP_AND_INVERTED = 0x4;
-
-	/**  */
-	public static final int VK_LOGIC_OP_NO_OP = 0x5;
-
-	/**  */
-	public static final int VK_LOGIC_OP_XOR = 0x6;
-
-	/**  */
-	public static final int VK_LOGIC_OP_OR = 0x7;
-
-	/**  */
-	public static final int VK_LOGIC_OP_NOR = 0x8;
-
-	/**  */
-	public static final int VK_LOGIC_OP_EQUIVALENT = 0x9;
-
-	/**  */
-	public static final int VK_LOGIC_OP_INVERT = 0xA;
-
-	/**  */
-	public static final int VK_LOGIC_OP_OR_REVERSE = 0xB;
-
-	/**  */
-	public static final int VK_LOGIC_OP_COPY_INVERTED = 0xC;
-
-	/**  */
-	public static final int VK_LOGIC_OP_OR_INVERTED = 0xD;
-
-	/**  */
-	public static final int VK_LOGIC_OP_NAND = 0xE;
-
-	/**  */
-	public static final int VK_LOGIC_OP_SET = 0xF;
-
-	/**  */
-	public static final int VK_LOGIC_OP_BEGIN_RANGE = VK_LOGIC_OP_CLEAR;
-
-	/**  */
-	public static final int VK_LOGIC_OP_END_RANGE = VK_LOGIC_OP_SET;
-
-	/**  */
-	public static final int VK_LOGIC_OP_RANGE_SIZE = VK_LOGIC_OP_SET - VK_LOGIC_OP_CLEAR + 1;
-
-	/**  */
-	public static final int VK_LOGIC_OP_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_ZERO = 0x0;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_ONE = 0x1;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_SRC_COLOR = 0x2;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_ONE_MINUS_SRC_COLOR = 0x3;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_DST_COLOR = 0x4;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_ONE_MINUS_DST_COLOR = 0x5;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_SRC_ALPHA = 0x6;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA = 0x7;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_DST_ALPHA = 0x8;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_ONE_MINUS_DST_ALPHA = 0x9;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_CONSTANT_COLOR = 0xA;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR = 0xB;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_CONSTANT_ALPHA = 0xC;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA = 0xD;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_SRC_ALPHA_SATURATE = 0xE;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_SRC1_COLOR = 0xF;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR = 0x10;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_SRC1_ALPHA = 0x11;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA = 0x12;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_BEGIN_RANGE = VK_BLEND_FACTOR_ZERO;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_END_RANGE = VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_RANGE_SIZE = VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA - VK_BLEND_FACTOR_ZERO + 1;
-
-	/**  */
-	public static final int VK_BLEND_FACTOR_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_BLEND_OP_ADD = 0x0;
-
-	/**  */
-	public static final int VK_BLEND_OP_SUBTRACT = 0x1;
-
-	/**  */
-	public static final int VK_BLEND_OP_REVERSE_SUBTRACT = 0x2;
-
-	/**  */
-	public static final int VK_BLEND_OP_MIN = 0x3;
-
-	/**  */
-	public static final int VK_BLEND_OP_MAX = 0x4;
-
-	/**  */
-	public static final int VK_BLEND_OP_BEGIN_RANGE = VK_BLEND_OP_ADD;
-
-	/**  */
-	public static final int VK_BLEND_OP_END_RANGE = VK_BLEND_OP_MAX;
-
-	/**  */
-	public static final int VK_BLEND_OP_RANGE_SIZE = VK_BLEND_OP_MAX - VK_BLEND_OP_ADD + 1;
-
-	/**  */
-	public static final int VK_BLEND_OP_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_VIEWPORT = 0x0;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_SCISSOR = 0x1;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_LINE_WIDTH = 0x2;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_DEPTH_BIAS = 0x3;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_BLEND_CONSTANTS = 0x4;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_DEPTH_BOUNDS = 0x5;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK = 0x6;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_STENCIL_WRITE_MASK = 0x7;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_STENCIL_REFERENCE = 0x8;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_BEGIN_RANGE = VK_DYNAMIC_STATE_VIEWPORT;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_END_RANGE = VK_DYNAMIC_STATE_STENCIL_REFERENCE;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_RANGE_SIZE = VK_DYNAMIC_STATE_STENCIL_REFERENCE - VK_DYNAMIC_STATE_VIEWPORT + 1;
-
-	/**  */
-	public static final int VK_DYNAMIC_STATE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_FILTER_NEAREST = 0x0;
-
-	/**  */
-	public static final int VK_FILTER_LINEAR = 0x1;
-
-	/**  */
-	public static final int VK_FILTER_BEGIN_RANGE = VK_FILTER_NEAREST;
-
-	/**  */
-	public static final int VK_FILTER_END_RANGE = VK_FILTER_LINEAR;
-
-	/**  */
-	public static final int VK_FILTER_RANGE_SIZE = VK_FILTER_LINEAR - VK_FILTER_NEAREST + 1;
-
-	/**  */
-	public static final int VK_FILTER_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_SAMPLER_MIPMAP_MODE_NEAREST = 0x0;
-
-	/**  */
-	public static final int VK_SAMPLER_MIPMAP_MODE_LINEAR = 0x1;
-
-	/**  */
-	public static final int VK_SAMPLER_MIPMAP_MODE_BEGIN_RANGE = VK_SAMPLER_MIPMAP_MODE_NEAREST;
-
-	/**  */
-	public static final int VK_SAMPLER_MIPMAP_MODE_END_RANGE = VK_SAMPLER_MIPMAP_MODE_LINEAR;
-
-	/**  */
-	public static final int VK_SAMPLER_MIPMAP_MODE_RANGE_SIZE = VK_SAMPLER_MIPMAP_MODE_LINEAR - VK_SAMPLER_MIPMAP_MODE_NEAREST + 1;
-
-	/**  */
-	public static final int VK_SAMPLER_MIPMAP_MODE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_SAMPLER_ADDRESS_MODE_REPEAT = 0x0;
-
-	/**  */
-	public static final int VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT = 0x1;
-
-	/**  */
-	public static final int VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE = 0x2;
-
-	/**  */
-	public static final int VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER = 0x3;
-
-	/**  */
-	public static final int VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 0x4;
-
-	/**  */
-	public static final int VK_SAMPLER_ADDRESS_MODE_BEGIN_RANGE = VK_SAMPLER_ADDRESS_MODE_REPEAT;
-
-	/**  */
-	public static final int VK_SAMPLER_ADDRESS_MODE_END_RANGE = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE;
-
-	/**  */
-	public static final int VK_SAMPLER_ADDRESS_MODE_RANGE_SIZE = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE - VK_SAMPLER_ADDRESS_MODE_REPEAT + 1;
-
-	/**  */
-	public static final int VK_SAMPLER_ADDRESS_MODE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0x0;
-
-	/**  */
-	public static final int VK_BORDER_COLOR_INT_TRANSPARENT_BLACK = 0x1;
-
-	/**  */
-	public static final int VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK = 0x2;
-
-	/**  */
-	public static final int VK_BORDER_COLOR_INT_OPAQUE_BLACK = 0x3;
-
-	/**  */
-	public static final int VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE = 0x4;
-
-	/**  */
-	public static final int VK_BORDER_COLOR_INT_OPAQUE_WHITE = 0x5;
-
-	/**  */
-	public static final int VK_BORDER_COLOR_BEGIN_RANGE = VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK;
-
-	/**  */
-	public static final int VK_BORDER_COLOR_END_RANGE = VK_BORDER_COLOR_INT_OPAQUE_WHITE;
-
-	/**  */
-	public static final int VK_BORDER_COLOR_RANGE_SIZE = VK_BORDER_COLOR_INT_OPAQUE_WHITE - VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK + 1;
-
-	/**  */
-	public static final int VK_BORDER_COLOR_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_SAMPLER = 0x0;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER = 0x1;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE = 0x2;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_STORAGE_IMAGE = 0x3;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER = 0x4;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER = 0x5;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER = 0x6;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_STORAGE_BUFFER = 0x7;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC = 0x8;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC = 0x9;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT = 0xA;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_BEGIN_RANGE = VK_DESCRIPTOR_TYPE_SAMPLER;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_END_RANGE = VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_RANGE_SIZE = VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT - VK_DESCRIPTOR_TYPE_SAMPLER + 1;
-
-	/**  */
-	public static final int VK_DESCRIPTOR_TYPE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_ATTACHMENT_LOAD_OP_LOAD = 0x0;
-
-	/**  */
-	public static final int VK_ATTACHMENT_LOAD_OP_CLEAR = 0x1;
-
-	/**  */
-	public static final int VK_ATTACHMENT_LOAD_OP_DONT_CARE = 0x2;
-
-	/**  */
-	public static final int VK_ATTACHMENT_LOAD_OP_BEGIN_RANGE = VK_ATTACHMENT_LOAD_OP_LOAD;
-
-	/**  */
-	public static final int VK_ATTACHMENT_LOAD_OP_END_RANGE = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
-
-	/**  */
-	public static final int VK_ATTACHMENT_LOAD_OP_RANGE_SIZE = VK_ATTACHMENT_LOAD_OP_DONT_CARE - VK_ATTACHMENT_LOAD_OP_LOAD + 1;
-
-	/**  */
-	public static final int VK_ATTACHMENT_LOAD_OP_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_ATTACHMENT_STORE_OP_STORE = 0x0;
-
-	/**  */
-	public static final int VK_ATTACHMENT_STORE_OP_DONT_CARE = 0x1;
-
-	/**  */
-	public static final int VK_ATTACHMENT_STORE_OP_BEGIN_RANGE = VK_ATTACHMENT_STORE_OP_STORE;
-
-	/**  */
-	public static final int VK_ATTACHMENT_STORE_OP_END_RANGE = VK_ATTACHMENT_STORE_OP_DONT_CARE;
-
-	/**  */
-	public static final int VK_ATTACHMENT_STORE_OP_RANGE_SIZE = VK_ATTACHMENT_STORE_OP_DONT_CARE - VK_ATTACHMENT_STORE_OP_STORE + 1;
-
-	/**  */
-	public static final int VK_ATTACHMENT_STORE_OP_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_PIPELINE_BIND_POINT_GRAPHICS = 0x0;
-
-	/**  */
-	public static final int VK_PIPELINE_BIND_POINT_COMPUTE = 0x1;
-
-	/**  */
-	public static final int VK_PIPELINE_BIND_POINT_BEGIN_RANGE = VK_PIPELINE_BIND_POINT_GRAPHICS;
-
-	/**  */
-	public static final int VK_PIPELINE_BIND_POINT_END_RANGE = VK_PIPELINE_BIND_POINT_COMPUTE;
-
-	/**  */
-	public static final int VK_PIPELINE_BIND_POINT_RANGE_SIZE = VK_PIPELINE_BIND_POINT_COMPUTE - VK_PIPELINE_BIND_POINT_GRAPHICS + 1;
-
-	/**  */
-	public static final int VK_PIPELINE_BIND_POINT_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_COMMAND_BUFFER_LEVEL_PRIMARY = 0x0;
-
-	/**  */
-	public static final int VK_COMMAND_BUFFER_LEVEL_SECONDARY = 0x1;
-
-	/**  */
-	public static final int VK_COMMAND_BUFFER_LEVEL_BEGIN_RANGE = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
-
-	/**  */
-	public static final int VK_COMMAND_BUFFER_LEVEL_END_RANGE = VK_COMMAND_BUFFER_LEVEL_SECONDARY;
-
-	/**  */
-	public static final int VK_COMMAND_BUFFER_LEVEL_RANGE_SIZE = VK_COMMAND_BUFFER_LEVEL_SECONDARY - VK_COMMAND_BUFFER_LEVEL_PRIMARY + 1;
-
-	/**  */
-	public static final int VK_COMMAND_BUFFER_LEVEL_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_INDEX_TYPE_UINT16 = 0x0;
-
-	/**  */
-	public static final int VK_INDEX_TYPE_UINT32 = 0x1;
-
-	/**  */
-	public static final int VK_INDEX_TYPE_BEGIN_RANGE = VK_INDEX_TYPE_UINT16;
-
-	/**  */
-	public static final int VK_INDEX_TYPE_END_RANGE = VK_INDEX_TYPE_UINT32;
-
-	/**  */
-	public static final int VK_INDEX_TYPE_RANGE_SIZE = VK_INDEX_TYPE_UINT32 - VK_INDEX_TYPE_UINT16 + 1;
-
-	/**  */
-	public static final int VK_INDEX_TYPE_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_SUBPASS_CONTENTS_INLINE = 0x0;
-
-	/**  */
-	public static final int VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS = 0x1;
-
-	/**  */
-	public static final int VK_SUBPASS_CONTENTS_BEGIN_RANGE = VK_SUBPASS_CONTENTS_INLINE;
-
-	/**  */
-	public static final int VK_SUBPASS_CONTENTS_END_RANGE = VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS;
-
-	/**  */
-	public static final int VK_SUBPASS_CONTENTS_RANGE_SIZE = VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS - VK_SUBPASS_CONTENTS_INLINE + 1;
-
-	/**  */
-	public static final int VK_SUBPASS_CONTENTS_MAX_ENUM = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT = 0x1;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT = 0x2;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT = 0x4;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT = 0x8;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT = 0x10;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT = 0x20;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT = 0x40;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT = 0x80;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT = 0x100;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT = 0x200;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_BLIT_SRC_BIT = 0x400;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_BLIT_DST_BIT = 0x800;
-
-	/**  */
-	public static final int VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT = 0x1000;
-
-	/**  */
-	public static final int VK_IMAGE_USAGE_TRANSFER_SRC_BIT = 0x1;
-
-	/**  */
-	public static final int VK_IMAGE_USAGE_TRANSFER_DST_BIT = 0x2;
-
-	/**  */
-	public static final int VK_IMAGE_USAGE_SAMPLED_BIT = 0x4;
-
-	/**  */
-	public static final int VK_IMAGE_USAGE_STORAGE_BIT = 0x8;
-
-	/**  */
-	public static final int VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT = 0x10;
-
-	/**  */
-	public static final int VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT = 0x20;
-
-	/**  */
-	public static final int VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT = 0x40;
-
-	/**  */
-	public static final int VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT = 0x80;
-
-	/**  */
-	public static final int VK_IMAGE_CREATE_SPARSE_BINDING_BIT = 0x1;
-
-	/**  */
-	public static final int VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT = 0x2;
-
-	/**  */
-	public static final int VK_IMAGE_CREATE_SPARSE_ALIASED_BIT = 0x4;
-
-	/**  */
-	public static final int VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT = 0x8;
-
-	/**  */
-	public static final int VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT = 0x10;
-
-	/**  */
-	public static final int VK_SAMPLE_COUNT_1_BIT = 0x1;
-
-	/**  */
-	public static final int VK_SAMPLE_COUNT_2_BIT = 0x2;
-
-	/**  */
-	public static final int VK_SAMPLE_COUNT_4_BIT = 0x4;
-
-	/**  */
-	public static final int VK_SAMPLE_COUNT_8_BIT = 0x8;
-
-	/**  */
-	public static final int VK_SAMPLE_COUNT_16_BIT = 0x10;
-
-	/**  */
-	public static final int VK_SAMPLE_COUNT_32_BIT = 0x20;
-
-	/**  */
-	public static final int VK_SAMPLE_COUNT_64_BIT = 0x40;
-
-	/**  */
-	public static final int VK_QUEUE_GRAPHICS_BIT = 0x1;
-
-	/**  */
-	public static final int VK_QUEUE_COMPUTE_BIT = 0x2;
-
-	/**  */
-	public static final int VK_QUEUE_TRANSFER_BIT = 0x4;
-
-	/**  */
-	public static final int VK_QUEUE_SPARSE_BINDING_BIT = 0x8;
-
-	/**  */
-	public static final int VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT = 0x1;
-
-	/**  */
-	public static final int VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT = 0x2;
-
-	/**  */
-	public static final int VK_MEMORY_PROPERTY_HOST_COHERENT_BIT = 0x4;
-
-	/**  */
-	public static final int VK_MEMORY_PROPERTY_HOST_CACHED_BIT = 0x8;
-
-	/**  */
-	public static final int VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT = 0x10;
-
-	/**  */
+	/** VkStructureType */
+	public static final int
+		VK_STRUCTURE_TYPE_APPLICATION_INFO                          = 0,
+		VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO                      = 1,
+		VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO                  = 2,
+		VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO                        = 3,
+		VK_STRUCTURE_TYPE_SUBMIT_INFO                               = 4,
+		VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO                      = 5,
+		VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE                       = 6,
+		VK_STRUCTURE_TYPE_BIND_SPARSE_INFO                          = 7,
+		VK_STRUCTURE_TYPE_FENCE_CREATE_INFO                         = 8,
+		VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO                     = 9,
+		VK_STRUCTURE_TYPE_EVENT_CREATE_INFO                         = 10,
+		VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO                    = 11,
+		VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO                        = 12,
+		VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO                   = 13,
+		VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO                         = 14,
+		VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO                    = 15,
+		VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO                 = 16,
+		VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO                = 17,
+		VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO         = 18,
+		VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO   = 19,
+		VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO = 20,
+		VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO   = 21,
+		VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO       = 22,
+		VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO  = 23,
+		VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO    = 24,
+		VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO  = 25,
+		VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO    = 26,
+		VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO        = 27,
+		VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO             = 28,
+		VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO              = 29,
+		VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO               = 30,
+		VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO                       = 31,
+		VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO         = 32,
+		VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO               = 33,
+		VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO              = 34,
+		VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET                      = 35,
+		VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET                       = 36,
+		VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO                   = 37,
+		VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO                   = 38,
+		VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO                  = 39,
+		VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO              = 40,
+		VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO           = 41,
+		VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO                 = 42,
+		VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO                    = 43,
+		VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER                     = 44,
+		VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER                      = 45,
+		VK_STRUCTURE_TYPE_MEMORY_BARRIER                            = 46,
+		VK_STRUCTURE_TYPE_LOADER_INSTANCE_CREATE_INFO               = 47,
+		VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO                 = 48,
+		VK_STRUCTURE_TYPE_BEGIN_RANGE                               = VK_STRUCTURE_TYPE_APPLICATION_INFO,
+		VK_STRUCTURE_TYPE_END_RANGE                                 = VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO,
+		VK_STRUCTURE_TYPE_RANGE_SIZE                                = VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO - VK_STRUCTURE_TYPE_APPLICATION_INFO + 1,
+		VK_STRUCTURE_TYPE_MAX_ENUM                                  = 0x7FFFFFFF;
+
+	/** VkSystemAllocationScope */
+	public static final int
+		VK_SYSTEM_ALLOCATION_SCOPE_COMMAND     = 0,
+		VK_SYSTEM_ALLOCATION_SCOPE_OBJECT      = 1,
+		VK_SYSTEM_ALLOCATION_SCOPE_CACHE       = 2,
+		VK_SYSTEM_ALLOCATION_SCOPE_DEVICE      = 3,
+		VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE    = 4,
+		VK_SYSTEM_ALLOCATION_SCOPE_BEGIN_RANGE = VK_SYSTEM_ALLOCATION_SCOPE_COMMAND,
+		VK_SYSTEM_ALLOCATION_SCOPE_END_RANGE   = VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE,
+		VK_SYSTEM_ALLOCATION_SCOPE_RANGE_SIZE  = VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE - VK_SYSTEM_ALLOCATION_SCOPE_COMMAND + 1,
+		VK_SYSTEM_ALLOCATION_SCOPE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkInternalAllocationType */
+	public static final int
+		VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE  = 0,
+		VK_INTERNAL_ALLOCATION_TYPE_BEGIN_RANGE = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE,
+		VK_INTERNAL_ALLOCATION_TYPE_END_RANGE   = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE,
+		VK_INTERNAL_ALLOCATION_TYPE_RANGE_SIZE  = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE - VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE + 1,
+		VK_INTERNAL_ALLOCATION_TYPE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkFormat */
+	public static final int
+		VK_FORMAT_UNDEFINED                  = 0,
+		VK_FORMAT_R4G4_UNORM_PACK8           = 1,
+		VK_FORMAT_R4G4B4A4_UNORM_PACK16      = 2,
+		VK_FORMAT_B4G4R4A4_UNORM_PACK16      = 3,
+		VK_FORMAT_R5G6B5_UNORM_PACK16        = 4,
+		VK_FORMAT_B5G6R5_UNORM_PACK16        = 5,
+		VK_FORMAT_R5G5B5A1_UNORM_PACK16      = 6,
+		VK_FORMAT_B5G5R5A1_UNORM_PACK16      = 7,
+		VK_FORMAT_A1R5G5B5_UNORM_PACK16      = 8,
+		VK_FORMAT_R8_UNORM                   = 9,
+		VK_FORMAT_R8_SNORM                   = 10,
+		VK_FORMAT_R8_USCALED                 = 11,
+		VK_FORMAT_R8_SSCALED                 = 12,
+		VK_FORMAT_R8_UINT                    = 13,
+		VK_FORMAT_R8_SINT                    = 14,
+		VK_FORMAT_R8_SRGB                    = 15,
+		VK_FORMAT_R8G8_UNORM                 = 16,
+		VK_FORMAT_R8G8_SNORM                 = 17,
+		VK_FORMAT_R8G8_USCALED               = 18,
+		VK_FORMAT_R8G8_SSCALED               = 19,
+		VK_FORMAT_R8G8_UINT                  = 20,
+		VK_FORMAT_R8G8_SINT                  = 21,
+		VK_FORMAT_R8G8_SRGB                  = 22,
+		VK_FORMAT_R8G8B8_UNORM               = 23,
+		VK_FORMAT_R8G8B8_SNORM               = 24,
+		VK_FORMAT_R8G8B8_USCALED             = 25,
+		VK_FORMAT_R8G8B8_SSCALED             = 26,
+		VK_FORMAT_R8G8B8_UINT                = 27,
+		VK_FORMAT_R8G8B8_SINT                = 28,
+		VK_FORMAT_R8G8B8_SRGB                = 29,
+		VK_FORMAT_B8G8R8_UNORM               = 30,
+		VK_FORMAT_B8G8R8_SNORM               = 31,
+		VK_FORMAT_B8G8R8_USCALED             = 32,
+		VK_FORMAT_B8G8R8_SSCALED             = 33,
+		VK_FORMAT_B8G8R8_UINT                = 34,
+		VK_FORMAT_B8G8R8_SINT                = 35,
+		VK_FORMAT_B8G8R8_SRGB                = 36,
+		VK_FORMAT_R8G8B8A8_UNORM             = 37,
+		VK_FORMAT_R8G8B8A8_SNORM             = 38,
+		VK_FORMAT_R8G8B8A8_USCALED           = 39,
+		VK_FORMAT_R8G8B8A8_SSCALED           = 40,
+		VK_FORMAT_R8G8B8A8_UINT              = 41,
+		VK_FORMAT_R8G8B8A8_SINT              = 42,
+		VK_FORMAT_R8G8B8A8_SRGB              = 43,
+		VK_FORMAT_B8G8R8A8_UNORM             = 44,
+		VK_FORMAT_B8G8R8A8_SNORM             = 45,
+		VK_FORMAT_B8G8R8A8_USCALED           = 46,
+		VK_FORMAT_B8G8R8A8_SSCALED           = 47,
+		VK_FORMAT_B8G8R8A8_UINT              = 48,
+		VK_FORMAT_B8G8R8A8_SINT              = 49,
+		VK_FORMAT_B8G8R8A8_SRGB              = 50,
+		VK_FORMAT_A8B8G8R8_UNORM_PACK32      = 51,
+		VK_FORMAT_A8B8G8R8_SNORM_PACK32      = 52,
+		VK_FORMAT_A8B8G8R8_USCALED_PACK32    = 53,
+		VK_FORMAT_A8B8G8R8_SSCALED_PACK32    = 54,
+		VK_FORMAT_A8B8G8R8_UINT_PACK32       = 55,
+		VK_FORMAT_A8B8G8R8_SINT_PACK32       = 56,
+		VK_FORMAT_A8B8G8R8_SRGB_PACK32       = 57,
+		VK_FORMAT_A2R10G10B10_UNORM_PACK32   = 58,
+		VK_FORMAT_A2R10G10B10_SNORM_PACK32   = 59,
+		VK_FORMAT_A2R10G10B10_USCALED_PACK32 = 60,
+		VK_FORMAT_A2R10G10B10_SSCALED_PACK32 = 61,
+		VK_FORMAT_A2R10G10B10_UINT_PACK32    = 62,
+		VK_FORMAT_A2R10G10B10_SINT_PACK32    = 63,
+		VK_FORMAT_A2B10G10R10_UNORM_PACK32   = 64,
+		VK_FORMAT_A2B10G10R10_SNORM_PACK32   = 65,
+		VK_FORMAT_A2B10G10R10_USCALED_PACK32 = 66,
+		VK_FORMAT_A2B10G10R10_SSCALED_PACK32 = 67,
+		VK_FORMAT_A2B10G10R10_UINT_PACK32    = 68,
+		VK_FORMAT_A2B10G10R10_SINT_PACK32    = 69,
+		VK_FORMAT_R16_UNORM                  = 70,
+		VK_FORMAT_R16_SNORM                  = 71,
+		VK_FORMAT_R16_USCALED                = 72,
+		VK_FORMAT_R16_SSCALED                = 73,
+		VK_FORMAT_R16_UINT                   = 74,
+		VK_FORMAT_R16_SINT                   = 75,
+		VK_FORMAT_R16_SFLOAT                 = 76,
+		VK_FORMAT_R16G16_UNORM               = 77,
+		VK_FORMAT_R16G16_SNORM               = 78,
+		VK_FORMAT_R16G16_USCALED             = 79,
+		VK_FORMAT_R16G16_SSCALED             = 80,
+		VK_FORMAT_R16G16_UINT                = 81,
+		VK_FORMAT_R16G16_SINT                = 82,
+		VK_FORMAT_R16G16_SFLOAT              = 83,
+		VK_FORMAT_R16G16B16_UNORM            = 84,
+		VK_FORMAT_R16G16B16_SNORM            = 85,
+		VK_FORMAT_R16G16B16_USCALED          = 86,
+		VK_FORMAT_R16G16B16_SSCALED          = 87,
+		VK_FORMAT_R16G16B16_UINT             = 88,
+		VK_FORMAT_R16G16B16_SINT             = 89,
+		VK_FORMAT_R16G16B16_SFLOAT           = 90,
+		VK_FORMAT_R16G16B16A16_UNORM         = 91,
+		VK_FORMAT_R16G16B16A16_SNORM         = 92,
+		VK_FORMAT_R16G16B16A16_USCALED       = 93,
+		VK_FORMAT_R16G16B16A16_SSCALED       = 94,
+		VK_FORMAT_R16G16B16A16_UINT          = 95,
+		VK_FORMAT_R16G16B16A16_SINT          = 96,
+		VK_FORMAT_R16G16B16A16_SFLOAT        = 97,
+		VK_FORMAT_R32_UINT                   = 98,
+		VK_FORMAT_R32_SINT                   = 99,
+		VK_FORMAT_R32_SFLOAT                 = 100,
+		VK_FORMAT_R32G32_UINT                = 101,
+		VK_FORMAT_R32G32_SINT                = 102,
+		VK_FORMAT_R32G32_SFLOAT              = 103,
+		VK_FORMAT_R32G32B32_UINT             = 104,
+		VK_FORMAT_R32G32B32_SINT             = 105,
+		VK_FORMAT_R32G32B32_SFLOAT           = 106,
+		VK_FORMAT_R32G32B32A32_UINT          = 107,
+		VK_FORMAT_R32G32B32A32_SINT          = 108,
+		VK_FORMAT_R32G32B32A32_SFLOAT        = 109,
+		VK_FORMAT_R64_UINT                   = 110,
+		VK_FORMAT_R64_SINT                   = 111,
+		VK_FORMAT_R64_SFLOAT                 = 112,
+		VK_FORMAT_R64G64_UINT                = 113,
+		VK_FORMAT_R64G64_SINT                = 114,
+		VK_FORMAT_R64G64_SFLOAT              = 115,
+		VK_FORMAT_R64G64B64_UINT             = 116,
+		VK_FORMAT_R64G64B64_SINT             = 117,
+		VK_FORMAT_R64G64B64_SFLOAT           = 118,
+		VK_FORMAT_R64G64B64A64_UINT          = 119,
+		VK_FORMAT_R64G64B64A64_SINT          = 120,
+		VK_FORMAT_R64G64B64A64_SFLOAT        = 121,
+		VK_FORMAT_B10G11R11_UFLOAT_PACK32    = 122,
+		VK_FORMAT_E5B9G9R9_UFLOAT_PACK32     = 123,
+		VK_FORMAT_D16_UNORM                  = 124,
+		VK_FORMAT_X8_D24_UNORM_PACK32        = 125,
+		VK_FORMAT_D32_SFLOAT                 = 126,
+		VK_FORMAT_S8_UINT                    = 127,
+		VK_FORMAT_D16_UNORM_S8_UINT          = 128,
+		VK_FORMAT_D24_UNORM_S8_UINT          = 129,
+		VK_FORMAT_D32_SFLOAT_S8_UINT         = 130,
+		VK_FORMAT_BC1_RGB_UNORM_BLOCK        = 131,
+		VK_FORMAT_BC1_RGB_SRGB_BLOCK         = 132,
+		VK_FORMAT_BC1_RGBA_UNORM_BLOCK       = 133,
+		VK_FORMAT_BC1_RGBA_SRGB_BLOCK        = 134,
+		VK_FORMAT_BC2_UNORM_BLOCK            = 135,
+		VK_FORMAT_BC2_SRGB_BLOCK             = 136,
+		VK_FORMAT_BC3_UNORM_BLOCK            = 137,
+		VK_FORMAT_BC3_SRGB_BLOCK             = 138,
+		VK_FORMAT_BC4_UNORM_BLOCK            = 139,
+		VK_FORMAT_BC4_SNORM_BLOCK            = 140,
+		VK_FORMAT_BC5_UNORM_BLOCK            = 141,
+		VK_FORMAT_BC5_SNORM_BLOCK            = 142,
+		VK_FORMAT_BC6H_UFLOAT_BLOCK          = 143,
+		VK_FORMAT_BC6H_SFLOAT_BLOCK          = 144,
+		VK_FORMAT_BC7_UNORM_BLOCK            = 145,
+		VK_FORMAT_BC7_SRGB_BLOCK             = 146,
+		VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK    = 147,
+		VK_FORMAT_ETC2_R8G8B8_SRGB_BLOCK     = 148,
+		VK_FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK  = 149,
+		VK_FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK   = 150,
+		VK_FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK  = 151,
+		VK_FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK   = 152,
+		VK_FORMAT_EAC_R11_UNORM_BLOCK        = 153,
+		VK_FORMAT_EAC_R11_SNORM_BLOCK        = 154,
+		VK_FORMAT_EAC_R11G11_UNORM_BLOCK     = 155,
+		VK_FORMAT_EAC_R11G11_SNORM_BLOCK     = 156,
+		VK_FORMAT_ASTC_4x4_UNORM_BLOCK       = 157,
+		VK_FORMAT_ASTC_4x4_SRGB_BLOCK        = 158,
+		VK_FORMAT_ASTC_5x4_UNORM_BLOCK       = 159,
+		VK_FORMAT_ASTC_5x4_SRGB_BLOCK        = 160,
+		VK_FORMAT_ASTC_5x5_UNORM_BLOCK       = 161,
+		VK_FORMAT_ASTC_5x5_SRGB_BLOCK        = 162,
+		VK_FORMAT_ASTC_6x5_UNORM_BLOCK       = 163,
+		VK_FORMAT_ASTC_6x5_SRGB_BLOCK        = 164,
+		VK_FORMAT_ASTC_6x6_UNORM_BLOCK       = 165,
+		VK_FORMAT_ASTC_6x6_SRGB_BLOCK        = 166,
+		VK_FORMAT_ASTC_8x5_UNORM_BLOCK       = 167,
+		VK_FORMAT_ASTC_8x5_SRGB_BLOCK        = 168,
+		VK_FORMAT_ASTC_8x6_UNORM_BLOCK       = 169,
+		VK_FORMAT_ASTC_8x6_SRGB_BLOCK        = 170,
+		VK_FORMAT_ASTC_8x8_UNORM_BLOCK       = 171,
+		VK_FORMAT_ASTC_8x8_SRGB_BLOCK        = 172,
+		VK_FORMAT_ASTC_10x5_UNORM_BLOCK      = 173,
+		VK_FORMAT_ASTC_10x5_SRGB_BLOCK       = 174,
+		VK_FORMAT_ASTC_10x6_UNORM_BLOCK      = 175,
+		VK_FORMAT_ASTC_10x6_SRGB_BLOCK       = 176,
+		VK_FORMAT_ASTC_10x8_UNORM_BLOCK      = 177,
+		VK_FORMAT_ASTC_10x8_SRGB_BLOCK       = 178,
+		VK_FORMAT_ASTC_10x10_UNORM_BLOCK     = 179,
+		VK_FORMAT_ASTC_10x10_SRGB_BLOCK      = 180,
+		VK_FORMAT_ASTC_12x10_UNORM_BLOCK     = 181,
+		VK_FORMAT_ASTC_12x10_SRGB_BLOCK      = 182,
+		VK_FORMAT_ASTC_12x12_UNORM_BLOCK     = 183,
+		VK_FORMAT_ASTC_12x12_SRGB_BLOCK      = 184,
+		VK_FORMAT_BEGIN_RANGE                = VK_FORMAT_UNDEFINED,
+		VK_FORMAT_END_RANGE                  = VK_FORMAT_ASTC_12x12_SRGB_BLOCK,
+		VK_FORMAT_RANGE_SIZE                 = VK_FORMAT_ASTC_12x12_SRGB_BLOCK - VK_FORMAT_UNDEFINED + 1,
+		VK_FORMAT_MAX_ENUM                   = 0x7FFFFFFF;
+
+	/** VkImageType */
+	public static final int
+		VK_IMAGE_TYPE_1D          = 0,
+		VK_IMAGE_TYPE_2D          = 1,
+		VK_IMAGE_TYPE_3D          = 2,
+		VK_IMAGE_TYPE_BEGIN_RANGE = VK_IMAGE_TYPE_1D,
+		VK_IMAGE_TYPE_END_RANGE   = VK_IMAGE_TYPE_3D,
+		VK_IMAGE_TYPE_RANGE_SIZE  = VK_IMAGE_TYPE_3D - VK_IMAGE_TYPE_1D + 1,
+		VK_IMAGE_TYPE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkImageTiling */
+	public static final int
+		VK_IMAGE_TILING_OPTIMAL     = 0,
+		VK_IMAGE_TILING_LINEAR      = 1,
+		VK_IMAGE_TILING_BEGIN_RANGE = VK_IMAGE_TILING_OPTIMAL,
+		VK_IMAGE_TILING_END_RANGE   = VK_IMAGE_TILING_LINEAR,
+		VK_IMAGE_TILING_RANGE_SIZE  = VK_IMAGE_TILING_LINEAR - VK_IMAGE_TILING_OPTIMAL + 1,
+		VK_IMAGE_TILING_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkPhysicalDeviceType */
+	public static final int
+		VK_PHYSICAL_DEVICE_TYPE_OTHER          = 0,
+		VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU = 1,
+		VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU   = 2,
+		VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU    = 3,
+		VK_PHYSICAL_DEVICE_TYPE_CPU            = 4,
+		VK_PHYSICAL_DEVICE_TYPE_BEGIN_RANGE    = VK_PHYSICAL_DEVICE_TYPE_OTHER,
+		VK_PHYSICAL_DEVICE_TYPE_END_RANGE      = VK_PHYSICAL_DEVICE_TYPE_CPU,
+		VK_PHYSICAL_DEVICE_TYPE_RANGE_SIZE     = VK_PHYSICAL_DEVICE_TYPE_CPU - VK_PHYSICAL_DEVICE_TYPE_OTHER + 1,
+		VK_PHYSICAL_DEVICE_TYPE_MAX_ENUM       = 0x7FFFFFFF;
+
+	/** VkQueryType */
+	public static final int
+		VK_QUERY_TYPE_OCCLUSION           = 0,
+		VK_QUERY_TYPE_PIPELINE_STATISTICS = 1,
+		VK_QUERY_TYPE_TIMESTAMP           = 2,
+		VK_QUERY_TYPE_BEGIN_RANGE         = VK_QUERY_TYPE_OCCLUSION,
+		VK_QUERY_TYPE_END_RANGE           = VK_QUERY_TYPE_TIMESTAMP,
+		VK_QUERY_TYPE_RANGE_SIZE          = VK_QUERY_TYPE_TIMESTAMP - VK_QUERY_TYPE_OCCLUSION + 1,
+		VK_QUERY_TYPE_MAX_ENUM            = 0x7FFFFFFF;
+
+	/** VkSharingMode */
+	public static final int
+		VK_SHARING_MODE_EXCLUSIVE   = 0,
+		VK_SHARING_MODE_CONCURRENT  = 1,
+		VK_SHARING_MODE_BEGIN_RANGE = VK_SHARING_MODE_EXCLUSIVE,
+		VK_SHARING_MODE_END_RANGE   = VK_SHARING_MODE_CONCURRENT,
+		VK_SHARING_MODE_RANGE_SIZE  = VK_SHARING_MODE_CONCURRENT - VK_SHARING_MODE_EXCLUSIVE + 1,
+		VK_SHARING_MODE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkImageLayout */
+	public static final int
+		VK_IMAGE_LAYOUT_UNDEFINED                        = 0,
+		VK_IMAGE_LAYOUT_GENERAL                          = 1,
+		VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL         = 2,
+		VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL = 3,
+		VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL  = 4,
+		VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL         = 5,
+		VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL             = 6,
+		VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL             = 7,
+		VK_IMAGE_LAYOUT_PREINITIALIZED                   = 8,
+		VK_IMAGE_LAYOUT_BEGIN_RANGE                      = VK_IMAGE_LAYOUT_UNDEFINED,
+		VK_IMAGE_LAYOUT_END_RANGE                        = VK_IMAGE_LAYOUT_PREINITIALIZED,
+		VK_IMAGE_LAYOUT_RANGE_SIZE                       = VK_IMAGE_LAYOUT_PREINITIALIZED - VK_IMAGE_LAYOUT_UNDEFINED + 1,
+		VK_IMAGE_LAYOUT_MAX_ENUM                         = 0x7FFFFFFF;
+
+	/** VkImageViewType */
+	public static final int
+		VK_IMAGE_VIEW_TYPE_1D          = 0,
+		VK_IMAGE_VIEW_TYPE_2D          = 1,
+		VK_IMAGE_VIEW_TYPE_3D          = 2,
+		VK_IMAGE_VIEW_TYPE_CUBE        = 3,
+		VK_IMAGE_VIEW_TYPE_1D_ARRAY    = 4,
+		VK_IMAGE_VIEW_TYPE_2D_ARRAY    = 5,
+		VK_IMAGE_VIEW_TYPE_CUBE_ARRAY  = 6,
+		VK_IMAGE_VIEW_TYPE_BEGIN_RANGE = VK_IMAGE_VIEW_TYPE_1D,
+		VK_IMAGE_VIEW_TYPE_END_RANGE   = VK_IMAGE_VIEW_TYPE_CUBE_ARRAY,
+		VK_IMAGE_VIEW_TYPE_RANGE_SIZE  = VK_IMAGE_VIEW_TYPE_CUBE_ARRAY - VK_IMAGE_VIEW_TYPE_1D + 1,
+		VK_IMAGE_VIEW_TYPE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkComponentSwizzle */
+	public static final int
+		VK_COMPONENT_SWIZZLE_IDENTITY    = 0,
+		VK_COMPONENT_SWIZZLE_ZERO        = 1,
+		VK_COMPONENT_SWIZZLE_ONE         = 2,
+		VK_COMPONENT_SWIZZLE_R           = 3,
+		VK_COMPONENT_SWIZZLE_G           = 4,
+		VK_COMPONENT_SWIZZLE_B           = 5,
+		VK_COMPONENT_SWIZZLE_A           = 6,
+		VK_COMPONENT_SWIZZLE_BEGIN_RANGE = VK_COMPONENT_SWIZZLE_IDENTITY,
+		VK_COMPONENT_SWIZZLE_END_RANGE   = VK_COMPONENT_SWIZZLE_A,
+		VK_COMPONENT_SWIZZLE_RANGE_SIZE  = VK_COMPONENT_SWIZZLE_A - VK_COMPONENT_SWIZZLE_IDENTITY + 1,
+		VK_COMPONENT_SWIZZLE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkVertexInputRate */
+	public static final int
+		VK_VERTEX_INPUT_RATE_VERTEX      = 0,
+		VK_VERTEX_INPUT_RATE_INSTANCE    = 1,
+		VK_VERTEX_INPUT_RATE_BEGIN_RANGE = VK_VERTEX_INPUT_RATE_VERTEX,
+		VK_VERTEX_INPUT_RATE_END_RANGE   = VK_VERTEX_INPUT_RATE_INSTANCE,
+		VK_VERTEX_INPUT_RATE_RANGE_SIZE  = VK_VERTEX_INPUT_RATE_INSTANCE - VK_VERTEX_INPUT_RATE_VERTEX + 1,
+		VK_VERTEX_INPUT_RATE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkPrimitiveTopology */
+	public static final int
+		VK_PRIMITIVE_TOPOLOGY_POINT_LIST                    = 0,
+		VK_PRIMITIVE_TOPOLOGY_LINE_LIST                     = 1,
+		VK_PRIMITIVE_TOPOLOGY_LINE_STRIP                    = 2,
+		VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST                 = 3,
+		VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP                = 4,
+		VK_PRIMITIVE_TOPOLOGY_TRIANGLE_FAN                  = 5,
+		VK_PRIMITIVE_TOPOLOGY_LINE_LIST_WITH_ADJACENCY      = 6,
+		VK_PRIMITIVE_TOPOLOGY_LINE_STRIP_WITH_ADJACENCY     = 7,
+		VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST_WITH_ADJACENCY  = 8,
+		VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP_WITH_ADJACENCY = 9,
+		VK_PRIMITIVE_TOPOLOGY_PATCH_LIST                    = 10,
+		VK_PRIMITIVE_TOPOLOGY_BEGIN_RANGE                   = VK_PRIMITIVE_TOPOLOGY_POINT_LIST,
+		VK_PRIMITIVE_TOPOLOGY_END_RANGE                     = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST,
+		VK_PRIMITIVE_TOPOLOGY_RANGE_SIZE                    = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST - VK_PRIMITIVE_TOPOLOGY_POINT_LIST + 1,
+		VK_PRIMITIVE_TOPOLOGY_MAX_ENUM                      = 0x7FFFFFFF;
+
+	/** VkPolygonMode */
+	public static final int
+		VK_POLYGON_MODE_FILL        = 0,
+		VK_POLYGON_MODE_LINE        = 1,
+		VK_POLYGON_MODE_POINT       = 2,
+		VK_POLYGON_MODE_BEGIN_RANGE = VK_POLYGON_MODE_FILL,
+		VK_POLYGON_MODE_END_RANGE   = VK_POLYGON_MODE_POINT,
+		VK_POLYGON_MODE_RANGE_SIZE  = VK_POLYGON_MODE_POINT - VK_POLYGON_MODE_FILL + 1,
+		VK_POLYGON_MODE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkFrontFace */
+	public static final int
+		VK_FRONT_FACE_COUNTER_CLOCKWISE = 0,
+		VK_FRONT_FACE_CLOCKWISE         = 1,
+		VK_FRONT_FACE_BEGIN_RANGE       = VK_FRONT_FACE_COUNTER_CLOCKWISE,
+		VK_FRONT_FACE_END_RANGE         = VK_FRONT_FACE_CLOCKWISE,
+		VK_FRONT_FACE_RANGE_SIZE        = VK_FRONT_FACE_CLOCKWISE - VK_FRONT_FACE_COUNTER_CLOCKWISE + 1,
+		VK_FRONT_FACE_MAX_ENUM          = 0x7FFFFFFF;
+
+	/** VkCompareOp */
+	public static final int
+		VK_COMPARE_OP_NEVER            = 0,
+		VK_COMPARE_OP_LESS             = 1,
+		VK_COMPARE_OP_EQUAL            = 2,
+		VK_COMPARE_OP_LESS_OR_EQUAL    = 3,
+		VK_COMPARE_OP_GREATER          = 4,
+		VK_COMPARE_OP_NOT_EQUAL        = 5,
+		VK_COMPARE_OP_GREATER_OR_EQUAL = 6,
+		VK_COMPARE_OP_ALWAYS           = 7,
+		VK_COMPARE_OP_BEGIN_RANGE      = VK_COMPARE_OP_NEVER,
+		VK_COMPARE_OP_END_RANGE        = VK_COMPARE_OP_ALWAYS,
+		VK_COMPARE_OP_RANGE_SIZE       = VK_COMPARE_OP_ALWAYS - VK_COMPARE_OP_NEVER + 1,
+		VK_COMPARE_OP_MAX_ENUM         = 0x7FFFFFFF;
+
+	/** VkStencilOp */
+	public static final int
+		VK_STENCIL_OP_KEEP                = 0,
+		VK_STENCIL_OP_ZERO                = 1,
+		VK_STENCIL_OP_REPLACE             = 2,
+		VK_STENCIL_OP_INCREMENT_AND_CLAMP = 3,
+		VK_STENCIL_OP_DECREMENT_AND_CLAMP = 4,
+		VK_STENCIL_OP_INVERT              = 5,
+		VK_STENCIL_OP_INCREMENT_AND_WRAP  = 6,
+		VK_STENCIL_OP_DECREMENT_AND_WRAP  = 7,
+		VK_STENCIL_OP_BEGIN_RANGE         = VK_STENCIL_OP_KEEP,
+		VK_STENCIL_OP_END_RANGE           = VK_STENCIL_OP_DECREMENT_AND_WRAP,
+		VK_STENCIL_OP_RANGE_SIZE          = VK_STENCIL_OP_DECREMENT_AND_WRAP - VK_STENCIL_OP_KEEP + 1,
+		VK_STENCIL_OP_MAX_ENUM            = 0x7FFFFFFF;
+
+	/** VkLogicOp */
+	public static final int
+		VK_LOGIC_OP_CLEAR         = 0,
+		VK_LOGIC_OP_AND           = 1,
+		VK_LOGIC_OP_AND_REVERSE   = 2,
+		VK_LOGIC_OP_COPY          = 3,
+		VK_LOGIC_OP_AND_INVERTED  = 4,
+		VK_LOGIC_OP_NO_OP         = 5,
+		VK_LOGIC_OP_XOR           = 6,
+		VK_LOGIC_OP_OR            = 7,
+		VK_LOGIC_OP_NOR           = 8,
+		VK_LOGIC_OP_EQUIVALENT    = 9,
+		VK_LOGIC_OP_INVERT        = 10,
+		VK_LOGIC_OP_OR_REVERSE    = 11,
+		VK_LOGIC_OP_COPY_INVERTED = 12,
+		VK_LOGIC_OP_OR_INVERTED   = 13,
+		VK_LOGIC_OP_NAND          = 14,
+		VK_LOGIC_OP_SET           = 15,
+		VK_LOGIC_OP_BEGIN_RANGE   = VK_LOGIC_OP_CLEAR,
+		VK_LOGIC_OP_END_RANGE     = VK_LOGIC_OP_SET,
+		VK_LOGIC_OP_RANGE_SIZE    = VK_LOGIC_OP_SET - VK_LOGIC_OP_CLEAR + 1,
+		VK_LOGIC_OP_MAX_ENUM      = 0x7FFFFFFF;
+
+	/** VkBlendFactor */
+	public static final int
+		VK_BLEND_FACTOR_ZERO                     = 0,
+		VK_BLEND_FACTOR_ONE                      = 1,
+		VK_BLEND_FACTOR_SRC_COLOR                = 2,
+		VK_BLEND_FACTOR_ONE_MINUS_SRC_COLOR      = 3,
+		VK_BLEND_FACTOR_DST_COLOR                = 4,
+		VK_BLEND_FACTOR_ONE_MINUS_DST_COLOR      = 5,
+		VK_BLEND_FACTOR_SRC_ALPHA                = 6,
+		VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA      = 7,
+		VK_BLEND_FACTOR_DST_ALPHA                = 8,
+		VK_BLEND_FACTOR_ONE_MINUS_DST_ALPHA      = 9,
+		VK_BLEND_FACTOR_CONSTANT_COLOR           = 10,
+		VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR = 11,
+		VK_BLEND_FACTOR_CONSTANT_ALPHA           = 12,
+		VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA = 13,
+		VK_BLEND_FACTOR_SRC_ALPHA_SATURATE       = 14,
+		VK_BLEND_FACTOR_SRC1_COLOR               = 15,
+		VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR     = 16,
+		VK_BLEND_FACTOR_SRC1_ALPHA               = 17,
+		VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA     = 18,
+		VK_BLEND_FACTOR_BEGIN_RANGE              = VK_BLEND_FACTOR_ZERO,
+		VK_BLEND_FACTOR_END_RANGE                = VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA,
+		VK_BLEND_FACTOR_RANGE_SIZE               = VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA - VK_BLEND_FACTOR_ZERO + 1,
+		VK_BLEND_FACTOR_MAX_ENUM                 = 0x7FFFFFFF;
+
+	/** VkBlendOp */
+	public static final int
+		VK_BLEND_OP_ADD              = 0,
+		VK_BLEND_OP_SUBTRACT         = 1,
+		VK_BLEND_OP_REVERSE_SUBTRACT = 2,
+		VK_BLEND_OP_MIN              = 3,
+		VK_BLEND_OP_MAX              = 4,
+		VK_BLEND_OP_BEGIN_RANGE      = VK_BLEND_OP_ADD,
+		VK_BLEND_OP_END_RANGE        = VK_BLEND_OP_MAX,
+		VK_BLEND_OP_RANGE_SIZE       = VK_BLEND_OP_MAX - VK_BLEND_OP_ADD + 1,
+		VK_BLEND_OP_MAX_ENUM         = 0x7FFFFFFF;
+
+	/** VkDynamicState */
+	public static final int
+		VK_DYNAMIC_STATE_VIEWPORT             = 0,
+		VK_DYNAMIC_STATE_SCISSOR              = 1,
+		VK_DYNAMIC_STATE_LINE_WIDTH           = 2,
+		VK_DYNAMIC_STATE_DEPTH_BIAS           = 3,
+		VK_DYNAMIC_STATE_BLEND_CONSTANTS      = 4,
+		VK_DYNAMIC_STATE_DEPTH_BOUNDS         = 5,
+		VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK = 6,
+		VK_DYNAMIC_STATE_STENCIL_WRITE_MASK   = 7,
+		VK_DYNAMIC_STATE_STENCIL_REFERENCE    = 8,
+		VK_DYNAMIC_STATE_BEGIN_RANGE          = VK_DYNAMIC_STATE_VIEWPORT,
+		VK_DYNAMIC_STATE_END_RANGE            = VK_DYNAMIC_STATE_STENCIL_REFERENCE,
+		VK_DYNAMIC_STATE_RANGE_SIZE           = VK_DYNAMIC_STATE_STENCIL_REFERENCE - VK_DYNAMIC_STATE_VIEWPORT + 1,
+		VK_DYNAMIC_STATE_MAX_ENUM             = 0x7FFFFFFF;
+
+	/** VkFilter */
+	public static final int
+		VK_FILTER_NEAREST     = 0,
+		VK_FILTER_LINEAR      = 1,
+		VK_FILTER_BEGIN_RANGE = VK_FILTER_NEAREST,
+		VK_FILTER_END_RANGE   = VK_FILTER_LINEAR,
+		VK_FILTER_RANGE_SIZE  = VK_FILTER_LINEAR - VK_FILTER_NEAREST + 1,
+		VK_FILTER_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkSamplerMipmapMode */
+	public static final int
+		VK_SAMPLER_MIPMAP_MODE_NEAREST     = 0,
+		VK_SAMPLER_MIPMAP_MODE_LINEAR      = 1,
+		VK_SAMPLER_MIPMAP_MODE_BEGIN_RANGE = VK_SAMPLER_MIPMAP_MODE_NEAREST,
+		VK_SAMPLER_MIPMAP_MODE_END_RANGE   = VK_SAMPLER_MIPMAP_MODE_LINEAR,
+		VK_SAMPLER_MIPMAP_MODE_RANGE_SIZE  = VK_SAMPLER_MIPMAP_MODE_LINEAR - VK_SAMPLER_MIPMAP_MODE_NEAREST + 1,
+		VK_SAMPLER_MIPMAP_MODE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkSamplerAddressMode */
+	public static final int
+		VK_SAMPLER_ADDRESS_MODE_REPEAT               = 0,
+		VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT      = 1,
+		VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE        = 2,
+		VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER      = 3,
+		VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4,
+		VK_SAMPLER_ADDRESS_MODE_BEGIN_RANGE          = VK_SAMPLER_ADDRESS_MODE_REPEAT,
+		VK_SAMPLER_ADDRESS_MODE_END_RANGE            = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE,
+		VK_SAMPLER_ADDRESS_MODE_RANGE_SIZE           = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE - VK_SAMPLER_ADDRESS_MODE_REPEAT + 1,
+		VK_SAMPLER_ADDRESS_MODE_MAX_ENUM             = 0x7FFFFFFF;
+
+	/** VkBorderColor */
+	public static final int
+		VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0,
+		VK_BORDER_COLOR_INT_TRANSPARENT_BLACK   = 1,
+		VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK      = 2,
+		VK_BORDER_COLOR_INT_OPAQUE_BLACK        = 3,
+		VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE      = 4,
+		VK_BORDER_COLOR_INT_OPAQUE_WHITE        = 5,
+		VK_BORDER_COLOR_BEGIN_RANGE             = VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK,
+		VK_BORDER_COLOR_END_RANGE               = VK_BORDER_COLOR_INT_OPAQUE_WHITE,
+		VK_BORDER_COLOR_RANGE_SIZE              = VK_BORDER_COLOR_INT_OPAQUE_WHITE - VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK + 1,
+		VK_BORDER_COLOR_MAX_ENUM                = 0x7FFFFFFF;
+
+	/** VkDescriptorType */
+	public static final int
+		VK_DESCRIPTOR_TYPE_SAMPLER                = 0,
+		VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER = 1,
+		VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE          = 2,
+		VK_DESCRIPTOR_TYPE_STORAGE_IMAGE          = 3,
+		VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER   = 4,
+		VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER   = 5,
+		VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER         = 6,
+		VK_DESCRIPTOR_TYPE_STORAGE_BUFFER         = 7,
+		VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC = 8,
+		VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC = 9,
+		VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT       = 10,
+		VK_DESCRIPTOR_TYPE_BEGIN_RANGE            = VK_DESCRIPTOR_TYPE_SAMPLER,
+		VK_DESCRIPTOR_TYPE_END_RANGE              = VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT,
+		VK_DESCRIPTOR_TYPE_RANGE_SIZE             = VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT - VK_DESCRIPTOR_TYPE_SAMPLER + 1,
+		VK_DESCRIPTOR_TYPE_MAX_ENUM               = 0x7FFFFFFF;
+
+	/** VkAttachmentLoadOp */
+	public static final int
+		VK_ATTACHMENT_LOAD_OP_LOAD        = 0,
+		VK_ATTACHMENT_LOAD_OP_CLEAR       = 1,
+		VK_ATTACHMENT_LOAD_OP_DONT_CARE   = 2,
+		VK_ATTACHMENT_LOAD_OP_BEGIN_RANGE = VK_ATTACHMENT_LOAD_OP_LOAD,
+		VK_ATTACHMENT_LOAD_OP_END_RANGE   = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+		VK_ATTACHMENT_LOAD_OP_RANGE_SIZE  = VK_ATTACHMENT_LOAD_OP_DONT_CARE - VK_ATTACHMENT_LOAD_OP_LOAD + 1,
+		VK_ATTACHMENT_LOAD_OP_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkAttachmentStoreOp */
+	public static final int
+		VK_ATTACHMENT_STORE_OP_STORE       = 0,
+		VK_ATTACHMENT_STORE_OP_DONT_CARE   = 1,
+		VK_ATTACHMENT_STORE_OP_BEGIN_RANGE = VK_ATTACHMENT_STORE_OP_STORE,
+		VK_ATTACHMENT_STORE_OP_END_RANGE   = VK_ATTACHMENT_STORE_OP_DONT_CARE,
+		VK_ATTACHMENT_STORE_OP_RANGE_SIZE  = VK_ATTACHMENT_STORE_OP_DONT_CARE - VK_ATTACHMENT_STORE_OP_STORE + 1,
+		VK_ATTACHMENT_STORE_OP_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkPipelineBindPoint */
+	public static final int
+		VK_PIPELINE_BIND_POINT_GRAPHICS    = 0,
+		VK_PIPELINE_BIND_POINT_COMPUTE     = 1,
+		VK_PIPELINE_BIND_POINT_BEGIN_RANGE = VK_PIPELINE_BIND_POINT_GRAPHICS,
+		VK_PIPELINE_BIND_POINT_END_RANGE   = VK_PIPELINE_BIND_POINT_COMPUTE,
+		VK_PIPELINE_BIND_POINT_RANGE_SIZE  = VK_PIPELINE_BIND_POINT_COMPUTE - VK_PIPELINE_BIND_POINT_GRAPHICS + 1,
+		VK_PIPELINE_BIND_POINT_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkCommandBufferLevel */
+	public static final int
+		VK_COMMAND_BUFFER_LEVEL_PRIMARY     = 0,
+		VK_COMMAND_BUFFER_LEVEL_SECONDARY   = 1,
+		VK_COMMAND_BUFFER_LEVEL_BEGIN_RANGE = VK_COMMAND_BUFFER_LEVEL_PRIMARY,
+		VK_COMMAND_BUFFER_LEVEL_END_RANGE   = VK_COMMAND_BUFFER_LEVEL_SECONDARY,
+		VK_COMMAND_BUFFER_LEVEL_RANGE_SIZE  = VK_COMMAND_BUFFER_LEVEL_SECONDARY - VK_COMMAND_BUFFER_LEVEL_PRIMARY + 1,
+		VK_COMMAND_BUFFER_LEVEL_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkIndexType */
+	public static final int
+		VK_INDEX_TYPE_UINT16      = 0,
+		VK_INDEX_TYPE_UINT32      = 1,
+		VK_INDEX_TYPE_BEGIN_RANGE = VK_INDEX_TYPE_UINT16,
+		VK_INDEX_TYPE_END_RANGE   = VK_INDEX_TYPE_UINT32,
+		VK_INDEX_TYPE_RANGE_SIZE  = VK_INDEX_TYPE_UINT32 - VK_INDEX_TYPE_UINT16 + 1,
+		VK_INDEX_TYPE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** VkSubpassContents */
+	public static final int
+		VK_SUBPASS_CONTENTS_INLINE                    = 0,
+		VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS = 1,
+		VK_SUBPASS_CONTENTS_BEGIN_RANGE               = VK_SUBPASS_CONTENTS_INLINE,
+		VK_SUBPASS_CONTENTS_END_RANGE                 = VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS,
+		VK_SUBPASS_CONTENTS_RANGE_SIZE                = VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS - VK_SUBPASS_CONTENTS_INLINE + 1,
+		VK_SUBPASS_CONTENTS_MAX_ENUM                  = 0x7FFFFFFF;
+
+	/** VkFormatFeatureFlagBits */
+	public static final int
+		VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT               = 0x1,
+		VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT               = 0x2,
+		VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT        = 0x4,
+		VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT        = 0x8,
+		VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT        = 0x10,
+		VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT = 0x20,
+		VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT               = 0x40,
+		VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT            = 0x80,
+		VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT      = 0x100,
+		VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT    = 0x200,
+		VK_FORMAT_FEATURE_BLIT_SRC_BIT                    = 0x400,
+		VK_FORMAT_FEATURE_BLIT_DST_BIT                    = 0x800,
+		VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT = 0x1000;
+
+	/** VkImageUsageFlagBits */
+	public static final int
+		VK_IMAGE_USAGE_TRANSFER_SRC_BIT             = 0x1,
+		VK_IMAGE_USAGE_TRANSFER_DST_BIT             = 0x2,
+		VK_IMAGE_USAGE_SAMPLED_BIT                  = 0x4,
+		VK_IMAGE_USAGE_STORAGE_BIT                  = 0x8,
+		VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT         = 0x10,
+		VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT = 0x20,
+		VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT     = 0x40,
+		VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT         = 0x80;
+
+	/** VkImageCreateFlagBits */
+	public static final int
+		VK_IMAGE_CREATE_SPARSE_BINDING_BIT   = 0x1,
+		VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT = 0x2,
+		VK_IMAGE_CREATE_SPARSE_ALIASED_BIT   = 0x4,
+		VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT   = 0x8,
+		VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT  = 0x10;
+
+	/** VkSampleCountFlagBits */
+	public static final int
+		VK_SAMPLE_COUNT_1_BIT  = 0x1,
+		VK_SAMPLE_COUNT_2_BIT  = 0x2,
+		VK_SAMPLE_COUNT_4_BIT  = 0x4,
+		VK_SAMPLE_COUNT_8_BIT  = 0x8,
+		VK_SAMPLE_COUNT_16_BIT = 0x10,
+		VK_SAMPLE_COUNT_32_BIT = 0x20,
+		VK_SAMPLE_COUNT_64_BIT = 0x40;
+
+	/** VkQueueFlagBits */
+	public static final int
+		VK_QUEUE_GRAPHICS_BIT       = 0x1,
+		VK_QUEUE_COMPUTE_BIT        = 0x2,
+		VK_QUEUE_TRANSFER_BIT       = 0x4,
+		VK_QUEUE_SPARSE_BINDING_BIT = 0x8;
+
+	/** VkMemoryPropertyFlagBits */
+	public static final int
+		VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT     = 0x1,
+		VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT     = 0x2,
+		VK_MEMORY_PROPERTY_HOST_COHERENT_BIT    = 0x4,
+		VK_MEMORY_PROPERTY_HOST_CACHED_BIT      = 0x8,
+		VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT = 0x10;
+
+	/** VkMemoryHeapFlagBits */
 	public static final int VK_MEMORY_HEAP_DEVICE_LOCAL_BIT = 0x1;
 
-	/**  */
-	public static final int VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT = 0x1;
+	/** VkPipelineStageFlagBits */
+	public static final int
+		VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT                    = 0x1,
+		VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT                  = 0x2,
+		VK_PIPELINE_STAGE_VERTEX_INPUT_BIT                   = 0x4,
+		VK_PIPELINE_STAGE_VERTEX_SHADER_BIT                  = 0x8,
+		VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT    = 0x10,
+		VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT = 0x20,
+		VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT                = 0x40,
+		VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT                = 0x80,
+		VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT           = 0x100,
+		VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT            = 0x200,
+		VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT        = 0x400,
+		VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT                 = 0x800,
+		VK_PIPELINE_STAGE_TRANSFER_BIT                       = 0x1000,
+		VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT                 = 0x2000,
+		VK_PIPELINE_STAGE_HOST_BIT                           = 0x4000,
+		VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT                   = 0x8000,
+		VK_PIPELINE_STAGE_ALL_COMMANDS_BIT                   = 0x10000;
 
-	/**  */
-	public static final int VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT = 0x2;
+	/** VkImageAspectFlagBits */
+	public static final int
+		VK_IMAGE_ASPECT_COLOR_BIT    = 0x1,
+		VK_IMAGE_ASPECT_DEPTH_BIT    = 0x2,
+		VK_IMAGE_ASPECT_STENCIL_BIT  = 0x4,
+		VK_IMAGE_ASPECT_METADATA_BIT = 0x8;
 
-	/**  */
-	public static final int VK_PIPELINE_STAGE_VERTEX_INPUT_BIT = 0x4;
+	/** VkSparseImageFormatFlagBits */
+	public static final int
+		VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT         = 0x1,
+		VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT       = 0x2,
+		VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT = 0x4;
 
-	/**  */
-	public static final int VK_PIPELINE_STAGE_VERTEX_SHADER_BIT = 0x8;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT = 0x10;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT = 0x20;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT = 0x40;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT = 0x80;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT = 0x100;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT = 0x200;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT = 0x400;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT = 0x800;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_TRANSFER_BIT = 0x1000;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT = 0x2000;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_HOST_BIT = 0x4000;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT = 0x8000;
-
-	/**  */
-	public static final int VK_PIPELINE_STAGE_ALL_COMMANDS_BIT = 0x10000;
-
-	/**  */
-	public static final int VK_IMAGE_ASPECT_COLOR_BIT = 0x1;
-
-	/**  */
-	public static final int VK_IMAGE_ASPECT_DEPTH_BIT = 0x2;
-
-	/**  */
-	public static final int VK_IMAGE_ASPECT_STENCIL_BIT = 0x4;
-
-	/**  */
-	public static final int VK_IMAGE_ASPECT_METADATA_BIT = 0x8;
-
-	/**  */
-	public static final int VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT = 0x1;
-
-	/**  */
-	public static final int VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT = 0x2;
-
-	/**  */
-	public static final int VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT = 0x4;
-
-	/**  */
+	/** VkSparseMemoryBindFlagBits */
 	public static final int VK_SPARSE_MEMORY_BIND_METADATA_BIT = 0x1;
 
-	/**  */
+	/** VkFenceCreateFlagBits */
 	public static final int VK_FENCE_CREATE_SIGNALED_BIT = 0x1;
 
-	/**  */
-	public static final int VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT = 0x1;
+	/** VkQueryPipelineStatisticFlagBits */
+	public static final int
+		VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT                    = 0x1,
+		VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT                  = 0x2,
+		VK_QUERY_PIPELINE_STATISTIC_VERTEX_SHADER_INVOCATIONS_BIT                  = 0x4,
+		VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_INVOCATIONS_BIT                = 0x8,
+		VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_PRIMITIVES_BIT                 = 0x10,
+		VK_QUERY_PIPELINE_STATISTIC_CLIPPING_INVOCATIONS_BIT                       = 0x20,
+		VK_QUERY_PIPELINE_STATISTIC_CLIPPING_PRIMITIVES_BIT                        = 0x40,
+		VK_QUERY_PIPELINE_STATISTIC_FRAGMENT_SHADER_INVOCATIONS_BIT                = 0x80,
+		VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_CONTROL_SHADER_PATCHES_BIT        = 0x100,
+		VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_EVALUATION_SHADER_INVOCATIONS_BIT = 0x200,
+		VK_QUERY_PIPELINE_STATISTIC_COMPUTE_SHADER_INVOCATIONS_BIT                 = 0x400;
 
-	/**  */
-	public static final int VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT = 0x2;
+	/** VkQueryResultFlagBits */
+	public static final int
+		VK_QUERY_RESULT_64_BIT                = 0x1,
+		VK_QUERY_RESULT_WAIT_BIT              = 0x2,
+		VK_QUERY_RESULT_WITH_AVAILABILITY_BIT = 0x4,
+		VK_QUERY_RESULT_PARTIAL_BIT           = 0x8;
 
-	/**  */
-	public static final int VK_QUERY_PIPELINE_STATISTIC_VERTEX_SHADER_INVOCATIONS_BIT = 0x4;
+	/** VkBufferCreateFlagBits */
+	public static final int
+		VK_BUFFER_CREATE_SPARSE_BINDING_BIT   = 0x1,
+		VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT = 0x2,
+		VK_BUFFER_CREATE_SPARSE_ALIASED_BIT   = 0x4;
 
-	/**  */
-	public static final int VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_INVOCATIONS_BIT = 0x8;
+	/** VkBufferUsageFlagBits */
+	public static final int
+		VK_BUFFER_USAGE_TRANSFER_SRC_BIT         = 0x1,
+		VK_BUFFER_USAGE_TRANSFER_DST_BIT         = 0x2,
+		VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT = 0x4,
+		VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT = 0x8,
+		VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT       = 0x10,
+		VK_BUFFER_USAGE_STORAGE_BUFFER_BIT       = 0x20,
+		VK_BUFFER_USAGE_INDEX_BUFFER_BIT         = 0x40,
+		VK_BUFFER_USAGE_VERTEX_BUFFER_BIT        = 0x80,
+		VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT      = 0x100;
 
-	/**  */
-	public static final int VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_PRIMITIVES_BIT = 0x10;
+	/** VkPipelineCreateFlagBits */
+	public static final int
+		VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 0x1,
+		VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT    = 0x2,
+		VK_PIPELINE_CREATE_DERIVATIVE_BIT           = 0x4;
 
-	/**  */
-	public static final int VK_QUERY_PIPELINE_STATISTIC_CLIPPING_INVOCATIONS_BIT = 0x20;
+	/** VkShaderStageFlagBits */
+	public static final int
+		VK_SHADER_STAGE_VERTEX_BIT                  = 0x1,
+		VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT    = 0x2,
+		VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT = 0x4,
+		VK_SHADER_STAGE_GEOMETRY_BIT                = 0x8,
+		VK_SHADER_STAGE_FRAGMENT_BIT                = 0x10,
+		VK_SHADER_STAGE_COMPUTE_BIT                 = 0x20,
+		VK_SHADER_STAGE_ALL_GRAPHICS                = 0x1F,
+		VK_SHADER_STAGE_ALL                         = 0x7FFFFFFF;
 
-	/**  */
-	public static final int VK_QUERY_PIPELINE_STATISTIC_CLIPPING_PRIMITIVES_BIT = 0x40;
+	/** VkCullModeFlagBits */
+	public static final int
+		VK_CULL_MODE_NONE           = 0,
+		VK_CULL_MODE_FRONT_BIT      = 0x1,
+		VK_CULL_MODE_BACK_BIT       = 0x2,
+		VK_CULL_MODE_FRONT_AND_BACK = 0x3;
 
-	/**  */
-	public static final int VK_QUERY_PIPELINE_STATISTIC_FRAGMENT_SHADER_INVOCATIONS_BIT = 0x80;
+	/** VkColorComponentFlagBits */
+	public static final int
+		VK_COLOR_COMPONENT_R_BIT = 0x1,
+		VK_COLOR_COMPONENT_G_BIT = 0x2,
+		VK_COLOR_COMPONENT_B_BIT = 0x4,
+		VK_COLOR_COMPONENT_A_BIT = 0x8;
 
-	/**  */
-	public static final int VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_CONTROL_SHADER_PATCHES_BIT = 0x100;
-
-	/**  */
-	public static final int VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_EVALUATION_SHADER_INVOCATIONS_BIT = 0x200;
-
-	/**  */
-	public static final int VK_QUERY_PIPELINE_STATISTIC_COMPUTE_SHADER_INVOCATIONS_BIT = 0x400;
-
-	/**  */
-	public static final int VK_QUERY_RESULT_64_BIT = 0x1;
-
-	/**  */
-	public static final int VK_QUERY_RESULT_WAIT_BIT = 0x2;
-
-	/**  */
-	public static final int VK_QUERY_RESULT_WITH_AVAILABILITY_BIT = 0x4;
-
-	/**  */
-	public static final int VK_QUERY_RESULT_PARTIAL_BIT = 0x8;
-
-	/**  */
-	public static final int VK_BUFFER_CREATE_SPARSE_BINDING_BIT = 0x1;
-
-	/**  */
-	public static final int VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT = 0x2;
-
-	/**  */
-	public static final int VK_BUFFER_CREATE_SPARSE_ALIASED_BIT = 0x4;
-
-	/**  */
-	public static final int VK_BUFFER_USAGE_TRANSFER_SRC_BIT = 0x1;
-
-	/**  */
-	public static final int VK_BUFFER_USAGE_TRANSFER_DST_BIT = 0x2;
-
-	/**  */
-	public static final int VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT = 0x4;
-
-	/**  */
-	public static final int VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT = 0x8;
-
-	/**  */
-	public static final int VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT = 0x10;
-
-	/**  */
-	public static final int VK_BUFFER_USAGE_STORAGE_BUFFER_BIT = 0x20;
-
-	/**  */
-	public static final int VK_BUFFER_USAGE_INDEX_BUFFER_BIT = 0x40;
-
-	/**  */
-	public static final int VK_BUFFER_USAGE_VERTEX_BUFFER_BIT = 0x80;
-
-	/**  */
-	public static final int VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT = 0x100;
-
-	/**  */
-	public static final int VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 0x1;
-
-	/**  */
-	public static final int VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT = 0x2;
-
-	/**  */
-	public static final int VK_PIPELINE_CREATE_DERIVATIVE_BIT = 0x4;
-
-	/**  */
-	public static final int VK_SHADER_STAGE_VERTEX_BIT = 0x1;
-
-	/**  */
-	public static final int VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT = 0x2;
-
-	/**  */
-	public static final int VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT = 0x4;
-
-	/**  */
-	public static final int VK_SHADER_STAGE_GEOMETRY_BIT = 0x8;
-
-	/**  */
-	public static final int VK_SHADER_STAGE_FRAGMENT_BIT = 0x10;
-
-	/**  */
-	public static final int VK_SHADER_STAGE_COMPUTE_BIT = 0x20;
-
-	/**  */
-	public static final int VK_SHADER_STAGE_ALL_GRAPHICS = 0x1F;
-
-	/**  */
-	public static final int VK_SHADER_STAGE_ALL = 0x7FFFFFFF;
-
-	/**  */
-	public static final int VK_CULL_MODE_NONE = 0x0;
-
-	/**  */
-	public static final int VK_CULL_MODE_FRONT_BIT = 0x1;
-
-	/**  */
-	public static final int VK_CULL_MODE_BACK_BIT = 0x2;
-
-	/**  */
-	public static final int VK_CULL_MODE_FRONT_AND_BACK = 0x3;
-
-	/**  */
-	public static final int VK_COLOR_COMPONENT_R_BIT = 0x1;
-
-	/**  */
-	public static final int VK_COLOR_COMPONENT_G_BIT = 0x2;
-
-	/**  */
-	public static final int VK_COLOR_COMPONENT_B_BIT = 0x4;
-
-	/**  */
-	public static final int VK_COLOR_COMPONENT_A_BIT = 0x8;
-
-	/**  */
+	/** VkDescriptorPoolCreateFlagBits */
 	public static final int VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT = 0x1;
 
-	/**  */
+	/** VkAttachmentDescriptionFlagBits */
 	public static final int VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT = 0x1;
 
-	/**  */
-	public static final int VK_ACCESS_INDIRECT_COMMAND_READ_BIT = 0x1;
+	/** VkAccessFlagBits */
+	public static final int
+		VK_ACCESS_INDIRECT_COMMAND_READ_BIT          = 0x1,
+		VK_ACCESS_INDEX_READ_BIT                     = 0x2,
+		VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT          = 0x4,
+		VK_ACCESS_UNIFORM_READ_BIT                   = 0x8,
+		VK_ACCESS_INPUT_ATTACHMENT_READ_BIT          = 0x10,
+		VK_ACCESS_SHADER_READ_BIT                    = 0x20,
+		VK_ACCESS_SHADER_WRITE_BIT                   = 0x40,
+		VK_ACCESS_COLOR_ATTACHMENT_READ_BIT          = 0x80,
+		VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT         = 0x100,
+		VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT  = 0x200,
+		VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT = 0x400,
+		VK_ACCESS_TRANSFER_READ_BIT                  = 0x800,
+		VK_ACCESS_TRANSFER_WRITE_BIT                 = 0x1000,
+		VK_ACCESS_HOST_READ_BIT                      = 0x2000,
+		VK_ACCESS_HOST_WRITE_BIT                     = 0x4000,
+		VK_ACCESS_MEMORY_READ_BIT                    = 0x8000,
+		VK_ACCESS_MEMORY_WRITE_BIT                   = 0x10000;
 
-	/**  */
-	public static final int VK_ACCESS_INDEX_READ_BIT = 0x2;
-
-	/**  */
-	public static final int VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT = 0x4;
-
-	/**  */
-	public static final int VK_ACCESS_UNIFORM_READ_BIT = 0x8;
-
-	/**  */
-	public static final int VK_ACCESS_INPUT_ATTACHMENT_READ_BIT = 0x10;
-
-	/**  */
-	public static final int VK_ACCESS_SHADER_READ_BIT = 0x20;
-
-	/**  */
-	public static final int VK_ACCESS_SHADER_WRITE_BIT = 0x40;
-
-	/**  */
-	public static final int VK_ACCESS_COLOR_ATTACHMENT_READ_BIT = 0x80;
-
-	/**  */
-	public static final int VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT = 0x100;
-
-	/**  */
-	public static final int VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT = 0x200;
-
-	/**  */
-	public static final int VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT = 0x400;
-
-	/**  */
-	public static final int VK_ACCESS_TRANSFER_READ_BIT = 0x800;
-
-	/**  */
-	public static final int VK_ACCESS_TRANSFER_WRITE_BIT = 0x1000;
-
-	/**  */
-	public static final int VK_ACCESS_HOST_READ_BIT = 0x2000;
-
-	/**  */
-	public static final int VK_ACCESS_HOST_WRITE_BIT = 0x4000;
-
-	/**  */
-	public static final int VK_ACCESS_MEMORY_READ_BIT = 0x8000;
-
-	/**  */
-	public static final int VK_ACCESS_MEMORY_WRITE_BIT = 0x10000;
-
-	/**  */
+	/** VkDependencyFlagBits */
 	public static final int VK_DEPENDENCY_BY_REGION_BIT = 0x1;
 
-	/**  */
-	public static final int VK_COMMAND_POOL_CREATE_TRANSIENT_BIT = 0x1;
+	/** VkCommandPoolCreateFlagBits */
+	public static final int
+		VK_COMMAND_POOL_CREATE_TRANSIENT_BIT            = 0x1,
+		VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT = 0x2;
 
-	/**  */
-	public static final int VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT = 0x2;
-
-	/**  */
+	/** VkCommandPoolResetFlagBits */
 	public static final int VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT = 0x1;
 
-	/**  */
-	public static final int VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT = 0x1;
+	/** VkCommandBufferUsageFlagBits */
+	public static final int
+		VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT      = 0x1,
+		VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT = 0x2,
+		VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT     = 0x4;
 
-	/**  */
-	public static final int VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT = 0x2;
-
-	/**  */
-	public static final int VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT = 0x4;
-
-	/**  */
+	/** VkQueryControlFlagBits */
 	public static final int VK_QUERY_CONTROL_PRECISE_BIT = 0x1;
 
-	/**  */
+	/** VkCommandBufferResetFlagBits */
 	public static final int VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT = 0x1;
 
-	/**  */
-	public static final int VK_STENCIL_FACE_FRONT_BIT = 0x1;
-
-	/**  */
-	public static final int VK_STENCIL_FACE_BACK_BIT = 0x2;
-
-	/**  */
-	public static final int VK_STENCIL_FRONT_AND_BACK = 0x3;
+	/** VkStencilFaceFlagBits */
+	public static final int
+		VK_STENCIL_FACE_FRONT_BIT = 0x1,
+		VK_STENCIL_FACE_BACK_BIT  = 0x2,
+		VK_STENCIL_FRONT_AND_BACK = 0x3;
 
 	/** Function address. */
 	@JavadocExclude
@@ -4055,9 +2872,7 @@ public class VK10 {
 	 * @param pSubresource 
 	 * @param pLayout      
 	 */
-	public static void vkGetImageSubresourceLayout(VkDevice device, long image, VkImageSubresource pSubresource, VkSubresourceLayout.Buffer pLayout) {
-		if ( CHECKS )
-			checkBuffer(pLayout, 1);
+	public static void vkGetImageSubresourceLayout(VkDevice device, long image, VkImageSubresource pSubresource, VkSubresourceLayout pLayout) {
 		nvkGetImageSubresourceLayout(device, image, pSubresource.address(), pLayout.address());
 	}
 

@@ -27,17 +27,12 @@ public class KHRDisplay {
 		VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR    = 1000002000,
 		VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR = 1000002001;
 
-	/**  */
-	public static final int VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR = 0x1;
-
-	/**  */
-	public static final int VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR = 0x2;
-
-	/**  */
-	public static final int VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR = 0x4;
-
-	/**  */
-	public static final int VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR = 0x8;
+	/** VkDisplayPlaneAlphaFlagBitsKHR */
+	public static final int
+		VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR                  = 0x1,
+		VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR                  = 0x2,
+		VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR               = 0x4,
+		VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR = 0x8;
 
 	/** Function address. */
 	@JavadocExclude

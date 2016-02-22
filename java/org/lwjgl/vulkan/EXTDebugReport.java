@@ -32,113 +32,53 @@ public class EXTDebugReport {
 	/** VkStructureType */
 	public static final int VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT = 1000011000;
 
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT = 0x0;
+	/** VkDebugReportObjectTypeEXT */
+	public static final int
+		VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT               = 0,
+		VK_DEBUG_REPORT_OBJECT_TYPE_INSTANCE_EXT              = 1,
+		VK_DEBUG_REPORT_OBJECT_TYPE_PHYSICAL_DEVICE_EXT       = 2,
+		VK_DEBUG_REPORT_OBJECT_TYPE_DEVICE_EXT                = 3,
+		VK_DEBUG_REPORT_OBJECT_TYPE_QUEUE_EXT                 = 4,
+		VK_DEBUG_REPORT_OBJECT_TYPE_SEMAPHORE_EXT             = 5,
+		VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_BUFFER_EXT        = 6,
+		VK_DEBUG_REPORT_OBJECT_TYPE_FENCE_EXT                 = 7,
+		VK_DEBUG_REPORT_OBJECT_TYPE_DEVICE_MEMORY_EXT         = 8,
+		VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_EXT                = 9,
+		VK_DEBUG_REPORT_OBJECT_TYPE_IMAGE_EXT                 = 10,
+		VK_DEBUG_REPORT_OBJECT_TYPE_EVENT_EXT                 = 11,
+		VK_DEBUG_REPORT_OBJECT_TYPE_QUERY_POOL_EXT            = 12,
+		VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_VIEW_EXT           = 13,
+		VK_DEBUG_REPORT_OBJECT_TYPE_IMAGE_VIEW_EXT            = 14,
+		VK_DEBUG_REPORT_OBJECT_TYPE_SHADER_MODULE_EXT         = 15,
+		VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_CACHE_EXT        = 16,
+		VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_LAYOUT_EXT       = 17,
+		VK_DEBUG_REPORT_OBJECT_TYPE_RENDER_PASS_EXT           = 18,
+		VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_EXT              = 19,
+		VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT_EXT = 20,
+		VK_DEBUG_REPORT_OBJECT_TYPE_SAMPLER_EXT               = 21,
+		VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_POOL_EXT       = 22,
+		VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_EXT        = 23,
+		VK_DEBUG_REPORT_OBJECT_TYPE_FRAMEBUFFER_EXT           = 24,
+		VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_POOL_EXT          = 25,
+		VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT           = 26,
+		VK_DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT         = 27,
+		VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT          = 28;
 
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_INSTANCE_EXT = 0x1;
+	/** VkDebugReportErrorEXT */
+	public static final int
+		VK_DEBUG_REPORT_ERROR_NONE_EXT         = 0,
+		VK_DEBUG_REPORT_ERROR_CALLBACK_REF_EXT = 1;
 
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_PHYSICAL_DEVICE_EXT = 0x2;
+	/** VkDebugReportFlagBitsEXT */
+	public static final int
+		VK_DEBUG_REPORT_INFORMATION_BIT_EXT         = 0x1,
+		VK_DEBUG_REPORT_WARNING_BIT_EXT             = 0x2,
+		VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT = 0x4,
+		VK_DEBUG_REPORT_ERROR_BIT_EXT               = 0x8,
+		VK_DEBUG_REPORT_DEBUG_BIT_EXT               = 0x10;
 
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_DEVICE_EXT = 0x3;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_QUEUE_EXT = 0x4;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_SEMAPHORE_EXT = 0x5;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_BUFFER_EXT = 0x6;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_FENCE_EXT = 0x7;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_DEVICE_MEMORY_EXT = 0x8;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_EXT = 0x9;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_IMAGE_EXT = 0xA;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_EVENT_EXT = 0xB;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_QUERY_POOL_EXT = 0xC;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_VIEW_EXT = 0xD;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_IMAGE_VIEW_EXT = 0xE;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_SHADER_MODULE_EXT = 0xF;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_CACHE_EXT = 0x10;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_LAYOUT_EXT = 0x11;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_RENDER_PASS_EXT = 0x12;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_EXT = 0x13;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT_EXT = 0x14;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_SAMPLER_EXT = 0x15;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_POOL_EXT = 0x16;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_EXT = 0x17;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_FRAMEBUFFER_EXT = 0x18;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_POOL_EXT = 0x19;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT = 0x1A;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT = 0x1B;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT = 0x1C;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_ERROR_NONE_EXT = 0x0;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_ERROR_CALLBACK_REF_EXT = 0x1;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_INFORMATION_BIT_EXT = 0x1;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_WARNING_BIT_EXT = 0x2;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT = 0x4;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_ERROR_BIT_EXT = 0x8;
-
-	/**  */
-	public static final int VK_DEBUG_REPORT_DEBUG_BIT_EXT = 0x10;
+	/** VkResult */
+	public static final int VK_ERROR_VALIDATION_FAILED_EXT = -1000011001;
 
 	/** Function address. */
 	@JavadocExclude

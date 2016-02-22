@@ -83,34 +83,34 @@ public class STBImageResize {
 		STBIR_EDGE_ZERO    = 0x4;
 
 	/** Use same filter type that easy-to-use API chooses. */
-	public static final int STBIR_FILTER_DEFAULT = 0x0;
+	public static final int STBIR_FILTER_DEFAULT = 0;
 
 	/** A trapezoid w/1-pixel wide ramps, same result as box for integer scale ratios. */
-	public static final int STBIR_FILTER_BOX = 0x1;
+	public static final int STBIR_FILTER_BOX = 1;
 
 	/** On upsampling, produces same results as bilinear texture filtering. */
-	public static final int STBIR_FILTER_TRIANGLE = 0x2;
+	public static final int STBIR_FILTER_TRIANGLE = 2;
 
 	/** The cubic b-spline (aka Mitchell-Netrevalli with B=1,C=0), gaussian-esque. */
-	public static final int STBIR_FILTER_CUBICBSPLINE = 0x3;
+	public static final int STBIR_FILTER_CUBICBSPLINE = 3;
 
 	/** An interpolating cubic spline. */
-	public static final int STBIR_FILTER_CATMULLROM = 0x4;
+	public static final int STBIR_FILTER_CATMULLROM = 4;
 
 	/** Mitchell-Netrevalli filter with B=1/3, C=1/3. */
-	public static final int STBIR_FILTER_MITCHELL = 0x5;
+	public static final int STBIR_FILTER_MITCHELL = 5;
 
 	/** Colorspace. */
 	public static final int
-		STBIR_COLORSPACE_LINEAR = 0x0,
-		STBIR_COLORSPACE_SRGB   = 0x1;
+		STBIR_COLORSPACE_LINEAR = 0,
+		STBIR_COLORSPACE_SRGB   = 1;
 
 	/** Data type. */
 	public static final int
-		STBIR_TYPE_UINT8  = 0x0,
-		STBIR_TYPE_UINT16 = 0x1,
-		STBIR_TYPE_UINT32 = 0x2,
-		STBIR_TYPE_FLOAT  = 0x3;
+		STBIR_TYPE_UINT8  = 0,
+		STBIR_TYPE_UINT16 = 1,
+		STBIR_TYPE_UINT32 = 2,
+		STBIR_TYPE_FLOAT  = 3;
 
 	static { Library.initialize(); }
 

@@ -21,8 +21,8 @@ public class XXHash {
 
 	/** Error codes. */
 	public static final int
-		OK    = 0x0,
-		ERROR = 0x1;
+		OK    = 0,
+		ERROR = 1;
 
 	static { Library.initialize(); }
 

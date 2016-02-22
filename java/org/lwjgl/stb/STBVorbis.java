@@ -52,26 +52,26 @@ public class STBVorbis {
 
 	/** Error code. */
 	public static final int
-		VORBIS__no_error                        = 0x0,
-		VORBIS_need_more_data                   = 0x1,
-		VORBIS_invalid_api_mixing               = 0x2,
-		VORBIS_outofmem                         = 0x3,
-		VORBIS_feature_not_supported            = 0x4,
-		VORBIS_too_many_channels                = 0x5,
-		VORBIS_file_open_failure                = 0x6,
-		VORBIS_seek_without_length              = 0x7,
-		VORBIS_unexpected_eof                   = 0xA,
-		VORBIS_seek_invalid                     = 0xB,
-		VORBIS_invalid_setup                    = 0x14,
-		VORBIS_invalid_stream                   = 0x15,
-		VORBIS_missing_capture_pattern          = 0x1E,
-		VORBIS_invalid_stream_structure_version = 0x1F,
-		VORBIS_continued_packet_flag_invalid    = 0x20,
-		VORBIS_incorrect_stream_serial_number   = 0x21,
-		VORBIS_invalid_first_page               = 0x22,
-		VORBIS_bad_packet_type                  = 0x23,
-		VORBIS_cant_find_last_page              = 0x24,
-		VORBIS_seek_failed                      = 0x25;
+		VORBIS__no_error                        = 0,
+		VORBIS_need_more_data                   = 1,
+		VORBIS_invalid_api_mixing               = 2,
+		VORBIS_outofmem                         = 3,
+		VORBIS_feature_not_supported            = 4,
+		VORBIS_too_many_channels                = 5,
+		VORBIS_file_open_failure                = 6,
+		VORBIS_seek_without_length              = 7,
+		VORBIS_unexpected_eof                   = 10,
+		VORBIS_seek_invalid                     = 11,
+		VORBIS_invalid_setup                    = 20,
+		VORBIS_invalid_stream                   = 21,
+		VORBIS_missing_capture_pattern          = 30,
+		VORBIS_invalid_stream_structure_version = 31,
+		VORBIS_continued_packet_flag_invalid    = 32,
+		VORBIS_incorrect_stream_serial_number   = 33,
+		VORBIS_invalid_first_page               = 34,
+		VORBIS_bad_packet_type                  = 35,
+		VORBIS_cant_find_last_page              = 36,
+		VORBIS_seek_failed                      = 37;
 
 	static { Library.initialize(); }
 

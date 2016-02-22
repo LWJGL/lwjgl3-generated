@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -387,6 +388,251 @@ public class VkPhysicalDeviceFeatures extends Struct {
 	/** Returns the value of the {@code inheritedQueries} field. */
 	public int inheritedQueries() { return ninheritedQueries(address()); }
 
+	/** Sets the specified value to the {@code robustBufferAccess} field. */
+	public VkPhysicalDeviceFeatures robustBufferAccess(int value) { nrobustBufferAccess(address(), value); return this; }
+	/** Sets the specified value to the {@code fullDrawIndexUint32} field. */
+	public VkPhysicalDeviceFeatures fullDrawIndexUint32(int value) { nfullDrawIndexUint32(address(), value); return this; }
+	/** Sets the specified value to the {@code imageCubeArray} field. */
+	public VkPhysicalDeviceFeatures imageCubeArray(int value) { nimageCubeArray(address(), value); return this; }
+	/** Sets the specified value to the {@code independentBlend} field. */
+	public VkPhysicalDeviceFeatures independentBlend(int value) { nindependentBlend(address(), value); return this; }
+	/** Sets the specified value to the {@code geometryShader} field. */
+	public VkPhysicalDeviceFeatures geometryShader(int value) { ngeometryShader(address(), value); return this; }
+	/** Sets the specified value to the {@code tessellationShader} field. */
+	public VkPhysicalDeviceFeatures tessellationShader(int value) { ntessellationShader(address(), value); return this; }
+	/** Sets the specified value to the {@code sampleRateShading} field. */
+	public VkPhysicalDeviceFeatures sampleRateShading(int value) { nsampleRateShading(address(), value); return this; }
+	/** Sets the specified value to the {@code dualSrcBlend} field. */
+	public VkPhysicalDeviceFeatures dualSrcBlend(int value) { ndualSrcBlend(address(), value); return this; }
+	/** Sets the specified value to the {@code logicOp} field. */
+	public VkPhysicalDeviceFeatures logicOp(int value) { nlogicOp(address(), value); return this; }
+	/** Sets the specified value to the {@code multiDrawIndirect} field. */
+	public VkPhysicalDeviceFeatures multiDrawIndirect(int value) { nmultiDrawIndirect(address(), value); return this; }
+	/** Sets the specified value to the {@code drawIndirectFirstInstance} field. */
+	public VkPhysicalDeviceFeatures drawIndirectFirstInstance(int value) { ndrawIndirectFirstInstance(address(), value); return this; }
+	/** Sets the specified value to the {@code depthClamp} field. */
+	public VkPhysicalDeviceFeatures depthClamp(int value) { ndepthClamp(address(), value); return this; }
+	/** Sets the specified value to the {@code depthBiasClamp} field. */
+	public VkPhysicalDeviceFeatures depthBiasClamp(int value) { ndepthBiasClamp(address(), value); return this; }
+	/** Sets the specified value to the {@code fillModeNonSolid} field. */
+	public VkPhysicalDeviceFeatures fillModeNonSolid(int value) { nfillModeNonSolid(address(), value); return this; }
+	/** Sets the specified value to the {@code depthBounds} field. */
+	public VkPhysicalDeviceFeatures depthBounds(int value) { ndepthBounds(address(), value); return this; }
+	/** Sets the specified value to the {@code wideLines} field. */
+	public VkPhysicalDeviceFeatures wideLines(int value) { nwideLines(address(), value); return this; }
+	/** Sets the specified value to the {@code largePoints} field. */
+	public VkPhysicalDeviceFeatures largePoints(int value) { nlargePoints(address(), value); return this; }
+	/** Sets the specified value to the {@code alphaToOne} field. */
+	public VkPhysicalDeviceFeatures alphaToOne(int value) { nalphaToOne(address(), value); return this; }
+	/** Sets the specified value to the {@code multiViewport} field. */
+	public VkPhysicalDeviceFeatures multiViewport(int value) { nmultiViewport(address(), value); return this; }
+	/** Sets the specified value to the {@code samplerAnisotropy} field. */
+	public VkPhysicalDeviceFeatures samplerAnisotropy(int value) { nsamplerAnisotropy(address(), value); return this; }
+	/** Sets the specified value to the {@code textureCompressionETC2} field. */
+	public VkPhysicalDeviceFeatures textureCompressionETC2(int value) { ntextureCompressionETC2(address(), value); return this; }
+	/** Sets the specified value to the {@code textureCompressionASTC_LDR} field. */
+	public VkPhysicalDeviceFeatures textureCompressionASTC_LDR(int value) { ntextureCompressionASTC_LDR(address(), value); return this; }
+	/** Sets the specified value to the {@code textureCompressionBC} field. */
+	public VkPhysicalDeviceFeatures textureCompressionBC(int value) { ntextureCompressionBC(address(), value); return this; }
+	/** Sets the specified value to the {@code occlusionQueryPrecise} field. */
+	public VkPhysicalDeviceFeatures occlusionQueryPrecise(int value) { nocclusionQueryPrecise(address(), value); return this; }
+	/** Sets the specified value to the {@code pipelineStatisticsQuery} field. */
+	public VkPhysicalDeviceFeatures pipelineStatisticsQuery(int value) { npipelineStatisticsQuery(address(), value); return this; }
+	/** Sets the specified value to the {@code vertexPipelineStoresAndAtomics} field. */
+	public VkPhysicalDeviceFeatures vertexPipelineStoresAndAtomics(int value) { nvertexPipelineStoresAndAtomics(address(), value); return this; }
+	/** Sets the specified value to the {@code fragmentStoresAndAtomics} field. */
+	public VkPhysicalDeviceFeatures fragmentStoresAndAtomics(int value) { nfragmentStoresAndAtomics(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderTessellationAndGeometryPointSize} field. */
+	public VkPhysicalDeviceFeatures shaderTessellationAndGeometryPointSize(int value) { nshaderTessellationAndGeometryPointSize(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderImageGatherExtended} field. */
+	public VkPhysicalDeviceFeatures shaderImageGatherExtended(int value) { nshaderImageGatherExtended(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderStorageImageExtendedFormats} field. */
+	public VkPhysicalDeviceFeatures shaderStorageImageExtendedFormats(int value) { nshaderStorageImageExtendedFormats(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderStorageImageMultisample} field. */
+	public VkPhysicalDeviceFeatures shaderStorageImageMultisample(int value) { nshaderStorageImageMultisample(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderStorageImageReadWithoutFormat} field. */
+	public VkPhysicalDeviceFeatures shaderStorageImageReadWithoutFormat(int value) { nshaderStorageImageReadWithoutFormat(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderStorageImageWriteWithoutFormat} field. */
+	public VkPhysicalDeviceFeatures shaderStorageImageWriteWithoutFormat(int value) { nshaderStorageImageWriteWithoutFormat(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderUniformBufferArrayDynamicIndexing} field. */
+	public VkPhysicalDeviceFeatures shaderUniformBufferArrayDynamicIndexing(int value) { nshaderUniformBufferArrayDynamicIndexing(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderSampledImageArrayDynamicIndexing} field. */
+	public VkPhysicalDeviceFeatures shaderSampledImageArrayDynamicIndexing(int value) { nshaderSampledImageArrayDynamicIndexing(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderStorageBufferArrayDynamicIndexing} field. */
+	public VkPhysicalDeviceFeatures shaderStorageBufferArrayDynamicIndexing(int value) { nshaderStorageBufferArrayDynamicIndexing(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderStorageImageArrayDynamicIndexing} field. */
+	public VkPhysicalDeviceFeatures shaderStorageImageArrayDynamicIndexing(int value) { nshaderStorageImageArrayDynamicIndexing(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderClipDistance} field. */
+	public VkPhysicalDeviceFeatures shaderClipDistance(int value) { nshaderClipDistance(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderCullDistance} field. */
+	public VkPhysicalDeviceFeatures shaderCullDistance(int value) { nshaderCullDistance(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderFloat64} field. */
+	public VkPhysicalDeviceFeatures shaderFloat64(int value) { nshaderFloat64(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderInt64} field. */
+	public VkPhysicalDeviceFeatures shaderInt64(int value) { nshaderInt64(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderInt16} field. */
+	public VkPhysicalDeviceFeatures shaderInt16(int value) { nshaderInt16(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderResourceResidency} field. */
+	public VkPhysicalDeviceFeatures shaderResourceResidency(int value) { nshaderResourceResidency(address(), value); return this; }
+	/** Sets the specified value to the {@code shaderResourceMinLod} field. */
+	public VkPhysicalDeviceFeatures shaderResourceMinLod(int value) { nshaderResourceMinLod(address(), value); return this; }
+	/** Sets the specified value to the {@code sparseBinding} field. */
+	public VkPhysicalDeviceFeatures sparseBinding(int value) { nsparseBinding(address(), value); return this; }
+	/** Sets the specified value to the {@code sparseResidencyBuffer} field. */
+	public VkPhysicalDeviceFeatures sparseResidencyBuffer(int value) { nsparseResidencyBuffer(address(), value); return this; }
+	/** Sets the specified value to the {@code sparseResidencyImage2D} field. */
+	public VkPhysicalDeviceFeatures sparseResidencyImage2D(int value) { nsparseResidencyImage2D(address(), value); return this; }
+	/** Sets the specified value to the {@code sparseResidencyImage3D} field. */
+	public VkPhysicalDeviceFeatures sparseResidencyImage3D(int value) { nsparseResidencyImage3D(address(), value); return this; }
+	/** Sets the specified value to the {@code sparseResidency2Samples} field. */
+	public VkPhysicalDeviceFeatures sparseResidency2Samples(int value) { nsparseResidency2Samples(address(), value); return this; }
+	/** Sets the specified value to the {@code sparseResidency4Samples} field. */
+	public VkPhysicalDeviceFeatures sparseResidency4Samples(int value) { nsparseResidency4Samples(address(), value); return this; }
+	/** Sets the specified value to the {@code sparseResidency8Samples} field. */
+	public VkPhysicalDeviceFeatures sparseResidency8Samples(int value) { nsparseResidency8Samples(address(), value); return this; }
+	/** Sets the specified value to the {@code sparseResidency16Samples} field. */
+	public VkPhysicalDeviceFeatures sparseResidency16Samples(int value) { nsparseResidency16Samples(address(), value); return this; }
+	/** Sets the specified value to the {@code sparseResidencyAliased} field. */
+	public VkPhysicalDeviceFeatures sparseResidencyAliased(int value) { nsparseResidencyAliased(address(), value); return this; }
+	/** Sets the specified value to the {@code variableMultisampleRate} field. */
+	public VkPhysicalDeviceFeatures variableMultisampleRate(int value) { nvariableMultisampleRate(address(), value); return this; }
+	/** Sets the specified value to the {@code inheritedQueries} field. */
+	public VkPhysicalDeviceFeatures inheritedQueries(int value) { ninheritedQueries(address(), value); return this; }
+
+	/** Initializes this struct with the specified values. */
+	public VkPhysicalDeviceFeatures set(
+		int robustBufferAccess,
+		int fullDrawIndexUint32,
+		int imageCubeArray,
+		int independentBlend,
+		int geometryShader,
+		int tessellationShader,
+		int sampleRateShading,
+		int dualSrcBlend,
+		int logicOp,
+		int multiDrawIndirect,
+		int drawIndirectFirstInstance,
+		int depthClamp,
+		int depthBiasClamp,
+		int fillModeNonSolid,
+		int depthBounds,
+		int wideLines,
+		int largePoints,
+		int alphaToOne,
+		int multiViewport,
+		int samplerAnisotropy,
+		int textureCompressionETC2,
+		int textureCompressionASTC_LDR,
+		int textureCompressionBC,
+		int occlusionQueryPrecise,
+		int pipelineStatisticsQuery,
+		int vertexPipelineStoresAndAtomics,
+		int fragmentStoresAndAtomics,
+		int shaderTessellationAndGeometryPointSize,
+		int shaderImageGatherExtended,
+		int shaderStorageImageExtendedFormats,
+		int shaderStorageImageMultisample,
+		int shaderStorageImageReadWithoutFormat,
+		int shaderStorageImageWriteWithoutFormat,
+		int shaderUniformBufferArrayDynamicIndexing,
+		int shaderSampledImageArrayDynamicIndexing,
+		int shaderStorageBufferArrayDynamicIndexing,
+		int shaderStorageImageArrayDynamicIndexing,
+		int shaderClipDistance,
+		int shaderCullDistance,
+		int shaderFloat64,
+		int shaderInt64,
+		int shaderInt16,
+		int shaderResourceResidency,
+		int shaderResourceMinLod,
+		int sparseBinding,
+		int sparseResidencyBuffer,
+		int sparseResidencyImage2D,
+		int sparseResidencyImage3D,
+		int sparseResidency2Samples,
+		int sparseResidency4Samples,
+		int sparseResidency8Samples,
+		int sparseResidency16Samples,
+		int sparseResidencyAliased,
+		int variableMultisampleRate,
+		int inheritedQueries
+	) {
+		robustBufferAccess(robustBufferAccess);
+		fullDrawIndexUint32(fullDrawIndexUint32);
+		imageCubeArray(imageCubeArray);
+		independentBlend(independentBlend);
+		geometryShader(geometryShader);
+		tessellationShader(tessellationShader);
+		sampleRateShading(sampleRateShading);
+		dualSrcBlend(dualSrcBlend);
+		logicOp(logicOp);
+		multiDrawIndirect(multiDrawIndirect);
+		drawIndirectFirstInstance(drawIndirectFirstInstance);
+		depthClamp(depthClamp);
+		depthBiasClamp(depthBiasClamp);
+		fillModeNonSolid(fillModeNonSolid);
+		depthBounds(depthBounds);
+		wideLines(wideLines);
+		largePoints(largePoints);
+		alphaToOne(alphaToOne);
+		multiViewport(multiViewport);
+		samplerAnisotropy(samplerAnisotropy);
+		textureCompressionETC2(textureCompressionETC2);
+		textureCompressionASTC_LDR(textureCompressionASTC_LDR);
+		textureCompressionBC(textureCompressionBC);
+		occlusionQueryPrecise(occlusionQueryPrecise);
+		pipelineStatisticsQuery(pipelineStatisticsQuery);
+		vertexPipelineStoresAndAtomics(vertexPipelineStoresAndAtomics);
+		fragmentStoresAndAtomics(fragmentStoresAndAtomics);
+		shaderTessellationAndGeometryPointSize(shaderTessellationAndGeometryPointSize);
+		shaderImageGatherExtended(shaderImageGatherExtended);
+		shaderStorageImageExtendedFormats(shaderStorageImageExtendedFormats);
+		shaderStorageImageMultisample(shaderStorageImageMultisample);
+		shaderStorageImageReadWithoutFormat(shaderStorageImageReadWithoutFormat);
+		shaderStorageImageWriteWithoutFormat(shaderStorageImageWriteWithoutFormat);
+		shaderUniformBufferArrayDynamicIndexing(shaderUniformBufferArrayDynamicIndexing);
+		shaderSampledImageArrayDynamicIndexing(shaderSampledImageArrayDynamicIndexing);
+		shaderStorageBufferArrayDynamicIndexing(shaderStorageBufferArrayDynamicIndexing);
+		shaderStorageImageArrayDynamicIndexing(shaderStorageImageArrayDynamicIndexing);
+		shaderClipDistance(shaderClipDistance);
+		shaderCullDistance(shaderCullDistance);
+		shaderFloat64(shaderFloat64);
+		shaderInt64(shaderInt64);
+		shaderInt16(shaderInt16);
+		shaderResourceResidency(shaderResourceResidency);
+		shaderResourceMinLod(shaderResourceMinLod);
+		sparseBinding(sparseBinding);
+		sparseResidencyBuffer(sparseResidencyBuffer);
+		sparseResidencyImage2D(sparseResidencyImage2D);
+		sparseResidencyImage3D(sparseResidencyImage3D);
+		sparseResidency2Samples(sparseResidency2Samples);
+		sparseResidency4Samples(sparseResidency4Samples);
+		sparseResidency8Samples(sparseResidency8Samples);
+		sparseResidency16Samples(sparseResidency16Samples);
+		sparseResidencyAliased(sparseResidencyAliased);
+		variableMultisampleRate(variableMultisampleRate);
+		inheritedQueries(inheritedQueries);
+
+		return this;
+	}
+
+	/** Unsafe version of {@link #set(VkPhysicalDeviceFeatures) set}. */
+	public VkPhysicalDeviceFeatures nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
+
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @return this struct
+	 */
+	public VkPhysicalDeviceFeatures set(VkPhysicalDeviceFeatures src) {
+		return nset(src.address());
+	}
+
 	// -----------------------------------
 
 	/** Returns a new {@link VkPhysicalDeviceFeatures} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -557,6 +803,117 @@ public class VkPhysicalDeviceFeatures extends Struct {
 	/** Unsafe version of {@link #inheritedQueries}. */
 	public static int ninheritedQueries(long struct) { return memGetInt(struct + VkPhysicalDeviceFeatures.INHERITEDQUERIES); }
 
+	/** Unsafe version of {@link #robustBufferAccess(int) robustBufferAccess}. */
+	public static void nrobustBufferAccess(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.ROBUSTBUFFERACCESS, value); }
+	/** Unsafe version of {@link #fullDrawIndexUint32(int) fullDrawIndexUint32}. */
+	public static void nfullDrawIndexUint32(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.FULLDRAWINDEXUINT32, value); }
+	/** Unsafe version of {@link #imageCubeArray(int) imageCubeArray}. */
+	public static void nimageCubeArray(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.IMAGECUBEARRAY, value); }
+	/** Unsafe version of {@link #independentBlend(int) independentBlend}. */
+	public static void nindependentBlend(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.INDEPENDENTBLEND, value); }
+	/** Unsafe version of {@link #geometryShader(int) geometryShader}. */
+	public static void ngeometryShader(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.GEOMETRYSHADER, value); }
+	/** Unsafe version of {@link #tessellationShader(int) tessellationShader}. */
+	public static void ntessellationShader(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.TESSELLATIONSHADER, value); }
+	/** Unsafe version of {@link #sampleRateShading(int) sampleRateShading}. */
+	public static void nsampleRateShading(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SAMPLERATESHADING, value); }
+	/** Unsafe version of {@link #dualSrcBlend(int) dualSrcBlend}. */
+	public static void ndualSrcBlend(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.DUALSRCBLEND, value); }
+	/** Unsafe version of {@link #logicOp(int) logicOp}. */
+	public static void nlogicOp(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.LOGICOP, value); }
+	/** Unsafe version of {@link #multiDrawIndirect(int) multiDrawIndirect}. */
+	public static void nmultiDrawIndirect(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.MULTIDRAWINDIRECT, value); }
+	/** Unsafe version of {@link #drawIndirectFirstInstance(int) drawIndirectFirstInstance}. */
+	public static void ndrawIndirectFirstInstance(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.DRAWINDIRECTFIRSTINSTANCE, value); }
+	/** Unsafe version of {@link #depthClamp(int) depthClamp}. */
+	public static void ndepthClamp(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.DEPTHCLAMP, value); }
+	/** Unsafe version of {@link #depthBiasClamp(int) depthBiasClamp}. */
+	public static void ndepthBiasClamp(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.DEPTHBIASCLAMP, value); }
+	/** Unsafe version of {@link #fillModeNonSolid(int) fillModeNonSolid}. */
+	public static void nfillModeNonSolid(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.FILLMODENONSOLID, value); }
+	/** Unsafe version of {@link #depthBounds(int) depthBounds}. */
+	public static void ndepthBounds(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.DEPTHBOUNDS, value); }
+	/** Unsafe version of {@link #wideLines(int) wideLines}. */
+	public static void nwideLines(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.WIDELINES, value); }
+	/** Unsafe version of {@link #largePoints(int) largePoints}. */
+	public static void nlargePoints(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.LARGEPOINTS, value); }
+	/** Unsafe version of {@link #alphaToOne(int) alphaToOne}. */
+	public static void nalphaToOne(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.ALPHATOONE, value); }
+	/** Unsafe version of {@link #multiViewport(int) multiViewport}. */
+	public static void nmultiViewport(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.MULTIVIEWPORT, value); }
+	/** Unsafe version of {@link #samplerAnisotropy(int) samplerAnisotropy}. */
+	public static void nsamplerAnisotropy(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SAMPLERANISOTROPY, value); }
+	/** Unsafe version of {@link #textureCompressionETC2(int) textureCompressionETC2}. */
+	public static void ntextureCompressionETC2(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.TEXTURECOMPRESSIONETC2, value); }
+	/** Unsafe version of {@link #textureCompressionASTC_LDR(int) textureCompressionASTC_LDR}. */
+	public static void ntextureCompressionASTC_LDR(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.TEXTURECOMPRESSIONASTC_LDR, value); }
+	/** Unsafe version of {@link #textureCompressionBC(int) textureCompressionBC}. */
+	public static void ntextureCompressionBC(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.TEXTURECOMPRESSIONBC, value); }
+	/** Unsafe version of {@link #occlusionQueryPrecise(int) occlusionQueryPrecise}. */
+	public static void nocclusionQueryPrecise(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.OCCLUSIONQUERYPRECISE, value); }
+	/** Unsafe version of {@link #pipelineStatisticsQuery(int) pipelineStatisticsQuery}. */
+	public static void npipelineStatisticsQuery(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.PIPELINESTATISTICSQUERY, value); }
+	/** Unsafe version of {@link #vertexPipelineStoresAndAtomics(int) vertexPipelineStoresAndAtomics}. */
+	public static void nvertexPipelineStoresAndAtomics(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.VERTEXPIPELINESTORESANDATOMICS, value); }
+	/** Unsafe version of {@link #fragmentStoresAndAtomics(int) fragmentStoresAndAtomics}. */
+	public static void nfragmentStoresAndAtomics(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.FRAGMENTSTORESANDATOMICS, value); }
+	/** Unsafe version of {@link #shaderTessellationAndGeometryPointSize(int) shaderTessellationAndGeometryPointSize}. */
+	public static void nshaderTessellationAndGeometryPointSize(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERTESSELLATIONANDGEOMETRYPOINTSIZE, value); }
+	/** Unsafe version of {@link #shaderImageGatherExtended(int) shaderImageGatherExtended}. */
+	public static void nshaderImageGatherExtended(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERIMAGEGATHEREXTENDED, value); }
+	/** Unsafe version of {@link #shaderStorageImageExtendedFormats(int) shaderStorageImageExtendedFormats}. */
+	public static void nshaderStorageImageExtendedFormats(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEIMAGEEXTENDEDFORMATS, value); }
+	/** Unsafe version of {@link #shaderStorageImageMultisample(int) shaderStorageImageMultisample}. */
+	public static void nshaderStorageImageMultisample(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEIMAGEMULTISAMPLE, value); }
+	/** Unsafe version of {@link #shaderStorageImageReadWithoutFormat(int) shaderStorageImageReadWithoutFormat}. */
+	public static void nshaderStorageImageReadWithoutFormat(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEIMAGEREADWITHOUTFORMAT, value); }
+	/** Unsafe version of {@link #shaderStorageImageWriteWithoutFormat(int) shaderStorageImageWriteWithoutFormat}. */
+	public static void nshaderStorageImageWriteWithoutFormat(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEIMAGEWRITEWITHOUTFORMAT, value); }
+	/** Unsafe version of {@link #shaderUniformBufferArrayDynamicIndexing(int) shaderUniformBufferArrayDynamicIndexing}. */
+	public static void nshaderUniformBufferArrayDynamicIndexing(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERUNIFORMBUFFERARRAYDYNAMICINDEXING, value); }
+	/** Unsafe version of {@link #shaderSampledImageArrayDynamicIndexing(int) shaderSampledImageArrayDynamicIndexing}. */
+	public static void nshaderSampledImageArrayDynamicIndexing(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSAMPLEDIMAGEARRAYDYNAMICINDEXING, value); }
+	/** Unsafe version of {@link #shaderStorageBufferArrayDynamicIndexing(int) shaderStorageBufferArrayDynamicIndexing}. */
+	public static void nshaderStorageBufferArrayDynamicIndexing(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEBUFFERARRAYDYNAMICINDEXING, value); }
+	/** Unsafe version of {@link #shaderStorageImageArrayDynamicIndexing(int) shaderStorageImageArrayDynamicIndexing}. */
+	public static void nshaderStorageImageArrayDynamicIndexing(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEIMAGEARRAYDYNAMICINDEXING, value); }
+	/** Unsafe version of {@link #shaderClipDistance(int) shaderClipDistance}. */
+	public static void nshaderClipDistance(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERCLIPDISTANCE, value); }
+	/** Unsafe version of {@link #shaderCullDistance(int) shaderCullDistance}. */
+	public static void nshaderCullDistance(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERCULLDISTANCE, value); }
+	/** Unsafe version of {@link #shaderFloat64(int) shaderFloat64}. */
+	public static void nshaderFloat64(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERFLOAT64, value); }
+	/** Unsafe version of {@link #shaderInt64(int) shaderInt64}. */
+	public static void nshaderInt64(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERINT64, value); }
+	/** Unsafe version of {@link #shaderInt16(int) shaderInt16}. */
+	public static void nshaderInt16(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERINT16, value); }
+	/** Unsafe version of {@link #shaderResourceResidency(int) shaderResourceResidency}. */
+	public static void nshaderResourceResidency(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERRESOURCERESIDENCY, value); }
+	/** Unsafe version of {@link #shaderResourceMinLod(int) shaderResourceMinLod}. */
+	public static void nshaderResourceMinLod(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERRESOURCEMINLOD, value); }
+	/** Unsafe version of {@link #sparseBinding(int) sparseBinding}. */
+	public static void nsparseBinding(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSEBINDING, value); }
+	/** Unsafe version of {@link #sparseResidencyBuffer(int) sparseResidencyBuffer}. */
+	public static void nsparseResidencyBuffer(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCYBUFFER, value); }
+	/** Unsafe version of {@link #sparseResidencyImage2D(int) sparseResidencyImage2D}. */
+	public static void nsparseResidencyImage2D(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCYIMAGE2D, value); }
+	/** Unsafe version of {@link #sparseResidencyImage3D(int) sparseResidencyImage3D}. */
+	public static void nsparseResidencyImage3D(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCYIMAGE3D, value); }
+	/** Unsafe version of {@link #sparseResidency2Samples(int) sparseResidency2Samples}. */
+	public static void nsparseResidency2Samples(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCY2SAMPLES, value); }
+	/** Unsafe version of {@link #sparseResidency4Samples(int) sparseResidency4Samples}. */
+	public static void nsparseResidency4Samples(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCY4SAMPLES, value); }
+	/** Unsafe version of {@link #sparseResidency8Samples(int) sparseResidency8Samples}. */
+	public static void nsparseResidency8Samples(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCY8SAMPLES, value); }
+	/** Unsafe version of {@link #sparseResidency16Samples(int) sparseResidency16Samples}. */
+	public static void nsparseResidency16Samples(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCY16SAMPLES, value); }
+	/** Unsafe version of {@link #sparseResidencyAliased(int) sparseResidencyAliased}. */
+	public static void nsparseResidencyAliased(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCYALIASED, value); }
+	/** Unsafe version of {@link #variableMultisampleRate(int) variableMultisampleRate}. */
+	public static void nvariableMultisampleRate(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.VARIABLEMULTISAMPLERATE, value); }
+	/** Unsafe version of {@link #inheritedQueries(int) inheritedQueries}. */
+	public static void ninheritedQueries(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.INHERITEDQUERIES, value); }
+
 	// -----------------------------------
 
 	/** An array of {@link VkPhysicalDeviceFeatures} structs. */
@@ -709,6 +1066,117 @@ public class VkPhysicalDeviceFeatures extends Struct {
 		public int variableMultisampleRate() { return VkPhysicalDeviceFeatures.nvariableMultisampleRate(address()); }
 		/** Returns the value of the {@code inheritedQueries} field. */
 		public int inheritedQueries() { return VkPhysicalDeviceFeatures.ninheritedQueries(address()); }
+
+		/** Sets the specified value to the {@code robustBufferAccess} field. */
+		public VkPhysicalDeviceFeatures.Buffer robustBufferAccess(int value) { VkPhysicalDeviceFeatures.nrobustBufferAccess(address(), value); return this; }
+		/** Sets the specified value to the {@code fullDrawIndexUint32} field. */
+		public VkPhysicalDeviceFeatures.Buffer fullDrawIndexUint32(int value) { VkPhysicalDeviceFeatures.nfullDrawIndexUint32(address(), value); return this; }
+		/** Sets the specified value to the {@code imageCubeArray} field. */
+		public VkPhysicalDeviceFeatures.Buffer imageCubeArray(int value) { VkPhysicalDeviceFeatures.nimageCubeArray(address(), value); return this; }
+		/** Sets the specified value to the {@code independentBlend} field. */
+		public VkPhysicalDeviceFeatures.Buffer independentBlend(int value) { VkPhysicalDeviceFeatures.nindependentBlend(address(), value); return this; }
+		/** Sets the specified value to the {@code geometryShader} field. */
+		public VkPhysicalDeviceFeatures.Buffer geometryShader(int value) { VkPhysicalDeviceFeatures.ngeometryShader(address(), value); return this; }
+		/** Sets the specified value to the {@code tessellationShader} field. */
+		public VkPhysicalDeviceFeatures.Buffer tessellationShader(int value) { VkPhysicalDeviceFeatures.ntessellationShader(address(), value); return this; }
+		/** Sets the specified value to the {@code sampleRateShading} field. */
+		public VkPhysicalDeviceFeatures.Buffer sampleRateShading(int value) { VkPhysicalDeviceFeatures.nsampleRateShading(address(), value); return this; }
+		/** Sets the specified value to the {@code dualSrcBlend} field. */
+		public VkPhysicalDeviceFeatures.Buffer dualSrcBlend(int value) { VkPhysicalDeviceFeatures.ndualSrcBlend(address(), value); return this; }
+		/** Sets the specified value to the {@code logicOp} field. */
+		public VkPhysicalDeviceFeatures.Buffer logicOp(int value) { VkPhysicalDeviceFeatures.nlogicOp(address(), value); return this; }
+		/** Sets the specified value to the {@code multiDrawIndirect} field. */
+		public VkPhysicalDeviceFeatures.Buffer multiDrawIndirect(int value) { VkPhysicalDeviceFeatures.nmultiDrawIndirect(address(), value); return this; }
+		/** Sets the specified value to the {@code drawIndirectFirstInstance} field. */
+		public VkPhysicalDeviceFeatures.Buffer drawIndirectFirstInstance(int value) { VkPhysicalDeviceFeatures.ndrawIndirectFirstInstance(address(), value); return this; }
+		/** Sets the specified value to the {@code depthClamp} field. */
+		public VkPhysicalDeviceFeatures.Buffer depthClamp(int value) { VkPhysicalDeviceFeatures.ndepthClamp(address(), value); return this; }
+		/** Sets the specified value to the {@code depthBiasClamp} field. */
+		public VkPhysicalDeviceFeatures.Buffer depthBiasClamp(int value) { VkPhysicalDeviceFeatures.ndepthBiasClamp(address(), value); return this; }
+		/** Sets the specified value to the {@code fillModeNonSolid} field. */
+		public VkPhysicalDeviceFeatures.Buffer fillModeNonSolid(int value) { VkPhysicalDeviceFeatures.nfillModeNonSolid(address(), value); return this; }
+		/** Sets the specified value to the {@code depthBounds} field. */
+		public VkPhysicalDeviceFeatures.Buffer depthBounds(int value) { VkPhysicalDeviceFeatures.ndepthBounds(address(), value); return this; }
+		/** Sets the specified value to the {@code wideLines} field. */
+		public VkPhysicalDeviceFeatures.Buffer wideLines(int value) { VkPhysicalDeviceFeatures.nwideLines(address(), value); return this; }
+		/** Sets the specified value to the {@code largePoints} field. */
+		public VkPhysicalDeviceFeatures.Buffer largePoints(int value) { VkPhysicalDeviceFeatures.nlargePoints(address(), value); return this; }
+		/** Sets the specified value to the {@code alphaToOne} field. */
+		public VkPhysicalDeviceFeatures.Buffer alphaToOne(int value) { VkPhysicalDeviceFeatures.nalphaToOne(address(), value); return this; }
+		/** Sets the specified value to the {@code multiViewport} field. */
+		public VkPhysicalDeviceFeatures.Buffer multiViewport(int value) { VkPhysicalDeviceFeatures.nmultiViewport(address(), value); return this; }
+		/** Sets the specified value to the {@code samplerAnisotropy} field. */
+		public VkPhysicalDeviceFeatures.Buffer samplerAnisotropy(int value) { VkPhysicalDeviceFeatures.nsamplerAnisotropy(address(), value); return this; }
+		/** Sets the specified value to the {@code textureCompressionETC2} field. */
+		public VkPhysicalDeviceFeatures.Buffer textureCompressionETC2(int value) { VkPhysicalDeviceFeatures.ntextureCompressionETC2(address(), value); return this; }
+		/** Sets the specified value to the {@code textureCompressionASTC_LDR} field. */
+		public VkPhysicalDeviceFeatures.Buffer textureCompressionASTC_LDR(int value) { VkPhysicalDeviceFeatures.ntextureCompressionASTC_LDR(address(), value); return this; }
+		/** Sets the specified value to the {@code textureCompressionBC} field. */
+		public VkPhysicalDeviceFeatures.Buffer textureCompressionBC(int value) { VkPhysicalDeviceFeatures.ntextureCompressionBC(address(), value); return this; }
+		/** Sets the specified value to the {@code occlusionQueryPrecise} field. */
+		public VkPhysicalDeviceFeatures.Buffer occlusionQueryPrecise(int value) { VkPhysicalDeviceFeatures.nocclusionQueryPrecise(address(), value); return this; }
+		/** Sets the specified value to the {@code pipelineStatisticsQuery} field. */
+		public VkPhysicalDeviceFeatures.Buffer pipelineStatisticsQuery(int value) { VkPhysicalDeviceFeatures.npipelineStatisticsQuery(address(), value); return this; }
+		/** Sets the specified value to the {@code vertexPipelineStoresAndAtomics} field. */
+		public VkPhysicalDeviceFeatures.Buffer vertexPipelineStoresAndAtomics(int value) { VkPhysicalDeviceFeatures.nvertexPipelineStoresAndAtomics(address(), value); return this; }
+		/** Sets the specified value to the {@code fragmentStoresAndAtomics} field. */
+		public VkPhysicalDeviceFeatures.Buffer fragmentStoresAndAtomics(int value) { VkPhysicalDeviceFeatures.nfragmentStoresAndAtomics(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderTessellationAndGeometryPointSize} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderTessellationAndGeometryPointSize(int value) { VkPhysicalDeviceFeatures.nshaderTessellationAndGeometryPointSize(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderImageGatherExtended} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderImageGatherExtended(int value) { VkPhysicalDeviceFeatures.nshaderImageGatherExtended(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderStorageImageExtendedFormats} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageExtendedFormats(int value) { VkPhysicalDeviceFeatures.nshaderStorageImageExtendedFormats(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderStorageImageMultisample} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageMultisample(int value) { VkPhysicalDeviceFeatures.nshaderStorageImageMultisample(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderStorageImageReadWithoutFormat} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageReadWithoutFormat(int value) { VkPhysicalDeviceFeatures.nshaderStorageImageReadWithoutFormat(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderStorageImageWriteWithoutFormat} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageWriteWithoutFormat(int value) { VkPhysicalDeviceFeatures.nshaderStorageImageWriteWithoutFormat(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderUniformBufferArrayDynamicIndexing} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderUniformBufferArrayDynamicIndexing(int value) { VkPhysicalDeviceFeatures.nshaderUniformBufferArrayDynamicIndexing(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderSampledImageArrayDynamicIndexing} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderSampledImageArrayDynamicIndexing(int value) { VkPhysicalDeviceFeatures.nshaderSampledImageArrayDynamicIndexing(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderStorageBufferArrayDynamicIndexing} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageBufferArrayDynamicIndexing(int value) { VkPhysicalDeviceFeatures.nshaderStorageBufferArrayDynamicIndexing(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderStorageImageArrayDynamicIndexing} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageArrayDynamicIndexing(int value) { VkPhysicalDeviceFeatures.nshaderStorageImageArrayDynamicIndexing(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderClipDistance} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderClipDistance(int value) { VkPhysicalDeviceFeatures.nshaderClipDistance(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderCullDistance} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderCullDistance(int value) { VkPhysicalDeviceFeatures.nshaderCullDistance(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderFloat64} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderFloat64(int value) { VkPhysicalDeviceFeatures.nshaderFloat64(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderInt64} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderInt64(int value) { VkPhysicalDeviceFeatures.nshaderInt64(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderInt16} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderInt16(int value) { VkPhysicalDeviceFeatures.nshaderInt16(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderResourceResidency} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderResourceResidency(int value) { VkPhysicalDeviceFeatures.nshaderResourceResidency(address(), value); return this; }
+		/** Sets the specified value to the {@code shaderResourceMinLod} field. */
+		public VkPhysicalDeviceFeatures.Buffer shaderResourceMinLod(int value) { VkPhysicalDeviceFeatures.nshaderResourceMinLod(address(), value); return this; }
+		/** Sets the specified value to the {@code sparseBinding} field. */
+		public VkPhysicalDeviceFeatures.Buffer sparseBinding(int value) { VkPhysicalDeviceFeatures.nsparseBinding(address(), value); return this; }
+		/** Sets the specified value to the {@code sparseResidencyBuffer} field. */
+		public VkPhysicalDeviceFeatures.Buffer sparseResidencyBuffer(int value) { VkPhysicalDeviceFeatures.nsparseResidencyBuffer(address(), value); return this; }
+		/** Sets the specified value to the {@code sparseResidencyImage2D} field. */
+		public VkPhysicalDeviceFeatures.Buffer sparseResidencyImage2D(int value) { VkPhysicalDeviceFeatures.nsparseResidencyImage2D(address(), value); return this; }
+		/** Sets the specified value to the {@code sparseResidencyImage3D} field. */
+		public VkPhysicalDeviceFeatures.Buffer sparseResidencyImage3D(int value) { VkPhysicalDeviceFeatures.nsparseResidencyImage3D(address(), value); return this; }
+		/** Sets the specified value to the {@code sparseResidency2Samples} field. */
+		public VkPhysicalDeviceFeatures.Buffer sparseResidency2Samples(int value) { VkPhysicalDeviceFeatures.nsparseResidency2Samples(address(), value); return this; }
+		/** Sets the specified value to the {@code sparseResidency4Samples} field. */
+		public VkPhysicalDeviceFeatures.Buffer sparseResidency4Samples(int value) { VkPhysicalDeviceFeatures.nsparseResidency4Samples(address(), value); return this; }
+		/** Sets the specified value to the {@code sparseResidency8Samples} field. */
+		public VkPhysicalDeviceFeatures.Buffer sparseResidency8Samples(int value) { VkPhysicalDeviceFeatures.nsparseResidency8Samples(address(), value); return this; }
+		/** Sets the specified value to the {@code sparseResidency16Samples} field. */
+		public VkPhysicalDeviceFeatures.Buffer sparseResidency16Samples(int value) { VkPhysicalDeviceFeatures.nsparseResidency16Samples(address(), value); return this; }
+		/** Sets the specified value to the {@code sparseResidencyAliased} field. */
+		public VkPhysicalDeviceFeatures.Buffer sparseResidencyAliased(int value) { VkPhysicalDeviceFeatures.nsparseResidencyAliased(address(), value); return this; }
+		/** Sets the specified value to the {@code variableMultisampleRate} field. */
+		public VkPhysicalDeviceFeatures.Buffer variableMultisampleRate(int value) { VkPhysicalDeviceFeatures.nvariableMultisampleRate(address(), value); return this; }
+		/** Sets the specified value to the {@code inheritedQueries} field. */
+		public VkPhysicalDeviceFeatures.Buffer inheritedQueries(int value) { VkPhysicalDeviceFeatures.ninheritedQueries(address(), value); return this; }
 
 	}
 

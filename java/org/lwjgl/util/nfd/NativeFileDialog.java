@@ -61,13 +61,13 @@ import static org.lwjgl.system.Pointer.*;
 public class NativeFileDialog {
 
 	/** Programmatic error. */
-	public static final int NFD_ERROR = 0x0;
+	public static final int NFD_ERROR = 0;
 
 	/** User pressed okay, or successful return. */
-	public static final int NFD_OKAY = 0x1;
+	public static final int NFD_OKAY = 1;
 
 	/** User pressed cancel. */
-	public static final int NFD_CANCEL = 0x2;
+	public static final int NFD_CANCEL = 2;
 
 	static { Library.initialize(); }
 

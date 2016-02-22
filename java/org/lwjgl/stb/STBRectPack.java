@@ -24,9 +24,9 @@ public class STBRectPack {
 
 	/** Packing heuristics */
 	public static final int
-		STBRP_HEURISTIC_Skyline_default       = 0x0,
+		STBRP_HEURISTIC_Skyline_default       = 0,
 		STBRP_HEURISTIC_Skyline_BL_sortHeight = STBRP_HEURISTIC_Skyline_default,
-		STBRP_HEURISTIC_Skyline_BF_sortHeight = 0x1;
+		STBRP_HEURISTIC_Skyline_BF_sortHeight = 1;
 
 	static { Library.initialize(); }
 

@@ -218,10 +218,10 @@ public class OVR {
 		ovrPerfHud_VersionInfo   = 0x4;
 
 	/** Turns off the layer HUD */
-	public static final int ovrLayerHud_Off = 0x0;
+	public static final int ovrLayerHud_Off = 0;
 
 	/** Shows info about a specific layer */
-	public static final int ovrLayerHud_Info = 0x1;
+	public static final int ovrLayerHud_Info = 1;
 
 	/** Visual properties of the stereo guide. */
 	public static final int

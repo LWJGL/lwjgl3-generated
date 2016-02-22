@@ -64,9 +64,9 @@ public class LibFFI {
 
 	/** Status codes. */
 	public static final int
-		FFI_OK          = 0x0,
-		FFI_BAD_TYPEDEF = 0x1,
-		FFI_BAD_ABI     = 0x2;
+		FFI_OK          = 0,
+		FFI_BAD_TYPEDEF = 1,
+		FFI_BAD_ABI     = 2;
 
 	/** Data types. These are the addresses of libffi's predefined {@link FFIType} structs. */
 	public static final FFIType

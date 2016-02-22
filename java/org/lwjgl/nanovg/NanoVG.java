@@ -124,11 +124,11 @@ public class NanoVG {
 
 	/** Line caps and joins. */
 	public static final int
-		NVG_BUTT   = 0x0,
-		NVG_ROUND  = 0x1,
-		NVG_SQUARE = 0x2,
-		NVG_BEVEL  = 0x3,
-		NVG_MITER  = 0x4;
+		NVG_BUTT   = 0,
+		NVG_ROUND  = 1,
+		NVG_SQUARE = 2,
+		NVG_BEVEL  = 3,
+		NVG_MITER  = 4;
 
 	/** Default, align text horizontally to left. */
 	public static final int NVG_ALIGN_LEFT = 1<<0;

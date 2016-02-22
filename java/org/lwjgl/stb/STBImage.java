@@ -105,13 +105,13 @@ public class STBImage {
 
 	/** Component count. */
 	public static final int
-		STBI_grey       = 0x1,
-		STBI_grey_alpha = 0x2,
-		STBI_rgb        = 0x3,
-		STBI_rgb_alpha  = 0x4;
+		STBI_grey       = 1,
+		STBI_grey_alpha = 2,
+		STBI_rgb        = 3,
+		STBI_rgb_alpha  = 4;
 
 	/** Default component count, used as an argument to {@code req_comp}. */
-	public static final int STBI_default = 0x0;
+	public static final int STBI_default = 0;
 
 	static { Library.initialize(); }
 
