@@ -73,6 +73,13 @@ public class KHRSwapchain {
 		return checkFunctionality(caps.__KHRSwapchain);
 	}
 
+	static KHRSwapchain create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("VK_KHR_swapchain") )
+			return null;
+
+		return VK.checkExtension("VK_KHR_swapchain", create(provider));
+	}
+
 	static KHRSwapchain create(FunctionProvider provider) {
 		KHRSwapchain funcs = new KHRSwapchain(provider);
 

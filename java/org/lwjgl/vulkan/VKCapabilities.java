@@ -8,6 +8,7 @@ package org.lwjgl.vulkan;
 import org.lwjgl.system.*;
 import java.util.Set;
 
+/** Defines the capabilities of a Vulkan {@code VkInstance} or {@code VkDevice}. */
 public class VKCapabilities {
 
 	final VK10                __VK10;
@@ -18,6 +19,9 @@ public class VKCapabilities {
 	final KHRSwapchain        __KHRSwapchain;
 	final KHRWin32Surface     __KHRWin32Surface;
 	final KHRXlibSurface      __KHRXlibSurface;
+
+	/** The Vulkan API version number. */
+	public final int apiVersion;
 
 	/** When true, {@link VK10} is supported. */
 	public final boolean Vulkan10;
@@ -37,6 +41,8 @@ public class VKCapabilities {
 	public final boolean VK_KHR_xlib_surface;
 
 	VKCapabilities(FunctionProvider provider) {
+		this.apiVersion = 0;
+
 		Vulkan10 = (__VK10 = VK10.create(provider)) != null;
 		VK_EXT_debug_report = (__EXTDebugReport = EXTDebugReport.create(provider)) != null;
 		VK_KHR_display = (__KHRDisplay = KHRDisplay.create(provider)) != null;
@@ -46,4 +52,18 @@ public class VKCapabilities {
 		VK_KHR_win32_surface = (__KHRWin32Surface = KHRWin32Surface.create(provider)) != null;
 		VK_KHR_xlib_surface = (__KHRXlibSurface = KHRXlibSurface.create(provider)) != null;
 	}
+
+	VKCapabilities(int apiVersion, Set<String> ext, FunctionProvider provider) {
+		this.apiVersion = apiVersion;
+
+		Vulkan10 = (__VK10 = VK10.create(ext, provider)) != null;
+		VK_EXT_debug_report = (__EXTDebugReport = EXTDebugReport.create(ext, provider)) != null;
+		VK_KHR_display = (__KHRDisplay = KHRDisplay.create(ext, provider)) != null;
+		VK_KHR_display_swapchain = (__KHRDisplaySwapchain = KHRDisplaySwapchain.create(ext, provider)) != null;
+		VK_KHR_surface = (__KHRSurface = KHRSurface.create(ext, provider)) != null;
+		VK_KHR_swapchain = (__KHRSwapchain = KHRSwapchain.create(ext, provider)) != null;
+		VK_KHR_win32_surface = (__KHRWin32Surface = KHRWin32Surface.create(ext, provider)) != null;
+		VK_KHR_xlib_surface = (__KHRXlibSurface = KHRXlibSurface.create(ext, provider)) != null;
+	}
+
 }

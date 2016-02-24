@@ -73,6 +73,13 @@ public class KHRDisplay {
 		return checkFunctionality(caps.__KHRDisplay);
 	}
 
+	static KHRDisplay create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("VK_KHR_display") )
+			return null;
+
+		return VK.checkExtension("VK_KHR_display", create(provider));
+	}
+
 	static KHRDisplay create(FunctionProvider provider) {
 		KHRDisplay funcs = new KHRDisplay(provider);
 

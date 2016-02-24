@@ -58,6 +58,13 @@ public class KHRXlibSurface {
 		return checkFunctionality(caps.__KHRXlibSurface);
 	}
 
+	static KHRXlibSurface create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("VK_KHR_xlib_surface") )
+			return null;
+
+		return VK.checkExtension("VK_KHR_xlib_surface", create(provider));
+	}
+
 	static KHRXlibSurface create(FunctionProvider provider) {
 		KHRXlibSurface funcs = new KHRXlibSurface(provider);
 

@@ -54,6 +54,13 @@ public class KHRDisplaySwapchain {
 		return checkFunctionality(caps.__KHRDisplaySwapchain);
 	}
 
+	static KHRDisplaySwapchain create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("VK_KHR_display_swapchain") )
+			return null;
+
+		return VK.checkExtension("VK_KHR_display_swapchain", create(provider));
+	}
+
 	static KHRDisplaySwapchain create(FunctionProvider provider) {
 		KHRDisplaySwapchain funcs = new KHRDisplaySwapchain(provider);
 

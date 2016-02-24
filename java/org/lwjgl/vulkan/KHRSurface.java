@@ -107,6 +107,13 @@ public class KHRSurface {
 		return checkFunctionality(caps.__KHRSurface);
 	}
 
+	static KHRSurface create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("VK_KHR_surface") )
+			return null;
+
+		return VK.checkExtension("VK_KHR_surface", create(provider));
+	}
+
 	static KHRSurface create(FunctionProvider provider) {
 		KHRSurface funcs = new KHRSurface(provider);
 

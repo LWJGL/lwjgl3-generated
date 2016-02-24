@@ -57,6 +57,13 @@ public class KHRWin32Surface {
 		return checkFunctionality(caps.__KHRWin32Surface);
 	}
 
+	static KHRWin32Surface create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("VK_KHR_win32_surface") )
+			return null;
+
+		return VK.checkExtension("VK_KHR_win32_surface", create(provider));
+	}
+
 	static KHRWin32Surface create(FunctionProvider provider) {
 		KHRWin32Surface funcs = new KHRWin32Surface(provider);
 

@@ -1275,6 +1275,13 @@ public class VK10 {
 		return checkFunctionality(caps.__VK10);
 	}
 
+	static VK10 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("Vulkan10") )
+			return null;
+
+		return VK.checkExtension("Vulkan10", create(provider));
+	}
+
 	static VK10 create(FunctionProvider provider) {
 		VK10 funcs = new VK10(provider);
 
@@ -1316,7 +1323,7 @@ public class VK10 {
 	/** Unsafe version of {@link #vkCreateInstance CreateInstance} */
 	@JavadocExclude
 	public static int nvkCreateInstance(long pCreateInfo, long pAllocator, long pInstance) {
-		long __functionAddress = getInstance(VK.getICD()).CreateInstance;
+		long __functionAddress = getInstance(VK.getGlobalCommands()).CreateInstance;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPPPI(__functionAddress, pCreateInfo, pAllocator, pInstance);
@@ -1662,7 +1669,7 @@ public class VK10 {
 	/** Unsafe version of {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties} */
 	@JavadocExclude
 	public static int nvkEnumerateInstanceExtensionProperties(long pLayerName, long pPropertyCount, long pProperties) {
-		long __functionAddress = getInstance(VK.getICD()).EnumerateInstanceExtensionProperties;
+		long __functionAddress = getInstance(VK.getGlobalCommands()).EnumerateInstanceExtensionProperties;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPPPI(__functionAddress, pLayerName, pPropertyCount, pProperties);
@@ -1757,7 +1764,7 @@ public class VK10 {
 	/** Unsafe version of {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} */
 	@JavadocExclude
 	public static int nvkEnumerateInstanceLayerProperties(long pPropertyCount, long pProperties) {
-		long __functionAddress = getInstance(VK.getICD()).EnumerateInstanceLayerProperties;
+		long __functionAddress = getInstance(VK.getGlobalCommands()).EnumerateInstanceLayerProperties;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPPI(__functionAddress, pPropertyCount, pProperties);

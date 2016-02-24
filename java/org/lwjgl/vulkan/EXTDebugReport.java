@@ -111,6 +111,13 @@ public class EXTDebugReport {
 		return checkFunctionality(caps.__EXTDebugReport);
 	}
 
+	static EXTDebugReport create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("VK_EXT_debug_report") )
+			return null;
+
+		return VK.checkExtension("VK_EXT_debug_report", create(provider));
+	}
+
 	static EXTDebugReport create(FunctionProvider provider) {
 		EXTDebugReport funcs = new EXTDebugReport(provider);
 
