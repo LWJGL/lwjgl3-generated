@@ -3511,15 +3511,15 @@ public class VK10 {
 	 */
 	public static void vkUpdateDescriptorSets(VkDevice device, int descriptorWriteCount, VkWriteDescriptorSet.Buffer pDescriptorWrites, int descriptorCopyCount, VkCopyDescriptorSet.Buffer pDescriptorCopies) {
 		if ( CHECKS ) {
-			checkBuffer(pDescriptorWrites, descriptorWriteCount);
-			checkBuffer(pDescriptorCopies, descriptorCopyCount);
+			if ( pDescriptorWrites != null ) checkBuffer(pDescriptorWrites, descriptorWriteCount);
+			if ( pDescriptorCopies != null ) checkBuffer(pDescriptorCopies, descriptorCopyCount);
 		}
-		nvkUpdateDescriptorSets(device, descriptorWriteCount, pDescriptorWrites.address(), descriptorCopyCount, pDescriptorCopies.address());
+		nvkUpdateDescriptorSets(device, descriptorWriteCount, pDescriptorWrites == null ? NULL : pDescriptorWrites.address(), descriptorCopyCount, pDescriptorCopies == null ? NULL : pDescriptorCopies.address());
 	}
 
 	/** Alternative version of: {@link #vkUpdateDescriptorSets UpdateDescriptorSets} */
 	public static void vkUpdateDescriptorSets(VkDevice device, VkWriteDescriptorSet.Buffer pDescriptorWrites, VkCopyDescriptorSet.Buffer pDescriptorCopies) {
-		nvkUpdateDescriptorSets(device, pDescriptorWrites.remaining(), pDescriptorWrites.address(), pDescriptorCopies.remaining(), pDescriptorCopies.address());
+		nvkUpdateDescriptorSets(device, pDescriptorWrites == null ? 0 : pDescriptorWrites.remaining(), pDescriptorWrites == null ? NULL : pDescriptorWrites.address(), pDescriptorCopies == null ? 0 : pDescriptorCopies.remaining(), pDescriptorCopies == null ? NULL : pDescriptorCopies.address());
 	}
 
 	// --- [ vkCreateFramebuffer ] ---
@@ -4031,14 +4031,14 @@ public class VK10 {
 	public static void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, int descriptorSetCount, ByteBuffer pDescriptorSets, int dynamicOffsetCount, ByteBuffer pDynamicOffsets) {
 		if ( CHECKS ) {
 			checkBuffer(pDescriptorSets, descriptorSetCount << 3);
-			checkBuffer(pDynamicOffsets, dynamicOffsetCount << 2);
+			if ( pDynamicOffsets != null ) checkBuffer(pDynamicOffsets, dynamicOffsetCount << 2);
 		}
-		nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, descriptorSetCount, memAddress(pDescriptorSets), dynamicOffsetCount, memAddress(pDynamicOffsets));
+		nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, descriptorSetCount, memAddress(pDescriptorSets), dynamicOffsetCount, memAddressSafe(pDynamicOffsets));
 	}
 
 	/** Alternative version of: {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets} */
 	public static void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, LongBuffer pDescriptorSets, IntBuffer pDynamicOffsets) {
-		nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, pDescriptorSets.remaining(), memAddress(pDescriptorSets), pDynamicOffsets.remaining(), memAddress(pDynamicOffsets));
+		nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, pDescriptorSets.remaining(), memAddress(pDescriptorSets), pDynamicOffsets == null ? 0 : pDynamicOffsets.remaining(), memAddressSafe(pDynamicOffsets));
 	}
 
 	// --- [ vkCmdBindIndexBuffer ] ---
