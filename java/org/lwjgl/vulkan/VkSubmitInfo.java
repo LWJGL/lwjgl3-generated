@@ -122,6 +122,8 @@ public class VkSubmitInfo extends Struct {
 	public VkSubmitInfo sType(int value) { nsType(address(), value); return this; }
 	/** Sets the specified value to the {@code pNext} field. */
 	public VkSubmitInfo pNext(long value) { npNext(address(), value); return this; }
+	/** Sets the specified value to the {@code waitSemaphoreCount} field. */
+	public VkSubmitInfo waitSemaphoreCount(int value) { nwaitSemaphoreCount(address(), value); return this; }
 	/** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
 	public VkSubmitInfo pWaitSemaphores(LongBuffer value) { npWaitSemaphores(address(), value); return this; }
 	/** Sets the address of the specified {@link IntBuffer} to the {@code pWaitDstStageMask} field. */
@@ -135,6 +137,7 @@ public class VkSubmitInfo extends Struct {
 	public VkSubmitInfo set(
 		int sType,
 		long pNext,
+		int waitSemaphoreCount,
 		LongBuffer pWaitSemaphores,
 		IntBuffer pWaitDstStageMask,
 		PointerBuffer pCommandBuffers,
@@ -142,6 +145,7 @@ public class VkSubmitInfo extends Struct {
 	) {
 		sType(sType);
 		pNext(pNext);
+		waitSemaphoreCount(waitSemaphoreCount);
 		pWaitSemaphores(pWaitSemaphores);
 		pWaitDstStageMask(pWaitDstStageMask);
 		pCommandBuffers(pCommandBuffers);
@@ -252,9 +256,9 @@ public class VkSubmitInfo extends Struct {
 	/** Sets the specified value to the {@code waitSemaphoreCount} field of the specified {@code struct}. */
 	public static void nwaitSemaphoreCount(long struct, int value) { memPutInt(struct + VkSubmitInfo.WAITSEMAPHORECOUNT, value); }
 	/** Unsafe version of {@link #pWaitSemaphores(LongBuffer) pWaitSemaphores}. */
-	public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITSEMAPHORES, memAddressSafe(value)); nwaitSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
+	public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITSEMAPHORES, memAddressSafe(value)); }
 	/** Unsafe version of {@link #pWaitDstStageMask(IntBuffer) pWaitDstStageMask}. */
-	public static void npWaitDstStageMask(long struct, IntBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK, memAddressSafe(value)); nwaitSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
+	public static void npWaitDstStageMask(long struct, IntBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK, memAddressSafe(value)); }
 	/** Sets the specified value to the {@code commandBufferCount} field of the specified {@code struct}. */
 	public static void ncommandBufferCount(long struct, int value) { memPutInt(struct + VkSubmitInfo.COMMANDBUFFERCOUNT, value); }
 	/** Unsafe version of {@link #pCommandBuffers(PointerBuffer) pCommandBuffers}. */
@@ -355,6 +359,8 @@ public class VkSubmitInfo extends Struct {
 		public VkSubmitInfo.Buffer sType(int value) { VkSubmitInfo.nsType(address(), value); return this; }
 		/** Sets the specified value to the {@code pNext} field. */
 		public VkSubmitInfo.Buffer pNext(long value) { VkSubmitInfo.npNext(address(), value); return this; }
+		/** Sets the specified value to the {@code waitSemaphoreCount} field. */
+		public VkSubmitInfo.Buffer waitSemaphoreCount(int value) { VkSubmitInfo.nwaitSemaphoreCount(address(), value); return this; }
 		/** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
 		public VkSubmitInfo.Buffer pWaitSemaphores(LongBuffer value) { VkSubmitInfo.npWaitSemaphores(address(), value); return this; }
 		/** Sets the address of the specified {@link IntBuffer} to the {@code pWaitDstStageMask} field. */

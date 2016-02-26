@@ -124,6 +124,8 @@ public class VkSubpassDescription extends Struct {
 	public VkSubpassDescription pipelineBindPoint(int value) { npipelineBindPoint(address(), value); return this; }
 	/** Sets the address of the specified {@link VkAttachmentReference.Buffer} to the {@code pInputAttachments} field. */
 	public VkSubpassDescription pInputAttachments(VkAttachmentReference.Buffer value) { npInputAttachments(address(), value); return this; }
+	/** Sets the specified value to the {@code colorAttachmentCount} field. */
+	public VkSubpassDescription colorAttachmentCount(int value) { ncolorAttachmentCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkAttachmentReference.Buffer} to the {@code pColorAttachments} field. */
 	public VkSubpassDescription pColorAttachments(VkAttachmentReference.Buffer value) { npColorAttachments(address(), value); return this; }
 	/** Sets the address of the specified {@link VkAttachmentReference.Buffer} to the {@code pResolveAttachments} field. */
@@ -138,6 +140,7 @@ public class VkSubpassDescription extends Struct {
 		int flags,
 		int pipelineBindPoint,
 		VkAttachmentReference.Buffer pInputAttachments,
+		int colorAttachmentCount,
 		VkAttachmentReference.Buffer pColorAttachments,
 		VkAttachmentReference.Buffer pResolveAttachments,
 		VkAttachmentReference pDepthStencilAttachment,
@@ -146,6 +149,7 @@ public class VkSubpassDescription extends Struct {
 		flags(flags);
 		pipelineBindPoint(pipelineBindPoint);
 		pInputAttachments(pInputAttachments);
+		colorAttachmentCount(colorAttachmentCount);
 		pColorAttachments(pColorAttachments);
 		pResolveAttachments(pResolveAttachments);
 		pDepthStencilAttachment(pDepthStencilAttachment);
@@ -262,9 +266,9 @@ public class VkSubpassDescription extends Struct {
 	/** Sets the specified value to the {@code colorAttachmentCount} field of the specified {@code struct}. */
 	public static void ncolorAttachmentCount(long struct, int value) { memPutInt(struct + VkSubpassDescription.COLORATTACHMENTCOUNT, value); }
 	/** Unsafe version of {@link #pColorAttachments(VkAttachmentReference.Buffer) pColorAttachments}. */
-	public static void npColorAttachments(long struct, VkAttachmentReference.Buffer value) { memPutAddress(struct + VkSubpassDescription.PCOLORATTACHMENTS, addressSafe(value)); ncolorAttachmentCount(struct, value == null ? 0 : value.remaining()); }
+	public static void npColorAttachments(long struct, VkAttachmentReference.Buffer value) { memPutAddress(struct + VkSubpassDescription.PCOLORATTACHMENTS, addressSafe(value)); }
 	/** Unsafe version of {@link #pResolveAttachments(VkAttachmentReference.Buffer) pResolveAttachments}. */
-	public static void npResolveAttachments(long struct, VkAttachmentReference.Buffer value) { memPutAddress(struct + VkSubpassDescription.PRESOLVEATTACHMENTS, addressSafe(value)); ncolorAttachmentCount(struct, value == null ? 0 : value.remaining()); }
+	public static void npResolveAttachments(long struct, VkAttachmentReference.Buffer value) { memPutAddress(struct + VkSubpassDescription.PRESOLVEATTACHMENTS, addressSafe(value)); }
 	/** Unsafe version of {@link #pDepthStencilAttachment(VkAttachmentReference) pDepthStencilAttachment}. */
 	public static void npDepthStencilAttachment(long struct, VkAttachmentReference value) { memPutAddress(struct + VkSubpassDescription.PDEPTHSTENCILATTACHMENT, addressSafe(value)); }
 	/** Sets the specified value to the {@code preserveAttachmentCount} field of the specified {@code struct}. */
@@ -368,6 +372,8 @@ public class VkSubpassDescription extends Struct {
 		public VkSubpassDescription.Buffer pipelineBindPoint(int value) { VkSubpassDescription.npipelineBindPoint(address(), value); return this; }
 		/** Sets the address of the specified {@link VkAttachmentReference.Buffer} to the {@code pInputAttachments} field. */
 		public VkSubpassDescription.Buffer pInputAttachments(VkAttachmentReference.Buffer value) { VkSubpassDescription.npInputAttachments(address(), value); return this; }
+		/** Sets the specified value to the {@code colorAttachmentCount} field. */
+		public VkSubpassDescription.Buffer colorAttachmentCount(int value) { VkSubpassDescription.ncolorAttachmentCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkAttachmentReference.Buffer} to the {@code pColorAttachments} field. */
 		public VkSubpassDescription.Buffer pColorAttachments(VkAttachmentReference.Buffer value) { VkSubpassDescription.npColorAttachments(address(), value); return this; }
 		/** Sets the address of the specified {@link VkAttachmentReference.Buffer} to the {@code pResolveAttachments} field. */

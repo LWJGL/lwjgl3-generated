@@ -99,16 +99,20 @@ public class GLFWGammaRamp extends Struct {
 	public GLFWGammaRamp green(ShortBuffer value) { ngreen(address(), value); return this; }
 	/** Sets the address of the specified {@link ShortBuffer} to the {@code blue} field. */
 	public GLFWGammaRamp blue(ShortBuffer value) { nblue(address(), value); return this; }
+	/** Sets the specified value to the {@code size} field. */
+	public GLFWGammaRamp size(int value) { nsize(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public GLFWGammaRamp set(
 		ShortBuffer red,
 		ShortBuffer green,
-		ShortBuffer blue
+		ShortBuffer blue,
+		int size
 	) {
 		red(red);
 		green(green);
 		blue(blue);
+		size(size);
 
 		return this;
 	}
@@ -199,11 +203,11 @@ public class GLFWGammaRamp extends Struct {
 	public static int nsize(long struct) { return memGetInt(struct + GLFWGammaRamp.SIZE); }
 
 	/** Unsafe version of {@link #red(ShortBuffer) red}. */
-	public static void nred(long struct, ShortBuffer value) { memPutAddress(struct + GLFWGammaRamp.RED, memAddress(value)); nsize(struct, value.remaining()); }
+	public static void nred(long struct, ShortBuffer value) { memPutAddress(struct + GLFWGammaRamp.RED, memAddress(value)); }
 	/** Unsafe version of {@link #green(ShortBuffer) green}. */
-	public static void ngreen(long struct, ShortBuffer value) { memPutAddress(struct + GLFWGammaRamp.GREEN, memAddress(value)); nsize(struct, value.remaining()); }
+	public static void ngreen(long struct, ShortBuffer value) { memPutAddress(struct + GLFWGammaRamp.GREEN, memAddress(value)); }
 	/** Unsafe version of {@link #blue(ShortBuffer) blue}. */
-	public static void nblue(long struct, ShortBuffer value) { memPutAddress(struct + GLFWGammaRamp.BLUE, memAddress(value)); nsize(struct, value.remaining()); }
+	public static void nblue(long struct, ShortBuffer value) { memPutAddress(struct + GLFWGammaRamp.BLUE, memAddress(value)); }
 	/** Sets the specified value to the {@code size} field of the specified {@code struct}. */
 	public static void nsize(long struct, int value) { memPutInt(struct + GLFWGammaRamp.SIZE, value); }
 
@@ -286,6 +290,8 @@ public class GLFWGammaRamp extends Struct {
 		public GLFWGammaRamp.Buffer green(ShortBuffer value) { GLFWGammaRamp.ngreen(address(), value); return this; }
 		/** Sets the address of the specified {@link ShortBuffer} to the {@code blue} field. */
 		public GLFWGammaRamp.Buffer blue(ShortBuffer value) { GLFWGammaRamp.nblue(address(), value); return this; }
+		/** Sets the specified value to the {@code size} field. */
+		public GLFWGammaRamp.Buffer size(int value) { GLFWGammaRamp.nsize(address(), value); return this; }
 
 	}
 

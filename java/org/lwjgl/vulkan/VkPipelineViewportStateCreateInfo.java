@@ -134,9 +134,9 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		viewportCount(pViewports != null ? pViewports.remaining() : viewportCount);
+		viewportCount(viewportCount);
 		pViewports(pViewports);
-		scissorCount(pScissors != null ? pScissors.remaining() : scissorCount);
+		scissorCount(scissorCount);
 		pScissors(pScissors);
 
 		return this;
