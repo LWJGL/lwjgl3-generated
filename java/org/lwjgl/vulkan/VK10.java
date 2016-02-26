@@ -1906,8 +1906,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkQueueSubmit(VkQueue queue, int submitCount, long pSubmits, long fence) {
 		long __functionAddress = getInstance(queue).QueueSubmit;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pSubmits != NULL ) VkSubmitInfo.validate(pSubmits, submitCount);
+		}
 		return callPIPJI(__functionAddress, queue.address(), submitCount, pSubmits, fence);
 	}
 
@@ -2329,8 +2331,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkQueueBindSparse(VkQueue queue, int bindInfoCount, long pBindInfo, long fence) {
 		long __functionAddress = getInstance(queue).QueueBindSparse;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkBindSparseInfo.validate(pBindInfo, bindInfoCount);
+		}
 		return callPIPJI(__functionAddress, queue.address(), bindInfoCount, pBindInfo, fence);
 	}
 
@@ -3207,6 +3211,7 @@ public class VK10 {
 		long __functionAddress = getInstance(device).CreateGraphicsPipelines;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkGraphicsPipelineCreateInfo.validate(pCreateInfos, createInfoCount);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
 		return callPJIPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
@@ -3617,8 +3622,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkUpdateDescriptorSets(VkDevice device, int descriptorWriteCount, long pDescriptorWrites, int descriptorCopyCount, long pDescriptorCopies) {
 		long __functionAddress = getInstance(device).UpdateDescriptorSets;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pDescriptorWrites != NULL ) VkWriteDescriptorSet.validate(pDescriptorWrites, descriptorWriteCount);
+		}
 		callPIPIPV(__functionAddress, device.address(), descriptorWriteCount, pDescriptorWrites, descriptorCopyCount, pDescriptorCopies);
 	}
 
@@ -3925,10 +3932,8 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkBeginCommandBuffer(VkCommandBuffer commandBuffer, long pBeginInfo) {
 		long __functionAddress = getInstance(commandBuffer).BeginCommandBuffer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			VkCommandBufferBeginInfo.validate(pBeginInfo);
-		}
 		return callPPI(__functionAddress, commandBuffer.address(), pBeginInfo);
 	}
 

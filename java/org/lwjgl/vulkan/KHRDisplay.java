@@ -97,8 +97,10 @@ public class KHRDisplay {
 	@JavadocExclude
 	public static int nvkGetPhysicalDeviceDisplayPropertiesKHR(VkPhysicalDevice physicalDevice, long pPropertyCount, long pProperties) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceDisplayPropertiesKHR;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pProperties != NULL ) VkDisplayPropertiesKHR.validate(pProperties, pPropertyCount);
+		}
 		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties);
 	}
 

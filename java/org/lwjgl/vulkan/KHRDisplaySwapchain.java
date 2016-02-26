@@ -79,6 +79,7 @@ public class KHRDisplaySwapchain {
 		long __functionAddress = getInstance(device).CreateSharedSwapchainsKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkSwapchainCreateInfoKHR.validate(pCreateInfos, swapchainCount);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
 		return callPIPPPI(__functionAddress, device.address(), swapchainCount, pCreateInfos, pAllocator, pSwapchains);

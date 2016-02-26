@@ -1375,8 +1375,10 @@ public class ObjCRuntime {
 	@JavadocExclude
 	public static boolean nclass_addProperty(long cls, long name, long attributes, int attributeCount) {
 		long __functionAddress = getInstance().__class_addProperty;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(cls);
+			ObjCPropertyAttribute.validate(attributes, attributeCount);
+		}
 		return invokePPPIZ(__functionAddress, cls, name, attributes, attributeCount);
 	}
 
@@ -1416,8 +1418,10 @@ public class ObjCRuntime {
 	@JavadocExclude
 	public static void nclass_replaceProperty(long cls, long name, long attributes, int attributeCount) {
 		long __functionAddress = getInstance().__class_replaceProperty;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(cls);
+			ObjCPropertyAttribute.validate(attributes, attributeCount);
+		}
 		invokePPPIV(__functionAddress, cls, name, attributes, attributeCount);
 	}
 
@@ -2447,8 +2451,10 @@ public class ObjCRuntime {
 	@JavadocExclude
 	public static void nprotocol_addProperty(long proto, long name, long attributes, int attributeCount, boolean isRequiredProperty, boolean isInstanceProperty) {
 		long __functionAddress = getInstance().__protocol_addProperty;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(proto);
+			ObjCPropertyAttribute.validate(attributes, attributeCount);
+		}
 		invokePPPIZZV(__functionAddress, proto, name, attributes, attributeCount, isRequiredProperty, isInstanceProperty);
 	}
 
