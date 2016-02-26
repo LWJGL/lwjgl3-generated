@@ -45,7 +45,7 @@ public class VK10 {
 	 * behavioral changes, removal of deprecated features, modification or outright replacement of any feature, and is thus very likely to break any and all
 	 * compatibility. Differences in this version will typically require significant modification to an application in order for it to function.</p>
 	 */
-	public static final int VK_API_VERSION = (((1) << 22) | ((0) << 12) | (3));
+	public static final int VK_API_VERSION = (((1) << 22) | ((0) << 12) | (4));
 
 	/** The Vulkan major version number. */
 	public static final int VK_VERSION_MAJOR = 1;
@@ -54,7 +54,7 @@ public class VK10 {
 	public static final int VK_VERSION_MINOR = 0;
 
 	/** The Vulkan patch version number. */
-	public static final int VK_VERSION_PATCH = 3;
+	public static final int VK_VERSION_PATCH = 4;
 
 	/**
 	 * The reserved handle {@code VK_NULL_HANDLE} can be passed in place of valid object handles when explicitly called out in the specification. Any command
