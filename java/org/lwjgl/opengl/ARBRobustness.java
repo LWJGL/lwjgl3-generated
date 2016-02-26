@@ -712,8 +712,8 @@ public class ARBRobustness {
 	public static void glGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, ByteBuffer row, int columnBufSize, ByteBuffer column, ByteBuffer span) {
 		if ( CHECKS ) {
 			checkBuffer(row, rowBufSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 			checkBuffer(column, columnBufSize);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetnSeparableFilterARB(target, format, type, rowBufSize, memAddress(row), columnBufSize, memAddress(column), memAddressSafe(span));
 	}

@@ -329,8 +329,10 @@ public class INTELPerformanceQuery {
 
 	/** Alternative version of: {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
 	public static void glGetPerfQueryIdByNameINTEL(ByteBuffer queryName, IntBuffer queryId) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			checkNT1(queryName);
 			checkBuffer(queryId, 1);
+		}
 		nglGetPerfQueryIdByNameINTEL(memAddress(queryName), memAddress(queryId));
 	}
 

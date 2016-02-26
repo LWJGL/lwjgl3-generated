@@ -190,13 +190,17 @@ public class STBVorbis {
 	 *         in a larger block from the start of the file.
 	 */
 	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, int datablock_length_in_bytes, ByteBuffer datablock_memory_consumed_in_bytes, ByteBuffer error, STBVorbisAlloc alloc_buffer) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(datablock, datablock_length_in_bytes);
+			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
+		}
 		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock_length_in_bytes, memAddress(datablock_memory_consumed_in_bytes), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	/** Alternative version of: {@link #stb_vorbis_open_pushdata open_pushdata} */
 	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, IntBuffer datablock_memory_consumed_in_bytes, IntBuffer error, STBVorbisAlloc alloc_buffer) {
+		if ( CHECKS )
+			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
 		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock.remaining(), memAddress(datablock_memory_consumed_in_bytes), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
@@ -307,6 +311,7 @@ public class STBVorbis {
 	/** Alternative version of: {@link #stb_vorbis_decode_filename decode_filename} */
 	public static int stb_vorbis_decode_filename(ByteBuffer filename, IntBuffer channels, IntBuffer sample_rate, PointerBuffer output) {
 		if ( CHECKS ) {
+			checkNT1(filename);
 			checkBuffer(channels, 1);
 			checkBuffer(sample_rate, 1);
 			checkBuffer(output, 1);
@@ -406,14 +411,17 @@ public class STBVorbis {
 		if ( CHECKS ) {
 			checkBuffer(mem, len);
 			checkBuffer(error, 1 << 2);
+			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
 		}
 		return nstb_vorbis_open_memory(memAddress(mem), len, memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	/** Alternative version of: {@link #stb_vorbis_open_memory open_memory} */
 	public static long stb_vorbis_open_memory(ByteBuffer mem, IntBuffer error, STBVorbisAlloc alloc_buffer) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(error, 1);
+			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
+		}
 		return nstb_vorbis_open_memory(memAddress(mem), mem.remaining(), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
@@ -436,21 +444,27 @@ public class STBVorbis {
 		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(error, 1 << 2);
+			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
 		}
 		return nstb_vorbis_open_filename(memAddress(filename), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	/** Alternative version of: {@link #stb_vorbis_open_filename open_filename} */
 	public static long stb_vorbis_open_filename(ByteBuffer filename, IntBuffer error, STBVorbisAlloc alloc_buffer) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			checkNT1(filename);
 			checkBuffer(error, 1);
+			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
+		}
 		return nstb_vorbis_open_filename(memAddress(filename), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	/** CharSequence version of: {@link #stb_vorbis_open_filename open_filename} */
 	public static long stb_vorbis_open_filename(CharSequence filename, IntBuffer error, STBVorbisAlloc alloc_buffer) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(error, 1);
+			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
+		}
 		APIBuffer __buffer = apiBuffer();
 		int filenameEncoded = __buffer.stringParamASCII(filename, true);
 		return nstb_vorbis_open_filename(__buffer.address(filenameEncoded), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());

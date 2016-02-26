@@ -170,6 +170,7 @@ public class STBImage {
 	/** Alternative version of: {@link #stbi_load load} */
 	public static ByteBuffer stbi_load(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
+			checkNT1(filename);
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -256,6 +257,7 @@ public class STBImage {
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
 			checkBuffer(comp, 1 << 2);
+			STBIIOCallbacks.validate(clbk.address());
 		}
 		long __result = nstbi_load_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memByteBuffer(__result, x.getInt(x.position()) * y.getInt(y.position()) * comp.getInt(comp.position()));
@@ -267,6 +269,7 @@ public class STBImage {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
+			STBIIOCallbacks.validate(clbk.address());
 		}
 		long __result = nstbi_load_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
@@ -301,6 +304,7 @@ public class STBImage {
 	/** Alternative version of: {@link #stbi_loadf loadf} */
 	public static FloatBuffer stbi_loadf(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
+			checkNT1(filename);
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -381,6 +385,7 @@ public class STBImage {
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
 			checkBuffer(comp, 1 << 2);
+			STBIIOCallbacks.validate(clbk.address());
 		}
 		long __result = nstbi_loadf_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memFloatBuffer(__result, x.getInt(x.position()) * y.getInt(y.position()) * comp.getInt(comp.position()));
@@ -392,6 +397,7 @@ public class STBImage {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
+			STBIIOCallbacks.validate(clbk.address());
 		}
 		long __result = nstbi_loadf_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
@@ -495,6 +501,8 @@ public class STBImage {
 	 * @param user a pointer to user data
 	 */
 	public static int stbi_is_hdr_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user) {
+		if ( CHECKS )
+			STBIIOCallbacks.validate(clbk.address());
 		return nstbi_is_hdr_from_callbacks(clbk.address(), memAddressSafe(user));
 	}
 
@@ -554,6 +562,7 @@ public class STBImage {
 	/** Alternative version of: {@link #stbi_info info} */
 	public static int stbi_info(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
+			checkNT1(filename);
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -628,6 +637,7 @@ public class STBImage {
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
 			checkBuffer(comp, 1 << 2);
+			STBIIOCallbacks.validate(clbk.address());
 		}
 		return nstbi_info_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp));
 	}
@@ -638,6 +648,7 @@ public class STBImage {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
+			STBIIOCallbacks.validate(clbk.address());
 		}
 		return nstbi_info_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp));
 	}

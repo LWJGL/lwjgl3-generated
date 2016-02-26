@@ -3274,6 +3274,8 @@ public class CL10 {
 
 	/** Alternative version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(long program, PointerBuffer device_list, ByteBuffer options, CLProgramCallback pfn_notify, long user_data) {
+		if ( CHECKS )
+			checkNT1(options);
 		return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
 	}
 
@@ -3484,8 +3486,10 @@ public class CL10 {
 
 	/** Alternative version of: {@link #clCreateKernel CreateKernel} */
 	public static long clCreateKernel(long program, ByteBuffer kernel_name, IntBuffer errcode_ret) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			checkNT1(kernel_name);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
 		return nclCreateKernel(program, memAddress(kernel_name), memAddressSafe(errcode_ret));
 	}
 

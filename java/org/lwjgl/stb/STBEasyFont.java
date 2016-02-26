@@ -159,8 +159,10 @@ public class STBEasyFont {
 
 	/** Alternative version of: {@link #stb_easy_font_print easy_font_print} */
 	public static int stb_easy_font_print(float x, float y, ByteBuffer text, ByteBuffer color, ByteBuffer vertex_buffer) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			checkNT1(text);
 			if ( color != null ) checkBuffer(color, 4);
+		}
 		return nstb_easy_font_print(x, y, memAddress(text), memAddressSafe(color), memAddress(vertex_buffer), vertex_buffer.remaining());
 	}
 

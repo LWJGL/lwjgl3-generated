@@ -506,13 +506,17 @@ public class STBTruetype {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbtt_PackFontRanges(STBTTPackContext spc, ByteBuffer fontdata, int font_index, STBTTPackRange.Buffer ranges, int num_ranges) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(ranges, num_ranges);
+			STBTTPackRange.validate(ranges.address(), num_ranges);
+		}
 		return nstbtt_PackFontRanges(spc.address(), memAddress(fontdata), font_index, ranges.address(), num_ranges);
 	}
 
 	/** Alternative version of: {@link #stbtt_PackFontRanges PackFontRanges} */
 	public static int stbtt_PackFontRanges(STBTTPackContext spc, ByteBuffer fontdata, int font_index, STBTTPackRange.Buffer ranges) {
+		if ( CHECKS )
+			STBTTPackRange.validate(ranges.address(), ranges.remaining());
 		return nstbtt_PackFontRanges(spc.address(), memAddress(fontdata), font_index, ranges.address(), ranges.remaining());
 	}
 
@@ -600,13 +604,17 @@ public class STBTruetype {
 	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
 	 */
 	public static int stbtt_PackFontRangesGatherRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, int num_ranges, STBRPRect rects) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(ranges, num_ranges);
+			STBTTPackRange.validate(ranges.address(), num_ranges);
+		}
 		return nstbtt_PackFontRangesGatherRects(spc.address(), info.address(), ranges.address(), num_ranges, rects.address());
 	}
 
 	/** Alternative version of: {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} */
 	public static int stbtt_PackFontRangesGatherRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect rects) {
+		if ( CHECKS )
+			STBTTPackRange.validate(ranges.address(), ranges.remaining());
 		return nstbtt_PackFontRangesGatherRects(spc.address(), info.address(), ranges.address(), ranges.remaining(), rects.address());
 	}
 
@@ -650,13 +658,17 @@ public class STBTruetype {
 	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
 	 */
 	public static int stbtt_PackFontRangesRenderIntoRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, int num_ranges, STBRPRect rects) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(ranges, num_ranges);
+			STBTTPackRange.validate(ranges.address(), num_ranges);
+		}
 		return nstbtt_PackFontRangesRenderIntoRects(spc.address(), info.address(), ranges.address(), num_ranges, rects.address());
 	}
 
 	/** Alternative version of: {@link #stbtt_PackFontRangesRenderIntoRects PackFontRangesRenderIntoRects} */
 	public static int stbtt_PackFontRangesRenderIntoRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect rects) {
+		if ( CHECKS )
+			STBTTPackRange.validate(ranges.address(), ranges.remaining());
 		return nstbtt_PackFontRangesRenderIntoRects(spc.address(), info.address(), ranges.address(), ranges.remaining(), rects.address());
 	}
 

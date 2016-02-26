@@ -520,8 +520,10 @@ public class JEmalloc {
 
 	/** Alternative version of: {@link #je_mallctl mallctl} */
 	public static int je_mallctl(ByteBuffer name, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			checkNT1(name);
 			if ( oldlenp != null ) checkBuffer(oldlenp, 1);
+		}
 		return nje_mallctl(memAddress(name), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), newp == null ? 0 : newp.remaining());
 	}
 
@@ -586,6 +588,7 @@ public class JEmalloc {
 	/** Alternative version of: {@link #je_mallctlnametomib mallctlnametomib} */
 	public static int je_mallctlnametomib(ByteBuffer name, PointerBuffer mibp, PointerBuffer miblenp) {
 		if ( CHECKS ) {
+			checkNT1(name);
 			checkBuffer(miblenp, 1);
 			checkBuffer(mibp, miblenp.get(miblenp.position()));
 		}

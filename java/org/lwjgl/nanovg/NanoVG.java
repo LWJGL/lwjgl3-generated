@@ -1758,8 +1758,10 @@ public class NanoVG {
 
 	/** Alternative version of: {@link #nvgCreateFontMem CreateFontMem} */
 	public static int nvgCreateFontMem(long ctx, ByteBuffer name, ByteBuffer data, int freeData) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(ctx);
+			checkNT1(name);
+		}
 		return nnvgCreateFontMem(ctx, memAddress(name), memAddress(data), data.remaining(), freeData);
 	}
 
@@ -2043,6 +2045,7 @@ public class NanoVG {
 	public static float nvgTextBounds(long ctx, float x, float y, ByteBuffer string, long end, FloatBuffer bounds) {
 		if ( CHECKS ) {
 			checkPointer(ctx);
+			checkNT1(string);
 			if ( bounds != null ) checkBuffer(bounds, 4);
 		}
 		return nnvgTextBounds(ctx, x, y, memAddress(string), end, memAddressSafe(bounds));
@@ -2094,6 +2097,7 @@ public class NanoVG {
 	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, long end, FloatBuffer bounds) {
 		if ( CHECKS ) {
 			checkPointer(ctx);
+			checkNT1(string);
 			if ( bounds != null ) checkBuffer(bounds, 4);
 		}
 		nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(string), end, memAddressSafe(bounds));
@@ -2134,21 +2138,27 @@ public class NanoVG {
 			checkPointer(ctx);
 			checkNT1(string);
 			checkBuffer(positions, maxPositions);
+			NVGGlyphPosition.validate(positions.address(), maxPositions);
 		}
 		return nnvgTextGlyphPositions(ctx, x, y, memAddress(string), end, positions.address(), maxPositions);
 	}
 
 	/** Alternative version of: {@link #nvgTextGlyphPositions TextGlyphPositions} */
 	public static int nvgTextGlyphPositions(long ctx, float x, float y, ByteBuffer string, long end, NVGGlyphPosition.Buffer positions) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(ctx);
+			checkNT1(string);
+			NVGGlyphPosition.validate(positions.address(), positions.remaining());
+		}
 		return nnvgTextGlyphPositions(ctx, x, y, memAddress(string), end, positions.address(), positions.remaining());
 	}
 
 	/** CharSequence version of: {@link #nvgTextGlyphPositions TextGlyphPositions} */
 	public static int nvgTextGlyphPositions(long ctx, float x, float y, CharSequence string, long end, NVGGlyphPosition.Buffer positions) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(ctx);
+			NVGGlyphPosition.validate(positions.address(), positions.remaining());
+		}
 		APIBuffer __buffer = apiBuffer();
 		int stringEncoded = __buffer.stringParamUTF8(string, true);
 		return nnvgTextGlyphPositions(ctx, x, y, __buffer.address(stringEncoded), end, positions.address(), positions.remaining());
@@ -2215,21 +2225,27 @@ public class NanoVG {
 			checkPointer(ctx);
 			checkNT1(string);
 			checkBuffer(rows, maxRows);
+			NVGTextRow.validate(rows.address(), maxRows);
 		}
 		return nnvgTextBreakLines(ctx, memAddress(string), end, breakRowWidth, rows.address(), maxRows);
 	}
 
 	/** Alternative version of: {@link #nvgTextBreakLines TextBreakLines} */
 	public static int nvgTextBreakLines(long ctx, ByteBuffer string, long end, float breakRowWidth, NVGTextRow.Buffer rows) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(ctx);
+			checkNT1(string);
+			NVGTextRow.validate(rows.address(), rows.remaining());
+		}
 		return nnvgTextBreakLines(ctx, memAddress(string), end, breakRowWidth, rows.address(), rows.remaining());
 	}
 
 	/** CharSequence version of: {@link #nvgTextBreakLines TextBreakLines} */
 	public static int nvgTextBreakLines(long ctx, CharSequence string, long end, float breakRowWidth, NVGTextRow.Buffer rows) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(ctx);
+			NVGTextRow.validate(rows.address(), rows.remaining());
+		}
 		APIBuffer __buffer = apiBuffer();
 		int stringEncoded = __buffer.stringParamUTF8(string, true);
 		return nnvgTextBreakLines(ctx, __buffer.address(stringEncoded), end, breakRowWidth, rows.address(), rows.remaining());

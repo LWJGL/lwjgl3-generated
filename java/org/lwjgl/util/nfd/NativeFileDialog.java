@@ -103,8 +103,11 @@ public class NativeFileDialog {
 
 	/** Alternative version of: {@link #NFD_OpenDialog OpenDialog} */
 	public static int NFD_OpenDialog(ByteBuffer filterList, ByteBuffer defaultPath, PointerBuffer outPath) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			if ( filterList != null ) checkNT1(filterList);
+			if ( defaultPath != null ) checkNT1(defaultPath);
 			checkBuffer(outPath, 1);
+		}
 		return nNFD_OpenDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
 	}
 
@@ -177,8 +180,11 @@ public class NativeFileDialog {
 
 	/** Alternative version of: {@link #NFD_SaveDialog SaveDialog} */
 	public static int NFD_SaveDialog(ByteBuffer filterList, ByteBuffer defaultPath, PointerBuffer outPath) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			if ( filterList != null ) checkNT1(filterList);
+			if ( defaultPath != null ) checkNT1(defaultPath);
 			checkBuffer(outPath, 1);
+		}
 		return nNFD_SaveDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
 	}
 

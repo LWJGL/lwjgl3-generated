@@ -351,6 +351,8 @@ public class OVR {
 	 * @return the {@code strlen} of the message or a negative value if the message is too large
 	 */
 	public static String ovr_TraceMessage(int level, ByteBuffer message) {
+		if ( CHECKS )
+			checkNT1(message);
 		long __result = novr_TraceMessage(level, memAddress(message));
 		return memDecodeUTF8(__result);
 	}
@@ -652,8 +654,10 @@ public class OVR {
 	 * @param textureSet the {@link OVRSwapTextureSet} to destroy. If it is {@code NULL} then this function has no effect.
 	 */
 	public static void ovr_DestroySwapTextureSet(long session, OVRSwapTextureSet textureSet) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(session);
+			if ( textureSet != null ) OVRSwapTextureSet.validate(textureSet.address());
+		}
 		novr_DestroySwapTextureSet(session, textureSet == null ? NULL : textureSet.address());
 	}
 
@@ -1087,8 +1091,10 @@ public class OVR {
 
 	/** Alternative version of: {@link #ovr_GetFloatArray GetFloatArray} */
 	public static int ovr_GetFloatArray(long session, ByteBuffer propertyName, FloatBuffer values) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(session);
+			checkNT1(propertyName);
+		}
 		return novr_GetFloatArray(session, memAddress(propertyName), memAddress(values), values.remaining());
 	}
 
@@ -1128,8 +1134,10 @@ public class OVR {
 
 	/** Alternative version of: {@link #ovr_SetFloatArray SetFloatArray} */
 	public static boolean ovr_SetFloatArray(long session, ByteBuffer propertyName, FloatBuffer values) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(session);
+			checkNT1(propertyName);
+		}
 		return novr_SetFloatArray(session, memAddress(propertyName), memAddress(values), values.remaining());
 	}
 
@@ -1161,8 +1169,11 @@ public class OVR {
 	 *         until next call to ovr_GetString or until the HMD is destroyed, whichever occurs first.
 	 */
 	public static String ovr_GetString(long session, ByteBuffer propertyName, ByteBuffer defaultVal) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(session);
+			checkNT1(propertyName);
+			if ( defaultVal != null ) checkNT1(defaultVal);
+		}
 		long __result = novr_GetString(session, memAddress(propertyName), memAddressSafe(defaultVal));
 		return memDecodeUTF8(__result);
 	}

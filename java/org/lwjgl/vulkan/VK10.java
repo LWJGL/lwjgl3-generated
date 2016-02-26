@@ -1734,6 +1734,7 @@ public class VK10 {
 	/** Alternative version of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties} */
 	public static int vkEnumerateInstanceExtensionProperties(ByteBuffer pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
+			if ( pLayerName != null ) checkNT1(pLayerName);
 			checkBuffer(pPropertyCount, 1);
 			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
@@ -1782,6 +1783,7 @@ public class VK10 {
 	/** Alternative version of: {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties} */
 	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, ByteBuffer pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
+			if ( pLayerName != null ) checkNT1(pLayerName);
 			checkBuffer(pPropertyCount, 1);
 			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}

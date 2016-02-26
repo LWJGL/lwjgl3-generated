@@ -99,7 +99,7 @@ public class KHRDisplay {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceDisplayPropertiesKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( pProperties != NULL ) VkDisplayPropertiesKHR.validate(pProperties, pPropertyCount);
+			if ( pProperties != NULL ) VkDisplayPropertiesKHR.validate(pProperties, (int)pPropertyCount);
 		}
 		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties);
 	}
@@ -109,7 +109,7 @@ public class KHRDisplay {
 	 *
 	 * @param physicalDevice a valid physical device
 	 * @param pPropertyCount the number of entries in the array pointed to by {@code pProperties}
-	 * @param pProperties    a pointer to an array of {@code pPropertyCount} {@link kDisplayPropertiesKHR} structures
+	 * @param pProperties    a pointer to an array of {@code pPropertyCount} {@link VkDisplayPropertiesKHR} structures
 	 */
 	public static int vkGetPhysicalDeviceDisplayPropertiesKHR(VkPhysicalDevice physicalDevice, ByteBuffer pPropertyCount, VkDisplayPropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {

@@ -217,8 +217,10 @@ public class STBImageWrite {
 
 	/** Alternative version of: {@link #stbi_write_hdr write_hdr} */
 	public static int stbi_write_hdr(ByteBuffer filename, int w, int h, int comp, FloatBuffer data) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			checkNT1(filename);
 			checkBuffer(data, w * h * comp);
+		}
 		return nstbi_write_hdr(memAddress(filename), w, h, comp, memAddress(data));
 	}
 

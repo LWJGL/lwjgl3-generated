@@ -535,6 +535,8 @@ public class ObjCRuntime {
 
 	/** Alternative version of: {@link #object_getInstanceVariable} */
 	public static long object_getInstanceVariable(long obj, ByteBuffer name, PointerBuffer outValue) {
+		if ( CHECKS )
+			checkNT1(name);
 		return nobject_getInstanceVariable(obj, memAddress(name), memAddress(outValue));
 	}
 
@@ -1402,6 +1404,8 @@ public class ObjCRuntime {
 
 	/** Alternative version of: {@link #class_addProperty} */
 	public static boolean class_addProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes) {
+		if ( CHECKS )
+			checkNT1(name);
 		return nclass_addProperty(cls, memAddress(name), attributes.address(), attributes.remaining());
 	}
 
@@ -1443,6 +1447,8 @@ public class ObjCRuntime {
 
 	/** Alternative version of: {@link #class_replaceProperty} */
 	public static void class_replaceProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes) {
+		if ( CHECKS )
+			checkNT1(name);
 		nclass_replaceProperty(cls, memAddress(name), attributes.address(), attributes.remaining());
 	}
 
@@ -2037,6 +2043,8 @@ public class ObjCRuntime {
 	 *         with free().
 	 */
 	public static String property_copyAttributeValue(long property, ByteBuffer attributeName) {
+		if ( CHECKS )
+			checkNT1(attributeName);
 		long __result = nproperty_copyAttributeValue(property, memAddress(attributeName));
 		return memDecodeUTF8(__result);
 	}
@@ -2483,6 +2491,8 @@ public class ObjCRuntime {
 
 	/** Alternative version of: {@link #protocol_addProperty} */
 	public static void protocol_addProperty(long proto, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, boolean isRequiredProperty, boolean isInstanceProperty) {
+		if ( CHECKS )
+			checkNT1(name);
 		nprotocol_addProperty(proto, memAddress(name), attributes.address(), attributes.remaining(), isRequiredProperty, isInstanceProperty);
 	}
 

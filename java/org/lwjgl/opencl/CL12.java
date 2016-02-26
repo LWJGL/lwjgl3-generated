@@ -587,8 +587,10 @@ public class CL12 {
 
 	/** Alternative version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
 	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, PointerBuffer device_list, ByteBuffer kernel_names, IntBuffer errcode_ret) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			checkNT1(kernel_names);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
 		return nclCreateProgramWithBuiltInKernels(context, num_devices, memAddress(device_list), memAddress(kernel_names), memAddressSafe(errcode_ret));
 	}
 
@@ -685,8 +687,10 @@ public class CL12 {
 
 	/** Alternative version of: {@link #clCompileProgram CompileProgram} */
 	public static int clCompileProgram(long program, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallback pfn_notify, long user_data) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			checkNT1(options);
 			if ( header_include_names != null ) checkBuffer(header_include_names, input_headers.remaining());
+		}
 		return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
 	}
 
@@ -819,6 +823,8 @@ public class CL12 {
 
 	/** Alternative version of: {@link #clLinkProgram LinkProgram} */
 	public static long clLinkProgram(long context, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_programs, CLProgramCallback pfn_notify, long user_data) {
+		if ( CHECKS )
+			checkNT1(options);
 		return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
 	}
 
