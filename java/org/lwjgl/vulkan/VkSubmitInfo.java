@@ -28,6 +28,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t signalSemaphoreCount;
  *     const VkSemaphore * pSignalSemaphores;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkSubmitInfo extends Struct {
 
@@ -116,18 +122,12 @@ public class VkSubmitInfo extends Struct {
 	public VkSubmitInfo sType(int value) { nsType(address(), value); return this; }
 	/** Sets the specified value to the {@code pNext} field. */
 	public VkSubmitInfo pNext(long value) { npNext(address(), value); return this; }
-	/** Sets the specified value to the {@code waitSemaphoreCount} field. */
-	public VkSubmitInfo waitSemaphoreCount(int value) { nwaitSemaphoreCount(address(), value); return this; }
 	/** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
 	public VkSubmitInfo pWaitSemaphores(LongBuffer value) { npWaitSemaphores(address(), value); return this; }
 	/** Sets the address of the specified {@link IntBuffer} to the {@code pWaitDstStageMask} field. */
 	public VkSubmitInfo pWaitDstStageMask(IntBuffer value) { npWaitDstStageMask(address(), value); return this; }
-	/** Sets the specified value to the {@code commandBufferCount} field. */
-	public VkSubmitInfo commandBufferCount(int value) { ncommandBufferCount(address(), value); return this; }
 	/** Sets the address of the specified {@link PointerBuffer} to the {@code pCommandBuffers} field. */
 	public VkSubmitInfo pCommandBuffers(PointerBuffer value) { npCommandBuffers(address(), value); return this; }
-	/** Sets the specified value to the {@code signalSemaphoreCount} field. */
-	public VkSubmitInfo signalSemaphoreCount(int value) { nsignalSemaphoreCount(address(), value); return this; }
 	/** Sets the address of the specified {@link LongBuffer} to the {@code pSignalSemaphores} field. */
 	public VkSubmitInfo pSignalSemaphores(LongBuffer value) { npSignalSemaphores(address(), value); return this; }
 
@@ -142,12 +142,9 @@ public class VkSubmitInfo extends Struct {
 	) {
 		sType(sType);
 		pNext(pNext);
-		waitSemaphoreCount(pWaitSemaphores != null ? pWaitSemaphores.remaining() : (pWaitDstStageMask != null ? pWaitDstStageMask.remaining() : 0));
 		pWaitSemaphores(pWaitSemaphores);
 		pWaitDstStageMask(pWaitDstStageMask);
-		commandBufferCount(pCommandBuffers != null ? pCommandBuffers.remaining() : 0);
 		pCommandBuffers(pCommandBuffers);
-		signalSemaphoreCount(pSignalSemaphores != null ? pSignalSemaphores.remaining() : 0);
 		pSignalSemaphores(pSignalSemaphores);
 
 		return this;
@@ -252,20 +249,35 @@ public class VkSubmitInfo extends Struct {
 	public static void nsType(long struct, int value) { memPutInt(struct + VkSubmitInfo.STYPE, value); }
 	/** Unsafe version of {@link #pNext(long) pNext}. */
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkSubmitInfo.PNEXT, value); }
-	/** Unsafe version of {@link #waitSemaphoreCount(int) waitSemaphoreCount}. */
+	/** Sets the specified value to the {@code waitSemaphoreCount} field of the specified {@code struct}. */
 	public static void nwaitSemaphoreCount(long struct, int value) { memPutInt(struct + VkSubmitInfo.WAITSEMAPHORECOUNT, value); }
 	/** Unsafe version of {@link #pWaitSemaphores(LongBuffer) pWaitSemaphores}. */
-	public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITSEMAPHORES, memAddressSafe(value)); }
+	public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITSEMAPHORES, memAddressSafe(value)); nwaitSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
 	/** Unsafe version of {@link #pWaitDstStageMask(IntBuffer) pWaitDstStageMask}. */
-	public static void npWaitDstStageMask(long struct, IntBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK, memAddressSafe(value)); }
-	/** Unsafe version of {@link #commandBufferCount(int) commandBufferCount}. */
+	public static void npWaitDstStageMask(long struct, IntBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK, memAddressSafe(value)); nwaitSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
+	/** Sets the specified value to the {@code commandBufferCount} field of the specified {@code struct}. */
 	public static void ncommandBufferCount(long struct, int value) { memPutInt(struct + VkSubmitInfo.COMMANDBUFFERCOUNT, value); }
 	/** Unsafe version of {@link #pCommandBuffers(PointerBuffer) pCommandBuffers}. */
-	public static void npCommandBuffers(long struct, PointerBuffer value) { memPutAddress(struct + VkSubmitInfo.PCOMMANDBUFFERS, memAddressSafe(value)); }
-	/** Unsafe version of {@link #signalSemaphoreCount(int) signalSemaphoreCount}. */
+	public static void npCommandBuffers(long struct, PointerBuffer value) { memPutAddress(struct + VkSubmitInfo.PCOMMANDBUFFERS, memAddress(value)); ncommandBufferCount(struct, value.remaining()); }
+	/** Sets the specified value to the {@code signalSemaphoreCount} field of the specified {@code struct}. */
 	public static void nsignalSemaphoreCount(long struct, int value) { memPutInt(struct + VkSubmitInfo.SIGNALSEMAPHORECOUNT, value); }
 	/** Unsafe version of {@link #pSignalSemaphores(LongBuffer) pSignalSemaphores}. */
-	public static void npSignalSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkSubmitInfo.PSIGNALSEMAPHORES, memAddressSafe(value)); }
+	public static void npSignalSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkSubmitInfo.PSIGNALSEMAPHORES, memAddressSafe(value)); nsignalSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nwaitSemaphoreCount(struct) != 0 ) {
+			checkPointer(memGetAddress(struct + VkSubmitInfo.PWAITSEMAPHORES));
+			checkPointer(memGetAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK));
+		}
+		checkPointer(memGetAddress(struct + VkSubmitInfo.PCOMMANDBUFFERS));
+		if ( nsignalSemaphoreCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkSubmitInfo.PSIGNALSEMAPHORES));
+	}
 
 	// -----------------------------------
 
@@ -332,18 +344,12 @@ public class VkSubmitInfo extends Struct {
 		public VkSubmitInfo.Buffer sType(int value) { VkSubmitInfo.nsType(address(), value); return this; }
 		/** Sets the specified value to the {@code pNext} field. */
 		public VkSubmitInfo.Buffer pNext(long value) { VkSubmitInfo.npNext(address(), value); return this; }
-		/** Sets the specified value to the {@code waitSemaphoreCount} field. */
-		public VkSubmitInfo.Buffer waitSemaphoreCount(int value) { VkSubmitInfo.nwaitSemaphoreCount(address(), value); return this; }
 		/** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
 		public VkSubmitInfo.Buffer pWaitSemaphores(LongBuffer value) { VkSubmitInfo.npWaitSemaphores(address(), value); return this; }
 		/** Sets the address of the specified {@link IntBuffer} to the {@code pWaitDstStageMask} field. */
 		public VkSubmitInfo.Buffer pWaitDstStageMask(IntBuffer value) { VkSubmitInfo.npWaitDstStageMask(address(), value); return this; }
-		/** Sets the specified value to the {@code commandBufferCount} field. */
-		public VkSubmitInfo.Buffer commandBufferCount(int value) { VkSubmitInfo.ncommandBufferCount(address(), value); return this; }
 		/** Sets the address of the specified {@link PointerBuffer} to the {@code pCommandBuffers} field. */
 		public VkSubmitInfo.Buffer pCommandBuffers(PointerBuffer value) { VkSubmitInfo.npCommandBuffers(address(), value); return this; }
-		/** Sets the specified value to the {@code signalSemaphoreCount} field. */
-		public VkSubmitInfo.Buffer signalSemaphoreCount(int value) { VkSubmitInfo.nsignalSemaphoreCount(address(), value); return this; }
 		/** Sets the address of the specified {@link LongBuffer} to the {@code pSignalSemaphores} field. */
 		public VkSubmitInfo.Buffer pSignalSemaphores(LongBuffer value) { VkSubmitInfo.npSignalSemaphores(address(), value); return this; }
 

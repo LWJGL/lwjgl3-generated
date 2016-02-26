@@ -27,6 +27,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     const VkPipelineColorBlendAttachmentState * pAttachments;
  *     float[4] blendConstants;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkPipelineColorBlendStateCreateInfo extends Struct {
 
@@ -118,8 +124,6 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct {
 	public VkPipelineColorBlendStateCreateInfo logicOpEnable(int value) { nlogicOpEnable(address(), value); return this; }
 	/** Sets the specified value to the {@code logicOp} field. */
 	public VkPipelineColorBlendStateCreateInfo logicOp(int value) { nlogicOp(address(), value); return this; }
-	/** Sets the specified value to the {@code attachmentCount} field. */
-	public VkPipelineColorBlendStateCreateInfo attachmentCount(int value) { nattachmentCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkPipelineColorBlendAttachmentState.Buffer} to the {@code pAttachments} field. */
 	public VkPipelineColorBlendStateCreateInfo pAttachments(VkPipelineColorBlendAttachmentState.Buffer value) { npAttachments(address(), value); return this; }
 	/** Copies the specified {@link FloatBuffer} to the {@code blendConstants} field. */
@@ -142,7 +146,6 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct {
 		flags(flags);
 		logicOpEnable(logicOpEnable);
 		logicOp(logicOp);
-		attachmentCount(pAttachments != null ? pAttachments.remaining() : 0);
 		pAttachments(pAttachments);
 		blendConstants(blendConstants);
 
@@ -256,10 +259,10 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct {
 	public static void nlogicOpEnable(long struct, int value) { memPutInt(struct + VkPipelineColorBlendStateCreateInfo.LOGICOPENABLE, value); }
 	/** Unsafe version of {@link #logicOp(int) logicOp}. */
 	public static void nlogicOp(long struct, int value) { memPutInt(struct + VkPipelineColorBlendStateCreateInfo.LOGICOP, value); }
-	/** Unsafe version of {@link #attachmentCount(int) attachmentCount}. */
+	/** Sets the specified value to the {@code attachmentCount} field of the specified {@code struct}. */
 	public static void nattachmentCount(long struct, int value) { memPutInt(struct + VkPipelineColorBlendStateCreateInfo.ATTACHMENTCOUNT, value); }
 	/** Unsafe version of {@link #pAttachments(VkPipelineColorBlendAttachmentState.Buffer) pAttachments}. */
-	public static void npAttachments(long struct, VkPipelineColorBlendAttachmentState.Buffer value) { memPutAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS, addressSafe(value)); }
+	public static void npAttachments(long struct, VkPipelineColorBlendAttachmentState.Buffer value) { memPutAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS, addressSafe(value)); nattachmentCount(struct, value == null ? 0 : value.remaining()); }
 	/** Unsafe version of {@link #blendConstants(FloatBuffer) blendConstants}. */
 	public static void nblendConstants(long struct, FloatBuffer value) {
 		if ( CHECKS ) checkBufferGT(value, 4);
@@ -267,6 +270,16 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct {
 	}
 	/** Unsafe version of {@link #blendConstants(int, float) blendConstants}. */
 	public static void nblendConstants(long struct, int index, float value) { memPutFloat(struct + VkPipelineColorBlendStateCreateInfo.BLENDCONSTANTS + index * 4, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nattachmentCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS));
+	}
 
 	// -----------------------------------
 
@@ -339,8 +352,6 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct {
 		public VkPipelineColorBlendStateCreateInfo.Buffer logicOpEnable(int value) { VkPipelineColorBlendStateCreateInfo.nlogicOpEnable(address(), value); return this; }
 		/** Sets the specified value to the {@code logicOp} field. */
 		public VkPipelineColorBlendStateCreateInfo.Buffer logicOp(int value) { VkPipelineColorBlendStateCreateInfo.nlogicOp(address(), value); return this; }
-		/** Sets the specified value to the {@code attachmentCount} field. */
-		public VkPipelineColorBlendStateCreateInfo.Buffer attachmentCount(int value) { VkPipelineColorBlendStateCreateInfo.nattachmentCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkPipelineColorBlendAttachmentState.Buffer} to the {@code pAttachments} field. */
 		public VkPipelineColorBlendStateCreateInfo.Buffer pAttachments(VkPipelineColorBlendAttachmentState.Buffer value) { VkPipelineColorBlendStateCreateInfo.npAttachments(address(), value); return this; }
 		/** Copies the specified {@link FloatBuffer} to the {@code blendConstants} field. */

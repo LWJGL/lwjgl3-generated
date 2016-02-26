@@ -208,11 +208,22 @@ public class STBIIOCallbacks extends Struct {
 	public static STBIEOFCallback neofClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(neof(struct)); }
 
 	/** Unsafe version of {@link #read(long) read}. */
-	public static void nread(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.READ, value); }
+	public static void nread(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.READ, checkPointer(value)); }
 	/** Unsafe version of {@link #skip(long) skip}. */
-	public static void nskip(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.SKIP, value); }
+	public static void nskip(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.SKIP, checkPointer(value)); }
 	/** Unsafe version of {@link #eof(long) eof}. */
-	public static void neof(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.EOF, value); }
+	public static void neof(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.EOF, checkPointer(value)); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + STBIIOCallbacks.READ));
+		checkPointer(memGetAddress(struct + STBIIOCallbacks.SKIP));
+		checkPointer(memGetAddress(struct + STBIIOCallbacks.EOF));
+	}
 
 	// -----------------------------------
 

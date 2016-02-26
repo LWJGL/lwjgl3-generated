@@ -131,8 +131,10 @@ public class KHRSurface {
 	@JavadocExclude
 	public static void nvkDestroySurfaceKHR(VkInstance instance, long surface, long pAllocator) {
 		long __functionAddress = getInstance(instance).DestroySurfaceKHR;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, instance.address(), surface, pAllocator);
 	}
 

@@ -213,8 +213,10 @@ public class GLX {
 	@JavadocExclude
 	public static int nglXGetConfig(long display, long visual, int attribute, long value) {
 		long __functionAddress = getInstance().GetConfig;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(display);
+			XVisualInfo.validate(visual);
+		}
 		return callPPIPI(__functionAddress, display, visual, attribute, value);
 	}
 
@@ -281,8 +283,10 @@ public class GLX {
 	@JavadocExclude
 	public static long nglXCreateContext(long display, long visual, long share_list, int direct) {
 		long __functionAddress = getInstance().CreateContext;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(display);
+			XVisualInfo.validate(visual);
+		}
 		return callPPPIP(__functionAddress, display, visual, share_list, direct);
 	}
 
@@ -455,8 +459,10 @@ public class GLX {
 	@JavadocExclude
 	public static long nglXCreateGLXPixmap(long display, long visual, long pixmap) {
 		long __functionAddress = getInstance().CreateGLXPixmap;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(display);
+			XVisualInfo.validate(visual);
+		}
 		return callPPPP(__functionAddress, display, visual, pixmap);
 	}
 

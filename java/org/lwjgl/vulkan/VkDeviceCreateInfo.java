@@ -29,6 +29,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     const char * const * ppEnabledExtensionNames;
  *     const VkPhysicalDeviceFeatures * pEnabledFeatures;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkDeviceCreateInfo extends Struct {
 
@@ -124,16 +130,10 @@ public class VkDeviceCreateInfo extends Struct {
 	public VkDeviceCreateInfo pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code flags} field. */
 	public VkDeviceCreateInfo flags(int value) { nflags(address(), value); return this; }
-	/** Sets the specified value to the {@code queueCreateInfoCount} field. */
-	public VkDeviceCreateInfo queueCreateInfoCount(int value) { nqueueCreateInfoCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkDeviceQueueCreateInfo.Buffer} to the {@code pQueueCreateInfos} field. */
 	public VkDeviceCreateInfo pQueueCreateInfos(VkDeviceQueueCreateInfo.Buffer value) { npQueueCreateInfos(address(), value); return this; }
-	/** Sets the specified value to the {@code enabledLayerCount} field. */
-	public VkDeviceCreateInfo enabledLayerCount(int value) { nenabledLayerCount(address(), value); return this; }
 	/** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledLayerNames} field. */
 	public VkDeviceCreateInfo ppEnabledLayerNames(PointerBuffer value) { nppEnabledLayerNames(address(), value); return this; }
-	/** Sets the specified value to the {@code enabledExtensionCount} field. */
-	public VkDeviceCreateInfo enabledExtensionCount(int value) { nenabledExtensionCount(address(), value); return this; }
 	/** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledExtensionNames} field. */
 	public VkDeviceCreateInfo ppEnabledExtensionNames(PointerBuffer value) { nppEnabledExtensionNames(address(), value); return this; }
 	/** Sets the address of the specified {@link VkPhysicalDeviceFeatures} to the {@code pEnabledFeatures} field. */
@@ -152,11 +152,8 @@ public class VkDeviceCreateInfo extends Struct {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		queueCreateInfoCount(pQueueCreateInfos != null ? pQueueCreateInfos.remaining() : 0);
 		pQueueCreateInfos(pQueueCreateInfos);
-		enabledLayerCount(ppEnabledLayerNames != null ? ppEnabledLayerNames.remaining() : 0);
 		ppEnabledLayerNames(ppEnabledLayerNames);
-		enabledExtensionCount(ppEnabledExtensionNames != null ? ppEnabledExtensionNames.remaining() : 0);
 		ppEnabledExtensionNames(ppEnabledExtensionNames);
 		pEnabledFeatures(pEnabledFeatures);
 
@@ -266,20 +263,33 @@ public class VkDeviceCreateInfo extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkDeviceCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkDeviceCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #queueCreateInfoCount(int) queueCreateInfoCount}. */
+	/** Sets the specified value to the {@code queueCreateInfoCount} field of the specified {@code struct}. */
 	public static void nqueueCreateInfoCount(long struct, int value) { memPutInt(struct + VkDeviceCreateInfo.QUEUECREATEINFOCOUNT, value); }
 	/** Unsafe version of {@link #pQueueCreateInfos(VkDeviceQueueCreateInfo.Buffer) pQueueCreateInfos}. */
-	public static void npQueueCreateInfos(long struct, VkDeviceQueueCreateInfo.Buffer value) { memPutAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS, addressSafe(value)); }
-	/** Unsafe version of {@link #enabledLayerCount(int) enabledLayerCount}. */
+	public static void npQueueCreateInfos(long struct, VkDeviceQueueCreateInfo.Buffer value) { memPutAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS, value.address()); nqueueCreateInfoCount(struct, value.remaining()); }
+	/** Sets the specified value to the {@code enabledLayerCount} field of the specified {@code struct}. */
 	public static void nenabledLayerCount(long struct, int value) { memPutInt(struct + VkDeviceCreateInfo.ENABLEDLAYERCOUNT, value); }
 	/** Unsafe version of {@link #ppEnabledLayerNames(PointerBuffer) ppEnabledLayerNames}. */
-	public static void nppEnabledLayerNames(long struct, PointerBuffer value) { memPutAddress(struct + VkDeviceCreateInfo.PPENABLEDLAYERNAMES, memAddressSafe(value)); }
-	/** Unsafe version of {@link #enabledExtensionCount(int) enabledExtensionCount}. */
+	public static void nppEnabledLayerNames(long struct, PointerBuffer value) { memPutAddress(struct + VkDeviceCreateInfo.PPENABLEDLAYERNAMES, memAddressSafe(value)); nenabledLayerCount(struct, value == null ? 0 : value.remaining()); }
+	/** Sets the specified value to the {@code enabledExtensionCount} field of the specified {@code struct}. */
 	public static void nenabledExtensionCount(long struct, int value) { memPutInt(struct + VkDeviceCreateInfo.ENABLEDEXTENSIONCOUNT, value); }
 	/** Unsafe version of {@link #ppEnabledExtensionNames(PointerBuffer) ppEnabledExtensionNames}. */
-	public static void nppEnabledExtensionNames(long struct, PointerBuffer value) { memPutAddress(struct + VkDeviceCreateInfo.PPENABLEDEXTENSIONNAMES, memAddressSafe(value)); }
+	public static void nppEnabledExtensionNames(long struct, PointerBuffer value) { memPutAddress(struct + VkDeviceCreateInfo.PPENABLEDEXTENSIONNAMES, memAddressSafe(value)); nenabledExtensionCount(struct, value == null ? 0 : value.remaining()); }
 	/** Unsafe version of {@link #pEnabledFeatures(VkPhysicalDeviceFeatures) pEnabledFeatures}. */
 	public static void npEnabledFeatures(long struct, VkPhysicalDeviceFeatures value) { memPutAddress(struct + VkDeviceCreateInfo.PENABLEDFEATURES, addressSafe(value)); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS));
+		if ( nenabledLayerCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkDeviceCreateInfo.PPENABLEDLAYERNAMES));
+		if ( nenabledExtensionCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkDeviceCreateInfo.PPENABLEDEXTENSIONNAMES));
+	}
 
 	// -----------------------------------
 
@@ -350,16 +360,10 @@ public class VkDeviceCreateInfo extends Struct {
 		public VkDeviceCreateInfo.Buffer pNext(long value) { VkDeviceCreateInfo.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code flags} field. */
 		public VkDeviceCreateInfo.Buffer flags(int value) { VkDeviceCreateInfo.nflags(address(), value); return this; }
-		/** Sets the specified value to the {@code queueCreateInfoCount} field. */
-		public VkDeviceCreateInfo.Buffer queueCreateInfoCount(int value) { VkDeviceCreateInfo.nqueueCreateInfoCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkDeviceQueueCreateInfo.Buffer} to the {@code pQueueCreateInfos} field. */
 		public VkDeviceCreateInfo.Buffer pQueueCreateInfos(VkDeviceQueueCreateInfo.Buffer value) { VkDeviceCreateInfo.npQueueCreateInfos(address(), value); return this; }
-		/** Sets the specified value to the {@code enabledLayerCount} field. */
-		public VkDeviceCreateInfo.Buffer enabledLayerCount(int value) { VkDeviceCreateInfo.nenabledLayerCount(address(), value); return this; }
 		/** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledLayerNames} field. */
 		public VkDeviceCreateInfo.Buffer ppEnabledLayerNames(PointerBuffer value) { VkDeviceCreateInfo.nppEnabledLayerNames(address(), value); return this; }
-		/** Sets the specified value to the {@code enabledExtensionCount} field. */
-		public VkDeviceCreateInfo.Buffer enabledExtensionCount(int value) { VkDeviceCreateInfo.nenabledExtensionCount(address(), value); return this; }
 		/** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledExtensionNames} field. */
 		public VkDeviceCreateInfo.Buffer ppEnabledExtensionNames(PointerBuffer value) { VkDeviceCreateInfo.nppEnabledExtensionNames(address(), value); return this; }
 		/** Sets the address of the specified {@link VkPhysicalDeviceFeatures} to the {@code pEnabledFeatures} field. */

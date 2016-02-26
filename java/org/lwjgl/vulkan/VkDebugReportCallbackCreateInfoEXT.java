@@ -24,6 +24,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     PFN_vkDebugReportCallbackEXT pfnCallback;
  *     void * pUserData;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 
@@ -216,9 +222,18 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkDebugReportCallbackCreateInfoEXT.FLAGS, value); }
 	/** Unsafe version of {@link #pfnCallback(long) pfnCallback}. */
-	public static void npfnCallback(long struct, long value) { memPutAddress(struct + VkDebugReportCallbackCreateInfoEXT.PFNCALLBACK, value); }
+	public static void npfnCallback(long struct, long value) { memPutAddress(struct + VkDebugReportCallbackCreateInfoEXT.PFNCALLBACK, checkPointer(value)); }
 	/** Unsafe version of {@link #pUserData(long) pUserData}. */
 	public static void npUserData(long struct, long value) { memPutAddress(struct + VkDebugReportCallbackCreateInfoEXT.PUSERDATA, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkDebugReportCallbackCreateInfoEXT.PFNCALLBACK));
+	}
 
 	// -----------------------------------
 

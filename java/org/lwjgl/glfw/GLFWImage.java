@@ -198,7 +198,16 @@ public class GLFWImage extends Struct {
 	/** Unsafe version of {@link #height(int) height}. */
 	public static void nheight(long struct, int value) { memPutInt(struct + GLFWImage.HEIGHT, value); }
 	/** Unsafe version of {@link #pixels(ByteBuffer) pixels}. */
-	public static void npixels(long struct, ByteBuffer value) { memPutAddress(struct + GLFWImage.PIXELS, memAddressSafe(value)); }
+	public static void npixels(long struct, ByteBuffer value) { memPutAddress(struct + GLFWImage.PIXELS, memAddress(value)); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + GLFWImage.PIXELS));
+	}
 
 	// -----------------------------------
 

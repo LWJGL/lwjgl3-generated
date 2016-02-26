@@ -28,6 +28,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t dependencyCount;
  *     const VkSubpassDependency * pDependencies;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkRenderPassCreateInfo extends Struct {
 
@@ -118,16 +124,10 @@ public class VkRenderPassCreateInfo extends Struct {
 	public VkRenderPassCreateInfo pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code flags} field. */
 	public VkRenderPassCreateInfo flags(int value) { nflags(address(), value); return this; }
-	/** Sets the specified value to the {@code attachmentCount} field. */
-	public VkRenderPassCreateInfo attachmentCount(int value) { nattachmentCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkAttachmentDescription.Buffer} to the {@code pAttachments} field. */
 	public VkRenderPassCreateInfo pAttachments(VkAttachmentDescription.Buffer value) { npAttachments(address(), value); return this; }
-	/** Sets the specified value to the {@code subpassCount} field. */
-	public VkRenderPassCreateInfo subpassCount(int value) { nsubpassCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkSubpassDescription.Buffer} to the {@code pSubpasses} field. */
 	public VkRenderPassCreateInfo pSubpasses(VkSubpassDescription.Buffer value) { npSubpasses(address(), value); return this; }
-	/** Sets the specified value to the {@code dependencyCount} field. */
-	public VkRenderPassCreateInfo dependencyCount(int value) { ndependencyCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkSubpassDependency.Buffer} to the {@code pDependencies} field. */
 	public VkRenderPassCreateInfo pDependencies(VkSubpassDependency.Buffer value) { npDependencies(address(), value); return this; }
 
@@ -143,11 +143,8 @@ public class VkRenderPassCreateInfo extends Struct {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		attachmentCount(pAttachments != null ? pAttachments.remaining() : 0);
 		pAttachments(pAttachments);
-		subpassCount(pSubpasses != null ? pSubpasses.remaining() : 0);
 		pSubpasses(pSubpasses);
-		dependencyCount(pDependencies != null ? pDependencies.remaining() : 0);
 		pDependencies(pDependencies);
 
 		return this;
@@ -254,18 +251,31 @@ public class VkRenderPassCreateInfo extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkRenderPassCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkRenderPassCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #attachmentCount(int) attachmentCount}. */
+	/** Sets the specified value to the {@code attachmentCount} field of the specified {@code struct}. */
 	public static void nattachmentCount(long struct, int value) { memPutInt(struct + VkRenderPassCreateInfo.ATTACHMENTCOUNT, value); }
 	/** Unsafe version of {@link #pAttachments(VkAttachmentDescription.Buffer) pAttachments}. */
-	public static void npAttachments(long struct, VkAttachmentDescription.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PATTACHMENTS, addressSafe(value)); }
-	/** Unsafe version of {@link #subpassCount(int) subpassCount}. */
+	public static void npAttachments(long struct, VkAttachmentDescription.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PATTACHMENTS, addressSafe(value)); nattachmentCount(struct, value == null ? 0 : value.remaining()); }
+	/** Sets the specified value to the {@code subpassCount} field of the specified {@code struct}. */
 	public static void nsubpassCount(long struct, int value) { memPutInt(struct + VkRenderPassCreateInfo.SUBPASSCOUNT, value); }
 	/** Unsafe version of {@link #pSubpasses(VkSubpassDescription.Buffer) pSubpasses}. */
-	public static void npSubpasses(long struct, VkSubpassDescription.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PSUBPASSES, addressSafe(value)); }
-	/** Unsafe version of {@link #dependencyCount(int) dependencyCount}. */
+	public static void npSubpasses(long struct, VkSubpassDescription.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PSUBPASSES, value.address()); nsubpassCount(struct, value.remaining()); }
+	/** Sets the specified value to the {@code dependencyCount} field of the specified {@code struct}. */
 	public static void ndependencyCount(long struct, int value) { memPutInt(struct + VkRenderPassCreateInfo.DEPENDENCYCOUNT, value); }
 	/** Unsafe version of {@link #pDependencies(VkSubpassDependency.Buffer) pDependencies}. */
-	public static void npDependencies(long struct, VkSubpassDependency.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PDEPENDENCIES, addressSafe(value)); }
+	public static void npDependencies(long struct, VkSubpassDependency.Buffer value) { memPutAddress(struct + VkRenderPassCreateInfo.PDEPENDENCIES, addressSafe(value)); ndependencyCount(struct, value == null ? 0 : value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nattachmentCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkRenderPassCreateInfo.PATTACHMENTS));
+		checkPointer(memGetAddress(struct + VkRenderPassCreateInfo.PSUBPASSES));
+		if ( ndependencyCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkRenderPassCreateInfo.PDEPENDENCIES));
+	}
 
 	// -----------------------------------
 
@@ -334,16 +344,10 @@ public class VkRenderPassCreateInfo extends Struct {
 		public VkRenderPassCreateInfo.Buffer pNext(long value) { VkRenderPassCreateInfo.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code flags} field. */
 		public VkRenderPassCreateInfo.Buffer flags(int value) { VkRenderPassCreateInfo.nflags(address(), value); return this; }
-		/** Sets the specified value to the {@code attachmentCount} field. */
-		public VkRenderPassCreateInfo.Buffer attachmentCount(int value) { VkRenderPassCreateInfo.nattachmentCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkAttachmentDescription.Buffer} to the {@code pAttachments} field. */
 		public VkRenderPassCreateInfo.Buffer pAttachments(VkAttachmentDescription.Buffer value) { VkRenderPassCreateInfo.npAttachments(address(), value); return this; }
-		/** Sets the specified value to the {@code subpassCount} field. */
-		public VkRenderPassCreateInfo.Buffer subpassCount(int value) { VkRenderPassCreateInfo.nsubpassCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkSubpassDescription.Buffer} to the {@code pSubpasses} field. */
 		public VkRenderPassCreateInfo.Buffer pSubpasses(VkSubpassDescription.Buffer value) { VkRenderPassCreateInfo.npSubpasses(address(), value); return this; }
-		/** Sets the specified value to the {@code dependencyCount} field. */
-		public VkRenderPassCreateInfo.Buffer dependencyCount(int value) { VkRenderPassCreateInfo.ndependencyCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkSubpassDependency.Buffer} to the {@code pDependencies} field. */
 		public VkRenderPassCreateInfo.Buffer pDependencies(VkSubpassDependency.Buffer value) { VkRenderPassCreateInfo.npDependencies(address(), value); return this; }
 

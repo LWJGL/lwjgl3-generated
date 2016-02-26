@@ -1040,6 +1040,8 @@ public class User32 {
 	@JavadocExclude
 	public static short nRegisterClassEx(long lpwcx) {
 		long __functionAddress = getInstance().__RegisterClassEx;
+		if ( CHECKS )
+			WNDCLASSEX.validate(lpwcx);
 		return nRegisterClassEx(__functionAddress, lpwcx);
 	}
 

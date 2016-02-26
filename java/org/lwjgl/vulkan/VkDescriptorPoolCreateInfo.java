@@ -25,6 +25,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t poolSizeCount;
  *     const VkDescriptorPoolSize * pPoolSizes;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkDescriptorPoolCreateInfo extends Struct {
 
@@ -102,8 +108,6 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 	public VkDescriptorPoolCreateInfo flags(int value) { nflags(address(), value); return this; }
 	/** Sets the specified value to the {@code maxSets} field. */
 	public VkDescriptorPoolCreateInfo maxSets(int value) { nmaxSets(address(), value); return this; }
-	/** Sets the specified value to the {@code poolSizeCount} field. */
-	public VkDescriptorPoolCreateInfo poolSizeCount(int value) { npoolSizeCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkDescriptorPoolSize.Buffer} to the {@code pPoolSizes} field. */
 	public VkDescriptorPoolCreateInfo pPoolSizes(VkDescriptorPoolSize.Buffer value) { npPoolSizes(address(), value); return this; }
 
@@ -119,7 +123,6 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 		pNext(pNext);
 		flags(flags);
 		maxSets(maxSets);
-		poolSizeCount(pPoolSizes != null ? pPoolSizes.remaining() : 0);
 		pPoolSizes(pPoolSizes);
 
 		return this;
@@ -222,10 +225,19 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 	public static void nflags(long struct, int value) { memPutInt(struct + VkDescriptorPoolCreateInfo.FLAGS, value); }
 	/** Unsafe version of {@link #maxSets(int) maxSets}. */
 	public static void nmaxSets(long struct, int value) { memPutInt(struct + VkDescriptorPoolCreateInfo.MAXSETS, value); }
-	/** Unsafe version of {@link #poolSizeCount(int) poolSizeCount}. */
+	/** Sets the specified value to the {@code poolSizeCount} field of the specified {@code struct}. */
 	public static void npoolSizeCount(long struct, int value) { memPutInt(struct + VkDescriptorPoolCreateInfo.POOLSIZECOUNT, value); }
 	/** Unsafe version of {@link #pPoolSizes(VkDescriptorPoolSize.Buffer) pPoolSizes}. */
-	public static void npPoolSizes(long struct, VkDescriptorPoolSize.Buffer value) { memPutAddress(struct + VkDescriptorPoolCreateInfo.PPOOLSIZES, addressSafe(value)); }
+	public static void npPoolSizes(long struct, VkDescriptorPoolSize.Buffer value) { memPutAddress(struct + VkDescriptorPoolCreateInfo.PPOOLSIZES, value.address()); npoolSizeCount(struct, value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkDescriptorPoolCreateInfo.PPOOLSIZES));
+	}
 
 	// -----------------------------------
 
@@ -290,8 +302,6 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 		public VkDescriptorPoolCreateInfo.Buffer flags(int value) { VkDescriptorPoolCreateInfo.nflags(address(), value); return this; }
 		/** Sets the specified value to the {@code maxSets} field. */
 		public VkDescriptorPoolCreateInfo.Buffer maxSets(int value) { VkDescriptorPoolCreateInfo.nmaxSets(address(), value); return this; }
-		/** Sets the specified value to the {@code poolSizeCount} field. */
-		public VkDescriptorPoolCreateInfo.Buffer poolSizeCount(int value) { VkDescriptorPoolCreateInfo.npoolSizeCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkDescriptorPoolSize.Buffer} to the {@code pPoolSizes} field. */
 		public VkDescriptorPoolCreateInfo.Buffer pPoolSizes(VkDescriptorPoolSize.Buffer value) { VkDescriptorPoolCreateInfo.npPoolSizes(address(), value); return this; }
 

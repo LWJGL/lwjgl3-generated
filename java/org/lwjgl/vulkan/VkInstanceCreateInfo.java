@@ -14,6 +14,27 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
+ * Contains information about how a {@code VkInstance} should be created.
+ * 
+ * <h3>Valid Usage</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>If {@code pApplicationInfo} is not {@code NULL}, {@code pApplicationInfo} <b>must</b> be a pointer to a valid {@link VkApplicationInfo} structure</li>
+ * <li>If {@code enabledLayerCount} is not 0, {@code ppEnabledLayerNames} <b>must</b> be a pointer to an array of {@code enabledLayerCount} null-terminated
+ * strings</li>
+ * <li>If {@code enabledExtensionCount} is not 0, {@code ppEnabledExtensionNames} <b>must</b> be a pointer to an array of {@code enabledExtensionCount}
+ * null-terminated strings</li>
+ * <li>Any given element of {@code ppEnabledLayerNames} <b>must</b> be the name of a layer present on the system, exactly matching a string returned in the
+ * {@link VkLayerProperties} structure by {@link VK10#vkEnumerateInstanceLayerProperties}</li>
+ * <li>Any given element of {@code ppEnabledExtensionNames} <b>must</b> be the name of an extension present on the system, exactly matching a string returned in
+ * the {@link VkExtensionProperties} structure by {@link VK10#vkEnumerateInstanceExtensionProperties}</li>
+ * <li>If an extension listed in {@code ppEnabledExtensionNames} is provided as part of a layer, then both the layer and extension <b>must</b> be enabled to
+ * enable that extension</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code style="font-family: monospace">
@@ -27,6 +48,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t enabledExtensionCount;
  *     const char * const * ppEnabledExtensionNames;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>pApplicationInfo</td><td>a pointer to an instance of {@link VkApplicationInfo}</td></tr>
+ * <tr><td>enabledLayerCount</td><td>the number of global layers to enable</td></tr>
+ * <tr><td>ppEnabledLayerNames</td><td>a pointer to an array of {@code enabledLayerCount} null-terminated UTF-8 strings containing the names of layers to enable</td></tr>
+ * <tr><td>enabledExtensionCount</td><td>the number of global extensions to enable</td></tr>
+ * <tr><td>ppEnabledExtensionNames</td><td>a pointer to an array of {@code enabledExtensionCount} null-terminated UTF-8 strings containing the names of extensions to enable</td></tr>
+ * </table>
  */
 public class VkInstanceCreateInfo extends Struct {
 
@@ -114,12 +148,8 @@ public class VkInstanceCreateInfo extends Struct {
 	public VkInstanceCreateInfo flags(int value) { nflags(address(), value); return this; }
 	/** Sets the address of the specified {@link VkApplicationInfo} to the {@code pApplicationInfo} field. */
 	public VkInstanceCreateInfo pApplicationInfo(VkApplicationInfo value) { npApplicationInfo(address(), value); return this; }
-	/** Sets the specified value to the {@code enabledLayerCount} field. */
-	public VkInstanceCreateInfo enabledLayerCount(int value) { nenabledLayerCount(address(), value); return this; }
 	/** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledLayerNames} field. */
 	public VkInstanceCreateInfo ppEnabledLayerNames(PointerBuffer value) { nppEnabledLayerNames(address(), value); return this; }
-	/** Sets the specified value to the {@code enabledExtensionCount} field. */
-	public VkInstanceCreateInfo enabledExtensionCount(int value) { nenabledExtensionCount(address(), value); return this; }
 	/** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledExtensionNames} field. */
 	public VkInstanceCreateInfo ppEnabledExtensionNames(PointerBuffer value) { nppEnabledExtensionNames(address(), value); return this; }
 
@@ -136,9 +166,7 @@ public class VkInstanceCreateInfo extends Struct {
 		pNext(pNext);
 		flags(flags);
 		pApplicationInfo(pApplicationInfo);
-		enabledLayerCount(ppEnabledLayerNames != null ? ppEnabledLayerNames.remaining() : 0);
 		ppEnabledLayerNames(ppEnabledLayerNames);
-		enabledExtensionCount(ppEnabledExtensionNames != null ? ppEnabledExtensionNames.remaining() : 0);
 		ppEnabledExtensionNames(ppEnabledExtensionNames);
 
 		return this;
@@ -245,14 +273,26 @@ public class VkInstanceCreateInfo extends Struct {
 	public static void nflags(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.FLAGS, value); }
 	/** Unsafe version of {@link #pApplicationInfo(VkApplicationInfo) pApplicationInfo}. */
 	public static void npApplicationInfo(long struct, VkApplicationInfo value) { memPutAddress(struct + VkInstanceCreateInfo.PAPPLICATIONINFO, addressSafe(value)); }
-	/** Unsafe version of {@link #enabledLayerCount(int) enabledLayerCount}. */
+	/** Sets the specified value to the {@code enabledLayerCount} field of the specified {@code struct}. */
 	public static void nenabledLayerCount(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.ENABLEDLAYERCOUNT, value); }
 	/** Unsafe version of {@link #ppEnabledLayerNames(PointerBuffer) ppEnabledLayerNames}. */
-	public static void nppEnabledLayerNames(long struct, PointerBuffer value) { memPutAddress(struct + VkInstanceCreateInfo.PPENABLEDLAYERNAMES, memAddressSafe(value)); }
-	/** Unsafe version of {@link #enabledExtensionCount(int) enabledExtensionCount}. */
+	public static void nppEnabledLayerNames(long struct, PointerBuffer value) { memPutAddress(struct + VkInstanceCreateInfo.PPENABLEDLAYERNAMES, memAddressSafe(value)); nenabledLayerCount(struct, value == null ? 0 : value.remaining()); }
+	/** Sets the specified value to the {@code enabledExtensionCount} field of the specified {@code struct}. */
 	public static void nenabledExtensionCount(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.ENABLEDEXTENSIONCOUNT, value); }
 	/** Unsafe version of {@link #ppEnabledExtensionNames(PointerBuffer) ppEnabledExtensionNames}. */
-	public static void nppEnabledExtensionNames(long struct, PointerBuffer value) { memPutAddress(struct + VkInstanceCreateInfo.PPENABLEDEXTENSIONNAMES, memAddressSafe(value)); }
+	public static void nppEnabledExtensionNames(long struct, PointerBuffer value) { memPutAddress(struct + VkInstanceCreateInfo.PPENABLEDEXTENSIONNAMES, memAddressSafe(value)); nenabledExtensionCount(struct, value == null ? 0 : value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nenabledLayerCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDLAYERNAMES));
+		if ( nenabledExtensionCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDEXTENSIONNAMES));
+	}
 
 	// -----------------------------------
 
@@ -321,12 +361,8 @@ public class VkInstanceCreateInfo extends Struct {
 		public VkInstanceCreateInfo.Buffer flags(int value) { VkInstanceCreateInfo.nflags(address(), value); return this; }
 		/** Sets the address of the specified {@link VkApplicationInfo} to the {@code pApplicationInfo} field. */
 		public VkInstanceCreateInfo.Buffer pApplicationInfo(VkApplicationInfo value) { VkInstanceCreateInfo.npApplicationInfo(address(), value); return this; }
-		/** Sets the specified value to the {@code enabledLayerCount} field. */
-		public VkInstanceCreateInfo.Buffer enabledLayerCount(int value) { VkInstanceCreateInfo.nenabledLayerCount(address(), value); return this; }
 		/** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledLayerNames} field. */
 		public VkInstanceCreateInfo.Buffer ppEnabledLayerNames(PointerBuffer value) { VkInstanceCreateInfo.nppEnabledLayerNames(address(), value); return this; }
-		/** Sets the specified value to the {@code enabledExtensionCount} field. */
-		public VkInstanceCreateInfo.Buffer enabledExtensionCount(int value) { VkInstanceCreateInfo.nenabledExtensionCount(address(), value); return this; }
 		/** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledExtensionNames} field. */
 		public VkInstanceCreateInfo.Buffer ppEnabledExtensionNames(PointerBuffer value) { VkInstanceCreateInfo.nppEnabledExtensionNames(address(), value); return this; }
 

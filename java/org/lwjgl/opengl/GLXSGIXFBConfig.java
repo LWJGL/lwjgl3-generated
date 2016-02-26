@@ -249,8 +249,10 @@ public class GLXSGIXFBConfig {
 	@JavadocExclude
 	public static long nglXGetFBConfigFromVisualSGIX(long display, long vis) {
 		long __functionAddress = getInstance().GetFBConfigFromVisualSGIX;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(display);
+			XVisualInfo.validate(vis);
+		}
 		return callPPP(__functionAddress, display, vis);
 	}
 

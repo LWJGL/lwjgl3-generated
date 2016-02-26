@@ -24,6 +24,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t descriptorSetCount;
  *     const VkDescriptorSetLayout * pSetLayouts;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkDescriptorSetAllocateInfo extends Struct {
 
@@ -94,8 +100,6 @@ public class VkDescriptorSetAllocateInfo extends Struct {
 	public VkDescriptorSetAllocateInfo pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code descriptorPool} field. */
 	public VkDescriptorSetAllocateInfo descriptorPool(long value) { ndescriptorPool(address(), value); return this; }
-	/** Sets the specified value to the {@code descriptorSetCount} field. */
-	public VkDescriptorSetAllocateInfo descriptorSetCount(int value) { ndescriptorSetCount(address(), value); return this; }
 	/** Sets the address of the specified {@link LongBuffer} to the {@code pSetLayouts} field. */
 	public VkDescriptorSetAllocateInfo pSetLayouts(LongBuffer value) { npSetLayouts(address(), value); return this; }
 
@@ -109,7 +113,6 @@ public class VkDescriptorSetAllocateInfo extends Struct {
 		sType(sType);
 		pNext(pNext);
 		descriptorPool(descriptorPool);
-		descriptorSetCount(pSetLayouts != null ? pSetLayouts.remaining() : 0);
 		pSetLayouts(pSetLayouts);
 
 		return this;
@@ -208,10 +211,19 @@ public class VkDescriptorSetAllocateInfo extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkDescriptorSetAllocateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #descriptorPool(long) descriptorPool}. */
 	public static void ndescriptorPool(long struct, long value) { memPutLong(struct + VkDescriptorSetAllocateInfo.DESCRIPTORPOOL, value); }
-	/** Unsafe version of {@link #descriptorSetCount(int) descriptorSetCount}. */
+	/** Sets the specified value to the {@code descriptorSetCount} field of the specified {@code struct}. */
 	public static void ndescriptorSetCount(long struct, int value) { memPutInt(struct + VkDescriptorSetAllocateInfo.DESCRIPTORSETCOUNT, value); }
 	/** Unsafe version of {@link #pSetLayouts(LongBuffer) pSetLayouts}. */
-	public static void npSetLayouts(long struct, LongBuffer value) { memPutAddress(struct + VkDescriptorSetAllocateInfo.PSETLAYOUTS, memAddressSafe(value)); }
+	public static void npSetLayouts(long struct, LongBuffer value) { memPutAddress(struct + VkDescriptorSetAllocateInfo.PSETLAYOUTS, memAddress(value)); ndescriptorSetCount(struct, value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkDescriptorSetAllocateInfo.PSETLAYOUTS));
+	}
 
 	// -----------------------------------
 
@@ -272,8 +284,6 @@ public class VkDescriptorSetAllocateInfo extends Struct {
 		public VkDescriptorSetAllocateInfo.Buffer pNext(long value) { VkDescriptorSetAllocateInfo.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code descriptorPool} field. */
 		public VkDescriptorSetAllocateInfo.Buffer descriptorPool(long value) { VkDescriptorSetAllocateInfo.ndescriptorPool(address(), value); return this; }
-		/** Sets the specified value to the {@code descriptorSetCount} field. */
-		public VkDescriptorSetAllocateInfo.Buffer descriptorSetCount(int value) { VkDescriptorSetAllocateInfo.ndescriptorSetCount(address(), value); return this; }
 		/** Sets the address of the specified {@link LongBuffer} to the {@code pSetLayouts} field. */
 		public VkDescriptorSetAllocateInfo.Buffer pSetLayouts(LongBuffer value) { VkDescriptorSetAllocateInfo.npSetLayouts(address(), value); return this; }
 

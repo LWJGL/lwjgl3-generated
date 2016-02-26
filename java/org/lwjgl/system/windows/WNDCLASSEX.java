@@ -46,8 +46,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>hIcon</td><td>a handle to the class icon. This member must be a handle to an icon resource. If this member is {@code NULL}, the system provides a default icon.</td></tr>
  * <tr><td>hCursor</td><td>a handle to the class cursor. This member must be a handle to a cursor resource. If this member is {@code NULL}, an application must explicitly set the cursor
  * shape whenever the mouse moves into the application's window.</td></tr>
- * <tr><td>hbrBackground</td><td>a handle to the class background brush. This member can be a handle to the brush to be used for painting the background, or it can be a color value.</td></tr>
- * <tr><td>lpszMenuName</td><td>pointer to a null-terminated character string that specifies the resource name of the class menu, as the name appears in the resource file</td></tr>
+ * <tr><td>hbrBackground</td><td>a handle to the class background brush. This member can be a handle to the brush to be used for painting the background, or it can be a color value.
+ * When this member is {@code NULL}, an application must paint its own background whenever it is requested to paint in its client area.</td></tr>
+ * <tr><td>lpszMenuName</td><td>pointer to a null-terminated character string that specifies the resource name of the class menu, as the name appears in the resource file.  If this
+ * member is {@code NULL}, windows belonging to this class have no default menu.</td></tr>
  * <tr><td>lpszClassName</td><td>a pointer to a null-terminated string or is an atom</td></tr>
  * <tr><td>hIconSm</td><td>a handle to a small icon that is associated with the window class. If this member is {@code NULL}, the system searches the icon resource specified by the
  * {@code hIcon} member for an icon of the appropriate size to use as the small icon.</td></tr>
@@ -343,13 +345,13 @@ public class WNDCLASSEX extends Struct {
 	/** Unsafe version of {@link #style(int) style}. */
 	public static void nstyle(long struct, int value) { memPutInt(struct + WNDCLASSEX.STYLE, value); }
 	/** Unsafe version of {@link #lpfnWndProc(long) lpfnWndProc}. */
-	public static void nlpfnWndProc(long struct, long value) { memPutAddress(struct + WNDCLASSEX.LPFNWNDPROC, value); }
+	public static void nlpfnWndProc(long struct, long value) { memPutAddress(struct + WNDCLASSEX.LPFNWNDPROC, checkPointer(value)); }
 	/** Unsafe version of {@link #cbClsExtra(int) cbClsExtra}. */
 	public static void ncbClsExtra(long struct, int value) { memPutInt(struct + WNDCLASSEX.CBCLSEXTRA, value); }
 	/** Unsafe version of {@link #cbWndExtra(int) cbWndExtra}. */
 	public static void ncbWndExtra(long struct, int value) { memPutInt(struct + WNDCLASSEX.CBWNDEXTRA, value); }
 	/** Unsafe version of {@link #hInstance(long) hInstance}. */
-	public static void nhInstance(long struct, long value) { memPutAddress(struct + WNDCLASSEX.HINSTANCE, value); }
+	public static void nhInstance(long struct, long value) { memPutAddress(struct + WNDCLASSEX.HINSTANCE, checkPointer(value)); }
 	/** Unsafe version of {@link #hIcon(long) hIcon}. */
 	public static void nhIcon(long struct, long value) { memPutAddress(struct + WNDCLASSEX.HICON, value); }
 	/** Unsafe version of {@link #hCursor(long) hCursor}. */
@@ -368,7 +370,7 @@ public class WNDCLASSEX extends Struct {
 	/** Unsafe version of {@link #lpszClassName(ByteBuffer) lpszClassName}. */
 	public static void nlpszClassName(long struct, ByteBuffer value) { 
 		if ( CHECKS && value != null ) checkNT2(value); 
-		memPutAddress(struct + WNDCLASSEX.LPSZCLASSNAME, memAddressSafe(value));
+		memPutAddress(struct + WNDCLASSEX.LPSZCLASSNAME, memAddress(value));
 	}
 	/** Unsafe version of {@link #lpszClassName(CharSequence) lpszClassName}. */
 	public static void nlpszClassName(long struct, CharSequence value) { nlpszClassName(struct, memEncodeUTF16(value, BufferAllocator.MALLOC)); }
@@ -376,6 +378,17 @@ public class WNDCLASSEX extends Struct {
 	public static void nlpszClassNameFree(long struct) { nmemFree(memGetAddress(struct + WNDCLASSEX.LPSZCLASSNAME)); }
 	/** Unsafe version of {@link #hIconSm(long) hIconSm}. */
 	public static void nhIconSm(long struct, long value) { memPutAddress(struct + WNDCLASSEX.HICONSM, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + WNDCLASSEX.LPFNWNDPROC));
+		checkPointer(memGetAddress(struct + WNDCLASSEX.HINSTANCE));
+		checkPointer(memGetAddress(struct + WNDCLASSEX.LPSZCLASSNAME));
+	}
 
 	// -----------------------------------
 

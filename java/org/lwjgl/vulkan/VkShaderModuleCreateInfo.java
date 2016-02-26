@@ -24,6 +24,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     size_t codeSize;
  *     const uint32_t * pCode;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkShaderModuleCreateInfo extends Struct {
 
@@ -85,12 +91,8 @@ public class VkShaderModuleCreateInfo extends Struct {
 	public int flags() { return nflags(address()); }
 	/** Returns the value of the {@code codeSize} field. */
 	public long codeSize() { return ncodeSize(address()); }
-	/**
-	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pCode} field.
-	 *
-	 * @param capacity the number of elements in the returned buffer
-	 */
-	public IntBuffer pCode(int capacity) { return npCode(address(), capacity); }
+	/** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pCode} field. */
+	public ByteBuffer pCode() { return npCode(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkShaderModuleCreateInfo sType(int value) { nsType(address(), value); return this; }
@@ -98,23 +100,19 @@ public class VkShaderModuleCreateInfo extends Struct {
 	public VkShaderModuleCreateInfo pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code flags} field. */
 	public VkShaderModuleCreateInfo flags(int value) { nflags(address(), value); return this; }
-	/** Sets the specified value to the {@code codeSize} field. */
-	public VkShaderModuleCreateInfo codeSize(long value) { ncodeSize(address(), value); return this; }
-	/** Sets the address of the specified {@link IntBuffer} to the {@code pCode} field. */
-	public VkShaderModuleCreateInfo pCode(IntBuffer value) { npCode(address(), value); return this; }
+	/** Sets the address of the specified {@link ByteBuffer} to the {@code pCode} field. */
+	public VkShaderModuleCreateInfo pCode(ByteBuffer value) { npCode(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkShaderModuleCreateInfo set(
 		int sType,
 		long pNext,
 		int flags,
-		long codeSize,
-		IntBuffer pCode
+		ByteBuffer pCode
 	) {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		codeSize(codeSize);
 		pCode(pCode);
 
 		return this;
@@ -204,8 +202,8 @@ public class VkShaderModuleCreateInfo extends Struct {
 	public static int nflags(long struct) { return memGetInt(struct + VkShaderModuleCreateInfo.FLAGS); }
 	/** Unsafe version of {@link #codeSize}. */
 	public static long ncodeSize(long struct) { return memGetAddress(struct + VkShaderModuleCreateInfo.CODESIZE); }
-	/** Unsafe version of {@link #pCode(int) pCode}. */
-	public static IntBuffer npCode(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + VkShaderModuleCreateInfo.PCODE), capacity); }
+	/** Unsafe version of {@link #pCode() pCode}. */
+	public static ByteBuffer npCode(long struct) { return memByteBuffer(memGetAddress(struct + VkShaderModuleCreateInfo.PCODE), (int)ncodeSize(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkShaderModuleCreateInfo.STYPE, value); }
@@ -213,10 +211,19 @@ public class VkShaderModuleCreateInfo extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkShaderModuleCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkShaderModuleCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #codeSize(long) codeSize}. */
+	/** Sets the specified value to the {@code codeSize} field of the specified {@code struct}. */
 	public static void ncodeSize(long struct, long value) { memPutAddress(struct + VkShaderModuleCreateInfo.CODESIZE, value); }
-	/** Unsafe version of {@link #pCode(IntBuffer) pCode}. */
-	public static void npCode(long struct, IntBuffer value) { memPutAddress(struct + VkShaderModuleCreateInfo.PCODE, memAddressSafe(value)); }
+	/** Unsafe version of {@link #pCode(ByteBuffer) pCode}. */
+	public static void npCode(long struct, ByteBuffer value) { memPutAddress(struct + VkShaderModuleCreateInfo.PCODE, memAddress(value)); ncodeSize(struct, value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkShaderModuleCreateInfo.PCODE));
+	}
 
 	// -----------------------------------
 
@@ -268,12 +275,8 @@ public class VkShaderModuleCreateInfo extends Struct {
 		public int flags() { return VkShaderModuleCreateInfo.nflags(address()); }
 		/** Returns the value of the {@code codeSize} field. */
 		public long codeSize() { return VkShaderModuleCreateInfo.ncodeSize(address()); }
-		/**
-		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code pCode} field.
-		 *
-		 * @param capacity the number of elements in the returned buffer
-		 */
-		public IntBuffer pCode(int capacity) { return VkShaderModuleCreateInfo.npCode(address(), capacity); }
+		/** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pCode} field. */
+		public ByteBuffer pCode() { return VkShaderModuleCreateInfo.npCode(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkShaderModuleCreateInfo.Buffer sType(int value) { VkShaderModuleCreateInfo.nsType(address(), value); return this; }
@@ -281,10 +284,8 @@ public class VkShaderModuleCreateInfo extends Struct {
 		public VkShaderModuleCreateInfo.Buffer pNext(long value) { VkShaderModuleCreateInfo.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code flags} field. */
 		public VkShaderModuleCreateInfo.Buffer flags(int value) { VkShaderModuleCreateInfo.nflags(address(), value); return this; }
-		/** Sets the specified value to the {@code codeSize} field. */
-		public VkShaderModuleCreateInfo.Buffer codeSize(long value) { VkShaderModuleCreateInfo.ncodeSize(address(), value); return this; }
-		/** Sets the address of the specified {@link IntBuffer} to the {@code pCode} field. */
-		public VkShaderModuleCreateInfo.Buffer pCode(IntBuffer value) { VkShaderModuleCreateInfo.npCode(address(), value); return this; }
+		/** Sets the address of the specified {@link ByteBuffer} to the {@code pCode} field. */
+		public VkShaderModuleCreateInfo.Buffer pCode(ByteBuffer value) { VkShaderModuleCreateInfo.npCode(address(), value); return this; }
 
 	}
 

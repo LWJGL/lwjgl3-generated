@@ -244,7 +244,7 @@ public class VkDisplayPropertiesKHR extends Struct {
 	/** Unsafe version of {@link #displayName(ByteBuffer) displayName}. */
 	public static void ndisplayName(long struct, ByteBuffer value) { 
 		if ( CHECKS && value != null ) checkNT1(value); 
-		memPutAddress(struct + VkDisplayPropertiesKHR.DISPLAYNAME, memAddressSafe(value));
+		memPutAddress(struct + VkDisplayPropertiesKHR.DISPLAYNAME, memAddress(value));
 	}
 	/** Unsafe version of {@link #displayName(CharSequence) displayName}. */
 	public static void ndisplayName(long struct, CharSequence value) { ndisplayName(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
@@ -260,6 +260,15 @@ public class VkDisplayPropertiesKHR extends Struct {
 	public static void nplaneReorderPossible(long struct, int value) { memPutInt(struct + VkDisplayPropertiesKHR.PLANEREORDERPOSSIBLE, value); }
 	/** Unsafe version of {@link #persistentContent(int) persistentContent}. */
 	public static void npersistentContent(long struct, int value) { memPutInt(struct + VkDisplayPropertiesKHR.PERSISTENTCONTENT, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkDisplayPropertiesKHR.DISPLAYNAME));
+	}
 
 	// -----------------------------------
 

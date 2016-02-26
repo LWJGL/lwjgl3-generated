@@ -81,8 +81,11 @@ public class KHRXlibSurface {
 	@JavadocExclude
 	public static int nvkCreateXlibSurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
 		long __functionAddress = getInstance(instance).CreateXlibSurfaceKHR;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkXlibSurfaceCreateInfoKHR.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, instance.address(), pCreateInfo, pAllocator, pSurface);
 	}
 

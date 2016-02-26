@@ -203,13 +203,22 @@ public class NVGGlyphPosition extends Struct {
 	public static float nmaxx(long struct) { return memGetFloat(struct + NVGGlyphPosition.MAXX); }
 
 	/** Unsafe version of {@link #str(long) str}. */
-	public static void nstr(long struct, long value) { memPutAddress(struct + NVGGlyphPosition.STR, value); }
+	public static void nstr(long struct, long value) { memPutAddress(struct + NVGGlyphPosition.STR, checkPointer(value)); }
 	/** Unsafe version of {@link #x(float) x}. */
 	public static void nx(long struct, float value) { memPutFloat(struct + NVGGlyphPosition.X, value); }
 	/** Unsafe version of {@link #minx(float) minx}. */
 	public static void nminx(long struct, float value) { memPutFloat(struct + NVGGlyphPosition.MINX, value); }
 	/** Unsafe version of {@link #maxx(float) maxx}. */
 	public static void nmaxx(long struct, float value) { memPutFloat(struct + NVGGlyphPosition.MAXX, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + NVGGlyphPosition.STR));
+	}
 
 	// -----------------------------------
 

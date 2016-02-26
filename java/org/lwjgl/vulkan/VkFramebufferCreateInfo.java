@@ -28,6 +28,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t height;
  *     uint32_t layers;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkFramebufferCreateInfo extends Struct {
 
@@ -120,8 +126,6 @@ public class VkFramebufferCreateInfo extends Struct {
 	public VkFramebufferCreateInfo flags(int value) { nflags(address(), value); return this; }
 	/** Sets the specified value to the {@code renderPass} field. */
 	public VkFramebufferCreateInfo renderPass(long value) { nrenderPass(address(), value); return this; }
-	/** Sets the specified value to the {@code attachmentCount} field. */
-	public VkFramebufferCreateInfo attachmentCount(int value) { nattachmentCount(address(), value); return this; }
 	/** Sets the address of the specified {@link LongBuffer} to the {@code pAttachments} field. */
 	public VkFramebufferCreateInfo pAttachments(LongBuffer value) { npAttachments(address(), value); return this; }
 	/** Sets the specified value to the {@code width} field. */
@@ -146,7 +150,6 @@ public class VkFramebufferCreateInfo extends Struct {
 		pNext(pNext);
 		flags(flags);
 		renderPass(renderPass);
-		attachmentCount(pAttachments != null ? pAttachments.remaining() : 0);
 		pAttachments(pAttachments);
 		width(width);
 		height(height);
@@ -258,16 +261,26 @@ public class VkFramebufferCreateInfo extends Struct {
 	public static void nflags(long struct, int value) { memPutInt(struct + VkFramebufferCreateInfo.FLAGS, value); }
 	/** Unsafe version of {@link #renderPass(long) renderPass}. */
 	public static void nrenderPass(long struct, long value) { memPutLong(struct + VkFramebufferCreateInfo.RENDERPASS, value); }
-	/** Unsafe version of {@link #attachmentCount(int) attachmentCount}. */
+	/** Sets the specified value to the {@code attachmentCount} field of the specified {@code struct}. */
 	public static void nattachmentCount(long struct, int value) { memPutInt(struct + VkFramebufferCreateInfo.ATTACHMENTCOUNT, value); }
 	/** Unsafe version of {@link #pAttachments(LongBuffer) pAttachments}. */
-	public static void npAttachments(long struct, LongBuffer value) { memPutAddress(struct + VkFramebufferCreateInfo.PATTACHMENTS, memAddressSafe(value)); }
+	public static void npAttachments(long struct, LongBuffer value) { memPutAddress(struct + VkFramebufferCreateInfo.PATTACHMENTS, memAddressSafe(value)); nattachmentCount(struct, value == null ? 0 : value.remaining()); }
 	/** Unsafe version of {@link #width(int) width}. */
 	public static void nwidth(long struct, int value) { memPutInt(struct + VkFramebufferCreateInfo.WIDTH, value); }
 	/** Unsafe version of {@link #height(int) height}. */
 	public static void nheight(long struct, int value) { memPutInt(struct + VkFramebufferCreateInfo.HEIGHT, value); }
 	/** Unsafe version of {@link #layers(int) layers}. */
 	public static void nlayers(long struct, int value) { memPutInt(struct + VkFramebufferCreateInfo.LAYERS, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nattachmentCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkFramebufferCreateInfo.PATTACHMENTS));
+	}
 
 	// -----------------------------------
 
@@ -338,8 +351,6 @@ public class VkFramebufferCreateInfo extends Struct {
 		public VkFramebufferCreateInfo.Buffer flags(int value) { VkFramebufferCreateInfo.nflags(address(), value); return this; }
 		/** Sets the specified value to the {@code renderPass} field. */
 		public VkFramebufferCreateInfo.Buffer renderPass(long value) { VkFramebufferCreateInfo.nrenderPass(address(), value); return this; }
-		/** Sets the specified value to the {@code attachmentCount} field. */
-		public VkFramebufferCreateInfo.Buffer attachmentCount(int value) { VkFramebufferCreateInfo.nattachmentCount(address(), value); return this; }
 		/** Sets the address of the specified {@link LongBuffer} to the {@code pAttachments} field. */
 		public VkFramebufferCreateInfo.Buffer pAttachments(LongBuffer value) { VkFramebufferCreateInfo.npAttachments(address(), value); return this; }
 		/** Sets the specified value to the {@code width} field. */

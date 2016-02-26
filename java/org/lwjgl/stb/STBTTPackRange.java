@@ -31,8 +31,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>font_size</td><td>the font size</td></tr>
  * <tr><td>first_unicode_codepoint_in_range</td><td>if non-zero, then the chars are continuous, and this is the first codepoint</td></tr>
  * <tr><td>array_of_unicode_codepoints</td><td>if non-zero, then this is an array of unicode codepoints</td></tr>
+ * <tr><td>num_chars</td><td>the number of codepoints in the range</td></tr>
  * <tr><td>chardata_for_range</td><td>output</td></tr>
  * </table>
  */
@@ -93,20 +95,12 @@ public class STBTTPackRange extends Struct {
 	public float font_size() { return nfont_size(address()); }
 	/** Returns the value of the {@code first_unicode_codepoint_in_range} field. */
 	public int first_unicode_codepoint_in_range() { return nfirst_unicode_codepoint_in_range(address()); }
-	/**
-	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code array_of_unicode_codepoints} field.
-	 *
-	 * @param capacity the number of elements in the returned buffer
-	 */
-	public IntBuffer array_of_unicode_codepoints(int capacity) { return narray_of_unicode_codepoints(address(), capacity); }
+	/** Returns a {@link IntBuffer} view of the data pointed to by the {@code array_of_unicode_codepoints} field. */
+	public IntBuffer array_of_unicode_codepoints() { return narray_of_unicode_codepoints(address()); }
 	/** Returns the value of the {@code num_chars} field. */
 	public int num_chars() { return nnum_chars(address()); }
-	/**
-	 * Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field.
-	 *
-	 * @param capacity the number of elements in the returned buffer
-	 */
-	public STBTTPackedchar.Buffer chardata_for_range(int capacity) { return nchardata_for_range(address(), capacity); }
+	/** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
+	public STBTTPackedchar.Buffer chardata_for_range() { return nchardata_for_range(address()); }
 
 	/** Sets the specified value to the {@code font_size} field. */
 	public STBTTPackRange font_size(float value) { nfont_size(address(), value); return this; }
@@ -114,8 +108,6 @@ public class STBTTPackRange extends Struct {
 	public STBTTPackRange first_unicode_codepoint_in_range(int value) { nfirst_unicode_codepoint_in_range(address(), value); return this; }
 	/** Sets the address of the specified {@link IntBuffer} to the {@code array_of_unicode_codepoints} field. */
 	public STBTTPackRange array_of_unicode_codepoints(IntBuffer value) { narray_of_unicode_codepoints(address(), value); return this; }
-	/** Sets the specified value to the {@code num_chars} field. */
-	public STBTTPackRange num_chars(int value) { nnum_chars(address(), value); return this; }
 	/** Sets the address of the specified {@link STBTTPackedchar.Buffer} to the {@code chardata_for_range} field. */
 	public STBTTPackRange chardata_for_range(STBTTPackedchar.Buffer value) { nchardata_for_range(address(), value); return this; }
 
@@ -124,13 +116,11 @@ public class STBTTPackRange extends Struct {
 		float font_size,
 		int first_unicode_codepoint_in_range,
 		IntBuffer array_of_unicode_codepoints,
-		int num_chars,
 		STBTTPackedchar.Buffer chardata_for_range
 	) {
 		font_size(font_size);
 		first_unicode_codepoint_in_range(first_unicode_codepoint_in_range);
 		array_of_unicode_codepoints(array_of_unicode_codepoints);
-		num_chars(num_chars);
 		chardata_for_range(chardata_for_range);
 
 		return this;
@@ -216,12 +206,12 @@ public class STBTTPackRange extends Struct {
 	public static float nfont_size(long struct) { return memGetFloat(struct + STBTTPackRange.FONT_SIZE); }
 	/** Unsafe version of {@link #first_unicode_codepoint_in_range}. */
 	public static int nfirst_unicode_codepoint_in_range(long struct) { return memGetInt(struct + STBTTPackRange.FIRST_UNICODE_CODEPOINT_IN_RANGE); }
-	/** Unsafe version of {@link #array_of_unicode_codepoints(int) array_of_unicode_codepoints}. */
-	public static IntBuffer narray_of_unicode_codepoints(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + STBTTPackRange.ARRAY_OF_UNICODE_CODEPOINTS), capacity); }
+	/** Unsafe version of {@link #array_of_unicode_codepoints() array_of_unicode_codepoints}. */
+	public static IntBuffer narray_of_unicode_codepoints(long struct) { return memIntBuffer(memGetAddress(struct + STBTTPackRange.ARRAY_OF_UNICODE_CODEPOINTS), nnum_chars(struct)); }
 	/** Unsafe version of {@link #num_chars}. */
 	public static int nnum_chars(long struct) { return memGetInt(struct + STBTTPackRange.NUM_CHARS); }
 	/** Unsafe version of {@link #chardata_for_range}. */
-	public static STBTTPackedchar.Buffer nchardata_for_range(long struct, int capacity) { return STBTTPackedchar.create(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE), capacity); }
+	public static STBTTPackedchar.Buffer nchardata_for_range(long struct) { return STBTTPackedchar.create(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE), nnum_chars(struct)); }
 
 	/** Unsafe version of {@link #font_size(float) font_size}. */
 	public static void nfont_size(long struct, float value) { memPutFloat(struct + STBTTPackRange.FONT_SIZE, value); }
@@ -229,10 +219,19 @@ public class STBTTPackRange extends Struct {
 	public static void nfirst_unicode_codepoint_in_range(long struct, int value) { memPutInt(struct + STBTTPackRange.FIRST_UNICODE_CODEPOINT_IN_RANGE, value); }
 	/** Unsafe version of {@link #array_of_unicode_codepoints(IntBuffer) array_of_unicode_codepoints}. */
 	public static void narray_of_unicode_codepoints(long struct, IntBuffer value) { memPutAddress(struct + STBTTPackRange.ARRAY_OF_UNICODE_CODEPOINTS, memAddressSafe(value)); }
-	/** Unsafe version of {@link #num_chars(int) num_chars}. */
+	/** Sets the specified value to the {@code num_chars} field of the specified {@code struct}. */
 	public static void nnum_chars(long struct, int value) { memPutInt(struct + STBTTPackRange.NUM_CHARS, value); }
 	/** Unsafe version of {@link #chardata_for_range(STBTTPackedchar.Buffer) chardata_for_range}. */
-	public static void nchardata_for_range(long struct, STBTTPackedchar.Buffer value) { memPutAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE, addressSafe(value)); }
+	public static void nchardata_for_range(long struct, STBTTPackedchar.Buffer value) { memPutAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE, value.address()); nnum_chars(struct, value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE));
+	}
 
 	// -----------------------------------
 
@@ -280,20 +279,12 @@ public class STBTTPackRange extends Struct {
 		public float font_size() { return STBTTPackRange.nfont_size(address()); }
 		/** Returns the value of the {@code first_unicode_codepoint_in_range} field. */
 		public int first_unicode_codepoint_in_range() { return STBTTPackRange.nfirst_unicode_codepoint_in_range(address()); }
-		/**
-		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code array_of_unicode_codepoints} field.
-		 *
-		 * @param capacity the number of elements in the returned buffer
-		 */
-		public IntBuffer array_of_unicode_codepoints(int capacity) { return STBTTPackRange.narray_of_unicode_codepoints(address(), capacity); }
+		/** Returns a {@link IntBuffer} view of the data pointed to by the {@code array_of_unicode_codepoints} field. */
+		public IntBuffer array_of_unicode_codepoints() { return STBTTPackRange.narray_of_unicode_codepoints(address()); }
 		/** Returns the value of the {@code num_chars} field. */
 		public int num_chars() { return STBTTPackRange.nnum_chars(address()); }
-		/**
-		 * Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field.
-		 *
-		 * @param capacity the number of elements in the returned buffer
-		 */
-		public STBTTPackedchar.Buffer chardata_for_range(int capacity) { return STBTTPackRange.nchardata_for_range(address(), capacity); }
+		/** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
+		public STBTTPackedchar.Buffer chardata_for_range() { return STBTTPackRange.nchardata_for_range(address()); }
 
 		/** Sets the specified value to the {@code font_size} field. */
 		public STBTTPackRange.Buffer font_size(float value) { STBTTPackRange.nfont_size(address(), value); return this; }
@@ -301,8 +292,6 @@ public class STBTTPackRange extends Struct {
 		public STBTTPackRange.Buffer first_unicode_codepoint_in_range(int value) { STBTTPackRange.nfirst_unicode_codepoint_in_range(address(), value); return this; }
 		/** Sets the address of the specified {@link IntBuffer} to the {@code array_of_unicode_codepoints} field. */
 		public STBTTPackRange.Buffer array_of_unicode_codepoints(IntBuffer value) { STBTTPackRange.narray_of_unicode_codepoints(address(), value); return this; }
-		/** Sets the specified value to the {@code num_chars} field. */
-		public STBTTPackRange.Buffer num_chars(int value) { STBTTPackRange.nnum_chars(address(), value); return this; }
 		/** Sets the address of the specified {@link STBTTPackedchar.Buffer} to the {@code chardata_for_range} field. */
 		public STBTTPackRange.Buffer chardata_for_range(STBTTPackedchar.Buffer value) { STBTTPackRange.nchardata_for_range(address(), value); return this; }
 

@@ -24,6 +24,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t dynamicStateCount;
  *     const VkDynamicState * pDynamicStates;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkPipelineDynamicStateCreateInfo extends Struct {
 
@@ -94,8 +100,6 @@ public class VkPipelineDynamicStateCreateInfo extends Struct {
 	public VkPipelineDynamicStateCreateInfo pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code flags} field. */
 	public VkPipelineDynamicStateCreateInfo flags(int value) { nflags(address(), value); return this; }
-	/** Sets the specified value to the {@code dynamicStateCount} field. */
-	public VkPipelineDynamicStateCreateInfo dynamicStateCount(int value) { ndynamicStateCount(address(), value); return this; }
 	/** Sets the address of the specified {@link IntBuffer} to the {@code pDynamicStates} field. */
 	public VkPipelineDynamicStateCreateInfo pDynamicStates(IntBuffer value) { npDynamicStates(address(), value); return this; }
 
@@ -109,7 +113,6 @@ public class VkPipelineDynamicStateCreateInfo extends Struct {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		dynamicStateCount(pDynamicStates != null ? pDynamicStates.remaining() : 0);
 		pDynamicStates(pDynamicStates);
 
 		return this;
@@ -208,10 +211,19 @@ public class VkPipelineDynamicStateCreateInfo extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkPipelineDynamicStateCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkPipelineDynamicStateCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #dynamicStateCount(int) dynamicStateCount}. */
+	/** Sets the specified value to the {@code dynamicStateCount} field of the specified {@code struct}. */
 	public static void ndynamicStateCount(long struct, int value) { memPutInt(struct + VkPipelineDynamicStateCreateInfo.DYNAMICSTATECOUNT, value); }
 	/** Unsafe version of {@link #pDynamicStates(IntBuffer) pDynamicStates}. */
-	public static void npDynamicStates(long struct, IntBuffer value) { memPutAddress(struct + VkPipelineDynamicStateCreateInfo.PDYNAMICSTATES, memAddressSafe(value)); }
+	public static void npDynamicStates(long struct, IntBuffer value) { memPutAddress(struct + VkPipelineDynamicStateCreateInfo.PDYNAMICSTATES, memAddress(value)); ndynamicStateCount(struct, value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkPipelineDynamicStateCreateInfo.PDYNAMICSTATES));
+	}
 
 	// -----------------------------------
 
@@ -272,8 +284,6 @@ public class VkPipelineDynamicStateCreateInfo extends Struct {
 		public VkPipelineDynamicStateCreateInfo.Buffer pNext(long value) { VkPipelineDynamicStateCreateInfo.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code flags} field. */
 		public VkPipelineDynamicStateCreateInfo.Buffer flags(int value) { VkPipelineDynamicStateCreateInfo.nflags(address(), value); return this; }
-		/** Sets the specified value to the {@code dynamicStateCount} field. */
-		public VkPipelineDynamicStateCreateInfo.Buffer dynamicStateCount(int value) { VkPipelineDynamicStateCreateInfo.ndynamicStateCount(address(), value); return this; }
 		/** Sets the address of the specified {@link IntBuffer} to the {@code pDynamicStates} field. */
 		public VkPipelineDynamicStateCreateInfo.Buffer pDynamicStates(IntBuffer value) { VkPipelineDynamicStateCreateInfo.npDynamicStates(address(), value); return this; }
 

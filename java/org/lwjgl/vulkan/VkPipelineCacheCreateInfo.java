@@ -24,6 +24,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     size_t initialDataSize;
  *     const void * pInitialData;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkPipelineCacheCreateInfo extends Struct {
 
@@ -85,8 +91,8 @@ public class VkPipelineCacheCreateInfo extends Struct {
 	public int flags() { return nflags(address()); }
 	/** Returns the value of the {@code initialDataSize} field. */
 	public long initialDataSize() { return ninitialDataSize(address()); }
-	/** Returns the value of the {@code pInitialData} field. */
-	public long pInitialData() { return npInitialData(address()); }
+	/** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pInitialData} field. */
+	public ByteBuffer pInitialData() { return npInitialData(address()); }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkPipelineCacheCreateInfo sType(int value) { nsType(address(), value); return this; }
@@ -94,23 +100,19 @@ public class VkPipelineCacheCreateInfo extends Struct {
 	public VkPipelineCacheCreateInfo pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code flags} field. */
 	public VkPipelineCacheCreateInfo flags(int value) { nflags(address(), value); return this; }
-	/** Sets the specified value to the {@code initialDataSize} field. */
-	public VkPipelineCacheCreateInfo initialDataSize(long value) { ninitialDataSize(address(), value); return this; }
-	/** Sets the specified value to the {@code pInitialData} field. */
-	public VkPipelineCacheCreateInfo pInitialData(long value) { npInitialData(address(), value); return this; }
+	/** Sets the address of the specified {@link ByteBuffer} to the {@code pInitialData} field. */
+	public VkPipelineCacheCreateInfo pInitialData(ByteBuffer value) { npInitialData(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkPipelineCacheCreateInfo set(
 		int sType,
 		long pNext,
 		int flags,
-		long initialDataSize,
-		long pInitialData
+		ByteBuffer pInitialData
 	) {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		initialDataSize(initialDataSize);
 		pInitialData(pInitialData);
 
 		return this;
@@ -200,8 +202,8 @@ public class VkPipelineCacheCreateInfo extends Struct {
 	public static int nflags(long struct) { return memGetInt(struct + VkPipelineCacheCreateInfo.FLAGS); }
 	/** Unsafe version of {@link #initialDataSize}. */
 	public static long ninitialDataSize(long struct) { return memGetAddress(struct + VkPipelineCacheCreateInfo.INITIALDATASIZE); }
-	/** Unsafe version of {@link #pInitialData}. */
-	public static long npInitialData(long struct) { return memGetAddress(struct + VkPipelineCacheCreateInfo.PINITIALDATA); }
+	/** Unsafe version of {@link #pInitialData() pInitialData}. */
+	public static ByteBuffer npInitialData(long struct) { return memByteBuffer(memGetAddress(struct + VkPipelineCacheCreateInfo.PINITIALDATA), (int)ninitialDataSize(struct)); }
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkPipelineCacheCreateInfo.STYPE, value); }
@@ -209,10 +211,20 @@ public class VkPipelineCacheCreateInfo extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkPipelineCacheCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkPipelineCacheCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #initialDataSize(long) initialDataSize}. */
+	/** Sets the specified value to the {@code initialDataSize} field of the specified {@code struct}. */
 	public static void ninitialDataSize(long struct, long value) { memPutAddress(struct + VkPipelineCacheCreateInfo.INITIALDATASIZE, value); }
-	/** Unsafe version of {@link #pInitialData(long) pInitialData}. */
-	public static void npInitialData(long struct, long value) { memPutAddress(struct + VkPipelineCacheCreateInfo.PINITIALDATA, value); }
+	/** Unsafe version of {@link #pInitialData(ByteBuffer) pInitialData}. */
+	public static void npInitialData(long struct, ByteBuffer value) { memPutAddress(struct + VkPipelineCacheCreateInfo.PINITIALDATA, memAddressSafe(value)); ninitialDataSize(struct, value == null ? 0 : value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( ninitialDataSize(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkPipelineCacheCreateInfo.PINITIALDATA));
+	}
 
 	// -----------------------------------
 
@@ -264,8 +276,8 @@ public class VkPipelineCacheCreateInfo extends Struct {
 		public int flags() { return VkPipelineCacheCreateInfo.nflags(address()); }
 		/** Returns the value of the {@code initialDataSize} field. */
 		public long initialDataSize() { return VkPipelineCacheCreateInfo.ninitialDataSize(address()); }
-		/** Returns the value of the {@code pInitialData} field. */
-		public long pInitialData() { return VkPipelineCacheCreateInfo.npInitialData(address()); }
+		/** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pInitialData} field. */
+		public ByteBuffer pInitialData() { return VkPipelineCacheCreateInfo.npInitialData(address()); }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkPipelineCacheCreateInfo.Buffer sType(int value) { VkPipelineCacheCreateInfo.nsType(address(), value); return this; }
@@ -273,10 +285,8 @@ public class VkPipelineCacheCreateInfo extends Struct {
 		public VkPipelineCacheCreateInfo.Buffer pNext(long value) { VkPipelineCacheCreateInfo.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code flags} field. */
 		public VkPipelineCacheCreateInfo.Buffer flags(int value) { VkPipelineCacheCreateInfo.nflags(address(), value); return this; }
-		/** Sets the specified value to the {@code initialDataSize} field. */
-		public VkPipelineCacheCreateInfo.Buffer initialDataSize(long value) { VkPipelineCacheCreateInfo.ninitialDataSize(address(), value); return this; }
-		/** Sets the specified value to the {@code pInitialData} field. */
-		public VkPipelineCacheCreateInfo.Buffer pInitialData(long value) { VkPipelineCacheCreateInfo.npInitialData(address(), value); return this; }
+		/** Sets the address of the specified {@link ByteBuffer} to the {@code pInitialData} field. */
+		public VkPipelineCacheCreateInfo.Buffer pInitialData(ByteBuffer value) { VkPipelineCacheCreateInfo.npInitialData(address(), value); return this; }
 
 	}
 

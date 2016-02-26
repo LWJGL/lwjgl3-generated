@@ -661,8 +661,8 @@ public class VK10 {
 		VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER      = 3,
 		VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4,
 		VK_SAMPLER_ADDRESS_MODE_BEGIN_RANGE          = VK_SAMPLER_ADDRESS_MODE_REPEAT,
-		VK_SAMPLER_ADDRESS_MODE_END_RANGE            = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE,
-		VK_SAMPLER_ADDRESS_MODE_RANGE_SIZE           = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE - VK_SAMPLER_ADDRESS_MODE_REPEAT + 1,
+		VK_SAMPLER_ADDRESS_MODE_END_RANGE            = VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER,
+		VK_SAMPLER_ADDRESS_MODE_RANGE_SIZE           = VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER - VK_SAMPLER_ADDRESS_MODE_REPEAT + 1,
 		VK_SAMPLER_ADDRESS_MODE_MAX_ENUM             = 0x7FFFFFFF;
 
 	/** VkBorderColor */
@@ -1324,17 +1324,34 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateInstance(long pCreateInfo, long pAllocator, long pInstance) {
 		long __functionAddress = getInstance(VK.getGlobalCommands()).CreateInstance;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkInstanceCreateInfo.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPI(__functionAddress, pCreateInfo, pAllocator, pInstance);
 	}
 
 	/**
 	 * Creates a new Vulkan instance.
+	 * 
+	 * <p>There is no global state in Vulkan and all per-application state is stored in a {@code VkInstance} object. Creating a {@code VkInstance} object
+	 * initializes the Vulkan library and allows the application to pass information about itself to the implementation.</p>
+	 * 
+	 * <p>{@code vkCreateInstance} creates the instance, then enables and initializes global layers and extensions requested by the application. If an extension
+	 * is provided by a layer, both the layer and extension <b>must</b> be specified at {@code vkCreateInstance} time.</p>
+	 * 
+	 * <h3>Valid Usage</h3>
+	 * 
+	 * <ul>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkInstanceCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pInstance} <b>must</b> be a pointer to a {@code VkInstance} handle</li>
+	 * </ul>
 	 *
-	 * @param pCreateInfo 
-	 * @param pAllocator  
-	 * @param pInstance   
+	 * @param pCreateInfo points to an instance of {@link VkInstanceCreateInfo} controlling creation of the instance
+	 * @param pAllocator  controls host memory allocation
+	 * @param pInstance   a pointer to a {@code VkInstance} handle in which the resulting instance is returned
 	 */
 	public static int vkCreateInstance(VkInstanceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pInstance) {
 		if ( CHECKS )
@@ -1355,16 +1372,34 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyInstance(VkInstance instance, long pAllocator) {
 		long __functionAddress = getInstance(instance).DestroyInstance;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPPV(__functionAddress, instance.address(), pAllocator);
 	}
 
 	/**
 	 * Destroys an instance of Vulkan.
+	 * 
+	 * <p>After destruction of the instance, all devices (logical and physical) and any objects created by those devices become invalid and should not be
+	 * accessed. However, objects allocated directly or indirectly through the instance are not destroyed automatically and so may be leaked. Applications
+	 * should destroy all objects created through instance before destroying the instance itself.</p>
+	 * 
+	 * <h3>Valid Usage</h3>
+	 * 
+	 * <ul>
+	 * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>All child objects created using {@code instance} <b>must</b> have been destroyed prior to destroying {@code instance}</li>
+	 * <li>If {@link VkAllocationCallbacks} were provided when instance was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@link VkAllocationCallbacks} were provided when instance was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <p>Host access to {@code instance} <b>must</b> be externally synchronized</p>
 	 *
-	 * @param instance   
-	 * @param pAllocator 
+	 * @param instance   the handle of the instance to destroy
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyInstance(VkInstance instance, VkAllocationCallbacks pAllocator) {
 		nvkDestroyInstance(instance, pAllocator == null ? NULL : pAllocator.address());
@@ -1617,8 +1652,11 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateDevice(VkPhysicalDevice physicalDevice, long pCreateInfo, long pAllocator, long pDevice) {
 		long __functionAddress = getInstance(physicalDevice).CreateDevice;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkDeviceCreateInfo.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, physicalDevice.address(), pCreateInfo, pAllocator, pDevice);
 	}
 
@@ -1649,8 +1687,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyDevice(VkDevice device, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyDevice;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPPV(__functionAddress, device.address(), pAllocator);
 	}
 
@@ -1929,8 +1969,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkAllocateMemory(VkDevice device, long pAllocateInfo, long pAllocator, long pMemory) {
 		long __functionAddress = getInstance(device).AllocateMemory;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pAllocateInfo, pAllocator, pMemory);
 	}
 
@@ -1961,8 +2003,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkFreeMemory(VkDevice device, long memory, long pAllocator) {
 		long __functionAddress = getInstance(device).FreeMemory;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), memory, pAllocator);
 	}
 
@@ -2320,8 +2364,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateFence(VkDevice device, long pCreateInfo, long pAllocator, long pFence) {
 		long __functionAddress = getInstance(device).CreateFence;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pFence);
 	}
 
@@ -2352,8 +2398,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyFence(VkDevice device, long fence, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyFence;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), fence, pAllocator);
 	}
 
@@ -2463,8 +2511,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateSemaphore(VkDevice device, long pCreateInfo, long pAllocator, long pSemaphore) {
 		long __functionAddress = getInstance(device).CreateSemaphore;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pSemaphore);
 	}
 
@@ -2495,8 +2545,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroySemaphore(VkDevice device, long semaphore, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroySemaphore;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), semaphore, pAllocator);
 	}
 
@@ -2517,8 +2569,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateEvent(VkDevice device, long pCreateInfo, long pAllocator, long pEvent) {
 		long __functionAddress = getInstance(device).CreateEvent;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pEvent);
 	}
 
@@ -2549,8 +2603,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyEvent(VkDevice device, long event, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyEvent;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), event, pAllocator);
 	}
 
@@ -2616,8 +2672,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateQueryPool(VkDevice device, long pCreateInfo, long pAllocator, long pQueryPool) {
 		long __functionAddress = getInstance(device).CreateQueryPool;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pQueryPool);
 	}
 
@@ -2648,8 +2706,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyQueryPool(VkDevice device, long queryPool, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyQueryPool;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), queryPool, pAllocator);
 	}
 
@@ -2704,8 +2764,11 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateBuffer(VkDevice device, long pCreateInfo, long pAllocator, long pBuffer) {
 		long __functionAddress = getInstance(device).CreateBuffer;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkBufferCreateInfo.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pBuffer);
 	}
 
@@ -2736,8 +2799,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyBuffer(VkDevice device, long buffer, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyBuffer;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), buffer, pAllocator);
 	}
 
@@ -2758,8 +2823,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateBufferView(VkDevice device, long pCreateInfo, long pAllocator, long pView) {
 		long __functionAddress = getInstance(device).CreateBufferView;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pView);
 	}
 
@@ -2790,8 +2857,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyBufferView(VkDevice device, long bufferView, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyBufferView;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), bufferView, pAllocator);
 	}
 
@@ -2812,8 +2881,11 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateImage(VkDevice device, long pCreateInfo, long pAllocator, long pImage) {
 		long __functionAddress = getInstance(device).CreateImage;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkImageCreateInfo.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pImage);
 	}
 
@@ -2844,8 +2916,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyImage(VkDevice device, long image, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyImage;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), image, pAllocator);
 	}
 
@@ -2889,8 +2963,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateImageView(VkDevice device, long pCreateInfo, long pAllocator, long pView) {
 		long __functionAddress = getInstance(device).CreateImageView;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pView);
 	}
 
@@ -2921,8 +2997,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyImageView(VkDevice device, long imageView, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyImageView;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), imageView, pAllocator);
 	}
 
@@ -2943,8 +3021,11 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateShaderModule(VkDevice device, long pCreateInfo, long pAllocator, long pShaderModule) {
 		long __functionAddress = getInstance(device).CreateShaderModule;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkShaderModuleCreateInfo.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pShaderModule);
 	}
 
@@ -2975,8 +3056,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyShaderModule(VkDevice device, long shaderModule, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyShaderModule;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), shaderModule, pAllocator);
 	}
 
@@ -2997,8 +3080,11 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreatePipelineCache(VkDevice device, long pCreateInfo, long pAllocator, long pPipelineCache) {
 		long __functionAddress = getInstance(device).CreatePipelineCache;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkPipelineCacheCreateInfo.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pPipelineCache);
 	}
 
@@ -3029,8 +3115,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyPipelineCache(VkDevice device, long pipelineCache, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyPipelineCache;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), pipelineCache, pAllocator);
 	}
 
@@ -3117,8 +3205,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateGraphicsPipelines(VkDevice device, long pipelineCache, int createInfoCount, long pCreateInfos, long pAllocator, long pPipelines) {
 		long __functionAddress = getInstance(device).CreateGraphicsPipelines;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPJIPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 	}
 
@@ -3153,8 +3243,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateComputePipelines(VkDevice device, long pipelineCache, int createInfoCount, long pCreateInfos, long pAllocator, long pPipelines) {
 		long __functionAddress = getInstance(device).CreateComputePipelines;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPJIPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 	}
 
@@ -3187,8 +3279,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyPipeline(VkDevice device, long pipeline, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyPipeline;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), pipeline, pAllocator);
 	}
 
@@ -3209,8 +3303,11 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreatePipelineLayout(VkDevice device, long pCreateInfo, long pAllocator, long pPipelineLayout) {
 		long __functionAddress = getInstance(device).CreatePipelineLayout;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkPipelineLayoutCreateInfo.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pPipelineLayout);
 	}
 
@@ -3241,8 +3338,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyPipelineLayout(VkDevice device, long pipelineLayout, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyPipelineLayout;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), pipelineLayout, pAllocator);
 	}
 
@@ -3263,8 +3362,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateSampler(VkDevice device, long pCreateInfo, long pAllocator, long pSampler) {
 		long __functionAddress = getInstance(device).CreateSampler;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pSampler);
 	}
 
@@ -3295,8 +3396,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroySampler(VkDevice device, long sampler, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroySampler;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), sampler, pAllocator);
 	}
 
@@ -3317,8 +3420,11 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateDescriptorSetLayout(VkDevice device, long pCreateInfo, long pAllocator, long pSetLayout) {
 		long __functionAddress = getInstance(device).CreateDescriptorSetLayout;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkDescriptorSetLayoutCreateInfo.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pSetLayout);
 	}
 
@@ -3349,8 +3455,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyDescriptorSetLayout(VkDevice device, long descriptorSetLayout, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyDescriptorSetLayout;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), descriptorSetLayout, pAllocator);
 	}
 
@@ -3371,8 +3479,11 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateDescriptorPool(VkDevice device, long pCreateInfo, long pAllocator, long pDescriptorPool) {
 		long __functionAddress = getInstance(device).CreateDescriptorPool;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkDescriptorPoolCreateInfo.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pDescriptorPool);
 	}
 
@@ -3403,8 +3514,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyDescriptorPool(VkDevice device, long descriptorPool, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyDescriptorPool;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), descriptorPool, pAllocator);
 	}
 
@@ -3441,8 +3554,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkAllocateDescriptorSets(VkDevice device, long pAllocateInfo, long pDescriptorSets) {
 		long __functionAddress = getInstance(device).AllocateDescriptorSets;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkDescriptorSetAllocateInfo.validate(pAllocateInfo);
+		}
 		return callPPPI(__functionAddress, device.address(), pAllocateInfo, pDescriptorSets);
 	}
 
@@ -3535,8 +3650,11 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateFramebuffer(VkDevice device, long pCreateInfo, long pAllocator, long pFramebuffer) {
 		long __functionAddress = getInstance(device).CreateFramebuffer;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkFramebufferCreateInfo.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pFramebuffer);
 	}
 
@@ -3567,8 +3685,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyFramebuffer(VkDevice device, long framebuffer, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyFramebuffer;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), framebuffer, pAllocator);
 	}
 
@@ -3589,8 +3709,11 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateRenderPass(VkDevice device, long pCreateInfo, long pAllocator, long pRenderPass) {
 		long __functionAddress = getInstance(device).CreateRenderPass;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkRenderPassCreateInfo.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pRenderPass);
 	}
 
@@ -3621,8 +3744,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyRenderPass(VkDevice device, long renderPass, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyRenderPass;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), renderPass, pAllocator);
 	}
 
@@ -3665,8 +3790,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkCreateCommandPool(VkDevice device, long pCreateInfo, long pAllocator, long pCommandPool) {
 		long __functionAddress = getInstance(device).CreateCommandPool;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pCommandPool);
 	}
 
@@ -3697,8 +3824,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkDestroyCommandPool(VkDevice device, long commandPool, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyCommandPool;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), commandPool, pAllocator);
 	}
 
@@ -3796,8 +3925,10 @@ public class VK10 {
 	@JavadocExclude
 	public static int nvkBeginCommandBuffer(VkCommandBuffer commandBuffer, long pBeginInfo) {
 		long __functionAddress = getInstance(commandBuffer).BeginCommandBuffer;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkCommandBufferBeginInfo.validate(pBeginInfo);
+		}
 		return callPPI(__functionAddress, commandBuffer.address(), pBeginInfo);
 	}
 
@@ -4800,8 +4931,10 @@ public class VK10 {
 	@JavadocExclude
 	public static void nvkCmdBeginRenderPass(VkCommandBuffer commandBuffer, long pRenderPassBegin, int contents) {
 		long __functionAddress = getInstance(commandBuffer).CmdBeginRenderPass;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkRenderPassBeginInfo.validate(pRenderPassBegin);
+		}
 		callPPIV(__functionAddress, commandBuffer.address(), pRenderPassBegin, contents);
 	}
 

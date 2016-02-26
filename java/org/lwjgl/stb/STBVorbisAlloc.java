@@ -74,18 +74,6 @@ public class STBVorbisAlloc extends Struct {
 
 	/** Sets the address of the specified {@link ByteBuffer} to the {@code alloc_buffer} field. */
 	public STBVorbisAlloc alloc_buffer(ByteBuffer value) { nalloc_buffer(address(), value); return this; }
-	/** Sets the specified value to the {@code alloc_buffer_length_in_bytes} field. */
-	public STBVorbisAlloc alloc_buffer_length_in_bytes(int value) { nalloc_buffer_length_in_bytes(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public STBVorbisAlloc set(
-		ByteBuffer alloc_buffer
-	) {
-		alloc_buffer(alloc_buffer);
-		alloc_buffer_length_in_bytes(alloc_buffer != null ? alloc_buffer.remaining() : 0);
-
-		return this;
-	}
 
 	/** Unsafe version of {@link #set(STBVorbisAlloc) set}. */
 	public STBVorbisAlloc nset(long struct) {
@@ -169,9 +157,18 @@ public class STBVorbisAlloc extends Struct {
 	public static int nalloc_buffer_length_in_bytes(long struct) { return memGetInt(struct + STBVorbisAlloc.ALLOC_BUFFER_LENGTH_IN_BYTES); }
 
 	/** Unsafe version of {@link #alloc_buffer(ByteBuffer) alloc_buffer}. */
-	public static void nalloc_buffer(long struct, ByteBuffer value) { memPutAddress(struct + STBVorbisAlloc.ALLOC_BUFFER, memAddressSafe(value)); }
-	/** Unsafe version of {@link #alloc_buffer_length_in_bytes(int) alloc_buffer_length_in_bytes}. */
+	public static void nalloc_buffer(long struct, ByteBuffer value) { memPutAddress(struct + STBVorbisAlloc.ALLOC_BUFFER, memAddress(value)); nalloc_buffer_length_in_bytes(struct, value.remaining()); }
+	/** Sets the specified value to the {@code alloc_buffer_length_in_bytes} field of the specified {@code struct}. */
 	public static void nalloc_buffer_length_in_bytes(long struct, int value) { memPutInt(struct + STBVorbisAlloc.ALLOC_BUFFER_LENGTH_IN_BYTES, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + STBVorbisAlloc.ALLOC_BUFFER));
+	}
 
 	// -----------------------------------
 
@@ -222,8 +219,6 @@ public class STBVorbisAlloc extends Struct {
 
 		/** Sets the address of the specified {@link ByteBuffer} to the {@code alloc_buffer} field. */
 		public STBVorbisAlloc.Buffer alloc_buffer(ByteBuffer value) { STBVorbisAlloc.nalloc_buffer(address(), value); return this; }
-		/** Sets the specified value to the {@code alloc_buffer_length_in_bytes} field. */
-		public STBVorbisAlloc.Buffer alloc_buffer_length_in_bytes(int value) { STBVorbisAlloc.nalloc_buffer_length_in_bytes(address(), value); return this; }
 
 	}
 

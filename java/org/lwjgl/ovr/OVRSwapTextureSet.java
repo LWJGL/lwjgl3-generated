@@ -112,8 +112,6 @@ public class OVRSwapTextureSet extends Struct {
 
 	/** Sets the address of the specified {@link OVRTexture.Buffer} to the {@code Textures} field. */
 	public OVRSwapTextureSet Textures(OVRTexture.Buffer value) { nTextures(address(), value); return this; }
-	/** Sets the specified value to the {@code TextureCount} field. */
-	public OVRSwapTextureSet TextureCount(int value) { nTextureCount(address(), value); return this; }
 	/** Sets the specified value to the {@code CurrentIndex} field. */
 	public OVRSwapTextureSet CurrentIndex(int value) { nCurrentIndex(address(), value); return this; }
 
@@ -123,7 +121,6 @@ public class OVRSwapTextureSet extends Struct {
 		int CurrentIndex
 	) {
 		Textures(Textures);
-		TextureCount(Textures != null ? Textures.remaining() : 0);
 		CurrentIndex(CurrentIndex);
 
 		return this;
@@ -213,11 +210,20 @@ public class OVRSwapTextureSet extends Struct {
 	public static int nCurrentIndex(long struct) { return memGetInt(struct + OVRSwapTextureSet.CURRENTINDEX); }
 
 	/** Unsafe version of {@link #Textures(OVRTexture.Buffer) Textures}. */
-	public static void nTextures(long struct, OVRTexture.Buffer value) { memPutAddress(struct + OVRSwapTextureSet.TEXTURES, addressSafe(value)); }
-	/** Unsafe version of {@link #TextureCount(int) TextureCount}. */
+	public static void nTextures(long struct, OVRTexture.Buffer value) { memPutAddress(struct + OVRSwapTextureSet.TEXTURES, value.address()); nTextureCount(struct, value.remaining()); }
+	/** Sets the specified value to the {@code TextureCount} field of the specified {@code struct}. */
 	public static void nTextureCount(long struct, int value) { memPutInt(struct + OVRSwapTextureSet.TEXTURECOUNT, value); }
 	/** Unsafe version of {@link #CurrentIndex(int) CurrentIndex}. */
 	public static void nCurrentIndex(long struct, int value) { memPutInt(struct + OVRSwapTextureSet.CURRENTINDEX, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + OVRSwapTextureSet.TEXTURES));
+	}
 
 	// -----------------------------------
 
@@ -270,8 +276,6 @@ public class OVRSwapTextureSet extends Struct {
 
 		/** Sets the address of the specified {@link OVRTexture.Buffer} to the {@code Textures} field. */
 		public OVRSwapTextureSet.Buffer Textures(OVRTexture.Buffer value) { OVRSwapTextureSet.nTextures(address(), value); return this; }
-		/** Sets the specified value to the {@code TextureCount} field. */
-		public OVRSwapTextureSet.Buffer TextureCount(int value) { OVRSwapTextureSet.nTextureCount(address(), value); return this; }
 		/** Sets the specified value to the {@code CurrentIndex} field. */
 		public OVRSwapTextureSet.Buffer CurrentIndex(int value) { OVRSwapTextureSet.nCurrentIndex(address(), value); return this; }
 

@@ -80,8 +80,11 @@ public class KHRWin32Surface {
 	@JavadocExclude
 	public static int nvkCreateWin32SurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
 		long __functionAddress = getInstance(instance).CreateWin32SurfaceKHR;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkWin32SurfaceCreateInfoKHR.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, instance.address(), pCreateInfo, pAllocator, pSurface);
 	}
 

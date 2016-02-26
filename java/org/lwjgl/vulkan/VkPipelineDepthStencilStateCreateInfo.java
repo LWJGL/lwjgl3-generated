@@ -31,6 +31,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     float minDepthBounds;
  *     float maxDepthBounds;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkPipelineDepthStencilStateCreateInfo extends Struct {
 

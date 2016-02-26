@@ -26,6 +26,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t scissorCount;
  *     const VkRect2D * pScissors;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkPipelineViewportStateCreateInfo extends Struct {
 
@@ -120,15 +126,17 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 		int sType,
 		long pNext,
 		int flags,
+		int viewportCount,
 		VkViewport.Buffer pViewports,
+		int scissorCount,
 		VkRect2D.Buffer pScissors
 	) {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		viewportCount(pViewports != null ? pViewports.remaining() : 0);
+		viewportCount(pViewports != null ? pViewports.remaining() : viewportCount);
 		pViewports(pViewports);
-		scissorCount(pScissors != null ? pScissors.remaining() : 0);
+		scissorCount(pScissors != null ? pScissors.remaining() : scissorCount);
 		pScissors(pScissors);
 
 		return this;
@@ -231,14 +239,26 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkPipelineViewportStateCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #viewportCount(int) viewportCount}. */
+	/** Sets the specified value to the {@code viewportCount} field of the specified {@code struct}. */
 	public static void nviewportCount(long struct, int value) { memPutInt(struct + VkPipelineViewportStateCreateInfo.VIEWPORTCOUNT, value); }
 	/** Unsafe version of {@link #pViewports(VkViewport.Buffer) pViewports}. */
-	public static void npViewports(long struct, VkViewport.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS, addressSafe(value)); }
-	/** Unsafe version of {@link #scissorCount(int) scissorCount}. */
+	public static void npViewports(long struct, VkViewport.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS, addressSafe(value)); nviewportCount(struct, value == null ? 0 : value.remaining()); }
+	/** Sets the specified value to the {@code scissorCount} field of the specified {@code struct}. */
 	public static void nscissorCount(long struct, int value) { memPutInt(struct + VkPipelineViewportStateCreateInfo.SCISSORCOUNT, value); }
 	/** Unsafe version of {@link #pScissors(VkRect2D.Buffer) pScissors}. */
-	public static void npScissors(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS, addressSafe(value)); }
+	public static void npScissors(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS, addressSafe(value)); nscissorCount(struct, value == null ? 0 : value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nviewportCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS));
+		if ( nscissorCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS));
+	}
 
 	// -----------------------------------
 

@@ -26,6 +26,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t vertexAttributeDescriptionCount;
  *     const VkVertexInputAttributeDescription * pVertexAttributeDescriptions;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkPipelineVertexInputStateCreateInfo extends Struct {
 
@@ -106,12 +112,8 @@ public class VkPipelineVertexInputStateCreateInfo extends Struct {
 	public VkPipelineVertexInputStateCreateInfo pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code flags} field. */
 	public VkPipelineVertexInputStateCreateInfo flags(int value) { nflags(address(), value); return this; }
-	/** Sets the specified value to the {@code vertexBindingDescriptionCount} field. */
-	public VkPipelineVertexInputStateCreateInfo vertexBindingDescriptionCount(int value) { nvertexBindingDescriptionCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkVertexInputBindingDescription.Buffer} to the {@code pVertexBindingDescriptions} field. */
 	public VkPipelineVertexInputStateCreateInfo pVertexBindingDescriptions(VkVertexInputBindingDescription.Buffer value) { npVertexBindingDescriptions(address(), value); return this; }
-	/** Sets the specified value to the {@code vertexAttributeDescriptionCount} field. */
-	public VkPipelineVertexInputStateCreateInfo vertexAttributeDescriptionCount(int value) { nvertexAttributeDescriptionCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkVertexInputAttributeDescription.Buffer} to the {@code pVertexAttributeDescriptions} field. */
 	public VkPipelineVertexInputStateCreateInfo pVertexAttributeDescriptions(VkVertexInputAttributeDescription.Buffer value) { npVertexAttributeDescriptions(address(), value); return this; }
 
@@ -126,9 +128,7 @@ public class VkPipelineVertexInputStateCreateInfo extends Struct {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		vertexBindingDescriptionCount(pVertexBindingDescriptions != null ? pVertexBindingDescriptions.remaining() : 0);
 		pVertexBindingDescriptions(pVertexBindingDescriptions);
-		vertexAttributeDescriptionCount(pVertexAttributeDescriptions != null ? pVertexAttributeDescriptions.remaining() : 0);
 		pVertexAttributeDescriptions(pVertexAttributeDescriptions);
 
 		return this;
@@ -231,14 +231,26 @@ public class VkPipelineVertexInputStateCreateInfo extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkPipelineVertexInputStateCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkPipelineVertexInputStateCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #vertexBindingDescriptionCount(int) vertexBindingDescriptionCount}. */
+	/** Sets the specified value to the {@code vertexBindingDescriptionCount} field of the specified {@code struct}. */
 	public static void nvertexBindingDescriptionCount(long struct, int value) { memPutInt(struct + VkPipelineVertexInputStateCreateInfo.VERTEXBINDINGDESCRIPTIONCOUNT, value); }
 	/** Unsafe version of {@link #pVertexBindingDescriptions(VkVertexInputBindingDescription.Buffer) pVertexBindingDescriptions}. */
-	public static void npVertexBindingDescriptions(long struct, VkVertexInputBindingDescription.Buffer value) { memPutAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXBINDINGDESCRIPTIONS, addressSafe(value)); }
-	/** Unsafe version of {@link #vertexAttributeDescriptionCount(int) vertexAttributeDescriptionCount}. */
+	public static void npVertexBindingDescriptions(long struct, VkVertexInputBindingDescription.Buffer value) { memPutAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXBINDINGDESCRIPTIONS, addressSafe(value)); nvertexBindingDescriptionCount(struct, value == null ? 0 : value.remaining()); }
+	/** Sets the specified value to the {@code vertexAttributeDescriptionCount} field of the specified {@code struct}. */
 	public static void nvertexAttributeDescriptionCount(long struct, int value) { memPutInt(struct + VkPipelineVertexInputStateCreateInfo.VERTEXATTRIBUTEDESCRIPTIONCOUNT, value); }
 	/** Unsafe version of {@link #pVertexAttributeDescriptions(VkVertexInputAttributeDescription.Buffer) pVertexAttributeDescriptions}. */
-	public static void npVertexAttributeDescriptions(long struct, VkVertexInputAttributeDescription.Buffer value) { memPutAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXATTRIBUTEDESCRIPTIONS, addressSafe(value)); }
+	public static void npVertexAttributeDescriptions(long struct, VkVertexInputAttributeDescription.Buffer value) { memPutAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXATTRIBUTEDESCRIPTIONS, addressSafe(value)); nvertexAttributeDescriptionCount(struct, value == null ? 0 : value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nvertexBindingDescriptionCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXBINDINGDESCRIPTIONS));
+		if ( nvertexAttributeDescriptionCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXATTRIBUTEDESCRIPTIONS));
+	}
 
 	// -----------------------------------
 
@@ -303,12 +315,8 @@ public class VkPipelineVertexInputStateCreateInfo extends Struct {
 		public VkPipelineVertexInputStateCreateInfo.Buffer pNext(long value) { VkPipelineVertexInputStateCreateInfo.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code flags} field. */
 		public VkPipelineVertexInputStateCreateInfo.Buffer flags(int value) { VkPipelineVertexInputStateCreateInfo.nflags(address(), value); return this; }
-		/** Sets the specified value to the {@code vertexBindingDescriptionCount} field. */
-		public VkPipelineVertexInputStateCreateInfo.Buffer vertexBindingDescriptionCount(int value) { VkPipelineVertexInputStateCreateInfo.nvertexBindingDescriptionCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkVertexInputBindingDescription.Buffer} to the {@code pVertexBindingDescriptions} field. */
 		public VkPipelineVertexInputStateCreateInfo.Buffer pVertexBindingDescriptions(VkVertexInputBindingDescription.Buffer value) { VkPipelineVertexInputStateCreateInfo.npVertexBindingDescriptions(address(), value); return this; }
-		/** Sets the specified value to the {@code vertexAttributeDescriptionCount} field. */
-		public VkPipelineVertexInputStateCreateInfo.Buffer vertexAttributeDescriptionCount(int value) { VkPipelineVertexInputStateCreateInfo.nvertexAttributeDescriptionCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkVertexInputAttributeDescription.Buffer} to the {@code pVertexAttributeDescriptions} field. */
 		public VkPipelineVertexInputStateCreateInfo.Buffer pVertexAttributeDescriptions(VkVertexInputAttributeDescription.Buffer value) { VkPipelineVertexInputStateCreateInfo.npVertexAttributeDescriptions(address(), value); return this; }
 

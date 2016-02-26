@@ -27,6 +27,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     const uint32_t * pImageIndices;
  *     VkResult * pResults;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkPresentInfoKHR extends Struct {
 
@@ -110,12 +116,8 @@ public class VkPresentInfoKHR extends Struct {
 	public VkPresentInfoKHR sType(int value) { nsType(address(), value); return this; }
 	/** Sets the specified value to the {@code pNext} field. */
 	public VkPresentInfoKHR pNext(long value) { npNext(address(), value); return this; }
-	/** Sets the specified value to the {@code waitSemaphoreCount} field. */
-	public VkPresentInfoKHR waitSemaphoreCount(int value) { nwaitSemaphoreCount(address(), value); return this; }
 	/** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
 	public VkPresentInfoKHR pWaitSemaphores(LongBuffer value) { npWaitSemaphores(address(), value); return this; }
-	/** Sets the specified value to the {@code swapchainCount} field. */
-	public VkPresentInfoKHR swapchainCount(int value) { nswapchainCount(address(), value); return this; }
 	/** Sets the address of the specified {@link LongBuffer} to the {@code pSwapchains} field. */
 	public VkPresentInfoKHR pSwapchains(LongBuffer value) { npSwapchains(address(), value); return this; }
 	/** Sets the address of the specified {@link IntBuffer} to the {@code pImageIndices} field. */
@@ -134,9 +136,7 @@ public class VkPresentInfoKHR extends Struct {
 	) {
 		sType(sType);
 		pNext(pNext);
-		waitSemaphoreCount(pWaitSemaphores != null ? pWaitSemaphores.remaining() : 0);
 		pWaitSemaphores(pWaitSemaphores);
-		swapchainCount(pSwapchains != null ? pSwapchains.remaining() : (pImageIndices != null ? pImageIndices.remaining() : (pResults != null ? pResults.remaining() : 0)));
 		pSwapchains(pSwapchains);
 		pImageIndices(pImageIndices);
 		pResults(pResults);
@@ -241,18 +241,30 @@ public class VkPresentInfoKHR extends Struct {
 	public static void nsType(long struct, int value) { memPutInt(struct + VkPresentInfoKHR.STYPE, value); }
 	/** Unsafe version of {@link #pNext(long) pNext}. */
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkPresentInfoKHR.PNEXT, value); }
-	/** Unsafe version of {@link #waitSemaphoreCount(int) waitSemaphoreCount}. */
+	/** Sets the specified value to the {@code waitSemaphoreCount} field of the specified {@code struct}. */
 	public static void nwaitSemaphoreCount(long struct, int value) { memPutInt(struct + VkPresentInfoKHR.WAITSEMAPHORECOUNT, value); }
 	/** Unsafe version of {@link #pWaitSemaphores(LongBuffer) pWaitSemaphores}. */
-	public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES, memAddressSafe(value)); }
-	/** Unsafe version of {@link #swapchainCount(int) swapchainCount}. */
+	public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES, memAddressSafe(value)); nwaitSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
+	/** Sets the specified value to the {@code swapchainCount} field of the specified {@code struct}. */
 	public static void nswapchainCount(long struct, int value) { memPutInt(struct + VkPresentInfoKHR.SWAPCHAINCOUNT, value); }
 	/** Unsafe version of {@link #pSwapchains(LongBuffer) pSwapchains}. */
-	public static void npSwapchains(long struct, LongBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PSWAPCHAINS, memAddressSafe(value)); }
+	public static void npSwapchains(long struct, LongBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PSWAPCHAINS, memAddress(value)); nswapchainCount(struct, value.remaining()); }
 	/** Unsafe version of {@link #pImageIndices(IntBuffer) pImageIndices}. */
-	public static void npImageIndices(long struct, IntBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PIMAGEINDICES, memAddressSafe(value)); }
+	public static void npImageIndices(long struct, IntBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PIMAGEINDICES, memAddress(value)); nswapchainCount(struct, value.remaining()); }
 	/** Unsafe version of {@link #pResults(IntBuffer) pResults}. */
 	public static void npResults(long struct, IntBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PRESULTS, memAddressSafe(value)); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nwaitSemaphoreCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES));
+		checkPointer(memGetAddress(struct + VkPresentInfoKHR.PSWAPCHAINS));
+		checkPointer(memGetAddress(struct + VkPresentInfoKHR.PIMAGEINDICES));
+	}
 
 	// -----------------------------------
 
@@ -317,12 +329,8 @@ public class VkPresentInfoKHR extends Struct {
 		public VkPresentInfoKHR.Buffer sType(int value) { VkPresentInfoKHR.nsType(address(), value); return this; }
 		/** Sets the specified value to the {@code pNext} field. */
 		public VkPresentInfoKHR.Buffer pNext(long value) { VkPresentInfoKHR.npNext(address(), value); return this; }
-		/** Sets the specified value to the {@code waitSemaphoreCount} field. */
-		public VkPresentInfoKHR.Buffer waitSemaphoreCount(int value) { VkPresentInfoKHR.nwaitSemaphoreCount(address(), value); return this; }
 		/** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
 		public VkPresentInfoKHR.Buffer pWaitSemaphores(LongBuffer value) { VkPresentInfoKHR.npWaitSemaphores(address(), value); return this; }
-		/** Sets the specified value to the {@code swapchainCount} field. */
-		public VkPresentInfoKHR.Buffer swapchainCount(int value) { VkPresentInfoKHR.nswapchainCount(address(), value); return this; }
 		/** Sets the address of the specified {@link LongBuffer} to the {@code pSwapchains} field. */
 		public VkPresentInfoKHR.Buffer pSwapchains(LongBuffer value) { VkPresentInfoKHR.npSwapchains(address(), value); return this; }
 		/** Sets the address of the specified {@link IntBuffer} to the {@code pImageIndices} field. */

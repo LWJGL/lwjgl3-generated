@@ -203,8 +203,10 @@ public class GLFWVulkan {
 	@JavadocExclude
 	public static int nglfwCreateWindowSurface(long instance, long window, long allocator, long surface) {
 		long __functionAddress = getInstance().CreateWindowSurface;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(window);
+			if ( allocator != NULL ) VkAllocationCallbacks.validate(allocator);
+		}
 		return invokePPPPI(__functionAddress, instance, window, allocator, surface);
 	}
 

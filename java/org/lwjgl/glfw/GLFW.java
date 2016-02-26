@@ -1075,8 +1075,10 @@ public class GLFW {
 	@JavadocExclude
 	public static void nglfwSetGammaRamp(long monitor, long ramp) {
 		long __functionAddress = getInstance().SetGammaRamp;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkPointer(monitor);
+			GLFWGammaRamp.validate(ramp);
+		}
 		invokePPV(__functionAddress, monitor, ramp);
 	}
 
@@ -2297,6 +2299,8 @@ public class GLFW {
 	@JavadocExclude
 	public static long nglfwCreateCursor(long image, int xhot, int yhot) {
 		long __functionAddress = getInstance().CreateCursor;
+		if ( CHECKS )
+			GLFWImage.validate(image);
 		return invokePIIP(__functionAddress, image, xhot, yhot);
 	}
 

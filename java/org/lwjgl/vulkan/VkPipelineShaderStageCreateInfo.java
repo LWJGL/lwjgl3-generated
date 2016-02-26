@@ -26,6 +26,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     const char * pName;
  *     const VkSpecializationInfo * pSpecializationInfo;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkPipelineShaderStageCreateInfo extends Struct {
 
@@ -252,7 +258,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 	/** Unsafe version of {@link #pName(ByteBuffer) pName}. */
 	public static void npName(long struct, ByteBuffer value) { 
 		if ( CHECKS && value != null ) checkNT1(value); 
-		memPutAddress(struct + VkPipelineShaderStageCreateInfo.PNAME, memAddressSafe(value));
+		memPutAddress(struct + VkPipelineShaderStageCreateInfo.PNAME, memAddress(value));
 	}
 	/** Unsafe version of {@link #pName(CharSequence) pName}. */
 	public static void npName(long struct, CharSequence value) { npName(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
@@ -260,6 +266,15 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 	public static void npNameFree(long struct) { nmemFree(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME)); }
 	/** Unsafe version of {@link #pSpecializationInfo(VkSpecializationInfo) pSpecializationInfo}. */
 	public static void npSpecializationInfo(long struct, VkSpecializationInfo value) { memPutAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO, addressSafe(value)); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME));
+	}
 
 	// -----------------------------------
 

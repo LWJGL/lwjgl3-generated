@@ -38,6 +38,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     VkPipeline basePipelineHandle;
  *     int32_t basePipelineIndex;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkGraphicsPipelineCreateInfo extends Struct {
 
@@ -178,8 +184,6 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 	public VkGraphicsPipelineCreateInfo pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code flags} field. */
 	public VkGraphicsPipelineCreateInfo flags(int value) { nflags(address(), value); return this; }
-	/** Sets the specified value to the {@code stageCount} field. */
-	public VkGraphicsPipelineCreateInfo stageCount(int value) { nstageCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkPipelineShaderStageCreateInfo.Buffer} to the {@code pStages} field. */
 	public VkGraphicsPipelineCreateInfo pStages(VkPipelineShaderStageCreateInfo.Buffer value) { npStages(address(), value); return this; }
 	/** Sets the address of the specified {@link VkPipelineVertexInputStateCreateInfo} to the {@code pVertexInputState} field. */
@@ -235,7 +239,6 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		stageCount(pStages != null ? pStages.remaining() : 0);
 		pStages(pStages);
 		pVertexInputState(pVertexInputState);
 		pInputAssemblyState(pInputAssemblyState);
@@ -376,20 +379,20 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkGraphicsPipelineCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #stageCount(int) stageCount}. */
+	/** Sets the specified value to the {@code stageCount} field of the specified {@code struct}. */
 	public static void nstageCount(long struct, int value) { memPutInt(struct + VkGraphicsPipelineCreateInfo.STAGECOUNT, value); }
 	/** Unsafe version of {@link #pStages(VkPipelineShaderStageCreateInfo.Buffer) pStages}. */
-	public static void npStages(long struct, VkPipelineShaderStageCreateInfo.Buffer value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PSTAGES, addressSafe(value)); }
+	public static void npStages(long struct, VkPipelineShaderStageCreateInfo.Buffer value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PSTAGES, value.address()); nstageCount(struct, value.remaining()); }
 	/** Unsafe version of {@link #pVertexInputState(VkPipelineVertexInputStateCreateInfo) pVertexInputState}. */
-	public static void npVertexInputState(long struct, VkPipelineVertexInputStateCreateInfo value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PVERTEXINPUTSTATE, addressSafe(value)); }
+	public static void npVertexInputState(long struct, VkPipelineVertexInputStateCreateInfo value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PVERTEXINPUTSTATE, value.address()); }
 	/** Unsafe version of {@link #pInputAssemblyState(VkPipelineInputAssemblyStateCreateInfo) pInputAssemblyState}. */
-	public static void npInputAssemblyState(long struct, VkPipelineInputAssemblyStateCreateInfo value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PINPUTASSEMBLYSTATE, addressSafe(value)); }
+	public static void npInputAssemblyState(long struct, VkPipelineInputAssemblyStateCreateInfo value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PINPUTASSEMBLYSTATE, value.address()); }
 	/** Unsafe version of {@link #pTessellationState(VkPipelineTessellationStateCreateInfo) pTessellationState}. */
 	public static void npTessellationState(long struct, VkPipelineTessellationStateCreateInfo value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PTESSELLATIONSTATE, addressSafe(value)); }
 	/** Unsafe version of {@link #pViewportState(VkPipelineViewportStateCreateInfo) pViewportState}. */
 	public static void npViewportState(long struct, VkPipelineViewportStateCreateInfo value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PVIEWPORTSTATE, addressSafe(value)); }
 	/** Unsafe version of {@link #pRasterizationState(VkPipelineRasterizationStateCreateInfo) pRasterizationState}. */
-	public static void npRasterizationState(long struct, VkPipelineRasterizationStateCreateInfo value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PRASTERIZATIONSTATE, addressSafe(value)); }
+	public static void npRasterizationState(long struct, VkPipelineRasterizationStateCreateInfo value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PRASTERIZATIONSTATE, value.address()); }
 	/** Unsafe version of {@link #pMultisampleState(VkPipelineMultisampleStateCreateInfo) pMultisampleState}. */
 	public static void npMultisampleState(long struct, VkPipelineMultisampleStateCreateInfo value) { memPutAddress(struct + VkGraphicsPipelineCreateInfo.PMULTISAMPLESTATE, addressSafe(value)); }
 	/** Unsafe version of {@link #pDepthStencilState(VkPipelineDepthStencilStateCreateInfo) pDepthStencilState}. */
@@ -408,6 +411,18 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 	public static void nbasePipelineHandle(long struct, long value) { memPutLong(struct + VkGraphicsPipelineCreateInfo.BASEPIPELINEHANDLE, value); }
 	/** Unsafe version of {@link #basePipelineIndex(int) basePipelineIndex}. */
 	public static void nbasePipelineIndex(long struct, int value) { memPutInt(struct + VkGraphicsPipelineCreateInfo.BASEPIPELINEINDEX, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PSTAGES));
+		checkPointer(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PVERTEXINPUTSTATE));
+		checkPointer(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PINPUTASSEMBLYSTATE));
+		checkPointer(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PRASTERIZATIONSTATE));
+	}
 
 	// -----------------------------------
 
@@ -496,8 +511,6 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 		public VkGraphicsPipelineCreateInfo.Buffer pNext(long value) { VkGraphicsPipelineCreateInfo.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code flags} field. */
 		public VkGraphicsPipelineCreateInfo.Buffer flags(int value) { VkGraphicsPipelineCreateInfo.nflags(address(), value); return this; }
-		/** Sets the specified value to the {@code stageCount} field. */
-		public VkGraphicsPipelineCreateInfo.Buffer stageCount(int value) { VkGraphicsPipelineCreateInfo.nstageCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkPipelineShaderStageCreateInfo.Buffer} to the {@code pStages} field. */
 		public VkGraphicsPipelineCreateInfo.Buffer pStages(VkPipelineShaderStageCreateInfo.Buffer value) { VkGraphicsPipelineCreateInfo.npStages(address(), value); return this; }
 		/** Sets the address of the specified {@link VkPipelineVertexInputStateCreateInfo} to the {@code pVertexInputState} field. */

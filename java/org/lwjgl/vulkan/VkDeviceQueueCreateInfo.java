@@ -25,6 +25,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t queueCount;
  *     const float * pQueuePriorities;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkDeviceQueueCreateInfo extends Struct {
 
@@ -102,8 +108,6 @@ public class VkDeviceQueueCreateInfo extends Struct {
 	public VkDeviceQueueCreateInfo flags(int value) { nflags(address(), value); return this; }
 	/** Sets the specified value to the {@code queueFamilyIndex} field. */
 	public VkDeviceQueueCreateInfo queueFamilyIndex(int value) { nqueueFamilyIndex(address(), value); return this; }
-	/** Sets the specified value to the {@code queueCount} field. */
-	public VkDeviceQueueCreateInfo queueCount(int value) { nqueueCount(address(), value); return this; }
 	/** Sets the address of the specified {@link FloatBuffer} to the {@code pQueuePriorities} field. */
 	public VkDeviceQueueCreateInfo pQueuePriorities(FloatBuffer value) { npQueuePriorities(address(), value); return this; }
 
@@ -119,7 +123,6 @@ public class VkDeviceQueueCreateInfo extends Struct {
 		pNext(pNext);
 		flags(flags);
 		queueFamilyIndex(queueFamilyIndex);
-		queueCount(pQueuePriorities != null ? pQueuePriorities.remaining() : 0);
 		pQueuePriorities(pQueuePriorities);
 
 		return this;
@@ -222,10 +225,19 @@ public class VkDeviceQueueCreateInfo extends Struct {
 	public static void nflags(long struct, int value) { memPutInt(struct + VkDeviceQueueCreateInfo.FLAGS, value); }
 	/** Unsafe version of {@link #queueFamilyIndex(int) queueFamilyIndex}. */
 	public static void nqueueFamilyIndex(long struct, int value) { memPutInt(struct + VkDeviceQueueCreateInfo.QUEUEFAMILYINDEX, value); }
-	/** Unsafe version of {@link #queueCount(int) queueCount}. */
+	/** Sets the specified value to the {@code queueCount} field of the specified {@code struct}. */
 	public static void nqueueCount(long struct, int value) { memPutInt(struct + VkDeviceQueueCreateInfo.QUEUECOUNT, value); }
 	/** Unsafe version of {@link #pQueuePriorities(FloatBuffer) pQueuePriorities}. */
-	public static void npQueuePriorities(long struct, FloatBuffer value) { memPutAddress(struct + VkDeviceQueueCreateInfo.PQUEUEPRIORITIES, memAddressSafe(value)); }
+	public static void npQueuePriorities(long struct, FloatBuffer value) { memPutAddress(struct + VkDeviceQueueCreateInfo.PQUEUEPRIORITIES, memAddress(value)); nqueueCount(struct, value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkDeviceQueueCreateInfo.PQUEUEPRIORITIES));
+	}
 
 	// -----------------------------------
 
@@ -290,8 +302,6 @@ public class VkDeviceQueueCreateInfo extends Struct {
 		public VkDeviceQueueCreateInfo.Buffer flags(int value) { VkDeviceQueueCreateInfo.nflags(address(), value); return this; }
 		/** Sets the specified value to the {@code queueFamilyIndex} field. */
 		public VkDeviceQueueCreateInfo.Buffer queueFamilyIndex(int value) { VkDeviceQueueCreateInfo.nqueueFamilyIndex(address(), value); return this; }
-		/** Sets the specified value to the {@code queueCount} field. */
-		public VkDeviceQueueCreateInfo.Buffer queueCount(int value) { VkDeviceQueueCreateInfo.nqueueCount(address(), value); return this; }
 		/** Sets the address of the specified {@link FloatBuffer} to the {@code pQueuePriorities} field. */
 		public VkDeviceQueueCreateInfo.Buffer pQueuePriorities(FloatBuffer value) { VkDeviceQueueCreateInfo.npQueuePriorities(address(), value); return this; }
 

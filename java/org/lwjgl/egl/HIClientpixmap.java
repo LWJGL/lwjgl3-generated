@@ -58,6 +58,7 @@ public class HIClientpixmap {
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(config);
+			EGLClientPixmapHI.validate(pixmap);
 		}
 		return callPPPP(__functionAddress, dpy, config, pixmap);
 	}

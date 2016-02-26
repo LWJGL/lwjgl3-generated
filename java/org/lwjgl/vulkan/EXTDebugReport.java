@@ -24,13 +24,13 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTDebugReport {
 
 	/** The extension specification version. */
-	public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 0x1;
+	public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 0x2;
 
 	/** The extension name. */
 	public static final String VK_EXT_DEBUG_REPORT_EXTENSION_NAME = "VK_EXT_debug_report";
 
 	/** VkStructureType */
-	public static final int VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT = 1000011000;
+	public static final int VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT = 1000011000;
 
 	/** VkDebugReportObjectTypeEXT */
 	public static final int
@@ -134,8 +134,11 @@ public class EXTDebugReport {
 	@JavadocExclude
 	public static int nvkCreateDebugReportCallbackEXT(VkInstance instance, long pCreateInfo, long pAllocator, long pCallback) {
 		long __functionAddress = getInstance(instance).CreateDebugReportCallbackEXT;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkDebugReportCallbackCreateInfoEXT.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, instance.address(), pCreateInfo, pAllocator, pCallback);
 	}
 
@@ -158,8 +161,10 @@ public class EXTDebugReport {
 	@JavadocExclude
 	public static void nvkDestroyDebugReportCallbackEXT(VkInstance instance, long callback, long pAllocator) {
 		long __functionAddress = getInstance(instance).DestroyDebugReportCallbackEXT;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, instance.address(), callback, pAllocator);
 	}
 

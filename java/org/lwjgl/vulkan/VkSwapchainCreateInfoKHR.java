@@ -37,6 +37,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     VkBool32 clipped;
  *     VkSwapchainKHR oldSwapchain;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkSwapchainCreateInfoKHR extends Struct {
 
@@ -188,8 +194,6 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 	public VkSwapchainCreateInfoKHR imageUsage(int value) { nimageUsage(address(), value); return this; }
 	/** Sets the specified value to the {@code imageSharingMode} field. */
 	public VkSwapchainCreateInfoKHR imageSharingMode(int value) { nimageSharingMode(address(), value); return this; }
-	/** Sets the specified value to the {@code queueFamilyIndexCount} field. */
-	public VkSwapchainCreateInfoKHR queueFamilyIndexCount(int value) { nqueueFamilyIndexCount(address(), value); return this; }
 	/** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
 	public VkSwapchainCreateInfoKHR pQueueFamilyIndices(IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
 	/** Sets the specified value to the {@code preTransform} field. */
@@ -234,7 +238,6 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 		imageArrayLayers(imageArrayLayers);
 		imageUsage(imageUsage);
 		imageSharingMode(imageSharingMode);
-		queueFamilyIndexCount(pQueueFamilyIndices != null ? pQueueFamilyIndices.remaining() : 0);
 		pQueueFamilyIndices(pQueueFamilyIndices);
 		preTransform(preTransform);
 		compositeAlpha(compositeAlpha);
@@ -380,10 +383,10 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 	public static void nimageUsage(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.IMAGEUSAGE, value); }
 	/** Unsafe version of {@link #imageSharingMode(int) imageSharingMode}. */
 	public static void nimageSharingMode(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.IMAGESHARINGMODE, value); }
-	/** Unsafe version of {@link #queueFamilyIndexCount(int) queueFamilyIndexCount}. */
+	/** Sets the specified value to the {@code queueFamilyIndexCount} field of the specified {@code struct}. */
 	public static void nqueueFamilyIndexCount(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.QUEUEFAMILYINDEXCOUNT, value); }
 	/** Unsafe version of {@link #pQueueFamilyIndices(IntBuffer) pQueueFamilyIndices}. */
-	public static void npQueueFamilyIndices(long struct, IntBuffer value) { memPutAddress(struct + VkSwapchainCreateInfoKHR.PQUEUEFAMILYINDICES, memAddressSafe(value)); }
+	public static void npQueueFamilyIndices(long struct, IntBuffer value) { memPutAddress(struct + VkSwapchainCreateInfoKHR.PQUEUEFAMILYINDICES, memAddressSafe(value)); nqueueFamilyIndexCount(struct, value == null ? 0 : value.remaining()); }
 	/** Unsafe version of {@link #preTransform(int) preTransform}. */
 	public static void npreTransform(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.PRETRANSFORM, value); }
 	/** Unsafe version of {@link #compositeAlpha(int) compositeAlpha}. */
@@ -394,6 +397,16 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 	public static void nclipped(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.CLIPPED, value); }
 	/** Unsafe version of {@link #oldSwapchain(long) oldSwapchain}. */
 	public static void noldSwapchain(long struct, long value) { memPutLong(struct + VkSwapchainCreateInfoKHR.OLDSWAPCHAIN, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nqueueFamilyIndexCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkSwapchainCreateInfoKHR.PQUEUEFAMILYINDICES));
+	}
 
 	// -----------------------------------
 
@@ -496,8 +509,6 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 		public VkSwapchainCreateInfoKHR.Buffer imageUsage(int value) { VkSwapchainCreateInfoKHR.nimageUsage(address(), value); return this; }
 		/** Sets the specified value to the {@code imageSharingMode} field. */
 		public VkSwapchainCreateInfoKHR.Buffer imageSharingMode(int value) { VkSwapchainCreateInfoKHR.nimageSharingMode(address(), value); return this; }
-		/** Sets the specified value to the {@code queueFamilyIndexCount} field. */
-		public VkSwapchainCreateInfoKHR.Buffer queueFamilyIndexCount(int value) { VkSwapchainCreateInfoKHR.nqueueFamilyIndexCount(address(), value); return this; }
 		/** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
 		public VkSwapchainCreateInfoKHR.Buffer pQueueFamilyIndices(IntBuffer value) { VkSwapchainCreateInfoKHR.npQueueFamilyIndices(address(), value); return this; }
 		/** Sets the specified value to the {@code preTransform} field. */

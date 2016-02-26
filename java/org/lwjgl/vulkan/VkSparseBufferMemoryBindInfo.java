@@ -78,8 +78,6 @@ public class VkSparseBufferMemoryBindInfo extends Struct {
 
 	/** Sets the specified value to the {@code buffer} field. */
 	public VkSparseBufferMemoryBindInfo buffer(long value) { nbuffer(address(), value); return this; }
-	/** Sets the specified value to the {@code bindCount} field. */
-	public VkSparseBufferMemoryBindInfo bindCount(int value) { nbindCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkSparseMemoryBind.Buffer} to the {@code pBinds} field. */
 	public VkSparseBufferMemoryBindInfo pBinds(VkSparseMemoryBind.Buffer value) { npBinds(address(), value); return this; }
 
@@ -89,7 +87,6 @@ public class VkSparseBufferMemoryBindInfo extends Struct {
 		VkSparseMemoryBind.Buffer pBinds
 	) {
 		buffer(buffer);
-		bindCount(pBinds != null ? pBinds.remaining() : 0);
 		pBinds(pBinds);
 
 		return this;
@@ -180,10 +177,19 @@ public class VkSparseBufferMemoryBindInfo extends Struct {
 
 	/** Unsafe version of {@link #buffer(long) buffer}. */
 	public static void nbuffer(long struct, long value) { memPutLong(struct + VkSparseBufferMemoryBindInfo.BUFFER, value); }
-	/** Unsafe version of {@link #bindCount(int) bindCount}. */
+	/** Sets the specified value to the {@code bindCount} field of the specified {@code struct}. */
 	public static void nbindCount(long struct, int value) { memPutInt(struct + VkSparseBufferMemoryBindInfo.BINDCOUNT, value); }
 	/** Unsafe version of {@link #pBinds(VkSparseMemoryBind.Buffer) pBinds}. */
-	public static void npBinds(long struct, VkSparseMemoryBind.Buffer value) { memPutAddress(struct + VkSparseBufferMemoryBindInfo.PBINDS, addressSafe(value)); }
+	public static void npBinds(long struct, VkSparseMemoryBind.Buffer value) { memPutAddress(struct + VkSparseBufferMemoryBindInfo.PBINDS, value.address()); nbindCount(struct, value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkSparseBufferMemoryBindInfo.PBINDS));
+	}
 
 	// -----------------------------------
 
@@ -236,8 +242,6 @@ public class VkSparseBufferMemoryBindInfo extends Struct {
 
 		/** Sets the specified value to the {@code buffer} field. */
 		public VkSparseBufferMemoryBindInfo.Buffer buffer(long value) { VkSparseBufferMemoryBindInfo.nbuffer(address(), value); return this; }
-		/** Sets the specified value to the {@code bindCount} field. */
-		public VkSparseBufferMemoryBindInfo.Buffer bindCount(int value) { VkSparseBufferMemoryBindInfo.nbindCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkSparseMemoryBind.Buffer} to the {@code pBinds} field. */
 		public VkSparseBufferMemoryBindInfo.Buffer pBinds(VkSparseMemoryBind.Buffer value) { VkSparseBufferMemoryBindInfo.npBinds(address(), value); return this; }
 

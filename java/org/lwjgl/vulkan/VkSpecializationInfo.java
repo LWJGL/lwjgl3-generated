@@ -79,27 +79,20 @@ public class VkSpecializationInfo extends Struct {
 	public VkSpecializationMapEntry.Buffer pMapEntries() { return npMapEntries(address()); }
 	/** Returns the value of the {@code dataSize} field. */
 	public long dataSize() { return ndataSize(address()); }
-	/** Returns the value of the {@code pData} field. */
-	public long pData() { return npData(address()); }
+	/** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field. */
+	public ByteBuffer pData() { return npData(address()); }
 
-	/** Sets the specified value to the {@code mapEntryCount} field. */
-	public VkSpecializationInfo mapEntryCount(int value) { nmapEntryCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkSpecializationMapEntry.Buffer} to the {@code pMapEntries} field. */
 	public VkSpecializationInfo pMapEntries(VkSpecializationMapEntry.Buffer value) { npMapEntries(address(), value); return this; }
-	/** Sets the specified value to the {@code dataSize} field. */
-	public VkSpecializationInfo dataSize(long value) { ndataSize(address(), value); return this; }
-	/** Sets the specified value to the {@code pData} field. */
-	public VkSpecializationInfo pData(long value) { npData(address(), value); return this; }
+	/** Sets the address of the specified {@link ByteBuffer} to the {@code pData} field. */
+	public VkSpecializationInfo pData(ByteBuffer value) { npData(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkSpecializationInfo set(
 		VkSpecializationMapEntry.Buffer pMapEntries,
-		long dataSize,
-		long pData
+		ByteBuffer pData
 	) {
-		mapEntryCount(pMapEntries != null ? pMapEntries.remaining() : 0);
 		pMapEntries(pMapEntries);
-		dataSize(dataSize);
 		pData(pData);
 
 		return this;
@@ -187,17 +180,28 @@ public class VkSpecializationInfo extends Struct {
 	public static VkSpecializationMapEntry.Buffer npMapEntries(long struct) { return VkSpecializationMapEntry.create(memGetAddress(struct + VkSpecializationInfo.PMAPENTRIES), nmapEntryCount(struct)); }
 	/** Unsafe version of {@link #dataSize}. */
 	public static long ndataSize(long struct) { return memGetAddress(struct + VkSpecializationInfo.DATASIZE); }
-	/** Unsafe version of {@link #pData}. */
-	public static long npData(long struct) { return memGetAddress(struct + VkSpecializationInfo.PDATA); }
+	/** Unsafe version of {@link #pData() pData}. */
+	public static ByteBuffer npData(long struct) { return memByteBuffer(memGetAddress(struct + VkSpecializationInfo.PDATA), (int)ndataSize(struct)); }
 
-	/** Unsafe version of {@link #mapEntryCount(int) mapEntryCount}. */
+	/** Sets the specified value to the {@code mapEntryCount} field of the specified {@code struct}. */
 	public static void nmapEntryCount(long struct, int value) { memPutInt(struct + VkSpecializationInfo.MAPENTRYCOUNT, value); }
 	/** Unsafe version of {@link #pMapEntries(VkSpecializationMapEntry.Buffer) pMapEntries}. */
-	public static void npMapEntries(long struct, VkSpecializationMapEntry.Buffer value) { memPutAddress(struct + VkSpecializationInfo.PMAPENTRIES, addressSafe(value)); }
-	/** Unsafe version of {@link #dataSize(long) dataSize}. */
+	public static void npMapEntries(long struct, VkSpecializationMapEntry.Buffer value) { memPutAddress(struct + VkSpecializationInfo.PMAPENTRIES, value.address()); nmapEntryCount(struct, value.remaining()); }
+	/** Sets the specified value to the {@code dataSize} field of the specified {@code struct}. */
 	public static void ndataSize(long struct, long value) { memPutAddress(struct + VkSpecializationInfo.DATASIZE, value); }
-	/** Unsafe version of {@link #pData(long) pData}. */
-	public static void npData(long struct, long value) { memPutAddress(struct + VkSpecializationInfo.PDATA, value); }
+	/** Unsafe version of {@link #pData(ByteBuffer) pData}. */
+	public static void npData(long struct, ByteBuffer value) { memPutAddress(struct + VkSpecializationInfo.PDATA, memAddressSafe(value)); ndataSize(struct, value == null ? 0 : value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + VkSpecializationInfo.PMAPENTRIES));
+		if ( ndataSize(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkSpecializationInfo.PDATA));
+	}
 
 	// -----------------------------------
 
@@ -247,17 +251,13 @@ public class VkSpecializationInfo extends Struct {
 		public VkSpecializationMapEntry.Buffer pMapEntries() { return VkSpecializationInfo.npMapEntries(address()); }
 		/** Returns the value of the {@code dataSize} field. */
 		public long dataSize() { return VkSpecializationInfo.ndataSize(address()); }
-		/** Returns the value of the {@code pData} field. */
-		public long pData() { return VkSpecializationInfo.npData(address()); }
+		/** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field. */
+		public ByteBuffer pData() { return VkSpecializationInfo.npData(address()); }
 
-		/** Sets the specified value to the {@code mapEntryCount} field. */
-		public VkSpecializationInfo.Buffer mapEntryCount(int value) { VkSpecializationInfo.nmapEntryCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkSpecializationMapEntry.Buffer} to the {@code pMapEntries} field. */
 		public VkSpecializationInfo.Buffer pMapEntries(VkSpecializationMapEntry.Buffer value) { VkSpecializationInfo.npMapEntries(address(), value); return this; }
-		/** Sets the specified value to the {@code dataSize} field. */
-		public VkSpecializationInfo.Buffer dataSize(long value) { VkSpecializationInfo.ndataSize(address(), value); return this; }
-		/** Sets the specified value to the {@code pData} field. */
-		public VkSpecializationInfo.Buffer pData(long value) { VkSpecializationInfo.npData(address(), value); return this; }
+		/** Sets the address of the specified {@link ByteBuffer} to the {@code pData} field. */
+		public VkSpecializationInfo.Buffer pData(ByteBuffer value) { VkSpecializationInfo.npData(address(), value); return this; }
 
 	}
 

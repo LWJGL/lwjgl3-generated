@@ -27,6 +27,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t queueFamilyIndexCount;
  *     const uint32_t * pQueueFamilyIndices;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkBufferCreateInfo extends Struct {
 
@@ -118,8 +124,6 @@ public class VkBufferCreateInfo extends Struct {
 	public VkBufferCreateInfo usage(int value) { nusage(address(), value); return this; }
 	/** Sets the specified value to the {@code sharingMode} field. */
 	public VkBufferCreateInfo sharingMode(int value) { nsharingMode(address(), value); return this; }
-	/** Sets the specified value to the {@code queueFamilyIndexCount} field. */
-	public VkBufferCreateInfo queueFamilyIndexCount(int value) { nqueueFamilyIndexCount(address(), value); return this; }
 	/** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
 	public VkBufferCreateInfo pQueueFamilyIndices(IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
 
@@ -139,7 +143,6 @@ public class VkBufferCreateInfo extends Struct {
 		size(size);
 		usage(usage);
 		sharingMode(sharingMode);
-		queueFamilyIndexCount(pQueueFamilyIndices != null ? pQueueFamilyIndices.remaining() : 0);
 		pQueueFamilyIndices(pQueueFamilyIndices);
 
 		return this;
@@ -250,10 +253,20 @@ public class VkBufferCreateInfo extends Struct {
 	public static void nusage(long struct, int value) { memPutInt(struct + VkBufferCreateInfo.USAGE, value); }
 	/** Unsafe version of {@link #sharingMode(int) sharingMode}. */
 	public static void nsharingMode(long struct, int value) { memPutInt(struct + VkBufferCreateInfo.SHARINGMODE, value); }
-	/** Unsafe version of {@link #queueFamilyIndexCount(int) queueFamilyIndexCount}. */
+	/** Sets the specified value to the {@code queueFamilyIndexCount} field of the specified {@code struct}. */
 	public static void nqueueFamilyIndexCount(long struct, int value) { memPutInt(struct + VkBufferCreateInfo.QUEUEFAMILYINDEXCOUNT, value); }
 	/** Unsafe version of {@link #pQueueFamilyIndices(IntBuffer) pQueueFamilyIndices}. */
-	public static void npQueueFamilyIndices(long struct, IntBuffer value) { memPutAddress(struct + VkBufferCreateInfo.PQUEUEFAMILYINDICES, memAddressSafe(value)); }
+	public static void npQueueFamilyIndices(long struct, IntBuffer value) { memPutAddress(struct + VkBufferCreateInfo.PQUEUEFAMILYINDICES, memAddressSafe(value)); nqueueFamilyIndexCount(struct, value == null ? 0 : value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nqueueFamilyIndexCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkBufferCreateInfo.PQUEUEFAMILYINDICES));
+	}
 
 	// -----------------------------------
 
@@ -326,8 +339,6 @@ public class VkBufferCreateInfo extends Struct {
 		public VkBufferCreateInfo.Buffer usage(int value) { VkBufferCreateInfo.nusage(address(), value); return this; }
 		/** Sets the specified value to the {@code sharingMode} field. */
 		public VkBufferCreateInfo.Buffer sharingMode(int value) { VkBufferCreateInfo.nsharingMode(address(), value); return this; }
-		/** Sets the specified value to the {@code queueFamilyIndexCount} field. */
-		public VkBufferCreateInfo.Buffer queueFamilyIndexCount(int value) { VkBufferCreateInfo.nqueueFamilyIndexCount(address(), value); return this; }
 		/** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
 		public VkBufferCreateInfo.Buffer pQueueFamilyIndices(IntBuffer value) { VkBufferCreateInfo.npQueueFamilyIndices(address(), value); return this; }
 

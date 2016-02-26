@@ -225,13 +225,22 @@ public class OVRLayerQuad extends Struct {
 	/** Unsafe version of {@link #Header(OVRLayerHeader) Header}. */
 	public static void nHeader(long struct, OVRLayerHeader value) { memCopy(value.address(), struct + OVRLayerQuad.HEADER, OVRLayerHeader.SIZEOF); }
 	/** Unsafe version of {@link #ColorTexture(OVRSwapTextureSet) ColorTexture}. */
-	public static void nColorTexture(long struct, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerQuad.COLORTEXTURE, addressSafe(value)); }
+	public static void nColorTexture(long struct, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerQuad.COLORTEXTURE, value.address()); }
 	/** Unsafe version of {@link #Viewport(OVRRecti) Viewport}. */
 	public static void nViewport(long struct, OVRRecti value) { memCopy(value.address(), struct + OVRLayerQuad.VIEWPORT, OVRRecti.SIZEOF); }
 	/** Unsafe version of {@link #QuadPoseCenter(OVRPosef) QuadPoseCenter}. */
 	public static void nQuadPoseCenter(long struct, OVRPosef value) { memCopy(value.address(), struct + OVRLayerQuad.QUADPOSECENTER, OVRPosef.SIZEOF); }
 	/** Unsafe version of {@link #QuadSize(OVRVector2f) QuadSize}. */
 	public static void nQuadSize(long struct, OVRVector2f value) { memCopy(value.address(), struct + OVRLayerQuad.QUADSIZE, OVRVector2f.SIZEOF); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + OVRLayerQuad.COLORTEXTURE));
+	}
 
 	// -----------------------------------
 

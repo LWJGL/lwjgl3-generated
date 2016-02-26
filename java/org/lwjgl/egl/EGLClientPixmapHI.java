@@ -210,13 +210,22 @@ public class EGLClientPixmapHI extends Struct {
 	public static int niStride(long struct) { return memGetInt(struct + EGLClientPixmapHI.ISTRIDE); }
 
 	/** Unsafe version of {@link #pData(ByteBuffer) pData}. */
-	public static void npData(long struct, ByteBuffer value) { memPutAddress(struct + EGLClientPixmapHI.PDATA, memAddressSafe(value)); }
+	public static void npData(long struct, ByteBuffer value) { memPutAddress(struct + EGLClientPixmapHI.PDATA, memAddress(value)); }
 	/** Unsafe version of {@link #iWidth(int) iWidth}. */
 	public static void niWidth(long struct, int value) { memPutInt(struct + EGLClientPixmapHI.IWIDTH, value); }
 	/** Unsafe version of {@link #iHeight(int) iHeight}. */
 	public static void niHeight(long struct, int value) { memPutInt(struct + EGLClientPixmapHI.IHEIGHT, value); }
 	/** Unsafe version of {@link #iStride(int) iStride}. */
 	public static void niStride(long struct, int value) { memPutInt(struct + EGLClientPixmapHI.ISTRIDE, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + EGLClientPixmapHI.PDATA));
+	}
 
 	// -----------------------------------
 

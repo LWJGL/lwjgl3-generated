@@ -229,17 +229,28 @@ public class NVGTextRow extends Struct {
 	public static float nmaxx(long struct) { return memGetFloat(struct + NVGTextRow.MAXX); }
 
 	/** Unsafe version of {@link #start(long) start}. */
-	public static void nstart(long struct, long value) { memPutAddress(struct + NVGTextRow.START, value); }
+	public static void nstart(long struct, long value) { memPutAddress(struct + NVGTextRow.START, checkPointer(value)); }
 	/** Unsafe version of {@link #end(long) end}. */
-	public static void nend(long struct, long value) { memPutAddress(struct + NVGTextRow.END, value); }
+	public static void nend(long struct, long value) { memPutAddress(struct + NVGTextRow.END, checkPointer(value)); }
 	/** Unsafe version of {@link #next(long) next}. */
-	public static void nnext(long struct, long value) { memPutAddress(struct + NVGTextRow.NEXT, value); }
+	public static void nnext(long struct, long value) { memPutAddress(struct + NVGTextRow.NEXT, checkPointer(value)); }
 	/** Unsafe version of {@link #width(float) width}. */
 	public static void nwidth(long struct, float value) { memPutFloat(struct + NVGTextRow.WIDTH, value); }
 	/** Unsafe version of {@link #minx(float) minx}. */
 	public static void nminx(long struct, float value) { memPutFloat(struct + NVGTextRow.MINX, value); }
 	/** Unsafe version of {@link #maxx(float) maxx}. */
 	public static void nmaxx(long struct, float value) { memPutFloat(struct + NVGTextRow.MAXX, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + NVGTextRow.START));
+		checkPointer(memGetAddress(struct + NVGTextRow.END));
+		checkPointer(memGetAddress(struct + NVGTextRow.NEXT));
+	}
 
 	// -----------------------------------
 

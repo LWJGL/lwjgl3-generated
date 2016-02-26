@@ -24,6 +24,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t bindingCount;
  *     const VkDescriptorSetLayoutBinding * pBindings;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkDescriptorSetLayoutCreateInfo extends Struct {
 
@@ -94,8 +100,6 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct {
 	public VkDescriptorSetLayoutCreateInfo pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code flags} field. */
 	public VkDescriptorSetLayoutCreateInfo flags(int value) { nflags(address(), value); return this; }
-	/** Sets the specified value to the {@code bindingCount} field. */
-	public VkDescriptorSetLayoutCreateInfo bindingCount(int value) { nbindingCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkDescriptorSetLayoutBinding.Buffer} to the {@code pBindings} field. */
 	public VkDescriptorSetLayoutCreateInfo pBindings(VkDescriptorSetLayoutBinding.Buffer value) { npBindings(address(), value); return this; }
 
@@ -109,7 +113,6 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct {
 		sType(sType);
 		pNext(pNext);
 		flags(flags);
-		bindingCount(pBindings != null ? pBindings.remaining() : 0);
 		pBindings(pBindings);
 
 		return this;
@@ -208,10 +211,20 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkDescriptorSetLayoutCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkDescriptorSetLayoutCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #bindingCount(int) bindingCount}. */
+	/** Sets the specified value to the {@code bindingCount} field of the specified {@code struct}. */
 	public static void nbindingCount(long struct, int value) { memPutInt(struct + VkDescriptorSetLayoutCreateInfo.BINDINGCOUNT, value); }
 	/** Unsafe version of {@link #pBindings(VkDescriptorSetLayoutBinding.Buffer) pBindings}. */
-	public static void npBindings(long struct, VkDescriptorSetLayoutBinding.Buffer value) { memPutAddress(struct + VkDescriptorSetLayoutCreateInfo.PBINDINGS, addressSafe(value)); }
+	public static void npBindings(long struct, VkDescriptorSetLayoutBinding.Buffer value) { memPutAddress(struct + VkDescriptorSetLayoutCreateInfo.PBINDINGS, addressSafe(value)); nbindingCount(struct, value == null ? 0 : value.remaining()); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nbindingCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkDescriptorSetLayoutCreateInfo.PBINDINGS));
+	}
 
 	// -----------------------------------
 
@@ -272,8 +285,6 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct {
 		public VkDescriptorSetLayoutCreateInfo.Buffer pNext(long value) { VkDescriptorSetLayoutCreateInfo.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code flags} field. */
 		public VkDescriptorSetLayoutCreateInfo.Buffer flags(int value) { VkDescriptorSetLayoutCreateInfo.nflags(address(), value); return this; }
-		/** Sets the specified value to the {@code bindingCount} field. */
-		public VkDescriptorSetLayoutCreateInfo.Buffer bindingCount(int value) { VkDescriptorSetLayoutCreateInfo.nbindingCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkDescriptorSetLayoutBinding.Buffer} to the {@code pBindings} field. */
 		public VkDescriptorSetLayoutCreateInfo.Buffer pBindings(VkDescriptorSetLayoutBinding.Buffer value) { VkDescriptorSetLayoutCreateInfo.npBindings(address(), value); return this; }
 

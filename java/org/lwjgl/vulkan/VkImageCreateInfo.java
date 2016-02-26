@@ -34,6 +34,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     const uint32_t * pQueueFamilyIndices;
  *     VkImageLayout initialLayout;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkImageCreateInfo extends Struct {
 
@@ -172,8 +178,6 @@ public class VkImageCreateInfo extends Struct {
 	public VkImageCreateInfo usage(int value) { nusage(address(), value); return this; }
 	/** Sets the specified value to the {@code sharingMode} field. */
 	public VkImageCreateInfo sharingMode(int value) { nsharingMode(address(), value); return this; }
-	/** Sets the specified value to the {@code queueFamilyIndexCount} field. */
-	public VkImageCreateInfo queueFamilyIndexCount(int value) { nqueueFamilyIndexCount(address(), value); return this; }
 	/** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
 	public VkImageCreateInfo pQueueFamilyIndices(IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
 	/** Sets the specified value to the {@code initialLayout} field. */
@@ -208,7 +212,6 @@ public class VkImageCreateInfo extends Struct {
 		tiling(tiling);
 		usage(usage);
 		sharingMode(sharingMode);
-		queueFamilyIndexCount(pQueueFamilyIndices != null ? pQueueFamilyIndices.remaining() : 0);
 		pQueueFamilyIndices(pQueueFamilyIndices);
 		initialLayout(initialLayout);
 
@@ -346,12 +349,22 @@ public class VkImageCreateInfo extends Struct {
 	public static void nusage(long struct, int value) { memPutInt(struct + VkImageCreateInfo.USAGE, value); }
 	/** Unsafe version of {@link #sharingMode(int) sharingMode}. */
 	public static void nsharingMode(long struct, int value) { memPutInt(struct + VkImageCreateInfo.SHARINGMODE, value); }
-	/** Unsafe version of {@link #queueFamilyIndexCount(int) queueFamilyIndexCount}. */
+	/** Sets the specified value to the {@code queueFamilyIndexCount} field of the specified {@code struct}. */
 	public static void nqueueFamilyIndexCount(long struct, int value) { memPutInt(struct + VkImageCreateInfo.QUEUEFAMILYINDEXCOUNT, value); }
 	/** Unsafe version of {@link #pQueueFamilyIndices(IntBuffer) pQueueFamilyIndices}. */
-	public static void npQueueFamilyIndices(long struct, IntBuffer value) { memPutAddress(struct + VkImageCreateInfo.PQUEUEFAMILYINDICES, memAddressSafe(value)); }
+	public static void npQueueFamilyIndices(long struct, IntBuffer value) { memPutAddress(struct + VkImageCreateInfo.PQUEUEFAMILYINDICES, memAddressSafe(value)); nqueueFamilyIndexCount(struct, value == null ? 0 : value.remaining()); }
 	/** Unsafe version of {@link #initialLayout(int) initialLayout}. */
 	public static void ninitialLayout(long struct, int value) { memPutInt(struct + VkImageCreateInfo.INITIALLAYOUT, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		if ( nqueueFamilyIndexCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkImageCreateInfo.PQUEUEFAMILYINDICES));
+	}
 
 	// -----------------------------------
 
@@ -450,8 +463,6 @@ public class VkImageCreateInfo extends Struct {
 		public VkImageCreateInfo.Buffer usage(int value) { VkImageCreateInfo.nusage(address(), value); return this; }
 		/** Sets the specified value to the {@code sharingMode} field. */
 		public VkImageCreateInfo.Buffer sharingMode(int value) { VkImageCreateInfo.nsharingMode(address(), value); return this; }
-		/** Sets the specified value to the {@code queueFamilyIndexCount} field. */
-		public VkImageCreateInfo.Buffer queueFamilyIndexCount(int value) { VkImageCreateInfo.nqueueFamilyIndexCount(address(), value); return this; }
 		/** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
 		public VkImageCreateInfo.Buffer pQueueFamilyIndices(IntBuffer value) { VkImageCreateInfo.npQueueFamilyIndices(address(), value); return this; }
 		/** Sets the specified value to the {@code initialLayout} field. */

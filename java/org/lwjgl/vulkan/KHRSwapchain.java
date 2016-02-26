@@ -96,8 +96,11 @@ public class KHRSwapchain {
 	@JavadocExclude
 	public static int nvkCreateSwapchainKHR(VkDevice device, long pCreateInfo, long pAllocator, long pSwapchain) {
 		long __functionAddress = getInstance(device).CreateSwapchainKHR;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkSwapchainCreateInfoKHR.validate(pCreateInfo);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo, pAllocator, pSwapchain);
 	}
 
@@ -128,8 +131,10 @@ public class KHRSwapchain {
 	@JavadocExclude
 	public static void nvkDestroySwapchainKHR(VkDevice device, long swapchain, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroySwapchainKHR;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
+		}
 		callPJPV(__functionAddress, device.address(), swapchain, pAllocator);
 	}
 
@@ -220,8 +225,10 @@ public class KHRSwapchain {
 	@JavadocExclude
 	public static int nvkQueuePresentKHR(VkQueue queue, long pPresentInfo) {
 		long __functionAddress = getInstance(queue).QueuePresentKHR;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkPresentInfoKHR.validate(pPresentInfo);
+		}
 		return callPPI(__functionAddress, queue.address(), pPresentInfo);
 	}
 

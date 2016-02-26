@@ -77,18 +77,18 @@ public class JAWTFunctions {
 
 	// --- [ Function Addresses ] ---
 
-	private static final SharedLibrary JAWT;
+	private static final SharedLibrary LIB_JAWT;
 
 	private static final JAWTFunctions instance;
 
 	static {
-		JAWT = Library.loadNative("jawt");
-		instance = new JAWTFunctions(JAWT);
+		LIB_JAWT = Library.loadNative("jawt");
+		instance = new JAWTFunctions(LIB_JAWT);
 	}
 
 	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
 	public static SharedLibrary getLibrary() {
-		return JAWT;
+		return LIB_JAWT;
 	}
 
 	/** Returns the {@link JAWTFunctions} instance. */

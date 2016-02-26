@@ -203,7 +203,7 @@ public class ObjCPropertyAttribute extends Struct {
 	/** Unsafe version of {@link #name(ByteBuffer) name}. */
 	public static void nname(long struct, ByteBuffer value) { 
 		if ( CHECKS && value != null ) checkNT1(value); 
-		memPutAddress(struct + ObjCPropertyAttribute.NAME, memAddressSafe(value));
+		memPutAddress(struct + ObjCPropertyAttribute.NAME, memAddress(value));
 	}
 	/** Unsafe version of {@link #name(CharSequence) name}. */
 	public static void nname(long struct, CharSequence value) { nname(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
@@ -212,12 +212,22 @@ public class ObjCPropertyAttribute extends Struct {
 	/** Unsafe version of {@link #value(ByteBuffer) value}. */
 	public static void nvalue(long struct, ByteBuffer value) { 
 		if ( CHECKS && value != null ) checkNT1(value); 
-		memPutAddress(struct + ObjCPropertyAttribute.VALUE, memAddressSafe(value));
+		memPutAddress(struct + ObjCPropertyAttribute.VALUE, memAddress(value));
 	}
 	/** Unsafe version of {@link #value(CharSequence) value}. */
 	public static void nvalue(long struct, CharSequence value) { nvalue(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
 	/** Unsafe version of {@link #valueFree}. */
 	public static void nvalueFree(long struct) { nmemFree(memGetAddress(struct + ObjCPropertyAttribute.VALUE)); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + ObjCPropertyAttribute.NAME));
+		checkPointer(memGetAddress(struct + ObjCPropertyAttribute.VALUE));
+	}
 
 	// -----------------------------------
 

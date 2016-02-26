@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <pre><code style="font-family: monospace">
  * struct Visual {
+ *     void * ext_data;
  *     VisualID visualid;
  *     int class;
  *     unsigned long red_mask;
@@ -39,6 +40,7 @@ public class Visual extends Struct {
 
 	/** The struct member offsets. */
 	public static final int
+		EXT_DATA,
 		VISUALID,
 		CLASS,
 		RED_MASK,
@@ -49,6 +51,7 @@ public class Visual extends Struct {
 
 	static {
 		Layout layout = __struct(
+			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
 			__member(4),
 			__member(POINTER_SIZE),
@@ -61,13 +64,14 @@ public class Visual extends Struct {
 		SIZEOF = layout.getSize();
 		__ALIGNMENT = layout.getAlignment();
 
-		VISUALID = layout.offsetof(0);
-		CLASS = layout.offsetof(1);
-		RED_MASK = layout.offsetof(2);
-		GREEN_MASK = layout.offsetof(3);
-		BLUE_MASK = layout.offsetof(4);
-		BITS_PER_RGB = layout.offsetof(5);
-		MAP_ENTRIES = layout.offsetof(6);
+		EXT_DATA = layout.offsetof(0);
+		VISUALID = layout.offsetof(1);
+		CLASS = layout.offsetof(2);
+		RED_MASK = layout.offsetof(3);
+		GREEN_MASK = layout.offsetof(4);
+		BLUE_MASK = layout.offsetof(5);
+		BITS_PER_RGB = layout.offsetof(6);
+		MAP_ENTRIES = layout.offsetof(7);
 	}
 
 	Visual(long address, ByteBuffer container) {
@@ -87,6 +91,8 @@ public class Visual extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
+	/** Returns the value of the {@code ext_data} field. */
+	public long ext_data() { return next_data(address()); }
 	/** Returns the value of the {@code visualid} field. */
 	public long visualid() { return nvisualid(address()); }
 	/** Returns the value of the {@code class$} field. */
@@ -102,6 +108,8 @@ public class Visual extends Struct {
 	/** Returns the value of the {@code map_entries} field. */
 	public int map_entries() { return nmap_entries(address()); }
 
+	/** Sets the specified value to the {@code ext_data} field. */
+	public Visual ext_data(long value) { next_data(address(), value); return this; }
 	/** Sets the specified value to the {@code visualid} field. */
 	public Visual visualid(long value) { nvisualid(address(), value); return this; }
 	/** Sets the specified value to the {@code class} field. */
@@ -119,6 +127,7 @@ public class Visual extends Struct {
 
 	/** Initializes this struct with the specified values. */
 	public Visual set(
+		long ext_data,
 		long visualid,
 		int class$,
 		long red_mask,
@@ -127,6 +136,7 @@ public class Visual extends Struct {
 		int bits_per_rgb,
 		int map_entries
 	) {
+		ext_data(ext_data);
 		visualid(visualid);
 		class$(class$);
 		red_mask(red_mask);
@@ -214,6 +224,8 @@ public class Visual extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	/** Unsafe version of {@link #ext_data}. */
+	public static long next_data(long struct) { return memGetAddress(struct + Visual.EXT_DATA); }
 	/** Unsafe version of {@link #visualid}. */
 	public static long nvisualid(long struct) { return memGetAddress(struct + Visual.VISUALID); }
 	/** Unsafe version of {@link #class$}. */
@@ -229,6 +241,8 @@ public class Visual extends Struct {
 	/** Unsafe version of {@link #map_entries}. */
 	public static int nmap_entries(long struct) { return memGetInt(struct + Visual.MAP_ENTRIES); }
 
+	/** Unsafe version of {@link #ext_data(long) ext_data}. */
+	public static void next_data(long struct, long value) { memPutAddress(struct + Visual.EXT_DATA, value); }
 	/** Unsafe version of {@link #visualid(long) visualid}. */
 	public static void nvisualid(long struct, long value) { memPutAddress(struct + Visual.VISUALID, value); }
 	/** Unsafe version of {@link #class$(int) class$}. */
@@ -286,6 +300,8 @@ public class Visual extends Struct {
 			return SIZEOF;
 		}
 
+		/** Returns the value of the {@code ext_data} field. */
+		public long ext_data() { return Visual.next_data(address()); }
 		/** Returns the value of the {@code visualid} field. */
 		public long visualid() { return Visual.nvisualid(address()); }
 		/** Returns the value of the {@code class$} field. */
@@ -301,6 +317,8 @@ public class Visual extends Struct {
 		/** Returns the value of the {@code map_entries} field. */
 		public int map_entries() { return Visual.nmap_entries(address()); }
 
+		/** Sets the specified value to the {@code ext_data} field. */
+		public Visual.Buffer ext_data(long value) { Visual.next_data(address(), value); return this; }
 		/** Sets the specified value to the {@code visualid} field. */
 		public Visual.Buffer visualid(long value) { Visual.nvisualid(address(), value); return this; }
 		/** Sets the specified value to the {@code class} field. */

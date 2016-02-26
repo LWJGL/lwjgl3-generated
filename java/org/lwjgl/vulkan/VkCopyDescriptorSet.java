@@ -28,6 +28,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t dstArrayElement;
  *     uint32_t descriptorCount;
  * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * </table>
  */
 public class VkCopyDescriptorSet extends Struct {
 

@@ -289,19 +289,34 @@ public class ChunkHooks extends Struct {
 	public static ChunkMerge nmergeClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(nmerge(struct)); }
 
 	/** Unsafe version of {@link #alloc(long) alloc}. */
-	public static void nalloc(long struct, long value) { memPutAddress(struct + ChunkHooks.ALLOC, value); }
+	public static void nalloc(long struct, long value) { memPutAddress(struct + ChunkHooks.ALLOC, checkPointer(value)); }
 	/** Unsafe version of {@link #dalloc(long) dalloc}. */
-	public static void ndalloc(long struct, long value) { memPutAddress(struct + ChunkHooks.DALLOC, value); }
+	public static void ndalloc(long struct, long value) { memPutAddress(struct + ChunkHooks.DALLOC, checkPointer(value)); }
 	/** Unsafe version of {@link #commit(long) commit}. */
-	public static void ncommit(long struct, long value) { memPutAddress(struct + ChunkHooks.COMMIT, value); }
+	public static void ncommit(long struct, long value) { memPutAddress(struct + ChunkHooks.COMMIT, checkPointer(value)); }
 	/** Unsafe version of {@link #decommit(long) decommit}. */
-	public static void ndecommit(long struct, long value) { memPutAddress(struct + ChunkHooks.DECOMMIT, value); }
+	public static void ndecommit(long struct, long value) { memPutAddress(struct + ChunkHooks.DECOMMIT, checkPointer(value)); }
 	/** Unsafe version of {@link #purge(long) purge}. */
-	public static void npurge(long struct, long value) { memPutAddress(struct + ChunkHooks.PURGE, value); }
+	public static void npurge(long struct, long value) { memPutAddress(struct + ChunkHooks.PURGE, checkPointer(value)); }
 	/** Unsafe version of {@link #split(long) split}. */
-	public static void nsplit(long struct, long value) { memPutAddress(struct + ChunkHooks.SPLIT, value); }
+	public static void nsplit(long struct, long value) { memPutAddress(struct + ChunkHooks.SPLIT, checkPointer(value)); }
 	/** Unsafe version of {@link #merge(long) merge}. */
-	public static void nmerge(long struct, long value) { memPutAddress(struct + ChunkHooks.MERGE, value); }
+	public static void nmerge(long struct, long value) { memPutAddress(struct + ChunkHooks.MERGE, checkPointer(value)); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + ChunkHooks.ALLOC));
+		checkPointer(memGetAddress(struct + ChunkHooks.DALLOC));
+		checkPointer(memGetAddress(struct + ChunkHooks.COMMIT));
+		checkPointer(memGetAddress(struct + ChunkHooks.DECOMMIT));
+		checkPointer(memGetAddress(struct + ChunkHooks.PURGE));
+		checkPointer(memGetAddress(struct + ChunkHooks.SPLIT));
+		checkPointer(memGetAddress(struct + ChunkHooks.MERGE));
+	}
 
 	// -----------------------------------
 
