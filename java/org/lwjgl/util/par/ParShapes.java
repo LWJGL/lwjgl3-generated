@@ -51,7 +51,7 @@ public class ParShapes {
 	public static native void npar_shapes_free_mesh(long mesh);
 
 	/**
-	 * Frees the specified {@link ParShapeMesh} structure.
+	 * Frees the specified {@link ParShapesMesh} structure.
 	 *
 	 * @param mesh the mesh to free
 	 */
@@ -188,7 +188,7 @@ public class ParShapes {
 	public static native long npar_shapes_create_plane(int slices, int stacks);
 
 	/**
-	 * Creates a planem mesh.
+	 * Creates a plane mesh.
 	 *
 	 * @param slices the number of slices
 	 * @param stacks the number of stacks
@@ -321,7 +321,7 @@ public class ParShapes {
 
 	/**
 	 * Creates trees or vegetation by executing a recursive turtle graphics program. The program is a list of command-argument pairs. See the
-	 * <a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/util/par/{@link ParTest.java#par_shapes_L263 L263}">unit test</a> for an example.
+	 * <a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/util/par/ParTest.java#L263">unit test</a> for an example.
 	 * Texture coordinates and normals are not generated.
 	 *
 	 * @param program  the list of command-argument pairs

@@ -91,7 +91,7 @@ public class GLFWVulkan {
 	/**
 	 * Returns an array of names of Vulkan instance extensions required by GLFW for creating Vulkan surfaces for GLFW windows. If successful, the list
 	 * will always contain {@code VK_KHR_surface}, so if you don't require any additional extensions you can pass this list directly to the
-	 * {@link org}.lwjgl.vulkan.VkInstanceCreateInfo struct.
+	 * {@link VkInstanceCreateInfo} struct.
 	 * 
 	 * <p>If Vulkan is not available on the machine, this function returns {@code NULL} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check
 	 * whether Vulkan is available.</p>

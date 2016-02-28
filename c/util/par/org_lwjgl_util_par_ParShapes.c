@@ -15,7 +15,7 @@
 #define PAR_FREE(BUF) lwjgl_free(BUF)
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
-	__pragma(warning(disable : 4242 4244 4305 4711 4738))
+	__pragma(warning(disable : 4711 4738))
 #endif
 #include "par_shapes.h"
 ENABLE_WARNINGS()

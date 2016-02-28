@@ -4,7 +4,7 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #ifdef LWJGL_WINDOWS
-	__pragma(warning(disable : 4244 4710 4711))
+	__pragma(warning(disable : 4710 4711))
 #endif
 #include "common_tools.h"
 DISABLE_WARNINGS()
