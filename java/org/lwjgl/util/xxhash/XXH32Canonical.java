@@ -3,7 +3,7 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-package org.lwjgl.system.xxhash;
+package org.lwjgl.util.xxhash;
 
 import java.nio.*;
 

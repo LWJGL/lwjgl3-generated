@@ -10,5 +10,5 @@
  * <p>xxHash successfully completes the <a href="https://code.google.com/p/smhasher/wiki/SMHasher">SMHasher</a> test suite which evaluates collision,
  * dispersion and randomness qualities of hash functions.</p>
  */
-package org.lwjgl.system.xxhash;
+package org.lwjgl.util.xxhash;
 

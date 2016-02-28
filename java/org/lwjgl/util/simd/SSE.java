@@ -3,7 +3,7 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-package org.lwjgl.system.simd;
+package org.lwjgl.util.simd;
 
 import org.lwjgl.system.*;
 
