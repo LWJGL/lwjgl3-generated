@@ -16,6 +16,8 @@
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
 	__pragma(warning(disable : 4711 4738))
+#elif LWJGL_LINUX
+	#pragma GCC diagnostic ignored "-Wunused-parameter"
 #endif
 #include "par_shapes.h"
 ENABLE_WARNINGS()
