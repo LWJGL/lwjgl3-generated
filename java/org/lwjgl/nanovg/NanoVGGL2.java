@@ -37,11 +37,11 @@ public class NanoVGGL2 {
 		throw new UnsupportedOperationException();
 	}
 
-	// --- [ nvglCreateImageFromHandle ] ---
+	// --- [ nvglCreateImageFromHandleGL2 ] ---
 
-	/** JNI method for {@link #nvglCreateImageFromHandle lCreateImageFromHandle} */
+	/** JNI method for {@link #nvglCreateImageFromHandleGL2 lCreateImageFromHandleGL2} */
 	@JavadocExclude
-	public static native int nnvglCreateImageFromHandle(long ctx, int textureId, int w, int h, int flags);
+	public static native int nnvglCreateImageFromHandleGL2(long ctx, int textureId, int w, int h, int flags);
 
 	/**
 	 * Creates a NanoVG image from an OpenGL texture.
@@ -52,17 +52,17 @@ public class NanoVGGL2 {
 	 * @param h         the image height
 	 * @param flags     the image flags
 	 */
-	public static int nvglCreateImageFromHandle(long ctx, int textureId, int w, int h, int flags) {
+	public static int nvglCreateImageFromHandleGL2(long ctx, int textureId, int w, int h, int flags) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		return nnvglCreateImageFromHandle(ctx, textureId, w, h, flags);
+		return nnvglCreateImageFromHandleGL2(ctx, textureId, w, h, flags);
 	}
 
-	// --- [ nvglImageHandle ] ---
+	// --- [ nvglImageHandleGL2 ] ---
 
-	/** JNI method for {@link #nvglImageHandle lImageHandle} */
+	/** JNI method for {@link #nvglImageHandleGL2 lImageHandleGL2} */
 	@JavadocExclude
-	public static native int nnvglImageHandle(long ctx, int image);
+	public static native int nnvglImageHandleGL2(long ctx, int image);
 
 	/**
 	 * Returns the OpenGL texture id associated with a NanoVG image.
@@ -70,10 +70,10 @@ public class NanoVGGL2 {
 	 * @param ctx   the NanoVG context
 	 * @param image the image handle
 	 */
-	public static int nvglImageHandle(long ctx, int image) {
+	public static int nvglImageHandleGL2(long ctx, int image) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		return nnvglImageHandle(ctx, image);
+		return nnvglImageHandleGL2(ctx, image);
 	}
 
 	// --- [ nvgCreateGL2 ] ---
@@ -105,24 +105,6 @@ public class NanoVGGL2 {
 		nnvgDeleteGL2(ctx);
 	}
 
-	// --- [ nvgluBindFramebuffer ] ---
-
-	/** JNI method for {@link #nvgluBindFramebuffer luBindFramebuffer} */
-	@JavadocExclude
-	public static native void nnvgluBindFramebuffer(long ctx, long fb);
-
-	/**
-	 * Binds the framebuffer object associated with the specified {@link NVGLUFramebuffer}.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param fb  the framebuffer to bind
-	 */
-	public static void nvgluBindFramebuffer(long ctx, NVGLUFramebuffer fb) {
-		if ( CHECKS )
-			checkPointer(ctx);
-		nnvgluBindFramebuffer(ctx, fb == null ? NULL : fb.address());
-	}
-
 	// --- [ nvgluCreateFramebuffer ] ---
 
 	/** JNI method for {@link #nvgluCreateFramebuffer luCreateFramebuffer} */
@@ -142,6 +124,24 @@ public class NanoVGGL2 {
 			checkPointer(ctx);
 		long __result = nnvgluCreateFramebuffer(ctx, w, h, imageFlags);
 		return NVGLUFramebuffer.create(__result);
+	}
+
+	// --- [ nvgluBindFramebuffer ] ---
+
+	/** JNI method for {@link #nvgluBindFramebuffer luBindFramebuffer} */
+	@JavadocExclude
+	public static native void nnvgluBindFramebuffer(long ctx, long fb);
+
+	/**
+	 * Binds the framebuffer object associated with the specified {@link NVGLUFramebuffer}.
+	 *
+	 * @param ctx the NanoVG context
+	 * @param fb  the framebuffer to bind
+	 */
+	public static void nvgluBindFramebuffer(long ctx, NVGLUFramebuffer fb) {
+		if ( CHECKS )
+			checkPointer(ctx);
+		nnvgluBindFramebuffer(ctx, fb == null ? NULL : fb.address());
 	}
 
 	// --- [ nvgluDeleteFramebuffer ] ---

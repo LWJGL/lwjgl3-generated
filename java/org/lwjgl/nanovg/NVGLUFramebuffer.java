@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -93,47 +92,6 @@ public class NVGLUFramebuffer extends Struct {
 	/** Returns the value of the {@code image} field. */
 	public int image() { return nimage(address()); }
 
-	/** Sets the specified value to the {@code fbo} field. */
-	public NVGLUFramebuffer fbo(int value) { nfbo(address(), value); return this; }
-	/** Sets the specified value to the {@code rbo} field. */
-	public NVGLUFramebuffer rbo(int value) { nrbo(address(), value); return this; }
-	/** Sets the specified value to the {@code texture} field. */
-	public NVGLUFramebuffer texture(int value) { ntexture(address(), value); return this; }
-	/** Sets the specified value to the {@code image} field. */
-	public NVGLUFramebuffer image(int value) { nimage(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NVGLUFramebuffer set(
-		int fbo,
-		int rbo,
-		int texture,
-		int image
-	) {
-		fbo(fbo);
-		rbo(rbo);
-		texture(texture);
-		image(image);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NVGLUFramebuffer) set}. */
-	public NVGLUFramebuffer nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NVGLUFramebuffer set(NVGLUFramebuffer src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link NVGLUFramebuffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -202,15 +160,6 @@ public class NVGLUFramebuffer extends Struct {
 	/** Unsafe version of {@link #image}. */
 	public static int nimage(long struct) { return memGetInt(struct + NVGLUFramebuffer.IMAGE); }
 
-	/** Unsafe version of {@link #fbo(int) fbo}. */
-	public static void nfbo(long struct, int value) { memPutInt(struct + NVGLUFramebuffer.FBO, value); }
-	/** Unsafe version of {@link #rbo(int) rbo}. */
-	public static void nrbo(long struct, int value) { memPutInt(struct + NVGLUFramebuffer.RBO, value); }
-	/** Unsafe version of {@link #texture(int) texture}. */
-	public static void ntexture(long struct, int value) { memPutInt(struct + NVGLUFramebuffer.TEXTURE, value); }
-	/** Unsafe version of {@link #image(int) image}. */
-	public static void nimage(long struct, int value) { memPutInt(struct + NVGLUFramebuffer.IMAGE, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link NVGLUFramebuffer} structs. */
@@ -261,15 +210,6 @@ public class NVGLUFramebuffer extends Struct {
 		public int texture() { return NVGLUFramebuffer.ntexture(address()); }
 		/** Returns the value of the {@code image} field. */
 		public int image() { return NVGLUFramebuffer.nimage(address()); }
-
-		/** Sets the specified value to the {@code fbo} field. */
-		public NVGLUFramebuffer.Buffer fbo(int value) { NVGLUFramebuffer.nfbo(address(), value); return this; }
-		/** Sets the specified value to the {@code rbo} field. */
-		public NVGLUFramebuffer.Buffer rbo(int value) { NVGLUFramebuffer.nrbo(address(), value); return this; }
-		/** Sets the specified value to the {@code texture} field. */
-		public NVGLUFramebuffer.Buffer texture(int value) { NVGLUFramebuffer.ntexture(address(), value); return this; }
-		/** Sets the specified value to the {@code image} field. */
-		public NVGLUFramebuffer.Buffer image(int value) { NVGLUFramebuffer.nimage(address(), value); return this; }
 
 	}
 
