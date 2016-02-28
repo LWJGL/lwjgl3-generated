@@ -55,7 +55,7 @@ public class GLFWNativeCocoa {
 	 *
 	 * @return The <code style="font-family: monospace">CGDirectDisplayID</code> of the specified monitor, or kCGNullDirectDisplay` if an error occurred.
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static long glfwGetCocoaMonitor(long monitor) {
 		long __functionAddress = getInstance().GetCocoaMonitor;
@@ -75,7 +75,7 @@ public class GLFWNativeCocoa {
 	 *
 	 * @return The <code style="font-family: monospace">NSWindow</code> of the specified window, or nil if an error occurred.
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static long glfwGetCocoaWindow(long window) {
 		long __functionAddress = getInstance().GetCocoaWindow;

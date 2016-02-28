@@ -69,7 +69,7 @@ public class GLFWNativeWin32 {
 	 *
 	 * @return The UTF-8 encoded adapter device name (for example `\\.\DISPLAY1`) of the specified monitor, or {@code NULL} if an error occurred.
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static String glfwGetWin32Adapter(long monitor) {
 		long __result = nglfwGetWin32Adapter(monitor);
@@ -96,7 +96,7 @@ public class GLFWNativeWin32 {
 	 *
 	 * @return The UTF-8 encoded display device name (for example `\\.\DISPLAY1\Monitor0`) of the specified monitor, or {@code NULL} if an error occurred.
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static String glfwGetWin32Monitor(long monitor) {
 		long __result = nglfwGetWin32Monitor(monitor);
@@ -114,7 +114,7 @@ public class GLFWNativeWin32 {
 	 *
 	 * @return The <code style="font-family: monospace">HWND</code> of the specified window, or {@code NULL} if an error occurred.
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static long glfwGetWin32Window(long window) {
 		long __functionAddress = getInstance().GetWin32Window;

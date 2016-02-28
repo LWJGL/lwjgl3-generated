@@ -52,7 +52,7 @@ public class GLFWNativeWGL {
 	 *
 	 * @return The <code style="font-family: monospace">HGLRC</code> of the specified window, or {@code NULL} if an error occurred.
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static long glfwGetWGLContext(long window) {
 		long __functionAddress = getInstance().GetWGLContext;

@@ -52,7 +52,7 @@ public class GLFWNativeNSGL {
 	 *
 	 * @return The <code style="font-family: monospace">NSOpenGLContext</code> of the specified window, or nil if an error occurred.
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static long glfwGetNSGLContext(long window) {
 		long __functionAddress = getInstance().GetNSGLContext;

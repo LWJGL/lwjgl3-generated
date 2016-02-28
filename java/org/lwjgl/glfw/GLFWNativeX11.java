@@ -57,7 +57,7 @@ public class GLFWNativeX11 {
 	 *
 	 * @return The <code style="font-family: monospace">Display</code> used by GLFW, or {@code NULL} if an error occurred.
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static long glfwGetX11Display() {
 		long __functionAddress = getInstance().GetX11Display;
@@ -75,7 +75,7 @@ public class GLFWNativeX11 {
 	 *
 	 * @return The <code style="font-family: monospace">RRCrtc</code> of the specified monitor, or {@code None} if an error occurred.
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static long glfwGetX11Adapter(long monitor) {
 		long __functionAddress = getInstance().GetX11Adapter;
@@ -95,7 +95,7 @@ public class GLFWNativeX11 {
 	 *
 	 * @return The <code style="font-family: monospace">RROutput</code> of the specified monitor, or {@code None} if an error occurred.
 	 *
-	 * @since GLFW 3.1
+	 * @since version 3.1
 	 */
 	public static long glfwGetX11Monitor(long monitor) {
 		long __functionAddress = getInstance().GetX11Monitor;
@@ -115,7 +115,7 @@ public class GLFWNativeX11 {
 	 *
 	 * @return The <code style="font-family: monospace">Window</code> of the specified window, or {@code None} if an error occurred.
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static long glfwGetX11Window(long window) {
 		long __functionAddress = getInstance().GetX11Window;

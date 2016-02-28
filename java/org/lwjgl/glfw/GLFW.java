@@ -311,15 +311,63 @@ public class GLFW {
 	 */
 	public static final int GLFW_NO_WINDOW_CONTEXT = 0x1000A;
 
-	/** Window attributes. */
-	public static final int
-		GLFW_FOCUSED      = 0x20001,
-		GLFW_ICONIFIED    = 0x20002,
-		GLFW_RESIZABLE    = 0x20003,
-		GLFW_VISIBLE      = 0x20004,
-		GLFW_DECORATED    = 0x20005,
-		GLFW_AUTO_ICONIFY = 0x20006,
-		GLFW_FLOATING     = 0x20007;
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will be given input focus when created. This hint is ignored for full screen and
+	 * initially hidden windows.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window has input focus.</p>
+	 */
+	public static final int GLFW_FOCUSED = 0x20001;
+
+	/** {@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window is iconified, whether by the user or with {@link #glfwIconifyWindow IconifyWindow}. */
+	public static final int GLFW_ICONIFIED = 0x20002;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will be resizable <i>by the user</i>. The window will still be resizable using the
+	 * {@link #glfwSetWindowSize SetWindowSize} function. This hint is ignored for full screen windows.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window is resizable <i>by the user</i>.</p>
+	 */
+	public static final int GLFW_RESIZABLE = 0x20003;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will be initially visible. This hint is ignored for full screen windows. Windows created
+	 * hidden are completely invisible to the user until shown. This can be useful if you need to set up your window further before showing it, for
+	 * example moving it to a specific location.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window is visible. Window visibility can be controlled with {@link #glfwShowWindow ShowWindow} and {@link #glfwHideWindow HideWindow}.</p>
+	 */
+	public static final int GLFW_VISIBLE = 0x20004;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will have window decorations such as a border, a close widget, etc. An undecorated window
+	 * may still allow the user to generate close events on some platforms. This hint is ignored for full screen windows.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window has decorations such as a border, a close widget, etc.</p>
+	 */
+	public static final int GLFW_DECORATED = 0x20005;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies whether the full screen window will automatically iconify and restore the previous video mode on input focus loss. This
+	 * hint is ignored for windowed mode windows.
+	 */
+	public static final int GLFW_AUTO_ICONIFY = 0x20006;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will be floating above other regular windows, also called topmost or always-on-top. This
+	 * is intended primarily for debugging purposes and cannot be used to implement proper full screen windows. This hint is ignored for full screen
+	 * windows.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window is floating, also called topmost or always-on-top.</p>
+	 */
+	public static final int GLFW_FLOATING = 0x20007;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will be maximized when created. This hint is ignored for full screen windows.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window is maximized, whether by the user or {@link #glfwMaximizeWindow MaximizeWindow}.</p>
+	 */
+	public static final int GLFW_MAXIMIZED = 0x20008;
 
 	/** Input options. */
 	public static final int
@@ -442,8 +490,10 @@ public class GLFW {
 		GetWindowFrameSize,
 		IconifyWindow,
 		RestoreWindow,
+		MaximizeWindow,
 		ShowWindow,
 		HideWindow,
+		FocusWindow,
 		GetWindowMonitor,
 		GetWindowAttrib,
 		SetWindowUserPointer,
@@ -532,8 +582,10 @@ public class GLFW {
 		GetWindowFrameSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowFrameSize"));
 		IconifyWindow = checkFunctionAddress(provider.getFunctionAddress("glfwIconifyWindow"));
 		RestoreWindow = checkFunctionAddress(provider.getFunctionAddress("glfwRestoreWindow"));
+		MaximizeWindow = checkFunctionAddress(provider.getFunctionAddress("glfwMaximizeWindow"));
 		ShowWindow = checkFunctionAddress(provider.getFunctionAddress("glfwShowWindow"));
 		HideWindow = checkFunctionAddress(provider.getFunctionAddress("glfwHideWindow"));
+		FocusWindow = checkFunctionAddress(provider.getFunctionAddress("glfwFocusWindow"));
 		GetWindowMonitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowMonitor"));
 		GetWindowAttrib = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowAttrib"));
 		SetWindowUserPointer = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowUserPointer"));
@@ -1129,11 +1181,13 @@ public class GLFW {
 	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
 	 * <tr><th>Name</th><th>Default value</th><th>Supported values</th></tr>
+	 * <tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_RED_BITS RED_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
 	 * <tr><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
 	 * <tr><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
@@ -1670,7 +1724,7 @@ public class GLFW {
 	// --- [ glfwRestoreWindow ] ---
 
 	/**
-	 * Restores the specified window if it was previously iconified (minimized). If the window is already restored, this function does nothing.
+	 * Restores the specified window if it was previously iconified (minimized) or maximized. If the window is already restored, this function does nothing.
 	 * 
 	 * <p>If the specified window is a full screen window, the resolution chosen for the window is restored on the selected monitor.</p>
 	 * 
@@ -1682,6 +1736,26 @@ public class GLFW {
 	 */
 	public static void glfwRestoreWindow(long window) {
 		long __functionAddress = getInstance().RestoreWindow;
+		if ( CHECKS )
+			checkPointer(window);
+		invokePV(__functionAddress, window);
+	}
+
+	// --- [ glfwMaximizeWindow ] ---
+
+	/**
+	 * Maximizes the specified window if it was previously not maximized. If the window is already maximized, this function does nothing.
+	 * 
+	 * <p>If the specified window is a full screen window, this function does nothing.</p>
+	 * 
+	 * <p>This function may only be called from the main thread.</p>
+	 *
+	 * @param window the window to maximize
+	 *
+	 * @since version 3.2
+	 */
+	public static void glfwMaximizeWindow(long window) {
+		long __functionAddress = getInstance().MaximizeWindow;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
@@ -1724,6 +1798,29 @@ public class GLFW {
 		invokePV(__functionAddress, window);
 	}
 
+	// --- [ glfwFocusWindow ] ---
+
+	/**
+	 * Brings the specified window to front and sets input focus. The window should already be visible and not iconified.
+	 * 
+	 * <p>By default, both windowed and full screen mode windows are focused when initially created. Set the {@link #GLFW_FOCUSED FOCUSED} hint to disable this behavior.</p>
+	 * 
+	 * <p><b>Do not use this function</b> to steal focus from other applications unless you are certain that is what the user wants. Focus stealing can be
+	 * extremely disruptive.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window to give input focus
+	 *
+	 * @since version 3.2
+	 */
+	public static void glfwFocusWindow(long window) {
+		long __functionAddress = getInstance().FocusWindow;
+		if ( CHECKS )
+			checkPointer(window);
+		invokePV(__functionAddress, window);
+	}
+
 	// --- [ glfwGetWindowMonitor ] ---
 
 	/**
@@ -1757,7 +1854,7 @@ public class GLFW {
 	 * function should not fail as long as it is passed valid arguments and the library has been initialized.</p>
 	 *
 	 * @param window the window to query
-	 * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br>{@link #GLFW_FOCUSED FOCUSED}, {@link #GLFW_ICONIFIED ICONIFIED}, {@link #GLFW_RESIZABLE RESIZABLE}, {@link #GLFW_VISIBLE VISIBLE}, {@link #GLFW_DECORATED DECORATED}, {@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}, {@link #GLFW_FLOATING FLOATING}
+	 * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br>{@link #GLFW_FOCUSED FOCUSED}, {@link #GLFW_ICONIFIED ICONIFIED}, {@link #GLFW_RESIZABLE RESIZABLE}, {@link #GLFW_VISIBLE VISIBLE}, {@link #GLFW_DECORATED DECORATED}, {@link #GLFW_FLOATING FLOATING}, {@link #GLFW_MAXIMIZED MAXIMIZED}
 	 *
 	 * @return the value of the attribute, or zero if an error occured
 	 *
@@ -2131,9 +2228,36 @@ public class GLFW {
 	}
 
 	/**
-	 * Returns the localized name of the specified printable key.
+	 * Returns the localized name of the specified printable key. This is intended for displaying key bindings to the user.
 	 * 
-	 * <p>If the key is {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}, the scancode is used, otherwise the scancode is ignored.</p>
+	 * <p>If the key is {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}, the scancode is used instead, otherwise the scancode is ignored. If a non-printable key or (if the key is {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}) a
+	 * scancode that maps to a non-printable key is specified, this function returns {@code NULL}.</p>
+	 * 
+	 * <p>The printable keys are:</p>
+	 * 
+	 * <ul>
+	 * <li>{@link #GLFW_KEY_APOSTROPHE KEY_APOSTROPHE}</li>
+	 * <li>{@link #GLFW_KEY_COMMA KEY_COMMA}</li>
+	 * <li>{@link #GLFW_KEY_MINUS KEY_MINUS}</li>
+	 * <li>{@link #GLFW_KEY_PERIOD KEY_PERIOD}</li>
+	 * <li>{@link #GLFW_KEY_SLASH KEY_SLASH}</li>
+	 * <li>{@link #GLFW_KEY_SEMICOLON KEY_SEMICOLON}</li>
+	 * <li>{@link #GLFW_KEY_EQUAL KEY_EQUAL}</li>
+	 * <li>{@link #GLFW_KEY_LEFT_BRACKET KEY_LEFT_BRACKET}</li>
+	 * <li>{@link #GLFW_KEY_RIGHT_BRACKET KEY_RIGHT_BRACKET}</li>
+	 * <li>{@link #GLFW_KEY_BACKSLASH KEY_BACKSLASH}</li>
+	 * <li>{@link #GLFW_KEY_WORLD_1 KEY_WORLD_1}</li>
+	 * <li>{@link #GLFW_KEY_WORLD_2 KEY_WORLD_2}</li>
+	 * <li>{@link #GLFW_KEY_0 KEY_0} to {@link #GLFW_KEY_9 KEY_9}</li>
+	 * <li>{@link #GLFW_KEY_A KEY_A} to {@link #GLFW_KEY_Z KEY_Z}</li>
+	 * <li>{@link #GLFW_KEY_KP_0 KEY_KP_0} to {@link #GLFW_KEY_KP_9 KEY_KP_9}</li>
+	 * <li>{@link #GLFW_KEY_KP_DECIMAL KEY_KP_DECIMAL}</li>
+	 * <li>{@link #GLFW_KEY_KP_DIVIDE KEY_KP_DIVIDE}</li>
+	 * <li>{@link #GLFW_KEY_KP_MULTIPLY KEY_KP_MULTIPLY}</li>
+	 * <li>{@link #GLFW_KEY_KP_SUBTRACT KEY_KP_SUBTRACT}</li>
+	 * <li>{@link #GLFW_KEY_KP_ADD KEY_KP_ADD}</li>
+	 * <li>{@link #GLFW_KEY_KP_EQUAL KEY_KP_EQUAL}</li>
+	 * </ul>
 	 * 
 	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the next call to {@link #glfwGetKeyName GetKeyName}, or until the
 	 * library is terminated.</p>
@@ -2143,7 +2267,7 @@ public class GLFW {
 	 * @param key      the key to query, or {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}
 	 * @param scancode the scancode of the key to query
 	 *
-	 * @return the localized name of the key
+	 * @return the localized name of the key, or {@code NULL}
 	 *
 	 * @since version 3.2
 	 */

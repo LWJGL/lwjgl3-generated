@@ -55,7 +55,7 @@ public class GLFWNativeGLX {
 	 *
 	 * @return the {@code GLXContext} of the specified window, or {@code NULL} if an error occurred.
 	 *
-	 * @since GLFW 3.0
+	 * @since version 3.0
 	 */
 	public static long glfwGetGLXContext(long window) {
 		long __functionAddress = getInstance().GetGLXContext;
@@ -75,7 +75,7 @@ public class GLFWNativeGLX {
 	 *
 	 * @return the {@code GLXWindow} of the specified window, or {@code None} if an error occurred.
 	 *
-	 * @since GLFW 3.2
+	 * @since version 3.2
 	 */
 	public static long glfwGetGLXWindow(long window) {
 		long __functionAddress = getInstance().GetGLXWindow;

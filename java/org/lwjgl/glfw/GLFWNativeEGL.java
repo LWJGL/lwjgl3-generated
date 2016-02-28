@@ -56,6 +56,8 @@ public class GLFWNativeEGL {
 	 * <p>This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @return the {@code EGLDisplay} used by GLFW, or {@link EGL10#EGL_NO_DISPLAY} if an error occured
+	 *
+	 * @since version 3.0
 	 */
 	public static long glfwGetEGLDisplay() {
 		long __functionAddress = getInstance().GetEGLDisplay;
@@ -72,6 +74,8 @@ public class GLFWNativeEGL {
 	 * @param window a GLFW window
 	 *
 	 * @return the {@code EGLContext} of the specified window, or {@link EGL10#EGL_NO_CONTEXT} if an error occurred
+	 *
+	 * @since version 3.0
 	 */
 	public static long glfwGetEGLContext(long window) {
 		long __functionAddress = getInstance().GetEGLContext;
@@ -90,6 +94,8 @@ public class GLFWNativeEGL {
 	 * @param window 
 	 *
 	 * @return the {@code EGLSurface} of the specified window, or {@link EGL10#EGL_NO_SURFACE} if an error occurred
+	 *
+	 * @since version 3.0
 	 */
 	public static long glfwGetEGLSurface(long window) {
 		long __functionAddress = getInstance().GetEGLSurface;
