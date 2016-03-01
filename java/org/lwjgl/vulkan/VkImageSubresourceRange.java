@@ -16,21 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkImageSubresourceRange {
- *     VkImageAspectFlags aspectMask;
- *     uint32_t baseMipLevel;
- *     uint32_t levelCount;
- *     uint32_t baseArrayLayer;
- *     uint32_t layerCount;
- * }</code></pre>
+ * <pre><code>struct VkImageSubresourceRange {
+    VkImageAspectFlags aspectMask;
+    uint32_t baseMipLevel;
+    uint32_t levelCount;
+    uint32_t baseArrayLayer;
+    uint32_t layerCount;
+}</code></pre>
  */
 public class VkImageSubresourceRange extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -135,12 +133,12 @@ public class VkImageSubresourceRange extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkImageSubresourceRange} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageSubresourceRange} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkImageSubresourceRange malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkImageSubresourceRange} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageSubresourceRange} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkImageSubresourceRange calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -156,7 +154,7 @@ public class VkImageSubresourceRange extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageSubresourceRange.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageSubresourceRange.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -165,7 +163,7 @@ public class VkImageSubresourceRange extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageSubresourceRange.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageSubresourceRange.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

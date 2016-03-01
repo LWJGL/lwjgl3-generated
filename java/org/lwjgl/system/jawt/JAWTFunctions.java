@@ -44,11 +44,10 @@ public class JAWTFunctions {
 	 * rectangle. If the window the Component belongs to has a {@code CALayer} attached to it, this layer will be accessible via the {@code windowLayer}
 	 * property.</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * &#64;protocol JAWT_SurfaceLayers
-	 * 	&#64;property (readwrite, retain) CALayer *layer;
-	 * 	&#64;property (readonly) CALayer *windowLayer;
-	 * &#64;end</code></pre>
+	 * <pre><code>&#64;protocol JAWT_SurfaceLayers
+	&#64;property (readwrite, retain) CALayer *layer;
+	&#64;property (readonly) CALayer *windowLayer;
+&#64;end</code></pre>
 	 */
 	public static final int JAWT_MACOSX_USE_CALAYER = 0x10008;
 
@@ -62,15 +61,12 @@ public class JAWTFunctions {
 	static { Library.initialize(); }
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetAWT;
 
-	@JavadocExclude
 	protected JAWTFunctions() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public JAWTFunctions(FunctionProvider provider) {
 		GetAWT = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 || Platform.get() != Platform.WINDOWS ? "JAWT_GetAWT" : "_JAWT_GetAWT@8"));
 	}
@@ -99,11 +95,9 @@ public class JAWTFunctions {
 	// --- [ JAWT_GetAWT ] ---
 
 	/** JNI method for {@link #JAWT_GetAWT GetAWT} */
-	@JavadocExclude
 	public static native boolean nJAWT_GetAWT(long __functionAddress, long awt);
 
 	/** Unsafe version of {@link #JAWT_GetAWT GetAWT} */
-	@JavadocExclude
 	public static boolean nJAWT_GetAWT(long awt) {
 		long __functionAddress = getInstance().GetAWT;
 		return nJAWT_GetAWT(__functionAddress, awt);
@@ -123,7 +117,6 @@ public class JAWTFunctions {
 	// --- [ JAWT_DrawingSurface_Lock ] ---
 
 	/** Unsafe version of {@link #JAWT_DrawingSurface_Lock DrawingSurface_Lock} */
-	@JavadocExclude
 	public static int nJAWT_DrawingSurface_Lock(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -152,7 +145,6 @@ public class JAWTFunctions {
 	// --- [ JAWT_DrawingSurface_GetDrawingSurfaceInfo ] ---
 
 	/** Unsafe version of {@link #JAWT_DrawingSurface_GetDrawingSurfaceInfo DrawingSurface_GetDrawingSurfaceInfo} */
-	@JavadocExclude
 	public static long nJAWT_DrawingSurface_GetDrawingSurfaceInfo(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -180,7 +172,6 @@ public class JAWTFunctions {
 	// --- [ JAWT_DrawingSurface_FreeDrawingSurfaceInfo ] ---
 
 	/** Unsafe version of {@link #JAWT_DrawingSurface_FreeDrawingSurfaceInfo DrawingSurface_FreeDrawingSurfaceInfo} */
-	@JavadocExclude
 	public static void nJAWT_DrawingSurface_FreeDrawingSurfaceInfo(long __functionAddress, long dsi) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -200,7 +191,6 @@ public class JAWTFunctions {
 	// --- [ JAWT_DrawingSurface_Unlock ] ---
 
 	/** Unsafe version of {@link #JAWT_DrawingSurface_Unlock DrawingSurface_Unlock} */
-	@JavadocExclude
 	public static void nJAWT_DrawingSurface_Unlock(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -220,7 +210,6 @@ public class JAWTFunctions {
 	// --- [ JAWT_GetDrawingSurface ] ---
 
 	/** JNI method for {@link #JAWT_GetDrawingSurface GetDrawingSurface} */
-	@JavadocExclude
 	public static native long nJAWT_GetDrawingSurface(long __functionAddress, Object target);
 
 	/**
@@ -243,7 +232,6 @@ public class JAWTFunctions {
 	// --- [ JAWT_FreeDrawingSurface ] ---
 
 	/** Unsafe version of {@link #JAWT_FreeDrawingSurface FreeDrawingSurface} */
-	@JavadocExclude
 	public static void nJAWT_FreeDrawingSurface(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -263,7 +251,6 @@ public class JAWTFunctions {
 	// --- [ JAWT_Lock ] ---
 
 	/** JNI method for {@link #JAWT_Lock Lock} */
-	@JavadocExclude
 	public static native void nJAWT_Lock(long __functionAddress);
 
 	/**
@@ -280,7 +267,6 @@ public class JAWTFunctions {
 	// --- [ JAWT_Unlock ] ---
 
 	/** JNI method for {@link #JAWT_Unlock Unlock} */
-	@JavadocExclude
 	public static native void nJAWT_Unlock(long __functionAddress);
 
 	/**
@@ -297,7 +283,6 @@ public class JAWTFunctions {
 	// --- [ JAWT_GetComponent ] ---
 
 	/** JNI method for {@link #JAWT_GetComponent GetComponent} */
-	@JavadocExclude
 	public static native Object nJAWT_GetComponent(long __functionAddress, long platformInfo);
 
 	/**

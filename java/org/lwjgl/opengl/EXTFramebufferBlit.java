@@ -35,15 +35,12 @@ public class EXTFramebufferBlit {
 		GL_READ_FRAMEBUFFER_BINDING_EXT = 0x8CAA;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long BlitFramebufferEXT;
 
-	@JavadocExclude
 	protected EXTFramebufferBlit() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTFramebufferBlit(FunctionProvider provider) {
 		BlitFramebufferEXT = provider.getFunctionAddress("glBlitFramebufferEXT");
 	}

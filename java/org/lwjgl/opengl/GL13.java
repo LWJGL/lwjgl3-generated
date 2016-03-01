@@ -207,7 +207,6 @@ public class GL13 {
 		GL_TRANSPOSE_COLOR_MATRIX      = 0x84E6;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CompressedTexImage3D,
 		CompressedTexImage2D,
@@ -256,12 +255,10 @@ public class GL13 {
 		MultTransposeMatrixf,
 		MultTransposeMatrixd;
 
-	@JavadocExclude
 	protected GL13() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL13(FunctionProvider provider, boolean fc) {
 		CompressedTexImage3D = provider.getFunctionAddress("glCompressedTexImage3D");
 		CompressedTexImage2D = provider.getFunctionAddress("glCompressedTexImage2D");
@@ -347,7 +344,6 @@ public class GL13 {
 	// --- [ glCompressedTexImage3D ] ---
 
 	/** Unsafe version of {@link #glCompressedTexImage3D CompressedTexImage3D} */
-	@JavadocExclude
 	public static void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3D;
 		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
@@ -393,7 +389,6 @@ public class GL13 {
 	// --- [ glCompressedTexImage2D ] ---
 
 	/** Unsafe version of {@link #glCompressedTexImage2D CompressedTexImage2D} */
-	@JavadocExclude
 	public static void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage2D;
 		callIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
@@ -438,7 +433,6 @@ public class GL13 {
 	// --- [ glCompressedTexImage1D ] ---
 
 	/** Unsafe version of {@link #glCompressedTexImage1D CompressedTexImage1D} */
-	@JavadocExclude
 	public static void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage1D;
 		callIIIIIIPV(__functionAddress, target, level, internalformat, width, border, imageSize, data);
@@ -482,7 +476,6 @@ public class GL13 {
 	// --- [ glCompressedTexSubImage3D ] ---
 
 	/** Unsafe version of {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
-	@JavadocExclude
 	public static void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3D;
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
@@ -530,7 +523,6 @@ public class GL13 {
 	// --- [ glCompressedTexSubImage2D ] ---
 
 	/** Unsafe version of {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
-	@JavadocExclude
 	public static void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage2D;
 		callIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
@@ -576,7 +568,6 @@ public class GL13 {
 	// --- [ glCompressedTexSubImage1D ] ---
 
 	/** Unsafe version of {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
-	@JavadocExclude
 	public static void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage1D;
 		callIIIIIIPV(__functionAddress, target, level, xoffset, width, format, imageSize, data);
@@ -620,7 +611,6 @@ public class GL13 {
 	// --- [ glGetCompressedTexImage ] ---
 
 	/** Unsafe version of {@link #glGetCompressedTexImage GetCompressedTexImage} */
-	@JavadocExclude
 	public static void nglGetCompressedTexImage(int target, int level, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTexImage;
 		callIIPV(__functionAddress, target, level, pixels);
@@ -782,7 +772,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord1fv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord1fv MultiTexCoord1fv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord1fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1fv;
 		if ( CHECKS )
@@ -814,7 +803,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord1sv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord1sv MultiTexCoord1sv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord1sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1sv;
 		if ( CHECKS )
@@ -846,7 +834,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord1iv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord1iv MultiTexCoord1iv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord1iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1iv;
 		if ( CHECKS )
@@ -878,7 +865,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord1dv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord1dv MultiTexCoord1dv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord1dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1dv;
 		if ( CHECKS )
@@ -982,7 +968,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord2fv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord2fv MultiTexCoord2fv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord2fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2fv;
 		if ( CHECKS )
@@ -1014,7 +999,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord2sv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord2sv MultiTexCoord2sv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord2sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2sv;
 		if ( CHECKS )
@@ -1046,7 +1030,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord2iv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord2iv MultiTexCoord2iv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord2iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2iv;
 		if ( CHECKS )
@@ -1078,7 +1061,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord2dv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord2dv MultiTexCoord2dv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord2dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2dv;
 		if ( CHECKS )
@@ -1186,7 +1168,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord3fv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord3fv MultiTexCoord3fv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord3fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3fv;
 		if ( CHECKS )
@@ -1218,7 +1199,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord3sv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord3sv MultiTexCoord3sv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord3sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3sv;
 		if ( CHECKS )
@@ -1250,7 +1230,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord3iv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord3iv MultiTexCoord3iv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord3iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3iv;
 		if ( CHECKS )
@@ -1282,7 +1261,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord3dv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord3dv MultiTexCoord3dv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord3dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3dv;
 		if ( CHECKS )
@@ -1394,7 +1372,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord4fv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord4fv MultiTexCoord4fv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord4fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4fv;
 		if ( CHECKS )
@@ -1426,7 +1403,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord4sv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord4sv MultiTexCoord4sv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord4sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4sv;
 		if ( CHECKS )
@@ -1458,7 +1434,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord4iv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord4iv MultiTexCoord4iv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord4iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4iv;
 		if ( CHECKS )
@@ -1490,7 +1465,6 @@ public class GL13 {
 	// --- [ glMultiTexCoord4dv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord4dv MultiTexCoord4dv} */
-	@JavadocExclude
 	public static void nglMultiTexCoord4dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4dv;
 		if ( CHECKS )
@@ -1522,7 +1496,6 @@ public class GL13 {
 	// --- [ glLoadTransposeMatrixf ] ---
 
 	/** Unsafe version of {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
-	@JavadocExclude
 	public static void nglLoadTransposeMatrixf(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixf;
 		if ( CHECKS )
@@ -1537,7 +1510,7 @@ public class GL13 {
 	 * 
 	 * <p>The matrix is stored as 16 consecutive values, i.e. as:</p>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
+	 * <table class="lwjgl matrix">
 	 * <tr><td>a1</td><td>a2</td><td>a3</td><td>a4</td></tr>
 	 * <tr><td>a5</td><td>a6</td><td>a7</td><td>a8</td></tr>
 	 * <tr><td>a9</td><td>a10</td><td>a11</td><td>a12</td></tr>
@@ -1562,7 +1535,6 @@ public class GL13 {
 	// --- [ glLoadTransposeMatrixd ] ---
 
 	/** Unsafe version of {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
-	@JavadocExclude
 	public static void nglLoadTransposeMatrixd(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixd;
 		if ( CHECKS )
@@ -1593,7 +1565,6 @@ public class GL13 {
 	// --- [ glMultTransposeMatrixf ] ---
 
 	/** Unsafe version of {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
-	@JavadocExclude
 	public static void nglMultTransposeMatrixf(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixf;
 		if ( CHECKS )
@@ -1624,7 +1595,6 @@ public class GL13 {
 	// --- [ glMultTransposeMatrixd ] ---
 
 	/** Unsafe version of {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
-	@JavadocExclude
 	public static void nglMultTransposeMatrixd(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixd;
 		if ( CHECKS )

@@ -72,7 +72,6 @@ public class EXTSeparateShaderObjects {
 	public static final int GL_PROGRAM_PIPELINE_BINDING_EXT = 0x825A;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ActiveShaderProgramEXT,
 		BindProgramPipelineEXT,
@@ -119,12 +118,10 @@ public class EXTSeparateShaderObjects {
 		ProgramUniformMatrix3x4fvEXT,
 		ProgramUniformMatrix4x3fvEXT;
 
-	@JavadocExclude
 	protected EXTSeparateShaderObjects() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTSeparateShaderObjects(FunctionProvider provider) {
 		ActiveShaderProgramEXT = provider.getFunctionAddress("glActiveShaderProgramEXT");
 		BindProgramPipelineEXT = provider.getFunctionAddress("glBindProgramPipelineEXT");
@@ -221,7 +218,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glCreateShaderProgramvEXT ] ---
 
 	/** Unsafe version of {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
-	@JavadocExclude
 	public static int nglCreateShaderProgramvEXT(int type, int count, long strings) {
 		long __functionAddress = getInstance().CreateShaderProgramvEXT;
 		return callIIPI(__functionAddress, type, count, strings);
@@ -263,7 +259,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glDeleteProgramPipelinesEXT ] ---
 
 	/** Unsafe version of {@link #glDeleteProgramPipelinesEXT DeleteProgramPipelinesEXT} */
-	@JavadocExclude
 	public static void nglDeleteProgramPipelinesEXT(int n, long pipelines) {
 		long __functionAddress = getInstance().DeleteProgramPipelinesEXT;
 		callIPV(__functionAddress, n, pipelines);
@@ -290,7 +285,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glGenProgramPipelinesEXT ] ---
 
 	/** Unsafe version of {@link #glGenProgramPipelinesEXT GenProgramPipelinesEXT} */
-	@JavadocExclude
 	public static void nglGenProgramPipelinesEXT(int n, long pipelines) {
 		long __functionAddress = getInstance().GenProgramPipelinesEXT;
 		callIPV(__functionAddress, n, pipelines);
@@ -318,7 +312,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glGetProgramPipelineInfoLogEXT ] ---
 
 	/** Unsafe version of {@link #glGetProgramPipelineInfoLogEXT GetProgramPipelineInfoLogEXT} */
-	@JavadocExclude
 	public static void nglGetProgramPipelineInfoLogEXT(int pipeline, int bufSize, long length, long infoLog) {
 		long __functionAddress = getInstance().GetProgramPipelineInfoLogEXT;
 		callIIPPV(__functionAddress, pipeline, bufSize, length, infoLog);
@@ -361,7 +354,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glGetProgramPipelineivEXT ] ---
 
 	/** Unsafe version of {@link #glGetProgramPipelineivEXT GetProgramPipelineivEXT} */
-	@JavadocExclude
 	public static void nglGetProgramPipelineivEXT(int pipeline, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramPipelineivEXT;
 		callIIPV(__functionAddress, pipeline, pname, params);
@@ -412,7 +404,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform1fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1fvEXT ProgramUniform1fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform1fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1fvEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -439,7 +430,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform1ivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1ivEXT ProgramUniform1ivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform1ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1ivEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -466,7 +456,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform2fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2fvEXT ProgramUniform2fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform2fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2fvEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -493,7 +482,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform2ivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2ivEXT ProgramUniform2ivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform2ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2ivEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -520,7 +508,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform3fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3fvEXT ProgramUniform3fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform3fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3fvEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -547,7 +534,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform3ivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3ivEXT ProgramUniform3ivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform3ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3ivEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -574,7 +560,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform4fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4fvEXT ProgramUniform4fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform4fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4fvEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -601,7 +586,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform4ivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4ivEXT ProgramUniform4ivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform4ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4ivEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -621,7 +605,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniformMatrix2fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2fvEXT ProgramUniformMatrix2fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2fvEXT;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -641,7 +624,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniformMatrix3fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3fvEXT ProgramUniformMatrix3fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3fvEXT;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -661,7 +643,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniformMatrix4fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4fvEXT ProgramUniformMatrix4fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4fvEXT;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -723,7 +704,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform1uivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1uivEXT ProgramUniform1uivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform1uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1uivEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -743,7 +723,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform2uivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2uivEXT ProgramUniform2uivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform2uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2uivEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -763,7 +742,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform3uivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3uivEXT ProgramUniform3uivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform3uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3uivEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -783,7 +761,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform4uivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4uivEXT ProgramUniform4uivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform4uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4uivEXT;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -803,7 +780,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniformMatrix2x3fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x3fvEXT ProgramUniformMatrix2x3fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3fvEXT;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -823,7 +799,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniformMatrix3x2fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x2fvEXT ProgramUniformMatrix3x2fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2fvEXT;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -843,7 +818,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniformMatrix2x4fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x4fvEXT ProgramUniformMatrix2x4fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4fvEXT;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -863,7 +837,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniformMatrix4x2fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x2fvEXT ProgramUniformMatrix4x2fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2fvEXT;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -883,7 +856,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniformMatrix3x4fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x4fvEXT ProgramUniformMatrix3x4fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4fvEXT;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -903,7 +875,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniformMatrix4x3fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x3fvEXT ProgramUniformMatrix4x3fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3fvEXT;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);

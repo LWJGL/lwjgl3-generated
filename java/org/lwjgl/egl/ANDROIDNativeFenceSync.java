@@ -33,15 +33,12 @@ public class ANDROIDNativeFenceSync {
 		EGL_NO_NATIVE_FENCE_FD_ANDROID         = 0xFFFFFFFF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long DupNativeFenceFDANDROID;
 
-	@JavadocExclude
 	protected ANDROIDNativeFenceSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ANDROIDNativeFenceSync(FunctionProvider provider) {
 		DupNativeFenceFDANDROID = provider.getFunctionAddress("eglDupNativeFenceFDANDROID");
 	}

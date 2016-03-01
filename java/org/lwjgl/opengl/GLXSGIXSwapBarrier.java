@@ -23,17 +23,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class GLXSGIXSwapBarrier {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindSwapBarrierSGIX,
 		QueryMaxSwapBarriersSGIX;
 
-	@JavadocExclude
 	protected GLXSGIXSwapBarrier() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXSGIXSwapBarrier(FunctionProvider provider) {
 		BindSwapBarrierSGIX = provider.getFunctionAddress("glXBindSwapBarrierSGIX");
 		QueryMaxSwapBarriersSGIX = provider.getFunctionAddress("glXQueryMaxSwapBarriersSGIX");
@@ -85,7 +82,6 @@ public class GLXSGIXSwapBarrier {
 	// --- [ glXQueryMaxSwapBarriersSGIX ] ---
 
 	/** Unsafe version of {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
-	@JavadocExclude
 	public static int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max) {
 		long __functionAddress = getInstance().QueryMaxSwapBarriersSGIX;
 		if ( CHECKS )

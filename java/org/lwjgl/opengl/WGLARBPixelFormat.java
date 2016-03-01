@@ -88,18 +88,15 @@ public class WGLARBPixelFormat {
 		WGL_TYPE_COLORINDEX_ARB      = 0x202C;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetPixelFormatAttribivARB,
 		GetPixelFormatAttribfvARB,
 		ChoosePixelFormatARB;
 
-	@JavadocExclude
 	protected WGLARBPixelFormat() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLARBPixelFormat(FunctionProvider provider) {
 		GetPixelFormatAttribivARB = provider.getFunctionAddress("wglGetPixelFormatAttribivARB");
 		GetPixelFormatAttribfvARB = provider.getFunctionAddress("wglGetPixelFormatAttribfvARB");
@@ -133,7 +130,6 @@ public class WGLARBPixelFormat {
 	// --- [ wglGetPixelFormatAttribivARB ] ---
 
 	/** Unsafe version of {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} */
-	@JavadocExclude
 	public static int nwglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribivARB;
 		if ( CHECKS )
@@ -178,7 +174,6 @@ public class WGLARBPixelFormat {
 	// --- [ wglGetPixelFormatAttribfvARB ] ---
 
 	/** Unsafe version of {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB} */
-	@JavadocExclude
 	public static int nwglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribfvARB;
 		if ( CHECKS )
@@ -223,7 +218,6 @@ public class WGLARBPixelFormat {
 	// --- [ wglChoosePixelFormatARB ] ---
 
 	/** Unsafe version of {@link #wglChoosePixelFormatARB ChoosePixelFormatARB} */
-	@JavadocExclude
 	public static int nwglChoosePixelFormatARB(long hdc, long attribIList, long attribFList, int maxFormats, long formats, long numFormats) {
 		long __functionAddress = getInstance().ChoosePixelFormatARB;
 		if ( CHECKS )

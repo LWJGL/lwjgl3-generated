@@ -20,45 +20,44 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>With vertex shading tessellation, additional vertex shader special values are available:</p>
  * 
- * <pre><code style="font-family: monospace">
- *         ivec3 gl_VertexTriangleIndex; // indices of the three control
- *                                       // points for the vertex
- *         vec3 gl_BarycentricCoord;     // barycentric coordinates
- *                                       // of the vertex
- * 
- *     i o
- *       |\
- *       | \
- *       *--*
- *       |\ |\
- *       | \| \
- *       *--*--*
- *       |\ |\ |\
- *       | \| \| \
- *     j o--*--*--o k
- * 
- *     Figure 1  A Tessellated Triangle
- *     o = control point (and tessellated vertex)
- *     * = tessellated vertex
- * 
- *         ivec4 gl_VertexQuadIndex;   // indices for the four control
- *                                     // points for the vertex
- *         vec2 gl_UVCoord;            // UV coordinates of the vertex
- * 
- *     i o--*--*--o k
- *       |\ |\ |\ |
- *       | \| \| \|
- *       *--*--*--*
- *       |\ |\ |\ |
- *       | \| \| \|
- *       *--*--*--*
- *       |\ |\ |\ |
- *       | \| \| \|
- *     j o--*--*--o l
- * 
- *     Figure 2  A Tessellated Quad
- *     o = control point (and tessellated vertex)
- *     * = tessellated vertex</code></pre>
+ * <pre><code>        ivec3 gl_VertexTriangleIndex; // indices of the three control
+                                      // points for the vertex
+        vec3 gl_BarycentricCoord;     // barycentric coordinates
+                                      // of the vertex
+
+    i o
+      |\
+      | \
+      *--*
+      |\ |\
+      | \| \
+      *--*--*
+      |\ |\ |\
+      | \| \| \
+    j o--*--*--o k
+
+    Figure 1  A Tessellated Triangle
+    o = control point (and tessellated vertex)
+    * = tessellated vertex
+
+        ivec4 gl_VertexQuadIndex;   // indices for the four control
+                                    // points for the vertex
+        vec2 gl_UVCoord;            // UV coordinates of the vertex
+
+    i o--*--*--o k
+      |\ |\ |\ |
+      | \| \| \|
+      *--*--*--*
+      |\ |\ |\ |
+      | \| \| \|
+      *--*--*--*
+      |\ |\ |\ |
+      | \| \| \|
+    j o--*--*--o l
+
+    Figure 2  A Tessellated Quad
+    o = control point (and tessellated vertex)
+    * = tessellated vertex</code></pre>
  * 
  * <p>When this extension is enabled, conventional built-in attributes and user defined attributes are uninitialized. The shader writer is responsible for
  * explicitly fetching all other vertex data either from textures, uniform buffers, or vertex buffers.</p>
@@ -87,17 +86,14 @@ public class AMDVertexShaderTessellator {
 	public static final int GL_TESSELLATION_FACTOR_AMD = 0x9005;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TessellationFactorAMD,
 		TessellationModeAMD;
 
-	@JavadocExclude
 	protected AMDVertexShaderTessellator() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public AMDVertexShaderTessellator(FunctionProvider provider) {
 		TessellationFactorAMD = provider.getFunctionAddress("glTessellationFactorAMD");
 		TessellationModeAMD = provider.getFunctionAddress("glTessellationModeAMD");

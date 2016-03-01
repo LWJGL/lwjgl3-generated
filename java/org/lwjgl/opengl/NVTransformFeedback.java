@@ -102,7 +102,6 @@ public class NVTransformFeedback {
 		GL_LAYER_NV                = 0x8DAA;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BeginTransformFeedbackNV,
 		EndTransformFeedbackNV,
@@ -117,12 +116,10 @@ public class NVTransformFeedback {
 		GetTransformFeedbackVaryingNV,
 		TransformFeedbackStreamAttribsNV;
 
-	@JavadocExclude
 	protected NVTransformFeedback() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVTransformFeedback(FunctionProvider provider) {
 		BeginTransformFeedbackNV = provider.getFunctionAddress("glBeginTransformFeedbackNV");
 		EndTransformFeedbackNV = provider.getFunctionAddress("glEndTransformFeedbackNV");
@@ -181,7 +178,6 @@ public class NVTransformFeedback {
 	// --- [ glTransformFeedbackAttribsNV ] ---
 
 	/** Unsafe version of {@link #glTransformFeedbackAttribsNV TransformFeedbackAttribsNV} */
-	@JavadocExclude
 	public static void nglTransformFeedbackAttribsNV(int count, long attribs, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackAttribsNV;
 		callIPIV(__functionAddress, count, attribs, bufferMode);
@@ -222,7 +218,6 @@ public class NVTransformFeedback {
 	// --- [ glTransformFeedbackVaryingsNV ] ---
 
 	/** Unsafe version of {@link #glTransformFeedbackVaryingsNV TransformFeedbackVaryingsNV} */
-	@JavadocExclude
 	public static void nglTransformFeedbackVaryingsNV(int program, int count, long locations, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackVaryingsNV;
 		callIIPIV(__functionAddress, program, count, locations, bufferMode);
@@ -242,7 +237,6 @@ public class NVTransformFeedback {
 	// --- [ glActiveVaryingNV ] ---
 
 	/** Unsafe version of {@link #glActiveVaryingNV ActiveVaryingNV} */
-	@JavadocExclude
 	public static void nglActiveVaryingNV(int program, long name) {
 		long __functionAddress = getInstance().ActiveVaryingNV;
 		callIPV(__functionAddress, program, name);
@@ -264,7 +258,6 @@ public class NVTransformFeedback {
 	// --- [ glGetVaryingLocationNV ] ---
 
 	/** Unsafe version of {@link #glGetVaryingLocationNV GetVaryingLocationNV} */
-	@JavadocExclude
 	public static int nglGetVaryingLocationNV(int program, long name) {
 		long __functionAddress = getInstance().GetVaryingLocationNV;
 		return callIPI(__functionAddress, program, name);
@@ -286,7 +279,6 @@ public class NVTransformFeedback {
 	// --- [ glGetActiveVaryingNV ] ---
 
 	/** Unsafe version of {@link #glGetActiveVaryingNV GetActiveVaryingNV} */
-	@JavadocExclude
 	public static void nglGetActiveVaryingNV(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveVaryingNV;
 		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
@@ -315,7 +307,6 @@ public class NVTransformFeedback {
 	// --- [ glGetTransformFeedbackVaryingNV ] ---
 
 	/** Unsafe version of {@link #glGetTransformFeedbackVaryingNV GetTransformFeedbackVaryingNV} */
-	@JavadocExclude
 	public static void nglGetTransformFeedbackVaryingNV(int program, int index, long location) {
 		long __functionAddress = getInstance().GetTransformFeedbackVaryingNV;
 		callIIPV(__functionAddress, program, index, location);
@@ -345,7 +336,6 @@ public class NVTransformFeedback {
 	// --- [ glTransformFeedbackStreamAttribsNV ] ---
 
 	/** Unsafe version of {@link #glTransformFeedbackStreamAttribsNV TransformFeedbackStreamAttribsNV} */
-	@JavadocExclude
 	public static void nglTransformFeedbackStreamAttribsNV(int count, long attribs, int nbuffers, long bufstreams, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackStreamAttribsNV;
 		callIPIPIV(__functionAddress, count, attribs, nbuffers, bufstreams, bufferMode);

@@ -44,15 +44,12 @@ public class OVRMultiview {
 	public static final int GL_FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR = 0x9633;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long FramebufferTextureMultiviewOVR;
 
-	@JavadocExclude
 	protected OVRMultiview() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OVRMultiview(FunctionProvider provider) {
 		FramebufferTextureMultiviewOVR = provider.getFunctionAddress("glFramebufferTextureMultiviewOVR");
 	}

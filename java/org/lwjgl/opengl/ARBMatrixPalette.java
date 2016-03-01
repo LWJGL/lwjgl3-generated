@@ -55,7 +55,6 @@ public class ARBMatrixPalette {
 	public static final int GL_MATRIX_INDEX_ARRAY_POINTER_ARB = 0x8849;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CurrentPaletteMatrixARB,
 		MatrixIndexuivARB,
@@ -63,12 +62,10 @@ public class ARBMatrixPalette {
 		MatrixIndexusvARB,
 		MatrixIndexPointerARB;
 
-	@JavadocExclude
 	protected ARBMatrixPalette() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBMatrixPalette(FunctionProvider provider) {
 		CurrentPaletteMatrixARB = provider.getFunctionAddress("glCurrentPaletteMatrixARB");
 		MatrixIndexuivARB = provider.getFunctionAddress("glMatrixIndexuivARB");
@@ -116,7 +113,6 @@ public class ARBMatrixPalette {
 	// --- [ glMatrixIndexuivARB ] ---
 
 	/** Unsafe version of {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
-	@JavadocExclude
 	public static void nglMatrixIndexuivARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexuivARB;
 		callIPV(__functionAddress, size, indices);
@@ -142,7 +138,6 @@ public class ARBMatrixPalette {
 	// --- [ glMatrixIndexubvARB ] ---
 
 	/** Unsafe version of {@link #glMatrixIndexubvARB MatrixIndexubvARB} */
-	@JavadocExclude
 	public static void nglMatrixIndexubvARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexubvARB;
 		callIPV(__functionAddress, size, indices);
@@ -168,7 +163,6 @@ public class ARBMatrixPalette {
 	// --- [ glMatrixIndexusvARB ] ---
 
 	/** Unsafe version of {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
-	@JavadocExclude
 	public static void nglMatrixIndexusvARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexusvARB;
 		callIPV(__functionAddress, size, indices);
@@ -194,7 +188,6 @@ public class ARBMatrixPalette {
 	// --- [ glMatrixIndexPointerARB ] ---
 
 	/** Unsafe version of {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
-	@JavadocExclude
 	public static void nglMatrixIndexPointerARB(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().MatrixIndexPointerARB;
 		callIIIPV(__functionAddress, size, type, stride, pointer);

@@ -20,16 +20,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrLayerDirect {
- *     {@link OVRLayerHeader ovrLayerHeader} Header;
- *     ovrSwapTextureSet *[2] ColorTexture;
- *     {@link OVRRecti ovrRecti}[2] Viewport;
- * }</code></pre>
+ * <pre><code>struct ovrLayerDirect {
+    {@link OVRLayerHeader ovrLayerHeader} Header;
+    ovrSwapTextureSet *[2] ColorTexture;
+    {@link OVRRecti ovrRecti}[2] Viewport;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_Direct}</td></tr>
  * <tr><td>ColorTexture</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}.</td></tr>
  * <tr><td>Viewport</td><td>specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
@@ -40,7 +39,6 @@ public class OVRLayerDirect extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -135,12 +133,12 @@ public class OVRLayerDirect extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRLayerDirect} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRLayerDirect} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRLayerDirect malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRLayerDirect} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRLayerDirect} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRLayerDirect calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -156,7 +154,7 @@ public class OVRLayerDirect extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRLayerDirect.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRLayerDirect.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -165,7 +163,7 @@ public class OVRLayerDirect extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRLayerDirect.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRLayerDirect.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

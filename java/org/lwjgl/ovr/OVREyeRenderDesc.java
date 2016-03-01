@@ -13,23 +13,22 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * rendering information for each eye. Computed by either {@link OVR#ovr_GetRenderDesc} based on the specified FOV. Note that the rendering viewport is not
+ * rendering information for each eye. Computed by either {@link OVR#ovr_GetRenderDesc OVR.ovr_GetRenderDesc} based on the specified FOV. Note that the rendering viewport is not
  * included here as it can be specified separately and modified per frame by passing different viewport values in the layer structure.
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrEyeRenderDesc {
- *     ovrEyeType Eye;
- *     {@link OVRFovPort ovrFovPort} Fov;
- *     {@link OVRRecti ovrRecti} DistortedViewport;
- *     {@link OVRVector2f ovrVector2f} PixelsPerTanAngleAtCenter;
- *     {@link OVRVector3f ovrVector3f} HmdToEyeViewOffset;
- * }</code></pre>
+ * <pre><code>struct ovrEyeRenderDesc {
+    ovrEyeType Eye;
+    {@link OVRFovPort ovrFovPort} Fov;
+    {@link OVRRecti ovrRecti} DistortedViewport;
+    {@link OVRVector2f ovrVector2f} PixelsPerTanAngleAtCenter;
+    {@link OVRVector3f ovrVector3f} HmdToEyeViewOffset;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>Eye</td><td>the eye index this instance corresponds to</td></tr>
  * <tr><td>Fov</td><td>the field of view</td></tr>
  * <tr><td>DistortedViewport</td><td>distortion viewport</td></tr>
@@ -42,7 +41,6 @@ public class OVREyeRenderDesc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -102,12 +100,12 @@ public class OVREyeRenderDesc extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVREyeRenderDesc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVREyeRenderDesc} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVREyeRenderDesc malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVREyeRenderDesc} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVREyeRenderDesc} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVREyeRenderDesc calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -123,7 +121,7 @@ public class OVREyeRenderDesc extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVREyeRenderDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVREyeRenderDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -132,7 +130,7 @@ public class OVREyeRenderDesc extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVREyeRenderDesc.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVREyeRenderDesc.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

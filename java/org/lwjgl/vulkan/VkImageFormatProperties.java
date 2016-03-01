@@ -15,21 +15,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkImageFormatProperties {
- *     {@link VkExtent3D VkExtent3D} maxExtent;
- *     uint32_t maxMipLevels;
- *     uint32_t maxArrayLayers;
- *     VkSampleCountFlags sampleCounts;
- *     VkDeviceSize maxResourceSize;
- * }</code></pre>
+ * <pre><code>struct VkImageFormatProperties {
+    {@link VkExtent3D VkExtent3D} maxExtent;
+    uint32_t maxMipLevels;
+    uint32_t maxArrayLayers;
+    VkSampleCountFlags sampleCounts;
+    VkDeviceSize maxResourceSize;
+}</code></pre>
  */
 public class VkImageFormatProperties extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -89,12 +87,12 @@ public class VkImageFormatProperties extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkImageFormatProperties} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageFormatProperties} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkImageFormatProperties malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkImageFormatProperties} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageFormatProperties} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkImageFormatProperties calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -110,7 +108,7 @@ public class VkImageFormatProperties extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageFormatProperties.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageFormatProperties.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -119,7 +117,7 @@ public class VkImageFormatProperties extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageFormatProperties.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageFormatProperties.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

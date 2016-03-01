@@ -29,19 +29,16 @@ public class WGLARBBufferRegion {
 		WGL_STENCIL_BUFFER_BIT_ARB     = 0x8;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateBufferRegionARB,
 		DeleteBufferRegionARB,
 		SaveBufferRegionARB,
 		RestoreBufferRegionARB;
 
-	@JavadocExclude
 	protected WGLARBBufferRegion() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLARBBufferRegion(FunctionProvider provider) {
 		CreateBufferRegionARB = provider.getFunctionAddress("wglCreateBufferRegionARB");
 		DeleteBufferRegionARB = provider.getFunctionAddress("wglDeleteBufferRegionARB");

@@ -41,7 +41,6 @@ public class DynamicLinkLoader {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected DynamicLinkLoader() {
 		throw new UnsupportedOperationException();
 	}
@@ -49,7 +48,6 @@ public class DynamicLinkLoader {
 	// --- [ dlopen ] ---
 
 	/** JNI method for {@link #dlopen} */
-	@JavadocExclude
 	public static native long ndlopen(long filename, int mode);
 
 	/**
@@ -75,7 +73,6 @@ public class DynamicLinkLoader {
 	// --- [ dlerror ] ---
 
 	/** JNI method for {@link #dlerror} */
-	@JavadocExclude
 	public static native long ndlerror();
 
 	/**
@@ -90,7 +87,6 @@ public class DynamicLinkLoader {
 	// --- [ dlsym ] ---
 
 	/** JNI method for {@link #dlsym} */
-	@JavadocExclude
 	public static native long ndlsym(long handle, long name);
 
 	/**
@@ -121,7 +117,6 @@ public class DynamicLinkLoader {
 	// --- [ dlclose ] ---
 
 	/** JNI method for {@link #dlclose} */
-	@JavadocExclude
 	public static native int ndlclose(long handle);
 
 	/**

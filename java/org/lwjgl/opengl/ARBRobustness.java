@@ -91,7 +91,6 @@ public class ARBRobustness {
 	public static final int GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB = 0x4;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetGraphicsResetStatusARB,
 		GetnMapdvARB,
@@ -114,12 +113,10 @@ public class ARBRobustness {
 		GetnUniformuivARB,
 		GetnUniformdvARB;
 
-	@JavadocExclude
 	protected ARBRobustness() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBRobustness(FunctionProvider provider) {
 		GetGraphicsResetStatusARB = provider.getFunctionAddress("glGetGraphicsResetStatusARB");
 		GetnMapdvARB = provider.getFunctionAddress("glGetnMapdvARB");
@@ -211,7 +208,6 @@ public class ARBRobustness {
 	// --- [ glGetnMapdvARB ] ---
 
 	/** Unsafe version of {@link #glGetnMapdvARB GetnMapdvARB} */
-	@JavadocExclude
 	public static void nglGetnMapdvARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapdvARB;
 		if ( CHECKS )
@@ -249,7 +245,6 @@ public class ARBRobustness {
 	// --- [ glGetnMapfvARB ] ---
 
 	/** Unsafe version of {@link #glGetnMapfvARB GetnMapfvARB} */
-	@JavadocExclude
 	public static void nglGetnMapfvARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapfvARB;
 		if ( CHECKS )
@@ -287,7 +282,6 @@ public class ARBRobustness {
 	// --- [ glGetnMapivARB ] ---
 
 	/** Unsafe version of {@link #glGetnMapivARB GetnMapivARB} */
-	@JavadocExclude
 	public static void nglGetnMapivARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapivARB;
 		if ( CHECKS )
@@ -325,7 +319,6 @@ public class ARBRobustness {
 	// --- [ glGetnPixelMapfvARB ] ---
 
 	/** Unsafe version of {@link #glGetnPixelMapfvARB GetnPixelMapfvARB} */
-	@JavadocExclude
 	public static void nglGetnPixelMapfvARB(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapfvARB;
 		if ( CHECKS )
@@ -354,7 +347,6 @@ public class ARBRobustness {
 	// --- [ glGetnPixelMapuivARB ] ---
 
 	/** Unsafe version of {@link #glGetnPixelMapuivARB GetnPixelMapuivARB} */
-	@JavadocExclude
 	public static void nglGetnPixelMapuivARB(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapuivARB;
 		if ( CHECKS )
@@ -383,7 +375,6 @@ public class ARBRobustness {
 	// --- [ glGetnPixelMapusvARB ] ---
 
 	/** Unsafe version of {@link #glGetnPixelMapusvARB GetnPixelMapusvARB} */
-	@JavadocExclude
 	public static void nglGetnPixelMapusvARB(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapusvARB;
 		if ( CHECKS )
@@ -412,7 +403,6 @@ public class ARBRobustness {
 	// --- [ glGetnPolygonStippleARB ] ---
 
 	/** Unsafe version of {@link #glGetnPolygonStippleARB GetnPolygonStippleARB} */
-	@JavadocExclude
 	public static void nglGetnPolygonStippleARB(int bufSize, long pattern) {
 		long __functionAddress = getInstance().GetnPolygonStippleARB;
 		if ( CHECKS )
@@ -451,7 +441,6 @@ public class ARBRobustness {
 	// --- [ glGetnTexImageARB ] ---
 
 	/** Unsafe version of {@link #glGetnTexImageARB GetnTexImageARB} */
-	@JavadocExclude
 	public static void nglGetnTexImageARB(int tex, int level, int format, int type, int bufSize, long img) {
 		long __functionAddress = getInstance().GetnTexImageARB;
 		callIIIIIPV(__functionAddress, tex, level, format, type, bufSize, img);
@@ -520,7 +509,6 @@ public class ARBRobustness {
 	// --- [ glReadnPixelsARB ] ---
 
 	/** Unsafe version of {@link #glReadnPixelsARB ReadnPixelsARB} */
-	@JavadocExclude
 	public static void nglReadnPixelsARB(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
 		long __functionAddress = getInstance().ReadnPixelsARB;
 		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
@@ -584,7 +572,6 @@ public class ARBRobustness {
 	// --- [ glGetnColorTableARB ] ---
 
 	/** Unsafe version of {@link #glGetnColorTableARB GetnColorTableARB} */
-	@JavadocExclude
 	public static void nglGetnColorTableARB(int target, int format, int type, int bufSize, long table) {
 		long __functionAddress = getInstance().GetnColorTableARB;
 		if ( CHECKS )
@@ -647,7 +634,6 @@ public class ARBRobustness {
 	// --- [ glGetnConvolutionFilterARB ] ---
 
 	/** Unsafe version of {@link #glGetnConvolutionFilterARB GetnConvolutionFilterARB} */
-	@JavadocExclude
 	public static void nglGetnConvolutionFilterARB(int target, int format, int type, int bufSize, long image) {
 		long __functionAddress = getInstance().GetnConvolutionFilterARB;
 		if ( CHECKS )
@@ -689,7 +675,6 @@ public class ARBRobustness {
 	// --- [ glGetnSeparableFilterARB ] ---
 
 	/** Unsafe version of {@link #glGetnSeparableFilterARB GetnSeparableFilterARB} */
-	@JavadocExclude
 	public static void nglGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span) {
 		long __functionAddress = getInstance().GetnSeparableFilterARB;
 		if ( CHECKS )
@@ -735,7 +720,6 @@ public class ARBRobustness {
 	// --- [ glGetnHistogramARB ] ---
 
 	/** Unsafe version of {@link #glGetnHistogramARB GetnHistogramARB} */
-	@JavadocExclude
 	public static void nglGetnHistogramARB(int target, boolean reset, int format, int type, int bufSize, long values) {
 		long __functionAddress = getInstance().GetnHistogramARB;
 		if ( CHECKS )
@@ -778,7 +762,6 @@ public class ARBRobustness {
 	// --- [ glGetnMinmaxARB ] ---
 
 	/** Unsafe version of {@link #glGetnMinmaxARB GetnMinmaxARB} */
-	@JavadocExclude
 	public static void nglGetnMinmaxARB(int target, boolean reset, int format, int type, int bufSize, long values) {
 		long __functionAddress = getInstance().GetnMinmaxARB;
 		if ( CHECKS )
@@ -822,7 +805,6 @@ public class ARBRobustness {
 	// --- [ glGetnCompressedTexImageARB ] ---
 
 	/** Unsafe version of {@link #glGetnCompressedTexImageARB GetnCompressedTexImageARB} */
-	@JavadocExclude
 	public static void nglGetnCompressedTexImageARB(int target, int level, int bufSize, long img) {
 		long __functionAddress = getInstance().GetnCompressedTexImageARB;
 		if ( CHECKS )
@@ -868,7 +850,6 @@ public class ARBRobustness {
 	// --- [ glGetnUniformfvARB ] ---
 
 	/** Unsafe version of {@link #glGetnUniformfvARB GetnUniformfvARB} */
-	@JavadocExclude
 	public static void nglGetnUniformfvARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfvARB;
 		if ( CHECKS )
@@ -906,7 +887,6 @@ public class ARBRobustness {
 	// --- [ glGetnUniformivARB ] ---
 
 	/** Unsafe version of {@link #glGetnUniformivARB GetnUniformivARB} */
-	@JavadocExclude
 	public static void nglGetnUniformivARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformivARB;
 		if ( CHECKS )
@@ -944,7 +924,6 @@ public class ARBRobustness {
 	// --- [ glGetnUniformuivARB ] ---
 
 	/** Unsafe version of {@link #glGetnUniformuivARB GetnUniformuivARB} */
-	@JavadocExclude
 	public static void nglGetnUniformuivARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuivARB;
 		if ( CHECKS )
@@ -982,7 +961,6 @@ public class ARBRobustness {
 	// --- [ glGetnUniformdvARB ] ---
 
 	/** Unsafe version of {@link #glGetnUniformdvARB GetnUniformdvARB} */
-	@JavadocExclude
 	public static void nglGetnUniformdvARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformdvARB;
 		if ( CHECKS )

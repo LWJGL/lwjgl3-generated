@@ -19,24 +19,23 @@ import org.lwjgl.system.windows.User32;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct JAWT_Win32DrawingSurfaceInfo {
- *     union {
- *         HWND hwnd;
- *         HBITMAP hbitmap;
- *         void * pbits;
- *     };
- *     HDC hdc;
- *     HPALETTE hpalette;
- * }</code></pre>
+ * <pre><code>struct JAWT_Win32DrawingSurfaceInfo {
+    union {
+        HWND hwnd;
+        HBITMAP hbitmap;
+        void * pbits;
+    };
+    HDC hdc;
+    HPALETTE hpalette;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>hwnd</td><td>the native window handle</td></tr>
  * <tr><td>hbitmap</td><td>the DDB handle</td></tr>
  * <tr><td>pbits</td><td>the DIB handle</td></tr>
- * <tr><td>hdc</td><td>the device context handle. This HDC should always be used instead of the HDC returned from {@code BeginPaint()} or any calls to {@link User32#GetDC}.</td></tr>
+ * <tr><td>hdc</td><td>the device context handle. This HDC should always be used instead of the HDC returned from {@code BeginPaint()} or any calls to {@link User32#GetDC User32.GetDC}.</td></tr>
  * <tr><td>hpalette</td><td>the palette handle</td></tr>
  * </table>
  */
@@ -45,7 +44,6 @@ public class JAWTWin32DrawingSurfaceInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -111,12 +109,12 @@ public class JAWTWin32DrawingSurfaceInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link JAWTWin32DrawingSurfaceInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link JAWTWin32DrawingSurfaceInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static JAWTWin32DrawingSurfaceInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link JAWTWin32DrawingSurfaceInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link JAWTWin32DrawingSurfaceInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static JAWTWin32DrawingSurfaceInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -132,7 +130,7 @@ public class JAWTWin32DrawingSurfaceInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link JAWTWin32DrawingSurfaceInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link JAWTWin32DrawingSurfaceInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -141,7 +139,7 @@ public class JAWTWin32DrawingSurfaceInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link JAWTWin32DrawingSurfaceInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link JAWTWin32DrawingSurfaceInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

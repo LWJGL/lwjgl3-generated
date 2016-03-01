@@ -29,62 +29,55 @@ import static org.lwjgl.system.Pointer.*;
  * <p>For example consider the (very contrived and simple) example of drawing two triangles to form a quad. In the typical example you have the following
  * setup:</p>
  * 
- * <pre><code style="font-family: monospace">
- *     vertices         indices
- *    ----------        -----
- * 0 | (-1,  1) |    0 |  0  |
- * 1 | (-1, -1) |    1 |  1  |
- * 2 | ( 1, -1) |    2 |  2  |
- * 3 | ( 1,  1) |    3 |  3  |
- *    ----------     4 |  0  |
- *                   5 |  2  |
- *                      -----</code></pre>
+ * <pre><code>    vertices         indices
+   ----------        -----
+0 | (-1,  1) |    0 |  0  |
+1 | (-1, -1) |    1 |  1  |
+2 | ( 1, -1) |    2 |  2  |
+3 | ( 1,  1) |    3 |  3  |
+   ----------     4 |  0  |
+                  5 |  2  |
+                     -----</code></pre>
  * 
  * <p>which is normally rendered with the call</p>
  * 
- * <pre><code style="font-family: monospace">
- * DrawElements(TRIANGLES, 6, UNSIGNED_BYTE, &indices).</code></pre>
+ * <pre><code>DrawElements(TRIANGLES, 6, UNSIGNED_BYTE, &indices).</code></pre>
  * 
  * <p>Now consider the case where the vertices you want to draw are not at the start of a vertex array but are instead located at offset 100 into a larger
  * array:</p>
  * 
- * <pre><code style="font-family: monospace">
- *      vertices2         indices2
- *      ----------        -----
- *         ....        0 | 100 |
- * 100 | (-1,  1) |    1 | 101 |
- * 101 | (-1, -1) |    2 | 102 |
- * 102 | ( 1, -1) |    3 | 103 |
- * 103 | ( 1,  1) |    4 | 100 |
- *         ....        5 | 102 |
- *      ----------        -----</code></pre>
+ * <pre><code>     vertices2         indices2
+     ----------        -----
+        ....        0 | 100 |
+100 | (-1,  1) |    1 | 101 |
+101 | (-1, -1) |    2 | 102 |
+102 | ( 1, -1) |    3 | 103 |
+103 | ( 1,  1) |    4 | 100 |
+        ....        5 | 102 |
+     ----------        -----</code></pre>
  * 
  * <p>The typical choices for rendering this are to rebind your vertex attributes with an additional offset of 100*stride, or to create an new array of
  * indices (as indices2 in the example). However both rebinding vertex attributes and rebuilding index arrays can be quite costly activities.</p>
  * 
  * <p>With the new drawing commands introduced by this extension you can instead draw using vertices2 and the new draw call:</p>
  * 
- * <pre><code style="font-family: monospace">
- * DrawElementsBaseVertex(TRIANGLES, 6, UNSIGNED_BYTE, &indices, 100)</code></pre>
+ * <pre><code>DrawElementsBaseVertex(TRIANGLES, 6, UNSIGNED_BYTE, &indices, 100)</code></pre>
  * 
  * <p>Promoted to core in {@link GL32 OpenGL 3.2}.</p>
  */
 public class ARBDrawElementsBaseVertex {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawElementsBaseVertex,
 		DrawRangeElementsBaseVertex,
 		DrawElementsInstancedBaseVertex,
 		MultiDrawElementsBaseVertex;
 
-	@JavadocExclude
 	protected ARBDrawElementsBaseVertex() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBDrawElementsBaseVertex(FunctionProvider provider) {
 		DrawElementsBaseVertex = provider.getFunctionAddress("glDrawElementsBaseVertex");
 		DrawRangeElementsBaseVertex = provider.getFunctionAddress("glDrawRangeElementsBaseVertex");
@@ -119,7 +112,6 @@ public class ARBDrawElementsBaseVertex {
 	// --- [ glDrawElementsBaseVertex ] ---
 
 	/** Unsafe version of {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
-	@JavadocExclude
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsBaseVertex;
 		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
@@ -180,7 +172,6 @@ public class ARBDrawElementsBaseVertex {
 	// --- [ glDrawRangeElementsBaseVertex ] ---
 
 	/** Unsafe version of {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
-	@JavadocExclude
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertex;
 		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
@@ -243,7 +234,6 @@ public class ARBDrawElementsBaseVertex {
 	// --- [ glDrawElementsInstancedBaseVertex ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertex;
 		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, basevertex);
@@ -305,7 +295,6 @@ public class ARBDrawElementsBaseVertex {
 	// --- [ glMultiDrawElementsBaseVertex ] ---
 
 	/** Unsafe version of {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex} */
-	@JavadocExclude
 	public static void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex) {
 		long __functionAddress = getInstance().MultiDrawElementsBaseVertex;
 		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);

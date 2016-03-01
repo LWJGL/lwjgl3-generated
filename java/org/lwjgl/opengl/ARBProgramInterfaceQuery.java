@@ -101,7 +101,6 @@ public class ARBProgramInterfaceQuery {
 		GL_IS_PER_PATCH                         = 0x92E7;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetProgramInterfaceiv,
 		GetProgramResourceIndex,
@@ -110,12 +109,10 @@ public class ARBProgramInterfaceQuery {
 		GetProgramResourceLocation,
 		GetProgramResourceLocationIndex;
 
-	@JavadocExclude
 	protected ARBProgramInterfaceQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBProgramInterfaceQuery(FunctionProvider provider) {
 		GetProgramInterfaceiv = provider.getFunctionAddress("glGetProgramInterfaceiv");
 		GetProgramResourceIndex = provider.getFunctionAddress("glGetProgramResourceIndex");
@@ -153,7 +150,6 @@ public class ARBProgramInterfaceQuery {
 	// --- [ glGetProgramInterfaceiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
-	@JavadocExclude
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramInterfaceiv;
 		callIIIPV(__functionAddress, program, programInterface, pname, params);
@@ -191,7 +187,6 @@ public class ARBProgramInterfaceQuery {
 	// --- [ glGetProgramResourceIndex ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
-	@JavadocExclude
 	public static int nglGetProgramResourceIndex(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceIndex;
 		return callIIPI(__functionAddress, program, programInterface, name);
@@ -220,7 +215,6 @@ public class ARBProgramInterfaceQuery {
 	// --- [ glGetProgramResourceName ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceName GetProgramResourceName} */
-	@JavadocExclude
 	public static void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
 		long __functionAddress = getInstance().GetProgramResourceName;
 		callIIIIPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
@@ -273,7 +267,6 @@ public class ARBProgramInterfaceQuery {
 	// --- [ glGetProgramResourceiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceiv GetProgramResourceiv} */
-	@JavadocExclude
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = getInstance().GetProgramResourceiv;
 		callIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
@@ -320,7 +313,6 @@ public class ARBProgramInterfaceQuery {
 	// --- [ glGetProgramResourceLocation ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
-	@JavadocExclude
 	public static int nglGetProgramResourceLocation(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocation;
 		return callIIPI(__functionAddress, program, programInterface, name);
@@ -349,7 +341,6 @@ public class ARBProgramInterfaceQuery {
 	// --- [ glGetProgramResourceLocationIndex ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
-	@JavadocExclude
 	public static int nglGetProgramResourceLocationIndex(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocationIndex;
 		return callIIPI(__functionAddress, program, programInterface, name);

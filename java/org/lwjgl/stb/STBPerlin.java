@@ -18,7 +18,6 @@ public class STBPerlin {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected STBPerlin() {
 		throw new UnsupportedOperationException();
 	}

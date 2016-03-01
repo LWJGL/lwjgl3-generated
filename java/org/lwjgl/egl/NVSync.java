@@ -48,7 +48,6 @@ public class NVSync {
 		EGL_NO_SYNC_NV = 0x0L;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateFenceSyncNV,
 		DestroySyncNV,
@@ -57,12 +56,10 @@ public class NVSync {
 		SignalSyncNV,
 		GetSyncAttribNV;
 
-	@JavadocExclude
 	protected NVSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVSync(FunctionProvider provider) {
 		CreateFenceSyncNV = provider.getFunctionAddress("eglCreateFenceSyncNV");
 		DestroySyncNV = provider.getFunctionAddress("eglDestroySyncNV");
@@ -87,7 +84,6 @@ public class NVSync {
 	// --- [ eglCreateFenceSyncNV ] ---
 
 	/** Unsafe version of {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
-	@JavadocExclude
 	public static long neglCreateFenceSyncNV(long dpy, int condition, long attrib_list) {
 		long __functionAddress = getInstance().CreateFenceSyncNV;
 		if ( CHECKS )
@@ -147,7 +143,6 @@ public class NVSync {
 	// --- [ eglGetSyncAttribNV ] ---
 
 	/** Unsafe version of {@link #eglGetSyncAttribNV GetSyncAttribNV} */
-	@JavadocExclude
 	public static int neglGetSyncAttribNV(long sync, int attribute, long value) {
 		long __functionAddress = getInstance().GetSyncAttribNV;
 		if ( CHECKS )

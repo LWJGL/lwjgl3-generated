@@ -13,29 +13,27 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Packed character data, returned by {@link STBTruetype#stbtt_PackFontRange}
+ * Packed character data, returned by {@link STBTruetype#stbtt_PackFontRange STBTruetype.stbtt_PackFontRange}
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct stbtt_packedchar {
- *     unsigned short x0;
- *     unsigned short y0;
- *     unsigned short x1;
- *     unsigned short y1;
- *     float xoff;
- *     float yoff;
- *     float xadvance;
- *     float xoff2;
- *     float yoff2;
- * }</code></pre>
+ * <pre><code>struct stbtt_packedchar {
+    unsigned short x0;
+    unsigned short y0;
+    unsigned short x1;
+    unsigned short y1;
+    float xoff;
+    float yoff;
+    float xadvance;
+    float xoff2;
+    float yoff2;
+}</code></pre>
  */
 public class STBTTPackedchar extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -115,12 +113,12 @@ public class STBTTPackedchar extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link STBTTPackedchar} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBTTPackedchar} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static STBTTPackedchar malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link STBTTPackedchar} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBTTPackedchar} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static STBTTPackedchar calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -136,7 +134,7 @@ public class STBTTPackedchar extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBTTPackedchar.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBTTPackedchar.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -145,7 +143,7 @@ public class STBTTPackedchar extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBTTPackedchar.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBTTPackedchar.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

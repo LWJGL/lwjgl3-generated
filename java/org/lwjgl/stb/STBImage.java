@@ -54,14 +54,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Basic usage (see HDR discussion below for HDR usage):</p>
  * 
- * <pre><code style="font-family: monospace">
- * int x,y,n;
- * unsigned char *data = stbi_load(filename, &x, &y, &n, 0);
- * // ... process data if not NULL ...
- * // ... x = width, y = height, n = # 8-bit components per pixel ...
- * // ... replace '0' with '1'..'4' to force that many components per pixel
- * // ... but 'n' will always be the number that it would have been if you said 0
- * stbi_image_free(data)</code></pre>
+ * <pre><code>int x,y,n;
+unsigned char *data = stbi_load(filename, &x, &y, &n, 0);
+// ... process data if not NULL ...
+// ... x = width, y = height, n = # 8-bit components per pixel ...
+// ... replace '0' with '1'..'4' to force that many components per pixel
+// ... but 'n' will always be the number that it would have been if you said 0
+stbi_image_free(data)</code></pre>
  * 
  * <h3>HDR image support</h3>
  * 
@@ -69,29 +68,25 @@ import static org.lwjgl.system.MemoryUtil.*;
  * can still load any file through the existing interface; if you attempt to load an HDR file, it will be automatically remapped to LDR, assuming gamma
  * 2.2 and an arbitrary scale factor defaulting to 1; both of these constants can be reconfigured through this interface:</p>
  * 
- * <pre><code style="font-family: monospace">
- * stbi_hdr_to_ldr_gamma(2.2f);
- * stbi_hdr_to_ldr_scale(1.0f);</code></pre>
+ * <pre><code>stbi_hdr_to_ldr_gamma(2.2f);
+stbi_hdr_to_ldr_scale(1.0f);</code></pre>
  * 
  * <p>(note, do not use <em>inverse</em> constants; stbi_image will invert them appropriately).</p>
  * 
  * <p>Additionally, there is a new, parallel interface for loading files as (linear) floats to preserve the full dynamic range:</p>
  * 
- * <pre><code style="font-family: monospace">
- * float *data = stbi_loadf(filename, &x, &y, &n, 0);</code></pre>
+ * <pre><code>float *data = stbi_loadf(filename, &x, &y, &n, 0);</code></pre>
  * 
  * <p>If you load LDR images through this interface, those images will be promoted to floating point values, run through the inverse of constants
  * corresponding to the above:</p>
  * 
- * <pre><code style="font-family: monospace">
- * stbi_ldr_to_hdr_scale(1.0f);
- * stbi_ldr_to_hdr_gamma(2.2f);</code></pre>
+ * <pre><code>stbi_ldr_to_hdr_scale(1.0f);
+stbi_ldr_to_hdr_gamma(2.2f);</code></pre>
  * 
  * <p>Finally, given a filename (or an open file or memory block) containing image data, you can query for the "most appropriate" interface to use (that is,
  * whether the image is HDR or not), using:</p>
  * 
- * <pre><code style="font-family: monospace">
- * stbi_is_hdr(char *filename);</code></pre>
+ * <pre><code>stbi_is_hdr(char *filename);</code></pre>
  * 
  * <h3>iPhone PNG support</h3>
  * 
@@ -115,7 +110,6 @@ public class STBImage {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected STBImage() {
 		throw new UnsupportedOperationException();
 	}
@@ -123,7 +117,6 @@ public class STBImage {
 	// --- [ stbi_load ] ---
 
 	/** JNI method for {@link #stbi_load load} */
-	@JavadocExclude
 	public static native long nstbi_load(long filename, long x, long y, long comp, int req_comp);
 
 	/**
@@ -138,12 +131,11 @@ public class STBImage {
 	 * 
 	 * <p>An output image with N components has the following components interleaved in this order in each pixel:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * N=#comp     components
-	 *   1           grey
-	 *   2           grey, alpha
-	 *   3           red, green, blue
-	 *   4           red, green, blue, alpha</code></pre>
+	 * <pre><code>N=#comp     components
+  1           grey
+  2           grey, alpha
+  3           red, green, blue
+  4           red, green, blue, alpha</code></pre>
 	 * 
 	 * <p>If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *comp} will be unchanged. The function
 	 * {@link #stbi_failure_reason failure_reason} can be queried for an extremely brief, end-user unfriendly explanation of why the load failed.</p>
@@ -195,7 +187,6 @@ public class STBImage {
 	// --- [ stbi_load_from_memory ] ---
 
 	/** JNI method for {@link #stbi_load_from_memory load_from_memory} */
-	@JavadocExclude
 	public static native long nstbi_load_from_memory(long buffer, int len, long x, long y, long comp, int req_comp);
 
 	/**
@@ -233,7 +224,6 @@ public class STBImage {
 	// --- [ stbi_load_from_callbacks ] ---
 
 	/** JNI method for {@link #stbi_load_from_callbacks load_from_callbacks} */
-	@JavadocExclude
 	public static native long nstbi_load_from_callbacks(long clbk, long user, long x, long y, long comp, int req_comp);
 
 	/**
@@ -278,7 +268,6 @@ public class STBImage {
 	// --- [ stbi_loadf ] ---
 
 	/** JNI method for {@link #stbi_loadf loadf} */
-	@JavadocExclude
 	public static native long nstbi_loadf(long filename, long x, long y, long comp, int req_comp);
 
 	/**
@@ -329,7 +318,6 @@ public class STBImage {
 	// --- [ stbi_loadf_from_memory ] ---
 
 	/** JNI method for {@link #stbi_loadf_from_memory loadf_from_memory} */
-	@JavadocExclude
 	public static native long nstbi_loadf_from_memory(long buffer, int len, long x, long y, long comp, int req_comp);
 
 	/**
@@ -367,7 +355,6 @@ public class STBImage {
 	// --- [ stbi_loadf_from_callbacks ] ---
 
 	/** JNI method for {@link #stbi_loadf_from_callbacks loadf_from_callbacks} */
-	@JavadocExclude
 	public static native long nstbi_loadf_from_callbacks(long clbk, long user, long x, long y, long comp, int req_comp);
 
 	/**
@@ -442,7 +429,6 @@ public class STBImage {
 	// --- [ stbi_is_hdr ] ---
 
 	/** JNI method for {@link #stbi_is_hdr is_hdr} */
-	@JavadocExclude
 	public static native int nstbi_is_hdr(long filename);
 
 	/**
@@ -468,7 +454,6 @@ public class STBImage {
 	// --- [ stbi_is_hdr_from_memory ] ---
 
 	/** JNI method for {@link #stbi_is_hdr_from_memory is_hdr_from_memory} */
-	@JavadocExclude
 	public static native int nstbi_is_hdr_from_memory(long buffer, int len);
 
 	/**
@@ -491,7 +476,6 @@ public class STBImage {
 	// --- [ stbi_is_hdr_from_callbacks ] ---
 
 	/** JNI method for {@link #stbi_is_hdr_from_callbacks is_hdr_from_callbacks} */
-	@JavadocExclude
 	public static native int nstbi_is_hdr_from_callbacks(long clbk, long user);
 
 	/**
@@ -509,7 +493,6 @@ public class STBImage {
 	// --- [ stbi_failure_reason ] ---
 
 	/** JNI method for {@link #stbi_failure_reason failure_reason} */
-	@JavadocExclude
 	public static native long nstbi_failure_reason();
 
 	/** Returns a brief reason for failure. */
@@ -521,7 +504,6 @@ public class STBImage {
 	// --- [ stbi_image_free ] ---
 
 	/** JNI method for {@link #stbi_image_free image_free} */
-	@JavadocExclude
 	public static native void nstbi_image_free(long retval_from_stbi_load);
 
 	/**
@@ -536,7 +518,6 @@ public class STBImage {
 	// --- [ stbi_info ] ---
 
 	/** JNI method for {@link #stbi_info info} */
-	@JavadocExclude
 	public static native int nstbi_info(long filename, long x, long y, long comp);
 
 	/**
@@ -585,7 +566,6 @@ public class STBImage {
 	// --- [ stbi_info_from_memory ] ---
 
 	/** JNI method for {@link #stbi_info_from_memory info_from_memory} */
-	@JavadocExclude
 	public static native int nstbi_info_from_memory(long buffer, int len, long x, long y, long comp);
 
 	/**
@@ -620,7 +600,6 @@ public class STBImage {
 	// --- [ stbi_info_from_callbacks ] ---
 
 	/** JNI method for {@link #stbi_info_from_callbacks info_from_callbacks} */
-	@JavadocExclude
 	public static native int nstbi_info_from_callbacks(long clbk, long user, long x, long y, long comp);
 
 	/**
@@ -684,7 +663,6 @@ public class STBImage {
 	// --- [ stbi_zlib_decode_malloc_guesssize ] ---
 
 	/** JNI method for {@link #stbi_zlib_decode_malloc_guesssize zlib_decode_malloc_guesssize} */
-	@JavadocExclude
 	public static native long nstbi_zlib_decode_malloc_guesssize(long buffer, int len, int initial_size, long outlen);
 
 	/**
@@ -714,7 +692,6 @@ public class STBImage {
 	// --- [ stbi_zlib_decode_malloc_guesssize_headerflag ] ---
 
 	/** JNI method for {@link #stbi_zlib_decode_malloc_guesssize_headerflag zlib_decode_malloc_guesssize_headerflag} */
-	@JavadocExclude
 	public static native long nstbi_zlib_decode_malloc_guesssize_headerflag(long buffer, int len, int initial_size, long outlen, int parse_header);
 
 	/**
@@ -745,7 +722,6 @@ public class STBImage {
 	// --- [ stbi_zlib_decode_malloc ] ---
 
 	/** JNI method for {@link #stbi_zlib_decode_malloc zlib_decode_malloc} */
-	@JavadocExclude
 	public static native long nstbi_zlib_decode_malloc(long buffer, int len, long outlen);
 
 	/**
@@ -774,7 +750,6 @@ public class STBImage {
 	// --- [ stbi_zlib_decode_buffer ] ---
 
 	/** JNI method for {@link #stbi_zlib_decode_buffer zlib_decode_buffer} */
-	@JavadocExclude
 	public static native int nstbi_zlib_decode_buffer(long obuffer, int olen, long ibuffer, int ilen);
 
 	/**
@@ -801,7 +776,6 @@ public class STBImage {
 	// --- [ stbi_zlib_decode_noheader_malloc ] ---
 
 	/** JNI method for {@link #stbi_zlib_decode_noheader_malloc zlib_decode_noheader_malloc} */
-	@JavadocExclude
 	public static native long nstbi_zlib_decode_noheader_malloc(long buffer, int len, long outlen);
 
 	/**
@@ -830,7 +804,6 @@ public class STBImage {
 	// --- [ stbi_zlib_decode_noheader_buffer ] ---
 
 	/** JNI method for {@link #stbi_zlib_decode_noheader_buffer zlib_decode_noheader_buffer} */
-	@JavadocExclude
 	public static native int nstbi_zlib_decode_noheader_buffer(long obuffer, int olen, long ibuffer, int ilen);
 
 	/**

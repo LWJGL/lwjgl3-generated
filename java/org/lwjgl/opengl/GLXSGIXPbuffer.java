@@ -75,7 +75,6 @@ public class GLXSGIXPbuffer {
 		GLX_SAMPLE_BUFFERS_BIT_SGIX     = 0x100;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateGLXPbufferSGIX,
 		DestroyGLXPbufferSGIX,
@@ -83,12 +82,10 @@ public class GLXSGIXPbuffer {
 		SelectEventSGIX,
 		GetSelectedEventSGIX;
 
-	@JavadocExclude
 	protected GLXSGIXPbuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXSGIXPbuffer(FunctionProvider provider) {
 		CreateGLXPbufferSGIX = provider.getFunctionAddress("glXCreateGLXPbufferSGIX");
 		DestroyGLXPbufferSGIX = provider.getFunctionAddress("glXDestroyGLXPbufferSGIX");
@@ -124,7 +121,6 @@ public class GLXSGIXPbuffer {
 	// --- [ glXCreateGLXPbufferSGIX ] ---
 
 	/** Unsafe version of {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
-	@JavadocExclude
 	public static long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list) {
 		long __functionAddress = getInstance().CreateGLXPbufferSGIX;
 		if ( CHECKS ) {
@@ -176,7 +172,6 @@ public class GLXSGIXPbuffer {
 	// --- [ glXQueryGLXPbufferSGIX ] ---
 
 	/** Unsafe version of {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
-	@JavadocExclude
 	public static void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value) {
 		long __functionAddress = getInstance().QueryGLXPbufferSGIX;
 		if ( CHECKS ) {
@@ -228,7 +223,6 @@ public class GLXSGIXPbuffer {
 	// --- [ glXGetSelectedEventSGIX ] ---
 
 	/** Unsafe version of {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX} */
-	@JavadocExclude
 	public static void nglXGetSelectedEventSGIX(long display, long drawable, long mask) {
 		long __functionAddress = getInstance().GetSelectedEventSGIX;
 		if ( CHECKS ) {

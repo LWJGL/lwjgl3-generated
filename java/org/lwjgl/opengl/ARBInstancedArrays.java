@@ -36,17 +36,14 @@ public class ARBInstancedArrays {
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB = 0x88FE;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		VertexAttribDivisorARB,
 		VertexArrayVertexAttribDivisorEXT;
 
-	@JavadocExclude
 	protected ARBInstancedArrays() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBInstancedArrays(FunctionProvider provider) {
 		VertexAttribDivisorARB = provider.getFunctionAddress("glVertexAttribDivisorARB");
 		VertexArrayVertexAttribDivisorEXT = provider.getFunctionAddress("glVertexArrayVertexAttribDivisorEXT");
@@ -99,10 +96,9 @@ public class ARBInstancedArrays {
 	 * <p>This function was added to the extension specification in July 2013. Implemenations are allowed to expose ARB_instanced_arrays without providing this
 	 * function. The correct way to test its availability is:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * GLCapabilities caps = GL.getCapabilities();
-	 * if ( caps.GL_ARB_instanced_arrays && ARBInstancedArrays.getInstance().VertexArrayVertexAttribDivisorEXT != NULL )
-	 * 	glVertexArrayVertexAttribDivisorEXT(...); // the DSA function can now be used</code></pre>
+	 * <pre><code>GLCapabilities caps = GL.getCapabilities();
+if ( caps.GL_ARB_instanced_arrays && ARBInstancedArrays.getInstance().VertexArrayVertexAttribDivisorEXT != NULL )
+	glVertexArrayVertexAttribDivisorEXT(...); // the DSA function can now be used</code></pre>
 	 *
 	 * @param vaobj   the vertex array object
 	 * @param index   the attribute index

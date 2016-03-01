@@ -13,27 +13,25 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Baked character data, returned by {@link STBTruetype#stbtt_BakeFontBitmap}.
+ * Baked character data, returned by {@link STBTruetype#stbtt_BakeFontBitmap STBTruetype.stbtt_BakeFontBitmap}.
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct stbtt_bakedchar {
- *     unsigned short x0;
- *     unsigned short y0;
- *     unsigned short x1;
- *     unsigned short y1;
- *     float xoff;
- *     float yoff;
- *     float xadvance;
- * }</code></pre>
+ * <pre><code>struct stbtt_bakedchar {
+    unsigned short x0;
+    unsigned short y0;
+    unsigned short x1;
+    unsigned short y1;
+    float xoff;
+    float yoff;
+    float xadvance;
+}</code></pre>
  */
 public class STBTTBakedChar extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -103,12 +101,12 @@ public class STBTTBakedChar extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link STBTTBakedChar} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBTTBakedChar} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static STBTTBakedChar malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link STBTTBakedChar} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBTTBakedChar} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static STBTTBakedChar calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -124,7 +122,7 @@ public class STBTTBakedChar extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBTTBakedChar.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBTTBakedChar.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -133,7 +131,7 @@ public class STBTTBakedChar extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBTTBakedChar.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBTTBakedChar.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

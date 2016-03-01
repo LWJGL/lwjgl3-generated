@@ -32,17 +32,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class NVBindlessMultiDrawIndirect {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		MultiDrawArraysIndirectBindlessNV,
 		MultiDrawElementsIndirectBindlessNV;
 
-	@JavadocExclude
 	protected NVBindlessMultiDrawIndirect() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVBindlessMultiDrawIndirect(FunctionProvider provider) {
 		MultiDrawArraysIndirectBindlessNV = provider.getFunctionAddress("glMultiDrawArraysIndirectBindlessNV");
 		MultiDrawElementsIndirectBindlessNV = provider.getFunctionAddress("glMultiDrawElementsIndirectBindlessNV");
@@ -75,7 +72,6 @@ public class NVBindlessMultiDrawIndirect {
 	// --- [ glMultiDrawArraysIndirectBindlessNV ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysIndirectBindlessNV MultiDrawArraysIndirectBindlessNV} */
-	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectBindlessNV(int mode, long indirect, int drawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectBindlessNV;
 		callIPIIIV(__functionAddress, mode, indirect, drawCount, stride, vertexBufferCount);
@@ -85,18 +81,17 @@ public class NVBindlessMultiDrawIndirect {
 	 * Behaves similar to {@link GL43#glMultiDrawArraysIndirect MultiDrawArraysIndirect}, except that {@code indirect} is treated as an array of {@code drawCount}
 	 * DrawArraysIndirectBindlessCommandNV structures:
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * typedef struct {
-	 *   GLuint   index;
-	 *   GLuint   reserved;
-	 *   GLuint64 address;
-	 *   GLuint64 length;
-	 * } BindlessPtrNV;
-	 * 
-	 * typedef struct {
-	 *   DrawArraysIndirectCommand   cmd;
-	 *   BindlessPtrNV               vertexBuffers[];
-	 * } DrawArraysIndirectBindlessCommandNV;</code></pre>
+	 * <pre><code>typedef struct {
+  GLuint   index;
+  GLuint   reserved;
+  GLuint64 address;
+  GLuint64 length;
+} BindlessPtrNV;
+
+typedef struct {
+  DrawArraysIndirectCommand   cmd;
+  BindlessPtrNV               vertexBuffers[];
+} DrawArraysIndirectBindlessCommandNV;</code></pre>
 	 *
 	 * @param mode              the primitive mode. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param indirect          an array of DrawArraysIndirectBindlessCommandNV structures (see the extension spec for more information)
@@ -111,7 +106,6 @@ public class NVBindlessMultiDrawIndirect {
 	// --- [ glMultiDrawElementsIndirectBindlessNV ] ---
 
 	/** Unsafe version of {@link #glMultiDrawElementsIndirectBindlessNV MultiDrawElementsIndirectBindlessNV} */
-	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectBindlessNV(int mode, int type, long indirect, int drawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectBindlessNV;
 		callIIPIIIV(__functionAddress, mode, type, indirect, drawCount, stride, vertexBufferCount);
@@ -121,20 +115,19 @@ public class NVBindlessMultiDrawIndirect {
 	 * Behaves similar to {@link GL43#glMultiDrawElementsIndirect MultiDrawElementsIndirect}, except that {@code indirect} is treated as an array of {@code drawCount}
 	 * DrawElementsIndirectBindlessCommandNV structures:
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 *  typedef struct {
-	 *   GLuint   index;
-	 *   GLuint   reserved;
-	 *   GLuint64 address;
-	 *   GLuint64 length;
-	 * } BindlessPtrNV;
-	 * 
-	 * typedef struct {
-	 *   DrawElementsIndirectCommand cmd;
-	 *   GLuint                      reserved;
-	 *   BindlessPtrNV               indexBuffer;
-	 *   BindlessPtrNV               vertexBuffers[];
-	 * } DrawElementsIndirectBindlessCommandNV;</code></pre>
+	 * <pre><code> typedef struct {
+  GLuint   index;
+  GLuint   reserved;
+  GLuint64 address;
+  GLuint64 length;
+} BindlessPtrNV;
+
+typedef struct {
+  DrawElementsIndirectCommand cmd;
+  GLuint                      reserved;
+  BindlessPtrNV               indexBuffer;
+  BindlessPtrNV               vertexBuffers[];
+} DrawElementsIndirectBindlessCommandNV;</code></pre>
 	 *
 	 * @param mode              the primitive mode. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param type              the data type of the element indices. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}

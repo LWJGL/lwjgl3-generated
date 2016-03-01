@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link ALTERALiveObjectTracking#ReportLiveObjectsAltera} method. */
+/** Instances of this interface may be passed to the {@link ALTERALiveObjectTracking#ReportLiveObjectsAltera ALTERALiveObjectTracking.ReportLiveObjectsAltera} method. */
 public abstract class CLReportLiveObjectsAlteraCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -52,7 +52,7 @@ public abstract class CLReportLiveObjectsAlteraCallback extends Closure.V {
 	/**
 	 * Reports a live OpenCL API object.
 	 *
-	 * @param user_data the {@code user_data} argument specified to {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera}
+	 * @param user_data the {@code user_data} argument specified to {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera ALTERALiveObjectTracking.clReportLiveObjectsAltera}
 	 * @param obj_ptr   a pointer to the live object
 	 * @param type_name a C string corresponding to the OpenCL API object type. For example, a leaked {@code cl_mem} object will have "cl_mem" as its type string.
 	 * @param refcount  an instantaneous reference count for the object. Consider it to be immediately stale.

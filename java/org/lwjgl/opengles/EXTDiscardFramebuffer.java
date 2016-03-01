@@ -42,15 +42,12 @@ public class EXTDiscardFramebuffer {
 		GL_STENCIL_EXT = 0x1802;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long DiscardFramebufferEXT;
 
-	@JavadocExclude
 	protected EXTDiscardFramebuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDiscardFramebuffer(FunctionProvider provider) {
 		DiscardFramebufferEXT = provider.getFunctionAddress("glDiscardFramebufferEXT");
 	}
@@ -81,7 +78,6 @@ public class EXTDiscardFramebuffer {
 	// --- [ glDiscardFramebufferEXT ] ---
 
 	/** Unsafe version of {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
-	@JavadocExclude
 	public static void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().DiscardFramebufferEXT;
 		callIIPV(__functionAddress, target, numAttachments, attachments);

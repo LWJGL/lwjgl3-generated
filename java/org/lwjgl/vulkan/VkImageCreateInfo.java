@@ -16,28 +16,27 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkImageCreateInfo {
- *     VkStructureType sType;
- *     const void * pNext;
- *     VkImageCreateFlags flags;
- *     VkImageType imageType;
- *     VkFormat format;
- *     {@link VkExtent3D VkExtent3D} extent;
- *     uint32_t mipLevels;
- *     uint32_t arrayLayers;
- *     VkSampleCountFlagBits samples;
- *     VkImageTiling tiling;
- *     VkImageUsageFlags usage;
- *     VkSharingMode sharingMode;
- *     uint32_t queueFamilyIndexCount;
- *     const uint32_t * pQueueFamilyIndices;
- *     VkImageLayout initialLayout;
- * }</code></pre>
+ * <pre><code>struct VkImageCreateInfo {
+    VkStructureType sType;
+    const void * pNext;
+    VkImageCreateFlags flags;
+    VkImageType imageType;
+    VkFormat format;
+    {@link VkExtent3D VkExtent3D} extent;
+    uint32_t mipLevels;
+    uint32_t arrayLayers;
+    VkSampleCountFlagBits samples;
+    VkImageTiling tiling;
+    VkImageUsageFlags usage;
+    VkSharingMode sharingMode;
+    uint32_t queueFamilyIndexCount;
+    const uint32_t * pQueueFamilyIndices;
+    VkImageLayout initialLayout;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */
@@ -46,7 +45,6 @@ public class VkImageCreateInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -237,12 +235,12 @@ public class VkImageCreateInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkImageCreateInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkImageCreateInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkImageCreateInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkImageCreateInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -258,7 +256,7 @@ public class VkImageCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -267,7 +265,7 @@ public class VkImageCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

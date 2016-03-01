@@ -45,7 +45,6 @@ public class CoreFoundation {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected CoreFoundation() {
 		throw new UnsupportedOperationException();
 	}
@@ -93,7 +92,6 @@ public class CoreFoundation {
 	// --- [ CFRetain ] ---
 
 	/** JNI method for {@link #CFRetain} */
-	@JavadocExclude
 	public static native long nCFRetain(long cf);
 
 	/**
@@ -113,7 +111,6 @@ public class CoreFoundation {
 	// --- [ CFRelease ] ---
 
 	/** JNI method for {@link #CFRelease} */
-	@JavadocExclude
 	public static native void nCFRelease(long cf);
 
 	/**
@@ -133,7 +130,6 @@ public class CoreFoundation {
 	// --- [ CFBundleCreate ] ---
 
 	/** JNI method for {@link #CFBundleCreate} */
-	@JavadocExclude
 	public static native long nCFBundleCreate(long allocator, long bundleURL);
 
 	/**
@@ -151,7 +147,6 @@ public class CoreFoundation {
 	// --- [ CFBundleGetFunctionPointerForName ] ---
 
 	/** JNI method for {@link #CFBundleGetFunctionPointerForName} */
-	@JavadocExclude
 	public static native long nCFBundleGetFunctionPointerForName(long bundle, long functionName);
 
 	/**
@@ -171,7 +166,6 @@ public class CoreFoundation {
 	// --- [ CFStringCreateWithCString ] ---
 
 	/** JNI method for {@link #CFStringCreateWithCString} */
-	@JavadocExclude
 	public static native long nCFStringCreateWithCString(long allocator, long cStr, int encoding);
 
 	/**
@@ -188,7 +182,6 @@ public class CoreFoundation {
 	// --- [ CFStringCreateWithCStringNoCopy ] ---
 
 	/** JNI method for {@link #CFStringCreateWithCStringNoCopy} */
-	@JavadocExclude
 	public static native long nCFStringCreateWithCStringNoCopy(long allocator, long cStr, int encoding, long contentsDeallocator);
 
 	/**
@@ -208,7 +201,6 @@ public class CoreFoundation {
 	// --- [ CFURLCreateWithFileSystemPath ] ---
 
 	/** JNI method for {@link #CFURLCreateWithFileSystemPath} */
-	@JavadocExclude
 	public static native long nCFURLCreateWithFileSystemPath(long allocator, long filePath, long pathStyle, boolean isDirectory);
 
 	/**

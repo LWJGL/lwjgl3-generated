@@ -54,15 +54,12 @@ public class EXTStencilClearTag {
 		GL_STENCIL_CLEAR_TAG_VALUE_EXT = 0x88F3;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long StencilClearTagEXT;
 
-	@JavadocExclude
 	protected EXTStencilClearTag() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTStencilClearTag(FunctionProvider provider) {
 		StencilClearTagEXT = provider.getFunctionAddress("glStencilClearTagEXT");
 	}

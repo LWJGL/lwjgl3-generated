@@ -73,7 +73,6 @@ public class KHRRobustness {
 	public static final int GL_CONTEXT_LOST_KHR = 0x507;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetGraphicsResetStatusKHR,
 		ReadnPixelsKHR,
@@ -81,12 +80,10 @@ public class KHRRobustness {
 		GetnUniformivKHR,
 		GetnUniformuivKHR;
 
-	@JavadocExclude
 	protected KHRRobustness() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRRobustness(FunctionProvider provider) {
 		GetGraphicsResetStatusKHR = provider.getFunctionAddress("glGetGraphicsResetStatusKHR");
 		ReadnPixelsKHR = provider.getFunctionAddress("glReadnPixelsKHR");
@@ -163,7 +160,6 @@ public class KHRRobustness {
 	// --- [ glReadnPixelsKHR ] ---
 
 	/** Unsafe version of {@link #glReadnPixelsKHR ReadnPixelsKHR} */
-	@JavadocExclude
 	public static void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().ReadnPixelsKHR;
 		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
@@ -227,7 +223,6 @@ public class KHRRobustness {
 	// --- [ glGetnUniformfvKHR ] ---
 
 	/** Unsafe version of {@link #glGetnUniformfvKHR GetnUniformfvKHR} */
-	@JavadocExclude
 	public static void nglGetnUniformfvKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfvKHR;
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -263,7 +258,6 @@ public class KHRRobustness {
 	// --- [ glGetnUniformivKHR ] ---
 
 	/** Unsafe version of {@link #glGetnUniformivKHR GetnUniformivKHR} */
-	@JavadocExclude
 	public static void nglGetnUniformivKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformivKHR;
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -299,7 +293,6 @@ public class KHRRobustness {
 	// --- [ glGetnUniformuivKHR ] ---
 
 	/** Unsafe version of {@link #glGetnUniformuivKHR GetnUniformuivKHR} */
-	@JavadocExclude
 	public static void nglGetnUniformuivKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuivKHR;
 		callIIIPV(__functionAddress, program, location, bufSize, params);

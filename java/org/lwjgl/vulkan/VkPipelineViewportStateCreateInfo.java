@@ -16,20 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkPipelineViewportStateCreateInfo {
- *     VkStructureType sType;
- *     const void * pNext;
- *     VkPipelineViewportStateCreateFlags flags;
- *     uint32_t viewportCount;
- *     const VkViewport * pViewports;
- *     uint32_t scissorCount;
- *     const VkRect2D * pScissors;
- * }</code></pre>
+ * <pre><code>struct VkPipelineViewportStateCreateInfo {
+    VkStructureType sType;
+    const void * pNext;
+    VkPipelineViewportStateCreateFlags flags;
+    uint32_t viewportCount;
+    const VkViewport * pViewports;
+    uint32_t scissorCount;
+    const VkRect2D * pScissors;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */
@@ -38,7 +37,6 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -161,12 +159,12 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkPipelineViewportStateCreateInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPipelineViewportStateCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkPipelineViewportStateCreateInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkPipelineViewportStateCreateInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPipelineViewportStateCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkPipelineViewportStateCreateInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -182,7 +180,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPipelineViewportStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPipelineViewportStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -191,7 +189,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPipelineViewportStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPipelineViewportStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

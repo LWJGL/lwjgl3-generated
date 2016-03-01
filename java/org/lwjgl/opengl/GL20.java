@@ -174,7 +174,6 @@ public class GL20 {
 		GL_STENCIL_BACK_WRITEMASK       = 0x8CA5;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateProgram,
 		DeleteProgram,
@@ -270,12 +269,10 @@ public class GL20 {
 		StencilFuncSeparate,
 		StencilMaskSeparate;
 
-	@JavadocExclude
 	protected GL20() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL20(FunctionProvider provider) {
 		CreateProgram = provider.getFunctionAddress("glCreateProgram");
 		DeleteProgram = provider.getFunctionAddress("glDeleteProgram");
@@ -539,7 +536,6 @@ Creates a program object.
 	// --- [ glShaderSource ] ---
 
 	/** Unsafe version of {@link #glShaderSource ShaderSource} */
-	@JavadocExclude
 	public static void nglShaderSource(int shader, int count, long strings, long length) {
 		long __functionAddress = getInstance().ShaderSource;
 		callIIPPV(__functionAddress, shader, count, strings, length);
@@ -788,7 +784,6 @@ Creates a program object.
 	// --- [ glUniform1fv ] ---
 
 	/** Unsafe version of {@link #glUniform1fv Uniform1fv} */
-	@JavadocExclude
 	public static void nglUniform1fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1fv;
 		callIIPV(__functionAddress, location, count, value);
@@ -817,7 +812,6 @@ Creates a program object.
 	// --- [ glUniform2fv ] ---
 
 	/** Unsafe version of {@link #glUniform2fv Uniform2fv} */
-	@JavadocExclude
 	public static void nglUniform2fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2fv;
 		callIIPV(__functionAddress, location, count, value);
@@ -846,7 +840,6 @@ Creates a program object.
 	// --- [ glUniform3fv ] ---
 
 	/** Unsafe version of {@link #glUniform3fv Uniform3fv} */
-	@JavadocExclude
 	public static void nglUniform3fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3fv;
 		callIIPV(__functionAddress, location, count, value);
@@ -875,7 +868,6 @@ Creates a program object.
 	// --- [ glUniform4fv ] ---
 
 	/** Unsafe version of {@link #glUniform4fv Uniform4fv} */
-	@JavadocExclude
 	public static void nglUniform4fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4fv;
 		callIIPV(__functionAddress, location, count, value);
@@ -904,7 +896,6 @@ Creates a program object.
 	// --- [ glUniform1iv ] ---
 
 	/** Unsafe version of {@link #glUniform1iv Uniform1iv} */
-	@JavadocExclude
 	public static void nglUniform1iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1iv;
 		callIIPV(__functionAddress, location, count, value);
@@ -933,7 +924,6 @@ Creates a program object.
 	// --- [ glUniform2iv ] ---
 
 	/** Unsafe version of {@link #glUniform2iv Uniform2iv} */
-	@JavadocExclude
 	public static void nglUniform2iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2iv;
 		callIIPV(__functionAddress, location, count, value);
@@ -962,7 +952,6 @@ Creates a program object.
 	// --- [ glUniform3iv ] ---
 
 	/** Unsafe version of {@link #glUniform3iv Uniform3iv} */
-	@JavadocExclude
 	public static void nglUniform3iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3iv;
 		callIIPV(__functionAddress, location, count, value);
@@ -991,7 +980,6 @@ Creates a program object.
 	// --- [ glUniform4iv ] ---
 
 	/** Unsafe version of {@link #glUniform4iv Uniform4iv} */
-	@JavadocExclude
 	public static void nglUniform4iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4iv;
 		callIIPV(__functionAddress, location, count, value);
@@ -1020,7 +1008,6 @@ Creates a program object.
 	// --- [ glUniformMatrix2fv ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix2fv UniformMatrix2fv} */
-	@JavadocExclude
 	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2fv;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -1050,7 +1037,6 @@ Creates a program object.
 	// --- [ glUniformMatrix3fv ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix3fv UniformMatrix3fv} */
-	@JavadocExclude
 	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3fv;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -1080,7 +1066,6 @@ Creates a program object.
 	// --- [ glUniformMatrix4fv ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix4fv UniformMatrix4fv} */
-	@JavadocExclude
 	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4fv;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -1110,7 +1095,6 @@ Creates a program object.
 	// --- [ glGetShaderiv ] ---
 
 	/** Unsafe version of {@link #glGetShaderiv GetShaderiv} */
-	@JavadocExclude
 	public static void nglGetShaderiv(int shader, int pname, long params) {
 		long __functionAddress = getInstance().GetShaderiv;
 		callIIPV(__functionAddress, shader, pname, params);
@@ -1149,7 +1133,6 @@ Creates a program object.
 	// --- [ glGetProgramiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramiv GetProgramiv} */
-	@JavadocExclude
 	public static void nglGetProgramiv(int program, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramiv;
 		callIIPV(__functionAddress, program, pname, params);
@@ -1188,7 +1171,6 @@ Creates a program object.
 	// --- [ glGetShaderInfoLog ] ---
 
 	/** Unsafe version of {@link #glGetShaderInfoLog GetShaderInfoLog} */
-	@JavadocExclude
 	public static void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog) {
 		long __functionAddress = getInstance().GetShaderInfoLog;
 		callIIPPV(__functionAddress, shader, maxLength, length, infoLog);
@@ -1241,7 +1223,6 @@ Creates a program object.
 	// --- [ glGetProgramInfoLog ] ---
 
 	/** Unsafe version of {@link #glGetProgramInfoLog GetProgramInfoLog} */
-	@JavadocExclude
 	public static void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog) {
 		long __functionAddress = getInstance().GetProgramInfoLog;
 		callIIPPV(__functionAddress, program, maxLength, length, infoLog);
@@ -1294,7 +1275,6 @@ Creates a program object.
 	// --- [ glGetAttachedShaders ] ---
 
 	/** Unsafe version of {@link #glGetAttachedShaders GetAttachedShaders} */
-	@JavadocExclude
 	public static void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
 		long __functionAddress = getInstance().GetAttachedShaders;
 		callIIPPV(__functionAddress, program, maxCount, count, shaders);
@@ -1349,7 +1329,6 @@ Creates a program object.
 	// --- [ glGetUniformLocation ] ---
 
 	/** Unsafe version of {@link #glGetUniformLocation GetUniformLocation} */
-	@JavadocExclude
 	public static int nglGetUniformLocation(int program, long name) {
 		long __functionAddress = getInstance().GetUniformLocation;
 		return callIPI(__functionAddress, program, name);
@@ -1379,7 +1358,6 @@ Creates a program object.
 	// --- [ glGetActiveUniform ] ---
 
 	/** Unsafe version of {@link #glGetActiveUniform GetActiveUniform} */
-	@JavadocExclude
 	public static void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveUniform;
 		callIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
@@ -1448,7 +1426,6 @@ Creates a program object.
 	// --- [ glGetUniformfv ] ---
 
 	/** Unsafe version of {@link #glGetUniformfv GetUniformfv} */
-	@JavadocExclude
 	public static void nglGetUniformfv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformfv;
 		callIIPV(__functionAddress, program, location, params);
@@ -1487,7 +1464,6 @@ Creates a program object.
 	// --- [ glGetUniformiv ] ---
 
 	/** Unsafe version of {@link #glGetUniformiv GetUniformiv} */
-	@JavadocExclude
 	public static void nglGetUniformiv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformiv;
 		callIIPV(__functionAddress, program, location, params);
@@ -1526,7 +1502,6 @@ Creates a program object.
 	// --- [ glGetShaderSource ] ---
 
 	/** Unsafe version of {@link #glGetShaderSource GetShaderSource} */
-	@JavadocExclude
 	public static void nglGetShaderSource(int shader, int maxLength, long length, long source) {
 		long __functionAddress = getInstance().GetShaderSource;
 		callIIPPV(__functionAddress, shader, maxLength, length, source);
@@ -1795,7 +1770,6 @@ Creates a program object.
 	// --- [ glVertexAttrib1fv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib1fv VertexAttrib1fv} */
-	@JavadocExclude
 	public static void nglVertexAttrib1fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1fv;
 		callIPV(__functionAddress, index, v);
@@ -1825,7 +1799,6 @@ Creates a program object.
 	// --- [ glVertexAttrib1sv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib1sv VertexAttrib1sv} */
-	@JavadocExclude
 	public static void nglVertexAttrib1sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1sv;
 		callIPV(__functionAddress, index, v);
@@ -1855,7 +1828,6 @@ Creates a program object.
 	// --- [ glVertexAttrib1dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib1dv VertexAttrib1dv} */
-	@JavadocExclude
 	public static void nglVertexAttrib1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1dv;
 		callIPV(__functionAddress, index, v);
@@ -1885,7 +1857,6 @@ Creates a program object.
 	// --- [ glVertexAttrib2fv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib2fv VertexAttrib2fv} */
-	@JavadocExclude
 	public static void nglVertexAttrib2fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2fv;
 		callIPV(__functionAddress, index, v);
@@ -1915,7 +1886,6 @@ Creates a program object.
 	// --- [ glVertexAttrib2sv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib2sv VertexAttrib2sv} */
-	@JavadocExclude
 	public static void nglVertexAttrib2sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2sv;
 		callIPV(__functionAddress, index, v);
@@ -1945,7 +1915,6 @@ Creates a program object.
 	// --- [ glVertexAttrib2dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib2dv VertexAttrib2dv} */
-	@JavadocExclude
 	public static void nglVertexAttrib2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2dv;
 		callIPV(__functionAddress, index, v);
@@ -1975,7 +1944,6 @@ Creates a program object.
 	// --- [ glVertexAttrib3fv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib3fv VertexAttrib3fv} */
-	@JavadocExclude
 	public static void nglVertexAttrib3fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3fv;
 		callIPV(__functionAddress, index, v);
@@ -2005,7 +1973,6 @@ Creates a program object.
 	// --- [ glVertexAttrib3sv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib3sv VertexAttrib3sv} */
-	@JavadocExclude
 	public static void nglVertexAttrib3sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3sv;
 		callIPV(__functionAddress, index, v);
@@ -2035,7 +2002,6 @@ Creates a program object.
 	// --- [ glVertexAttrib3dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib3dv VertexAttrib3dv} */
-	@JavadocExclude
 	public static void nglVertexAttrib3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3dv;
 		callIPV(__functionAddress, index, v);
@@ -2065,7 +2031,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4fv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4fv VertexAttrib4fv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4fv;
 		callIPV(__functionAddress, index, v);
@@ -2095,7 +2060,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4sv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4sv VertexAttrib4sv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4sv;
 		callIPV(__functionAddress, index, v);
@@ -2125,7 +2089,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4dv VertexAttrib4dv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4dv;
 		callIPV(__functionAddress, index, v);
@@ -2155,7 +2118,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4iv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4iv VertexAttrib4iv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4iv;
 		callIPV(__functionAddress, index, v);
@@ -2185,7 +2147,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4bv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4bv VertexAttrib4bv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4bv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4bv;
 		callIPV(__functionAddress, index, v);
@@ -2208,7 +2169,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4ubv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4ubv VertexAttrib4ubv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4ubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4ubv;
 		callIPV(__functionAddress, index, v);
@@ -2231,7 +2191,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4usv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4usv VertexAttrib4usv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4usv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4usv;
 		callIPV(__functionAddress, index, v);
@@ -2261,7 +2220,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4uiv;
 		callIPV(__functionAddress, index, v);
@@ -2291,7 +2249,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4Nbv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4Nbv VertexAttrib4Nbv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4Nbv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nbv;
 		callIPV(__functionAddress, index, v);
@@ -2314,7 +2271,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4Nsv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4Nsv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nsv;
 		callIPV(__functionAddress, index, v);
@@ -2344,7 +2300,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4Niv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4Niv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Niv;
 		callIPV(__functionAddress, index, v);
@@ -2374,7 +2329,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4Nubv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4Nubv VertexAttrib4Nubv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4Nubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nubv;
 		callIPV(__functionAddress, index, v);
@@ -2397,7 +2351,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4Nusv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4Nusv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nusv;
 		callIPV(__functionAddress, index, v);
@@ -2427,7 +2380,6 @@ Creates a program object.
 	// --- [ glVertexAttrib4Nuiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
-	@JavadocExclude
 	public static void nglVertexAttrib4Nuiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nuiv;
 		callIPV(__functionAddress, index, v);
@@ -2457,7 +2409,6 @@ Creates a program object.
 	// --- [ glVertexAttribPointer ] ---
 
 	/** Unsafe version of {@link #glVertexAttribPointer VertexAttribPointer} */
-	@JavadocExclude
 	public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribPointer;
 		callIIIZIPV(__functionAddress, index, size, type, normalized, stride, pointer);
@@ -2542,7 +2493,6 @@ Creates a program object.
 	// --- [ glBindAttribLocation ] ---
 
 	/** Unsafe version of {@link #glBindAttribLocation BindAttribLocation} */
-	@JavadocExclude
 	public static void nglBindAttribLocation(int program, int index, long name) {
 		long __functionAddress = getInstance().BindAttribLocation;
 		callIIPV(__functionAddress, program, index, name);
@@ -2573,7 +2523,6 @@ Creates a program object.
 	// --- [ glGetActiveAttrib ] ---
 
 	/** Unsafe version of {@link #glGetActiveAttrib GetActiveAttrib} */
-	@JavadocExclude
 	public static void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveAttrib;
 		callIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
@@ -2642,7 +2591,6 @@ Creates a program object.
 	// --- [ glGetAttribLocation ] ---
 
 	/** Unsafe version of {@link #glGetAttribLocation GetAttribLocation} */
-	@JavadocExclude
 	public static int nglGetAttribLocation(int program, long name) {
 		long __functionAddress = getInstance().GetAttribLocation;
 		return callIPI(__functionAddress, program, name);
@@ -2672,7 +2620,6 @@ Creates a program object.
 	// --- [ glGetVertexAttribiv ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribiv GetVertexAttribiv} */
-	@JavadocExclude
 	public static void nglGetVertexAttribiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribiv;
 		callIIPV(__functionAddress, index, pname, params);
@@ -2711,7 +2658,6 @@ Creates a program object.
 	// --- [ glGetVertexAttribfv ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribfv GetVertexAttribfv} */
-	@JavadocExclude
 	public static void nglGetVertexAttribfv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribfv;
 		callIIPV(__functionAddress, index, pname, params);
@@ -2742,7 +2688,6 @@ Creates a program object.
 	// --- [ glGetVertexAttribdv ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribdv GetVertexAttribdv} */
-	@JavadocExclude
 	public static void nglGetVertexAttribdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribdv;
 		callIIPV(__functionAddress, index, pname, params);
@@ -2773,7 +2718,6 @@ Creates a program object.
 	// --- [ glGetVertexAttribPointerv ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
-	@JavadocExclude
 	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
 		long __functionAddress = getInstance().GetVertexAttribPointerv;
 		callIIPV(__functionAddress, index, pname, pointer);
@@ -2812,7 +2756,6 @@ Creates a program object.
 	// --- [ glDrawBuffers ] ---
 
 	/** Unsafe version of {@link #glDrawBuffers DrawBuffers} */
-	@JavadocExclude
 	public static void nglDrawBuffers(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffers;
 		callIPV(__functionAddress, n, bufs);

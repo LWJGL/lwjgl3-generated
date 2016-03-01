@@ -39,15 +39,12 @@ public class NVFramebufferMultisampleCoverage {
 		GL_MULTISAMPLE_COVERAGE_MODES_NV     = 0x8E12;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long RenderbufferStorageMultisampleCoverageNV;
 
-	@JavadocExclude
 	protected NVFramebufferMultisampleCoverage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVFramebufferMultisampleCoverage(FunctionProvider provider) {
 		RenderbufferStorageMultisampleCoverageNV = provider.getFunctionAddress("glRenderbufferStorageMultisampleCoverageNV");
 	}

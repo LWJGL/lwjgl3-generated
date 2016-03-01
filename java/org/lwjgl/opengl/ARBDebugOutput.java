@@ -136,19 +136,16 @@ public class ARBDebugOutput {
 		GL_DEBUG_SEVERITY_LOW_ARB    = 0x9148;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DebugMessageControlARB,
 		DebugMessageInsertARB,
 		DebugMessageCallbackARB,
 		GetDebugMessageLogARB;
 
-	@JavadocExclude
 	protected ARBDebugOutput() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBDebugOutput(FunctionProvider provider) {
 		DebugMessageControlARB = provider.getFunctionAddress("glDebugMessageControlARB");
 		DebugMessageInsertARB = provider.getFunctionAddress("glDebugMessageInsertARB");
@@ -183,7 +180,6 @@ public class ARBDebugOutput {
 	// --- [ glDebugMessageControlARB ] ---
 
 	/** Unsafe version of {@link #glDebugMessageControlARB DebugMessageControlARB} */
-	@JavadocExclude
 	public static void nglDebugMessageControlARB(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControlARB;
 		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
@@ -238,7 +234,6 @@ public class ARBDebugOutput {
 	// --- [ glDebugMessageInsertARB ] ---
 
 	/** Unsafe version of {@link #glDebugMessageInsertARB DebugMessageInsertARB} */
-	@JavadocExclude
 	public static void nglDebugMessageInsertARB(int source, int type, int id, int severity, int length, long buf) {
 		long __functionAddress = getInstance().DebugMessageInsertARB;
 		callIIIIIPV(__functionAddress, source, type, id, severity, length, buf);
@@ -325,7 +320,6 @@ public class ARBDebugOutput {
 	// --- [ glGetDebugMessageLogARB ] ---
 
 	/** Unsafe version of {@link #glGetDebugMessageLogARB GetDebugMessageLogARB} */
-	@JavadocExclude
 	public static int nglGetDebugMessageLogARB(int count, int bufSize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLogARB;
 		return callIIPPPPPPI(__functionAddress, count, bufSize, sources, types, ids, severities, lengths, messageLog);

@@ -17,7 +17,6 @@ public class JEmacros {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected JEmacros() {
 		throw new UnsupportedOperationException();
 	}
@@ -25,7 +24,6 @@ public class JEmacros {
 	// --- [ JEMALLOC_VERSION ] ---
 
 	/** JNI method for {@link #JEMALLOC_VERSION} */
-	@JavadocExclude
 	public static native long nJEMALLOC_VERSION();
 
 	/** Returns the version string. */
@@ -57,7 +55,6 @@ public class JEmacros {
 	// --- [ JEMALLOC_VERSION_GID ] ---
 
 	/** JNI method for {@link #JEMALLOC_VERSION_GID} */
-	@JavadocExclude
 	public static native long nJEMALLOC_VERSION_GID();
 
 	/** Returns the globally unique identifier (git commit hash). */

@@ -394,7 +394,6 @@ public class X11 {
 		GCLastBit           = 0x16;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		__XOpenDisplay,
 		__XDefaultScreen,
@@ -405,12 +404,10 @@ public class X11 {
 		__XDestroyWindow,
 		__XFree;
 
-	@JavadocExclude
 	protected X11() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public X11(FunctionProvider provider) {
 		__XOpenDisplay = checkFunctionAddress(provider.getFunctionAddress("XOpenDisplay"));
 		__XDefaultScreen = checkFunctionAddress(provider.getFunctionAddress("XDefaultScreen"));
@@ -446,7 +443,6 @@ public class X11 {
 	// --- [ XOpenDisplay ] ---
 
 	/** Unsafe version of {@link #XOpenDisplay} */
-	@JavadocExclude
 	public static long nXOpenDisplay(long display_name) {
 		long __functionAddress = getInstance().__XOpenDisplay;
 		return invokePP(__functionAddress, display_name);
@@ -508,7 +504,6 @@ public class X11 {
 	// --- [ XCreateColormap ] ---
 
 	/** Unsafe version of {@link #XCreateColormap} */
-	@JavadocExclude
 	public static long nXCreateColormap(long display, long w, long visual, int alloc) {
 		long __functionAddress = getInstance().__XCreateColormap;
 		if ( CHECKS )
@@ -550,7 +545,6 @@ public class X11 {
 	// --- [ XCreateWindow ] ---
 
 	/** Unsafe version of {@link #XCreateWindow} */
-	@JavadocExclude
 	public static long nXCreateWindow(long display, long parent, int x, int y, int width, int height, int border_width, int depth, int windowClass, long visual, long valuemask, long attributes) {
 		long __functionAddress = getInstance().__XCreateWindow;
 		if ( CHECKS )
@@ -611,7 +605,6 @@ public class X11 {
 	// --- [ XFree ] ---
 
 	/** Unsafe version of {@link #XFree} */
-	@JavadocExclude
 	public static int nXFree(long data) {
 		long __functionAddress = getInstance().__XFree;
 		return invokePI(__functionAddress, data);

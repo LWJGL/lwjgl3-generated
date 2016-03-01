@@ -64,7 +64,6 @@ public class SOFTSourceLatency {
 	public static final int AL_SEC_OFFSET_LATENCY_SOFT = 0x1201;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		SourcedSOFT,
 		Source3dSOFT,
@@ -79,12 +78,10 @@ public class SOFTSourceLatency {
 		GetSource3i64SOFT,
 		GetSourcei64vSOFT;
 
-	@JavadocExclude
 	protected SOFTSourceLatency() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public SOFTSourceLatency(FunctionProvider provider) {
 		SourcedSOFT = provider.getFunctionAddress("alSourcedSOFT");
 		Source3dSOFT = provider.getFunctionAddress("alSource3dSOFT");
@@ -153,7 +150,6 @@ public class SOFTSourceLatency {
 	// --- [ alSourcedvSOFT ] ---
 
 	/** Unsafe version of {@link #alSourcedvSOFT SourcedvSOFT} */
-	@JavadocExclude
 	public static void nalSourcedvSOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().SourcedvSOFT;
 		invokeIIPV(__functionAddress, source, param, value);
@@ -178,7 +174,6 @@ public class SOFTSourceLatency {
 	// --- [ alGetSourcedSOFT ] ---
 
 	/** Unsafe version of {@link #alGetSourcedSOFT GetSourcedSOFT} */
-	@JavadocExclude
 	public static void nalGetSourcedSOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcedSOFT;
 		invokeIIPV(__functionAddress, source, param, value);
@@ -215,7 +210,6 @@ public class SOFTSourceLatency {
 	// --- [ alGetSource3dSOFT ] ---
 
 	/** Unsafe version of {@link #alGetSource3dSOFT GetSource3dSOFT} */
-	@JavadocExclude
 	public static void nalGetSource3dSOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = getInstance().GetSource3dSOFT;
 		invokeIIPPPV(__functionAddress, source, param, value1, value2, value3);
@@ -252,7 +246,6 @@ public class SOFTSourceLatency {
 	// --- [ alGetSourcedvSOFT ] ---
 
 	/** Unsafe version of {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
-	@JavadocExclude
 	public static void nalGetSourcedvSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcedvSOFT;
 		invokeIIPV(__functionAddress, source, param, values);
@@ -307,7 +300,6 @@ public class SOFTSourceLatency {
 	// --- [ alSourcei64vSOFT ] ---
 
 	/** Unsafe version of {@link #alSourcei64vSOFT Sourcei64vSOFT} */
-	@JavadocExclude
 	public static void nalSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().Sourcei64vSOFT;
 		invokeIIPV(__functionAddress, source, param, values);
@@ -332,7 +324,6 @@ public class SOFTSourceLatency {
 	// --- [ alGetSourcei64SOFT ] ---
 
 	/** Unsafe version of {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
-	@JavadocExclude
 	public static void nalGetSourcei64SOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcei64SOFT;
 		invokeIIPV(__functionAddress, source, param, value);
@@ -369,7 +360,6 @@ public class SOFTSourceLatency {
 	// --- [ alGetSource3i64SOFT ] ---
 
 	/** Unsafe version of {@link #alGetSource3i64SOFT GetSource3i64SOFT} */
-	@JavadocExclude
 	public static void nalGetSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = getInstance().GetSource3i64SOFT;
 		invokeIIPPPV(__functionAddress, source, param, value1, value2, value3);
@@ -406,7 +396,6 @@ public class SOFTSourceLatency {
 	// --- [ alGetSourcei64vSOFT ] ---
 
 	/** Unsafe version of {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
-	@JavadocExclude
 	public static void nalGetSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcei64vSOFT;
 		invokeIIPV(__functionAddress, source, param, values);

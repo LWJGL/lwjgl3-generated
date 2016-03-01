@@ -30,19 +30,16 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class QCOMDriverControl {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetDriverControlsQCOM,
 		GetDriverControlStringQCOM,
 		EnableDriverControlQCOM,
 		DisableDriverControlQCOM;
 
-	@JavadocExclude
 	protected QCOMDriverControl() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public QCOMDriverControl(FunctionProvider provider) {
 		GetDriverControlsQCOM = provider.getFunctionAddress("glGetDriverControlsQCOM");
 		GetDriverControlStringQCOM = provider.getFunctionAddress("glGetDriverControlStringQCOM");
@@ -76,7 +73,6 @@ public class QCOMDriverControl {
 	// --- [ glGetDriverControlsQCOM ] ---
 
 	/** Unsafe version of {@link #glGetDriverControlsQCOM GetDriverControlsQCOM} */
-	@JavadocExclude
 	public static void nglGetDriverControlsQCOM(long num, int size, long driverControls) {
 		long __functionAddress = getInstance().GetDriverControlsQCOM;
 		callPIPV(__functionAddress, num, size, driverControls);
@@ -100,7 +96,6 @@ public class QCOMDriverControl {
 	// --- [ glGetDriverControlStringQCOM ] ---
 
 	/** Unsafe version of {@link #glGetDriverControlStringQCOM GetDriverControlStringQCOM} */
-	@JavadocExclude
 	public static void nglGetDriverControlStringQCOM(int driverControl, int bufSize, long length, long driverControlString) {
 		long __functionAddress = getInstance().GetDriverControlStringQCOM;
 		callIIPPV(__functionAddress, driverControl, bufSize, length, driverControlString);

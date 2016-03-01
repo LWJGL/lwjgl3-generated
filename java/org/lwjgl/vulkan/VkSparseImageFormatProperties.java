@@ -15,19 +15,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkSparseImageFormatProperties {
- *     VkImageAspectFlags aspectMask;
- *     {@link VkExtent3D VkExtent3D} imageGranularity;
- *     VkSparseImageFormatFlags flags;
- * }</code></pre>
+ * <pre><code>struct VkSparseImageFormatProperties {
+    VkImageAspectFlags aspectMask;
+    {@link VkExtent3D VkExtent3D} imageGranularity;
+    VkSparseImageFormatFlags flags;
+}</code></pre>
  */
 public class VkSparseImageFormatProperties extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -77,12 +75,12 @@ public class VkSparseImageFormatProperties extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkSparseImageFormatProperties} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkSparseImageFormatProperties} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkSparseImageFormatProperties malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkSparseImageFormatProperties} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkSparseImageFormatProperties} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkSparseImageFormatProperties calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -98,7 +96,7 @@ public class VkSparseImageFormatProperties extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkSparseImageFormatProperties.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkSparseImageFormatProperties.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -107,7 +105,7 @@ public class VkSparseImageFormatProperties extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkSparseImageFormatProperties.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkSparseImageFormatProperties.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

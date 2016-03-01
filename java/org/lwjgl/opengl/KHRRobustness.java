@@ -74,7 +74,6 @@ public class KHRRobustness {
 	public static final int GL_CONTEXT_LOST = 0x507;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetGraphicsResetStatus,
 		ReadnPixels,
@@ -82,12 +81,10 @@ public class KHRRobustness {
 		GetnUniformiv,
 		GetnUniformuiv;
 
-	@JavadocExclude
 	protected KHRRobustness() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRRobustness(FunctionProvider provider) {
 		GetGraphicsResetStatus = provider.getFunctionAddress("glGetGraphicsResetStatus");
 		ReadnPixels = provider.getFunctionAddress("glReadnPixels");
@@ -165,7 +162,6 @@ public class KHRRobustness {
 	// --- [ glReadnPixels ] ---
 
 	/** Unsafe version of {@link #glReadnPixels ReadnPixels} */
-	@JavadocExclude
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().ReadnPixels;
 		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
@@ -229,7 +225,6 @@ public class KHRRobustness {
 	// --- [ glGetnUniformfv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformfv GetnUniformfv} */
-	@JavadocExclude
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfv;
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -265,7 +260,6 @@ public class KHRRobustness {
 	// --- [ glGetnUniformiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformiv GetnUniformiv} */
-	@JavadocExclude
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformiv;
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -301,7 +295,6 @@ public class KHRRobustness {
 	// --- [ glGetnUniformuiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformuiv GetnUniformuiv} */
-	@JavadocExclude
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuiv;
 		callIIIPV(__functionAddress, program, location, bufSize, params);

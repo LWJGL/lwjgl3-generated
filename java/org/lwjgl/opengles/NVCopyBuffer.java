@@ -27,15 +27,12 @@ public class NVCopyBuffer {
 		GL_COPY_WRITE_BUFFER_NV = 0x8F37;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CopyBufferSubDataNV;
 
-	@JavadocExclude
 	protected NVCopyBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVCopyBuffer(FunctionProvider provider) {
 		CopyBufferSubDataNV = provider.getFunctionAddress("glCopyBufferSubDataNV");
 	}

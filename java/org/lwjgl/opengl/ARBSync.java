@@ -68,7 +68,6 @@ public class ARBSync {
 		GL_WAIT_FAILED         = 0x911D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		FenceSync,
 		IsSync,
@@ -78,12 +77,10 @@ public class ARBSync {
 		GetInteger64v,
 		GetSynciv;
 
-	@JavadocExclude
 	protected ARBSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBSync(FunctionProvider provider) {
 		FenceSync = provider.getFunctionAddress("glFenceSync");
 		IsSync = provider.getFunctionAddress("glIsSync");
@@ -211,7 +208,6 @@ public class ARBSync {
 	// --- [ glGetInteger64v ] ---
 
 	/** Unsafe version of {@link #glGetInteger64v GetInteger64v} */
-	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64v;
 		callIPV(__functionAddress, pname, params);
@@ -247,7 +243,6 @@ public class ARBSync {
 	// --- [ glGetSynciv ] ---
 
 	/** Unsafe version of {@link #glGetSynciv GetSynciv} */
-	@JavadocExclude
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSynciv;
 		if ( CHECKS )

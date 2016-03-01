@@ -16,21 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkDescriptorSetLayoutBinding {
- *     uint32_t binding;
- *     VkDescriptorType descriptorType;
- *     uint32_t descriptorCount;
- *     VkShaderStageFlags stageFlags;
- *     const VkSampler * pImmutableSamplers;
- * }</code></pre>
+ * <pre><code>struct VkDescriptorSetLayoutBinding {
+    uint32_t binding;
+    VkDescriptorType descriptorType;
+    uint32_t descriptorCount;
+    VkShaderStageFlags stageFlags;
+    const VkSampler * pImmutableSamplers;
+}</code></pre>
  */
 public class VkDescriptorSetLayoutBinding extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -139,12 +137,12 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkDescriptorSetLayoutBinding} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkDescriptorSetLayoutBinding} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkDescriptorSetLayoutBinding malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkDescriptorSetLayoutBinding} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkDescriptorSetLayoutBinding} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkDescriptorSetLayoutBinding calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -160,7 +158,7 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkDescriptorSetLayoutBinding.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkDescriptorSetLayoutBinding.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -169,7 +167,7 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkDescriptorSetLayoutBinding.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkDescriptorSetLayoutBinding.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

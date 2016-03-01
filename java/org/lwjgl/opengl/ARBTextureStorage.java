@@ -34,7 +34,6 @@ public class ARBTextureStorage {
 	public static final int GL_TEXTURE_IMMUTABLE_FORMAT = 0x912F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexStorage1D,
 		TexStorage2D,
@@ -43,12 +42,10 @@ public class ARBTextureStorage {
 		TextureStorage2DEXT,
 		TextureStorage3DEXT;
 
-	@JavadocExclude
 	protected ARBTextureStorage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTextureStorage(FunctionProvider provider) {
 		TexStorage1D = provider.getFunctionAddress("glTexStorage1D");
 		TexStorage2D = provider.getFunctionAddress("glTexStorage2D");

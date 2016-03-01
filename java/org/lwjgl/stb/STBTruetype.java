@@ -99,113 +99,110 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <p>Incomplete text-in-3d-api example, which draws quads properly aligned to be lossless:</p>
  * 
- * <pre><code style="font-family: monospace">
- * unsigned char ttf_buffer[1<<20];
- * unsigned char temp_bitmap[512*512];
- * 
- * stbtt_bakedchar cdata[96]; // ASCII 32..126 is 95 glyphs
- * GLuint ftex;
- * 
- * void my_stbtt_initfont(void)
- * {
- *    fread(ttf_buffer, 1, 1<<20, fopen("c:/windows/fonts/times.ttf", "rb"));
- *    stbtt_BakeFontBitmap(ttf_buffer,0, 32.0, temp_bitmap,512,512, 32,96, cdata); // no guarantee this fits!
- *    // can free ttf_buffer at this point
- *    glGenTextures(1, &ftex);
- *    glBindTexture(GL_TEXTURE_2D, ftex);
- *    glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, 512,512, 0, GL_ALPHA, GL_UNSIGNED_BYTE, temp_bitmap);
- *    // can free temp_bitmap at this point
- *    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
- * }
- * 
- * void my_stbtt_print(float x, float y, char *text)
- * {
- *    // assume orthographic projection with units = screen pixels, origin at top left
- *    glEnable(GL_TEXTURE_2D);
- *    glBindTexture(GL_TEXTURE_2D, ftex);
- *    glBegin(GL_QUADS);
- *    while (*text) {
- *       if (*text >= 32 && *text < 128) {
- *          stbtt_aligned_quad q;
- *          stbtt_GetBakedQuad(cdata, 512,512, *text-32, &x,&y,&q,1);//1=opengl & d3d10+,0=d3d9
- *          glTexCoord2f(q.s0,q.t1); glVertex2f(q.x0,q.y0);
- *          glTexCoord2f(q.s1,q.t1); glVertex2f(q.x1,q.y0);
- *          glTexCoord2f(q.s1,q.t0); glVertex2f(q.x1,q.y1);
- *          glTexCoord2f(q.s0,q.t0); glVertex2f(q.x0,q.y1);
- *       }
- *       ++text;
- *    }
- *    glEnd();
- * }</code></pre>
+ * <pre><code>unsigned char ttf_buffer[1<<20];
+unsigned char temp_bitmap[512*512];
+
+stbtt_bakedchar cdata[96]; // ASCII 32..126 is 95 glyphs
+GLuint ftex;
+
+void my_stbtt_initfont(void)
+{
+   fread(ttf_buffer, 1, 1<<20, fopen("c:/windows/fonts/times.ttf", "rb"));
+   stbtt_BakeFontBitmap(ttf_buffer,0, 32.0, temp_bitmap,512,512, 32,96, cdata); // no guarantee this fits!
+   // can free ttf_buffer at this point
+   glGenTextures(1, &ftex);
+   glBindTexture(GL_TEXTURE_2D, ftex);
+   glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, 512,512, 0, GL_ALPHA, GL_UNSIGNED_BYTE, temp_bitmap);
+   // can free temp_bitmap at this point
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+}
+
+void my_stbtt_print(float x, float y, char *text)
+{
+   // assume orthographic projection with units = screen pixels, origin at top left
+   glEnable(GL_TEXTURE_2D);
+   glBindTexture(GL_TEXTURE_2D, ftex);
+   glBegin(GL_QUADS);
+   while (*text) {
+      if (*text >= 32 && *text < 128) {
+         stbtt_aligned_quad q;
+         stbtt_GetBakedQuad(cdata, 512,512, *text-32, &x,&y,&q,1);//1=opengl & d3d10+,0=d3d9
+         glTexCoord2f(q.s0,q.t1); glVertex2f(q.x0,q.y0);
+         glTexCoord2f(q.s1,q.t1); glVertex2f(q.x1,q.y0);
+         glTexCoord2f(q.s1,q.t0); glVertex2f(q.x1,q.y1);
+         glTexCoord2f(q.s0,q.t0); glVertex2f(q.x0,q.y1);
+      }
+      ++text;
+   }
+   glEnd();
+}</code></pre>
  * 
  * <p>Complete program (this compiles): get a single bitmap, print as ASCII art:</p>
  * 
- * <pre><code style="font-family: monospace">
- * char ttf_buffer[1<<25];
- * 
- * int main(int argc, char **argv)
- * {
- *    stbtt_fontinfo font;
- *    unsigned char *bitmap;
- *    int w,h,i,j,c = (argc > 1 ? atoi(argv[1]) : 'a'), s = (argc > 2 ? atoi(argv[2]) : 20);
- * 
- *    fread(ttf_buffer, 1, 1<<25, fopen(argc > 3 ? argv[3] : "c:/windows/fonts/arialbd.ttf", "rb"));
- * 
- *    stbtt_InitFont(&font, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0));
- *    bitmap = stbtt_GetCodepointBitmap(&font, 0,stbtt_ScaleForPixelHeight(&font, s), c, &w, &h, 0,0);
- * 
- *    for (j=0; j < h; ++j) {
- *       for (i=0; i < w; ++i)
- *          putchar(" .:ioVM@"[bitmap[j*w+i]>>5]);
- *       putchar('\n');
- *    }
- *    return 0;
- * }</code></pre>
+ * <pre><code>char ttf_buffer[1<<25];
+
+int main(int argc, char **argv)
+{
+   stbtt_fontinfo font;
+   unsigned char *bitmap;
+   int w,h,i,j,c = (argc > 1 ? atoi(argv[1]) : 'a'), s = (argc > 2 ? atoi(argv[2]) : 20);
+
+   fread(ttf_buffer, 1, 1<<25, fopen(argc > 3 ? argv[3] : "c:/windows/fonts/arialbd.ttf", "rb"));
+
+   stbtt_InitFont(&font, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0));
+   bitmap = stbtt_GetCodepointBitmap(&font, 0,stbtt_ScaleForPixelHeight(&font, s), c, &w, &h, 0,0);
+
+   for (j=0; j < h; ++j) {
+      for (i=0; i < w; ++i)
+         putchar(" .:ioVM@"[bitmap[j*w+i]>>5]);
+      putchar('\n');
+   }
+   return 0;
+}</code></pre>
  * 
  * <p>Complete program: print "Hello World!" banner, with bugs:</p>
  * 
- * <pre><code style="font-family: monospace">
- * char buffer[24<<20];
- * unsigned char screen[20][79];
- * 
- * int main(int arg, char **argv)
- * {
- *    stbtt_fontinfo font;
- *    int i,j,ascent,baseline,ch=0;
- *    float scale, xpos=2; // leave a little padding in case the character extends left
- *    char *text = "Heljo World!";
- * 
- *    fread(buffer, 1, 1000000, fopen("c:/windows/fonts/arialbd.ttf", "rb"));
- *    stbtt_InitFont(&font, buffer, 0);
- * 
- *    scale = stbtt_ScaleForPixelHeight(&font, 15);
- *    stbtt_GetFontVMetrics(&font, &ascent,0,0);
- *    baseline = (int) (ascent*scale);
- * 
- *    while (text[ch]) {
- *       int advance,lsb,x0,y0,x1,y1;
- *       float x_shift = xpos - (float) floor(xpos);
- *       stbtt_GetCodepointHMetrics(&font, text[ch], &advance, &lsb);
- *       stbtt_GetCodepointBitmapBoxSubpixel(&font, text[ch], scale,scale,x_shift,0, &x0,&y0,&x1,&y1);
- *       stbtt_MakeCodepointBitmapSubpixel(&font, &screen[baseline + y0][(int) xpos + x0], x1-x0,y1-y0, 79, scale,scale,x_shift,0, text[ch]);
- *       // note that this stomps the old data, so where character boxes overlap (e.g. 'lj') it's wrong
- *       // because this API is really for baking character bitmaps into textures. if you want to render
- *       // a sequence of characters, you really need to render each bitmap to a temp buffer, then
- *       // "alpha blend" that into the working buffer
- *       xpos += (advance * scale);
- *       if (text[ch+1])
- *          xpos += scale*stbtt_GetCodepointKernAdvance(&font, text[ch],text[ch+1]);
- *       ++ch;
- *    }
- * 
- *    for (j=0; j < 20; ++j) {
- *       for (i=0; i < 78; ++i)
- *          putchar(" .:ioVM@"[screen[j][i]>>5]);
- *       putchar('\n');
- *    }
- * 
- *    return 0;
- * }</code></pre>
+ * <pre><code>char buffer[24<<20];
+unsigned char screen[20][79];
+
+int main(int arg, char **argv)
+{
+   stbtt_fontinfo font;
+   int i,j,ascent,baseline,ch=0;
+   float scale, xpos=2; // leave a little padding in case the character extends left
+   char *text = "Heljo World!";
+
+   fread(buffer, 1, 1000000, fopen("c:/windows/fonts/arialbd.ttf", "rb"));
+   stbtt_InitFont(&font, buffer, 0);
+
+   scale = stbtt_ScaleForPixelHeight(&font, 15);
+   stbtt_GetFontVMetrics(&font, &ascent,0,0);
+   baseline = (int) (ascent*scale);
+
+   while (text[ch]) {
+      int advance,lsb,x0,y0,x1,y1;
+      float x_shift = xpos - (float) floor(xpos);
+      stbtt_GetCodepointHMetrics(&font, text[ch], &advance, &lsb);
+      stbtt_GetCodepointBitmapBoxSubpixel(&font, text[ch], scale,scale,x_shift,0, &x0,&y0,&x1,&y1);
+      stbtt_MakeCodepointBitmapSubpixel(&font, &screen[baseline + y0][(int) xpos + x0], x1-x0,y1-y0, 79, scale,scale,x_shift,0, text[ch]);
+      // note that this stomps the old data, so where character boxes overlap (e.g. 'lj') it's wrong
+      // because this API is really for baking character bitmaps into textures. if you want to render
+      // a sequence of characters, you really need to render each bitmap to a temp buffer, then
+      // "alpha blend" that into the working buffer
+      xpos += (advance * scale);
+      if (text[ch+1])
+         xpos += scale*stbtt_GetCodepointKernAdvance(&font, text[ch],text[ch+1]);
+      ++ch;
+   }
+
+   for (j=0; j < 20; ++j) {
+      for (i=0; i < 78; ++i)
+         putchar(" .:ioVM@"[screen[j][i]>>5]);
+      putchar('\n');
+   }
+
+   return 0;
+}</code></pre>
  * 
  * <h3>Finding the right font...</h3>
  * 
@@ -306,7 +303,6 @@ public class STBTruetype {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected STBTruetype() {
 		throw new UnsupportedOperationException();
 	}
@@ -314,7 +310,6 @@ public class STBTruetype {
 	// --- [ stbtt_BakeFontBitmap ] ---
 
 	/** JNI method for {@link #stbtt_BakeFontBitmap BakeFontBitmap} */
-	@JavadocExclude
 	public static native int nstbtt_BakeFontBitmap(long data, int offset, float pixel_height, long pixels, int pw, int ph, int first_char, int num_chars, long chardata);
 
 	/**
@@ -353,7 +348,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetBakedQuad ] ---
 
 	/** JNI method for {@link #stbtt_GetBakedQuad GetBakedQuad} */
-	@JavadocExclude
 	public static native void nstbtt_GetBakedQuad(long chardata, int pw, int ph, int char_index, long xpos, long ypos, long q, int opengl_fillrule);
 
 	/**
@@ -393,7 +387,6 @@ public class STBTruetype {
 	// --- [ stbtt_PackBegin ] ---
 
 	/** JNI method for {@link #stbtt_PackBegin PackBegin} */
-	@JavadocExclude
 	public static native int nstbtt_PackBegin(long spc, long pixels, int width, int height, int stride_in_bytes, int padding, long alloc_context);
 
 	/**
@@ -426,7 +419,6 @@ public class STBTruetype {
 	// --- [ stbtt_PackEnd ] ---
 
 	/** JNI method for {@link #stbtt_PackEnd PackEnd} */
-	@JavadocExclude
 	public static native void nstbtt_PackEnd(long spc);
 
 	/**
@@ -453,7 +445,6 @@ public class STBTruetype {
 	// --- [ stbtt_PackFontRange ] ---
 
 	/** JNI method for {@link #stbtt_PackFontRange PackFontRange} */
-	@JavadocExclude
 	public static native int nstbtt_PackFontRange(long spc, long fontdata, int font_index, float font_size, int first_unicode_char_in_range, int num_chars_in_range, long chardata_for_range);
 
 	/**
@@ -467,9 +458,8 @@ public class STBTruetype {
 	 * @param font_size                   the full height of the character from ascender to descender, as computed by {@link #stbtt_ScaleForPixelHeight ScaleForPixelHeight}. To use a point size as computed by
 	 *                                    {@link #stbtt_ScaleForMappingEmToPixels ScaleForMappingEmToPixels}, wrap the font size in {@link #STBTT_POINT_SIZE} and pass the result, i.e.:
 	 *                                    
-	 *                                    <pre><code style="font-family: monospace">
-	 *                                    ...,                  20 , ... // font max minus min y is 20 pixels tall
-	 *                                    ..., STBTT_POINT_SIZE(20), ... // 'M' is 20 pixels tall</code></pre>
+	 *                                    <pre><code>...,                  20 , ... // font max minus min y is 20 pixels tall
+..., STBTT_POINT_SIZE(20), ... // 'M' is 20 pixels tall</code></pre>
 	 * @param first_unicode_char_in_range the first unicode code point in the range
 	 * @param num_chars_in_range          the number of unicode code points in the range
 	 * @param chardata_for_range          an array of {@link STBTTPackedchar} structs
@@ -490,7 +480,6 @@ public class STBTruetype {
 	// --- [ stbtt_PackFontRanges ] ---
 
 	/** JNI method for {@link #stbtt_PackFontRanges PackFontRanges} */
-	@JavadocExclude
 	public static native int nstbtt_PackFontRanges(long spc, long fontdata, int font_index, long ranges, int num_ranges);
 
 	/**
@@ -523,7 +512,6 @@ public class STBTruetype {
 	// --- [ stbtt_PackSetOversampling ] ---
 
 	/** JNI method for {@link #stbtt_PackSetOversampling PackSetOversampling} */
-	@JavadocExclude
 	public static native void nstbtt_PackSetOversampling(long spc, int h_oversample, int v_oversample);
 
 	/**
@@ -548,7 +536,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetPackedQuad ] ---
 
 	/** JNI method for {@link #stbtt_GetPackedQuad GetPackedQuad} */
-	@JavadocExclude
 	public static native void nstbtt_GetPackedQuad(long chardata, int pw, int ph, int char_index, long xpos, long ypos, long q, int align_to_integer);
 
 	/**
@@ -588,7 +575,6 @@ public class STBTruetype {
 	// --- [ stbtt_PackFontRangesGatherRects ] ---
 
 	/** JNI method for {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} */
-	@JavadocExclude
 	public static native int nstbtt_PackFontRangesGatherRects(long spc, long info, long ranges, int num_ranges, long rects);
 
 	/**
@@ -621,7 +607,6 @@ public class STBTruetype {
 	// --- [ stbtt_PackFontRangesPackRects ] ---
 
 	/** JNI method for {@link #stbtt_PackFontRangesPackRects PackFontRangesPackRects} */
-	@JavadocExclude
 	public static native void nstbtt_PackFontRangesPackRects(long spc, long rects, int num_rects);
 
 	/**
@@ -645,7 +630,6 @@ public class STBTruetype {
 	// --- [ stbtt_PackFontRangesRenderIntoRects ] ---
 
 	/** JNI method for {@link #stbtt_PackFontRangesRenderIntoRects PackFontRangesRenderIntoRects} */
-	@JavadocExclude
 	public static native int nstbtt_PackFontRangesRenderIntoRects(long spc, long info, long ranges, int num_ranges, long rects);
 
 	/**
@@ -675,7 +659,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetFontOffsetForIndex ] ---
 
 	/** JNI method for {@link #stbtt_GetFontOffsetForIndex GetFontOffsetForIndex} */
-	@JavadocExclude
 	public static native int nstbtt_GetFontOffsetForIndex(long data, int index);
 
 	/**
@@ -693,7 +676,6 @@ public class STBTruetype {
 	// --- [ stbtt_InitFont ] ---
 
 	/** JNI method for {@link #stbtt_InitFont InitFont} */
-	@JavadocExclude
 	public static native int nstbtt_InitFont(long info, long data, int offset);
 
 	/**
@@ -719,7 +701,6 @@ public class STBTruetype {
 	// --- [ stbtt_FindGlyphIndex ] ---
 
 	/** JNI method for {@link #stbtt_FindGlyphIndex FindGlyphIndex} */
-	@JavadocExclude
 	public static native int nstbtt_FindGlyphIndex(long info, int unicode_codepoint);
 
 	/**
@@ -738,15 +719,13 @@ public class STBTruetype {
 	// --- [ stbtt_ScaleForPixelHeight ] ---
 
 	/** JNI method for {@link #stbtt_ScaleForPixelHeight ScaleForPixelHeight} */
-	@JavadocExclude
 	public static native float nstbtt_ScaleForPixelHeight(long info, float pixels);
 
 	/**
 	 * Computes a scale factor to produce a font whose "height" is {@code pixels} tall. Height is measured as the distance from the highest ascender to the
 	 * lowest descender; in other words, it's equivalent to calling {@link #stbtt_GetFontVMetrics GetFontVMetrics} and computing:
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * scale = pixels / (ascent - descent)</code></pre>
+	 * <pre><code>scale = pixels / (ascent - descent)</code></pre>
 	 * 
 	 * <p>so if you prefer to measure height by the ascent only, use a similar calculation.</p>
 	 *
@@ -762,7 +741,6 @@ public class STBTruetype {
 	// --- [ stbtt_ScaleForMappingEmToPixels ] ---
 
 	/** JNI method for {@link #stbtt_ScaleForMappingEmToPixels ScaleForMappingEmToPixels} */
-	@JavadocExclude
 	public static native float nstbtt_ScaleForMappingEmToPixels(long info, float pixels);
 
 	/**
@@ -781,7 +759,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetFontVMetrics ] ---
 
 	/** JNI method for {@link #stbtt_GetFontVMetrics GetFontVMetrics} */
-	@JavadocExclude
 	public static native void nstbtt_GetFontVMetrics(long info, long ascent, long descent, long lineGap);
 
 	/**
@@ -816,7 +793,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetFontBoundingBox ] ---
 
 	/** JNI method for {@link #stbtt_GetFontBoundingBox GetFontBoundingBox} */
-	@JavadocExclude
 	public static native void nstbtt_GetFontBoundingBox(long info, long x0, long y0, long x1, long y1);
 
 	/**
@@ -852,7 +828,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetCodepointHMetrics ] ---
 
 	/** JNI method for {@link #stbtt_GetCodepointHMetrics GetCodepointHMetrics} */
-	@JavadocExclude
 	public static native void nstbtt_GetCodepointHMetrics(long info, int codepoint, long advanceWidth, long leftSideBearing);
 
 	/**
@@ -885,7 +860,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetCodepointKernAdvance ] ---
 
 	/** JNI method for {@link #stbtt_GetCodepointKernAdvance GetCodepointKernAdvance} */
-	@JavadocExclude
 	public static native int nstbtt_GetCodepointKernAdvance(long info, int ch1, int ch2);
 
 	/**
@@ -902,7 +876,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetCodepointBox ] ---
 
 	/** JNI method for {@link #stbtt_GetCodepointBox GetCodepointBox} */
-	@JavadocExclude
 	public static native int nstbtt_GetCodepointBox(long info, int codepoint, long x0, long y0, long x1, long y1);
 
 	/**
@@ -939,7 +912,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetGlyphHMetrics ] ---
 
 	/** JNI method for {@link #stbtt_GetGlyphHMetrics GetGlyphHMetrics} */
-	@JavadocExclude
 	public static native void nstbtt_GetGlyphHMetrics(long info, int glyph_index, long advanceWidth, long leftSideBearing);
 
 	/**
@@ -970,7 +942,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetGlyphKernAdvance ] ---
 
 	/** JNI method for {@link #stbtt_GetGlyphKernAdvance GetGlyphKernAdvance} */
-	@JavadocExclude
 	public static native int nstbtt_GetGlyphKernAdvance(long info, int glyph1, int glyph2);
 
 	/**
@@ -987,7 +958,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetGlyphBox ] ---
 
 	/** JNI method for {@link #stbtt_GetGlyphBox GetGlyphBox} */
-	@JavadocExclude
 	public static native int nstbtt_GetGlyphBox(long info, int glyph_index, long x0, long y0, long x1, long y1);
 
 	/**
@@ -1024,7 +994,6 @@ public class STBTruetype {
 	// --- [ stbtt_IsGlyphEmpty ] ---
 
 	/** JNI method for {@link #stbtt_IsGlyphEmpty IsGlyphEmpty} */
-	@JavadocExclude
 	public static native int nstbtt_IsGlyphEmpty(long info, int glyph_index);
 
 	/**
@@ -1040,7 +1009,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetCodepointShape ] ---
 
 	/** JNI method for {@link #stbtt_GetCodepointShape GetCodepointShape} */
-	@JavadocExclude
 	public static native int nstbtt_GetCodepointShape(long info, int unicode_codepoint, long vertices);
 
 	/**
@@ -1080,7 +1048,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetGlyphShape ] ---
 
 	/** JNI method for {@link #stbtt_GetGlyphShape GetGlyphShape} */
-	@JavadocExclude
 	public static native int nstbtt_GetGlyphShape(long info, int glyph_index, long vertices);
 
 	/**
@@ -1114,7 +1081,6 @@ public class STBTruetype {
 	// --- [ stbtt_FreeShape ] ---
 
 	/** JNI method for {@link #stbtt_FreeShape FreeShape} */
-	@JavadocExclude
 	public static native void nstbtt_FreeShape(long info, long vertices);
 
 	/**
@@ -1132,7 +1098,6 @@ public class STBTruetype {
 	// --- [ stbtt_FreeBitmap ] ---
 
 	/** JNI method for {@link #stbtt_FreeBitmap FreeBitmap} */
-	@JavadocExclude
 	public static native void nstbtt_FreeBitmap(long bitmap, long userdata);
 
 	/**
@@ -1148,7 +1113,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetCodepointBitmap ] ---
 
 	/** JNI method for {@link #stbtt_GetCodepointBitmap GetCodepointBitmap} */
-	@JavadocExclude
 	public static native long nstbtt_GetCodepointBitmap(long info, float scale_x, float scale_y, int codepoint, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1189,7 +1153,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetCodepointBitmapSubpixel ] ---
 
 	/** JNI method for {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel} */
-	@JavadocExclude
 	public static native long nstbtt_GetCodepointBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1232,7 +1195,6 @@ public class STBTruetype {
 	// --- [ stbtt_MakeCodepointBitmap ] ---
 
 	/** JNI method for {@link #stbtt_MakeCodepointBitmap MakeCodepointBitmap} */
-	@JavadocExclude
 	public static native void nstbtt_MakeCodepointBitmap(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int codepoint);
 
 	/**
@@ -1257,7 +1219,6 @@ public class STBTruetype {
 	// --- [ stbtt_MakeCodepointBitmapSubpixel ] ---
 
 	/** JNI method for {@link #stbtt_MakeCodepointBitmapSubpixel MakeCodepointBitmapSubpixel} */
-	@JavadocExclude
 	public static native void nstbtt_MakeCodepointBitmapSubpixel(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint);
 
 	/**
@@ -1283,7 +1244,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetCodepointBitmapBox ] ---
 
 	/** JNI method for {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} */
-	@JavadocExclude
 	public static native void nstbtt_GetCodepointBitmapBox(long font, int codepoint, float scale_x, float scale_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1325,7 +1285,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetCodepointBitmapBoxSubpixel ] ---
 
 	/** JNI method for {@link #stbtt_GetCodepointBitmapBoxSubpixel GetCodepointBitmapBoxSubpixel} */
-	@JavadocExclude
 	public static native void nstbtt_GetCodepointBitmapBoxSubpixel(long font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1366,7 +1325,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetGlyphBitmap ] ---
 
 	/** JNI method for {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} */
-	@JavadocExclude
 	public static native long nstbtt_GetGlyphBitmap(long info, float scale_x, float scale_y, int glyph, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1407,7 +1365,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetGlyphBitmapSubpixel ] ---
 
 	/** JNI method for {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel} */
-	@JavadocExclude
 	public static native long nstbtt_GetGlyphBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1450,7 +1407,6 @@ public class STBTruetype {
 	// --- [ stbtt_MakeGlyphBitmap ] ---
 
 	/** JNI method for {@link #stbtt_MakeGlyphBitmap MakeGlyphBitmap} */
-	@JavadocExclude
 	public static native void nstbtt_MakeGlyphBitmap(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int glyph);
 
 	/**
@@ -1475,7 +1431,6 @@ public class STBTruetype {
 	// --- [ stbtt_MakeGlyphBitmapSubpixel ] ---
 
 	/** JNI method for {@link #stbtt_MakeGlyphBitmapSubpixel MakeGlyphBitmapSubpixel} */
-	@JavadocExclude
 	public static native void nstbtt_MakeGlyphBitmapSubpixel(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int glyph);
 
 	/**
@@ -1501,7 +1456,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetGlyphBitmapBox ] ---
 
 	/** JNI method for {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} */
-	@JavadocExclude
 	public static native void nstbtt_GetGlyphBitmapBox(long font, int glyph, float scale_x, float scale_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1543,7 +1497,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetGlyphBitmapBoxSubpixel ] ---
 
 	/** JNI method for {@link #stbtt_GetGlyphBitmapBoxSubpixel GetGlyphBitmapBoxSubpixel} */
-	@JavadocExclude
 	public static native void nstbtt_GetGlyphBitmapBoxSubpixel(long font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1584,7 +1537,6 @@ public class STBTruetype {
 	// --- [ stbtt_FindMatchingFont ] ---
 
 	/** JNI method for {@link #stbtt_FindMatchingFont FindMatchingFont} */
-	@JavadocExclude
 	public static native int nstbtt_FindMatchingFont(long fontdata, long name, int flags);
 
 	/**
@@ -1613,7 +1565,6 @@ public class STBTruetype {
 	// --- [ stbtt_CompareUTF8toUTF16_bigendian ] ---
 
 	/** JNI method for {@link #stbtt_CompareUTF8toUTF16_bigendian CompareUTF8toUTF16_bigendian} */
-	@JavadocExclude
 	public static native int nstbtt_CompareUTF8toUTF16_bigendian(long s1, int len1, long s2, int len2);
 
 	/**
@@ -1641,7 +1592,6 @@ public class STBTruetype {
 	// --- [ stbtt_GetFontNameString ] ---
 
 	/** JNI method for {@link #stbtt_GetFontNameString GetFontNameString} */
-	@JavadocExclude
 	public static native long nstbtt_GetFontNameString(long font, long length, int platformID, int encodingID, int languageID, int nameID);
 
 	/**

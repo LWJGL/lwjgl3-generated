@@ -82,17 +82,14 @@ public class NVBlendEquationAdvanced {
 		GL_BLUE_NV               = 0x1905;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BlendParameteriNV,
 		BlendBarrierNV;
 
-	@JavadocExclude
 	protected NVBlendEquationAdvanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVBlendEquationAdvanced(FunctionProvider provider) {
 		BlendParameteriNV = provider.getFunctionAddress("glBlendParameteriNV");
 		BlendBarrierNV = provider.getFunctionAddress("glBlendBarrierNV");

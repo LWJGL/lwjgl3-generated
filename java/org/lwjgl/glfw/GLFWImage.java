@@ -18,16 +18,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct GLFWimage {
- *     int width;
- *     int height;
- *     unsigned char * pixels;
- * }</code></pre>
+ * <pre><code>struct GLFWimage {
+    int width;
+    int height;
+    unsigned char * pixels;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>width</td><td>the width, in pixels, of this image</td></tr>
  * <tr><td>height</td><td>the height, in pixels, of this image</td></tr>
  * <tr><td>pixels</td><td>the pixel data of this image, arranged left-to-right, top-to-bottom</td></tr>
@@ -38,7 +37,6 @@ public class GLFWImage extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -129,12 +127,12 @@ public class GLFWImage extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link GLFWImage} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link GLFWImage} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static GLFWImage malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link GLFWImage} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link GLFWImage} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static GLFWImage calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -150,7 +148,7 @@ public class GLFWImage extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLFWImage.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLFWImage.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -159,7 +157,7 @@ public class GLFWImage extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLFWImage.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLFWImage.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

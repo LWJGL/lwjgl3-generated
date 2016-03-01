@@ -161,7 +161,6 @@ public class KHRDebug {
 		GL_SAMPLER_KHR          = 0x82E6;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DebugMessageControlKHR,
 		DebugMessageInsertKHR,
@@ -175,12 +174,10 @@ public class KHRDebug {
 		ObjectPtrLabelKHR,
 		GetObjectPtrLabelKHR;
 
-	@JavadocExclude
 	protected KHRDebug() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRDebug(FunctionProvider provider) {
 		DebugMessageControlKHR = provider.getFunctionAddress("glDebugMessageControlKHR");
 		DebugMessageInsertKHR = provider.getFunctionAddress("glDebugMessageInsertKHR");
@@ -222,7 +219,6 @@ public class KHRDebug {
 	// --- [ glDebugMessageControlKHR ] ---
 
 	/** Unsafe version of {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
-	@JavadocExclude
 	public static void nglDebugMessageControlKHR(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControlKHR;
 		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
@@ -283,7 +279,6 @@ public class KHRDebug {
 	// --- [ glDebugMessageInsertKHR ] ---
 
 	/** Unsafe version of {@link #glDebugMessageInsertKHR DebugMessageInsertKHR} */
-	@JavadocExclude
 	public static void nglDebugMessageInsertKHR(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = getInstance().DebugMessageInsertKHR;
 		callIIIIIPV(__functionAddress, source, type, id, severity, length, message);
@@ -368,7 +363,6 @@ public class KHRDebug {
 	// --- [ glGetDebugMessageLogKHR ] ---
 
 	/** Unsafe version of {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR} */
-	@JavadocExclude
 	public static int nglGetDebugMessageLogKHR(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLogKHR;
 		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
@@ -434,7 +428,6 @@ public class KHRDebug {
 	// --- [ glGetPointervKHR ] ---
 
 	/** Unsafe version of {@link #glGetPointervKHR GetPointervKHR} */
-	@JavadocExclude
 	public static void nglGetPointervKHR(int pname, long params) {
 		long __functionAddress = getInstance().GetPointervKHR;
 		callIPV(__functionAddress, pname, params);
@@ -464,7 +457,6 @@ public class KHRDebug {
 	// --- [ glPushDebugGroupKHR ] ---
 
 	/** Unsafe version of {@link #glPushDebugGroupKHR PushDebugGroupKHR} */
-	@JavadocExclude
 	public static void nglPushDebugGroupKHR(int source, int id, int length, long message) {
 		long __functionAddress = getInstance().PushDebugGroupKHR;
 		callIIIPV(__functionAddress, source, id, length, message);
@@ -527,7 +519,6 @@ public class KHRDebug {
 	// --- [ glObjectLabelKHR ] ---
 
 	/** Unsafe version of {@link #glObjectLabelKHR ObjectLabelKHR} */
-	@JavadocExclude
 	public static void nglObjectLabelKHR(int identifier, int name, int length, long label) {
 		long __functionAddress = getInstance().ObjectLabelKHR;
 		callIIIPV(__functionAddress, identifier, name, length, label);
@@ -563,7 +554,6 @@ public class KHRDebug {
 	// --- [ glGetObjectLabelKHR ] ---
 
 	/** Unsafe version of {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
-	@JavadocExclude
 	public static void nglGetObjectLabelKHR(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabelKHR;
 		callIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
@@ -615,7 +605,6 @@ public class KHRDebug {
 	// --- [ glObjectPtrLabelKHR ] ---
 
 	/** Unsafe version of {@link #glObjectPtrLabelKHR ObjectPtrLabelKHR} */
-	@JavadocExclude
 	public static void nglObjectPtrLabelKHR(long ptr, int length, long label) {
 		long __functionAddress = getInstance().ObjectPtrLabelKHR;
 		if ( CHECKS )
@@ -652,7 +641,6 @@ public class KHRDebug {
 	// --- [ glGetObjectPtrLabelKHR ] ---
 
 	/** Unsafe version of {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
-	@JavadocExclude
 	public static void nglGetObjectPtrLabelKHR(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectPtrLabelKHR;
 		if ( CHECKS )

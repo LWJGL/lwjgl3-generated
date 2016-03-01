@@ -18,21 +18,20 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct MONITORINFOEX {
- *     DWORD cbSize;
- *     {@link RECT RECT} rcMonitor;
- *     {@link RECT RECT} rcWork;
- *     DWORD dwFlags;
- *     TCHAR[32] szDevice;
- * }</code></pre>
+ * <pre><code>struct MONITORINFOEX {
+    DWORD cbSize;
+    {@link RECT RECT} rcMonitor;
+    {@link RECT RECT} rcWork;
+    DWORD dwFlags;
+    TCHAR[32] szDevice;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>cbSize</td><td>the size, in bytes, of the structure.
  * 
- * <p>Set this member to {@link #SIZEOF} before calling the {@link User32#GetMonitorInfo} function. Doing so lets the function determine the type of structure you are
+ * <p>Set this member to {@link #SIZEOF} before calling the {@link User32#GetMonitorInfo User32.GetMonitorInfo} function. Doing so lets the function determine the type of structure you are
  * passing to it.</td></tr>
  * <tr><td>rcMonitor</td><td>a {@link RECT} structure that specifies the display monitor rectangle, expressed in virtual-screen coordinates. Note that if the monitor is not the primary
  * display monitor, some of the rectangle's coordinates may be negative values.</td></tr>
@@ -49,7 +48,6 @@ public class MONITORINFOEX extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -131,12 +129,12 @@ public class MONITORINFOEX extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link MONITORINFOEX} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link MONITORINFOEX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static MONITORINFOEX malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link MONITORINFOEX} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link MONITORINFOEX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static MONITORINFOEX calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -152,7 +150,7 @@ public class MONITORINFOEX extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link MONITORINFOEX.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link MONITORINFOEX.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -161,7 +159,7 @@ public class MONITORINFOEX extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link MONITORINFOEX.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link MONITORINFOEX.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

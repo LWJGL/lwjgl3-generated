@@ -26,15 +26,12 @@ public class GLXEXTSwapControl {
 		GLX_MAX_SWAP_INTERVAL_EXT = 0x20F2;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long SwapIntervalEXT;
 
-	@JavadocExclude
 	protected GLXEXTSwapControl() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXEXTSwapControl(FunctionProvider provider) {
 		SwapIntervalEXT = provider.getFunctionAddress("glXSwapIntervalEXT");
 	}

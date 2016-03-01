@@ -40,15 +40,12 @@ public class EXTRasterMultisample {
 		GL_EFFECTIVE_RASTER_SAMPLES_EXT          = 0x932C;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long RasterSamplesEXT;
 
-	@JavadocExclude
 	protected EXTRasterMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTRasterMultisample(FunctionProvider provider) {
 		RasterSamplesEXT = provider.getFunctionAddress("glRasterSamplesEXT");
 	}

@@ -18,7 +18,6 @@ public class Stdlib {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected Stdlib() {
 		throw new UnsupportedOperationException();
 	}
@@ -26,7 +25,6 @@ public class Stdlib {
 	// --- [ malloc ] ---
 
 	/** JNI method for {@link #malloc} */
-	@JavadocExclude
 	public static native long nmalloc(long size);
 
 	/**
@@ -43,7 +41,6 @@ public class Stdlib {
 	// --- [ calloc ] ---
 
 	/** JNI method for {@link #calloc} */
-	@JavadocExclude
 	public static native long ncalloc(long nmemb, long size);
 
 	/**
@@ -62,7 +59,6 @@ public class Stdlib {
 	// --- [ realloc ] ---
 
 	/** JNI method for {@link #realloc} */
-	@JavadocExclude
 	public static native long nrealloc(long ptr, long size);
 
 	/**
@@ -83,7 +79,6 @@ public class Stdlib {
 	// --- [ free ] ---
 
 	/** JNI method for {@link #free} */
-	@JavadocExclude
 	public static native void nfree(long ptr);
 
 	/**
@@ -129,7 +124,6 @@ public class Stdlib {
 	// --- [ aligned_alloc ] ---
 
 	/** JNI method for {@link #aligned_alloc} */
-	@JavadocExclude
 	public static native long naligned_alloc(long alignment, long size);
 
 	/**
@@ -147,7 +141,6 @@ public class Stdlib {
 	// --- [ aligned_free ] ---
 
 	/** JNI method for {@link #aligned_free} */
-	@JavadocExclude
 	public static native void naligned_free(long ptr);
 
 	/**

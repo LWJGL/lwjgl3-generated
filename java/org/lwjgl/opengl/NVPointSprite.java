@@ -52,17 +52,14 @@ public class NVPointSprite {
 	public static final int GL_POINT_SPRITE_R_MODE_NV = 0x8863;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		PointParameteriNV,
 		PointParameterivNV;
 
-	@JavadocExclude
 	protected NVPointSprite() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVPointSprite(FunctionProvider provider) {
 		PointParameteriNV = provider.getFunctionAddress("glPointParameteriNV");
 		PointParameterivNV = provider.getFunctionAddress("glPointParameterivNV");
@@ -102,7 +99,6 @@ public class NVPointSprite {
 	// --- [ glPointParameterivNV ] ---
 
 	/** Unsafe version of {@link #glPointParameterivNV PointParameterivNV} */
-	@JavadocExclude
 	public static void nglPointParameterivNV(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterivNV;
 		callIPV(__functionAddress, pname, params);

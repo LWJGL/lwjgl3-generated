@@ -14,26 +14,25 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Parameters for {@link OVR#ovr_Initialize}.
+ * Parameters for {@link OVR#ovr_Initialize OVR.ovr_Initialize}.
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrInitParams {
- *     uint32_t Flags;
- *     uint32_t RequestedMinorVersion;
- *     ovrLogCallback LogCallback;
- *     uintptr_t UserData;
- *     uint32_t ConnectionTimeoutMS;
- *     char[4];
- * }</code></pre>
+ * <pre><code>struct ovrInitParams {
+    uint32_t Flags;
+    uint32_t RequestedMinorVersion;
+    ovrLogCallback LogCallback;
+    uintptr_t UserData;
+    uint32_t ConnectionTimeoutMS;
+    char[4];
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>Flags</td><td>combination of ovrInitFlags or 0</td></tr>
  * <tr><td>RequestedMinorVersion</td><td>request a specific minimum minor version of the LibOVR runtime. Flags must include ovrInit_RequestVersion or this will be ignored.</td></tr>
- * <tr><td>LogCallback</td><td>log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown} completes. Pass {@code NULL} for no log
+ * <tr><td>LogCallback</td><td>log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown OVR.ovr_Shutdown} completes. Pass {@code NULL} for no log
  * callback.</td></tr>
  * <tr><td>UserData</td><td>user-supplied data which is passed as-is to LogCallback. Typically this is used to store an application-specific pointer which is read in the callback
  * function.</td></tr>
@@ -45,7 +44,6 @@ public class OVRInitParams extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -155,12 +153,12 @@ public class OVRInitParams extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRInitParams} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRInitParams} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRInitParams malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRInitParams} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRInitParams} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRInitParams calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -176,7 +174,7 @@ public class OVRInitParams extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRInitParams.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRInitParams.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -185,7 +183,7 @@ public class OVRInitParams extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRInitParams.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRInitParams.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

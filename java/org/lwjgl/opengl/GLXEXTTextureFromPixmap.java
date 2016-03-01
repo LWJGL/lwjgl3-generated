@@ -80,17 +80,14 @@ public class GLXEXTTextureFromPixmap {
 		GLX_AUX9_EXT        = 0x20EB;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindTexImageEXT,
 		ReleaseTexImageEXT;
 
-	@JavadocExclude
 	protected GLXEXTTextureFromPixmap() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXEXTTextureFromPixmap(FunctionProvider provider) {
 		BindTexImageEXT = provider.getFunctionAddress("glXBindTexImageEXT");
 		ReleaseTexImageEXT = provider.getFunctionAddress("glXReleaseTexImageEXT");
@@ -123,7 +120,6 @@ public class GLXEXTTextureFromPixmap {
 	// --- [ glXBindTexImageEXT ] ---
 
 	/** Unsafe version of {@link #glXBindTexImageEXT BindTexImageEXT} */
-	@JavadocExclude
 	public static void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list) {
 		long __functionAddress = getInstance().BindTexImageEXT;
 		if ( CHECKS ) {

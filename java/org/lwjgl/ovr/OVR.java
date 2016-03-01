@@ -206,9 +206,8 @@ public class OVR {
 	 * 
 	 * <p>App can toggle performance HUD modes as such:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * ovrPerfHudMode PerfHudMode = ovrPerfHud_LatencyTiming;
-	 * ovr_SetInt(Hmd, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre>
+	 * <pre><code>ovrPerfHudMode PerfHudMode = ovrPerfHud_LatencyTiming;
+ovr_SetInt(Hmd, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre>
 	 */
 	public static final int
 		ovrPerfHud_Off           = 0x0,
@@ -232,7 +231,6 @@ public class OVR {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected OVR() {
 		throw new UnsupportedOperationException();
 	}
@@ -240,7 +238,6 @@ public class OVR {
 	// --- [ ovr_Initialize ] ---
 
 	/** JNI method for {@link #ovr_Initialize Initialize} */
-	@JavadocExclude
 	public static native int novr_Initialize(long params);
 
 	/**
@@ -294,7 +291,6 @@ public class OVR {
 	// --- [ ovr_GetLastErrorInfo ] ---
 
 	/** JNI method for {@link #ovr_GetLastErrorInfo GetLastErrorInfo} */
-	@JavadocExclude
 	public static native void novr_GetLastErrorInfo(long errorInfo);
 
 	/**
@@ -314,7 +310,6 @@ public class OVR {
 	// --- [ ovr_GetVersionString ] ---
 
 	/** JNI method for {@link #ovr_GetVersionString GetVersionString} */
-	@JavadocExclude
 	public static native long novr_GetVersionString();
 
 	/**
@@ -337,7 +332,6 @@ public class OVR {
 	// --- [ ovr_TraceMessage ] ---
 
 	/** JNI method for {@link #ovr_TraceMessage TraceMessage} */
-	@JavadocExclude
 	public static native long novr_TraceMessage(int level, long message);
 
 	/**
@@ -377,7 +371,6 @@ public class OVR {
 	// --- [ ovr_GetHmdDesc ] ---
 
 	/** JNI method for {@link #ovr_GetHmdDesc GetHmdDesc} */
-	@JavadocExclude
 	public static native void novr_GetHmdDesc(long session, long __result);
 
 	/**
@@ -396,7 +389,6 @@ public class OVR {
 	// --- [ ovr_Create ] ---
 
 	/** JNI method for {@link #ovr_Create Create} */
-	@JavadocExclude
 	public static native int novr_Create(long pSession, long luid);
 
 	/**
@@ -428,7 +420,6 @@ public class OVR {
 	// --- [ ovr_Destroy ] ---
 
 	/** JNI method for {@link #ovr_Destroy Destroy} */
-	@JavadocExclude
 	public static native void novr_Destroy(long session);
 
 	/**
@@ -445,7 +436,6 @@ public class OVR {
 	// --- [ ovr_GetSessionStatus ] ---
 
 	/** JNI method for {@link #ovr_GetSessionStatus GetSessionStatus} */
-	@JavadocExclude
 	public static native int novr_GetSessionStatus(long session, long sessionStatus);
 
 	/**
@@ -463,7 +453,6 @@ public class OVR {
 	// --- [ ovr_GetEnabledCaps ] ---
 
 	/** JNI method for {@link #ovr_GetEnabledCaps GetEnabledCaps} */
-	@JavadocExclude
 	public static native int novr_GetEnabledCaps(long session);
 
 	/**
@@ -484,7 +473,6 @@ public class OVR {
 	// --- [ ovr_SetEnabledCaps ] ---
 
 	/** JNI method for {@link #ovr_SetEnabledCaps SetEnabledCaps} */
-	@JavadocExclude
 	public static native void novr_SetEnabledCaps(long session, int hmdCaps);
 
 	/**
@@ -502,7 +490,6 @@ public class OVR {
 	// --- [ ovr_GetTrackingCaps ] ---
 
 	/** JNI method for {@link #ovr_GetTrackingCaps GetTrackingCaps} */
-	@JavadocExclude
 	public static native int novr_GetTrackingCaps(long session);
 
 	/**
@@ -519,7 +506,6 @@ public class OVR {
 	// --- [ ovr_ConfigureTracking ] ---
 
 	/** JNI method for {@link #ovr_ConfigureTracking ConfigureTracking} */
-	@JavadocExclude
 	public static native int novr_ConfigureTracking(long session, int requestedTrackingCaps, int requiredTrackingCaps);
 
 	/**
@@ -548,7 +534,6 @@ public class OVR {
 	// --- [ ovr_RecenterPose ] ---
 
 	/** JNI method for {@link #ovr_RecenterPose RecenterPose} */
-	@JavadocExclude
 	public static native void novr_RecenterPose(long session);
 
 	/**
@@ -568,7 +553,6 @@ public class OVR {
 	// --- [ ovr_GetTrackingState ] ---
 
 	/** JNI method for {@link #ovr_GetTrackingState GetTrackingState} */
-	@JavadocExclude
 	public static native void novr_GetTrackingState(long session, double absTime, boolean latencyMarker, long __result);
 
 	/**
@@ -596,7 +580,6 @@ public class OVR {
 	// --- [ ovr_GetInputState ] ---
 
 	/** JNI method for {@link #ovr_GetInputState GetInputState} */
-	@JavadocExclude
 	public static native int novr_GetInputState(long session, int controllerTypeMask, long inputState);
 
 	/**
@@ -618,7 +601,6 @@ public class OVR {
 	// --- [ ovr_SetControllerVibration ] ---
 
 	/** JNI method for {@link #ovr_SetControllerVibration SetControllerVibration} */
-	@JavadocExclude
 	public static native int novr_SetControllerVibration(long session, int controllerTypeMask, float frequency, float amplitude);
 
 	/**
@@ -644,7 +626,6 @@ public class OVR {
 	// --- [ ovr_DestroySwapTextureSet ] ---
 
 	/** JNI method for {@link #ovr_DestroySwapTextureSet DestroySwapTextureSet} */
-	@JavadocExclude
 	public static native void novr_DestroySwapTextureSet(long session, long textureSet);
 
 	/**
@@ -664,7 +645,6 @@ public class OVR {
 	// --- [ ovr_DestroyMirrorTexture ] ---
 
 	/** JNI method for {@link #ovr_DestroyMirrorTexture DestroyMirrorTexture} */
-	@JavadocExclude
 	public static native void novr_DestroyMirrorTexture(long session, long mirrorTexture);
 
 	/**
@@ -682,7 +662,6 @@ public class OVR {
 	// --- [ ovr_GetFovTextureSize ] ---
 
 	/** JNI method for {@link #ovr_GetFovTextureSize GetFovTextureSize} */
-	@JavadocExclude
 	public static native void novr_GetFovTextureSize(long session, int eye, long fov, float pixelsPerDisplayPixel, long __result);
 
 	/**
@@ -707,7 +686,6 @@ public class OVR {
 	// --- [ ovr_GetRenderDesc ] ---
 
 	/** JNI method for {@link #ovr_GetRenderDesc GetRenderDesc} */
-	@JavadocExclude
 	public static native void novr_GetRenderDesc(long session, int eyeType, long fov, long __result);
 
 	/**
@@ -727,7 +705,6 @@ public class OVR {
 	// --- [ ovr_SubmitFrame ] ---
 
 	/** JNI method for {@link #ovr_SubmitFrame SubmitFrame} */
-	@JavadocExclude
 	public static native int novr_SubmitFrame(long session, long frameIndex, long viewScaleDesc, long layerPtrList, int layerCount);
 
 	/**
@@ -748,12 +725,11 @@ public class OVR {
 	 * 
 	 * <h3>Example code</h3>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * ovrLayerEyeFov  layer0;
-	 * ovrLayerQuad    layer1;
-	 * ...
-	 * ovrLayerHeader* layers[2] = { &layer0.Header, &layer1.Header };
-	 * ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code></pre>
+	 * <pre><code>ovrLayerEyeFov  layer0;
+ovrLayerQuad    layer1;
+...
+ovrLayerHeader* layers[2] = { &layer0.Header, &layer1.Header };
+ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code></pre>
 	 *
 	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param frameIndex    the targeted application frame index, or 0 to refer to one frame after the last time {@link #ovr_SubmitFrame SubmitFrame} was called
@@ -796,7 +772,6 @@ public class OVR {
 	// --- [ ovr_GetPredictedDisplayTime ] ---
 
 	/** JNI method for {@link #ovr_GetPredictedDisplayTime GetPredictedDisplayTime} */
-	@JavadocExclude
 	public static native double novr_GetPredictedDisplayTime(long session, long frameIndex);
 
 	/**
@@ -835,7 +810,6 @@ public class OVR {
 	// --- [ ovr_ResetBackOfHeadTracking ] ---
 
 	/** JNI method for {@link #ovr_ResetBackOfHeadTracking ResetBackOfHeadTracking} */
-	@JavadocExclude
 	public static native void novr_ResetBackOfHeadTracking(long session);
 
 	/**
@@ -852,7 +826,6 @@ public class OVR {
 	// --- [ ovr_ResetMulticameraTracking ] ---
 
 	/** JNI method for {@link #ovr_ResetMulticameraTracking ResetMulticameraTracking} */
-	@JavadocExclude
 	public static native void novr_ResetMulticameraTracking(long session);
 
 	/**
@@ -869,7 +842,6 @@ public class OVR {
 	// --- [ ovr_GetBool ] ---
 
 	/** JNI method for {@link #ovr_GetBool GetBool} */
-	@JavadocExclude
 	public static native boolean novr_GetBool(long session, long propertyName, boolean defaultVal);
 
 	/**
@@ -901,7 +873,6 @@ public class OVR {
 	// --- [ ovr_SetBool ] ---
 
 	/** JNI method for {@link #ovr_SetBool SetBool} */
-	@JavadocExclude
 	public static native boolean novr_SetBool(long session, long propertyName, boolean value);
 
 	/**
@@ -935,7 +906,6 @@ public class OVR {
 	// --- [ ovr_GetInt ] ---
 
 	/** JNI method for {@link #ovr_GetInt GetInt} */
-	@JavadocExclude
 	public static native int novr_GetInt(long session, long propertyName, int defaultVal);
 
 	/**
@@ -967,7 +937,6 @@ public class OVR {
 	// --- [ ovr_SetInt ] ---
 
 	/** JNI method for {@link #ovr_SetInt SetInt} */
-	@JavadocExclude
 	public static native boolean novr_SetInt(long session, long propertyName, int value);
 
 	/**
@@ -1001,7 +970,6 @@ public class OVR {
 	// --- [ ovr_GetFloat ] ---
 
 	/** JNI method for {@link #ovr_GetFloat GetFloat} */
-	@JavadocExclude
 	public static native float novr_GetFloat(long session, long propertyName, float defaultVal);
 
 	/**
@@ -1033,7 +1001,6 @@ public class OVR {
 	// --- [ ovr_SetFloat ] ---
 
 	/** JNI method for {@link #ovr_SetFloat SetFloat} */
-	@JavadocExclude
 	public static native boolean novr_SetFloat(long session, long propertyName, float value);
 
 	/**
@@ -1067,7 +1034,6 @@ public class OVR {
 	// --- [ ovr_GetFloatArray ] ---
 
 	/** JNI method for {@link #ovr_GetFloatArray GetFloatArray} */
-	@JavadocExclude
 	public static native int novr_GetFloatArray(long session, long propertyName, long values, int valuesCapacity);
 
 	/**
@@ -1110,7 +1076,6 @@ public class OVR {
 	// --- [ ovr_SetFloatArray ] ---
 
 	/** JNI method for {@link #ovr_SetFloatArray SetFloatArray} */
-	@JavadocExclude
 	public static native boolean novr_SetFloatArray(long session, long propertyName, long values, int valuesSize);
 
 	/**
@@ -1153,7 +1118,6 @@ public class OVR {
 	// --- [ ovr_GetString ] ---
 
 	/** JNI method for {@link #ovr_GetString GetString} */
-	@JavadocExclude
 	public static native long novr_GetString(long session, long propertyName, long defaultVal);
 
 	/**
@@ -1203,7 +1167,6 @@ public class OVR {
 	// --- [ ovr_SetString ] ---
 
 	/** JNI method for {@link #ovr_SetString SetString} */
-	@JavadocExclude
 	public static native boolean novr_SetString(long hmddesc, long propertyName, long value);
 
 	/**

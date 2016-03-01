@@ -20,15 +20,12 @@ import static org.lwjgl.system.JNI.*;
 public class ARBTextureBarrier {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long TextureBarrier;
 
-	@JavadocExclude
 	protected ARBTextureBarrier() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTextureBarrier(FunctionProvider provider) {
 		TextureBarrier = provider.getFunctionAddress("glTextureBarrier");
 	}

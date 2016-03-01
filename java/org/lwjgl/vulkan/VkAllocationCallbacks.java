@@ -16,22 +16,20 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkAllocationCallbacks {
- *     void * pUserData;
- *     PFN_vkAllocationFunction pfnAllocation;
- *     PFN_vkReallocationFunction pfnReallocation;
- *     PFN_vkFreeFunction pfnFree;
- *     PFN_vkInternalAllocationNotification pfnInternalAllocation;
- *     PFN_vkInternalFreeNotification pfnInternalFree;
- * }</code></pre>
+ * <pre><code>struct VkAllocationCallbacks {
+    void * pUserData;
+    PFN_vkAllocationFunction pfnAllocation;
+    PFN_vkReallocationFunction pfnReallocation;
+    PFN_vkFreeFunction pfnFree;
+    PFN_vkInternalAllocationNotification pfnInternalAllocation;
+    PFN_vkInternalFreeNotification pfnInternalFree;
+}</code></pre>
  */
 public class VkAllocationCallbacks extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -165,12 +163,12 @@ public class VkAllocationCallbacks extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkAllocationCallbacks} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkAllocationCallbacks} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkAllocationCallbacks malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkAllocationCallbacks} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkAllocationCallbacks} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkAllocationCallbacks calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -186,7 +184,7 @@ public class VkAllocationCallbacks extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkAllocationCallbacks.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkAllocationCallbacks.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -195,7 +193,7 @@ public class VkAllocationCallbacks extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkAllocationCallbacks.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkAllocationCallbacks.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

@@ -37,15 +37,12 @@ public class ARBComputeVariableGroupSize {
 		GL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB    = 0x91BF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long DispatchComputeGroupSizeARB;
 
-	@JavadocExclude
 	protected ARBComputeVariableGroupSize() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBComputeVariableGroupSize(FunctionProvider provider) {
 		DispatchComputeGroupSizeARB = provider.getFunctionAddress("glDispatchComputeGroupSizeARB");
 	}

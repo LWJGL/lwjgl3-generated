@@ -34,17 +34,14 @@ public class MESADRMImage {
 		EGL_DRM_BUFFER_USE_SHARE_MESA     = 0x2;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateDRMImageMESA,
 		ExportDRMImageMESA;
 
-	@JavadocExclude
 	protected MESADRMImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public MESADRMImage(FunctionProvider provider) {
 		CreateDRMImageMESA = provider.getFunctionAddress("eglCreateDRMImageMESA");
 		ExportDRMImageMESA = provider.getFunctionAddress("eglExportDRMImageMESA");
@@ -65,7 +62,6 @@ public class MESADRMImage {
 	// --- [ eglCreateDRMImageMESA ] ---
 
 	/** Unsafe version of {@link #eglCreateDRMImageMESA CreateDRMImageMESA} */
-	@JavadocExclude
 	public static long neglCreateDRMImageMESA(long dpy, long attrib_list) {
 		long __functionAddress = getInstance().CreateDRMImageMESA;
 		if ( CHECKS )
@@ -89,7 +85,6 @@ public class MESADRMImage {
 	// --- [ eglExportDRMImageMESA ] ---
 
 	/** Unsafe version of {@link #eglExportDRMImageMESA ExportDRMImageMESA} */
-	@JavadocExclude
 	public static int neglExportDRMImageMESA(long dpy, long image, long name, long handle, long stride) {
 		long __functionAddress = getInstance().ExportDRMImageMESA;
 		if ( CHECKS ) {

@@ -36,18 +36,15 @@ public class ANGLEInstancedArrays {
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE = 0x88FE;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawArraysInstancedANGLE,
 		DrawElementsInstancedANGLE,
 		VertexAttribDivisorANGLE;
 
-	@JavadocExclude
 	protected ANGLEInstancedArrays() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ANGLEInstancedArrays(FunctionProvider provider) {
 		DrawArraysInstancedANGLE = provider.getFunctionAddress("glDrawArraysInstancedANGLE");
 		DrawElementsInstancedANGLE = provider.getFunctionAddress("glDrawElementsInstancedANGLE");
@@ -87,7 +84,6 @@ public class ANGLEInstancedArrays {
 	// --- [ glDrawElementsInstancedANGLE ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedANGLE DrawElementsInstancedANGLE} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedANGLE;
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);

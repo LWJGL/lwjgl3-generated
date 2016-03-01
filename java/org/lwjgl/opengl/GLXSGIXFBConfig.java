@@ -64,7 +64,6 @@ public class GLXSGIXFBConfig {
 		GLX_COLOR_INDEX_TYPE_SGIX = 0x8015;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetFBConfigAttribSGIX,
 		ChooseFBConfigSGIX,
@@ -73,12 +72,10 @@ public class GLXSGIXFBConfig {
 		GetVisualFromFBConfigSGIX,
 		GetFBConfigFromVisualSGIX;
 
-	@JavadocExclude
 	protected GLXSGIXFBConfig() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXSGIXFBConfig(FunctionProvider provider) {
 		GetFBConfigAttribSGIX = provider.getFunctionAddress("glXGetFBConfigAttribSGIX");
 		ChooseFBConfigSGIX = provider.getFunctionAddress("glXChooseFBConfigSGIX");
@@ -116,7 +113,6 @@ public class GLXSGIXFBConfig {
 	// --- [ glXGetFBConfigAttribSGIX ] ---
 
 	/** Unsafe version of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} */
-	@JavadocExclude
 	public static int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value) {
 		long __functionAddress = getInstance().GetFBConfigAttribSGIX;
 		if ( CHECKS ) {
@@ -150,7 +146,6 @@ public class GLXSGIXFBConfig {
 	// --- [ glXChooseFBConfigSGIX ] ---
 
 	/** Unsafe version of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
-	@JavadocExclude
 	public static long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = getInstance().ChooseFBConfigSGIX;
 		if ( CHECKS )
@@ -222,7 +217,6 @@ public class GLXSGIXFBConfig {
 	// --- [ glXGetVisualFromFBConfigSGIX ] ---
 
 	/** Unsafe version of {@link #glXGetVisualFromFBConfigSGIX GetVisualFromFBConfigSGIX} */
-	@JavadocExclude
 	public static long nglXGetVisualFromFBConfigSGIX(long display, long config) {
 		long __functionAddress = getInstance().GetVisualFromFBConfigSGIX;
 		if ( CHECKS ) {
@@ -246,7 +240,6 @@ public class GLXSGIXFBConfig {
 	// --- [ glXGetFBConfigFromVisualSGIX ] ---
 
 	/** Unsafe version of {@link #glXGetFBConfigFromVisualSGIX GetFBConfigFromVisualSGIX} */
-	@JavadocExclude
 	public static long nglXGetFBConfigFromVisualSGIX(long display, long vis) {
 		long __functionAddress = getInstance().GetFBConfigFromVisualSGIX;
 		if ( CHECKS ) {

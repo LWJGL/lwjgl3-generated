@@ -198,7 +198,6 @@ public class CL12 {
 		CL_COMMAND_FILL_IMAGE          = 0x1208;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetExtensionFunctionAddressForPlatform,
 		RetainDevice,
@@ -216,12 +215,10 @@ public class CL12 {
 		EnqueueMarkerWithWaitList,
 		EnqueueBarrierWithWaitList;
 
-	@JavadocExclude
 	protected CL12() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public CL12(FunctionProvider provider) {
 		GetExtensionFunctionAddressForPlatform = provider.getFunctionAddress("clGetExtensionFunctionAddressForPlatform");
 		RetainDevice = provider.getFunctionAddress("clRetainDevice");
@@ -267,7 +264,6 @@ public class CL12 {
 	// --- [ clGetExtensionFunctionAddressForPlatform ] ---
 
 	/** Unsafe version of {@link #clGetExtensionFunctionAddressForPlatform GetExtensionFunctionAddressForPlatform} */
-	@JavadocExclude
 	public static long nclGetExtensionFunctionAddressForPlatform(long platform, long funcname) {
 		long __functionAddress = getInstance().GetExtensionFunctionAddressForPlatform;
 		if ( CHECKS )
@@ -280,8 +276,8 @@ public class CL12 {
 	 * pointer type matching the extension function's definition defined in the appropriate extension specification and header file. A return value of {@code NULL}
 	 * indicates that the specified function does not exist for the implementation or platform is not a valid platform. A non-{@code NULL} return value for
 	 * {@code clGetExtensionFunctionAddressForPlatform} does not guarantee that an extension function is actually supported by the platform. The application
-	 * must also make a corresponding query using <code style="font-family: monospace">clGetPlatformInfo(platform, CL_PLATFORM_EXTENSIONS, &hellip; )</code> or
-	 * <code style="font-family: monospace">clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, &hellip; )</code> to determine if an extension is supported by the OpenCL implementation.
+	 * must also make a corresponding query using <code>clGetPlatformInfo(platform, CL_PLATFORM_EXTENSIONS, &hellip; )</code> or
+	 * <code>clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, &hellip; )</code> to determine if an extension is supported by the OpenCL implementation.
 	 * 
 	 * <p>{@code clGetExtensionFunctionAddressForPlatform} may not be queried for core (non-extension) functions in OpenCL. For functions that are queryable with
 	 * {@code clGetExtensionFunctionAddressForPlatform}, implementations may choose to also export those functions statically from the object libraries
@@ -355,7 +351,6 @@ public class CL12 {
 	// --- [ clCreateSubDevices ] ---
 
 	/** Unsafe version of {@link #clCreateSubDevices CreateSubDevices} */
-	@JavadocExclude
 	public static int nclCreateSubDevices(long in_device, long properties, int num_devices, long out_devices, long num_devices_ret) {
 		long __functionAddress = getInstance().CreateSubDevices;
 		if ( CHECKS )
@@ -429,7 +424,6 @@ public class CL12 {
 	// --- [ clCreateImage ] ---
 
 	/** Unsafe version of {@link #clCreateImage CreateImage} */
-	@JavadocExclude
 	public static long nclCreateImage(long context, long flags, long image_format, long image_desc, long host_ptr, long errcode_ret) {
 		long __functionAddress = getInstance().CreateImage;
 		if ( CHECKS )
@@ -467,7 +461,7 @@ public class CL12 {
 	 * @param host_ptr     a pointer to the image data that may already be allocated by the application. Refer to table below for a description of how large the buffer that
 	 *                     {@code host_ptr} points to must be.
 	 *                     
-	 *                     <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+	 *                     <table class=lwjgl>
 	 *                     <tr><th>ImageType</th><th>Size of buffer that {@code host_ptr} points to</th></tr>
 	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D MEM_OBJECT_IMAGE1D}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
 	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
@@ -543,7 +537,6 @@ public class CL12 {
 	// --- [ clCreateProgramWithBuiltInKernels ] ---
 
 	/** Unsafe version of {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
-	@JavadocExclude
 	public static long nclCreateProgramWithBuiltInKernels(long context, int num_devices, long device_list, long kernel_names, long errcode_ret) {
 		long __functionAddress = getInstance().CreateProgramWithBuiltInKernels;
 		if ( CHECKS )
@@ -616,7 +609,6 @@ public class CL12 {
 	// --- [ clCompileProgram ] ---
 
 	/** Unsafe version of {@link #clCompileProgram CompileProgram} */
-	@JavadocExclude
 	public static int nclCompileProgram(long program, int num_devices, long device_list, long options, int num_input_headers, long input_headers, long header_include_names, long pfn_notify, long user_data) {
 		long __functionAddress = getInstance().CompileProgram;
 		if ( CHECKS )
@@ -734,7 +726,6 @@ public class CL12 {
 	// --- [ clLinkProgram ] ---
 
 	/** Unsafe version of {@link #clLinkProgram LinkProgram} */
-	@JavadocExclude
 	public static long nclLinkProgram(long context, int num_devices, long device_list, long options, int num_input_programs, long input_programs, long pfn_notify, long user_data) {
 		long __functionAddress = getInstance().LinkProgram;
 		if ( CHECKS )
@@ -869,7 +860,6 @@ public class CL12 {
 	// --- [ clGetKernelArgInfo ] ---
 
 	/** Unsafe version of {@link #clGetKernelArgInfo GetKernelArgInfo} */
-	@JavadocExclude
 	public static int nclGetKernelArgInfo(long kernel, int arg_indx, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetKernelArgInfo;
 		if ( CHECKS )
@@ -932,7 +922,6 @@ public class CL12 {
 	// --- [ clEnqueueFillBuffer ] ---
 
 	/** Unsafe version of {@link #clEnqueueFillBuffer EnqueueFillBuffer} */
-	@JavadocExclude
 	public static int nclEnqueueFillBuffer(long command_queue, long buffer, long pattern, long pattern_size, long offset, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueFillBuffer;
 		if ( CHECKS ) {
@@ -1005,7 +994,6 @@ public class CL12 {
 	// --- [ clEnqueueFillImage ] ---
 
 	/** Unsafe version of {@link #clEnqueueFillImage EnqueueFillImage} */
-	@JavadocExclude
 	public static int nclEnqueueFillImage(long command_queue, long image, long fill_color, long origin, long region, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueFillImage;
 		if ( CHECKS ) {
@@ -1081,7 +1069,6 @@ public class CL12 {
 	// --- [ clEnqueueMigrateMemObjects ] ---
 
 	/** Unsafe version of {@link #clEnqueueMigrateMemObjects EnqueueMigrateMemObjects} */
-	@JavadocExclude
 	public static int nclEnqueueMigrateMemObjects(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMigrateMemObjects;
 		if ( CHECKS )
@@ -1154,7 +1141,6 @@ public class CL12 {
 	// --- [ clEnqueueMarkerWithWaitList ] ---
 
 	/** Unsafe version of {@link #clEnqueueMarkerWithWaitList EnqueueMarkerWithWaitList} */
-	@JavadocExclude
 	public static int nclEnqueueMarkerWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMarkerWithWaitList;
 		if ( CHECKS )
@@ -1207,7 +1193,6 @@ public class CL12 {
 	// --- [ clEnqueueBarrierWithWaitList ] ---
 
 	/** Unsafe version of {@link #clEnqueueBarrierWithWaitList EnqueueBarrierWithWaitList} */
-	@JavadocExclude
 	public static int nclEnqueueBarrierWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueBarrierWithWaitList;
 		if ( CHECKS )

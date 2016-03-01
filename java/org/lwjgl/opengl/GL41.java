@@ -99,7 +99,6 @@ public class GL41 {
 	public static final int GL_UNDEFINED_VERTEX = 0x8260;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ReleaseShaderCompiler,
 		ShaderBinary,
@@ -190,12 +189,10 @@ public class GL41 {
 		GetFloati_v,
 		GetDoublei_v;
 
-	@JavadocExclude
 	protected GL41() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL41(FunctionProvider provider) {
 		ReleaseShaderCompiler = provider.getFunctionAddress("glReleaseShaderCompiler");
 		ShaderBinary = provider.getFunctionAddress("glShaderBinary");
@@ -342,7 +339,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glShaderBinary ] ---
 
 	/** Unsafe version of {@link #glShaderBinary ShaderBinary} */
-	@JavadocExclude
 	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
 		long __functionAddress = getInstance().ShaderBinary;
 		callIPIPIV(__functionAddress, count, shaders, binaryformat, binary, length);
@@ -375,7 +371,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glGetShaderPrecisionFormat ] ---
 
 	/** Unsafe version of {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
-	@JavadocExclude
 	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
 		long __functionAddress = getInstance().GetShaderPrecisionFormat;
 		callIIPPV(__functionAddress, shadertype, precisiontype, range, precision);
@@ -450,7 +445,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glGetProgramBinary ] ---
 
 	/** Unsafe version of {@link #glGetProgramBinary GetProgramBinary} */
-	@JavadocExclude
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = getInstance().GetProgramBinary;
 		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
@@ -513,7 +507,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramBinary ] ---
 
 	/** Unsafe version of {@link #glProgramBinary ProgramBinary} */
-	@JavadocExclude
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = getInstance().ProgramBinary;
 		callIIPIV(__functionAddress, program, binaryFormat, binary, length);
@@ -590,7 +583,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glCreateShaderProgramv ] ---
 
 	/** Unsafe version of {@link #glCreateShaderProgramv CreateShaderProgramv} */
-	@JavadocExclude
 	public static int nglCreateShaderProgramv(int type, int count, long strings) {
 		long __functionAddress = getInstance().CreateShaderProgramv;
 		return callIIPI(__functionAddress, type, count, strings);
@@ -603,28 +595,27 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * 
 	 * <p>{@code glCreateShaderProgram} is equivalent (assuming no errors are generated) to:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * const GLuint shader = glCreateShader(type);
-	 * if (shader) {
-	 * 	glShaderSource(shader, count, strings, NULL);
-	 * 	glCompileShader(shader);
-	 * 	const GLuint program = glCreateProgram();
-	 * 	if (program) {
-	 * 		GLint compiled = GL_FALSE;
-	 * 		glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
-	 * 		glProgramParameteri(program, GL_PROGRAM_SEPARABLE, GL_TRUE);
-	 * 		if (compiled) {
-	 * 			glAttachShader(program, shader);
-	 * 			glLinkProgram(program);
-	 * 			glDetachShader(program, shader);
-	 * 		}
-	 * 		// append-shader-info-log-to-program-info-log
-	 * 	}
-	 * 	glDeleteShader(shader);
-	 * 	return program;
-	 * } else {
-	 * 	return 0;
-	 * }</code></pre>
+	 * <pre><code>const GLuint shader = glCreateShader(type);
+if (shader) {
+	glShaderSource(shader, count, strings, NULL);
+	glCompileShader(shader);
+	const GLuint program = glCreateProgram();
+	if (program) {
+		GLint compiled = GL_FALSE;
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
+		glProgramParameteri(program, GL_PROGRAM_SEPARABLE, GL_TRUE);
+		if (compiled) {
+			glAttachShader(program, shader);
+			glLinkProgram(program);
+			glDetachShader(program, shader);
+		}
+		// append-shader-info-log-to-program-info-log
+	}
+	glDeleteShader(shader);
+	return program;
+} else {
+	return 0;
+}</code></pre>
 	 * 
 	 * <p>The program object created by glCreateShaderProgram has its GL_PROGRAM_SEPARABLE status set to GL_TRUE.</p>
 	 *
@@ -682,7 +673,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glDeleteProgramPipelines ] ---
 
 	/** Unsafe version of {@link #glDeleteProgramPipelines DeleteProgramPipelines} */
-	@JavadocExclude
 	public static void nglDeleteProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().DeleteProgramPipelines;
 		callIPV(__functionAddress, n, pipelines);
@@ -717,7 +707,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glGenProgramPipelines ] ---
 
 	/** Unsafe version of {@link #glGenProgramPipelines GenProgramPipelines} */
-	@JavadocExclude
 	public static void nglGenProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().GenProgramPipelines;
 		callIPV(__functionAddress, n, pipelines);
@@ -767,7 +756,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glGetProgramPipelineiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
-	@JavadocExclude
 	public static void nglGetProgramPipelineiv(int pipeline, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramPipelineiv;
 		callIIPV(__functionAddress, pipeline, pname, params);
@@ -1086,7 +1074,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform1iv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1iv ProgramUniform1iv} */
-	@JavadocExclude
 	public static void nglProgramUniform1iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1iv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1116,7 +1103,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform2iv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2iv ProgramUniform2iv} */
-	@JavadocExclude
 	public static void nglProgramUniform2iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2iv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1146,7 +1132,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform3iv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3iv ProgramUniform3iv} */
-	@JavadocExclude
 	public static void nglProgramUniform3iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3iv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1176,7 +1161,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform4iv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4iv ProgramUniform4iv} */
-	@JavadocExclude
 	public static void nglProgramUniform4iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4iv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1206,7 +1190,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform1uiv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1uiv ProgramUniform1uiv} */
-	@JavadocExclude
 	public static void nglProgramUniform1uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1uiv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1236,7 +1219,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform2uiv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2uiv ProgramUniform2uiv} */
-	@JavadocExclude
 	public static void nglProgramUniform2uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2uiv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1266,7 +1248,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform3uiv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3uiv ProgramUniform3uiv} */
-	@JavadocExclude
 	public static void nglProgramUniform3uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3uiv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1296,7 +1277,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform4uiv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4uiv ProgramUniform4uiv} */
-	@JavadocExclude
 	public static void nglProgramUniform4uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4uiv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1326,7 +1306,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform1fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1fv ProgramUniform1fv} */
-	@JavadocExclude
 	public static void nglProgramUniform1fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1fv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1356,7 +1335,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform2fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2fv ProgramUniform2fv} */
-	@JavadocExclude
 	public static void nglProgramUniform2fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2fv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1386,7 +1364,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform3fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3fv ProgramUniform3fv} */
-	@JavadocExclude
 	public static void nglProgramUniform3fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3fv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1416,7 +1393,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform4fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4fv ProgramUniform4fv} */
-	@JavadocExclude
 	public static void nglProgramUniform4fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4fv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1446,7 +1422,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform1dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1dv ProgramUniform1dv} */
-	@JavadocExclude
 	public static void nglProgramUniform1dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1dv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1476,7 +1451,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform2dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2dv ProgramUniform2dv} */
-	@JavadocExclude
 	public static void nglProgramUniform2dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2dv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1506,7 +1480,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform3dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3dv ProgramUniform3dv} */
-	@JavadocExclude
 	public static void nglProgramUniform3dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3dv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1536,7 +1509,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniform4dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4dv ProgramUniform4dv} */
-	@JavadocExclude
 	public static void nglProgramUniform4dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4dv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1566,7 +1538,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix2fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2fv ProgramUniformMatrix2fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1597,7 +1568,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix3fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1628,7 +1598,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix4fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4fv ProgramUniformMatrix4fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1659,7 +1628,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix2dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2dv ProgramUniformMatrix2dv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2dv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1690,7 +1658,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix3dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3dv ProgramUniformMatrix3dv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3dv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1721,7 +1688,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix4dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4dv ProgramUniformMatrix4dv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4dv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1752,7 +1718,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix2x3fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x3fv ProgramUniformMatrix2x3fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1783,7 +1748,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix3x2fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x2fv ProgramUniformMatrix3x2fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1814,7 +1778,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix2x4fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x4fv ProgramUniformMatrix2x4fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1845,7 +1808,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix4x2fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x2fv ProgramUniformMatrix4x2fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1876,7 +1838,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix3x4fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x4fv ProgramUniformMatrix3x4fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1907,7 +1868,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix4x3fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x3fv ProgramUniformMatrix4x3fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1938,7 +1898,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix2x3dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x3dv ProgramUniformMatrix2x3dv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3dv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1969,7 +1928,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix3x2dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x2dv ProgramUniformMatrix3x2dv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2dv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -2000,7 +1958,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix2x4dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x4dv ProgramUniformMatrix2x4dv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4dv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -2031,7 +1988,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix4x2dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x2dv ProgramUniformMatrix4x2dv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2dv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -2062,7 +2018,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix3x4dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x4dv ProgramUniformMatrix3x4dv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4dv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -2093,7 +2048,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glProgramUniformMatrix4x3dv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x3dv ProgramUniformMatrix4x3dv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3dv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -2138,7 +2092,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glGetProgramPipelineInfoLog ] ---
 
 	/** Unsafe version of {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog} */
-	@JavadocExclude
 	public static void nglGetProgramPipelineInfoLog(int pipeline, int bufSize, long length, long infoLog) {
 		long __functionAddress = getInstance().GetProgramPipelineInfoLog;
 		callIIPPV(__functionAddress, pipeline, bufSize, length, infoLog);
@@ -2257,7 +2210,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glVertexAttribL1dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL1dv VertexAttribL1dv} */
-	@JavadocExclude
 	public static void nglVertexAttribL1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1dv;
 		callIPV(__functionAddress, index, v);
@@ -2287,7 +2239,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glVertexAttribL2dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL2dv VertexAttribL2dv} */
-	@JavadocExclude
 	public static void nglVertexAttribL2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL2dv;
 		callIPV(__functionAddress, index, v);
@@ -2317,7 +2268,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glVertexAttribL3dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL3dv VertexAttribL3dv} */
-	@JavadocExclude
 	public static void nglVertexAttribL3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL3dv;
 		callIPV(__functionAddress, index, v);
@@ -2347,7 +2297,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glVertexAttribL4dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL4dv VertexAttribL4dv} */
-	@JavadocExclude
 	public static void nglVertexAttribL4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL4dv;
 		callIPV(__functionAddress, index, v);
@@ -2377,7 +2326,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glVertexAttribLPointer ] ---
 
 	/** Unsafe version of {@link #glVertexAttribLPointer VertexAttribLPointer} */
-	@JavadocExclude
 	public static void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribLPointer;
 		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
@@ -2419,7 +2367,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glGetVertexAttribLdv ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
-	@JavadocExclude
 	public static void nglGetVertexAttribLdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLdv;
 		callIIPV(__functionAddress, index, pname, params);
@@ -2446,7 +2393,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glViewportArrayv ] ---
 
 	/** Unsafe version of {@link #glViewportArrayv ViewportArrayv} */
-	@JavadocExclude
 	public static void nglViewportArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ViewportArrayv;
 		callIIPV(__functionAddress, first, count, v);
@@ -2493,7 +2439,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glViewportIndexedfv ] ---
 
 	/** Unsafe version of {@link #glViewportIndexedfv ViewportIndexedfv} */
-	@JavadocExclude
 	public static void nglViewportIndexedfv(int index, long v) {
 		long __functionAddress = getInstance().ViewportIndexedfv;
 		callIPV(__functionAddress, index, v);
@@ -2523,7 +2468,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glScissorArrayv ] ---
 
 	/** Unsafe version of {@link #glScissorArrayv ScissorArrayv} */
-	@JavadocExclude
 	public static void nglScissorArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ScissorArrayv;
 		callIIPV(__functionAddress, first, count, v);
@@ -2570,7 +2514,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glScissorIndexedv ] ---
 
 	/** Unsafe version of {@link #glScissorIndexedv ScissorIndexedv} */
-	@JavadocExclude
 	public static void nglScissorIndexedv(int index, long v) {
 		long __functionAddress = getInstance().ScissorIndexedv;
 		callIPV(__functionAddress, index, v);
@@ -2600,7 +2543,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glDepthRangeArrayv ] ---
 
 	/** Unsafe version of {@link #glDepthRangeArrayv DepthRangeArrayv} */
-	@JavadocExclude
 	public static void nglDepthRangeArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().DepthRangeArrayv;
 		callIIPV(__functionAddress, first, count, v);
@@ -2645,7 +2587,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glGetFloati_v ] ---
 
 	/** Unsafe version of {@link #glGetFloati_v GetFloati_v} */
-	@JavadocExclude
 	public static void nglGetFloati_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetFloati_v;
 		callIIPV(__functionAddress, target, index, data);
@@ -2684,7 +2625,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	// --- [ glGetDoublei_v ] ---
 
 	/** Unsafe version of {@link #glGetDoublei_v GetDoublei_v} */
-	@JavadocExclude
 	public static void nglGetDoublei_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetDoublei_v;
 		callIIPV(__functionAddress, target, index, data);

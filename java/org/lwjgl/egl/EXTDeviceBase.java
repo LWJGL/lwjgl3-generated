@@ -37,19 +37,16 @@ public class EXTDeviceBase {
 	public static final long EGL_NO_DEVICE_EXT = 0x0L;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		QueryDeviceAttribEXT,
 		QueryDeviceStringEXT,
 		QueryDisplayAttribEXT,
 		QueryDevicesEXT;
 
-	@JavadocExclude
 	protected EXTDeviceBase() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDeviceBase(FunctionProvider provider) {
 		QueryDeviceAttribEXT = provider.getFunctionAddress("eglQueryDeviceAttribEXT");
 		QueryDeviceStringEXT = provider.getFunctionAddress("eglQueryDeviceStringEXT");
@@ -72,7 +69,6 @@ public class EXTDeviceBase {
 	// --- [ eglQueryDeviceAttribEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDeviceAttribEXT QueryDeviceAttribEXT} */
-	@JavadocExclude
 	public static int neglQueryDeviceAttribEXT(long device, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDeviceAttribEXT;
 		if ( CHECKS )
@@ -96,7 +92,6 @@ public class EXTDeviceBase {
 	// --- [ eglQueryDeviceStringEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDeviceStringEXT QueryDeviceStringEXT} */
-	@JavadocExclude
 	public static long neglQueryDeviceStringEXT(long device, int name) {
 		long __functionAddress = getInstance().QueryDeviceStringEXT;
 		if ( CHECKS )
@@ -112,7 +107,6 @@ public class EXTDeviceBase {
 	// --- [ eglQueryDisplayAttribEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDisplayAttribEXT QueryDisplayAttribEXT} */
-	@JavadocExclude
 	public static int neglQueryDisplayAttribEXT(long dpy, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDisplayAttribEXT;
 		if ( CHECKS )
@@ -136,7 +130,6 @@ public class EXTDeviceBase {
 	// --- [ eglQueryDevicesEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDevicesEXT QueryDevicesEXT} */
-	@JavadocExclude
 	public static int neglQueryDevicesEXT(int max_devices, long devices, long num_devices) {
 		long __functionAddress = getInstance().QueryDevicesEXT;
 		return callIPPI(__functionAddress, max_devices, devices, num_devices);

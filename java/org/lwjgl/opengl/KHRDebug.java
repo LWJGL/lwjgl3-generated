@@ -160,7 +160,6 @@ public class KHRDebug {
 		GL_DISPLAY_LIST     = 0x82E7;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DebugMessageControl,
 		DebugMessageInsert,
@@ -173,12 +172,10 @@ public class KHRDebug {
 		ObjectPtrLabel,
 		GetObjectPtrLabel;
 
-	@JavadocExclude
 	protected KHRDebug() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRDebug(FunctionProvider provider) {
 		DebugMessageControl = provider.getFunctionAddress("glDebugMessageControl");
 		DebugMessageInsert = provider.getFunctionAddress("glDebugMessageInsert");
@@ -220,7 +217,6 @@ public class KHRDebug {
 	// --- [ glDebugMessageControl ] ---
 
 	/** Unsafe version of {@link #glDebugMessageControl DebugMessageControl} */
-	@JavadocExclude
 	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControl;
 		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
@@ -280,7 +276,6 @@ public class KHRDebug {
 	// --- [ glDebugMessageInsert ] ---
 
 	/** Unsafe version of {@link #glDebugMessageInsert DebugMessageInsert} */
-	@JavadocExclude
 	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = getInstance().DebugMessageInsert;
 		callIIIIIPV(__functionAddress, source, type, id, severity, length, message);
@@ -365,7 +360,6 @@ public class KHRDebug {
 	// --- [ glGetDebugMessageLog ] ---
 
 	/** Unsafe version of {@link #glGetDebugMessageLog GetDebugMessageLog} */
-	@JavadocExclude
 	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLog;
 		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
@@ -432,7 +426,6 @@ public class KHRDebug {
 	// --- [ glPushDebugGroup ] ---
 
 	/** Unsafe version of {@link #glPushDebugGroup PushDebugGroup} */
-	@JavadocExclude
 	public static void nglPushDebugGroup(int source, int id, int length, long message) {
 		long __functionAddress = getInstance().PushDebugGroup;
 		callIIIPV(__functionAddress, source, id, length, message);
@@ -493,7 +486,6 @@ public class KHRDebug {
 	// --- [ glObjectLabel ] ---
 
 	/** Unsafe version of {@link #glObjectLabel ObjectLabel} */
-	@JavadocExclude
 	public static void nglObjectLabel(int identifier, int name, int length, long label) {
 		long __functionAddress = getInstance().ObjectLabel;
 		callIIIPV(__functionAddress, identifier, name, length, label);
@@ -529,7 +521,6 @@ public class KHRDebug {
 	// --- [ glGetObjectLabel ] ---
 
 	/** Unsafe version of {@link #glGetObjectLabel GetObjectLabel} */
-	@JavadocExclude
 	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabel;
 		callIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
@@ -581,7 +572,6 @@ public class KHRDebug {
 	// --- [ glObjectPtrLabel ] ---
 
 	/** Unsafe version of {@link #glObjectPtrLabel ObjectPtrLabel} */
-	@JavadocExclude
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = getInstance().ObjectPtrLabel;
 		if ( CHECKS )
@@ -618,7 +608,6 @@ public class KHRDebug {
 	// --- [ glGetObjectPtrLabel ] ---
 
 	/** Unsafe version of {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
-	@JavadocExclude
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectPtrLabel;
 		if ( CHECKS )

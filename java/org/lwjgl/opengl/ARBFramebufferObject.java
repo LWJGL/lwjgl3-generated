@@ -330,7 +330,6 @@ public class ARBFramebufferObject {
 	public static final int GL_TEXTURE_STENCIL_SIZE = 0x88F1;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		IsRenderbuffer,
 		BindRenderbuffer,
@@ -353,12 +352,10 @@ public class ARBFramebufferObject {
 		BlitFramebuffer,
 		GenerateMipmap;
 
-	@JavadocExclude
 	protected ARBFramebufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBFramebufferObject(FunctionProvider provider) {
 		IsRenderbuffer = provider.getFunctionAddress("glIsRenderbuffer");
 		BindRenderbuffer = provider.getFunctionAddress("glBindRenderbuffer");
@@ -438,7 +435,6 @@ public class ARBFramebufferObject {
 	// --- [ glDeleteRenderbuffers ] ---
 
 	/** Unsafe version of {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
-	@JavadocExclude
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffers;
 		callIPV(__functionAddress, n, renderbuffers);
@@ -471,7 +467,6 @@ public class ARBFramebufferObject {
 	// --- [ glGenRenderbuffers ] ---
 
 	/** Unsafe version of {@link #glGenRenderbuffers GenRenderbuffers} */
-	@JavadocExclude
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffers;
 		callIPV(__functionAddress, n, renderbuffers);
@@ -538,7 +533,6 @@ public class ARBFramebufferObject {
 	// --- [ glGetRenderbufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameteriv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -600,7 +594,6 @@ public class ARBFramebufferObject {
 	// --- [ glDeleteFramebuffers ] ---
 
 	/** Unsafe version of {@link #glDeleteFramebuffers DeleteFramebuffers} */
-	@JavadocExclude
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffers;
 		callIPV(__functionAddress, n, framebuffers);
@@ -633,7 +626,6 @@ public class ARBFramebufferObject {
 	// --- [ glGenFramebuffers ] ---
 
 	/** Unsafe version of {@link #glGenFramebuffers GenFramebuffers} */
-	@JavadocExclude
 	public static void nglGenFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffers;
 		callIPV(__functionAddress, n, framebuffers);
@@ -759,7 +751,6 @@ public class ARBFramebufferObject {
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
-	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
 		callIIIPV(__functionAddress, target, attachment, pname, params);

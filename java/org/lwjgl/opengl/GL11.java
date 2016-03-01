@@ -704,7 +704,6 @@ public class GL11 {
 		GL_T4F_C4F_N3F_V4F             = 0x2A2D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		Enable,
 		Disable,
@@ -1043,12 +1042,10 @@ public class GL11 {
 		VertexPointer,
 		Viewport;
 
-	@JavadocExclude
 	protected GL11() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL11(FunctionProvider provider, boolean fc) {
 		Enable = provider.getFunctionAddress("glEnable");
 		Disable = provider.getFunctionAddress("glDisable");
@@ -1523,7 +1520,6 @@ public class GL11 {
 	// --- [ glAreTexturesResident ] ---
 
 	/** Unsafe version of {@link #glAreTexturesResident AreTexturesResident} */
-	@JavadocExclude
 	public static boolean nglAreTexturesResident(int n, long textures, long residences) {
 		long __functionAddress = getInstance().AreTexturesResident;
 		if ( CHECKS )
@@ -1618,7 +1614,6 @@ public class GL11 {
 	// --- [ glBitmap ] ---
 
 	/** Unsafe version of {@link #glBitmap Bitmap} */
-	@JavadocExclude
 	public static void nglBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long data) {
 		long __functionAddress = getInstance().Bitmap;
 		if ( CHECKS )
@@ -1687,7 +1682,6 @@ public class GL11 {
 	// --- [ glCallLists ] ---
 
 	/** Unsafe version of {@link #glCallLists CallLists} */
-	@JavadocExclude
 	public static void nglCallLists(int n, int type, long lists) {
 		long __functionAddress = getInstance().CallLists;
 		if ( CHECKS )
@@ -1802,7 +1796,7 @@ public class GL11 {
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glClearIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * sets the clear color index. index is converted to a fixed-point value with unspecified precision to the left of the binary point; the integer part of
-	 * this value is then masked with <code style="font-family: monospace">2<sup>m</sup> &ndash; 1</code>, where {@code m} is the number of bits in a color index value stored in the
+	 * this value is then masked with <code>2<sup>m</sup> &ndash; 1</code>, where {@code m} is the number of bits in a color index value stored in the
 	 * framebuffer.
 	 *
 	 * @param index the value to which to clear the color buffer in color index mode
@@ -1831,7 +1825,6 @@ public class GL11 {
 	// --- [ glClipPlane ] ---
 
 	/** Unsafe version of {@link #glClipPlane ClipPlane} */
-	@JavadocExclude
 	public static void nglClipPlane(int plane, long equation) {
 		long __functionAddress = getInstance().ClipPlane;
 		callIPV(__functionAddress, plane, equation);
@@ -2005,7 +1998,6 @@ public class GL11 {
 	// --- [ glColor3bv ] ---
 
 	/** Unsafe version of {@link #glColor3bv Color3bv} */
-	@JavadocExclude
 	public static void nglColor3bv(long v) {
 		long __functionAddress = getInstance().Color3bv;
 		if ( CHECKS )
@@ -2029,7 +2021,6 @@ public class GL11 {
 	// --- [ glColor3sv ] ---
 
 	/** Unsafe version of {@link #glColor3sv Color3sv} */
-	@JavadocExclude
 	public static void nglColor3sv(long v) {
 		long __functionAddress = getInstance().Color3sv;
 		if ( CHECKS )
@@ -2060,7 +2051,6 @@ public class GL11 {
 	// --- [ glColor3iv ] ---
 
 	/** Unsafe version of {@link #glColor3iv Color3iv} */
-	@JavadocExclude
 	public static void nglColor3iv(long v) {
 		long __functionAddress = getInstance().Color3iv;
 		if ( CHECKS )
@@ -2091,7 +2081,6 @@ public class GL11 {
 	// --- [ glColor3fv ] ---
 
 	/** Unsafe version of {@link #glColor3fv Color3fv} */
-	@JavadocExclude
 	public static void nglColor3fv(long v) {
 		long __functionAddress = getInstance().Color3fv;
 		if ( CHECKS )
@@ -2122,7 +2111,6 @@ public class GL11 {
 	// --- [ glColor3dv ] ---
 
 	/** Unsafe version of {@link #glColor3dv Color3dv} */
-	@JavadocExclude
 	public static void nglColor3dv(long v) {
 		long __functionAddress = getInstance().Color3dv;
 		if ( CHECKS )
@@ -2153,7 +2141,6 @@ public class GL11 {
 	// --- [ glColor3ubv ] ---
 
 	/** Unsafe version of {@link #glColor3ubv Color3ubv} */
-	@JavadocExclude
 	public static void nglColor3ubv(long v) {
 		long __functionAddress = getInstance().Color3ubv;
 		if ( CHECKS )
@@ -2177,7 +2164,6 @@ public class GL11 {
 	// --- [ glColor3usv ] ---
 
 	/** Unsafe version of {@link #glColor3usv Color3usv} */
-	@JavadocExclude
 	public static void nglColor3usv(long v) {
 		long __functionAddress = getInstance().Color3usv;
 		if ( CHECKS )
@@ -2208,7 +2194,6 @@ public class GL11 {
 	// --- [ glColor3uiv ] ---
 
 	/** Unsafe version of {@link #glColor3uiv Color3uiv} */
-	@JavadocExclude
 	public static void nglColor3uiv(long v) {
 		long __functionAddress = getInstance().Color3uiv;
 		if ( CHECKS )
@@ -2391,7 +2376,6 @@ public class GL11 {
 	// --- [ glColor4bv ] ---
 
 	/** Unsafe version of {@link #glColor4bv Color4bv} */
-	@JavadocExclude
 	public static void nglColor4bv(long v) {
 		long __functionAddress = getInstance().Color4bv;
 		if ( CHECKS )
@@ -2415,7 +2399,6 @@ public class GL11 {
 	// --- [ glColor4sv ] ---
 
 	/** Unsafe version of {@link #glColor4sv Color4sv} */
-	@JavadocExclude
 	public static void nglColor4sv(long v) {
 		long __functionAddress = getInstance().Color4sv;
 		if ( CHECKS )
@@ -2446,7 +2429,6 @@ public class GL11 {
 	// --- [ glColor4iv ] ---
 
 	/** Unsafe version of {@link #glColor4iv Color4iv} */
-	@JavadocExclude
 	public static void nglColor4iv(long v) {
 		long __functionAddress = getInstance().Color4iv;
 		if ( CHECKS )
@@ -2477,7 +2459,6 @@ public class GL11 {
 	// --- [ glColor4fv ] ---
 
 	/** Unsafe version of {@link #glColor4fv Color4fv} */
-	@JavadocExclude
 	public static void nglColor4fv(long v) {
 		long __functionAddress = getInstance().Color4fv;
 		if ( CHECKS )
@@ -2508,7 +2489,6 @@ public class GL11 {
 	// --- [ glColor4dv ] ---
 
 	/** Unsafe version of {@link #glColor4dv Color4dv} */
-	@JavadocExclude
 	public static void nglColor4dv(long v) {
 		long __functionAddress = getInstance().Color4dv;
 		if ( CHECKS )
@@ -2539,7 +2519,6 @@ public class GL11 {
 	// --- [ glColor4ubv ] ---
 
 	/** Unsafe version of {@link #glColor4ubv Color4ubv} */
-	@JavadocExclude
 	public static void nglColor4ubv(long v) {
 		long __functionAddress = getInstance().Color4ubv;
 		if ( CHECKS )
@@ -2563,7 +2542,6 @@ public class GL11 {
 	// --- [ glColor4usv ] ---
 
 	/** Unsafe version of {@link #glColor4usv Color4usv} */
-	@JavadocExclude
 	public static void nglColor4usv(long v) {
 		long __functionAddress = getInstance().Color4usv;
 		if ( CHECKS )
@@ -2594,7 +2572,6 @@ public class GL11 {
 	// --- [ glColor4uiv ] ---
 
 	/** Unsafe version of {@link #glColor4uiv Color4uiv} */
-	@JavadocExclude
 	public static void nglColor4uiv(long v) {
 		long __functionAddress = getInstance().Color4uiv;
 		if ( CHECKS )
@@ -2661,7 +2638,6 @@ public class GL11 {
 	// --- [ glColorPointer ] ---
 
 	/** Unsafe version of {@link #glColorPointer ColorPointer} */
-	@JavadocExclude
 	public static void nglColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().ColorPointer;
 		if ( CHECKS )
@@ -2830,7 +2806,7 @@ public class GL11 {
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArrays.xhtml">OpenGL SDK Reference</a></p>
 	 * 
 	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices. Elements {@code first} through
-	 * <code style="font-family: monospace">first + count &ndash; 1</code> of each enabled non-instanced array are transferred to the GL.
+	 * <code>first + count &ndash; 1</code> of each enabled non-instanced array are transferred to the GL.
 	 * 
 	 * <p>If an array corresponding to an attribute required by a vertex shader is not enabled, then the corresponding element is taken from the current attribute
 	 * state. If an array is enabled, the corresponding current vertex attribute value is unaffected by the execution of this function.</p>
@@ -2864,7 +2840,6 @@ public class GL11 {
 	// --- [ glDrawElements ] ---
 
 	/** Unsafe version of {@link #glDrawElements DrawElements} */
-	@JavadocExclude
 	public static void nglDrawElements(int mode, int count, int type, long indices) {
 		long __functionAddress = getInstance().DrawElements;
 		callIIIPV(__functionAddress, mode, count, type, indices);
@@ -2928,7 +2903,6 @@ public class GL11 {
 	// --- [ glDrawPixels ] ---
 
 	/** Unsafe version of {@link #glDrawPixels DrawPixels} */
-	@JavadocExclude
 	public static void nglDrawPixels(int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().DrawPixels;
 		if ( CHECKS )
@@ -3006,7 +2980,6 @@ public class GL11 {
 	// --- [ glEdgeFlagv ] ---
 
 	/** Unsafe version of {@link #glEdgeFlagv EdgeFlagv} */
-	@JavadocExclude
 	public static void nglEdgeFlagv(long flag) {
 		long __functionAddress = getInstance().EdgeFlagv;
 		if ( CHECKS )
@@ -3030,7 +3003,6 @@ public class GL11 {
 	// --- [ glEdgeFlagPointer ] ---
 
 	/** Unsafe version of {@link #glEdgeFlagPointer EdgeFlagPointer} */
-	@JavadocExclude
 	public static void nglEdgeFlagPointer(int stride, long pointer) {
 		long __functionAddress = getInstance().EdgeFlagPointer;
 		if ( CHECKS )
@@ -3108,7 +3080,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	// --- [ glEvalCoord1fv ] ---
 
 	/** Unsafe version of {@link #glEvalCoord1fv EvalCoord1fv} */
-	@JavadocExclude
 	public static void nglEvalCoord1fv(long u) {
 		long __functionAddress = getInstance().EvalCoord1fv;
 		if ( CHECKS )
@@ -3151,7 +3122,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	// --- [ glEvalCoord1dv ] ---
 
 	/** Unsafe version of {@link #glEvalCoord1dv EvalCoord1dv} */
-	@JavadocExclude
 	public static void nglEvalCoord1dv(long u) {
 		long __functionAddress = getInstance().EvalCoord1dv;
 		if ( CHECKS )
@@ -3195,7 +3165,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	// --- [ glEvalCoord2fv ] ---
 
 	/** Unsafe version of {@link #glEvalCoord2fv EvalCoord2fv} */
-	@JavadocExclude
 	public static void nglEvalCoord2fv(long u) {
 		long __functionAddress = getInstance().EvalCoord2fv;
 		if ( CHECKS )
@@ -3239,7 +3208,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	// --- [ glEvalCoord2dv ] ---
 
 	/** Unsafe version of {@link #glEvalCoord2dv EvalCoord2dv} */
-	@JavadocExclude
 	public static void nglEvalCoord2dv(long u) {
 		long __functionAddress = getInstance().EvalCoord2dv;
 		if ( CHECKS )
@@ -3337,7 +3305,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	// --- [ glFeedbackBuffer ] ---
 
 	/** Unsafe version of {@link #glFeedbackBuffer FeedbackBuffer} */
-	@JavadocExclude
 	public static void nglFeedbackBuffer(int size, int type, long buffer) {
 		long __functionAddress = getInstance().FeedbackBuffer;
 		if ( CHECKS )
@@ -3410,7 +3377,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glFogiv ] ---
 
 	/** Unsafe version of {@link #glFogiv Fogiv} */
-	@JavadocExclude
 	public static void nglFogiv(int pname, long params) {
 		long __functionAddress = getInstance().Fogiv;
 		if ( CHECKS )
@@ -3459,7 +3425,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glFogfv ] ---
 
 	/** Unsafe version of {@link #glFogfv Fogfv} */
-	@JavadocExclude
 	public static void nglFogfv(int pname, long params) {
 		long __functionAddress = getInstance().Fogfv;
 		if ( CHECKS )
@@ -3526,7 +3491,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGenTextures ] ---
 
 	/** Unsafe version of {@link #glGenTextures GenTextures} */
-	@JavadocExclude
 	public static void nglGenTextures(int n, long textures) {
 		long __functionAddress = getInstance().GenTextures;
 		callIPV(__functionAddress, n, textures);
@@ -3563,7 +3527,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glDeleteTextures ] ---
 
 	/** Unsafe version of {@link #glDeleteTextures DeleteTextures} */
-	@JavadocExclude
 	public static void nglDeleteTextures(int n, long textures) {
 		long __functionAddress = getInstance().DeleteTextures;
 		callIPV(__functionAddress, n, textures);
@@ -3604,7 +3567,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetClipPlane ] ---
 
 	/** Unsafe version of {@link #glGetClipPlane GetClipPlane} */
-	@JavadocExclude
 	public static void nglGetClipPlane(int plane, long equation) {
 		long __functionAddress = getInstance().GetClipPlane;
 		callIPV(__functionAddress, plane, equation);
@@ -3635,7 +3597,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetBooleanv ] ---
 
 	/** Unsafe version of {@link #glGetBooleanv GetBooleanv} */
-	@JavadocExclude
 	public static void nglGetBooleanv(int pname, long params) {
 		long __functionAddress = getInstance().GetBooleanv;
 		callIPV(__functionAddress, pname, params);
@@ -3670,7 +3631,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetFloatv ] ---
 
 	/** Unsafe version of {@link #glGetFloatv GetFloatv} */
-	@JavadocExclude
 	public static void nglGetFloatv(int pname, long params) {
 		long __functionAddress = getInstance().GetFloatv;
 		callIPV(__functionAddress, pname, params);
@@ -3712,7 +3672,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetIntegerv ] ---
 
 	/** Unsafe version of {@link #glGetIntegerv GetIntegerv} */
-	@JavadocExclude
 	public static void nglGetIntegerv(int pname, long params) {
 		long __functionAddress = getInstance().GetIntegerv;
 		callIPV(__functionAddress, pname, params);
@@ -3754,7 +3713,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetDoublev ] ---
 
 	/** Unsafe version of {@link #glGetDoublev GetDoublev} */
-	@JavadocExclude
 	public static void nglGetDoublev(int pname, long params) {
 		long __functionAddress = getInstance().GetDoublev;
 		callIPV(__functionAddress, pname, params);
@@ -3811,7 +3769,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetLightiv ] ---
 
 	/** Unsafe version of {@link #glGetLightiv GetLightiv} */
-	@JavadocExclude
 	public static void nglGetLightiv(int light, int pname, long data) {
 		long __functionAddress = getInstance().GetLightiv;
 		if ( CHECKS )
@@ -3852,7 +3809,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetLightfv ] ---
 
 	/** Unsafe version of {@link #glGetLightfv GetLightfv} */
-	@JavadocExclude
 	public static void nglGetLightfv(int light, int pname, long data) {
 		long __functionAddress = getInstance().GetLightfv;
 		if ( CHECKS )
@@ -3893,7 +3849,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetMapiv ] ---
 
 	/** Unsafe version of {@link #glGetMapiv GetMapiv} */
-	@JavadocExclude
 	public static void nglGetMapiv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapiv;
 		if ( CHECKS )
@@ -3934,7 +3889,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetMapfv ] ---
 
 	/** Unsafe version of {@link #glGetMapfv GetMapfv} */
-	@JavadocExclude
 	public static void nglGetMapfv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapfv;
 		if ( CHECKS )
@@ -3975,7 +3929,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetMapdv ] ---
 
 	/** Unsafe version of {@link #glGetMapdv GetMapdv} */
-	@JavadocExclude
 	public static void nglGetMapdv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapdv;
 		if ( CHECKS )
@@ -4016,7 +3969,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetMaterialiv ] ---
 
 	/** Unsafe version of {@link #glGetMaterialiv GetMaterialiv} */
-	@JavadocExclude
 	public static void nglGetMaterialiv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialiv;
 		if ( CHECKS )
@@ -4045,7 +3997,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetMaterialfv ] ---
 
 	/** Unsafe version of {@link #glGetMaterialfv GetMaterialfv} */
-	@JavadocExclude
 	public static void nglGetMaterialfv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialfv;
 		if ( CHECKS )
@@ -4074,7 +4025,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetPixelMapfv ] ---
 
 	/** Unsafe version of {@link #glGetPixelMapfv GetPixelMapfv} */
-	@JavadocExclude
 	public static void nglGetPixelMapfv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapfv;
 		if ( CHECKS )
@@ -4117,7 +4067,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetPixelMapusv ] ---
 
 	/** Unsafe version of {@link #glGetPixelMapusv GetPixelMapusv} */
-	@JavadocExclude
 	public static void nglGetPixelMapusv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapusv;
 		if ( CHECKS )
@@ -4160,7 +4109,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetPixelMapuiv ] ---
 
 	/** Unsafe version of {@link #glGetPixelMapuiv GetPixelMapuiv} */
-	@JavadocExclude
 	public static void nglGetPixelMapuiv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapuiv;
 		if ( CHECKS )
@@ -4203,7 +4151,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetPointerv ] ---
 
 	/** Unsafe version of {@link #glGetPointerv GetPointerv} */
-	@JavadocExclude
 	public static void nglGetPointerv(int pname, long params) {
 		long __functionAddress = getInstance().GetPointerv;
 		callIPV(__functionAddress, pname, params);
@@ -4241,7 +4188,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetPolygonStipple ] ---
 
 	/** Unsafe version of {@link #glGetPolygonStipple GetPolygonStipple} */
-	@JavadocExclude
 	public static void nglGetPolygonStipple(long pattern) {
 		long __functionAddress = getInstance().GetPolygonStipple;
 		if ( CHECKS )
@@ -4274,7 +4220,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetString ] ---
 
 	/** Unsafe version of {@link #glGetString GetString} */
-	@JavadocExclude
 	public static long nglGetString(int name) {
 		long __functionAddress = getInstance().GetString;
 		return callIP(__functionAddress, name);
@@ -4295,7 +4240,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetTexEnviv ] ---
 
 	/** Unsafe version of {@link #glGetTexEnviv GetTexEnviv} */
-	@JavadocExclude
 	public static void nglGetTexEnviv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnviv;
 		callIIPV(__functionAddress, env, pname, data);
@@ -4334,7 +4278,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetTexEnvfv ] ---
 
 	/** Unsafe version of {@link #glGetTexEnvfv GetTexEnvfv} */
-	@JavadocExclude
 	public static void nglGetTexEnvfv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnvfv;
 		callIIPV(__functionAddress, env, pname, data);
@@ -4373,7 +4316,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetTexGeniv ] ---
 
 	/** Unsafe version of {@link #glGetTexGeniv GetTexGeniv} */
-	@JavadocExclude
 	public static void nglGetTexGeniv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGeniv;
 		if ( CHECKS )
@@ -4414,7 +4356,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetTexGenfv ] ---
 
 	/** Unsafe version of {@link #glGetTexGenfv GetTexGenfv} */
-	@JavadocExclude
 	public static void nglGetTexGenfv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGenfv;
 		if ( CHECKS )
@@ -4455,7 +4396,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetTexGendv ] ---
 
 	/** Unsafe version of {@link #glGetTexGendv GetTexGendv} */
-	@JavadocExclude
 	public static void nglGetTexGendv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGendv;
 		if ( CHECKS )
@@ -4496,7 +4436,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetTexImage ] ---
 
 	/** Unsafe version of {@link #glGetTexImage GetTexImage} */
-	@JavadocExclude
 	public static void nglGetTexImage(int tex, int level, int format, int type, long pixels) {
 		long __functionAddress = getInstance().GetTexImage;
 		callIIIIPV(__functionAddress, tex, level, format, type, pixels);
@@ -4557,7 +4496,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetTexLevelParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
-	@JavadocExclude
 	public static void nglGetTexLevelParameteriv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameteriv;
 		callIIIPV(__functionAddress, target, level, pname, params);
@@ -4597,7 +4535,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetTexLevelParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
-	@JavadocExclude
 	public static void nglGetTexLevelParameterfv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameterfv;
 		callIIIPV(__functionAddress, target, level, pname, params);
@@ -4637,7 +4574,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetTexParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetTexParameteriv GetTexParameteriv} */
-	@JavadocExclude
 	public static void nglGetTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameteriv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -4676,7 +4612,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glGetTexParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterfv GetTexParameterfv} */
-	@JavadocExclude
 	public static void nglGetTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterfv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -4811,7 +4746,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glIndexiv ] ---
 
 	/** Unsafe version of {@link #glIndexiv Indexiv} */
-	@JavadocExclude
 	public static void nglIndexiv(long index) {
 		long __functionAddress = getInstance().Indexiv;
 		if ( CHECKS )
@@ -4842,7 +4776,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glIndexubv ] ---
 
 	/** Unsafe version of {@link #glIndexubv Indexubv} */
-	@JavadocExclude
 	public static void nglIndexubv(long index) {
 		long __functionAddress = getInstance().Indexubv;
 		if ( CHECKS )
@@ -4866,7 +4799,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glIndexsv ] ---
 
 	/** Unsafe version of {@link #glIndexsv Indexsv} */
-	@JavadocExclude
 	public static void nglIndexsv(long index) {
 		long __functionAddress = getInstance().Indexsv;
 		if ( CHECKS )
@@ -4897,7 +4829,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glIndexfv ] ---
 
 	/** Unsafe version of {@link #glIndexfv Indexfv} */
-	@JavadocExclude
 	public static void nglIndexfv(long index) {
 		long __functionAddress = getInstance().Indexfv;
 		if ( CHECKS )
@@ -4928,7 +4859,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glIndexdv ] ---
 
 	/** Unsafe version of {@link #glIndexdv Indexdv} */
-	@JavadocExclude
 	public static void nglIndexdv(long index) {
 		long __functionAddress = getInstance().Indexdv;
 		if ( CHECKS )
@@ -4977,7 +4907,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	// --- [ glIndexPointer ] ---
 
 	/** Unsafe version of {@link #glIndexPointer IndexPointer} */
-	@JavadocExclude
 	public static void nglIndexPointer(int type, int stride, long pointer) {
 		long __functionAddress = getInstance().IndexPointer;
 		if ( CHECKS )
@@ -5045,7 +4974,6 @@ Clears the selection name stack.
 	// --- [ glInterleavedArrays ] ---
 
 	/** Unsafe version of {@link #glInterleavedArrays InterleavedArrays} */
-	@JavadocExclude
 	public static void nglInterleavedArrays(int format, int stride, long pointer) {
 		long __functionAddress = getInstance().InterleavedArrays;
 		callIIPV(__functionAddress, format, stride, pointer);
@@ -5182,7 +5110,6 @@ Clears the selection name stack.
 	// --- [ glLightModeliv ] ---
 
 	/** Unsafe version of {@link #glLightModeliv LightModeliv} */
-	@JavadocExclude
 	public static void nglLightModeliv(int pname, long params) {
 		long __functionAddress = getInstance().LightModeliv;
 		if ( CHECKS )
@@ -5214,7 +5141,6 @@ Clears the selection name stack.
 	// --- [ glLightModelfv ] ---
 
 	/** Unsafe version of {@link #glLightModelfv LightModelfv} */
-	@JavadocExclude
 	public static void nglLightModelfv(int pname, long params) {
 		long __functionAddress = getInstance().LightModelfv;
 		if ( CHECKS )
@@ -5282,7 +5208,6 @@ Clears the selection name stack.
 	// --- [ glLightiv ] ---
 
 	/** Unsafe version of {@link #glLightiv Lightiv} */
-	@JavadocExclude
 	public static void nglLightiv(int light, int pname, long params) {
 		long __functionAddress = getInstance().Lightiv;
 		if ( CHECKS )
@@ -5315,7 +5240,6 @@ Clears the selection name stack.
 	// --- [ glLightfv ] ---
 
 	/** Unsafe version of {@link #glLightfv Lightfv} */
-	@JavadocExclude
 	public static void nglLightfv(int light, int pname, long params) {
 		long __functionAddress = getInstance().Lightfv;
 		if ( CHECKS )
@@ -5397,7 +5321,6 @@ Clears the selection name stack.
 	// --- [ glLoadMatrixf ] ---
 
 	/** Unsafe version of {@link #glLoadMatrixf LoadMatrixf} */
-	@JavadocExclude
 	public static void nglLoadMatrixf(long m) {
 		long __functionAddress = getInstance().LoadMatrixf;
 		if ( CHECKS )
@@ -5412,7 +5335,7 @@ Clears the selection name stack.
 	 * 
 	 * <p>The matrix is stored as 16 consecutive values, i.e. as:</p>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
+	 * <table class="lwjgl matrix">
 	 * <tr><td>a1</td><td>a5</td><td>a9</td><td>a13</td></tr>
 	 * <tr><td>a2</td><td>a6</td><td>a10</td><td>a14</td></tr>
 	 * <tr><td>a3</td><td>a7</td><td>a11</td><td>a15</td></tr>
@@ -5440,7 +5363,6 @@ Clears the selection name stack.
 	// --- [ glLoadMatrixd ] ---
 
 	/** Unsafe version of {@link #glLoadMatrixd LoadMatrixd} */
-	@JavadocExclude
 	public static void nglLoadMatrixd(long m) {
 		long __functionAddress = getInstance().LoadMatrixd;
 		if ( CHECKS )
@@ -5477,7 +5399,7 @@ Clears the selection name stack.
 	 * 
 	 * <p>Calling this function is equivalent to calling {@link #glLoadMatrixf LoadMatrixf} with the following matrix:</p>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
+	 * <table class="lwjgl matrix">
 	 * <tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>
 	 * <tr><td>0</td><td>1</td><td>0</td><td>0</td></tr>
 	 * <tr><td>0</td><td>0</td><td>1</td><td>0</td></tr>
@@ -5524,7 +5446,6 @@ Clears the selection name stack.
 	// --- [ glMap1f ] ---
 
 	/** Unsafe version of {@link #glMap1f Map1f} */
-	@JavadocExclude
 	public static void nglMap1f(int target, float u1, float u2, int stride, int order, long points) {
 		long __functionAddress = getInstance().Map1f;
 		if ( CHECKS )
@@ -5561,7 +5482,6 @@ Clears the selection name stack.
 	// --- [ glMap1d ] ---
 
 	/** Unsafe version of {@link #glMap1d Map1d} */
-	@JavadocExclude
 	public static void nglMap1d(int target, double u1, double u2, int stride, int order, long points) {
 		long __functionAddress = getInstance().Map1d;
 		if ( CHECKS )
@@ -5597,7 +5517,6 @@ Clears the selection name stack.
 	// --- [ glMap2f ] ---
 
 	/** Unsafe version of {@link #glMap2f Map2f} */
-	@JavadocExclude
 	public static void nglMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, long points) {
 		long __functionAddress = getInstance().Map2f;
 		if ( CHECKS )
@@ -5619,7 +5538,7 @@ Clears the selection name stack.
 	 * @param v2      the second v-dimension endpoint of the pre-image rectangle of the map
 	 * @param vstride the number of values in the v-dimension in each block of storage
 	 * @param vorder  the polynomial order in the v-dimension
-	 * @param points  a set of <code style="font-family: monospace">uorder &times; vorder</code> blocks of storage containing control points
+	 * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
 	 */
 	public static void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, ByteBuffer points) {
 		if ( CHECKS )
@@ -5637,7 +5556,6 @@ Clears the selection name stack.
 	// --- [ glMap2d ] ---
 
 	/** Unsafe version of {@link #glMap2d Map2d} */
-	@JavadocExclude
 	public static void nglMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, long points) {
 		long __functionAddress = getInstance().Map2d;
 		if ( CHECKS )
@@ -5659,7 +5577,7 @@ Clears the selection name stack.
 	 * @param v2      the second v-dimension endpoint of the pre-image rectangle of the map
 	 * @param vstride the number of values in the v-dimension in each block of storage
 	 * @param vorder  the polynomial order in the v-dimension
-	 * @param points  a set of <code style="font-family: monospace">uorder &times; vorder</code> blocks of storage containing control points
+	 * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
 	 */
 	public static void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, ByteBuffer points) {
 		if ( CHECKS )
@@ -5791,7 +5709,6 @@ Clears the selection name stack.
 	// --- [ glMaterialiv ] ---
 
 	/** Unsafe version of {@link #glMaterialiv Materialiv} */
-	@JavadocExclude
 	public static void nglMaterialiv(int face, int pname, long params) {
 		long __functionAddress = getInstance().Materialiv;
 		if ( CHECKS )
@@ -5824,7 +5741,6 @@ Clears the selection name stack.
 	// --- [ glMaterialfv ] ---
 
 	/** Unsafe version of {@link #glMaterialfv Materialfv} */
-	@JavadocExclude
 	public static void nglMaterialfv(int face, int pname, long params) {
 		long __functionAddress = getInstance().Materialfv;
 		if ( CHECKS )
@@ -5873,7 +5789,6 @@ Clears the selection name stack.
 	// --- [ glMultMatrixf ] ---
 
 	/** Unsafe version of {@link #glMultMatrixf MultMatrixf} */
-	@JavadocExclude
 	public static void nglMultMatrixf(long m) {
 		long __functionAddress = getInstance().MultMatrixf;
 		if ( CHECKS )
@@ -5904,7 +5819,6 @@ Clears the selection name stack.
 	// --- [ glMultMatrixd ] ---
 
 	/** Unsafe version of {@link #glMultMatrixd MultMatrixd} */
-	@JavadocExclude
 	public static void nglMultMatrixd(long m) {
 		long __functionAddress = getInstance().MultMatrixd;
 		if ( CHECKS )
@@ -5937,14 +5851,14 @@ Clears the selection name stack.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFrustum.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Manipulates the current matrix with a matrix that produces perspective projection, in such a way that the coordinates <code style="font-family: monospace">(lb &ndash; n)<sup>T</sup></code>
-	 * and <code style="font-family: monospace">(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
-	 * window, respectively (assuming that the eye is located at <code style="font-family: monospace">(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
+	 * Manipulates the current matrix with a matrix that produces perspective projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
+	 * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
+	 * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
 	 * plane.
 	 * 
 	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
+	 * <table class="lwjgl matrix">
 	 * <tr><td>2n / (r - l)</td><td>0</td><td>(r + l) / (r - l)</td><td>0</td></tr>
 	 * <tr><td>0</td><td>2n / (t - b)</td><td>(t + b) / (t - b)</td><td>0</td></tr>
 	 * <tr><td>0</td><td>0</td><td>- (f + n) / (f - n)</td><td>- (2fn) / (f - n)</td></tr>
@@ -6090,7 +6004,6 @@ Clears the selection name stack.
 	// --- [ glNormal3fv ] ---
 
 	/** Unsafe version of {@link #glNormal3fv Normal3fv} */
-	@JavadocExclude
 	public static void nglNormal3fv(long v) {
 		long __functionAddress = getInstance().Normal3fv;
 		if ( CHECKS )
@@ -6121,7 +6034,6 @@ Clears the selection name stack.
 	// --- [ glNormal3bv ] ---
 
 	/** Unsafe version of {@link #glNormal3bv Normal3bv} */
-	@JavadocExclude
 	public static void nglNormal3bv(long v) {
 		long __functionAddress = getInstance().Normal3bv;
 		if ( CHECKS )
@@ -6145,7 +6057,6 @@ Clears the selection name stack.
 	// --- [ glNormal3sv ] ---
 
 	/** Unsafe version of {@link #glNormal3sv Normal3sv} */
-	@JavadocExclude
 	public static void nglNormal3sv(long v) {
 		long __functionAddress = getInstance().Normal3sv;
 		if ( CHECKS )
@@ -6176,7 +6087,6 @@ Clears the selection name stack.
 	// --- [ glNormal3iv ] ---
 
 	/** Unsafe version of {@link #glNormal3iv Normal3iv} */
-	@JavadocExclude
 	public static void nglNormal3iv(long v) {
 		long __functionAddress = getInstance().Normal3iv;
 		if ( CHECKS )
@@ -6207,7 +6117,6 @@ Clears the selection name stack.
 	// --- [ glNormal3dv ] ---
 
 	/** Unsafe version of {@link #glNormal3dv Normal3dv} */
-	@JavadocExclude
 	public static void nglNormal3dv(long v) {
 		long __functionAddress = getInstance().Normal3dv;
 		if ( CHECKS )
@@ -6238,7 +6147,6 @@ Clears the selection name stack.
 	// --- [ glNormalPointer ] ---
 
 	/** Unsafe version of {@link #glNormalPointer NormalPointer} */
-	@JavadocExclude
 	public static void nglNormalPointer(int type, int stride, long pointer) {
 		long __functionAddress = getInstance().NormalPointer;
 		if ( CHECKS )
@@ -6294,14 +6202,14 @@ Clears the selection name stack.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glOrtho.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Manipulates the current matrix with a matrix that produces parallel projection, in such a way that the coordinates <code style="font-family: monospace">(lb &ndash; n)<sup>T</sup></code>
-	 * and <code style="font-family: monospace">(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
-	 * window, respectively (assuming that the eye is located at <code style="font-family: monospace">(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
+	 * Manipulates the current matrix with a matrix that produces parallel projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
+	 * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
+	 * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
 	 * plane.
 	 * 
 	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
+	 * <table class="lwjgl matrix">
 	 * <tr><td>2 / (r - l)</td><td>0</td><td>0</td><td>- (r + l) / (r - l)</td></tr>
 	 * <tr><td>0</td><td>2 / (t - b)</td><td>0</td><td>- (t + b) / (t - b)</td></tr>
 	 * <tr><td>0</td><td>0</td><td>- 2 / (f - n)</td><td>- (f + n) / (f - n)</td></tr>
@@ -6343,7 +6251,6 @@ Clears the selection name stack.
 	// --- [ glPixelMapfv ] ---
 
 	/** Unsafe version of {@link #glPixelMapfv PixelMapfv} */
-	@JavadocExclude
 	public static void nglPixelMapfv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapfv;
 		if ( CHECKS )
@@ -6385,7 +6292,6 @@ Clears the selection name stack.
 	// --- [ glPixelMapusv ] ---
 
 	/** Unsafe version of {@link #glPixelMapusv PixelMapusv} */
-	@JavadocExclude
 	public static void nglPixelMapusv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapusv;
 		if ( CHECKS )
@@ -6427,7 +6333,6 @@ Clears the selection name stack.
 	// --- [ glPixelMapuiv ] ---
 
 	/** Unsafe version of {@link #glPixelMapuiv PixelMapuiv} */
-	@JavadocExclude
 	public static void nglPixelMapuiv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapuiv;
 		if ( CHECKS )
@@ -6610,7 +6515,6 @@ Clears the selection name stack.
 	// --- [ glPolygonStipple ] ---
 
 	/** Unsafe version of {@link #glPolygonStipple PolygonStipple} */
-	@JavadocExclude
 	public static void nglPolygonStipple(long pattern) {
 		long __functionAddress = getInstance().PolygonStipple;
 		if ( CHECKS )
@@ -6750,7 +6654,6 @@ Pops one name off the top of the selection name stack.
 	// --- [ glPrioritizeTextures ] ---
 
 	/** Unsafe version of {@link #glPrioritizeTextures PrioritizeTextures} */
-	@JavadocExclude
 	public static void nglPrioritizeTextures(int n, long textures, long priorities) {
 		long __functionAddress = getInstance().PrioritizeTextures;
 		if ( CHECKS )
@@ -6890,7 +6793,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos2iv ] ---
 
 	/** Unsafe version of {@link #glRasterPos2iv RasterPos2iv} */
-	@JavadocExclude
 	public static void nglRasterPos2iv(long coords) {
 		long __functionAddress = getInstance().RasterPos2iv;
 		if ( CHECKS )
@@ -6921,7 +6823,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos2sv ] ---
 
 	/** Unsafe version of {@link #glRasterPos2sv RasterPos2sv} */
-	@JavadocExclude
 	public static void nglRasterPos2sv(long coords) {
 		long __functionAddress = getInstance().RasterPos2sv;
 		if ( CHECKS )
@@ -6952,7 +6853,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos2fv ] ---
 
 	/** Unsafe version of {@link #glRasterPos2fv RasterPos2fv} */
-	@JavadocExclude
 	public static void nglRasterPos2fv(long coords) {
 		long __functionAddress = getInstance().RasterPos2fv;
 		if ( CHECKS )
@@ -6983,7 +6883,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos2dv ] ---
 
 	/** Unsafe version of {@link #glRasterPos2dv RasterPos2dv} */
-	@JavadocExclude
 	public static void nglRasterPos2dv(long coords) {
 		long __functionAddress = getInstance().RasterPos2dv;
 		if ( CHECKS )
@@ -7086,7 +6985,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos3iv ] ---
 
 	/** Unsafe version of {@link #glRasterPos3iv RasterPos3iv} */
-	@JavadocExclude
 	public static void nglRasterPos3iv(long coords) {
 		long __functionAddress = getInstance().RasterPos3iv;
 		if ( CHECKS )
@@ -7117,7 +7015,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos3sv ] ---
 
 	/** Unsafe version of {@link #glRasterPos3sv RasterPos3sv} */
-	@JavadocExclude
 	public static void nglRasterPos3sv(long coords) {
 		long __functionAddress = getInstance().RasterPos3sv;
 		if ( CHECKS )
@@ -7148,7 +7045,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos3fv ] ---
 
 	/** Unsafe version of {@link #glRasterPos3fv RasterPos3fv} */
-	@JavadocExclude
 	public static void nglRasterPos3fv(long coords) {
 		long __functionAddress = getInstance().RasterPos3fv;
 		if ( CHECKS )
@@ -7179,7 +7075,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos3dv ] ---
 
 	/** Unsafe version of {@link #glRasterPos3dv RasterPos3dv} */
-	@JavadocExclude
 	public static void nglRasterPos3dv(long coords) {
 		long __functionAddress = getInstance().RasterPos3dv;
 		if ( CHECKS )
@@ -7286,7 +7181,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos4iv ] ---
 
 	/** Unsafe version of {@link #glRasterPos4iv RasterPos4iv} */
-	@JavadocExclude
 	public static void nglRasterPos4iv(long coords) {
 		long __functionAddress = getInstance().RasterPos4iv;
 		if ( CHECKS )
@@ -7317,7 +7211,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos4sv ] ---
 
 	/** Unsafe version of {@link #glRasterPos4sv RasterPos4sv} */
-	@JavadocExclude
 	public static void nglRasterPos4sv(long coords) {
 		long __functionAddress = getInstance().RasterPos4sv;
 		if ( CHECKS )
@@ -7348,7 +7241,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos4fv ] ---
 
 	/** Unsafe version of {@link #glRasterPos4fv RasterPos4fv} */
-	@JavadocExclude
 	public static void nglRasterPos4fv(long coords) {
 		long __functionAddress = getInstance().RasterPos4fv;
 		if ( CHECKS )
@@ -7379,7 +7271,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRasterPos4dv ] ---
 
 	/** Unsafe version of {@link #glRasterPos4dv RasterPos4dv} */
-	@JavadocExclude
 	public static void nglRasterPos4dv(long coords) {
 		long __functionAddress = getInstance().RasterPos4dv;
 		if ( CHECKS )
@@ -7427,7 +7318,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glReadPixels ] ---
 
 	/** Unsafe version of {@link #glReadPixels ReadPixels} */
-	@JavadocExclude
 	public static void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().ReadPixels;
 		callIIIIIIPV(__functionAddress, x, y, width, height, format, type, pixels);
@@ -7576,7 +7466,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRectiv ] ---
 
 	/** Unsafe version of {@link #glRectiv Rectiv} */
-	@JavadocExclude
 	public static void nglRectiv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectiv;
 		if ( CHECKS )
@@ -7612,7 +7501,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRectsv ] ---
 
 	/** Unsafe version of {@link #glRectsv Rectsv} */
-	@JavadocExclude
 	public static void nglRectsv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectsv;
 		if ( CHECKS )
@@ -7648,7 +7536,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRectfv ] ---
 
 	/** Unsafe version of {@link #glRectfv Rectfv} */
-	@JavadocExclude
 	public static void nglRectfv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectfv;
 		if ( CHECKS )
@@ -7684,7 +7571,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glRectdv ] ---
 
 	/** Unsafe version of {@link #glRectdv Rectdv} */
-	@JavadocExclude
 	public static void nglRectdv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectdv;
 		if ( CHECKS )
@@ -7740,11 +7626,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * 
 	 * Manipulates the current matrix with a rotation matrix.
 	 * 
-	 * <p>{@code angle} gives an angle of rotation in degrees; the coordinates of a vector v are given by <code style="font-family: monospace">v = (x y z)<sup>T</sup></code>. The computed matrix
+	 * <p>{@code angle} gives an angle of rotation in degrees; the coordinates of a vector v are given by <code>v = (x y z)<sup>T</sup></code>. The computed matrix
 	 * is a counter-clockwise rotation about the line through the origin with the specified axis when that axis is pointing up (i.e. the right-hand rule
 	 * determines the sense of the rotation angle). The matrix is thus</p>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
+	 * <table class="lwjgl matrix">
 	 * <tr><td colspan=3 rowspan=3><b>R</b></td><td>0</td></tr>
 	 * <tr><td>0</td></tr>
 	 * <tr><td>0</td></tr>
@@ -7753,13 +7639,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * 
 	 * <p>Let <code>u = v / ||v|| = (x' y' z')<sup>T</sup></code>. If <b>S</b> =</p>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
+	 * <table class="lwjgl matrix">
 	 * <tr><td>0</td><td>-z'</td><td>y'</td></tr>
 	 * <tr><td>z'</td><td>0</td><td>-x'</td></tr>
 	 * <tr><td>-y'</td><td>x'</td><td>0</td></tr>
 	 * </table>
 	 * 
-	 * <p>then <code style="font-family: monospace"><b>R</b> = uu<sup>T</sup> + cos(angle)(I - uu<sup>T</sup>) + sin(angle)<b>S</b></code></p>
+	 * <p>then <code><b>R</b> = uu<sup>T</sup> + cos(angle)(I - uu<sup>T</sup>) + sin(angle)<b>S</b></code></p>
 	 *
 	 * @param angle the angle of rotation in degrees
 	 * @param x     the x coordinate of the rotation vector
@@ -7801,7 +7687,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * 
 	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
+	 * <table class="lwjgl matrix">
 	 * <tr><td>x</td><td>0</td><td>0</td><td>0</td></tr>
 	 * <tr><td>0</td><td>y</td><td>0</td><td>0</td></tr>
 	 * <tr><td>0</td><td>0</td><td>z</td><td>0</td></tr>
@@ -7844,7 +7730,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * 
 	 * Defines the scissor rectangle for all viewports. The scissor test is enabled or disabled for all viewports using {@link #glEnable Enable} or {@link #glDisable Disable}
 	 * with the symbolic constant {@link #GL_SCISSOR_TEST SCISSOR_TEST}. When disabled, it is as if the scissor test always passes. When enabled, if
-	 * <code style="font-family: monospace">left <= x<sub>w</sub> < left + width</code> and <code style="font-family: monospace">bottom <= y<sub>w</sub> < bottom + height</code> for the scissor rectangle, then the scissor
+	 * <code>left <= x<sub>w</sub> < left + width</code> and <code>bottom <= y<sub>w</sub> < bottom + height</code> for the scissor rectangle, then the scissor
 	 * test passes. Otherwise, the test fails and the fragment is discarded.
 	 *
 	 * @param x      the left scissor rectangle coordinate
@@ -7860,7 +7746,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glSelectBuffer ] ---
 
 	/** Unsafe version of {@link #glSelectBuffer SelectBuffer} */
-	@JavadocExclude
 	public static void nglSelectBuffer(int size, long buffer) {
 		long __functionAddress = getInstance().SelectBuffer;
 		if ( CHECKS )
@@ -8036,7 +7921,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord1fv ] ---
 
 	/** Unsafe version of {@link #glTexCoord1fv TexCoord1fv} */
-	@JavadocExclude
 	public static void nglTexCoord1fv(long v) {
 		long __functionAddress = getInstance().TexCoord1fv;
 		if ( CHECKS )
@@ -8067,7 +7951,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord1sv ] ---
 
 	/** Unsafe version of {@link #glTexCoord1sv TexCoord1sv} */
-	@JavadocExclude
 	public static void nglTexCoord1sv(long v) {
 		long __functionAddress = getInstance().TexCoord1sv;
 		if ( CHECKS )
@@ -8098,7 +7981,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord1iv ] ---
 
 	/** Unsafe version of {@link #glTexCoord1iv TexCoord1iv} */
-	@JavadocExclude
 	public static void nglTexCoord1iv(long v) {
 		long __functionAddress = getInstance().TexCoord1iv;
 		if ( CHECKS )
@@ -8129,7 +8011,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord1dv ] ---
 
 	/** Unsafe version of {@link #glTexCoord1dv TexCoord1dv} */
-	@JavadocExclude
 	public static void nglTexCoord1dv(long v) {
 		long __functionAddress = getInstance().TexCoord1dv;
 		if ( CHECKS )
@@ -8228,7 +8109,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord2fv ] ---
 
 	/** Unsafe version of {@link #glTexCoord2fv TexCoord2fv} */
-	@JavadocExclude
 	public static void nglTexCoord2fv(long v) {
 		long __functionAddress = getInstance().TexCoord2fv;
 		if ( CHECKS )
@@ -8259,7 +8139,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord2sv ] ---
 
 	/** Unsafe version of {@link #glTexCoord2sv TexCoord2sv} */
-	@JavadocExclude
 	public static void nglTexCoord2sv(long v) {
 		long __functionAddress = getInstance().TexCoord2sv;
 		if ( CHECKS )
@@ -8290,7 +8169,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord2iv ] ---
 
 	/** Unsafe version of {@link #glTexCoord2iv TexCoord2iv} */
-	@JavadocExclude
 	public static void nglTexCoord2iv(long v) {
 		long __functionAddress = getInstance().TexCoord2iv;
 		if ( CHECKS )
@@ -8321,7 +8199,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord2dv ] ---
 
 	/** Unsafe version of {@link #glTexCoord2dv TexCoord2dv} */
-	@JavadocExclude
 	public static void nglTexCoord2dv(long v) {
 		long __functionAddress = getInstance().TexCoord2dv;
 		if ( CHECKS )
@@ -8424,7 +8301,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord3fv ] ---
 
 	/** Unsafe version of {@link #glTexCoord3fv TexCoord3fv} */
-	@JavadocExclude
 	public static void nglTexCoord3fv(long v) {
 		long __functionAddress = getInstance().TexCoord3fv;
 		if ( CHECKS )
@@ -8455,7 +8331,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord3sv ] ---
 
 	/** Unsafe version of {@link #glTexCoord3sv TexCoord3sv} */
-	@JavadocExclude
 	public static void nglTexCoord3sv(long v) {
 		long __functionAddress = getInstance().TexCoord3sv;
 		if ( CHECKS )
@@ -8486,7 +8361,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord3iv ] ---
 
 	/** Unsafe version of {@link #glTexCoord3iv TexCoord3iv} */
-	@JavadocExclude
 	public static void nglTexCoord3iv(long v) {
 		long __functionAddress = getInstance().TexCoord3iv;
 		if ( CHECKS )
@@ -8517,7 +8391,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord3dv ] ---
 
 	/** Unsafe version of {@link #glTexCoord3dv TexCoord3dv} */
-	@JavadocExclude
 	public static void nglTexCoord3dv(long v) {
 		long __functionAddress = getInstance().TexCoord3dv;
 		if ( CHECKS )
@@ -8624,7 +8497,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord4fv ] ---
 
 	/** Unsafe version of {@link #glTexCoord4fv TexCoord4fv} */
-	@JavadocExclude
 	public static void nglTexCoord4fv(long v) {
 		long __functionAddress = getInstance().TexCoord4fv;
 		if ( CHECKS )
@@ -8655,7 +8527,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord4sv ] ---
 
 	/** Unsafe version of {@link #glTexCoord4sv TexCoord4sv} */
-	@JavadocExclude
 	public static void nglTexCoord4sv(long v) {
 		long __functionAddress = getInstance().TexCoord4sv;
 		if ( CHECKS )
@@ -8686,7 +8557,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord4iv ] ---
 
 	/** Unsafe version of {@link #glTexCoord4iv TexCoord4iv} */
-	@JavadocExclude
 	public static void nglTexCoord4iv(long v) {
 		long __functionAddress = getInstance().TexCoord4iv;
 		if ( CHECKS )
@@ -8717,7 +8587,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoord4dv ] ---
 
 	/** Unsafe version of {@link #glTexCoord4dv TexCoord4dv} */
-	@JavadocExclude
 	public static void nglTexCoord4dv(long v) {
 		long __functionAddress = getInstance().TexCoord4dv;
 		if ( CHECKS )
@@ -8748,7 +8617,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexCoordPointer ] ---
 
 	/** Unsafe version of {@link #glTexCoordPointer TexCoordPointer} */
-	@JavadocExclude
 	public static void nglTexCoordPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().TexCoordPointer;
 		if ( CHECKS )
@@ -8820,7 +8688,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexEnviv ] ---
 
 	/** Unsafe version of {@link #glTexEnviv TexEnviv} */
-	@JavadocExclude
 	public static void nglTexEnviv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnviv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -8867,7 +8734,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexEnvfv ] ---
 
 	/** Unsafe version of {@link #glTexEnvfv TexEnvfv} */
-	@JavadocExclude
 	public static void nglTexEnvfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnvfv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -8924,7 +8790,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexGeniv ] ---
 
 	/** Unsafe version of {@link #glTexGeniv TexGeniv} */
-	@JavadocExclude
 	public static void nglTexGeniv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGeniv;
 		if ( CHECKS )
@@ -8975,7 +8840,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexGenfv ] ---
 
 	/** Unsafe version of {@link #glTexGenfv TexGenfv} */
-	@JavadocExclude
 	public static void nglTexGenfv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGenfv;
 		if ( CHECKS )
@@ -9026,7 +8890,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexGendv ] ---
 
 	/** Unsafe version of {@link #glTexGendv TexGendv} */
-	@JavadocExclude
 	public static void nglTexGendv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGendv;
 		if ( CHECKS )
@@ -9059,7 +8922,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexImage2D ] ---
 
 	/** Unsafe version of {@link #glTexImage2D TexImage2D} */
-	@JavadocExclude
 	public static void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage2D;
 		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
@@ -9124,7 +8986,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexImage1D ] ---
 
 	/** Unsafe version of {@link #glTexImage1D TexImage1D} */
-	@JavadocExclude
 	public static void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage1D;
 		callIIIIIIIPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
@@ -9307,7 +9168,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexParameteriv ] ---
 
 	/** Unsafe version of {@link #glTexParameteriv TexParameteriv} */
-	@JavadocExclude
 	public static void nglTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameteriv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -9354,7 +9214,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexParameterfv ] ---
 
 	/** Unsafe version of {@link #glTexParameterfv TexParameterfv} */
-	@JavadocExclude
 	public static void nglTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterfv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -9385,7 +9244,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexSubImage1D ] ---
 
 	/** Unsafe version of {@link #glTexSubImage1D TexSubImage1D} */
-	@JavadocExclude
 	public static void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage1D;
 		callIIIIIIPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
@@ -9448,7 +9306,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glTexSubImage2D ] ---
 
 	/** Unsafe version of {@link #glTexSubImage2D TexSubImage2D} */
-	@JavadocExclude
 	public static void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage2D;
 		callIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -9520,7 +9377,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * 
 	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
+	 * <table class="lwjgl matrix">
 	 * <tr><td>1</td><td>0</td><td>0</td><td>x</td></tr>
 	 * <tr><td>0</td><td>1</td><td>0</td><td>y</td></tr>
 	 * <tr><td>0</td><td>0</td><td>1</td><td>z</td></tr>
@@ -9628,7 +9485,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex2fv ] ---
 
 	/** Unsafe version of {@link #glVertex2fv Vertex2fv} */
-	@JavadocExclude
 	public static void nglVertex2fv(long coords) {
 		long __functionAddress = getInstance().Vertex2fv;
 		if ( CHECKS )
@@ -9659,7 +9515,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex2sv ] ---
 
 	/** Unsafe version of {@link #glVertex2sv Vertex2sv} */
-	@JavadocExclude
 	public static void nglVertex2sv(long coords) {
 		long __functionAddress = getInstance().Vertex2sv;
 		if ( CHECKS )
@@ -9690,7 +9545,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex2iv ] ---
 
 	/** Unsafe version of {@link #glVertex2iv Vertex2iv} */
-	@JavadocExclude
 	public static void nglVertex2iv(long coords) {
 		long __functionAddress = getInstance().Vertex2iv;
 		if ( CHECKS )
@@ -9721,7 +9575,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex2dv ] ---
 
 	/** Unsafe version of {@link #glVertex2dv Vertex2dv} */
-	@JavadocExclude
 	public static void nglVertex2dv(long coords) {
 		long __functionAddress = getInstance().Vertex2dv;
 		if ( CHECKS )
@@ -9825,7 +9678,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex3fv ] ---
 
 	/** Unsafe version of {@link #glVertex3fv Vertex3fv} */
-	@JavadocExclude
 	public static void nglVertex3fv(long coords) {
 		long __functionAddress = getInstance().Vertex3fv;
 		if ( CHECKS )
@@ -9856,7 +9708,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex3sv ] ---
 
 	/** Unsafe version of {@link #glVertex3sv Vertex3sv} */
-	@JavadocExclude
 	public static void nglVertex3sv(long coords) {
 		long __functionAddress = getInstance().Vertex3sv;
 		if ( CHECKS )
@@ -9887,7 +9738,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex3iv ] ---
 
 	/** Unsafe version of {@link #glVertex3iv Vertex3iv} */
-	@JavadocExclude
 	public static void nglVertex3iv(long coords) {
 		long __functionAddress = getInstance().Vertex3iv;
 		if ( CHECKS )
@@ -9918,7 +9768,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex3dv ] ---
 
 	/** Unsafe version of {@link #glVertex3dv Vertex3dv} */
-	@JavadocExclude
 	public static void nglVertex3dv(long coords) {
 		long __functionAddress = getInstance().Vertex3dv;
 		if ( CHECKS )
@@ -10025,7 +9874,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex4fv ] ---
 
 	/** Unsafe version of {@link #glVertex4fv Vertex4fv} */
-	@JavadocExclude
 	public static void nglVertex4fv(long coords) {
 		long __functionAddress = getInstance().Vertex4fv;
 		if ( CHECKS )
@@ -10056,7 +9904,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex4sv ] ---
 
 	/** Unsafe version of {@link #glVertex4sv Vertex4sv} */
-	@JavadocExclude
 	public static void nglVertex4sv(long coords) {
 		long __functionAddress = getInstance().Vertex4sv;
 		if ( CHECKS )
@@ -10087,7 +9934,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex4iv ] ---
 
 	/** Unsafe version of {@link #glVertex4iv Vertex4iv} */
-	@JavadocExclude
 	public static void nglVertex4iv(long coords) {
 		long __functionAddress = getInstance().Vertex4iv;
 		if ( CHECKS )
@@ -10118,7 +9964,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertex4dv ] ---
 
 	/** Unsafe version of {@link #glVertex4dv Vertex4dv} */
-	@JavadocExclude
 	public static void nglVertex4dv(long coords) {
 		long __functionAddress = getInstance().Vertex4dv;
 		if ( CHECKS )
@@ -10149,7 +9994,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	// --- [ glVertexPointer ] ---
 
 	/** Unsafe version of {@link #glVertexPointer VertexPointer} */
-	@JavadocExclude
 	public static void nglVertexPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexPointer;
 		if ( CHECKS )

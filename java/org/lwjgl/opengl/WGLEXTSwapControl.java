@@ -20,17 +20,14 @@ import static org.lwjgl.system.JNI.*;
 public class WGLEXTSwapControl {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		SwapIntervalEXT,
 		GetSwapIntervalEXT;
 
-	@JavadocExclude
 	protected WGLEXTSwapControl() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLEXTSwapControl(FunctionProvider provider) {
 		SwapIntervalEXT = provider.getFunctionAddress("wglSwapIntervalEXT");
 		GetSwapIntervalEXT = provider.getFunctionAddress("wglGetSwapIntervalEXT");

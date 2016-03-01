@@ -39,17 +39,14 @@ public class NVPrimitiveRestart {
 	public static final int GL_PRIMITIVE_RESTART_INDEX_NV = 0x8559;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		PrimitiveRestartNV,
 		PrimitiveRestartIndexNV;
 
-	@JavadocExclude
 	protected NVPrimitiveRestart() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVPrimitiveRestart(FunctionProvider provider) {
 		PrimitiveRestartNV = provider.getFunctionAddress("glPrimitiveRestartNV");
 		PrimitiveRestartIndexNV = provider.getFunctionAddress("glPrimitiveRestartIndexNV");

@@ -36,7 +36,6 @@ import static org.lwjgl.system.Pointer.*;
 public class ARBMultiBind {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindBuffersBase,
 		BindBuffersRange,
@@ -45,12 +44,10 @@ public class ARBMultiBind {
 		BindImageTextures,
 		BindVertexBuffers;
 
-	@JavadocExclude
 	protected ARBMultiBind() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBMultiBind(FunctionProvider provider) {
 		BindBuffersBase = provider.getFunctionAddress("glBindBuffersBase");
 		BindBuffersRange = provider.getFunctionAddress("glBindBuffersRange");
@@ -87,7 +84,6 @@ public class ARBMultiBind {
 	// --- [ glBindBuffersBase ] ---
 
 	/** Unsafe version of {@link #glBindBuffersBase BindBuffersBase} */
-	@JavadocExclude
 	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
 		long __functionAddress = getInstance().BindBuffersBase;
 		callIIIPV(__functionAddress, target, first, count, buffers);
@@ -98,14 +94,13 @@ public class ARBMultiBind {
 	 * corresponding to {@code target}. If {@code buffers} is not {@code NULL}, it specifies an array of {@code count} values, each of which must be zero or the name
 	 * of an existing buffer object. It is equivalent to:
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * for ( i = 0; i < count; i++ ) {
-	 * 	if ( buffers == NULL ) {
-	 * 		glBindBufferBase(target, first + i, 0);
-	 * 	} else {
-	 * 		glBindBufferBase(target, first + i, buffers[i]);
-	 * 	}
-	 * }</code></pre>
+	 * <pre><code>for ( i = 0; i < count; i++ ) {
+	if ( buffers == NULL ) {
+		glBindBufferBase(target, first + i, 0);
+	} else {
+		glBindBufferBase(target, first + i, buffers[i]);
+	}
+}</code></pre>
 	 * 
 	 * <p>except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.</p>
 	 *
@@ -128,7 +123,6 @@ public class ARBMultiBind {
 	// --- [ glBindBuffersRange ] ---
 
 	/** Unsafe version of {@link #glBindBuffersRange BindBuffersRange} */
-	@JavadocExclude
 	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
 		long __functionAddress = getInstance().BindBuffersRange;
 		callIIIPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
@@ -141,14 +135,13 @@ public class ARBMultiBind {
 	 * case, the offsets and sizes associated with the binding points are set to default values, ignoring {@code offsets} and {@code sizes}. It is equivalent
 	 * to:
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * for ( i = 0; i < count; i++ ) {
-	 * 	if ( buffers == NULL ) {
-	 * 		glBindBufferRange(target, first + i, 0, 0, 0);
-	 * 	} else {
-	 * 		glBindBufferRange(target, first + i, buffers[i], offsets[i], sizes[i]);
-	 * 	}
-	 * }</code></pre>
+	 * <pre><code>for ( i = 0; i < count; i++ ) {
+	if ( buffers == NULL ) {
+		glBindBufferRange(target, first + i, 0, 0, 0);
+	} else {
+		glBindBufferRange(target, first + i, buffers[i], offsets[i], sizes[i]);
+	}
+}</code></pre>
 	 * 
 	 * <p>except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.</p>
 	 * 
@@ -184,7 +177,6 @@ public class ARBMultiBind {
 	// --- [ glBindTextures ] ---
 
 	/** Unsafe version of {@link #glBindTextures BindTextures} */
-	@JavadocExclude
 	public static void nglBindTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindTextures;
 		callIIPV(__functionAddress, first, count, textures);
@@ -200,24 +192,23 @@ public class ARBMultiBind {
 	 * 
 	 * <p>{@code BindTextures} is equivalent to:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * for ( i = 0; i < count; i++ ) {
-	 * 	uint texture;
-	 * 	if ( textures == NULL ) {
-	 * 		texture = 0;
-	 * 	} else {
-	 * 		texture = textures[i];
-	 * 	}
-	 * 	ActiveTexture(TEXTURE0 + first + i);
-	 * 	if ( texture != 0 ) {
-	 * 		enum target; // target of texture object textures[i]
-	 * 		BindTexture(target, textures[i]);
-	 * 	} else {
-	 * 		for ( target in all supported targets ) {
-	 * 			BindTexture(target, 0);
-	 * 		}
-	 * 	}
-	 * }</code></pre>
+	 * <pre><code>for ( i = 0; i < count; i++ ) {
+	uint texture;
+	if ( textures == NULL ) {
+		texture = 0;
+	} else {
+		texture = textures[i];
+	}
+	ActiveTexture(TEXTURE0 + first + i);
+	if ( texture != 0 ) {
+		enum target; // target of texture object textures[i]
+		BindTexture(target, textures[i]);
+	} else {
+		for ( target in all supported targets ) {
+			BindTexture(target, 0);
+		}
+	}
+}</code></pre>
 	 * 
 	 * <p>except that the active texture selector retains its original value upon completion of the command, and that textures will not be created if they do not
 	 * exist.</p>
@@ -244,7 +235,6 @@ public class ARBMultiBind {
 	// --- [ glBindSamplers ] ---
 
 	/** Unsafe version of {@link #glBindSamplers BindSamplers} */
-	@JavadocExclude
 	public static void nglBindSamplers(int first, int count, long samplers) {
 		long __functionAddress = getInstance().BindSamplers;
 		callIIPV(__functionAddress, first, count, samplers);
@@ -257,14 +247,13 @@ public class ARBMultiBind {
 	 * 
 	 * <p>{@code BindSamplers} is equivalent to:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * for ( i = 0; i < count; i++ ) {
-	 * 	if ( samplers == NULL ) {
-	 * 		glBindSampler(first + i, 0);
-	 * 	} else {
-	 * 		glBindSampler(first + i, samplers[i]);
-	 * 	}
-	 * }</code></pre>
+	 * <pre><code>for ( i = 0; i < count; i++ ) {
+	if ( samplers == NULL ) {
+		glBindSampler(first + i, 0);
+	} else {
+		glBindSampler(first + i, samplers[i]);
+	}
+}</code></pre>
 	 * 
 	 * <p>The values specified in {@code samplers} will be checked separately for each texture image unit. When a value for a specific texture image unit is
 	 * invalid, the state for that texture image unit will be unchanged and an error will be generated. However, state for other texture image units will still
@@ -288,7 +277,6 @@ public class ARBMultiBind {
 	// --- [ glBindImageTextures ] ---
 
 	/** Unsafe version of {@link #glBindImageTextures BindImageTextures} */
-	@JavadocExclude
 	public static void nglBindImageTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindImageTextures;
 		callIIPV(__functionAddress, first, count, textures);
@@ -310,14 +298,13 @@ public class ARBMultiBind {
 	 * 
 	 * <p>{@code BindImageTextures} is equivalent to:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * for ( i = 0; i < count; i++ ) {
-	 * 	if ( textures == NULL || textures[i] = 0 ) {
-	 * 		glBindImageTexture(first + i, 0, 0, FALSE, 0, READ_ONLY, R8);
-	 * 	} else {
-	 * 		glBindImageTexture(first + i, textures[i], 0, TRUE, 0, READ_WRITE, lookupInternalFormat(textures[i]));
-	 * 	}
-	 * }</code></pre>
+	 * <pre><code>for ( i = 0; i < count; i++ ) {
+	if ( textures == NULL || textures[i] = 0 ) {
+		glBindImageTexture(first + i, 0, 0, FALSE, 0, READ_ONLY, R8);
+	} else {
+		glBindImageTexture(first + i, textures[i], 0, TRUE, 0, READ_WRITE, lookupInternalFormat(textures[i]));
+	}
+}</code></pre>
 	 * 
 	 * <p>where {@code lookupInternalFormat} returns the internal format of the specified texture object.</p>
 	 * 
@@ -343,7 +330,6 @@ public class ARBMultiBind {
 	// --- [ glBindVertexBuffers ] ---
 
 	/** Unsafe version of {@link #glBindVertexBuffers BindVertexBuffers} */
-	@JavadocExclude
 	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = getInstance().BindVertexBuffers;
 		callIIPPPV(__functionAddress, first, count, buffers, offsets, strides);
@@ -359,14 +345,13 @@ public class ARBMultiBind {
 	 * 
 	 * <p>{@code BindVertexBuffers} is equivalent to:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * for ( i = 0; i < count; i++ ) {
-	 * 	if ( buffers == NULL ) {
-	 * 		glBindVertexBuffer(first + i, 0, 0, 16);
-	 * 	} else {
-	 * 		glBindVertexBuffer(first + i, buffers[i], offsets[i], strides[i]);
-	 * 	}
-	 * }</code></pre>
+	 * <pre><code>for ( i = 0; i < count; i++ ) {
+	if ( buffers == NULL ) {
+		glBindVertexBuffer(first + i, 0, 0, 16);
+	} else {
+		glBindVertexBuffer(first + i, buffers[i], offsets[i], strides[i]);
+	}
+}</code></pre>
 	 * 
 	 * <p>except that buffers will not be created if they do not exist.</p>
 	 * 

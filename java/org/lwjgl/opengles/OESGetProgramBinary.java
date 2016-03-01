@@ -44,17 +44,14 @@ public class OESGetProgramBinary {
 		GL_PROGRAM_BINARY_FORMATS_OES     = 0x87FF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetProgramBinaryOES,
 		ProgramBinaryOES;
 
-	@JavadocExclude
 	protected OESGetProgramBinary() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESGetProgramBinary(FunctionProvider provider) {
 		GetProgramBinaryOES = provider.getFunctionAddress("glGetProgramBinaryOES");
 		ProgramBinaryOES = provider.getFunctionAddress("glProgramBinaryOES");
@@ -86,7 +83,6 @@ public class OESGetProgramBinary {
 	// --- [ glGetProgramBinaryOES ] ---
 
 	/** Unsafe version of {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
-	@JavadocExclude
 	public static void nglGetProgramBinaryOES(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = getInstance().GetProgramBinaryOES;
 		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
@@ -138,7 +134,6 @@ public class OESGetProgramBinary {
 	// --- [ glProgramBinaryOES ] ---
 
 	/** Unsafe version of {@link #glProgramBinaryOES ProgramBinaryOES} */
-	@JavadocExclude
 	public static void nglProgramBinaryOES(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = getInstance().ProgramBinaryOES;
 		callIIPIV(__functionAddress, program, binaryFormat, binary, length);

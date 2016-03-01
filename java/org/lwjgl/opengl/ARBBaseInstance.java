@@ -31,18 +31,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class ARBBaseInstance {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawArraysInstancedBaseInstance,
 		DrawElementsInstancedBaseInstance,
 		DrawElementsInstancedBaseVertexBaseInstance;
 
-	@JavadocExclude
 	protected ARBBaseInstance() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBBaseInstance(FunctionProvider provider) {
 		DrawArraysInstancedBaseInstance = provider.getFunctionAddress("glDrawArraysInstancedBaseInstance");
 		DrawElementsInstancedBaseInstance = provider.getFunctionAddress("glDrawElementsInstancedBaseInstance");
@@ -92,7 +89,6 @@ public class ARBBaseInstance {
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseInstance DrawElementsInstancedBaseInstance} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseInstance;
 		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
@@ -154,7 +150,6 @@ public class ARBBaseInstance {
 	// --- [ glDrawElementsInstancedBaseVertexBaseInstance ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstance;
 		callIIIPIIIV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);

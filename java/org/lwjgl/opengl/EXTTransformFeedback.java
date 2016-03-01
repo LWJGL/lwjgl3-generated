@@ -86,7 +86,6 @@ public class EXTTransformFeedback {
 		GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT = 0x8C76;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindBufferRangeEXT,
 		BindBufferOffsetEXT,
@@ -98,12 +97,10 @@ public class EXTTransformFeedback {
 		GetIntegerIndexedvEXT,
 		GetBooleanIndexedvEXT;
 
-	@JavadocExclude
 	protected EXTTransformFeedback() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTTransformFeedback(FunctionProvider provider) {
 		BindBufferRangeEXT = provider.getFunctionAddress("glBindBufferRangeEXT");
 		BindBufferOffsetEXT = provider.getFunctionAddress("glBindBufferOffsetEXT");
@@ -179,7 +176,6 @@ public class EXTTransformFeedback {
 	// --- [ glTransformFeedbackVaryingsEXT ] ---
 
 	/** Unsafe version of {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
-	@JavadocExclude
 	public static void nglTransformFeedbackVaryingsEXT(int program, int count, long varyings, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackVaryingsEXT;
 		callIIPIV(__functionAddress, program, count, varyings, bufferMode);
@@ -221,7 +217,6 @@ public class EXTTransformFeedback {
 	// --- [ glGetTransformFeedbackVaryingEXT ] ---
 
 	/** Unsafe version of {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
-	@JavadocExclude
 	public static void nglGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetTransformFeedbackVaryingEXT;
 		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
@@ -279,7 +274,6 @@ public class EXTTransformFeedback {
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
 	/** Unsafe version of {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
-	@JavadocExclude
 	public static void nglGetIntegerIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
 		callIIPV(__functionAddress, param, index, values);
@@ -309,7 +303,6 @@ public class EXTTransformFeedback {
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
 	/** Unsafe version of {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
-	@JavadocExclude
 	public static void nglGetBooleanIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
 		callIIPV(__functionAddress, param, index, values);

@@ -113,7 +113,6 @@ public class CL20 {
 	public static final int CL_PROFILING_COMMAND_COMPLETE = 0x1284;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateCommandQueueWithProperties,
 		CreatePipe,
@@ -129,12 +128,10 @@ public class CL20 {
 		SetKernelExecInfo,
 		CreateSamplerWithProperties;
 
-	@JavadocExclude
 	protected CL20() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public CL20(FunctionProvider provider) {
 		CreateCommandQueueWithProperties = provider.getFunctionAddress("clCreateCommandQueueWithProperties");
 		CreatePipe = provider.getFunctionAddress("clCreatePipe");
@@ -178,7 +175,6 @@ public class CL20 {
 	// --- [ clCreateCommandQueueWithProperties ] ---
 
 	/** Unsafe version of {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties} */
-	@JavadocExclude
 	public static long nclCreateCommandQueueWithProperties(long context, long device, long properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreateCommandQueueWithProperties;
 		if ( CHECKS ) {
@@ -236,7 +232,6 @@ public class CL20 {
 	// --- [ clCreatePipe ] ---
 
 	/** Unsafe version of {@link #clCreatePipe CreatePipe} */
-	@JavadocExclude
 	public static long nclCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, long properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreatePipe;
 		if ( CHECKS )
@@ -290,7 +285,6 @@ public class CL20 {
 	// --- [ clGetPipeInfo ] ---
 
 	/** Unsafe version of {@link #clGetPipeInfo GetPipeInfo} */
-	@JavadocExclude
 	public static int nclGetPipeInfo(long pipe, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetPipeInfo;
 		if ( CHECKS )
@@ -342,7 +336,6 @@ public class CL20 {
 	// --- [ clSVMAlloc ] ---
 
 	/** Unsafe version of {@link #clSVMAlloc SVMAlloc} */
-	@JavadocExclude
 	public static long nclSVMAlloc(long context, long flags, long size, int alignment) {
 		long __functionAddress = getInstance().SVMAlloc;
 		if ( CHECKS )
@@ -405,7 +398,6 @@ public class CL20 {
 	// --- [ clSVMFree ] ---
 
 	/** Unsafe version of {@link #clSVMFree SVMFree} */
-	@JavadocExclude
 	public static void nclSVMFree(long context, long svm_pointer) {
 		long __functionAddress = getInstance().SVMFree;
 		if ( CHECKS )
@@ -435,7 +427,6 @@ public class CL20 {
 	// --- [ clEnqueueSVMFree ] ---
 
 	/** Unsafe version of {@link #clEnqueueSVMFree EnqueueSVMFree} */
-	@JavadocExclude
 	public static int nclEnqueueSVMFree(long command_queue, int num_svm_pointers, long svm_pointers, long pfn_free_func, long user_data, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMFree;
 		if ( CHECKS )
@@ -496,7 +487,6 @@ public class CL20 {
 	// --- [ clEnqueueSVMMemcpy ] ---
 
 	/** Unsafe version of {@link #clEnqueueSVMMemcpy EnqueueSVMMemcpy} */
-	@JavadocExclude
 	public static int nclEnqueueSVMMemcpy(long command_queue, int blocking_copy, long dst_ptr, long src_ptr, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMMemcpy;
 		if ( CHECKS )
@@ -566,7 +556,6 @@ public class CL20 {
 	// --- [ clEnqueueSVMMemFill ] ---
 
 	/** Unsafe version of {@link #clEnqueueSVMMemFill EnqueueSVMMemFill} */
-	@JavadocExclude
 	public static int nclEnqueueSVMMemFill(long command_queue, long svm_ptr, long pattern, long pattern_size, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMMemFill;
 		if ( CHECKS )
@@ -632,7 +621,6 @@ public class CL20 {
 	// --- [ clEnqueueSVMMap ] ---
 
 	/** Unsafe version of {@link #clEnqueueSVMMap EnqueueSVMMap} */
-	@JavadocExclude
 	public static int nclEnqueueSVMMap(long command_queue, int blocking_map, long map_flags, long svm_ptr, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMMap;
 		if ( CHECKS )
@@ -700,7 +688,6 @@ public class CL20 {
 	// --- [ clEnqueueSVMUnmap ] ---
 
 	/** Unsafe version of {@link #clEnqueueSVMUnmap EnqueueSVMUnmap} */
-	@JavadocExclude
 	public static int nclEnqueueSVMUnmap(long command_queue, long svm_ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMUnmap;
 		if ( CHECKS )
@@ -754,7 +741,6 @@ public class CL20 {
 	// --- [ clSetKernelArgSVMPointer ] ---
 
 	/** Unsafe version of {@link #clSetKernelArgSVMPointer SetKernelArgSVMPointer} */
-	@JavadocExclude
 	public static int nclSetKernelArgSVMPointer(long kernel, int arg_index, long arg_value) {
 		long __functionAddress = getInstance().SetKernelArgSVMPointer;
 		if ( CHECKS )
@@ -792,7 +778,6 @@ public class CL20 {
 	// --- [ clSetKernelExecInfo ] ---
 
 	/** Unsafe version of {@link #clSetKernelExecInfo SetKernelExecInfo} */
-	@JavadocExclude
 	public static int nclSetKernelExecInfo(long kernel, int param_name, long param_value_size, long param_value) {
 		long __functionAddress = getInstance().SetKernelExecInfo;
 		if ( CHECKS )
@@ -810,7 +795,7 @@ public class CL20 {
 	 * kernel dereferences that pointer, then a pointer to B must either be passed as an argument in the call to that kernel or it must be made available to
 	 * the kernel using {@code SetKernelExecInfo}. For example, we might pass extra SVM pointers as follows:</p>
 	 * 
-	 * <p><code style="font-family: monospace">clSetKernelExecInfo(kernel, CL_KERNEL_EXEC_INFO_SVM_PTRS, num_ptrs * sizeof(void *), extra_svm_ptr_list);</code></p>
+	 * <p><code>clSetKernelExecInfo(kernel, CL_KERNEL_EXEC_INFO_SVM_PTRS, num_ptrs * sizeof(void *), extra_svm_ptr_list);</code></p>
 	 * 
 	 * <p>Here {@code num_ptrs} specifies the number of additional SVM pointers while {@code extra_svm_ptr_list} specifies a pointer to memory containing those
 	 * SVM pointers. When calling {@code SetKernelExecInfo} with {@link #CL_KERNEL_EXEC_INFO_SVM_PTRS KERNEL_EXEC_INFO_SVM_PTRS} to specify pointers to non-argument SVM buffers as extra
@@ -871,7 +856,6 @@ public class CL20 {
 	// --- [ clCreateSamplerWithProperties ] ---
 
 	/** Unsafe version of {@link #clCreateSamplerWithProperties CreateSamplerWithProperties} */
-	@JavadocExclude
 	public static long nclCreateSamplerWithProperties(long context, long sampler_properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreateSamplerWithProperties;
 		if ( CHECKS )

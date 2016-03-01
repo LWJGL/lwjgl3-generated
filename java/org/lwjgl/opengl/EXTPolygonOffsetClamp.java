@@ -26,15 +26,12 @@ public class EXTPolygonOffsetClamp {
 	public static final int GL_POLYGON_OFFSET_CLAMP_EXT = 0x8E1B;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long PolygonOffsetClampEXT;
 
-	@JavadocExclude
 	protected EXTPolygonOffsetClamp() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTPolygonOffsetClamp(FunctionProvider provider) {
 		PolygonOffsetClampEXT = provider.getFunctionAddress("glPolygonOffsetClampEXT");
 	}

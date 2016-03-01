@@ -28,15 +28,12 @@ public class EXTBlendFuncSeparate {
 		GL_BLEND_SRC_ALPHA_EXT = 0x80CB;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long BlendFuncSeparateEXT;
 
-	@JavadocExclude
 	protected EXTBlendFuncSeparate() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTBlendFuncSeparate(FunctionProvider provider) {
 		BlendFuncSeparateEXT = provider.getFunctionAddress("glBlendFuncSeparateEXT");
 	}

@@ -38,119 +38,118 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <h3>Command structures</h3>
  * 
- * <pre><code style="font-family: monospace">
- * typedef struct {
- *   uint  header;
- * } TerminateSequenceCommandNV;
- * 
- * typedef struct {
- *   uint  header;
- * } NOPCommandNV;
- * 
- * typedef  struct {
- *   uint  header;
- *   uint  count;
- *   uint  firstIndex;
- *   uint  baseVertex;
- * } DrawElementsCommandNV;
- * 
- * typedef  struct {
- *   uint  header;
- *   uint  count;
- *   uint  first;
- * } DrawArraysCommandNV;
- * 
- * typedef  struct {
- *   uint  header;
- *   uint  mode;
- *   uint  count;
- *   uint  instanceCount;
- *   uint  firstIndex;
- *   uint  baseVertex;
- *   uint  baseInstance;
- * } DrawElementsInstancedCommandNV;
- * 
- * typedef  struct {
- *   uint  header;
- *   uint  mode;
- *   uint  count;
- *   uint  instanceCount;
- *   uint  first;
- *   uint  baseInstance;
- * } DrawArraysInstancedCommandNV;
- * 
- * typedef struct {
- *   uint  header;
- *   uint  addressLo;
- *   uint  addressHi;
- *   uint  typeSizeInByte;
- * } ElementAddressCommandNV;
- * 
- * typedef struct {
- *   uint  header;
- *   uint  index;
- *   uint  addressLo;
- *   uint  addressHi;
- * } AttributeAddressCommandNV;
- * 
- * typedef struct {
- *   uint    header;
- *   ushort  index;
- *   ushort  stage;
- *   uint    addressLo;
- *   uint    addressHi;
- * } UniformAddressCommandNV;
- * 
- * typedef struct {
- *   uint  header;
- *   float red;
- *   float green;
- *   float blue;
- *   float alpha;
- * } BlendColorCommandNV;
- * 
- * typedef struct {
- *   uint  header;
- *   uint  frontStencilRef;
- *   uint  backStencilRef;
- * } StencilRefCommandNV;
- * 
- * typedef struct {
- *   uint  header;
- *   float lineWidth;
- * } LineWidthCommandNV;
- * 
- * typedef struct {
- *   uint  header;
- *   float scale;
- *   float bias;
- * } PolygonOffsetCommandNV;
- * 
- * typedef struct {
- *   uint  header;
- *   float alphaRef;
- * } AlphaRefCommandNV;
- * 
- * typedef struct {
- *   uint  header;
- *   uint  x;
- *   uint  y;
- *   uint  width;
- *   uint  height;
- * } ViewportCommandNV; // only ViewportIndex 0
- * 
- * typedef struct {
- *   uint  header;
- *   uint  x;
- *   uint  y;
- *   uint  width;
- *   uint  height;
- * } ScissorCommandNV; // only ViewportIndex 0
- * 
- * typedef struct {
- *   uint  header;
- *   uint  frontFace; // 0 for CW, 1 for CCW
- * } FrontFaceCommandNV;</code></pre>
+ * <pre><code>typedef struct {
+  uint  header;
+} TerminateSequenceCommandNV;
+
+typedef struct {
+  uint  header;
+} NOPCommandNV;
+
+typedef  struct {
+  uint  header;
+  uint  count;
+  uint  firstIndex;
+  uint  baseVertex;
+} DrawElementsCommandNV;
+
+typedef  struct {
+  uint  header;
+  uint  count;
+  uint  first;
+} DrawArraysCommandNV;
+
+typedef  struct {
+  uint  header;
+  uint  mode;
+  uint  count;
+  uint  instanceCount;
+  uint  firstIndex;
+  uint  baseVertex;
+  uint  baseInstance;
+} DrawElementsInstancedCommandNV;
+
+typedef  struct {
+  uint  header;
+  uint  mode;
+  uint  count;
+  uint  instanceCount;
+  uint  first;
+  uint  baseInstance;
+} DrawArraysInstancedCommandNV;
+
+typedef struct {
+  uint  header;
+  uint  addressLo;
+  uint  addressHi;
+  uint  typeSizeInByte;
+} ElementAddressCommandNV;
+
+typedef struct {
+  uint  header;
+  uint  index;
+  uint  addressLo;
+  uint  addressHi;
+} AttributeAddressCommandNV;
+
+typedef struct {
+  uint    header;
+  ushort  index;
+  ushort  stage;
+  uint    addressLo;
+  uint    addressHi;
+} UniformAddressCommandNV;
+
+typedef struct {
+  uint  header;
+  float red;
+  float green;
+  float blue;
+  float alpha;
+} BlendColorCommandNV;
+
+typedef struct {
+  uint  header;
+  uint  frontStencilRef;
+  uint  backStencilRef;
+} StencilRefCommandNV;
+
+typedef struct {
+  uint  header;
+  float lineWidth;
+} LineWidthCommandNV;
+
+typedef struct {
+  uint  header;
+  float scale;
+  float bias;
+} PolygonOffsetCommandNV;
+
+typedef struct {
+  uint  header;
+  float alphaRef;
+} AlphaRefCommandNV;
+
+typedef struct {
+  uint  header;
+  uint  x;
+  uint  y;
+  uint  width;
+  uint  height;
+} ViewportCommandNV; // only ViewportIndex 0
+
+typedef struct {
+  uint  header;
+  uint  x;
+  uint  y;
+  uint  width;
+  uint  height;
+} ScissorCommandNV; // only ViewportIndex 0
+
+typedef struct {
+  uint  header;
+  uint  frontFace; // 0 for CW, 1 for CCW
+} FrontFaceCommandNV;</code></pre>
  * 
  * <p>Tight packing is used for all structures.</p>
  */
@@ -179,7 +178,6 @@ public class NVCommandList {
 		GL_FRONT_FACE_COMMAND_NV              = 0x12;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateStatesNV,
 		DeleteStatesNV,
@@ -199,12 +197,10 @@ public class NVCommandList {
 		CompileCommandListNV,
 		CallCommandListNV;
 
-	@JavadocExclude
 	protected NVCommandList() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVCommandList(FunctionProvider provider) {
 		CreateStatesNV = provider.getFunctionAddress("glCreateStatesNV");
 		DeleteStatesNV = provider.getFunctionAddress("glDeleteStatesNV");
@@ -255,7 +251,6 @@ public class NVCommandList {
 	// --- [ glCreateStatesNV ] ---
 
 	/** Unsafe version of {@link #glCreateStatesNV CreateStatesNV} */
-	@JavadocExclude
 	public static void nglCreateStatesNV(int n, long states) {
 		long __functionAddress = getInstance().CreateStatesNV;
 		callIPV(__functionAddress, n, states);
@@ -289,7 +284,6 @@ public class NVCommandList {
 	// --- [ glDeleteStatesNV ] ---
 
 	/** Unsafe version of {@link #glDeleteStatesNV DeleteStatesNV} */
-	@JavadocExclude
 	public static void nglDeleteStatesNV(int n, long states) {
 		long __functionAddress = getInstance().DeleteStatesNV;
 		callIPV(__functionAddress, n, states);
@@ -392,7 +386,6 @@ public class NVCommandList {
 	// --- [ glDrawCommandsNV ] ---
 
 	/** Unsafe version of {@link #glDrawCommandsNV DrawCommandsNV} */
-	@JavadocExclude
 	public static void nglDrawCommandsNV(int primitiveMode, int buffer, long indirects, long sizes, int count) {
 		long __functionAddress = getInstance().DrawCommandsNV;
 		callIIPPIV(__functionAddress, primitiveMode, buffer, indirects, sizes, count);
@@ -426,7 +419,6 @@ public class NVCommandList {
 	// --- [ glDrawCommandsAddressNV ] ---
 
 	/** Unsafe version of {@link #glDrawCommandsAddressNV DrawCommandsAddressNV} */
-	@JavadocExclude
 	public static void nglDrawCommandsAddressNV(int primitiveMode, long indirects, long sizes, int count) {
 		long __functionAddress = getInstance().DrawCommandsAddressNV;
 		callIPPIV(__functionAddress, primitiveMode, indirects, sizes, count);
@@ -459,7 +451,6 @@ public class NVCommandList {
 	// --- [ glDrawCommandsStatesNV ] ---
 
 	/** Unsafe version of {@link #glDrawCommandsStatesNV DrawCommandsStatesNV} */
-	@JavadocExclude
 	public static void nglDrawCommandsStatesNV(int buffer, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().DrawCommandsStatesNV;
 		callIPPPPIV(__functionAddress, buffer, indirects, sizes, states, fbos, count);
@@ -501,7 +492,6 @@ public class NVCommandList {
 	// --- [ glDrawCommandsStatesAddressNV ] ---
 
 	/** Unsafe version of {@link #glDrawCommandsStatesAddressNV DrawCommandsStatesAddressNV} */
-	@JavadocExclude
 	public static void nglDrawCommandsStatesAddressNV(long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().DrawCommandsStatesAddressNV;
 		callPPPPIV(__functionAddress, indirects, sizes, states, fbos, count);
@@ -542,7 +532,6 @@ public class NVCommandList {
 	// --- [ glCreateCommandListsNV ] ---
 
 	/** Unsafe version of {@link #glCreateCommandListsNV CreateCommandListsNV} */
-	@JavadocExclude
 	public static void nglCreateCommandListsNV(int n, long lists) {
 		long __functionAddress = getInstance().CreateCommandListsNV;
 		callIPV(__functionAddress, n, lists);
@@ -576,7 +565,6 @@ public class NVCommandList {
 	// --- [ glDeleteCommandListsNV ] ---
 
 	/** Unsafe version of {@link #glDeleteCommandListsNV DeleteCommandListsNV} */
-	@JavadocExclude
 	public static void nglDeleteCommandListsNV(int n, long lists) {
 		long __functionAddress = getInstance().DeleteCommandListsNV;
 		callIPV(__functionAddress, n, lists);
@@ -622,7 +610,6 @@ public class NVCommandList {
 	// --- [ glListDrawCommandsStatesClientNV ] ---
 
 	/** Unsafe version of {@link #glListDrawCommandsStatesClientNV ListDrawCommandsStatesClientNV} */
-	@JavadocExclude
 	public static void nglListDrawCommandsStatesClientNV(int list, int segment, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().ListDrawCommandsStatesClientNV;
 		callIIPPPPIV(__functionAddress, list, segment, indirects, sizes, states, fbos, count);

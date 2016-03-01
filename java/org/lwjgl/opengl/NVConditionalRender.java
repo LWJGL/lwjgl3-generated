@@ -38,17 +38,14 @@ public class NVConditionalRender {
 		GL_QUERY_BY_REGION_NO_WAIT_NV = 0x8E16;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BeginConditionalRenderNV,
 		EndConditionalRenderNV;
 
-	@JavadocExclude
 	protected NVConditionalRender() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVConditionalRender(FunctionProvider provider) {
 		BeginConditionalRenderNV = provider.getFunctionAddress("glBeginConditionalRenderNV");
 		EndConditionalRenderNV = provider.getFunctionAddress("glEndConditionalRenderNV");

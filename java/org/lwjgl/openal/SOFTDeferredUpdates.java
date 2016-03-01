@@ -24,17 +24,14 @@ public class SOFTDeferredUpdates {
 	public static final int AL_DEFERRED_UPDATES_SOFT = 0xC002;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DeferUpdatesSOFT,
 		ProcessUpdatesSOFT;
 
-	@JavadocExclude
 	protected SOFTDeferredUpdates() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public SOFTDeferredUpdates(FunctionProvider provider) {
 		DeferUpdatesSOFT = provider.getFunctionAddress("alDeferUpdatesSOFT");
 		ProcessUpdatesSOFT = provider.getFunctionAddress("alProcessUpdatesSOFT");

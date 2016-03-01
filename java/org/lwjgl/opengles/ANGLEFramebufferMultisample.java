@@ -41,15 +41,12 @@ public class ANGLEFramebufferMultisample {
 	public static final int GL_MAX_SAMPLES_ANGLE = 0x8D57;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long RenderbufferStorageMultisampleANGLE;
 
-	@JavadocExclude
 	protected ANGLEFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ANGLEFramebufferMultisample(FunctionProvider provider) {
 		RenderbufferStorageMultisampleANGLE = provider.getFunctionAddress("glRenderbufferStorageMultisampleANGLE");
 	}

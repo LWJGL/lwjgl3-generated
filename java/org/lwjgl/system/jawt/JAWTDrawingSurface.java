@@ -19,19 +19,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct JAWT_DrawingSurface {
- *     JNIEnv * env;
- *     jobject target;
- *     void * Lock;
- *     void * GetDrawingSurfaceInfo;
- *     void * FreeDrawingSurfaceInfo;
- *     void * Unlock;
- * }</code></pre>
+ * <pre><code>struct JAWT_DrawingSurface {
+    JNIEnv * env;
+    jobject target;
+    void * Lock;
+    void * GetDrawingSurfaceInfo;
+    void * FreeDrawingSurfaceInfo;
+    void * Unlock;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>env</td><td>Cached reference to the Java environment of the calling thread.
  * 
  * <p>If Lock(), Unlock(), GetDrawingSurfaceInfo() or FreeDrawingSurfaceInfo() are called from a different thread, this data member should be set before
@@ -44,7 +43,6 @@ public class JAWTDrawingSurface extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -109,12 +107,12 @@ public class JAWTDrawingSurface extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link JAWTDrawingSurface} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link JAWTDrawingSurface} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static JAWTDrawingSurface malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link JAWTDrawingSurface} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link JAWTDrawingSurface} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static JAWTDrawingSurface calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -130,7 +128,7 @@ public class JAWTDrawingSurface extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link JAWTDrawingSurface.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link JAWTDrawingSurface.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -139,7 +137,7 @@ public class JAWTDrawingSurface extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link JAWTDrawingSurface.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link JAWTDrawingSurface.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

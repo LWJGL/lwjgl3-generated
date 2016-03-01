@@ -48,15 +48,12 @@ public class EXTDepthBoundsTest {
 	public static final int GL_DEPTH_BOUNDS_EXT = 0x8891;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long DepthBoundsEXT;
 
-	@JavadocExclude
 	protected EXTDepthBoundsTest() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDepthBoundsTest(FunctionProvider provider) {
 		DepthBoundsEXT = provider.getFunctionAddress("glDepthBoundsEXT");
 	}

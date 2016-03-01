@@ -25,19 +25,16 @@ import static org.lwjgl.system.JNI.*;
 public class ARBTextureStorageMultisample {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexStorage2DMultisample,
 		TexStorage3DMultisample,
 		TextureStorage2DMultisampleEXT,
 		TextureStorage3DMultisampleEXT;
 
-	@JavadocExclude
 	protected ARBTextureStorageMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTextureStorageMultisample(FunctionProvider provider) {
 		TexStorage2DMultisample = provider.getFunctionAddress("glTexStorage2DMultisample");
 		TexStorage3DMultisample = provider.getFunctionAddress("glTexStorage3DMultisample");

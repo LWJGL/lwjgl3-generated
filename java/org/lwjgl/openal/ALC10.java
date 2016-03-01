@@ -52,7 +52,6 @@ public class ALC10 {
 		ALC_ALL_ATTRIBUTES  = 0x1003;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		OpenDevice,
 		CloseDevice,
@@ -70,12 +69,10 @@ public class ALC10 {
 		GetString,
 		GetIntegerv;
 
-	@JavadocExclude
 	protected ALC10() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ALC10(FunctionProvider provider) {
 		OpenDevice = provider.getFunctionAddress("alcOpenDevice");
 		CloseDevice = provider.getFunctionAddress("alcCloseDevice");
@@ -123,7 +120,6 @@ public class ALC10 {
 	// --- [ alcOpenDevice ] ---
 
 	/** Unsafe version of {@link #alcOpenDevice OpenDevice} */
-	@JavadocExclude
 	public static long nalcOpenDevice(long deviceSpecifier) {
 		long __functionAddress = getInstance().OpenDevice;
 		return invokePP(__functionAddress, deviceSpecifier);
@@ -170,7 +166,6 @@ public class ALC10 {
 	// --- [ alcCreateContext ] ---
 
 	/** Unsafe version of {@link #alcCreateContext CreateContext} */
-	@JavadocExclude
 	public static long nalcCreateContext(long deviceHandle, long attrList) {
 		long __functionAddress = getInstance().CreateContext;
 		if ( CHECKS )
@@ -294,7 +289,6 @@ public class ALC10 {
 	// --- [ alcIsExtensionPresent ] ---
 
 	/** Unsafe version of {@link #alcIsExtensionPresent IsExtensionPresent} */
-	@JavadocExclude
 	public static boolean nalcIsExtensionPresent(long deviceHandle, long extName) {
 		long __functionAddress = getInstance().IsExtensionPresent;
 		return invokePPZ(__functionAddress, deviceHandle, extName);
@@ -325,7 +319,6 @@ public class ALC10 {
 	// --- [ alcGetProcAddress ] ---
 
 	/** Unsafe version of {@link #alcGetProcAddress GetProcAddress} */
-	@JavadocExclude
 	public static long nalcGetProcAddress(long deviceHandle, long funcName) {
 		long __functionAddress = getInstance().GetProcAddress;
 		return invokePPP(__functionAddress, deviceHandle, funcName);
@@ -359,7 +352,6 @@ public class ALC10 {
 	// --- [ alcGetEnumValue ] ---
 
 	/** Unsafe version of {@link #alcGetEnumValue GetEnumValue} */
-	@JavadocExclude
 	public static int nalcGetEnumValue(long deviceHandle, long enumName) {
 		long __functionAddress = getInstance().GetEnumValue;
 		return invokePPI(__functionAddress, deviceHandle, enumName);
@@ -407,7 +399,6 @@ public class ALC10 {
 	// --- [ alcGetString ] ---
 
 	/** Unsafe version of {@link #alcGetString GetString} */
-	@JavadocExclude
 	public static long nalcGetString(long deviceHandle, int token) {
 		long __functionAddress = getInstance().GetString;
 		return invokePIP(__functionAddress, deviceHandle, token);
@@ -429,7 +420,6 @@ public class ALC10 {
 	// --- [ alcGetIntegerv ] ---
 
 	/** Unsafe version of {@link #alcGetIntegerv GetIntegerv} */
-	@JavadocExclude
 	public static void nalcGetIntegerv(long deviceHandle, int token, int size, long dest) {
 		long __functionAddress = getInstance().GetIntegerv;
 		invokePIIPV(__functionAddress, deviceHandle, token, size, dest);

@@ -41,18 +41,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTPlatformBase {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetPlatformDisplayEXT,
 		CreatePlatformWindowSurfaceEXT,
 		CreatePlatformPixmapSurfaceEXT;
 
-	@JavadocExclude
 	protected EXTPlatformBase() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTPlatformBase(FunctionProvider provider) {
 		GetPlatformDisplayEXT = provider.getFunctionAddress("eglGetPlatformDisplayEXT");
 		CreatePlatformWindowSurfaceEXT = provider.getFunctionAddress("eglCreatePlatformWindowSurfaceEXT");
@@ -74,7 +71,6 @@ public class EXTPlatformBase {
 	// --- [ eglGetPlatformDisplayEXT ] ---
 
 	/** Unsafe version of {@link #eglGetPlatformDisplayEXT GetPlatformDisplayEXT} */
-	@JavadocExclude
 	public static long neglGetPlatformDisplayEXT(int platform, long native_display, long attrib_list) {
 		long __functionAddress = getInstance().GetPlatformDisplayEXT;
 		if ( CHECKS )
@@ -98,7 +94,6 @@ public class EXTPlatformBase {
 	// --- [ eglCreatePlatformWindowSurfaceEXT ] ---
 
 	/** Unsafe version of {@link #eglCreatePlatformWindowSurfaceEXT CreatePlatformWindowSurfaceEXT} */
-	@JavadocExclude
 	public static long neglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, long attrib_list) {
 		long __functionAddress = getInstance().CreatePlatformWindowSurfaceEXT;
 		if ( CHECKS ) {
@@ -125,7 +120,6 @@ public class EXTPlatformBase {
 	// --- [ eglCreatePlatformPixmapSurfaceEXT ] ---
 
 	/** Unsafe version of {@link #eglCreatePlatformPixmapSurfaceEXT CreatePlatformPixmapSurfaceEXT} */
-	@JavadocExclude
 	public static long neglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, long attrib_list) {
 		long __functionAddress = getInstance().CreatePlatformPixmapSurfaceEXT;
 		if ( CHECKS ) {

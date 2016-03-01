@@ -25,15 +25,12 @@ public class APPLECommandQueuePriority {
 		CL_QUEUE_PRIORITY_DEFAULT_APPLE    = 0x10000017;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreateCommandQueueWithPropertiesAPPLE;
 
-	@JavadocExclude
 	protected APPLECommandQueuePriority() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public APPLECommandQueuePriority(FunctionProvider provider) {
 		CreateCommandQueueWithPropertiesAPPLE = provider.getFunctionAddress("clCreateCommandQueueWithPropertiesAPPLE");
 	}
@@ -63,7 +60,6 @@ public class APPLECommandQueuePriority {
 	// --- [ clCreateCommandQueueWithPropertiesAPPLE ] ---
 
 	/** Unsafe version of {@link #clCreateCommandQueueWithPropertiesAPPLE CreateCommandQueueWithPropertiesAPPLE} */
-	@JavadocExclude
 	public static long nclCreateCommandQueueWithPropertiesAPPLE(long context, long device, long properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreateCommandQueueWithPropertiesAPPLE;
 		if ( CHECKS ) {

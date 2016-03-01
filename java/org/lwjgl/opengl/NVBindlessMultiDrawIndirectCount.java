@@ -24,17 +24,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class NVBindlessMultiDrawIndirectCount {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		MultiDrawArraysIndirectBindlessCountNV,
 		MultiDrawElementsIndirectBindlessCountNV;
 
-	@JavadocExclude
 	protected NVBindlessMultiDrawIndirectCount() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVBindlessMultiDrawIndirectCount(FunctionProvider provider) {
 		MultiDrawArraysIndirectBindlessCountNV = provider.getFunctionAddress("glMultiDrawArraysIndirectBindlessCountNV");
 		MultiDrawElementsIndirectBindlessCountNV = provider.getFunctionAddress("glMultiDrawElementsIndirectBindlessCountNV");
@@ -67,7 +64,6 @@ public class NVBindlessMultiDrawIndirectCount {
 	// --- [ glMultiDrawArraysIndirectBindlessCountNV ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysIndirectBindlessCountNV MultiDrawArraysIndirectBindlessCountNV} */
-	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectBindlessCountNV(int mode, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectBindlessCountNV;
 		callIPPIIIV(__functionAddress, mode, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);
@@ -93,7 +89,6 @@ public class NVBindlessMultiDrawIndirectCount {
 	// --- [ glMultiDrawElementsIndirectBindlessCountNV ] ---
 
 	/** Unsafe version of {@link #glMultiDrawElementsIndirectBindlessCountNV MultiDrawElementsIndirectBindlessCountNV} */
-	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectBindlessCountNV(int mode, int type, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectBindlessCountNV;
 		callIIPPIIIV(__functionAddress, mode, type, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);

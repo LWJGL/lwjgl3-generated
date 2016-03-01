@@ -29,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * ARB_shader_image_load_store, the OpenGL API and shading language do provide some control over memory transactions; those mechanisms also affect reads
  * and writes of shader storage buffers. In the OpenGL API, the {@link GL42#glMemoryBarrier MemoryBarrier} call can be used to ensure that certain memory operations related to
  * commands issued prior the barrier complete before other operations related to commands issued after the barrier. Additionally, the shading language
- * provides the <code style="font-family: monospace">memoryBarrier()</code> function to control the relative order of memory accesses within individual shader invocations and provides
+ * provides the <code>memoryBarrier()</code> function to control the relative order of memory accesses within individual shader invocations and provides
  * various memory qualifiers controlling how the memory corresponding to individual variables is accessed.</p>
  * 
  * <p>Requires {@link GL40 OpenGL 4.0} and {@link GL43 OpenGL 4.3} or {@link ARBProgramInterfaceQuery ARB_program_interface_query}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
@@ -70,15 +70,12 @@ public class ARBShaderStorageBufferObject {
 	public static final int GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES = 0x8F39;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long ShaderStorageBlockBinding;
 
-	@JavadocExclude
 	protected ARBShaderStorageBufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBShaderStorageBufferObject(FunctionProvider provider) {
 		ShaderStorageBlockBinding = provider.getFunctionAddress("glShaderStorageBlockBinding");
 	}

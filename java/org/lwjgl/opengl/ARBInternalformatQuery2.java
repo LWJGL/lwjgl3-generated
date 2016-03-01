@@ -176,15 +176,12 @@ public class ARBInternalformatQuery2 {
 		GL_VIEW_CLASS_BPTC_FLOAT     = 0x82D3;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetInternalformati64v;
 
-	@JavadocExclude
 	protected ARBInternalformatQuery2() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBInternalformatQuery2(FunctionProvider provider) {
 		GetInternalformati64v = provider.getFunctionAddress("glGetInternalformati64v");
 	}
@@ -216,7 +213,6 @@ public class ARBInternalformatQuery2 {
 	// --- [ glGetInternalformati64v ] ---
 
 	/** Unsafe version of {@link #glGetInternalformati64v GetInternalformati64v} */
-	@JavadocExclude
 	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformati64v;
 		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);

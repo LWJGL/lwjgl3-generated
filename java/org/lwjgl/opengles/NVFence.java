@@ -44,7 +44,6 @@ public class NVFence {
 		GL_FENCE_CONDITION_NV = 0x84F4;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DeleteFencesNV,
 		GenFencesNV,
@@ -54,12 +53,10 @@ public class NVFence {
 		FinishFenceNV,
 		SetFenceNV;
 
-	@JavadocExclude
 	protected NVFence() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVFence(FunctionProvider provider) {
 		DeleteFencesNV = provider.getFunctionAddress("glDeleteFencesNV");
 		GenFencesNV = provider.getFunctionAddress("glGenFencesNV");
@@ -96,7 +93,6 @@ public class NVFence {
 	// --- [ glDeleteFencesNV ] ---
 
 	/** Unsafe version of {@link #glDeleteFencesNV DeleteFencesNV} */
-	@JavadocExclude
 	public static void nglDeleteFencesNV(int n, long fences) {
 		long __functionAddress = getInstance().DeleteFencesNV;
 		callIPV(__functionAddress, n, fences);
@@ -123,7 +119,6 @@ public class NVFence {
 	// --- [ glGenFencesNV ] ---
 
 	/** Unsafe version of {@link #glGenFencesNV GenFencesNV} */
-	@JavadocExclude
 	public static void nglGenFencesNV(int n, long fences) {
 		long __functionAddress = getInstance().GenFencesNV;
 		callIPV(__functionAddress, n, fences);
@@ -165,7 +160,6 @@ public class NVFence {
 	// --- [ glGetFenceivNV ] ---
 
 	/** Unsafe version of {@link #glGetFenceivNV GetFenceivNV} */
-	@JavadocExclude
 	public static void nglGetFenceivNV(int fence, int pname, long params) {
 		long __functionAddress = getInstance().GetFenceivNV;
 		callIIPV(__functionAddress, fence, pname, params);

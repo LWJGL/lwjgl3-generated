@@ -46,15 +46,12 @@ public class ARBTextureView {
 		GL_TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long TextureView;
 
-	@JavadocExclude
 	protected ARBTextureView() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTextureView(FunctionProvider provider) {
 		TextureView = provider.getFunctionAddress("glTextureView");
 	}

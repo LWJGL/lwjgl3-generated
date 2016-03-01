@@ -24,19 +24,16 @@ import static org.lwjgl.system.JNI.*;
 public class ARBDrawBuffersBlend {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BlendEquationiARB,
 		BlendEquationSeparateiARB,
 		BlendFunciARB,
 		BlendFuncSeparateiARB;
 
-	@JavadocExclude
 	protected ARBDrawBuffersBlend() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBDrawBuffersBlend(FunctionProvider provider) {
 		BlendEquationiARB = provider.getFunctionAddress("glBlendEquationiARB");
 		BlendEquationSeparateiARB = provider.getFunctionAddress("glBlendEquationSeparateiARB");

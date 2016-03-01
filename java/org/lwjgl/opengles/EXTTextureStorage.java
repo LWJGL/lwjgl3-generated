@@ -60,7 +60,6 @@ public class EXTTextureStorage {
 		GL_RGB_RAW_422_APPLE      = 0x8A51;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexStorage1DEXT,
 		TexStorage2DEXT,
@@ -69,12 +68,10 @@ public class EXTTextureStorage {
 		TextureStorage2DEXT,
 		TextureStorage3DEXT;
 
-	@JavadocExclude
 	protected EXTTextureStorage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTTextureStorage(FunctionProvider provider) {
 		TexStorage1DEXT = provider.getFunctionAddress("glTexStorage1DEXT");
 		TexStorage2DEXT = provider.getFunctionAddress("glTexStorage2DEXT");

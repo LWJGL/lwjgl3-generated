@@ -81,7 +81,6 @@ public class ARBShadingLanguageInclude {
 		GL_NAMED_STRING_TYPE_ARB   = 0x8DEA;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		NamedStringARB,
 		DeleteNamedStringARB,
@@ -90,12 +89,10 @@ public class ARBShadingLanguageInclude {
 		GetNamedStringARB,
 		GetNamedStringivARB;
 
-	@JavadocExclude
 	protected ARBShadingLanguageInclude() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBShadingLanguageInclude(FunctionProvider provider) {
 		NamedStringARB = provider.getFunctionAddress("glNamedStringARB");
 		DeleteNamedStringARB = provider.getFunctionAddress("glDeleteNamedStringARB");
@@ -133,7 +130,6 @@ public class ARBShadingLanguageInclude {
 	// --- [ glNamedStringARB ] ---
 
 	/** Unsafe version of {@link #glNamedStringARB NamedStringARB} */
-	@JavadocExclude
 	public static void nglNamedStringARB(int type, int namelen, long name, int stringlen, long string) {
 		long __functionAddress = getInstance().NamedStringARB;
 		callIIPIPV(__functionAddress, type, namelen, name, stringlen, string);
@@ -177,7 +173,6 @@ public class ARBShadingLanguageInclude {
 	// --- [ glDeleteNamedStringARB ] ---
 
 	/** Unsafe version of {@link #glDeleteNamedStringARB DeleteNamedStringARB} */
-	@JavadocExclude
 	public static void nglDeleteNamedStringARB(int namelen, long name) {
 		long __functionAddress = getInstance().DeleteNamedStringARB;
 		callIPV(__functionAddress, namelen, name);
@@ -211,7 +206,6 @@ public class ARBShadingLanguageInclude {
 	// --- [ glCompileShaderIncludeARB ] ---
 
 	/** Unsafe version of {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
-	@JavadocExclude
 	public static void nglCompileShaderIncludeARB(int shader, int count, long path, long length) {
 		long __functionAddress = getInstance().CompileShaderIncludeARB;
 		callIIPPV(__functionAddress, shader, count, path, length);
@@ -247,7 +241,6 @@ public class ARBShadingLanguageInclude {
 	// --- [ glIsNamedStringARB ] ---
 
 	/** Unsafe version of {@link #glIsNamedStringARB IsNamedStringARB} */
-	@JavadocExclude
 	public static boolean nglIsNamedStringARB(int namelen, long name) {
 		long __functionAddress = getInstance().IsNamedStringARB;
 		return callIPZ(__functionAddress, namelen, name);
@@ -282,7 +275,6 @@ public class ARBShadingLanguageInclude {
 	// --- [ glGetNamedStringARB ] ---
 
 	/** Unsafe version of {@link #glGetNamedStringARB GetNamedStringARB} */
-	@JavadocExclude
 	public static void nglGetNamedStringARB(int namelen, long name, int bufSize, long stringlen, long string) {
 		long __functionAddress = getInstance().GetNamedStringARB;
 		callIPIPPV(__functionAddress, namelen, name, bufSize, stringlen, string);
@@ -350,7 +342,6 @@ public class ARBShadingLanguageInclude {
 	// --- [ glGetNamedStringivARB ] ---
 
 	/** Unsafe version of {@link #glGetNamedStringivARB GetNamedStringivARB} */
-	@JavadocExclude
 	public static void nglGetNamedStringivARB(int namelen, long name, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedStringivARB;
 		callIPIPV(__functionAddress, namelen, name, pname, params);

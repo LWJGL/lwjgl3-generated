@@ -45,7 +45,6 @@ public class KHRReusableSync {
 		EGL_NO_SYNC_KHR = 0x0L;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateSyncKHR,
 		DestroySyncKHR,
@@ -53,12 +52,10 @@ public class KHRReusableSync {
 		SignalSyncKHR,
 		GetSyncAttribKHR;
 
-	@JavadocExclude
 	protected KHRReusableSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRReusableSync(FunctionProvider provider) {
 		CreateSyncKHR = provider.getFunctionAddress("eglCreateSyncKHR");
 		DestroySyncKHR = provider.getFunctionAddress("eglDestroySyncKHR");
@@ -82,7 +79,6 @@ public class KHRReusableSync {
 	// --- [ eglCreateSyncKHR ] ---
 
 	/** Unsafe version of {@link #eglCreateSyncKHR CreateSyncKHR} */
-	@JavadocExclude
 	public static long neglCreateSyncKHR(long dpy, int type, long attrib_list) {
 		long __functionAddress = getInstance().CreateSyncKHR;
 		if ( CHECKS )
@@ -139,7 +135,6 @@ public class KHRReusableSync {
 	// --- [ eglGetSyncAttribKHR ] ---
 
 	/** Unsafe version of {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
-	@JavadocExclude
 	public static int neglGetSyncAttribKHR(long dpy, long sync, int attribute, long value) {
 		long __functionAddress = getInstance().GetSyncAttribKHR;
 		if ( CHECKS ) {

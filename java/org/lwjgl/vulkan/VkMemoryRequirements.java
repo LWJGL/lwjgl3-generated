@@ -15,19 +15,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkMemoryRequirements {
- *     VkDeviceSize size;
- *     VkDeviceSize alignment;
- *     uint32_t memoryTypeBits;
- * }</code></pre>
+ * <pre><code>struct VkMemoryRequirements {
+    VkDeviceSize size;
+    VkDeviceSize alignment;
+    uint32_t memoryTypeBits;
+}</code></pre>
  */
 public class VkMemoryRequirements extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -77,12 +75,12 @@ public class VkMemoryRequirements extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkMemoryRequirements} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkMemoryRequirements} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkMemoryRequirements malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkMemoryRequirements} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkMemoryRequirements} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkMemoryRequirements calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -98,7 +96,7 @@ public class VkMemoryRequirements extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkMemoryRequirements.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkMemoryRequirements.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -107,7 +105,7 @@ public class VkMemoryRequirements extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkMemoryRequirements.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkMemoryRequirements.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

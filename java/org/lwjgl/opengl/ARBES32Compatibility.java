@@ -38,15 +38,12 @@ public class ARBES32Compatibility {
 		GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB = 0x9382;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long PrimitiveBoundingBoxARB;
 
-	@JavadocExclude
 	protected ARBES32Compatibility() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBES32Compatibility(FunctionProvider provider) {
 		PrimitiveBoundingBoxARB = provider.getFunctionAddress("glPrimitiveBoundingBoxARB");
 	}

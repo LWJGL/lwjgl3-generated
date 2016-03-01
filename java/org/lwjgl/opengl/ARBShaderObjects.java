@@ -85,7 +85,6 @@ public class ARBShaderObjects {
 		GL_SAMPLER_2D_RECT_SHADOW_ARB = 0x8B64;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DeleteObjectARB,
 		GetHandleARB,
@@ -127,12 +126,10 @@ public class ARBShaderObjects {
 		GetUniformivARB,
 		GetShaderSourceARB;
 
-	@JavadocExclude
 	protected ARBShaderObjects() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBShaderObjects(FunctionProvider provider) {
 		DeleteObjectARB = provider.getFunctionAddress("glDeleteObjectARB");
 		GetHandleARB = provider.getFunctionAddress("glGetHandleARB");
@@ -267,7 +264,6 @@ public class ARBShaderObjects {
 	// --- [ glShaderSourceARB ] ---
 
 	/** Unsafe version of {@link #glShaderSourceARB ShaderSourceARB} */
-	@JavadocExclude
 	public static void nglShaderSourceARB(int shaderObj, int count, long string, long length) {
 		long __functionAddress = getInstance().ShaderSourceARB;
 		callIIPPV(__functionAddress, shaderObj, count, string, length);
@@ -561,7 +557,6 @@ public class ARBShaderObjects {
 	// --- [ glUniform1fvARB ] ---
 
 	/** Unsafe version of {@link #glUniform1fvARB Uniform1fvARB} */
-	@JavadocExclude
 	public static void nglUniform1fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1fvARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -588,7 +583,6 @@ public class ARBShaderObjects {
 	// --- [ glUniform2fvARB ] ---
 
 	/** Unsafe version of {@link #glUniform2fvARB Uniform2fvARB} */
-	@JavadocExclude
 	public static void nglUniform2fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2fvARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -615,7 +609,6 @@ public class ARBShaderObjects {
 	// --- [ glUniform3fvARB ] ---
 
 	/** Unsafe version of {@link #glUniform3fvARB Uniform3fvARB} */
-	@JavadocExclude
 	public static void nglUniform3fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3fvARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -642,7 +635,6 @@ public class ARBShaderObjects {
 	// --- [ glUniform4fvARB ] ---
 
 	/** Unsafe version of {@link #glUniform4fvARB Uniform4fvARB} */
-	@JavadocExclude
 	public static void nglUniform4fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4fvARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -669,7 +661,6 @@ public class ARBShaderObjects {
 	// --- [ glUniform1ivARB ] ---
 
 	/** Unsafe version of {@link #glUniform1ivARB Uniform1ivARB} */
-	@JavadocExclude
 	public static void nglUniform1ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1ivARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -696,7 +687,6 @@ public class ARBShaderObjects {
 	// --- [ glUniform2ivARB ] ---
 
 	/** Unsafe version of {@link #glUniform2ivARB Uniform2ivARB} */
-	@JavadocExclude
 	public static void nglUniform2ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2ivARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -723,7 +713,6 @@ public class ARBShaderObjects {
 	// --- [ glUniform3ivARB ] ---
 
 	/** Unsafe version of {@link #glUniform3ivARB Uniform3ivARB} */
-	@JavadocExclude
 	public static void nglUniform3ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3ivARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -750,7 +739,6 @@ public class ARBShaderObjects {
 	// --- [ glUniform4ivARB ] ---
 
 	/** Unsafe version of {@link #glUniform4ivARB Uniform4ivARB} */
-	@JavadocExclude
 	public static void nglUniform4ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4ivARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -777,7 +765,6 @@ public class ARBShaderObjects {
 	// --- [ glUniformMatrix2fvARB ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix2fvARB UniformMatrix2fvARB} */
-	@JavadocExclude
 	public static void nglUniformMatrix2fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2fvARB;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -805,7 +792,6 @@ public class ARBShaderObjects {
 	// --- [ glUniformMatrix3fvARB ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix3fvARB UniformMatrix3fvARB} */
-	@JavadocExclude
 	public static void nglUniformMatrix3fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3fvARB;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -833,7 +819,6 @@ public class ARBShaderObjects {
 	// --- [ glUniformMatrix4fvARB ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix4fvARB UniformMatrix4fvARB} */
-	@JavadocExclude
 	public static void nglUniformMatrix4fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4fvARB;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -861,7 +846,6 @@ public class ARBShaderObjects {
 	// --- [ glGetObjectParameterfvARB ] ---
 
 	/** Unsafe version of {@link #glGetObjectParameterfvARB GetObjectParameterfvARB} */
-	@JavadocExclude
 	public static void nglGetObjectParameterfvARB(int obj, int pname, long params) {
 		long __functionAddress = getInstance().GetObjectParameterfvARB;
 		callIIPV(__functionAddress, obj, pname, params);
@@ -890,7 +874,6 @@ public class ARBShaderObjects {
 	// --- [ glGetObjectParameterivARB ] ---
 
 	/** Unsafe version of {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
-	@JavadocExclude
 	public static void nglGetObjectParameterivARB(int obj, int pname, long params) {
 		long __functionAddress = getInstance().GetObjectParameterivARB;
 		callIIPV(__functionAddress, obj, pname, params);
@@ -927,7 +910,6 @@ public class ARBShaderObjects {
 	// --- [ glGetInfoLogARB ] ---
 
 	/** Unsafe version of {@link #glGetInfoLogARB GetInfoLogARB} */
-	@JavadocExclude
 	public static void nglGetInfoLogARB(int obj, int maxLength, long length, long infoLog) {
 		long __functionAddress = getInstance().GetInfoLogARB;
 		callIIPPV(__functionAddress, obj, maxLength, length, infoLog);
@@ -990,7 +972,6 @@ public class ARBShaderObjects {
 	// --- [ glGetAttachedObjectsARB ] ---
 
 	/** Unsafe version of {@link #glGetAttachedObjectsARB GetAttachedObjectsARB} */
-	@JavadocExclude
 	public static void nglGetAttachedObjectsARB(int containerObj, int maxCount, long count, long obj) {
 		long __functionAddress = getInstance().GetAttachedObjectsARB;
 		callIIPPV(__functionAddress, containerObj, maxCount, count, obj);
@@ -1045,7 +1026,6 @@ public class ARBShaderObjects {
 	// --- [ glGetUniformLocationARB ] ---
 
 	/** Unsafe version of {@link #glGetUniformLocationARB GetUniformLocationARB} */
-	@JavadocExclude
 	public static int nglGetUniformLocationARB(int programObj, long name) {
 		long __functionAddress = getInstance().GetUniformLocationARB;
 		return callIPI(__functionAddress, programObj, name);
@@ -1083,7 +1063,6 @@ public class ARBShaderObjects {
 	// --- [ glGetActiveUniformARB ] ---
 
 	/** Unsafe version of {@link #glGetActiveUniformARB GetActiveUniformARB} */
-	@JavadocExclude
 	public static void nglGetActiveUniformARB(int programObj, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveUniformARB;
 		callIIIPPPPV(__functionAddress, programObj, index, maxLength, length, size, type, name);
@@ -1172,7 +1151,6 @@ public class ARBShaderObjects {
 	// --- [ glGetUniformfvARB ] ---
 
 	/** Unsafe version of {@link #glGetUniformfvARB GetUniformfvARB} */
-	@JavadocExclude
 	public static void nglGetUniformfvARB(int programObj, int location, long params) {
 		long __functionAddress = getInstance().GetUniformfvARB;
 		callIIPV(__functionAddress, programObj, location, params);
@@ -1209,7 +1187,6 @@ public class ARBShaderObjects {
 	// --- [ glGetUniformivARB ] ---
 
 	/** Unsafe version of {@link #glGetUniformivARB GetUniformivARB} */
-	@JavadocExclude
 	public static void nglGetUniformivARB(int programObj, int location, long params) {
 		long __functionAddress = getInstance().GetUniformivARB;
 		callIIPV(__functionAddress, programObj, location, params);
@@ -1246,7 +1223,6 @@ public class ARBShaderObjects {
 	// --- [ glGetShaderSourceARB ] ---
 
 	/** Unsafe version of {@link #glGetShaderSourceARB GetShaderSourceARB} */
-	@JavadocExclude
 	public static void nglGetShaderSourceARB(int obj, int maxLength, long length, long source) {
 		long __functionAddress = getInstance().GetShaderSourceARB;
 		callIIPPV(__functionAddress, obj, maxLength, length, source);

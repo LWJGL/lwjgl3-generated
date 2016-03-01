@@ -38,18 +38,15 @@ public class EXTBindableUniform {
 	public static final int GL_UNIFORM_BUFFER_EXT = 0x8DEE;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		UniformBufferEXT,
 		GetUniformBufferSizeEXT,
 		GetUniformOffsetEXT;
 
-	@JavadocExclude
 	protected EXTBindableUniform() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTBindableUniform(FunctionProvider provider) {
 		UniformBufferEXT = provider.getFunctionAddress("glUniformBufferEXT");
 		GetUniformBufferSizeEXT = provider.getFunctionAddress("glGetUniformBufferSizeEXT");

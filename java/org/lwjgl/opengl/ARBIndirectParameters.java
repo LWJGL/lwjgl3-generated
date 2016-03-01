@@ -41,17 +41,14 @@ public class ARBIndirectParameters {
 	public static final int GL_PARAMETER_BUFFER_BINDING_ARB = 0x80EF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		MultiDrawArraysIndirectCountARB,
 		MultiDrawElementsIndirectCountARB;
 
-	@JavadocExclude
 	protected ARBIndirectParameters() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBIndirectParameters(FunctionProvider provider) {
 		MultiDrawArraysIndirectCountARB = provider.getFunctionAddress("glMultiDrawArraysIndirectCountARB");
 		MultiDrawElementsIndirectCountARB = provider.getFunctionAddress("glMultiDrawElementsIndirectCountARB");
@@ -84,7 +81,6 @@ public class ARBIndirectParameters {
 	// --- [ glMultiDrawArraysIndirectCountARB ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
-	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectCountARB;
 		callIPPIIV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
@@ -129,7 +125,6 @@ public class ARBIndirectParameters {
 	// --- [ glMultiDrawElementsIndirectCountARB ] ---
 
 	/** Unsafe version of {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
-	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectCountARB;
 		callIIPPIIV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);

@@ -29,19 +29,16 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class ARBClearBufferObject {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ClearBufferData,
 		ClearBufferSubData,
 		ClearNamedBufferDataEXT,
 		ClearNamedBufferSubDataEXT;
 
-	@JavadocExclude
 	protected ARBClearBufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBClearBufferObject(FunctionProvider provider) {
 		ClearBufferData = provider.getFunctionAddress("glClearBufferData");
 		ClearBufferSubData = provider.getFunctionAddress("glClearBufferSubData");
@@ -77,7 +74,6 @@ public class ARBClearBufferObject {
 	// --- [ glClearBufferData ] ---
 
 	/** Unsafe version of {@link #glClearBufferData ClearBufferData} */
-	@JavadocExclude
 	public static void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferData;
 		callIIIIPV(__functionAddress, target, internalformat, format, type, data);
@@ -116,7 +112,6 @@ public class ARBClearBufferObject {
 	// --- [ glClearBufferSubData ] ---
 
 	/** Unsafe version of {@link #glClearBufferSubData ClearBufferSubData} */
-	@JavadocExclude
 	public static void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferSubData;
 		callIIPPIIPV(__functionAddress, target, internalformat, offset, size, format, type, data);
@@ -157,7 +152,6 @@ public class ARBClearBufferObject {
 	// --- [ glClearNamedBufferDataEXT ] ---
 
 	/** Unsafe version of {@link #glClearNamedBufferDataEXT ClearNamedBufferDataEXT} */
-	@JavadocExclude
 	public static void nglClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferDataEXT;
 		if ( CHECKS )
@@ -198,7 +192,6 @@ public class ARBClearBufferObject {
 	// --- [ glClearNamedBufferSubDataEXT ] ---
 
 	/** Unsafe version of {@link #glClearNamedBufferSubDataEXT ClearNamedBufferSubDataEXT} */
-	@JavadocExclude
 	public static void nglClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferSubDataEXT;
 		if ( CHECKS )

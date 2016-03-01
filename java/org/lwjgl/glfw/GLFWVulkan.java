@@ -21,7 +21,6 @@ import org.lwjgl.vulkan.*;
 public class GLFWVulkan {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		VulkanSupported,
 		GetRequiredInstanceExtensions,
@@ -29,12 +28,10 @@ public class GLFWVulkan {
 		GetPhysicalDevicePresentationSupport,
 		CreateWindowSurface;
 
-	@JavadocExclude
 	protected GLFWVulkan() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLFWVulkan(FunctionProvider provider) {
 		VulkanSupported = checkFunctionAddress(provider.getFunctionAddress("glfwVulkanSupported"));
 		GetRequiredInstanceExtensions = checkFunctionAddress(provider.getFunctionAddress("glfwGetRequiredInstanceExtensions"));
@@ -82,7 +79,6 @@ public class GLFWVulkan {
 	// --- [ glfwGetRequiredInstanceExtensions ] ---
 
 	/** Unsafe version of {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} */
-	@JavadocExclude
 	public static long nglfwGetRequiredInstanceExtensions(long count) {
 		long __functionAddress = getInstance().GetRequiredInstanceExtensions;
 		return invokePP(__functionAddress, count);
@@ -123,7 +119,6 @@ public class GLFWVulkan {
 	// --- [ glfwGetInstanceProcAddress ] ---
 
 	/** Unsafe version of {@link #glfwGetInstanceProcAddress GetInstanceProcAddress} */
-	@JavadocExclude
 	public static long nglfwGetInstanceProcAddress(long instance, long procname) {
 		long __functionAddress = getInstance().GetInstanceProcAddress;
 		return invokePPP(__functionAddress, instance, procname);
@@ -200,7 +195,6 @@ public class GLFWVulkan {
 	// --- [ glfwCreateWindowSurface ] ---
 
 	/** Unsafe version of {@link #glfwCreateWindowSurface CreateWindowSurface} */
-	@JavadocExclude
 	public static int nglfwCreateWindowSurface(long instance, long window, long allocator, long surface) {
 		long __functionAddress = getInstance().CreateWindowSurface;
 		if ( CHECKS ) {

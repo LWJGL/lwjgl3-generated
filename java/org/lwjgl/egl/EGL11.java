@@ -31,19 +31,16 @@ public class EGL11 {
 		EGL_TEXTURE_TARGET       = 0x3081;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindTexImage,
 		ReleaseTexImage,
 		SurfaceAttrib,
 		SwapInterval;
 
-	@JavadocExclude
 	protected EGL11() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EGL11(FunctionProvider provider) {
 		BindTexImage = provider.getFunctionAddress("eglBindTexImage");
 		ReleaseTexImage = provider.getFunctionAddress("eglReleaseTexImage");

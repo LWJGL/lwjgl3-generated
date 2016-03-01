@@ -113,7 +113,6 @@ public class GL15 {
 		GL_QUERY_RESULT_AVAILABLE = 0x8867;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindBuffer,
 		DeleteBuffers,
@@ -135,12 +134,10 @@ public class GL15 {
 		GetQueryObjectiv,
 		GetQueryObjectuiv;
 
-	@JavadocExclude
 	protected GL15() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL15(FunctionProvider provider) {
 		BindBuffer = provider.getFunctionAddress("glBindBuffer");
 		DeleteBuffers = provider.getFunctionAddress("glDeleteBuffers");
@@ -207,7 +204,6 @@ public class GL15 {
 	// --- [ glDeleteBuffers ] ---
 
 	/** Unsafe version of {@link #glDeleteBuffers DeleteBuffers} */
-	@JavadocExclude
 	public static void nglDeleteBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().DeleteBuffers;
 		callIPV(__functionAddress, n, buffers);
@@ -242,7 +238,6 @@ public class GL15 {
 	// --- [ glGenBuffers ] ---
 
 	/** Unsafe version of {@link #glGenBuffers GenBuffers} */
-	@JavadocExclude
 	public static void nglGenBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().GenBuffers;
 		callIPV(__functionAddress, n, buffers);
@@ -292,7 +287,6 @@ public class GL15 {
 	// --- [ glBufferData ] ---
 
 	/** Unsafe version of {@link #glBufferData BufferData} */
-	@JavadocExclude
 	public static void nglBufferData(int target, long size, long data, int usage) {
 		long __functionAddress = getInstance().BufferData;
 		callIPPIV(__functionAddress, target, size, data, usage);
@@ -366,7 +360,6 @@ public class GL15 {
 	// --- [ glBufferSubData ] ---
 
 	/** Unsafe version of {@link #glBufferSubData BufferSubData} */
-	@JavadocExclude
 	public static void nglBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().BufferSubData;
 		callIPPPV(__functionAddress, target, offset, size, data);
@@ -416,7 +409,6 @@ public class GL15 {
 	// --- [ glGetBufferSubData ] ---
 
 	/** Unsafe version of {@link #glGetBufferSubData GetBufferSubData} */
-	@JavadocExclude
 	public static void nglGetBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().GetBufferSubData;
 		callIPPPV(__functionAddress, target, offset, size, data);
@@ -466,7 +458,6 @@ public class GL15 {
 	// --- [ glMapBuffer ] ---
 
 	/** Unsafe version of {@link #glMapBuffer MapBuffer} */
-	@JavadocExclude
 	public static long nglMapBuffer(int target, int access) {
 		long __functionAddress = getInstance().MapBuffer;
 		return callIIP(__functionAddress, target, access);
@@ -528,7 +519,6 @@ public class GL15 {
 	// --- [ glGetBufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetBufferParameteriv GetBufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetBufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteriv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -567,7 +557,6 @@ public class GL15 {
 	// --- [ glGetBufferPointerv ] ---
 
 	/** Unsafe version of {@link #glGetBufferPointerv GetBufferPointerv} */
-	@JavadocExclude
 	public static void nglGetBufferPointerv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointerv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -606,7 +595,6 @@ public class GL15 {
 	// --- [ glGenQueries ] ---
 
 	/** Unsafe version of {@link #glGenQueries GenQueries} */
-	@JavadocExclude
 	public static void nglGenQueries(int n, long ids) {
 		long __functionAddress = getInstance().GenQueries;
 		callIPV(__functionAddress, n, ids);
@@ -642,7 +630,6 @@ public class GL15 {
 	// --- [ glDeleteQueries ] ---
 
 	/** Unsafe version of {@link #glDeleteQueries DeleteQueries} */
-	@JavadocExclude
 	public static void nglDeleteQueries(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueries;
 		callIPV(__functionAddress, n, ids);
@@ -720,7 +707,6 @@ public class GL15 {
 	// --- [ glGetQueryiv ] ---
 
 	/** Unsafe version of {@link #glGetQueryiv GetQueryiv} */
-	@JavadocExclude
 	public static void nglGetQueryiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryiv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -759,7 +745,6 @@ public class GL15 {
 	// --- [ glGetQueryObjectiv ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectiv GetQueryObjectiv} */
-	@JavadocExclude
 	public static void nglGetQueryObjectiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectiv;
 		callIIPV(__functionAddress, id, pname, params);
@@ -798,7 +783,6 @@ public class GL15 {
 	// --- [ glGetQueryObjectuiv ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
-	@JavadocExclude
 	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuiv;
 		callIIPV(__functionAddress, id, pname, params);

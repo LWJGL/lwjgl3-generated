@@ -25,17 +25,14 @@ import static org.lwjgl.system.JNI.*;
 public class NVXConditionalRender {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BeginConditionalRenderNVX,
 		EndConditionalRenderNVX;
 
-	@JavadocExclude
 	protected NVXConditionalRender() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVXConditionalRender(FunctionProvider provider) {
 		BeginConditionalRenderNVX = provider.getFunctionAddress("glBeginConditionalRenderNVX");
 		EndConditionalRenderNVX = provider.getFunctionAddress("glEndConditionalRenderNVX");

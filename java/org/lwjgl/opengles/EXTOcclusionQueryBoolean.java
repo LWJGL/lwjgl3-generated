@@ -40,7 +40,6 @@ public class EXTOcclusionQueryBoolean {
 		GL_QUERY_RESULT_AVAILABLE_EXT = 0x8867;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GenQueriesEXT,
 		DeleteQueriesEXT,
@@ -50,12 +49,10 @@ public class EXTOcclusionQueryBoolean {
 		GetQueryivEXT,
 		GetQueryObjectuivEXT;
 
-	@JavadocExclude
 	protected EXTOcclusionQueryBoolean() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTOcclusionQueryBoolean(FunctionProvider provider) {
 		GenQueriesEXT = provider.getFunctionAddress("glGenQueriesEXT");
 		DeleteQueriesEXT = provider.getFunctionAddress("glDeleteQueriesEXT");
@@ -93,7 +90,6 @@ public class EXTOcclusionQueryBoolean {
 	// --- [ glGenQueriesEXT ] ---
 
 	/** Unsafe version of {@link #glGenQueriesEXT GenQueriesEXT} */
-	@JavadocExclude
 	public static void nglGenQueriesEXT(int n, long ids) {
 		long __functionAddress = getInstance().GenQueriesEXT;
 		callIPV(__functionAddress, n, ids);
@@ -121,7 +117,6 @@ public class EXTOcclusionQueryBoolean {
 	// --- [ glDeleteQueriesEXT ] ---
 
 	/** Unsafe version of {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
-	@JavadocExclude
 	public static void nglDeleteQueriesEXT(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueriesEXT;
 		callIPV(__functionAddress, n, ids);
@@ -169,7 +164,6 @@ public class EXTOcclusionQueryBoolean {
 	// --- [ glGetQueryivEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryivEXT GetQueryivEXT} */
-	@JavadocExclude
 	public static void nglGetQueryivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryivEXT;
 		callIIPV(__functionAddress, target, pname, params);
@@ -199,7 +193,6 @@ public class EXTOcclusionQueryBoolean {
 	// --- [ glGetQueryObjectuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
-	@JavadocExclude
 	public static void nglGetQueryObjectuivEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuivEXT;
 		callIIPV(__functionAddress, id, pname, params);

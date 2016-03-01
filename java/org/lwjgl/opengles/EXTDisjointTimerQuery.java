@@ -56,7 +56,6 @@ public class EXTDisjointTimerQuery {
 	public static final int GL_GPU_DISJOINT_EXT = 0x8FBB;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GenQueriesEXT,
 		DeleteQueriesEXT,
@@ -70,12 +69,10 @@ public class EXTDisjointTimerQuery {
 		GetQueryObjecti64vEXT,
 		GetQueryObjectui64vEXT;
 
-	@JavadocExclude
 	protected EXTDisjointTimerQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDisjointTimerQuery(FunctionProvider provider) {
 		GenQueriesEXT = provider.getFunctionAddress("glGenQueriesEXT");
 		DeleteQueriesEXT = provider.getFunctionAddress("glDeleteQueriesEXT");
@@ -117,7 +114,6 @@ public class EXTDisjointTimerQuery {
 	// --- [ glGenQueriesEXT ] ---
 
 	/** Unsafe version of {@link #glGenQueriesEXT GenQueriesEXT} */
-	@JavadocExclude
 	public static void nglGenQueriesEXT(int n, long ids) {
 		long __functionAddress = getInstance().GenQueriesEXT;
 		callIPV(__functionAddress, n, ids);
@@ -145,7 +141,6 @@ public class EXTDisjointTimerQuery {
 	// --- [ glDeleteQueriesEXT ] ---
 
 	/** Unsafe version of {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
-	@JavadocExclude
 	public static void nglDeleteQueriesEXT(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueriesEXT;
 		callIPV(__functionAddress, n, ids);
@@ -200,7 +195,6 @@ public class EXTDisjointTimerQuery {
 	// --- [ glGetQueryivEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryivEXT GetQueryivEXT} */
-	@JavadocExclude
 	public static void nglGetQueryivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryivEXT;
 		callIIPV(__functionAddress, target, pname, params);
@@ -230,7 +224,6 @@ public class EXTDisjointTimerQuery {
 	// --- [ glGetQueryObjectivEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectivEXT GetQueryObjectivEXT} */
-	@JavadocExclude
 	public static void nglGetQueryObjectivEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectivEXT;
 		if ( CHECKS )
@@ -262,7 +255,6 @@ public class EXTDisjointTimerQuery {
 	// --- [ glGetQueryObjectuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
-	@JavadocExclude
 	public static void nglGetQueryObjectuivEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuivEXT;
 		callIIPV(__functionAddress, id, pname, params);
@@ -292,7 +284,6 @@ public class EXTDisjointTimerQuery {
 	// --- [ glGetQueryObjecti64vEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
-	@JavadocExclude
 	public static void nglGetQueryObjecti64vEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64vEXT;
 		callIIPV(__functionAddress, id, pname, params);
@@ -322,7 +313,6 @@ public class EXTDisjointTimerQuery {
 	// --- [ glGetQueryObjectui64vEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
-	@JavadocExclude
 	public static void nglGetQueryObjectui64vEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64vEXT;
 		callIIPV(__functionAddress, id, pname, params);

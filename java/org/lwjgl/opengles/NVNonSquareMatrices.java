@@ -32,7 +32,6 @@ public class NVNonSquareMatrices {
 		GL_FLOAT_MAT4x3_NV = 0x8B6A;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		UniformMatrix2x3fvNV,
 		UniformMatrix3x2fvNV,
@@ -41,12 +40,10 @@ public class NVNonSquareMatrices {
 		UniformMatrix3x4fvNV,
 		UniformMatrix4x3fvNV;
 
-	@JavadocExclude
 	protected NVNonSquareMatrices() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVNonSquareMatrices(FunctionProvider provider) {
 		UniformMatrix2x3fvNV = provider.getFunctionAddress("glUniformMatrix2x3fvNV");
 		UniformMatrix3x2fvNV = provider.getFunctionAddress("glUniformMatrix3x2fvNV");
@@ -83,7 +80,6 @@ public class NVNonSquareMatrices {
 	// --- [ glUniformMatrix2x3fvNV ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix2x3fvNV UniformMatrix2x3fvNV} */
-	@JavadocExclude
 	public static void nglUniformMatrix2x3fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3fvNV;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -103,7 +99,6 @@ public class NVNonSquareMatrices {
 	// --- [ glUniformMatrix3x2fvNV ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix3x2fvNV UniformMatrix3x2fvNV} */
-	@JavadocExclude
 	public static void nglUniformMatrix3x2fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2fvNV;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -123,7 +118,6 @@ public class NVNonSquareMatrices {
 	// --- [ glUniformMatrix2x4fvNV ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix2x4fvNV UniformMatrix2x4fvNV} */
-	@JavadocExclude
 	public static void nglUniformMatrix2x4fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4fvNV;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -143,7 +137,6 @@ public class NVNonSquareMatrices {
 	// --- [ glUniformMatrix4x2fvNV ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix4x2fvNV UniformMatrix4x2fvNV} */
-	@JavadocExclude
 	public static void nglUniformMatrix4x2fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2fvNV;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -163,7 +156,6 @@ public class NVNonSquareMatrices {
 	// --- [ glUniformMatrix3x4fvNV ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix3x4fvNV UniformMatrix3x4fvNV} */
-	@JavadocExclude
 	public static void nglUniformMatrix3x4fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4fvNV;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -183,7 +175,6 @@ public class NVNonSquareMatrices {
 	// --- [ glUniformMatrix4x3fvNV ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix4x3fvNV UniformMatrix4x3fvNV} */
-	@JavadocExclude
 	public static void nglUniformMatrix4x3fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3fvNV;
 		callIIZPV(__functionAddress, location, count, transpose, value);

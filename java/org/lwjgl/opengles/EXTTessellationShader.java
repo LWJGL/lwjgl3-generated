@@ -131,15 +131,12 @@ public class EXTTessellationShader {
 		GL_TESS_EVALUATION_SHADER_BIT_EXT = 0x10;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long PatchParameteriEXT;
 
-	@JavadocExclude
 	protected EXTTessellationShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTTessellationShader(FunctionProvider provider) {
 		PatchParameteriEXT = provider.getFunctionAddress("glPatchParameteriEXT");
 	}

@@ -38,10 +38,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>The paths, gradients, patterns and scissor region are transformed by an transformation matrix at the time when they are passed to the API. The current
  * transformation matrix is a affine matrix:</p>
  * 
- * <pre><code style="font-family: monospace">
- * [sx kx tx]
- * [ky sy ty]
- * [ 0  0  1]</code></pre>
+ * <pre><code>[sx kx tx]
+[ky sy ty]
+[ 0  0  1]</code></pre>
  * 
  * <p>Where: {@code sx,sy} define scaling, {@code kx,ky} skewing, and {@code tx,ty} translation. The last row is assumed to be {@code 0,0,1} and is not
  * stored.</p>
@@ -96,12 +95,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>While this may sound a little odd, the setup allows you to always render the same way regardless of scaling. I.e. following works regardless of scaling:</p>
  * 
- * <pre><code style="font-family: monospace">
- * const char* txt = "Text me up.";
- * nvgTextBounds(vg, x,y, txt, NULL, bounds);
- * nvgBeginPath(vg);
- * nvgRoundedRect(vg, bounds[0],bounds[1], bounds[2]-bounds[0], bounds[3]-bounds[1]);
- * nvgFill(vg);</code></pre>
+ * <pre><code>const char* txt = "Text me up.";
+nvgTextBounds(vg, x,y, txt, NULL, bounds);
+nvgBeginPath(vg);
+nvgRoundedRect(vg, bounds[0],bounds[1], bounds[2]-bounds[0], bounds[3]-bounds[1]);
+nvgFill(vg);</code></pre>
  * 
  * <p>Note: currently only solid color fill is supported for text.</p>
  */
@@ -168,7 +166,6 @@ public class NanoVG {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected NanoVG() {
 		throw new UnsupportedOperationException();
 	}
@@ -176,7 +173,6 @@ public class NanoVG {
 	// --- [ nvgBeginFrame ] ---
 
 	/** JNI method for {@link #nvgBeginFrame BeginFrame} */
-	@JavadocExclude
 	public static native void nnvgBeginFrame(long ctx, int windowWidth, int windowHeight, float devicePixelRatio);
 
 	/**
@@ -201,7 +197,6 @@ public class NanoVG {
 	// --- [ nvgCancelFrame ] ---
 
 	/** JNI method for {@link #nvgCancelFrame CancelFrame} */
-	@JavadocExclude
 	public static native void nnvgCancelFrame(long ctx);
 
 	/**
@@ -218,7 +213,6 @@ public class NanoVG {
 	// --- [ nvgEndFrame ] ---
 
 	/** JNI method for {@link #nvgEndFrame EndFrame} */
-	@JavadocExclude
 	public static native void nnvgEndFrame(long ctx);
 
 	/**
@@ -235,7 +229,6 @@ public class NanoVG {
 	// --- [ nvgRGB ] ---
 
 	/** JNI method for {@link #nvgRGB RGB} */
-	@JavadocExclude
 	public static native void nnvgRGB(byte r, byte g, byte b, long __result);
 
 	/**
@@ -252,7 +245,6 @@ public class NanoVG {
 	// --- [ nvgRGBf ] ---
 
 	/** JNI method for {@link #nvgRGBf RGBf} */
-	@JavadocExclude
 	public static native void nnvgRGBf(float r, float g, float b, long __result);
 
 	/**
@@ -269,7 +261,6 @@ public class NanoVG {
 	// --- [ nvgRGBA ] ---
 
 	/** JNI method for {@link #nvgRGBA RGBA} */
-	@JavadocExclude
 	public static native void nnvgRGBA(byte r, byte g, byte b, byte a, long __result);
 
 	/**
@@ -287,7 +278,6 @@ public class NanoVG {
 	// --- [ nvgRGBAf ] ---
 
 	/** JNI method for {@link #nvgRGBAf RGBAf} */
-	@JavadocExclude
 	public static native void nnvgRGBAf(float r, float g, float b, float a, long __result);
 
 	/**
@@ -305,7 +295,6 @@ public class NanoVG {
 	// --- [ nvgLerpRGBA ] ---
 
 	/** JNI method for {@link #nvgLerpRGBA LerpRGBA} */
-	@JavadocExclude
 	public static native void nnvgLerpRGBA(long c0, long c1, float u, long __result);
 
 	/**
@@ -322,7 +311,6 @@ public class NanoVG {
 	// --- [ nvgTransRGBA ] ---
 
 	/** JNI method for {@link #nvgTransRGBA TransRGBA} */
-	@JavadocExclude
 	public static native void nnvgTransRGBA(long c0, byte a, long __result);
 
 	/**
@@ -338,7 +326,6 @@ public class NanoVG {
 	// --- [ nvgTransRGBAf ] ---
 
 	/** JNI method for {@link #nvgTransRGBAf TransRGBAf} */
-	@JavadocExclude
 	public static native void nnvgTransRGBAf(long c0, float a, long __result);
 
 	/**
@@ -354,7 +341,6 @@ public class NanoVG {
 	// --- [ nvgHSL ] ---
 
 	/** JNI method for {@link #nvgHSL HSL} */
-	@JavadocExclude
 	public static native void nnvgHSL(float h, float s, float l, long __result);
 
 	/**
@@ -373,7 +359,6 @@ public class NanoVG {
 	// --- [ nvgHSLA ] ---
 
 	/** JNI method for {@link #nvgHSLA HSLA} */
-	@JavadocExclude
 	public static native void nnvgHSLA(float h, float s, float l, byte a, long __result);
 
 	/**
@@ -393,7 +378,6 @@ public class NanoVG {
 	// --- [ nvgSave ] ---
 
 	/** JNI method for {@link #nvgSave Save} */
-	@JavadocExclude
 	public static native void nnvgSave(long ctx);
 
 	/**
@@ -410,7 +394,6 @@ public class NanoVG {
 	// --- [ nvgRestore ] ---
 
 	/** JNI method for {@link #nvgRestore Restore} */
-	@JavadocExclude
 	public static native void nnvgRestore(long ctx);
 
 	/**
@@ -427,7 +410,6 @@ public class NanoVG {
 	// --- [ nvgReset ] ---
 
 	/** JNI method for {@link #nvgReset Reset} */
-	@JavadocExclude
 	public static native void nnvgReset(long ctx);
 
 	/**
@@ -444,7 +426,6 @@ public class NanoVG {
 	// --- [ nvgStrokeColor ] ---
 
 	/** JNI method for {@link #nvgStrokeColor StrokeColor} */
-	@JavadocExclude
 	public static native void nnvgStrokeColor(long ctx, long color);
 
 	/**
@@ -462,7 +443,6 @@ public class NanoVG {
 	// --- [ nvgStrokePaint ] ---
 
 	/** JNI method for {@link #nvgStrokePaint StrokePaint} */
-	@JavadocExclude
 	public static native void nnvgStrokePaint(long ctx, long paint);
 
 	/**
@@ -480,7 +460,6 @@ public class NanoVG {
 	// --- [ nvgFillColor ] ---
 
 	/** JNI method for {@link #nvgFillColor FillColor} */
-	@JavadocExclude
 	public static native void nnvgFillColor(long ctx, long color);
 
 	/**
@@ -498,7 +477,6 @@ public class NanoVG {
 	// --- [ nvgFillPaint ] ---
 
 	/** JNI method for {@link #nvgFillPaint FillPaint} */
-	@JavadocExclude
 	public static native void nnvgFillPaint(long ctx, long paint);
 
 	/**
@@ -516,7 +494,6 @@ public class NanoVG {
 	// --- [ nvgMiterLimit ] ---
 
 	/** JNI method for {@link #nvgMiterLimit MiterLimit} */
-	@JavadocExclude
 	public static native void nnvgMiterLimit(long ctx, float limit);
 
 	/**
@@ -534,7 +511,6 @@ public class NanoVG {
 	// --- [ nvgStrokeWidth ] ---
 
 	/** JNI method for {@link #nvgStrokeWidth StrokeWidth} */
-	@JavadocExclude
 	public static native void nnvgStrokeWidth(long ctx, float size);
 
 	/**
@@ -552,7 +528,6 @@ public class NanoVG {
 	// --- [ nvgLineCap ] ---
 
 	/** JNI method for {@link #nvgLineCap LineCap} */
-	@JavadocExclude
 	public static native void nnvgLineCap(long ctx, int cap);
 
 	/**
@@ -572,7 +547,6 @@ public class NanoVG {
 	// --- [ nvgLineJoin ] ---
 
 	/** JNI method for {@link #nvgLineJoin LineJoin} */
-	@JavadocExclude
 	public static native void nnvgLineJoin(long ctx, int join);
 
 	/**
@@ -592,7 +566,6 @@ public class NanoVG {
 	// --- [ nvgGlobalAlpha ] ---
 
 	/** JNI method for {@link #nvgGlobalAlpha GlobalAlpha} */
-	@JavadocExclude
 	public static native void nnvgGlobalAlpha(long ctx, float alpha);
 
 	/**
@@ -612,7 +585,6 @@ public class NanoVG {
 	// --- [ nvgResetTransform ] ---
 
 	/** JNI method for {@link #nvgResetTransform ResetTransform} */
-	@JavadocExclude
 	public static native void nnvgResetTransform(long ctx);
 
 	/**
@@ -629,16 +601,14 @@ public class NanoVG {
 	// --- [ nvgTransform ] ---
 
 	/** JNI method for {@link #nvgTransform Transform} */
-	@JavadocExclude
 	public static native void nnvgTransform(long ctx, float a, float b, float c, float d, float e, float f);
 
 	/**
 	 * Premultiplies current coordinate system by specified matrix. The parameters are interpreted as matrix as follows:
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * [a c e]
-	 * [b d f]
-	 * [0 0 1]</code></pre>
+	 * <pre><code>[a c e]
+[b d f]
+[0 0 1]</code></pre>
 	 *
 	 * @param ctx the NanoVG context
 	 * @param a   the a value
@@ -657,7 +627,6 @@ public class NanoVG {
 	// --- [ nvgTranslate ] ---
 
 	/** JNI method for {@link #nvgTranslate Translate} */
-	@JavadocExclude
 	public static native void nnvgTranslate(long ctx, float x, float y);
 
 	/**
@@ -676,7 +645,6 @@ public class NanoVG {
 	// --- [ nvgRotate ] ---
 
 	/** JNI method for {@link #nvgRotate Rotate} */
-	@JavadocExclude
 	public static native void nnvgRotate(long ctx, float angle);
 
 	/**
@@ -694,7 +662,6 @@ public class NanoVG {
 	// --- [ nvgSkewX ] ---
 
 	/** JNI method for {@link #nvgSkewX SkewX} */
-	@JavadocExclude
 	public static native void nnvgSkewX(long ctx, float angle);
 
 	/**
@@ -712,7 +679,6 @@ public class NanoVG {
 	// --- [ nvgSkewY ] ---
 
 	/** JNI method for {@link #nvgSkewY SkewY} */
-	@JavadocExclude
 	public static native void nnvgSkewY(long ctx, float angle);
 
 	/**
@@ -730,7 +696,6 @@ public class NanoVG {
 	// --- [ nvgScale ] ---
 
 	/** JNI method for {@link #nvgScale Scale} */
-	@JavadocExclude
 	public static native void nnvgScale(long ctx, float x, float y);
 
 	/**
@@ -749,16 +714,14 @@ public class NanoVG {
 	// --- [ nvgCurrentTransform ] ---
 
 	/** JNI method for {@link #nvgCurrentTransform CurrentTransform} */
-	@JavadocExclude
 	public static native void nnvgCurrentTransform(long ctx, long xform);
 
 	/**
 	 * Stores the top part (a-f) of the current transformation matrix in to the specified buffer.
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * [a c e]
-	 * [b d f]
-	 * [0 0 1]</code></pre>
+	 * <pre><code>[a c e]
+[b d f]
+[0 0 1]</code></pre>
 	 * 
 	 * <p>There should be space for 6 floats in the return buffer for the values {@code a-f}.</p>
 	 *
@@ -785,7 +748,6 @@ public class NanoVG {
 	// --- [ nvgTransformIdentity ] ---
 
 	/** JNI method for {@link #nvgTransformIdentity TransformIdentity} */
-	@JavadocExclude
 	public static native void nnvgTransformIdentity(long dst);
 
 	/**
@@ -809,7 +771,6 @@ public class NanoVG {
 	// --- [ nvgTransformTranslate ] ---
 
 	/** JNI method for {@link #nvgTransformTranslate TransformTranslate} */
-	@JavadocExclude
 	public static native void nnvgTransformTranslate(long dst, float tx, float ty);
 
 	/**
@@ -835,7 +796,6 @@ public class NanoVG {
 	// --- [ nvgTransformScale ] ---
 
 	/** JNI method for {@link #nvgTransformScale TransformScale} */
-	@JavadocExclude
 	public static native void nnvgTransformScale(long dst, float sx, float sy);
 
 	/**
@@ -861,7 +821,6 @@ public class NanoVG {
 	// --- [ nvgTransformRotate ] ---
 
 	/** JNI method for {@link #nvgTransformRotate TransformRotate} */
-	@JavadocExclude
 	public static native void nnvgTransformRotate(long dst, float a);
 
 	/**
@@ -886,7 +845,6 @@ public class NanoVG {
 	// --- [ nvgTransformSkewX ] ---
 
 	/** JNI method for {@link #nvgTransformSkewX TransformSkewX} */
-	@JavadocExclude
 	public static native void nnvgTransformSkewX(long dst, float a);
 
 	/**
@@ -911,7 +869,6 @@ public class NanoVG {
 	// --- [ nvgTransformSkewY ] ---
 
 	/** JNI method for {@link #nvgTransformSkewY TransformSkewY} */
-	@JavadocExclude
 	public static native void nnvgTransformSkewY(long dst, float a);
 
 	/**
@@ -936,7 +893,6 @@ public class NanoVG {
 	// --- [ nvgTransformMultiply ] ---
 
 	/** JNI method for {@link #nvgTransformMultiply TransformMultiply} */
-	@JavadocExclude
 	public static native void nnvgTransformMultiply(long dst, long src);
 
 	/**
@@ -965,7 +921,6 @@ public class NanoVG {
 	// --- [ nvgTransformPremultiply ] ---
 
 	/** JNI method for {@link #nvgTransformPremultiply TransformPremultiply} */
-	@JavadocExclude
 	public static native void nnvgTransformPremultiply(long dst, long src);
 
 	/**
@@ -994,7 +949,6 @@ public class NanoVG {
 	// --- [ nvgTransformInverse ] ---
 
 	/** JNI method for {@link #nvgTransformInverse TransformInverse} */
-	@JavadocExclude
 	public static native int nnvgTransformInverse(long dst, long src);
 
 	/**
@@ -1025,7 +979,6 @@ public class NanoVG {
 	// --- [ nvgTransformPoint ] ---
 
 	/** JNI method for {@link #nvgTransformPoint TransformPoint} */
-	@JavadocExclude
 	public static native void nnvgTransformPoint(long dstx, long dsty, long xform, float srcx, float srcy);
 
 	/**
@@ -1077,7 +1030,6 @@ public class NanoVG {
 	// --- [ nvgCreateImage ] ---
 
 	/** JNI method for {@link #nvgCreateImage CreateImage} */
-	@JavadocExclude
 	public static native int nnvgCreateImage(long ctx, long filename, int imageFlags);
 
 	/**
@@ -1109,7 +1061,6 @@ public class NanoVG {
 	// --- [ nvgCreateImageMem ] ---
 
 	/** JNI method for {@link #nvgCreateImageMem CreateImageMem} */
-	@JavadocExclude
 	public static native int nnvgCreateImageMem(long ctx, int imageFlags, long data, int ndata);
 
 	/**
@@ -1140,7 +1091,6 @@ public class NanoVG {
 	// --- [ nvgCreateImageRGBA ] ---
 
 	/** JNI method for {@link #nvgCreateImageRGBA CreateImageRGBA} */
-	@JavadocExclude
 	public static native int nnvgCreateImageRGBA(long ctx, int w, int h, int imageFlags, long data);
 
 	/**
@@ -1163,7 +1113,6 @@ public class NanoVG {
 	// --- [ nvgUpdateImage ] ---
 
 	/** JNI method for {@link #nvgUpdateImage UpdateImage} */
-	@JavadocExclude
 	public static native void nnvgUpdateImage(long ctx, int image, long data);
 
 	/**
@@ -1182,7 +1131,6 @@ public class NanoVG {
 	// --- [ nvgImageSize ] ---
 
 	/** JNI method for {@link #nvgImageSize ImageSize} */
-	@JavadocExclude
 	public static native void nnvgImageSize(long ctx, int image, long w, long h);
 
 	/**
@@ -1215,7 +1163,6 @@ public class NanoVG {
 	// --- [ nvgDeleteImage ] ---
 
 	/** JNI method for {@link #nvgDeleteImage DeleteImage} */
-	@JavadocExclude
 	public static native void nnvgDeleteImage(long ctx, int image);
 
 	/**
@@ -1233,7 +1180,6 @@ public class NanoVG {
 	// --- [ nvgLinearGradient ] ---
 
 	/** JNI method for {@link #nvgLinearGradient LinearGradient} */
-	@JavadocExclude
 	public static native void nnvgLinearGradient(long ctx, float sx, float sy, float ex, float ey, long icol, long ocol, long __result);
 
 	/**
@@ -1258,7 +1204,6 @@ public class NanoVG {
 	// --- [ nvgBoxGradient ] ---
 
 	/** JNI method for {@link #nvgBoxGradient BoxGradient} */
-	@JavadocExclude
 	public static native void nnvgBoxGradient(long ctx, float x, float y, float w, float h, float r, float f, long icol, long ocol, long __result);
 
 	/**
@@ -1285,7 +1230,6 @@ public class NanoVG {
 	// --- [ nvgRadialGradient ] ---
 
 	/** JNI method for {@link #nvgRadialGradient RadialGradient} */
-	@JavadocExclude
 	public static native void nnvgRadialGradient(long ctx, float cx, float cy, float inr, float outr, long icol, long ocol, long __result);
 
 	/**
@@ -1310,7 +1254,6 @@ public class NanoVG {
 	// --- [ nvgImagePattern ] ---
 
 	/** JNI method for {@link #nvgImagePattern ImagePattern} */
-	@JavadocExclude
 	public static native void nnvgImagePattern(long ctx, float ox, float oy, float ex, float ey, float angle, int image, float alpha, long __result);
 
 	/**
@@ -1336,7 +1279,6 @@ public class NanoVG {
 	// --- [ nvgScissor ] ---
 
 	/** JNI method for {@link #nvgScissor Scissor} */
-	@JavadocExclude
 	public static native void nnvgScissor(long ctx, float x, float y, float w, float h);
 
 	/**
@@ -1359,7 +1301,6 @@ public class NanoVG {
 	// --- [ nvgIntersectScissor ] ---
 
 	/** JNI method for {@link #nvgIntersectScissor IntersectScissor} */
-	@JavadocExclude
 	public static native void nnvgIntersectScissor(long ctx, float x, float y, float w, float h);
 
 	/**
@@ -1385,7 +1326,6 @@ public class NanoVG {
 	// --- [ nvgResetScissor ] ---
 
 	/** JNI method for {@link #nvgResetScissor ResetScissor} */
-	@JavadocExclude
 	public static native void nnvgResetScissor(long ctx);
 
 	/**
@@ -1402,7 +1342,6 @@ public class NanoVG {
 	// --- [ nvgBeginPath ] ---
 
 	/** JNI method for {@link #nvgBeginPath BeginPath} */
-	@JavadocExclude
 	public static native void nnvgBeginPath(long ctx);
 
 	/**
@@ -1419,7 +1358,6 @@ public class NanoVG {
 	// --- [ nvgMoveTo ] ---
 
 	/** JNI method for {@link #nvgMoveTo MoveTo} */
-	@JavadocExclude
 	public static native void nnvgMoveTo(long ctx, float x, float y);
 
 	/**
@@ -1438,7 +1376,6 @@ public class NanoVG {
 	// --- [ nvgLineTo ] ---
 
 	/** JNI method for {@link #nvgLineTo LineTo} */
-	@JavadocExclude
 	public static native void nnvgLineTo(long ctx, float x, float y);
 
 	/**
@@ -1457,7 +1394,6 @@ public class NanoVG {
 	// --- [ nvgBezierTo ] ---
 
 	/** JNI method for {@link #nvgBezierTo BezierTo} */
-	@JavadocExclude
 	public static native void nnvgBezierTo(long ctx, float c1x, float c1y, float c2x, float c2y, float x, float y);
 
 	/**
@@ -1480,7 +1416,6 @@ public class NanoVG {
 	// --- [ nvgQuadTo ] ---
 
 	/** JNI method for {@link #nvgQuadTo QuadTo} */
-	@JavadocExclude
 	public static native void nnvgQuadTo(long ctx, float cx, float cy, float x, float y);
 
 	/**
@@ -1501,7 +1436,6 @@ public class NanoVG {
 	// --- [ nvgArcTo ] ---
 
 	/** JNI method for {@link #nvgArcTo ArcTo} */
-	@JavadocExclude
 	public static native void nnvgArcTo(long ctx, float x1, float y1, float x2, float y2, float radius);
 
 	/**
@@ -1523,7 +1457,6 @@ public class NanoVG {
 	// --- [ nvgClosePath ] ---
 
 	/** JNI method for {@link #nvgClosePath ClosePath} */
-	@JavadocExclude
 	public static native void nnvgClosePath(long ctx);
 
 	/**
@@ -1540,7 +1473,6 @@ public class NanoVG {
 	// --- [ nvgPathWinding ] ---
 
 	/** JNI method for {@link #nvgPathWinding PathWinding} */
-	@JavadocExclude
 	public static native void nnvgPathWinding(long ctx, int dir);
 
 	/**
@@ -1558,7 +1490,6 @@ public class NanoVG {
 	// --- [ nvgArc ] ---
 
 	/** JNI method for {@link #nvgArc Arc} */
-	@JavadocExclude
 	public static native void nnvgArc(long ctx, float cx, float cy, float r, float a0, float a1, int dir);
 
 	/**
@@ -1581,7 +1512,6 @@ public class NanoVG {
 	// --- [ nvgRect ] ---
 
 	/** JNI method for {@link #nvgRect Rect} */
-	@JavadocExclude
 	public static native void nnvgRect(long ctx, float x, float y, float w, float h);
 
 	/**
@@ -1602,7 +1532,6 @@ public class NanoVG {
 	// --- [ nvgRoundedRect ] ---
 
 	/** JNI method for {@link #nvgRoundedRect RoundedRect} */
-	@JavadocExclude
 	public static native void nnvgRoundedRect(long ctx, float x, float y, float w, float h, float r);
 
 	/**
@@ -1624,7 +1553,6 @@ public class NanoVG {
 	// --- [ nvgEllipse ] ---
 
 	/** JNI method for {@link #nvgEllipse Ellipse} */
-	@JavadocExclude
 	public static native void nnvgEllipse(long ctx, float cx, float cy, float rx, float ry);
 
 	/**
@@ -1645,7 +1573,6 @@ public class NanoVG {
 	// --- [ nvgCircle ] ---
 
 	/** JNI method for {@link #nvgCircle Circle} */
-	@JavadocExclude
 	public static native void nnvgCircle(long ctx, float cx, float cy, float r);
 
 	/**
@@ -1665,7 +1592,6 @@ public class NanoVG {
 	// --- [ nvgFill ] ---
 
 	/** JNI method for {@link #nvgFill Fill} */
-	@JavadocExclude
 	public static native void nnvgFill(long ctx);
 
 	/**
@@ -1682,7 +1608,6 @@ public class NanoVG {
 	// --- [ nvgStroke ] ---
 
 	/** JNI method for {@link #nvgStroke Stroke} */
-	@JavadocExclude
 	public static native void nnvgStroke(long ctx);
 
 	/**
@@ -1699,7 +1624,6 @@ public class NanoVG {
 	// --- [ nvgCreateFont ] ---
 
 	/** JNI method for {@link #nvgCreateFont CreateFont} */
-	@JavadocExclude
 	public static native int nnvgCreateFont(long ctx, long name, long filename);
 
 	/**
@@ -1733,7 +1657,6 @@ public class NanoVG {
 	// --- [ nvgCreateFontMem ] ---
 
 	/** JNI method for {@link #nvgCreateFontMem CreateFontMem} */
-	@JavadocExclude
 	public static native int nnvgCreateFontMem(long ctx, long name, long data, int ndata, int freeData);
 
 	/**
@@ -1777,7 +1700,6 @@ public class NanoVG {
 	// --- [ nvgFindFont ] ---
 
 	/** JNI method for {@link #nvgFindFont FindFont} */
-	@JavadocExclude
 	public static native int nnvgFindFont(long ctx, long name);
 
 	/**
@@ -1806,7 +1728,6 @@ public class NanoVG {
 	// --- [ nvgFontSize ] ---
 
 	/** JNI method for {@link #nvgFontSize FontSize} */
-	@JavadocExclude
 	public static native void nnvgFontSize(long ctx, float size);
 
 	/**
@@ -1824,7 +1745,6 @@ public class NanoVG {
 	// --- [ nvgFontBlur ] ---
 
 	/** JNI method for {@link #nvgFontBlur FontBlur} */
-	@JavadocExclude
 	public static native void nnvgFontBlur(long ctx, float blur);
 
 	/**
@@ -1842,7 +1762,6 @@ public class NanoVG {
 	// --- [ nvgTextLetterSpacing ] ---
 
 	/** JNI method for {@link #nvgTextLetterSpacing TextLetterSpacing} */
-	@JavadocExclude
 	public static native void nnvgTextLetterSpacing(long ctx, float spacing);
 
 	/**
@@ -1860,7 +1779,6 @@ public class NanoVG {
 	// --- [ nvgTextLineHeight ] ---
 
 	/** JNI method for {@link #nvgTextLineHeight TextLineHeight} */
-	@JavadocExclude
 	public static native void nnvgTextLineHeight(long ctx, float lineHeight);
 
 	/**
@@ -1878,7 +1796,6 @@ public class NanoVG {
 	// --- [ nvgTextAlign ] ---
 
 	/** JNI method for {@link #nvgTextAlign TextAlign} */
-	@JavadocExclude
 	public static native void nnvgTextAlign(long ctx, int align);
 
 	/**
@@ -1896,7 +1813,6 @@ public class NanoVG {
 	// --- [ nvgFontFaceId ] ---
 
 	/** JNI method for {@link #nvgFontFaceId FontFaceId} */
-	@JavadocExclude
 	public static native void nnvgFontFaceId(long ctx, int font);
 
 	/**
@@ -1914,7 +1830,6 @@ public class NanoVG {
 	// --- [ nvgFontFace ] ---
 
 	/** JNI method for {@link #nvgFontFace FontFace} */
-	@JavadocExclude
 	public static native void nnvgFontFace(long ctx, long font);
 
 	/**
@@ -1943,7 +1858,6 @@ public class NanoVG {
 	// --- [ nvgText ] ---
 
 	/** JNI method for {@link #nvgText Text} */
-	@JavadocExclude
 	public static native float nnvgText(long ctx, float x, float y, long string, long end);
 
 	/**
@@ -1975,7 +1889,6 @@ public class NanoVG {
 	// --- [ nvgTextBox ] ---
 
 	/** JNI method for {@link #nvgTextBox TextBox} */
-	@JavadocExclude
 	public static native void nnvgTextBox(long ctx, float x, float y, float breakRowWidth, long string, long end);
 
 	/**
@@ -2012,7 +1925,6 @@ public class NanoVG {
 	// --- [ nvgTextBounds ] ---
 
 	/** JNI method for {@link #nvgTextBounds TextBounds} */
-	@JavadocExclude
 	public static native float nnvgTextBounds(long ctx, float x, float y, long string, long end, long bounds);
 
 	/**
@@ -2065,7 +1977,6 @@ public class NanoVG {
 	// --- [ nvgTextBoxBounds ] ---
 
 	/** JNI method for {@link #nvgTextBoxBounds TextBoxBounds} */
-	@JavadocExclude
 	public static native void nnvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, long string, long end, long bounds);
 
 	/**
@@ -2117,7 +2028,6 @@ public class NanoVG {
 	// --- [ nvgTextGlyphPositions ] ---
 
 	/** JNI method for {@link #nvgTextGlyphPositions TextGlyphPositions} */
-	@JavadocExclude
 	public static native int nnvgTextGlyphPositions(long ctx, float x, float y, long string, long end, long positions, int maxPositions);
 
 	/**
@@ -2167,7 +2077,6 @@ public class NanoVG {
 	// --- [ nvgTextMetrics ] ---
 
 	/** JNI method for {@link #nvgTextMetrics TextMetrics} */
-	@JavadocExclude
 	public static native void nnvgTextMetrics(long ctx, long ascender, long descender, long lineh);
 
 	/**
@@ -2204,7 +2113,6 @@ public class NanoVG {
 	// --- [ nvgTextBreakLines ] ---
 
 	/** JNI method for {@link #nvgTextBreakLines TextBreakLines} */
-	@JavadocExclude
 	public static native int nnvgTextBreakLines(long ctx, long string, long end, float breakRowWidth, long rows, int maxRows);
 
 	/**

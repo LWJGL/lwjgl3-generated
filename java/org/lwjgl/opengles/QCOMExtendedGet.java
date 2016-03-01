@@ -39,7 +39,6 @@ public class QCOMExtendedGet {
 	public static final int GL_STATE_RESTORE = 0x8BDC;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ExtGetTexturesQCOM,
 		ExtGetBuffersQCOM,
@@ -50,12 +49,10 @@ public class QCOMExtendedGet {
 		ExtGetTexSubImageQCOM,
 		ExtGetBufferPointervQCOM;
 
-	@JavadocExclude
 	protected QCOMExtendedGet() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public QCOMExtendedGet(FunctionProvider provider) {
 		ExtGetTexturesQCOM = provider.getFunctionAddress("glExtGetTexturesQCOM");
 		ExtGetBuffersQCOM = provider.getFunctionAddress("glExtGetBuffersQCOM");
@@ -94,7 +91,6 @@ public class QCOMExtendedGet {
 	// --- [ glExtGetTexturesQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetTexturesQCOM ExtGetTexturesQCOM} */
-	@JavadocExclude
 	public static void nglExtGetTexturesQCOM(long textures, int maxTextures, long numTextures) {
 		long __functionAddress = getInstance().ExtGetTexturesQCOM;
 		callPIPV(__functionAddress, textures, maxTextures, numTextures);
@@ -118,7 +114,6 @@ public class QCOMExtendedGet {
 	// --- [ glExtGetBuffersQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetBuffersQCOM ExtGetBuffersQCOM} */
-	@JavadocExclude
 	public static void nglExtGetBuffersQCOM(long buffers, int maxBuffers, long numBuffers) {
 		long __functionAddress = getInstance().ExtGetBuffersQCOM;
 		callPIPV(__functionAddress, buffers, maxBuffers, numBuffers);
@@ -142,7 +137,6 @@ public class QCOMExtendedGet {
 	// --- [ glExtGetRenderbuffersQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetRenderbuffersQCOM ExtGetRenderbuffersQCOM} */
-	@JavadocExclude
 	public static void nglExtGetRenderbuffersQCOM(long renderbuffers, int maxRenderbuffers, long numRenderbuffers) {
 		long __functionAddress = getInstance().ExtGetRenderbuffersQCOM;
 		callPIPV(__functionAddress, renderbuffers, maxRenderbuffers, numRenderbuffers);
@@ -166,7 +160,6 @@ public class QCOMExtendedGet {
 	// --- [ glExtGetFramebuffersQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetFramebuffersQCOM ExtGetFramebuffersQCOM} */
-	@JavadocExclude
 	public static void nglExtGetFramebuffersQCOM(long framebuffers, int maxFramebuffers, long numFramebuffers) {
 		long __functionAddress = getInstance().ExtGetFramebuffersQCOM;
 		callPIPV(__functionAddress, framebuffers, maxFramebuffers, numFramebuffers);
@@ -190,7 +183,6 @@ public class QCOMExtendedGet {
 	// --- [ glExtGetTexLevelParameterivQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetTexLevelParameterivQCOM ExtGetTexLevelParameterivQCOM} */
-	@JavadocExclude
 	public static void nglExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, long params) {
 		long __functionAddress = getInstance().ExtGetTexLevelParameterivQCOM;
 		callIIIIPV(__functionAddress, texture, face, level, pname, params);
@@ -227,7 +219,6 @@ public class QCOMExtendedGet {
 	// --- [ glExtGetTexSubImageQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetTexSubImageQCOM ExtGetTexSubImageQCOM} */
-	@JavadocExclude
 	public static void nglExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long texels) {
 		long __functionAddress = getInstance().ExtGetTexSubImageQCOM;
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, texels);
@@ -240,7 +231,6 @@ public class QCOMExtendedGet {
 	// --- [ glExtGetBufferPointervQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetBufferPointervQCOM ExtGetBufferPointervQCOM} */
-	@JavadocExclude
 	public static void nglExtGetBufferPointervQCOM(int target, long params) {
 		long __functionAddress = getInstance().ExtGetBufferPointervQCOM;
 		callIPV(__functionAddress, target, params);

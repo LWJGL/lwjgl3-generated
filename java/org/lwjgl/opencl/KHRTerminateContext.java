@@ -36,15 +36,12 @@ public class KHRTerminateContext {
 	public static final int CL_CONTEXT_TERMINATE_KHR = 0x2010;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long TerminateContextKHR;
 
-	@JavadocExclude
 	protected KHRTerminateContext() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRTerminateContext(FunctionProvider provider) {
 		TerminateContextKHR = provider.getFunctionAddress("clTerminateContextKHR");
 	}

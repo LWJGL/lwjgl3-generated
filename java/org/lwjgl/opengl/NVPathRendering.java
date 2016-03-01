@@ -349,7 +349,6 @@ public class NVPathRendering {
 		GL_CONSTANT_NV      = 0x8576;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		PathCommandsNV,
 		PathCoordsNV,
@@ -416,12 +415,10 @@ public class NVPathRendering {
 		MatrixMultTranspose3x3fNV,
 		GetProgramResourcefvNV;
 
-	@JavadocExclude
 	protected NVPathRendering() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVPathRendering(FunctionProvider provider) {
 		PathCommandsNV = provider.getFunctionAddress("glPathCommandsNV");
 		PathCoordsNV = provider.getFunctionAddress("glPathCoordsNV");
@@ -523,7 +520,6 @@ public class NVPathRendering {
 	// --- [ glPathCommandsNV ] ---
 
 	/** Unsafe version of {@link #glPathCommandsNV PathCommandsNV} */
-	@JavadocExclude
 	public static void nglPathCommandsNV(int path, int numCommands, long commands, int numCoords, int coordType, long coords) {
 		long __functionAddress = getInstance().PathCommandsNV;
 		callIIPIIPV(__functionAddress, path, numCommands, commands, numCoords, coordType, coords);
@@ -565,7 +561,6 @@ public class NVPathRendering {
 	// --- [ glPathCoordsNV ] ---
 
 	/** Unsafe version of {@link #glPathCoordsNV PathCoordsNV} */
-	@JavadocExclude
 	public static void nglPathCoordsNV(int path, int numCoords, int coordType, long coords) {
 		long __functionAddress = getInstance().PathCoordsNV;
 		callIIIPV(__functionAddress, path, numCoords, coordType, coords);
@@ -603,7 +598,6 @@ public class NVPathRendering {
 	// --- [ glPathSubCommandsNV ] ---
 
 	/** Unsafe version of {@link #glPathSubCommandsNV PathSubCommandsNV} */
-	@JavadocExclude
 	public static void nglPathSubCommandsNV(int path, int commandStart, int commandsToDelete, int numCommands, long commands, int numCoords, int coordType, long coords) {
 		long __functionAddress = getInstance().PathSubCommandsNV;
 		callIIIIPIIPV(__functionAddress, path, commandStart, commandsToDelete, numCommands, commands, numCoords, coordType, coords);
@@ -647,7 +641,6 @@ public class NVPathRendering {
 	// --- [ glPathSubCoordsNV ] ---
 
 	/** Unsafe version of {@link #glPathSubCoordsNV PathSubCoordsNV} */
-	@JavadocExclude
 	public static void nglPathSubCoordsNV(int path, int coordStart, int numCoords, int coordType, long coords) {
 		long __functionAddress = getInstance().PathSubCoordsNV;
 		callIIIIPV(__functionAddress, path, coordStart, numCoords, coordType, coords);
@@ -686,7 +679,6 @@ public class NVPathRendering {
 	// --- [ glPathStringNV ] ---
 
 	/** Unsafe version of {@link #glPathStringNV PathStringNV} */
-	@JavadocExclude
 	public static void nglPathStringNV(int path, int format, int length, long pathString) {
 		long __functionAddress = getInstance().PathStringNV;
 		callIIIPV(__functionAddress, path, format, length, pathString);
@@ -714,7 +706,6 @@ public class NVPathRendering {
 	// --- [ glPathGlyphsNV ] ---
 
 	/** Unsafe version of {@link #glPathGlyphsNV PathGlyphsNV} */
-	@JavadocExclude
 	public static void nglPathGlyphsNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int numGlyphs, int type, long charcodes, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
 		long __functionAddress = getInstance().PathGlyphsNV;
 		callIIPIIIPIIFV(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, numGlyphs, type, charcodes, handleMissingGlyphs, pathParameterTemplate, emScale);
@@ -752,7 +743,6 @@ public class NVPathRendering {
 	// --- [ glPathGlyphRangeNV ] ---
 
 	/** Unsafe version of {@link #glPathGlyphRangeNV PathGlyphRangeNV} */
-	@JavadocExclude
 	public static void nglPathGlyphRangeNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int firstGlyph, int numGlyphs, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
 		long __functionAddress = getInstance().PathGlyphRangeNV;
 		callIIPIIIIIFV(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, firstGlyph, numGlyphs, handleMissingGlyphs, pathParameterTemplate, emScale);
@@ -780,7 +770,6 @@ public class NVPathRendering {
 	// --- [ glPathGlyphIndexArrayNV ] ---
 
 	/** Unsafe version of {@link #glPathGlyphIndexArrayNV PathGlyphIndexArrayNV} */
-	@JavadocExclude
 	public static int nglPathGlyphIndexArrayNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale) {
 		long __functionAddress = getInstance().PathGlyphIndexArrayNV;
 		if ( CHECKS )
@@ -809,7 +798,6 @@ public class NVPathRendering {
 	// --- [ glPathMemoryGlyphIndexArrayNV ] ---
 
 	/** Unsafe version of {@link #glPathMemoryGlyphIndexArrayNV PathMemoryGlyphIndexArrayNV} */
-	@JavadocExclude
 	public static int nglPathMemoryGlyphIndexArrayNV(int firstPathName, int fontTarget, long fontSize, long fontData, int faceIndex, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale) {
 		long __functionAddress = getInstance().PathMemoryGlyphIndexArrayNV;
 		if ( CHECKS )
@@ -851,7 +839,6 @@ public class NVPathRendering {
 	// --- [ glWeightPathsNV ] ---
 
 	/** Unsafe version of {@link #glWeightPathsNV WeightPathsNV} */
-	@JavadocExclude
 	public static void nglWeightPathsNV(int resultPath, int numPaths, long paths, long weights) {
 		long __functionAddress = getInstance().WeightPathsNV;
 		if ( CHECKS )
@@ -884,7 +871,6 @@ public class NVPathRendering {
 	// --- [ glTransformPathNV ] ---
 
 	/** Unsafe version of {@link #glTransformPathNV TransformPathNV} */
-	@JavadocExclude
 	public static void nglTransformPathNV(int resultPath, int srcPath, int transformType, long transformValues) {
 		long __functionAddress = getInstance().TransformPathNV;
 		callIIIPV(__functionAddress, resultPath, srcPath, transformType, transformValues);
@@ -914,7 +900,6 @@ public class NVPathRendering {
 	// --- [ glPathParameterivNV ] ---
 
 	/** Unsafe version of {@link #glPathParameterivNV PathParameterivNV} */
-	@JavadocExclude
 	public static void nglPathParameterivNV(int path, int pname, long value) {
 		long __functionAddress = getInstance().PathParameterivNV;
 		callIIPV(__functionAddress, path, pname, value);
@@ -957,7 +942,6 @@ public class NVPathRendering {
 	// --- [ glPathParameterfvNV ] ---
 
 	/** Unsafe version of {@link #glPathParameterfvNV PathParameterfvNV} */
-	@JavadocExclude
 	public static void nglPathParameterfvNV(int path, int pname, long value) {
 		long __functionAddress = getInstance().PathParameterfvNV;
 		callIIPV(__functionAddress, path, pname, value);
@@ -1000,7 +984,6 @@ public class NVPathRendering {
 	// --- [ glPathDashArrayNV ] ---
 
 	/** Unsafe version of {@link #glPathDashArrayNV PathDashArrayNV} */
-	@JavadocExclude
 	public static void nglPathDashArrayNV(int path, int dashCount, long dashArray) {
 		long __functionAddress = getInstance().PathDashArrayNV;
 		callIIPV(__functionAddress, path, dashCount, dashArray);
@@ -1076,7 +1059,6 @@ public class NVPathRendering {
 	// --- [ glStencilFillPathInstancedNV ] ---
 
 	/** Unsafe version of {@link #glStencilFillPathInstancedNV StencilFillPathInstancedNV} */
-	@JavadocExclude
 	public static void nglStencilFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int fillMode, int mask, int transformType, long transformValues) {
 		long __functionAddress = getInstance().StencilFillPathInstancedNV;
 		callIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, fillMode, mask, transformType, transformValues);
@@ -1113,7 +1095,6 @@ public class NVPathRendering {
 	// --- [ glStencilStrokePathInstancedNV ] ---
 
 	/** Unsafe version of {@link #glStencilStrokePathInstancedNV StencilStrokePathInstancedNV} */
-	@JavadocExclude
 	public static void nglStencilStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int reference, int mask, int transformType, long transformValues) {
 		long __functionAddress = getInstance().StencilStrokePathInstancedNV;
 		callIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, reference, mask, transformType, transformValues);
@@ -1157,7 +1138,6 @@ public class NVPathRendering {
 	// --- [ glPathColorGenNV ] ---
 
 	/** Unsafe version of {@link #glPathColorGenNV PathColorGenNV} */
-	@JavadocExclude
 	public static void nglPathColorGenNV(int color, int genMode, int colorFormat, long coeffs) {
 		long __functionAddress = getInstance().PathColorGenNV;
 		if ( CHECKS )
@@ -1189,7 +1169,6 @@ public class NVPathRendering {
 	// --- [ glPathTexGenNV ] ---
 
 	/** Unsafe version of {@link #glPathTexGenNV PathTexGenNV} */
-	@JavadocExclude
 	public static void nglPathTexGenNV(int texCoordSet, int genMode, int components, long coeffs) {
 		long __functionAddress = getInstance().PathTexGenNV;
 		if ( CHECKS )
@@ -1248,7 +1227,6 @@ public class NVPathRendering {
 	// --- [ glCoverFillPathInstancedNV ] ---
 
 	/** Unsafe version of {@link #glCoverFillPathInstancedNV CoverFillPathInstancedNV} */
-	@JavadocExclude
 	public static void nglCoverFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int coverMode, int transformType, long transformValues) {
 		long __functionAddress = getInstance().CoverFillPathInstancedNV;
 		callIIPIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues);
@@ -1284,7 +1262,6 @@ public class NVPathRendering {
 	// --- [ glCoverStrokePathInstancedNV ] ---
 
 	/** Unsafe version of {@link #glCoverStrokePathInstancedNV CoverStrokePathInstancedNV} */
-	@JavadocExclude
 	public static void nglCoverStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int coverMode, int transformType, long transformValues) {
 		long __functionAddress = getInstance().CoverStrokePathInstancedNV;
 		callIIPIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues);
@@ -1354,7 +1331,6 @@ public class NVPathRendering {
 	// --- [ glStencilThenCoverFillPathInstancedNV ] ---
 
 	/** Unsafe version of {@link #glStencilThenCoverFillPathInstancedNV StencilThenCoverFillPathInstancedNV} */
-	@JavadocExclude
 	public static void nglStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, long transformValues) {
 		long __functionAddress = getInstance().StencilThenCoverFillPathInstancedNV;
 		if ( CHECKS )
@@ -1394,7 +1370,6 @@ public class NVPathRendering {
 	// --- [ glStencilThenCoverStrokePathInstancedNV ] ---
 
 	/** Unsafe version of {@link #glStencilThenCoverStrokePathInstancedNV StencilThenCoverStrokePathInstancedNV} */
-	@JavadocExclude
 	public static void nglStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int reference, int mask, int coverMode, int transformType, long transformValues) {
 		long __functionAddress = getInstance().StencilThenCoverStrokePathInstancedNV;
 		if ( CHECKS )
@@ -1434,7 +1409,6 @@ public class NVPathRendering {
 	// --- [ glPathGlyphIndexRangeNV ] ---
 
 	/** Unsafe version of {@link #glPathGlyphIndexRangeNV PathGlyphIndexRangeNV} */
-	@JavadocExclude
 	public static int nglPathGlyphIndexRangeNV(int fontTarget, long fontName, int fontStyle, int pathParameterTemplate, float emScale, int baseAndCount) {
 		long __functionAddress = getInstance().PathGlyphIndexRangeNV;
 		if ( CHECKS )
@@ -1461,7 +1435,6 @@ public class NVPathRendering {
 	// --- [ glProgramPathFragmentInputGenNV ] ---
 
 	/** Unsafe version of {@link #glProgramPathFragmentInputGenNV ProgramPathFragmentInputGenNV} */
-	@JavadocExclude
 	public static void nglProgramPathFragmentInputGenNV(int program, int location, int genMode, int components, long coeffs) {
 		long __functionAddress = getInstance().ProgramPathFragmentInputGenNV;
 		if ( CHECKS )
@@ -1485,7 +1458,6 @@ public class NVPathRendering {
 	// --- [ glGetPathParameterivNV ] ---
 
 	/** Unsafe version of {@link #glGetPathParameterivNV GetPathParameterivNV} */
-	@JavadocExclude
 	public static void nglGetPathParameterivNV(int path, int pname, long value) {
 		long __functionAddress = getInstance().GetPathParameterivNV;
 		callIIPV(__functionAddress, path, pname, value);
@@ -1522,7 +1494,6 @@ public class NVPathRendering {
 	// --- [ glGetPathParameterfvNV ] ---
 
 	/** Unsafe version of {@link #glGetPathParameterfvNV GetPathParameterfvNV} */
-	@JavadocExclude
 	public static void nglGetPathParameterfvNV(int path, int pname, long value) {
 		long __functionAddress = getInstance().GetPathParameterfvNV;
 		callIIPV(__functionAddress, path, pname, value);
@@ -1559,7 +1530,6 @@ public class NVPathRendering {
 	// --- [ glGetPathCommandsNV ] ---
 
 	/** Unsafe version of {@link #glGetPathCommandsNV GetPathCommandsNV} */
-	@JavadocExclude
 	public static void nglGetPathCommandsNV(int path, long commands) {
 		long __functionAddress = getInstance().GetPathCommandsNV;
 		callIPV(__functionAddress, path, commands);
@@ -1575,7 +1545,6 @@ public class NVPathRendering {
 	// --- [ glGetPathCoordsNV ] ---
 
 	/** Unsafe version of {@link #glGetPathCoordsNV GetPathCoordsNV} */
-	@JavadocExclude
 	public static void nglGetPathCoordsNV(int path, long coords) {
 		long __functionAddress = getInstance().GetPathCoordsNV;
 		callIPV(__functionAddress, path, coords);
@@ -1599,7 +1568,6 @@ public class NVPathRendering {
 	// --- [ glGetPathDashArrayNV ] ---
 
 	/** Unsafe version of {@link #glGetPathDashArrayNV GetPathDashArrayNV} */
-	@JavadocExclude
 	public static void nglGetPathDashArrayNV(int path, long dashArray) {
 		long __functionAddress = getInstance().GetPathDashArrayNV;
 		callIPV(__functionAddress, path, dashArray);
@@ -1623,7 +1591,6 @@ public class NVPathRendering {
 	// --- [ glGetPathMetricsNV ] ---
 
 	/** Unsafe version of {@link #glGetPathMetricsNV GetPathMetricsNV} */
-	@JavadocExclude
 	public static void nglGetPathMetricsNV(int metricQueryMask, int numPaths, int pathNameType, long paths, int pathBase, int stride, long metrics) {
 		long __functionAddress = getInstance().GetPathMetricsNV;
 		callIIIPIIPV(__functionAddress, metricQueryMask, numPaths, pathNameType, paths, pathBase, stride, metrics);
@@ -1659,7 +1626,6 @@ public class NVPathRendering {
 	// --- [ glGetPathMetricRangeNV ] ---
 
 	/** Unsafe version of {@link #glGetPathMetricRangeNV GetPathMetricRangeNV} */
-	@JavadocExclude
 	public static void nglGetPathMetricRangeNV(int metricQueryMask, int firstPathName, int numPaths, int stride, long metrics) {
 		long __functionAddress = getInstance().GetPathMetricRangeNV;
 		callIIIIPV(__functionAddress, metricQueryMask, firstPathName, numPaths, stride, metrics);
@@ -1690,7 +1656,6 @@ public class NVPathRendering {
 	// --- [ glGetPathSpacingNV ] ---
 
 	/** Unsafe version of {@link #glGetPathSpacingNV GetPathSpacingNV} */
-	@JavadocExclude
 	public static void nglGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, long paths, int pathBase, float advanceScale, float kerningScale, int transformType, long returnedSpacing) {
 		long __functionAddress = getInstance().GetPathSpacingNV;
 		callIIIPIFFIPV(__functionAddress, pathListMode, numPaths, pathNameType, paths, pathBase, advanceScale, kerningScale, transformType, returnedSpacing);
@@ -1728,7 +1693,6 @@ public class NVPathRendering {
 	// --- [ glGetPathColorGenivNV ] ---
 
 	/** Unsafe version of {@link #glGetPathColorGenivNV GetPathColorGenivNV} */
-	@JavadocExclude
 	public static void nglGetPathColorGenivNV(int color, int pname, long value) {
 		long __functionAddress = getInstance().GetPathColorGenivNV;
 		if ( CHECKS )
@@ -1767,7 +1731,6 @@ public class NVPathRendering {
 	// --- [ glGetPathColorGenfvNV ] ---
 
 	/** Unsafe version of {@link #glGetPathColorGenfvNV GetPathColorGenfvNV} */
-	@JavadocExclude
 	public static void nglGetPathColorGenfvNV(int color, int pname, long value) {
 		long __functionAddress = getInstance().GetPathColorGenfvNV;
 		if ( CHECKS )
@@ -1806,7 +1769,6 @@ public class NVPathRendering {
 	// --- [ glGetPathTexGenivNV ] ---
 
 	/** Unsafe version of {@link #glGetPathTexGenivNV GetPathTexGenivNV} */
-	@JavadocExclude
 	public static void nglGetPathTexGenivNV(int texCoordSet, int pname, long value) {
 		long __functionAddress = getInstance().GetPathTexGenivNV;
 		if ( CHECKS )
@@ -1845,7 +1807,6 @@ public class NVPathRendering {
 	// --- [ glGetPathTexGenfvNV ] ---
 
 	/** Unsafe version of {@link #glGetPathTexGenfvNV GetPathTexGenfvNV} */
-	@JavadocExclude
 	public static void nglGetPathTexGenfvNV(int texCoordSet, int pname, long value) {
 		long __functionAddress = getInstance().GetPathTexGenfvNV;
 		if ( CHECKS )
@@ -1905,7 +1866,6 @@ public class NVPathRendering {
 	// --- [ glPointAlongPathNV ] ---
 
 	/** Unsafe version of {@link #glPointAlongPathNV PointAlongPathNV} */
-	@JavadocExclude
 	public static boolean nglPointAlongPathNV(int path, int startSegment, int numSegments, float distance, long x, long y, long tangentX, long tangentY) {
 		long __functionAddress = getInstance().PointAlongPathNV;
 		return callIIIFPPPPZ(__functionAddress, path, startSegment, numSegments, distance, x, y, tangentX, tangentY);
@@ -1935,7 +1895,6 @@ public class NVPathRendering {
 	// --- [ glMatrixLoad3x2fNV ] ---
 
 	/** Unsafe version of {@link #glMatrixLoad3x2fNV MatrixLoad3x2fNV} */
-	@JavadocExclude
 	public static void nglMatrixLoad3x2fNV(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixLoad3x2fNV;
 		if ( CHECKS )
@@ -1965,7 +1924,6 @@ public class NVPathRendering {
 	// --- [ glMatrixLoad3x3fNV ] ---
 
 	/** Unsafe version of {@link #glMatrixLoad3x3fNV MatrixLoad3x3fNV} */
-	@JavadocExclude
 	public static void nglMatrixLoad3x3fNV(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixLoad3x3fNV;
 		if ( CHECKS )
@@ -1995,7 +1953,6 @@ public class NVPathRendering {
 	// --- [ glMatrixLoadTranspose3x3fNV ] ---
 
 	/** Unsafe version of {@link #glMatrixLoadTranspose3x3fNV MatrixLoadTranspose3x3fNV} */
-	@JavadocExclude
 	public static void nglMatrixLoadTranspose3x3fNV(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixLoadTranspose3x3fNV;
 		if ( CHECKS )
@@ -2025,7 +1982,6 @@ public class NVPathRendering {
 	// --- [ glMatrixMult3x2fNV ] ---
 
 	/** Unsafe version of {@link #glMatrixMult3x2fNV MatrixMult3x2fNV} */
-	@JavadocExclude
 	public static void nglMatrixMult3x2fNV(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixMult3x2fNV;
 		if ( CHECKS )
@@ -2055,7 +2011,6 @@ public class NVPathRendering {
 	// --- [ glMatrixMult3x3fNV ] ---
 
 	/** Unsafe version of {@link #glMatrixMult3x3fNV MatrixMult3x3fNV} */
-	@JavadocExclude
 	public static void nglMatrixMult3x3fNV(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixMult3x3fNV;
 		if ( CHECKS )
@@ -2085,7 +2040,6 @@ public class NVPathRendering {
 	// --- [ glMatrixMultTranspose3x3fNV ] ---
 
 	/** Unsafe version of {@link #glMatrixMultTranspose3x3fNV MatrixMultTranspose3x3fNV} */
-	@JavadocExclude
 	public static void nglMatrixMultTranspose3x3fNV(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixMultTranspose3x3fNV;
 		if ( CHECKS )
@@ -2115,7 +2069,6 @@ public class NVPathRendering {
 	// --- [ glGetProgramResourcefvNV ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourcefvNV GetProgramResourcefvNV} */
-	@JavadocExclude
 	public static void nglGetProgramResourcefvNV(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = getInstance().GetProgramResourcefvNV;
 		if ( CHECKS )

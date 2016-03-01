@@ -110,7 +110,6 @@ public class EXTTextureInteger {
 		GL_LUMINANCE_ALPHA_INTEGER_EXT = 0x8D9D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ClearColorIiEXT,
 		ClearColorIuiEXT,
@@ -119,12 +118,10 @@ public class EXTTextureInteger {
 		GetTexParameterIivEXT,
 		GetTexParameterIuivEXT;
 
-	@JavadocExclude
 	protected EXTTextureInteger() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTTextureInteger(FunctionProvider provider) {
 		ClearColorIiEXT = provider.getFunctionAddress("glClearColorIiEXT");
 		ClearColorIuiEXT = provider.getFunctionAddress("glClearColorIuiEXT");
@@ -176,7 +173,6 @@ public class EXTTextureInteger {
 	// --- [ glTexParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glTexParameterIivEXT TexParameterIivEXT} */
-	@JavadocExclude
 	public static void nglTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIivEXT;
 		callIIPV(__functionAddress, target, pname, params);
@@ -205,7 +201,6 @@ public class EXTTextureInteger {
 	// --- [ glTexParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
-	@JavadocExclude
 	public static void nglTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuivEXT;
 		callIIPV(__functionAddress, target, pname, params);
@@ -234,7 +229,6 @@ public class EXTTextureInteger {
 	// --- [ glGetTexParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
-	@JavadocExclude
 	public static void nglGetTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIivEXT;
 		callIIPV(__functionAddress, target, pname, params);
@@ -264,7 +258,6 @@ public class EXTTextureInteger {
 	// --- [ glGetTexParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
-	@JavadocExclude
 	public static void nglGetTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuivEXT;
 		callIIPV(__functionAddress, target, pname, params);

@@ -109,15 +109,12 @@ public class EXTGeometryShader {
 	public static final int GL_REFERENCED_BY_GEOMETRY_SHADER_EXT = 0x9309;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long FramebufferTextureEXT;
 
-	@JavadocExclude
 	protected EXTGeometryShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTGeometryShader(FunctionProvider provider) {
 		FramebufferTextureEXT = provider.getFunctionAddress("glFramebufferTextureEXT");
 	}

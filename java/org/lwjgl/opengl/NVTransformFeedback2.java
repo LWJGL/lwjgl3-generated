@@ -44,7 +44,6 @@ public class NVTransformFeedback2 {
 		GL_TRANSFORM_FEEDBACK_BINDING_NV       = 0x8E25;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindTransformFeedbackNV,
 		DeleteTransformFeedbacksNV,
@@ -54,12 +53,10 @@ public class NVTransformFeedback2 {
 		ResumeTransformFeedbackNV,
 		DrawTransformFeedbackNV;
 
-	@JavadocExclude
 	protected NVTransformFeedback2() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVTransformFeedback2(FunctionProvider provider) {
 		BindTransformFeedbackNV = provider.getFunctionAddress("glBindTransformFeedbackNV");
 		DeleteTransformFeedbacksNV = provider.getFunctionAddress("glDeleteTransformFeedbacksNV");
@@ -105,7 +102,6 @@ public class NVTransformFeedback2 {
 	// --- [ glDeleteTransformFeedbacksNV ] ---
 
 	/** Unsafe version of {@link #glDeleteTransformFeedbacksNV DeleteTransformFeedbacksNV} */
-	@JavadocExclude
 	public static void nglDeleteTransformFeedbacksNV(int n, long ids) {
 		long __functionAddress = getInstance().DeleteTransformFeedbacksNV;
 		callIPV(__functionAddress, n, ids);
@@ -132,7 +128,6 @@ public class NVTransformFeedback2 {
 	// --- [ glGenTransformFeedbacksNV ] ---
 
 	/** Unsafe version of {@link #glGenTransformFeedbacksNV GenTransformFeedbacksNV} */
-	@JavadocExclude
 	public static void nglGenTransformFeedbacksNV(int n, long ids) {
 		long __functionAddress = getInstance().GenTransformFeedbacksNV;
 		callIPV(__functionAddress, n, ids);

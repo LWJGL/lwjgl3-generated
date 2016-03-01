@@ -30,15 +30,12 @@ public class ARBCLEvent {
 	public static final int GL_SYNC_CL_EVENT_COMPLETE_ARB = 0x8241;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreateSyncFromCLeventARB;
 
-	@JavadocExclude
 	protected ARBCLEvent() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBCLEvent(FunctionProvider provider) {
 		CreateSyncFromCLeventARB = provider.getFunctionAddress("glCreateSyncFromCLeventARB");
 	}

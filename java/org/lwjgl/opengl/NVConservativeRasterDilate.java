@@ -31,15 +31,12 @@ public class NVConservativeRasterDilate {
 		GL_CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV = 0x937B;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long ConservativeRasterParameterfNV;
 
-	@JavadocExclude
 	protected NVConservativeRasterDilate() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVConservativeRasterDilate(FunctionProvider provider) {
 		ConservativeRasterParameterfNV = provider.getFunctionAddress("glConservativeRasterParameterfNV");
 	}

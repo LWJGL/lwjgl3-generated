@@ -38,15 +38,12 @@ public class KHRPartialUpdate {
 	public static final int EGL_BUFFER_AGE_KHR = 0x313D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long SetDamageRegionKHR;
 
-	@JavadocExclude
 	protected KHRPartialUpdate() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRPartialUpdate(FunctionProvider provider) {
 		SetDamageRegionKHR = provider.getFunctionAddress("eglSetDamageRegionKHR");
 	}
@@ -66,7 +63,6 @@ public class KHRPartialUpdate {
 	// --- [ eglSetDamageRegionKHR ] ---
 
 	/** Unsafe version of {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
-	@JavadocExclude
 	public static int neglSetDamageRegionKHR(long dpy, long surface, long rects, int n_rects) {
 		long __functionAddress = getInstance().SetDamageRegionKHR;
 		if ( CHECKS ) {

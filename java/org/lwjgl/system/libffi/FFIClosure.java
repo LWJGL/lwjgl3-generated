@@ -17,12 +17,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ffi_closure {
- *     ffi_cif * cif;
- *     void * fun;
- *     void * user_data;
- * }</code></pre>
+ * <pre><code>struct ffi_closure {
+    ffi_cif * cif;
+    void * fun;
+    void * user_data;
+}</code></pre>
  */
 public class FFIClosure extends Struct {
 
@@ -75,12 +74,12 @@ public class FFIClosure extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link FFIClosure} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link FFIClosure} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static FFIClosure malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link FFIClosure} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link FFIClosure} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static FFIClosure calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -96,7 +95,7 @@ public class FFIClosure extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link FFIClosure.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link FFIClosure.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -105,7 +104,7 @@ public class FFIClosure extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link FFIClosure.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link FFIClosure.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

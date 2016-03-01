@@ -66,7 +66,6 @@ public class GL21 {
 		GL_COMPRESSED_SLUMINANCE_ALPHA = 0x8C4B;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		UniformMatrix2x3fv,
 		UniformMatrix3x2fv,
@@ -75,12 +74,10 @@ public class GL21 {
 		UniformMatrix3x4fv,
 		UniformMatrix4x3fv;
 
-	@JavadocExclude
 	protected GL21() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL21(FunctionProvider provider) {
 		UniformMatrix2x3fv = provider.getFunctionAddress("glUniformMatrix2x3fv");
 		UniformMatrix3x2fv = provider.getFunctionAddress("glUniformMatrix3x2fv");
@@ -118,7 +115,6 @@ public class GL21 {
 	// --- [ glUniformMatrix2x3fv ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix2x3fv UniformMatrix2x3fv} */
-	@JavadocExclude
 	public static void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3fv;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -148,7 +144,6 @@ public class GL21 {
 	// --- [ glUniformMatrix3x2fv ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix3x2fv UniformMatrix3x2fv} */
-	@JavadocExclude
 	public static void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2fv;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -178,7 +173,6 @@ public class GL21 {
 	// --- [ glUniformMatrix2x4fv ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix2x4fv UniformMatrix2x4fv} */
-	@JavadocExclude
 	public static void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4fv;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -208,7 +202,6 @@ public class GL21 {
 	// --- [ glUniformMatrix4x2fv ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix4x2fv UniformMatrix4x2fv} */
-	@JavadocExclude
 	public static void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2fv;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -238,7 +231,6 @@ public class GL21 {
 	// --- [ glUniformMatrix3x4fv ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix3x4fv UniformMatrix3x4fv} */
-	@JavadocExclude
 	public static void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4fv;
 		callIIZPV(__functionAddress, location, count, transpose, value);
@@ -268,7 +260,6 @@ public class GL21 {
 	// --- [ glUniformMatrix4x3fv ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix4x3fv UniformMatrix4x3fv} */
-	@JavadocExclude
 	public static void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3fv;
 		callIIZPV(__functionAddress, location, count, transpose, value);

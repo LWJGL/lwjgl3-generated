@@ -17,15 +17,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct objc_method_description {
- *     SEL name;
- *     char * types;
- * }</code></pre>
+ * <pre><code>struct objc_method_description {
+    SEL name;
+    char * types;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>name</td><td>the name of the method at runtime</td></tr>
  * <tr><td>types</td><td>the types of the method arguments</td></tr>
  * </table>
@@ -35,7 +34,6 @@ public class ObjCMethodDescription extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -82,12 +80,12 @@ public class ObjCMethodDescription extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link ObjCMethodDescription} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link ObjCMethodDescription} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static ObjCMethodDescription malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link ObjCMethodDescription} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link ObjCMethodDescription} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static ObjCMethodDescription calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -103,7 +101,7 @@ public class ObjCMethodDescription extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link ObjCMethodDescription.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link ObjCMethodDescription.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -112,7 +110,7 @@ public class ObjCMethodDescription extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link ObjCMethodDescription.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link ObjCMethodDescription.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

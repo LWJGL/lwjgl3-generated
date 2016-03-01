@@ -32,7 +32,6 @@ public class WGLNVDXInterop {
 		WGL_ACCESS_WRITE_DISCARD_NV = 0x2;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DXSetResourceShareHandleNV,
 		DXOpenDeviceNV,
@@ -43,12 +42,10 @@ public class WGLNVDXInterop {
 		DXLockObjectsNV,
 		DXUnlockObjectsNV;
 
-	@JavadocExclude
 	protected WGLNVDXInterop() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLNVDXInterop(FunctionProvider provider) {
 		DXSetResourceShareHandleNV = provider.getFunctionAddress("wglDXSetResourceShareHandleNV");
 		DXOpenDeviceNV = provider.getFunctionAddress("wglDXOpenDeviceNV");
@@ -174,7 +171,6 @@ public class WGLNVDXInterop {
 	// --- [ wglDXLockObjectsNV ] ---
 
 	/** Unsafe version of {@link #wglDXLockObjectsNV DXLockObjectsNV} */
-	@JavadocExclude
 	public static int nwglDXLockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = getInstance().DXLockObjectsNV;
 		if ( CHECKS )
@@ -210,7 +206,6 @@ public class WGLNVDXInterop {
 	// --- [ wglDXUnlockObjectsNV ] ---
 
 	/** Unsafe version of {@link #wglDXUnlockObjectsNV DXUnlockObjectsNV} */
-	@JavadocExclude
 	public static int nwglDXUnlockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = getInstance().DXUnlockObjectsNV;
 		if ( CHECKS )

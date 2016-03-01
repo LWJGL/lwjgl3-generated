@@ -46,15 +46,12 @@ public class OESTextureView {
 		GL_TEXTURE_IMMUTABLE_LEVELS    = 0x82DF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long TextureViewOES;
 
-	@JavadocExclude
 	protected OESTextureView() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESTextureView(FunctionProvider provider) {
 		TextureViewOES = provider.getFunctionAddress("glTextureViewOES");
 	}

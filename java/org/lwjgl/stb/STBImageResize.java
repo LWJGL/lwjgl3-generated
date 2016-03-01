@@ -20,18 +20,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>QUICKSTART</h3>
  * 
- * <pre><code style="font-family: monospace">
- * stbir_resize_uint8(      input_pixels , in_w , in_h , 0,
- *                          output_pixels, out_w, out_h, 0, num_channels)
- * stbir_resize_float(...)
- * stbir_resize_uint8_srgb( input_pixels , in_w , in_h , 0,
- *                          output_pixels, out_w, out_h, 0,
- *                          num_channels , alpha_chan  , 0)
- * stbir_resize_uint8_srgb_edgemode(
- *                          input_pixels , in_w , in_h , 0,
- *                          output_pixels, out_w, out_h, 0,
- *                          num_channels , alpha_chan  , 0, STBIR_EDGE_CLAMP)
- *                                                       // WRAP/REFLECT/ZERO</code></pre>
+ * <pre><code>stbir_resize_uint8(      input_pixels , in_w , in_h , 0,
+                         output_pixels, out_w, out_h, 0, num_channels)
+stbir_resize_float(...)
+stbir_resize_uint8_srgb( input_pixels , in_w , in_h , 0,
+                         output_pixels, out_w, out_h, 0,
+                         num_channels , alpha_chan  , 0)
+stbir_resize_uint8_srgb_edgemode(
+                         input_pixels , in_w , in_h , 0,
+                         output_pixels, out_w, out_h, 0,
+                         num_channels , alpha_chan  , 0, STBIR_EDGE_CLAMP)
+                                                      // WRAP/REFLECT/ZERO</code></pre>
  * 
  * <h3>ALPHA CHANNEL</h3>
  * 
@@ -114,7 +113,6 @@ public class STBImageResize {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected STBImageResize() {
 		throw new UnsupportedOperationException();
 	}
@@ -122,7 +120,6 @@ public class STBImageResize {
 	// --- [ stbir_resize_uint8 ] ---
 
 	/** JNI method for {@link #stbir_resize_uint8 resize_uint8} */
-	@JavadocExclude
 	public static native int nstbir_resize_uint8(long input_pixels, int input_w, int input_h, int input_stride_in_bytes, long output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels);
 
 	/**
@@ -160,7 +157,6 @@ public class STBImageResize {
 	// --- [ stbir_resize_float ] ---
 
 	/** JNI method for {@link #stbir_resize_float resize_float} */
-	@JavadocExclude
 	public static native int nstbir_resize_float(long input_pixels, int input_w, int input_h, int input_stride_in_bytes, long output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels);
 
 	/**
@@ -198,7 +194,6 @@ public class STBImageResize {
 	// --- [ stbir_resize_uint8_srgb ] ---
 
 	/** JNI method for {@link #stbir_resize_uint8_srgb resize_uint8_srgb} */
-	@JavadocExclude
 	public static native int nstbir_resize_uint8_srgb(long input_pixels, int input_w, int input_h, int input_stride_in_bytes, long output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags);
 
 	/**
@@ -237,7 +232,6 @@ public class STBImageResize {
 	// --- [ stbir_resize_uint8_srgb_edgemode ] ---
 
 	/** JNI method for {@link #stbir_resize_uint8_srgb_edgemode resize_uint8_srgb_edgemode} */
-	@JavadocExclude
 	public static native int nstbir_resize_uint8_srgb_edgemode(long input_pixels, int input_w, int input_h, int input_stride_in_bytes, long output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode);
 
 	/**
@@ -269,7 +263,6 @@ public class STBImageResize {
 	// --- [ stbir_resize_uint8_generic ] ---
 
 	/** JNI method for {@link #stbir_resize_uint8_generic resize_uint8_generic} */
-	@JavadocExclude
 	public static native int nstbir_resize_uint8_generic(long input_pixels, int input_w, int input_h, int input_stride_in_bytes, long output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, long alloc_context);
 
 	/**
@@ -313,7 +306,6 @@ public class STBImageResize {
 	// --- [ stbir_resize_uint16_generic ] ---
 
 	/** JNI method for {@link #stbir_resize_uint16_generic resize_uint16_generic} */
-	@JavadocExclude
 	public static native int nstbir_resize_uint16_generic(long input_pixels, int input_w, int input_h, int input_stride_in_bytes, long output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, long alloc_context);
 
 	/**
@@ -357,7 +349,6 @@ public class STBImageResize {
 	// --- [ stbir_resize_float_generic ] ---
 
 	/** JNI method for {@link #stbir_resize_float_generic resize_float_generic} */
-	@JavadocExclude
 	public static native int nstbir_resize_float_generic(long input_pixels, int input_w, int input_h, int input_stride_in_bytes, long output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, long alloc_context);
 
 	/**
@@ -401,7 +392,6 @@ public class STBImageResize {
 	// --- [ stbir_resize ] ---
 
 	/** JNI method for {@link #stbir_resize resize} */
-	@JavadocExclude
 	public static native int nstbir_resize(long input_pixels, int input_w, int input_h, int input_stride_in_bytes, long output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space, long alloc_context);
 
 	/**
@@ -440,7 +430,6 @@ public class STBImageResize {
 	// --- [ stbir_resize_subpixel ] ---
 
 	/** JNI method for {@link #stbir_resize_subpixel resize_subpixel} */
-	@JavadocExclude
 	public static native int nstbir_resize_subpixel(long input_pixels, int input_w, int input_h, int input_stride_in_bytes, long output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space, long alloc_context, float x_scale, float y_scale, float x_offset, float y_offset);
 
 	/**
@@ -483,7 +472,6 @@ public class STBImageResize {
 	// --- [ stbir_resize_region ] ---
 
 	/** JNI method for {@link #stbir_resize_region resize_region} */
-	@JavadocExclude
 	public static native int nstbir_resize_region(long input_pixels, int input_w, int input_h, int input_stride_in_bytes, long output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space, long alloc_context, float s0, float t0, float s1, float t1);
 
 	/**

@@ -24,15 +24,12 @@ public class HIClientpixmap {
 	public static final int EGL_CLIENT_PIXMAP_POINTER_HI = 0x8F74;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreatePixmapSurfaceHI;
 
-	@JavadocExclude
 	protected HIClientpixmap() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public HIClientpixmap(FunctionProvider provider) {
 		CreatePixmapSurfaceHI = provider.getFunctionAddress("eglCreatePixmapSurfaceHI");
 	}
@@ -52,7 +49,6 @@ public class HIClientpixmap {
 	// --- [ eglCreatePixmapSurfaceHI ] ---
 
 	/** Unsafe version of {@link #eglCreatePixmapSurfaceHI CreatePixmapSurfaceHI} */
-	@JavadocExclude
 	public static long neglCreatePixmapSurfaceHI(long dpy, long config, long pixmap) {
 		long __functionAddress = getInstance().CreatePixmapSurfaceHI;
 		if ( CHECKS ) {

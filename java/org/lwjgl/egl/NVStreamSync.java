@@ -29,15 +29,12 @@ public class NVStreamSync {
 		EGL_SYNC_NEW_FRAME_NV = 0x321F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreateStreamSyncNV;
 
-	@JavadocExclude
 	protected NVStreamSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVStreamSync(FunctionProvider provider) {
 		CreateStreamSyncNV = provider.getFunctionAddress("eglCreateStreamSyncNV");
 	}
@@ -57,7 +54,6 @@ public class NVStreamSync {
 	// --- [ eglCreateStreamSyncNV ] ---
 
 	/** Unsafe version of {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
-	@JavadocExclude
 	public static long neglCreateStreamSyncNV(long dpy, long stream, int type, long attrib_list) {
 		long __functionAddress = getInstance().CreateStreamSyncNV;
 		if ( CHECKS ) {

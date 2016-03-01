@@ -16,17 +16,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class WGLNVVertexArrayRange {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		AllocateMemoryNV,
 		FreeMemoryNV;
 
-	@JavadocExclude
 	protected WGLNVVertexArrayRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLNVVertexArrayRange(FunctionProvider provider) {
 		AllocateMemoryNV = provider.getFunctionAddress("wglAllocateMemoryNV");
 		FreeMemoryNV = provider.getFunctionAddress("wglFreeMemoryNV");
@@ -59,7 +56,6 @@ public class WGLNVVertexArrayRange {
 	// --- [ wglAllocateMemoryNV ] ---
 
 	/** Unsafe version of {@link #wglAllocateMemoryNV AllocateMemoryNV} */
-	@JavadocExclude
 	public static long nwglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
 		long __functionAddress = getInstance().AllocateMemoryNV;
 		return callIFFFP(__functionAddress, size, readfreq, writefreq, priority);
@@ -73,7 +69,6 @@ public class WGLNVVertexArrayRange {
 	// --- [ wglFreeMemoryNV ] ---
 
 	/** Unsafe version of {@link #wglFreeMemoryNV FreeMemoryNV} */
-	@JavadocExclude
 	public static void nwglFreeMemoryNV(long pointer) {
 		long __functionAddress = getInstance().FreeMemoryNV;
 		callPV(__functionAddress, pointer);

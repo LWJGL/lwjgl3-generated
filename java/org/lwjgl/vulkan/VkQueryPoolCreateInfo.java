@@ -16,19 +16,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkQueryPoolCreateInfo {
- *     VkStructureType sType;
- *     const void * pNext;
- *     VkQueryPoolCreateFlags flags;
- *     VkQueryType queryType;
- *     uint32_t queryCount;
- *     VkQueryPipelineStatisticFlags pipelineStatistics;
- * }</code></pre>
+ * <pre><code>struct VkQueryPoolCreateInfo {
+    VkStructureType sType;
+    const void * pNext;
+    VkQueryPoolCreateFlags flags;
+    VkQueryType queryType;
+    uint32_t queryCount;
+    VkQueryPipelineStatisticFlags pipelineStatistics;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */
@@ -37,7 +36,6 @@ public class VkQueryPoolCreateInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -151,12 +149,12 @@ public class VkQueryPoolCreateInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkQueryPoolCreateInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkQueryPoolCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkQueryPoolCreateInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkQueryPoolCreateInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkQueryPoolCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkQueryPoolCreateInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -172,7 +170,7 @@ public class VkQueryPoolCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkQueryPoolCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkQueryPoolCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -181,7 +179,7 @@ public class VkQueryPoolCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkQueryPoolCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkQueryPoolCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

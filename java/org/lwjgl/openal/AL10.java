@@ -120,7 +120,6 @@ public class AL10 {
 		AL_PROCESSED = 0x2012;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetError,
 		Enable,
@@ -178,12 +177,10 @@ public class AL10 {
 		GetProcAddress,
 		IsExtensionPresent;
 
-	@JavadocExclude
 	protected AL10() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public AL10(FunctionProvider provider) {
 		GetError = provider.getFunctionAddress("alGetError");
 		Enable = provider.getFunctionAddress("alEnable");
@@ -373,7 +370,6 @@ public class AL10 {
 	// --- [ alGetBooleanv ] ---
 
 	/** Unsafe version of {@link #alGetBooleanv GetBooleanv} */
-	@JavadocExclude
 	public static void nalGetBooleanv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetBooleanv;
 		invokeIPV(__functionAddress, paramName, dest);
@@ -394,7 +390,6 @@ public class AL10 {
 	// --- [ alGetIntegerv ] ---
 
 	/** Unsafe version of {@link #alGetIntegerv GetIntegerv} */
-	@JavadocExclude
 	public static void nalGetIntegerv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetIntegerv;
 		invokeIPV(__functionAddress, paramName, dest);
@@ -422,7 +417,6 @@ public class AL10 {
 	// --- [ alGetFloatv ] ---
 
 	/** Unsafe version of {@link #alGetFloatv GetFloatv} */
-	@JavadocExclude
 	public static void nalGetFloatv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetFloatv;
 		invokeIPV(__functionAddress, paramName, dest);
@@ -450,7 +444,6 @@ public class AL10 {
 	// --- [ alGetDoublev ] ---
 
 	/** Unsafe version of {@link #alGetDoublev GetDoublev} */
-	@JavadocExclude
 	public static void nalGetDoublev(int paramName, long dest) {
 		long __functionAddress = getInstance().GetDoublev;
 		invokeIPV(__functionAddress, paramName, dest);
@@ -478,7 +471,6 @@ public class AL10 {
 	// --- [ alGetString ] ---
 
 	/** Unsafe version of {@link #alGetString GetString} */
-	@JavadocExclude
 	public static long nalGetString(int paramName) {
 		long __functionAddress = getInstance().GetString;
 		return invokeIP(__functionAddress, paramName);
@@ -526,32 +518,31 @@ public class AL10 {
 	 * of frequency shift (pitch change) is proportional to the speed of listener and source along their line of sight. The Doppler Effect as implemented by
 	 * OpenAL is described by the formula below. Effects of the medium (air, water) moving with respect to listener and source are ignored.</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * SS: AL_SPEED_OF_SOUND = speed of sound (default value 343.3)
-	 * DF: AL_DOPPLER_FACTOR = Doppler factor (default 1.0)
-	 * vls: Listener velocity scalar (scalar, projected on source-to-listener vector)
-	 * vss: Source velocity scalar (scalar, projected on source-to-listener vector)
-	 * f: Frequency of sample
-	 * f': effective Doppler shifted frequency
-	 * 
-	 * 3D Mathematical representation of vls and vss:
-	 * 
-	 * Mag(vector) = sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z)
-	 * DotProduct(v1, v2) = (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z)
-	 * 
-	 * SL = source to listener vector
-	 * SV = Source velocity vector
-	 * LV = Listener velocity vector
-	 * 
-	 * vls = DotProduct(SL, LV) / Mag(SL)
-	 * vss = DotProduct(SL, SV) / Mag(SL)
-	 * 
-	 * Dopper Calculation:
-	 * 
-	 * vss = min(vss, SS / DF)
-	 * vls = min(vls, SS / DF)
-	 * 
-	 * f' = f * (SS - DF * vls) / (SS - DF * vss)</code></pre>
+	 * <pre><code>SS: AL_SPEED_OF_SOUND = speed of sound (default value 343.3)
+DF: AL_DOPPLER_FACTOR = Doppler factor (default 1.0)
+vls: Listener velocity scalar (scalar, projected on source-to-listener vector)
+vss: Source velocity scalar (scalar, projected on source-to-listener vector)
+f: Frequency of sample
+f': effective Doppler shifted frequency
+
+3D Mathematical representation of vls and vss:
+
+Mag(vector) = sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z)
+DotProduct(v1, v2) = (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z)
+
+SL = source to listener vector
+SV = Source velocity vector
+LV = Listener velocity vector
+
+vls = DotProduct(SL, LV) / Mag(SL)
+vss = DotProduct(SL, SV) / Mag(SL)
+
+Dopper Calculation:
+
+vss = min(vss, SS / DF)
+vls = min(vls, SS / DF)
+
+f' = f * (SS - DF * vls) / (SS - DF * vss)</code></pre>
 	 * 
 	 * <p>The {@code dopplerFactor} is a simple scaling of source and listener velocities to exaggerate or deemphasize the Doppler (pitch) shift resulting from
 	 * the calculation.</p>
@@ -573,11 +564,10 @@ public class AL10 {
 	 * support the AL_DOPPLER_VELOCITY parameter (the alDopplerVelocity call will remain as an entry point so that 1.0 applications can link with a 1.1
 	 * library), the above formula can be changed to the following:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * vss = min(vss, (SS * DV)/DF)
-	 * vls = min(vls, (SS * DV)/DF)
-	 * 
-	 * f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
+	 * <pre><code>vss = min(vss, (SS * DV)/DF)
+vls = min(vls, (SS * DV)/DF)
+
+f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * 
 	 * <p>OpenAL 1.1 programmers would never use AL_DOPPLER_VELOCITY (which defaults to 1.0).</p>
 	 *
@@ -632,7 +622,6 @@ public class AL10 {
 	// --- [ alListenerfv ] ---
 
 	/** Unsafe version of {@link #alListenerfv Listenerfv} */
-	@JavadocExclude
 	public static void nalListenerfv(int paramName, long values) {
 		long __functionAddress = getInstance().Listenerfv;
 		invokeIPV(__functionAddress, paramName, values);
@@ -660,7 +649,6 @@ public class AL10 {
 	// --- [ alGetListenerf ] ---
 
 	/** Unsafe version of {@link #alGetListenerf GetListenerf} */
-	@JavadocExclude
 	public static void nalGetListenerf(int paramName, long value) {
 		long __functionAddress = getInstance().GetListenerf;
 		invokeIPV(__functionAddress, paramName, value);
@@ -696,7 +684,6 @@ public class AL10 {
 	// --- [ alGetListeneri ] ---
 
 	/** Unsafe version of {@link #alGetListeneri GetListeneri} */
-	@JavadocExclude
 	public static void nalGetListeneri(int paramName, long value) {
 		long __functionAddress = getInstance().GetListeneri;
 		invokeIPV(__functionAddress, paramName, value);
@@ -732,7 +719,6 @@ public class AL10 {
 	// --- [ alGetListener3f ] ---
 
 	/** Unsafe version of {@link #alGetListener3f GetListener3f} */
-	@JavadocExclude
 	public static void nalGetListener3f(int paramName, long value1, long value2, long value3) {
 		long __functionAddress = getInstance().GetListener3f;
 		invokeIPPPV(__functionAddress, paramName, value1, value2, value3);
@@ -768,7 +754,6 @@ public class AL10 {
 	// --- [ alGetListenerfv ] ---
 
 	/** Unsafe version of {@link #alGetListenerfv GetListenerfv} */
-	@JavadocExclude
 	public static void nalGetListenerfv(int paramName, long values) {
 		long __functionAddress = getInstance().GetListenerfv;
 		invokeIPV(__functionAddress, paramName, values);
@@ -796,7 +781,6 @@ public class AL10 {
 	// --- [ alGenSources ] ---
 
 	/** Unsafe version of {@link #alGenSources GenSources} */
-	@JavadocExclude
 	public static void nalGenSources(int n, long srcNames) {
 		long __functionAddress = getInstance().GenSources;
 		invokeIPV(__functionAddress, n, srcNames);
@@ -830,7 +814,6 @@ public class AL10 {
 	// --- [ alDeleteSources ] ---
 
 	/** Unsafe version of {@link #alDeleteSources DeleteSources} */
-	@JavadocExclude
 	public static void nalDeleteSources(int n, long sources) {
 		long __functionAddress = getInstance().DeleteSources;
 		invokeIPV(__functionAddress, n, sources);
@@ -905,7 +888,6 @@ public class AL10 {
 	// --- [ alSourcefv ] ---
 
 	/** Unsafe version of {@link #alSourcefv Sourcefv} */
-	@JavadocExclude
 	public static void nalSourcefv(int source, int param, long values) {
 		long __functionAddress = getInstance().Sourcefv;
 		invokeIIPV(__functionAddress, source, param, values);
@@ -948,7 +930,6 @@ public class AL10 {
 	// --- [ alGetSourcef ] ---
 
 	/** Unsafe version of {@link #alGetSourcef GetSourcef} */
-	@JavadocExclude
 	public static void nalGetSourcef(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcef;
 		invokeIIPV(__functionAddress, source, param, value);
@@ -985,7 +966,6 @@ public class AL10 {
 	// --- [ alGetSource3f ] ---
 
 	/** Unsafe version of {@link #alGetSource3f GetSource3f} */
-	@JavadocExclude
 	public static void nalGetSource3f(int source, int param, long v1, long v2, long v3) {
 		long __functionAddress = getInstance().GetSource3f;
 		invokeIIPPPV(__functionAddress, source, param, v1, v2, v3);
@@ -1022,7 +1002,6 @@ public class AL10 {
 	// --- [ alGetSourcefv ] ---
 
 	/** Unsafe version of {@link #alGetSourcefv GetSourcefv} */
-	@JavadocExclude
 	public static void nalGetSourcefv(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcefv;
 		invokeIIPV(__functionAddress, source, param, values);
@@ -1051,7 +1030,6 @@ public class AL10 {
 	// --- [ alGetSourcei ] ---
 
 	/** Unsafe version of {@link #alGetSourcei GetSourcei} */
-	@JavadocExclude
 	public static void nalGetSourcei(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcei;
 		invokeIIPV(__functionAddress, source, param, value);
@@ -1088,7 +1066,6 @@ public class AL10 {
 	// --- [ alGetSourceiv ] ---
 
 	/** Unsafe version of {@link #alGetSourceiv GetSourceiv} */
-	@JavadocExclude
 	public static void nalGetSourceiv(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourceiv;
 		invokeIIPV(__functionAddress, source, param, values);
@@ -1117,7 +1094,6 @@ public class AL10 {
 	// --- [ alSourceQueueBuffers ] ---
 
 	/** Unsafe version of {@link #alSourceQueueBuffers SourceQueueBuffers} */
-	@JavadocExclude
 	public static void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames) {
 		long __functionAddress = getInstance().SourceQueueBuffers;
 		invokeIIPV(__functionAddress, sourceName, numBuffers, bufferNames);
@@ -1155,7 +1131,6 @@ public class AL10 {
 	// --- [ alSourceUnqueueBuffers ] ---
 
 	/** Unsafe version of {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
-	@JavadocExclude
 	public static void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames) {
 		long __functionAddress = getInstance().SourceUnqueueBuffers;
 		invokeIIPV(__functionAddress, sourceName, numEntries, bufferNames);
@@ -1262,7 +1237,6 @@ public class AL10 {
 	// --- [ alSourcePlayv ] ---
 
 	/** Unsafe version of {@link #alSourcePlayv SourcePlayv} */
-	@JavadocExclude
 	public static void nalSourcePlayv(int n, long sources) {
 		long __functionAddress = getInstance().SourcePlayv;
 		invokeIPV(__functionAddress, n, sources);
@@ -1288,7 +1262,6 @@ public class AL10 {
 	// --- [ alSourcePausev ] ---
 
 	/** Unsafe version of {@link #alSourcePausev SourcePausev} */
-	@JavadocExclude
 	public static void nalSourcePausev(int n, long sources) {
 		long __functionAddress = getInstance().SourcePausev;
 		invokeIPV(__functionAddress, n, sources);
@@ -1314,7 +1287,6 @@ public class AL10 {
 	// --- [ alSourceStopv ] ---
 
 	/** Unsafe version of {@link #alSourceStopv SourceStopv} */
-	@JavadocExclude
 	public static void nalSourceStopv(int n, long sources) {
 		long __functionAddress = getInstance().SourceStopv;
 		invokeIPV(__functionAddress, n, sources);
@@ -1340,7 +1312,6 @@ public class AL10 {
 	// --- [ alSourceRewindv ] ---
 
 	/** Unsafe version of {@link #alSourceRewindv SourceRewindv} */
-	@JavadocExclude
 	public static void nalSourceRewindv(int n, long sources) {
 		long __functionAddress = getInstance().SourceRewindv;
 		invokeIPV(__functionAddress, n, sources);
@@ -1366,7 +1337,6 @@ public class AL10 {
 	// --- [ alGenBuffers ] ---
 
 	/** Unsafe version of {@link #alGenBuffers GenBuffers} */
-	@JavadocExclude
 	public static void nalGenBuffers(int n, long bufferNames) {
 		long __functionAddress = getInstance().GenBuffers;
 		invokeIPV(__functionAddress, n, bufferNames);
@@ -1400,7 +1370,6 @@ public class AL10 {
 	// --- [ alDeleteBuffers ] ---
 
 	/** Unsafe version of {@link #alDeleteBuffers DeleteBuffers} */
-	@JavadocExclude
 	public static void nalDeleteBuffers(int n, long bufferNames) {
 		long __functionAddress = getInstance().DeleteBuffers;
 		invokeIPV(__functionAddress, n, bufferNames);
@@ -1445,7 +1414,6 @@ public class AL10 {
 	// --- [ alGetBufferf ] ---
 
 	/** Unsafe version of {@link #alGetBufferf GetBufferf} */
-	@JavadocExclude
 	public static void nalGetBufferf(int bufferName, int paramName, long value) {
 		long __functionAddress = getInstance().GetBufferf;
 		invokeIIPV(__functionAddress, bufferName, paramName, value);
@@ -1482,7 +1450,6 @@ public class AL10 {
 	// --- [ alGetBufferi ] ---
 
 	/** Unsafe version of {@link #alGetBufferi GetBufferi} */
-	@JavadocExclude
 	public static void nalGetBufferi(int bufferName, int paramName, long value) {
 		long __functionAddress = getInstance().GetBufferi;
 		invokeIIPV(__functionAddress, bufferName, paramName, value);
@@ -1519,7 +1486,6 @@ public class AL10 {
 	// --- [ alBufferData ] ---
 
 	/** Unsafe version of {@link #alBufferData BufferData} */
-	@JavadocExclude
 	public static void nalBufferData(int bufferName, int format, long data, int size, int frequency) {
 		long __functionAddress = getInstance().BufferData;
 		invokeIIPIIV(__functionAddress, bufferName, format, data, size, frequency);
@@ -1576,7 +1542,6 @@ public class AL10 {
 	// --- [ alGetEnumValue ] ---
 
 	/** Unsafe version of {@link #alGetEnumValue GetEnumValue} */
-	@JavadocExclude
 	public static int nalGetEnumValue(long enumName) {
 		long __functionAddress = getInstance().GetEnumValue;
 		return invokePI(__functionAddress, enumName);
@@ -1603,7 +1568,6 @@ public class AL10 {
 	// --- [ alGetProcAddress ] ---
 
 	/** Unsafe version of {@link #alGetProcAddress GetProcAddress} */
-	@JavadocExclude
 	public static long nalGetProcAddress(long funcName) {
 		long __functionAddress = getInstance().GetProcAddress;
 		return invokePP(__functionAddress, funcName);
@@ -1636,7 +1600,6 @@ public class AL10 {
 	// --- [ alIsExtensionPresent ] ---
 
 	/** Unsafe version of {@link #alIsExtensionPresent IsExtensionPresent} */
-	@JavadocExclude
 	public static boolean nalIsExtensionPresent(long extName) {
 		long __functionAddress = getInstance().IsExtensionPresent;
 		return invokePZ(__functionAddress, extName);

@@ -19,18 +19,17 @@ import org.lwjgl.system.windows.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct GPU_DEVICE {
- *     DWORD cb;
- *     CHAR[32] DeviceName;
- *     CHAR[128] DeviceString;
- *     DWORD Flags;
- *     {@link RECT RECT} rcVirtualScreen;
- * }</code></pre>
+ * <pre><code>struct GPU_DEVICE {
+    DWORD cb;
+    CHAR[32] DeviceName;
+    CHAR[128] DeviceString;
+    DWORD Flags;
+    {@link RECT RECT} rcVirtualScreen;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>cb</td><td>the size of the {@code GPU_DEVICE} structure. Before calling {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}, set {@code cb} to the size, in bytes, of
  * {@code GPU_DEVICE}.</td></tr>
  * <tr><td>DeviceName</td><td>a string identifying the display device name. This will be the same string as stored in the {@code DeviceName} field of the {@code DISPLAY_DEVICE}
@@ -47,7 +46,6 @@ public class GPU_DEVICE extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -111,12 +109,12 @@ public class GPU_DEVICE extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link GPU_DEVICE} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link GPU_DEVICE} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static GPU_DEVICE malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link GPU_DEVICE} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link GPU_DEVICE} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static GPU_DEVICE calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -132,7 +130,7 @@ public class GPU_DEVICE extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GPU_DEVICE.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GPU_DEVICE.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -141,7 +139,7 @@ public class GPU_DEVICE extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GPU_DEVICE.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GPU_DEVICE.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

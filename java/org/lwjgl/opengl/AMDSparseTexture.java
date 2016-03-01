@@ -49,17 +49,14 @@ public class AMDSparseTexture {
 	public static final int GL_MIN_LOD_WARNING_AMD = 0x919C;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexStorageSparseAMD,
 		TextureStorageSparseAMD;
 
-	@JavadocExclude
 	protected AMDSparseTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public AMDSparseTexture(FunctionProvider provider) {
 		TexStorageSparseAMD = provider.getFunctionAddress("glTexStorageSparseAMD");
 		TextureStorageSparseAMD = provider.getFunctionAddress("glTextureStorageSparseAMD");

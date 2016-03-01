@@ -29,7 +29,6 @@ public class GLXEXTImportContext {
 		GLX_SCREEN_EXT        = 0x800C;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetCurrentDisplayEXT,
 		QueryContextInfoEXT,
@@ -37,12 +36,10 @@ public class GLXEXTImportContext {
 		ImportContextEXT,
 		FreeContextEXT;
 
-	@JavadocExclude
 	protected GLXEXTImportContext() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXEXTImportContext(FunctionProvider provider) {
 		GetCurrentDisplayEXT = provider.getFunctionAddress("glXGetCurrentDisplayEXT");
 		QueryContextInfoEXT = provider.getFunctionAddress("glXQueryContextInfoEXT");
@@ -86,7 +83,6 @@ public class GLXEXTImportContext {
 	// --- [ glXQueryContextInfoEXT ] ---
 
 	/** Unsafe version of {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
-	@JavadocExclude
 	public static int nglXQueryContextInfoEXT(long display, long context, int attribute, long value) {
 		long __functionAddress = getInstance().QueryContextInfoEXT;
 		if ( CHECKS ) {

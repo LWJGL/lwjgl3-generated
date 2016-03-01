@@ -33,15 +33,12 @@ import static org.lwjgl.system.Pointer.*;
 public class EXTDeviceEnumeration {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long QueryDevicesEXT;
 
-	@JavadocExclude
 	protected EXTDeviceEnumeration() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDeviceEnumeration(FunctionProvider provider) {
 		QueryDevicesEXT = provider.getFunctionAddress("eglQueryDevicesEXT");
 	}
@@ -61,7 +58,6 @@ public class EXTDeviceEnumeration {
 	// --- [ eglQueryDevicesEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDevicesEXT QueryDevicesEXT} */
-	@JavadocExclude
 	public static int neglQueryDevicesEXT(int max_devices, long devices, long num_devices) {
 		long __functionAddress = getInstance().QueryDevicesEXT;
 		return callIPPI(__functionAddress, max_devices, devices, num_devices);

@@ -27,17 +27,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class MESAImageDMABufExport {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ExportDMABUFImageQueryMESA,
 		ExportDMABUFImageMESA;
 
-	@JavadocExclude
 	protected MESAImageDMABufExport() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public MESAImageDMABufExport(FunctionProvider provider) {
 		ExportDMABUFImageQueryMESA = provider.getFunctionAddress("eglExportDMABUFImageQueryMESA");
 		ExportDMABUFImageMESA = provider.getFunctionAddress("eglExportDMABUFImageMESA");
@@ -58,7 +55,6 @@ public class MESAImageDMABufExport {
 	// --- [ eglExportDMABUFImageQueryMESA ] ---
 
 	/** Unsafe version of {@link #eglExportDMABUFImageQueryMESA ExportDMABUFImageQueryMESA} */
-	@JavadocExclude
 	public static int neglExportDMABUFImageQueryMESA(long dpy, long image, long fourcc, long num_planes, long modifiers) {
 		long __functionAddress = getInstance().ExportDMABUFImageQueryMESA;
 		if ( CHECKS ) {
@@ -90,7 +86,6 @@ public class MESAImageDMABufExport {
 	// --- [ eglExportDMABUFImageMESA ] ---
 
 	/** Unsafe version of {@link #eglExportDMABUFImageMESA ExportDMABUFImageMESA} */
-	@JavadocExclude
 	public static int neglExportDMABUFImageMESA(long dpy, long image, long fds, long strides, long offsets) {
 		long __functionAddress = getInstance().ExportDMABUFImageMESA;
 		if ( CHECKS ) {

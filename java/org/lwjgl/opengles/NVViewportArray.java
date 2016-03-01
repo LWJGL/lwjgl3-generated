@@ -42,7 +42,6 @@ public class NVViewportArray {
 		GL_VIEWPORT_INDEX_PROVOKING_VERTEX_NV = 0x825F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ViewportArrayvNV,
 		ViewportIndexedfNV,
@@ -57,12 +56,10 @@ public class NVViewportArray {
 		DisableiNV,
 		IsEnablediNV;
 
-	@JavadocExclude
 	protected NVViewportArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVViewportArray(FunctionProvider provider) {
 		ViewportArrayvNV = provider.getFunctionAddress("glViewportArrayvNV");
 		ViewportIndexedfNV = provider.getFunctionAddress("glViewportIndexedfNV");
@@ -105,7 +102,6 @@ public class NVViewportArray {
 	// --- [ glViewportArrayvNV ] ---
 
 	/** Unsafe version of {@link #glViewportArrayvNV ViewportArrayvNV} */
-	@JavadocExclude
 	public static void nglViewportArrayvNV(int first, int count, long v) {
 		long __functionAddress = getInstance().ViewportArrayvNV;
 		callIIPV(__functionAddress, first, count, v);
@@ -132,7 +128,6 @@ public class NVViewportArray {
 	// --- [ glViewportIndexedfvNV ] ---
 
 	/** Unsafe version of {@link #glViewportIndexedfvNV ViewportIndexedfvNV} */
-	@JavadocExclude
 	public static void nglViewportIndexedfvNV(int index, long v) {
 		long __functionAddress = getInstance().ViewportIndexedfvNV;
 		callIPV(__functionAddress, index, v);
@@ -154,7 +149,6 @@ public class NVViewportArray {
 	// --- [ glScissorArrayvNV ] ---
 
 	/** Unsafe version of {@link #glScissorArrayvNV ScissorArrayvNV} */
-	@JavadocExclude
 	public static void nglScissorArrayvNV(int first, int count, long v) {
 		long __functionAddress = getInstance().ScissorArrayvNV;
 		callIIPV(__functionAddress, first, count, v);
@@ -181,7 +175,6 @@ public class NVViewportArray {
 	// --- [ glScissorIndexedvNV ] ---
 
 	/** Unsafe version of {@link #glScissorIndexedvNV ScissorIndexedvNV} */
-	@JavadocExclude
 	public static void nglScissorIndexedvNV(int index, long v) {
 		long __functionAddress = getInstance().ScissorIndexedvNV;
 		callIPV(__functionAddress, index, v);
@@ -203,7 +196,6 @@ public class NVViewportArray {
 	// --- [ glDepthRangeArrayfvNV ] ---
 
 	/** Unsafe version of {@link #glDepthRangeArrayfvNV DepthRangeArrayfvNV} */
-	@JavadocExclude
 	public static void nglDepthRangeArrayfvNV(int first, int count, long v) {
 		long __functionAddress = getInstance().DepthRangeArrayfvNV;
 		callIIPV(__functionAddress, first, count, v);
@@ -230,7 +222,6 @@ public class NVViewportArray {
 	// --- [ glGetFloati_vNV ] ---
 
 	/** Unsafe version of {@link #glGetFloati_vNV GetFloati_vNV} */
-	@JavadocExclude
 	public static void nglGetFloati_vNV(int target, int index, long data) {
 		long __functionAddress = getInstance().GetFloati_vNV;
 		callIIPV(__functionAddress, target, index, data);

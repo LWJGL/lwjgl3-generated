@@ -32,19 +32,16 @@ public class ARBVertexArrayObject {
 	public static final int GL_VERTEX_ARRAY_BINDING = 0x85B5;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindVertexArray,
 		DeleteVertexArrays,
 		GenVertexArrays,
 		IsVertexArray;
 
-	@JavadocExclude
 	protected ARBVertexArrayObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBVertexArrayObject(FunctionProvider provider) {
 		BindVertexArray = provider.getFunctionAddress("glBindVertexArray");
 		DeleteVertexArrays = provider.getFunctionAddress("glDeleteVertexArrays");
@@ -91,7 +88,6 @@ public class ARBVertexArrayObject {
 	// --- [ glDeleteVertexArrays ] ---
 
 	/** Unsafe version of {@link #glDeleteVertexArrays DeleteVertexArrays} */
-	@JavadocExclude
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().DeleteVertexArrays;
 		callIPV(__functionAddress, n, arrays);
@@ -124,7 +120,6 @@ public class ARBVertexArrayObject {
 	// --- [ glGenVertexArrays ] ---
 
 	/** Unsafe version of {@link #glGenVertexArrays GenVertexArrays} */
-	@JavadocExclude
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().GenVertexArrays;
 		callIPV(__functionAddress, n, arrays);

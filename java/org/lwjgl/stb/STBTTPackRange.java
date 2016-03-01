@@ -14,23 +14,22 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * A range of packed character data, used by {@link STBTruetype#stbtt_PackFontRanges}
+ * A range of packed character data, used by {@link STBTruetype#stbtt_PackFontRanges STBTruetype.stbtt_PackFontRanges}
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct stbtt_pack_range {
- *     float font_size;
- *     int first_unicode_codepoint_in_range;
- *     int * array_of_unicode_codepoints;
- *     int num_chars;
- *     stbtt_packedchar * chardata_for_range;
- *     char[2];
- * }</code></pre>
+ * <pre><code>struct stbtt_pack_range {
+    float font_size;
+    int first_unicode_codepoint_in_range;
+    int * array_of_unicode_codepoints;
+    int num_chars;
+    stbtt_packedchar * chardata_for_range;
+    char[2];
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>font_size</td><td>the font size</td></tr>
  * <tr><td>first_unicode_codepoint_in_range</td><td>if non-zero, then the chars are continuous, and this is the first codepoint</td></tr>
  * <tr><td>array_of_unicode_codepoints</td><td>if non-zero, then this is an array of unicode codepoints</td></tr>
@@ -43,7 +42,6 @@ public class STBTTPackRange extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -149,12 +147,12 @@ public class STBTTPackRange extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link STBTTPackRange} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBTTPackRange} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static STBTTPackRange malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link STBTTPackRange} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBTTPackRange} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static STBTTPackRange calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -170,7 +168,7 @@ public class STBTTPackRange extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBTTPackRange.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBTTPackRange.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -179,7 +177,7 @@ public class STBTTPackRange extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBTTPackRange.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBTTPackRange.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

@@ -51,7 +51,6 @@ public class ARBES2Compatibility {
 	public static final int GL_RGB565 = 0x8D62;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ReleaseShaderCompiler,
 		ShaderBinary,
@@ -59,12 +58,10 @@ public class ARBES2Compatibility {
 		DepthRangef,
 		ClearDepthf;
 
-	@JavadocExclude
 	protected ARBES2Compatibility() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBES2Compatibility(FunctionProvider provider) {
 		ReleaseShaderCompiler = provider.getFunctionAddress("glReleaseShaderCompiler");
 		ShaderBinary = provider.getFunctionAddress("glShaderBinary");
@@ -108,7 +105,6 @@ public class ARBES2Compatibility {
 	// --- [ glShaderBinary ] ---
 
 	/** Unsafe version of {@link #glShaderBinary ShaderBinary} */
-	@JavadocExclude
 	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
 		long __functionAddress = getInstance().ShaderBinary;
 		callIPIPIV(__functionAddress, count, shaders, binaryformat, binary, length);
@@ -139,7 +135,6 @@ public class ARBES2Compatibility {
 	// --- [ glGetShaderPrecisionFormat ] ---
 
 	/** Unsafe version of {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
-	@JavadocExclude
 	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
 		long __functionAddress = getInstance().GetShaderPrecisionFormat;
 		callIIPPV(__functionAddress, shadertype, precisiontype, range, precision);

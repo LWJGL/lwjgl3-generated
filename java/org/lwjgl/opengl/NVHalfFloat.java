@@ -35,7 +35,6 @@ public class NVHalfFloat {
 	public static final int GL_HALF_FLOAT_NV = 0x140B;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		Vertex2hNV,
 		Vertex2hvNV,
@@ -84,12 +83,10 @@ public class NVHalfFloat {
 		VertexAttribs3hvNV,
 		VertexAttribs4hvNV;
 
-	@JavadocExclude
 	protected NVHalfFloat() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVHalfFloat(FunctionProvider provider) {
 		Vertex2hNV = provider.getFunctionAddress("glVertex2hNV");
 		Vertex2hvNV = provider.getFunctionAddress("glVertex2hvNV");
@@ -186,7 +183,6 @@ public class NVHalfFloat {
 	// --- [ glVertex2hvNV ] ---
 
 	/** Unsafe version of {@link #glVertex2hvNV Vertex2hvNV} */
-	@JavadocExclude
 	public static void nglVertex2hvNV(long v) {
 		long __functionAddress = getInstance().Vertex2hvNV;
 		callPV(__functionAddress, v);
@@ -215,7 +211,6 @@ public class NVHalfFloat {
 	// --- [ glVertex3hvNV ] ---
 
 	/** Unsafe version of {@link #glVertex3hvNV Vertex3hvNV} */
-	@JavadocExclude
 	public static void nglVertex3hvNV(long v) {
 		long __functionAddress = getInstance().Vertex3hvNV;
 		callPV(__functionAddress, v);
@@ -244,7 +239,6 @@ public class NVHalfFloat {
 	// --- [ glVertex4hvNV ] ---
 
 	/** Unsafe version of {@link #glVertex4hvNV Vertex4hvNV} */
-	@JavadocExclude
 	public static void nglVertex4hvNV(long v) {
 		long __functionAddress = getInstance().Vertex4hvNV;
 		callPV(__functionAddress, v);
@@ -273,7 +267,6 @@ public class NVHalfFloat {
 	// --- [ glNormal3hvNV ] ---
 
 	/** Unsafe version of {@link #glNormal3hvNV Normal3hvNV} */
-	@JavadocExclude
 	public static void nglNormal3hvNV(long v) {
 		long __functionAddress = getInstance().Normal3hvNV;
 		callPV(__functionAddress, v);
@@ -302,7 +295,6 @@ public class NVHalfFloat {
 	// --- [ glColor3hvNV ] ---
 
 	/** Unsafe version of {@link #glColor3hvNV Color3hvNV} */
-	@JavadocExclude
 	public static void nglColor3hvNV(long v) {
 		long __functionAddress = getInstance().Color3hvNV;
 		callPV(__functionAddress, v);
@@ -331,7 +323,6 @@ public class NVHalfFloat {
 	// --- [ glColor4hvNV ] ---
 
 	/** Unsafe version of {@link #glColor4hvNV Color4hvNV} */
-	@JavadocExclude
 	public static void nglColor4hvNV(long v) {
 		long __functionAddress = getInstance().Color4hvNV;
 		callPV(__functionAddress, v);
@@ -360,7 +351,6 @@ public class NVHalfFloat {
 	// --- [ glTexCoord1hvNV ] ---
 
 	/** Unsafe version of {@link #glTexCoord1hvNV TexCoord1hvNV} */
-	@JavadocExclude
 	public static void nglTexCoord1hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord1hvNV;
 		callPV(__functionAddress, v);
@@ -389,7 +379,6 @@ public class NVHalfFloat {
 	// --- [ glTexCoord2hvNV ] ---
 
 	/** Unsafe version of {@link #glTexCoord2hvNV TexCoord2hvNV} */
-	@JavadocExclude
 	public static void nglTexCoord2hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord2hvNV;
 		callPV(__functionAddress, v);
@@ -418,7 +407,6 @@ public class NVHalfFloat {
 	// --- [ glTexCoord3hvNV ] ---
 
 	/** Unsafe version of {@link #glTexCoord3hvNV TexCoord3hvNV} */
-	@JavadocExclude
 	public static void nglTexCoord3hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord3hvNV;
 		callPV(__functionAddress, v);
@@ -447,7 +435,6 @@ public class NVHalfFloat {
 	// --- [ glTexCoord4hvNV ] ---
 
 	/** Unsafe version of {@link #glTexCoord4hvNV TexCoord4hvNV} */
-	@JavadocExclude
 	public static void nglTexCoord4hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord4hvNV;
 		callPV(__functionAddress, v);
@@ -476,7 +463,6 @@ public class NVHalfFloat {
 	// --- [ glMultiTexCoord1hvNV ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord1hvNV MultiTexCoord1hvNV} */
-	@JavadocExclude
 	public static void nglMultiTexCoord1hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1hvNV;
 		callIPV(__functionAddress, target, v);
@@ -505,7 +491,6 @@ public class NVHalfFloat {
 	// --- [ glMultiTexCoord2hvNV ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord2hvNV MultiTexCoord2hvNV} */
-	@JavadocExclude
 	public static void nglMultiTexCoord2hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2hvNV;
 		callIPV(__functionAddress, target, v);
@@ -534,7 +519,6 @@ public class NVHalfFloat {
 	// --- [ glMultiTexCoord3hvNV ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord3hvNV MultiTexCoord3hvNV} */
-	@JavadocExclude
 	public static void nglMultiTexCoord3hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3hvNV;
 		callIPV(__functionAddress, target, v);
@@ -563,7 +547,6 @@ public class NVHalfFloat {
 	// --- [ glMultiTexCoord4hvNV ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord4hvNV MultiTexCoord4hvNV} */
-	@JavadocExclude
 	public static void nglMultiTexCoord4hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4hvNV;
 		callIPV(__functionAddress, target, v);
@@ -594,7 +577,6 @@ public class NVHalfFloat {
 	// --- [ glFogCoordhvNV ] ---
 
 	/** Unsafe version of {@link #glFogCoordhvNV FogCoordhvNV} */
-	@JavadocExclude
 	public static void nglFogCoordhvNV(long fog) {
 		long __functionAddress = getInstance().FogCoordhvNV;
 		if ( CHECKS )
@@ -627,7 +609,6 @@ public class NVHalfFloat {
 	// --- [ glSecondaryColor3hvNV ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3hvNV SecondaryColor3hvNV} */
-	@JavadocExclude
 	public static void nglSecondaryColor3hvNV(long v) {
 		long __functionAddress = getInstance().SecondaryColor3hvNV;
 		if ( CHECKS )
@@ -660,7 +641,6 @@ public class NVHalfFloat {
 	// --- [ glVertexWeighthvNV ] ---
 
 	/** Unsafe version of {@link #glVertexWeighthvNV VertexWeighthvNV} */
-	@JavadocExclude
 	public static void nglVertexWeighthvNV(long weight) {
 		long __functionAddress = getInstance().VertexWeighthvNV;
 		if ( CHECKS )
@@ -693,7 +673,6 @@ public class NVHalfFloat {
 	// --- [ glVertexAttrib1hvNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib1hvNV VertexAttrib1hvNV} */
-	@JavadocExclude
 	public static void nglVertexAttrib1hvNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1hvNV;
 		if ( CHECKS )
@@ -726,7 +705,6 @@ public class NVHalfFloat {
 	// --- [ glVertexAttrib2hvNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib2hvNV VertexAttrib2hvNV} */
-	@JavadocExclude
 	public static void nglVertexAttrib2hvNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2hvNV;
 		if ( CHECKS )
@@ -759,7 +737,6 @@ public class NVHalfFloat {
 	// --- [ glVertexAttrib3hvNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib3hvNV VertexAttrib3hvNV} */
-	@JavadocExclude
 	public static void nglVertexAttrib3hvNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3hvNV;
 		if ( CHECKS )
@@ -792,7 +769,6 @@ public class NVHalfFloat {
 	// --- [ glVertexAttrib4hvNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttrib4hvNV VertexAttrib4hvNV} */
-	@JavadocExclude
 	public static void nglVertexAttrib4hvNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4hvNV;
 		if ( CHECKS )
@@ -816,7 +792,6 @@ public class NVHalfFloat {
 	// --- [ glVertexAttribs1hvNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribs1hvNV VertexAttribs1hvNV} */
-	@JavadocExclude
 	public static void nglVertexAttribs1hvNV(int index, int n, long v) {
 		long __functionAddress = getInstance().VertexAttribs1hvNV;
 		if ( CHECKS )
@@ -838,7 +813,6 @@ public class NVHalfFloat {
 	// --- [ glVertexAttribs2hvNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribs2hvNV VertexAttribs2hvNV} */
-	@JavadocExclude
 	public static void nglVertexAttribs2hvNV(int index, int n, long v) {
 		long __functionAddress = getInstance().VertexAttribs2hvNV;
 		if ( CHECKS )
@@ -860,7 +834,6 @@ public class NVHalfFloat {
 	// --- [ glVertexAttribs3hvNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribs3hvNV VertexAttribs3hvNV} */
-	@JavadocExclude
 	public static void nglVertexAttribs3hvNV(int index, int n, long v) {
 		long __functionAddress = getInstance().VertexAttribs3hvNV;
 		if ( CHECKS )
@@ -882,7 +855,6 @@ public class NVHalfFloat {
 	// --- [ glVertexAttribs4hvNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribs4hvNV VertexAttribs4hvNV} */
-	@JavadocExclude
 	public static void nglVertexAttribs4hvNV(int index, int n, long v) {
 		long __functionAddress = getInstance().VertexAttribs4hvNV;
 		if ( CHECKS )

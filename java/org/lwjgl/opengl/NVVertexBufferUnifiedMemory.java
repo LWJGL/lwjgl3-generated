@@ -63,7 +63,6 @@ public class NVVertexBufferUnifiedMemory {
 		GL_ELEMENT_ARRAY_LENGTH_NV         = 0x8F33;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BufferAddressRangeNV,
 		VertexFormatNV,
@@ -78,12 +77,10 @@ public class NVVertexBufferUnifiedMemory {
 		VertexAttribIFormatNV,
 		GetIntegerui64i_vNV;
 
-	@JavadocExclude
 	protected NVVertexBufferUnifiedMemory() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVVertexBufferUnifiedMemory(FunctionProvider provider) {
 		BufferAddressRangeNV = provider.getFunctionAddress("glBufferAddressRangeNV");
 		VertexFormatNV = provider.getFunctionAddress("glVertexFormatNV");
@@ -205,7 +202,6 @@ public class NVVertexBufferUnifiedMemory {
 	// --- [ glGetIntegerui64i_vNV ] ---
 
 	/** Unsafe version of {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
-	@JavadocExclude
 	public static void nglGetIntegerui64i_vNV(int value, int index, long result) {
 		long __functionAddress = getInstance().GetIntegerui64i_vNV;
 		callIIPV(__functionAddress, value, index, result);

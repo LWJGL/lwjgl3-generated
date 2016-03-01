@@ -31,17 +31,14 @@ public class ARBTextureBufferRange {
 	public static final int GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexBufferRange,
 		TextureBufferRangeEXT;
 
-	@JavadocExclude
 	protected ARBTextureBufferRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTextureBufferRange(FunctionProvider provider) {
 		TexBufferRange = provider.getFunctionAddress("glTexBufferRange");
 		TextureBufferRangeEXT = provider.getFunctionAddress("glTextureBufferRangeEXT");

@@ -33,18 +33,15 @@ public class KHREGLImage {
 		CL_COMMAND_RELEASE_EGL_OBJECTS_KHR = 0x202E;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateFromEGLImageKHR,
 		EnqueueAcquireEGLObjectsKHR,
 		EnqueueReleaseEGLObjectsKHR;
 
-	@JavadocExclude
 	protected KHREGLImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHREGLImage(FunctionProvider provider) {
 		CreateFromEGLImageKHR = provider.getFunctionAddress("clCreateFromEGLImageKHR");
 		EnqueueAcquireEGLObjectsKHR = provider.getFunctionAddress("clEnqueueAcquireEGLObjectsKHR");
@@ -76,7 +73,6 @@ public class KHREGLImage {
 	// --- [ clCreateFromEGLImageKHR ] ---
 
 	/** Unsafe version of {@link #clCreateFromEGLImageKHR CreateFromEGLImageKHR} */
-	@JavadocExclude
 	public static long nclCreateFromEGLImageKHR(long context, long display, long image, long flags, long properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromEGLImageKHR;
 		if ( CHECKS ) {
@@ -117,7 +113,6 @@ public class KHREGLImage {
 	// --- [ clEnqueueAcquireEGLObjectsKHR ] ---
 
 	/** Unsafe version of {@link #clEnqueueAcquireEGLObjectsKHR EnqueueAcquireEGLObjectsKHR} */
-	@JavadocExclude
 	public static int nclEnqueueAcquireEGLObjectsKHR(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueAcquireEGLObjectsKHR;
 		if ( CHECKS )
@@ -160,7 +155,6 @@ public class KHREGLImage {
 	// --- [ clEnqueueReleaseEGLObjectsKHR ] ---
 
 	/** Unsafe version of {@link #clEnqueueReleaseEGLObjectsKHR EnqueueReleaseEGLObjectsKHR} */
-	@JavadocExclude
 	public static int nclEnqueueReleaseEGLObjectsKHR(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueReleaseEGLObjectsKHR;
 		if ( CHECKS )

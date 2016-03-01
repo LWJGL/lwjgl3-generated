@@ -30,32 +30,30 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrLayerEyeMatrix {
- *     {@link OVRLayerHeader ovrLayerHeader} Header;
- *     ovrSwapTextureSet *[2] ColorTexture;
- *     {@link OVRRecti ovrRecti}[2] Viewport;
- *     {@link OVRPosef ovrPosef}[2] RenderPose;
- *     {@link OVRMatrix4f ovrMatrix4f}[2] Matrix;
- *     double SensorSampleTime;
- * }</code></pre>
+ * <pre><code>struct ovrLayerEyeMatrix {
+    {@link OVRLayerHeader ovrLayerHeader} Header;
+    ovrSwapTextureSet *[2] ColorTexture;
+    {@link OVRRecti ovrRecti}[2] Viewport;
+    {@link OVRPosef ovrPosef}[2] RenderPose;
+    {@link OVRMatrix4f ovrMatrix4f}[2] Matrix;
+    double SensorSampleTime;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeMatrix}</td></tr>
  * <tr><td>ColorTexture</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}</td></tr>
  * <tr><td>Viewport</td><td>specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
  * <tr><td>RenderPose</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned from
- * {@link OVRUtil#ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
+ * {@link OVRUtil#ovr_CalcEyePoses OVRUtil.ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
  * <tr><td>Matrix</td><td>specifies the mapping from a view-space vector to a UV coordinate on the textures given above.
  * 
- * <pre><code style="font-family: monospace">
- * P = (x,y,z,1)*Matrix
- * TexU  = P.x/P.z
- * TexV  = P.y/P.z</code></pre></td></tr>
+ * <pre><code>P = (x,y,z,1)*Matrix
+TexU  = P.x/P.z
+TexV  = P.y/P.z</code></pre></td></tr>
  * <tr><td>SensorSampleTime</td><td>specifies the timestamp when the source {@link OVRPosef} (used in calculating RenderPose) was sampled from the SDK. Typically retrieved by calling
- * {@link OVR#ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState}. The main purpose for this is to accurately track app
+ * {@link OVR#ovr_GetTimeInSeconds OVR.ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState OVR.ovr_GetTrackingState}. The main purpose for this is to accurately track app
  * tracking latency.</td></tr>
  * </table>
  */
@@ -64,7 +62,6 @@ public class OVRLayerEyeMatrix extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -194,12 +191,12 @@ public class OVRLayerEyeMatrix extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRLayerEyeMatrix} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRLayerEyeMatrix} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRLayerEyeMatrix malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRLayerEyeMatrix} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRLayerEyeMatrix} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRLayerEyeMatrix calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -215,7 +212,7 @@ public class OVRLayerEyeMatrix extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRLayerEyeMatrix.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRLayerEyeMatrix.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -224,7 +221,7 @@ public class OVRLayerEyeMatrix extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRLayerEyeMatrix.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRLayerEyeMatrix.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

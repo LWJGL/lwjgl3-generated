@@ -27,15 +27,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrViewScaleDesc {
- *     {@link OVRVector3f ovrVector3f}[2] HmdToEyeViewOffset;
- *     float HmdSpaceToWorldScaleInMeters;
- * }</code></pre>
+ * <pre><code>struct ovrViewScaleDesc {
+    {@link OVRVector3f ovrVector3f}[2] HmdToEyeViewOffset;
+    float HmdSpaceToWorldScaleInMeters;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>HmdToEyeViewOffset</td><td>translation of each eye</td></tr>
  * <tr><td>HmdSpaceToWorldScaleInMeters</td><td>ratio of viewer units to meter units</td></tr>
  * </table>
@@ -45,7 +44,6 @@ public class OVRViewScaleDesc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -127,12 +125,12 @@ public class OVRViewScaleDesc extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRViewScaleDesc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRViewScaleDesc} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRViewScaleDesc malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRViewScaleDesc} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRViewScaleDesc} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRViewScaleDesc calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -148,7 +146,7 @@ public class OVRViewScaleDesc extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRViewScaleDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRViewScaleDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -157,7 +155,7 @@ public class OVRViewScaleDesc extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRViewScaleDesc.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRViewScaleDesc.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

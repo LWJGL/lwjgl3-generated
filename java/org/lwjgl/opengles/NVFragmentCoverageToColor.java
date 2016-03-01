@@ -30,15 +30,12 @@ public class NVFragmentCoverageToColor {
 	public static final int GL_FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long FragmentCoverageColorNV;
 
-	@JavadocExclude
 	protected NVFragmentCoverageToColor() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVFragmentCoverageToColor(FunctionProvider provider) {
 		FragmentCoverageColorNV = provider.getFunctionAddress("glFragmentCoverageColorNV");
 	}

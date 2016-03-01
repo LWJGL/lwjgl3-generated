@@ -18,59 +18,58 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct DEVMODE {
- *     TCHAR[32] dmDeviceName;
- *     WORD dmSpecVersion;
- *     WORD dmDriverVersion;
- *     WORD dmSize;
- *     WORD dmDriverExtra;
- *     DWORD dmFields;
- *     union {
- *         struct {
- *             short dmOrientation;
- *             short dmPaperSize;
- *             short dmPaperLength;
- *             short dmPaperWidth;
- *             short dmScale;
- *             short dmCopies;
- *             short dmDefaultSource;
- *             short dmPrintQuality;
- *         };
- *         struct {
- *             {@link POINTL POINTL} dmPosition;
- *             DWORD dmDisplayOrientation;
- *             DWORD dmDisplayFixedOutput;
- *         };
- *     };
- *     short dmColor;
- *     short dmDuplex;
- *     short dmYResolution;
- *     short dmTTOption;
- *     short dmCollate;
- *     TCHAR[32] dmFormName;
- *     WORD dmLogPixels;
- *     DWORD dmBitsPerPel;
- *     DWORD dmPelsWidth;
- *     DWORD dmPelsHeight;
- *     union {
- *         DWORD dmDisplayFlags;
- *         DWORD dmNup;
- *     };
- *     DWORD dmDisplayFrequency;
- *     DWORD dmICMMethod;
- *     DWORD dmICMIntent;
- *     DWORD dmMediaType;
- *     DWORD dmDitherType;
- *     DWORD dmReserved1;
- *     DWORD dmReserved2;
- *     DWORD dmPanningWidth;
- *     DWORD dmPanningHeight;
- * }</code></pre>
+ * <pre><code>struct DEVMODE {
+    TCHAR[32] dmDeviceName;
+    WORD dmSpecVersion;
+    WORD dmDriverVersion;
+    WORD dmSize;
+    WORD dmDriverExtra;
+    DWORD dmFields;
+    union {
+        struct {
+            short dmOrientation;
+            short dmPaperSize;
+            short dmPaperLength;
+            short dmPaperWidth;
+            short dmScale;
+            short dmCopies;
+            short dmDefaultSource;
+            short dmPrintQuality;
+        };
+        struct {
+            {@link POINTL POINTL} dmPosition;
+            DWORD dmDisplayOrientation;
+            DWORD dmDisplayFixedOutput;
+        };
+    };
+    short dmColor;
+    short dmDuplex;
+    short dmYResolution;
+    short dmTTOption;
+    short dmCollate;
+    TCHAR[32] dmFormName;
+    WORD dmLogPixels;
+    DWORD dmBitsPerPel;
+    DWORD dmPelsWidth;
+    DWORD dmPelsHeight;
+    union {
+        DWORD dmDisplayFlags;
+        DWORD dmNup;
+    };
+    DWORD dmDisplayFrequency;
+    DWORD dmICMMethod;
+    DWORD dmICMIntent;
+    DWORD dmMediaType;
+    DWORD dmDitherType;
+    DWORD dmReserved1;
+    DWORD dmReserved2;
+    DWORD dmPanningWidth;
+    DWORD dmPanningHeight;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>dmDeviceName</td><td>A zero-terminated character array that specifies the "friendly" name of the printer or display; for example, "PCL/HP LaserJet" in the case of PCL/HP
  * LaserJet. This string is unique among device drivers. Note that this name may be truncated to fit in the {@code dmDeviceName} array.</td></tr>
  * <tr><td>dmSpecVersion</td><td>the version number of the initialization data specification on which the structure is based. To ensure the correct version is used for any operating
@@ -118,7 +117,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>dmDisplayFrequency</td><td>specifies the frequency, in hertz (cycles per second), of the display device in a particular mode. This value is also known as the display device's
  * vertical refresh rate.</p>
  * 
- * <p>When you call the {@link User32#EnumDisplaySettingsEx} function, the {@code dmDisplayFrequency} member may return with the value 0 or 1. These values
+ * <p>When you call the {@link User32#EnumDisplaySettingsEx User32.EnumDisplaySettingsEx} function, the {@code dmDisplayFrequency} member may return with the value 0 or 1. These values
  * represent the display hardware's default refresh rate. This default rate is typically set by switches on a display card or computer motherboard, or by
  * a configuration program that does not use display functions such as {@code ChangeDisplaySettingsEx}.</td></tr>
  * <tr><td>dmICMMethod</td><td>for printer devices only</td></tr>
@@ -136,7 +135,6 @@ public class DEVMODE extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -397,12 +395,12 @@ public class DEVMODE extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link DEVMODE} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link DEVMODE} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static DEVMODE malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link DEVMODE} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link DEVMODE} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static DEVMODE calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -418,7 +416,7 @@ public class DEVMODE extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link DEVMODE.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link DEVMODE.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -427,7 +425,7 @@ public class DEVMODE extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link DEVMODE.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link DEVMODE.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

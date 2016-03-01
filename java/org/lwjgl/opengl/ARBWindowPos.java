@@ -31,7 +31,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class ARBWindowPos {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		WindowPos2iARB,
 		WindowPos2sARB,
@@ -50,12 +49,10 @@ public class ARBWindowPos {
 		WindowPos3fvARB,
 		WindowPos3dvARB;
 
-	@JavadocExclude
 	protected ARBWindowPos() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBWindowPos(FunctionProvider provider) {
 		WindowPos2iARB = provider.getFunctionAddress("glWindowPos2iARB");
 		WindowPos2sARB = provider.getFunctionAddress("glWindowPos2sARB");
@@ -156,7 +153,6 @@ public class ARBWindowPos {
 	// --- [ glWindowPos2ivARB ] ---
 
 	/** Unsafe version of {@link #glWindowPos2ivARB WindowPos2ivARB} */
-	@JavadocExclude
 	public static void nglWindowPos2ivARB(long p) {
 		long __functionAddress = getInstance().WindowPos2ivARB;
 		callPV(__functionAddress, p);
@@ -183,7 +179,6 @@ public class ARBWindowPos {
 	// --- [ glWindowPos2svARB ] ---
 
 	/** Unsafe version of {@link #glWindowPos2svARB WindowPos2svARB} */
-	@JavadocExclude
 	public static void nglWindowPos2svARB(long p) {
 		long __functionAddress = getInstance().WindowPos2svARB;
 		callPV(__functionAddress, p);
@@ -210,7 +205,6 @@ public class ARBWindowPos {
 	// --- [ glWindowPos2fvARB ] ---
 
 	/** Unsafe version of {@link #glWindowPos2fvARB WindowPos2fvARB} */
-	@JavadocExclude
 	public static void nglWindowPos2fvARB(long p) {
 		long __functionAddress = getInstance().WindowPos2fvARB;
 		callPV(__functionAddress, p);
@@ -237,7 +231,6 @@ public class ARBWindowPos {
 	// --- [ glWindowPos2dvARB ] ---
 
 	/** Unsafe version of {@link #glWindowPos2dvARB WindowPos2dvARB} */
-	@JavadocExclude
 	public static void nglWindowPos2dvARB(long p) {
 		long __functionAddress = getInstance().WindowPos2dvARB;
 		callPV(__functionAddress, p);
@@ -320,7 +313,6 @@ public class ARBWindowPos {
 	// --- [ glWindowPos3ivARB ] ---
 
 	/** Unsafe version of {@link #glWindowPos3ivARB WindowPos3ivARB} */
-	@JavadocExclude
 	public static void nglWindowPos3ivARB(long p) {
 		long __functionAddress = getInstance().WindowPos3ivARB;
 		callPV(__functionAddress, p);
@@ -347,7 +339,6 @@ public class ARBWindowPos {
 	// --- [ glWindowPos3svARB ] ---
 
 	/** Unsafe version of {@link #glWindowPos3svARB WindowPos3svARB} */
-	@JavadocExclude
 	public static void nglWindowPos3svARB(long p) {
 		long __functionAddress = getInstance().WindowPos3svARB;
 		callPV(__functionAddress, p);
@@ -374,7 +365,6 @@ public class ARBWindowPos {
 	// --- [ glWindowPos3fvARB ] ---
 
 	/** Unsafe version of {@link #glWindowPos3fvARB WindowPos3fvARB} */
-	@JavadocExclude
 	public static void nglWindowPos3fvARB(long p) {
 		long __functionAddress = getInstance().WindowPos3fvARB;
 		callPV(__functionAddress, p);
@@ -401,7 +391,6 @@ public class ARBWindowPos {
 	// --- [ glWindowPos3dvARB ] ---
 
 	/** Unsafe version of {@link #glWindowPos3dvARB WindowPos3dvARB} */
-	@JavadocExclude
 	public static void nglWindowPos3dvARB(long p) {
 		long __functionAddress = getInstance().WindowPos3dvARB;
 		callPV(__functionAddress, p);

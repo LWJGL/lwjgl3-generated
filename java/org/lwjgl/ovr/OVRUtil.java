@@ -50,7 +50,6 @@ public class OVRUtil {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected OVRUtil() {
 		throw new UnsupportedOperationException();
 	}
@@ -58,7 +57,6 @@ public class OVRUtil {
 	// --- [ ovr_Detect ] ---
 
 	/** JNI method for {@link #ovr_Detect _Detect} */
-	@JavadocExclude
 	public static native void novr_Detect(int timeoutMsec, long __result);
 
 	/**
@@ -76,7 +74,6 @@ public class OVRUtil {
 	// --- [ ovrMatrix4f_Projection ] ---
 
 	/** JNI method for {@link #ovrMatrix4f_Projection Matrix4f_Projection} */
-	@JavadocExclude
 	public static native void novrMatrix4f_Projection(long fov, float znear, float zfar, int projectionModFlags, long __result);
 
 	/**
@@ -95,7 +92,6 @@ public class OVRUtil {
 	// --- [ ovrTimewarpProjectionDesc_FromProjection ] ---
 
 	/** JNI method for {@link #ovrTimewarpProjectionDesc_FromProjection TimewarpProjectionDesc_FromProjection} */
-	@JavadocExclude
 	public static native void novrTimewarpProjectionDesc_FromProjection(long projection, int projectionModFlags, long __result);
 
 	/**
@@ -112,7 +108,6 @@ public class OVRUtil {
 	// --- [ ovrMatrix4f_OrthoSubProjection ] ---
 
 	/** JNI method for {@link #ovrMatrix4f_OrthoSubProjection Matrix4f_OrthoSubProjection} */
-	@JavadocExclude
 	public static native void novrMatrix4f_OrthoSubProjection(long projection, long orthoScale, float orthoDistance, float hmdToEyeViewOffsetX, long __result);
 
 	/**
@@ -133,7 +128,6 @@ public class OVRUtil {
 	// --- [ ovr_CalcEyePoses ] ---
 
 	/** JNI method for {@link #ovr_CalcEyePoses _CalcEyePoses} */
-	@JavadocExclude
 	public static native void novr_CalcEyePoses(long headPose, long hmdToEyeViewOffset, long outEyePoses);
 
 	/**
@@ -156,7 +150,6 @@ public class OVRUtil {
 	// --- [ ovr_GetEyePoses ] ---
 
 	/** JNI method for {@link #ovr_GetEyePoses _GetEyePoses} */
-	@JavadocExclude
 	public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long hmdToEyeViewOffset, long outEyePoses, long outHmdTrackingState);
 
 	/**

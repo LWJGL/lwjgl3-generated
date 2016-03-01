@@ -18,19 +18,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct stbrp_rect {
- *     int id;
- *     stbrp_coord w;
- *     stbrp_coord h;
- *     stbrp_coord x;
- *     stbrp_coord y;
- *     int was_packed;
- * }</code></pre>
+ * <pre><code>struct stbrp_rect {
+    int id;
+    stbrp_coord w;
+    stbrp_coord h;
+    stbrp_coord x;
+    stbrp_coord y;
+    int was_packed;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>id</td><td>reserved for your use</td></tr>
  * <tr><td>w</td><td>input width</td></tr>
  * <tr><td>h</td><td>input height</td></tr>
@@ -44,7 +43,6 @@ public class STBRPRect extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -158,12 +156,12 @@ public class STBRPRect extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link STBRPRect} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBRPRect} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static STBRPRect malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link STBRPRect} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBRPRect} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static STBRPRect calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -179,7 +177,7 @@ public class STBRPRect extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBRPRect.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBRPRect.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -188,7 +186,7 @@ public class STBRPRect extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBRPRect.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBRPRect.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

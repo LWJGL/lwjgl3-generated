@@ -16,22 +16,21 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkSubmitInfo {
- *     VkStructureType sType;
- *     const void * pNext;
- *     uint32_t waitSemaphoreCount;
- *     const VkSemaphore * pWaitSemaphores;
- *     const VkPipelineStageFlags * pWaitDstStageMask;
- *     uint32_t commandBufferCount;
- *     const VkCommandBuffer * pCommandBuffers;
- *     uint32_t signalSemaphoreCount;
- *     const VkSemaphore * pSignalSemaphores;
- * }</code></pre>
+ * <pre><code>struct VkSubmitInfo {
+    VkStructureType sType;
+    const void * pNext;
+    uint32_t waitSemaphoreCount;
+    const VkSemaphore * pWaitSemaphores;
+    const VkPipelineStageFlags * pWaitDstStageMask;
+    uint32_t commandBufferCount;
+    const VkCommandBuffer * pCommandBuffers;
+    uint32_t signalSemaphoreCount;
+    const VkSemaphore * pSignalSemaphores;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */
@@ -40,7 +39,6 @@ public class VkSubmitInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -173,12 +171,12 @@ public class VkSubmitInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkSubmitInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkSubmitInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkSubmitInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkSubmitInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkSubmitInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkSubmitInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -194,7 +192,7 @@ public class VkSubmitInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkSubmitInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkSubmitInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -203,7 +201,7 @@ public class VkSubmitInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkSubmitInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkSubmitInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

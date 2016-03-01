@@ -36,15 +36,12 @@ public class ARBClipControl {
 		GL_CLIP_DEPTH_MODE = 0x935D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long ClipControl;
 
-	@JavadocExclude
 	protected ARBClipControl() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBClipControl(FunctionProvider provider) {
 		ClipControl = provider.getFunctionAddress("glClipControl");
 	}

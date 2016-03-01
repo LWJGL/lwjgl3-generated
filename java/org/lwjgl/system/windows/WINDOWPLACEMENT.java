@@ -18,20 +18,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct WINDOWPLACEMENT {
- *     UINT length;
- *     UINT flags;
- *     UINT showCmd;
- *     {@link POINT POINT} ptMinPosition;
- *     {@link POINT POINT} ptMaxPosition;
- *     {@link RECT RECT} rcNormalPosition;
- * }</code></pre>
+ * <pre><code>struct WINDOWPLACEMENT {
+    UINT length;
+    UINT flags;
+    UINT showCmd;
+    {@link POINT POINT} ptMinPosition;
+    {@link POINT POINT} ptMaxPosition;
+    {@link RECT RECT} rcNormalPosition;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><td>length</td><td>the length of the structure, in bytes. Before calling the {@link User32#GetWindowPlacement} or {@link User32#SetWindowPlacement} functions, set this member to
+ * <table class=lwjgl>
+ * <tr><td>length</td><td>the length of the structure, in bytes. Before calling the {@link User32#GetWindowPlacement User32.GetWindowPlacement} or {@link User32#SetWindowPlacement User32.SetWindowPlacement} functions, set this member to
  * {@link #SIZEOF}.</td></tr>
  * <tr><td>flags</td><td>the flags that control the position of the minimized window and the method by which the window is restored. This member can be one or more of thefollowing values:<br>{@link User32#WPF_SETMINPOSITION} {@link User32#WPF_RESTORETOMAXIMIZED} {@link User32#WPF_ASYNCWINDOWPLACEMENT}</td></tr>
  * <tr><td>showCmd</td><td>the current show state of the window</td></tr>
@@ -45,7 +44,6 @@ public class WINDOWPLACEMENT extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -159,12 +157,12 @@ public class WINDOWPLACEMENT extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link WINDOWPLACEMENT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link WINDOWPLACEMENT} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static WINDOWPLACEMENT malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link WINDOWPLACEMENT} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link WINDOWPLACEMENT} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static WINDOWPLACEMENT calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -180,7 +178,7 @@ public class WINDOWPLACEMENT extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link WINDOWPLACEMENT.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link WINDOWPLACEMENT.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -189,7 +187,7 @@ public class WINDOWPLACEMENT extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link WINDOWPLACEMENT.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link WINDOWPLACEMENT.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

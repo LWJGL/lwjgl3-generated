@@ -16,19 +16,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkClearAttachment {
- *     VkImageAspectFlags aspectMask;
- *     uint32_t colorAttachment;
- *     {@link VkClearValue VkClearValue} clearValue;
- * }</code></pre>
+ * <pre><code>struct VkClearAttachment {
+    VkImageAspectFlags aspectMask;
+    uint32_t colorAttachment;
+    {@link VkClearValue VkClearValue} clearValue;
+}</code></pre>
  */
 public class VkClearAttachment extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -102,12 +100,12 @@ public class VkClearAttachment extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkClearAttachment} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkClearAttachment} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkClearAttachment malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkClearAttachment} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkClearAttachment} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkClearAttachment calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -123,7 +121,7 @@ public class VkClearAttachment extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkClearAttachment.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkClearAttachment.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -132,7 +130,7 @@ public class VkClearAttachment extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkClearAttachment.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkClearAttachment.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

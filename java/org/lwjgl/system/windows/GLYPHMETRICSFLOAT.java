@@ -17,18 +17,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct GLYPHMETRICSFLOAT {
- *     FLOAT gmfBlackBoxX;
- *     FLOAT gmfBlackBoxY;
- *     {@link POINTFLOAT POINTFLOAT} gmfptGlyphOrigin;
- *     FLOAT gmfCellIncX;
- *     FLOAT gmfCellIncY;
- * }</code></pre>
+ * <pre><code>struct GLYPHMETRICSFLOAT {
+    FLOAT gmfBlackBoxX;
+    FLOAT gmfBlackBoxY;
+    {@link POINTFLOAT POINTFLOAT} gmfptGlyphOrigin;
+    FLOAT gmfCellIncX;
+    FLOAT gmfCellIncY;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>gmfBlackBoxX</td><td>specifies the width of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
  * <tr><td>gmfBlackBoxY</td><td>specifies the height of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
  * <tr><td>gmfptGlyphOrigin</td><td>specifies the x and y coordinates of the upper-left corner of the smallest rectangle that completely encloses the glyph</td></tr>
@@ -41,7 +40,6 @@ public class GLYPHMETRICSFLOAT extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -101,12 +99,12 @@ public class GLYPHMETRICSFLOAT extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link GLYPHMETRICSFLOAT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link GLYPHMETRICSFLOAT} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static GLYPHMETRICSFLOAT malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link GLYPHMETRICSFLOAT} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link GLYPHMETRICSFLOAT} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static GLYPHMETRICSFLOAT calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -122,7 +120,7 @@ public class GLYPHMETRICSFLOAT extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLYPHMETRICSFLOAT.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLYPHMETRICSFLOAT.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -131,7 +129,7 @@ public class GLYPHMETRICSFLOAT extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLYPHMETRICSFLOAT.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLYPHMETRICSFLOAT.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

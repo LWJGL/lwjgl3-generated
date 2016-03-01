@@ -29,17 +29,14 @@ public class KHRWin32Surface {
 	public static final int VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR = 1000009000;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateWin32SurfaceKHR,
 		GetPhysicalDeviceWin32PresentationSupportKHR;
 
-	@JavadocExclude
 	protected KHRWin32Surface() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRWin32Surface(FunctionProvider provider) {
 		CreateWin32SurfaceKHR = provider.getFunctionAddress("vkCreateWin32SurfaceKHR");
 		GetPhysicalDeviceWin32PresentationSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceWin32PresentationSupportKHR");
@@ -77,7 +74,6 @@ public class KHRWin32Surface {
 	// --- [ vkCreateWin32SurfaceKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR} */
-	@JavadocExclude
 	public static int nvkCreateWin32SurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
 		long __functionAddress = getInstance(instance).CreateWin32SurfaceKHR;
 		if ( CHECKS ) {

@@ -147,7 +147,6 @@ public class ARBUniformBufferObject {
 	public static final int GL_INVALID_INDEX = 0xFFFFFFFF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetUniformIndices,
 		GetActiveUniformsiv,
@@ -160,12 +159,10 @@ public class ARBUniformBufferObject {
 		GetIntegeri_v,
 		UniformBlockBinding;
 
-	@JavadocExclude
 	protected ARBUniformBufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBUniformBufferObject(FunctionProvider provider) {
 		GetUniformIndices = provider.getFunctionAddress("glGetUniformIndices");
 		GetActiveUniformsiv = provider.getFunctionAddress("glGetActiveUniformsiv");
@@ -207,7 +204,6 @@ public class ARBUniformBufferObject {
 	// --- [ glGetUniformIndices ] ---
 
 	/** Unsafe version of {@link #glGetUniformIndices GetUniformIndices} */
-	@JavadocExclude
 	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
 		long __functionAddress = getInstance().GetUniformIndices;
 		callIIPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
@@ -265,7 +261,6 @@ public class ARBUniformBufferObject {
 	// --- [ glGetActiveUniformsiv ] ---
 
 	/** Unsafe version of {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
-	@JavadocExclude
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformsiv;
 		callIIPIPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
@@ -307,7 +302,6 @@ public class ARBUniformBufferObject {
 	// --- [ glGetActiveUniformName ] ---
 
 	/** Unsafe version of {@link #glGetActiveUniformName GetActiveUniformName} */
-	@JavadocExclude
 	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
 		long __functionAddress = getInstance().GetActiveUniformName;
 		callIIIPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
@@ -359,7 +353,6 @@ public class ARBUniformBufferObject {
 	// --- [ glGetUniformBlockIndex ] ---
 
 	/** Unsafe version of {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
-	@JavadocExclude
 	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
 		long __functionAddress = getInstance().GetUniformBlockIndex;
 		return callIPI(__functionAddress, program, uniformBlockName);
@@ -387,7 +380,6 @@ public class ARBUniformBufferObject {
 	// --- [ glGetActiveUniformBlockiv ] ---
 
 	/** Unsafe version of {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
-	@JavadocExclude
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformBlockiv;
 		callIIIPV(__functionAddress, program, uniformBlockIndex, pname, params);
@@ -425,7 +417,6 @@ public class ARBUniformBufferObject {
 	// --- [ glGetActiveUniformBlockName ] ---
 
 	/** Unsafe version of {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
-	@JavadocExclude
 	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
 		long __functionAddress = getInstance().GetActiveUniformBlockName;
 		callIIIPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
@@ -507,7 +498,6 @@ public class ARBUniformBufferObject {
 	// --- [ glGetIntegeri_v ] ---
 
 	/** Unsafe version of {@link #glGetIntegeri_v GetIntegeri_v} */
-	@JavadocExclude
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegeri_v;
 		callIIPV(__functionAddress, target, index, data);

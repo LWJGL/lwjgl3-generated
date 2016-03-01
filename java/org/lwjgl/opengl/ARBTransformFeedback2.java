@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * object. When transform feedback is resumed, additional primitives are captured and appended to previously captured primitives for the object.</p>
  * 
  * <p>Additionally, this extension provides the ability to draw primitives captured in transform feedback mode without querying the captured primitive count.
- * The command {@link #glDrawTransformFeedback DrawTransformFeedback} is equivalent to <code style="font-family: monospace">glDrawArrays(&lt;mode&gt;, 0, &lt;count&gt;)</code>, where {@code count} is the number of
+ * The command {@link #glDrawTransformFeedback DrawTransformFeedback} is equivalent to <code>glDrawArrays(&lt;mode&gt;, 0, &lt;count&gt;)</code>, where {@code count} is the number of
  * vertices captured to buffer objects during the last transform feedback capture operation on the transform feedback object used. This draw operation
  * only provides a vertex count -- it does not automatically set up vertex array state or vertex buffer object bindings, which must be done separately by
  * the application.</p>
@@ -46,7 +46,6 @@ public class ARBTransformFeedback2 {
 		GL_TRANSFORM_FEEDBACK_BINDING       = 0x8E25;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindTransformFeedback,
 		DeleteTransformFeedbacks,
@@ -56,12 +55,10 @@ public class ARBTransformFeedback2 {
 		ResumeTransformFeedback,
 		DrawTransformFeedback;
 
-	@JavadocExclude
 	protected ARBTransformFeedback2() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTransformFeedback2(FunctionProvider provider) {
 		BindTransformFeedback = provider.getFunctionAddress("glBindTransformFeedback");
 		DeleteTransformFeedbacks = provider.getFunctionAddress("glDeleteTransformFeedbacks");
@@ -113,7 +110,6 @@ public class ARBTransformFeedback2 {
 	// --- [ glDeleteTransformFeedbacks ] ---
 
 	/** Unsafe version of {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
-	@JavadocExclude
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().DeleteTransformFeedbacks;
 		callIPV(__functionAddress, n, ids);
@@ -146,7 +142,6 @@ public class ARBTransformFeedback2 {
 	// --- [ glGenTransformFeedbacks ] ---
 
 	/** Unsafe version of {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
-	@JavadocExclude
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().GenTransformFeedbacks;
 		callIPV(__functionAddress, n, ids);

@@ -48,15 +48,12 @@ public class EXTBufferStorage {
 	public static final int GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT = 0x4000;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long BufferStorageEXT;
 
-	@JavadocExclude
 	protected EXTBufferStorage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTBufferStorage(FunctionProvider provider) {
 		BufferStorageEXT = provider.getFunctionAddress("glBufferStorageEXT");
 	}
@@ -87,7 +84,6 @@ public class EXTBufferStorage {
 	// --- [ glBufferStorageEXT ] ---
 
 	/** Unsafe version of {@link #glBufferStorageEXT BufferStorageEXT} */
-	@JavadocExclude
 	public static void nglBufferStorageEXT(int target, long size, long data, int flags) {
 		long __functionAddress = getInstance().BufferStorageEXT;
 		callIPPIV(__functionAddress, target, size, data, flags);

@@ -17,19 +17,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct GLFWvidmode {
- *     int width;
- *     int height;
- *     int redBits;
- *     int greenBits;
- *     int blueBits;
- *     int refreshRate;
- * }</code></pre>
+ * <pre><code>struct GLFWvidmode {
+    int width;
+    int height;
+    int redBits;
+    int greenBits;
+    int blueBits;
+    int refreshRate;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>width</td><td>the width, in screen coordinates, of the video mode</td></tr>
  * <tr><td>height</td><td>the height, in screen coordinates, of the video mode</td></tr>
  * <tr><td>redBits</td><td>the bit depth of the red channel of the video mode</td></tr>
@@ -43,7 +42,6 @@ public class GLFWVidMode extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -108,12 +106,12 @@ public class GLFWVidMode extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link GLFWVidMode} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link GLFWVidMode} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static GLFWVidMode malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link GLFWVidMode} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link GLFWVidMode} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static GLFWVidMode calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -129,7 +127,7 @@ public class GLFWVidMode extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLFWVidMode.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLFWVidMode.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -138,7 +136,7 @@ public class GLFWVidMode extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLFWVidMode.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLFWVidMode.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

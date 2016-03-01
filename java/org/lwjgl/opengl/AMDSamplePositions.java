@@ -29,15 +29,12 @@ public class AMDSamplePositions {
 	public static final int GL_SUBSAMPLE_DISTANCE_AMD = 0x883F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long SetMultisamplefvAMD;
 
-	@JavadocExclude
 	protected AMDSamplePositions() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public AMDSamplePositions(FunctionProvider provider) {
 		SetMultisamplefvAMD = provider.getFunctionAddress("glSetMultisamplefvAMD");
 	}
@@ -69,7 +66,6 @@ public class AMDSamplePositions {
 	// --- [ glSetMultisamplefvAMD ] ---
 
 	/** Unsafe version of {@link #glSetMultisamplefvAMD SetMultisamplefvAMD} */
-	@JavadocExclude
 	public static void nglSetMultisamplefvAMD(int pname, int index, long val) {
 		long __functionAddress = getInstance().SetMultisamplefvAMD;
 		callIIPV(__functionAddress, pname, index, val);

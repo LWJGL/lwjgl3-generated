@@ -70,7 +70,6 @@ public class AMDGPUShaderInt64 {
 		GL_FLOAT16_VEC4_NV        = 0x8FFB;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		Uniform1i64NV,
 		Uniform2i64NV,
@@ -107,12 +106,10 @@ public class AMDGPUShaderInt64 {
 		ProgramUniform3ui64vNV,
 		ProgramUniform4ui64vNV;
 
-	@JavadocExclude
 	protected AMDGPUShaderInt64() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public AMDGPUShaderInt64(FunctionProvider provider) {
 		Uniform1i64NV = provider.getFunctionAddress("glUniform1i64NV");
 		Uniform2i64NV = provider.getFunctionAddress("glUniform2i64NV");
@@ -211,7 +208,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform1i64vNV ] ---
 
 	/** Unsafe version of {@link #glUniform1i64vNV Uniform1i64vNV} */
-	@JavadocExclude
 	public static void nglUniform1i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1i64vNV;
 		callIIPV(__functionAddress, location, count, value);
@@ -231,7 +227,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform2i64vNV ] ---
 
 	/** Unsafe version of {@link #glUniform2i64vNV Uniform2i64vNV} */
-	@JavadocExclude
 	public static void nglUniform2i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2i64vNV;
 		callIIPV(__functionAddress, location, count, value);
@@ -251,7 +246,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform3i64vNV ] ---
 
 	/** Unsafe version of {@link #glUniform3i64vNV Uniform3i64vNV} */
-	@JavadocExclude
 	public static void nglUniform3i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3i64vNV;
 		callIIPV(__functionAddress, location, count, value);
@@ -271,7 +265,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform4i64vNV ] ---
 
 	/** Unsafe version of {@link #glUniform4i64vNV Uniform4i64vNV} */
-	@JavadocExclude
 	public static void nglUniform4i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4i64vNV;
 		callIIPV(__functionAddress, location, count, value);
@@ -319,7 +312,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform1ui64vNV ] ---
 
 	/** Unsafe version of {@link #glUniform1ui64vNV Uniform1ui64vNV} */
-	@JavadocExclude
 	public static void nglUniform1ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1ui64vNV;
 		callIIPV(__functionAddress, location, count, value);
@@ -339,7 +331,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform2ui64vNV ] ---
 
 	/** Unsafe version of {@link #glUniform2ui64vNV Uniform2ui64vNV} */
-	@JavadocExclude
 	public static void nglUniform2ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2ui64vNV;
 		callIIPV(__functionAddress, location, count, value);
@@ -359,7 +350,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform3ui64vNV ] ---
 
 	/** Unsafe version of {@link #glUniform3ui64vNV Uniform3ui64vNV} */
-	@JavadocExclude
 	public static void nglUniform3ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3ui64vNV;
 		callIIPV(__functionAddress, location, count, value);
@@ -379,7 +369,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform4ui64vNV ] ---
 
 	/** Unsafe version of {@link #glUniform4ui64vNV Uniform4ui64vNV} */
-	@JavadocExclude
 	public static void nglUniform4ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4ui64vNV;
 		callIIPV(__functionAddress, location, count, value);
@@ -399,7 +388,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glGetUniformi64vNV ] ---
 
 	/** Unsafe version of {@link #glGetUniformi64vNV GetUniformi64vNV} */
-	@JavadocExclude
 	public static void nglGetUniformi64vNV(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformi64vNV;
 		callIIPV(__functionAddress, program, location, params);
@@ -429,7 +417,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glGetUniformui64vNV ] ---
 
 	/** Unsafe version of {@link #glGetUniformui64vNV GetUniformui64vNV} */
-	@JavadocExclude
 	public static void nglGetUniformui64vNV(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformui64vNV;
 		callIIPV(__functionAddress, program, location, params);
@@ -487,7 +474,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform1i64vNV ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1i64vNV ProgramUniform1i64vNV} */
-	@JavadocExclude
 	public static void nglProgramUniform1i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1i64vNV;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -507,7 +493,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform2i64vNV ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2i64vNV ProgramUniform2i64vNV} */
-	@JavadocExclude
 	public static void nglProgramUniform2i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2i64vNV;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -527,7 +512,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform3i64vNV ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3i64vNV ProgramUniform3i64vNV} */
-	@JavadocExclude
 	public static void nglProgramUniform3i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3i64vNV;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -547,7 +531,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform4i64vNV ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4i64vNV ProgramUniform4i64vNV} */
-	@JavadocExclude
 	public static void nglProgramUniform4i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4i64vNV;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -595,7 +578,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform1ui64vNV ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1ui64vNV ProgramUniform1ui64vNV} */
-	@JavadocExclude
 	public static void nglProgramUniform1ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1ui64vNV;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -615,7 +597,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform2ui64vNV ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2ui64vNV ProgramUniform2ui64vNV} */
-	@JavadocExclude
 	public static void nglProgramUniform2ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2ui64vNV;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -635,7 +616,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform3ui64vNV ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3ui64vNV ProgramUniform3ui64vNV} */
-	@JavadocExclude
 	public static void nglProgramUniform3ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3ui64vNV;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -655,7 +635,6 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform4ui64vNV ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4ui64vNV ProgramUniform4ui64vNV} */
-	@JavadocExclude
 	public static void nglProgramUniform4ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4ui64vNV;
 		callIIIPV(__functionAddress, program, location, count, value);

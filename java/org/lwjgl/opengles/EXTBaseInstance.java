@@ -31,18 +31,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTBaseInstance {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawArraysInstancedBaseInstanceEXT,
 		DrawElementsInstancedBaseInstanceEXT,
 		DrawElementsInstancedBaseVertexBaseInstanceEXT;
 
-	@JavadocExclude
 	protected EXTBaseInstance() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTBaseInstance(FunctionProvider provider) {
 		DrawArraysInstancedBaseInstanceEXT = provider.getFunctionAddress("glDrawArraysInstancedBaseInstanceEXT");
 		DrawElementsInstancedBaseInstanceEXT = provider.getFunctionAddress("glDrawElementsInstancedBaseInstanceEXT");
@@ -82,7 +79,6 @@ public class EXTBaseInstance {
 	// --- [ glDrawElementsInstancedBaseInstanceEXT ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseInstanceEXT DrawElementsInstancedBaseInstanceEXT} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseInstanceEXT;
 		callIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, baseinstance);
@@ -134,7 +130,6 @@ public class EXTBaseInstance {
 	// --- [ glDrawElementsInstancedBaseVertexBaseInstanceEXT ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertexBaseInstanceEXT DrawElementsInstancedBaseVertexBaseInstanceEXT} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstanceEXT;
 		callIIIPIIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex, baseinstance);

@@ -68,19 +68,16 @@ public class EXTRobustness {
 		GL_NO_RESET_NOTIFICATION_EXT = 0x8261;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetGraphicsResetStatusEXT,
 		ReadnPixelsEXT,
 		GetnUniformfvEXT,
 		GetnUniformivEXT;
 
-	@JavadocExclude
 	protected EXTRobustness() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTRobustness(FunctionProvider provider) {
 		GetGraphicsResetStatusEXT = provider.getFunctionAddress("glGetGraphicsResetStatusEXT");
 		ReadnPixelsEXT = provider.getFunctionAddress("glReadnPixelsEXT");
@@ -121,7 +118,6 @@ public class EXTRobustness {
 	// --- [ glReadnPixelsEXT ] ---
 
 	/** Unsafe version of {@link #glReadnPixelsEXT ReadnPixelsEXT} */
-	@JavadocExclude
 	public static void nglReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
 		long __functionAddress = getInstance().ReadnPixelsEXT;
 		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
@@ -173,7 +169,6 @@ public class EXTRobustness {
 	// --- [ glGetnUniformfvEXT ] ---
 
 	/** Unsafe version of {@link #glGetnUniformfvEXT GetnUniformfvEXT} */
-	@JavadocExclude
 	public static void nglGetnUniformfvEXT(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfvEXT;
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -201,7 +196,6 @@ public class EXTRobustness {
 	// --- [ glGetnUniformivEXT ] ---
 
 	/** Unsafe version of {@link #glGetnUniformivEXT GetnUniformivEXT} */
-	@JavadocExclude
 	public static void nglGetnUniformivEXT(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformivEXT;
 		callIIIPV(__functionAddress, program, location, bufSize, params);

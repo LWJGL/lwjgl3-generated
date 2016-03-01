@@ -47,18 +47,15 @@ public class SOFTLoopback {
 		ALC_FORMAT_TYPE_SOFT     = 0x1991;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		LoopbackOpenDeviceSOFT,
 		IsRenderFormatSupportedSOFT,
 		RenderSamplesSOFT;
 
-	@JavadocExclude
 	protected SOFTLoopback() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public SOFTLoopback(FunctionProviderLocal provider, long device) {
 		LoopbackOpenDeviceSOFT = provider.getFunctionAddress(device, "alcLoopbackOpenDeviceSOFT");
 		IsRenderFormatSupportedSOFT = provider.getFunctionAddress(device, "alcIsRenderFormatSupportedSOFT");
@@ -92,7 +89,6 @@ public class SOFTLoopback {
 	// --- [ alcLoopbackOpenDeviceSOFT ] ---
 
 	/** Unsafe version of {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
-	@JavadocExclude
 	public static long nalcLoopbackOpenDeviceSOFT(long deviceName) {
 		long __functionAddress = getInstance().LoopbackOpenDeviceSOFT;
 		return invokePP(__functionAddress, deviceName);
@@ -150,7 +146,6 @@ public class SOFTLoopback {
 	// --- [ alcRenderSamplesSOFT ] ---
 
 	/** Unsafe version of {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
-	@JavadocExclude
 	public static void nalcRenderSamplesSOFT(long device, long buffer, int samples) {
 		long __functionAddress = getInstance().RenderSamplesSOFT;
 		if ( CHECKS )

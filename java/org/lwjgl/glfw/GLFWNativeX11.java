@@ -14,19 +14,16 @@ import static org.lwjgl.system.JNI.*;
 public class GLFWNativeX11 {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetX11Display,
 		GetX11Adapter,
 		GetX11Monitor,
 		GetX11Window;
 
-	@JavadocExclude
 	protected GLFWNativeX11() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLFWNativeX11(FunctionProvider provider) {
 		GetX11Display = checkFunctionAddress(provider.getFunctionAddress("glfwGetX11Display"));
 		GetX11Adapter = checkFunctionAddress(provider.getFunctionAddress("glfwGetX11Adapter"));
@@ -51,11 +48,11 @@ public class GLFWNativeX11 {
 	// --- [ glfwGetX11Display ] ---
 
 	/**
-	 * Returns the <code style="font-family: monospace">Display</code> used by GLFW.
+	 * Returns the <code>Display</code> used by GLFW.
 	 * 
 	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
-	 * @return The <code style="font-family: monospace">Display</code> used by GLFW, or {@code NULL} if an error occurred.
+	 * @return The <code>Display</code> used by GLFW, or {@code NULL} if an error occurred.
 	 *
 	 * @since version 3.0
 	 */
@@ -67,13 +64,13 @@ public class GLFWNativeX11 {
 	// --- [ glfwGetX11Adapter ] ---
 
 	/**
-	 * Returns the <code style="font-family: monospace">RRCrtc</code> of the specified monitor.
+	 * Returns the <code>RRCrtc</code> of the specified monitor.
 	 * 
 	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @param monitor the GLFW monitor
 	 *
-	 * @return The <code style="font-family: monospace">RRCrtc</code> of the specified monitor, or {@code None} if an error occurred.
+	 * @return The <code>RRCrtc</code> of the specified monitor, or {@code None} if an error occurred.
 	 *
 	 * @since version 3.1
 	 */
@@ -87,13 +84,13 @@ public class GLFWNativeX11 {
 	// --- [ glfwGetX11Monitor ] ---
 
 	/**
-	 * Returns the <code style="font-family: monospace">RROutput</code> of the specified monitor.
+	 * Returns the <code>RROutput</code> of the specified monitor.
 	 * 
 	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @param monitor the GLFW monitor
 	 *
-	 * @return The <code style="font-family: monospace">RROutput</code> of the specified monitor, or {@code None} if an error occurred.
+	 * @return The <code>RROutput</code> of the specified monitor, or {@code None} if an error occurred.
 	 *
 	 * @since version 3.1
 	 */
@@ -107,13 +104,13 @@ public class GLFWNativeX11 {
 	// --- [ glfwGetX11Window ] ---
 
 	/**
-	 * Returns the <code style="font-family: monospace">Window</code> of the specified window.
+	 * Returns the <code>Window</code> of the specified window.
 	 * 
 	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @param window a GLFW window
 	 *
-	 * @return The <code style="font-family: monospace">Window</code> of the specified window, or {@code None} if an error occurred.
+	 * @return The <code>Window</code> of the specified window, or {@code None} if an error occurred.
 	 *
 	 * @since version 3.0
 	 */

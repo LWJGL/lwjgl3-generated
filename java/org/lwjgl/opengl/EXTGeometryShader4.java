@@ -75,19 +75,16 @@ public class EXTGeometryShader4 {
 	public static final int GL_PROGRAM_POINT_SIZE_EXT = 0x8642;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ProgramParameteriEXT,
 		FramebufferTextureEXT,
 		FramebufferTextureLayerEXT,
 		FramebufferTextureFaceEXT;
 
-	@JavadocExclude
 	protected EXTGeometryShader4() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTGeometryShader4(FunctionProvider provider) {
 		ProgramParameteriEXT = provider.getFunctionAddress("glProgramParameteriEXT");
 		FramebufferTextureEXT = provider.getFunctionAddress("glFramebufferTextureEXT");

@@ -40,15 +40,12 @@ public class WGLARBCreateContext {
 	public static final int ERROR_INVALID_VERSION_ARB = 0x2095;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreateContextAttribsARB;
 
-	@JavadocExclude
 	protected WGLARBCreateContext() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLARBCreateContext(FunctionProvider provider) {
 		CreateContextAttribsARB = provider.getFunctionAddress("wglCreateContextAttribsARB");
 	}
@@ -80,7 +77,6 @@ public class WGLARBCreateContext {
 	// --- [ wglCreateContextAttribsARB ] ---
 
 	/** Unsafe version of {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
-	@JavadocExclude
 	public static long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList) {
 		long __functionAddress = getInstance().CreateContextAttribsARB;
 		if ( CHECKS )

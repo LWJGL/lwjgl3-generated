@@ -42,17 +42,14 @@ public class ARBPointParameters {
 		GL_POINT_DISTANCE_ATTENUATION_ARB = 0x8129;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		PointParameterfARB,
 		PointParameterfvARB;
 
-	@JavadocExclude
 	protected ARBPointParameters() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBPointParameters(FunctionProvider provider) {
 		PointParameterfARB = provider.getFunctionAddress("glPointParameterfARB");
 		PointParameterfvARB = provider.getFunctionAddress("glPointParameterfvARB");
@@ -98,7 +95,6 @@ public class ARBPointParameters {
 	// --- [ glPointParameterfvARB ] ---
 
 	/** Unsafe version of {@link #glPointParameterfvARB PointParameterfvARB} */
-	@JavadocExclude
 	public static void nglPointParameterfvARB(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfvARB;
 		callIPV(__functionAddress, pname, params);

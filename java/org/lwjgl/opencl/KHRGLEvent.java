@@ -29,15 +29,12 @@ public class KHRGLEvent {
 	public static final int CL_COMMAND_GL_FENCE_SYNC_OBJECT_KHR = 0x200D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreateEventFromGLsyncKHR;
 
-	@JavadocExclude
 	protected KHRGLEvent() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRGLEvent(FunctionProvider provider) {
 		CreateEventFromGLsyncKHR = provider.getFunctionAddress("clCreateEventFromGLsyncKHR");
 	}
@@ -67,7 +64,6 @@ public class KHRGLEvent {
 	// --- [ clCreateEventFromGLsyncKHR ] ---
 
 	/** Unsafe version of {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
-	@JavadocExclude
 	public static long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret) {
 		long __functionAddress = getInstance().CreateEventFromGLsyncKHR;
 		if ( CHECKS ) {

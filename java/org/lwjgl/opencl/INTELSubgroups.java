@@ -50,15 +50,12 @@ public class INTELSubgroups {
 		CL_KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR    = 0x2034;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetKernelSubGroupInfoKHR;
 
-	@JavadocExclude
 	protected INTELSubgroups() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public INTELSubgroups(FunctionProvider provider) {
 		GetKernelSubGroupInfoKHR = provider.getFunctionAddress("clGetKernelSubGroupInfoKHR");
 	}
@@ -88,7 +85,6 @@ public class INTELSubgroups {
 	// --- [ clGetKernelSubGroupInfoKHR ] ---
 
 	/** Unsafe version of {@link #clGetKernelSubGroupInfoKHR GetKernelSubGroupInfoKHR} */
-	@JavadocExclude
 	public static int nclGetKernelSubGroupInfoKHR(long kernel, long device, int param_name, long input_value_size, long input_value, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetKernelSubGroupInfoKHR;
 		if ( CHECKS )

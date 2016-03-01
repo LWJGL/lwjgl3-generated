@@ -28,15 +28,12 @@ public class ARBParallelShaderCompile {
 	public static final int GL_COMPLETION_STATUS_ARB = 0x91B1;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long MaxShaderCompilerThreadsARB;
 
-	@JavadocExclude
 	protected ARBParallelShaderCompile() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBParallelShaderCompile(FunctionProvider provider) {
 		MaxShaderCompilerThreadsARB = provider.getFunctionAddress("glMaxShaderCompilerThreadsARB");
 	}

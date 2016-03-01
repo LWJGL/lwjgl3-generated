@@ -162,7 +162,6 @@ public class GL14 {
 	public static final int GL_MIRRORED_REPEAT = 0x8370;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BlendColor,
 		BlendEquation,
@@ -212,12 +211,10 @@ public class GL14 {
 		WindowPos3fv,
 		WindowPos3dv;
 
-	@JavadocExclude
 	protected GL14() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL14(FunctionProvider provider, boolean fc) {
 		BlendColor = provider.getFunctionAddress("glBlendColor");
 		BlendEquation = provider.getFunctionAddress("glBlendEquation");
@@ -366,7 +363,6 @@ public class GL14 {
 	// --- [ glFogCoordfv ] ---
 
 	/** Unsafe version of {@link #glFogCoordfv FogCoordfv} */
-	@JavadocExclude
 	public static void nglFogCoordfv(long coord) {
 		long __functionAddress = getInstance().FogCoordfv;
 		if ( CHECKS )
@@ -397,7 +393,6 @@ public class GL14 {
 	// --- [ glFogCoorddv ] ---
 
 	/** Unsafe version of {@link #glFogCoorddv FogCoorddv} */
-	@JavadocExclude
 	public static void nglFogCoorddv(long coord) {
 		long __functionAddress = getInstance().FogCoorddv;
 		if ( CHECKS )
@@ -428,7 +423,6 @@ public class GL14 {
 	// --- [ glFogCoordPointer ] ---
 
 	/** Unsafe version of {@link #glFogCoordPointer FogCoordPointer} */
-	@JavadocExclude
 	public static void nglFogCoordPointer(int type, int stride, long pointer) {
 		long __functionAddress = getInstance().FogCoordPointer;
 		if ( CHECKS )
@@ -475,7 +469,6 @@ public class GL14 {
 	// --- [ glMultiDrawArrays ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArrays MultiDrawArrays} */
-	@JavadocExclude
 	public static void nglMultiDrawArrays(int mode, long first, long count, int primcount) {
 		long __functionAddress = getInstance().MultiDrawArrays;
 		callIPPIV(__functionAddress, mode, first, count, primcount);
@@ -509,7 +502,6 @@ public class GL14 {
 	// --- [ glMultiDrawElements ] ---
 
 	/** Unsafe version of {@link #glMultiDrawElements MultiDrawElements} */
-	@JavadocExclude
 	public static void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().MultiDrawElements;
 		callIPIPIV(__functionAddress, mode, count, type, indices, primcount);
@@ -576,7 +568,6 @@ public class GL14 {
 	// --- [ glPointParameterfv ] ---
 
 	/** Unsafe version of {@link #glPointParameterfv PointParameterfv} */
-	@JavadocExclude
 	public static void nglPointParameterfv(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfv;
 		callIPV(__functionAddress, pname, params);
@@ -606,7 +597,6 @@ public class GL14 {
 	// --- [ glPointParameteriv ] ---
 
 	/** Unsafe version of {@link #glPointParameteriv PointParameteriv} */
-	@JavadocExclude
 	public static void nglPointParameteriv(int pname, long params) {
 		long __functionAddress = getInstance().PointParameteriv;
 		callIPV(__functionAddress, pname, params);
@@ -780,7 +770,6 @@ public class GL14 {
 	// --- [ glSecondaryColor3bv ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3bv SecondaryColor3bv} */
-	@JavadocExclude
 	public static void nglSecondaryColor3bv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3bv;
 		if ( CHECKS )
@@ -804,7 +793,6 @@ public class GL14 {
 	// --- [ glSecondaryColor3sv ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3sv SecondaryColor3sv} */
-	@JavadocExclude
 	public static void nglSecondaryColor3sv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3sv;
 		if ( CHECKS )
@@ -835,7 +823,6 @@ public class GL14 {
 	// --- [ glSecondaryColor3iv ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3iv SecondaryColor3iv} */
-	@JavadocExclude
 	public static void nglSecondaryColor3iv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3iv;
 		if ( CHECKS )
@@ -866,7 +853,6 @@ public class GL14 {
 	// --- [ glSecondaryColor3fv ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3fv SecondaryColor3fv} */
-	@JavadocExclude
 	public static void nglSecondaryColor3fv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3fv;
 		if ( CHECKS )
@@ -897,7 +883,6 @@ public class GL14 {
 	// --- [ glSecondaryColor3dv ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3dv SecondaryColor3dv} */
-	@JavadocExclude
 	public static void nglSecondaryColor3dv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3dv;
 		if ( CHECKS )
@@ -928,7 +913,6 @@ public class GL14 {
 	// --- [ glSecondaryColor3ubv ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3ubv SecondaryColor3ubv} */
-	@JavadocExclude
 	public static void nglSecondaryColor3ubv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ubv;
 		if ( CHECKS )
@@ -952,7 +936,6 @@ public class GL14 {
 	// --- [ glSecondaryColor3usv ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3usv SecondaryColor3usv} */
-	@JavadocExclude
 	public static void nglSecondaryColor3usv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3usv;
 		if ( CHECKS )
@@ -983,7 +966,6 @@ public class GL14 {
 	// --- [ glSecondaryColor3uiv ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3uiv SecondaryColor3uiv} */
-	@JavadocExclude
 	public static void nglSecondaryColor3uiv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3uiv;
 		if ( CHECKS )
@@ -1014,7 +996,6 @@ public class GL14 {
 	// --- [ glSecondaryColorPointer ] ---
 
 	/** Unsafe version of {@link #glSecondaryColorPointer SecondaryColorPointer} */
-	@JavadocExclude
 	public static void nglSecondaryColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().SecondaryColorPointer;
 		if ( CHECKS )
@@ -1154,7 +1135,6 @@ public class GL14 {
 	// --- [ glWindowPos2iv ] ---
 
 	/** Unsafe version of {@link #glWindowPos2iv WindowPos2iv} */
-	@JavadocExclude
 	public static void nglWindowPos2iv(long p) {
 		long __functionAddress = getInstance().WindowPos2iv;
 		if ( CHECKS )
@@ -1185,7 +1165,6 @@ public class GL14 {
 	// --- [ glWindowPos2sv ] ---
 
 	/** Unsafe version of {@link #glWindowPos2sv WindowPos2sv} */
-	@JavadocExclude
 	public static void nglWindowPos2sv(long p) {
 		long __functionAddress = getInstance().WindowPos2sv;
 		if ( CHECKS )
@@ -1216,7 +1195,6 @@ public class GL14 {
 	// --- [ glWindowPos2fv ] ---
 
 	/** Unsafe version of {@link #glWindowPos2fv WindowPos2fv} */
-	@JavadocExclude
 	public static void nglWindowPos2fv(long p) {
 		long __functionAddress = getInstance().WindowPos2fv;
 		if ( CHECKS )
@@ -1247,7 +1225,6 @@ public class GL14 {
 	// --- [ glWindowPos2dv ] ---
 
 	/** Unsafe version of {@link #glWindowPos2dv WindowPos2dv} */
-	@JavadocExclude
 	public static void nglWindowPos2dv(long p) {
 		long __functionAddress = getInstance().WindowPos2dv;
 		if ( CHECKS )
@@ -1350,7 +1327,6 @@ public class GL14 {
 	// --- [ glWindowPos3iv ] ---
 
 	/** Unsafe version of {@link #glWindowPos3iv WindowPos3iv} */
-	@JavadocExclude
 	public static void nglWindowPos3iv(long p) {
 		long __functionAddress = getInstance().WindowPos3iv;
 		if ( CHECKS )
@@ -1381,7 +1357,6 @@ public class GL14 {
 	// --- [ glWindowPos3sv ] ---
 
 	/** Unsafe version of {@link #glWindowPos3sv WindowPos3sv} */
-	@JavadocExclude
 	public static void nglWindowPos3sv(long p) {
 		long __functionAddress = getInstance().WindowPos3sv;
 		if ( CHECKS )
@@ -1412,7 +1387,6 @@ public class GL14 {
 	// --- [ glWindowPos3fv ] ---
 
 	/** Unsafe version of {@link #glWindowPos3fv WindowPos3fv} */
-	@JavadocExclude
 	public static void nglWindowPos3fv(long p) {
 		long __functionAddress = getInstance().WindowPos3fv;
 		if ( CHECKS )
@@ -1443,7 +1417,6 @@ public class GL14 {
 	// --- [ glWindowPos3dv ] ---
 
 	/** Unsafe version of {@link #glWindowPos3dv WindowPos3dv} */
-	@JavadocExclude
 	public static void nglWindowPos3dv(long p) {
 		long __functionAddress = getInstance().WindowPos3dv;
 		if ( CHECKS )

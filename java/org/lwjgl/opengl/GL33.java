@@ -87,7 +87,6 @@ public class GL33 {
 	public static final int GL_INT_2_10_10_10_REV = 0x8D9F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindFragDataLocationIndexed,
 		GetFragDataIndex,
@@ -148,12 +147,10 @@ public class GL33 {
 		VertexAttribP3uiv,
 		VertexAttribP4uiv;
 
-	@JavadocExclude
 	protected GL33() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL33(FunctionProvider provider, boolean fc) {
 		BindFragDataLocationIndexed = provider.getFunctionAddress("glBindFragDataLocationIndexed");
 		GetFragDataIndex = provider.getFunctionAddress("glGetFragDataIndex");
@@ -252,7 +249,6 @@ public class GL33 {
 	// --- [ glBindFragDataLocationIndexed ] ---
 
 	/** Unsafe version of {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
-	@JavadocExclude
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = getInstance().BindFragDataLocationIndexed;
 		callIIIPV(__functionAddress, program, colorNumber, index, name);
@@ -284,7 +280,6 @@ public class GL33 {
 	// --- [ glGetFragDataIndex ] ---
 
 	/** Unsafe version of {@link #glGetFragDataIndex GetFragDataIndex} */
-	@JavadocExclude
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataIndex;
 		return callIPI(__functionAddress, program, name);
@@ -314,7 +309,6 @@ public class GL33 {
 	// --- [ glGenSamplers ] ---
 
 	/** Unsafe version of {@link #glGenSamplers GenSamplers} */
-	@JavadocExclude
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().GenSamplers;
 		callIPV(__functionAddress, count, samplers);
@@ -350,7 +344,6 @@ public class GL33 {
 	// --- [ glDeleteSamplers ] ---
 
 	/** Unsafe version of {@link #glDeleteSamplers DeleteSamplers} */
-	@JavadocExclude
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().DeleteSamplers;
 		callIPV(__functionAddress, count, samplers);
@@ -446,7 +439,6 @@ public class GL33 {
 	// --- [ glSamplerParameteriv ] ---
 
 	/** Unsafe version of {@link #glSamplerParameteriv SamplerParameteriv} */
-	@JavadocExclude
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameteriv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -473,7 +465,6 @@ public class GL33 {
 	// --- [ glSamplerParameterfv ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterfv SamplerParameterfv} */
-	@JavadocExclude
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterfv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -500,7 +491,6 @@ public class GL33 {
 	// --- [ glSamplerParameterIiv ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIiv SamplerParameterIiv} */
-	@JavadocExclude
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIiv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -527,7 +517,6 @@ public class GL33 {
 	// --- [ glSamplerParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
-	@JavadocExclude
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIuiv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -554,7 +543,6 @@ public class GL33 {
 	// --- [ glGetSamplerParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
-	@JavadocExclude
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameteriv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -593,7 +581,6 @@ public class GL33 {
 	// --- [ glGetSamplerParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterfv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -632,7 +619,6 @@ public class GL33 {
 	// --- [ glGetSamplerParameterIiv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIiv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -671,7 +657,6 @@ public class GL33 {
 	// --- [ glGetSamplerParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuiv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -725,7 +710,6 @@ public class GL33 {
 	// --- [ glGetQueryObjecti64v ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
-	@JavadocExclude
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64v;
 		callIIPV(__functionAddress, id, pname, params);
@@ -764,7 +748,6 @@ public class GL33 {
 	// --- [ glGetQueryObjectui64v ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
-	@JavadocExclude
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64v;
 		callIIPV(__functionAddress, id, pname, params);
@@ -869,7 +852,6 @@ public class GL33 {
 	// --- [ glVertexP2uiv ] ---
 
 	/** Unsafe version of {@link #glVertexP2uiv VertexP2uiv} */
-	@JavadocExclude
 	public static void nglVertexP2uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP2uiv;
 		if ( CHECKS )
@@ -901,7 +883,6 @@ public class GL33 {
 	// --- [ glVertexP3uiv ] ---
 
 	/** Unsafe version of {@link #glVertexP3uiv VertexP3uiv} */
-	@JavadocExclude
 	public static void nglVertexP3uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP3uiv;
 		if ( CHECKS )
@@ -933,7 +914,6 @@ public class GL33 {
 	// --- [ glVertexP4uiv ] ---
 
 	/** Unsafe version of {@link #glVertexP4uiv VertexP4uiv} */
-	@JavadocExclude
 	public static void nglVertexP4uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP4uiv;
 		if ( CHECKS )
@@ -1033,7 +1013,6 @@ public class GL33 {
 	// --- [ glTexCoordP1uiv ] ---
 
 	/** Unsafe version of {@link #glTexCoordP1uiv TexCoordP1uiv} */
-	@JavadocExclude
 	public static void nglTexCoordP1uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP1uiv;
 		if ( CHECKS )
@@ -1065,7 +1044,6 @@ public class GL33 {
 	// --- [ glTexCoordP2uiv ] ---
 
 	/** Unsafe version of {@link #glTexCoordP2uiv TexCoordP2uiv} */
-	@JavadocExclude
 	public static void nglTexCoordP2uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP2uiv;
 		if ( CHECKS )
@@ -1097,7 +1075,6 @@ public class GL33 {
 	// --- [ glTexCoordP3uiv ] ---
 
 	/** Unsafe version of {@link #glTexCoordP3uiv TexCoordP3uiv} */
-	@JavadocExclude
 	public static void nglTexCoordP3uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP3uiv;
 		if ( CHECKS )
@@ -1129,7 +1106,6 @@ public class GL33 {
 	// --- [ glTexCoordP4uiv ] ---
 
 	/** Unsafe version of {@link #glTexCoordP4uiv TexCoordP4uiv} */
-	@JavadocExclude
 	public static void nglTexCoordP4uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP4uiv;
 		if ( CHECKS )
@@ -1233,7 +1209,6 @@ public class GL33 {
 	// --- [ glMultiTexCoordP1uiv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv} */
-	@JavadocExclude
 	public static void nglMultiTexCoordP1uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP1uiv;
 		if ( CHECKS )
@@ -1266,7 +1241,6 @@ public class GL33 {
 	// --- [ glMultiTexCoordP2uiv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv} */
-	@JavadocExclude
 	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP2uiv;
 		if ( CHECKS )
@@ -1299,7 +1273,6 @@ public class GL33 {
 	// --- [ glMultiTexCoordP3uiv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv} */
-	@JavadocExclude
 	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP3uiv;
 		if ( CHECKS )
@@ -1332,7 +1305,6 @@ public class GL33 {
 	// --- [ glMultiTexCoordP4uiv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv} */
-	@JavadocExclude
 	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP4uiv;
 		if ( CHECKS )
@@ -1382,7 +1354,6 @@ public class GL33 {
 	// --- [ glNormalP3uiv ] ---
 
 	/** Unsafe version of {@link #glNormalP3uiv NormalP3uiv} */
-	@JavadocExclude
 	public static void nglNormalP3uiv(int type, long coords) {
 		long __functionAddress = getInstance().NormalP3uiv;
 		if ( CHECKS )
@@ -1448,7 +1419,6 @@ public class GL33 {
 	// --- [ glColorP3uiv ] ---
 
 	/** Unsafe version of {@link #glColorP3uiv ColorP3uiv} */
-	@JavadocExclude
 	public static void nglColorP3uiv(int type, long color) {
 		long __functionAddress = getInstance().ColorP3uiv;
 		if ( CHECKS )
@@ -1480,7 +1450,6 @@ public class GL33 {
 	// --- [ glColorP4uiv ] ---
 
 	/** Unsafe version of {@link #glColorP4uiv ColorP4uiv} */
-	@JavadocExclude
 	public static void nglColorP4uiv(int type, long color) {
 		long __functionAddress = getInstance().ColorP4uiv;
 		if ( CHECKS )
@@ -1529,7 +1498,6 @@ public class GL33 {
 	// --- [ glSecondaryColorP3uiv ] ---
 
 	/** Unsafe version of {@link #glSecondaryColorP3uiv SecondaryColorP3uiv} */
-	@JavadocExclude
 	public static void nglSecondaryColorP3uiv(int type, long color) {
 		long __functionAddress = getInstance().SecondaryColorP3uiv;
 		if ( CHECKS )
@@ -1629,7 +1597,6 @@ public class GL33 {
 	// --- [ glVertexAttribP1uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribP1uiv VertexAttribP1uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP1uiv;
 		callIIZPV(__functionAddress, index, type, normalized, value);
@@ -1661,7 +1628,6 @@ public class GL33 {
 	// --- [ glVertexAttribP2uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribP2uiv VertexAttribP2uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP2uiv;
 		callIIZPV(__functionAddress, index, type, normalized, value);
@@ -1693,7 +1659,6 @@ public class GL33 {
 	// --- [ glVertexAttribP3uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribP3uiv VertexAttribP3uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP3uiv;
 		callIIZPV(__functionAddress, index, type, normalized, value);
@@ -1725,7 +1690,6 @@ public class GL33 {
 	// --- [ glVertexAttribP4uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribP4uiv VertexAttribP4uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP4uiv;
 		callIIZPV(__functionAddress, index, type, normalized, value);

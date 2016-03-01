@@ -23,7 +23,6 @@ public class OVRGL {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected OVRGL() {
 		throw new UnsupportedOperationException();
 	}
@@ -31,7 +30,6 @@ public class OVRGL {
 	// --- [ ovr_CreateSwapTextureSetGL ] ---
 
 	/** JNI method for {@link #ovr_CreateSwapTextureSetGL CreateSwapTextureSetGL} */
-	@JavadocExclude
 	public static native int novr_CreateSwapTextureSetGL(long session, int format, int width, int height, long outTextureSet);
 
 	/**
@@ -77,7 +75,6 @@ public class OVRGL {
 	// --- [ ovr_CreateMirrorTextureGL ] ---
 
 	/** JNI method for {@link #ovr_CreateMirrorTextureGL CreateMirrorTextureGL} */
-	@JavadocExclude
 	public static native int novr_CreateMirrorTextureGL(long session, int format, int width, int height, long outMirrorTexture);
 
 	/**

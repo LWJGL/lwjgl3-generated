@@ -142,7 +142,6 @@ public class EXTFramebufferObject {
 	public static final int GL_INVALID_FRAMEBUFFER_OPERATION_EXT = 0x506;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		IsRenderbufferEXT,
 		BindRenderbufferEXT,
@@ -162,12 +161,10 @@ public class EXTFramebufferObject {
 		GetFramebufferAttachmentParameterivEXT,
 		GenerateMipmapEXT;
 
-	@JavadocExclude
 	protected EXTFramebufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTFramebufferObject(FunctionProvider provider) {
 		IsRenderbufferEXT = provider.getFunctionAddress("glIsRenderbufferEXT");
 		BindRenderbufferEXT = provider.getFunctionAddress("glBindRenderbufferEXT");
@@ -232,7 +229,6 @@ public class EXTFramebufferObject {
 	// --- [ glDeleteRenderbuffersEXT ] ---
 
 	/** Unsafe version of {@link #glDeleteRenderbuffersEXT DeleteRenderbuffersEXT} */
-	@JavadocExclude
 	public static void nglDeleteRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffersEXT;
 		callIPV(__functionAddress, n, renderbuffers);
@@ -259,7 +255,6 @@ public class EXTFramebufferObject {
 	// --- [ glGenRenderbuffersEXT ] ---
 
 	/** Unsafe version of {@link #glGenRenderbuffersEXT GenRenderbuffersEXT} */
-	@JavadocExclude
 	public static void nglGenRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffersEXT;
 		callIPV(__functionAddress, n, renderbuffers);
@@ -294,7 +289,6 @@ public class EXTFramebufferObject {
 	// --- [ glGetRenderbufferParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
-	@JavadocExclude
 	public static void nglGetRenderbufferParameterivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameterivEXT;
 		callIIPV(__functionAddress, target, pname, params);
@@ -338,7 +332,6 @@ public class EXTFramebufferObject {
 	// --- [ glDeleteFramebuffersEXT ] ---
 
 	/** Unsafe version of {@link #glDeleteFramebuffersEXT DeleteFramebuffersEXT} */
-	@JavadocExclude
 	public static void nglDeleteFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffersEXT;
 		callIPV(__functionAddress, n, framebuffers);
@@ -365,7 +358,6 @@ public class EXTFramebufferObject {
 	// --- [ glGenFramebuffersEXT ] ---
 
 	/** Unsafe version of {@link #glGenFramebuffersEXT GenFramebuffersEXT} */
-	@JavadocExclude
 	public static void nglGenFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffersEXT;
 		callIPV(__functionAddress, n, framebuffers);
@@ -428,7 +420,6 @@ public class EXTFramebufferObject {
 	// --- [ glGetFramebufferAttachmentParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
-	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameterivEXT;
 		callIIIPV(__functionAddress, target, attachment, pname, params);

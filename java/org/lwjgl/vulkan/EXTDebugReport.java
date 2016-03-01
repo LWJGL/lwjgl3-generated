@@ -81,18 +81,15 @@ public class EXTDebugReport {
 	public static final int VK_ERROR_VALIDATION_FAILED_EXT = -1000011001;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateDebugReportCallbackEXT,
 		DestroyDebugReportCallbackEXT,
 		DebugReportMessageEXT;
 
-	@JavadocExclude
 	protected EXTDebugReport() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDebugReport(FunctionProvider provider) {
 		CreateDebugReportCallbackEXT = provider.getFunctionAddress("vkCreateDebugReportCallbackEXT");
 		DestroyDebugReportCallbackEXT = provider.getFunctionAddress("vkDestroyDebugReportCallbackEXT");
@@ -131,7 +128,6 @@ public class EXTDebugReport {
 	// --- [ vkCreateDebugReportCallbackEXT ] ---
 
 	/** Unsafe version of {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT} */
-	@JavadocExclude
 	public static int nvkCreateDebugReportCallbackEXT(VkInstance instance, long pCreateInfo, long pAllocator, long pCallback) {
 		long __functionAddress = getInstance(instance).CreateDebugReportCallbackEXT;
 		if ( CHECKS ) {
@@ -158,7 +154,6 @@ public class EXTDebugReport {
 	// --- [ vkDestroyDebugReportCallbackEXT ] ---
 
 	/** Unsafe version of {@link #vkDestroyDebugReportCallbackEXT DestroyDebugReportCallbackEXT} */
-	@JavadocExclude
 	public static void nvkDestroyDebugReportCallbackEXT(VkInstance instance, long callback, long pAllocator) {
 		long __functionAddress = getInstance(instance).DestroyDebugReportCallbackEXT;
 		if ( CHECKS ) {
@@ -175,7 +170,6 @@ public class EXTDebugReport {
 	// --- [ vkDebugReportMessageEXT ] ---
 
 	/** Unsafe version of {@link #vkDebugReportMessageEXT DebugReportMessageEXT} */
-	@JavadocExclude
 	public static void nvkDebugReportMessageEXT(VkInstance instance, int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage) {
 		long __functionAddress = getInstance(instance).DebugReportMessageEXT;
 		if ( CHECKS )

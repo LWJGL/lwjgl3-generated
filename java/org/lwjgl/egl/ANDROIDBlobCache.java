@@ -31,15 +31,12 @@ import static org.lwjgl.system.JNI.*;
 public class ANDROIDBlobCache {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long SetBlobCacheFuncsANDROID;
 
-	@JavadocExclude
 	protected ANDROIDBlobCache() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ANDROIDBlobCache(FunctionProvider provider) {
 		SetBlobCacheFuncsANDROID = provider.getFunctionAddress("eglSetBlobCacheFuncsANDROID");
 	}

@@ -18,23 +18,22 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct cl_image_desc {
- *     cl_mem_object_type image_type;
- *     size_t image_width;
- *     size_t image_height;
- *     size_t image_depth;
- *     size_t image_array_size;
- *     size_t image_row_pitch;
- *     size_t image_slice_pitch;
- *     cl_uint num_mip_levels;
- *     cl_uint num_samples;
- *     cl_mem buffer;
- * }</code></pre>
+ * <pre><code>struct cl_image_desc {
+    cl_mem_object_type image_type;
+    size_t image_width;
+    size_t image_height;
+    size_t image_depth;
+    size_t image_array_size;
+    size_t image_row_pitch;
+    size_t image_slice_pitch;
+    cl_uint num_mip_levels;
+    cl_uint num_samples;
+    cl_mem buffer;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>image_type</td><td>describes the image type</td></tr>
  * <tr><td>image_width</td><td>the width of the image in pixels. For a 2D image and image array, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_WIDTH}. For a 3D image, the
  * image width must be &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_WIDTH}. For a 1D image buffer, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE_MAX_BUFFER_SIZE}.
@@ -67,7 +66,6 @@ public class CLImageDesc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -217,12 +215,12 @@ public class CLImageDesc extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link CLImageDesc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link CLImageDesc} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static CLImageDesc malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link CLImageDesc} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link CLImageDesc} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static CLImageDesc calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -238,7 +236,7 @@ public class CLImageDesc extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link CLImageDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link CLImageDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -247,7 +245,7 @@ public class CLImageDesc extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link CLImageDesc.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link CLImageDesc.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

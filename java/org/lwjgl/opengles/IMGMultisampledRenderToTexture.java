@@ -45,17 +45,14 @@ public class IMGMultisampledRenderToTexture {
 	public static final int GL_TEXTURE_SAMPLES_IMG = 0x9136;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		RenderbufferStorageMultisampleIMG,
 		FramebufferTexture2DMultisampleIMG;
 
-	@JavadocExclude
 	protected IMGMultisampledRenderToTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public IMGMultisampledRenderToTexture(FunctionProvider provider) {
 		RenderbufferStorageMultisampleIMG = provider.getFunctionAddress("glRenderbufferStorageMultisampleIMG");
 		FramebufferTexture2DMultisampleIMG = provider.getFunctionAddress("glFramebufferTexture2DMultisampleIMG");

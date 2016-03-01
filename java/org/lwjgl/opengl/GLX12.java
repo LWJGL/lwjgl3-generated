@@ -14,15 +14,12 @@ import static org.lwjgl.system.JNI.*;
 public class GLX12 {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetCurrentDisplay;
 
-	@JavadocExclude
 	protected GLX12() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLX12(FunctionProvider provider) {
 		GetCurrentDisplay = provider.getFunctionAddress("glXGetCurrentDisplay");
 	}

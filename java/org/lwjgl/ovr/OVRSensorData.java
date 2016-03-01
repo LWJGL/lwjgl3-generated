@@ -17,18 +17,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrSensorData {
- *     {@link OVRVector3f ovrVector3f} Accelerometer;
- *     {@link OVRVector3f ovrVector3f} Gyro;
- *     {@link OVRVector3f ovrVector3f} Magnetometer;
- *     float Temperature;
- *     float TimeInSeconds;
- * }</code></pre>
+ * <pre><code>struct ovrSensorData {
+    {@link OVRVector3f ovrVector3f} Accelerometer;
+    {@link OVRVector3f ovrVector3f} Gyro;
+    {@link OVRVector3f ovrVector3f} Magnetometer;
+    float Temperature;
+    float TimeInSeconds;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>Accelerometer</td><td>acceleration reading in m/s^2</td></tr>
  * <tr><td>Gyro</td><td>rotation rate in rad/s</td></tr>
  * <tr><td>Magnetometer</td><td>magnetic field in Gauss</td></tr>
@@ -41,7 +40,6 @@ public class OVRSensorData extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -101,12 +99,12 @@ public class OVRSensorData extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRSensorData} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRSensorData} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRSensorData malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRSensorData} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRSensorData} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRSensorData calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -122,7 +120,7 @@ public class OVRSensorData extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRSensorData.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRSensorData.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -131,7 +129,7 @@ public class OVRSensorData extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRSensorData.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRSensorData.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

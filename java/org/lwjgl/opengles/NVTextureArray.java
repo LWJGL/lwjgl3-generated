@@ -52,7 +52,6 @@ public class NVTextureArray {
 		GL_UNPACK_IMAGE_HEIGHT_NV = 0x806E;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexImage3DNV,
 		TexSubImage3DNV,
@@ -61,12 +60,10 @@ public class NVTextureArray {
 		CompressedTexSubImage3DNV,
 		FramebufferTextureLayerNV;
 
-	@JavadocExclude
 	protected NVTextureArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVTextureArray(FunctionProvider provider) {
 		TexImage3DNV = provider.getFunctionAddress("glTexImage3DNV");
 		TexSubImage3DNV = provider.getFunctionAddress("glTexSubImage3DNV");
@@ -103,7 +100,6 @@ public class NVTextureArray {
 	// --- [ glTexImage3DNV ] ---
 
 	/** Unsafe version of {@link #glTexImage3DNV TexImage3DNV} */
-	@JavadocExclude
 	public static void nglTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage3DNV;
 		callIIIIIIIIIPV(__functionAddress, target, level, internalFormat, width, height, depth, border, format, type, pixels);
@@ -146,7 +142,6 @@ public class NVTextureArray {
 	// --- [ glTexSubImage3DNV ] ---
 
 	/** Unsafe version of {@link #glTexSubImage3DNV TexSubImage3DNV} */
-	@JavadocExclude
 	public static void nglTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage3DNV;
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -196,7 +191,6 @@ public class NVTextureArray {
 	// --- [ glCompressedTexImage3DNV ] ---
 
 	/** Unsafe version of {@link #glCompressedTexImage3DNV CompressedTexImage3DNV} */
-	@JavadocExclude
 	public static void nglCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3DNV;
 		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
@@ -218,7 +212,6 @@ public class NVTextureArray {
 	// --- [ glCompressedTexSubImage3DNV ] ---
 
 	/** Unsafe version of {@link #glCompressedTexSubImage3DNV CompressedTexSubImage3DNV} */
-	@JavadocExclude
 	public static void nglCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3DNV;
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);

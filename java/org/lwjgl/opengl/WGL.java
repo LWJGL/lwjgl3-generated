@@ -59,7 +59,6 @@ public class WGL {
 		WGL_SWAP_UNDERLAY15 = 0x40000000;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateContext,
 		CreateLayerContext,
@@ -73,12 +72,10 @@ public class WGL {
 		UseFontBitmaps,
 		UseFontOutlines;
 
-	@JavadocExclude
 	protected WGL() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGL(FunctionProvider provider) {
 		CreateContext = provider.getFunctionAddress("wglCreateContext");
 		CreateLayerContext = provider.getFunctionAddress("wglCreateLayerContext");
@@ -205,7 +202,6 @@ public class WGL {
 	// --- [ wglGetProcAddress ] ---
 
 	/** Unsafe version of {@link #wglGetProcAddress GetProcAddress} */
-	@JavadocExclude
 	public static long nwglGetProcAddress(long proc) {
 		long __functionAddress = getInstance().GetProcAddress;
 		return callPP(__functionAddress, proc);
@@ -287,7 +283,6 @@ public class WGL {
 	// --- [ wglUseFontOutlines ] ---
 
 	/** Unsafe version of {@link #wglUseFontOutlines UseFontOutlines} */
-	@JavadocExclude
 	public static int nwglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, long glyphMetrics) {
 		long __functionAddress = getInstance().UseFontOutlines;
 		if ( CHECKS )

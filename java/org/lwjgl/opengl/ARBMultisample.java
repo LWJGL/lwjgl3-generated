@@ -51,15 +51,12 @@ public class ARBMultisample {
 		GL_SAMPLE_COVERAGE_INVERT_ARB = 0x80AB;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long SampleCoverageARB;
 
-	@JavadocExclude
 	protected ARBMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBMultisample(FunctionProvider provider) {
 		SampleCoverageARB = provider.getFunctionAddress("glSampleCoverageARB");
 	}

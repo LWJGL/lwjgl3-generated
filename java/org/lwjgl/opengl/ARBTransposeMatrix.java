@@ -36,19 +36,16 @@ public class ARBTransposeMatrix {
 		GL_TRANSPOSE_COLOR_MATRIX_ARB      = 0x84E6;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		LoadTransposeMatrixfARB,
 		LoadTransposeMatrixdARB,
 		MultTransposeMatrixfARB,
 		MultTransposeMatrixdARB;
 
-	@JavadocExclude
 	protected ARBTransposeMatrix() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTransposeMatrix(FunctionProvider provider) {
 		LoadTransposeMatrixfARB = provider.getFunctionAddress("glLoadTransposeMatrixfARB");
 		LoadTransposeMatrixdARB = provider.getFunctionAddress("glLoadTransposeMatrixdARB");
@@ -83,7 +80,6 @@ public class ARBTransposeMatrix {
 	// --- [ glLoadTransposeMatrixfARB ] ---
 
 	/** Unsafe version of {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} */
-	@JavadocExclude
 	public static void nglLoadTransposeMatrixfARB(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixfARB;
 		callPV(__functionAddress, m);
@@ -94,7 +90,7 @@ public class ARBTransposeMatrix {
 	 * 
 	 * <p>The matrix is stored as 16 consecutive values, i.e. as:</p>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
+	 * <table class="lwjgl matrix">
 	 * <tr><td>a1</td><td>a2</td><td>a3</td><td>a4</td></tr>
 	 * <tr><td>a5</td><td>a6</td><td>a7</td><td>a8</td></tr>
 	 * <tr><td>a9</td><td>a10</td><td>a11</td><td>a12</td></tr>
@@ -119,7 +115,6 @@ public class ARBTransposeMatrix {
 	// --- [ glLoadTransposeMatrixdARB ] ---
 
 	/** Unsafe version of {@link #glLoadTransposeMatrixdARB LoadTransposeMatrixdARB} */
-	@JavadocExclude
 	public static void nglLoadTransposeMatrixdARB(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixdARB;
 		callPV(__functionAddress, m);
@@ -146,7 +141,6 @@ public class ARBTransposeMatrix {
 	// --- [ glMultTransposeMatrixfARB ] ---
 
 	/** Unsafe version of {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB} */
-	@JavadocExclude
 	public static void nglMultTransposeMatrixfARB(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixfARB;
 		callPV(__functionAddress, m);
@@ -173,7 +167,6 @@ public class ARBTransposeMatrix {
 	// --- [ glMultTransposeMatrixdARB ] ---
 
 	/** Unsafe version of {@link #glMultTransposeMatrixdARB MultTransposeMatrixdARB} */
-	@JavadocExclude
 	public static void nglMultTransposeMatrixdARB(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixdARB;
 		callPV(__functionAddress, m);

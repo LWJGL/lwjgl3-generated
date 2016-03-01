@@ -16,26 +16,24 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkSubpassDescription {
- *     VkSubpassDescriptionFlags flags;
- *     VkPipelineBindPoint pipelineBindPoint;
- *     uint32_t inputAttachmentCount;
- *     const VkAttachmentReference * pInputAttachments;
- *     uint32_t colorAttachmentCount;
- *     const VkAttachmentReference * pColorAttachments;
- *     const VkAttachmentReference * pResolveAttachments;
- *     const VkAttachmentReference * pDepthStencilAttachment;
- *     uint32_t preserveAttachmentCount;
- *     const uint32_t * pPreserveAttachments;
- * }</code></pre>
+ * <pre><code>struct VkSubpassDescription {
+    VkSubpassDescriptionFlags flags;
+    VkPipelineBindPoint pipelineBindPoint;
+    uint32_t inputAttachmentCount;
+    const VkAttachmentReference * pInputAttachments;
+    uint32_t colorAttachmentCount;
+    const VkAttachmentReference * pColorAttachments;
+    const VkAttachmentReference * pResolveAttachments;
+    const VkAttachmentReference * pDepthStencilAttachment;
+    uint32_t preserveAttachmentCount;
+    const uint32_t * pPreserveAttachments;
+}</code></pre>
  */
 public class VkSubpassDescription extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -177,12 +175,12 @@ public class VkSubpassDescription extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkSubpassDescription} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkSubpassDescription} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkSubpassDescription malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkSubpassDescription} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkSubpassDescription} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkSubpassDescription calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -198,7 +196,7 @@ public class VkSubpassDescription extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkSubpassDescription.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkSubpassDescription.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -207,7 +205,7 @@ public class VkSubpassDescription extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkSubpassDescription.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkSubpassDescription.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

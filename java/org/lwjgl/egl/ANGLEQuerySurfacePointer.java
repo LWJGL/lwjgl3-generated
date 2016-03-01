@@ -23,15 +23,12 @@ import static org.lwjgl.system.Pointer.*;
 public class ANGLEQuerySurfacePointer {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long QuerySurfacePointerANGLE;
 
-	@JavadocExclude
 	protected ANGLEQuerySurfacePointer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ANGLEQuerySurfacePointer(FunctionProvider provider) {
 		QuerySurfacePointerANGLE = provider.getFunctionAddress("eglQuerySurfacePointerANGLE");
 	}
@@ -51,7 +48,6 @@ public class ANGLEQuerySurfacePointer {
 	// --- [ eglQuerySurfacePointerANGLE ] ---
 
 	/** Unsafe version of {@link #eglQuerySurfacePointerANGLE QuerySurfacePointerANGLE} */
-	@JavadocExclude
 	public static int neglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = getInstance().QuerySurfacePointerANGLE;
 		if ( CHECKS ) {

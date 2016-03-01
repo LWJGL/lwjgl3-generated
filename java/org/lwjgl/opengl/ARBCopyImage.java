@@ -30,15 +30,12 @@ import static org.lwjgl.system.JNI.*;
 public class ARBCopyImage {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CopyImageSubData;
 
-	@JavadocExclude
 	protected ARBCopyImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBCopyImage(FunctionProvider provider) {
 		CopyImageSubData = provider.getFunctionAddress("glCopyImageSubData");
 	}

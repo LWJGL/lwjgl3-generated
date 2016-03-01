@@ -40,7 +40,6 @@ public class ARBDirectStateAccess {
 	public static final int GL_QUERY_TARGET = 0x82EA;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateTransformFeedbacks,
 		TransformFeedbackBufferBase,
@@ -140,12 +139,10 @@ public class ARBDirectStateAccess {
 		GetQueryBufferObjectui64v,
 		GetQueryBufferObjectuiv;
 
-	@JavadocExclude
 	protected ARBDirectStateAccess() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBDirectStateAccess(FunctionProvider provider) {
 		CreateTransformFeedbacks = provider.getFunctionAddress("glCreateTransformFeedbacks");
 		TransformFeedbackBufferBase = provider.getFunctionAddress("glTransformFeedbackBufferBase");
@@ -295,7 +292,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCreateTransformFeedbacks ] ---
 
 	/** Unsafe version of {@link #glCreateTransformFeedbacks CreateTransformFeedbacks} */
-	@JavadocExclude
 	public static void nglCreateTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().CreateTransformFeedbacks;
 		callIPV(__functionAddress, n, ids);
@@ -359,7 +355,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTransformFeedbackiv ] ---
 
 	/** Unsafe version of {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
-	@JavadocExclude
 	public static void nglGetTransformFeedbackiv(int xfb, int pname, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbackiv;
 		callIIPV(__functionAddress, xfb, pname, param);
@@ -396,7 +391,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTransformFeedbacki_v ] ---
 
 	/** Unsafe version of {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
-	@JavadocExclude
 	public static void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbacki_v;
 		callIIIPV(__functionAddress, xfb, pname, index, param);
@@ -434,7 +428,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTransformFeedbacki64_v ] ---
 
 	/** Unsafe version of {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
-	@JavadocExclude
 	public static void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbacki64_v;
 		callIIIPV(__functionAddress, xfb, pname, index, param);
@@ -472,7 +465,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCreateBuffers ] ---
 
 	/** Unsafe version of {@link #glCreateBuffers CreateBuffers} */
-	@JavadocExclude
 	public static void nglCreateBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().CreateBuffers;
 		callIPV(__functionAddress, n, buffers);
@@ -507,7 +499,6 @@ public class ARBDirectStateAccess {
 	// --- [ glNamedBufferStorage ] ---
 
 	/** Unsafe version of {@link #glNamedBufferStorage NamedBufferStorage} */
-	@JavadocExclude
 	public static void nglNamedBufferStorage(int buffer, long size, long data, int flags) {
 		long __functionAddress = getInstance().NamedBufferStorage;
 		callIPPIV(__functionAddress, buffer, size, data, flags);
@@ -596,7 +587,6 @@ public class ARBDirectStateAccess {
 	// --- [ glNamedBufferData ] ---
 
 	/** Unsafe version of {@link #glNamedBufferData NamedBufferData} */
-	@JavadocExclude
 	public static void nglNamedBufferData(int buffer, long size, long data, int usage) {
 		long __functionAddress = getInstance().NamedBufferData;
 		callIPPIV(__functionAddress, buffer, size, data, usage);
@@ -649,7 +639,6 @@ public class ARBDirectStateAccess {
 	// --- [ glNamedBufferSubData ] ---
 
 	/** Unsafe version of {@link #glNamedBufferSubData NamedBufferSubData} */
-	@JavadocExclude
 	public static void nglNamedBufferSubData(int buffer, long offset, long size, long data) {
 		long __functionAddress = getInstance().NamedBufferSubData;
 		callIPPPV(__functionAddress, buffer, offset, size, data);
@@ -713,7 +702,6 @@ public class ARBDirectStateAccess {
 	// --- [ glClearNamedBufferData ] ---
 
 	/** Unsafe version of {@link #glClearNamedBufferData ClearNamedBufferData} */
-	@JavadocExclude
 	public static void nglClearNamedBufferData(int buffer, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferData;
 		callIIIIPV(__functionAddress, buffer, internalformat, format, type, data);
@@ -752,7 +740,6 @@ public class ARBDirectStateAccess {
 	// --- [ glClearNamedBufferSubData ] ---
 
 	/** Unsafe version of {@link #glClearNamedBufferSubData ClearNamedBufferSubData} */
-	@JavadocExclude
 	public static void nglClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferSubData;
 		callIIPPIIPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
@@ -793,7 +780,6 @@ public class ARBDirectStateAccess {
 	// --- [ glMapNamedBuffer ] ---
 
 	/** Unsafe version of {@link #glMapNamedBuffer MapNamedBuffer} */
-	@JavadocExclude
 	public static long nglMapNamedBuffer(int buffer, int access) {
 		long __functionAddress = getInstance().MapNamedBuffer;
 		return callIIP(__functionAddress, buffer, access);
@@ -826,7 +812,6 @@ public class ARBDirectStateAccess {
 	// --- [ glMapNamedBufferRange ] ---
 
 	/** Unsafe version of {@link #glMapNamedBufferRange MapNamedBufferRange} */
-	@JavadocExclude
 	public static long nglMapNamedBufferRange(int buffer, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapNamedBufferRange;
 		return callIPPIP(__functionAddress, buffer, offset, length, access);
@@ -880,7 +865,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetNamedBufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetNamedBufferParameteriv(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameteriv;
 		callIIPV(__functionAddress, buffer, pname, params);
@@ -917,7 +901,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetNamedBufferParameteri64v ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
-	@JavadocExclude
 	public static void nglGetNamedBufferParameteri64v(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameteri64v;
 		callIIPV(__functionAddress, buffer, pname, params);
@@ -954,7 +937,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetNamedBufferPointerv ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
-	@JavadocExclude
 	public static void nglGetNamedBufferPointerv(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferPointerv;
 		callIIPV(__functionAddress, buffer, pname, params);
@@ -991,7 +973,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetNamedBufferSubData ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
-	@JavadocExclude
 	public static void nglGetNamedBufferSubData(int buffer, long offset, long size, long data) {
 		long __functionAddress = getInstance().GetNamedBufferSubData;
 		callIPPPV(__functionAddress, buffer, offset, size, data);
@@ -1039,7 +1020,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCreateFramebuffers ] ---
 
 	/** Unsafe version of {@link #glCreateFramebuffers CreateFramebuffers} */
-	@JavadocExclude
 	public static void nglCreateFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().CreateFramebuffers;
 		callIPV(__functionAddress, n, framebuffers);
@@ -1146,7 +1126,6 @@ public class ARBDirectStateAccess {
 	// --- [ glNamedFramebufferDrawBuffers ] ---
 
 	/** Unsafe version of {@link #glNamedFramebufferDrawBuffers NamedFramebufferDrawBuffers} */
-	@JavadocExclude
 	public static void nglNamedFramebufferDrawBuffers(int framebuffer, int n, long bufs) {
 		long __functionAddress = getInstance().NamedFramebufferDrawBuffers;
 		callIIPV(__functionAddress, framebuffer, n, bufs);
@@ -1193,7 +1172,6 @@ public class ARBDirectStateAccess {
 	// --- [ glInvalidateNamedFramebufferData ] ---
 
 	/** Unsafe version of {@link #glInvalidateNamedFramebufferData InvalidateNamedFramebufferData} */
-	@JavadocExclude
 	public static void nglInvalidateNamedFramebufferData(int framebuffer, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().InvalidateNamedFramebufferData;
 		callIIPV(__functionAddress, framebuffer, numAttachments, attachments);
@@ -1227,7 +1205,6 @@ public class ARBDirectStateAccess {
 	// --- [ glInvalidateNamedFramebufferSubData ] ---
 
 	/** Unsafe version of {@link #glInvalidateNamedFramebufferSubData InvalidateNamedFramebufferSubData} */
-	@JavadocExclude
 	public static void nglInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().InvalidateNamedFramebufferSubData;
 		callIIPIIIIV(__functionAddress, framebuffer, numAttachments, attachments, x, y, width, height);
@@ -1265,7 +1242,6 @@ public class ARBDirectStateAccess {
 	// --- [ glClearNamedFramebufferiv ] ---
 
 	/** Unsafe version of {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
-	@JavadocExclude
 	public static void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferiv;
 		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
@@ -1296,7 +1272,6 @@ public class ARBDirectStateAccess {
 	// --- [ glClearNamedFramebufferuiv ] ---
 
 	/** Unsafe version of {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
-	@JavadocExclude
 	public static void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferuiv;
 		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
@@ -1326,7 +1301,6 @@ public class ARBDirectStateAccess {
 	// --- [ glClearNamedFramebufferfv ] ---
 
 	/** Unsafe version of {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
-	@JavadocExclude
 	public static void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferfv;
 		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
@@ -1409,7 +1383,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetNamedFramebufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferParameteriv;
 		callIIPV(__functionAddress, framebuffer, pname, params);
@@ -1446,7 +1419,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetNamedFramebufferAttachmentParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
-	@JavadocExclude
 	public static void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferAttachmentParameteriv;
 		callIIIPV(__functionAddress, framebuffer, attachment, pname, params);
@@ -1484,7 +1456,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCreateRenderbuffers ] ---
 
 	/** Unsafe version of {@link #glCreateRenderbuffers CreateRenderbuffers} */
-	@JavadocExclude
 	public static void nglCreateRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().CreateRenderbuffers;
 		callIPV(__functionAddress, n, renderbuffers);
@@ -1549,7 +1520,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetNamedRenderbufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedRenderbufferParameteriv;
 		callIIPV(__functionAddress, renderbuffer, pname, params);
@@ -1586,7 +1556,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCreateTextures ] ---
 
 	/** Unsafe version of {@link #glCreateTextures CreateTextures} */
-	@JavadocExclude
 	public static void nglCreateTextures(int target, int n, long textures) {
 		long __functionAddress = getInstance().CreateTextures;
 		callIIPV(__functionAddress, target, n, textures);
@@ -1736,7 +1705,6 @@ public class ARBDirectStateAccess {
 	// --- [ glTextureSubImage1D ] ---
 
 	/** Unsafe version of {@link #glTextureSubImage1D TextureSubImage1D} */
-	@JavadocExclude
 	public static void nglTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage1D;
 		callIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
@@ -1797,7 +1765,6 @@ public class ARBDirectStateAccess {
 	// --- [ glTextureSubImage2D ] ---
 
 	/** Unsafe version of {@link #glTextureSubImage2D TextureSubImage2D} */
-	@JavadocExclude
 	public static void nglTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage2D;
 		callIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -1860,7 +1827,6 @@ public class ARBDirectStateAccess {
 	// --- [ glTextureSubImage3D ] ---
 
 	/** Unsafe version of {@link #glTextureSubImage3D TextureSubImage3D} */
-	@JavadocExclude
 	public static void nglTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage3D;
 		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -1925,7 +1891,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCompressedTextureSubImage1D ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage1D CompressedTextureSubImage1D} */
-	@JavadocExclude
 	public static void nglCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage1D;
 		callIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, imageSize, data);
@@ -1967,7 +1932,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCompressedTextureSubImage2D ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage2D CompressedTextureSubImage2D} */
-	@JavadocExclude
 	public static void nglCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage2D;
 		callIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, imageSize, data);
@@ -2011,7 +1975,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCompressedTextureSubImage3D ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage3D CompressedTextureSubImage3D} */
-	@JavadocExclude
 	public static void nglCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage3D;
 		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
@@ -2127,7 +2090,6 @@ public class ARBDirectStateAccess {
 	// --- [ glTextureParameterfv ] ---
 
 	/** Unsafe version of {@link #glTextureParameterfv TextureParameterfv} */
-	@JavadocExclude
 	public static void nglTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterfv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2170,7 +2132,6 @@ public class ARBDirectStateAccess {
 	// --- [ glTextureParameterIiv ] ---
 
 	/** Unsafe version of {@link #glTextureParameterIiv TextureParameterIiv} */
-	@JavadocExclude
 	public static void nglTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIiv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2206,7 +2167,6 @@ public class ARBDirectStateAccess {
 	// --- [ glTextureParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glTextureParameterIuiv TextureParameterIuiv} */
-	@JavadocExclude
 	public static void nglTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIuiv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2242,7 +2202,6 @@ public class ARBDirectStateAccess {
 	// --- [ glTextureParameteriv ] ---
 
 	/** Unsafe version of {@link #glTextureParameteriv TextureParameteriv} */
-	@JavadocExclude
 	public static void nglTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameteriv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2300,7 +2259,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureImage ] ---
 
 	/** Unsafe version of {@link #glGetTextureImage GetTextureImage} */
-	@JavadocExclude
 	public static void nglGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetTextureImage;
 		callIIIIIPV(__functionAddress, texture, level, format, type, bufSize, pixels);
@@ -2369,7 +2327,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetCompressedTextureImage ] ---
 
 	/** Unsafe version of {@link #glGetCompressedTextureImage GetCompressedTextureImage} */
-	@JavadocExclude
 	public static void nglGetCompressedTextureImage(int texture, int level, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTextureImage;
 		callIIIPV(__functionAddress, texture, level, bufSize, pixels);
@@ -2413,7 +2370,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureLevelParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
-	@JavadocExclude
 	public static void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterfv;
 		callIIIPV(__functionAddress, texture, level, pname, params);
@@ -2451,7 +2407,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureLevelParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
-	@JavadocExclude
 	public static void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameteriv;
 		callIIIPV(__functionAddress, texture, level, pname, params);
@@ -2489,7 +2444,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterfv GetTextureParameterfv} */
-	@JavadocExclude
 	public static void nglGetTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterfv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2526,7 +2480,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureParameterIiv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
-	@JavadocExclude
 	public static void nglGetTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIiv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2563,7 +2516,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
-	@JavadocExclude
 	public static void nglGetTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIuiv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2600,7 +2552,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameteriv GetTextureParameteriv} */
-	@JavadocExclude
 	public static void nglGetTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameteriv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2637,7 +2588,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCreateVertexArrays ] ---
 
 	/** Unsafe version of {@link #glCreateVertexArrays CreateVertexArrays} */
-	@JavadocExclude
 	public static void nglCreateVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().CreateVertexArrays;
 		callIPV(__functionAddress, n, arrays);
@@ -2726,7 +2676,6 @@ public class ARBDirectStateAccess {
 	// --- [ glVertexArrayVertexBuffers ] ---
 
 	/** Unsafe version of {@link #glVertexArrayVertexBuffers VertexArrayVertexBuffers} */
-	@JavadocExclude
 	public static void nglVertexArrayVertexBuffers(int vaobj, int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = getInstance().VertexArrayVertexBuffers;
 		callIIIPPPV(__functionAddress, vaobj, first, count, buffers, offsets, strides);
@@ -2841,7 +2790,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetVertexArrayiv ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayiv GetVertexArrayiv} */
-	@JavadocExclude
 	public static void nglGetVertexArrayiv(int vaobj, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayiv;
 		callIIPV(__functionAddress, vaobj, pname, param);
@@ -2878,7 +2826,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetVertexArrayIndexediv ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
-	@JavadocExclude
 	public static void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIndexediv;
 		callIIIPV(__functionAddress, vaobj, index, pname, param);
@@ -2916,7 +2863,6 @@ public class ARBDirectStateAccess {
 	// --- [ glGetVertexArrayIndexed64iv ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
-	@JavadocExclude
 	public static void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIndexed64iv;
 		callIIIPV(__functionAddress, vaobj, index, pname, param);
@@ -2954,7 +2900,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCreateSamplers ] ---
 
 	/** Unsafe version of {@link #glCreateSamplers CreateSamplers} */
-	@JavadocExclude
 	public static void nglCreateSamplers(int n, long samplers) {
 		long __functionAddress = getInstance().CreateSamplers;
 		callIPV(__functionAddress, n, samplers);
@@ -2988,7 +2933,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCreateProgramPipelines ] ---
 
 	/** Unsafe version of {@link #glCreateProgramPipelines CreateProgramPipelines} */
-	@JavadocExclude
 	public static void nglCreateProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().CreateProgramPipelines;
 		callIPV(__functionAddress, n, pipelines);
@@ -3022,7 +2966,6 @@ public class ARBDirectStateAccess {
 	// --- [ glCreateQueries ] ---
 
 	/** Unsafe version of {@link #glCreateQueries CreateQueries} */
-	@JavadocExclude
 	public static void nglCreateQueries(int target, int n, long ids) {
 		long __functionAddress = getInstance().CreateQueries;
 		callIIPV(__functionAddress, target, n, ids);

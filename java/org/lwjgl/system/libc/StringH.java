@@ -17,7 +17,6 @@ public class StringH {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected StringH() {
 		throw new UnsupportedOperationException();
 	}
@@ -25,7 +24,6 @@ public class StringH {
 	// --- [ strerror ] ---
 
 	/** JNI method for {@link #strerror} */
-	@JavadocExclude
 	public static native long nstrerror(int errnum);
 
 	/**

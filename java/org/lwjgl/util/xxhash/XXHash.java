@@ -38,7 +38,6 @@ public class XXHash {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected XXHash() {
 		throw new UnsupportedOperationException();
 	}
@@ -46,7 +45,6 @@ public class XXHash {
 	// --- [ XXH32 ] ---
 
 	/** JNI method for {@link #XXH32 32} */
-	@JavadocExclude
 	public static native int nXXH32(long input, long length, int seed);
 
 	/**
@@ -70,7 +68,6 @@ public class XXHash {
 	// --- [ XXH64 ] ---
 
 	/** JNI method for {@link #XXH64 64} */
-	@JavadocExclude
 	public static native long nXXH64(long input, long length, long seed);
 
 	/**
@@ -105,7 +102,6 @@ public class XXHash {
 	// --- [ XXH32_freeState ] ---
 
 	/** JNI method for {@link #XXH32_freeState 32_freeState} */
-	@JavadocExclude
 	public static native int nXXH32_freeState(long statePtr);
 
 	/**
@@ -127,7 +123,6 @@ public class XXHash {
 	// --- [ XXH64_freeState ] ---
 
 	/** JNI method for {@link #XXH64_freeState 64_freeState} */
-	@JavadocExclude
 	public static native int nXXH64_freeState(long statePtr);
 
 	/**
@@ -144,7 +139,6 @@ public class XXHash {
 	// --- [ XXH32_reset ] ---
 
 	/** JNI method for {@link #XXH32_reset 32_reset} */
-	@JavadocExclude
 	public static native int nXXH32_reset(long statePtr, int seed);
 
 	/**
@@ -162,7 +156,6 @@ public class XXHash {
 	// --- [ XXH32_update ] ---
 
 	/** JNI method for {@link #XXH32_update 32_update} */
-	@JavadocExclude
 	public static native int nXXH32_update(long statePtr, long input, long length);
 
 	/**
@@ -204,7 +197,6 @@ public class XXHash {
 	// --- [ XXH32_digest ] ---
 
 	/** JNI method for {@link #XXH32_digest 32_digest} */
-	@JavadocExclude
 	public static native int nXXH32_digest(long statePtr);
 
 	/**
@@ -221,7 +213,6 @@ public class XXHash {
 	// --- [ XXH64_reset ] ---
 
 	/** JNI method for {@link #XXH64_reset 64_reset} */
-	@JavadocExclude
 	public static native int nXXH64_reset(long statePtr, long seed);
 
 	/**
@@ -239,7 +230,6 @@ public class XXHash {
 	// --- [ XXH64_update ] ---
 
 	/** JNI method for {@link #XXH64_update 64_update} */
-	@JavadocExclude
 	public static native int nXXH64_update(long statePtr, long input, long length);
 
 	/**
@@ -267,7 +257,6 @@ public class XXHash {
 	// --- [ XXH64_digest ] ---
 
 	/** JNI method for {@link #XXH64_digest 64_digest} */
-	@JavadocExclude
 	public static native long nXXH64_digest(long statePtr);
 
 	/**
@@ -284,7 +273,6 @@ public class XXHash {
 	// --- [ XXH32_canonicalFromHash ] ---
 
 	/** JNI method for {@link #XXH32_canonicalFromHash 32_canonicalFromHash} */
-	@JavadocExclude
 	public static native void nXXH32_canonicalFromHash(long dst, int hash);
 
 	/**
@@ -304,7 +292,6 @@ public class XXHash {
 	// --- [ XXH64_canonicalFromHash ] ---
 
 	/** JNI method for {@link #XXH64_canonicalFromHash 64_canonicalFromHash} */
-	@JavadocExclude
 	public static native void nXXH64_canonicalFromHash(long dst, long hash);
 
 	/**
@@ -320,7 +307,6 @@ public class XXHash {
 	// --- [ XXH32_hashFromCanonical ] ---
 
 	/** JNI method for {@link #XXH32_hashFromCanonical 32_hashFromCanonical} */
-	@JavadocExclude
 	public static native int nXXH32_hashFromCanonical(long src);
 
 	/**
@@ -335,7 +321,6 @@ public class XXHash {
 	// --- [ XXH64_hashFromCanonical ] ---
 
 	/** JNI method for {@link #XXH64_hashFromCanonical 64_hashFromCanonical} */
-	@JavadocExclude
 	public static native long nXXH64_hashFromCanonical(long src);
 
 	/**

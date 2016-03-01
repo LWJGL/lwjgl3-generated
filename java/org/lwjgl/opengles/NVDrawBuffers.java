@@ -65,15 +65,12 @@ public class NVDrawBuffers {
 		GL_COLOR_ATTACHMENT15_NV = 0x8CEF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long DrawBuffersNV;
 
-	@JavadocExclude
 	protected NVDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVDrawBuffers(FunctionProvider provider) {
 		DrawBuffersNV = provider.getFunctionAddress("glDrawBuffersNV");
 	}
@@ -104,7 +101,6 @@ public class NVDrawBuffers {
 	// --- [ glDrawBuffersNV ] ---
 
 	/** Unsafe version of {@link #glDrawBuffersNV DrawBuffersNV} */
-	@JavadocExclude
 	public static void nglDrawBuffersNV(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffersNV;
 		callIPV(__functionAddress, n, bufs);

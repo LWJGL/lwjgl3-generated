@@ -24,15 +24,12 @@ import org.lwjgl.system.windows.WinBase;
 public class WGLNVDelayBeforeSwap {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long DelayBeforeSwapNV;
 
-	@JavadocExclude
 	protected WGLNVDelayBeforeSwap() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLNVDelayBeforeSwap(FunctionProvider provider) {
 		DelayBeforeSwapNV = provider.getFunctionAddress("wglDelayBeforeSwapNV");
 	}

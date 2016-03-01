@@ -36,15 +36,12 @@ public class NVPolygonMode {
 		GL_FILL_NV  = 0x1B02;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long PolygonModeNV;
 
-	@JavadocExclude
 	protected NVPolygonMode() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVPolygonMode(FunctionProvider provider) {
 		PolygonModeNV = provider.getFunctionAddress("glPolygonModeNV");
 	}

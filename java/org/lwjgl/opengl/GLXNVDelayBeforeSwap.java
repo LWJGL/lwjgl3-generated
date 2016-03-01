@@ -24,15 +24,12 @@ import org.lwjgl.system.linux.*;
 public class GLXNVDelayBeforeSwap {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long DelayBeforeSwapNV;
 
-	@JavadocExclude
 	protected GLXNVDelayBeforeSwap() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXNVDelayBeforeSwap(FunctionProvider provider) {
 		DelayBeforeSwapNV = provider.getFunctionAddress("glXDelayBeforeSwapNV");
 	}

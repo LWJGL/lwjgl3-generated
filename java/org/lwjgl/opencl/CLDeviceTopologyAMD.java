@@ -17,27 +17,25 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * union cl_device_topology_amd {
- *     struct {
- *         cl_uint type;
- *         cl_uint[5] data;
- *     } raw;
- *     struct {
- *         cl_uint type;
- *         char[17];
- *         cl_char bus;
- *         cl_char device;
- *         cl_char function;
- *     } pcie;
- * }</code></pre>
+ * <pre><code>union cl_device_topology_amd {
+    struct {
+        cl_uint type;
+        cl_uint[5] data;
+    } raw;
+    struct {
+        cl_uint type;
+        char[17];
+        cl_char bus;
+        cl_char device;
+        cl_char function;
+    } pcie;
+}</code></pre>
  */
 public class CLDeviceTopologyAMD extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -113,12 +111,12 @@ public class CLDeviceTopologyAMD extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link CLDeviceTopologyAMD} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link CLDeviceTopologyAMD} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static CLDeviceTopologyAMD malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link CLDeviceTopologyAMD} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link CLDeviceTopologyAMD} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static CLDeviceTopologyAMD calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -134,7 +132,7 @@ public class CLDeviceTopologyAMD extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link CLDeviceTopologyAMD.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link CLDeviceTopologyAMD.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -143,7 +141,7 @@ public class CLDeviceTopologyAMD extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link CLDeviceTopologyAMD.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link CLDeviceTopologyAMD.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

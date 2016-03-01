@@ -68,7 +68,6 @@ public class EGL15 {
 		EGL_NO_IMAGE = 0x0L;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateSync,
 		DestroySync,
@@ -81,12 +80,10 @@ public class EGL15 {
 		CreatePlatformPixmapSurface,
 		WaitSync;
 
-	@JavadocExclude
 	protected EGL15() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EGL15(FunctionProvider provider) {
 		CreateSync = provider.getFunctionAddress("eglCreateSync");
 		DestroySync = provider.getFunctionAddress("eglDestroySync");
@@ -115,7 +112,6 @@ public class EGL15 {
 	// --- [ eglCreateSync ] ---
 
 	/** Unsafe version of {@link #eglCreateSync CreateSync} */
-	@JavadocExclude
 	public static long neglCreateSync(long dpy, int type, long attrib_list) {
 		long __functionAddress = getInstance().CreateSync;
 		if ( CHECKS )
@@ -161,7 +157,6 @@ public class EGL15 {
 	// --- [ eglGetSyncAttrib ] ---
 
 	/** Unsafe version of {@link #eglGetSyncAttrib GetSyncAttrib} */
-	@JavadocExclude
 	public static int neglGetSyncAttrib(long dpy, long sync, int attribute, long value) {
 		long __functionAddress = getInstance().GetSyncAttrib;
 		if ( CHECKS ) {
@@ -187,7 +182,6 @@ public class EGL15 {
 	// --- [ eglCreateImage ] ---
 
 	/** Unsafe version of {@link #eglCreateImage CreateImage} */
-	@JavadocExclude
 	public static long neglCreateImage(long dpy, long ctx, int target, long buffer, long attrib_list) {
 		long __functionAddress = getInstance().CreateImage;
 		if ( CHECKS ) {
@@ -225,7 +219,6 @@ public class EGL15 {
 	// --- [ eglGetPlatformDisplay ] ---
 
 	/** Unsafe version of {@link #eglGetPlatformDisplay GetPlatformDisplay} */
-	@JavadocExclude
 	public static long neglGetPlatformDisplay(int platform, long native_display, long attrib_list) {
 		long __functionAddress = getInstance().GetPlatformDisplay;
 		if ( CHECKS )
@@ -249,7 +242,6 @@ public class EGL15 {
 	// --- [ eglCreatePlatformWindowSurface ] ---
 
 	/** Unsafe version of {@link #eglCreatePlatformWindowSurface CreatePlatformWindowSurface} */
-	@JavadocExclude
 	public static long neglCreatePlatformWindowSurface(long dpy, long config, long native_window, long attrib_list) {
 		long __functionAddress = getInstance().CreatePlatformWindowSurface;
 		if ( CHECKS ) {
@@ -276,7 +268,6 @@ public class EGL15 {
 	// --- [ eglCreatePlatformPixmapSurface ] ---
 
 	/** Unsafe version of {@link #eglCreatePlatformPixmapSurface CreatePlatformPixmapSurface} */
-	@JavadocExclude
 	public static long neglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, long attrib_list) {
 		long __functionAddress = getInstance().CreatePlatformPixmapSurface;
 		if ( CHECKS ) {

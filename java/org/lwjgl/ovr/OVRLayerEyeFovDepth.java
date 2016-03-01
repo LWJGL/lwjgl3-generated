@@ -19,29 +19,28 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrLayerEyeFovDepth {
- *     {@link OVRLayerHeader ovrLayerHeader} Header;
- *     ovrSwapTextureSet *[2] ColorTexture;
- *     {@link OVRRecti ovrRecti}[2] Viewport;
- *     {@link OVRFovPort ovrFovPort}[2] Fov;
- *     {@link OVRPosef ovrPosef}[2] RenderPose;
- *     double SensorSampleTime;
- *     ovrSwapTextureSet *[2] DepthTexture;
- *     {@link OVRTimewarpProjectionDesc ovrTimewarpProjectionDesc} ProjectionDesc;
- * }</code></pre>
+ * <pre><code>struct ovrLayerEyeFovDepth {
+    {@link OVRLayerHeader ovrLayerHeader} Header;
+    ovrSwapTextureSet *[2] ColorTexture;
+    {@link OVRRecti ovrRecti}[2] Viewport;
+    {@link OVRFovPort ovrFovPort}[2] Fov;
+    {@link OVRPosef ovrPosef}[2] RenderPose;
+    double SensorSampleTime;
+    ovrSwapTextureSet *[2] DepthTexture;
+    {@link OVRTimewarpProjectionDesc ovrTimewarpProjectionDesc} ProjectionDesc;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeFovDepth}.</td></tr>
  * <tr><td>ColorTexture</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}.</td></tr>
  * <tr><td>Viewport</td><td>specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
  * <tr><td>Fov</td><td>the viewport field of view</td></tr>
  * <tr><td>RenderPose</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned from
- * {@link OVRUtil#ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
+ * {@link OVRUtil#ovr_CalcEyePoses OVRUtil.ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
  * <tr><td>SensorSampleTime</td><td>specifies the timestamp when the source {@code ovrPosef} (used in calculating RenderPose) was sampled from the SDK. Typically retrieved by calling
- * {@link OVR#ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState}. The main purpose for this is to accurately track app
+ * {@link OVR#ovr_GetTimeInSeconds OVR.ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState OVR.ovr_GetTrackingState}. The main purpose for this is to accurately track app
  * tracking latency.</td></tr>
  * <tr><td>DepthTexture</td><td>depth texture for positional timewarp. Must map 1:1 to the {@code ColorTexture}.</td></tr>
  * <tr><td>ProjectionDesc</td><td>specifies how to convert {@code DepthTexture} information into meters</td></tr>
@@ -52,7 +51,6 @@ public class OVRLayerEyeFovDepth extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -204,12 +202,12 @@ public class OVRLayerEyeFovDepth extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRLayerEyeFovDepth} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRLayerEyeFovDepth} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRLayerEyeFovDepth malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRLayerEyeFovDepth} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRLayerEyeFovDepth} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRLayerEyeFovDepth calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -225,7 +223,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRLayerEyeFovDepth.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRLayerEyeFovDepth.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -234,7 +232,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRLayerEyeFovDepth.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRLayerEyeFovDepth.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

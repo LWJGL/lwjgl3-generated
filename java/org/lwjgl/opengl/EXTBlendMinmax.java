@@ -33,15 +33,12 @@ public class EXTBlendMinmax {
 	public static final int GL_BLEND_EQUATION_EXT = 0x8009;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long BlendEquationEXT;
 
-	@JavadocExclude
 	protected EXTBlendMinmax() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTBlendMinmax(FunctionProvider provider) {
 		BlendEquationEXT = provider.getFunctionAddress("glBlendEquationEXT");
 	}

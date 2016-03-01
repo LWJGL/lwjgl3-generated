@@ -41,15 +41,12 @@ public class NVFramebufferMultisample {
 	public static final int GL_MAX_SAMPLES_NV = 0x8D57;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long RenderbufferStorageMultisampleNV;
 
-	@JavadocExclude
 	protected NVFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVFramebufferMultisample(FunctionProvider provider) {
 		RenderbufferStorageMultisampleNV = provider.getFunctionAddress("glRenderbufferStorageMultisampleNV");
 	}

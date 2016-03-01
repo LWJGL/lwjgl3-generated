@@ -68,7 +68,6 @@ public class KHRStream {
 		EGL_BAD_STATE_KHR                        = 0x321C;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateStreamKHR,
 		DestroyStreamKHR,
@@ -76,12 +75,10 @@ public class KHRStream {
 		QueryStreamKHR,
 		QueryStreamu64KHR;
 
-	@JavadocExclude
 	protected KHRStream() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRStream(FunctionProvider provider) {
 		CreateStreamKHR = provider.getFunctionAddress("eglCreateStreamKHR");
 		DestroyStreamKHR = provider.getFunctionAddress("eglDestroyStreamKHR");
@@ -105,7 +102,6 @@ public class KHRStream {
 	// --- [ eglCreateStreamKHR ] ---
 
 	/** Unsafe version of {@link #eglCreateStreamKHR CreateStreamKHR} */
-	@JavadocExclude
 	public static long neglCreateStreamKHR(long dpy, long attrib_list) {
 		long __functionAddress = getInstance().CreateStreamKHR;
 		if ( CHECKS )
@@ -151,7 +147,6 @@ public class KHRStream {
 	// --- [ eglQueryStreamKHR ] ---
 
 	/** Unsafe version of {@link #eglQueryStreamKHR QueryStreamKHR} */
-	@JavadocExclude
 	public static int neglQueryStreamKHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = getInstance().QueryStreamKHR;
 		if ( CHECKS ) {
@@ -177,7 +172,6 @@ public class KHRStream {
 	// --- [ eglQueryStreamu64KHR ] ---
 
 	/** Unsafe version of {@link #eglQueryStreamu64KHR QueryStreamu64KHR} */
-	@JavadocExclude
 	public static int neglQueryStreamu64KHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = getInstance().QueryStreamu64KHR;
 		if ( CHECKS ) {

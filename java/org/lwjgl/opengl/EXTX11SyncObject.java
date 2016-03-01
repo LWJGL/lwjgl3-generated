@@ -36,15 +36,12 @@ public class EXTX11SyncObject {
 	public static final int GL_SYNC_X11_FENCE_EXT = 0x90E1;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long ImportSyncEXT;
 
-	@JavadocExclude
 	protected EXTX11SyncObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTX11SyncObject(FunctionProvider provider) {
 		ImportSyncEXT = provider.getFunctionAddress("glImportSyncEXT");
 	}

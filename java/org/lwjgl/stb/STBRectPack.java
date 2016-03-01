@@ -30,7 +30,6 @@ public class STBRectPack {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected STBRectPack() {
 		throw new UnsupportedOperationException();
 	}
@@ -38,7 +37,6 @@ public class STBRectPack {
 	// --- [ stbrp_pack_rects ] ---
 
 	/** JNI method for {@link #stbrp_pack_rects pack_rects} */
-	@JavadocExclude
 	public static native void nstbrp_pack_rects(long context, long rects, int num_rects);
 
 	/**
@@ -74,7 +72,6 @@ public class STBRectPack {
 	// --- [ stbrp_init_target ] ---
 
 	/** JNI method for {@link #stbrp_init_target init_target} */
-	@JavadocExclude
 	public static native void nstbrp_init_target(long context, int width, int height, long nodes, int num_nodes);
 
 	/**
@@ -118,7 +115,6 @@ public class STBRectPack {
 	// --- [ stbrp_setup_allow_out_of_mem ] ---
 
 	/** JNI method for {@link #stbrp_setup_allow_out_of_mem setup_allow_out_of_mem} */
-	@JavadocExclude
 	public static native void nstbrp_setup_allow_out_of_mem(long context, int allow_out_of_mem);
 
 	/**
@@ -135,7 +131,6 @@ public class STBRectPack {
 	// --- [ stbrp_setup_heuristic ] ---
 
 	/** JNI method for {@link #stbrp_setup_heuristic setup_heuristic} */
-	@JavadocExclude
 	public static native void nstbrp_setup_heuristic(long context, int heuristic);
 
 	/**

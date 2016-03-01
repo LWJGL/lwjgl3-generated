@@ -39,17 +39,14 @@ public class ARBClearTexture {
 	public static final int GL_CLEAR_TEXTURE = 0x9365;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ClearTexSubImage,
 		ClearTexImage;
 
-	@JavadocExclude
 	protected ARBClearTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBClearTexture(FunctionProvider provider) {
 		ClearTexSubImage = provider.getFunctionAddress("glClearTexSubImage");
 		ClearTexImage = provider.getFunctionAddress("glClearTexImage");
@@ -82,7 +79,6 @@ public class ARBClearTexture {
 	// --- [ glClearTexSubImage ] ---
 
 	/** Unsafe version of {@link #glClearTexSubImage ClearTexSubImage} */
-	@JavadocExclude
 	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearTexSubImage;
 		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
@@ -143,7 +139,6 @@ public class ARBClearTexture {
 	// --- [ glClearTexImage ] ---
 
 	/** Unsafe version of {@link #glClearTexImage ClearTexImage} */
-	@JavadocExclude
 	public static void nglClearTexImage(int texture, int level, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearTexImage;
 		callIIIIPV(__functionAddress, texture, level, format, type, data);

@@ -79,19 +79,16 @@ public class ARBTextureMultisample {
 		GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY = 0x910D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexImage2DMultisample,
 		TexImage3DMultisample,
 		GetMultisamplefv,
 		SampleMaski;
 
-	@JavadocExclude
 	protected ARBTextureMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTextureMultisample(FunctionProvider provider) {
 		TexImage2DMultisample = provider.getFunctionAddress("glTexImage2DMultisample");
 		TexImage3DMultisample = provider.getFunctionAddress("glTexImage3DMultisample");
@@ -165,7 +162,6 @@ public class ARBTextureMultisample {
 	// --- [ glGetMultisamplefv ] ---
 
 	/** Unsafe version of {@link #glGetMultisamplefv GetMultisamplefv} */
-	@JavadocExclude
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefv;
 		callIIPV(__functionAddress, pname, index, val);

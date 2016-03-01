@@ -48,17 +48,14 @@ public class ARBSparseTexture {
 		GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB = 0x91A9;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexPageCommitmentARB,
 		TexturePageCommitmentEXT;
 
-	@JavadocExclude
 	protected ARBSparseTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBSparseTexture(FunctionProvider provider) {
 		TexPageCommitmentARB = provider.getFunctionAddress("glTexPageCommitmentARB");
 		TexturePageCommitmentEXT = provider.getFunctionAddress("glTexturePageCommitmentEXT");

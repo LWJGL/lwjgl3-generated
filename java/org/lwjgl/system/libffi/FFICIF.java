@@ -17,22 +17,20 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ffi_cif {
- *     ffi_abi abi;
- *     unsigned nargs;
- *     ffi_type ** arg_types;
- *     ffi_type * rtype;
- *     unsigned bytes;
- *     unsigned flags;
- * }</code></pre>
+ * <pre><code>struct ffi_cif {
+    ffi_abi abi;
+    unsigned nargs;
+    ffi_type ** arg_types;
+    ffi_type * rtype;
+    unsigned bytes;
+    unsigned flags;
+}</code></pre>
  */
 public class FFICIF extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -97,12 +95,12 @@ public class FFICIF extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link FFICIF} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link FFICIF} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static FFICIF malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link FFICIF} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link FFICIF} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static FFICIF calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -118,7 +116,7 @@ public class FFICIF extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link FFICIF.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link FFICIF.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -127,7 +125,7 @@ public class FFICIF extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link FFICIF.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link FFICIF.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

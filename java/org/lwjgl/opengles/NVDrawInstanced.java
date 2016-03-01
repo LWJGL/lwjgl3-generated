@@ -34,17 +34,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class NVDrawInstanced {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawArraysInstancedNV,
 		DrawElementsInstancedNV;
 
-	@JavadocExclude
 	protected NVDrawInstanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVDrawInstanced(FunctionProvider provider) {
 		DrawArraysInstancedNV = provider.getFunctionAddress("glDrawArraysInstancedNV");
 		DrawElementsInstancedNV = provider.getFunctionAddress("glDrawElementsInstancedNV");
@@ -83,7 +80,6 @@ public class NVDrawInstanced {
 	// --- [ glDrawElementsInstancedNV ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedNV;
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);

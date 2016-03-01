@@ -49,7 +49,6 @@ public class EGL12 {
 		EGL_VERTICAL_RESOLUTION   = 0x3091;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindAPI,
 		QueryAPI,
@@ -57,12 +56,10 @@ public class EGL12 {
 		ReleaseThread,
 		WaitClient;
 
-	@JavadocExclude
 	protected EGL12() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EGL12(FunctionProvider provider) {
 		BindAPI = provider.getFunctionAddress("eglBindAPI");
 		QueryAPI = provider.getFunctionAddress("eglQueryAPI");
@@ -100,7 +97,6 @@ public class EGL12 {
 	// --- [ eglCreatePbufferFromClientBuffer ] ---
 
 	/** Unsafe version of {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer} */
-	@JavadocExclude
 	public static long neglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, long attrib_list) {
 		long __functionAddress = getInstance().CreatePbufferFromClientBuffer;
 		if ( CHECKS ) {

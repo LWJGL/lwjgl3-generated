@@ -189,7 +189,6 @@ public class GL32 {
 		GL_WAIT_FAILED         = 0x911D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetBufferParameteri64v,
 		DrawElementsBaseVertex,
@@ -211,12 +210,10 @@ public class GL32 {
 		GetInteger64i_v,
 		GetSynciv;
 
-	@JavadocExclude
 	protected GL32() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL32(FunctionProvider provider) {
 		GetBufferParameteri64v = provider.getFunctionAddress("glGetBufferParameteri64v");
 		DrawElementsBaseVertex = provider.getFunctionAddress("glDrawElementsBaseVertex");
@@ -269,7 +266,6 @@ public class GL32 {
 	// --- [ glGetBufferParameteri64v ] ---
 
 	/** Unsafe version of {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
-	@JavadocExclude
 	public static void nglGetBufferParameteri64v(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteri64v;
 		callIIPV(__functionAddress, target, pname, params);
@@ -308,7 +304,6 @@ public class GL32 {
 	// --- [ glDrawElementsBaseVertex ] ---
 
 	/** Unsafe version of {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
-	@JavadocExclude
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsBaseVertex;
 		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
@@ -371,7 +366,6 @@ public class GL32 {
 	// --- [ glDrawRangeElementsBaseVertex ] ---
 
 	/** Unsafe version of {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
-	@JavadocExclude
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertex;
 		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
@@ -436,7 +430,6 @@ public class GL32 {
 	// --- [ glDrawElementsInstancedBaseVertex ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertex;
 		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, basevertex);
@@ -500,7 +493,6 @@ public class GL32 {
 	// --- [ glMultiDrawElementsBaseVertex ] ---
 
 	/** Unsafe version of {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex} */
-	@JavadocExclude
 	public static void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex) {
 		long __functionAddress = getInstance().MultiDrawElementsBaseVertex;
 		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
@@ -598,7 +590,6 @@ public class GL32 {
 	// --- [ glGetMultisamplefv ] ---
 
 	/** Unsafe version of {@link #glGetMultisamplefv GetMultisamplefv} */
-	@JavadocExclude
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefv;
 		callIIPV(__functionAddress, pname, index, val);
@@ -769,7 +760,6 @@ public class GL32 {
 	// --- [ glGetInteger64v ] ---
 
 	/** Unsafe version of {@link #glGetInteger64v GetInteger64v} */
-	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64v;
 		callIPV(__functionAddress, pname, params);
@@ -807,7 +797,6 @@ public class GL32 {
 	// --- [ glGetInteger64i_v ] ---
 
 	/** Unsafe version of {@link #glGetInteger64i_v GetInteger64i_v} */
-	@JavadocExclude
 	public static void nglGetInteger64i_v(int pname, int index, long params) {
 		long __functionAddress = getInstance().GetInteger64i_v;
 		callIIPV(__functionAddress, pname, index, params);
@@ -846,7 +835,6 @@ public class GL32 {
 	// --- [ glGetSynciv ] ---
 
 	/** Unsafe version of {@link #glGetSynciv GetSynciv} */
-	@JavadocExclude
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSynciv;
 		if ( CHECKS )

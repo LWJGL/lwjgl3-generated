@@ -20,17 +20,14 @@ import static org.lwjgl.system.JNI.*;
 public class SOFTPauseDevice {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DevicePauseSOFT,
 		DeviceResumeSOFT;
 
-	@JavadocExclude
 	protected SOFTPauseDevice() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public SOFTPauseDevice(FunctionProviderLocal provider, long device) {
 		DevicePauseSOFT = provider.getFunctionAddress(device, "alcDevicePauseSOFT");
 		DeviceResumeSOFT = provider.getFunctionAddress(device, "alcDeviceResumeSOFT");

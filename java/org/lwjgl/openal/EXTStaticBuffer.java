@@ -23,15 +23,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTStaticBuffer {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long BufferDataStatic;
 
-	@JavadocExclude
 	protected EXTStaticBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTStaticBuffer(FunctionProvider provider) {
 		BufferDataStatic = provider.getFunctionAddress("alBufferDataStatic");
 	}
@@ -58,7 +55,6 @@ public class EXTStaticBuffer {
 	// --- [ alBufferDataStatic ] ---
 
 	/** Unsafe version of {@link #alBufferDataStatic BufferDataStatic} */
-	@JavadocExclude
 	public static void nalBufferDataStatic(int buffer, int format, long data, int len, int freq) {
 		long __functionAddress = getInstance().BufferDataStatic;
 		invokeIIPIIV(__functionAddress, buffer, format, data, len, freq);

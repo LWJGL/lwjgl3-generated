@@ -31,7 +31,6 @@ import static org.lwjgl.system.JNI.*;
 public class OESDrawBuffersIndexed {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		EnableiOES,
 		DisableiOES,
@@ -42,12 +41,10 @@ public class OESDrawBuffersIndexed {
 		ColorMaskiOES,
 		IsEnablediOES;
 
-	@JavadocExclude
 	protected OESDrawBuffersIndexed() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESDrawBuffersIndexed(FunctionProvider provider) {
 		EnableiOES = provider.getFunctionAddress("glEnableiOES");
 		DisableiOES = provider.getFunctionAddress("glDisableiOES");

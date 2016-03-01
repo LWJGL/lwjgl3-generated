@@ -125,7 +125,6 @@ public class GDI32 {
 	static { Library.initialize(); }
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		__ChoosePixelFormat,
 		__DescribePixelFormat,
@@ -133,12 +132,10 @@ public class GDI32 {
 		__SetPixelFormat,
 		__SwapBuffers;
 
-	@JavadocExclude
 	protected GDI32() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GDI32(FunctionProvider provider) {
 		__ChoosePixelFormat = checkFunctionAddress(provider.getFunctionAddress("ChoosePixelFormat"));
 		__DescribePixelFormat = checkFunctionAddress(provider.getFunctionAddress("DescribePixelFormat"));
@@ -171,11 +168,9 @@ public class GDI32 {
 	// --- [ ChoosePixelFormat ] ---
 
 	/** JNI method for {@link #ChoosePixelFormat} */
-	@JavadocExclude
 	public static native int nChoosePixelFormat(long __functionAddress, long hdc, long pixelFormatDescriptor);
 
 	/** Unsafe version of {@link #ChoosePixelFormat} */
-	@JavadocExclude
 	public static int nChoosePixelFormat(long hdc, long pixelFormatDescriptor) {
 		long __functionAddress = getInstance().__ChoosePixelFormat;
 		if ( CHECKS )
@@ -196,11 +191,9 @@ public class GDI32 {
 	// --- [ DescribePixelFormat ] ---
 
 	/** JNI method for {@link #DescribePixelFormat} */
-	@JavadocExclude
 	public static native int nDescribePixelFormat(long __functionAddress, long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor);
 
 	/** Unsafe version of {@link #DescribePixelFormat} */
-	@JavadocExclude
 	public static int nDescribePixelFormat(long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor) {
 		long __functionAddress = getInstance().__DescribePixelFormat;
 		if ( CHECKS )
@@ -233,7 +226,6 @@ public class GDI32 {
 	// --- [ GetPixelFormat ] ---
 
 	/** JNI method for {@link #GetPixelFormat} */
-	@JavadocExclude
 	public static native int nGetPixelFormat(long __functionAddress, long hdc);
 
 	/**
@@ -251,11 +243,9 @@ public class GDI32 {
 	// --- [ SetPixelFormat ] ---
 
 	/** JNI method for {@link #SetPixelFormat} */
-	@JavadocExclude
 	public static native int nSetPixelFormat(long __functionAddress, long hdc, int pixelFormat, long pixelFormatDescriptor);
 
 	/** Unsafe version of {@link #SetPixelFormat} */
-	@JavadocExclude
 	public static int nSetPixelFormat(long hdc, int pixelFormat, long pixelFormatDescriptor) {
 		long __functionAddress = getInstance().__SetPixelFormat;
 		if ( CHECKS )
@@ -278,7 +268,6 @@ public class GDI32 {
 	// --- [ SwapBuffers ] ---
 
 	/** JNI method for {@link #SwapBuffers} */
-	@JavadocExclude
 	public static native int nSwapBuffers(long __functionAddress, long dc);
 
 	/**

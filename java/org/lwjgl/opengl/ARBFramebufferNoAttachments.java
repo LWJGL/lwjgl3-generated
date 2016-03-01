@@ -64,19 +64,16 @@ public class ARBFramebufferNoAttachments {
 		GL_MAX_FRAMEBUFFER_SAMPLES = 0x9318;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		FramebufferParameteri,
 		GetFramebufferParameteriv,
 		NamedFramebufferParameteriEXT,
 		GetNamedFramebufferParameterivEXT;
 
-	@JavadocExclude
 	protected ARBFramebufferNoAttachments() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBFramebufferNoAttachments(FunctionProvider provider) {
 		FramebufferParameteri = provider.getFunctionAddress("glFramebufferParameteri");
 		GetFramebufferParameteriv = provider.getFunctionAddress("glGetFramebufferParameteriv");
@@ -127,7 +124,6 @@ public class ARBFramebufferNoAttachments {
 	// --- [ glGetFramebufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferParameteriv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -180,7 +176,6 @@ public class ARBFramebufferNoAttachments {
 	// --- [ glGetNamedFramebufferParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
-	@JavadocExclude
 	public static void nglGetNamedFramebufferParameterivEXT(int framebuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferParameterivEXT;
 		if ( CHECKS )

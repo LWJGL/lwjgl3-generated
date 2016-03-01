@@ -19,15 +19,12 @@ import static org.lwjgl.system.JNI.*;
 public class NVTextureBarrier {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long TextureBarrierNV;
 
-	@JavadocExclude
 	protected NVTextureBarrier() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVTextureBarrier(FunctionProvider provider) {
 		TextureBarrierNV = provider.getFunctionAddress("glTextureBarrierNV");
 	}

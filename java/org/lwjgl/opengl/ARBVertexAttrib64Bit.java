@@ -60,7 +60,6 @@ public class ARBVertexAttrib64Bit {
 		GL_DOUBLE_MAT4x3 = 0x8F4E;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		VertexAttribL1d,
 		VertexAttribL2d,
@@ -74,12 +73,10 @@ public class ARBVertexAttrib64Bit {
 		GetVertexAttribLdv,
 		VertexArrayVertexAttribLOffsetEXT;
 
-	@JavadocExclude
 	protected ARBVertexAttrib64Bit() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBVertexAttrib64Bit(FunctionProvider provider) {
 		VertexAttribL1d = provider.getFunctionAddress("glVertexAttribL1d");
 		VertexAttribL2d = provider.getFunctionAddress("glVertexAttribL2d");
@@ -181,7 +178,6 @@ public class ARBVertexAttrib64Bit {
 	// --- [ glVertexAttribL1dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL1dv VertexAttribL1dv} */
-	@JavadocExclude
 	public static void nglVertexAttribL1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1dv;
 		callIPV(__functionAddress, index, v);
@@ -209,7 +205,6 @@ public class ARBVertexAttrib64Bit {
 	// --- [ glVertexAttribL2dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL2dv VertexAttribL2dv} */
-	@JavadocExclude
 	public static void nglVertexAttribL2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL2dv;
 		callIPV(__functionAddress, index, v);
@@ -237,7 +232,6 @@ public class ARBVertexAttrib64Bit {
 	// --- [ glVertexAttribL3dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL3dv VertexAttribL3dv} */
-	@JavadocExclude
 	public static void nglVertexAttribL3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL3dv;
 		callIPV(__functionAddress, index, v);
@@ -265,7 +259,6 @@ public class ARBVertexAttrib64Bit {
 	// --- [ glVertexAttribL4dv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL4dv VertexAttribL4dv} */
-	@JavadocExclude
 	public static void nglVertexAttribL4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL4dv;
 		callIPV(__functionAddress, index, v);
@@ -293,7 +286,6 @@ public class ARBVertexAttrib64Bit {
 	// --- [ glVertexAttribLPointer ] ---
 
 	/** Unsafe version of {@link #glVertexAttribLPointer VertexAttribLPointer} */
-	@JavadocExclude
 	public static void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribLPointer;
 		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
@@ -333,7 +325,6 @@ public class ARBVertexAttrib64Bit {
 	// --- [ glGetVertexAttribLdv ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
-	@JavadocExclude
 	public static void nglGetVertexAttribLdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLdv;
 		callIIPV(__functionAddress, index, pname, params);

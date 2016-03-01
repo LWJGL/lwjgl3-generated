@@ -92,17 +92,14 @@ public class QCOMTiledRendering {
 		GL_MULTISAMPLE_BUFFER_BIT7_QCOM = 0x80000000;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		StartTilingQCOM,
 		EndTilingQCOM;
 
-	@JavadocExclude
 	protected QCOMTiledRendering() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public QCOMTiledRendering(FunctionProvider provider) {
 		StartTilingQCOM = provider.getFunctionAddress("glStartTilingQCOM");
 		EndTilingQCOM = provider.getFunctionAddress("glEndTilingQCOM");

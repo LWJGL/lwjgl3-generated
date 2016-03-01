@@ -28,20 +28,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkApplicationInfo {
- *     VkStructureType sType;
- *     const void * pNext;
- *     const char * pApplicationName;
- *     uint32_t applicationVersion;
- *     const char * pEngineName;
- *     uint32_t engineVersion;
- *     uint32_t apiVersion;
- * }</code></pre>
+ * <pre><code>struct VkApplicationInfo {
+    VkStructureType sType;
+    const void * pNext;
+    const char * pApplicationName;
+    uint32_t applicationVersion;
+    const char * pEngineName;
+    uint32_t engineVersion;
+    uint32_t apiVersion;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>sType</td><td>should be set to {@link VK10#VK_STRUCTURE_TYPE_APPLICATION_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * <tr><td>pApplicationName</td><td>a pointer to a {@code NULL}-terminated UTF-8 string containing the name of the application</td></tr>
@@ -58,7 +57,6 @@ public class VkApplicationInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -201,12 +199,12 @@ public class VkApplicationInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkApplicationInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkApplicationInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkApplicationInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkApplicationInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkApplicationInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkApplicationInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -222,7 +220,7 @@ public class VkApplicationInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkApplicationInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkApplicationInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -231,7 +229,7 @@ public class VkApplicationInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkApplicationInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkApplicationInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

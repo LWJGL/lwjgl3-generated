@@ -25,18 +25,15 @@ public class KHRStreamConsumerGLTexture {
 	public static final int EGL_CONSUMER_ACQUIRE_TIMEOUT_USEC_KHR = 0x321E;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		StreamConsumerGLTextureExternalKHR,
 		StreamConsumerAcquireKHR,
 		StreamConsumerReleaseKHR;
 
-	@JavadocExclude
 	protected KHRStreamConsumerGLTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRStreamConsumerGLTexture(FunctionProvider provider) {
 		StreamConsumerGLTextureExternalKHR = provider.getFunctionAddress("eglStreamConsumerGLTextureExternalKHR");
 		StreamConsumerAcquireKHR = provider.getFunctionAddress("eglStreamConsumerAcquireKHR");

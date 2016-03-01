@@ -16,22 +16,20 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Field Of View (FOV) in tangent of the angle units. As an example, for a standard 90 degree vertical FOV, we would have:
  * 
- * <pre><code style="font-family: monospace">
- * { UpTan = tan(90 degrees / 2), DownTan = tan(90 degrees / 2) }</code></pre>
+ * <pre><code>{ UpTan = tan(90 degrees / 2), DownTan = tan(90 degrees / 2) }</code></pre>
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrFovPort {
- *     float UpTan;
- *     float DownTan;
- *     float LeftTan;
- *     float RightTan;
- * }</code></pre>
+ * <pre><code>struct ovrFovPort {
+    float UpTan;
+    float DownTan;
+    float LeftTan;
+    float RightTan;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>UpTan</td><td>the tangent of the angle between the viewing vector and the top edge of the field of view</td></tr>
  * <tr><td>DownTan</td><td>the tangent of the angle between the viewing vector and the bottom edge of the field of view</td></tr>
  * <tr><td>LeftTan</td><td>the tangent of the angle between the viewing vector and the left edge of the field of view</td></tr>
@@ -43,7 +41,6 @@ public class OVRFovPort extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -139,12 +136,12 @@ public class OVRFovPort extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRFovPort} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRFovPort} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRFovPort malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRFovPort} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRFovPort} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRFovPort calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -160,7 +157,7 @@ public class OVRFovPort extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRFovPort.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRFovPort.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -169,7 +166,7 @@ public class OVRFovPort extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRFovPort.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRFovPort.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

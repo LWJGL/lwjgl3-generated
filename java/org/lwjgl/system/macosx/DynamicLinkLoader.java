@@ -32,7 +32,6 @@ public class DynamicLinkLoader {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected DynamicLinkLoader() {
 		throw new UnsupportedOperationException();
 	}
@@ -40,7 +39,6 @@ public class DynamicLinkLoader {
 	// --- [ dlopen ] ---
 
 	/** JNI method for {@link #dlopen} */
-	@JavadocExclude
 	public static native long ndlopen(long path, int mode);
 
 	/**
@@ -117,7 +115,6 @@ public class DynamicLinkLoader {
 	// --- [ dlerror ] ---
 
 	/** JNI method for {@link #dlerror} */
-	@JavadocExclude
 	public static native long ndlerror();
 
 	/**
@@ -137,7 +134,6 @@ public class DynamicLinkLoader {
 	// --- [ dlsym ] ---
 
 	/** JNI method for {@link #dlsym} */
-	@JavadocExclude
 	public static native long ndlsym(long handle, long name);
 
 	/**
@@ -146,7 +142,7 @@ public class DynamicLinkLoader {
 	 * <p>The value of handle specifies what images this function searches for to locate the symbol specified by the symbol parameter. The following table
 	 * describes the possible values for the handle parameter:</p>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+	 * <table class=lwjgl>
 	 * <tr><th>Handle value</th><th>Search scope</th></tr>
 	 * <tr><td>{@code dlopen} handle</td><td>Image associated with the {@link #dlopen} handle.</td></tr>
 	 * <tr><td>{@link #RTLD_DEFAULT}</td><td>Every dependent library or {@link #RTLD_GLOBAL}–opened library in the current process, in the order they were loaded.</td></tr>
@@ -179,7 +175,6 @@ public class DynamicLinkLoader {
 	// --- [ dlclose ] ---
 
 	/** JNI method for {@link #dlclose} */
-	@JavadocExclude
 	public static native int ndlclose(long handle);
 
 	/**

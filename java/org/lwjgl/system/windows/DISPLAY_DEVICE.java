@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Receives information about the display device specified by the {@code iDevNum} parameter of the {@link User32#EnumDisplayDevices} function.
+ * Receives information about the display device specified by the {@code iDevNum} parameter of the {@link User32#EnumDisplayDevices User32.EnumDisplayDevices} function.
  * 
  * <p>The four string members are set based on the parameters passed to {@code EnumDisplayDevices}. If the {@code lpDevice} param is {@code NULL}, then
  * {@code DISPLAY_DEVICE} is filled in with information about the display adapter(s). If it is a valid device name, then it is filled in with information
@@ -22,20 +22,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct DISPLAY_DEVICE {
- *     DWORD cb;
- *     TCHAR[32] DeviceName;
- *     TCHAR[128] DeviceString;
- *     DWORD StateFlags;
- *     TCHAR[128] DeviceID;
- *     TCHAR[128] DeviceKey;
- * }</code></pre>
+ * <pre><code>struct DISPLAY_DEVICE {
+    DWORD cb;
+    TCHAR[32] DeviceName;
+    TCHAR[128] DeviceString;
+    DWORD StateFlags;
+    TCHAR[128] DeviceID;
+    TCHAR[128] DeviceKey;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><td>cb</td><td>size, in bytes, of the {@code DISPLAY_DEVICE} structure. This must be initialized prior to calling {@link User32#EnumDisplayDevices}.</td></tr>
+ * <table class=lwjgl>
+ * <tr><td>cb</td><td>size, in bytes, of the {@code DISPLAY_DEVICE} structure. This must be initialized prior to calling {@link User32#EnumDisplayDevices User32.EnumDisplayDevices}.</td></tr>
  * <tr><td>DeviceName</td><td>an array of characters identifying the device name. This is either the adapter device or the monitor device.</td></tr>
  * <tr><td>DeviceString</td><td>an array of characters containing the device context string. This is either a description of the display adapter or of the display monitor.</td></tr>
  * <tr><td>StateFlags</td><td>device state flags</td></tr>
@@ -48,7 +47,6 @@ public class DISPLAY_DEVICE extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -141,12 +139,12 @@ public class DISPLAY_DEVICE extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link DISPLAY_DEVICE} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link DISPLAY_DEVICE} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static DISPLAY_DEVICE malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link DISPLAY_DEVICE} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link DISPLAY_DEVICE} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static DISPLAY_DEVICE calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -162,7 +160,7 @@ public class DISPLAY_DEVICE extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link DISPLAY_DEVICE.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link DISPLAY_DEVICE.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -171,7 +169,7 @@ public class DISPLAY_DEVICE extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link DISPLAY_DEVICE.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link DISPLAY_DEVICE.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

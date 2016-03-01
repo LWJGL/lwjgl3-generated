@@ -43,17 +43,14 @@ public class EXTMapBufferRange {
 		GL_MAP_UNSYNCHRONIZED_BIT_EXT    = 0x20;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		MapBufferRangeEXT,
 		FlushMappedBufferRangeEXT;
 
-	@JavadocExclude
 	protected EXTMapBufferRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTMapBufferRange(FunctionProvider provider) {
 		MapBufferRangeEXT = provider.getFunctionAddress("glMapBufferRangeEXT");
 		FlushMappedBufferRangeEXT = provider.getFunctionAddress("glFlushMappedBufferRangeEXT");
@@ -85,7 +82,6 @@ public class EXTMapBufferRange {
 	// --- [ glMapBufferRangeEXT ] ---
 
 	/** Unsafe version of {@link #glMapBufferRangeEXT MapBufferRangeEXT} */
-	@JavadocExclude
 	public static long nglMapBufferRangeEXT(int target, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapBufferRangeEXT;
 		return callIPPIP(__functionAddress, target, offset, length, access);

@@ -33,7 +33,6 @@ public class NVVertexAttribInteger64bit {
 		GL_UNSIGNED_INT64_NV = 0x140F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		VertexAttribL1i64NV,
 		VertexAttribL2i64NV,
@@ -55,12 +54,10 @@ public class NVVertexAttribInteger64bit {
 		GetVertexAttribLui64vNV,
 		VertexAttribLFormatNV;
 
-	@JavadocExclude
 	protected NVVertexAttribInteger64bit() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVVertexAttribInteger64bit(FunctionProvider provider) {
 		VertexAttribL1i64NV = provider.getFunctionAddress("glVertexAttribL1i64NV");
 		VertexAttribL2i64NV = provider.getFunctionAddress("glVertexAttribL2i64NV");
@@ -142,7 +139,6 @@ public class NVVertexAttribInteger64bit {
 	// --- [ glVertexAttribL1i64vNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL1i64vNV VertexAttribL1i64vNV} */
-	@JavadocExclude
 	public static void nglVertexAttribL1i64vNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1i64vNV;
 		callIPV(__functionAddress, index, v);
@@ -164,7 +160,6 @@ public class NVVertexAttribInteger64bit {
 	// --- [ glVertexAttribL2i64vNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL2i64vNV VertexAttribL2i64vNV} */
-	@JavadocExclude
 	public static void nglVertexAttribL2i64vNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL2i64vNV;
 		callIPV(__functionAddress, index, v);
@@ -186,7 +181,6 @@ public class NVVertexAttribInteger64bit {
 	// --- [ glVertexAttribL3i64vNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL3i64vNV VertexAttribL3i64vNV} */
-	@JavadocExclude
 	public static void nglVertexAttribL3i64vNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL3i64vNV;
 		callIPV(__functionAddress, index, v);
@@ -208,7 +202,6 @@ public class NVVertexAttribInteger64bit {
 	// --- [ glVertexAttribL4i64vNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL4i64vNV VertexAttribL4i64vNV} */
-	@JavadocExclude
 	public static void nglVertexAttribL4i64vNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL4i64vNV;
 		callIPV(__functionAddress, index, v);
@@ -258,7 +251,6 @@ public class NVVertexAttribInteger64bit {
 	// --- [ glVertexAttribL1ui64vNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL1ui64vNV VertexAttribL1ui64vNV} */
-	@JavadocExclude
 	public static void nglVertexAttribL1ui64vNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1ui64vNV;
 		callIPV(__functionAddress, index, v);
@@ -280,7 +272,6 @@ public class NVVertexAttribInteger64bit {
 	// --- [ glVertexAttribL2ui64vNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL2ui64vNV VertexAttribL2ui64vNV} */
-	@JavadocExclude
 	public static void nglVertexAttribL2ui64vNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL2ui64vNV;
 		callIPV(__functionAddress, index, v);
@@ -302,7 +293,6 @@ public class NVVertexAttribInteger64bit {
 	// --- [ glVertexAttribL3ui64vNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL3ui64vNV VertexAttribL3ui64vNV} */
-	@JavadocExclude
 	public static void nglVertexAttribL3ui64vNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL3ui64vNV;
 		callIPV(__functionAddress, index, v);
@@ -324,7 +314,6 @@ public class NVVertexAttribInteger64bit {
 	// --- [ glVertexAttribL4ui64vNV ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL4ui64vNV VertexAttribL4ui64vNV} */
-	@JavadocExclude
 	public static void nglVertexAttribL4ui64vNV(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL4ui64vNV;
 		callIPV(__functionAddress, index, v);
@@ -346,7 +335,6 @@ public class NVVertexAttribInteger64bit {
 	// --- [ glGetVertexAttribLi64vNV ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribLi64vNV GetVertexAttribLi64vNV} */
-	@JavadocExclude
 	public static void nglGetVertexAttribLi64vNV(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLi64vNV;
 		callIIPV(__functionAddress, index, pname, params);
@@ -376,7 +364,6 @@ public class NVVertexAttribInteger64bit {
 	// --- [ glGetVertexAttribLui64vNV ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribLui64vNV GetVertexAttribLui64vNV} */
-	@JavadocExclude
 	public static void nglGetVertexAttribLui64vNV(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLui64vNV;
 		callIIPV(__functionAddress, index, pname, params);

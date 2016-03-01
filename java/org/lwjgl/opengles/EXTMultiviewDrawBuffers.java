@@ -50,18 +50,15 @@ public class EXTMultiviewDrawBuffers {
 	public static final int GL_MAX_MULTIVIEW_BUFFERS_EXT = 0x90F2;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ReadBufferIndexedEXT,
 		DrawBuffersIndexedEXT,
 		GetIntegeri_vEXT;
 
-	@JavadocExclude
 	protected EXTMultiviewDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTMultiviewDrawBuffers(FunctionProvider provider) {
 		ReadBufferIndexedEXT = provider.getFunctionAddress("glReadBufferIndexedEXT");
 		DrawBuffersIndexedEXT = provider.getFunctionAddress("glDrawBuffersIndexedEXT");
@@ -101,7 +98,6 @@ public class EXTMultiviewDrawBuffers {
 	// --- [ glDrawBuffersIndexedEXT ] ---
 
 	/** Unsafe version of {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
-	@JavadocExclude
 	public static void nglDrawBuffersIndexedEXT(int n, long location, long indices) {
 		long __functionAddress = getInstance().DrawBuffersIndexedEXT;
 		callIPPV(__functionAddress, n, location, indices);
@@ -125,7 +121,6 @@ public class EXTMultiviewDrawBuffers {
 	// --- [ glGetIntegeri_vEXT ] ---
 
 	/** Unsafe version of {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
-	@JavadocExclude
 	public static void nglGetIntegeri_vEXT(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegeri_vEXT;
 		callIIPV(__functionAddress, target, index, data);

@@ -16,17 +16,16 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkPipelineTessellationStateCreateInfo {
- *     VkStructureType sType;
- *     const void * pNext;
- *     VkPipelineTessellationStateCreateFlags flags;
- *     uint32_t patchControlPoints;
- * }</code></pre>
+ * <pre><code>struct VkPipelineTessellationStateCreateInfo {
+    VkStructureType sType;
+    const void * pNext;
+    VkPipelineTessellationStateCreateFlags flags;
+    uint32_t patchControlPoints;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */
@@ -35,7 +34,6 @@ public class VkPipelineTessellationStateCreateInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -131,12 +129,12 @@ public class VkPipelineTessellationStateCreateInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkPipelineTessellationStateCreateInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPipelineTessellationStateCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkPipelineTessellationStateCreateInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkPipelineTessellationStateCreateInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPipelineTessellationStateCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkPipelineTessellationStateCreateInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -152,7 +150,7 @@ public class VkPipelineTessellationStateCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPipelineTessellationStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPipelineTessellationStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -161,7 +159,7 @@ public class VkPipelineTessellationStateCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPipelineTessellationStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPipelineTessellationStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

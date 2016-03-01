@@ -24,17 +24,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTDrawInstanced {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawArraysInstancedEXT,
 		DrawElementsInstancedEXT;
 
-	@JavadocExclude
 	protected EXTDrawInstanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDrawInstanced(FunctionProvider provider) {
 		DrawArraysInstancedEXT = provider.getFunctionAddress("glDrawArraysInstancedEXT");
 		DrawElementsInstancedEXT = provider.getFunctionAddress("glDrawElementsInstancedEXT");
@@ -74,7 +71,6 @@ public class EXTDrawInstanced {
 	// --- [ glDrawElementsInstancedEXT ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedEXT DrawElementsInstancedEXT} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedEXT;
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);

@@ -36,17 +36,14 @@ public class IMGFramebufferDownsample {
 	public static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG = 0x913F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		FramebufferTexture2DDownsampleIMG,
 		FramebufferTextureLayerDownsampleIMG;
 
-	@JavadocExclude
 	protected IMGFramebufferDownsample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public IMGFramebufferDownsample(FunctionProvider provider) {
 		FramebufferTexture2DDownsampleIMG = provider.getFunctionAddress("glFramebufferTexture2DDownsampleIMG");
 		FramebufferTextureLayerDownsampleIMG = provider.getFunctionAddress("glFramebufferTextureLayerDownsampleIMG");

@@ -41,15 +41,12 @@ public class APPLEGLSharing {
 	public static final int CL_CGL_DEVICE_FOR_CURRENT_VIRTUAL_SCREEN_APPLE = 0x10000002;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetGLContextInfoAPPLE;
 
-	@JavadocExclude
 	protected APPLEGLSharing() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public APPLEGLSharing(FunctionProvider provider) {
 		GetGLContextInfoAPPLE = provider.getFunctionAddress("clGetGLContextInfoAPPLE");
 	}
@@ -79,7 +76,6 @@ public class APPLEGLSharing {
 	// --- [ clGetGLContextInfoAPPLE ] ---
 
 	/** Unsafe version of {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
-	@JavadocExclude
 	public static int nclGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetGLContextInfoAPPLE;
 		if ( CHECKS ) {

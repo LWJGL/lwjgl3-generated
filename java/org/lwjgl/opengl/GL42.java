@@ -207,7 +207,6 @@ public class GL42 {
 	public static final int GL_MIN_MAP_BUFFER_ALIGNMENT = 0x90BC;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetActiveAtomicCounterBufferiv,
 		TexStorage1D,
@@ -222,12 +221,10 @@ public class GL42 {
 		MemoryBarrier,
 		GetInternalformativ;
 
-	@JavadocExclude
 	protected GL42() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL42(FunctionProvider provider) {
 		GetActiveAtomicCounterBufferiv = provider.getFunctionAddress("glGetActiveAtomicCounterBufferiv");
 		TexStorage1D = provider.getFunctionAddress("glTexStorage1D");
@@ -272,7 +269,6 @@ public class GL42 {
 	// --- [ glGetActiveAtomicCounterBufferiv ] ---
 
 	/** Unsafe version of {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
-	@JavadocExclude
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
 		callIIIPV(__functionAddress, program, bufferIndex, pname, params);
@@ -417,7 +413,6 @@ public class GL42 {
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseInstance DrawElementsInstancedBaseInstance} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseInstance;
 		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
@@ -481,7 +476,6 @@ public class GL42 {
 	// --- [ glDrawElementsInstancedBaseVertexBaseInstance ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstance;
 		callIIIPIIIV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
@@ -580,7 +574,6 @@ public class GL42 {
 	// --- [ glGetInternalformativ ] ---
 
 	/** Unsafe version of {@link #glGetInternalformativ GetInternalformativ} */
-	@JavadocExclude
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformativ;
 		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);

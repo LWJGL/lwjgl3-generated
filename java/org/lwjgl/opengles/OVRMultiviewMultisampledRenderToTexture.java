@@ -19,15 +19,12 @@ import static org.lwjgl.system.JNI.*;
 public class OVRMultiviewMultisampledRenderToTexture {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long FramebufferTextureMultisampleMultiviewOVR;
 
-	@JavadocExclude
 	protected OVRMultiviewMultisampledRenderToTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OVRMultiviewMultisampledRenderToTexture(FunctionProvider provider) {
 		FramebufferTextureMultisampleMultiviewOVR = provider.getFunctionAddress("glFramebufferTextureMultisampleMultiviewOVR");
 	}

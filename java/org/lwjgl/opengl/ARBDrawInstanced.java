@@ -34,17 +34,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class ARBDrawInstanced {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawArraysInstancedARB,
 		DrawElementsInstancedARB;
 
-	@JavadocExclude
 	protected ARBDrawInstanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBDrawInstanced(FunctionProvider provider) {
 		DrawArraysInstancedARB = provider.getFunctionAddress("glDrawArraysInstancedARB");
 		DrawElementsInstancedARB = provider.getFunctionAddress("glDrawElementsInstancedARB");
@@ -92,7 +89,6 @@ public class ARBDrawInstanced {
 	// --- [ glDrawElementsInstancedARB ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedARB;
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);

@@ -26,15 +26,12 @@ public class SOFTBufferSubData {
 		AL_SAMPLE_RW_OFFSETS_SOFT = 0x1032;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long BufferSubDataSOFT;
 
-	@JavadocExclude
 	protected SOFTBufferSubData() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public SOFTBufferSubData(FunctionProvider provider) {
 		BufferSubDataSOFT = provider.getFunctionAddress("alBufferSubDataSOFT");
 	}
@@ -61,7 +58,6 @@ public class SOFTBufferSubData {
 	// --- [ alBufferSubDataSOFT ] ---
 
 	/** Unsafe version of {@link #alBufferSubDataSOFT BufferSubDataSOFT} */
-	@JavadocExclude
 	public static void nalBufferSubDataSOFT(int buffer, int format, long data, int offset, int length) {
 		long __functionAddress = getInstance().BufferSubDataSOFT;
 		invokeIIPIIV(__functionAddress, buffer, format, data, offset, length);

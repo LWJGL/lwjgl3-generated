@@ -16,18 +16,15 @@ import org.lwjgl.egl.EGL10;
 public class GLFWNativeEGL {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetEGLDisplay,
 		GetEGLContext,
 		GetEGLSurface;
 
-	@JavadocExclude
 	protected GLFWNativeEGL() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLFWNativeEGL(FunctionProvider provider) {
 		GetEGLDisplay = checkFunctionAddress(provider.getFunctionAddress("glfwGetEGLDisplay"));
 		GetEGLContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetEGLContext"));

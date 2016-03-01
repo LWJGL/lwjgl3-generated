@@ -75,7 +75,6 @@ public class STBVorbis {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected STBVorbis() {
 		throw new UnsupportedOperationException();
 	}
@@ -83,7 +82,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_info ] ---
 
 	/** JNI method for {@link #stb_vorbis_get_info get_info} */
-	@JavadocExclude
 	public static native void nstb_vorbis_get_info(long f, long __result);
 
 	/**
@@ -100,7 +98,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_error ] ---
 
 	/** JNI method for {@link #stb_vorbis_get_error get_error} */
-	@JavadocExclude
 	public static native int nstb_vorbis_get_error(long f);
 
 	/**
@@ -117,7 +114,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_close ] ---
 
 	/** JNI method for {@link #stb_vorbis_close close} */
-	@JavadocExclude
 	public static native void nstb_vorbis_close(long f);
 
 	/**
@@ -134,7 +130,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_sample_offset ] ---
 
 	/** JNI method for {@link #stb_vorbis_get_sample_offset get_sample_offset} */
-	@JavadocExclude
 	public static native int nstb_vorbis_get_sample_offset(long f);
 
 	/**
@@ -154,7 +149,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_file_offset ] ---
 
 	/** JNI method for {@link #stb_vorbis_get_file_offset get_file_offset} */
-	@JavadocExclude
 	public static native int nstb_vorbis_get_file_offset(long f);
 
 	/**
@@ -171,7 +165,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_open_pushdata ] ---
 
 	/** JNI method for {@link #stb_vorbis_open_pushdata open_pushdata} */
-	@JavadocExclude
 	public static native long nstb_vorbis_open_pushdata(long datablock, int datablock_length_in_bytes, long datablock_memory_consumed_in_bytes, long error, long alloc_buffer);
 
 	/**
@@ -207,7 +200,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_decode_frame_pushdata ] ---
 
 	/** JNI method for {@link #stb_vorbis_decode_frame_pushdata decode_frame_pushdata} */
-	@JavadocExclude
 	public static native int nstb_vorbis_decode_frame_pushdata(long f, long datablock, int datablock_length_in_bytes, long channels, long output, long samples);
 
 	/**
@@ -262,7 +254,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_flush_pushdata ] ---
 
 	/** JNI method for {@link #stb_vorbis_flush_pushdata flush_pushdata} */
-	@JavadocExclude
 	public static native void nstb_vorbis_flush_pushdata(long f);
 
 	/**
@@ -284,7 +275,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_decode_filename ] ---
 
 	/** JNI method for {@link #stb_vorbis_decode_filename decode_filename} */
-	@JavadocExclude
 	public static native int nstb_vorbis_decode_filename(long filename, long channels, long sample_rate, long output);
 
 	/**
@@ -347,7 +337,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_decode_memory ] ---
 
 	/** JNI method for {@link #stb_vorbis_decode_memory decode_memory} */
-	@JavadocExclude
 	public static native int nstb_vorbis_decode_memory(long mem, int len, long channels, long sample_rate, long output);
 
 	/**
@@ -394,7 +383,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_open_memory ] ---
 
 	/** JNI method for {@link #stb_vorbis_open_memory open_memory} */
-	@JavadocExclude
 	public static native long nstb_vorbis_open_memory(long mem, int len, long error, long alloc_buffer);
 
 	/**
@@ -428,7 +416,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_open_filename ] ---
 
 	/** JNI method for {@link #stb_vorbis_open_filename open_filename} */
-	@JavadocExclude
 	public static native long nstb_vorbis_open_filename(long filename, long error, long alloc_buffer);
 
 	/**
@@ -473,7 +460,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_seek_frame ] ---
 
 	/** JNI method for {@link #stb_vorbis_seek_frame seek_frame} */
-	@JavadocExclude
 	public static native int nstb_vorbis_seek_frame(long f, int sample_number);
 
 	/**
@@ -492,7 +478,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_seek ] ---
 
 	/** JNI method for {@link #stb_vorbis_seek seek} */
-	@JavadocExclude
 	public static native int nstb_vorbis_seek(long f, int sample_number);
 
 	/**
@@ -511,7 +496,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_seek_start ] ---
 
 	/** JNI method for {@link #stb_vorbis_seek_start seek_start} */
-	@JavadocExclude
 	public static native void nstb_vorbis_seek_start(long f);
 
 	/**
@@ -528,7 +512,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_stream_length_in_samples ] ---
 
 	/** JNI method for {@link #stb_vorbis_stream_length_in_samples stream_length_in_samples} */
-	@JavadocExclude
 	public static native int nstb_vorbis_stream_length_in_samples(long f);
 
 	/**
@@ -545,7 +528,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_stream_length_in_seconds ] ---
 
 	/** JNI method for {@link #stb_vorbis_stream_length_in_seconds stream_length_in_seconds} */
-	@JavadocExclude
 	public static native float nstb_vorbis_stream_length_in_seconds(long f);
 
 	/**
@@ -562,7 +544,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_frame_float ] ---
 
 	/** JNI method for {@link #stb_vorbis_get_frame_float get_frame_float} */
-	@JavadocExclude
 	public static native int nstb_vorbis_get_frame_float(long f, long channels, long output);
 
 	/**
@@ -597,7 +578,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_frame_short ] ---
 
 	/** JNI method for {@link #stb_vorbis_get_frame_short get_frame_short} */
-	@JavadocExclude
 	public static native int nstb_vorbis_get_frame_short(long f, int num_c, long buffer, int num_samples);
 
 	/**
@@ -613,12 +593,11 @@ public class STBVorbis {
 	 * <p>Let M be the number of channels requested, and N the number of channels present, and Cn be the nth channel; let stereo L be the sum of all L and center
 	 * channels, and stereo R be the sum of all R and center channels (channel assignment from the vorbis spec).</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * M    N      output
-	 * 1    k      sum(Ck) for all k
-	 * 2    *      stereo L, stereo R
-	 * k    l      k > l, the first l channels, then 0s
-	 * k    l      k <= l, the first k channels</code></pre>
+	 * <pre><code>M    N      output
+1    k      sum(Ck) for all k
+2    *      stereo L, stereo R
+k    l      k > l, the first l channels, then 0s
+k    l      k <= l, the first k channels</code></pre>
 	 * 
 	 * <p>Note that this is not <b>good</b> surround etc. mixing at all! It's just so you get something useful.</p>
 	 *
@@ -647,7 +626,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_frame_short_interleaved ] ---
 
 	/** JNI method for {@link #stb_vorbis_get_frame_short_interleaved get_frame_short_interleaved} */
-	@JavadocExclude
 	public static native int nstb_vorbis_get_frame_short_interleaved(long f, int num_c, long buffer, int num_shorts);
 
 	/**
@@ -681,7 +659,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_samples_float ] ---
 
 	/** JNI method for {@link #stb_vorbis_get_samples_float get_samples_float} */
-	@JavadocExclude
 	public static native int nstb_vorbis_get_samples_float(long f, int channels, long buffer, int num_samples);
 
 	/**
@@ -713,7 +690,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_samples_float_interleaved ] ---
 
 	/** JNI method for {@link #stb_vorbis_get_samples_float_interleaved get_samples_float_interleaved} */
-	@JavadocExclude
 	public static native int nstb_vorbis_get_samples_float_interleaved(long f, int channels, long buffer, int num_floats);
 
 	/**
@@ -744,7 +720,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_samples_short ] ---
 
 	/** JNI method for {@link #stb_vorbis_get_samples_short get_samples_short} */
-	@JavadocExclude
 	public static native int nstb_vorbis_get_samples_short(long f, int channels, long buffer, int num_samples);
 
 	/**
@@ -776,7 +751,6 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_samples_short_interleaved ] ---
 
 	/** JNI method for {@link #stb_vorbis_get_samples_short_interleaved get_samples_short_interleaved} */
-	@JavadocExclude
 	public static native int nstb_vorbis_get_samples_short_interleaved(long f, int channels, long buffer, int num_shorts);
 
 	/**

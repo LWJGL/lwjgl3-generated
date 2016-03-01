@@ -125,17 +125,14 @@ public class ARBShaderImageLoadStore {
 		GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS = 0x90C9;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindImageTexture,
 		MemoryBarrier;
 
-	@JavadocExclude
 	protected ARBShaderImageLoadStore() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBShaderImageLoadStore(FunctionProvider provider) {
 		BindImageTexture = provider.getFunctionAddress("glBindImageTexture");
 		MemoryBarrier = provider.getFunctionAddress("glMemoryBarrier");

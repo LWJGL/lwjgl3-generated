@@ -39,15 +39,12 @@ public class EXTTextureFilterMinmax {
 	public static final int GL_WEIGHTED_AVERAGE_EXT = 0x9367;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long RasterSamplesEXT;
 
-	@JavadocExclude
 	protected EXTTextureFilterMinmax() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTTextureFilterMinmax(FunctionProvider provider) {
 		RasterSamplesEXT = provider.getFunctionAddress("glRasterSamplesEXT");
 	}

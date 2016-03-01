@@ -46,15 +46,12 @@ public class NVInternalformatSampleQuery {
 		GL_CONFORMANT_NV          = 0x9374;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetInternalformatSampleivNV;
 
-	@JavadocExclude
 	protected NVInternalformatSampleQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVInternalformatSampleQuery(FunctionProvider provider) {
 		GetInternalformatSampleivNV = provider.getFunctionAddress("glGetInternalformatSampleivNV");
 	}
@@ -85,7 +82,6 @@ public class NVInternalformatSampleQuery {
 	// --- [ glGetInternalformatSampleivNV ] ---
 
 	/** Unsafe version of {@link #glGetInternalformatSampleivNV GetInternalformatSampleivNV} */
-	@JavadocExclude
 	public static void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformatSampleivNV;
 		callIIIIIPV(__functionAddress, target, internalformat, samples, pname, bufSize, params);

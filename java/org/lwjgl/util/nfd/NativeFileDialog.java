@@ -71,7 +71,6 @@ public class NativeFileDialog {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected NativeFileDialog() {
 		throw new UnsupportedOperationException();
 	}
@@ -79,7 +78,6 @@ public class NativeFileDialog {
 	// --- [ NFD_OpenDialog ] ---
 
 	/** JNI method for {@link #NFD_OpenDialog OpenDialog} */
-	@JavadocExclude
 	public static native int nNFD_OpenDialog(long filterList, long defaultPath, long outPath);
 
 	/**
@@ -124,7 +122,6 @@ public class NativeFileDialog {
 	// --- [ NFD_OpenDialogMultiple ] ---
 
 	/** JNI method for {@link #NFD_OpenDialogMultiple OpenDialogMultiple} */
-	@JavadocExclude
 	public static native int nNFD_OpenDialogMultiple(long filterList, long defaultPath, long outPaths);
 
 	/**
@@ -156,7 +153,6 @@ public class NativeFileDialog {
 	// --- [ NFD_SaveDialog ] ---
 
 	/** JNI method for {@link #NFD_SaveDialog SaveDialog} */
-	@JavadocExclude
 	public static native int nNFD_SaveDialog(long filterList, long defaultPath, long outPath);
 
 	/**
@@ -201,7 +197,6 @@ public class NativeFileDialog {
 	// --- [ NFD_GetError ] ---
 
 	/** JNI method for {@link #NFD_GetError GetError} */
-	@JavadocExclude
 	public static native long nNFD_GetError();
 
 	/** Returns the last error. */
@@ -213,7 +208,6 @@ public class NativeFileDialog {
 	// --- [ NFD_PathSet_GetCount ] ---
 
 	/** JNI method for {@link #NFD_PathSet_GetCount PathSet_GetCount} */
-	@JavadocExclude
 	public static native long nNFD_PathSet_GetCount(long pathSet);
 
 	/**
@@ -228,7 +222,6 @@ public class NativeFileDialog {
 	// --- [ NFD_PathSet_GetPath ] ---
 
 	/** JNI method for {@link #NFD_PathSet_GetPath PathSet_GetPath} */
-	@JavadocExclude
 	public static native long nNFD_PathSet_GetPath(long pathSet, long index);
 
 	/**
@@ -245,7 +238,6 @@ public class NativeFileDialog {
 	// --- [ NFD_PathSet_Free ] ---
 
 	/** JNI method for {@link #NFD_PathSet_Free PathSet_Free} */
-	@JavadocExclude
 	public static native void nNFD_PathSet_Free(long pathSet);
 
 	/**
@@ -260,7 +252,6 @@ public class NativeFileDialog {
 	// --- [ NFD_Free ] ---
 
 	/** JNI method for {@link #NFD_Free Free} */
-	@JavadocExclude
 	public static native void nNFD_Free(long outPath);
 
 	/**

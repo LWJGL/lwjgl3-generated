@@ -31,17 +31,14 @@ public class KHRImageBase {
 	public static final long EGL_NO_IMAGE_KHR = 0x0L;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateImageKHR,
 		DestroyImageKHR;
 
-	@JavadocExclude
 	protected KHRImageBase() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRImageBase(FunctionProvider provider) {
 		CreateImageKHR = provider.getFunctionAddress("eglCreateImageKHR");
 		DestroyImageKHR = provider.getFunctionAddress("eglDestroyImageKHR");
@@ -62,7 +59,6 @@ public class KHRImageBase {
 	// --- [ eglCreateImageKHR ] ---
 
 	/** Unsafe version of {@link #eglCreateImageKHR CreateImageKHR} */
-	@JavadocExclude
 	public static long neglCreateImageKHR(long dpy, long ctx, int target, long buffer, long attrib_list) {
 		long __functionAddress = getInstance().CreateImageKHR;
 		if ( CHECKS ) {

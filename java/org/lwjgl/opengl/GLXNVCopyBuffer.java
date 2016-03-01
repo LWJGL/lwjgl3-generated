@@ -18,17 +18,14 @@ import static org.lwjgl.system.JNI.*;
 public class GLXNVCopyBuffer {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CopyBufferSubDataNV,
 		NamedCopyBufferSubDataNV;
 
-	@JavadocExclude
 	protected GLXNVCopyBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXNVCopyBuffer(FunctionProvider provider) {
 		CopyBufferSubDataNV = provider.getFunctionAddress("glXCopyBufferSubDataNV");
 		NamedCopyBufferSubDataNV = provider.getFunctionAddress("glXNamedCopyBufferSubDataNV");

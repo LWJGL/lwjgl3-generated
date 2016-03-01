@@ -43,15 +43,12 @@ public class NVStreamConsumerGLTextureYUV {
 	public static final int EGL_YUV_BUFFER_EXT = 0x3300;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long StreamConsumerGLTextureExternalAttribsNV;
 
-	@JavadocExclude
 	protected NVStreamConsumerGLTextureYUV() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVStreamConsumerGLTextureYUV(FunctionProvider provider) {
 		StreamConsumerGLTextureExternalAttribsNV = provider.getFunctionAddress("eglStreamConsumerGLTextureExternalAttribsNV");
 	}
@@ -71,7 +68,6 @@ public class NVStreamConsumerGLTextureYUV {
 	// --- [ eglStreamConsumerGLTextureExternalAttribsNV ] ---
 
 	/** Unsafe version of {@link #eglStreamConsumerGLTextureExternalAttribsNV StreamConsumerGLTextureExternalAttribsNV} */
-	@JavadocExclude
 	public static int neglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, long attrib_list) {
 		long __functionAddress = getInstance().StreamConsumerGLTextureExternalAttribsNV;
 		if ( CHECKS ) {

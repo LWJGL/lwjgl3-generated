@@ -35,15 +35,12 @@ public class AMDStencilOperationExtended {
 		GL_STENCIL_BACK_OP_VALUE_AMD = 0x874D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long StencilOpValueAMD;
 
-	@JavadocExclude
 	protected AMDStencilOperationExtended() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public AMDStencilOperationExtended(FunctionProvider provider) {
 		StencilOpValueAMD = provider.getFunctionAddress("glStencilOpValueAMD");
 	}

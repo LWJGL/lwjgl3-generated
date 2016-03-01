@@ -25,18 +25,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrLayerQuad {
- *     {@link OVRLayerHeader ovrLayerHeader} Header;
- *     ovrSwapTextureSet * ColorTexture;
- *     {@link OVRRecti ovrRecti} Viewport;
- *     {@link OVRPosef ovrPosef} QuadPoseCenter;
- *     {@link OVRVector2f ovrVector2f} QuadSize;
- * }</code></pre>
+ * <pre><code>struct ovrLayerQuad {
+    {@link OVRLayerHeader ovrLayerHeader} Header;
+    ovrSwapTextureSet * ColorTexture;
+    {@link OVRRecti ovrRecti} Viewport;
+    {@link OVRPosef ovrPosef} QuadPoseCenter;
+    {@link OVRVector2f ovrVector2f} QuadSize;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_Quad}</td></tr>
  * <tr><td>ColorTexture</td><td>contains a single image, never with any stereo view</td></tr>
  * <tr><td>Viewport</td><td>specifies the ColorTexture sub-rect UV coordinates</td></tr>
@@ -49,7 +48,6 @@ public class OVRLayerQuad extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -154,12 +152,12 @@ public class OVRLayerQuad extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRLayerQuad} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRLayerQuad} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRLayerQuad malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRLayerQuad} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRLayerQuad} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRLayerQuad calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -175,7 +173,7 @@ public class OVRLayerQuad extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRLayerQuad.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRLayerQuad.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -184,7 +182,7 @@ public class OVRLayerQuad extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRLayerQuad.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRLayerQuad.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

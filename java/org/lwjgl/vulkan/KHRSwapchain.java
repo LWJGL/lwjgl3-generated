@@ -39,7 +39,6 @@ public class KHRSwapchain {
 		VK_ERROR_OUT_OF_DATE_KHR = -1000001004;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateSwapchainKHR,
 		DestroySwapchainKHR,
@@ -47,12 +46,10 @@ public class KHRSwapchain {
 		AcquireNextImageKHR,
 		QueuePresentKHR;
 
-	@JavadocExclude
 	protected KHRSwapchain() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRSwapchain(FunctionProvider provider) {
 		CreateSwapchainKHR = provider.getFunctionAddress("vkCreateSwapchainKHR");
 		DestroySwapchainKHR = provider.getFunctionAddress("vkDestroySwapchainKHR");
@@ -93,7 +90,6 @@ public class KHRSwapchain {
 	// --- [ vkCreateSwapchainKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateSwapchainKHR CreateSwapchainKHR} */
-	@JavadocExclude
 	public static int nvkCreateSwapchainKHR(VkDevice device, long pCreateInfo, long pAllocator, long pSwapchain) {
 		long __functionAddress = getInstance(device).CreateSwapchainKHR;
 		if ( CHECKS ) {
@@ -128,7 +124,6 @@ public class KHRSwapchain {
 	// --- [ vkDestroySwapchainKHR ] ---
 
 	/** Unsafe version of {@link #vkDestroySwapchainKHR DestroySwapchainKHR} */
-	@JavadocExclude
 	public static void nvkDestroySwapchainKHR(VkDevice device, long swapchain, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroySwapchainKHR;
 		if ( CHECKS ) {
@@ -152,7 +147,6 @@ public class KHRSwapchain {
 	// --- [ vkGetSwapchainImagesKHR ] ---
 
 	/** Unsafe version of {@link #vkGetSwapchainImagesKHR GetSwapchainImagesKHR} */
-	@JavadocExclude
 	public static int nvkGetSwapchainImagesKHR(VkDevice device, long swapchain, long pSwapchainImageCount, long pSwapchainImages) {
 		long __functionAddress = getInstance(device).GetSwapchainImagesKHR;
 		if ( CHECKS )
@@ -188,7 +182,6 @@ public class KHRSwapchain {
 	// --- [ vkAcquireNextImageKHR ] ---
 
 	/** Unsafe version of {@link #vkAcquireNextImageKHR AcquireNextImageKHR} */
-	@JavadocExclude
 	public static int nvkAcquireNextImageKHR(VkDevice device, long swapchain, long timeout, long semaphore, long fence, long pImageIndex) {
 		long __functionAddress = getInstance(device).AcquireNextImageKHR;
 		if ( CHECKS )
@@ -222,7 +215,6 @@ public class KHRSwapchain {
 	// --- [ vkQueuePresentKHR ] ---
 
 	/** Unsafe version of {@link #vkQueuePresentKHR QueuePresentKHR} */
-	@JavadocExclude
 	public static int nvkQueuePresentKHR(VkQueue queue, long pPresentInfo) {
 		long __functionAddress = getInstance(queue).QueuePresentKHR;
 		if ( CHECKS ) {

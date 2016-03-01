@@ -25,15 +25,12 @@ import org.lwjgl.system.linux.*;
 public class GLXARBGetProcAddress {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetProcAddressARB;
 
-	@JavadocExclude
 	protected GLXARBGetProcAddress() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXARBGetProcAddress(FunctionProvider provider) {
 		GetProcAddressARB = provider.getFunctionAddress("glXGetProcAddressARB");
 	}
@@ -65,7 +62,6 @@ public class GLXARBGetProcAddress {
 	// --- [ glXGetProcAddressARB ] ---
 
 	/** Unsafe version of {@link #glXGetProcAddressARB GetProcAddressARB} */
-	@JavadocExclude
 	public static long nglXGetProcAddressARB(long procName) {
 		long __functionAddress = getInstance().GetProcAddressARB;
 		return callPP(__functionAddress, procName);

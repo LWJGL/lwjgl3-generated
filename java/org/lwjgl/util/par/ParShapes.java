@@ -30,16 +30,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>When you’re done extracting the data you need from the mesh, be sure to free it:</p>
  * 
- * <pre><code style="font-family: monospace">
- * par_shapes_mesh* m = par_shapes_create_subdivided_sphere(1);
- * // ...
- * par_shapes_free_mesh(m);</code></pre>
+ * <pre><code>par_shapes_mesh* m = par_shapes_create_subdivided_sphere(1);
+// ...
+par_shapes_free_mesh(m);</code></pre>
  */
 public class ParShapes {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected ParShapes() {
 		throw new UnsupportedOperationException();
 	}
@@ -47,7 +45,6 @@ public class ParShapes {
 	// --- [ par_shapes_free_mesh ] ---
 
 	/** JNI method for {@link #par_shapes_free_mesh free_mesh} */
-	@JavadocExclude
 	public static native void npar_shapes_free_mesh(long mesh);
 
 	/**
@@ -62,7 +59,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_cylinder ] ---
 
 	/** JNI method for {@link #par_shapes_create_cylinder create_cylinder} */
-	@JavadocExclude
 	public static native long npar_shapes_create_cylinder(int slices, int stacks);
 
 	/**
@@ -80,7 +76,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_torus ] ---
 
 	/** JNI method for {@link #par_shapes_create_torus create_torus} */
-	@JavadocExclude
 	public static native long npar_shapes_create_torus(int slices, int stacks, float radius);
 
 	/**
@@ -98,7 +93,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_parametric_sphere ] ---
 
 	/** JNI method for {@link #par_shapes_create_parametric_sphere create_parametric_sphere} */
-	@JavadocExclude
 	public static native long npar_shapes_create_parametric_sphere(int slices, int stacks);
 
 	/**
@@ -115,7 +109,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_subdivided_sphere ] ---
 
 	/** JNI method for {@link #par_shapes_create_subdivided_sphere create_subdivided_sphere} */
-	@JavadocExclude
 	public static native long npar_shapes_create_subdivided_sphere(int nsubdivisions);
 
 	/**
@@ -132,7 +125,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_klein_bottle ] ---
 
 	/** JNI method for {@link #par_shapes_create_klein_bottle create_klein_bottle} */
-	@JavadocExclude
 	public static native long npar_shapes_create_klein_bottle(int slices, int stacks);
 
 	/**
@@ -149,7 +141,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_trefoil_knot ] ---
 
 	/** JNI method for {@link #par_shapes_create_trefoil_knot create_trefoil_knot} */
-	@JavadocExclude
 	public static native long npar_shapes_create_trefoil_knot(int slices, int stacks, float radius);
 
 	/**
@@ -167,7 +158,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_hemisphere ] ---
 
 	/** JNI method for {@link #par_shapes_create_hemisphere create_hemisphere} */
-	@JavadocExclude
 	public static native long npar_shapes_create_hemisphere(int slices, int stacks);
 
 	/**
@@ -184,7 +174,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_plane ] ---
 
 	/** JNI method for {@link #par_shapes_create_plane create_plane} */
-	@JavadocExclude
 	public static native long npar_shapes_create_plane(int slices, int stacks);
 
 	/**
@@ -201,7 +190,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_icosahedron ] ---
 
 	/** JNI method for {@link #par_shapes_create_icosahedron create_icosahedron} */
-	@JavadocExclude
 	public static native long npar_shapes_create_icosahedron();
 
 	/** Generates points for a 20-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
@@ -213,7 +201,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_dodecahedron ] ---
 
 	/** JNI method for {@link #par_shapes_create_dodecahedron create_dodecahedron} */
-	@JavadocExclude
 	public static native long npar_shapes_create_dodecahedron();
 
 	/** Generates points for a 12-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
@@ -225,7 +212,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_octohedron ] ---
 
 	/** JNI method for {@link #par_shapes_create_octohedron create_octohedron} */
-	@JavadocExclude
 	public static native long npar_shapes_create_octohedron();
 
 	/** Generates points for an 8-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
@@ -237,7 +223,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_tetrahedron ] ---
 
 	/** JNI method for {@link #par_shapes_create_tetrahedron create_tetrahedron} */
-	@JavadocExclude
 	public static native long npar_shapes_create_tetrahedron();
 
 	/** Generates points for a 4-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
@@ -249,7 +234,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_cube ] ---
 
 	/** JNI method for {@link #par_shapes_create_cube create_cube} */
-	@JavadocExclude
 	public static native long npar_shapes_create_cube();
 
 	/** Generates points for a cube that fits in the unit sphere. Texture coordinates and normals are not generated. */
@@ -261,7 +245,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_disk ] ---
 
 	/** JNI method for {@link #par_shapes_create_disk create_disk} */
-	@JavadocExclude
 	public static native long npar_shapes_create_disk(float radius, int slices, long center, long normal);
 
 	/**
@@ -286,7 +269,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_empty ] ---
 
 	/** JNI method for {@link #par_shapes_create_empty create_empty} */
-	@JavadocExclude
 	public static native long npar_shapes_create_empty();
 
 	/** Creates an empty shape. Useful for building scenes with {@link #par_shapes_merge_and_free merge_and_free}. */
@@ -298,7 +280,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_rock ] ---
 
 	/** JNI method for {@link #par_shapes_create_rock create_rock} */
-	@JavadocExclude
 	public static native long npar_shapes_create_rock(int seed, int nsubdivisions);
 
 	/**
@@ -316,7 +297,6 @@ public class ParShapes {
 	// --- [ par_shapes_create_lsystem ] ---
 
 	/** JNI method for {@link #par_shapes_create_lsystem create_lsystem} */
-	@JavadocExclude
 	public static native long npar_shapes_create_lsystem(long program, int slices, int maxdepth);
 
 	/**
@@ -346,7 +326,6 @@ public class ParShapes {
 	// --- [ par_shapes_export ] ---
 
 	/** JNI method for {@link #par_shapes_export export} */
-	@JavadocExclude
 	public static native void npar_shapes_export(long mesh, long objfile);
 
 	/**
@@ -371,7 +350,6 @@ public class ParShapes {
 	// --- [ par_shapes_compute_aabb ] ---
 
 	/** JNI method for {@link #par_shapes_compute_aabb compute_aabb} */
-	@JavadocExclude
 	public static native void npar_shapes_compute_aabb(long mesh, long aabb);
 
 	/**
@@ -396,7 +374,6 @@ public class ParShapes {
 	// --- [ par_shapes_clone ] ---
 
 	/** JNI method for {@link #par_shapes_clone clone} */
-	@JavadocExclude
 	public static native long npar_shapes_clone(long mesh, long target);
 
 	/**
@@ -413,7 +390,6 @@ public class ParShapes {
 	// --- [ par_shapes_merge ] ---
 
 	/** JNI method for {@link #par_shapes_merge merge} */
-	@JavadocExclude
 	public static native void npar_shapes_merge(long dst, long src);
 
 	/**
@@ -429,7 +405,6 @@ public class ParShapes {
 	// --- [ par_shapes_translate ] ---
 
 	/** JNI method for {@link #par_shapes_translate translate} */
-	@JavadocExclude
 	public static native void npar_shapes_translate(long mesh, float x, float y, float z);
 
 	/**
@@ -447,7 +422,6 @@ public class ParShapes {
 	// --- [ par_shapes_rotate ] ---
 
 	/** JNI method for {@link #par_shapes_rotate rotate} */
-	@JavadocExclude
 	public static native void npar_shapes_rotate(long mesh, float radians, long axis);
 
 	/**
@@ -473,7 +447,6 @@ public class ParShapes {
 	// --- [ par_shapes_scale ] ---
 
 	/** JNI method for {@link #par_shapes_scale scale} */
-	@JavadocExclude
 	public static native void npar_shapes_scale(long mesh, float x, float y, float z);
 
 	/**
@@ -491,7 +464,6 @@ public class ParShapes {
 	// --- [ par_shapes_merge_and_free ] ---
 
 	/** JNI method for {@link #par_shapes_merge_and_free merge_and_free} */
-	@JavadocExclude
 	public static native void npar_shapes_merge_and_free(long dst, long src);
 
 	/**
@@ -507,7 +479,6 @@ public class ParShapes {
 	// --- [ par_shapes_invert ] ---
 
 	/** JNI method for {@link #par_shapes_invert invert} */
-	@JavadocExclude
 	public static native void npar_shapes_invert(long mesh, int startface, int nfaces);
 
 	/**
@@ -524,7 +495,6 @@ public class ParShapes {
 	// --- [ par_shapes_remove_degenerate ] ---
 
 	/** JNI method for {@link #par_shapes_remove_degenerate remove_degenerate} */
-	@JavadocExclude
 	public static native void npar_shapes_remove_degenerate(long mesh, float minarea);
 
 	/**
@@ -540,7 +510,6 @@ public class ParShapes {
 	// --- [ par_shapes_unweld ] ---
 
 	/** JNI method for {@link #par_shapes_unweld unweld} */
-	@JavadocExclude
 	public static native void npar_shapes_unweld(long mesh, boolean create_indices);
 
 	/**
@@ -559,7 +528,6 @@ public class ParShapes {
 	// --- [ par_shapes_weld ] ---
 
 	/** JNI method for {@link #par_shapes_weld weld} */
-	@JavadocExclude
 	public static native long npar_shapes_weld(long mesh, float epsilon, long mapping);
 
 	/**
@@ -584,7 +552,6 @@ public class ParShapes {
 	// --- [ par_shapes_compute_normals ] ---
 
 	/** JNI method for {@link #par_shapes_compute_normals compute_normals} */
-	@JavadocExclude
 	public static native void npar_shapes_compute_normals(long mesh);
 
 	/**

@@ -28,17 +28,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTMultiDrawIndirect {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		MultiDrawArraysIndirectEXT,
 		MultiDrawElementsIndirectEXT;
 
-	@JavadocExclude
 	protected EXTMultiDrawIndirect() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTMultiDrawIndirect(FunctionProvider provider) {
 		MultiDrawArraysIndirectEXT = provider.getFunctionAddress("glMultiDrawArraysIndirectEXT");
 		MultiDrawElementsIndirectEXT = provider.getFunctionAddress("glMultiDrawElementsIndirectEXT");
@@ -70,7 +67,6 @@ public class EXTMultiDrawIndirect {
 	// --- [ glMultiDrawArraysIndirectEXT ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
-	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectEXT(int mode, long indirect, int drawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectEXT;
 		callIPIIV(__functionAddress, mode, indirect, drawcount, stride);
@@ -103,7 +99,6 @@ public class EXTMultiDrawIndirect {
 	// --- [ glMultiDrawElementsIndirectEXT ] ---
 
 	/** Unsafe version of {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */
-	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectEXT(int mode, int type, long indirect, int drawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectEXT;
 		callIIPIIV(__functionAddress, mode, type, indirect, drawcount, stride);

@@ -41,7 +41,6 @@ public class WGLAMDGPUAssociation {
 		WGL_GPU_NUM_SPI_AMD               = 0x21A8;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetGPUIDsAMD,
 		GetGPUInfoAMD,
@@ -53,12 +52,10 @@ public class WGLAMDGPUAssociation {
 		GetCurrentAssociatedContextAMD,
 		BlitContextFramebufferAMD;
 
-	@JavadocExclude
 	protected WGLAMDGPUAssociation() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLAMDGPUAssociation(FunctionProvider provider) {
 		GetGPUIDsAMD = provider.getFunctionAddress("wglGetGPUIDsAMD");
 		GetGPUInfoAMD = provider.getFunctionAddress("wglGetGPUInfoAMD");
@@ -100,7 +97,6 @@ public class WGLAMDGPUAssociation {
 	// --- [ wglGetGPUIDsAMD ] ---
 
 	/** Unsafe version of {@link #wglGetGPUIDsAMD GetGPUIDsAMD} */
-	@JavadocExclude
 	public static int nwglGetGPUIDsAMD(int maxCount, long ids) {
 		long __functionAddress = getInstance().GetGPUIDsAMD;
 		return callIPI(__functionAddress, maxCount, ids);
@@ -130,7 +126,6 @@ public class WGLAMDGPUAssociation {
 	// --- [ wglGetGPUInfoAMD ] ---
 
 	/** Unsafe version of {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
-	@JavadocExclude
 	public static int nwglGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = getInstance().GetGPUInfoAMD;
 		return callIIIIPI(__functionAddress, id, property, dataType, size, data);
@@ -205,7 +200,6 @@ public class WGLAMDGPUAssociation {
 	// --- [ wglCreateAssociatedContextAttribsAMD ] ---
 
 	/** Unsafe version of {@link #wglCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
-	@JavadocExclude
 	public static long nwglCreateAssociatedContextAttribsAMD(int id, long shareContext, long attribList) {
 		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
 		return callIPPP(__functionAddress, id, shareContext, attribList);

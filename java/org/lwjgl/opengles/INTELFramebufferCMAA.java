@@ -28,15 +28,12 @@ import static org.lwjgl.system.JNI.*;
 public class INTELFramebufferCMAA {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long ApplyFramebufferAttachmentCMAAINTEL;
 
-	@JavadocExclude
 	protected INTELFramebufferCMAA() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public INTELFramebufferCMAA(FunctionProvider provider) {
 		ApplyFramebufferAttachmentCMAAINTEL = provider.getFunctionAddress("glApplyFramebufferAttachmentCMAAINTEL");
 	}

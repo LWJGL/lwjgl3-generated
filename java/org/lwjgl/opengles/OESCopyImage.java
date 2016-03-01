@@ -30,15 +30,12 @@ import static org.lwjgl.system.JNI.*;
 public class OESCopyImage {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CopyImageSubDataOES;
 
-	@JavadocExclude
 	protected OESCopyImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESCopyImage(FunctionProvider provider) {
 		CopyImageSubDataOES = provider.getFunctionAddress("glCopyImageSubDataOES");
 	}

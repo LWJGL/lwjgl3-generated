@@ -46,7 +46,6 @@ public class OESTextureBorderClamp {
 	public static final int GL_CLAMP_TO_BORDER_OES = 0x812D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexParameterIivOES,
 		TexParameterIuivOES,
@@ -57,12 +56,10 @@ public class OESTextureBorderClamp {
 		GetSamplerParameterIivOES,
 		GetSamplerParameterIuivOES;
 
-	@JavadocExclude
 	protected OESTextureBorderClamp() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESTextureBorderClamp(FunctionProvider provider) {
 		TexParameterIivOES = provider.getFunctionAddress("glTexParameterIivOES");
 		TexParameterIuivOES = provider.getFunctionAddress("glTexParameterIuivOES");
@@ -101,7 +98,6 @@ public class OESTextureBorderClamp {
 	// --- [ glTexParameterIivOES ] ---
 
 	/** Unsafe version of {@link #glTexParameterIivOES TexParameterIivOES} */
-	@JavadocExclude
 	public static void nglTexParameterIivOES(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIivOES;
 		callIIPV(__functionAddress, target, pname, params);
@@ -126,7 +122,6 @@ public class OESTextureBorderClamp {
 	// --- [ glTexParameterIuivOES ] ---
 
 	/** Unsafe version of {@link #glTexParameterIuivOES TexParameterIuivOES} */
-	@JavadocExclude
 	public static void nglTexParameterIuivOES(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuivOES;
 		callIIPV(__functionAddress, target, pname, params);
@@ -151,7 +146,6 @@ public class OESTextureBorderClamp {
 	// --- [ glGetTexParameterIivOES ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIivOES GetTexParameterIivOES} */
-	@JavadocExclude
 	public static void nglGetTexParameterIivOES(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIivOES;
 		callIIPV(__functionAddress, target, pname, params);
@@ -181,7 +175,6 @@ public class OESTextureBorderClamp {
 	// --- [ glGetTexParameterIuivOES ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIuivOES GetTexParameterIuivOES} */
-	@JavadocExclude
 	public static void nglGetTexParameterIuivOES(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuivOES;
 		callIIPV(__functionAddress, target, pname, params);
@@ -211,7 +204,6 @@ public class OESTextureBorderClamp {
 	// --- [ glSamplerParameterIivOES ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIivOES SamplerParameterIivOES} */
-	@JavadocExclude
 	public static void nglSamplerParameterIivOES(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIivOES;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -236,7 +228,6 @@ public class OESTextureBorderClamp {
 	// --- [ glSamplerParameterIuivOES ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIuivOES SamplerParameterIuivOES} */
-	@JavadocExclude
 	public static void nglSamplerParameterIuivOES(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIuivOES;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -261,7 +252,6 @@ public class OESTextureBorderClamp {
 	// --- [ glGetSamplerParameterIivOES ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIivOES GetSamplerParameterIivOES} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterIivOES(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIivOES;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -291,7 +281,6 @@ public class OESTextureBorderClamp {
 	// --- [ glGetSamplerParameterIuivOES ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIuivOES GetSamplerParameterIuivOES} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterIuivOES(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuivOES;
 		callIIPV(__functionAddress, sampler, pname, params);

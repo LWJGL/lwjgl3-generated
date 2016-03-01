@@ -35,15 +35,12 @@ public class NVFramebufferBlit {
 		GL_READ_FRAMEBUFFER_BINDING_NV = 0x8CAA;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long BlitFramebufferNV;
 
-	@JavadocExclude
 	protected NVFramebufferBlit() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVFramebufferBlit(FunctionProvider provider) {
 		BlitFramebufferNV = provider.getFunctionAddress("glBlitFramebufferNV");
 	}

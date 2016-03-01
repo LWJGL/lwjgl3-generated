@@ -15,20 +15,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkLayerProperties {
- *     char[256] layerName;
- *     uint32_t specVersion;
- *     uint32_t implementationVersion;
- *     char[256] description;
- * }</code></pre>
+ * <pre><code>struct VkLayerProperties {
+    char[256] layerName;
+    uint32_t specVersion;
+    uint32_t implementationVersion;
+    char[256] description;
+}</code></pre>
  */
 public class VkLayerProperties extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -87,12 +85,12 @@ public class VkLayerProperties extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkLayerProperties} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkLayerProperties} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkLayerProperties malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkLayerProperties} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkLayerProperties} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkLayerProperties calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -108,7 +106,7 @@ public class VkLayerProperties extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkLayerProperties.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkLayerProperties.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -117,7 +115,7 @@ public class VkLayerProperties extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkLayerProperties.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkLayerProperties.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

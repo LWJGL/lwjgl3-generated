@@ -69,17 +69,14 @@ public class NVPixelDataRange {
 		GL_READ_PIXEL_DATA_RANGE_POINTER_NV  = 0x887D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		PixelDataRangeNV,
 		FlushPixelDataRangeNV;
 
-	@JavadocExclude
 	protected NVPixelDataRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVPixelDataRange(FunctionProvider provider) {
 		PixelDataRangeNV = provider.getFunctionAddress("glPixelDataRangeNV");
 		FlushPixelDataRangeNV = provider.getFunctionAddress("glFlushPixelDataRangeNV");
@@ -112,7 +109,6 @@ public class NVPixelDataRange {
 	// --- [ glPixelDataRangeNV ] ---
 
 	/** Unsafe version of {@link #glPixelDataRangeNV PixelDataRangeNV} */
-	@JavadocExclude
 	public static void nglPixelDataRangeNV(int target, int length, long pointer) {
 		long __functionAddress = getInstance().PixelDataRangeNV;
 		callIIPV(__functionAddress, target, length, pointer);

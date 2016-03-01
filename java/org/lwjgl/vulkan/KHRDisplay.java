@@ -35,7 +35,6 @@ public class KHRDisplay {
 		VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR = 0x8;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetPhysicalDeviceDisplayPropertiesKHR,
 		GetPhysicalDeviceDisplayPlanePropertiesKHR,
@@ -45,12 +44,10 @@ public class KHRDisplay {
 		GetDisplayPlaneCapabilitiesKHR,
 		CreateDisplayPlaneSurfaceKHR;
 
-	@JavadocExclude
 	protected KHRDisplay() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRDisplay(FunctionProvider provider) {
 		GetPhysicalDeviceDisplayPropertiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPropertiesKHR");
 		GetPhysicalDeviceDisplayPlanePropertiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
@@ -94,7 +91,6 @@ public class KHRDisplay {
 	// --- [ vkGetPhysicalDeviceDisplayPropertiesKHR ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceDisplayPropertiesKHR GetPhysicalDeviceDisplayPropertiesKHR} */
-	@JavadocExclude
 	public static int nvkGetPhysicalDeviceDisplayPropertiesKHR(VkPhysicalDevice physicalDevice, long pPropertyCount, long pProperties) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceDisplayPropertiesKHR;
 		if ( CHECKS ) {
@@ -131,7 +127,6 @@ public class KHRDisplay {
 	// --- [ vkGetPhysicalDeviceDisplayPlanePropertiesKHR ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceDisplayPlanePropertiesKHR GetPhysicalDeviceDisplayPlanePropertiesKHR} */
-	@JavadocExclude
 	public static int nvkGetPhysicalDeviceDisplayPlanePropertiesKHR(VkPhysicalDevice physicalDevice, long pPropertyCount, long pProperties) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceDisplayPlanePropertiesKHR;
 		if ( CHECKS )
@@ -166,7 +161,6 @@ public class KHRDisplay {
 	// --- [ vkGetDisplayPlaneSupportedDisplaysKHR ] ---
 
 	/** Unsafe version of {@link #vkGetDisplayPlaneSupportedDisplaysKHR GetDisplayPlaneSupportedDisplaysKHR} */
-	@JavadocExclude
 	public static int nvkGetDisplayPlaneSupportedDisplaysKHR(VkPhysicalDevice physicalDevice, int planeIndex, long pDisplayCount, long pDisplays) {
 		long __functionAddress = getInstance(physicalDevice).GetDisplayPlaneSupportedDisplaysKHR;
 		if ( CHECKS )
@@ -202,7 +196,6 @@ public class KHRDisplay {
 	// --- [ vkGetDisplayModePropertiesKHR ] ---
 
 	/** Unsafe version of {@link #vkGetDisplayModePropertiesKHR GetDisplayModePropertiesKHR} */
-	@JavadocExclude
 	public static int nvkGetDisplayModePropertiesKHR(VkPhysicalDevice physicalDevice, long display, long pPropertyCount, long pProperties) {
 		long __functionAddress = getInstance(physicalDevice).GetDisplayModePropertiesKHR;
 		if ( CHECKS )
@@ -238,7 +231,6 @@ public class KHRDisplay {
 	// --- [ vkCreateDisplayModeKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateDisplayModeKHR CreateDisplayModeKHR} */
-	@JavadocExclude
 	public static int nvkCreateDisplayModeKHR(VkPhysicalDevice physicalDevice, long display, long pCreateInfo, long pAllocator, long pMode) {
 		long __functionAddress = getInstance(physicalDevice).CreateDisplayModeKHR;
 		if ( CHECKS ) {
@@ -273,7 +265,6 @@ public class KHRDisplay {
 	// --- [ vkGetDisplayPlaneCapabilitiesKHR ] ---
 
 	/** Unsafe version of {@link #vkGetDisplayPlaneCapabilitiesKHR GetDisplayPlaneCapabilitiesKHR} */
-	@JavadocExclude
 	public static int nvkGetDisplayPlaneCapabilitiesKHR(VkPhysicalDevice physicalDevice, long mode, int planeIndex, long pCapabilities) {
 		long __functionAddress = getInstance(physicalDevice).GetDisplayPlaneCapabilitiesKHR;
 		if ( CHECKS )
@@ -296,7 +287,6 @@ public class KHRDisplay {
 	// --- [ vkCreateDisplayPlaneSurfaceKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateDisplayPlaneSurfaceKHR CreateDisplayPlaneSurfaceKHR} */
-	@JavadocExclude
 	public static int nvkCreateDisplayPlaneSurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
 		long __functionAddress = getInstance(instance).CreateDisplayPlaneSurfaceKHR;
 		if ( CHECKS ) {

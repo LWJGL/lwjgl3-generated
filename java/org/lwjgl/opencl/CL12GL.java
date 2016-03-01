@@ -30,15 +30,12 @@ public class CL12GL {
 		CL_GL_OBJECT_TEXTURE_BUFFER   = 0x2011;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreateFromGLTexture;
 
-	@JavadocExclude
 	protected CL12GL() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public CL12GL(FunctionProvider provider) {
 		CreateFromGLTexture = provider.getFunctionAddress("clCreateFromGLTexture");
 	}
@@ -68,7 +65,6 @@ public class CL12GL {
 	// --- [ clCreateFromGLTexture ] ---
 
 	/** Unsafe version of {@link #clCreateFromGLTexture CreateFromGLTexture} */
-	@JavadocExclude
 	public static long nclCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLTexture;
 		if ( CHECKS )

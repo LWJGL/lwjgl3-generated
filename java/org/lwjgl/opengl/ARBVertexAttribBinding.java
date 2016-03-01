@@ -62,7 +62,6 @@ public class ARBVertexAttribBinding {
 		GL_MAX_VERTEX_ATTRIB_BINDINGS        = 0x82DA;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindVertexBuffer,
 		VertexAttribFormat,
@@ -77,12 +76,10 @@ public class ARBVertexAttribBinding {
 		VertexArrayVertexAttribBindingEXT,
 		VertexArrayVertexBindingDivisorEXT;
 
-	@JavadocExclude
 	protected ARBVertexAttribBinding() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBVertexAttribBinding(FunctionProvider provider) {
 		BindVertexBuffer = provider.getFunctionAddress("glBindVertexBuffer");
 		VertexAttribFormat = provider.getFunctionAddress("glVertexAttribFormat");

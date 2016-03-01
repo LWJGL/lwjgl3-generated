@@ -14,15 +14,12 @@ import static org.lwjgl.system.JNI.*;
 public class GLFWNativeWGL {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetWGLContext;
 
-	@JavadocExclude
 	protected GLFWNativeWGL() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLFWNativeWGL(FunctionProvider provider) {
 		GetWGLContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetWGLContext"));
 	}
@@ -44,13 +41,13 @@ public class GLFWNativeWGL {
 	// --- [ glfwGetWGLContext ] ---
 
 	/**
-	 * Returns the <code style="font-family: monospace">HGLRC</code> of the specified window.
+	 * Returns the <code>HGLRC</code> of the specified window.
 	 * 
 	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @param window the GLFW window
 	 *
-	 * @return The <code style="font-family: monospace">HGLRC</code> of the specified window, or {@code NULL} if an error occurred.
+	 * @return The <code>HGLRC</code> of the specified window, or {@code NULL} if an error occurred.
 	 *
 	 * @since version 3.0
 	 */

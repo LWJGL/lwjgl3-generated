@@ -44,15 +44,12 @@ public class ARBProvokingVertex {
 		GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION = 0x8E4C;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long ProvokingVertex;
 
-	@JavadocExclude
 	protected ARBProvokingVertex() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBProvokingVertex(FunctionProvider provider) {
 		ProvokingVertex = provider.getFunctionAddress("glProvokingVertex");
 	}

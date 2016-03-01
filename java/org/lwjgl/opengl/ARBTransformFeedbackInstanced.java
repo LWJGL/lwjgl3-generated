@@ -25,17 +25,14 @@ import static org.lwjgl.system.JNI.*;
 public class ARBTransformFeedbackInstanced {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawTransformFeedbackInstanced,
 		DrawTransformFeedbackStreamInstanced;
 
-	@JavadocExclude
 	protected ARBTransformFeedbackInstanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTransformFeedbackInstanced(FunctionProvider provider) {
 		DrawTransformFeedbackInstanced = provider.getFunctionAddress("glDrawTransformFeedbackInstanced");
 		DrawTransformFeedbackStreamInstanced = provider.getFunctionAddress("glDrawTransformFeedbackStreamInstanced");

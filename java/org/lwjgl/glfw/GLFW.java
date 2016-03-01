@@ -455,7 +455,6 @@ public class GLFW {
 		GLFW_RELEASE_BEHAVIOR_NONE  = 0x35002;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		Init,
 		Terminate,
@@ -542,12 +541,10 @@ public class GLFW {
 		ExtensionSupported,
 		GetProcAddress;
 
-	@JavadocExclude
 	protected GLFW() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLFW(FunctionProvider provider) {
 		Init = checkFunctionAddress(provider.getFunctionAddress("glfwInit"));
 		Terminate = checkFunctionAddress(provider.getFunctionAddress("glfwTerminate"));
@@ -709,7 +706,6 @@ public class GLFW {
 	// --- [ glfwGetVersion ] ---
 
 	/** Unsafe version of {@link #glfwGetVersion GetVersion} */
-	@JavadocExclude
 	public static void nglfwGetVersion(long major, long minor, long rev) {
 		long __functionAddress = getInstance().GetVersion;
 		invokePPPV(__functionAddress, major, minor, rev);
@@ -756,7 +752,6 @@ public class GLFW {
 	// --- [ glfwGetVersionString ] ---
 
 	/** Unsafe version of {@link #glfwGetVersionString GetVersionString} */
-	@JavadocExclude
 	public static long nglfwGetVersionString() {
 		long __functionAddress = getInstance().GetVersionString;
 		return invokeP(__functionAddress);
@@ -821,7 +816,6 @@ public class GLFW {
 	// --- [ glfwGetMonitors ] ---
 
 	/** Unsafe version of {@link #glfwGetMonitors GetMonitors} */
-	@JavadocExclude
 	public static long nglfwGetMonitors(long count) {
 		long __functionAddress = getInstance().GetMonitors;
 		return invokePP(__functionAddress, count);
@@ -868,7 +862,6 @@ public class GLFW {
 	// --- [ glfwGetMonitorPos ] ---
 
 	/** Unsafe version of {@link #glfwGetMonitorPos GetMonitorPos} */
-	@JavadocExclude
 	public static void nglfwGetMonitorPos(long monitor, long xpos, long ypos) {
 		long __functionAddress = getInstance().GetMonitorPos;
 		if ( CHECKS )
@@ -909,7 +902,6 @@ public class GLFW {
 	// --- [ glfwGetMonitorPhysicalSize ] ---
 
 	/** Unsafe version of {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
-	@JavadocExclude
 	public static void nglfwGetMonitorPhysicalSize(long monitor, long widthMM, long heightMM) {
 		long __functionAddress = getInstance().GetMonitorPhysicalSize;
 		if ( CHECKS )
@@ -959,7 +951,6 @@ public class GLFW {
 	// --- [ glfwGetMonitorName ] ---
 
 	/** Unsafe version of {@link #glfwGetMonitorName GetMonitorName} */
-	@JavadocExclude
 	public static long nglfwGetMonitorName(long monitor) {
 		long __functionAddress = getInstance().GetMonitorName;
 		if ( CHECKS )
@@ -1009,7 +1000,6 @@ public class GLFW {
 	// --- [ glfwGetVideoModes ] ---
 
 	/** Unsafe version of {@link #glfwGetVideoModes GetVideoModes} */
-	@JavadocExclude
 	public static long nglfwGetVideoModes(long monitor, long count) {
 		long __functionAddress = getInstance().GetVideoModes;
 		if ( CHECKS )
@@ -1043,7 +1033,6 @@ public class GLFW {
 	// --- [ glfwGetVideoMode ] ---
 
 	/** Unsafe version of {@link #glfwGetVideoMode GetVideoMode} */
-	@JavadocExclude
 	public static long nglfwGetVideoMode(long monitor) {
 		long __functionAddress = getInstance().GetVideoMode;
 		if ( CHECKS )
@@ -1094,7 +1083,6 @@ public class GLFW {
 	// --- [ glfwGetGammaRamp ] ---
 
 	/** Unsafe version of {@link #glfwGetGammaRamp GetGammaRamp} */
-	@JavadocExclude
 	public static long nglfwGetGammaRamp(long monitor) {
 		long __functionAddress = getInstance().GetGammaRamp;
 		if ( CHECKS )
@@ -1124,7 +1112,6 @@ public class GLFW {
 	// --- [ glfwSetGammaRamp ] ---
 
 	/** Unsafe version of {@link #glfwSetGammaRamp SetGammaRamp} */
-	@JavadocExclude
 	public static void nglfwSetGammaRamp(long monitor, long ramp) {
 		long __functionAddress = getInstance().SetGammaRamp;
 		if ( CHECKS ) {
@@ -1179,7 +1166,7 @@ public class GLFW {
 	 * 
 	 * <h3>Supported and default values</h3>
 	 * 
-	 * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+	 * <table class=lwjgl>
 	 * <tr><th>Name</th><th>Default value</th><th>Supported values</th></tr>
 	 * <tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
@@ -1228,7 +1215,6 @@ public class GLFW {
 	// --- [ glfwCreateWindow ] ---
 
 	/** Unsafe version of {@link #glfwCreateWindow CreateWindow} */
-	@JavadocExclude
 	public static long nglfwCreateWindow(int width, int height, long title, long monitor, long share) {
 		long __functionAddress = getInstance().CreateWindow;
 		return invokeIIPPPP(__functionAddress, width, height, title, monitor, share);
@@ -1387,7 +1373,6 @@ public class GLFW {
 	// --- [ glfwSetWindowTitle ] ---
 
 	/** Unsafe version of {@link #glfwSetWindowTitle SetWindowTitle} */
-	@JavadocExclude
 	public static void nglfwSetWindowTitle(long window, long title) {
 		long __functionAddress = getInstance().SetWindowTitle;
 		if ( CHECKS )
@@ -1423,7 +1408,6 @@ public class GLFW {
 	// --- [ glfwGetWindowPos ] ---
 
 	/** Unsafe version of {@link #glfwGetWindowPos GetWindowPos} */
-	@JavadocExclude
 	public static void nglfwGetWindowPos(long window, long xpos, long ypos) {
 		long __functionAddress = getInstance().GetWindowPos;
 		if ( CHECKS )
@@ -1490,7 +1474,6 @@ public class GLFW {
 	// --- [ glfwGetWindowSize ] ---
 
 	/** Unsafe version of {@link #glfwGetWindowSize GetWindowSize} */
-	@JavadocExclude
 	public static void nglfwGetWindowSize(long window, long width, long height) {
 		long __functionAddress = getInstance().GetWindowSize;
 		if ( CHECKS )
@@ -1610,7 +1593,6 @@ public class GLFW {
 	// --- [ glfwGetFramebufferSize ] ---
 
 	/** Unsafe version of {@link #glfwGetFramebufferSize GetFramebufferSize} */
-	@JavadocExclude
 	public static void nglfwGetFramebufferSize(long window, long width, long height) {
 		long __functionAddress = getInstance().GetFramebufferSize;
 		if ( CHECKS )
@@ -1652,7 +1634,6 @@ public class GLFW {
 	// --- [ glfwGetWindowFrameSize ] ---
 
 	/** Unsafe version of {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
-	@JavadocExclude
 	public static void nglfwGetWindowFrameSize(long window, long left, long top, long right, long bottom) {
 		long __functionAddress = getInstance().GetWindowFrameSize;
 		if ( CHECKS )
@@ -2221,7 +2202,6 @@ public class GLFW {
 	// --- [ glfwGetKeyName ] ---
 
 	/** Unsafe version of {@link #glfwGetKeyName GetKeyName} */
-	@JavadocExclude
 	public static long nglfwGetKeyName(int key, int scancode) {
 		long __functionAddress = getInstance().GetKeyName;
 		return invokeIIP(__functionAddress, key, scancode);
@@ -2341,7 +2321,6 @@ public class GLFW {
 	// --- [ glfwGetCursorPos ] ---
 
 	/** Unsafe version of {@link #glfwGetCursorPos GetCursorPos} */
-	@JavadocExclude
 	public static void nglfwGetCursorPos(long window, long xpos, long ypos) {
 		long __functionAddress = getInstance().GetCursorPos;
 		if ( CHECKS )
@@ -2420,7 +2399,6 @@ public class GLFW {
 	// --- [ glfwCreateCursor ] ---
 
 	/** Unsafe version of {@link #glfwCreateCursor CreateCursor} */
-	@JavadocExclude
 	public static long nglfwCreateCursor(long image, int xhot, int yhot) {
 		long __functionAddress = getInstance().CreateCursor;
 		if ( CHECKS )
@@ -2751,7 +2729,6 @@ public class GLFW {
 	// --- [ glfwGetJoystickAxes ] ---
 
 	/** Unsafe version of {@link #glfwGetJoystickAxes GetJoystickAxes} */
-	@JavadocExclude
 	public static long nglfwGetJoystickAxes(int joy, long count) {
 		long __functionAddress = getInstance().GetJoystickAxes;
 		return invokeIPP(__functionAddress, joy, count);
@@ -2784,7 +2761,6 @@ public class GLFW {
 	// --- [ glfwGetJoystickButtons ] ---
 
 	/** Unsafe version of {@link #glfwGetJoystickButtons GetJoystickButtons} */
-	@JavadocExclude
 	public static long nglfwGetJoystickButtons(int joy, long count) {
 		long __functionAddress = getInstance().GetJoystickButtons;
 		return invokeIPP(__functionAddress, joy, count);
@@ -2817,7 +2793,6 @@ public class GLFW {
 	// --- [ glfwGetJoystickName ] ---
 
 	/** Unsafe version of {@link #glfwGetJoystickName GetJoystickName} */
-	@JavadocExclude
 	public static long nglfwGetJoystickName(int joy) {
 		long __functionAddress = getInstance().GetJoystickName;
 		return invokeIP(__functionAddress, joy);
@@ -2848,7 +2823,6 @@ public class GLFW {
 	// --- [ glfwSetClipboardString ] ---
 
 	/** Unsafe version of {@link #glfwSetClipboardString SetClipboardString} */
-	@JavadocExclude
 	public static void nglfwSetClipboardString(long window, long string) {
 		long __functionAddress = getInstance().SetClipboardString;
 		if ( CHECKS )
@@ -2884,7 +2858,6 @@ public class GLFW {
 	// --- [ glfwGetClipboardString ] ---
 
 	/** Unsafe version of {@link #glfwGetClipboardString GetClipboardString} */
-	@JavadocExclude
 	public static long nglfwGetClipboardString(long window) {
 		long __functionAddress = getInstance().GetClipboardString;
 		if ( CHECKS )
@@ -2943,7 +2916,7 @@ public class GLFW {
 	 * Sets the value of the GLFW timer. It then continues to count up from that value. The value must be a positive finite number less than or equal to
 	 * 18446744073.0, which is approximately 584.5 years.
 	 * 
-	 * <p>The upper limit of the timer is calculated as <code style="font-family: monospace">floor((2<sup>64</sup> - 1) / 10<sup>9</sup>)</code> and is due to implementations storing nanoseconds
+	 * <p>The upper limit of the timer is calculated as <code>floor((2<sup>64</sup> - 1) / 10<sup>9</sup>)</code> and is due to implementations storing nanoseconds
 	 * in 64 bits. The limit may be increased in the future.</p>
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
@@ -3059,7 +3032,6 @@ public class GLFW {
 	// --- [ glfwExtensionSupported ] ---
 
 	/** Unsafe version of {@link #glfwExtensionSupported ExtensionSupported} */
-	@JavadocExclude
 	public static int nglfwExtensionSupported(long extension) {
 		long __functionAddress = getInstance().ExtensionSupported;
 		return invokePI(__functionAddress, extension);
@@ -3101,7 +3073,6 @@ public class GLFW {
 	// --- [ glfwGetProcAddress ] ---
 
 	/** Unsafe version of {@link #glfwGetProcAddress GetProcAddress} */
-	@JavadocExclude
 	public static long nglfwGetProcAddress(long procname) {
 		long __functionAddress = getInstance().GetProcAddress;
 		return invokePP(__functionAddress, procname);

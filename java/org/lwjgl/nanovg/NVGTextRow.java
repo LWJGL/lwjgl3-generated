@@ -18,19 +18,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct NVGtextRow {
- *     char * start;
- *     char * end;
- *     char * next;
- *     float width;
- *     float minx;
- *     float maxx;
- * }</code></pre>
+ * <pre><code>struct NVGtextRow {
+    char * start;
+    char * end;
+    char * next;
+    float width;
+    float minx;
+    float maxx;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>start</td><td>pointer to the input text where the row starts</td></tr>
  * <tr><td>end</td><td>pointer to the input text where the row ends (one past the last character</td></tr>
  * <tr><td>next</td><td>pointer to the beginning of the next row</td></tr>
@@ -44,7 +43,6 @@ public class NVGTextRow extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -158,12 +156,12 @@ public class NVGTextRow extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link NVGTextRow} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link NVGTextRow} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static NVGTextRow malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link NVGTextRow} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link NVGTextRow} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static NVGTextRow calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -179,7 +177,7 @@ public class NVGTextRow extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link NVGTextRow.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link NVGTextRow.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -188,7 +186,7 @@ public class NVGTextRow extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link NVGTextRow.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link NVGTextRow.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

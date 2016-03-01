@@ -29,7 +29,6 @@ import static org.lwjgl.system.Pointer.*;
 public class JEmalloc {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		malloc_message,
 		malloc,
@@ -51,12 +50,10 @@ public class JEmalloc {
 		malloc_stats_print,
 		malloc_usable_size;
 
-	@JavadocExclude
 	protected JEmalloc() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public JEmalloc(FunctionProvider provider) {
 		malloc_message = checkFunctionAddress(provider.getFunctionAddress("je_malloc_message"));
 		malloc = checkFunctionAddress(provider.getFunctionAddress("je_malloc"));
@@ -111,7 +108,6 @@ public class JEmalloc {
 	// --- [ je_malloc ] ---
 
 	/** Unsafe version of {@link #je_malloc malloc} */
-	@JavadocExclude
 	public static long nje_malloc(long size) {
 		long __functionAddress = getInstance().malloc;
 		return invokePP(__functionAddress, size);
@@ -131,7 +127,6 @@ public class JEmalloc {
 	// --- [ je_calloc ] ---
 
 	/** Unsafe version of {@link #je_calloc calloc} */
-	@JavadocExclude
 	public static long nje_calloc(long num, long size) {
 		long __functionAddress = getInstance().calloc;
 		return invokePPP(__functionAddress, num, size);
@@ -152,7 +147,6 @@ public class JEmalloc {
 	// --- [ je_posix_memalign ] ---
 
 	/** Unsafe version of {@link #je_posix_memalign posix_memalign} */
-	@JavadocExclude
 	public static int nje_posix_memalign(long memptr, long alignment, long size) {
 		long __functionAddress = getInstance().posix_memalign;
 		return invokePPPI(__functionAddress, memptr, alignment, size);
@@ -182,7 +176,6 @@ public class JEmalloc {
 	// --- [ je_aligned_alloc ] ---
 
 	/** Unsafe version of {@link #je_aligned_alloc aligned_alloc} */
-	@JavadocExclude
 	public static long nje_aligned_alloc(long alignment, long size) {
 		long __functionAddress = getInstance().aligned_alloc;
 		return invokePPP(__functionAddress, alignment, size);
@@ -203,7 +196,6 @@ public class JEmalloc {
 	// --- [ je_realloc ] ---
 
 	/** Unsafe version of {@link #je_realloc realloc} */
-	@JavadocExclude
 	public static long nje_realloc(long ptr, long size) {
 		long __functionAddress = getInstance().realloc;
 		return invokePPP(__functionAddress, ptr, size);
@@ -227,7 +219,6 @@ public class JEmalloc {
 	// --- [ je_free ] ---
 
 	/** Unsafe version of {@link #je_free free} */
-	@JavadocExclude
 	public static void nje_free(long ptr) {
 		long __functionAddress = getInstance().free;
 		invokePV(__functionAddress, ptr);
@@ -275,7 +266,6 @@ public class JEmalloc {
 	// --- [ je_mallocx ] ---
 
 	/** Unsafe version of {@link #je_mallocx mallocx} */
-	@JavadocExclude
 	public static long nje_mallocx(long size, int flags) {
 		long __functionAddress = getInstance().mallocx;
 		return invokePIP(__functionAddress, size, flags);
@@ -296,7 +286,6 @@ public class JEmalloc {
 	// --- [ je_rallocx ] ---
 
 	/** Unsafe version of {@link #je_rallocx rallocx} */
-	@JavadocExclude
 	public static long nje_rallocx(long ptr, long size, int flags) {
 		long __functionAddress = getInstance().rallocx;
 		return invokePPIP(__functionAddress, ptr, size, flags);
@@ -319,7 +308,6 @@ public class JEmalloc {
 	// --- [ je_xallocx ] ---
 
 	/** Unsafe version of {@link #je_xallocx xallocx} */
-	@JavadocExclude
 	public static long nje_xallocx(long ptr, long size, long extra, int flags) {
 		long __functionAddress = getInstance().xallocx;
 		return invokePPPIP(__functionAddress, ptr, size, extra, flags);
@@ -342,7 +330,6 @@ public class JEmalloc {
 	// --- [ je_sallocx ] ---
 
 	/** Unsafe version of {@link #je_sallocx sallocx} */
-	@JavadocExclude
 	public static long nje_sallocx(long ptr, int flags) {
 		long __functionAddress = getInstance().sallocx;
 		return invokePIP(__functionAddress, ptr, flags);
@@ -361,7 +348,6 @@ public class JEmalloc {
 	// --- [ je_dallocx ] ---
 
 	/** Unsafe version of {@link #je_dallocx dallocx} */
-	@JavadocExclude
 	public static void nje_dallocx(long ptr, int flags) {
 		long __functionAddress = getInstance().dallocx;
 		invokePIV(__functionAddress, ptr, flags);
@@ -410,7 +396,6 @@ public class JEmalloc {
 	// --- [ je_sdallocx ] ---
 
 	/** Unsafe version of {@link #je_sdallocx sdallocx} */
-	@JavadocExclude
 	public static void nje_sdallocx(long ptr, long size, int flags) {
 		long __functionAddress = getInstance().sdallocx;
 		invokePPIV(__functionAddress, ptr, size, flags);
@@ -467,7 +452,6 @@ public class JEmalloc {
 	// --- [ je_nallocx ] ---
 
 	/** Unsafe version of {@link #je_nallocx nallocx} */
-	@JavadocExclude
 	public static long nje_nallocx(long size, int flags) {
 		long __functionAddress = getInstance().nallocx;
 		return invokePIP(__functionAddress, size, flags);
@@ -489,7 +473,6 @@ public class JEmalloc {
 	// --- [ je_mallctl ] ---
 
 	/** Unsafe version of {@link #je_mallctl mallctl} */
-	@JavadocExclude
 	public static int nje_mallctl(long name, long oldp, long oldlenp, long newp, long newlen) {
 		long __functionAddress = getInstance().mallctl;
 		return invokePPPPPI(__functionAddress, name, oldp, oldlenp, newp, newlen);
@@ -539,7 +522,6 @@ public class JEmalloc {
 	// --- [ je_mallctlnametomib ] ---
 
 	/** Unsafe version of {@link #je_mallctlnametomib mallctlnametomib} */
-	@JavadocExclude
 	public static int nje_mallctlnametomib(long name, long mibp, long miblenp) {
 		long __functionAddress = getInstance().mallctlnametomib;
 		return invokePPPI(__functionAddress, name, mibp, miblenp);
@@ -553,24 +535,23 @@ public class JEmalloc {
 	 * results in a partial MIB that can be used as the basis for constructing a complete MIB. For name components that are integers (e.g. the 2 in
 	 * "arenas.bin.2.size"), the corresponding MIB component will always be that integer. Therefore, it is legitimate to construct code like the following:
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * unsigned nbins, i;
-	 * size_t mib[4];
-	 * size_t len, miblen;
-	 * 
-	 * len = sizeof(nbins);
-	 * mallctl("arenas.nbins", &nbins, &len, NULL, 0);
-	 * 
-	 * miblen = 4;
-	 * mallctlnametomib("arenas.bin.0.size", mib, &miblen);
-	 * for (i = 0; i < nbins; i++) {
-	 * 	size_t bin_size;
-	 * 
-	 * 	mib[2] = i;
-	 * 	len = sizeof(bin_size);
-	 * 	mallctlbymib(mib, miblen, &bin_size, &len, NULL, 0);
-	 * 	// Do something with bin_size...
-	 * }</code></pre>
+	 * <pre><code>unsigned nbins, i;
+size_t mib[4];
+size_t len, miblen;
+
+len = sizeof(nbins);
+mallctl("arenas.nbins", &nbins, &len, NULL, 0);
+
+miblen = 4;
+mallctlnametomib("arenas.bin.0.size", mib, &miblen);
+for (i = 0; i < nbins; i++) {
+	size_t bin_size;
+
+	mib[2] = i;
+	len = sizeof(bin_size);
+	mallctlbymib(mib, miblen, &bin_size, &len, NULL, 0);
+	// Do something with bin_size...
+}</code></pre>
 	 *
 	 * @param name    the namespace location
 	 * @param mibp    an array of integers
@@ -609,7 +590,6 @@ public class JEmalloc {
 	// --- [ je_mallctlbymib ] ---
 
 	/** Unsafe version of {@link #je_mallctlbymib mallctlbymib} */
-	@JavadocExclude
 	public static int nje_mallctlbymib(long mib, long miblen, long oldp, long oldlenp, long newp, long newlen) {
 		long __functionAddress = getInstance().mallctlbymib;
 		return invokePPPPPPI(__functionAddress, mib, miblen, oldp, oldlenp, newp, newlen);
@@ -644,7 +624,6 @@ public class JEmalloc {
 	// --- [ je_malloc_stats_print ] ---
 
 	/** Unsafe version of {@link #je_malloc_stats_print malloc_stats_print} */
-	@JavadocExclude
 	public static void nje_malloc_stats_print(long write_cb, long je_cbopaque, long opts) {
 		long __functionAddress = getInstance().malloc_stats_print;
 		invokePPPV(__functionAddress, write_cb, je_cbopaque, opts);
@@ -679,7 +658,6 @@ public class JEmalloc {
 	// --- [ je_malloc_usable_size ] ---
 
 	/** Unsafe version of {@link #je_malloc_usable_size malloc_usable_size} */
-	@JavadocExclude
 	public static long nje_malloc_usable_size(long ptr) {
 		long __functionAddress = getInstance().malloc_usable_size;
 		return invokePP(__functionAddress, ptr);

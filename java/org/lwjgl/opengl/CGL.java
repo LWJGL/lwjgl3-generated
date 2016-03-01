@@ -221,7 +221,6 @@ public class CGL {
 		kCGLMultisampleBit = 0x2;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetCurrentContext,
 		SetCurrentContext,
@@ -272,12 +271,10 @@ public class CGL {
 		GetVersion,
 		ErrorString;
 
-	@JavadocExclude
 	protected CGL() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public CGL(FunctionProvider provider) {
 		GetCurrentContext = provider.getFunctionAddress("CGLGetCurrentContext");
 		SetCurrentContext = provider.getFunctionAddress("CGLSetCurrentContext");
@@ -406,7 +403,6 @@ public class CGL {
 	// --- [ CGLChoosePixelFormat ] ---
 
 	/** Unsafe version of {@link #CGLChoosePixelFormat ChoosePixelFormat} */
-	@JavadocExclude
 	public static int nCGLChoosePixelFormat(long attribs, long pix, long npix) {
 		long __functionAddress = getInstance().ChoosePixelFormat;
 		return callPPPI(__functionAddress, attribs, pix, npix);
@@ -457,7 +453,6 @@ public class CGL {
 	// --- [ CGLDescribePixelFormat ] ---
 
 	/** Unsafe version of {@link #CGLDescribePixelFormat DescribePixelFormat} */
-	@JavadocExclude
 	public static int nCGLDescribePixelFormat(long pix, int pix_num, int attrib, long value) {
 		long __functionAddress = getInstance().DescribePixelFormat;
 		if ( CHECKS )
@@ -539,7 +534,6 @@ public class CGL {
 	// --- [ CGLQueryRendererInfo ] ---
 
 	/** Unsafe version of {@link #CGLQueryRendererInfo QueryRendererInfo} */
-	@JavadocExclude
 	public static int nCGLQueryRendererInfo(int display_mask, long rend, long nrend) {
 		long __functionAddress = getInstance().QueryRendererInfo;
 		return callIPPI(__functionAddress, display_mask, rend, nrend);
@@ -591,7 +585,6 @@ public class CGL {
 	// --- [ CGLDescribeRenderer ] ---
 
 	/** Unsafe version of {@link #CGLDescribeRenderer DescribeRenderer} */
-	@JavadocExclude
 	public static int nCGLDescribeRenderer(long rend, int rend_num, int prop, long value) {
 		long __functionAddress = getInstance().DescribeRenderer;
 		if ( CHECKS )
@@ -627,7 +620,6 @@ public class CGL {
 	// --- [ CGLCreateContext ] ---
 
 	/** Unsafe version of {@link #CGLCreateContext CreateContext} */
-	@JavadocExclude
 	public static int nCGLCreateContext(long pix, long share, long ctx) {
 		long __functionAddress = getInstance().CreateContext;
 		if ( CHECKS ) {
@@ -772,7 +764,6 @@ public class CGL {
 	// --- [ CGLCreatePBuffer ] ---
 
 	/** Unsafe version of {@link #CGLCreatePBuffer CreatePBuffer} */
-	@JavadocExclude
 	public static int nCGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, long pbuffer) {
 		long __functionAddress = getInstance().CreatePBuffer;
 		return callIIIIIPI(__functionAddress, width, height, target, internalFormat, max_level, pbuffer);
@@ -840,7 +831,6 @@ public class CGL {
 	// --- [ CGLDescribePBuffer ] ---
 
 	/** Unsafe version of {@link #CGLDescribePBuffer DescribePBuffer} */
-	@JavadocExclude
 	public static int nCGLDescribePBuffer(long obj, long width, long height, long target, long internalFormat, long mipmap) {
 		long __functionAddress = getInstance().DescribePBuffer;
 		if ( CHECKS )
@@ -985,7 +975,6 @@ public class CGL {
 	// --- [ CGLSetOffScreen ] ---
 
 	/** Unsafe version of {@link #CGLSetOffScreen SetOffScreen} */
-	@JavadocExclude
 	public static int nCGLSetOffScreen(long ctx, int width, int height, int rowbytes, long baseaddr) {
 		long __functionAddress = getInstance().SetOffScreen;
 		if ( CHECKS )
@@ -1024,7 +1013,6 @@ public class CGL {
 	// --- [ CGLGetOffScreen ] ---
 
 	/** Unsafe version of {@link #CGLGetOffScreen GetOffScreen} */
-	@JavadocExclude
 	public static int nCGLGetOffScreen(long ctx, long width, long height, long rowbytes, long baseaddr) {
 		long __functionAddress = getInstance().GetOffScreen;
 		if ( CHECKS )
@@ -1173,7 +1161,6 @@ public class CGL {
 	// --- [ CGLGetPBuffer ] ---
 
 	/** Unsafe version of {@link #CGLGetPBuffer GetPBuffer} */
-	@JavadocExclude
 	public static int nCGLGetPBuffer(long ctx, long pbuffer, long face, long level, long screen) {
 		long __functionAddress = getInstance().GetPBuffer;
 		if ( CHECKS )
@@ -1284,7 +1271,6 @@ public class CGL {
 	// --- [ CGLIsEnabled ] ---
 
 	/** Unsafe version of {@link #CGLIsEnabled IsEnabled} */
-	@JavadocExclude
 	public static int nCGLIsEnabled(long ctx, int pname, long enable) {
 		long __functionAddress = getInstance().IsEnabled;
 		if ( CHECKS )
@@ -1315,7 +1301,6 @@ public class CGL {
 	// --- [ CGLSetParameter ] ---
 
 	/** Unsafe version of {@link #CGLSetParameter SetParameter} */
-	@JavadocExclude
 	public static int nCGLSetParameter(long ctx, int pname, long params) {
 		long __functionAddress = getInstance().SetParameter;
 		if ( CHECKS )
@@ -1353,7 +1338,6 @@ public class CGL {
 	// --- [ CGLGetParameter ] ---
 
 	/** Unsafe version of {@link #CGLGetParameter GetParameter} */
-	@JavadocExclude
 	public static int nCGLGetParameter(long ctx, int pname, long params) {
 		long __functionAddress = getInstance().GetParameter;
 		if ( CHECKS )
@@ -1406,7 +1390,6 @@ public class CGL {
 	// --- [ CGLGetVirtualScreen ] ---
 
 	/** Unsafe version of {@link #CGLGetVirtualScreen GetVirtualScreen} */
-	@JavadocExclude
 	public static int nCGLGetVirtualScreen(long ctx, long screen) {
 		long __functionAddress = getInstance().GetVirtualScreen;
 		if ( CHECKS )
@@ -1454,7 +1437,6 @@ public class CGL {
 	// --- [ CGLSetGlobalOption ] ---
 
 	/** Unsafe version of {@link #CGLSetGlobalOption SetGlobalOption} */
-	@JavadocExclude
 	public static int nCGLSetGlobalOption(int pname, long params) {
 		long __functionAddress = getInstance().SetGlobalOption;
 		return callIPI(__functionAddress, pname, params);
@@ -1489,7 +1471,6 @@ public class CGL {
 	// --- [ CGLGetGlobalOption ] ---
 
 	/** Unsafe version of {@link #CGLGetGlobalOption GetGlobalOption} */
-	@JavadocExclude
 	public static int nCGLGetGlobalOption(int pname, long params) {
 		long __functionAddress = getInstance().GetGlobalOption;
 		return callIPI(__functionAddress, pname, params);
@@ -1554,7 +1535,6 @@ public class CGL {
 	// --- [ CGLGetVersion ] ---
 
 	/** Unsafe version of {@link #CGLGetVersion GetVersion} */
-	@JavadocExclude
 	public static void nCGLGetVersion(long majorvers, long minorvers) {
 		long __functionAddress = getInstance().GetVersion;
 		callPPV(__functionAddress, majorvers, minorvers);
@@ -1586,7 +1566,6 @@ public class CGL {
 	// --- [ CGLErrorString ] ---
 
 	/** Unsafe version of {@link #CGLErrorString ErrorString} */
-	@JavadocExclude
 	public static long nCGLErrorString(int error) {
 		long __functionAddress = getInstance().ErrorString;
 		return callIP(__functionAddress, error);

@@ -60,7 +60,6 @@ public class WGLARBPbuffer {
 		WGL_PBUFFER_LOST_ARB   = 0x2036;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreatePbufferARB,
 		GetPbufferDCARB,
@@ -68,12 +67,10 @@ public class WGLARBPbuffer {
 		DestroyPbufferARB,
 		QueryPbufferARB;
 
-	@JavadocExclude
 	protected WGLARBPbuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLARBPbuffer(FunctionProvider provider) {
 		CreatePbufferARB = provider.getFunctionAddress("wglCreatePbufferARB");
 		GetPbufferDCARB = provider.getFunctionAddress("wglGetPbufferDCARB");
@@ -109,7 +106,6 @@ public class WGLARBPbuffer {
 	// --- [ wglCreatePbufferARB ] ---
 
 	/** Unsafe version of {@link #wglCreatePbufferARB CreatePbufferARB} */
-	@JavadocExclude
 	public static long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList) {
 		long __functionAddress = getInstance().CreatePbufferARB;
 		if ( CHECKS )
@@ -193,7 +189,6 @@ public class WGLARBPbuffer {
 	// --- [ wglQueryPbufferARB ] ---
 
 	/** Unsafe version of {@link #wglQueryPbufferARB QueryPbufferARB} */
-	@JavadocExclude
 	public static int nwglQueryPbufferARB(long pbuffer, int attribute, long value) {
 		long __functionAddress = getInstance().QueryPbufferARB;
 		if ( CHECKS )

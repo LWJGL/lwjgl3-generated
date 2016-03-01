@@ -20,15 +20,12 @@ import org.lwjgl.system.linux.*;
 public class GLXSGISwapControl {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long SwapIntervalSGI;
 
-	@JavadocExclude
 	protected GLXSGISwapControl() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXSGISwapControl(FunctionProvider provider) {
 		SwapIntervalSGI = provider.getFunctionAddress("glXSwapIntervalSGI");
 	}

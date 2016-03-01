@@ -36,18 +36,15 @@ public class EXTDeviceQuery {
 	public static final long EGL_NO_DEVICE_EXT = 0x0L;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		QueryDeviceAttribEXT,
 		QueryDeviceStringEXT,
 		QueryDisplayAttribEXT;
 
-	@JavadocExclude
 	protected EXTDeviceQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDeviceQuery(FunctionProvider provider) {
 		QueryDeviceAttribEXT = provider.getFunctionAddress("eglQueryDeviceAttribEXT");
 		QueryDeviceStringEXT = provider.getFunctionAddress("eglQueryDeviceStringEXT");
@@ -69,7 +66,6 @@ public class EXTDeviceQuery {
 	// --- [ eglQueryDeviceAttribEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDeviceAttribEXT QueryDeviceAttribEXT} */
-	@JavadocExclude
 	public static int neglQueryDeviceAttribEXT(long device, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDeviceAttribEXT;
 		if ( CHECKS )
@@ -93,7 +89,6 @@ public class EXTDeviceQuery {
 	// --- [ eglQueryDeviceStringEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDeviceStringEXT QueryDeviceStringEXT} */
-	@JavadocExclude
 	public static long neglQueryDeviceStringEXT(long device, int name) {
 		long __functionAddress = getInstance().QueryDeviceStringEXT;
 		if ( CHECKS )
@@ -109,7 +104,6 @@ public class EXTDeviceQuery {
 	// --- [ eglQueryDisplayAttribEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDisplayAttribEXT QueryDisplayAttribEXT} */
-	@JavadocExclude
 	public static int neglQueryDisplayAttribEXT(long dpy, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDisplayAttribEXT;
 		if ( CHECKS )

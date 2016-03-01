@@ -27,15 +27,12 @@ public class EGL14 {
 	public static final long EGL_DEFAULT_DISPLAY = 0x0L;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetCurrentContext;
 
-	@JavadocExclude
 	protected EGL14() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EGL14(FunctionProvider provider) {
 		GetCurrentContext = provider.getFunctionAddress("eglGetCurrentContext");
 	}

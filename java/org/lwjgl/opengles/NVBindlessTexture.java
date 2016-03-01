@@ -44,7 +44,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class NVBindlessTexture {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetTextureHandleNV,
 		GetTextureSamplerHandleNV,
@@ -60,12 +59,10 @@ public class NVBindlessTexture {
 		IsTextureHandleResidentNV,
 		IsImageHandleResidentNV;
 
-	@JavadocExclude
 	protected NVBindlessTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVBindlessTexture(FunctionProvider provider) {
 		GetTextureHandleNV = provider.getFunctionAddress("glGetTextureHandleNV");
 		GetTextureSamplerHandleNV = provider.getFunctionAddress("glGetTextureSamplerHandleNV");
@@ -166,7 +163,6 @@ public class NVBindlessTexture {
 	// --- [ glUniformHandleui64vNV ] ---
 
 	/** Unsafe version of {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
-	@JavadocExclude
 	public static void nglUniformHandleui64vNV(int location, int count, long values) {
 		long __functionAddress = getInstance().UniformHandleui64vNV;
 		callIIPV(__functionAddress, location, count, values);
@@ -193,7 +189,6 @@ public class NVBindlessTexture {
 	// --- [ glProgramUniformHandleui64vNV ] ---
 
 	/** Unsafe version of {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
-	@JavadocExclude
 	public static void nglProgramUniformHandleui64vNV(int program, int location, int count, long values) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64vNV;
 		callIIIPV(__functionAddress, program, location, count, values);

@@ -27,15 +27,12 @@ public class KHRStreamProducerEGLSurface {
 	public static final int EGL_STREAM_BIT_KHR = 0x800;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreateStreamProducerSurfaceKHR;
 
-	@JavadocExclude
 	protected KHRStreamProducerEGLSurface() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRStreamProducerEGLSurface(FunctionProvider provider) {
 		CreateStreamProducerSurfaceKHR = provider.getFunctionAddress("eglCreateStreamProducerSurfaceKHR");
 	}
@@ -55,7 +52,6 @@ public class KHRStreamProducerEGLSurface {
 	// --- [ eglCreateStreamProducerSurfaceKHR ] ---
 
 	/** Unsafe version of {@link #eglCreateStreamProducerSurfaceKHR CreateStreamProducerSurfaceKHR} */
-	@JavadocExclude
 	public static long neglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, long attrib_list) {
 		long __functionAddress = getInstance().CreateStreamProducerSurfaceKHR;
 		if ( CHECKS ) {

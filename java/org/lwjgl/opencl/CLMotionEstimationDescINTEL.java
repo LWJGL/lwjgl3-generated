@@ -18,17 +18,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct cl_motion_estimation_desc_intel {
- *     cl_uint mb_block_type;
- *     cl_uint subpixel_mode;
- *     cl_uint sad_adjust_mode;
- *     cl_uint search_path_type;
- * }</code></pre>
+ * <pre><code>struct cl_motion_estimation_desc_intel {
+    cl_uint mb_block_type;
+    cl_uint subpixel_mode;
+    cl_uint sad_adjust_mode;
+    cl_uint search_path_type;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>mb_block_type</td><td>describes the size of the blocks described by the motion estimator</td></tr>
  * <tr><td>subpixel_mode</td><td>defines the search precision (and hence, the precision of the returned motion vectors)</td></tr>
  * <tr><td>sad_adjust_mode</td><td>specifies distortion measure adjustment used for the motion search SAD comparison</td></tr>
@@ -42,7 +41,6 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -138,12 +136,12 @@ public class CLMotionEstimationDescINTEL extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link CLMotionEstimationDescINTEL} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link CLMotionEstimationDescINTEL} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static CLMotionEstimationDescINTEL malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link CLMotionEstimationDescINTEL} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link CLMotionEstimationDescINTEL} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static CLMotionEstimationDescINTEL calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -159,7 +157,7 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link CLMotionEstimationDescINTEL.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link CLMotionEstimationDescINTEL.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -168,7 +166,7 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link CLMotionEstimationDescINTEL.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link CLMotionEstimationDescINTEL.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

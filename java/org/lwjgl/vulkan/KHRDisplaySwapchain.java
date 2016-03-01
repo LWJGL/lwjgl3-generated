@@ -29,15 +29,12 @@ public class KHRDisplaySwapchain {
 	public static final int VK_ERROR_INCOMPATIBLE_DISPLAY_KHR = -1000003001;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreateSharedSwapchainsKHR;
 
-	@JavadocExclude
 	protected KHRDisplaySwapchain() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRDisplaySwapchain(FunctionProvider provider) {
 		CreateSharedSwapchainsKHR = provider.getFunctionAddress("vkCreateSharedSwapchainsKHR");
 	}
@@ -74,7 +71,6 @@ public class KHRDisplaySwapchain {
 	// --- [ vkCreateSharedSwapchainsKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateSharedSwapchainsKHR CreateSharedSwapchainsKHR} */
-	@JavadocExclude
 	public static int nvkCreateSharedSwapchainsKHR(VkDevice device, int swapchainCount, long pCreateInfos, long pAllocator, long pSwapchains) {
 		long __functionAddress = getInstance(device).CreateSharedSwapchainsKHR;
 		if ( CHECKS ) {

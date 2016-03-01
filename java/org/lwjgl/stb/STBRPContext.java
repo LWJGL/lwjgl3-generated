@@ -43,12 +43,12 @@ public class STBRPContext extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link STBRPContext} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBRPContext} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static STBRPContext malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link STBRPContext} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBRPContext} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static STBRPContext calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -64,7 +64,7 @@ public class STBRPContext extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBRPContext.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBRPContext.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -73,7 +73,7 @@ public class STBRPContext extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBRPContext.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBRPContext.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

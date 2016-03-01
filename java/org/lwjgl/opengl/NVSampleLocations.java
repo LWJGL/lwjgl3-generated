@@ -54,18 +54,15 @@ public class NVSampleLocations {
 		GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV    = 0x9343;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		FramebufferSampleLocationsfvNV,
 		NamedFramebufferSampleLocationsfvNV,
 		ResolveDepthValuesNV;
 
-	@JavadocExclude
 	protected NVSampleLocations() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVSampleLocations(FunctionProvider provider) {
 		FramebufferSampleLocationsfvNV = provider.getFunctionAddress("glFramebufferSampleLocationsfvNV");
 		NamedFramebufferSampleLocationsfvNV = provider.getFunctionAddress("glNamedFramebufferSampleLocationsfvNV");
@@ -99,7 +96,6 @@ public class NVSampleLocations {
 	// --- [ glFramebufferSampleLocationsfvNV ] ---
 
 	/** Unsafe version of {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
-	@JavadocExclude
 	public static void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v) {
 		long __functionAddress = getInstance().FramebufferSampleLocationsfvNV;
 		callIIIPV(__functionAddress, target, start, count, v);
@@ -127,7 +123,6 @@ public class NVSampleLocations {
 	// --- [ glNamedFramebufferSampleLocationsfvNV ] ---
 
 	/** Unsafe version of {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
-	@JavadocExclude
 	public static void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v) {
 		long __functionAddress = getInstance().NamedFramebufferSampleLocationsfvNV;
 		callIIIPV(__functionAddress, framebuffer, start, count, v);

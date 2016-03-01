@@ -110,11 +110,10 @@ public class EGLCapabilities {
 	 * <p>We suggest that each future extension clearly state its type by including the following toplevel section in its extension specification, preceding the
 	 * Dependencies section. For client extensions, this suggestion is a requirement.</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 *         Extension Type
-	 * 
-	 *             &lt;Either "EGL display extension" or "EGL client extension" or
-	 *              a future extension type.&gt;</code></pre>
+	 * <pre><code>        Extension Type
+
+            &lt;Either "EGL display extension" or "EGL client extension" or
+             a future extension type.&gt;</code></pre>
 	 * 
 	 * <p>By cleanly separating display extensions from client extensions, EGL_EXT_client_extensions solves a bootstrap problem for future EGL extensions that
 	 * will modify display initialization. To query for such extensions without EGL_EXT_client_extensions, an EGL client would need to initialize a throw-away

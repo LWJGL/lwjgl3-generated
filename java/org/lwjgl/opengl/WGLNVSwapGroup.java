@@ -27,7 +27,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class WGLNVSwapGroup {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		JoinSwapGroupNV,
 		BindSwapBarrierNV,
@@ -36,12 +35,10 @@ public class WGLNVSwapGroup {
 		QueryFrameCountNV,
 		ResetFrameCountNV;
 
-	@JavadocExclude
 	protected WGLNVSwapGroup() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLNVSwapGroup(FunctionProvider provider) {
 		JoinSwapGroupNV = provider.getFunctionAddress("wglJoinSwapGroupNV");
 		BindSwapBarrierNV = provider.getFunctionAddress("wglBindSwapBarrierNV");
@@ -95,7 +92,6 @@ public class WGLNVSwapGroup {
 	// --- [ wglQuerySwapGroupNV ] ---
 
 	/** Unsafe version of {@link #wglQuerySwapGroupNV QuerySwapGroupNV} */
-	@JavadocExclude
 	public static int nwglQuerySwapGroupNV(long hDC, long group, long barrier) {
 		long __functionAddress = getInstance().QuerySwapGroupNV;
 		if ( CHECKS )
@@ -123,7 +119,6 @@ public class WGLNVSwapGroup {
 	// --- [ wglQueryMaxSwapGroupsNV ] ---
 
 	/** Unsafe version of {@link #wglQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
-	@JavadocExclude
 	public static int nwglQueryMaxSwapGroupsNV(long hDC, long maxGroups, long maxBarriers) {
 		long __functionAddress = getInstance().QueryMaxSwapGroupsNV;
 		if ( CHECKS )
@@ -151,7 +146,6 @@ public class WGLNVSwapGroup {
 	// --- [ wglQueryFrameCountNV ] ---
 
 	/** Unsafe version of {@link #wglQueryFrameCountNV QueryFrameCountNV} */
-	@JavadocExclude
 	public static int nwglQueryFrameCountNV(long hDC, long count) {
 		long __functionAddress = getInstance().QueryFrameCountNV;
 		if ( CHECKS )

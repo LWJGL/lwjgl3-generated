@@ -33,7 +33,6 @@ public class AL11 {
 		AL_EXPONENT_DISTANCE_CLAMPED = 0xD006;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		Listener3i,
 		GetListeneriv,
@@ -52,12 +51,10 @@ public class AL11 {
 		GetBufferfv,
 		SpeedOfSound;
 
-	@JavadocExclude
 	protected AL11() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public AL11(FunctionProvider provider) {
 		Listener3i = provider.getFunctionAddress("alListener3i");
 		GetListeneriv = provider.getFunctionAddress("alGetListeneriv");
@@ -115,7 +112,6 @@ public class AL11 {
 	// --- [ alGetListeneriv ] ---
 
 	/** Unsafe version of {@link #alGetListeneriv GetListeneriv} */
-	@JavadocExclude
 	public static void nalGetListeneriv(int param, long values) {
 		long __functionAddress = getInstance().GetListeneriv;
 		invokeIPV(__functionAddress, param, values);
@@ -159,7 +155,6 @@ public class AL11 {
 	// --- [ alListeneriv ] ---
 
 	/** Unsafe version of {@link #alListeneriv Listeneriv} */
-	@JavadocExclude
 	public static void nalListeneriv(int listener, long value) {
 		long __functionAddress = getInstance().Listeneriv;
 		invokeIPV(__functionAddress, listener, value);
@@ -187,7 +182,6 @@ public class AL11 {
 	// --- [ alSourceiv ] ---
 
 	/** Unsafe version of {@link #alSourceiv Sourceiv} */
-	@JavadocExclude
 	public static void nalSourceiv(int source, int paramName, long value) {
 		long __functionAddress = getInstance().Sourceiv;
 		invokeIIPV(__functionAddress, source, paramName, value);
@@ -246,7 +240,6 @@ public class AL11 {
 	// --- [ alBufferfv ] ---
 
 	/** Unsafe version of {@link #alBufferfv Bufferfv} */
-	@JavadocExclude
 	public static void nalBufferfv(int buffer, int paramName, long value) {
 		long __functionAddress = getInstance().Bufferfv;
 		invokeIIPV(__functionAddress, buffer, paramName, value);
@@ -305,7 +298,6 @@ public class AL11 {
 	// --- [ alBufferiv ] ---
 
 	/** Unsafe version of {@link #alBufferiv Bufferiv} */
-	@JavadocExclude
 	public static void nalBufferiv(int buffer, int paramName, long value) {
 		long __functionAddress = getInstance().Bufferiv;
 		invokeIIPV(__functionAddress, buffer, paramName, value);
@@ -334,7 +326,6 @@ public class AL11 {
 	// --- [ alGetBufferi ] ---
 
 	/** Unsafe version of {@link #alGetBufferi GetBufferi} */
-	@JavadocExclude
 	public static void nalGetBufferi(int buffer, int param, long value) {
 		long __functionAddress = getInstance().GetBufferi;
 		invokeIIPV(__functionAddress, buffer, param, value);
@@ -371,7 +362,6 @@ public class AL11 {
 	// --- [ alGetBufferiv ] ---
 
 	/** Unsafe version of {@link #alGetBufferiv GetBufferiv} */
-	@JavadocExclude
 	public static void nalGetBufferiv(int buffer, int param, long values) {
 		long __functionAddress = getInstance().GetBufferiv;
 		invokeIIPV(__functionAddress, buffer, param, values);
@@ -400,7 +390,6 @@ public class AL11 {
 	// --- [ alGetBufferf ] ---
 
 	/** Unsafe version of {@link #alGetBufferf GetBufferf} */
-	@JavadocExclude
 	public static void nalGetBufferf(int buffer, int param, long value) {
 		long __functionAddress = getInstance().GetBufferf;
 		invokeIIPV(__functionAddress, buffer, param, value);
@@ -437,7 +426,6 @@ public class AL11 {
 	// --- [ alGetBufferfv ] ---
 
 	/** Unsafe version of {@link #alGetBufferfv GetBufferfv} */
-	@JavadocExclude
 	public static void nalGetBufferfv(int buffer, int param, long values) {
 		long __functionAddress = getInstance().GetBufferfv;
 		invokeIIPV(__functionAddress, buffer, param, values);

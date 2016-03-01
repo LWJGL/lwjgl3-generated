@@ -27,19 +27,16 @@ public class OESVertexArrayObject {
 	public static final int GL_VERTEX_ARRAY_BINDING_OES = 0x85B5;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindVertexArrayOES,
 		DeleteVertexArraysOES,
 		GenVertexArraysOES,
 		IsVertexArrayOES;
 
-	@JavadocExclude
 	protected OESVertexArrayObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESVertexArrayObject(FunctionProvider provider) {
 		BindVertexArrayOES = provider.getFunctionAddress("glBindVertexArrayOES");
 		DeleteVertexArraysOES = provider.getFunctionAddress("glDeleteVertexArraysOES");
@@ -80,7 +77,6 @@ public class OESVertexArrayObject {
 	// --- [ glDeleteVertexArraysOES ] ---
 
 	/** Unsafe version of {@link #glDeleteVertexArraysOES DeleteVertexArraysOES} */
-	@JavadocExclude
 	public static void nglDeleteVertexArraysOES(int n, long arrays) {
 		long __functionAddress = getInstance().DeleteVertexArraysOES;
 		callIPV(__functionAddress, n, arrays);
@@ -107,7 +103,6 @@ public class OESVertexArrayObject {
 	// --- [ glGenVertexArraysOES ] ---
 
 	/** Unsafe version of {@link #glGenVertexArraysOES GenVertexArraysOES} */
-	@JavadocExclude
 	public static void nglGenVertexArraysOES(int n, long arrays) {
 		long __functionAddress = getInstance().GenVertexArraysOES;
 		callIPV(__functionAddress, n, arrays);

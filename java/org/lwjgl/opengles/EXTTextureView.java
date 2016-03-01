@@ -46,15 +46,12 @@ public class EXTTextureView {
 		GL_TEXTURE_IMMUTABLE_LEVELS    = 0x82DF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long TextureViewEXT;
 
-	@JavadocExclude
 	protected EXTTextureView() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTTextureView(FunctionProvider provider) {
 		TextureViewEXT = provider.getFunctionAddress("glTextureViewEXT");
 	}

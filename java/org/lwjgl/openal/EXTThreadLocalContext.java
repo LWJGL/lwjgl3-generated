@@ -19,17 +19,14 @@ import static org.lwjgl.system.JNI.*;
 public class EXTThreadLocalContext {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		SetThreadContext,
 		GetThreadContext;
 
-	@JavadocExclude
 	protected EXTThreadLocalContext() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTThreadLocalContext(FunctionProviderLocal provider, long device) {
 		SetThreadContext = provider.getFunctionAddress(device, "alcSetThreadContext");
 		GetThreadContext = provider.getFunctionAddress(device, "alcGetThreadContext");

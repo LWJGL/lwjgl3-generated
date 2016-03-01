@@ -24,19 +24,16 @@ import static org.lwjgl.system.JNI.*;
 public class AMDDrawBuffersBlend {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BlendFuncIndexedAMD,
 		BlendFuncSeparateIndexedAMD,
 		BlendEquationIndexedAMD,
 		BlendEquationSeparateIndexedAMD;
 
-	@JavadocExclude
 	protected AMDDrawBuffersBlend() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public AMDDrawBuffersBlend(FunctionProvider provider) {
 		BlendFuncIndexedAMD = provider.getFunctionAddress("glBlendFuncIndexedAMD");
 		BlendFuncSeparateIndexedAMD = provider.getFunctionAddress("glBlendFuncSeparateIndexedAMD");

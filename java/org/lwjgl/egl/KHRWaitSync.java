@@ -23,15 +23,12 @@ import static org.lwjgl.system.JNI.*;
 public class KHRWaitSync {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long WaitSyncKHR;
 
-	@JavadocExclude
 	protected KHRWaitSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRWaitSync(FunctionProvider provider) {
 		WaitSyncKHR = provider.getFunctionAddress("eglWaitSyncKHR");
 	}

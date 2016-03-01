@@ -39,15 +39,12 @@ public class GLXARBCreateContext {
 		GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x2;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreateContextAttribsARB;
 
-	@JavadocExclude
 	protected GLXARBCreateContext() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXARBCreateContext(FunctionProvider provider) {
 		CreateContextAttribsARB = provider.getFunctionAddress("glXCreateContextAttribsARB");
 	}
@@ -79,7 +76,6 @@ public class GLXARBCreateContext {
 	// --- [ glXCreateContextAttribsARB ] ---
 
 	/** Unsafe version of {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
-	@JavadocExclude
 	public static long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list) {
 		long __functionAddress = getInstance().CreateContextAttribsARB;
 		if ( CHECKS ) {

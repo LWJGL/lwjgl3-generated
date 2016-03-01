@@ -16,19 +16,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkImageSubresource {
- *     VkImageAspectFlags aspectMask;
- *     uint32_t mipLevel;
- *     uint32_t arrayLayer;
- * }</code></pre>
+ * <pre><code>struct VkImageSubresource {
+    VkImageAspectFlags aspectMask;
+    uint32_t mipLevel;
+    uint32_t arrayLayer;
+}</code></pre>
  */
 public class VkImageSubresource extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -115,12 +113,12 @@ public class VkImageSubresource extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkImageSubresource} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageSubresource} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkImageSubresource malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkImageSubresource} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageSubresource} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkImageSubresource calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -136,7 +134,7 @@ public class VkImageSubresource extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageSubresource.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageSubresource.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -145,7 +143,7 @@ public class VkImageSubresource extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageSubresource.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageSubresource.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

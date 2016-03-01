@@ -48,18 +48,15 @@ public class NVDepthBufferFloat {
 	public static final int GL_DEPTH_BUFFER_FLOAT_MODE_NV = 0x8DAF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DepthRangedNV,
 		ClearDepthdNV,
 		DepthBoundsdNV;
 
-	@JavadocExclude
 	protected NVDepthBufferFloat() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVDepthBufferFloat(FunctionProvider provider) {
 		DepthRangedNV = provider.getFunctionAddress("glDepthRangedNV");
 		ClearDepthdNV = provider.getFunctionAddress("glClearDepthdNV");

@@ -94,7 +94,6 @@ public class LibFFI {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected LibFFI() {
 		throw new UnsupportedOperationException();
 	}
@@ -102,7 +101,6 @@ public class LibFFI {
 	// --- [ ffi_prep_cif ] ---
 
 	/** JNI method for {@link #ffi_prep_cif prep_cif} */
-	@JavadocExclude
 	public static native int nffi_prep_cif(long cif, int abi, int nargs, long rtype, long atypes);
 
 	/**
@@ -131,7 +129,6 @@ public class LibFFI {
 	// --- [ ffi_prep_cif_var ] ---
 
 	/** JNI method for {@link #ffi_prep_cif_var prep_cif_var} */
-	@JavadocExclude
 	public static native int nffi_prep_cif_var(long cif, int abi, int nfixedargs, int ntotalargs, long rtype, long atypes);
 
 	/**
@@ -165,7 +162,6 @@ public class LibFFI {
 	// --- [ ffi_call ] ---
 
 	/** JNI method for {@link #ffi_call call} */
-	@JavadocExclude
 	public static native void nffi_call(long cif, long fn, long rvalue, long avalue);
 
 	/**
@@ -193,7 +189,6 @@ public class LibFFI {
 	// --- [ ffi_closure_alloc ] ---
 
 	/** JNI method for {@link #ffi_closure_alloc closure_alloc} */
-	@JavadocExclude
 	public static native long nffi_closure_alloc(long size, long code);
 
 	/**
@@ -222,7 +217,6 @@ public class LibFFI {
 	// --- [ ffi_closure_free ] ---
 
 	/** JNI method for {@link #ffi_closure_free closure_free} */
-	@JavadocExclude
 	public static native void nffi_closure_free(long writable);
 
 	/**
@@ -237,7 +231,6 @@ public class LibFFI {
 	// --- [ ffi_prep_closure_loc ] ---
 
 	/** JNI method for {@link #ffi_prep_closure_loc prep_closure_loc} */
-	@JavadocExclude
 	public static native int nffi_prep_closure_loc(long closure, long cif, long fun, long user_data, long codeloc);
 
 	/**

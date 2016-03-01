@@ -27,7 +27,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class GLXNVSwapGroup {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		JoinSwapGroupNV,
 		BindSwapBarrierNV,
@@ -36,12 +35,10 @@ public class GLXNVSwapGroup {
 		QueryFrameCountNV,
 		ResetFrameCountNV;
 
-	@JavadocExclude
 	protected GLXNVSwapGroup() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXNVSwapGroup(FunctionProvider provider) {
 		JoinSwapGroupNV = provider.getFunctionAddress("glXJoinSwapGroupNV");
 		BindSwapBarrierNV = provider.getFunctionAddress("glXBindSwapBarrierNV");
@@ -113,7 +110,6 @@ public class GLXNVSwapGroup {
 	// --- [ glXQuerySwapGroupNV ] ---
 
 	/** Unsafe version of {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
-	@JavadocExclude
 	public static int nglXQuerySwapGroupNV(long display, long drawable, long group, long barrier) {
 		long __functionAddress = getInstance().QuerySwapGroupNV;
 		if ( CHECKS ) {
@@ -151,7 +147,6 @@ public class GLXNVSwapGroup {
 	// --- [ glXQueryMaxSwapGroupsNV ] ---
 
 	/** Unsafe version of {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
-	@JavadocExclude
 	public static int nglXQueryMaxSwapGroupsNV(long display, int screen, long maxGroups, long maxBarriers) {
 		long __functionAddress = getInstance().QueryMaxSwapGroupsNV;
 		if ( CHECKS )
@@ -187,7 +182,6 @@ public class GLXNVSwapGroup {
 	// --- [ glXQueryFrameCountNV ] ---
 
 	/** Unsafe version of {@link #glXQueryFrameCountNV QueryFrameCountNV} */
-	@JavadocExclude
 	public static int nglXQueryFrameCountNV(long display, int screen, long count) {
 		long __functionAddress = getInstance().QueryFrameCountNV;
 		if ( CHECKS )

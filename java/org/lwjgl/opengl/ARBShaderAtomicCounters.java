@@ -97,15 +97,12 @@ public class ARBShaderAtomicCounters {
 	public static final int GL_UNSIGNED_INT_ATOMIC_COUNTER = 0x92DB;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetActiveAtomicCounterBufferiv;
 
-	@JavadocExclude
 	protected ARBShaderAtomicCounters() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBShaderAtomicCounters(FunctionProvider provider) {
 		GetActiveAtomicCounterBufferiv = provider.getFunctionAddress("glGetActiveAtomicCounterBufferiv");
 	}
@@ -137,7 +134,6 @@ public class ARBShaderAtomicCounters {
 	// --- [ glGetActiveAtomicCounterBufferiv ] ---
 
 	/** Unsafe version of {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
-	@JavadocExclude
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
 		callIIIPV(__functionAddress, program, bufferIndex, pname, params);

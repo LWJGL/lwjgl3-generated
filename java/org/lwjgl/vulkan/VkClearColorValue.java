@@ -16,19 +16,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * union VkClearColorValue {
- *     float[4] float32;
- *     int32_t[4] int32;
- *     uint32_t[4] uint32;
- * }</code></pre>
+ * <pre><code>union VkClearColorValue {
+    float[4] float32;
+    int32_t[4] int32;
+    uint32_t[4] uint32;
+}</code></pre>
  */
 public class VkClearColorValue extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -114,12 +112,12 @@ public class VkClearColorValue extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkClearColorValue} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkClearColorValue} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkClearColorValue malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkClearColorValue} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkClearColorValue} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkClearColorValue calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -135,7 +133,7 @@ public class VkClearColorValue extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkClearColorValue.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkClearColorValue.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -144,7 +142,7 @@ public class VkClearColorValue extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkClearColorValue.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkClearColorValue.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

@@ -44,7 +44,6 @@ public class ARBGPUShaderInt64 {
 		GL_UNSIGNED_INT64_VEC4_ARB = 0x8FF7;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		Uniform1i64ARB,
 		Uniform1i64vARB,
@@ -83,12 +82,10 @@ public class ARBGPUShaderInt64 {
 		GetnUniformi64vARB,
 		GetnUniformui64vARB;
 
-	@JavadocExclude
 	protected ARBGPUShaderInt64() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBGPUShaderInt64(FunctionProvider provider) {
 		Uniform1i64ARB = provider.getFunctionAddress("glUniform1i64ARB");
 		Uniform1i64vARB = provider.getFunctionAddress("glUniform1i64vARB");
@@ -174,7 +171,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glUniform1i64vARB ] ---
 
 	/** Unsafe version of {@link #glUniform1i64vARB Uniform1i64vARB} */
-	@JavadocExclude
 	public static void nglUniform1i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1i64vARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -215,7 +211,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glProgramUniform1i64vARB ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1i64vARB ProgramUniform1i64vARB} */
-	@JavadocExclude
 	public static void nglProgramUniform1i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1i64vARB;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -257,7 +252,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glUniform2i64vARB ] ---
 
 	/** Unsafe version of {@link #glUniform2i64vARB Uniform2i64vARB} */
-	@JavadocExclude
 	public static void nglUniform2i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2i64vARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -299,7 +293,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glProgramUniform2i64vARB ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2i64vARB ProgramUniform2i64vARB} */
-	@JavadocExclude
 	public static void nglProgramUniform2i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2i64vARB;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -342,7 +335,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glUniform3i64vARB ] ---
 
 	/** Unsafe version of {@link #glUniform3i64vARB Uniform3i64vARB} */
-	@JavadocExclude
 	public static void nglUniform3i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3i64vARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -385,7 +377,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glProgramUniform3i64vARB ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3i64vARB ProgramUniform3i64vARB} */
-	@JavadocExclude
 	public static void nglProgramUniform3i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3i64vARB;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -429,7 +420,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glUniform4i64vARB ] ---
 
 	/** Unsafe version of {@link #glUniform4i64vARB Uniform4i64vARB} */
-	@JavadocExclude
 	public static void nglUniform4i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4i64vARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -473,7 +463,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glProgramUniform4i64vARB ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4i64vARB ProgramUniform4i64vARB} */
-	@JavadocExclude
 	public static void nglProgramUniform4i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4i64vARB;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -514,7 +503,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glUniform1ui64vARB ] ---
 
 	/** Unsafe version of {@link #glUniform1ui64vARB Uniform1ui64vARB} */
-	@JavadocExclude
 	public static void nglUniform1ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1ui64vARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -555,7 +543,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glProgramUniform1ui64vARB ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1ui64vARB ProgramUniform1ui64vARB} */
-	@JavadocExclude
 	public static void nglProgramUniform1ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1ui64vARB;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -597,7 +584,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glUniform2ui64vARB ] ---
 
 	/** Unsafe version of {@link #glUniform2ui64vARB Uniform2ui64vARB} */
-	@JavadocExclude
 	public static void nglUniform2ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2ui64vARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -639,7 +625,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glProgramUniform2ui64vARB ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2ui64vARB ProgramUniform2ui64vARB} */
-	@JavadocExclude
 	public static void nglProgramUniform2ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2ui64vARB;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -682,7 +667,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glUniform3ui64vARB ] ---
 
 	/** Unsafe version of {@link #glUniform3ui64vARB Uniform3ui64vARB} */
-	@JavadocExclude
 	public static void nglUniform3ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3ui64vARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -725,7 +709,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glProgramUniform3ui64vARB ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3ui64vARB ProgramUniform3ui64vARB} */
-	@JavadocExclude
 	public static void nglProgramUniform3ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3ui64vARB;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -769,7 +752,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glUniform4ui64vARB ] ---
 
 	/** Unsafe version of {@link #glUniform4ui64vARB Uniform4ui64vARB} */
-	@JavadocExclude
 	public static void nglUniform4ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4ui64vARB;
 		callIIPV(__functionAddress, location, count, value);
@@ -813,7 +795,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glProgramUniform4ui64vARB ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4ui64vARB ProgramUniform4ui64vARB} */
-	@JavadocExclude
 	public static void nglProgramUniform4ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4ui64vARB;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -841,7 +822,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glGetUniformi64vARB ] ---
 
 	/** Unsafe version of {@link #glGetUniformi64vARB GetUniformi64vARB} */
-	@JavadocExclude
 	public static void nglGetUniformi64vARB(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformi64vARB;
 		callIIPV(__functionAddress, program, location, params);
@@ -878,7 +858,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glGetUniformui64vARB ] ---
 
 	/** Unsafe version of {@link #glGetUniformui64vARB GetUniformui64vARB} */
-	@JavadocExclude
 	public static void nglGetUniformui64vARB(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformui64vARB;
 		callIIPV(__functionAddress, program, location, params);
@@ -915,7 +894,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glGetnUniformi64vARB ] ---
 
 	/** Unsafe version of {@link #glGetnUniformi64vARB GetnUniformi64vARB} */
-	@JavadocExclude
 	public static void nglGetnUniformi64vARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformi64vARB;
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -951,7 +929,6 @@ public class ARBGPUShaderInt64 {
 	// --- [ glGetnUniformui64vARB ] ---
 
 	/** Unsafe version of {@link #glGetnUniformui64vARB GetnUniformui64vARB} */
-	@JavadocExclude
 	public static void nglGetnUniformui64vARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformui64vARB;
 		callIIIPV(__functionAddress, program, location, bufSize, params);

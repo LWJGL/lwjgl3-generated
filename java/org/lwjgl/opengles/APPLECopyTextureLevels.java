@@ -34,15 +34,12 @@ import static org.lwjgl.system.JNI.*;
 public class APPLECopyTextureLevels {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CopyTextureLevelsAPPLE;
 
-	@JavadocExclude
 	protected APPLECopyTextureLevels() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public APPLECopyTextureLevels(FunctionProvider provider) {
 		CopyTextureLevelsAPPLE = provider.getFunctionAddress("glCopyTextureLevelsAPPLE");
 	}

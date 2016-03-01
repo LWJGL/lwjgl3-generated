@@ -40,18 +40,15 @@ public class INTELMapTexture {
 		GL_LAYOUT_LINEAR_CPU_CACHED_INTEL = 0x2;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		SyncTextureINTEL,
 		UnmapTexture2DINTEL,
 		MapTexture2DINTEL;
 
-	@JavadocExclude
 	protected INTELMapTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public INTELMapTexture(FunctionProvider provider) {
 		SyncTextureINTEL = provider.getFunctionAddress("glSyncTextureINTEL");
 		UnmapTexture2DINTEL = provider.getFunctionAddress("glUnmapTexture2DINTEL");
@@ -117,7 +114,6 @@ public class INTELMapTexture {
 	// --- [ glMapTexture2DINTEL ] ---
 
 	/** Unsafe version of {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
-	@JavadocExclude
 	public static long nglMapTexture2DINTEL(int texture, int level, int access, long stride, long layout) {
 		long __functionAddress = getInstance().MapTexture2DINTEL;
 		return callIIIPPP(__functionAddress, texture, level, access, stride, layout);

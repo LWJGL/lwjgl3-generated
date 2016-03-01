@@ -23,17 +23,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class ARBGetTextureSubImage {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetTextureSubImage,
 		GetCompressedTextureSubImage;
 
-	@JavadocExclude
 	protected ARBGetTextureSubImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBGetTextureSubImage(FunctionProvider provider) {
 		GetTextureSubImage = provider.getFunctionAddress("glGetTextureSubImage");
 		GetCompressedTextureSubImage = provider.getFunctionAddress("glGetCompressedTextureSubImage");
@@ -66,7 +63,6 @@ public class ARBGetTextureSubImage {
 	// --- [ glGetTextureSubImage ] ---
 
 	/** Unsafe version of {@link #glGetTextureSubImage GetTextureSubImage} */
-	@JavadocExclude
 	public static void nglGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetTextureSubImage;
 		callIIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
@@ -141,7 +137,6 @@ public class ARBGetTextureSubImage {
 	// --- [ glGetCompressedTextureSubImage ] ---
 
 	/** Unsafe version of {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
-	@JavadocExclude
 	public static void nglGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTextureSubImage;
 		callIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);

@@ -24,15 +24,12 @@ public class GLX14 {
 		GLX_SAMPLES        = 0x186A1;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetProcAddress;
 
-	@JavadocExclude
 	protected GLX14() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLX14(FunctionProvider provider) {
 		GetProcAddress = provider.getFunctionAddress("glXGetProcAddress");
 	}
@@ -64,7 +61,6 @@ public class GLX14 {
 	// --- [ glXGetProcAddress ] ---
 
 	/** Unsafe version of {@link #glXGetProcAddress GetProcAddress} */
-	@JavadocExclude
 	public static long nglXGetProcAddress(long procName) {
 		long __functionAddress = getInstance().GetProcAddress;
 		return callPP(__functionAddress, procName);

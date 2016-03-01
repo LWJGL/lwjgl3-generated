@@ -28,30 +28,29 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>If {@code enabledExtensionCount} is not 0, {@code ppEnabledExtensionNames} <b>must</b> be a pointer to an array of {@code enabledExtensionCount}
  * null-terminated strings</li>
  * <li>Any given element of {@code ppEnabledLayerNames} <b>must</b> be the name of a layer present on the system, exactly matching a string returned in the
- * {@link VkLayerProperties} structure by {@link VK10#vkEnumerateInstanceLayerProperties}</li>
+ * {@link VkLayerProperties} structure by {@link VK10#vkEnumerateInstanceLayerProperties VK10.vkEnumerateInstanceLayerProperties}</li>
  * <li>Any given element of {@code ppEnabledExtensionNames} <b>must</b> be the name of an extension present on the system, exactly matching a string returned in
- * the {@link VkExtensionProperties} structure by {@link VK10#vkEnumerateInstanceExtensionProperties}</li>
+ * the {@link VkExtensionProperties} structure by {@link VK10#vkEnumerateInstanceExtensionProperties VK10.vkEnumerateInstanceExtensionProperties}</li>
  * <li>If an extension listed in {@code ppEnabledExtensionNames} is provided as part of a layer, then both the layer and extension <b>must</b> be enabled to
  * enable that extension</li>
  * </ul>
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkInstanceCreateInfo {
- *     VkStructureType sType;
- *     const void * pNext;
- *     VkInstanceCreateFlags flags;
- *     const VkApplicationInfo * pApplicationInfo;
- *     uint32_t enabledLayerCount;
- *     const char * const * ppEnabledLayerNames;
- *     uint32_t enabledExtensionCount;
- *     const char * const * ppEnabledExtensionNames;
- * }</code></pre>
+ * <pre><code>struct VkInstanceCreateInfo {
+    VkStructureType sType;
+    const void * pNext;
+    VkInstanceCreateFlags flags;
+    const VkApplicationInfo * pApplicationInfo;
+    uint32_t enabledLayerCount;
+    const char * const * ppEnabledLayerNames;
+    uint32_t enabledExtensionCount;
+    const char * const * ppEnabledExtensionNames;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * <tr><td>flags</td><td>reserved for future use</td></tr>
@@ -67,7 +66,6 @@ public class VkInstanceCreateInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -191,12 +189,12 @@ public class VkInstanceCreateInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkInstanceCreateInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkInstanceCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkInstanceCreateInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkInstanceCreateInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkInstanceCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkInstanceCreateInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -212,7 +210,7 @@ public class VkInstanceCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkInstanceCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkInstanceCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -221,7 +219,7 @@ public class VkInstanceCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkInstanceCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkInstanceCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

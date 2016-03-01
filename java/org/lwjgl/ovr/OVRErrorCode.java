@@ -158,7 +158,6 @@ public class OVRErrorCode {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected OVRErrorCode() {
 		throw new UnsupportedOperationException();
 	}

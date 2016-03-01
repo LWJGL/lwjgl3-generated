@@ -109,15 +109,12 @@ public class OESGeometryShader {
 	public static final int GL_REFERENCED_BY_GEOMETRY_SHADER_OES = 0x9309;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long FramebufferTextureOES;
 
-	@JavadocExclude
 	protected OESGeometryShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESGeometryShader(FunctionProvider provider) {
 		FramebufferTextureOES = provider.getFunctionAddress("glFramebufferTextureOES");
 	}

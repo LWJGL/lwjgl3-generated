@@ -38,15 +38,12 @@ public class KHRCLEvent2 {
 		EGL_SYNC_CL_EVENT_COMPLETE_KHR = 0x30FF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreateSync64KHR;
 
-	@JavadocExclude
 	protected KHRCLEvent2() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRCLEvent2(FunctionProvider provider) {
 		CreateSync64KHR = provider.getFunctionAddress("eglCreateSync64KHR");
 	}
@@ -66,7 +63,6 @@ public class KHRCLEvent2 {
 	// --- [ eglCreateSync64KHR ] ---
 
 	/** Unsafe version of {@link #eglCreateSync64KHR CreateSync64KHR} */
-	@JavadocExclude
 	public static long neglCreateSync64KHR(long dpy, int type, long attrib_list) {
 		long __functionAddress = getInstance().CreateSync64KHR;
 		if ( CHECKS )

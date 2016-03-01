@@ -113,17 +113,14 @@ public class ARBTessellationShader {
 		GL_TESS_CONTROL_SHADER    = 0x8E88;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		PatchParameteri,
 		PatchParameterfv;
 
-	@JavadocExclude
 	protected ARBTessellationShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTessellationShader(FunctionProvider provider) {
 		PatchParameteri = provider.getFunctionAddress("glPatchParameteri");
 		PatchParameterfv = provider.getFunctionAddress("glPatchParameterfv");
@@ -169,7 +166,6 @@ public class ARBTessellationShader {
 	// --- [ glPatchParameterfv ] ---
 
 	/** Unsafe version of {@link #glPatchParameterfv PatchParameterfv} */
-	@JavadocExclude
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = getInstance().PatchParameterfv;
 		callIPV(__functionAddress, pname, values);

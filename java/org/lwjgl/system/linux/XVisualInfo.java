@@ -18,26 +18,24 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct XVisualInfo {
- *     Visual * visual;
- *     VisualID visualid;
- *     int screen;
- *     int depth;
- *     int class;
- *     unsigned long red_mask;
- *     unsigned long green_mask;
- *     unsigned long blue_mask;
- *     int colormap_size;
- *     int bits_per_rgb;
- * }</code></pre>
+ * <pre><code>struct XVisualInfo {
+    Visual * visual;
+    VisualID visualid;
+    int screen;
+    int depth;
+    int class;
+    unsigned long red_mask;
+    unsigned long green_mask;
+    unsigned long blue_mask;
+    int colormap_size;
+    int bits_per_rgb;
+}</code></pre>
  */
 public class XVisualInfo extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -187,12 +185,12 @@ public class XVisualInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link XVisualInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link XVisualInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static XVisualInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link XVisualInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link XVisualInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static XVisualInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -208,7 +206,7 @@ public class XVisualInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link XVisualInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link XVisualInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -217,7 +215,7 @@ public class XVisualInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link XVisualInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link XVisualInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

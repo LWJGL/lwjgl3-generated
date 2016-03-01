@@ -16,19 +16,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkVertexInputBindingDescription {
- *     uint32_t binding;
- *     uint32_t stride;
- *     VkVertexInputRate inputRate;
- * }</code></pre>
+ * <pre><code>struct VkVertexInputBindingDescription {
+    uint32_t binding;
+    uint32_t stride;
+    VkVertexInputRate inputRate;
+}</code></pre>
  */
 public class VkVertexInputBindingDescription extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -115,12 +113,12 @@ public class VkVertexInputBindingDescription extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkVertexInputBindingDescription} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkVertexInputBindingDescription} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkVertexInputBindingDescription malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkVertexInputBindingDescription} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkVertexInputBindingDescription} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkVertexInputBindingDescription calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -136,7 +134,7 @@ public class VkVertexInputBindingDescription extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkVertexInputBindingDescription.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkVertexInputBindingDescription.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -145,7 +143,7 @@ public class VkVertexInputBindingDescription extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkVertexInputBindingDescription.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkVertexInputBindingDescription.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

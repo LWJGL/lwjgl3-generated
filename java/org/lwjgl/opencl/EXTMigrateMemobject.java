@@ -29,15 +29,12 @@ public class EXTMigrateMemobject {
 	public static final int CL_COMMAND_MIGRATE_MEM_OBJECT_EXT = 0x4040;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long EnqueueMigrateMemObjectEXT;
 
-	@JavadocExclude
 	protected EXTMigrateMemobject() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTMigrateMemobject(FunctionProvider provider) {
 		EnqueueMigrateMemObjectEXT = provider.getFunctionAddress("clEnqueueMigrateMemObjectEXT");
 	}
@@ -67,7 +64,6 @@ public class EXTMigrateMemobject {
 	// --- [ clEnqueueMigrateMemObjectEXT ] ---
 
 	/** Unsafe version of {@link #clEnqueueMigrateMemObjectEXT EnqueueMigrateMemObjectEXT} */
-	@JavadocExclude
 	public static int nclEnqueueMigrateMemObjectEXT(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMigrateMemObjectEXT;
 		if ( CHECKS )

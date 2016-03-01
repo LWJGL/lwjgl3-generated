@@ -56,18 +56,15 @@ public class NVStreamMetadata {
 		EGL_METADATA3_TYPE_NV = 0x325C;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		QueryDisplayAttribNV,
 		SetStreamMetadataNV,
 		QueryStreamMetadataNV;
 
-	@JavadocExclude
 	protected NVStreamMetadata() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVStreamMetadata(FunctionProvider provider) {
 		QueryDisplayAttribNV = provider.getFunctionAddress("eglQueryDisplayAttribNV");
 		SetStreamMetadataNV = provider.getFunctionAddress("eglSetStreamMetadataNV");
@@ -89,7 +86,6 @@ public class NVStreamMetadata {
 	// --- [ eglQueryDisplayAttribNV ] ---
 
 	/** Unsafe version of {@link #eglQueryDisplayAttribNV QueryDisplayAttribNV} */
-	@JavadocExclude
 	public static int neglQueryDisplayAttribNV(long dpy, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDisplayAttribNV;
 		if ( CHECKS )
@@ -113,7 +109,6 @@ public class NVStreamMetadata {
 	// --- [ eglSetStreamMetadataNV ] ---
 
 	/** Unsafe version of {@link #eglSetStreamMetadataNV SetStreamMetadataNV} */
-	@JavadocExclude
 	public static int neglSetStreamMetadataNV(long dpy, long stream, int n, int offset, int size, long data) {
 		long __functionAddress = getInstance().SetStreamMetadataNV;
 		if ( CHECKS ) {
@@ -137,7 +132,6 @@ public class NVStreamMetadata {
 	// --- [ eglQueryStreamMetadataNV ] ---
 
 	/** Unsafe version of {@link #eglQueryStreamMetadataNV QueryStreamMetadataNV} */
-	@JavadocExclude
 	public static int neglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, int size, long data) {
 		long __functionAddress = getInstance().QueryStreamMetadataNV;
 		if ( CHECKS ) {

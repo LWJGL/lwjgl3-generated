@@ -16,23 +16,21 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkStencilOpState {
- *     VkStencilOp failOp;
- *     VkStencilOp passOp;
- *     VkStencilOp depthFailOp;
- *     VkCompareOp compareOp;
- *     uint32_t compareMask;
- *     uint32_t writeMask;
- *     uint32_t reference;
- * }</code></pre>
+ * <pre><code>struct VkStencilOpState {
+    VkStencilOp failOp;
+    VkStencilOp passOp;
+    VkStencilOp depthFailOp;
+    VkCompareOp compareOp;
+    uint32_t compareMask;
+    uint32_t writeMask;
+    uint32_t reference;
+}</code></pre>
  */
 public class VkStencilOpState extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -155,12 +153,12 @@ public class VkStencilOpState extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkStencilOpState} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkStencilOpState} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkStencilOpState malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkStencilOpState} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkStencilOpState} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkStencilOpState calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -176,7 +174,7 @@ public class VkStencilOpState extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkStencilOpState.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkStencilOpState.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -185,7 +183,7 @@ public class VkStencilOpState extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkStencilOpState.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkStencilOpState.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

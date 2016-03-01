@@ -35,15 +35,12 @@ public class ANGLEFramebufferBlit {
 		GL_READ_FRAMEBUFFER_BINDING_ANGLE = 0x8CAA;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long BlitFramebufferANGLE;
 
-	@JavadocExclude
 	protected ANGLEFramebufferBlit() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ANGLEFramebufferBlit(FunctionProvider provider) {
 		BlitFramebufferANGLE = provider.getFunctionAddress("glBlitFramebufferANGLE");
 	}

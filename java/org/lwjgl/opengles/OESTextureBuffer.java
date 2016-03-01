@@ -69,17 +69,14 @@ public class OESTextureBuffer {
 		GL_TEXTURE_BUFFER_SIZE_OES               = 0x919E;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexBufferOES,
 		TexBufferRangeOES;
 
-	@JavadocExclude
 	protected OESTextureBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESTextureBuffer(FunctionProvider provider) {
 		TexBufferOES = provider.getFunctionAddress("glTexBufferOES");
 		TexBufferRangeOES = provider.getFunctionAddress("glTexBufferRangeOES");

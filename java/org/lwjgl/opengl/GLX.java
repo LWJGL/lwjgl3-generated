@@ -65,7 +65,6 @@ public class GLX {
 		GLX_BAD_ENUM      = 0x7;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		QueryExtension,
 		QueryVersion,
@@ -85,12 +84,10 @@ public class GLX {
 		CreateGLXPixmap,
 		DestroyGLXPixmap;
 
-	@JavadocExclude
 	protected GLX() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLX(FunctionProvider provider) {
 		QueryExtension = provider.getFunctionAddress("glXQueryExtension");
 		QueryVersion = provider.getFunctionAddress("glXQueryVersion");
@@ -140,7 +137,6 @@ public class GLX {
 	// --- [ glXQueryExtension ] ---
 
 	/** Unsafe version of {@link #glXQueryExtension QueryExtension} */
-	@JavadocExclude
 	public static int nglXQueryExtension(long display, long error_base, long event_base) {
 		long __functionAddress = getInstance().QueryExtension;
 		if ( CHECKS )
@@ -175,7 +171,6 @@ public class GLX {
 	// --- [ glXQueryVersion ] ---
 
 	/** Unsafe version of {@link #glXQueryVersion QueryVersion} */
-	@JavadocExclude
 	public static int nglXQueryVersion(long display, long major, long minor) {
 		long __functionAddress = getInstance().QueryVersion;
 		if ( CHECKS )
@@ -210,7 +205,6 @@ public class GLX {
 	// --- [ glXGetConfig ] ---
 
 	/** Unsafe version of {@link #glXGetConfig GetConfig} */
-	@JavadocExclude
 	public static int nglXGetConfig(long display, long visual, int attribute, long value) {
 		long __functionAddress = getInstance().GetConfig;
 		if ( CHECKS ) {
@@ -244,7 +238,6 @@ public class GLX {
 	// --- [ glXChooseVisual ] ---
 
 	/** Unsafe version of {@link #glXChooseVisual ChooseVisual} */
-	@JavadocExclude
 	public static long nglXChooseVisual(long display, int screen, long attrib_list) {
 		long __functionAddress = getInstance().ChooseVisual;
 		if ( CHECKS )
@@ -280,7 +273,6 @@ public class GLX {
 	// --- [ glXCreateContext ] ---
 
 	/** Unsafe version of {@link #glXCreateContext CreateContext} */
-	@JavadocExclude
 	public static long nglXCreateContext(long display, long visual, long share_list, int direct) {
 		long __functionAddress = getInstance().CreateContext;
 		if ( CHECKS ) {
@@ -456,7 +448,6 @@ public class GLX {
 	// --- [ glXCreateGLXPixmap ] ---
 
 	/** Unsafe version of {@link #glXCreateGLXPixmap CreateGLXPixmap} */
-	@JavadocExclude
 	public static long nglXCreateGLXPixmap(long display, long visual, long pixmap) {
 		long __functionAddress = getInstance().CreateGLXPixmap;
 		if ( CHECKS ) {

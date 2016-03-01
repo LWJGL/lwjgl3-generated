@@ -22,15 +22,12 @@ public class APPLECommandQueueSelectComputeUnits {
 	public static final int CL_QUEUE_NUM_COMPUTE_UNITS_APPLE = 0x10000014;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CreateCommandQueueWithPropertiesAPPLE;
 
-	@JavadocExclude
 	protected APPLECommandQueueSelectComputeUnits() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public APPLECommandQueueSelectComputeUnits(FunctionProvider provider) {
 		CreateCommandQueueWithPropertiesAPPLE = provider.getFunctionAddress("clCreateCommandQueueWithPropertiesAPPLE");
 	}
@@ -60,7 +57,6 @@ public class APPLECommandQueueSelectComputeUnits {
 	// --- [ clCreateCommandQueueWithPropertiesAPPLE ] ---
 
 	/** Unsafe version of {@link #clCreateCommandQueueWithPropertiesAPPLE CreateCommandQueueWithPropertiesAPPLE} */
-	@JavadocExclude
 	public static long nclCreateCommandQueueWithPropertiesAPPLE(long context, long device, long properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreateCommandQueueWithPropertiesAPPLE;
 		if ( CHECKS ) {

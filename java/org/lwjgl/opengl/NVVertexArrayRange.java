@@ -36,17 +36,14 @@ public class NVVertexArrayRange {
 	public static final int GL_VERTEX_ARRAY_RANGE_POINTER_NV = 0x8521;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		VertexArrayRangeNV,
 		FlushVertexArrayRangeNV;
 
-	@JavadocExclude
 	protected NVVertexArrayRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVVertexArrayRange(FunctionProvider provider) {
 		VertexArrayRangeNV = provider.getFunctionAddress("glVertexArrayRangeNV");
 		FlushVertexArrayRangeNV = provider.getFunctionAddress("glFlushVertexArrayRangeNV");
@@ -79,7 +76,6 @@ public class NVVertexArrayRange {
 	// --- [ glVertexArrayRangeNV ] ---
 
 	/** Unsafe version of {@link #glVertexArrayRangeNV VertexArrayRangeNV} */
-	@JavadocExclude
 	public static void nglVertexArrayRangeNV(int length, long pointer) {
 		long __functionAddress = getInstance().VertexArrayRangeNV;
 		callIPV(__functionAddress, length, pointer);

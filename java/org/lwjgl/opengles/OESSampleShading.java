@@ -38,15 +38,12 @@ public class OESSampleShading {
 	public static final int GL_MIN_SAMPLE_SHADING_VALUE_OES = 0x8C37;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long MinSampleShadingOES;
 
-	@JavadocExclude
 	protected OESSampleShading() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESSampleShading(FunctionProvider provider) {
 		MinSampleShadingOES = provider.getFunctionAddress("glMinSampleShadingOES");
 	}

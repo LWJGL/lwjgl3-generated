@@ -36,18 +36,15 @@ public class OESMapbuffer {
 	public static final int GL_BUFFER_MAP_POINTER_OES = 0x88BD;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		MapBufferOES,
 		UnmapBufferOES,
 		GetBufferPointervOES;
 
-	@JavadocExclude
 	protected OESMapbuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESMapbuffer(FunctionProvider provider) {
 		MapBufferOES = provider.getFunctionAddress("glMapBufferOES");
 		UnmapBufferOES = provider.getFunctionAddress("glUnmapBufferOES");
@@ -80,7 +77,6 @@ public class OESMapbuffer {
 	// --- [ glMapBufferOES ] ---
 
 	/** Unsafe version of {@link #glMapBufferOES MapBufferOES} */
-	@JavadocExclude
 	public static long nglMapBufferOES(int target, int access) {
 		long __functionAddress = getInstance().MapBufferOES;
 		return callIIP(__functionAddress, target, access);
@@ -114,7 +110,6 @@ public class OESMapbuffer {
 	// --- [ glGetBufferPointervOES ] ---
 
 	/** Unsafe version of {@link #glGetBufferPointervOES GetBufferPointervOES} */
-	@JavadocExclude
 	public static void nglGetBufferPointervOES(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointervOES;
 		callIIPV(__functionAddress, target, pname, params);

@@ -50,7 +50,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class ARBInvalidateSubdata {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		InvalidateTexSubImage,
 		InvalidateTexImage,
@@ -59,12 +58,10 @@ public class ARBInvalidateSubdata {
 		InvalidateFramebuffer,
 		InvalidateSubFramebuffer;
 
-	@JavadocExclude
 	protected ARBInvalidateSubdata() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBInvalidateSubdata(FunctionProvider provider) {
 		InvalidateTexSubImage = provider.getFunctionAddress("glInvalidateTexSubImage");
 		InvalidateTexImage = provider.getFunctionAddress("glInvalidateTexImage");
@@ -160,7 +157,6 @@ public class ARBInvalidateSubdata {
 	// --- [ glInvalidateFramebuffer ] ---
 
 	/** Unsafe version of {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
-	@JavadocExclude
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().InvalidateFramebuffer;
 		callIIPV(__functionAddress, target, numAttachments, attachments);
@@ -194,7 +190,6 @@ public class ARBInvalidateSubdata {
 	// --- [ glInvalidateSubFramebuffer ] ---
 
 	/** Unsafe version of {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
-	@JavadocExclude
 	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().InvalidateSubFramebuffer;
 		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);

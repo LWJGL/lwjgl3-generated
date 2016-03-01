@@ -18,17 +18,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ffi_type {
- *     size_t size;
- *     unsigned short alignment;
- *     unsigned short type;
- *     ffi_type ** elements;
- * }</code></pre>
+ * <pre><code>struct ffi_type {
+    size_t size;
+    unsigned short alignment;
+    unsigned short type;
+    ffi_type ** elements;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>size</td><td>set by libffi; you should initialize it to zero.</td></tr>
  * <tr><td>alignment</td><td>set by libffi; you should initialize it to zero.</td></tr>
  * <tr><td>type</td><td>for a structure, this should be set to {@link LibFFI#FFI_TYPE_STRUCT}.</td></tr>
@@ -40,7 +39,6 @@ public class FFIType extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -140,12 +138,12 @@ public class FFIType extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link FFIType} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link FFIType} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static FFIType malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link FFIType} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link FFIType} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static FFIType calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -161,7 +159,7 @@ public class FFIType extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link FFIType.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link FFIType.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -170,7 +168,7 @@ public class FFIType extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link FFIType.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link FFIType.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

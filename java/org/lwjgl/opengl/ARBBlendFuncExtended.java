@@ -43,17 +43,14 @@ public class ARBBlendFuncExtended {
 	public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS = 0x88FC;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindFragDataLocationIndexed,
 		GetFragDataIndex;
 
-	@JavadocExclude
 	protected ARBBlendFuncExtended() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBBlendFuncExtended(FunctionProvider provider) {
 		BindFragDataLocationIndexed = provider.getFunctionAddress("glBindFragDataLocationIndexed");
 		GetFragDataIndex = provider.getFunctionAddress("glGetFragDataIndex");
@@ -86,7 +83,6 @@ public class ARBBlendFuncExtended {
 	// --- [ glBindFragDataLocationIndexed ] ---
 
 	/** Unsafe version of {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
-	@JavadocExclude
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = getInstance().BindFragDataLocationIndexed;
 		callIIIPV(__functionAddress, program, colorNumber, index, name);
@@ -116,7 +112,6 @@ public class ARBBlendFuncExtended {
 	// --- [ glGetFragDataIndex ] ---
 
 	/** Unsafe version of {@link #glGetFragDataIndex GetFragDataIndex} */
-	@JavadocExclude
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataIndex;
 		return callIPI(__functionAddress, program, name);

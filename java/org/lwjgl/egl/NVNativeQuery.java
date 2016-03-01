@@ -23,18 +23,15 @@ import static org.lwjgl.system.Pointer.*;
 public class NVNativeQuery {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		QueryNativeDisplayNV,
 		QueryNativeWindowNV,
 		QueryNativePixmapNV;
 
-	@JavadocExclude
 	protected NVNativeQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVNativeQuery(FunctionProvider provider) {
 		QueryNativeDisplayNV = provider.getFunctionAddress("eglQueryNativeDisplayNV");
 		QueryNativeWindowNV = provider.getFunctionAddress("eglQueryNativeWindowNV");
@@ -56,7 +53,6 @@ public class NVNativeQuery {
 	// --- [ eglQueryNativeDisplayNV ] ---
 
 	/** Unsafe version of {@link #eglQueryNativeDisplayNV QueryNativeDisplayNV} */
-	@JavadocExclude
 	public static int neglQueryNativeDisplayNV(long dpy, long display_id) {
 		long __functionAddress = getInstance().QueryNativeDisplayNV;
 		if ( CHECKS )
@@ -80,7 +76,6 @@ public class NVNativeQuery {
 	// --- [ eglQueryNativeWindowNV ] ---
 
 	/** Unsafe version of {@link #eglQueryNativeWindowNV QueryNativeWindowNV} */
-	@JavadocExclude
 	public static int neglQueryNativeWindowNV(long dpy, long surf, long window) {
 		long __functionAddress = getInstance().QueryNativeWindowNV;
 		if ( CHECKS ) {
@@ -106,7 +101,6 @@ public class NVNativeQuery {
 	// --- [ eglQueryNativePixmapNV ] ---
 
 	/** Unsafe version of {@link #eglQueryNativePixmapNV QueryNativePixmapNV} */
-	@JavadocExclude
 	public static int neglQueryNativePixmapNV(long dpy, long surf, long pixmap) {
 		long __functionAddress = getInstance().QueryNativePixmapNV;
 		if ( CHECKS ) {

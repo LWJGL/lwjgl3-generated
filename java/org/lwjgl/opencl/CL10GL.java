@@ -80,7 +80,6 @@ public class CL10GL {
 		CL_GL_MIPMAP_LEVEL   = 0x2005;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateFromGLBuffer,
 		CreateFromGLTexture2D,
@@ -91,12 +90,10 @@ public class CL10GL {
 		EnqueueAcquireGLObjects,
 		EnqueueReleaseGLObjects;
 
-	@JavadocExclude
 	protected CL10GL() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public CL10GL(FunctionProvider provider) {
 		CreateFromGLBuffer = provider.getFunctionAddress("clCreateFromGLBuffer");
 		CreateFromGLTexture2D = provider.getFunctionAddress("clCreateFromGLTexture2D");
@@ -134,7 +131,6 @@ public class CL10GL {
 	// --- [ clCreateFromGLBuffer ] ---
 
 	/** Unsafe version of {@link #clCreateFromGLBuffer CreateFromGLBuffer} */
-	@JavadocExclude
 	public static long nclCreateFromGLBuffer(long context, long flags, int bufobj, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLBuffer;
 		if ( CHECKS )
@@ -185,7 +181,6 @@ public class CL10GL {
 	// --- [ clCreateFromGLTexture2D ] ---
 
 	/** Unsafe version of {@link #clCreateFromGLTexture2D CreateFromGLTexture2D} */
-	@JavadocExclude
 	public static long nclCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLTexture2D;
 		if ( CHECKS )
@@ -247,7 +242,6 @@ public class CL10GL {
 	// --- [ clCreateFromGLTexture3D ] ---
 
 	/** Unsafe version of {@link #clCreateFromGLTexture3D CreateFromGLTexture3D} */
-	@JavadocExclude
 	public static long nclCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLTexture3D;
 		if ( CHECKS )
@@ -308,7 +302,6 @@ public class CL10GL {
 	// --- [ clCreateFromGLRenderbuffer ] ---
 
 	/** Unsafe version of {@link #clCreateFromGLRenderbuffer CreateFromGLRenderbuffer} */
-	@JavadocExclude
 	public static long nclCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLRenderbuffer;
 		if ( CHECKS )
@@ -361,7 +354,6 @@ public class CL10GL {
 	// --- [ clGetGLObjectInfo ] ---
 
 	/** Unsafe version of {@link #clGetGLObjectInfo GetGLObjectInfo} */
-	@JavadocExclude
 	public static int nclGetGLObjectInfo(long memobj, long gl_object_type, long gl_object_name) {
 		long __functionAddress = getInstance().GetGLObjectInfo;
 		if ( CHECKS )
@@ -398,7 +390,6 @@ public class CL10GL {
 	// --- [ clGetGLTextureInfo ] ---
 
 	/** Unsafe version of {@link #clGetGLTextureInfo GetGLTextureInfo} */
-	@JavadocExclude
 	public static int nclGetGLTextureInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetGLTextureInfo;
 		if ( CHECKS )
@@ -451,7 +442,6 @@ public class CL10GL {
 	// --- [ clEnqueueAcquireGLObjects ] ---
 
 	/** Unsafe version of {@link #clEnqueueAcquireGLObjects EnqueueAcquireGLObjects} */
-	@JavadocExclude
 	public static int nclEnqueueAcquireGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueAcquireGLObjects;
 		if ( CHECKS )
@@ -528,7 +518,6 @@ public class CL10GL {
 	// --- [ clEnqueueReleaseGLObjects ] ---
 
 	/** Unsafe version of {@link #clEnqueueReleaseGLObjects EnqueueReleaseGLObjects} */
-	@JavadocExclude
 	public static int nclEnqueueReleaseGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueReleaseGLObjects;
 		if ( CHECKS )

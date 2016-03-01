@@ -44,15 +44,12 @@ public class EXTProvokingVertex {
 		GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT = 0x8E4C;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long ProvokingVertexEXT;
 
-	@JavadocExclude
 	protected EXTProvokingVertex() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTProvokingVertex(FunctionProvider provider) {
 		ProvokingVertexEXT = provider.getFunctionAddress("glProvokingVertexEXT");
 	}

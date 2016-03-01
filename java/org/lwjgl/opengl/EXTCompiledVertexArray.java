@@ -30,17 +30,14 @@ public class EXTCompiledVertexArray {
 		GL_ARRAY_ELEMENT_LOCK_COUNT_EXT = 0x81A9;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		LockArraysEXT,
 		UnlockArraysEXT;
 
-	@JavadocExclude
 	protected EXTCompiledVertexArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTCompiledVertexArray(FunctionProvider provider) {
 		LockArraysEXT = provider.getFunctionAddress("glLockArraysEXT");
 		UnlockArraysEXT = provider.getFunctionAddress("glUnlockArraysEXT");

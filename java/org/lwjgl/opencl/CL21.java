@@ -51,7 +51,6 @@ public class CL21 {
 		CL_KERNEL_LOCAL_SIZE_FOR_SUB_GROUP_COUNT = 0x11B8;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		SetDefaultDeviceCommandQueue,
 		GetDeviceAndHostTimer,
@@ -61,12 +60,10 @@ public class CL21 {
 		GetKernelSubGroupInfo,
 		EnqueueSVMMigrateMem;
 
-	@JavadocExclude
 	protected CL21() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public CL21(FunctionProvider provider) {
 		SetDefaultDeviceCommandQueue = provider.getFunctionAddress("clSetDefaultDeviceCommandQueue");
 		GetDeviceAndHostTimer = provider.getFunctionAddress("clGetDeviceAndHostTimer");
@@ -132,7 +129,6 @@ public class CL21 {
 	// --- [ clGetDeviceAndHostTimer ] ---
 
 	/** Unsafe version of {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer} */
-	@JavadocExclude
 	public static int nclGetDeviceAndHostTimer(long device, long device_timestamp, long host_timestamp) {
 		long __functionAddress = getInstance().GetDeviceAndHostTimer;
 		if ( CHECKS )
@@ -182,7 +178,6 @@ public class CL21 {
 	// --- [ clGetHostTimer ] ---
 
 	/** Unsafe version of {@link #clGetHostTimer GetHostTimer} */
-	@JavadocExclude
 	public static int nclGetHostTimer(long device, long host_timestamp) {
 		long __functionAddress = getInstance().GetHostTimer;
 		if ( CHECKS )
@@ -222,7 +217,6 @@ public class CL21 {
 	// --- [ clCreateProgramWithIL ] ---
 
 	/** Unsafe version of {@link #clCreateProgramWithIL CreateProgramWithIL} */
-	@JavadocExclude
 	public static long nclCreateProgramWithIL(long context, long il, long length, long errcode_ret) {
 		long __functionAddress = getInstance().CreateProgramWithIL;
 		if ( CHECKS )
@@ -268,7 +262,6 @@ public class CL21 {
 	// --- [ clCloneKernel ] ---
 
 	/** Unsafe version of {@link #clCloneKernel CloneKernel} */
-	@JavadocExclude
 	public static long nclCloneKernel(long source_kernel, long errcode_ret) {
 		long __functionAddress = getInstance().CloneKernel;
 		if ( CHECKS )
@@ -321,7 +314,6 @@ public class CL21 {
 	// --- [ clGetKernelSubGroupInfo ] ---
 
 	/** Unsafe version of {@link #clGetKernelSubGroupInfo GetKernelSubGroupInfo} */
-	@JavadocExclude
 	public static int nclGetKernelSubGroupInfo(long kernel, long device, int param_name, long input_value_size, long input_value, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetKernelSubGroupInfo;
 		if ( CHECKS )
@@ -382,7 +374,6 @@ public class CL21 {
 	// --- [ clEnqueueSVMMigrateMem ] ---
 
 	/** Unsafe version of {@link #clEnqueueSVMMigrateMem EnqueueSVMMigrateMem} */
-	@JavadocExclude
 	public static int nclEnqueueSVMMigrateMem(long command_queue, int num_svm_pointers, long svm_pointers, long sizes, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMMigrateMem;
 		if ( CHECKS )
@@ -421,7 +412,7 @@ public class CL21 {
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and events in {@code event_wait_list} are not the same</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code num_svm_pointers} is zero or {@code svm_pointers} is {@code NULL}.</li>
-	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code sizes[i]} is non-zero range <code style="font-family: monospace">[svm_pointers[i], svm_pointers[i]+sizes[i])</code> is not contained within an existing
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code sizes[i]} is non-zero range <code>[svm_pointers[i], svm_pointers[i]+sizes[i])</code> is not contained within an existing
 	 *         {@link CL20#clSVMAlloc SVMAlloc} allocation.</li>
 	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>

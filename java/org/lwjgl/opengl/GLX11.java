@@ -23,18 +23,15 @@ public class GLX11 {
 		GLX_EXTENSIONS = 0x3;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		QueryExtensionsString,
 		GetClientString,
 		QueryServerString;
 
-	@JavadocExclude
 	protected GLX11() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLX11(FunctionProvider provider) {
 		QueryExtensionsString = provider.getFunctionAddress("glXQueryExtensionsString");
 		GetClientString = provider.getFunctionAddress("glXGetClientString");
@@ -68,7 +65,6 @@ public class GLX11 {
 	// --- [ glXQueryExtensionsString ] ---
 
 	/** Unsafe version of {@link #glXQueryExtensionsString QueryExtensionsString} */
-	@JavadocExclude
 	public static long nglXQueryExtensionsString(long display, int screen) {
 		long __functionAddress = getInstance().QueryExtensionsString;
 		if ( CHECKS )
@@ -90,7 +86,6 @@ public class GLX11 {
 	// --- [ glXGetClientString ] ---
 
 	/** Unsafe version of {@link #glXGetClientString GetClientString} */
-	@JavadocExclude
 	public static long nglXGetClientString(long display, int name) {
 		long __functionAddress = getInstance().GetClientString;
 		if ( CHECKS )
@@ -112,7 +107,6 @@ public class GLX11 {
 	// --- [ glXQueryServerString ] ---
 
 	/** Unsafe version of {@link #glXQueryServerString QueryServerString} */
-	@JavadocExclude
 	public static long nglXQueryServerString(long display, int screen, int name) {
 		long __functionAddress = getInstance().QueryServerString;
 		if ( CHECKS )

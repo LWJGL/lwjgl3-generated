@@ -17,18 +17,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class GLFWNativeWin32 {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetWin32Adapter,
 		GetWin32Monitor,
 		GetWin32Window;
 
-	@JavadocExclude
 	protected GLFWNativeWin32() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLFWNativeWin32(FunctionProvider provider) {
 		GetWin32Adapter = checkFunctionAddress(provider.getFunctionAddress("glfwGetWin32Adapter"));
 		GetWin32Monitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetWin32Monitor"));
@@ -52,7 +49,6 @@ public class GLFWNativeWin32 {
 	// --- [ glfwGetWin32Adapter ] ---
 
 	/** Unsafe version of {@link #glfwGetWin32Adapter GetWin32Adapter} */
-	@JavadocExclude
 	public static long nglfwGetWin32Adapter(long monitor) {
 		long __functionAddress = getInstance().GetWin32Adapter;
 		if ( CHECKS )
@@ -79,7 +75,6 @@ public class GLFWNativeWin32 {
 	// --- [ glfwGetWin32Monitor ] ---
 
 	/** Unsafe version of {@link #glfwGetWin32Monitor GetWin32Monitor} */
-	@JavadocExclude
 	public static long nglfwGetWin32Monitor(long monitor) {
 		long __functionAddress = getInstance().GetWin32Monitor;
 		if ( CHECKS )
@@ -106,13 +101,13 @@ public class GLFWNativeWin32 {
 	// --- [ glfwGetWin32Window ] ---
 
 	/**
-	 * Returns the <code style="font-family: monospace">HWND</code> of the specified window.
+	 * Returns the <code>HWND</code> of the specified window.
 	 * 
 	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @param window the GLFW window
 	 *
-	 * @return The <code style="font-family: monospace">HWND</code> of the specified window, or {@code NULL} if an error occurred.
+	 * @return The <code>HWND</code> of the specified window, or {@code NULL} if an error occurred.
 	 *
 	 * @since version 3.0
 	 */

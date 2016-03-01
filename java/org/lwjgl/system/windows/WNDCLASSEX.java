@@ -14,29 +14,28 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Contains the window class attributes that are registered by the {@link User32#RegisterClassEx} function.
+ * Contains the window class attributes that are registered by the {@link User32#RegisterClassEx User32.RegisterClassEx} function.
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct WNDCLASSEX {
- *     UINT cbSize;
- *     UINT style;
- *     WNDPROC lpfnWndProc;
- *     int cbClsExtra;
- *     int cbWndExtra;
- *     HINSTANCE hInstance;
- *     HICON hIcon;
- *     HCURSOR hCursor;
- *     HBRUSH hbrBackground;
- *     LPCTSTR lpszMenuName;
- *     LPCTSTR lpszClassName;
- *     HICON hIconSm;
- * }</code></pre>
+ * <pre><code>struct WNDCLASSEX {
+    UINT cbSize;
+    UINT style;
+    WNDPROC lpfnWndProc;
+    int cbClsExtra;
+    int cbWndExtra;
+    HINSTANCE hInstance;
+    HICON hIcon;
+    HCURSOR hCursor;
+    HBRUSH hbrBackground;
+    LPCTSTR lpszMenuName;
+    LPCTSTR lpszClassName;
+    HICON hIconSm;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>cbSize</td><td>the size, in bytes, of this structure</td></tr>
  * <tr><td>style</td><td>the class style(s)</td></tr>
  * <tr><td>lpfnWndProc</td><td>a pointer to the window procedure</td></tr>
@@ -60,7 +59,6 @@ public class WNDCLASSEX extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -252,12 +250,12 @@ public class WNDCLASSEX extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link WNDCLASSEX} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link WNDCLASSEX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static WNDCLASSEX malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link WNDCLASSEX} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link WNDCLASSEX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static WNDCLASSEX calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -273,7 +271,7 @@ public class WNDCLASSEX extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link WNDCLASSEX.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link WNDCLASSEX.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -282,7 +280,7 @@ public class WNDCLASSEX extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link WNDCLASSEX.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link WNDCLASSEX.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

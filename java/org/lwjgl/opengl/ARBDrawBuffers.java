@@ -44,15 +44,12 @@ public class ARBDrawBuffers {
 		GL_DRAW_BUFFER15_ARB    = 0x8834;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long DrawBuffersARB;
 
-	@JavadocExclude
 	protected ARBDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBDrawBuffers(FunctionProvider provider) {
 		DrawBuffersARB = provider.getFunctionAddress("glDrawBuffersARB");
 	}
@@ -84,7 +81,6 @@ public class ARBDrawBuffers {
 	// --- [ glDrawBuffersARB ] ---
 
 	/** Unsafe version of {@link #glDrawBuffersARB DrawBuffersARB} */
-	@JavadocExclude
 	public static void nglDrawBuffersARB(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffersARB;
 		callIPV(__functionAddress, n, bufs);

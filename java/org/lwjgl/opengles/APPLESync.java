@@ -71,7 +71,6 @@ public class APPLESync {
 	public static final int GL_SYNC_OBJECT_APPLE = 0x8A53;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		FenceSyncAPPLE,
 		IsSyncAPPLE,
@@ -81,12 +80,10 @@ public class APPLESync {
 		GetInteger64vAPPLE,
 		GetSyncivAPPLE;
 
-	@JavadocExclude
 	protected APPLESync() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public APPLESync(FunctionProvider provider) {
 		FenceSyncAPPLE = provider.getFunctionAddress("glFenceSyncAPPLE");
 		IsSyncAPPLE = provider.getFunctionAddress("glIsSyncAPPLE");
@@ -167,7 +164,6 @@ public class APPLESync {
 	// --- [ glGetInteger64vAPPLE ] ---
 
 	/** Unsafe version of {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
-	@JavadocExclude
 	public static void nglGetInteger64vAPPLE(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64vAPPLE;
 		callIPV(__functionAddress, pname, params);
@@ -197,7 +193,6 @@ public class APPLESync {
 	// --- [ glGetSyncivAPPLE ] ---
 
 	/** Unsafe version of {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
-	@JavadocExclude
 	public static void nglGetSyncivAPPLE(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSyncivAPPLE;
 		if ( CHECKS )

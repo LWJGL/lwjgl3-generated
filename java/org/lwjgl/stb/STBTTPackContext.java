@@ -43,12 +43,12 @@ public class STBTTPackContext extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link STBTTPackContext} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBTTPackContext} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static STBTTPackContext malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link STBTTPackContext} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link STBTTPackContext} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static STBTTPackContext calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -64,7 +64,7 @@ public class STBTTPackContext extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBTTPackContext.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBTTPackContext.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -73,7 +73,7 @@ public class STBTTPackContext extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link STBTTPackContext.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link STBTTPackContext.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

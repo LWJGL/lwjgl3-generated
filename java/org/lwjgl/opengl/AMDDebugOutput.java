@@ -71,19 +71,16 @@ public class AMDDebugOutput {
 		GL_DEBUG_CATEGORY_OTHER_AMD              = 0x9150;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DebugMessageEnableAMD,
 		DebugMessageInsertAMD,
 		DebugMessageCallbackAMD,
 		GetDebugMessageLogAMD;
 
-	@JavadocExclude
 	protected AMDDebugOutput() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public AMDDebugOutput(FunctionProvider provider) {
 		DebugMessageEnableAMD = provider.getFunctionAddress("glDebugMessageEnableAMD");
 		DebugMessageInsertAMD = provider.getFunctionAddress("glDebugMessageInsertAMD");
@@ -118,7 +115,6 @@ public class AMDDebugOutput {
 	// --- [ glDebugMessageEnableAMD ] ---
 
 	/** Unsafe version of {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
-	@JavadocExclude
 	public static void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageEnableAMD;
 		callIIIPZV(__functionAddress, category, severity, count, ids, enabled);
@@ -181,7 +177,6 @@ public class AMDDebugOutput {
 	// --- [ glDebugMessageInsertAMD ] ---
 
 	/** Unsafe version of {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
-	@JavadocExclude
 	public static void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf) {
 		long __functionAddress = getInstance().DebugMessageInsertAMD;
 		callIIIIPV(__functionAddress, category, severity, id, length, buf);
@@ -260,7 +255,6 @@ public class AMDDebugOutput {
 	// --- [ glGetDebugMessageLogAMD ] ---
 
 	/** Unsafe version of {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
-	@JavadocExclude
 	public static int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLogAMD;
 		return callIIPPPPPI(__functionAddress, count, bufsize, categories, severities, ids, lengths, messageLog);

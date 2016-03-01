@@ -17,14 +17,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct XXH64_canonical_t {
- *     unsigned char[8] digest;
- * }</code></pre>
+ * <pre><code>struct XXH64_canonical_t {
+    unsigned char[8] digest;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>digest</td><td>the digest in canonical representation</td></tr>
  * </table>
  */
@@ -33,7 +32,6 @@ public class XXH64Canonical extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -75,12 +73,12 @@ public class XXH64Canonical extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link XXH64Canonical} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link XXH64Canonical} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static XXH64Canonical malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link XXH64Canonical} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link XXH64Canonical} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static XXH64Canonical calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -96,7 +94,7 @@ public class XXH64Canonical extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link XXH64Canonical.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link XXH64Canonical.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -105,7 +103,7 @@ public class XXH64Canonical extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link XXH64Canonical.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link XXH64Canonical.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

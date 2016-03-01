@@ -31,7 +31,6 @@ public class EXTCapture {
 	public static final int ALC_CAPTURE_SAMPLES = 0x312;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CaptureOpenDevice,
 		CaptureCloseDevice,
@@ -39,12 +38,10 @@ public class EXTCapture {
 		CaptureStop,
 		CaptureSamples;
 
-	@JavadocExclude
 	protected EXTCapture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTCapture(FunctionProviderLocal provider, long device) {
 		CaptureOpenDevice = provider.getFunctionAddress(device, "alcCaptureOpenDevice");
 		CaptureCloseDevice = provider.getFunctionAddress(device, "alcCaptureCloseDevice");
@@ -80,7 +77,6 @@ public class EXTCapture {
 	// --- [ alcCaptureOpenDevice ] ---
 
 	/** Unsafe version of {@link #alcCaptureOpenDevice CaptureOpenDevice} */
-	@JavadocExclude
 	public static long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize) {
 		long __functionAddress = getInstance().CaptureOpenDevice;
 		return invokePIIIP(__functionAddress, devicename, frequency, format, buffersize);
@@ -162,7 +158,6 @@ public class EXTCapture {
 	// --- [ alcCaptureSamples ] ---
 
 	/** Unsafe version of {@link #alcCaptureSamples CaptureSamples} */
-	@JavadocExclude
 	public static void nalcCaptureSamples(long device, long buffer, int samples) {
 		long __functionAddress = getInstance().CaptureSamples;
 		if ( CHECKS )

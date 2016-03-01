@@ -46,7 +46,6 @@ public class ARBViewportArray {
 	public static final int GL_UNDEFINED_VERTEX = 0x8260;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ViewportArrayv,
 		ViewportIndexedf,
@@ -59,12 +58,10 @@ public class ARBViewportArray {
 		GetFloati_v,
 		GetDoublei_v;
 
-	@JavadocExclude
 	protected ARBViewportArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBViewportArray(FunctionProvider provider) {
 		ViewportArrayv = provider.getFunctionAddress("glViewportArrayv");
 		ViewportIndexedf = provider.getFunctionAddress("glViewportIndexedf");
@@ -106,7 +103,6 @@ public class ARBViewportArray {
 	// --- [ glViewportArrayv ] ---
 
 	/** Unsafe version of {@link #glViewportArrayv ViewportArrayv} */
-	@JavadocExclude
 	public static void nglViewportArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ViewportArrayv;
 		callIIPV(__functionAddress, first, count, v);
@@ -149,7 +145,6 @@ public class ARBViewportArray {
 	// --- [ glViewportIndexedfv ] ---
 
 	/** Unsafe version of {@link #glViewportIndexedfv ViewportIndexedfv} */
-	@JavadocExclude
 	public static void nglViewportIndexedfv(int index, long v) {
 		long __functionAddress = getInstance().ViewportIndexedfv;
 		callIPV(__functionAddress, index, v);
@@ -177,7 +172,6 @@ public class ARBViewportArray {
 	// --- [ glScissorArrayv ] ---
 
 	/** Unsafe version of {@link #glScissorArrayv ScissorArrayv} */
-	@JavadocExclude
 	public static void nglScissorArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ScissorArrayv;
 		callIIPV(__functionAddress, first, count, v);
@@ -220,7 +214,6 @@ public class ARBViewportArray {
 	// --- [ glScissorIndexedv ] ---
 
 	/** Unsafe version of {@link #glScissorIndexedv ScissorIndexedv} */
-	@JavadocExclude
 	public static void nglScissorIndexedv(int index, long v) {
 		long __functionAddress = getInstance().ScissorIndexedv;
 		callIPV(__functionAddress, index, v);
@@ -248,7 +241,6 @@ public class ARBViewportArray {
 	// --- [ glDepthRangeArrayv ] ---
 
 	/** Unsafe version of {@link #glDepthRangeArrayv DepthRangeArrayv} */
-	@JavadocExclude
 	public static void nglDepthRangeArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().DepthRangeArrayv;
 		callIIPV(__functionAddress, first, count, v);
@@ -289,7 +281,6 @@ public class ARBViewportArray {
 	// --- [ glGetFloati_v ] ---
 
 	/** Unsafe version of {@link #glGetFloati_v GetFloati_v} */
-	@JavadocExclude
 	public static void nglGetFloati_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetFloati_v;
 		callIIPV(__functionAddress, target, index, data);
@@ -326,7 +317,6 @@ public class ARBViewportArray {
 	// --- [ glGetDoublei_v ] ---
 
 	/** Unsafe version of {@link #glGetDoublei_v GetDoublei_v} */
-	@JavadocExclude
 	public static void nglGetDoublei_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetDoublei_v;
 		callIIPV(__functionAddress, target, index, data);

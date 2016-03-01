@@ -16,25 +16,24 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkPipelineDepthStencilStateCreateInfo {
- *     VkStructureType sType;
- *     const void * pNext;
- *     VkPipelineDepthStencilStateCreateFlags flags;
- *     VkBool32 depthTestEnable;
- *     VkBool32 depthWriteEnable;
- *     VkCompareOp depthCompareOp;
- *     VkBool32 depthBoundsTestEnable;
- *     VkBool32 stencilTestEnable;
- *     {@link VkStencilOpState VkStencilOpState} front;
- *     {@link VkStencilOpState VkStencilOpState} back;
- *     float minDepthBounds;
- *     float maxDepthBounds;
- * }</code></pre>
+ * <pre><code>struct VkPipelineDepthStencilStateCreateInfo {
+    VkStructureType sType;
+    const void * pNext;
+    VkPipelineDepthStencilStateCreateFlags flags;
+    VkBool32 depthTestEnable;
+    VkBool32 depthWriteEnable;
+    VkCompareOp depthCompareOp;
+    VkBool32 depthBoundsTestEnable;
+    VkBool32 stencilTestEnable;
+    {@link VkStencilOpState VkStencilOpState} front;
+    {@link VkStencilOpState VkStencilOpState} back;
+    float minDepthBounds;
+    float maxDepthBounds;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */
@@ -43,7 +42,6 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -211,12 +209,12 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkPipelineDepthStencilStateCreateInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPipelineDepthStencilStateCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkPipelineDepthStencilStateCreateInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkPipelineDepthStencilStateCreateInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPipelineDepthStencilStateCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkPipelineDepthStencilStateCreateInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -232,7 +230,7 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPipelineDepthStencilStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPipelineDepthStencilStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -241,7 +239,7 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPipelineDepthStencilStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPipelineDepthStencilStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

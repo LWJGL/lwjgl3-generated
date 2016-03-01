@@ -16,20 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkRenderPassBeginInfo {
- *     VkStructureType sType;
- *     const void * pNext;
- *     VkRenderPass renderPass;
- *     VkFramebuffer framebuffer;
- *     {@link VkRect2D VkRect2D} renderArea;
- *     uint32_t clearValueCount;
- *     const VkClearValue * pClearValues;
- * }</code></pre>
+ * <pre><code>struct VkRenderPassBeginInfo {
+    VkStructureType sType;
+    const void * pNext;
+    VkRenderPass renderPass;
+    VkFramebuffer framebuffer;
+    {@link VkRect2D VkRect2D} renderArea;
+    uint32_t clearValueCount;
+    const VkClearValue * pClearValues;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */
@@ -38,7 +37,6 @@ public class VkRenderPassBeginInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -157,12 +155,12 @@ public class VkRenderPassBeginInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkRenderPassBeginInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkRenderPassBeginInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkRenderPassBeginInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkRenderPassBeginInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkRenderPassBeginInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkRenderPassBeginInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -178,7 +176,7 @@ public class VkRenderPassBeginInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkRenderPassBeginInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkRenderPassBeginInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -187,7 +185,7 @@ public class VkRenderPassBeginInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkRenderPassBeginInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkRenderPassBeginInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

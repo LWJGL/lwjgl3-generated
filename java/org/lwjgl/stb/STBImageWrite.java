@@ -27,25 +27,22 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>There are four functions, one for each image file format:</p>
  * 
- * <pre><code style="font-family: monospace">
- * int stbi_write_png(char const *filename, int w, int h, int comp, const void *data, int stride_in_bytes);
- * int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data);
- * int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data);
- * int stbi_write_hdr(char const *filename, int w, int h, int comp, const void *data);</code></pre>
+ * <pre><code>int stbi_write_png(char const *filename, int w, int h, int comp, const void *data, int stride_in_bytes);
+int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data);
+int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data);
+int stbi_write_hdr(char const *filename, int w, int h, int comp, const void *data);</code></pre>
  * 
  * <p>There are also four equivalent functions that use an arbitrary write function. You are expected to open/close your file-equivalent before and after
  * calling these:</p>
  * 
- * <pre><code style="font-family: monospace">
- * int stbi_write_png_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, int stride_in_bytes);
- * int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
- * int stbi_write_tga_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
- * int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const float *data);</code></pre>
+ * <pre><code>int stbi_write_png_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, int stride_in_bytes);
+int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
+int stbi_write_tga_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
+int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const float *data);</code></pre>
  * 
  * <p>where the callback is:</p>
  * 
- * <pre><code style="font-family: monospace">
- * void stbi_write_func(void *context, void *data, int size);</code></pre>
+ * <pre><code>void stbi_write_func(void *context, void *data, int size);</code></pre>
  * 
  * <p>The functions create an image file defined by the parameters. The image is a rectangle of pixels stored from left-to-right, top-to-bottom. Each pixel
  * contains {@code comp} channels of data stored interleaved with 8-bits per channel, in the following order: 1=Y, 2=YA, 3=RGB, 4=RGBA. (Y is monochrome
@@ -56,7 +53,6 @@ public class STBImageWrite {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected STBImageWrite() {
 		throw new UnsupportedOperationException();
 	}
@@ -64,7 +60,6 @@ public class STBImageWrite {
 	// --- [ stbi_write_png ] ---
 
 	/** JNI method for {@link #stbi_write_png write_png} */
-	@JavadocExclude
 	public static native int nstbi_write_png(long filename, int w, int h, int comp, long data, int stride_in_bytes);
 
 	/**
@@ -105,7 +100,6 @@ public class STBImageWrite {
 	// --- [ stbi_write_bmp ] ---
 
 	/** JNI method for {@link #stbi_write_bmp write_bmp} */
-	@JavadocExclude
 	public static native int nstbi_write_bmp(long filename, int w, int h, int comp, long data);
 
 	/**
@@ -141,7 +135,6 @@ public class STBImageWrite {
 	// --- [ stbi_write_tga ] ---
 
 	/** JNI method for {@link #stbi_write_tga write_tga} */
-	@JavadocExclude
 	public static native int nstbi_write_tga(long filename, int w, int h, int comp, long data);
 
 	/**
@@ -178,7 +171,6 @@ public class STBImageWrite {
 	// --- [ stbi_write_tga_with_rle ] ---
 
 	/** JNI method for {@link #stbi_write_tga_with_rle write_tga_with_rle} */
-	@JavadocExclude
 	public static native long nstbi_write_tga_with_rle();
 
 	/** Returns the address of the global variable {@code stbi_write_tga_with_rle}. */
@@ -190,7 +182,6 @@ public class STBImageWrite {
 	// --- [ stbi_write_hdr ] ---
 
 	/** JNI method for {@link #stbi_write_hdr write_hdr} */
-	@JavadocExclude
 	public static native int nstbi_write_hdr(long filename, int w, int h, int comp, long data);
 
 	/**
@@ -236,7 +227,6 @@ public class STBImageWrite {
 	// --- [ stbi_write_png_to_func ] ---
 
 	/** JNI method for {@link #stbi_write_png_to_func write_png_to_func} */
-	@JavadocExclude
 	public static native int nstbi_write_png_to_func(long func, long context, int w, int h, int comp, long data, int stride_in_bytes);
 
 	/**
@@ -261,7 +251,6 @@ public class STBImageWrite {
 	// --- [ stbi_write_bmp_to_func ] ---
 
 	/** JNI method for {@link #stbi_write_bmp_to_func write_bmp_to_func} */
-	@JavadocExclude
 	public static native int nstbi_write_bmp_to_func(long func, long context, int w, int h, int comp, long data);
 
 	/**
@@ -285,7 +274,6 @@ public class STBImageWrite {
 	// --- [ stbi_write_tga_to_func ] ---
 
 	/** JNI method for {@link #stbi_write_tga_to_func write_tga_to_func} */
-	@JavadocExclude
 	public static native int nstbi_write_tga_to_func(long func, long context, int w, int h, int comp, long data);
 
 	/**
@@ -309,7 +297,6 @@ public class STBImageWrite {
 	// --- [ stbi_write_hdr_to_func ] ---
 
 	/** JNI method for {@link #stbi_write_hdr_to_func write_hdr_to_func} */
-	@JavadocExclude
 	public static native int nstbi_write_hdr_to_func(long func, long context, int w, int h, int comp, long data);
 
 	/**

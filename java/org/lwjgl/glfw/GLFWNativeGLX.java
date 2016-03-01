@@ -14,17 +14,14 @@ import static org.lwjgl.system.JNI.*;
 public class GLFWNativeGLX {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetGLXContext,
 		GetGLXWindow;
 
-	@JavadocExclude
 	protected GLFWNativeGLX() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLFWNativeGLX(FunctionProvider provider) {
 		GetGLXContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetGLXContext"));
 		GetGLXWindow = checkFunctionAddress(provider.getFunctionAddress("glfwGetGLXWindow"));

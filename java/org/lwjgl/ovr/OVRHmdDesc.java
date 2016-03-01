@@ -17,35 +17,34 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrHmdDesc {
- *     ovrHmdType Type;
- *     char[4];
- *     char[64] ProductName;
- *     char[64] Manufacturer;
- *     short VendorId;
- *     short ProductId;
- *     char[24] SerialNumber;
- *     short FirmwareMajor;
- *     short FirmwareMinor;
- *     float CameraFrustumHFovInRadians;
- *     float CameraFrustumVFovInRadians;
- *     float CameraFrustumNearZInMeters;
- *     float CameraFrustumFarZInMeters;
- *     unsigned int AvailableHmdCaps;
- *     unsigned int DefaultHmdCaps;
- *     unsigned int AvailableTrackingCaps;
- *     unsigned int DefaultTrackingCaps;
- *     {@link OVRFovPort ovrFovPort}[2] DefaultEyeFov;
- *     {@link OVRFovPort ovrFovPort}[2] MaxEyeFov;
- *     {@link OVRSizei ovrSizei} Resolution;
- *     float DisplayRefreshRate;
- *     char[4];
- * }</code></pre>
+ * <pre><code>struct ovrHmdDesc {
+    ovrHmdType Type;
+    char[4];
+    char[64] ProductName;
+    char[64] Manufacturer;
+    short VendorId;
+    short ProductId;
+    char[24] SerialNumber;
+    short FirmwareMajor;
+    short FirmwareMinor;
+    float CameraFrustumHFovInRadians;
+    float CameraFrustumVFovInRadians;
+    float CameraFrustumNearZInMeters;
+    float CameraFrustumFarZInMeters;
+    unsigned int AvailableHmdCaps;
+    unsigned int DefaultHmdCaps;
+    unsigned int AvailableTrackingCaps;
+    unsigned int DefaultTrackingCaps;
+    {@link OVRFovPort ovrFovPort}[2] DefaultEyeFov;
+    {@link OVRFovPort ovrFovPort}[2] MaxEyeFov;
+    {@link OVRSizei ovrSizei} Resolution;
+    float DisplayRefreshRate;
+    char[4];
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>Type</td><td>this HMD's type</td></tr>
  * <tr><td>ProductName</td><td>name string describing the product: "Oculus Rift DK1", etc.</td></tr>
  * <tr><td>Manufacturer</td><td>string describing the manufacturer. Usually "Oculus".</td></tr>
@@ -73,7 +72,6 @@ public class OVRHmdDesc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -220,12 +218,12 @@ public class OVRHmdDesc extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRHmdDesc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRHmdDesc} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRHmdDesc malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRHmdDesc} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRHmdDesc} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRHmdDesc calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -241,7 +239,7 @@ public class OVRHmdDesc extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRHmdDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRHmdDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -250,7 +248,7 @@ public class OVRHmdDesc extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRHmdDesc.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRHmdDesc.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

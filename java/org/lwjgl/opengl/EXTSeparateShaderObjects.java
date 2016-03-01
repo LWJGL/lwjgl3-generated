@@ -32,11 +32,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension redefines the operation of glUseProgram(GLenum program) to be equivalent to:</p>
  * 
- * <pre><code style="font-family: monospace">
- *  glUseShaderProgramEXT(GL_VERTEX_SHADER, program);
- * glUseShaderProgramEXT(GL_GEOMETRY_SHADER_EXT, program);
- * glUseShaderProgramEXT(GL_FRAGMENT_SHADER, program);
- * glActiveProgramEXT(program);</code></pre>
+ * <pre><code> glUseShaderProgramEXT(GL_VERTEX_SHADER, program);
+glUseShaderProgramEXT(GL_GEOMETRY_SHADER_EXT, program);
+glUseShaderProgramEXT(GL_FRAGMENT_SHADER, program);
+glActiveProgramEXT(program);</code></pre>
  * 
  * <p>You can also call these commands separately to bind each respective domain. The GL_VERTEX_SHADER, GL_GEOMETRY_SHADER_EXT, and GL_FRAGMENT_SHADER tokens
  * refer to the conventional vertex, geometry, and fragment domains respectively. glActiveProgramEXT specifies the program that glUniform* commands will
@@ -57,18 +56,15 @@ public class EXTSeparateShaderObjects {
 	public static final int GL_ACTIVE_PROGRAM_EXT = 0x8B8D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		UseShaderProgramEXT,
 		ActiveProgramEXT,
 		CreateShaderProgramEXT;
 
-	@JavadocExclude
 	protected EXTSeparateShaderObjects() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTSeparateShaderObjects(FunctionProvider provider) {
 		UseShaderProgramEXT = provider.getFunctionAddress("glUseShaderProgramEXT");
 		ActiveProgramEXT = provider.getFunctionAddress("glActiveProgramEXT");
@@ -116,7 +112,6 @@ public class EXTSeparateShaderObjects {
 	// --- [ glCreateShaderProgramEXT ] ---
 
 	/** Unsafe version of {@link #glCreateShaderProgramEXT CreateShaderProgramEXT} */
-	@JavadocExclude
 	public static int nglCreateShaderProgramEXT(int type, long string) {
 		long __functionAddress = getInstance().CreateShaderProgramEXT;
 		return callIPI(__functionAddress, type, string);

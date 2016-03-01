@@ -28,15 +28,12 @@ public class NVReadBuffer {
 	public static final int GL_READ_BUFFER_NV = 0xC02;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long ReadBufferNV;
 
-	@JavadocExclude
 	protected NVReadBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVReadBuffer(FunctionProvider provider) {
 		ReadBufferNV = provider.getFunctionAddress("glReadBufferNV");
 	}

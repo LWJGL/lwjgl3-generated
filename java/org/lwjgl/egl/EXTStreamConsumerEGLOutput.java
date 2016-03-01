@@ -27,15 +27,12 @@ import static org.lwjgl.system.JNI.*;
 public class EXTStreamConsumerEGLOutput {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long StreamConsumerOutputEXT;
 
-	@JavadocExclude
 	protected EXTStreamConsumerEGLOutput() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTStreamConsumerEGLOutput(FunctionProvider provider) {
 		StreamConsumerOutputEXT = provider.getFunctionAddress("eglStreamConsumerOutputEXT");
 	}

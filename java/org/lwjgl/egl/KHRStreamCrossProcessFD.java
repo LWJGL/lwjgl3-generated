@@ -43,17 +43,14 @@ public class KHRStreamCrossProcessFD {
 	public static final int EGL_NO_FILE_DESCRIPTOR_KHR = -1;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetStreamFileDescriptorKHR,
 		CreateStreamFromFileDescriptorKHR;
 
-	@JavadocExclude
 	protected KHRStreamCrossProcessFD() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRStreamCrossProcessFD(FunctionProvider provider) {
 		GetStreamFileDescriptorKHR = provider.getFunctionAddress("eglGetStreamFileDescriptorKHR");
 		CreateStreamFromFileDescriptorKHR = provider.getFunctionAddress("eglCreateStreamFromFileDescriptorKHR");

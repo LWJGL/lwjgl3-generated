@@ -20,17 +20,14 @@ import static org.lwjgl.system.JNI.*;
 public class GLXSGIMakeCurrentRead {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		MakeCurrentReadSGI,
 		GetCurrentReadDrawableSGI;
 
-	@JavadocExclude
 	protected GLXSGIMakeCurrentRead() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXSGIMakeCurrentRead(FunctionProvider provider) {
 		MakeCurrentReadSGI = provider.getFunctionAddress("glXMakeCurrentReadSGI");
 		GetCurrentReadDrawableSGI = provider.getFunctionAddress("glXGetCurrentReadDrawableSGI");

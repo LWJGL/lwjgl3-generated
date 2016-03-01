@@ -46,18 +46,15 @@ public class ARBGetProgramBinary {
 		GL_PROGRAM_BINARY_FORMATS     = 0x87FF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetProgramBinary,
 		ProgramBinary,
 		ProgramParameteri;
 
-	@JavadocExclude
 	protected ARBGetProgramBinary() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBGetProgramBinary(FunctionProvider provider) {
 		GetProgramBinary = provider.getFunctionAddress("glGetProgramBinary");
 		ProgramBinary = provider.getFunctionAddress("glProgramBinary");
@@ -91,7 +88,6 @@ public class ARBGetProgramBinary {
 	// --- [ glGetProgramBinary ] ---
 
 	/** Unsafe version of {@link #glGetProgramBinary GetProgramBinary} */
-	@JavadocExclude
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = getInstance().GetProgramBinary;
 		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
@@ -152,7 +148,6 @@ public class ARBGetProgramBinary {
 	// --- [ glProgramBinary ] ---
 
 	/** Unsafe version of {@link #glProgramBinary ProgramBinary} */
-	@JavadocExclude
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = getInstance().ProgramBinary;
 		callIIPIV(__functionAddress, program, binaryFormat, binary, length);

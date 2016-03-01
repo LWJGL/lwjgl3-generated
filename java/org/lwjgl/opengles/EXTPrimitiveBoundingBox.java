@@ -36,15 +36,12 @@ public class EXTPrimitiveBoundingBox {
 	public static final int GL_PRIMITIVE_BOUNDING_BOX_EXT = 0x92BE;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long PrimitiveBoundingBoxEXT;
 
-	@JavadocExclude
 	protected EXTPrimitiveBoundingBox() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTPrimitiveBoundingBox(FunctionProvider provider) {
 		PrimitiveBoundingBoxEXT = provider.getFunctionAddress("glPrimitiveBoundingBoxEXT");
 	}

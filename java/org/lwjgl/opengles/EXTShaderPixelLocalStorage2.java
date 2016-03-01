@@ -41,18 +41,15 @@ public class EXTShaderPixelLocalStorage2 {
 	public static final int GL_FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT = 0x9652;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		FramebufferPixelLocalStorageSizeEXT,
 		GetFramebufferPixelLocalStorageSizeEXT,
 		ClearPixelLocalStorageuiEXT;
 
-	@JavadocExclude
 	protected EXTShaderPixelLocalStorage2() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTShaderPixelLocalStorage2(FunctionProvider provider) {
 		FramebufferPixelLocalStorageSizeEXT = provider.getFunctionAddress("glFramebufferPixelLocalStorageSizeEXT");
 		GetFramebufferPixelLocalStorageSizeEXT = provider.getFunctionAddress("glGetFramebufferPixelLocalStorageSizeEXT");
@@ -99,7 +96,6 @@ public class EXTShaderPixelLocalStorage2 {
 	// --- [ glClearPixelLocalStorageuiEXT ] ---
 
 	/** Unsafe version of {@link #glClearPixelLocalStorageuiEXT ClearPixelLocalStorageuiEXT} */
-	@JavadocExclude
 	public static void nglClearPixelLocalStorageuiEXT(int offset, int n, long values) {
 		long __functionAddress = getInstance().ClearPixelLocalStorageuiEXT;
 		callIIPV(__functionAddress, offset, n, values);

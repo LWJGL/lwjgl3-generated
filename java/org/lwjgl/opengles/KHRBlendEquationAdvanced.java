@@ -72,15 +72,12 @@ public class KHRBlendEquationAdvanced {
 		GL_HSL_LUMINOSITY_KHR = 0x92B0;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long BlendBarrierKHR;
 
-	@JavadocExclude
 	protected KHRBlendEquationAdvanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRBlendEquationAdvanced(FunctionProvider provider) {
 		BlendBarrierKHR = provider.getFunctionAddress("glBlendBarrierKHR");
 	}

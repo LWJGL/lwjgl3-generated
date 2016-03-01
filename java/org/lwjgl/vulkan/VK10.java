@@ -19,6 +19,15 @@ import static org.lwjgl.system.Pointer.*;
 /** The core Vulkan 1.0 functionality. */
 public class VK10 {
 
+	/** The Vulkan major version number. */
+	public static final int VK_VERSION_MAJOR = 1;
+
+	/** The Vulkan minor version number. */
+	public static final int VK_VERSION_MINOR = 0;
+
+	/** The Vulkan patch version number. */
+	public static final int VK_VERSION_PATCH = 4;
+
 	/**
 	 * The Vulkan version number is used in several places in the API. In each such use, the API major version number, minor version number, and patch version
 	 * number are packed into a 32-bit integer as follows:
@@ -45,16 +54,7 @@ public class VK10 {
 	 * behavioral changes, removal of deprecated features, modification or outright replacement of any feature, and is thus very likely to break any and all
 	 * compatibility. Differences in this version will typically require significant modification to an application in order for it to function.</p>
 	 */
-	public static final int VK_API_VERSION = (((1) << 22) | ((0) << 12) | (4));
-
-	/** The Vulkan major version number. */
-	public static final int VK_VERSION_MAJOR = 1;
-
-	/** The Vulkan minor version number. */
-	public static final int VK_VERSION_MINOR = 0;
-
-	/** The Vulkan patch version number. */
-	public static final int VK_VERSION_PATCH = 4;
+	public static final int VK_API_VERSION = (VK_VERSION_MAJOR << 22) | (VK_VERSION_MINOR << 12) | VK_VERSION_PATCH;
 
 	/**
 	 * The reserved handle {@code VK_NULL_HANDLE} can be passed in place of valid object handles when explicitly called out in the specification. Any command
@@ -176,448 +176,1185 @@ public class VK10 {
 		VK_STRUCTURE_TYPE_RANGE_SIZE                                = VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO - VK_STRUCTURE_TYPE_APPLICATION_INFO + 1,
 		VK_STRUCTURE_TYPE_MAX_ENUM                                  = 0x7FFFFFFF;
 
+	/** The allocation is scoped to the lifetime of the Vulkan command. */
+	public static final int VK_SYSTEM_ALLOCATION_SCOPE_COMMAND = 0;
+
+	/** The allocation is scoped to the lifetime of the Vulkan object that is being created or used. */
+	public static final int VK_SYSTEM_ALLOCATION_SCOPE_OBJECT = 1;
+
+	/** The allocation is scoped to the lifetime of a {@code VkPipelineCache} object. */
+	public static final int VK_SYSTEM_ALLOCATION_SCOPE_CACHE = 2;
+
+	/** The allocation is scoped to the lifetime of the Vulkan device. */
+	public static final int VK_SYSTEM_ALLOCATION_SCOPE_DEVICE = 3;
+
+	/** The allocation is scoped to the lifetime of the Vulkan instance. */
+	public static final int VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE = 4;
+
 	/** VkSystemAllocationScope */
 	public static final int
-		VK_SYSTEM_ALLOCATION_SCOPE_COMMAND     = 0,
-		VK_SYSTEM_ALLOCATION_SCOPE_OBJECT      = 1,
-		VK_SYSTEM_ALLOCATION_SCOPE_CACHE       = 2,
-		VK_SYSTEM_ALLOCATION_SCOPE_DEVICE      = 3,
-		VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE    = 4,
 		VK_SYSTEM_ALLOCATION_SCOPE_BEGIN_RANGE = VK_SYSTEM_ALLOCATION_SCOPE_COMMAND,
 		VK_SYSTEM_ALLOCATION_SCOPE_END_RANGE   = VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE,
 		VK_SYSTEM_ALLOCATION_SCOPE_RANGE_SIZE  = VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE - VK_SYSTEM_ALLOCATION_SCOPE_COMMAND + 1,
 		VK_SYSTEM_ALLOCATION_SCOPE_MAX_ENUM    = 0x7FFFFFFF;
 
+	/** The allocation is intended for execution by the host. */
+	public static final int VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE = 0;
+
 	/** VkInternalAllocationType */
 	public static final int
-		VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE  = 0,
 		VK_INTERNAL_ALLOCATION_TYPE_BEGIN_RANGE = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE,
 		VK_INTERNAL_ALLOCATION_TYPE_END_RANGE   = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE,
 		VK_INTERNAL_ALLOCATION_TYPE_RANGE_SIZE  = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE - VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE + 1,
 		VK_INTERNAL_ALLOCATION_TYPE_MAX_ENUM    = 0x7FFFFFFF;
 
+	/** The format is not specified. */
+	public static final int VK_FORMAT_UNDEFINED = 0;
+
+	/** A two-component, 8-bit packed unsigned normalized format that has a 4-bit R component in bits 4..7, and a 4-bit G component in bits 0..3. */
+	public static final int VK_FORMAT_R4G4_UNORM_PACK8 = 1;
+
+	/** A four-component, 16-bit packed unsigned normalized format that has a 4-bit R component in bits 12..15, a 4-bit G component in bits 8..11, a 4-bit B component in bits 4..7, and a 4-bit A component in bits 0..3. */
+	public static final int VK_FORMAT_R4G4B4A4_UNORM_PACK16 = 2;
+
+	/** A four-component, 16-bit packed unsigned normalized format that has a 4-bit B component in bits 12..15, a 4-bit G component in bits 8..11, a 4-bit R component in bits 4..7, and a 4-bit A component in bits 0..3. */
+	public static final int VK_FORMAT_B4G4R4A4_UNORM_PACK16 = 3;
+
+	/** A three-component, 16-bit packed unsigned normalized format that has a 5-bit R component in bits 11..15, a 6-bit G component in bits 5..10, and a 5-bit B component in bits 0..4. */
+	public static final int VK_FORMAT_R5G6B5_UNORM_PACK16 = 4;
+
+	/** A three-component, 16-bit packed unsigned normalized format that has a 5-bit B component in bits 11..15, a 6-bit G component in bits 5..10, and a 5-bit R component in bits 0..4. */
+	public static final int VK_FORMAT_B5G6R5_UNORM_PACK16 = 5;
+
+	/** A four-component, 16-bit packed unsigned normalized format that has a 5-bit R component in bits 11..15, a 5-bit G component in bits 6..10, a 5-bit B component in bits 1..5, and a 1-bit A component in bit 0. */
+	public static final int VK_FORMAT_R5G5B5A1_UNORM_PACK16 = 6;
+
+	/** A four-component, 16-bit packed unsigned normalized format that has a 5-bit B component in bits 11..15, a 5-bit G component in bits 6..10, a 5-bit R component in bits 1..5, and a 1-bit A component in bit 0. */
+	public static final int VK_FORMAT_B5G5R5A1_UNORM_PACK16 = 7;
+
+	/** A four-component, 16-bit packed unsigned normalized format that has a 1-bit A component in bit 15, a 5-bit R component in bits 10..14, a 5-bit G component in bits 5..9, and a 5-bit B component in bits 0..4. */
+	public static final int VK_FORMAT_A1R5G5B5_UNORM_PACK16 = 8;
+
+	/** A one-component, 8-bit unsigned normalized format that has a single 8-bit R component. */
+	public static final int VK_FORMAT_R8_UNORM = 9;
+
+	/** A one-component, 8-bit signed normalized format that has a single 8-bit R component. */
+	public static final int VK_FORMAT_R8_SNORM = 10;
+
+	/** A one-component, 8-bit unsigned scaled integer format that has a single 8-bit R component. */
+	public static final int VK_FORMAT_R8_USCALED = 11;
+
+	/** A one-component, 8-bit signed scaled integer format that has a single 8-bit R component. */
+	public static final int VK_FORMAT_R8_SSCALED = 12;
+
+	/** A one-component, 8-bit unsigned integer format that has a single 8-bit R component. */
+	public static final int VK_FORMAT_R8_UINT = 13;
+
+	/** A one-component, 8-bit signed integer format that has a single 8-bit R component. */
+	public static final int VK_FORMAT_R8_SINT = 14;
+
+	/** A one-component, 8-bit unsigned normalized format that has a single 8-bit R component stored with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_R8_SRGB = 15;
+
+	/** A two-component, 16-bit unsigned normalized format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1. */
+	public static final int VK_FORMAT_R8G8_UNORM = 16;
+
+	/** A two-component, 16-bit signed normalized format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1. */
+	public static final int VK_FORMAT_R8G8_SNORM = 17;
+
+	/** A two-component, 16-bit unsigned scaled integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1. */
+	public static final int VK_FORMAT_R8G8_USCALED = 18;
+
+	/** A two-component, 16-bit signed scaled integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1. */
+	public static final int VK_FORMAT_R8G8_SSCALED = 19;
+
+	/** A two-component, 16-bit unsigned integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1. */
+	public static final int VK_FORMAT_R8G8_UINT = 20;
+
+	/** A two-component, 16-bit signed integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1. */
+	public static final int VK_FORMAT_R8G8_SINT = 21;
+
+	/** A two-component, 16-bit unsigned normalized format that has an 8-bit R component stored with sRGB nonlinear encoding in byte 0, and an 8-bit G component stored with sRGB nonlinear encoding in byte 1. */
+	public static final int VK_FORMAT_R8G8_SRGB = 22;
+
+	/** A three-component, 24-bit unsigned normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2. */
+	public static final int VK_FORMAT_R8G8B8_UNORM = 23;
+
+	/** A three-component, 24-bit signed normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2. */
+	public static final int VK_FORMAT_R8G8B8_SNORM = 24;
+
+	/** A three-component, 24-bit unsigned scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2. */
+	public static final int VK_FORMAT_R8G8B8_USCALED = 25;
+
+	/** A three-component, 24-bit signed scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2. */
+	public static final int VK_FORMAT_R8G8B8_SSCALED = 26;
+
+	/** A three-component, 24-bit unsigned integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2. */
+	public static final int VK_FORMAT_R8G8B8_UINT = 27;
+
+	/** A three-component, 24-bit signed integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2. */
+	public static final int VK_FORMAT_R8G8B8_SINT = 28;
+
+	/** A three-component, 24-bit unsigned normalized format that has an 8-bit R component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, and an 8-bit B component stored with sRGB nonlinear encoding in byte 2. */
+	public static final int VK_FORMAT_R8G8B8_SRGB = 29;
+
+	/** A three-component, 24-bit unsigned normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2. */
+	public static final int VK_FORMAT_B8G8R8_UNORM = 30;
+
+	/** A three-component, 24-bit signed normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2. */
+	public static final int VK_FORMAT_B8G8R8_SNORM = 31;
+
+	/** A three-component, 24-bit unsigned scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2. */
+	public static final int VK_FORMAT_B8G8R8_USCALED = 32;
+
+	/** A three-component, 24-bit signed scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2. */
+	public static final int VK_FORMAT_B8G8R8_SSCALED = 33;
+
+	/** A three-component, 24-bit unsigned integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2. */
+	public static final int VK_FORMAT_B8G8R8_UINT = 34;
+
+	/** A three-component, 24-bit signed integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2. */
+	public static final int VK_FORMAT_B8G8R8_SINT = 35;
+
+	/** A three-component, 24-bit unsigned normalized format that has an 8-bit B component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, and an 8-bit R component stored with sRGB nonlinear encoding in byte 2. */
+	public static final int VK_FORMAT_B8G8R8_SRGB = 36;
+
+	/** A four-component, 32-bit unsigned normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_R8G8B8A8_UNORM = 37;
+
+	/** A four-component, 32-bit signed normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_R8G8B8A8_SNORM = 38;
+
+	/** A four-component, 32-bit unsigned scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_R8G8B8A8_USCALED = 39;
+
+	/** A four-component, 32-bit signed scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_R8G8B8A8_SSCALED = 40;
+
+	/** A four-component, 32-bit unsigned integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_R8G8B8A8_UINT = 41;
+
+	/** A four-component, 32-bit signed integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_R8G8B8A8_SINT = 42;
+
+	/** A four-component, 32-bit unsigned normalized format that has an 8-bit R component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, an 8-bit B component stored with sRGB nonlinear encoding in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_R8G8B8A8_SRGB = 43;
+
+	/** A four-component, 32-bit unsigned normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_B8G8R8A8_UNORM = 44;
+
+	/** A four-component, 32-bit signed normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_B8G8R8A8_SNORM = 45;
+
+	/** A four-component, 32-bit unsigned scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_B8G8R8A8_USCALED = 46;
+
+	/** A four-component, 32-bit signed scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_B8G8R8A8_SSCALED = 47;
+
+	/** A four-component, 32-bit unsigned integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_B8G8R8A8_UINT = 48;
+
+	/** A four-component, 32-bit signed integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_B8G8R8A8_SINT = 49;
+
+	/** A four-component, 32-bit unsigned normalized format that has an 8-bit B component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, an 8-bit R component stored with sRGB nonlinear encoding in byte 2, and an 8-bit A component in byte 3. */
+	public static final int VK_FORMAT_B8G8R8A8_SRGB = 50;
+
+	/** A four-component, 32-bit packed unsigned normalized format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7. */
+	public static final int VK_FORMAT_A8B8G8R8_UNORM_PACK32 = 51;
+
+	/** A four-component, 32-bit packed signed normalized format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7. */
+	public static final int VK_FORMAT_A8B8G8R8_SNORM_PACK32 = 52;
+
+	/** A four-component, 32-bit packed unsigned scaled integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7. */
+	public static final int VK_FORMAT_A8B8G8R8_USCALED_PACK32 = 53;
+
+	/** A four-component, 32-bit packed signed scaled integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7. */
+	public static final int VK_FORMAT_A8B8G8R8_SSCALED_PACK32 = 54;
+
+	/** A four-component, 32-bit packed unsigned integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7. */
+	public static final int VK_FORMAT_A8B8G8R8_UINT_PACK32 = 55;
+
+	/** A four-component, 32-bit packed signed integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7. */
+	public static final int VK_FORMAT_A8B8G8R8_SINT_PACK32 = 56;
+
+	/** A four-component, 32-bit packed unsigned normalized format that has an 8-bit A component in bits 24..31, an 8-bit B component stored with sRGB nonlinear encoding in bits 16..23, an 8-bit G component stored with sRGB nonlinear encoding in bits 8..15, and an 8-bit R component stored with sRGB nonlinear encoding in bits 0..7. */
+	public static final int VK_FORMAT_A8B8G8R8_SRGB_PACK32 = 57;
+
+	/** A four-component, 32-bit packed unsigned normalized format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9. */
+	public static final int VK_FORMAT_A2R10G10B10_UNORM_PACK32 = 58;
+
+	/** A four-component, 32-bit packed signed normalized format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9. */
+	public static final int VK_FORMAT_A2R10G10B10_SNORM_PACK32 = 59;
+
+	/** A four-component, 32-bit packed unsigned scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9. */
+	public static final int VK_FORMAT_A2R10G10B10_USCALED_PACK32 = 60;
+
+	/** A four-component, 32-bit packed signed scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9. */
+	public static final int VK_FORMAT_A2R10G10B10_SSCALED_PACK32 = 61;
+
+	/** A four-component, 32-bit packed unsigned integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9. */
+	public static final int VK_FORMAT_A2R10G10B10_UINT_PACK32 = 62;
+
+	/** A four-component, 32-bit packed signed integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9. */
+	public static final int VK_FORMAT_A2R10G10B10_SINT_PACK32 = 63;
+
+	/** A four-component, 32-bit packed unsigned normalized format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9. */
+	public static final int VK_FORMAT_A2B10G10R10_UNORM_PACK32 = 64;
+
+	/** A four-component, 32-bit packed signed normalized format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9. */
+	public static final int VK_FORMAT_A2B10G10R10_SNORM_PACK32 = 65;
+
+	/** A four-component, 32-bit packed unsigned scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9. */
+	public static final int VK_FORMAT_A2B10G10R10_USCALED_PACK32 = 66;
+
+	/** A four-component, 32-bit packed signed scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9. */
+	public static final int VK_FORMAT_A2B10G10R10_SSCALED_PACK32 = 67;
+
+	/** A four-component, 32-bit packed unsigned integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9. */
+	public static final int VK_FORMAT_A2B10G10R10_UINT_PACK32 = 68;
+
+	/** A four-component, 32-bit packed signed integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9. */
+	public static final int VK_FORMAT_A2B10G10R10_SINT_PACK32 = 69;
+
+	/** A one-component, 16-bit unsigned normalized format that has a single 16-bit R component. */
+	public static final int VK_FORMAT_R16_UNORM = 70;
+
+	/** A one-component, 16-bit signed normalized format that has a single 16-bit R component. */
+	public static final int VK_FORMAT_R16_SNORM = 71;
+
+	/** A one-component, 16-bit unsigned scaled integer format that has a single 16-bit R component. */
+	public static final int VK_FORMAT_R16_USCALED = 72;
+
+	/** A one-component, 16-bit signed scaled integer format that has a single 16-bit R component. */
+	public static final int VK_FORMAT_R16_SSCALED = 73;
+
+	/** A one-component, 16-bit unsigned integer format that has a single 16-bit R component. */
+	public static final int VK_FORMAT_R16_UINT = 74;
+
+	/** A one-component, 16-bit signed integer format that has a single 16-bit R component. */
+	public static final int VK_FORMAT_R16_SINT = 75;
+
+	/** A one-component, 16-bit signed floating-point format that has a single 16-bit R component. */
+	public static final int VK_FORMAT_R16_SFLOAT = 76;
+
+	/** A two-component, 32-bit unsigned normalized format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3. */
+	public static final int VK_FORMAT_R16G16_UNORM = 77;
+
+	/** A two-component, 32-bit signed normalized format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3. */
+	public static final int VK_FORMAT_R16G16_SNORM = 78;
+
+	/** A two-component, 32-bit unsigned scaled integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3. */
+	public static final int VK_FORMAT_R16G16_USCALED = 79;
+
+	/** A two-component, 32-bit signed scaled integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3. */
+	public static final int VK_FORMAT_R16G16_SSCALED = 80;
+
+	/** A two-component, 32-bit unsigned integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3. */
+	public static final int VK_FORMAT_R16G16_UINT = 81;
+
+	/** A two-component, 32-bit signed integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3. */
+	public static final int VK_FORMAT_R16G16_SINT = 82;
+
+	/** A two-component, 32-bit signed floating-point format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3. */
+	public static final int VK_FORMAT_R16G16_SFLOAT = 83;
+
+	/** A three-component, 48-bit unsigned normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5. */
+	public static final int VK_FORMAT_R16G16B16_UNORM = 84;
+
+	/** A three-component, 48-bit signed normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5. */
+	public static final int VK_FORMAT_R16G16B16_SNORM = 85;
+
+	/** A three-component, 48-bit unsigned scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5. */
+	public static final int VK_FORMAT_R16G16B16_USCALED = 86;
+
+	/** A three-component, 48-bit signed scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5. */
+	public static final int VK_FORMAT_R16G16B16_SSCALED = 87;
+
+	/** A three-component, 48-bit unsigned integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5. */
+	public static final int VK_FORMAT_R16G16B16_UINT = 88;
+
+	/** A three-component, 48-bit signed integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5. */
+	public static final int VK_FORMAT_R16G16B16_SINT = 89;
+
+	/** A three-component, 48-bit signed floating-point format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5. */
+	public static final int VK_FORMAT_R16G16B16_SFLOAT = 90;
+
+	/** A four-component, 64-bit unsigned normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7. */
+	public static final int VK_FORMAT_R16G16B16A16_UNORM = 91;
+
+	/** A four-component, 64-bit signed normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7. */
+	public static final int VK_FORMAT_R16G16B16A16_SNORM = 92;
+
+	/** A four-component, 64-bit unsigned scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7. */
+	public static final int VK_FORMAT_R16G16B16A16_USCALED = 93;
+
+	/** A four-component, 64-bit signed scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7. */
+	public static final int VK_FORMAT_R16G16B16A16_SSCALED = 94;
+
+	/** A four-component, 64-bit unsigned integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7. */
+	public static final int VK_FORMAT_R16G16B16A16_UINT = 95;
+
+	/** A four-component, 64-bit signed integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7. */
+	public static final int VK_FORMAT_R16G16B16A16_SINT = 96;
+
+	/** A four-component, 64-bit signed floating-point format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7. */
+	public static final int VK_FORMAT_R16G16B16A16_SFLOAT = 97;
+
+	/** A one-component, 32-bit unsigned integer format that has a single 32-bit R component. */
+	public static final int VK_FORMAT_R32_UINT = 98;
+
+	/** A one-component, 32-bit signed integer format that has a single 32-bit R component. */
+	public static final int VK_FORMAT_R32_SINT = 99;
+
+	/** A one-component, 32-bit signed floating-point format that has a single 32-bit R component. */
+	public static final int VK_FORMAT_R32_SFLOAT = 100;
+
+	/** A two-component, 64-bit unsigned integer format that has a 32-bit R component in bytes 0..3, and a 32-bit G component in bytes 4..7. */
+	public static final int VK_FORMAT_R32G32_UINT = 101;
+
+	/** A two-component, 64-bit signed integer format that has a 32-bit R component in bytes 0..3, and a 32-bit G component in bytes 4..7. */
+	public static final int VK_FORMAT_R32G32_SINT = 102;
+
+	/** A two-component, 64-bit signed floating-point format that has a 32-bit R component in bytes 0..3, and a 32-bit G component in bytes 4..7. */
+	public static final int VK_FORMAT_R32G32_SFLOAT = 103;
+
+	/** A three-component, 96-bit unsigned integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, and a 32-bit B component in bytes 8..11. */
+	public static final int VK_FORMAT_R32G32B32_UINT = 104;
+
+	/** A three-component, 96-bit signed integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, and a 32-bit B component in bytes 8..11. */
+	public static final int VK_FORMAT_R32G32B32_SINT = 105;
+
+	/** A three-component, 96-bit signed floating-point format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, and a 32-bit B component in bytes 8..11. */
+	public static final int VK_FORMAT_R32G32B32_SFLOAT = 106;
+
+	/** A four-component, 128-bit unsigned integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, a 32-bit B component in bytes 8..11, and a 32-bit A component in bytes 12..15. */
+	public static final int VK_FORMAT_R32G32B32A32_UINT = 107;
+
+	/** A four-component, 128-bit signed integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, a 32-bit B component in bytes 8..11, and a 32-bit A component in bytes 12..15. */
+	public static final int VK_FORMAT_R32G32B32A32_SINT = 108;
+
+	/** A four-component, 128-bit signed floating-point format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, a 32-bit B component in bytes 8..11, and a 32-bit A component in bytes 12..15. */
+	public static final int VK_FORMAT_R32G32B32A32_SFLOAT = 109;
+
+	/** A one-component, 64-bit unsigned integer format that has a single 64-bit R component. */
+	public static final int VK_FORMAT_R64_UINT = 110;
+
+	/** A one-component, 64-bit signed integer format that has a single 64-bit R component. */
+	public static final int VK_FORMAT_R64_SINT = 111;
+
+	/** A one-component, 64-bit signed floating-point format that has a single 64-bit R component. */
+	public static final int VK_FORMAT_R64_SFLOAT = 112;
+
+	/** A two-component, 128-bit unsigned integer format that has a 64-bit R component in bytes 0..7, and a 64-bit G component in bytes 8..15. */
+	public static final int VK_FORMAT_R64G64_UINT = 113;
+
+	/** A two-component, 128-bit signed integer format that has a 64-bit R component in bytes 0..7, and a 64-bit G component in bytes 8..15. */
+	public static final int VK_FORMAT_R64G64_SINT = 114;
+
+	/** A two-component, 128-bit signed floating-point format that has a 64-bit R component in bytes 0..7, and a 64-bit G component in bytes 8..15. */
+	public static final int VK_FORMAT_R64G64_SFLOAT = 115;
+
+	/** A three-component, 192-bit unsigned integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, and a 64-bit B component in bytes 16..23. */
+	public static final int VK_FORMAT_R64G64B64_UINT = 116;
+
+	/** A three-component, 192-bit signed integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, and a 64-bit B component in bytes 16..23. */
+	public static final int VK_FORMAT_R64G64B64_SINT = 117;
+
+	/** A three-component, 192-bit signed floating-point format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, and a 64-bit B component in bytes 16..23. */
+	public static final int VK_FORMAT_R64G64B64_SFLOAT = 118;
+
+	/** A four-component, 256-bit unsigned integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, a 64-bit B component in bytes 16..23, and a 64-bit A component in bytes 24..31. */
+	public static final int VK_FORMAT_R64G64B64A64_UINT = 119;
+
+	/** A four-component, 256-bit signed integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, a 64-bit B component in bytes 16..23, and a 64-bit A component in bytes 24..31. */
+	public static final int VK_FORMAT_R64G64B64A64_SINT = 120;
+
+	/** A four-component, 256-bit signed floating-point format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, a 64-bit B component in bytes 16..23, and a 64-bit A component in bytes 24..31. */
+	public static final int VK_FORMAT_R64G64B64A64_SFLOAT = 121;
+
+	/** A three-component, 32-bit packed unsigned floating-point format that has a 10-bit B component in bits 22..31, an 11-bit G component in bits 11..21, an 11-bit R component in bits 0..10. */
+	public static final int VK_FORMAT_B10G11R11_UFLOAT_PACK32 = 122;
+
+	/** A three-component, 32-bit packed unsigned floating-point format that has a 5-bit shared exponent in bits 27..31, a 9-bit B component mantissa in bits 18..26, a 9-bit G component mantissa in bits 9..17, and a 9-bit R component mantissa in bits 0..8. */
+	public static final int VK_FORMAT_E5B9G9R9_UFLOAT_PACK32 = 123;
+
+	/** A one-component, 16-bit unsigned normalized format that has a single 16-bit depth component. */
+	public static final int VK_FORMAT_D16_UNORM = 124;
+
+	/** A two-component, 32-bit format that has 24 unsigned normalized bits in the depth component and, optionally:, 8 bits that are unused. */
+	public static final int VK_FORMAT_X8_D24_UNORM_PACK32 = 125;
+
+	/** A one-component, 32-bit signed floating-point format that has 32-bits in the depth component. */
+	public static final int VK_FORMAT_D32_SFLOAT = 126;
+
+	/** A one-component, 8-bit unsigned integer format that has 8-bits in the stencil component. */
+	public static final int VK_FORMAT_S8_UINT = 127;
+
+	/** A two-component, 24-bit format that has 16 unsigned normalized bits in the depth component and 8 unsigned integer bits in the stencil component. */
+	public static final int VK_FORMAT_D16_UNORM_S8_UINT = 128;
+
+	/** A two-component, 32-bit packed format that has 8 unsigned integer bits in the stencil component, and 24 unsigned normalized bits in the depth component. */
+	public static final int VK_FORMAT_D24_UNORM_S8_UINT = 129;
+
+	/** A two-component format that has 32 signed float bits in the depth component and 8 unsigned integer bits in the stencil component. There are optionally: 24-bits that are unused. */
+	public static final int VK_FORMAT_D32_SFLOAT_S8_UINT = 130;
+
+	/** A three-component, block compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized RGB image data. This format has no alpha and is considered opaque. */
+	public static final int VK_FORMAT_BC1_RGB_UNORM_BLOCK = 131;
+
+	/** A three-component, block compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized RGB image data with sRGB nonlinear encoding. This format has no alpha and is considered opaque. */
+	public static final int VK_FORMAT_BC1_RGB_SRGB_BLOCK = 132;
+
+	/** A four-component, block compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized RGB image data, and provides 1 bit of alpha. */
+	public static final int VK_FORMAT_BC1_RGBA_UNORM_BLOCK = 133;
+
+	/** A four-component, block compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized RGB image data with sRGB nonlinear encoding, and provides 1 bit of alpha. */
+	public static final int VK_FORMAT_BC1_RGBA_SRGB_BLOCK = 134;
+
+	/** A four-component, block compressed format where each 4x4 block consists of 64-bits of unsigned normalized alpha image data followed by 64-bits of encoded unsigned normalized RGB image data. */
+	public static final int VK_FORMAT_BC2_UNORM_BLOCK = 135;
+
+	/** A four-component, block compressed format where each 4x4 block consists of 64-bits of unsigned normalized alpha image data followed by 64-bits of encoded unsigned normalized RGB image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_BC2_SRGB_BLOCK = 136;
+
+	/** A four-component, block compressed format where each 4x4 block consists of 64-bits of encoded alpha image data followed by 64-bits of encoded RGB image data. Both blocks are decoded as unsigned normalized values. */
+	public static final int VK_FORMAT_BC3_UNORM_BLOCK = 137;
+
+	/** A four-component, block compressed format where each 4x4 block consists of 64-bits of encoded alpha image data followed by 64-bits of encoded RGB image data with sRGB nonlinear encoding. Both blocks are decoded as unsigned normalized values. */
+	public static final int VK_FORMAT_BC3_SRGB_BLOCK = 138;
+
+	/** A one-component, block compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized red image data. */
+	public static final int VK_FORMAT_BC4_UNORM_BLOCK = 139;
+
+	/** A one-component, block compressed format where each 4x4 block consists of 64-bits of encoded signed normalized red image data. */
+	public static final int VK_FORMAT_BC4_SNORM_BLOCK = 140;
+
+	/** A two-component, block compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized red image data followed by 64-bits of encoded unsigned normalized green image data. */
+	public static final int VK_FORMAT_BC5_UNORM_BLOCK = 141;
+
+	/** A two-component, block compressed format where each 4x4 block consists of 64-bits of encoded signed normalized red image data followed by 64-bits of encoded signed normalized green image data. */
+	public static final int VK_FORMAT_BC5_SNORM_BLOCK = 142;
+
+	/** A three-component, block compressed format where each 4x4 block consists of 128-bits of encoded unsigned floating-point RGB image data. */
+	public static final int VK_FORMAT_BC6H_UFLOAT_BLOCK = 143;
+
+	/** A three-component, block compressed format where each 4x4 block consists of 128-bits of encoded signed floating-point RGB image data. */
+	public static final int VK_FORMAT_BC6H_SFLOAT_BLOCK = 144;
+
+	/** A four-component, block compressed format where each 4x4 block consists of 128-bits of encoded unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_BC7_UNORM_BLOCK = 145;
+
+	/** A four-component, block compressed format where each 4x4 block consists of 128-bits of encoded unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_BC7_SRGB_BLOCK = 146;
+
+	/** A three-component, ETC2 compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized RGB image data. */
+	public static final int VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK = 147;
+
+	/** A three-component, ETC2 compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized RGB image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ETC2_R8G8B8_SRGB_BLOCK = 148;
+
+	/** A four-component, ETC2 compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized RGB image data, and provides 1 bit of alpha. */
+	public static final int VK_FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK = 149;
+
+	/** A four-component, ETC2 compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized RGB image data with sRGB nonlinear encoding, and provides 1 bit of alpha. */
+	public static final int VK_FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK = 150;
+
+	/** A four-component, ETC2 compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized RGB image data, and 64-bits of encoded unsigned normalized alpha image data. */
+	public static final int VK_FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK = 151;
+
+	/** A four-component, ETC2 compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized RGB image data with sRGB nonlinear encoding, and 64-bits of encoded unsigned normalized alpha image data. */
+	public static final int VK_FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK = 152;
+
+	/** A one-component, ETC2 compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized red image data. */
+	public static final int VK_FORMAT_EAC_R11_UNORM_BLOCK = 153;
+
+	/** A one-component, ETC2 compressed format where each 4x4 block consists of 64-bits of encoded signed normalized red image data. */
+	public static final int VK_FORMAT_EAC_R11_SNORM_BLOCK = 154;
+
+	/** A two-component, ETC2 compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized red image data followed by 64-bits of encoded unsigned normalized green image data. */
+	public static final int VK_FORMAT_EAC_R11G11_UNORM_BLOCK = 155;
+
+	/** A two-component, ETC2 compressed format where each 4x4 block consists of 64-bits of encoded signed normalized red image data followed by 64-bits of encoded signed normalized green image data. */
+	public static final int VK_FORMAT_EAC_R11G11_SNORM_BLOCK = 156;
+
+	/** A four-component, ASTC compressed format where each 4x4 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_4x4_UNORM_BLOCK = 157;
+
+	/** A four-component, ASTC compressed format where each 4x4 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_4x4_SRGB_BLOCK = 158;
+
+	/** A four-component, ASTC compressed format where each 5x4 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_5x4_UNORM_BLOCK = 159;
+
+	/** A four-component, ASTC compressed format where each 5x4 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_5x4_SRGB_BLOCK = 160;
+
+	/** A four-component, ASTC compressed format where each 5x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_5x5_UNORM_BLOCK = 161;
+
+	/** A four-component, ASTC compressed format where each 5x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_5x5_SRGB_BLOCK = 162;
+
+	/** A four-component, ASTC compressed format where each 6x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_6x5_UNORM_BLOCK = 163;
+
+	/** A four-component, ASTC compressed format where each 6x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_6x5_SRGB_BLOCK = 164;
+
+	/** A four-component, ASTC compressed format where each 6x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_6x6_UNORM_BLOCK = 165;
+
+	/** A four-component, ASTC compressed format where each 6x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_6x6_SRGB_BLOCK = 166;
+
+	/** A four-component, ASTC compressed format where each 8x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_8x5_UNORM_BLOCK = 167;
+
+	/** A four-component, ASTC compressed format where each 8x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_8x5_SRGB_BLOCK = 168;
+
+	/** A four-component, ASTC compressed format where each 8x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_8x6_UNORM_BLOCK = 169;
+
+	/** A four-component, ASTC compressed format where each 8x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_8x6_SRGB_BLOCK = 170;
+
+	/** A four-component, ASTC compressed format where each 8x8 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_8x8_UNORM_BLOCK = 171;
+
+	/** A four-component, ASTC compressed format where each 8x8 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_8x8_SRGB_BLOCK = 172;
+
+	/** A four-component, ASTC compressed format where each 10x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_10x5_UNORM_BLOCK = 173;
+
+	/** A four-component, ASTC compressed format where each 10x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_10x5_SRGB_BLOCK = 174;
+
+	/** A four-component, ASTC compressed format where each 10x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_10x6_UNORM_BLOCK = 175;
+
+	/** A four-component, ASTC compressed format where each 10x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_10x6_SRGB_BLOCK = 176;
+
+	/** A four-component, ASTC compressed format where each 10x8 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_10x8_UNORM_BLOCK = 177;
+
+	/** A four-component, ASTC compressed format where each 10x8 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_10x8_SRGB_BLOCK = 178;
+
+	/** A four-component, ASTC compressed format where each 10x10 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_10x10_UNORM_BLOCK = 179;
+
+	/** A four-component, ASTC compressed format where each 10x10 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_10x10_SRGB_BLOCK = 180;
+
+	/** A four-component, ASTC compressed format where each 12x10 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_12x10_UNORM_BLOCK = 181;
+
+	/** A four-component, ASTC compressed format where each 12x10 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_12x10_SRGB_BLOCK = 182;
+
+	/** A four-component, ASTC compressed format where each 12x12 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
+	public static final int VK_FORMAT_ASTC_12x12_UNORM_BLOCK = 183;
+
+	/** A four-component, ASTC compressed format where each 12x12 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	public static final int VK_FORMAT_ASTC_12x12_SRGB_BLOCK = 184;
+
 	/** VkFormat */
 	public static final int
-		VK_FORMAT_UNDEFINED                  = 0,
-		VK_FORMAT_R4G4_UNORM_PACK8           = 1,
-		VK_FORMAT_R4G4B4A4_UNORM_PACK16      = 2,
-		VK_FORMAT_B4G4R4A4_UNORM_PACK16      = 3,
-		VK_FORMAT_R5G6B5_UNORM_PACK16        = 4,
-		VK_FORMAT_B5G6R5_UNORM_PACK16        = 5,
-		VK_FORMAT_R5G5B5A1_UNORM_PACK16      = 6,
-		VK_FORMAT_B5G5R5A1_UNORM_PACK16      = 7,
-		VK_FORMAT_A1R5G5B5_UNORM_PACK16      = 8,
-		VK_FORMAT_R8_UNORM                   = 9,
-		VK_FORMAT_R8_SNORM                   = 10,
-		VK_FORMAT_R8_USCALED                 = 11,
-		VK_FORMAT_R8_SSCALED                 = 12,
-		VK_FORMAT_R8_UINT                    = 13,
-		VK_FORMAT_R8_SINT                    = 14,
-		VK_FORMAT_R8_SRGB                    = 15,
-		VK_FORMAT_R8G8_UNORM                 = 16,
-		VK_FORMAT_R8G8_SNORM                 = 17,
-		VK_FORMAT_R8G8_USCALED               = 18,
-		VK_FORMAT_R8G8_SSCALED               = 19,
-		VK_FORMAT_R8G8_UINT                  = 20,
-		VK_FORMAT_R8G8_SINT                  = 21,
-		VK_FORMAT_R8G8_SRGB                  = 22,
-		VK_FORMAT_R8G8B8_UNORM               = 23,
-		VK_FORMAT_R8G8B8_SNORM               = 24,
-		VK_FORMAT_R8G8B8_USCALED             = 25,
-		VK_FORMAT_R8G8B8_SSCALED             = 26,
-		VK_FORMAT_R8G8B8_UINT                = 27,
-		VK_FORMAT_R8G8B8_SINT                = 28,
-		VK_FORMAT_R8G8B8_SRGB                = 29,
-		VK_FORMAT_B8G8R8_UNORM               = 30,
-		VK_FORMAT_B8G8R8_SNORM               = 31,
-		VK_FORMAT_B8G8R8_USCALED             = 32,
-		VK_FORMAT_B8G8R8_SSCALED             = 33,
-		VK_FORMAT_B8G8R8_UINT                = 34,
-		VK_FORMAT_B8G8R8_SINT                = 35,
-		VK_FORMAT_B8G8R8_SRGB                = 36,
-		VK_FORMAT_R8G8B8A8_UNORM             = 37,
-		VK_FORMAT_R8G8B8A8_SNORM             = 38,
-		VK_FORMAT_R8G8B8A8_USCALED           = 39,
-		VK_FORMAT_R8G8B8A8_SSCALED           = 40,
-		VK_FORMAT_R8G8B8A8_UINT              = 41,
-		VK_FORMAT_R8G8B8A8_SINT              = 42,
-		VK_FORMAT_R8G8B8A8_SRGB              = 43,
-		VK_FORMAT_B8G8R8A8_UNORM             = 44,
-		VK_FORMAT_B8G8R8A8_SNORM             = 45,
-		VK_FORMAT_B8G8R8A8_USCALED           = 46,
-		VK_FORMAT_B8G8R8A8_SSCALED           = 47,
-		VK_FORMAT_B8G8R8A8_UINT              = 48,
-		VK_FORMAT_B8G8R8A8_SINT              = 49,
-		VK_FORMAT_B8G8R8A8_SRGB              = 50,
-		VK_FORMAT_A8B8G8R8_UNORM_PACK32      = 51,
-		VK_FORMAT_A8B8G8R8_SNORM_PACK32      = 52,
-		VK_FORMAT_A8B8G8R8_USCALED_PACK32    = 53,
-		VK_FORMAT_A8B8G8R8_SSCALED_PACK32    = 54,
-		VK_FORMAT_A8B8G8R8_UINT_PACK32       = 55,
-		VK_FORMAT_A8B8G8R8_SINT_PACK32       = 56,
-		VK_FORMAT_A8B8G8R8_SRGB_PACK32       = 57,
-		VK_FORMAT_A2R10G10B10_UNORM_PACK32   = 58,
-		VK_FORMAT_A2R10G10B10_SNORM_PACK32   = 59,
-		VK_FORMAT_A2R10G10B10_USCALED_PACK32 = 60,
-		VK_FORMAT_A2R10G10B10_SSCALED_PACK32 = 61,
-		VK_FORMAT_A2R10G10B10_UINT_PACK32    = 62,
-		VK_FORMAT_A2R10G10B10_SINT_PACK32    = 63,
-		VK_FORMAT_A2B10G10R10_UNORM_PACK32   = 64,
-		VK_FORMAT_A2B10G10R10_SNORM_PACK32   = 65,
-		VK_FORMAT_A2B10G10R10_USCALED_PACK32 = 66,
-		VK_FORMAT_A2B10G10R10_SSCALED_PACK32 = 67,
-		VK_FORMAT_A2B10G10R10_UINT_PACK32    = 68,
-		VK_FORMAT_A2B10G10R10_SINT_PACK32    = 69,
-		VK_FORMAT_R16_UNORM                  = 70,
-		VK_FORMAT_R16_SNORM                  = 71,
-		VK_FORMAT_R16_USCALED                = 72,
-		VK_FORMAT_R16_SSCALED                = 73,
-		VK_FORMAT_R16_UINT                   = 74,
-		VK_FORMAT_R16_SINT                   = 75,
-		VK_FORMAT_R16_SFLOAT                 = 76,
-		VK_FORMAT_R16G16_UNORM               = 77,
-		VK_FORMAT_R16G16_SNORM               = 78,
-		VK_FORMAT_R16G16_USCALED             = 79,
-		VK_FORMAT_R16G16_SSCALED             = 80,
-		VK_FORMAT_R16G16_UINT                = 81,
-		VK_FORMAT_R16G16_SINT                = 82,
-		VK_FORMAT_R16G16_SFLOAT              = 83,
-		VK_FORMAT_R16G16B16_UNORM            = 84,
-		VK_FORMAT_R16G16B16_SNORM            = 85,
-		VK_FORMAT_R16G16B16_USCALED          = 86,
-		VK_FORMAT_R16G16B16_SSCALED          = 87,
-		VK_FORMAT_R16G16B16_UINT             = 88,
-		VK_FORMAT_R16G16B16_SINT             = 89,
-		VK_FORMAT_R16G16B16_SFLOAT           = 90,
-		VK_FORMAT_R16G16B16A16_UNORM         = 91,
-		VK_FORMAT_R16G16B16A16_SNORM         = 92,
-		VK_FORMAT_R16G16B16A16_USCALED       = 93,
-		VK_FORMAT_R16G16B16A16_SSCALED       = 94,
-		VK_FORMAT_R16G16B16A16_UINT          = 95,
-		VK_FORMAT_R16G16B16A16_SINT          = 96,
-		VK_FORMAT_R16G16B16A16_SFLOAT        = 97,
-		VK_FORMAT_R32_UINT                   = 98,
-		VK_FORMAT_R32_SINT                   = 99,
-		VK_FORMAT_R32_SFLOAT                 = 100,
-		VK_FORMAT_R32G32_UINT                = 101,
-		VK_FORMAT_R32G32_SINT                = 102,
-		VK_FORMAT_R32G32_SFLOAT              = 103,
-		VK_FORMAT_R32G32B32_UINT             = 104,
-		VK_FORMAT_R32G32B32_SINT             = 105,
-		VK_FORMAT_R32G32B32_SFLOAT           = 106,
-		VK_FORMAT_R32G32B32A32_UINT          = 107,
-		VK_FORMAT_R32G32B32A32_SINT          = 108,
-		VK_FORMAT_R32G32B32A32_SFLOAT        = 109,
-		VK_FORMAT_R64_UINT                   = 110,
-		VK_FORMAT_R64_SINT                   = 111,
-		VK_FORMAT_R64_SFLOAT                 = 112,
-		VK_FORMAT_R64G64_UINT                = 113,
-		VK_FORMAT_R64G64_SINT                = 114,
-		VK_FORMAT_R64G64_SFLOAT              = 115,
-		VK_FORMAT_R64G64B64_UINT             = 116,
-		VK_FORMAT_R64G64B64_SINT             = 117,
-		VK_FORMAT_R64G64B64_SFLOAT           = 118,
-		VK_FORMAT_R64G64B64A64_UINT          = 119,
-		VK_FORMAT_R64G64B64A64_SINT          = 120,
-		VK_FORMAT_R64G64B64A64_SFLOAT        = 121,
-		VK_FORMAT_B10G11R11_UFLOAT_PACK32    = 122,
-		VK_FORMAT_E5B9G9R9_UFLOAT_PACK32     = 123,
-		VK_FORMAT_D16_UNORM                  = 124,
-		VK_FORMAT_X8_D24_UNORM_PACK32        = 125,
-		VK_FORMAT_D32_SFLOAT                 = 126,
-		VK_FORMAT_S8_UINT                    = 127,
-		VK_FORMAT_D16_UNORM_S8_UINT          = 128,
-		VK_FORMAT_D24_UNORM_S8_UINT          = 129,
-		VK_FORMAT_D32_SFLOAT_S8_UINT         = 130,
-		VK_FORMAT_BC1_RGB_UNORM_BLOCK        = 131,
-		VK_FORMAT_BC1_RGB_SRGB_BLOCK         = 132,
-		VK_FORMAT_BC1_RGBA_UNORM_BLOCK       = 133,
-		VK_FORMAT_BC1_RGBA_SRGB_BLOCK        = 134,
-		VK_FORMAT_BC2_UNORM_BLOCK            = 135,
-		VK_FORMAT_BC2_SRGB_BLOCK             = 136,
-		VK_FORMAT_BC3_UNORM_BLOCK            = 137,
-		VK_FORMAT_BC3_SRGB_BLOCK             = 138,
-		VK_FORMAT_BC4_UNORM_BLOCK            = 139,
-		VK_FORMAT_BC4_SNORM_BLOCK            = 140,
-		VK_FORMAT_BC5_UNORM_BLOCK            = 141,
-		VK_FORMAT_BC5_SNORM_BLOCK            = 142,
-		VK_FORMAT_BC6H_UFLOAT_BLOCK          = 143,
-		VK_FORMAT_BC6H_SFLOAT_BLOCK          = 144,
-		VK_FORMAT_BC7_UNORM_BLOCK            = 145,
-		VK_FORMAT_BC7_SRGB_BLOCK             = 146,
-		VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK    = 147,
-		VK_FORMAT_ETC2_R8G8B8_SRGB_BLOCK     = 148,
-		VK_FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK  = 149,
-		VK_FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK   = 150,
-		VK_FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK  = 151,
-		VK_FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK   = 152,
-		VK_FORMAT_EAC_R11_UNORM_BLOCK        = 153,
-		VK_FORMAT_EAC_R11_SNORM_BLOCK        = 154,
-		VK_FORMAT_EAC_R11G11_UNORM_BLOCK     = 155,
-		VK_FORMAT_EAC_R11G11_SNORM_BLOCK     = 156,
-		VK_FORMAT_ASTC_4x4_UNORM_BLOCK       = 157,
-		VK_FORMAT_ASTC_4x4_SRGB_BLOCK        = 158,
-		VK_FORMAT_ASTC_5x4_UNORM_BLOCK       = 159,
-		VK_FORMAT_ASTC_5x4_SRGB_BLOCK        = 160,
-		VK_FORMAT_ASTC_5x5_UNORM_BLOCK       = 161,
-		VK_FORMAT_ASTC_5x5_SRGB_BLOCK        = 162,
-		VK_FORMAT_ASTC_6x5_UNORM_BLOCK       = 163,
-		VK_FORMAT_ASTC_6x5_SRGB_BLOCK        = 164,
-		VK_FORMAT_ASTC_6x6_UNORM_BLOCK       = 165,
-		VK_FORMAT_ASTC_6x6_SRGB_BLOCK        = 166,
-		VK_FORMAT_ASTC_8x5_UNORM_BLOCK       = 167,
-		VK_FORMAT_ASTC_8x5_SRGB_BLOCK        = 168,
-		VK_FORMAT_ASTC_8x6_UNORM_BLOCK       = 169,
-		VK_FORMAT_ASTC_8x6_SRGB_BLOCK        = 170,
-		VK_FORMAT_ASTC_8x8_UNORM_BLOCK       = 171,
-		VK_FORMAT_ASTC_8x8_SRGB_BLOCK        = 172,
-		VK_FORMAT_ASTC_10x5_UNORM_BLOCK      = 173,
-		VK_FORMAT_ASTC_10x5_SRGB_BLOCK       = 174,
-		VK_FORMAT_ASTC_10x6_UNORM_BLOCK      = 175,
-		VK_FORMAT_ASTC_10x6_SRGB_BLOCK       = 176,
-		VK_FORMAT_ASTC_10x8_UNORM_BLOCK      = 177,
-		VK_FORMAT_ASTC_10x8_SRGB_BLOCK       = 178,
-		VK_FORMAT_ASTC_10x10_UNORM_BLOCK     = 179,
-		VK_FORMAT_ASTC_10x10_SRGB_BLOCK      = 180,
-		VK_FORMAT_ASTC_12x10_UNORM_BLOCK     = 181,
-		VK_FORMAT_ASTC_12x10_SRGB_BLOCK      = 182,
-		VK_FORMAT_ASTC_12x12_UNORM_BLOCK     = 183,
-		VK_FORMAT_ASTC_12x12_SRGB_BLOCK      = 184,
-		VK_FORMAT_BEGIN_RANGE                = VK_FORMAT_UNDEFINED,
-		VK_FORMAT_END_RANGE                  = VK_FORMAT_ASTC_12x12_SRGB_BLOCK,
-		VK_FORMAT_RANGE_SIZE                 = VK_FORMAT_ASTC_12x12_SRGB_BLOCK - VK_FORMAT_UNDEFINED + 1,
-		VK_FORMAT_MAX_ENUM                   = 0x7FFFFFFF;
+		VK_FORMAT_BEGIN_RANGE = VK_FORMAT_UNDEFINED,
+		VK_FORMAT_END_RANGE   = VK_FORMAT_ASTC_12x12_SRGB_BLOCK,
+		VK_FORMAT_RANGE_SIZE  = VK_FORMAT_ASTC_12x12_SRGB_BLOCK - VK_FORMAT_UNDEFINED + 1,
+		VK_FORMAT_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** One-dimensional image */
+	public static final int VK_IMAGE_TYPE_1D = 0;
+
+	/** Two-dimensional image */
+	public static final int VK_IMAGE_TYPE_2D = 1;
+
+	/** Three-dimensional image */
+	public static final int VK_IMAGE_TYPE_3D = 2;
 
 	/** VkImageType */
 	public static final int
-		VK_IMAGE_TYPE_1D          = 0,
-		VK_IMAGE_TYPE_2D          = 1,
-		VK_IMAGE_TYPE_3D          = 2,
 		VK_IMAGE_TYPE_BEGIN_RANGE = VK_IMAGE_TYPE_1D,
 		VK_IMAGE_TYPE_END_RANGE   = VK_IMAGE_TYPE_3D,
 		VK_IMAGE_TYPE_RANGE_SIZE  = VK_IMAGE_TYPE_3D - VK_IMAGE_TYPE_1D + 1,
 		VK_IMAGE_TYPE_MAX_ENUM    = 0x7FFFFFFF;
 
+	/** Specifies optimal tiling (texels are laid out in an implementation-dependent arrangement, for more optimal memory access). */
+	public static final int VK_IMAGE_TILING_OPTIMAL = 0;
+
+	/** Specifies linear tiling (texels are laid out in memory in row-major order, possibly with some padding on each row). */
+	public static final int VK_IMAGE_TILING_LINEAR = 1;
+
 	/** VkImageTiling */
 	public static final int
-		VK_IMAGE_TILING_OPTIMAL     = 0,
-		VK_IMAGE_TILING_LINEAR      = 1,
 		VK_IMAGE_TILING_BEGIN_RANGE = VK_IMAGE_TILING_OPTIMAL,
 		VK_IMAGE_TILING_END_RANGE   = VK_IMAGE_TILING_LINEAR,
 		VK_IMAGE_TILING_RANGE_SIZE  = VK_IMAGE_TILING_LINEAR - VK_IMAGE_TILING_OPTIMAL + 1,
 		VK_IMAGE_TILING_MAX_ENUM    = 0x7FFFFFFF;
 
+	/** The device does not match any other available types. */
+	public static final int VK_PHYSICAL_DEVICE_TYPE_OTHER = 0;
+
+	/** The device is typically one embedded in or tightly coupled with the host. */
+	public static final int VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU = 1;
+
+	/** The device is typically a separate processor connected to the host via an interlink. */
+	public static final int VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU = 2;
+
+	/** The device is typically a virtual node in a virtualization environment. */
+	public static final int VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU = 3;
+
+	/** The device is typically running on the same processors as the host. */
+	public static final int VK_PHYSICAL_DEVICE_TYPE_CPU = 4;
+
 	/** VkPhysicalDeviceType */
 	public static final int
-		VK_PHYSICAL_DEVICE_TYPE_OTHER          = 0,
-		VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU = 1,
-		VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU   = 2,
-		VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU    = 3,
-		VK_PHYSICAL_DEVICE_TYPE_CPU            = 4,
-		VK_PHYSICAL_DEVICE_TYPE_BEGIN_RANGE    = VK_PHYSICAL_DEVICE_TYPE_OTHER,
-		VK_PHYSICAL_DEVICE_TYPE_END_RANGE      = VK_PHYSICAL_DEVICE_TYPE_CPU,
-		VK_PHYSICAL_DEVICE_TYPE_RANGE_SIZE     = VK_PHYSICAL_DEVICE_TYPE_CPU - VK_PHYSICAL_DEVICE_TYPE_OTHER + 1,
-		VK_PHYSICAL_DEVICE_TYPE_MAX_ENUM       = 0x7FFFFFFF;
+		VK_PHYSICAL_DEVICE_TYPE_BEGIN_RANGE = VK_PHYSICAL_DEVICE_TYPE_OTHER,
+		VK_PHYSICAL_DEVICE_TYPE_END_RANGE   = VK_PHYSICAL_DEVICE_TYPE_CPU,
+		VK_PHYSICAL_DEVICE_TYPE_RANGE_SIZE  = VK_PHYSICAL_DEVICE_TYPE_CPU - VK_PHYSICAL_DEVICE_TYPE_OTHER + 1,
+		VK_PHYSICAL_DEVICE_TYPE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** Occlusion query. */
+	public static final int VK_QUERY_TYPE_OCCLUSION = 0;
+
+	/** Pipeline statistics query */
+	public static final int VK_QUERY_TYPE_PIPELINE_STATISTICS = 1;
+
+	/** Timestamp query. */
+	public static final int VK_QUERY_TYPE_TIMESTAMP = 2;
 
 	/** VkQueryType */
 	public static final int
-		VK_QUERY_TYPE_OCCLUSION           = 0,
-		VK_QUERY_TYPE_PIPELINE_STATISTICS = 1,
-		VK_QUERY_TYPE_TIMESTAMP           = 2,
-		VK_QUERY_TYPE_BEGIN_RANGE         = VK_QUERY_TYPE_OCCLUSION,
-		VK_QUERY_TYPE_END_RANGE           = VK_QUERY_TYPE_TIMESTAMP,
-		VK_QUERY_TYPE_RANGE_SIZE          = VK_QUERY_TYPE_TIMESTAMP - VK_QUERY_TYPE_OCCLUSION + 1,
-		VK_QUERY_TYPE_MAX_ENUM            = 0x7FFFFFFF;
+		VK_QUERY_TYPE_BEGIN_RANGE = VK_QUERY_TYPE_OCCLUSION,
+		VK_QUERY_TYPE_END_RANGE   = VK_QUERY_TYPE_TIMESTAMP,
+		VK_QUERY_TYPE_RANGE_SIZE  = VK_QUERY_TYPE_TIMESTAMP - VK_QUERY_TYPE_OCCLUSION + 1,
+		VK_QUERY_TYPE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** Specifies that access to any range or subresource of the object will be exclusive to a single queue family at a time. */
+	public static final int VK_SHARING_MODE_EXCLUSIVE = 0;
+
+	/** Specifies that concurrent access to any range or subresource of the object from multiple queue families is supported. */
+	public static final int VK_SHARING_MODE_CONCURRENT = 1;
 
 	/** VkSharingMode */
 	public static final int
-		VK_SHARING_MODE_EXCLUSIVE   = 0,
-		VK_SHARING_MODE_CONCURRENT  = 1,
 		VK_SHARING_MODE_BEGIN_RANGE = VK_SHARING_MODE_EXCLUSIVE,
 		VK_SHARING_MODE_END_RANGE   = VK_SHARING_MODE_CONCURRENT,
 		VK_SHARING_MODE_RANGE_SIZE  = VK_SHARING_MODE_CONCURRENT - VK_SHARING_MODE_EXCLUSIVE + 1,
 		VK_SHARING_MODE_MAX_ENUM    = 0x7FFFFFFF;
 
+	/**
+	 * Supports no device access. This layout must only be used as an {@code initialLayout} or as the {@code oldLayout} in an image transition. When
+	 * transitioning out of this layout, the contents of the memory are not guaranteed to be preserved.
+	 */
+	public static final int VK_IMAGE_LAYOUT_UNDEFINED = 0;
+
+	/** Supports all types of device access. */
+	public static final int VK_IMAGE_LAYOUT_GENERAL = 1;
+
+	/**
+	 * <b>must</b> only be used as a color or resolve attachment in a {@code VkFramebuffer}. This layout is valid only for subresources of images created with
+	 * the {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} usage bit enabled.
+	 */
+	public static final int VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL = 2;
+
+	/**
+	 * <b>must</b> only be used as a depth/stencil attachment in a {@code VkFramebuffer}. This layout is valid only for subresources of images created with the
+	 * {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled.
+	 */
+	public static final int VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL = 3;
+
+	/**
+	 * <b>must</b> only be used as a read-only depth/stencil attachment in a {@code VkFramebuffer} and/or as a read-only image in a shader (which can be read as
+	 * a sampled image, combined image/sampler and/or input attachment). This layout is valid only for subresources of images created with both the
+	 * {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled.
+	 */
+	public static final int VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL = 4;
+
+	/**
+	 * <b>must</b> only be used as a read-only image in a shader (which can be read as a sampled image, combined image/sampler and/or input attachment). This
+	 * layout is valid only for subresources of images created with the {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} usage bit enabled.
+	 */
+	public static final int VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL = 5;
+
+	/**
+	 * <b>must</b> only be used as a source image of a transfer command (see the definition of {@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}). This layout is valid only for
+	 * subresources of images created with the {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage bit enabled.
+	 */
+	public static final int VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL = 6;
+
+	/**
+	 * <b>must</b> only be used as a destination image of a transfer command. This layout is valid only for subresources of images created with the
+	 * {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage bit enabled.
+	 */
+	public static final int VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL = 7;
+
+	/**
+	 * Supports no device access. This layout must only be used as an {@code initialLayout} or as the {@code oldLayout} in an image transition. When
+	 * transitioning out of this layout, the contents of the memory are preserved. This layout is intended to be used as the initial layout for an image
+	 * whose contents are written by the host, and hence the data can be written to memory immediately, without first executing a layout transition.
+	 * Currently, {@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED} is only useful with {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} images because there is not a standard layout defined for
+	 * {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL} images.
+	 */
+	public static final int VK_IMAGE_LAYOUT_PREINITIALIZED = 8;
+
 	/** VkImageLayout */
 	public static final int
-		VK_IMAGE_LAYOUT_UNDEFINED                        = 0,
-		VK_IMAGE_LAYOUT_GENERAL                          = 1,
-		VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL         = 2,
-		VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL = 3,
-		VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL  = 4,
-		VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL         = 5,
-		VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL             = 6,
-		VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL             = 7,
-		VK_IMAGE_LAYOUT_PREINITIALIZED                   = 8,
-		VK_IMAGE_LAYOUT_BEGIN_RANGE                      = VK_IMAGE_LAYOUT_UNDEFINED,
-		VK_IMAGE_LAYOUT_END_RANGE                        = VK_IMAGE_LAYOUT_PREINITIALIZED,
-		VK_IMAGE_LAYOUT_RANGE_SIZE                       = VK_IMAGE_LAYOUT_PREINITIALIZED - VK_IMAGE_LAYOUT_UNDEFINED + 1,
-		VK_IMAGE_LAYOUT_MAX_ENUM                         = 0x7FFFFFFF;
+		VK_IMAGE_LAYOUT_BEGIN_RANGE = VK_IMAGE_LAYOUT_UNDEFINED,
+		VK_IMAGE_LAYOUT_END_RANGE   = VK_IMAGE_LAYOUT_PREINITIALIZED,
+		VK_IMAGE_LAYOUT_RANGE_SIZE  = VK_IMAGE_LAYOUT_PREINITIALIZED - VK_IMAGE_LAYOUT_UNDEFINED + 1,
+		VK_IMAGE_LAYOUT_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** One-dimensional image view. */
+	public static final int VK_IMAGE_VIEW_TYPE_1D = 0;
+
+	/** Two-dimensional image view. */
+	public static final int VK_IMAGE_VIEW_TYPE_2D = 1;
+
+	/** Three-dimensional image view. */
+	public static final int VK_IMAGE_VIEW_TYPE_3D = 2;
+
+	/** Cube map image view. */
+	public static final int VK_IMAGE_VIEW_TYPE_CUBE = 3;
+
+	/** One-dimensional array image view. */
+	public static final int VK_IMAGE_VIEW_TYPE_1D_ARRAY = 4;
+
+	/** Two-dimensional array image view. */
+	public static final int VK_IMAGE_VIEW_TYPE_2D_ARRAY = 5;
+
+	/** Cube map array image view. */
+	public static final int VK_IMAGE_VIEW_TYPE_CUBE_ARRAY = 6;
 
 	/** VkImageViewType */
 	public static final int
-		VK_IMAGE_VIEW_TYPE_1D          = 0,
-		VK_IMAGE_VIEW_TYPE_2D          = 1,
-		VK_IMAGE_VIEW_TYPE_3D          = 2,
-		VK_IMAGE_VIEW_TYPE_CUBE        = 3,
-		VK_IMAGE_VIEW_TYPE_1D_ARRAY    = 4,
-		VK_IMAGE_VIEW_TYPE_2D_ARRAY    = 5,
-		VK_IMAGE_VIEW_TYPE_CUBE_ARRAY  = 6,
 		VK_IMAGE_VIEW_TYPE_BEGIN_RANGE = VK_IMAGE_VIEW_TYPE_1D,
 		VK_IMAGE_VIEW_TYPE_END_RANGE   = VK_IMAGE_VIEW_TYPE_CUBE_ARRAY,
 		VK_IMAGE_VIEW_TYPE_RANGE_SIZE  = VK_IMAGE_VIEW_TYPE_CUBE_ARRAY - VK_IMAGE_VIEW_TYPE_1D + 1,
 		VK_IMAGE_VIEW_TYPE_MAX_ENUM    = 0x7FFFFFFF;
 
+	/** The component is set to the identity swizzle. */
+	public static final int VK_COMPONENT_SWIZZLE_IDENTITY = 0;
+
+	/** The component is set to zero. */
+	public static final int VK_COMPONENT_SWIZZLE_ZERO = 1;
+
+	/**
+	 * The component is set to either 1 or 1.0 depending on whether the type of the image view format is integer or floating-point respectively, as
+	 * determined by the <b>Format Definition</b> section for each {@code VkFormat}.
+	 */
+	public static final int VK_COMPONENT_SWIZZLE_ONE = 2;
+
+	/** The component is set to the value of the R component of the image. */
+	public static final int VK_COMPONENT_SWIZZLE_R = 3;
+
+	/** The component is set to the value of the G component of the image. */
+	public static final int VK_COMPONENT_SWIZZLE_G = 4;
+
+	/** The component is set to the value of the B component of the image. */
+	public static final int VK_COMPONENT_SWIZZLE_B = 5;
+
+	/** The component is set to the value of the A component of the image. */
+	public static final int VK_COMPONENT_SWIZZLE_A = 6;
+
 	/** VkComponentSwizzle */
 	public static final int
-		VK_COMPONENT_SWIZZLE_IDENTITY    = 0,
-		VK_COMPONENT_SWIZZLE_ZERO        = 1,
-		VK_COMPONENT_SWIZZLE_ONE         = 2,
-		VK_COMPONENT_SWIZZLE_R           = 3,
-		VK_COMPONENT_SWIZZLE_G           = 4,
-		VK_COMPONENT_SWIZZLE_B           = 5,
-		VK_COMPONENT_SWIZZLE_A           = 6,
 		VK_COMPONENT_SWIZZLE_BEGIN_RANGE = VK_COMPONENT_SWIZZLE_IDENTITY,
 		VK_COMPONENT_SWIZZLE_END_RANGE   = VK_COMPONENT_SWIZZLE_A,
 		VK_COMPONENT_SWIZZLE_RANGE_SIZE  = VK_COMPONENT_SWIZZLE_A - VK_COMPONENT_SWIZZLE_IDENTITY + 1,
 		VK_COMPONENT_SWIZZLE_MAX_ENUM    = 0x7FFFFFFF;
 
+	/** Indicates that vertex attribute addressing is a function of the vertex index. */
+	public static final int VK_VERTEX_INPUT_RATE_VERTEX = 0;
+
+	/** Indicates that vertex attribute addressing is a function of the instance index. */
+	public static final int VK_VERTEX_INPUT_RATE_INSTANCE = 1;
+
 	/** VkVertexInputRate */
 	public static final int
-		VK_VERTEX_INPUT_RATE_VERTEX      = 0,
-		VK_VERTEX_INPUT_RATE_INSTANCE    = 1,
 		VK_VERTEX_INPUT_RATE_BEGIN_RANGE = VK_VERTEX_INPUT_RATE_VERTEX,
 		VK_VERTEX_INPUT_RATE_END_RANGE   = VK_VERTEX_INPUT_RATE_INSTANCE,
 		VK_VERTEX_INPUT_RATE_RANGE_SIZE  = VK_VERTEX_INPUT_RATE_INSTANCE - VK_VERTEX_INPUT_RATE_VERTEX + 1,
 		VK_VERTEX_INPUT_RATE_MAX_ENUM    = 0x7FFFFFFF;
 
+	/** A series of individual points. Each vertex defines a separate point. */
+	public static final int VK_PRIMITIVE_TOPOLOGY_POINT_LIST = 0;
+
+	/**
+	 * Individual line segments, each defined by a pair of vertices. The first two vertices define the first segment, with subsequent pairs of vertices
+	 * each defining one more segment. If the number of vertices is odd, then the last vertex is ignored.
+	 */
+	public static final int VK_PRIMITIVE_TOPOLOGY_LINE_LIST = 1;
+
+	/**
+	 * A series of one or more connected line segments. In this case, the first vertex specifies the first segment’s start point while the second vertex
+	 * specifies the first segment’s endpoint and the second segment’s start point. In general, the i<sup>th</sup> vertex (for i &gt; 0) specifies the
+	 * beginning of the i<sup>th</sup> segment and the end of the {@code i−1}<sup>st</sup>. The last vertex specifies the end of the last segment. If only
+	 * one vertex is specified, then no primitive is generated.
+	 */
+	public static final int VK_PRIMITIVE_TOPOLOGY_LINE_STRIP = 2;
+
+	/**
+	 * Separate triangles. In this case, vertices {@code 3i}, {@code 3i + 1}, and {@code 3i + 2} (in that order) determine a triangle for each
+	 * {@code i = 0,1,…,n − 1}, where there are {@code 3n + k} vertices drawn. {@code k} is either 0, 1, or 2; if {@code k} is not zero, the final
+	 * {@code k} vertices are ignored.
+	 */
+	public static final int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST = 3;
+
+	/**
+	 * A triangle strip is a series of triangles connected along shared edges. In this case, the first three vertices define the first triangle, and their
+	 * order is significant. Each subsequent vertex defines a new triangle using that point along with the last two vertices from the previous triangle.
+	 * If fewer than three vertices are specified, no primitive is produced. The order of vertices in successive triangles changes, so that all triangle
+	 * faces have the same orientation.
+	 */
+	public static final int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP = 4;
+
+	/**
+	 * A triangle fan. It is similar to a triangle strip, but changes the vertex replaced from the previous triangle, so that all triangles in the fan
+	 * share a common vertex.
+	 */
+	public static final int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_FAN = 5;
+
+	/**
+	 * Lines with adjacency are independent line segments where each endpoint has a corresponding adjacent vertex that is accessible in a geometry shader.
+	 * If a geometry shader is not active, the adjacent vertices are ignored.
+	 * 
+	 * <p>A line segment is drawn from the {@code 4i + 1}<sup>st</sup> vertex to the {@code 4i + 2}<sup>nd</sup> vertex for each {@code i = 0,1,…,n − 1},
+	 * where there are {@code 4n + k} vertices. {@code k} is either 0, 1, 2, or 3; if {@code k} is not zero, the final {@code k} vertices are ignored. For
+	 * line segment {@code i}, the {@code 4i}<sup>th</sup> and {@code 4i + 3}<sup>rd</sup> vertices are considered adjacent to the
+	 * {@code 4i + 1}<sup>st</sup> and {@code 4i + 2}<sup>nd</sup> vertices, respectively.</p>
+	 */
+	public static final int VK_PRIMITIVE_TOPOLOGY_LINE_LIST_WITH_ADJACENCY = 6;
+
+	/**
+	 * Line strips with adjacency are similar to line strips, except that each line segment has a pair of adjacent vertices that are accessible in a
+	 * geometry shader. If a geometry shader is not active, the adjacent vertices are ignored.
+	 * 
+	 * <p>A line segment is drawn from the {@code i + 1}<sup>st</sup> vertex to the {@code i + 2}<sup>nd</sup> vertex for each {@code i = 0,1,…,n − 1}, where
+	 * there are {@code n + 3} vertices. If there are fewer than four vertices, all vertices are ignored. For line segment {@code i}, the
+	 * {@code i}<sup>th</sup> and {@code i + 3}<sup>rd</sup> vertex are considered adjacent to the {@code i + 1}<sup>st</sup> and
+	 * {@code i + 2}<sup>nd</sup> vertices, respectively.</p>
+	 */
+	public static final int VK_PRIMITIVE_TOPOLOGY_LINE_STRIP_WITH_ADJACENCY = 7;
+
+	/**
+	 * Triangles with adjacency are similar to separate triangles except that each triangle edge has an adjacent vertex that is accessible in a geometry
+	 * shader. If a geometry shader is not active, the adjacent vertices are ignored.
+	 * 
+	 * <p>The {@code 6i}<sup>th</sup>, {@code 6i + 2}<sup>nd</sup>, and {@code 6i + 4}<sup>th</sup> vertices (in that order) determine a triangle for each
+	 * {@code i = 0,1,…,n − 1}, where there are {@code 6n + k} vertices. {@code k} is either 0, 1, 2, 3, 4, or 5; if {@code k} is non-zero, the final
+	 * {@code k} vertices are ignored. For triangle {@code i}, the {@code 6i + 1}<sup>st</sup>, {@code 6i + 3}<sup>rd</sup>, and
+	 * {@code 6i + 5}<sup>th</sup> vertices are considered adjacent to edges from the {@code 6i}<sup>th</sup> to the {@code 6i + 2}<sup>nd</sup>, from the
+	 * {@code 6i + 2}<sup>nd</sup> to the {@code 6i + 4}<sup>th</sup>, and from the {@code 6i + 4}<sup>th</sup> to the {@code 6i}<sup>th</sup> vertices,
+	 * respectively.</p>
+	 */
+	public static final int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST_WITH_ADJACENCY = 8;
+
+	/**
+	 * Triangle strips with adjacency are similar to triangle strips except that each triangle edge has an adjacent vertex that is accessible in a
+	 * geometry shader. If a geometry shader is not active, the adjacent vertices are ignored.
+	 * 
+	 * <p>In triangle strips with adjacency, {@code n} triangles are drawn where there are {@code 2(n + 2) + k} vertices. {@code k} is either 0 or 1; if
+	 * {@code k} is 1, the final vertex is ignored. If there are fewer than 6 vertices, the entire primitive is ignored. The table below describes the
+	 * vertices and order used to draw each triangle, and which vertices are considered adjacent to each edge of the triangle:</p>
+	 * 
+	 * <table class=lwjgl>
+	 * <tr><th></th><th colspan=3>Primitive Vertices</th><th colspan=3>Adjacent Vertices</th></tr>
+	 * <tr><td>Primitive</td><td>1<sup>st</sup></td><td>2<sup>nd</sup></td><td>3<sup>rd</sup></td><td>1/2</td><td>2/3</td><td>3/1</td></tr>
+	 * <tr><td>only ( {@code i = 0} , {@code n = 1} )</td><td>0</td><td>2</td><td>4</td><td>1</td><td>5</td><td>3</td></tr>
+	 * <tr><td>first ( {@code i = 0} )</td><td>0</td><td>2</td><td>4</td><td>1</td><td>6</td><td>3</td></tr>
+	 * <tr><td>middle ( {@code i} odd)</td><td>2i+2</td><td>2i</td><td>2i+4</td><td>2i−2</td><td>2i+3</td><td>2i+6</td></tr>
+	 * <tr><td>middle ( {@code i} even)</td><td>2i</td><td>2i+2</td><td>2i+4</td><td>2i−2</td><td>2i+6</td><td>2i+3</td></tr>
+	 * <tr><td>last ( {@code i = n − 1} , {@code i} odd)</td><td>2i+2</td><td>2i</td><td>2i+4</td><td>2i−2</td><td>2i+3</td><td>2i+5</td></tr>
+	 * <tr><td>last ( {@code i = n − 1} , {@code i} even)</td><td>2i</td><td>2i+2</td><td>2i+4</td><td>2i−2</td><td>2i+5</td><td>2i+3</td></tr>
+	 * </table>
+	 */
+	public static final int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP_WITH_ADJACENCY = 9;
+
+	/**
+	 * Separate patches. A patch is an ordered collection of vertices used for primitive tessellation. The vertices comprising a patch have no implied
+	 * geometric ordering, and are used by tessellation shaders and the fixed-function tessellator to generate new point, line, or triangle primitives.
+	 * 
+	 * <p>Each patch in the series has a fixed number of vertices, specified by the {@code patchControlPoints} member of the
+	 * {@link VkPipelineTessellationStateCreateInfo} structure passed to {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines}. Once assembled and vertex shaded, these patches are
+	 * provided as input to the tessellation control shader stage.</p>
+	 * 
+	 * <p>If the number of vertices in a patch is given by {@code v}, the {@code vi}<sup>th</sup> through {@code vi + v − 1}<sup>st</sup> vertices (in that
+	 * order) determine a patch for each {@code i = 0,1,…n − 1}, where there are {@code vn + k} vertices. {@code k} is in the range {@code [0,v − 1]} ; if
+	 * {@code k} is not zero, the final {@code k} vertices are ignored.</p>
+	 */
+	public static final int VK_PRIMITIVE_TOPOLOGY_PATCH_LIST = 10;
+
 	/** VkPrimitiveTopology */
 	public static final int
-		VK_PRIMITIVE_TOPOLOGY_POINT_LIST                    = 0,
-		VK_PRIMITIVE_TOPOLOGY_LINE_LIST                     = 1,
-		VK_PRIMITIVE_TOPOLOGY_LINE_STRIP                    = 2,
-		VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST                 = 3,
-		VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP                = 4,
-		VK_PRIMITIVE_TOPOLOGY_TRIANGLE_FAN                  = 5,
-		VK_PRIMITIVE_TOPOLOGY_LINE_LIST_WITH_ADJACENCY      = 6,
-		VK_PRIMITIVE_TOPOLOGY_LINE_STRIP_WITH_ADJACENCY     = 7,
-		VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST_WITH_ADJACENCY  = 8,
-		VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP_WITH_ADJACENCY = 9,
-		VK_PRIMITIVE_TOPOLOGY_PATCH_LIST                    = 10,
-		VK_PRIMITIVE_TOPOLOGY_BEGIN_RANGE                   = VK_PRIMITIVE_TOPOLOGY_POINT_LIST,
-		VK_PRIMITIVE_TOPOLOGY_END_RANGE                     = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST,
-		VK_PRIMITIVE_TOPOLOGY_RANGE_SIZE                    = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST - VK_PRIMITIVE_TOPOLOGY_POINT_LIST + 1,
-		VK_PRIMITIVE_TOPOLOGY_MAX_ENUM                      = 0x7FFFFFFF;
+		VK_PRIMITIVE_TOPOLOGY_BEGIN_RANGE = VK_PRIMITIVE_TOPOLOGY_POINT_LIST,
+		VK_PRIMITIVE_TOPOLOGY_END_RANGE   = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST,
+		VK_PRIMITIVE_TOPOLOGY_RANGE_SIZE  = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST - VK_PRIMITIVE_TOPOLOGY_POINT_LIST + 1,
+		VK_PRIMITIVE_TOPOLOGY_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** Causes polygons to render using the polygon rasterization rules. */
+	public static final int VK_POLYGON_MODE_FILL = 0;
+
+	/** Causes polygon edges to be drawn as line segments. */
+	public static final int VK_POLYGON_MODE_LINE = 1;
+
+	/** The vertices of polygons are treated, for rasterization purposes, as if they had been drawn as points. */
+	public static final int VK_POLYGON_MODE_POINT = 2;
 
 	/** VkPolygonMode */
 	public static final int
-		VK_POLYGON_MODE_FILL        = 0,
-		VK_POLYGON_MODE_LINE        = 1,
-		VK_POLYGON_MODE_POINT       = 2,
 		VK_POLYGON_MODE_BEGIN_RANGE = VK_POLYGON_MODE_FILL,
 		VK_POLYGON_MODE_END_RANGE   = VK_POLYGON_MODE_POINT,
 		VK_POLYGON_MODE_RANGE_SIZE  = VK_POLYGON_MODE_POINT - VK_POLYGON_MODE_FILL + 1,
 		VK_POLYGON_MODE_MAX_ENUM    = 0x7FFFFFFF;
 
+	/** A triangle with positive area is considered front-facing. */
+	public static final int VK_FRONT_FACE_COUNTER_CLOCKWISE = 0;
+
+	/** A triangle with negative area is considered front-facing. */
+	public static final int VK_FRONT_FACE_CLOCKWISE = 1;
+
 	/** VkFrontFace */
 	public static final int
-		VK_FRONT_FACE_COUNTER_CLOCKWISE = 0,
-		VK_FRONT_FACE_CLOCKWISE         = 1,
-		VK_FRONT_FACE_BEGIN_RANGE       = VK_FRONT_FACE_COUNTER_CLOCKWISE,
-		VK_FRONT_FACE_END_RANGE         = VK_FRONT_FACE_CLOCKWISE,
-		VK_FRONT_FACE_RANGE_SIZE        = VK_FRONT_FACE_CLOCKWISE - VK_FRONT_FACE_COUNTER_CLOCKWISE + 1,
-		VK_FRONT_FACE_MAX_ENUM          = 0x7FFFFFFF;
+		VK_FRONT_FACE_BEGIN_RANGE = VK_FRONT_FACE_COUNTER_CLOCKWISE,
+		VK_FRONT_FACE_END_RANGE   = VK_FRONT_FACE_CLOCKWISE,
+		VK_FRONT_FACE_RANGE_SIZE  = VK_FRONT_FACE_CLOCKWISE - VK_FRONT_FACE_COUNTER_CLOCKWISE + 1,
+		VK_FRONT_FACE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** The test never passes. */
+	public static final int VK_COMPARE_OP_NEVER = 0;
+
+	/** The test passes when <b>R</b> &lt; <b>S</b>. */
+	public static final int VK_COMPARE_OP_LESS = 1;
+
+	/** The test passes when R = S} */
+	public static final int VK_COMPARE_OP_EQUAL = 2;
+
+	/** The test passes when <b>R</b> &le; <b>S</b>. */
+	public static final int VK_COMPARE_OP_LESS_OR_EQUAL = 3;
+
+	/** The test passes when <b>R</b> &gt; <b>S</b>. */
+	public static final int VK_COMPARE_OP_GREATER = 4;
+
+	/** The test passes when <b>R</b> &ne; <b>S</b>. */
+	public static final int VK_COMPARE_OP_NOT_EQUAL = 5;
+
+	/** The test passes when <b>R</b> &ge; <b>S</b>. */
+	public static final int VK_COMPARE_OP_GREATER_OR_EQUAL = 6;
+
+	/** The test always passes. */
+	public static final int VK_COMPARE_OP_ALWAYS = 7;
 
 	/** VkCompareOp */
 	public static final int
-		VK_COMPARE_OP_NEVER            = 0,
-		VK_COMPARE_OP_LESS             = 1,
-		VK_COMPARE_OP_EQUAL            = 2,
-		VK_COMPARE_OP_LESS_OR_EQUAL    = 3,
-		VK_COMPARE_OP_GREATER          = 4,
-		VK_COMPARE_OP_NOT_EQUAL        = 5,
-		VK_COMPARE_OP_GREATER_OR_EQUAL = 6,
-		VK_COMPARE_OP_ALWAYS           = 7,
-		VK_COMPARE_OP_BEGIN_RANGE      = VK_COMPARE_OP_NEVER,
-		VK_COMPARE_OP_END_RANGE        = VK_COMPARE_OP_ALWAYS,
-		VK_COMPARE_OP_RANGE_SIZE       = VK_COMPARE_OP_ALWAYS - VK_COMPARE_OP_NEVER + 1,
-		VK_COMPARE_OP_MAX_ENUM         = 0x7FFFFFFF;
+		VK_COMPARE_OP_BEGIN_RANGE = VK_COMPARE_OP_NEVER,
+		VK_COMPARE_OP_END_RANGE   = VK_COMPARE_OP_ALWAYS,
+		VK_COMPARE_OP_RANGE_SIZE  = VK_COMPARE_OP_ALWAYS - VK_COMPARE_OP_NEVER + 1,
+		VK_COMPARE_OP_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** Keeps the current value. */
+	public static final int VK_STENCIL_OP_KEEP = 0;
+
+	/** Sets the value to 0. */
+	public static final int VK_STENCIL_OP_ZERO = 1;
+
+	/** Sets the value to {@code reference}. */
+	public static final int VK_STENCIL_OP_REPLACE = 2;
+
+	/** Increments the current value and clamps to the maximum representable unsigned value. */
+	public static final int VK_STENCIL_OP_INCREMENT_AND_CLAMP = 3;
+
+	/** Decrements the current value and clamps to 0. */
+	public static final int VK_STENCIL_OP_DECREMENT_AND_CLAMP = 4;
+
+	/** Bitwise-inverts the current value. */
+	public static final int VK_STENCIL_OP_INVERT = 5;
+
+	/** Increments the current value and wraps to 0 when the maximum value would have been exceeded. */
+	public static final int VK_STENCIL_OP_INCREMENT_AND_WRAP = 6;
+
+	/** Decrements the current value and wraps to the maximum possible value when the value would go below 0. */
+	public static final int VK_STENCIL_OP_DECREMENT_AND_WRAP = 7;
 
 	/** VkStencilOp */
 	public static final int
-		VK_STENCIL_OP_KEEP                = 0,
-		VK_STENCIL_OP_ZERO                = 1,
-		VK_STENCIL_OP_REPLACE             = 2,
-		VK_STENCIL_OP_INCREMENT_AND_CLAMP = 3,
-		VK_STENCIL_OP_DECREMENT_AND_CLAMP = 4,
-		VK_STENCIL_OP_INVERT              = 5,
-		VK_STENCIL_OP_INCREMENT_AND_WRAP  = 6,
-		VK_STENCIL_OP_DECREMENT_AND_WRAP  = 7,
-		VK_STENCIL_OP_BEGIN_RANGE         = VK_STENCIL_OP_KEEP,
-		VK_STENCIL_OP_END_RANGE           = VK_STENCIL_OP_DECREMENT_AND_WRAP,
-		VK_STENCIL_OP_RANGE_SIZE          = VK_STENCIL_OP_DECREMENT_AND_WRAP - VK_STENCIL_OP_KEEP + 1,
-		VK_STENCIL_OP_MAX_ENUM            = 0x7FFFFFFF;
+		VK_STENCIL_OP_BEGIN_RANGE = VK_STENCIL_OP_KEEP,
+		VK_STENCIL_OP_END_RANGE   = VK_STENCIL_OP_DECREMENT_AND_WRAP,
+		VK_STENCIL_OP_RANGE_SIZE  = VK_STENCIL_OP_DECREMENT_AND_WRAP - VK_STENCIL_OP_KEEP + 1,
+		VK_STENCIL_OP_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** {@code 0} */
+	public static final int VK_LOGIC_OP_CLEAR = 0;
+
+	/** {@code s∧d} */
+	public static final int VK_LOGIC_OP_AND = 1;
+
+	/** {@code s∧¬d} */
+	public static final int VK_LOGIC_OP_AND_REVERSE = 2;
+
+	/** {@code s} */
+	public static final int VK_LOGIC_OP_COPY = 3;
+
+	/** {@code ¬s∧d} */
+	public static final int VK_LOGIC_OP_AND_INVERTED = 4;
+
+	/** {@code d} */
+	public static final int VK_LOGIC_OP_NO_OP = 5;
+
+	/** {@code s⊕d} */
+	public static final int VK_LOGIC_OP_XOR = 6;
+
+	/** {@code s∨d} */
+	public static final int VK_LOGIC_OP_OR = 7;
+
+	/** {@code ¬(s∨d)} */
+	public static final int VK_LOGIC_OP_NOR = 8;
+
+	/** {@code ¬(s⊕d)} */
+	public static final int VK_LOGIC_OP_EQUIVALENT = 9;
+
+	/** {@code ¬d} */
+	public static final int VK_LOGIC_OP_INVERT = 10;
+
+	/** {@code s∨¬d} */
+	public static final int VK_LOGIC_OP_OR_REVERSE = 11;
+
+	/** {@code ¬s} */
+	public static final int VK_LOGIC_OP_COPY_INVERTED = 12;
+
+	/** {@code ¬s∨d} */
+	public static final int VK_LOGIC_OP_OR_INVERTED = 13;
+
+	/** {@code ¬(s∧d)} */
+	public static final int VK_LOGIC_OP_NAND = 14;
+
+	/** {@code all 1s} */
+	public static final int VK_LOGIC_OP_SET = 15;
 
 	/** VkLogicOp */
 	public static final int
-		VK_LOGIC_OP_CLEAR         = 0,
-		VK_LOGIC_OP_AND           = 1,
-		VK_LOGIC_OP_AND_REVERSE   = 2,
-		VK_LOGIC_OP_COPY          = 3,
-		VK_LOGIC_OP_AND_INVERTED  = 4,
-		VK_LOGIC_OP_NO_OP         = 5,
-		VK_LOGIC_OP_XOR           = 6,
-		VK_LOGIC_OP_OR            = 7,
-		VK_LOGIC_OP_NOR           = 8,
-		VK_LOGIC_OP_EQUIVALENT    = 9,
-		VK_LOGIC_OP_INVERT        = 10,
-		VK_LOGIC_OP_OR_REVERSE    = 11,
-		VK_LOGIC_OP_COPY_INVERTED = 12,
-		VK_LOGIC_OP_OR_INVERTED   = 13,
-		VK_LOGIC_OP_NAND          = 14,
-		VK_LOGIC_OP_SET           = 15,
-		VK_LOGIC_OP_BEGIN_RANGE   = VK_LOGIC_OP_CLEAR,
-		VK_LOGIC_OP_END_RANGE     = VK_LOGIC_OP_SET,
-		VK_LOGIC_OP_RANGE_SIZE    = VK_LOGIC_OP_SET - VK_LOGIC_OP_CLEAR + 1,
-		VK_LOGIC_OP_MAX_ENUM      = 0x7FFFFFFF;
+		VK_LOGIC_OP_BEGIN_RANGE = VK_LOGIC_OP_CLEAR,
+		VK_LOGIC_OP_END_RANGE   = VK_LOGIC_OP_SET,
+		VK_LOGIC_OP_RANGE_SIZE  = VK_LOGIC_OP_SET - VK_LOGIC_OP_CLEAR + 1,
+		VK_LOGIC_OP_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** <code>(0, 0, 0, 0)</code> */
+	public static final int VK_BLEND_FACTOR_ZERO = 0;
+
+	/** <code>(1, 1, 1, 1)</code> */
+	public static final int VK_BLEND_FACTOR_ONE = 1;
+
+	/** <code>(R<sub>s0</sub>, G<sub>s0</sub>, B<sub>s0</sub>, A<sub>s0</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_SRC_COLOR = 2;
+
+	/** <code>(1 − R<sub>s0</sub>, 1 − G<sub>s0</sub>, 1 − B<sub>s0</sub>, 1 − A<sub>s0</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_ONE_MINUS_SRC_COLOR = 3;
+
+	/** <code>(R<sub>d</sub>, G<sub>d</sub>, B<sub>d</sub>, A<sub>d</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_DST_COLOR = 4;
+
+	/** <code>(1 − R<sub>d</sub>, 1 − G<sub>d</sub>, 1 − B<sub>d</sub>, 1 − A<sub>d</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_ONE_MINUS_DST_COLOR = 5;
+
+	/** <code>(A<sub>s0</sub>, A<sub>s0</sub>, A<sub>s0</sub>, A<sub>s0</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_SRC_ALPHA = 6;
+
+	/** <code>(1 − A<sub>s0</sub>, 1 − A<sub>s0</sub>, 1 − A<sub>s0</sub>, 1 − A<sub>s0</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA = 7;
+
+	/** <code>(A<sub>d</sub>, A<sub>d</sub>, A<sub>d</sub>, A<sub>d</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_DST_ALPHA = 8;
+
+	/** <code>(1 − A<sub>d</sub>, 1 − A<sub>d</sub>, 1 − A<sub>d</sub>, 1 − A<sub>d</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_ONE_MINUS_DST_ALPHA = 9;
+
+	/** <code>(R<sub>c</sub>, G<sub>c</sub>, B<sub>c</sub>, A<sub>c</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_CONSTANT_COLOR = 10;
+
+	/** <code>(1 − R<sub>c</sub>, 1 − G<sub>c</sub>, 1 − B<sub>c</sub>, 1 − A<sub>c</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR = 11;
+
+	/** <code>(A<sub>c</sub>, A<sub>c</sub>, A<sub>c</sub>, A<sub>c</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_CONSTANT_ALPHA = 12;
+
+	/** <code>(1 − A<sub>c</sub>, 1 − A<sub>c</sub>, 1 − A<sub>c</sub>, 1 − A<sub>c</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA = 13;
+
+	/** <code>(f, f, f, 1) ; f = min(A<sub>s0</sub>, 1 − A<sub>d</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_SRC_ALPHA_SATURATE = 14;
+
+	/** <code>(R<sub>s1</sub>, G<sub>s1</sub>, B<sub>s1</sub>, A<sub>s1</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_SRC1_COLOR = 15;
+
+	/** <code>(1 − R<sub>s1</sub>, 1 − G<sub>s1</sub>, 1 − B<sub>s1</sub>, 1 − A<sub>s1</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR = 16;
+
+	/** <code>(A<sub>s1</sub>, A<sub>s1</sub>, A<sub>s1</sub>, A<sub>s1</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_SRC1_ALPHA = 17;
+
+	/** <code>(1 − A<sub>s1</sub>, 1 − A<sub>s1</sub>, 1 − A<sub>s1</sub>, 1 − A<sub>s1</sub>)</code> */
+	public static final int VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA = 18;
 
 	/** VkBlendFactor */
 	public static final int
-		VK_BLEND_FACTOR_ZERO                     = 0,
-		VK_BLEND_FACTOR_ONE                      = 1,
-		VK_BLEND_FACTOR_SRC_COLOR                = 2,
-		VK_BLEND_FACTOR_ONE_MINUS_SRC_COLOR      = 3,
-		VK_BLEND_FACTOR_DST_COLOR                = 4,
-		VK_BLEND_FACTOR_ONE_MINUS_DST_COLOR      = 5,
-		VK_BLEND_FACTOR_SRC_ALPHA                = 6,
-		VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA      = 7,
-		VK_BLEND_FACTOR_DST_ALPHA                = 8,
-		VK_BLEND_FACTOR_ONE_MINUS_DST_ALPHA      = 9,
-		VK_BLEND_FACTOR_CONSTANT_COLOR           = 10,
-		VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR = 11,
-		VK_BLEND_FACTOR_CONSTANT_ALPHA           = 12,
-		VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA = 13,
-		VK_BLEND_FACTOR_SRC_ALPHA_SATURATE       = 14,
-		VK_BLEND_FACTOR_SRC1_COLOR               = 15,
-		VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR     = 16,
-		VK_BLEND_FACTOR_SRC1_ALPHA               = 17,
-		VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA     = 18,
-		VK_BLEND_FACTOR_BEGIN_RANGE              = VK_BLEND_FACTOR_ZERO,
-		VK_BLEND_FACTOR_END_RANGE                = VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA,
-		VK_BLEND_FACTOR_RANGE_SIZE               = VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA - VK_BLEND_FACTOR_ZERO + 1,
-		VK_BLEND_FACTOR_MAX_ENUM                 = 0x7FFFFFFF;
+		VK_BLEND_FACTOR_BEGIN_RANGE = VK_BLEND_FACTOR_ZERO,
+		VK_BLEND_FACTOR_END_RANGE   = VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA,
+		VK_BLEND_FACTOR_RANGE_SIZE  = VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA - VK_BLEND_FACTOR_ZERO + 1,
+		VK_BLEND_FACTOR_MAX_ENUM    = 0x7FFFFFFF;
+
+	/**
+	 * <pre><code>R = R<sub>s0</sub> × S<sub>r</sub> + R<sub>d</sub> × D<sub>r</sub>
+G = G<sub>s0</sub> × S<sub>g</sub> + G<sub>d</sub> × D<sub>g</sub>
+B = B<sub>s0</sub> × S<sub>b</sub> + B<sub>d</sub> × D<sub>b</sub>
+A = A<sub>s0</sub> × S<sub>a</sub> + A<sub>d</sub> × D<sub>a</sub></code></pre>
+	 */
+	public static final int VK_BLEND_OP_ADD = 0;
+
+	/**
+	 * <pre><code>R = R<sub>s0</sub> × S<sub>r</sub> − R<sub>d</sub> × D<sub>r</sub>
+G = G<sub>s0</sub> × S<sub>g</sub> − G<sub>d</sub> × D<sub>g</sub>
+B = B<sub>s0</sub> × S<sub>b</sub> − B<sub>d</sub> × D<sub>b</sub>
+A = A<sub>s0</sub> × S<sub>a</sub> − A<sub>d</sub> × D<sub>a</sub></code></pre>
+	 */
+	public static final int VK_BLEND_OP_SUBTRACT = 1;
+
+	/**
+	 * <pre><code>R = R<sub>d</sub> × D<sub>r</sub> − R<sub>s0</sub> × S<sub>r</sub>
+G = G<sub>d</sub> × D<sub>g</sub> − G<sub>s0</sub> × S<sub>g</sub>
+B = B<sub>d</sub> × D<sub>b</sub> − B<sub>s0</sub> × S<sub>b</sub>
+A = A<sub>d</sub> × D<sub>a</sub> − A<sub>s0</sub> × S<sub>a</sub></code></pre>
+	 */
+	public static final int VK_BLEND_OP_REVERSE_SUBTRACT = 2;
+
+	/**
+	 * <pre><code>R = min(R<sub>s0</sub>, R<sub>d</sub>)
+G = min(G<sub>s0</sub>, G<sub>d</sub>)
+B = min(B<sub>s0</sub>, B<sub>d</sub>)
+A = min(A<sub>s0</sub>, A<sub>d</sub>)</code></pre>
+	 */
+	public static final int VK_BLEND_OP_MIN = 3;
+
+	/**
+	 * <pre><code>R = max(R<sub>s0</sub>, R<sub>d</sub>)
+G = max(G<sub>s0</sub>, G<sub>d</sub>)
+B = max(B<sub>s0</sub>, B<sub>d</sub>)
+A = max(A<sub>s0</sub>, A<sub>d</sub>)</code></pre>
+	 */
+	public static final int VK_BLEND_OP_MAX = 4;
 
 	/** VkBlendOp */
 	public static final int
-		VK_BLEND_OP_ADD              = 0,
-		VK_BLEND_OP_SUBTRACT         = 1,
-		VK_BLEND_OP_REVERSE_SUBTRACT = 2,
-		VK_BLEND_OP_MIN              = 3,
-		VK_BLEND_OP_MAX              = 4,
-		VK_BLEND_OP_BEGIN_RANGE      = VK_BLEND_OP_ADD,
-		VK_BLEND_OP_END_RANGE        = VK_BLEND_OP_MAX,
-		VK_BLEND_OP_RANGE_SIZE       = VK_BLEND_OP_MAX - VK_BLEND_OP_ADD + 1,
-		VK_BLEND_OP_MAX_ENUM         = 0x7FFFFFFF;
+		VK_BLEND_OP_BEGIN_RANGE = VK_BLEND_OP_ADD,
+		VK_BLEND_OP_END_RANGE   = VK_BLEND_OP_MAX,
+		VK_BLEND_OP_RANGE_SIZE  = VK_BLEND_OP_MAX - VK_BLEND_OP_ADD + 1,
+		VK_BLEND_OP_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** VkDynamicState */
 	public static final int
@@ -979,7 +1716,6 @@ public class VK10 {
 		VK_STENCIL_FRONT_AND_BACK = 0x3;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateInstance,
 		DestroyInstance,
@@ -1118,12 +1854,10 @@ public class VK10 {
 		CmdEndRenderPass,
 		CmdExecuteCommands;
 
-	@JavadocExclude
 	protected VK10() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public VK10(FunctionProvider provider) {
 		CreateInstance = provider.getFunctionAddress("vkCreateInstance");
 		DestroyInstance = provider.getFunctionAddress("vkDestroyInstance");
@@ -1321,7 +2055,6 @@ public class VK10 {
 	// --- [ vkCreateInstance ] ---
 
 	/** Unsafe version of {@link #vkCreateInstance CreateInstance} */
-	@JavadocExclude
 	public static int nvkCreateInstance(long pCreateInfo, long pAllocator, long pInstance) {
 		long __functionAddress = getInstance(VK.getGlobalCommands()).CreateInstance;
 		if ( CHECKS ) {
@@ -1369,7 +2102,6 @@ public class VK10 {
 	// --- [ vkDestroyInstance ] ---
 
 	/** Unsafe version of {@link #vkDestroyInstance DestroyInstance} */
-	@JavadocExclude
 	public static void nvkDestroyInstance(VkInstance instance, long pAllocator) {
 		long __functionAddress = getInstance(instance).DestroyInstance;
 		if ( CHECKS ) {
@@ -1408,7 +2140,6 @@ public class VK10 {
 	// --- [ vkEnumeratePhysicalDevices ] ---
 
 	/** Unsafe version of {@link #vkEnumeratePhysicalDevices EnumeratePhysicalDevices} */
-	@JavadocExclude
 	public static int nvkEnumeratePhysicalDevices(VkInstance instance, long pPhysicalDeviceCount, long pPhysicalDevices) {
 		long __functionAddress = getInstance(instance).EnumeratePhysicalDevices;
 		if ( CHECKS )
@@ -1443,7 +2174,6 @@ public class VK10 {
 	// --- [ vkGetPhysicalDeviceFeatures ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceFeatures GetPhysicalDeviceFeatures} */
-	@JavadocExclude
 	public static void nvkGetPhysicalDeviceFeatures(VkPhysicalDevice physicalDevice, long pFeatures) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceFeatures;
 		if ( CHECKS )
@@ -1464,7 +2194,6 @@ public class VK10 {
 	// --- [ vkGetPhysicalDeviceFormatProperties ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties} */
-	@JavadocExclude
 	public static void nvkGetPhysicalDeviceFormatProperties(VkPhysicalDevice physicalDevice, int format, long pFormatProperties) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceFormatProperties;
 		if ( CHECKS )
@@ -1486,7 +2215,6 @@ public class VK10 {
 	// --- [ vkGetPhysicalDeviceImageFormatProperties ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} */
-	@JavadocExclude
 	public static int nvkGetPhysicalDeviceImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int tiling, int usage, int flags, long pImageFormatProperties) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceImageFormatProperties;
 		if ( CHECKS )
@@ -1512,7 +2240,6 @@ public class VK10 {
 	// --- [ vkGetPhysicalDeviceProperties ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties} */
-	@JavadocExclude
 	public static void nvkGetPhysicalDeviceProperties(VkPhysicalDevice physicalDevice, long pProperties) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceProperties;
 		if ( CHECKS )
@@ -1533,7 +2260,6 @@ public class VK10 {
 	// --- [ vkGetPhysicalDeviceQueueFamilyProperties ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} */
-	@JavadocExclude
 	public static void nvkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, long pQueueFamilyPropertyCount, long pQueueFamilyProperties) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceQueueFamilyProperties;
 		if ( CHECKS )
@@ -1568,7 +2294,6 @@ public class VK10 {
 	// --- [ vkGetPhysicalDeviceMemoryProperties ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceMemoryProperties GetPhysicalDeviceMemoryProperties} */
-	@JavadocExclude
 	public static void nvkGetPhysicalDeviceMemoryProperties(VkPhysicalDevice physicalDevice, long pMemoryProperties) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceMemoryProperties;
 		if ( CHECKS )
@@ -1589,7 +2314,6 @@ public class VK10 {
 	// --- [ vkGetInstanceProcAddr ] ---
 
 	/** Unsafe version of {@link #vkGetInstanceProcAddr GetInstanceProcAddr} */
-	@JavadocExclude
 	public static long nvkGetInstanceProcAddr(VkInstance instance, long pName) {
 		long __functionAddress = getInstance(instance).GetInstanceProcAddr;
 		if ( CHECKS )
@@ -1619,7 +2343,6 @@ public class VK10 {
 	// --- [ vkGetDeviceProcAddr ] ---
 
 	/** Unsafe version of {@link #vkGetDeviceProcAddr GetDeviceProcAddr} */
-	@JavadocExclude
 	public static long nvkGetDeviceProcAddr(VkDevice device, long pName) {
 		long __functionAddress = getInstance(device).GetDeviceProcAddr;
 		if ( CHECKS )
@@ -1649,7 +2372,6 @@ public class VK10 {
 	// --- [ vkCreateDevice ] ---
 
 	/** Unsafe version of {@link #vkCreateDevice CreateDevice} */
-	@JavadocExclude
 	public static int nvkCreateDevice(VkPhysicalDevice physicalDevice, long pCreateInfo, long pAllocator, long pDevice) {
 		long __functionAddress = getInstance(physicalDevice).CreateDevice;
 		if ( CHECKS ) {
@@ -1684,7 +2406,6 @@ public class VK10 {
 	// --- [ vkDestroyDevice ] ---
 
 	/** Unsafe version of {@link #vkDestroyDevice DestroyDevice} */
-	@JavadocExclude
 	public static void nvkDestroyDevice(VkDevice device, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyDevice;
 		if ( CHECKS ) {
@@ -1707,7 +2428,6 @@ public class VK10 {
 	// --- [ vkEnumerateInstanceExtensionProperties ] ---
 
 	/** Unsafe version of {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties} */
-	@JavadocExclude
 	public static int nvkEnumerateInstanceExtensionProperties(long pLayerName, long pPropertyCount, long pProperties) {
 		long __functionAddress = getInstance(VK.getGlobalCommands()).EnumerateInstanceExtensionProperties;
 		if ( CHECKS )
@@ -1755,7 +2475,6 @@ public class VK10 {
 	// --- [ vkEnumerateDeviceExtensionProperties ] ---
 
 	/** Unsafe version of {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties} */
-	@JavadocExclude
 	public static int nvkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, long pLayerName, long pPropertyCount, long pProperties) {
 		long __functionAddress = getInstance(physicalDevice).EnumerateDeviceExtensionProperties;
 		if ( CHECKS )
@@ -1804,7 +2523,6 @@ public class VK10 {
 	// --- [ vkEnumerateInstanceLayerProperties ] ---
 
 	/** Unsafe version of {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} */
-	@JavadocExclude
 	public static int nvkEnumerateInstanceLayerProperties(long pPropertyCount, long pProperties) {
 		long __functionAddress = getInstance(VK.getGlobalCommands()).EnumerateInstanceLayerProperties;
 		if ( CHECKS )
@@ -1838,7 +2556,6 @@ public class VK10 {
 	// --- [ vkEnumerateDeviceLayerProperties ] ---
 
 	/** Unsafe version of {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties} */
-	@JavadocExclude
 	public static int nvkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, long pPropertyCount, long pProperties) {
 		long __functionAddress = getInstance(physicalDevice).EnumerateDeviceLayerProperties;
 		if ( CHECKS )
@@ -1873,7 +2590,6 @@ public class VK10 {
 	// --- [ vkGetDeviceQueue ] ---
 
 	/** Unsafe version of {@link #vkGetDeviceQueue GetDeviceQueue} */
-	@JavadocExclude
 	public static void nvkGetDeviceQueue(VkDevice device, int queueFamilyIndex, int queueIndex, long pQueue) {
 		long __functionAddress = getInstance(device).GetDeviceQueue;
 		if ( CHECKS )
@@ -1905,7 +2621,6 @@ public class VK10 {
 	// --- [ vkQueueSubmit ] ---
 
 	/** Unsafe version of {@link #vkQueueSubmit QueueSubmit} */
-	@JavadocExclude
 	public static int nvkQueueSubmit(VkQueue queue, int submitCount, long pSubmits, long fence) {
 		long __functionAddress = getInstance(queue).QueueSubmit;
 		if ( CHECKS ) {
@@ -1970,7 +2685,6 @@ public class VK10 {
 	// --- [ vkAllocateMemory ] ---
 
 	/** Unsafe version of {@link #vkAllocateMemory AllocateMemory} */
-	@JavadocExclude
 	public static int nvkAllocateMemory(VkDevice device, long pAllocateInfo, long pAllocator, long pMemory) {
 		long __functionAddress = getInstance(device).AllocateMemory;
 		if ( CHECKS ) {
@@ -2004,7 +2718,6 @@ public class VK10 {
 	// --- [ vkFreeMemory ] ---
 
 	/** Unsafe version of {@link #vkFreeMemory FreeMemory} */
-	@JavadocExclude
 	public static void nvkFreeMemory(VkDevice device, long memory, long pAllocator) {
 		long __functionAddress = getInstance(device).FreeMemory;
 		if ( CHECKS ) {
@@ -2028,7 +2741,6 @@ public class VK10 {
 	// --- [ vkMapMemory ] ---
 
 	/** Unsafe version of {@link #vkMapMemory MapMemory} */
-	@JavadocExclude
 	public static int nvkMapMemory(VkDevice device, long memory, long offset, long size, int flags, long ppData) {
 		long __functionAddress = getInstance(device).MapMemory;
 		if ( CHECKS )
@@ -2077,7 +2789,6 @@ public class VK10 {
 	// --- [ vkFlushMappedMemoryRanges ] ---
 
 	/** Unsafe version of {@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} */
-	@JavadocExclude
 	public static int nvkFlushMappedMemoryRanges(VkDevice device, int memoryRangeCount, long pMemoryRanges) {
 		long __functionAddress = getInstance(device).FlushMappedMemoryRanges;
 		if ( CHECKS )
@@ -2111,7 +2822,6 @@ public class VK10 {
 	// --- [ vkInvalidateMappedMemoryRanges ] ---
 
 	/** Unsafe version of {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} */
-	@JavadocExclude
 	public static int nvkInvalidateMappedMemoryRanges(VkDevice device, int memoryRangeCount, long pMemoryRanges) {
 		long __functionAddress = getInstance(device).InvalidateMappedMemoryRanges;
 		if ( CHECKS )
@@ -2145,7 +2855,6 @@ public class VK10 {
 	// --- [ vkGetDeviceMemoryCommitment ] ---
 
 	/** Unsafe version of {@link #vkGetDeviceMemoryCommitment GetDeviceMemoryCommitment} */
-	@JavadocExclude
 	public static void nvkGetDeviceMemoryCommitment(VkDevice device, long memory, long pCommittedMemoryInBytes) {
 		long __functionAddress = getInstance(device).GetDeviceMemoryCommitment;
 		if ( CHECKS )
@@ -2210,7 +2919,6 @@ public class VK10 {
 	// --- [ vkGetBufferMemoryRequirements ] ---
 
 	/** Unsafe version of {@link #vkGetBufferMemoryRequirements GetBufferMemoryRequirements} */
-	@JavadocExclude
 	public static void nvkGetBufferMemoryRequirements(VkDevice device, long buffer, long pMemoryRequirements) {
 		long __functionAddress = getInstance(device).GetBufferMemoryRequirements;
 		if ( CHECKS )
@@ -2232,7 +2940,6 @@ public class VK10 {
 	// --- [ vkGetImageMemoryRequirements ] ---
 
 	/** Unsafe version of {@link #vkGetImageMemoryRequirements GetImageMemoryRequirements} */
-	@JavadocExclude
 	public static void nvkGetImageMemoryRequirements(VkDevice device, long image, long pMemoryRequirements) {
 		long __functionAddress = getInstance(device).GetImageMemoryRequirements;
 		if ( CHECKS )
@@ -2254,7 +2961,6 @@ public class VK10 {
 	// --- [ vkGetImageSparseMemoryRequirements ] ---
 
 	/** Unsafe version of {@link #vkGetImageSparseMemoryRequirements GetImageSparseMemoryRequirements} */
-	@JavadocExclude
 	public static void nvkGetImageSparseMemoryRequirements(VkDevice device, long image, long pSparseMemoryRequirementCount, long pSparseMemoryRequirements) {
 		long __functionAddress = getInstance(device).GetImageSparseMemoryRequirements;
 		if ( CHECKS )
@@ -2290,7 +2996,6 @@ public class VK10 {
 	// --- [ vkGetPhysicalDeviceSparseImageFormatProperties ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties} */
-	@JavadocExclude
 	public static void nvkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, long pPropertyCount, long pProperties) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSparseImageFormatProperties;
 		if ( CHECKS )
@@ -2330,7 +3035,6 @@ public class VK10 {
 	// --- [ vkQueueBindSparse ] ---
 
 	/** Unsafe version of {@link #vkQueueBindSparse QueueBindSparse} */
-	@JavadocExclude
 	public static int nvkQueueBindSparse(VkQueue queue, int bindInfoCount, long pBindInfo, long fence) {
 		long __functionAddress = getInstance(queue).QueueBindSparse;
 		if ( CHECKS ) {
@@ -2367,7 +3071,6 @@ public class VK10 {
 	// --- [ vkCreateFence ] ---
 
 	/** Unsafe version of {@link #vkCreateFence CreateFence} */
-	@JavadocExclude
 	public static int nvkCreateFence(VkDevice device, long pCreateInfo, long pAllocator, long pFence) {
 		long __functionAddress = getInstance(device).CreateFence;
 		if ( CHECKS ) {
@@ -2401,7 +3104,6 @@ public class VK10 {
 	// --- [ vkDestroyFence ] ---
 
 	/** Unsafe version of {@link #vkDestroyFence DestroyFence} */
-	@JavadocExclude
 	public static void nvkDestroyFence(VkDevice device, long fence, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyFence;
 		if ( CHECKS ) {
@@ -2425,7 +3127,6 @@ public class VK10 {
 	// --- [ vkResetFences ] ---
 
 	/** Unsafe version of {@link #vkResetFences ResetFences} */
-	@JavadocExclude
 	public static int nvkResetFences(VkDevice device, int fenceCount, long pFences) {
 		long __functionAddress = getInstance(device).ResetFences;
 		if ( CHECKS )
@@ -2476,7 +3177,6 @@ public class VK10 {
 	// --- [ vkWaitForFences ] ---
 
 	/** Unsafe version of {@link #vkWaitForFences WaitForFences} */
-	@JavadocExclude
 	public static int nvkWaitForFences(VkDevice device, int fenceCount, long pFences, int waitAll, long timeout) {
 		long __functionAddress = getInstance(device).WaitForFences;
 		if ( CHECKS )
@@ -2514,7 +3214,6 @@ public class VK10 {
 	// --- [ vkCreateSemaphore ] ---
 
 	/** Unsafe version of {@link #vkCreateSemaphore CreateSemaphore} */
-	@JavadocExclude
 	public static int nvkCreateSemaphore(VkDevice device, long pCreateInfo, long pAllocator, long pSemaphore) {
 		long __functionAddress = getInstance(device).CreateSemaphore;
 		if ( CHECKS ) {
@@ -2548,7 +3247,6 @@ public class VK10 {
 	// --- [ vkDestroySemaphore ] ---
 
 	/** Unsafe version of {@link #vkDestroySemaphore DestroySemaphore} */
-	@JavadocExclude
 	public static void nvkDestroySemaphore(VkDevice device, long semaphore, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroySemaphore;
 		if ( CHECKS ) {
@@ -2572,7 +3270,6 @@ public class VK10 {
 	// --- [ vkCreateEvent ] ---
 
 	/** Unsafe version of {@link #vkCreateEvent CreateEvent} */
-	@JavadocExclude
 	public static int nvkCreateEvent(VkDevice device, long pCreateInfo, long pAllocator, long pEvent) {
 		long __functionAddress = getInstance(device).CreateEvent;
 		if ( CHECKS ) {
@@ -2606,7 +3303,6 @@ public class VK10 {
 	// --- [ vkDestroyEvent ] ---
 
 	/** Unsafe version of {@link #vkDestroyEvent DestroyEvent} */
-	@JavadocExclude
 	public static void nvkDestroyEvent(VkDevice device, long event, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyEvent;
 		if ( CHECKS ) {
@@ -2675,7 +3371,6 @@ public class VK10 {
 	// --- [ vkCreateQueryPool ] ---
 
 	/** Unsafe version of {@link #vkCreateQueryPool CreateQueryPool} */
-	@JavadocExclude
 	public static int nvkCreateQueryPool(VkDevice device, long pCreateInfo, long pAllocator, long pQueryPool) {
 		long __functionAddress = getInstance(device).CreateQueryPool;
 		if ( CHECKS ) {
@@ -2709,7 +3404,6 @@ public class VK10 {
 	// --- [ vkDestroyQueryPool ] ---
 
 	/** Unsafe version of {@link #vkDestroyQueryPool DestroyQueryPool} */
-	@JavadocExclude
 	public static void nvkDestroyQueryPool(VkDevice device, long queryPool, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyQueryPool;
 		if ( CHECKS ) {
@@ -2733,7 +3427,6 @@ public class VK10 {
 	// --- [ vkGetQueryPoolResults ] ---
 
 	/** Unsafe version of {@link #vkGetQueryPoolResults GetQueryPoolResults} */
-	@JavadocExclude
 	public static int nvkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, long dataSize, long pData, long stride, int flags) {
 		long __functionAddress = getInstance(device).GetQueryPoolResults;
 		if ( CHECKS )
@@ -2767,7 +3460,6 @@ public class VK10 {
 	// --- [ vkCreateBuffer ] ---
 
 	/** Unsafe version of {@link #vkCreateBuffer CreateBuffer} */
-	@JavadocExclude
 	public static int nvkCreateBuffer(VkDevice device, long pCreateInfo, long pAllocator, long pBuffer) {
 		long __functionAddress = getInstance(device).CreateBuffer;
 		if ( CHECKS ) {
@@ -2802,7 +3494,6 @@ public class VK10 {
 	// --- [ vkDestroyBuffer ] ---
 
 	/** Unsafe version of {@link #vkDestroyBuffer DestroyBuffer} */
-	@JavadocExclude
 	public static void nvkDestroyBuffer(VkDevice device, long buffer, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyBuffer;
 		if ( CHECKS ) {
@@ -2826,7 +3517,6 @@ public class VK10 {
 	// --- [ vkCreateBufferView ] ---
 
 	/** Unsafe version of {@link #vkCreateBufferView CreateBufferView} */
-	@JavadocExclude
 	public static int nvkCreateBufferView(VkDevice device, long pCreateInfo, long pAllocator, long pView) {
 		long __functionAddress = getInstance(device).CreateBufferView;
 		if ( CHECKS ) {
@@ -2860,7 +3550,6 @@ public class VK10 {
 	// --- [ vkDestroyBufferView ] ---
 
 	/** Unsafe version of {@link #vkDestroyBufferView DestroyBufferView} */
-	@JavadocExclude
 	public static void nvkDestroyBufferView(VkDevice device, long bufferView, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyBufferView;
 		if ( CHECKS ) {
@@ -2884,7 +3573,6 @@ public class VK10 {
 	// --- [ vkCreateImage ] ---
 
 	/** Unsafe version of {@link #vkCreateImage CreateImage} */
-	@JavadocExclude
 	public static int nvkCreateImage(VkDevice device, long pCreateInfo, long pAllocator, long pImage) {
 		long __functionAddress = getInstance(device).CreateImage;
 		if ( CHECKS ) {
@@ -2919,7 +3607,6 @@ public class VK10 {
 	// --- [ vkDestroyImage ] ---
 
 	/** Unsafe version of {@link #vkDestroyImage DestroyImage} */
-	@JavadocExclude
 	public static void nvkDestroyImage(VkDevice device, long image, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyImage;
 		if ( CHECKS ) {
@@ -2943,7 +3630,6 @@ public class VK10 {
 	// --- [ vkGetImageSubresourceLayout ] ---
 
 	/** Unsafe version of {@link #vkGetImageSubresourceLayout GetImageSubresourceLayout} */
-	@JavadocExclude
 	public static void nvkGetImageSubresourceLayout(VkDevice device, long image, long pSubresource, long pLayout) {
 		long __functionAddress = getInstance(device).GetImageSubresourceLayout;
 		if ( CHECKS )
@@ -2966,7 +3652,6 @@ public class VK10 {
 	// --- [ vkCreateImageView ] ---
 
 	/** Unsafe version of {@link #vkCreateImageView CreateImageView} */
-	@JavadocExclude
 	public static int nvkCreateImageView(VkDevice device, long pCreateInfo, long pAllocator, long pView) {
 		long __functionAddress = getInstance(device).CreateImageView;
 		if ( CHECKS ) {
@@ -3000,7 +3685,6 @@ public class VK10 {
 	// --- [ vkDestroyImageView ] ---
 
 	/** Unsafe version of {@link #vkDestroyImageView DestroyImageView} */
-	@JavadocExclude
 	public static void nvkDestroyImageView(VkDevice device, long imageView, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyImageView;
 		if ( CHECKS ) {
@@ -3024,7 +3708,6 @@ public class VK10 {
 	// --- [ vkCreateShaderModule ] ---
 
 	/** Unsafe version of {@link #vkCreateShaderModule CreateShaderModule} */
-	@JavadocExclude
 	public static int nvkCreateShaderModule(VkDevice device, long pCreateInfo, long pAllocator, long pShaderModule) {
 		long __functionAddress = getInstance(device).CreateShaderModule;
 		if ( CHECKS ) {
@@ -3059,7 +3742,6 @@ public class VK10 {
 	// --- [ vkDestroyShaderModule ] ---
 
 	/** Unsafe version of {@link #vkDestroyShaderModule DestroyShaderModule} */
-	@JavadocExclude
 	public static void nvkDestroyShaderModule(VkDevice device, long shaderModule, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyShaderModule;
 		if ( CHECKS ) {
@@ -3083,7 +3765,6 @@ public class VK10 {
 	// --- [ vkCreatePipelineCache ] ---
 
 	/** Unsafe version of {@link #vkCreatePipelineCache CreatePipelineCache} */
-	@JavadocExclude
 	public static int nvkCreatePipelineCache(VkDevice device, long pCreateInfo, long pAllocator, long pPipelineCache) {
 		long __functionAddress = getInstance(device).CreatePipelineCache;
 		if ( CHECKS ) {
@@ -3118,7 +3799,6 @@ public class VK10 {
 	// --- [ vkDestroyPipelineCache ] ---
 
 	/** Unsafe version of {@link #vkDestroyPipelineCache DestroyPipelineCache} */
-	@JavadocExclude
 	public static void nvkDestroyPipelineCache(VkDevice device, long pipelineCache, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyPipelineCache;
 		if ( CHECKS ) {
@@ -3142,7 +3822,6 @@ public class VK10 {
 	// --- [ vkGetPipelineCacheData ] ---
 
 	/** Unsafe version of {@link #vkGetPipelineCacheData GetPipelineCacheData} */
-	@JavadocExclude
 	public static int nvkGetPipelineCacheData(VkDevice device, long pipelineCache, long pDataSize, long pData) {
 		long __functionAddress = getInstance(device).GetPipelineCacheData;
 		if ( CHECKS )
@@ -3178,7 +3857,6 @@ public class VK10 {
 	// --- [ vkMergePipelineCaches ] ---
 
 	/** Unsafe version of {@link #vkMergePipelineCaches MergePipelineCaches} */
-	@JavadocExclude
 	public static int nvkMergePipelineCaches(VkDevice device, long dstCache, int srcCacheCount, long pSrcCaches) {
 		long __functionAddress = getInstance(device).MergePipelineCaches;
 		if ( CHECKS )
@@ -3208,7 +3886,6 @@ public class VK10 {
 	// --- [ vkCreateGraphicsPipelines ] ---
 
 	/** Unsafe version of {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines} */
-	@JavadocExclude
 	public static int nvkCreateGraphicsPipelines(VkDevice device, long pipelineCache, int createInfoCount, long pCreateInfos, long pAllocator, long pPipelines) {
 		long __functionAddress = getInstance(device).CreateGraphicsPipelines;
 		if ( CHECKS ) {
@@ -3247,7 +3924,6 @@ public class VK10 {
 	// --- [ vkCreateComputePipelines ] ---
 
 	/** Unsafe version of {@link #vkCreateComputePipelines CreateComputePipelines} */
-	@JavadocExclude
 	public static int nvkCreateComputePipelines(VkDevice device, long pipelineCache, int createInfoCount, long pCreateInfos, long pAllocator, long pPipelines) {
 		long __functionAddress = getInstance(device).CreateComputePipelines;
 		if ( CHECKS ) {
@@ -3283,7 +3959,6 @@ public class VK10 {
 	// --- [ vkDestroyPipeline ] ---
 
 	/** Unsafe version of {@link #vkDestroyPipeline DestroyPipeline} */
-	@JavadocExclude
 	public static void nvkDestroyPipeline(VkDevice device, long pipeline, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyPipeline;
 		if ( CHECKS ) {
@@ -3307,7 +3982,6 @@ public class VK10 {
 	// --- [ vkCreatePipelineLayout ] ---
 
 	/** Unsafe version of {@link #vkCreatePipelineLayout CreatePipelineLayout} */
-	@JavadocExclude
 	public static int nvkCreatePipelineLayout(VkDevice device, long pCreateInfo, long pAllocator, long pPipelineLayout) {
 		long __functionAddress = getInstance(device).CreatePipelineLayout;
 		if ( CHECKS ) {
@@ -3342,7 +4016,6 @@ public class VK10 {
 	// --- [ vkDestroyPipelineLayout ] ---
 
 	/** Unsafe version of {@link #vkDestroyPipelineLayout DestroyPipelineLayout} */
-	@JavadocExclude
 	public static void nvkDestroyPipelineLayout(VkDevice device, long pipelineLayout, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyPipelineLayout;
 		if ( CHECKS ) {
@@ -3366,7 +4039,6 @@ public class VK10 {
 	// --- [ vkCreateSampler ] ---
 
 	/** Unsafe version of {@link #vkCreateSampler CreateSampler} */
-	@JavadocExclude
 	public static int nvkCreateSampler(VkDevice device, long pCreateInfo, long pAllocator, long pSampler) {
 		long __functionAddress = getInstance(device).CreateSampler;
 		if ( CHECKS ) {
@@ -3400,7 +4072,6 @@ public class VK10 {
 	// --- [ vkDestroySampler ] ---
 
 	/** Unsafe version of {@link #vkDestroySampler DestroySampler} */
-	@JavadocExclude
 	public static void nvkDestroySampler(VkDevice device, long sampler, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroySampler;
 		if ( CHECKS ) {
@@ -3424,7 +4095,6 @@ public class VK10 {
 	// --- [ vkCreateDescriptorSetLayout ] ---
 
 	/** Unsafe version of {@link #vkCreateDescriptorSetLayout CreateDescriptorSetLayout} */
-	@JavadocExclude
 	public static int nvkCreateDescriptorSetLayout(VkDevice device, long pCreateInfo, long pAllocator, long pSetLayout) {
 		long __functionAddress = getInstance(device).CreateDescriptorSetLayout;
 		if ( CHECKS ) {
@@ -3459,7 +4129,6 @@ public class VK10 {
 	// --- [ vkDestroyDescriptorSetLayout ] ---
 
 	/** Unsafe version of {@link #vkDestroyDescriptorSetLayout DestroyDescriptorSetLayout} */
-	@JavadocExclude
 	public static void nvkDestroyDescriptorSetLayout(VkDevice device, long descriptorSetLayout, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyDescriptorSetLayout;
 		if ( CHECKS ) {
@@ -3483,7 +4152,6 @@ public class VK10 {
 	// --- [ vkCreateDescriptorPool ] ---
 
 	/** Unsafe version of {@link #vkCreateDescriptorPool CreateDescriptorPool} */
-	@JavadocExclude
 	public static int nvkCreateDescriptorPool(VkDevice device, long pCreateInfo, long pAllocator, long pDescriptorPool) {
 		long __functionAddress = getInstance(device).CreateDescriptorPool;
 		if ( CHECKS ) {
@@ -3518,7 +4186,6 @@ public class VK10 {
 	// --- [ vkDestroyDescriptorPool ] ---
 
 	/** Unsafe version of {@link #vkDestroyDescriptorPool DestroyDescriptorPool} */
-	@JavadocExclude
 	public static void nvkDestroyDescriptorPool(VkDevice device, long descriptorPool, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyDescriptorPool;
 		if ( CHECKS ) {
@@ -3558,7 +4225,6 @@ public class VK10 {
 	// --- [ vkAllocateDescriptorSets ] ---
 
 	/** Unsafe version of {@link #vkAllocateDescriptorSets AllocateDescriptorSets} */
-	@JavadocExclude
 	public static int nvkAllocateDescriptorSets(VkDevice device, long pAllocateInfo, long pDescriptorSets) {
 		long __functionAddress = getInstance(device).AllocateDescriptorSets;
 		if ( CHECKS ) {
@@ -3584,7 +4250,6 @@ public class VK10 {
 	// --- [ vkFreeDescriptorSets ] ---
 
 	/** Unsafe version of {@link #vkFreeDescriptorSets FreeDescriptorSets} */
-	@JavadocExclude
 	public static int nvkFreeDescriptorSets(VkDevice device, long descriptorPool, int descriptorSetCount, long pDescriptorSets) {
 		long __functionAddress = getInstance(device).FreeDescriptorSets;
 		if ( CHECKS )
@@ -3621,7 +4286,6 @@ public class VK10 {
 	// --- [ vkUpdateDescriptorSets ] ---
 
 	/** Unsafe version of {@link #vkUpdateDescriptorSets UpdateDescriptorSets} */
-	@JavadocExclude
 	public static void nvkUpdateDescriptorSets(VkDevice device, int descriptorWriteCount, long pDescriptorWrites, int descriptorCopyCount, long pDescriptorCopies) {
 		long __functionAddress = getInstance(device).UpdateDescriptorSets;
 		if ( CHECKS ) {
@@ -3656,7 +4320,6 @@ public class VK10 {
 	// --- [ vkCreateFramebuffer ] ---
 
 	/** Unsafe version of {@link #vkCreateFramebuffer CreateFramebuffer} */
-	@JavadocExclude
 	public static int nvkCreateFramebuffer(VkDevice device, long pCreateInfo, long pAllocator, long pFramebuffer) {
 		long __functionAddress = getInstance(device).CreateFramebuffer;
 		if ( CHECKS ) {
@@ -3691,7 +4354,6 @@ public class VK10 {
 	// --- [ vkDestroyFramebuffer ] ---
 
 	/** Unsafe version of {@link #vkDestroyFramebuffer DestroyFramebuffer} */
-	@JavadocExclude
 	public static void nvkDestroyFramebuffer(VkDevice device, long framebuffer, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyFramebuffer;
 		if ( CHECKS ) {
@@ -3715,7 +4377,6 @@ public class VK10 {
 	// --- [ vkCreateRenderPass ] ---
 
 	/** Unsafe version of {@link #vkCreateRenderPass CreateRenderPass} */
-	@JavadocExclude
 	public static int nvkCreateRenderPass(VkDevice device, long pCreateInfo, long pAllocator, long pRenderPass) {
 		long __functionAddress = getInstance(device).CreateRenderPass;
 		if ( CHECKS ) {
@@ -3750,7 +4411,6 @@ public class VK10 {
 	// --- [ vkDestroyRenderPass ] ---
 
 	/** Unsafe version of {@link #vkDestroyRenderPass DestroyRenderPass} */
-	@JavadocExclude
 	public static void nvkDestroyRenderPass(VkDevice device, long renderPass, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyRenderPass;
 		if ( CHECKS ) {
@@ -3774,7 +4434,6 @@ public class VK10 {
 	// --- [ vkGetRenderAreaGranularity ] ---
 
 	/** Unsafe version of {@link #vkGetRenderAreaGranularity GetRenderAreaGranularity} */
-	@JavadocExclude
 	public static void nvkGetRenderAreaGranularity(VkDevice device, long renderPass, long pGranularity) {
 		long __functionAddress = getInstance(device).GetRenderAreaGranularity;
 		if ( CHECKS )
@@ -3796,7 +4455,6 @@ public class VK10 {
 	// --- [ vkCreateCommandPool ] ---
 
 	/** Unsafe version of {@link #vkCreateCommandPool CreateCommandPool} */
-	@JavadocExclude
 	public static int nvkCreateCommandPool(VkDevice device, long pCreateInfo, long pAllocator, long pCommandPool) {
 		long __functionAddress = getInstance(device).CreateCommandPool;
 		if ( CHECKS ) {
@@ -3830,7 +4488,6 @@ public class VK10 {
 	// --- [ vkDestroyCommandPool ] ---
 
 	/** Unsafe version of {@link #vkDestroyCommandPool DestroyCommandPool} */
-	@JavadocExclude
 	public static void nvkDestroyCommandPool(VkDevice device, long commandPool, long pAllocator) {
 		long __functionAddress = getInstance(device).DestroyCommandPool;
 		if ( CHECKS ) {
@@ -3870,7 +4527,6 @@ public class VK10 {
 	// --- [ vkAllocateCommandBuffers ] ---
 
 	/** Unsafe version of {@link #vkAllocateCommandBuffers AllocateCommandBuffers} */
-	@JavadocExclude
 	public static int nvkAllocateCommandBuffers(VkDevice device, long pAllocateInfo, long pCommandBuffers) {
 		long __functionAddress = getInstance(device).AllocateCommandBuffers;
 		if ( CHECKS )
@@ -3894,7 +4550,6 @@ public class VK10 {
 	// --- [ vkFreeCommandBuffers ] ---
 
 	/** Unsafe version of {@link #vkFreeCommandBuffers FreeCommandBuffers} */
-	@JavadocExclude
 	public static void nvkFreeCommandBuffers(VkDevice device, long commandPool, int commandBufferCount, long pCommandBuffers) {
 		long __functionAddress = getInstance(device).FreeCommandBuffers;
 		if ( CHECKS )
@@ -3931,7 +4586,6 @@ public class VK10 {
 	// --- [ vkBeginCommandBuffer ] ---
 
 	/** Unsafe version of {@link #vkBeginCommandBuffer BeginCommandBuffer} */
-	@JavadocExclude
 	public static int nvkBeginCommandBuffer(VkCommandBuffer commandBuffer, long pBeginInfo) {
 		long __functionAddress = getInstance(commandBuffer).BeginCommandBuffer;
 		if ( CHECKS )
@@ -3997,7 +4651,6 @@ public class VK10 {
 	// --- [ vkCmdSetViewport ] ---
 
 	/** Unsafe version of {@link #vkCmdSetViewport CmdSetViewport} */
-	@JavadocExclude
 	public static void nvkCmdSetViewport(VkCommandBuffer commandBuffer, int firstViewport, int viewportCount, long pViewports) {
 		long __functionAddress = getInstance(commandBuffer).CmdSetViewport;
 		if ( CHECKS )
@@ -4027,7 +4680,6 @@ public class VK10 {
 	// --- [ vkCmdSetScissor ] ---
 
 	/** Unsafe version of {@link #vkCmdSetScissor CmdSetScissor} */
-	@JavadocExclude
 	public static void nvkCmdSetScissor(VkCommandBuffer commandBuffer, int firstScissor, int scissorCount, long pScissors) {
 		long __functionAddress = getInstance(commandBuffer).CmdSetScissor;
 		if ( CHECKS )
@@ -4153,7 +4805,6 @@ public class VK10 {
 	// --- [ vkCmdBindDescriptorSets ] ---
 
 	/** Unsafe version of {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets} */
-	@JavadocExclude
 	public static void nvkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, int descriptorSetCount, long pDescriptorSets, int dynamicOffsetCount, long pDynamicOffsets) {
 		long __functionAddress = getInstance(commandBuffer).CmdBindDescriptorSets;
 		if ( CHECKS )
@@ -4206,7 +4857,6 @@ public class VK10 {
 	// --- [ vkCmdBindVertexBuffers ] ---
 
 	/** Unsafe version of {@link #vkCmdBindVertexBuffers CmdBindVertexBuffers} */
-	@JavadocExclude
 	public static void nvkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, int firstBinding, int bindingCount, long pBuffers, long pOffsets) {
 		long __functionAddress = getInstance(commandBuffer).CmdBindVertexBuffers;
 		if ( CHECKS )
@@ -4347,7 +4997,6 @@ public class VK10 {
 	// --- [ vkCmdCopyBuffer ] ---
 
 	/** Unsafe version of {@link #vkCmdCopyBuffer CmdCopyBuffer} */
-	@JavadocExclude
 	public static void nvkCmdCopyBuffer(VkCommandBuffer commandBuffer, long srcBuffer, long dstBuffer, int regionCount, long pRegions) {
 		long __functionAddress = getInstance(commandBuffer).CmdCopyBuffer;
 		if ( CHECKS )
@@ -4378,7 +5027,6 @@ public class VK10 {
 	// --- [ vkCmdCopyImage ] ---
 
 	/** Unsafe version of {@link #vkCmdCopyImage CmdCopyImage} */
-	@JavadocExclude
 	public static void nvkCmdCopyImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = getInstance(commandBuffer).CmdCopyImage;
 		if ( CHECKS )
@@ -4411,7 +5059,6 @@ public class VK10 {
 	// --- [ vkCmdBlitImage ] ---
 
 	/** Unsafe version of {@link #vkCmdBlitImage CmdBlitImage} */
-	@JavadocExclude
 	public static void nvkCmdBlitImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions, int filter) {
 		long __functionAddress = getInstance(commandBuffer).CmdBlitImage;
 		if ( CHECKS )
@@ -4445,7 +5092,6 @@ public class VK10 {
 	// --- [ vkCmdCopyBufferToImage ] ---
 
 	/** Unsafe version of {@link #vkCmdCopyBufferToImage CmdCopyBufferToImage} */
-	@JavadocExclude
 	public static void nvkCmdCopyBufferToImage(VkCommandBuffer commandBuffer, long srcBuffer, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = getInstance(commandBuffer).CmdCopyBufferToImage;
 		if ( CHECKS )
@@ -4477,7 +5123,6 @@ public class VK10 {
 	// --- [ vkCmdCopyImageToBuffer ] ---
 
 	/** Unsafe version of {@link #vkCmdCopyImageToBuffer CmdCopyImageToBuffer} */
-	@JavadocExclude
 	public static void nvkCmdCopyImageToBuffer(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstBuffer, int regionCount, long pRegions) {
 		long __functionAddress = getInstance(commandBuffer).CmdCopyImageToBuffer;
 		if ( CHECKS )
@@ -4509,7 +5154,6 @@ public class VK10 {
 	// --- [ vkCmdUpdateBuffer ] ---
 
 	/** Unsafe version of {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
-	@JavadocExclude
 	public static void nvkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, long dataSize, long pData) {
 		long __functionAddress = getInstance(commandBuffer).CmdUpdateBuffer;
 		if ( CHECKS )
@@ -4558,7 +5202,6 @@ public class VK10 {
 	// --- [ vkCmdClearColorImage ] ---
 
 	/** Unsafe version of {@link #vkCmdClearColorImage CmdClearColorImage} */
-	@JavadocExclude
 	public static void nvkCmdClearColorImage(VkCommandBuffer commandBuffer, long image, int imageLayout, long pColor, int rangeCount, long pRanges) {
 		long __functionAddress = getInstance(commandBuffer).CmdClearColorImage;
 		if ( CHECKS )
@@ -4595,7 +5238,6 @@ public class VK10 {
 	// --- [ vkCmdClearDepthStencilImage ] ---
 
 	/** Unsafe version of {@link #vkCmdClearDepthStencilImage CmdClearDepthStencilImage} */
-	@JavadocExclude
 	public static void nvkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, long image, int imageLayout, long pDepthStencil, int rangeCount, long pRanges) {
 		long __functionAddress = getInstance(commandBuffer).CmdClearDepthStencilImage;
 		if ( CHECKS )
@@ -4632,7 +5274,6 @@ public class VK10 {
 	// --- [ vkCmdClearAttachments ] ---
 
 	/** Unsafe version of {@link #vkCmdClearAttachments CmdClearAttachments} */
-	@JavadocExclude
 	public static void nvkCmdClearAttachments(VkCommandBuffer commandBuffer, int attachmentCount, long pAttachments, int rectCount, long pRects) {
 		long __functionAddress = getInstance(commandBuffer).CmdClearAttachments;
 		if ( CHECKS )
@@ -4665,7 +5306,6 @@ public class VK10 {
 	// --- [ vkCmdResolveImage ] ---
 
 	/** Unsafe version of {@link #vkCmdResolveImage CmdResolveImage} */
-	@JavadocExclude
 	public static void nvkCmdResolveImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = getInstance(commandBuffer).CmdResolveImage;
 		if ( CHECKS )
@@ -4735,7 +5375,6 @@ public class VK10 {
 	// --- [ vkCmdWaitEvents ] ---
 
 	/** Unsafe version of {@link #vkCmdWaitEvents CmdWaitEvents} */
-	@JavadocExclude
 	public static void nvkCmdWaitEvents(VkCommandBuffer commandBuffer, int eventCount, long pEvents, int srcStageMask, int dstStageMask, int memoryBarrierCount, long pMemoryBarriers, int bufferMemoryBarrierCount, long pBufferMemoryBarriers, int imageMemoryBarrierCount, long pImageMemoryBarriers) {
 		long __functionAddress = getInstance(commandBuffer).CmdWaitEvents;
 		if ( CHECKS )
@@ -4776,7 +5415,6 @@ public class VK10 {
 	// --- [ vkCmdPipelineBarrier ] ---
 
 	/** Unsafe version of {@link #vkCmdPipelineBarrier CmdPipelineBarrier} */
-	@JavadocExclude
 	public static void nvkCmdPipelineBarrier(VkCommandBuffer commandBuffer, int srcStageMask, int dstStageMask, int dependencyFlags, int memoryBarrierCount, long pMemoryBarriers, int bufferMemoryBarrierCount, long pBufferMemoryBarriers, int imageMemoryBarrierCount, long pImageMemoryBarriers) {
 		long __functionAddress = getInstance(commandBuffer).CmdPipelineBarrier;
 		if ( CHECKS )
@@ -4903,7 +5541,6 @@ public class VK10 {
 	// --- [ vkCmdPushConstants ] ---
 
 	/** Unsafe version of {@link #vkCmdPushConstants CmdPushConstants} */
-	@JavadocExclude
 	public static void nvkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, int size, long pValues) {
 		long __functionAddress = getInstance(commandBuffer).CmdPushConstants;
 		if ( CHECKS )
@@ -4935,7 +5572,6 @@ public class VK10 {
 	// --- [ vkCmdBeginRenderPass ] ---
 
 	/** Unsafe version of {@link #vkCmdBeginRenderPass CmdBeginRenderPass} */
-	@JavadocExclude
 	public static void nvkCmdBeginRenderPass(VkCommandBuffer commandBuffer, long pRenderPassBegin, int contents) {
 		long __functionAddress = getInstance(commandBuffer).CmdBeginRenderPass;
 		if ( CHECKS ) {
@@ -4988,7 +5624,6 @@ public class VK10 {
 	// --- [ vkCmdExecuteCommands ] ---
 
 	/** Unsafe version of {@link #vkCmdExecuteCommands CmdExecuteCommands} */
-	@JavadocExclude
 	public static void nvkCmdExecuteCommands(VkCommandBuffer commandBuffer, int commandBufferCount, long pCommandBuffers) {
 		long __functionAddress = getInstance(commandBuffer).CmdExecuteCommands;
 		if ( CHECKS )

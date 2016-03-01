@@ -20,15 +20,12 @@ import static org.lwjgl.system.JNI.*;
 public class NVCopyImage {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CopyImageSubDataNV;
 
-	@JavadocExclude
 	protected NVCopyImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVCopyImage(FunctionProvider provider) {
 		CopyImageSubDataNV = provider.getFunctionAddress("glCopyImageSubDataNV");
 	}

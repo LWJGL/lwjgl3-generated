@@ -16,20 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkBufferViewCreateInfo {
- *     VkStructureType sType;
- *     const void * pNext;
- *     VkBufferViewCreateFlags flags;
- *     VkBuffer buffer;
- *     VkFormat format;
- *     VkDeviceSize offset;
- *     VkDeviceSize range;
- * }</code></pre>
+ * <pre><code>struct VkBufferViewCreateInfo {
+    VkStructureType sType;
+    const void * pNext;
+    VkBufferViewCreateFlags flags;
+    VkBuffer buffer;
+    VkFormat format;
+    VkDeviceSize offset;
+    VkDeviceSize range;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */
@@ -38,7 +37,6 @@ public class VkBufferViewCreateInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -161,12 +159,12 @@ public class VkBufferViewCreateInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkBufferViewCreateInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkBufferViewCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkBufferViewCreateInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkBufferViewCreateInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkBufferViewCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkBufferViewCreateInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -182,7 +180,7 @@ public class VkBufferViewCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkBufferViewCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkBufferViewCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -191,7 +189,7 @@ public class VkBufferViewCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkBufferViewCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkBufferViewCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

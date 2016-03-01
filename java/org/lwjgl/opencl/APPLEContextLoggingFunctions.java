@@ -25,18 +25,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class APPLEContextLoggingFunctions {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		LogMessagesToSystemLogAPPLE,
 		LogMessagesToStdoutAPPLE,
 		LogMessagesToStderrAPPLE;
 
-	@JavadocExclude
 	protected APPLEContextLoggingFunctions() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public APPLEContextLoggingFunctions(FunctionProvider provider) {
 		LogMessagesToSystemLogAPPLE = provider.getFunctionAddress("clLogMessagesToSystemLogAPPLE");
 		LogMessagesToStdoutAPPLE = provider.getFunctionAddress("clLogMessagesToStdoutAPPLE");
@@ -68,7 +65,6 @@ public class APPLEContextLoggingFunctions {
 	// --- [ clLogMessagesToSystemLogAPPLE ] ---
 
 	/** Unsafe version of {@link #clLogMessagesToSystemLogAPPLE LogMessagesToSystemLogAPPLE} */
-	@JavadocExclude
 	public static void nclLogMessagesToSystemLogAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToSystemLogAPPLE;
 		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
@@ -89,7 +85,6 @@ public class APPLEContextLoggingFunctions {
 	// --- [ clLogMessagesToStdoutAPPLE ] ---
 
 	/** Unsafe version of {@link #clLogMessagesToStdoutAPPLE LogMessagesToStdoutAPPLE} */
-	@JavadocExclude
 	public static void nclLogMessagesToStdoutAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToStdoutAPPLE;
 		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
@@ -110,7 +105,6 @@ public class APPLEContextLoggingFunctions {
 	// --- [ clLogMessagesToStderrAPPLE ] ---
 
 	/** Unsafe version of {@link #clLogMessagesToStderrAPPLE LogMessagesToStderrAPPLE} */
-	@JavadocExclude
 	public static void nclLogMessagesToStderrAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToStderrAPPLE;
 		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);

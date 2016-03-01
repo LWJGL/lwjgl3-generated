@@ -51,18 +51,15 @@ public class KHRLockSurface3 {
 		EGL_UPPER_LEFT_KHR                    = 0x30CF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		LockSurfaceKHR,
 		UnlockSurfaceKHR,
 		QuerySurface64KHR;
 
-	@JavadocExclude
 	protected KHRLockSurface3() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRLockSurface3(FunctionProvider provider) {
 		LockSurfaceKHR = provider.getFunctionAddress("eglLockSurfaceKHR");
 		UnlockSurfaceKHR = provider.getFunctionAddress("eglUnlockSurfaceKHR");
@@ -84,7 +81,6 @@ public class KHRLockSurface3 {
 	// --- [ eglLockSurfaceKHR ] ---
 
 	/** Unsafe version of {@link #eglLockSurfaceKHR LockSurfaceKHR} */
-	@JavadocExclude
 	public static int neglLockSurfaceKHR(long dpy, long surface, long attrib_list) {
 		long __functionAddress = getInstance().LockSurfaceKHR;
 		if ( CHECKS ) {
@@ -121,7 +117,6 @@ public class KHRLockSurface3 {
 	// --- [ eglQuerySurface64KHR ] ---
 
 	/** Unsafe version of {@link #eglQuerySurface64KHR QuerySurface64KHR} */
-	@JavadocExclude
 	public static int neglQuerySurface64KHR(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = getInstance().QuerySurface64KHR;
 		if ( CHECKS ) {

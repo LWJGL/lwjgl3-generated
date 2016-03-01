@@ -69,17 +69,14 @@ public class EXTTextureBuffer {
 		GL_TEXTURE_BUFFER_SIZE_EXT               = 0x919E;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexBufferEXT,
 		TexBufferRangeEXT;
 
-	@JavadocExclude
 	protected EXTTextureBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTTextureBuffer(FunctionProvider provider) {
 		TexBufferEXT = provider.getFunctionAddress("glTexBufferEXT");
 		TexBufferRangeEXT = provider.getFunctionAddress("glTexBufferRangeEXT");

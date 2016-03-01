@@ -161,7 +161,6 @@ public class GL31 {
 	public static final int GL_INVALID_INDEX = 0xFFFFFFFF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawArraysInstanced,
 		DrawElementsInstanced,
@@ -176,12 +175,10 @@ public class GL31 {
 		GetActiveUniformBlockName,
 		UniformBlockBinding;
 
-	@JavadocExclude
 	protected GL31() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL31(FunctionProvider provider) {
 		DrawArraysInstanced = provider.getFunctionAddress("glDrawArraysInstanced");
 		DrawElementsInstanced = provider.getFunctionAddress("glDrawElementsInstanced");
@@ -243,7 +240,6 @@ public class GL31 {
 	// --- [ glDrawElementsInstanced ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstanced DrawElementsInstanced} */
-	@JavadocExclude
 	public static void nglDrawElementsInstanced(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstanced;
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
@@ -357,7 +353,7 @@ public class GL31 {
 	 * <p>When a buffer object is attached to a buffer texture, the buffer object's data store is taken as the texture's texel array. The number of texels in the
 	 * buffer texture's texel array is given by</p>
 	 * 
-	 * <p><code style="font-family: monospace">floor(buffer_size / (components * sizeof(base_type))</code>,</p>
+	 * <p><code>floor(buffer_size / (components * sizeof(base_type))</code>,</p>
 	 * 
 	 * <p>where {@code buffer_size} is the size of the buffer object, in basic machine units and {@code components} and {@code base_type} are the element count
 	 * and base data type for elements. The number of texels in the texel array is then clamped to the implementation-dependent limit {@link #GL_MAX_TEXTURE_BUFFER_SIZE MAX_TEXTURE_BUFFER_SIZE}.
@@ -384,7 +380,6 @@ public class GL31 {
 	// --- [ glGetUniformIndices ] ---
 
 	/** Unsafe version of {@link #glGetUniformIndices GetUniformIndices} */
-	@JavadocExclude
 	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
 		long __functionAddress = getInstance().GetUniformIndices;
 		callIIPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
@@ -444,7 +439,6 @@ public class GL31 {
 	// --- [ glGetActiveUniformsiv ] ---
 
 	/** Unsafe version of {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
-	@JavadocExclude
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformsiv;
 		callIIPIPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
@@ -488,7 +482,6 @@ public class GL31 {
 	// --- [ glGetActiveUniformName ] ---
 
 	/** Unsafe version of {@link #glGetActiveUniformName GetActiveUniformName} */
-	@JavadocExclude
 	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
 		long __functionAddress = getInstance().GetActiveUniformName;
 		callIIIPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
@@ -542,7 +535,6 @@ public class GL31 {
 	// --- [ glGetUniformBlockIndex ] ---
 
 	/** Unsafe version of {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
-	@JavadocExclude
 	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
 		long __functionAddress = getInstance().GetUniformBlockIndex;
 		return callIPI(__functionAddress, program, uniformBlockName);
@@ -572,7 +564,6 @@ public class GL31 {
 	// --- [ glGetActiveUniformBlockiv ] ---
 
 	/** Unsafe version of {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
-	@JavadocExclude
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformBlockiv;
 		callIIIPV(__functionAddress, program, uniformBlockIndex, pname, params);
@@ -612,7 +603,6 @@ public class GL31 {
 	// --- [ glGetActiveUniformBlockName ] ---
 
 	/** Unsafe version of {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
-	@JavadocExclude
 	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
 		long __functionAddress = getInstance().GetActiveUniformBlockName;
 		callIIIPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);

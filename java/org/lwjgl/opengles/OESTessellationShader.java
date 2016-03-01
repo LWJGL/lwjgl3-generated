@@ -131,15 +131,12 @@ public class OESTessellationShader {
 		GL_TESS_EVALUATION_SHADER_BIT_OES = 0x10;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long PatchParameteriOES;
 
-	@JavadocExclude
 	protected OESTessellationShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESTessellationShader(FunctionProvider provider) {
 		PatchParameteriOES = provider.getFunctionAddress("glPatchParameteriOES");
 	}

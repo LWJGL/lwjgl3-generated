@@ -36,15 +36,12 @@ public class AMDOcclusionQueryEvent {
 		GL_QUERY_ALL_EVENT_BITS_AMD              = 0xFFFFFFFF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long QueryObjectParameteruiAMD;
 
-	@JavadocExclude
 	protected AMDOcclusionQueryEvent() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public AMDOcclusionQueryEvent(FunctionProvider provider) {
 		QueryObjectParameteruiAMD = provider.getFunctionAddress("glQueryObjectParameteruiAMD");
 	}

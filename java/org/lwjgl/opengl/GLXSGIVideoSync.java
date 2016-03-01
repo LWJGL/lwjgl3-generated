@@ -21,17 +21,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class GLXSGIVideoSync {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetVideoSyncSGI,
 		WaitVideoSyncSGI;
 
-	@JavadocExclude
 	protected GLXSGIVideoSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXSGIVideoSync(FunctionProvider provider) {
 		GetVideoSyncSGI = provider.getFunctionAddress("glXGetVideoSyncSGI");
 		WaitVideoSyncSGI = provider.getFunctionAddress("glXWaitVideoSyncSGI");
@@ -64,7 +61,6 @@ public class GLXSGIVideoSync {
 	// --- [ glXGetVideoSyncSGI ] ---
 
 	/** Unsafe version of {@link #glXGetVideoSyncSGI GetVideoSyncSGI} */
-	@JavadocExclude
 	public static int nglXGetVideoSyncSGI(long count) {
 		long __functionAddress = getInstance().GetVideoSyncSGI;
 		return callPI(__functionAddress, count);
@@ -91,7 +87,6 @@ public class GLXSGIVideoSync {
 	// --- [ glXWaitVideoSyncSGI ] ---
 
 	/** Unsafe version of {@link #glXWaitVideoSyncSGI WaitVideoSyncSGI} */
-	@JavadocExclude
 	public static int nglXWaitVideoSyncSGI(int divisor, int remainder, long count) {
 		long __functionAddress = getInstance().WaitVideoSyncSGI;
 		return callIIPI(__functionAddress, divisor, remainder, count);
@@ -100,7 +95,7 @@ public class GLXSGIVideoSync {
 	/**
 	 * Puts the calling process to sleep until
 	 * 
-	 * <p><code style="font-family: monospace">(C mod D) = R</code></p>
+	 * <p><code>(C mod D) = R</code></p>
 	 * 
 	 * <p>where {@code C} is the video sync counter, {@code D} is specified by the {@code divisor} parameter of {@code glXWaitVideoSyncSGI}, and {@code R} is
 	 * specified by the {@code remainder} parameter of {@code glXWaitVideoSyncSGI}. {@code glXWaitVideoSyncSGI} returns the current video sync counter value in

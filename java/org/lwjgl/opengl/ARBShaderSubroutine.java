@@ -45,7 +45,6 @@ public class ARBShaderSubroutine {
 		GL_COMPATIBLE_SUBROUTINES     = 0x8E4B;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetSubroutineUniformLocation,
 		GetSubroutineIndex,
@@ -56,12 +55,10 @@ public class ARBShaderSubroutine {
 		GetUniformSubroutineuiv,
 		GetProgramStageiv;
 
-	@JavadocExclude
 	protected ARBShaderSubroutine() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBShaderSubroutine(FunctionProvider provider) {
 		GetSubroutineUniformLocation = provider.getFunctionAddress("glGetSubroutineUniformLocation");
 		GetSubroutineIndex = provider.getFunctionAddress("glGetSubroutineIndex");
@@ -101,7 +98,6 @@ public class ARBShaderSubroutine {
 	// --- [ glGetSubroutineUniformLocation ] ---
 
 	/** Unsafe version of {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
-	@JavadocExclude
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineUniformLocation;
 		return callIIPI(__functionAddress, program, shadertype, name);
@@ -130,7 +126,6 @@ public class ARBShaderSubroutine {
 	// --- [ glGetSubroutineIndex ] ---
 
 	/** Unsafe version of {@link #glGetSubroutineIndex GetSubroutineIndex} */
-	@JavadocExclude
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineIndex;
 		return callIIPI(__functionAddress, program, shadertype, name);
@@ -159,7 +154,6 @@ public class ARBShaderSubroutine {
 	// --- [ glGetActiveSubroutineUniformiv ] ---
 
 	/** Unsafe version of {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
-	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformiv;
 		callIIIIPV(__functionAddress, program, shadertype, index, pname, values);
@@ -198,7 +192,6 @@ public class ARBShaderSubroutine {
 	// --- [ glGetActiveSubroutineUniformName ] ---
 
 	/** Unsafe version of {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
-	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformName;
 		callIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
@@ -251,7 +244,6 @@ public class ARBShaderSubroutine {
 	// --- [ glGetActiveSubroutineName ] ---
 
 	/** Unsafe version of {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
-	@JavadocExclude
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineName;
 		callIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
@@ -304,7 +296,6 @@ public class ARBShaderSubroutine {
 	// --- [ glUniformSubroutinesuiv ] ---
 
 	/** Unsafe version of {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
-	@JavadocExclude
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
 		long __functionAddress = getInstance().UniformSubroutinesuiv;
 		callIIPV(__functionAddress, shadertype, count, indices);
@@ -338,7 +329,6 @@ public class ARBShaderSubroutine {
 	// --- [ glGetUniformSubroutineuiv ] ---
 
 	/** Unsafe version of {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
-	@JavadocExclude
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
 		long __functionAddress = getInstance().GetUniformSubroutineuiv;
 		callIIPV(__functionAddress, shadertype, location, params);
@@ -375,7 +365,6 @@ public class ARBShaderSubroutine {
 	// --- [ glGetProgramStageiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramStageiv GetProgramStageiv} */
-	@JavadocExclude
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
 		long __functionAddress = getInstance().GetProgramStageiv;
 		callIIIPV(__functionAddress, program, shadertype, pname, values);

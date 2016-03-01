@@ -22,15 +22,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class WGLARBExtensionsString {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetExtensionsStringARB;
 
-	@JavadocExclude
 	protected WGLARBExtensionsString() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLARBExtensionsString(FunctionProvider provider) {
 		GetExtensionsStringARB = provider.getFunctionAddress("wglGetExtensionsStringARB");
 	}
@@ -62,7 +59,6 @@ public class WGLARBExtensionsString {
 	// --- [ wglGetExtensionsStringARB ] ---
 
 	/** Unsafe version of {@link #wglGetExtensionsStringARB GetExtensionsStringARB} */
-	@JavadocExclude
 	public static long nwglGetExtensionsStringARB(long hdc) {
 		long __functionAddress = getInstance().GetExtensionsStringARB;
 		if ( CHECKS )

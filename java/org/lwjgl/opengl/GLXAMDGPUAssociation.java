@@ -43,7 +43,6 @@ public class GLXAMDGPUAssociation {
 		GLX_GPU_NUM_SPI_AMD               = 0x21A8;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BlitContextFramebufferAMD,
 		CreateAssociatedContextAMD,
@@ -55,12 +54,10 @@ public class GLXAMDGPUAssociation {
 		GetGPUInfoAMD,
 		MakeAssociatedContextCurrentAMD;
 
-	@JavadocExclude
 	protected GLXAMDGPUAssociation() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXAMDGPUAssociation(FunctionProvider provider) {
 		BlitContextFramebufferAMD = provider.getFunctionAddress("glXBlitContextFramebufferAMD");
 		CreateAssociatedContextAMD = provider.getFunctionAddress("glXCreateAssociatedContextAMD");
@@ -125,7 +122,6 @@ public class GLXAMDGPUAssociation {
 	// --- [ glXCreateAssociatedContextAttribsAMD ] ---
 
 	/** Unsafe version of {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
-	@JavadocExclude
 	public static long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList) {
 		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
 		if ( CHECKS )
@@ -201,7 +197,6 @@ public class GLXAMDGPUAssociation {
 	// --- [ glXGetGPUInfoAMD ] ---
 
 	/** Unsafe version of {@link #glXGetGPUInfoAMD GetGPUInfoAMD} */
-	@JavadocExclude
 	public static int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = getInstance().GetGPUInfoAMD;
 		return callIIIIPI(__functionAddress, id, property, dataType, size, data);

@@ -33,7 +33,6 @@ public class ALC11 {
 	public static final int ALC_CAPTURE_SAMPLES = 0x312;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CaptureOpenDevice,
 		CaptureCloseDevice,
@@ -41,12 +40,10 @@ public class ALC11 {
 		CaptureStop,
 		CaptureSamples;
 
-	@JavadocExclude
 	protected ALC11() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ALC11(FunctionProvider provider) {
 		CaptureOpenDevice = provider.getFunctionAddress("alcCaptureOpenDevice");
 		CaptureCloseDevice = provider.getFunctionAddress("alcCaptureCloseDevice");
@@ -82,7 +79,6 @@ public class ALC11 {
 	// --- [ alcCaptureOpenDevice ] ---
 
 	/** Unsafe version of {@link #alcCaptureOpenDevice CaptureOpenDevice} */
-	@JavadocExclude
 	public static long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize) {
 		long __functionAddress = getInstance().CaptureOpenDevice;
 		return invokePIIIP(__functionAddress, devicename, frequency, format, buffersize);
@@ -164,7 +160,6 @@ public class ALC11 {
 	// --- [ alcCaptureSamples ] ---
 
 	/** Unsafe version of {@link #alcCaptureSamples CaptureSamples} */
-	@JavadocExclude
 	public static void nalcCaptureSamples(long device, long buffer, int samples) {
 		long __functionAddress = getInstance().CaptureSamples;
 		if ( CHECKS )

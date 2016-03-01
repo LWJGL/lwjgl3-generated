@@ -73,15 +73,12 @@ public class EXTDrawBuffers {
 		GL_COLOR_ATTACHMENT15_EXT = 0x8CEF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long DrawBuffersEXT;
 
-	@JavadocExclude
 	protected EXTDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDrawBuffers(FunctionProvider provider) {
 		DrawBuffersEXT = provider.getFunctionAddress("glDrawBuffersEXT");
 	}
@@ -112,7 +109,6 @@ public class EXTDrawBuffers {
 	// --- [ glDrawBuffersEXT ] ---
 
 	/** Unsafe version of {@link #glDrawBuffersEXT DrawBuffersEXT} */
-	@JavadocExclude
 	public static void nglDrawBuffersEXT(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffersEXT;
 		callIPV(__functionAddress, n, bufs);

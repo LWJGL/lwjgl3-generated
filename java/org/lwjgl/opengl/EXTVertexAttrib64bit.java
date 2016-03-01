@@ -59,7 +59,6 @@ public class EXTVertexAttrib64bit {
 		GL_DOUBLE_MAT4x3_EXT = 0x8F4E;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		VertexAttribL1dEXT,
 		VertexAttribL2dEXT,
@@ -73,12 +72,10 @@ public class EXTVertexAttrib64bit {
 		GetVertexAttribLdvEXT,
 		VertexArrayVertexAttribLOffsetEXT;
 
-	@JavadocExclude
 	protected EXTVertexAttrib64bit() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTVertexAttrib64bit(FunctionProvider provider) {
 		VertexAttribL1dEXT = provider.getFunctionAddress("glVertexAttribL1dEXT");
 		VertexAttribL2dEXT = provider.getFunctionAddress("glVertexAttribL2dEXT");
@@ -150,7 +147,6 @@ public class EXTVertexAttrib64bit {
 	// --- [ glVertexAttribL1dvEXT ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL1dvEXT VertexAttribL1dvEXT} */
-	@JavadocExclude
 	public static void nglVertexAttribL1dvEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1dvEXT;
 		callIPV(__functionAddress, index, v);
@@ -168,7 +164,6 @@ public class EXTVertexAttrib64bit {
 	// --- [ glVertexAttribL2dvEXT ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL2dvEXT VertexAttribL2dvEXT} */
-	@JavadocExclude
 	public static void nglVertexAttribL2dvEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL2dvEXT;
 		callIPV(__functionAddress, index, v);
@@ -186,7 +181,6 @@ public class EXTVertexAttrib64bit {
 	// --- [ glVertexAttribL3dvEXT ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL3dvEXT VertexAttribL3dvEXT} */
-	@JavadocExclude
 	public static void nglVertexAttribL3dvEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL3dvEXT;
 		callIPV(__functionAddress, index, v);
@@ -204,7 +198,6 @@ public class EXTVertexAttrib64bit {
 	// --- [ glVertexAttribL4dvEXT ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL4dvEXT VertexAttribL4dvEXT} */
-	@JavadocExclude
 	public static void nglVertexAttribL4dvEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL4dvEXT;
 		callIPV(__functionAddress, index, v);
@@ -222,7 +215,6 @@ public class EXTVertexAttrib64bit {
 	// --- [ glVertexAttribLPointerEXT ] ---
 
 	/** Unsafe version of {@link #glVertexAttribLPointerEXT VertexAttribLPointerEXT} */
-	@JavadocExclude
 	public static void nglVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribLPointerEXT;
 		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
@@ -251,7 +243,6 @@ public class EXTVertexAttrib64bit {
 	// --- [ glGetVertexAttribLdvEXT ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribLdvEXT GetVertexAttribLdvEXT} */
-	@JavadocExclude
 	public static void nglGetVertexAttribLdvEXT(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLdvEXT;
 		callIIPV(__functionAddress, index, pname, params);

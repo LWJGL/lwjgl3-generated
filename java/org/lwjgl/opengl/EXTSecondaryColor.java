@@ -41,7 +41,6 @@ public class EXTSecondaryColor {
 	public static final int GL_SECONDARY_COLOR_ARRAY_EXT = 0x845E;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		SecondaryColor3bEXT,
 		SecondaryColor3sEXT,
@@ -61,12 +60,10 @@ public class EXTSecondaryColor {
 		SecondaryColor3uivEXT,
 		SecondaryColorPointerEXT;
 
-	@JavadocExclude
 	protected EXTSecondaryColor() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTSecondaryColor(FunctionProvider provider) {
 		SecondaryColor3bEXT = provider.getFunctionAddress("glSecondaryColor3bEXT");
 		SecondaryColor3sEXT = provider.getFunctionAddress("glSecondaryColor3sEXT");
@@ -229,7 +226,6 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3bvEXT ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3bvEXT SecondaryColor3bvEXT} */
-	@JavadocExclude
 	public static void nglSecondaryColor3bvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3bvEXT;
 		callPV(__functionAddress, v);
@@ -249,7 +245,6 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3svEXT ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3svEXT SecondaryColor3svEXT} */
-	@JavadocExclude
 	public static void nglSecondaryColor3svEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3svEXT;
 		callPV(__functionAddress, v);
@@ -276,7 +271,6 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3ivEXT ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3ivEXT SecondaryColor3ivEXT} */
-	@JavadocExclude
 	public static void nglSecondaryColor3ivEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ivEXT;
 		callPV(__functionAddress, v);
@@ -303,7 +297,6 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3fvEXT ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3fvEXT SecondaryColor3fvEXT} */
-	@JavadocExclude
 	public static void nglSecondaryColor3fvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3fvEXT;
 		callPV(__functionAddress, v);
@@ -330,7 +323,6 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3dvEXT ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3dvEXT SecondaryColor3dvEXT} */
-	@JavadocExclude
 	public static void nglSecondaryColor3dvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3dvEXT;
 		callPV(__functionAddress, v);
@@ -357,7 +349,6 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3ubvEXT ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3ubvEXT SecondaryColor3ubvEXT} */
-	@JavadocExclude
 	public static void nglSecondaryColor3ubvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ubvEXT;
 		callPV(__functionAddress, v);
@@ -377,7 +368,6 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3usvEXT ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3usvEXT SecondaryColor3usvEXT} */
-	@JavadocExclude
 	public static void nglSecondaryColor3usvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3usvEXT;
 		callPV(__functionAddress, v);
@@ -404,7 +394,6 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3uivEXT ] ---
 
 	/** Unsafe version of {@link #glSecondaryColor3uivEXT SecondaryColor3uivEXT} */
-	@JavadocExclude
 	public static void nglSecondaryColor3uivEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3uivEXT;
 		callPV(__functionAddress, v);
@@ -431,7 +420,6 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColorPointerEXT ] ---
 
 	/** Unsafe version of {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
-	@JavadocExclude
 	public static void nglSecondaryColorPointerEXT(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().SecondaryColorPointerEXT;
 		callIIIPV(__functionAddress, size, type, stride, pointer);

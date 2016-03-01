@@ -30,15 +30,12 @@ import static org.lwjgl.system.JNI.*;
 public class EXTCopyImage {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CopyImageSubDataEXT;
 
-	@JavadocExclude
 	protected EXTCopyImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTCopyImage(FunctionProvider provider) {
 		CopyImageSubDataEXT = provider.getFunctionAddress("glCopyImageSubDataEXT");
 	}

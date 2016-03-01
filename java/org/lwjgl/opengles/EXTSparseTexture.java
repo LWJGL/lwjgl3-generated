@@ -61,15 +61,12 @@ public class EXTSparseTexture {
 		GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT = 0x91A9;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long TexPageCommitmentARB;
 
-	@JavadocExclude
 	protected EXTSparseTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTSparseTexture(FunctionProvider provider) {
 		TexPageCommitmentARB = provider.getFunctionAddress("glTexPageCommitmentARB");
 	}

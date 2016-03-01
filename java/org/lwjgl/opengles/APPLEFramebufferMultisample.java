@@ -56,17 +56,14 @@ public class APPLEFramebufferMultisample {
 		GL_READ_FRAMEBUFFER_BINDING_APPLE = 0x8CAA;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		RenderbufferStorageMultisampleAPPLE,
 		ResolveMultisampleFramebufferAPPLE;
 
-	@JavadocExclude
 	protected APPLEFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public APPLEFramebufferMultisample(FunctionProvider provider) {
 		RenderbufferStorageMultisampleAPPLE = provider.getFunctionAddress("glRenderbufferStorageMultisampleAPPLE");
 		ResolveMultisampleFramebufferAPPLE = provider.getFunctionAddress("glResolveMultisampleFramebufferAPPLE");

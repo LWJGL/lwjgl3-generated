@@ -23,20 +23,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct chunk_hooks_t {
- *     chunk_alloc_t alloc;
- *     chunk_dalloc_t dalloc;
- *     chunk_commit_t commit;
- *     chunk_decommit_t decommit;
- *     chunk_purge_t purge;
- *     chunk_split_t split;
- *     chunk_merge_t merge;
- * }</code></pre>
+ * <pre><code>struct chunk_hooks_t {
+    chunk_alloc_t alloc;
+    chunk_dalloc_t dalloc;
+    chunk_commit_t commit;
+    chunk_decommit_t decommit;
+    chunk_purge_t purge;
+    chunk_split_t split;
+    chunk_merge_t merge;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>alloc</td><td>the chunk allocation hook</td></tr>
  * <tr><td>dalloc</td><td>the chunk deallocation hook</td></tr>
  * <tr><td>commit</td><td>the chunk commit hook</td></tr>
@@ -51,7 +50,6 @@ public class ChunkHooks extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -202,12 +200,12 @@ public class ChunkHooks extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link ChunkHooks} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link ChunkHooks} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static ChunkHooks malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link ChunkHooks} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link ChunkHooks} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static ChunkHooks calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -223,7 +221,7 @@ public class ChunkHooks extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link ChunkHooks.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link ChunkHooks.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -232,7 +230,7 @@ public class ChunkHooks extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link ChunkHooks.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link ChunkHooks.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

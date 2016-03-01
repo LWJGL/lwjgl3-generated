@@ -107,18 +107,15 @@ public class WGLARBRenderTexture {
 		WGL_AUX9_ARB        = 0x2090;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindTexImageARB,
 		ReleaseTexImageARB,
 		SetPbufferAttribARB;
 
-	@JavadocExclude
 	protected WGLARBRenderTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLARBRenderTexture(FunctionProvider provider) {
 		BindTexImageARB = provider.getFunctionAddress("wglBindTexImageARB");
 		ReleaseTexImageARB = provider.getFunctionAddress("wglReleaseTexImageARB");
@@ -185,7 +182,6 @@ public class WGLARBRenderTexture {
 	// --- [ wglSetPbufferAttribARB ] ---
 
 	/** Unsafe version of {@link #wglSetPbufferAttribARB SetPbufferAttribARB} */
-	@JavadocExclude
 	public static int nwglSetPbufferAttribARB(long pbuffer, long attribList) {
 		long __functionAddress = getInstance().SetPbufferAttribARB;
 		if ( CHECKS )

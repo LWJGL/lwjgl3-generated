@@ -26,17 +26,14 @@ public class WGLARBMakeCurrentRead {
 		ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB = 0x2054;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		MakeContextCurrentARB,
 		GetCurrentReadDCARB;
 
-	@JavadocExclude
 	protected WGLARBMakeCurrentRead() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLARBMakeCurrentRead(FunctionProvider provider) {
 		MakeContextCurrentARB = provider.getFunctionAddress("wglMakeContextCurrentARB");
 		GetCurrentReadDCARB = provider.getFunctionAddress("wglGetCurrentReadDCARB");

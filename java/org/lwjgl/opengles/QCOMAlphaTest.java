@@ -30,15 +30,12 @@ public class QCOMAlphaTest {
 		GL_ALPHA_TEST_REF_QCOM  = 0xBC2;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long AlphaFuncQCOM;
 
-	@JavadocExclude
 	protected QCOMAlphaTest() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public QCOMAlphaTest(FunctionProvider provider) {
 		AlphaFuncQCOM = provider.getFunctionAddress("glAlphaFuncQCOM");
 	}

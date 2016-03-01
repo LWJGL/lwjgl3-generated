@@ -30,7 +30,6 @@ public class STBDXT {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected STBDXT() {
 		throw new UnsupportedOperationException();
 	}
@@ -38,7 +37,6 @@ public class STBDXT {
 	// --- [ stb_compress_dxt_block ] ---
 
 	/** JNI method for {@link #stb_compress_dxt_block compress_dxt_block} */
-	@JavadocExclude
 	public static native void nstb_compress_dxt_block(long dest, long src, int alpha, int mode);
 
 	/**

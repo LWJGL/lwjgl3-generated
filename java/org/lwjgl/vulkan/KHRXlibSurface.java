@@ -30,17 +30,14 @@ public class KHRXlibSurface {
 	public static final int VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR = 1000004000;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateXlibSurfaceKHR,
 		GetPhysicalDeviceXlibPresentationSupportKHR;
 
-	@JavadocExclude
 	protected KHRXlibSurface() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRXlibSurface(FunctionProvider provider) {
 		CreateXlibSurfaceKHR = provider.getFunctionAddress("vkCreateXlibSurfaceKHR");
 		GetPhysicalDeviceXlibPresentationSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceXlibPresentationSupportKHR");
@@ -78,7 +75,6 @@ public class KHRXlibSurface {
 	// --- [ vkCreateXlibSurfaceKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR} */
-	@JavadocExclude
 	public static int nvkCreateXlibSurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
 		long __functionAddress = getInstance(instance).CreateXlibSurfaceKHR;
 		if ( CHECKS ) {

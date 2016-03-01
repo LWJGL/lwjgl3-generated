@@ -16,21 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkImageCopy {
- *     {@link VkImageSubresourceLayers VkImageSubresourceLayers} srcSubresource;
- *     {@link VkOffset3D VkOffset3D} srcOffset;
- *     {@link VkImageSubresourceLayers VkImageSubresourceLayers} dstSubresource;
- *     {@link VkOffset3D VkOffset3D} dstOffset;
- *     {@link VkExtent3D VkExtent3D} extent;
- * }</code></pre>
+ * <pre><code>struct VkImageCopy {
+    {@link VkImageSubresourceLayers VkImageSubresourceLayers} srcSubresource;
+    {@link VkOffset3D VkOffset3D} srcOffset;
+    {@link VkImageSubresourceLayers VkImageSubresourceLayers} dstSubresource;
+    {@link VkOffset3D VkOffset3D} dstOffset;
+    {@link VkExtent3D VkExtent3D} extent;
+}</code></pre>
  */
 public class VkImageCopy extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -135,12 +133,12 @@ public class VkImageCopy extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkImageCopy} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageCopy} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkImageCopy malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkImageCopy} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageCopy} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkImageCopy calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -156,7 +154,7 @@ public class VkImageCopy extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageCopy.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageCopy.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -165,7 +163,7 @@ public class VkImageCopy extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageCopy.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageCopy.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

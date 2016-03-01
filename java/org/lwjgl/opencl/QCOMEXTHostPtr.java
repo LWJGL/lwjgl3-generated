@@ -47,15 +47,12 @@ public class QCOMEXTHostPtr {
 		CL_IMAGE_SLICE_ALIGNMENT_QCOM = 0x40A3;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetDeviceImageInfoQCOM;
 
-	@JavadocExclude
 	protected QCOMEXTHostPtr() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public QCOMEXTHostPtr(FunctionProvider provider) {
 		GetDeviceImageInfoQCOM = provider.getFunctionAddress("clGetDeviceImageInfoQCOM");
 	}
@@ -85,7 +82,6 @@ public class QCOMEXTHostPtr {
 	// --- [ clGetDeviceImageInfoQCOM ] ---
 
 	/** Unsafe version of {@link #clGetDeviceImageInfoQCOM GetDeviceImageInfoQCOM} */
-	@JavadocExclude
 	public static int nclGetDeviceImageInfoQCOM(long device, long image_width, long image_height, long image_format, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetDeviceImageInfoQCOM;
 		if ( CHECKS )

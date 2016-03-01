@@ -52,18 +52,15 @@ public class ARBSampleLocations {
 		GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB    = 0x9343;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		FramebufferSampleLocationsfvARB,
 		NamedFramebufferSampleLocationsfvARB,
 		EvaluateDepthValuesARB;
 
-	@JavadocExclude
 	protected ARBSampleLocations() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBSampleLocations(FunctionProvider provider) {
 		FramebufferSampleLocationsfvARB = provider.getFunctionAddress("glFramebufferSampleLocationsfvARB");
 		NamedFramebufferSampleLocationsfvARB = provider.getFunctionAddress("glNamedFramebufferSampleLocationsfvARB");
@@ -97,7 +94,6 @@ public class ARBSampleLocations {
 	// --- [ glFramebufferSampleLocationsfvARB ] ---
 
 	/** Unsafe version of {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB} */
-	@JavadocExclude
 	public static void nglFramebufferSampleLocationsfvARB(int target, int start, int count, long v) {
 		long __functionAddress = getInstance().FramebufferSampleLocationsfvARB;
 		callIIIPV(__functionAddress, target, start, count, v);
@@ -130,7 +126,6 @@ public class ARBSampleLocations {
 	// --- [ glNamedFramebufferSampleLocationsfvARB ] ---
 
 	/** Unsafe version of {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB} */
-	@JavadocExclude
 	public static void nglNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, int count, long v) {
 		long __functionAddress = getInstance().NamedFramebufferSampleLocationsfvARB;
 		callIIIPV(__functionAddress, framebuffer, start, count, v);

@@ -16,24 +16,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkPipelineColorBlendAttachmentState {
- *     VkBool32 blendEnable;
- *     VkBlendFactor srcColorBlendFactor;
- *     VkBlendFactor dstColorBlendFactor;
- *     VkBlendOp colorBlendOp;
- *     VkBlendFactor srcAlphaBlendFactor;
- *     VkBlendFactor dstAlphaBlendFactor;
- *     VkBlendOp alphaBlendOp;
- *     VkColorComponentFlags colorWriteMask;
- * }</code></pre>
+ * <pre><code>struct VkPipelineColorBlendAttachmentState {
+    VkBool32 blendEnable;
+    VkBlendFactor srcColorBlendFactor;
+    VkBlendFactor dstColorBlendFactor;
+    VkBlendOp colorBlendOp;
+    VkBlendFactor srcAlphaBlendFactor;
+    VkBlendFactor dstAlphaBlendFactor;
+    VkBlendOp alphaBlendOp;
+    VkColorComponentFlags colorWriteMask;
+}</code></pre>
  */
 public class VkPipelineColorBlendAttachmentState extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -165,12 +163,12 @@ public class VkPipelineColorBlendAttachmentState extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkPipelineColorBlendAttachmentState} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPipelineColorBlendAttachmentState} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkPipelineColorBlendAttachmentState malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkPipelineColorBlendAttachmentState} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPipelineColorBlendAttachmentState} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkPipelineColorBlendAttachmentState calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -186,7 +184,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPipelineColorBlendAttachmentState.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPipelineColorBlendAttachmentState.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -195,7 +193,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPipelineColorBlendAttachmentState.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPipelineColorBlendAttachmentState.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

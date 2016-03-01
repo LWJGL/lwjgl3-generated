@@ -100,19 +100,16 @@ public class SOFTBufferSamples {
 		AL_SAMPLE_RW_OFFSETS_SOFT = 0x1032;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BufferSamplesSOFT,
 		IsBufferFormatSupportedSOFT,
 		BufferSubSamplesSOFT,
 		GetBufferSamplesSOFT;
 
-	@JavadocExclude
 	protected SOFTBufferSamples() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public SOFTBufferSamples(FunctionProvider provider) {
 		BufferSamplesSOFT = provider.getFunctionAddress("alBufferSamplesSOFT");
 		IsBufferFormatSupportedSOFT = provider.getFunctionAddress("alIsBufferFormatSupportedSOFT");
@@ -142,7 +139,6 @@ public class SOFTBufferSamples {
 	// --- [ alBufferSamplesSOFT ] ---
 
 	/** Unsafe version of {@link #alBufferSamplesSOFT BufferSamplesSOFT} */
-	@JavadocExclude
 	public static void nalBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, long data) {
 		long __functionAddress = getInstance().BufferSamplesSOFT;
 		invokeIIIIIIPV(__functionAddress, buffer, samplerate, internalformat, samples, channels, type, data);
@@ -192,7 +188,6 @@ public class SOFTBufferSamples {
 	// --- [ alBufferSubSamplesSOFT ] ---
 
 	/** Unsafe version of {@link #alBufferSubSamplesSOFT BufferSubSamplesSOFT} */
-	@JavadocExclude
 	public static void nalBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
 		long __functionAddress = getInstance().BufferSubSamplesSOFT;
 		invokeIIIIIPV(__functionAddress, buffer, offset, samples, channels, type, data);
@@ -223,7 +218,6 @@ public class SOFTBufferSamples {
 	// --- [ alGetBufferSamplesSOFT ] ---
 
 	/** Unsafe version of {@link #alGetBufferSamplesSOFT GetBufferSamplesSOFT} */
-	@JavadocExclude
 	public static void nalGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
 		long __functionAddress = getInstance().GetBufferSamplesSOFT;
 		invokeIIIIIPV(__functionAddress, buffer, offset, samples, channels, type, data);

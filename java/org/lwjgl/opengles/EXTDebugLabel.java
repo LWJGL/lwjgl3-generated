@@ -39,17 +39,14 @@ public class EXTDebugLabel {
 		GL_PROGRAM_PIPELINE_OBJECT_EXT = 0x8A4F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		LabelObjectEXT,
 		GetObjectLabelEXT;
 
-	@JavadocExclude
 	protected EXTDebugLabel() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDebugLabel(FunctionProvider provider) {
 		LabelObjectEXT = provider.getFunctionAddress("glLabelObjectEXT");
 		GetObjectLabelEXT = provider.getFunctionAddress("glGetObjectLabelEXT");
@@ -81,7 +78,6 @@ public class EXTDebugLabel {
 	// --- [ glLabelObjectEXT ] ---
 
 	/** Unsafe version of {@link #glLabelObjectEXT LabelObjectEXT} */
-	@JavadocExclude
 	public static void nglLabelObjectEXT(int type, int object, int length, long label) {
 		long __functionAddress = getInstance().LabelObjectEXT;
 		callIIIPV(__functionAddress, type, object, length, label);
@@ -109,7 +105,6 @@ public class EXTDebugLabel {
 	// --- [ glGetObjectLabelEXT ] ---
 
 	/** Unsafe version of {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
-	@JavadocExclude
 	public static void nglGetObjectLabelEXT(int type, int object, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabelEXT;
 		callIIIPPV(__functionAddress, type, object, bufSize, length, label);

@@ -32,15 +32,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class NOKSwapRegion2 {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long SwapBuffersRegion2NOK;
 
-	@JavadocExclude
 	protected NOKSwapRegion2() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NOKSwapRegion2(FunctionProvider provider) {
 		SwapBuffersRegion2NOK = provider.getFunctionAddress("eglSwapBuffersRegion2NOK");
 	}
@@ -60,7 +57,6 @@ public class NOKSwapRegion2 {
 	// --- [ eglSwapBuffersRegion2NOK ] ---
 
 	/** Unsafe version of {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */
-	@JavadocExclude
 	public static int neglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, long rects) {
 		long __functionAddress = getInstance().SwapBuffersRegion2NOK;
 		if ( CHECKS ) {

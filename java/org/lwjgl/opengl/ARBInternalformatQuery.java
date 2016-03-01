@@ -31,15 +31,12 @@ public class ARBInternalformatQuery {
 	public static final int GL_NUM_SAMPLE_COUNTS = 0x9380;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetInternalformativ;
 
-	@JavadocExclude
 	protected ARBInternalformatQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBInternalformatQuery(FunctionProvider provider) {
 		GetInternalformativ = provider.getFunctionAddress("glGetInternalformativ");
 	}
@@ -71,7 +68,6 @@ public class ARBInternalformatQuery {
 	// --- [ glGetInternalformativ ] ---
 
 	/** Unsafe version of {@link #glGetInternalformativ GetInternalformativ} */
-	@JavadocExclude
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformativ;
 		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);

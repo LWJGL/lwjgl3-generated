@@ -79,15 +79,12 @@ public class EXTTextureArray {
 		GL_SAMPLER_2D_ARRAY_SHADOW_EXT = 0x8DC4;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long FramebufferTextureLayerEXT;
 
-	@JavadocExclude
 	protected EXTTextureArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTTextureArray(FunctionProvider provider) {
 		FramebufferTextureLayerEXT = provider.getFunctionAddress("glFramebufferTextureLayerEXT");
 	}

@@ -68,19 +68,16 @@ public class NVFramebufferMixedSamples {
 		GL_COVERAGE_MODULATION_TABLE_SIZE_NV     = 0x9333;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		RasterSamplesEXT,
 		CoverageModulationTableNV,
 		GetCoverageModulationTableNV,
 		CoverageModulationNV;
 
-	@JavadocExclude
 	protected NVFramebufferMixedSamples() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVFramebufferMixedSamples(FunctionProvider provider) {
 		RasterSamplesEXT = provider.getFunctionAddress("glRasterSamplesEXT");
 		CoverageModulationTableNV = provider.getFunctionAddress("glCoverageModulationTableNV");
@@ -121,7 +118,6 @@ public class NVFramebufferMixedSamples {
 	// --- [ glCoverageModulationTableNV ] ---
 
 	/** Unsafe version of {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
-	@JavadocExclude
 	public static void nglCoverageModulationTableNV(int n, long v) {
 		long __functionAddress = getInstance().CoverageModulationTableNV;
 		callIPV(__functionAddress, n, v);
@@ -141,7 +137,6 @@ public class NVFramebufferMixedSamples {
 	// --- [ glGetCoverageModulationTableNV ] ---
 
 	/** Unsafe version of {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
-	@JavadocExclude
 	public static void nglGetCoverageModulationTableNV(int bufsize, long v) {
 		long __functionAddress = getInstance().GetCoverageModulationTableNV;
 		callIPV(__functionAddress, bufsize, v);

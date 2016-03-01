@@ -27,15 +27,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class KHRSwapBuffersWithDamage {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long SwapBuffersWithDamageKHR;
 
-	@JavadocExclude
 	protected KHRSwapBuffersWithDamage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRSwapBuffersWithDamage(FunctionProvider provider) {
 		SwapBuffersWithDamageKHR = provider.getFunctionAddress("eglSwapBuffersWithDamageKHR");
 	}
@@ -55,7 +52,6 @@ public class KHRSwapBuffersWithDamage {
 	// --- [ eglSwapBuffersWithDamageKHR ] ---
 
 	/** Unsafe version of {@link #eglSwapBuffersWithDamageKHR SwapBuffersWithDamageKHR} */
-	@JavadocExclude
 	public static int neglSwapBuffersWithDamageKHR(long dpy, long surface, long rects, int n_rects) {
 		long __functionAddress = getInstance().SwapBuffersWithDamageKHR;
 		if ( CHECKS ) {

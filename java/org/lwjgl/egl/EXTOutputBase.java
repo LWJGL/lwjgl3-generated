@@ -45,7 +45,6 @@ public class EXTOutputBase {
 		EGL_NO_OUTPUT_PORT_EXT  = 0x0L;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetOutputLayersEXT,
 		GetOutputPortsEXT,
@@ -56,12 +55,10 @@ public class EXTOutputBase {
 		QueryOutputPortAttribEXT,
 		QueryOutputPortStringEXT;
 
-	@JavadocExclude
 	protected EXTOutputBase() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTOutputBase(FunctionProvider provider) {
 		GetOutputLayersEXT = provider.getFunctionAddress("eglGetOutputLayersEXT");
 		GetOutputPortsEXT = provider.getFunctionAddress("eglGetOutputPortsEXT");
@@ -88,7 +85,6 @@ public class EXTOutputBase {
 	// --- [ eglGetOutputLayersEXT ] ---
 
 	/** Unsafe version of {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */
-	@JavadocExclude
 	public static int neglGetOutputLayersEXT(long dpy, long attrib_list, long layers, int max_layers, long num_layers) {
 		long __functionAddress = getInstance().GetOutputLayersEXT;
 		if ( CHECKS )
@@ -117,7 +113,6 @@ public class EXTOutputBase {
 	// --- [ eglGetOutputPortsEXT ] ---
 
 	/** Unsafe version of {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
-	@JavadocExclude
 	public static int neglGetOutputPortsEXT(long dpy, long attrib_list, long ports, int max_ports, long num_ports) {
 		long __functionAddress = getInstance().GetOutputPortsEXT;
 		if ( CHECKS )
@@ -157,7 +152,6 @@ public class EXTOutputBase {
 	// --- [ eglQueryOutputLayerAttribEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryOutputLayerAttribEXT QueryOutputLayerAttribEXT} */
-	@JavadocExclude
 	public static int neglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, long value) {
 		long __functionAddress = getInstance().QueryOutputLayerAttribEXT;
 		if ( CHECKS ) {
@@ -183,7 +177,6 @@ public class EXTOutputBase {
 	// --- [ eglQueryOutputLayerStringEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryOutputLayerStringEXT QueryOutputLayerStringEXT} */
-	@JavadocExclude
 	public static long neglQueryOutputLayerStringEXT(long dpy, long layer, int name) {
 		long __functionAddress = getInstance().QueryOutputLayerStringEXT;
 		if ( CHECKS ) {
@@ -212,7 +205,6 @@ public class EXTOutputBase {
 	// --- [ eglQueryOutputPortAttribEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryOutputPortAttribEXT QueryOutputPortAttribEXT} */
-	@JavadocExclude
 	public static int neglQueryOutputPortAttribEXT(long dpy, long port, int attribute, long value) {
 		long __functionAddress = getInstance().QueryOutputPortAttribEXT;
 		if ( CHECKS ) {
@@ -238,7 +230,6 @@ public class EXTOutputBase {
 	// --- [ eglQueryOutputPortStringEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryOutputPortStringEXT QueryOutputPortStringEXT} */
-	@JavadocExclude
 	public static long neglQueryOutputPortStringEXT(long dpy, long port, int name) {
 		long __functionAddress = getInstance().QueryOutputPortStringEXT;
 		if ( CHECKS ) {

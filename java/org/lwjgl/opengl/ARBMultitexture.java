@@ -64,7 +64,6 @@ public class ARBMultitexture {
 		GL_MAX_TEXTURE_UNITS_ARB     = 0x84E2;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ActiveTextureARB,
 		ClientActiveTextureARB,
@@ -101,12 +100,10 @@ public class ARBMultitexture {
 		MultiTexCoord4ivARB,
 		MultiTexCoord4dvARB;
 
-	@JavadocExclude
 	protected ARBMultitexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBMultitexture(FunctionProvider provider) {
 		ActiveTextureARB = provider.getFunctionAddress("glActiveTextureARB");
 		ClientActiveTextureARB = provider.getFunctionAddress("glClientActiveTextureARB");
@@ -255,7 +252,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord1fvARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord1fvARB MultiTexCoord1fvARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord1fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1fvARB;
 		callIPV(__functionAddress, texture, v);
@@ -283,7 +279,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord1svARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord1svARB MultiTexCoord1svARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord1svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1svARB;
 		callIPV(__functionAddress, texture, v);
@@ -311,7 +306,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord1ivARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord1ivARB MultiTexCoord1ivARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord1ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1ivARB;
 		callIPV(__functionAddress, texture, v);
@@ -339,7 +333,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord1dvARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord1dvARB MultiTexCoord1dvARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord1dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1dvARB;
 		callIPV(__functionAddress, texture, v);
@@ -423,7 +416,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord2fvARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord2fvARB MultiTexCoord2fvARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord2fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2fvARB;
 		callIPV(__functionAddress, texture, v);
@@ -451,7 +443,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord2svARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord2svARB MultiTexCoord2svARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord2svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2svARB;
 		callIPV(__functionAddress, texture, v);
@@ -479,7 +470,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord2ivARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord2ivARB MultiTexCoord2ivARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord2ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2ivARB;
 		callIPV(__functionAddress, texture, v);
@@ -507,7 +497,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord2dvARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord2dvARB MultiTexCoord2dvARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord2dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2dvARB;
 		callIPV(__functionAddress, texture, v);
@@ -595,7 +584,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord3fvARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord3fvARB MultiTexCoord3fvARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord3fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3fvARB;
 		callIPV(__functionAddress, texture, v);
@@ -623,7 +611,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord3svARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord3svARB MultiTexCoord3svARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord3svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3svARB;
 		callIPV(__functionAddress, texture, v);
@@ -651,7 +638,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord3ivARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord3ivARB MultiTexCoord3ivARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord3ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3ivARB;
 		callIPV(__functionAddress, texture, v);
@@ -679,7 +665,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord3dvARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord3dvARB MultiTexCoord3dvARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord3dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3dvARB;
 		callIPV(__functionAddress, texture, v);
@@ -771,7 +756,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord4fvARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord4fvARB MultiTexCoord4fvARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord4fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4fvARB;
 		callIPV(__functionAddress, texture, v);
@@ -799,7 +783,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord4svARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord4svARB MultiTexCoord4svARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord4svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4svARB;
 		callIPV(__functionAddress, texture, v);
@@ -827,7 +810,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord4ivARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord4ivARB MultiTexCoord4ivARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord4ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4ivARB;
 		callIPV(__functionAddress, texture, v);
@@ -855,7 +837,6 @@ public class ARBMultitexture {
 	// --- [ glMultiTexCoord4dvARB ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoord4dvARB MultiTexCoord4dvARB} */
-	@JavadocExclude
 	public static void nglMultiTexCoord4dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4dvARB;
 		callIPV(__functionAddress, texture, v);

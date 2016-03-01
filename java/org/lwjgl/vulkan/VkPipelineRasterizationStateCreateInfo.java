@@ -16,26 +16,25 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkPipelineRasterizationStateCreateInfo {
- *     VkStructureType sType;
- *     const void * pNext;
- *     VkPipelineRasterizationStateCreateFlags flags;
- *     VkBool32 depthClampEnable;
- *     VkBool32 rasterizerDiscardEnable;
- *     VkPolygonMode polygonMode;
- *     VkCullModeFlags cullMode;
- *     VkFrontFace frontFace;
- *     VkBool32 depthBiasEnable;
- *     float depthBiasConstantFactor;
- *     float depthBiasClamp;
- *     float depthBiasSlopeFactor;
- *     float lineWidth;
- * }</code></pre>
+ * <pre><code>struct VkPipelineRasterizationStateCreateInfo {
+    VkStructureType sType;
+    const void * pNext;
+    VkPipelineRasterizationStateCreateFlags flags;
+    VkBool32 depthClampEnable;
+    VkBool32 rasterizerDiscardEnable;
+    VkPolygonMode polygonMode;
+    VkCullModeFlags cullMode;
+    VkFrontFace frontFace;
+    VkBool32 depthBiasEnable;
+    float depthBiasConstantFactor;
+    float depthBiasClamp;
+    float depthBiasSlopeFactor;
+    float lineWidth;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */
@@ -44,7 +43,6 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -221,12 +219,12 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkPipelineRasterizationStateCreateInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPipelineRasterizationStateCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkPipelineRasterizationStateCreateInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkPipelineRasterizationStateCreateInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPipelineRasterizationStateCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkPipelineRasterizationStateCreateInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -242,7 +240,7 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPipelineRasterizationStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPipelineRasterizationStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -251,7 +249,7 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPipelineRasterizationStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPipelineRasterizationStateCreateInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

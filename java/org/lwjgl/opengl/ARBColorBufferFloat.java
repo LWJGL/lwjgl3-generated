@@ -47,15 +47,12 @@ public class ARBColorBufferFloat {
 	public static final int GL_FIXED_ONLY_ARB = 0x891D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long ClampColorARB;
 
-	@JavadocExclude
 	protected ARBColorBufferFloat() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBColorBufferFloat(FunctionProvider provider) {
 		ClampColorARB = provider.getFunctionAddress("glClampColorARB");
 	}

@@ -43,17 +43,14 @@ public class ARBMapBufferRange {
 		GL_MAP_UNSYNCHRONIZED_BIT    = 0x20;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		MapBufferRange,
 		FlushMappedBufferRange;
 
-	@JavadocExclude
 	protected ARBMapBufferRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBMapBufferRange(FunctionProvider provider) {
 		MapBufferRange = provider.getFunctionAddress("glMapBufferRange");
 		FlushMappedBufferRange = provider.getFunctionAddress("glFlushMappedBufferRange");
@@ -86,7 +83,6 @@ public class ARBMapBufferRange {
 	// --- [ glMapBufferRange ] ---
 
 	/** Unsafe version of {@link #glMapBufferRange MapBufferRange} */
-	@JavadocExclude
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapBufferRange;
 		return callIPPIP(__functionAddress, target, offset, length, access);

@@ -28,18 +28,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTDebugMarker {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		InsertEventMarkerEXT,
 		PushGroupMarkerEXT,
 		PopGroupMarkerEXT;
 
-	@JavadocExclude
 	protected EXTDebugMarker() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDebugMarker(FunctionProvider provider) {
 		InsertEventMarkerEXT = provider.getFunctionAddress("glInsertEventMarkerEXT");
 		PushGroupMarkerEXT = provider.getFunctionAddress("glPushGroupMarkerEXT");
@@ -73,7 +70,6 @@ public class EXTDebugMarker {
 	// --- [ glInsertEventMarkerEXT ] ---
 
 	/** Unsafe version of {@link #glInsertEventMarkerEXT InsertEventMarkerEXT} */
-	@JavadocExclude
 	public static void nglInsertEventMarkerEXT(int length, long marker) {
 		long __functionAddress = getInstance().InsertEventMarkerEXT;
 		callIPV(__functionAddress, length, marker);
@@ -101,7 +97,6 @@ public class EXTDebugMarker {
 	// --- [ glPushGroupMarkerEXT ] ---
 
 	/** Unsafe version of {@link #glPushGroupMarkerEXT PushGroupMarkerEXT} */
-	@JavadocExclude
 	public static void nglPushGroupMarkerEXT(int length, long marker) {
 		long __functionAddress = getInstance().PushGroupMarkerEXT;
 		callIPV(__functionAddress, length, marker);

@@ -50,15 +50,12 @@ public class ARBTextureBufferObject {
 		GL_TEXTURE_BUFFER_FORMAT_ARB             = 0x8C2E;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long TexBufferARB;
 
-	@JavadocExclude
 	protected ARBTextureBufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTextureBufferObject(FunctionProvider provider) {
 		TexBufferARB = provider.getFunctionAddress("glTexBufferARB");
 	}
@@ -97,7 +94,7 @@ public class ARBTextureBufferObject {
 	 * <p>When a buffer object is attached to a buffer texture, the buffer object's data store is taken as the texture's texel array. The number of texels in the
 	 * buffer texture's texel array is given by</p>
 	 * 
-	 * <p><code style="font-family: monospace">floor(buffer_size / (components * sizeof(base_type))</code>,</p>
+	 * <p><code>floor(buffer_size / (components * sizeof(base_type))</code>,</p>
 	 * 
 	 * <p>where {@code buffer_size} is the size of the buffer object, in basic machine units and {@code components} and {@code base_type} are the element count
 	 * and base data type for elements. The number of texels in the texel array is then clamped to the implementation-dependent limit

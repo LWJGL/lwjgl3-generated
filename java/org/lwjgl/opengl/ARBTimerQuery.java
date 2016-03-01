@@ -43,18 +43,15 @@ public class ARBTimerQuery {
 	public static final int GL_TIMESTAMP = 0x8E28;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		QueryCounter,
 		GetQueryObjecti64v,
 		GetQueryObjectui64v;
 
-	@JavadocExclude
 	protected ARBTimerQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTimerQuery(FunctionProvider provider) {
 		QueryCounter = provider.getFunctionAddress("glQueryCounter");
 		GetQueryObjecti64v = provider.getFunctionAddress("glGetQueryObjecti64v");
@@ -101,7 +98,6 @@ public class ARBTimerQuery {
 	// --- [ glGetQueryObjecti64v ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
-	@JavadocExclude
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64v;
 		callIIPV(__functionAddress, id, pname, params);
@@ -138,7 +134,6 @@ public class ARBTimerQuery {
 	// --- [ glGetQueryObjectui64v ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
-	@JavadocExclude
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64v;
 		callIIPV(__functionAddress, id, pname, params);

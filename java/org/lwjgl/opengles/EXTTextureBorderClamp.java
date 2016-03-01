@@ -46,7 +46,6 @@ public class EXTTextureBorderClamp {
 	public static final int GL_CLAMP_TO_BORDER_EXT = 0x812D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexParameterIivEXT,
 		TexParameterIuivEXT,
@@ -57,12 +56,10 @@ public class EXTTextureBorderClamp {
 		GetSamplerParameterIivEXT,
 		GetSamplerParameterIuivEXT;
 
-	@JavadocExclude
 	protected EXTTextureBorderClamp() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTTextureBorderClamp(FunctionProvider provider) {
 		TexParameterIivEXT = provider.getFunctionAddress("glTexParameterIivEXT");
 		TexParameterIuivEXT = provider.getFunctionAddress("glTexParameterIuivEXT");
@@ -101,7 +98,6 @@ public class EXTTextureBorderClamp {
 	// --- [ glTexParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glTexParameterIivEXT TexParameterIivEXT} */
-	@JavadocExclude
 	public static void nglTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIivEXT;
 		callIIPV(__functionAddress, target, pname, params);
@@ -123,7 +119,6 @@ public class EXTTextureBorderClamp {
 	// --- [ glTexParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
-	@JavadocExclude
 	public static void nglTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuivEXT;
 		callIIPV(__functionAddress, target, pname, params);
@@ -145,7 +140,6 @@ public class EXTTextureBorderClamp {
 	// --- [ glGetTexParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
-	@JavadocExclude
 	public static void nglGetTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIivEXT;
 		callIIPV(__functionAddress, target, pname, params);
@@ -175,7 +169,6 @@ public class EXTTextureBorderClamp {
 	// --- [ glGetTexParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
-	@JavadocExclude
 	public static void nglGetTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuivEXT;
 		callIIPV(__functionAddress, target, pname, params);
@@ -205,7 +198,6 @@ public class EXTTextureBorderClamp {
 	// --- [ glSamplerParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIivEXT SamplerParameterIivEXT} */
-	@JavadocExclude
 	public static void nglSamplerParameterIivEXT(int sampler, int pname, long param) {
 		long __functionAddress = getInstance().SamplerParameterIivEXT;
 		callIIPV(__functionAddress, sampler, pname, param);
@@ -227,7 +219,6 @@ public class EXTTextureBorderClamp {
 	// --- [ glSamplerParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIuivEXT SamplerParameterIuivEXT} */
-	@JavadocExclude
 	public static void nglSamplerParameterIuivEXT(int sampler, int pname, long param) {
 		long __functionAddress = getInstance().SamplerParameterIuivEXT;
 		callIIPV(__functionAddress, sampler, pname, param);
@@ -249,7 +240,6 @@ public class EXTTextureBorderClamp {
 	// --- [ glGetSamplerParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIivEXT GetSamplerParameterIivEXT} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterIivEXT(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIivEXT;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -279,7 +269,6 @@ public class EXTTextureBorderClamp {
 	// --- [ glGetSamplerParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIuivEXT GetSamplerParameterIuivEXT} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterIuivEXT(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuivEXT;
 		callIIPV(__functionAddress, sampler, pname, params);

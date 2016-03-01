@@ -81,7 +81,6 @@ public class GLX13 {
 		GLX_PBUFFER_WIDTH           = 0x8041;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetFBConfigs,
 		ChooseFBConfig,
@@ -100,12 +99,10 @@ public class GLX13 {
 		SelectEvent,
 		GetSelectedEvent;
 
-	@JavadocExclude
 	protected GLX13() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLX13(FunctionProvider provider) {
 		GetFBConfigs = provider.getFunctionAddress("glXGetFBConfigs");
 		ChooseFBConfig = provider.getFunctionAddress("glXChooseFBConfig");
@@ -154,7 +151,6 @@ public class GLX13 {
 	// --- [ glXGetFBConfigs ] ---
 
 	/** Unsafe version of {@link #glXGetFBConfigs GetFBConfigs} */
-	@JavadocExclude
 	public static long nglXGetFBConfigs(long display, int screen, long nelements) {
 		long __functionAddress = getInstance().GetFBConfigs;
 		if ( CHECKS )
@@ -178,7 +174,6 @@ public class GLX13 {
 	// --- [ glXChooseFBConfig ] ---
 
 	/** Unsafe version of {@link #glXChooseFBConfig ChooseFBConfig} */
-	@JavadocExclude
 	public static long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = getInstance().ChooseFBConfig;
 		if ( CHECKS )
@@ -215,7 +210,6 @@ public class GLX13 {
 	// --- [ glXGetFBConfigAttrib ] ---
 
 	/** Unsafe version of {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
-	@JavadocExclude
 	public static int nglXGetFBConfigAttrib(long display, long config, int attribute, long value) {
 		long __functionAddress = getInstance().GetFBConfigAttrib;
 		if ( CHECKS ) {
@@ -249,7 +243,6 @@ public class GLX13 {
 	// --- [ glXGetVisualFromFBConfig ] ---
 
 	/** Unsafe version of {@link #glXGetVisualFromFBConfig GetVisualFromFBConfig} */
-	@JavadocExclude
 	public static long nglXGetVisualFromFBConfig(long display, long config) {
 		long __functionAddress = getInstance().GetVisualFromFBConfig;
 		if ( CHECKS ) {
@@ -273,7 +266,6 @@ public class GLX13 {
 	// --- [ glXCreateWindow ] ---
 
 	/** Unsafe version of {@link #glXCreateWindow CreateWindow} */
-	@JavadocExclude
 	public static long nglXCreateWindow(long display, long config, long win, long attrib_list) {
 		long __functionAddress = getInstance().CreateWindow;
 		if ( CHECKS ) {
@@ -307,7 +299,6 @@ public class GLX13 {
 	// --- [ glXCreatePixmap ] ---
 
 	/** Unsafe version of {@link #glXCreatePixmap CreatePixmap} */
-	@JavadocExclude
 	public static long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list) {
 		long __functionAddress = getInstance().CreatePixmap;
 		if ( CHECKS ) {
@@ -358,7 +349,6 @@ public class GLX13 {
 	// --- [ glXCreatePbuffer ] ---
 
 	/** Unsafe version of {@link #glXCreatePbuffer CreatePbuffer} */
-	@JavadocExclude
 	public static long nglXCreatePbuffer(long display, long config, long attrib_list) {
 		long __functionAddress = getInstance().CreatePbuffer;
 		if ( CHECKS ) {
@@ -408,7 +398,6 @@ public class GLX13 {
 	// --- [ glXQueryDrawable ] ---
 
 	/** Unsafe version of {@link #glXQueryDrawable QueryDrawable} */
-	@JavadocExclude
 	public static void nglXQueryDrawable(long display, long draw, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDrawable;
 		if ( CHECKS ) {
@@ -487,7 +476,6 @@ public class GLX13 {
 	// --- [ glXQueryContext ] ---
 
 	/** Unsafe version of {@link #glXQueryContext QueryContext} */
-	@JavadocExclude
 	public static int nglXQueryContext(long display, long ctx, int attribute, long value) {
 		long __functionAddress = getInstance().QueryContext;
 		if ( CHECKS ) {
@@ -539,7 +527,6 @@ public class GLX13 {
 	// --- [ glXGetSelectedEvent ] ---
 
 	/** Unsafe version of {@link #glXGetSelectedEvent GetSelectedEvent} */
-	@JavadocExclude
 	public static void nglXGetSelectedEvent(long display, long draw, long event_mask) {
 		long __functionAddress = getInstance().GetSelectedEvent;
 		if ( CHECKS ) {

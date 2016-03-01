@@ -36,18 +36,15 @@ public class EXTInstancedArrays {
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT = 0x88FE;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawArraysInstancedEXT,
 		DrawElementsInstancedEXT,
 		VertexAttribDivisorEXT;
 
-	@JavadocExclude
 	protected EXTInstancedArrays() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTInstancedArrays(FunctionProvider provider) {
 		DrawArraysInstancedEXT = provider.getFunctionAddress("glDrawArraysInstancedEXT");
 		DrawElementsInstancedEXT = provider.getFunctionAddress("glDrawElementsInstancedEXT");
@@ -87,7 +84,6 @@ public class EXTInstancedArrays {
 	// --- [ glDrawElementsInstancedEXT ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedEXT DrawElementsInstancedEXT} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedEXT;
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);

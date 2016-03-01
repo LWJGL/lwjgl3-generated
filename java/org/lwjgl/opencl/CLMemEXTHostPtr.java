@@ -14,19 +14,18 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Accepted by the {@code host_ptr} argument of {@link CL10#clCreateBuffer}, {@link CL10#clCreateImage2D} and {@link CL10#clCreateImage3D}.
+ * Accepted by the {@code host_ptr} argument of {@link CL10#clCreateBuffer CL10.clCreateBuffer}, {@link CL10#clCreateImage2D CL10.clCreateImage2D} and {@link CL10#clCreateImage3D CL10.clCreateImage3D}.
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct cl_mem_ext_host_ptr {
- *     cl_uint allocation_type;
- *     cl_uint host_cache_policy;
- * }</code></pre>
+ * <pre><code>struct cl_mem_ext_host_ptr {
+    cl_uint allocation_type;
+    cl_uint host_cache_policy;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>allocation_type</td><td>type of external memory allocation. Legal values will be defined in layered extensions.</td></tr>
  * <tr><td>host_cache_policy</td><td>host cache policy for this external memory allocation</td></tr>
  * </table>
@@ -36,7 +35,6 @@ public class CLMemEXTHostPtr extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -114,12 +112,12 @@ public class CLMemEXTHostPtr extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link CLMemEXTHostPtr} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link CLMemEXTHostPtr} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static CLMemEXTHostPtr malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link CLMemEXTHostPtr} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link CLMemEXTHostPtr} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static CLMemEXTHostPtr calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -135,7 +133,7 @@ public class CLMemEXTHostPtr extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link CLMemEXTHostPtr.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link CLMemEXTHostPtr.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -144,7 +142,7 @@ public class CLMemEXTHostPtr extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link CLMemEXTHostPtr.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link CLMemEXTHostPtr.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

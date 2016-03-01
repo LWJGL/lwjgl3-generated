@@ -52,19 +52,16 @@ public class EXTBlendFuncExtended {
 	public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT = 0x88FC;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindFragDataLocationIndexedEXT,
 		GetFragDataIndexEXT,
 		BindFragDataLocationEXT,
 		GetProgramResourceLocationIndexEXT;
 
-	@JavadocExclude
 	protected EXTBlendFuncExtended() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTBlendFuncExtended(FunctionProvider provider) {
 		BindFragDataLocationIndexedEXT = provider.getFunctionAddress("glBindFragDataLocationIndexedEXT");
 		GetFragDataIndexEXT = provider.getFunctionAddress("glGetFragDataIndexEXT");
@@ -98,7 +95,6 @@ public class EXTBlendFuncExtended {
 	// --- [ glBindFragDataLocationIndexedEXT ] ---
 
 	/** Unsafe version of {@link #glBindFragDataLocationIndexedEXT BindFragDataLocationIndexedEXT} */
-	@JavadocExclude
 	public static void nglBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, long name) {
 		long __functionAddress = getInstance().BindFragDataLocationIndexedEXT;
 		callIIIPV(__functionAddress, program, colorNumber, index, name);
@@ -120,7 +116,6 @@ public class EXTBlendFuncExtended {
 	// --- [ glGetFragDataIndexEXT ] ---
 
 	/** Unsafe version of {@link #glGetFragDataIndexEXT GetFragDataIndexEXT} */
-	@JavadocExclude
 	public static int nglGetFragDataIndexEXT(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataIndexEXT;
 		return callIPI(__functionAddress, program, name);
@@ -142,7 +137,6 @@ public class EXTBlendFuncExtended {
 	// --- [ glBindFragDataLocationEXT ] ---
 
 	/** Unsafe version of {@link #glBindFragDataLocationEXT BindFragDataLocationEXT} */
-	@JavadocExclude
 	public static void nglBindFragDataLocationEXT(int program, int colorNumber, long name) {
 		long __functionAddress = getInstance().BindFragDataLocationEXT;
 		callIIPV(__functionAddress, program, colorNumber, name);
@@ -164,7 +158,6 @@ public class EXTBlendFuncExtended {
 	// --- [ glGetProgramResourceLocationIndexEXT ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceLocationIndexEXT GetProgramResourceLocationIndexEXT} */
-	@JavadocExclude
 	public static int nglGetProgramResourceLocationIndexEXT(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocationIndexEXT;
 		return callIIPI(__functionAddress, program, programInterface, name);

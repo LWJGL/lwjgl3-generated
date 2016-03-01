@@ -47,17 +47,14 @@ public class EXTMultisampledRenderToTexture {
 	public static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT = 0x8D6C;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		RenderbufferStorageMultisampleEXT,
 		FramebufferTexture2DMultisampleEXT;
 
-	@JavadocExclude
 	protected EXTMultisampledRenderToTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTMultisampledRenderToTexture(FunctionProvider provider) {
 		RenderbufferStorageMultisampleEXT = provider.getFunctionAddress("glRenderbufferStorageMultisampleEXT");
 		FramebufferTexture2DMultisampleEXT = provider.getFunctionAddress("glFramebufferTexture2DMultisampleEXT");

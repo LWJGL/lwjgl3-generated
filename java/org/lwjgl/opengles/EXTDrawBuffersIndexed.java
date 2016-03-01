@@ -33,7 +33,6 @@ import static org.lwjgl.system.JNI.*;
 public class EXTDrawBuffersIndexed {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		EnableiEXT,
 		DisableiEXT,
@@ -44,12 +43,10 @@ public class EXTDrawBuffersIndexed {
 		ColorMaskiEXT,
 		IsEnablediEXT;
 
-	@JavadocExclude
 	protected EXTDrawBuffersIndexed() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDrawBuffersIndexed(FunctionProvider provider) {
 		EnableiEXT = provider.getFunctionAddress("glEnableiEXT");
 		DisableiEXT = provider.getFunctionAddress("glDisableiEXT");

@@ -36,7 +36,6 @@ public class WGLNVGPUAffinity {
 	public static final int ERROR_MISSING_AFFINITY_MASK_NV = 0x20D1;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		EnumGpusNV,
 		EnumGpuDevicesNV,
@@ -44,12 +43,10 @@ public class WGLNVGPUAffinity {
 		EnumGpusFromAffinityDCNV,
 		DeleteDCNV;
 
-	@JavadocExclude
 	protected WGLNVGPUAffinity() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLNVGPUAffinity(FunctionProvider provider) {
 		EnumGpusNV = provider.getFunctionAddress("wglEnumGpusNV");
 		EnumGpuDevicesNV = provider.getFunctionAddress("wglEnumGpuDevicesNV");
@@ -85,7 +82,6 @@ public class WGLNVGPUAffinity {
 	// --- [ wglEnumGpusNV ] ---
 
 	/** Unsafe version of {@link #wglEnumGpusNV EnumGpusNV} */
-	@JavadocExclude
 	public static int nwglEnumGpusNV(int gpuIndex, long gpu) {
 		long __functionAddress = getInstance().EnumGpusNV;
 		return callIPI(__functionAddress, gpuIndex, gpu);
@@ -113,7 +109,6 @@ public class WGLNVGPUAffinity {
 	// --- [ wglEnumGpuDevicesNV ] ---
 
 	/** Unsafe version of {@link #wglEnumGpuDevicesNV EnumGpuDevicesNV} */
-	@JavadocExclude
 	public static int nwglEnumGpuDevicesNV(long gpu, int deviceIndex, long gpuDevice) {
 		long __functionAddress = getInstance().EnumGpuDevicesNV;
 		if ( CHECKS )
@@ -135,7 +130,6 @@ public class WGLNVGPUAffinity {
 	// --- [ wglCreateAffinityDCNV ] ---
 
 	/** Unsafe version of {@link #wglCreateAffinityDCNV CreateAffinityDCNV} */
-	@JavadocExclude
 	public static long nwglCreateAffinityDCNV(long gpuList) {
 		long __functionAddress = getInstance().CreateAffinityDCNV;
 		return callPP(__functionAddress, gpuList);
@@ -167,7 +161,6 @@ public class WGLNVGPUAffinity {
 	// --- [ wglEnumGpusFromAffinityDCNV ] ---
 
 	/** Unsafe version of {@link #wglEnumGpusFromAffinityDCNV EnumGpusFromAffinityDCNV} */
-	@JavadocExclude
 	public static int nwglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, long gpu) {
 		long __functionAddress = getInstance().EnumGpusFromAffinityDCNV;
 		if ( CHECKS )

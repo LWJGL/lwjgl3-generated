@@ -31,15 +31,12 @@ public class EXTBlendColor {
 	public static final int GL_BLEND_COLOR_EXT = 0x8005;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long BlendColorEXT;
 
-	@JavadocExclude
 	protected EXTBlendColor() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTBlendColor(FunctionProvider provider) {
 		BlendColorEXT = provider.getFunctionAddress("glBlendColorEXT");
 	}

@@ -37,17 +37,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class ALTERALiveObjectTracking {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TrackLiveObjectsAltera,
 		ReportLiveObjectsAltera;
 
-	@JavadocExclude
 	protected ALTERALiveObjectTracking() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ALTERALiveObjectTracking(FunctionProvider provider) {
 		TrackLiveObjectsAltera = provider.getFunctionAddress("clTrackLiveObjectsAltera");
 		ReportLiveObjectsAltera = provider.getFunctionAddress("clReportLiveObjectsAltera");
@@ -95,7 +92,6 @@ public class ALTERALiveObjectTracking {
 	// --- [ clReportLiveObjectsAltera ] ---
 
 	/** Unsafe version of {@link #clReportLiveObjectsAltera ReportLiveObjectsAltera} */
-	@JavadocExclude
 	public static void nclReportLiveObjectsAltera(long platform, long report_fn, long user_data) {
 		long __functionAddress = getInstance().ReportLiveObjectsAltera;
 		if ( CHECKS )

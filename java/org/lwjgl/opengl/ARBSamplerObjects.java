@@ -38,7 +38,6 @@ public class ARBSamplerObjects {
 	public static final int GL_SAMPLER_BINDING = 0x8919;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GenSamplers,
 		DeleteSamplers,
@@ -55,12 +54,10 @@ public class ARBSamplerObjects {
 		GetSamplerParameterIiv,
 		GetSamplerParameterIuiv;
 
-	@JavadocExclude
 	protected ARBSamplerObjects() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBSamplerObjects(FunctionProvider provider) {
 		GenSamplers = provider.getFunctionAddress("glGenSamplers");
 		DeleteSamplers = provider.getFunctionAddress("glDeleteSamplers");
@@ -107,7 +104,6 @@ public class ARBSamplerObjects {
 	// --- [ glGenSamplers ] ---
 
 	/** Unsafe version of {@link #glGenSamplers GenSamplers} */
-	@JavadocExclude
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().GenSamplers;
 		callIPV(__functionAddress, count, samplers);
@@ -141,7 +137,6 @@ public class ARBSamplerObjects {
 	// --- [ glDeleteSamplers ] ---
 
 	/** Unsafe version of {@link #glDeleteSamplers DeleteSamplers} */
-	@JavadocExclude
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().DeleteSamplers;
 		callIPV(__functionAddress, count, samplers);
@@ -227,7 +222,6 @@ public class ARBSamplerObjects {
 	// --- [ glSamplerParameteriv ] ---
 
 	/** Unsafe version of {@link #glSamplerParameteriv SamplerParameteriv} */
-	@JavadocExclude
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameteriv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -252,7 +246,6 @@ public class ARBSamplerObjects {
 	// --- [ glSamplerParameterfv ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterfv SamplerParameterfv} */
-	@JavadocExclude
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterfv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -277,7 +270,6 @@ public class ARBSamplerObjects {
 	// --- [ glSamplerParameterIiv ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIiv SamplerParameterIiv} */
-	@JavadocExclude
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIiv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -302,7 +294,6 @@ public class ARBSamplerObjects {
 	// --- [ glSamplerParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
-	@JavadocExclude
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIuiv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -327,7 +318,6 @@ public class ARBSamplerObjects {
 	// --- [ glGetSamplerParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
-	@JavadocExclude
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameteriv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -364,7 +354,6 @@ public class ARBSamplerObjects {
 	// --- [ glGetSamplerParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterfv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -401,7 +390,6 @@ public class ARBSamplerObjects {
 	// --- [ glGetSamplerParameterIiv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIiv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -438,7 +426,6 @@ public class ARBSamplerObjects {
 	// --- [ glGetSamplerParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuiv;
 		callIIPV(__functionAddress, sampler, pname, params);

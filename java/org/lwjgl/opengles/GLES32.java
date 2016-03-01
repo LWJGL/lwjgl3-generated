@@ -408,7 +408,6 @@ public class GLES32 {
 		GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY = 0x910D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BlendBarrier,
 		CopyImageSubData,
@@ -455,12 +454,10 @@ public class GLES32 {
 		TexBufferRange,
 		TexStorage3DMultisample;
 
-	@JavadocExclude
 	protected GLES32() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLES32(FunctionProvider provider) {
 		BlendBarrier = provider.getFunctionAddress("glBlendBarrier");
 		CopyImageSubData = provider.getFunctionAddress("glCopyImageSubData");
@@ -563,7 +560,6 @@ public class GLES32 {
 	// --- [ glDebugMessageControl ] ---
 
 	/** Unsafe version of {@link #glDebugMessageControl DebugMessageControl} */
-	@JavadocExclude
 	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControl;
 		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
@@ -624,7 +620,6 @@ public class GLES32 {
 	// --- [ glDebugMessageInsert ] ---
 
 	/** Unsafe version of {@link #glDebugMessageInsert DebugMessageInsert} */
-	@JavadocExclude
 	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = getInstance().DebugMessageInsert;
 		callIIIIIPV(__functionAddress, source, type, id, severity, length, message);
@@ -709,7 +704,6 @@ public class GLES32 {
 	// --- [ glGetDebugMessageLog ] ---
 
 	/** Unsafe version of {@link #glGetDebugMessageLog GetDebugMessageLog} */
-	@JavadocExclude
 	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLog;
 		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
@@ -775,7 +769,6 @@ public class GLES32 {
 	// --- [ glGetPointerv ] ---
 
 	/** Unsafe version of {@link #glGetPointerv GetPointerv} */
-	@JavadocExclude
 	public static void nglGetPointerv(int pname, long params) {
 		long __functionAddress = getInstance().GetPointerv;
 		callIPV(__functionAddress, pname, params);
@@ -805,7 +798,6 @@ public class GLES32 {
 	// --- [ glPushDebugGroup ] ---
 
 	/** Unsafe version of {@link #glPushDebugGroup PushDebugGroup} */
-	@JavadocExclude
 	public static void nglPushDebugGroup(int source, int id, int length, long message) {
 		long __functionAddress = getInstance().PushDebugGroup;
 		callIIIPV(__functionAddress, source, id, length, message);
@@ -868,7 +860,6 @@ public class GLES32 {
 	// --- [ glObjectLabel ] ---
 
 	/** Unsafe version of {@link #glObjectLabel ObjectLabel} */
-	@JavadocExclude
 	public static void nglObjectLabel(int identifier, int name, int length, long label) {
 		long __functionAddress = getInstance().ObjectLabel;
 		callIIIPV(__functionAddress, identifier, name, length, label);
@@ -904,7 +895,6 @@ public class GLES32 {
 	// --- [ glGetObjectLabel ] ---
 
 	/** Unsafe version of {@link #glGetObjectLabel GetObjectLabel} */
-	@JavadocExclude
 	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabel;
 		callIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
@@ -956,7 +946,6 @@ public class GLES32 {
 	// --- [ glObjectPtrLabel ] ---
 
 	/** Unsafe version of {@link #glObjectPtrLabel ObjectPtrLabel} */
-	@JavadocExclude
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = getInstance().ObjectPtrLabel;
 		if ( CHECKS )
@@ -993,7 +982,6 @@ public class GLES32 {
 	// --- [ glGetObjectPtrLabel ] ---
 
 	/** Unsafe version of {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
-	@JavadocExclude
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectPtrLabel;
 		if ( CHECKS )
@@ -1102,7 +1090,6 @@ public class GLES32 {
 	// --- [ glDrawElementsBaseVertex ] ---
 
 	/** Unsafe version of {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
-	@JavadocExclude
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsBaseVertex;
 		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
@@ -1154,7 +1141,6 @@ public class GLES32 {
 	// --- [ glDrawRangeElementsBaseVertex ] ---
 
 	/** Unsafe version of {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
-	@JavadocExclude
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertex;
 		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
@@ -1206,7 +1192,6 @@ public class GLES32 {
 	// --- [ glDrawElementsInstancedBaseVertex ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int instancecount, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertex;
 		callIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
@@ -1330,7 +1315,6 @@ public class GLES32 {
 	// --- [ glReadnPixels ] ---
 
 	/** Unsafe version of {@link #glReadnPixels ReadnPixels} */
-	@JavadocExclude
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().ReadnPixels;
 		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
@@ -1394,7 +1378,6 @@ public class GLES32 {
 	// --- [ glGetnUniformfv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformfv GetnUniformfv} */
-	@JavadocExclude
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfv;
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -1430,7 +1413,6 @@ public class GLES32 {
 	// --- [ glGetnUniformiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformiv GetnUniformiv} */
-	@JavadocExclude
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformiv;
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -1466,7 +1448,6 @@ public class GLES32 {
 	// --- [ glGetnUniformuiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformuiv GetnUniformuiv} */
-	@JavadocExclude
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuiv;
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -1516,7 +1497,6 @@ public class GLES32 {
 	// --- [ glTexParameterIiv ] ---
 
 	/** Unsafe version of {@link #glTexParameterIiv TexParameterIiv} */
-	@JavadocExclude
 	public static void nglTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIiv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -1541,7 +1521,6 @@ public class GLES32 {
 	// --- [ glTexParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glTexParameterIuiv TexParameterIuiv} */
-	@JavadocExclude
 	public static void nglTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuiv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -1566,7 +1545,6 @@ public class GLES32 {
 	// --- [ glGetTexParameterIiv ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIiv GetTexParameterIiv} */
-	@JavadocExclude
 	public static void nglGetTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIiv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -1596,7 +1574,6 @@ public class GLES32 {
 	// --- [ glGetTexParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
-	@JavadocExclude
 	public static void nglGetTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuiv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -1626,7 +1603,6 @@ public class GLES32 {
 	// --- [ glSamplerParameterIiv ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIiv SamplerParameterIiv} */
-	@JavadocExclude
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIiv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -1651,7 +1627,6 @@ public class GLES32 {
 	// --- [ glSamplerParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
-	@JavadocExclude
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIuiv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -1676,7 +1651,6 @@ public class GLES32 {
 	// --- [ glGetSamplerParameterIiv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIiv;
 		callIIPV(__functionAddress, sampler, pname, params);
@@ -1706,7 +1680,6 @@ public class GLES32 {
 	// --- [ glGetSamplerParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
-	@JavadocExclude
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuiv;
 		callIIPV(__functionAddress, sampler, pname, params);

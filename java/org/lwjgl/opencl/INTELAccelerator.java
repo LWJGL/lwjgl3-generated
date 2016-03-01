@@ -52,19 +52,16 @@ public class INTELAccelerator {
 		CL_ACCELERATOR_TYPE_NOT_SUPPORTED_INTEL = 0xFFFFFBB7;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CreateAcceleratorINTEL,
 		RetainAcceleratorINTEL,
 		ReleaseAcceleratorINTEL,
 		GetAcceleratorInfoINTEL;
 
-	@JavadocExclude
 	protected INTELAccelerator() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public INTELAccelerator(FunctionProvider provider) {
 		CreateAcceleratorINTEL = provider.getFunctionAddress("clCreateAcceleratorINTEL");
 		RetainAcceleratorINTEL = provider.getFunctionAddress("clRetainAcceleratorINTEL");
@@ -97,7 +94,6 @@ public class INTELAccelerator {
 	// --- [ clCreateAcceleratorINTEL ] ---
 
 	/** Unsafe version of {@link #clCreateAcceleratorINTEL CreateAcceleratorINTEL} */
-	@JavadocExclude
 	public static long nclCreateAcceleratorINTEL(long context, int accelerator_type, long descriptor_size, long descriptor, long errcode_ret) {
 		long __functionAddress = getInstance().CreateAcceleratorINTEL;
 		if ( CHECKS )
@@ -201,7 +197,6 @@ public class INTELAccelerator {
 	// --- [ clGetAcceleratorInfoINTEL ] ---
 
 	/** Unsafe version of {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
-	@JavadocExclude
 	public static int nclGetAcceleratorInfoINTEL(long accelerator, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetAcceleratorInfoINTEL;
 		if ( CHECKS )

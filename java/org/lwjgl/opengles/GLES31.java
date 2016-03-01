@@ -196,7 +196,6 @@ public class GLES31 {
 		GL_MAX_VERTEX_ATTRIB_STRIDE                   = 0x82E5;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DispatchCompute,
 		DispatchComputeIndirect,
@@ -267,12 +266,10 @@ public class GLES31 {
 		VertexAttribBinding,
 		VertexBindingDivisor;
 
-	@JavadocExclude
 	protected GLES31() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLES31(FunctionProvider provider) {
 		DispatchCompute = provider.getFunctionAddress("glDispatchCompute");
 		DispatchComputeIndirect = provider.getFunctionAddress("glDispatchComputeIndirect");
@@ -397,7 +394,6 @@ public class GLES31 {
 	// --- [ glDrawArraysIndirect ] ---
 
 	/** Unsafe version of {@link #glDrawArraysIndirect DrawArraysIndirect} */
-	@JavadocExclude
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
 		long __functionAddress = getInstance().DrawArraysIndirect;
 		callIPV(__functionAddress, mode, indirect);
@@ -430,7 +426,6 @@ public class GLES31 {
 	// --- [ glDrawElementsIndirect ] ---
 
 	/** Unsafe version of {@link #glDrawElementsIndirect DrawElementsIndirect} */
-	@JavadocExclude
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
 		long __functionAddress = getInstance().DrawElementsIndirect;
 		callIIPV(__functionAddress, mode, type, indirect);
@@ -470,7 +465,6 @@ public class GLES31 {
 	// --- [ glGetFramebufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferParameteriv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -500,7 +494,6 @@ public class GLES31 {
 	// --- [ glGetProgramInterfaceiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
-	@JavadocExclude
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramInterfaceiv;
 		callIIIPV(__functionAddress, program, programInterface, pname, params);
@@ -530,7 +523,6 @@ public class GLES31 {
 	// --- [ glGetProgramResourceIndex ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
-	@JavadocExclude
 	public static int nglGetProgramResourceIndex(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceIndex;
 		return callIIPI(__functionAddress, program, programInterface, name);
@@ -552,7 +544,6 @@ public class GLES31 {
 	// --- [ glGetProgramResourceName ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceName GetProgramResourceName} */
-	@JavadocExclude
 	public static void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
 		long __functionAddress = getInstance().GetProgramResourceName;
 		callIIIIPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
@@ -595,7 +586,6 @@ public class GLES31 {
 	// --- [ glGetProgramResourceiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceiv GetProgramResourceiv} */
-	@JavadocExclude
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = getInstance().GetProgramResourceiv;
 		callIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
@@ -630,7 +620,6 @@ public class GLES31 {
 	// --- [ glGetProgramResourceLocation ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
-	@JavadocExclude
 	public static int nglGetProgramResourceLocation(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocation;
 		return callIIPI(__functionAddress, program, programInterface, name);
@@ -666,7 +655,6 @@ public class GLES31 {
 	// --- [ glCreateShaderProgramv ] ---
 
 	/** Unsafe version of {@link #glCreateShaderProgramv CreateShaderProgramv} */
-	@JavadocExclude
 	public static int nglCreateShaderProgramv(int type, int count, long strings) {
 		long __functionAddress = getInstance().CreateShaderProgramv;
 		return callIIPI(__functionAddress, type, count, strings);
@@ -715,7 +703,6 @@ public class GLES31 {
 	// --- [ glDeleteProgramPipelines ] ---
 
 	/** Unsafe version of {@link #glDeleteProgramPipelines DeleteProgramPipelines} */
-	@JavadocExclude
 	public static void nglDeleteProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().DeleteProgramPipelines;
 		callIPV(__functionAddress, n, pipelines);
@@ -742,7 +729,6 @@ public class GLES31 {
 	// --- [ glGenProgramPipelines ] ---
 
 	/** Unsafe version of {@link #glGenProgramPipelines GenProgramPipelines} */
-	@JavadocExclude
 	public static void nglGenProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().GenProgramPipelines;
 		callIPV(__functionAddress, n, pipelines);
@@ -777,7 +763,6 @@ public class GLES31 {
 	// --- [ glGetProgramPipelineiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
-	@JavadocExclude
 	public static void nglGetProgramPipelineiv(int pipeline, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramPipelineiv;
 		callIIPV(__functionAddress, pipeline, pname, params);
@@ -891,7 +876,6 @@ public class GLES31 {
 	// --- [ glProgramUniform1iv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1iv ProgramUniform1iv} */
-	@JavadocExclude
 	public static void nglProgramUniform1iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1iv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -911,7 +895,6 @@ public class GLES31 {
 	// --- [ glProgramUniform2iv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2iv ProgramUniform2iv} */
-	@JavadocExclude
 	public static void nglProgramUniform2iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2iv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -931,7 +914,6 @@ public class GLES31 {
 	// --- [ glProgramUniform3iv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3iv ProgramUniform3iv} */
-	@JavadocExclude
 	public static void nglProgramUniform3iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3iv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -951,7 +933,6 @@ public class GLES31 {
 	// --- [ glProgramUniform4iv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4iv ProgramUniform4iv} */
-	@JavadocExclude
 	public static void nglProgramUniform4iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4iv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -971,7 +952,6 @@ public class GLES31 {
 	// --- [ glProgramUniform1uiv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1uiv ProgramUniform1uiv} */
-	@JavadocExclude
 	public static void nglProgramUniform1uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1uiv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -991,7 +971,6 @@ public class GLES31 {
 	// --- [ glProgramUniform2uiv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2uiv ProgramUniform2uiv} */
-	@JavadocExclude
 	public static void nglProgramUniform2uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2uiv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1011,7 +990,6 @@ public class GLES31 {
 	// --- [ glProgramUniform3uiv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3uiv ProgramUniform3uiv} */
-	@JavadocExclude
 	public static void nglProgramUniform3uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3uiv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1031,7 +1009,6 @@ public class GLES31 {
 	// --- [ glProgramUniform4uiv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4uiv ProgramUniform4uiv} */
-	@JavadocExclude
 	public static void nglProgramUniform4uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4uiv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1051,7 +1028,6 @@ public class GLES31 {
 	// --- [ glProgramUniform1fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1fv ProgramUniform1fv} */
-	@JavadocExclude
 	public static void nglProgramUniform1fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1fv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1071,7 +1047,6 @@ public class GLES31 {
 	// --- [ glProgramUniform2fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2fv ProgramUniform2fv} */
-	@JavadocExclude
 	public static void nglProgramUniform2fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2fv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1091,7 +1066,6 @@ public class GLES31 {
 	// --- [ glProgramUniform3fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3fv ProgramUniform3fv} */
-	@JavadocExclude
 	public static void nglProgramUniform3fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3fv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1111,7 +1085,6 @@ public class GLES31 {
 	// --- [ glProgramUniform4fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4fv ProgramUniform4fv} */
-	@JavadocExclude
 	public static void nglProgramUniform4fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4fv;
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -1131,7 +1104,6 @@ public class GLES31 {
 	// --- [ glProgramUniformMatrix2fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2fv ProgramUniformMatrix2fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1151,7 +1123,6 @@ public class GLES31 {
 	// --- [ glProgramUniformMatrix3fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1171,7 +1142,6 @@ public class GLES31 {
 	// --- [ glProgramUniformMatrix4fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4fv ProgramUniformMatrix4fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1191,7 +1161,6 @@ public class GLES31 {
 	// --- [ glProgramUniformMatrix2x3fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x3fv ProgramUniformMatrix2x3fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1211,7 +1180,6 @@ public class GLES31 {
 	// --- [ glProgramUniformMatrix3x2fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x2fv ProgramUniformMatrix3x2fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1231,7 +1199,6 @@ public class GLES31 {
 	// --- [ glProgramUniformMatrix2x4fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x4fv ProgramUniformMatrix2x4fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1251,7 +1218,6 @@ public class GLES31 {
 	// --- [ glProgramUniformMatrix4x2fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x2fv ProgramUniformMatrix4x2fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1271,7 +1237,6 @@ public class GLES31 {
 	// --- [ glProgramUniformMatrix3x4fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x4fv ProgramUniformMatrix3x4fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1291,7 +1256,6 @@ public class GLES31 {
 	// --- [ glProgramUniformMatrix4x3fv ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x3fv ProgramUniformMatrix4x3fv} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3fv;
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
@@ -1318,7 +1282,6 @@ public class GLES31 {
 	// --- [ glGetProgramPipelineInfoLog ] ---
 
 	/** Unsafe version of {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog} */
-	@JavadocExclude
 	public static void nglGetProgramPipelineInfoLog(int pipeline, int bufSize, long length, long infoLog) {
 		long __functionAddress = getInstance().GetProgramPipelineInfoLog;
 		callIIPPV(__functionAddress, pipeline, bufSize, length, infoLog);
@@ -1368,7 +1331,6 @@ public class GLES31 {
 	// --- [ glGetBooleani_v ] ---
 
 	/** Unsafe version of {@link #glGetBooleani_v GetBooleani_v} */
-	@JavadocExclude
 	public static void nglGetBooleani_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetBooleani_v;
 		callIIPV(__functionAddress, target, index, data);
@@ -1412,7 +1374,6 @@ public class GLES31 {
 	// --- [ glGetMultisamplefv ] ---
 
 	/** Unsafe version of {@link #glGetMultisamplefv GetMultisamplefv} */
-	@JavadocExclude
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefv;
 		callIIPV(__functionAddress, pname, index, val);
@@ -1449,7 +1410,6 @@ public class GLES31 {
 	// --- [ glGetTexLevelParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
-	@JavadocExclude
 	public static void nglGetTexLevelParameteriv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameteriv;
 		callIIIPV(__functionAddress, target, level, pname, params);
@@ -1479,7 +1439,6 @@ public class GLES31 {
 	// --- [ glGetTexLevelParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
-	@JavadocExclude
 	public static void nglGetTexLevelParameterfv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameterfv;
 		callIIIPV(__functionAddress, target, level, pname, params);

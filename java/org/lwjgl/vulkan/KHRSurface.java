@@ -73,7 +73,6 @@ public class KHRSurface {
 		VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR         = 0x8;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DestroySurfaceKHR,
 		GetPhysicalDeviceSurfaceSupportKHR,
@@ -81,12 +80,10 @@ public class KHRSurface {
 		GetPhysicalDeviceSurfaceFormatsKHR,
 		GetPhysicalDeviceSurfacePresentModesKHR;
 
-	@JavadocExclude
 	protected KHRSurface() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRSurface(FunctionProvider provider) {
 		DestroySurfaceKHR = provider.getFunctionAddress("vkDestroySurfaceKHR");
 		GetPhysicalDeviceSurfaceSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceSupportKHR");
@@ -128,7 +125,6 @@ public class KHRSurface {
 	// --- [ vkDestroySurfaceKHR ] ---
 
 	/** Unsafe version of {@link #vkDestroySurfaceKHR DestroySurfaceKHR} */
-	@JavadocExclude
 	public static void nvkDestroySurfaceKHR(VkInstance instance, long surface, long pAllocator) {
 		long __functionAddress = getInstance(instance).DestroySurfaceKHR;
 		if ( CHECKS ) {
@@ -152,7 +148,6 @@ public class KHRSurface {
 	// --- [ vkGetPhysicalDeviceSurfaceSupportKHR ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR} */
-	@JavadocExclude
 	public static int nvkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long surface, long pSupported) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfaceSupportKHR;
 		if ( CHECKS )
@@ -184,7 +179,6 @@ public class KHRSurface {
 	// --- [ vkGetPhysicalDeviceSurfaceCapabilitiesKHR ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} */
-	@JavadocExclude
 	public static int nvkGetPhysicalDeviceSurfaceCapabilitiesKHR(VkPhysicalDevice physicalDevice, long surface, long pSurfaceCapabilities) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfaceCapabilitiesKHR;
 		if ( CHECKS )
@@ -206,7 +200,6 @@ public class KHRSurface {
 	// --- [ vkGetPhysicalDeviceSurfaceFormatsKHR ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfaceFormatsKHR GetPhysicalDeviceSurfaceFormatsKHR} */
-	@JavadocExclude
 	public static int nvkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, long surface, long pSurfaceFormatCount, long pSurfaceFormats) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfaceFormatsKHR;
 		if ( CHECKS )
@@ -238,7 +231,6 @@ public class KHRSurface {
 	// --- [ vkGetPhysicalDeviceSurfacePresentModesKHR ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfacePresentModesKHR GetPhysicalDeviceSurfacePresentModesKHR} */
-	@JavadocExclude
 	public static int nvkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, long surface, long pPresentModeCount, long pPresentModes) {
 		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfacePresentModesKHR;
 		if ( CHECKS )

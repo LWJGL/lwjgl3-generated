@@ -445,7 +445,6 @@ public class GL43 {
 		GL_MAX_VERTEX_ATTRIB_BINDINGS        = 0x82DA;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ClearBufferData,
 		ClearBufferSubData,
@@ -491,12 +490,10 @@ public class GL43 {
 		VertexAttribBinding,
 		VertexBindingDivisor;
 
-	@JavadocExclude
 	protected GL43() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL43(FunctionProvider provider) {
 		ClearBufferData = provider.getFunctionAddress("glClearBufferData");
 		ClearBufferSubData = provider.getFunctionAddress("glClearBufferSubData");
@@ -578,7 +575,6 @@ public class GL43 {
 	// --- [ glClearBufferData ] ---
 
 	/** Unsafe version of {@link #glClearBufferData ClearBufferData} */
-	@JavadocExclude
 	public static void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferData;
 		callIIIIPV(__functionAddress, target, internalformat, format, type, data);
@@ -619,7 +615,6 @@ public class GL43 {
 	// --- [ glClearBufferSubData ] ---
 
 	/** Unsafe version of {@link #glClearBufferSubData ClearBufferSubData} */
-	@JavadocExclude
 	public static void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferSubData;
 		callIIPPIIPV(__functionAddress, target, internalformat, offset, size, format, type, data);
@@ -684,18 +679,16 @@ public class GL43 {
 	 * 
 	 * <p>The parameters addressed by indirect are packed a structure, which takes the form (in C):</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * typedef struct {
-	 * 	uint num_groups_x;
-	 * 	uint num_groups_y;
-	 * 	uint num_groups_z;
-	 * } DispatchIndirectCommand;</code></pre>
+	 * <pre><code>typedef struct {
+	uint num_groups_x;
+	uint num_groups_y;
+	uint num_groups_z;
+} DispatchIndirectCommand;</code></pre>
 	 * 
 	 * <p>A call to {@code glDispatchComputeIndirect} is equivalent, assuming no errors are generated, to:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * cmd = (const DispatchIndirectCommand *)indirect;
-	 * glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</code></pre>
+	 * <pre><code>cmd = (const DispatchIndirectCommand *)indirect;
+glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</code></pre>
 	 *
 	 * @param indirect the offset into the buffer object currently bound to the {@link #GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER} buffer target at which the dispatch parameters are
 	 *                 stored.
@@ -738,7 +731,6 @@ public class GL43 {
 	// --- [ glDebugMessageControl ] ---
 
 	/** Unsafe version of {@link #glDebugMessageControl DebugMessageControl} */
-	@JavadocExclude
 	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControl;
 		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
@@ -800,7 +792,6 @@ public class GL43 {
 	// --- [ glDebugMessageInsert ] ---
 
 	/** Unsafe version of {@link #glDebugMessageInsert DebugMessageInsert} */
-	@JavadocExclude
 	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = getInstance().DebugMessageInsert;
 		callIIIIIPV(__functionAddress, source, type, id, severity, length, message);
@@ -889,7 +880,6 @@ public class GL43 {
 	// --- [ glGetDebugMessageLog ] ---
 
 	/** Unsafe version of {@link #glGetDebugMessageLog GetDebugMessageLog} */
-	@JavadocExclude
 	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLog;
 		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
@@ -958,7 +948,6 @@ public class GL43 {
 	// --- [ glPushDebugGroup ] ---
 
 	/** Unsafe version of {@link #glPushDebugGroup PushDebugGroup} */
-	@JavadocExclude
 	public static void nglPushDebugGroup(int source, int id, int length, long message) {
 		long __functionAddress = getInstance().PushDebugGroup;
 		callIIIPV(__functionAddress, source, id, length, message);
@@ -1023,7 +1012,6 @@ public class GL43 {
 	// --- [ glObjectLabel ] ---
 
 	/** Unsafe version of {@link #glObjectLabel ObjectLabel} */
-	@JavadocExclude
 	public static void nglObjectLabel(int identifier, int name, int length, long label) {
 		long __functionAddress = getInstance().ObjectLabel;
 		callIIIPV(__functionAddress, identifier, name, length, label);
@@ -1061,7 +1049,6 @@ public class GL43 {
 	// --- [ glGetObjectLabel ] ---
 
 	/** Unsafe version of {@link #glGetObjectLabel GetObjectLabel} */
-	@JavadocExclude
 	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabel;
 		callIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
@@ -1115,7 +1102,6 @@ public class GL43 {
 	// --- [ glObjectPtrLabel ] ---
 
 	/** Unsafe version of {@link #glObjectPtrLabel ObjectPtrLabel} */
-	@JavadocExclude
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = getInstance().ObjectPtrLabel;
 		if ( CHECKS )
@@ -1154,7 +1140,6 @@ public class GL43 {
 	// --- [ glGetObjectPtrLabel ] ---
 
 	/** Unsafe version of {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
-	@JavadocExclude
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectPtrLabel;
 		if ( CHECKS )
@@ -1225,7 +1210,6 @@ public class GL43 {
 	// --- [ glGetFramebufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferParameteriv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -1264,7 +1248,6 @@ public class GL43 {
 	// --- [ glGetInternalformati64v ] ---
 
 	/** Unsafe version of {@link #glGetInternalformati64v GetInternalformati64v} */
-	@JavadocExclude
 	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformati64v;
 		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
@@ -1369,7 +1352,6 @@ public class GL43 {
 	// --- [ glInvalidateFramebuffer ] ---
 
 	/** Unsafe version of {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
-	@JavadocExclude
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().InvalidateFramebuffer;
 		callIIPV(__functionAddress, target, numAttachments, attachments);
@@ -1405,7 +1387,6 @@ public class GL43 {
 	// --- [ glInvalidateSubFramebuffer ] ---
 
 	/** Unsafe version of {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
-	@JavadocExclude
 	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().InvalidateSubFramebuffer;
 		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
@@ -1445,7 +1426,6 @@ public class GL43 {
 	// --- [ glMultiDrawArraysIndirect ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
-	@JavadocExclude
 	public static void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirect;
 		callIPIIV(__functionAddress, mode, indirect, primcount, stride);
@@ -1458,25 +1438,23 @@ public class GL43 {
 	 * 
 	 * <p>The parameters addressed by {@code indirect} are packed into an array of structures, each element of which takes the form (in C):</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * typedef struct {
-	 * 	uint count;
-	 * 	uint primCount;
-	 * 	uint first;
-	 * 	uint baseInstance;
-	 * } DrawArraysIndirectCommand;</code></pre>
+	 * <pre><code>typedef struct {
+	uint count;
+	uint primCount;
+	uint first;
+	uint baseInstance;
+} DrawArraysIndirectCommand;</code></pre>
 	 * 
 	 * <p>A single call to {@code glMultiDrawArraysIndirect} is equivalent, assuming no errors are generated to:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * const ubyte *ptr = (const ubyte *)indirect;
-	 * for ( i = 0; i < primcount; i++ ) {
-	 * 	DrawArraysIndirect(mode, (DrawArraysIndirectCommand*)ptr);
-	 * 	if ( stride == 0 )
-	 * 		ptr += sizeof(DrawArraysIndirectCommand);
-	 * 	else
-	 * 		ptr += stride;
-	 * }</code></pre>
+	 * <pre><code>const ubyte *ptr = (const ubyte *)indirect;
+for ( i = 0; i < primcount; i++ ) {
+	DrawArraysIndirect(mode, (DrawArraysIndirectCommand*)ptr);
+	if ( stride == 0 )
+		ptr += sizeof(DrawArraysIndirectCommand);
+	else
+		ptr += stride;
+}</code></pre>
 	 *
 	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param indirect  an array of structures containing the draw parameters
@@ -1510,7 +1488,6 @@ public class GL43 {
 	// --- [ glMultiDrawElementsIndirect ] ---
 
 	/** Unsafe version of {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
-	@JavadocExclude
 	public static void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirect;
 		callIIPIIV(__functionAddress, mode, type, indirect, primcount, stride);
@@ -1523,26 +1500,24 @@ public class GL43 {
 	 * 
 	 * <p>The parameters addressed by indirect are packed into a structure that takes the form (in C):</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * typedef struct {
-	 * 	uint count;
-	 * 	uint primCount;
-	 * 	uint firstIndex;
-	 * 	uint baseVertex;
-	 * 	uint baseInstance;
-	 * } DrawElementsIndirectCommand;</code></pre>
+	 * <pre><code>typedef struct {
+	uint count;
+	uint primCount;
+	uint firstIndex;
+	uint baseVertex;
+	uint baseInstance;
+} DrawElementsIndirectCommand;</code></pre>
 	 * 
 	 * <p>A single call to {@code glMultiDrawElementsIndirect} is equivalent, assuming no errors are generated to:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * const ubyte *ptr = (const ubyte *)indirect;
-	 * for ( i = 0; i < primcount; i++ ) {
-	 * 	DrawElementsIndirect(mode, type, (DrawElementsIndirectCommand *)ptr);
-	 * 	if ( stride == 0 )
-	 * 		ptr += sizeof(DrawElementsIndirectCommand);
-	 * 	else
-	 * 		ptr += stride;
-	 * }</code></pre>
+	 * <pre><code>const ubyte *ptr = (const ubyte *)indirect;
+for ( i = 0; i < primcount; i++ ) {
+	DrawElementsIndirect(mode, type, (DrawElementsIndirectCommand *)ptr);
+	if ( stride == 0 )
+		ptr += sizeof(DrawElementsIndirectCommand);
+	else
+		ptr += stride;
+}</code></pre>
 	 *
 	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param type      the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
@@ -1577,7 +1552,6 @@ public class GL43 {
 	// --- [ glGetProgramInterfaceiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
-	@JavadocExclude
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramInterfaceiv;
 		callIIIPV(__functionAddress, program, programInterface, pname, params);
@@ -1617,7 +1591,6 @@ public class GL43 {
 	// --- [ glGetProgramResourceIndex ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
-	@JavadocExclude
 	public static int nglGetProgramResourceIndex(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceIndex;
 		return callIIPI(__functionAddress, program, programInterface, name);
@@ -1648,7 +1621,6 @@ public class GL43 {
 	// --- [ glGetProgramResourceName ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceName GetProgramResourceName} */
-	@JavadocExclude
 	public static void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
 		long __functionAddress = getInstance().GetProgramResourceName;
 		callIIIIPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
@@ -1703,7 +1675,6 @@ public class GL43 {
 	// --- [ glGetProgramResourceiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceiv GetProgramResourceiv} */
-	@JavadocExclude
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = getInstance().GetProgramResourceiv;
 		callIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
@@ -1752,7 +1723,6 @@ public class GL43 {
 	// --- [ glGetProgramResourceLocation ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
-	@JavadocExclude
 	public static int nglGetProgramResourceLocation(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocation;
 		return callIIPI(__functionAddress, program, programInterface, name);
@@ -1783,7 +1753,6 @@ public class GL43 {
 	// --- [ glGetProgramResourceLocationIndex ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
-	@JavadocExclude
 	public static int nglGetProgramResourceLocationIndex(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocationIndex;
 		return callIIPI(__functionAddress, program, programInterface, name);

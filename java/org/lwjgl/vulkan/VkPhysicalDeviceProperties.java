@@ -15,25 +15,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkPhysicalDeviceProperties {
- *     uint32_t apiVersion;
- *     uint32_t driverVersion;
- *     uint32_t vendorID;
- *     uint32_t deviceID;
- *     VkPhysicalDeviceType deviceType;
- *     char[256] deviceName;
- *     uint8_t[16] pipelineCacheUUID;
- *     {@link VkPhysicalDeviceLimits VkPhysicalDeviceLimits} limits;
- *     {@link VkPhysicalDeviceSparseProperties VkPhysicalDeviceSparseProperties} sparseProperties;
- * }</code></pre>
+ * <pre><code>struct VkPhysicalDeviceProperties {
+    uint32_t apiVersion;
+    uint32_t driverVersion;
+    uint32_t vendorID;
+    uint32_t deviceID;
+    VkPhysicalDeviceType deviceType;
+    char[256] deviceName;
+    uint8_t[16] pipelineCacheUUID;
+    {@link VkPhysicalDeviceLimits VkPhysicalDeviceLimits} limits;
+    {@link VkPhysicalDeviceSparseProperties VkPhysicalDeviceSparseProperties} sparseProperties;
+}</code></pre>
  */
 public class VkPhysicalDeviceProperties extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -117,12 +115,12 @@ public class VkPhysicalDeviceProperties extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkPhysicalDeviceProperties} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPhysicalDeviceProperties} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkPhysicalDeviceProperties malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkPhysicalDeviceProperties} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPhysicalDeviceProperties} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkPhysicalDeviceProperties calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -138,7 +136,7 @@ public class VkPhysicalDeviceProperties extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPhysicalDeviceProperties.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPhysicalDeviceProperties.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -147,7 +145,7 @@ public class VkPhysicalDeviceProperties extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPhysicalDeviceProperties.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPhysicalDeviceProperties.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

@@ -134,7 +134,6 @@ public class Errno {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected Errno() {
 		throw new UnsupportedOperationException();
 	}

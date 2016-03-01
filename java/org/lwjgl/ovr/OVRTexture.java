@@ -18,15 +18,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrTexture {
- *     {@link OVRTextureHeader ovrTextureHeader} Header;
- *     uintptr_t[8] PlatformData;
- * }</code></pre>
+ * <pre><code>struct ovrTexture {
+    {@link OVRTextureHeader ovrTextureHeader} Header;
+    uintptr_t[8] PlatformData;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>Header</td><td>API-independent header</td></tr>
  * <tr><td>PlatformData</td><td>specialized in {@link OVRGLTextureData}, {@code ovrD3D11TextureData} etc</td></tr>
  * </table>
@@ -36,7 +35,6 @@ public class OVRTexture extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -118,12 +116,12 @@ public class OVRTexture extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRTexture} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRTexture} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRTexture malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRTexture} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRTexture} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRTexture calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -139,7 +137,7 @@ public class OVRTexture extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRTexture.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRTexture.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -148,7 +146,7 @@ public class OVRTexture extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRTexture.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRTexture.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

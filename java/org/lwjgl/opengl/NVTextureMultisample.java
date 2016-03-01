@@ -26,7 +26,6 @@ public class NVTextureMultisample {
 		GL_TEXTURE_COLOR_SAMPLES_NV    = 0x9046;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexImage2DMultisampleCoverageNV,
 		TexImage3DMultisampleCoverageNV,
@@ -35,12 +34,10 @@ public class NVTextureMultisample {
 		TextureImage2DMultisampleCoverageNV,
 		TextureImage3DMultisampleCoverageNV;
 
-	@JavadocExclude
 	protected NVTextureMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVTextureMultisample(FunctionProvider provider) {
 		TexImage2DMultisampleCoverageNV = provider.getFunctionAddress("glTexImage2DMultisampleCoverageNV");
 		TexImage3DMultisampleCoverageNV = provider.getFunctionAddress("glTexImage3DMultisampleCoverageNV");

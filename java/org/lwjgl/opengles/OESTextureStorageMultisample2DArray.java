@@ -35,15 +35,12 @@ public class OESTextureStorageMultisample2DArray {
 		GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES = 0x910D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long TexStorage3DMultisampleOES;
 
-	@JavadocExclude
 	protected OESTextureStorageMultisample2DArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESTextureStorageMultisample2DArray(FunctionProvider provider) {
 		TexStorage3DMultisampleOES = provider.getFunctionAddress("glTexStorage3DMultisampleOES");
 	}

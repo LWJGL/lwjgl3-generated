@@ -27,15 +27,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTSwapBuffersWithDamage {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long SwapBuffersWithDamageEXT;
 
-	@JavadocExclude
 	protected EXTSwapBuffersWithDamage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTSwapBuffersWithDamage(FunctionProvider provider) {
 		SwapBuffersWithDamageEXT = provider.getFunctionAddress("eglSwapBuffersWithDamageEXT");
 	}
@@ -55,7 +52,6 @@ public class EXTSwapBuffersWithDamage {
 	// --- [ eglSwapBuffersWithDamageEXT ] ---
 
 	/** Unsafe version of {@link #eglSwapBuffersWithDamageEXT SwapBuffersWithDamageEXT} */
-	@JavadocExclude
 	public static int neglSwapBuffersWithDamageEXT(long dpy, long surface, long rects, int n_rects) {
 		long __functionAddress = getInstance().SwapBuffersWithDamageEXT;
 		if ( CHECKS ) {

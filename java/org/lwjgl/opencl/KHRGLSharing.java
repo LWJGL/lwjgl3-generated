@@ -45,15 +45,12 @@ public class KHRGLSharing {
 		CL_CGL_SHAREGROUP_KHR = 0x200C;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetGLContextInfoKHR;
 
-	@JavadocExclude
 	protected KHRGLSharing() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRGLSharing(FunctionProvider provider) {
 		GetGLContextInfoKHR = provider.getFunctionAddress("clGetGLContextInfoKHR");
 	}
@@ -83,7 +80,6 @@ public class KHRGLSharing {
 	// --- [ clGetGLContextInfoKHR ] ---
 
 	/** Unsafe version of {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
-	@JavadocExclude
 	public static int nclGetGLContextInfoKHR(long properties, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetGLContextInfoKHR;
 		return callPIPPPI(__functionAddress, properties, param_name, param_value_size, param_value, param_value_size_ret);

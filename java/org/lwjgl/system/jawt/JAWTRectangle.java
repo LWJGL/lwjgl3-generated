@@ -18,17 +18,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct JAWT_Rectangle {
- *     jint x;
- *     jint y;
- *     jint width;
- *     jint height;
- * }</code></pre>
+ * <pre><code>struct JAWT_Rectangle {
+    jint x;
+    jint y;
+    jint width;
+    jint height;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>x</td><td>the rectangle X axis coordinate</td></tr>
  * <tr><td>y</td><td>the rectangle Y axis coordinate</td></tr>
  * <tr><td>width</td><td>the rectangle width</td></tr>
@@ -40,7 +39,6 @@ public class JAWTRectangle extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -136,12 +134,12 @@ public class JAWTRectangle extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link JAWTRectangle} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link JAWTRectangle} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static JAWTRectangle malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link JAWTRectangle} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link JAWTRectangle} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static JAWTRectangle calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -157,7 +155,7 @@ public class JAWTRectangle extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link JAWTRectangle.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link JAWTRectangle.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -166,7 +164,7 @@ public class JAWTRectangle extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link JAWTRectangle.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link JAWTRectangle.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

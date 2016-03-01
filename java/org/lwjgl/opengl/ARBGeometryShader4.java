@@ -76,19 +76,16 @@ public class ARBGeometryShader4 {
 	public static final int GL_PROGRAM_POINT_SIZE_ARB = 0x8642;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ProgramParameteriARB,
 		FramebufferTextureARB,
 		FramebufferTextureLayerARB,
 		FramebufferTextureFaceARB;
 
-	@JavadocExclude
 	protected ARBGeometryShader4() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBGeometryShader4(FunctionProvider provider) {
 		ProgramParameteriARB = provider.getFunctionAddress("glProgramParameteriARB");
 		FramebufferTextureARB = provider.getFunctionAddress("glFramebufferTextureARB");

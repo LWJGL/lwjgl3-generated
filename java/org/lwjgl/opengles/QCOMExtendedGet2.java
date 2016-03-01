@@ -22,19 +22,16 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class QCOMExtendedGet2 {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ExtGetShadersQCOM,
 		ExtGetProgramsQCOM,
 		ExtIsProgramBinaryQCOM,
 		ExtGetProgramBinarySourceQCOM;
 
-	@JavadocExclude
 	protected QCOMExtendedGet2() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public QCOMExtendedGet2(FunctionProvider provider) {
 		ExtGetShadersQCOM = provider.getFunctionAddress("glExtGetShadersQCOM");
 		ExtGetProgramsQCOM = provider.getFunctionAddress("glExtGetProgramsQCOM");
@@ -68,7 +65,6 @@ public class QCOMExtendedGet2 {
 	// --- [ glExtGetShadersQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetShadersQCOM ExtGetShadersQCOM} */
-	@JavadocExclude
 	public static void nglExtGetShadersQCOM(long shaders, int maxShaders, long numShaders) {
 		long __functionAddress = getInstance().ExtGetShadersQCOM;
 		callPIPV(__functionAddress, shaders, maxShaders, numShaders);
@@ -92,7 +88,6 @@ public class QCOMExtendedGet2 {
 	// --- [ glExtGetProgramsQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetProgramsQCOM ExtGetProgramsQCOM} */
-	@JavadocExclude
 	public static void nglExtGetProgramsQCOM(long programs, int maxPrograms, long numPrograms) {
 		long __functionAddress = getInstance().ExtGetProgramsQCOM;
 		callPIPV(__functionAddress, programs, maxPrograms, numPrograms);
@@ -123,7 +118,6 @@ public class QCOMExtendedGet2 {
 	// --- [ glExtGetProgramBinarySourceQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetProgramBinarySourceQCOM ExtGetProgramBinarySourceQCOM} */
-	@JavadocExclude
 	public static void nglExtGetProgramBinarySourceQCOM(int program, int shadertype, long source, long length) {
 		long __functionAddress = getInstance().ExtGetProgramBinarySourceQCOM;
 		callIIPPV(__functionAddress, program, shadertype, source, length);

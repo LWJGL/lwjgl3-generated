@@ -20,7 +20,6 @@ public class SSE3 {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected SSE3() {
 		throw new UnsupportedOperationException();
 	}

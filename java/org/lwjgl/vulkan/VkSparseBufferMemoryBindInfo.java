@@ -16,19 +16,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkSparseBufferMemoryBindInfo {
- *     VkBuffer buffer;
- *     uint32_t bindCount;
- *     const VkSparseMemoryBind * pBinds;
- * }</code></pre>
+ * <pre><code>struct VkSparseBufferMemoryBindInfo {
+    VkBuffer buffer;
+    uint32_t bindCount;
+    const VkSparseMemoryBind * pBinds;
+}</code></pre>
  */
 public class VkSparseBufferMemoryBindInfo extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -111,12 +109,12 @@ public class VkSparseBufferMemoryBindInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkSparseBufferMemoryBindInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkSparseBufferMemoryBindInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkSparseBufferMemoryBindInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkSparseBufferMemoryBindInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkSparseBufferMemoryBindInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkSparseBufferMemoryBindInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -132,7 +130,7 @@ public class VkSparseBufferMemoryBindInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkSparseBufferMemoryBindInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkSparseBufferMemoryBindInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -141,7 +139,7 @@ public class VkSparseBufferMemoryBindInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkSparseBufferMemoryBindInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkSparseBufferMemoryBindInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

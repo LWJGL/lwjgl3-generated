@@ -48,17 +48,14 @@ public class ARBBufferStorage {
 	public static final int GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT = 0x4000;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BufferStorage,
 		NamedBufferStorageEXT;
 
-	@JavadocExclude
 	protected ARBBufferStorage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBBufferStorage(FunctionProvider provider) {
 		BufferStorage = provider.getFunctionAddress("glBufferStorage");
 		NamedBufferStorageEXT = provider.getFunctionAddress("glNamedBufferStorageEXT");
@@ -91,7 +88,6 @@ public class ARBBufferStorage {
 	// --- [ glBufferStorage ] ---
 
 	/** Unsafe version of {@link #glBufferStorage BufferStorage} */
-	@JavadocExclude
 	public static void nglBufferStorage(int target, long size, long data, int flags) {
 		long __functionAddress = getInstance().BufferStorage;
 		callIPPIV(__functionAddress, target, size, data, flags);
@@ -187,7 +183,6 @@ public class ARBBufferStorage {
 	// --- [ glNamedBufferStorageEXT ] ---
 
 	/** Unsafe version of {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
-	@JavadocExclude
 	public static void nglNamedBufferStorageEXT(int buffer, long size, long data, int flags) {
 		long __functionAddress = getInstance().NamedBufferStorageEXT;
 		if ( CHECKS )

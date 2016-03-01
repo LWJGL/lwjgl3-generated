@@ -109,17 +109,14 @@ public class EXTShaderImageLoadStore {
 		GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY_EXT = 0x906C;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BindImageTextureEXT,
 		MemoryBarrierEXT;
 
-	@JavadocExclude
 	protected EXTShaderImageLoadStore() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTShaderImageLoadStore(FunctionProvider provider) {
 		BindImageTextureEXT = provider.getFunctionAddress("glBindImageTextureEXT");
 		MemoryBarrierEXT = provider.getFunctionAddress("glMemoryBarrierEXT");

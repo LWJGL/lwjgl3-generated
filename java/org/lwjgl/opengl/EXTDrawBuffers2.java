@@ -28,7 +28,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTDrawBuffers2 {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ColorMaskIndexedEXT,
 		GetBooleanIndexedvEXT,
@@ -37,12 +36,10 @@ public class EXTDrawBuffers2 {
 		DisableIndexedEXT,
 		IsEnabledIndexedEXT;
 
-	@JavadocExclude
 	protected EXTDrawBuffers2() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDrawBuffers2(FunctionProvider provider) {
 		ColorMaskIndexedEXT = provider.getFunctionAddress("glColorMaskIndexedEXT");
 		GetBooleanIndexedvEXT = provider.getFunctionAddress("glGetBooleanIndexedvEXT");
@@ -87,7 +84,6 @@ public class EXTDrawBuffers2 {
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
 	/** Unsafe version of {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
-	@JavadocExclude
 	public static void nglGetBooleanIndexedvEXT(int target, int index, long data) {
 		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
 		callIIPV(__functionAddress, target, index, data);
@@ -110,7 +106,6 @@ public class EXTDrawBuffers2 {
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
 	/** Unsafe version of {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
-	@JavadocExclude
 	public static void nglGetIntegerIndexedvEXT(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
 		callIIPV(__functionAddress, target, index, data);

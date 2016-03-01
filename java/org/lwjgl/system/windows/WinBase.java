@@ -23,7 +23,6 @@ public class WinBase {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected WinBase() {
 		throw new UnsupportedOperationException();
 	}
@@ -53,7 +52,6 @@ public class WinBase {
 	// --- [ GetModuleHandle ] ---
 
 	/** JNI method for {@link #GetModuleHandle} */
-	@JavadocExclude
 	public static native long nGetModuleHandle(long moduleName);
 
 	/**
@@ -82,7 +80,6 @@ public class WinBase {
 	// --- [ LoadLibrary ] ---
 
 	/** JNI method for {@link #LoadLibrary} */
-	@JavadocExclude
 	public static native long nLoadLibrary(long name);
 
 	/**
@@ -117,7 +114,6 @@ public class WinBase {
 	// --- [ GetProcAddress ] ---
 
 	/** JNI method for {@link #GetProcAddress} */
-	@JavadocExclude
 	public static native long nGetProcAddress(long handle, long name);
 
 	/**
@@ -147,7 +143,6 @@ public class WinBase {
 	// --- [ FreeLibrary ] ---
 
 	/** JNI method for {@link #FreeLibrary} */
-	@JavadocExclude
 	public static native int nFreeLibrary(long handle);
 
 	/**

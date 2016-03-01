@@ -17,15 +17,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrErrorInfo {
- *     ovrResult Result;
- *     char[512] ErrorString;
- * }</code></pre>
+ * <pre><code>struct ovrErrorInfo {
+    ovrResult Result;
+    char[512] ErrorString;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>Result</td><td>the result from the last API call that generated an error ovrResult</td></tr>
  * <tr><td>ErrorString</td><td>a UTF8-encoded null-terminated English string describing the problem. The format of this string is subject to change in future versions</td></tr>
  * </table>
@@ -35,7 +34,6 @@ public class OVRErrorInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -82,12 +80,12 @@ public class OVRErrorInfo extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRErrorInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRErrorInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRErrorInfo malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRErrorInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRErrorInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRErrorInfo calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -103,7 +101,7 @@ public class OVRErrorInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRErrorInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRErrorInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -112,7 +110,7 @@ public class OVRErrorInfo extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRErrorInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRErrorInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

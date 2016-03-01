@@ -62,17 +62,14 @@ public class NVCoverageSample {
 		GL_COVERAGE_SAMPLES_NV = 0x8ED4;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		CoverageMaskNV,
 		CoverageOperationNV;
 
-	@JavadocExclude
 	protected NVCoverageSample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVCoverageSample(FunctionProvider provider) {
 		CoverageMaskNV = provider.getFunctionAddress("glCoverageMaskNV");
 		CoverageOperationNV = provider.getFunctionAddress("glCoverageOperationNV");

@@ -59,18 +59,15 @@ public class NVExplicitMultisample {
 		GL_UNSIGNED_INT_SAMPLER_RENDERBUFFER_NV = 0x8E58;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetMultisamplefvNV,
 		SampleMaskIndexedNV,
 		TexRenderbufferNV;
 
-	@JavadocExclude
 	protected NVExplicitMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVExplicitMultisample(FunctionProvider provider) {
 		GetMultisamplefvNV = provider.getFunctionAddress("glGetMultisamplefvNV");
 		SampleMaskIndexedNV = provider.getFunctionAddress("glSampleMaskIndexedNV");
@@ -104,7 +101,6 @@ public class NVExplicitMultisample {
 	// --- [ glGetMultisamplefvNV ] ---
 
 	/** Unsafe version of {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
-	@JavadocExclude
 	public static void nglGetMultisamplefvNV(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefvNV;
 		callIIPV(__functionAddress, pname, index, val);

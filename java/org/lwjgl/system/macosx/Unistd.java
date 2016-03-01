@@ -14,7 +14,6 @@ public class Unistd {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected Unistd() {
 		throw new UnsupportedOperationException();
 	}

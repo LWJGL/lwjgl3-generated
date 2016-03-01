@@ -907,7 +907,6 @@ public class User32 {
 	static { Library.initialize(); }
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		__RegisterClassEx,
 		__UnregisterClass,
@@ -955,12 +954,10 @@ public class User32 {
 		__EnumDisplaySettingsEx,
 		__ChangeDisplaySettingsEx;
 
-	@JavadocExclude
 	protected User32() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public User32(FunctionProvider provider) {
 		__RegisterClassEx = checkFunctionAddress(provider.getFunctionAddress("RegisterClassExW"));
 		__UnregisterClass = checkFunctionAddress(provider.getFunctionAddress("UnregisterClassW"));
@@ -1033,11 +1030,9 @@ public class User32 {
 	// --- [ RegisterClassEx ] ---
 
 	/** JNI method for {@link #RegisterClassEx} */
-	@JavadocExclude
 	public static native short nRegisterClassEx(long __functionAddress, long lpwcx);
 
 	/** Unsafe version of {@link #RegisterClassEx} */
-	@JavadocExclude
 	public static short nRegisterClassEx(long lpwcx) {
 		long __functionAddress = getInstance().__RegisterClassEx;
 		if ( CHECKS )
@@ -1057,11 +1052,9 @@ public class User32 {
 	// --- [ UnregisterClass ] ---
 
 	/** JNI method for {@link #UnregisterClass} */
-	@JavadocExclude
 	public static native int nUnregisterClass(long __functionAddress, long lpClassName, long hInstance);
 
 	/** Unsafe version of {@link #UnregisterClass} */
-	@JavadocExclude
 	public static int nUnregisterClass(long lpClassName, long hInstance) {
 		long __functionAddress = getInstance().__UnregisterClass;
 		return nUnregisterClass(__functionAddress, lpClassName, hInstance);
@@ -1092,11 +1085,9 @@ public class User32 {
 	// --- [ CreateWindowEx ] ---
 
 	/** JNI method for {@link #CreateWindowEx} */
-	@JavadocExclude
 	public static native long nCreateWindowEx(long __functionAddress, int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam);
 
 	/** Unsafe version of {@link #CreateWindowEx} */
-	@JavadocExclude
 	public static long nCreateWindowEx(int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
 		long __functionAddress = getInstance().__CreateWindowEx;
 		return nCreateWindowEx(__functionAddress, dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
@@ -1138,7 +1129,6 @@ public class User32 {
 	// --- [ DestroyWindow ] ---
 
 	/** JNI method for {@link #DestroyWindow} */
-	@JavadocExclude
 	public static native int nDestroyWindow(long __functionAddress, long hWnd);
 
 	/**
@@ -1212,7 +1202,6 @@ public class User32 {
 	// --- [ SetWindowPos ] ---
 
 	/** JNI method for {@link #SetWindowPos} */
-	@JavadocExclude
 	public static native int nSetWindowPos(long __functionAddress, long hWnd, long hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags);
 
 	/**
@@ -1237,11 +1226,9 @@ public class User32 {
 	// --- [ SetWindowText ] ---
 
 	/** JNI method for {@link #SetWindowText} */
-	@JavadocExclude
 	public static native int nSetWindowText(long __functionAddress, long hWnd, long lpString);
 
 	/** Unsafe version of {@link #SetWindowText} */
-	@JavadocExclude
 	public static int nSetWindowText(long hWnd, long lpString) {
 		long __functionAddress = getInstance().__SetWindowText;
 		if ( CHECKS )
@@ -1272,11 +1259,9 @@ public class User32 {
 	// --- [ GetMessage ] ---
 
 	/** JNI method for {@link #GetMessage} */
-	@JavadocExclude
 	public static native int nGetMessage(long __functionAddress, long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax);
 
 	/** Unsafe version of {@link #GetMessage} */
-	@JavadocExclude
 	public static int nGetMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax) {
 		long __functionAddress = getInstance().__GetMessage;
 		return nGetMessage(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
@@ -1305,7 +1290,6 @@ public class User32 {
 	// --- [ PeekMessage ] ---
 
 	/** Unsafe version of {@link #PeekMessage} */
-	@JavadocExclude
 	public static int nPeekMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax, int wRemoveMsg) {
 		long __functionAddress = getInstance().__PeekMessage;
 		return callPPIIII(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax, wRemoveMsg);
@@ -1334,7 +1318,6 @@ public class User32 {
 	// --- [ TranslateMessage ] ---
 
 	/** Unsafe version of {@link #TranslateMessage} */
-	@JavadocExclude
 	public static int nTranslateMessage(long lpMsg) {
 		long __functionAddress = getInstance().__TranslateMessage;
 		return callPI(__functionAddress, lpMsg);
@@ -1354,7 +1337,6 @@ public class User32 {
 	// --- [ WaitMessage ] ---
 
 	/** JNI method for {@link #WaitMessage} */
-	@JavadocExclude
 	public static native int nWaitMessage(long __functionAddress);
 
 	/**
@@ -1369,7 +1351,6 @@ public class User32 {
 	// --- [ DispatchMessage ] ---
 
 	/** Unsafe version of {@link #DispatchMessage} */
-	@JavadocExclude
 	public static long nDispatchMessage(long lpmsg) {
 		long __functionAddress = getInstance().__DispatchMessage;
 		return callPP(__functionAddress, lpmsg);
@@ -1387,7 +1368,6 @@ public class User32 {
 	// --- [ PostMessage ] ---
 
 	/** JNI method for {@link #PostMessage} */
-	@JavadocExclude
 	public static native int nPostMessage(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
 
 	/**
@@ -1413,7 +1393,6 @@ public class User32 {
 	// --- [ SendMessage ] ---
 
 	/** JNI method for {@link #SendMessage} */
-	@JavadocExclude
 	public static native int nSendMessage(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
 
 	/**
@@ -1440,11 +1419,9 @@ public class User32 {
 	// --- [ AdjustWindowRectEx ] ---
 
 	/** JNI method for {@link #AdjustWindowRectEx} */
-	@JavadocExclude
 	public static native int nAdjustWindowRectEx(long __functionAddress, long lpRect, int dwStyle, int bMenu, int dwExStyle);
 
 	/** Unsafe version of {@link #AdjustWindowRectEx} */
-	@JavadocExclude
 	public static int nAdjustWindowRectEx(long lpRect, int dwStyle, int bMenu, int dwExStyle) {
 		long __functionAddress = getInstance().__AdjustWindowRectEx;
 		return nAdjustWindowRectEx(__functionAddress, lpRect, dwStyle, bMenu, dwExStyle);
@@ -1468,11 +1445,9 @@ public class User32 {
 	// --- [ GetWindowRect ] ---
 
 	/** JNI method for {@link #GetWindowRect} */
-	@JavadocExclude
 	public static native int nGetWindowRect(long __functionAddress, long hWnd, long lpRect);
 
 	/** Unsafe version of {@link #GetWindowRect} */
-	@JavadocExclude
 	public static int nGetWindowRect(long hWnd, long lpRect) {
 		long __functionAddress = getInstance().__GetWindowRect;
 		if ( CHECKS )
@@ -1494,7 +1469,6 @@ public class User32 {
 	// --- [ MoveWindow ] ---
 
 	/** JNI method for {@link #MoveWindow} */
-	@JavadocExclude
 	public static native int nMoveWindow(long __functionAddress, long hWnd, int X, int Y, int nWidth, int nHeight, int bRepaint);
 
 	/**
@@ -1520,11 +1494,9 @@ public class User32 {
 	// --- [ GetWindowPlacement ] ---
 
 	/** JNI method for {@link #GetWindowPlacement} */
-	@JavadocExclude
 	public static native int nGetWindowPlacement(long __functionAddress, long hWnd, long lpwndpl);
 
 	/** Unsafe version of {@link #GetWindowPlacement} */
-	@JavadocExclude
 	public static int nGetWindowPlacement(long hWnd, long lpwndpl) {
 		long __functionAddress = getInstance().__GetWindowPlacement;
 		if ( CHECKS )
@@ -1548,11 +1520,9 @@ public class User32 {
 	// --- [ SetWindowPlacement ] ---
 
 	/** JNI method for {@link #SetWindowPlacement} */
-	@JavadocExclude
 	public static native int nSetWindowPlacement(long __functionAddress, long hWnd, long lpwndpl);
 
 	/** Unsafe version of {@link #SetWindowPlacement} */
-	@JavadocExclude
 	public static int nSetWindowPlacement(long hWnd, long lpwndpl) {
 		long __functionAddress = getInstance().__SetWindowPlacement;
 		if ( CHECKS )
@@ -1633,7 +1603,6 @@ public class User32 {
 	// --- [ SetWindowLongPtr ] ---
 
 	/** JNI method for {@link #SetWindowLongPtr} */
-	@JavadocExclude
 	public static native long nSetWindowLongPtr(long __functionAddress, long hWnd, int nIndex, long dwNewLong);
 
 	/**
@@ -1656,7 +1625,6 @@ public class User32 {
 	// --- [ GetWindowLongPtr ] ---
 
 	/** JNI method for {@link #GetWindowLongPtr} */
-	@JavadocExclude
 	public static native long nGetWindowLongPtr(long __functionAddress, long hWnd, int nIndex);
 
 	/**
@@ -1676,7 +1644,6 @@ public class User32 {
 	// --- [ SetClassLongPtr ] ---
 
 	/** JNI method for {@link #SetClassLongPtr} */
-	@JavadocExclude
 	public static native long nSetClassLongPtr(long __functionAddress, long hWnd, int nIndex, long dwNewLong);
 
 	/**
@@ -1691,7 +1658,7 @@ public class User32 {
 	 *
 	 * @return if the function succeeds, the return value is the previous value of the specified offset. If this was not previously set, the return value is zero.
 	 *         
-	 *         <p>If the function fails, the return value is zero. To get extended error information, call {@link WinBase#getLastError}.</p>
+	 *         <p>If the function fails, the return value is zero. To get extended error information, call {@link WinBase#getLastError WinBase.getLastError}.</p>
 	 */
 	public static long SetClassLongPtr(long hWnd, int nIndex, long dwNewLong) {
 		long __functionAddress = getInstance().__SetClassLongPtr;
@@ -1703,7 +1670,6 @@ public class User32 {
 	// --- [ GetClassLongPtr ] ---
 
 	/** JNI method for {@link #GetClassLongPtr} */
-	@JavadocExclude
 	public static native long nGetClassLongPtr(long __functionAddress, long hWnd, int nIndex);
 
 	/**
@@ -1725,7 +1691,6 @@ public class User32 {
 	// --- [ SetLayeredWindowAttributes ] ---
 
 	/** JNI method for {@link #SetLayeredWindowAttributes} */
-	@JavadocExclude
 	public static native int nSetLayeredWindowAttributes(long __functionAddress, long hwnd, int crKey, byte bAlpha, int dwFlags);
 
 	/**
@@ -1749,11 +1714,9 @@ public class User32 {
 	// --- [ LoadIcon ] ---
 
 	/** JNI method for {@link #LoadIcon} */
-	@JavadocExclude
 	public static native long nLoadIcon(long __functionAddress, long instance, long iconName);
 
 	/** Unsafe version of {@link #LoadIcon} */
-	@JavadocExclude
 	public static long nLoadIcon(long instance, long iconName) {
 		long __functionAddress = getInstance().__LoadIcon;
 		return nLoadIcon(__functionAddress, instance, iconName);
@@ -1782,11 +1745,9 @@ public class User32 {
 	// --- [ LoadCursor ] ---
 
 	/** JNI method for {@link #LoadCursor} */
-	@JavadocExclude
 	public static native long nLoadCursor(long __functionAddress, long instance, long cursorName);
 
 	/** Unsafe version of {@link #LoadCursor} */
-	@JavadocExclude
 	public static long nLoadCursor(long instance, long cursorName) {
 		long __functionAddress = getInstance().__LoadCursor;
 		return nLoadCursor(__functionAddress, instance, cursorName);
@@ -1857,7 +1818,6 @@ public class User32 {
 	// --- [ RegisterTouchWindow ] ---
 
 	/** JNI method for {@link #RegisterTouchWindow} */
-	@JavadocExclude
 	public static native int nRegisterTouchWindow(long __functionAddress, long hWnd, int ulFlags);
 
 	/**
@@ -1886,7 +1846,6 @@ public class User32 {
 	// --- [ UnregisterTouchWindow ] ---
 
 	/** JNI method for {@link #UnregisterTouchWindow} */
-	@JavadocExclude
 	public static native int nUnregisterTouchWindow(long __functionAddress, long hWnd);
 
 	/**
@@ -1908,7 +1867,6 @@ public class User32 {
 	// --- [ IsTouchWindow ] ---
 
 	/** Unsafe version of {@link #IsTouchWindow} */
-	@JavadocExclude
 	public static int nIsTouchWindow(long hWnd, long pulFlags) {
 		long __functionAddress = getInstance().__IsTouchWindow;
 		if ( CHECKS ) {
@@ -1939,11 +1897,9 @@ public class User32 {
 	// --- [ GetTouchInputInfo ] ---
 
 	/** JNI method for {@link #GetTouchInputInfo} */
-	@JavadocExclude
 	public static native int nGetTouchInputInfo(long __functionAddress, long hTouchInput, int cInputs, long pInputs, int cbSize);
 
 	/** Unsafe version of {@link #GetTouchInputInfo} */
-	@JavadocExclude
 	public static int nGetTouchInputInfo(long hTouchInput, int cInputs, long pInputs, int cbSize) {
 		long __functionAddress = getInstance().__GetTouchInputInfo;
 		if ( CHECKS ) {
@@ -1982,7 +1938,6 @@ public class User32 {
 	// --- [ CloseTouchInputHandle ] ---
 
 	/** JNI method for {@link #CloseTouchInputHandle} */
-	@JavadocExclude
 	public static native int nCloseTouchInputHandle(long __functionAddress, long hTouchInput);
 
 	/**
@@ -2021,7 +1976,6 @@ public class User32 {
 	// --- [ GetMonitorInfo ] ---
 
 	/** Unsafe version of {@link #GetMonitorInfo} */
-	@JavadocExclude
 	public static int nGetMonitorInfo(long hMonitor, long lpmi) {
 		long __functionAddress = getInstance().__GetMonitorInfo;
 		if ( CHECKS )
@@ -2045,7 +1999,6 @@ public class User32 {
 	// --- [ EnumDisplayDevices ] ---
 
 	/** Unsafe version of {@link #EnumDisplayDevices} */
-	@JavadocExclude
 	public static int nEnumDisplayDevices(long lpDevice, int iDevNum, long lpDisplayDevice, int dwFlags) {
 		long __functionAddress = getInstance().__EnumDisplayDevices;
 		return callPIPII(__functionAddress, lpDevice, iDevNum, lpDisplayDevice, dwFlags);
@@ -2084,7 +2037,6 @@ public class User32 {
 	// --- [ EnumDisplaySettingsEx ] ---
 
 	/** Unsafe version of {@link #EnumDisplaySettingsEx} */
-	@JavadocExclude
 	public static int nEnumDisplaySettingsEx(long lpszDeviceName, int iModeNum, long lpDevMode, int dwFlags) {
 		long __functionAddress = getInstance().__EnumDisplaySettingsEx;
 		return callPIPII(__functionAddress, lpszDeviceName, iModeNum, lpDevMode, dwFlags);
@@ -2096,7 +2048,7 @@ public class User32 {
 	 *
 	 * @param lpszDeviceName a pointer to a null-terminated string that specifies the display device about which graphics mode the function will obtain information.
 	 *                       
-	 *                       <p>This parameter is either {@code NULL} or a {@link DISPLAY_DEVICE#DeviceName} returned from {@link #EnumDisplayDevices}. A {@code NULL} value specifies the current display
+	 *                       <p>This parameter is either {@code NULL} or a {@link DISPLAY_DEVICE#DeviceName DISPLAY_DEVICE.DeviceName} returned from {@link #EnumDisplayDevices}. A {@code NULL} value specifies the current display
 	 *                       device on the computer that the calling thread is running on.</p>
 	 * @param iModeNum       indicates the type of information to be retrieved.
 	 *                       
@@ -2133,7 +2085,6 @@ public class User32 {
 	// --- [ ChangeDisplaySettingsEx ] ---
 
 	/** Unsafe version of {@link #ChangeDisplaySettingsEx} */
-	@JavadocExclude
 	public static int nChangeDisplaySettingsEx(long lpszDeviceName, long lpDevMode, long hwnd, int dwflags, long lParam) {
 		long __functionAddress = getInstance().__ChangeDisplaySettingsEx;
 		return callPPPIPI(__functionAddress, lpszDeviceName, lpDevMode, hwnd, dwflags, lParam);

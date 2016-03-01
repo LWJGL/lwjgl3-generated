@@ -41,15 +41,12 @@ public class ARBSampleShading {
 	public static final int GL_MIN_SAMPLE_SHADING_VALUE_ARB = 0x8C37;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long MinSampleShadingARB;
 
-	@JavadocExclude
 	protected ARBSampleShading() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBSampleShading(FunctionProvider provider) {
 		MinSampleShadingARB = provider.getFunctionAddress("glMinSampleShadingARB");
 	}

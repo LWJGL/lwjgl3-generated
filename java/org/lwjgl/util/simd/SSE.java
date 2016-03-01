@@ -48,7 +48,6 @@ public class SSE {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected SSE() {
 		throw new UnsupportedOperationException();
 	}

@@ -20,19 +20,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrPoseStatef {
- *     {@link OVRPosef ovrPosef} ThePose;
- *     {@link OVRVector3f ovrVector3f} AngularVelocity;
- *     {@link OVRVector3f ovrVector3f} LinearVelocity;
- *     {@link OVRVector3f ovrVector3f} AngularAcceleration;
- *     {@link OVRVector3f ovrVector3f} LinearAcceleration;
- *     double TimeInSeconds;
- * }</code></pre>
+ * <pre><code>struct ovrPoseStatef {
+    {@link OVRPosef ovrPosef} ThePose;
+    {@link OVRVector3f ovrVector3f} AngularVelocity;
+    {@link OVRVector3f ovrVector3f} LinearVelocity;
+    {@link OVRVector3f ovrVector3f} AngularAcceleration;
+    {@link OVRVector3f ovrVector3f} LinearAcceleration;
+    double TimeInSeconds;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>ThePose</td><td>position and orientation</td></tr>
  * <tr><td>AngularVelocity</td><td>angular velocity in radians per second</td></tr>
  * <tr><td>LinearVelocity</td><td>velocity in meters per second</td></tr>
@@ -46,7 +45,6 @@ public class OVRPoseStatef extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -111,12 +109,12 @@ public class OVRPoseStatef extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRPoseStatef} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRPoseStatef} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRPoseStatef malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRPoseStatef} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRPoseStatef} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRPoseStatef calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -132,7 +130,7 @@ public class OVRPoseStatef extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRPoseStatef.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRPoseStatef.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -141,7 +139,7 @@ public class OVRPoseStatef extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRPoseStatef.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRPoseStatef.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

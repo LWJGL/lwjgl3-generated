@@ -137,19 +137,16 @@ public class GL12 {
 		GL_MAX_ELEMENTS_INDICES  = 0x80E9;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexImage3D,
 		TexSubImage3D,
 		CopyTexSubImage3D,
 		DrawRangeElements;
 
-	@JavadocExclude
 	protected GL12() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL12(FunctionProvider provider) {
 		TexImage3D = provider.getFunctionAddress("glTexImage3D");
 		TexSubImage3D = provider.getFunctionAddress("glTexSubImage3D");
@@ -184,7 +181,6 @@ public class GL12 {
 	// --- [ glTexImage3D ] ---
 
 	/** Unsafe version of {@link #glTexImage3D TexImage3D} */
-	@JavadocExclude
 	public static void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage3D;
 		callIIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -250,7 +246,6 @@ public class GL12 {
 	// --- [ glTexSubImage3D ] ---
 
 	/** Unsafe version of {@link #glTexSubImage3D TexSubImage3D} */
-	@JavadocExclude
 	public static void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage3D;
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -342,7 +337,6 @@ public class GL12 {
 	// --- [ glDrawRangeElements ] ---
 
 	/** Unsafe version of {@link #glDrawRangeElements DrawRangeElements} */
-	@JavadocExclude
 	public static void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices) {
 		long __functionAddress = getInstance().DrawRangeElements;
 		callIIIIIPV(__functionAddress, mode, start, end, count, type, indices);

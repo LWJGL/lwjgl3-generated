@@ -54,18 +54,15 @@ public class AMDBusAddressableMemory {
 		CL_COMMAND_MAKE_BUFFERS_RESIDENT_AMD = 0x4082;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		EnqueueWaitSignalAMD,
 		EnqueueWriteSignalAMD,
 		EnqueueMakeBuffersResidentAMD;
 
-	@JavadocExclude
 	protected AMDBusAddressableMemory() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public AMDBusAddressableMemory(FunctionProvider provider) {
 		EnqueueWaitSignalAMD = provider.getFunctionAddress("clEnqueueWaitSignalAMD");
 		EnqueueWriteSignalAMD = provider.getFunctionAddress("clEnqueueWriteSignalAMD");
@@ -97,7 +94,6 @@ public class AMDBusAddressableMemory {
 	// --- [ clEnqueueWaitSignalAMD ] ---
 
 	/** Unsafe version of {@link #clEnqueueWaitSignalAMD EnqueueWaitSignalAMD} */
-	@JavadocExclude
 	public static int nclEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueWaitSignalAMD;
 		if ( CHECKS ) {
@@ -150,7 +146,6 @@ public class AMDBusAddressableMemory {
 	// --- [ clEnqueueWriteSignalAMD ] ---
 
 	/** Unsafe version of {@link #clEnqueueWriteSignalAMD EnqueueWriteSignalAMD} */
-	@JavadocExclude
 	public static int nclEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueWriteSignalAMD;
 		if ( CHECKS ) {
@@ -208,7 +203,6 @@ public class AMDBusAddressableMemory {
 	// --- [ clEnqueueMakeBuffersResidentAMD ] ---
 
 	/** Unsafe version of {@link #clEnqueueMakeBuffersResidentAMD EnqueueMakeBuffersResidentAMD} */
-	@JavadocExclude
 	public static int nclEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, long mem_objects, int blocking_make_resident, long bus_addresses, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMakeBuffersResidentAMD;
 		if ( CHECKS )

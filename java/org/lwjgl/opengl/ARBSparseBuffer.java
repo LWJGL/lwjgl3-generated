@@ -28,18 +28,15 @@ public class ARBSparseBuffer {
 	public static final int GL_SPARSE_BUFFER_PAGE_SIZE_ARB = 0x82F8;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		BufferPageCommitmentARB,
 		NamedBufferPageCommitmentEXT,
 		NamedBufferPageCommitmentARB;
 
-	@JavadocExclude
 	protected ARBSparseBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBSparseBuffer(FunctionProvider provider) {
 		BufferPageCommitmentARB = provider.getFunctionAddress("glBufferPageCommitmentARB");
 		NamedBufferPageCommitmentEXT = provider.getFunctionAddress("glNamedBufferPageCommitmentEXT");

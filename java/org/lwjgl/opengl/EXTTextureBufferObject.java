@@ -50,15 +50,12 @@ public class EXTTextureBufferObject {
 		GL_TEXTURE_BUFFER_FORMAT_EXT             = 0x8C2E;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long TexBufferEXT;
 
-	@JavadocExclude
 	protected EXTTextureBufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTTextureBufferObject(FunctionProvider provider) {
 		TexBufferEXT = provider.getFunctionAddress("glTexBufferEXT");
 	}

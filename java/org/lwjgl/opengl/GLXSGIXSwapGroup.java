@@ -21,15 +21,12 @@ import static org.lwjgl.system.JNI.*;
 public class GLXSGIXSwapGroup {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long JoinSwapGroupSGIX;
 
-	@JavadocExclude
 	protected GLXSGIXSwapGroup() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLXSGIXSwapGroup(FunctionProvider provider) {
 		JoinSwapGroupSGIX = provider.getFunctionAddress("glXJoinSwapGroupSGIX");
 	}

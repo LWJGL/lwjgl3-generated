@@ -18,31 +18,29 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct XSetWindowAttributes {
- *     Pixmap background_pixmap;
- *     unsigned long background_pixel;
- *     Pixmap border_pixmap;
- *     unsigned long border_pixel;
- *     int bit_gravity;
- *     int win_gravity;
- *     int backing_store;
- *     unsigned long backing_planes;
- *     unsigned long backing_pixel;
- *     Bool save_under;
- *     long event_mask;
- *     long do_not_propagate_mask;
- *     Bool override_redirect;
- *     Colormap colormap;
- *     Cursor cursor;
- * }</code></pre>
+ * <pre><code>struct XSetWindowAttributes {
+    Pixmap background_pixmap;
+    unsigned long background_pixel;
+    Pixmap border_pixmap;
+    unsigned long border_pixel;
+    int bit_gravity;
+    int win_gravity;
+    int backing_store;
+    unsigned long backing_planes;
+    unsigned long backing_pixel;
+    Bool save_under;
+    long event_mask;
+    long do_not_propagate_mask;
+    Bool override_redirect;
+    Colormap colormap;
+    Cursor cursor;
+}</code></pre>
  */
 public class XSetWindowAttributes extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -237,12 +235,12 @@ public class XSetWindowAttributes extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link XSetWindowAttributes} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link XSetWindowAttributes} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static XSetWindowAttributes malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link XSetWindowAttributes} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link XSetWindowAttributes} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static XSetWindowAttributes calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -258,7 +256,7 @@ public class XSetWindowAttributes extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link XSetWindowAttributes.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link XSetWindowAttributes.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -267,7 +265,7 @@ public class XSetWindowAttributes extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link XSetWindowAttributes.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link XSetWindowAttributes.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

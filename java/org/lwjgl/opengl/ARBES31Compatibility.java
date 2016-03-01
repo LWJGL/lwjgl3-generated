@@ -40,15 +40,12 @@ import static org.lwjgl.system.JNI.*;
 public class ARBES31Compatibility {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long MemoryBarrierByRegion;
 
-	@JavadocExclude
 	protected ARBES31Compatibility() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBES31Compatibility(FunctionProvider provider) {
 		MemoryBarrierByRegion = provider.getFunctionAddress("glMemoryBarrierByRegion");
 	}

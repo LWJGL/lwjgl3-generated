@@ -37,17 +37,14 @@ public class EXTTimerQuery {
 	public static final int GL_TIME_ELAPSED_EXT = 0x88BF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetQueryObjecti64vEXT,
 		GetQueryObjectui64vEXT;
 
-	@JavadocExclude
 	protected EXTTimerQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTTimerQuery(FunctionProvider provider) {
 		GetQueryObjecti64vEXT = provider.getFunctionAddress("glGetQueryObjecti64vEXT");
 		GetQueryObjectui64vEXT = provider.getFunctionAddress("glGetQueryObjectui64vEXT");
@@ -80,7 +77,6 @@ public class EXTTimerQuery {
 	// --- [ glGetQueryObjecti64vEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
-	@JavadocExclude
 	public static void nglGetQueryObjecti64vEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64vEXT;
 		callIIPV(__functionAddress, id, pname, params);
@@ -110,7 +106,6 @@ public class EXTTimerQuery {
 	// --- [ glGetQueryObjectui64vEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
-	@JavadocExclude
 	public static void nglGetQueryObjectui64vEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64vEXT;
 		callIIPV(__functionAddress, id, pname, params);

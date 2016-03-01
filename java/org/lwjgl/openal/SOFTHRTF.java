@@ -55,17 +55,14 @@ public class SOFTHRTF {
 		ALC_HRTF_UNSUPPORTED_FORMAT_SOFT  = 0x5;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetStringiSOFT,
 		ResetDeviceSOFT;
 
-	@JavadocExclude
 	protected SOFTHRTF() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public SOFTHRTF(FunctionProviderLocal provider, long device) {
 		GetStringiSOFT = provider.getFunctionAddress(device, "alcGetStringiSOFT");
 		ResetDeviceSOFT = provider.getFunctionAddress(device, "alcResetDeviceSOFT");
@@ -98,7 +95,6 @@ public class SOFTHRTF {
 	// --- [ alcGetStringiSOFT ] ---
 
 	/** Unsafe version of {@link #alcGetStringiSOFT GetStringiSOFT} */
-	@JavadocExclude
 	public static long nalcGetStringiSOFT(long device, int paramName, int index) {
 		long __functionAddress = getInstance().GetStringiSOFT;
 		if ( CHECKS )
@@ -124,7 +120,6 @@ public class SOFTHRTF {
 	// --- [ alcResetDeviceSOFT ] ---
 
 	/** Unsafe version of {@link #alcResetDeviceSOFT ResetDeviceSOFT} */
-	@JavadocExclude
 	public static boolean nalcResetDeviceSOFT(long device, long attrList) {
 		long __functionAddress = getInstance().ResetDeviceSOFT;
 		if ( CHECKS )

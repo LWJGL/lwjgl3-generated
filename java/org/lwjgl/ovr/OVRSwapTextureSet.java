@@ -16,34 +16,33 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Describes a set of textures that act as a rendered flip chain.
  * 
- * <p>An ovrSwapTextureSet per layer is passed to {@link OVR#ovr_SubmitFrame} via one of the ovrLayer types. The {@code TextureCount} refers to the flip chain
+ * <p>An ovrSwapTextureSet per layer is passed to {@link OVR#ovr_SubmitFrame OVR.ovr_SubmitFrame} via one of the ovrLayer types. The {@code TextureCount} refers to the flip chain
  * count and not an eye count. See the layer structs and functions for information about how to use ovrSwapTextureSet.</p>
  * 
- * <p>ovrSwapTextureSets must be created by either the ovr_CreateSwapTextureSetD3D11 or {@link OVRGL#ovr_CreateSwapTextureSetGL} factory function, and must
- * be destroyed by {@link OVR#ovr_DestroySwapTextureSet}.</p>
+ * <p>ovrSwapTextureSets must be created by either the ovr_CreateSwapTextureSetD3D11 or {@link OVRGL#ovr_CreateSwapTextureSetGL OVRGL.ovr_CreateSwapTextureSetGL} factory function, and must
+ * be destroyed by {@link OVR#ovr_DestroySwapTextureSet OVR.ovr_DestroySwapTextureSet}.</p>
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct ovrSwapTextureSet {
- *     ovrTexture * Textures;
- *     int TextureCount;
- *     int CurrentIndex;
- * }</code></pre>
+ * <pre><code>struct ovrSwapTextureSet {
+    ovrTexture * Textures;
+    int TextureCount;
+    int CurrentIndex;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>Textures</td><td>points to an array of ovrTextures</td></tr>
  * <tr><td>TextureCount</td><td>the number of textures referenced by the Textures array</td></tr>
- * <tr><td>CurrentIndex</td><td>CurrentIndex specifies which of the Textures will be used by the {@link OVR#ovr_SubmitFrame} call. This is manually incremented by the application, typically
+ * <tr><td>CurrentIndex</td><td>CurrentIndex specifies which of the Textures will be used by the {@link OVR#ovr_SubmitFrame OVR.ovr_SubmitFrame} call. This is manually incremented by the application, typically
  * in a round-robin manner.
  * 
  * <p>Before selecting a {@code Texture} as a rendertarget, the application should increment {@code CurrentIndex} by 1 and wrap it back to 0 if
  * {@code CurrentIndex == TextureCount}, so that it gets a fresh rendertarget,	one that is not currently being used for display. It can then render to
  * {@code Textures[CurrentIndex]}.</p>
  * 
- * <p>After rendering, the application calls {@link OVR#ovr_SubmitFrame} using that same {@code CurrentIndex} value	to display the new rendertarget.</p>
+ * <p>After rendering, the application calls {@link OVR#ovr_SubmitFrame OVR.ovr_SubmitFrame} using that same {@code CurrentIndex} value	to display the new rendertarget.</p>
  * 
  * <p>The application can submit multiple frames with the same {@code ovrSwapTextureSet} and {@code CurrentIndex} value if the rendertarget does not need to
  * be updated, for example when displaying an	information display whose text has not changed since the previous frame.</p>
@@ -52,8 +51,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * layer. However, all the layers using a particular {@code ovrSwapTextureSet} will share the same value of {@code CurrentIndex}, so they cannot use
  * different textures within the {@code ovrSwapTextureSet}.</p>
  * 
- * <p>Once a particular {@code Textures[CurrentIndex]} has been sent to {@link OVR#ovr_SubmitFrame}, that texture should not be rendered to until a subsequent
- * {@link OVR#ovr_SubmitFrame} is made (either with a different {@code CurrentIndex} value, or with a different {@code ovrSwapTextureSet}, or disabling the
+ * <p>Once a particular {@code Textures[CurrentIndex]} has been sent to {@link OVR#ovr_SubmitFrame OVR.ovr_SubmitFrame}, that texture should not be rendered to until a subsequent
+ * {@link OVR#ovr_SubmitFrame OVR.ovr_SubmitFrame} is made (either with a different {@code CurrentIndex} value, or with a different {@code ovrSwapTextureSet}, or disabling the
  * layer).</td></tr>
  * </table></p>
  */
@@ -62,7 +61,6 @@ public class OVRSwapTextureSet extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -145,12 +143,12 @@ public class OVRSwapTextureSet extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link OVRSwapTextureSet} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRSwapTextureSet} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static OVRSwapTextureSet malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link OVRSwapTextureSet} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link OVRSwapTextureSet} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static OVRSwapTextureSet calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -166,7 +164,7 @@ public class OVRSwapTextureSet extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRSwapTextureSet.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRSwapTextureSet.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -175,7 +173,7 @@ public class OVRSwapTextureSet extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link OVRSwapTextureSet.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link OVRSwapTextureSet.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

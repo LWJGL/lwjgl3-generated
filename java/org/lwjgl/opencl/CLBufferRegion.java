@@ -18,15 +18,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct cl_buffer_region {
- *     size_t origin;
- *     size_t size;
- * }</code></pre>
+ * <pre><code>struct cl_buffer_region {
+    size_t origin;
+    size_t size;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>origin</td><td>the region offset, in bytes</td></tr>
  * <tr><td>size</td><td>the region size, in bytes</td></tr>
  * </table>
@@ -36,7 +35,6 @@ public class CLBufferRegion extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -114,12 +112,12 @@ public class CLBufferRegion extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link CLBufferRegion} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link CLBufferRegion} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static CLBufferRegion malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link CLBufferRegion} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link CLBufferRegion} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static CLBufferRegion calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -135,7 +133,7 @@ public class CLBufferRegion extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link CLBufferRegion.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link CLBufferRegion.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -144,7 +142,7 @@ public class CLBufferRegion extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link CLBufferRegion.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link CLBufferRegion.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

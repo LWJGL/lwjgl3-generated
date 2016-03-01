@@ -29,15 +29,12 @@ public class EXTStencilTwoSide {
 	public static final int GL_ACTIVE_STENCIL_FACE_EXT = 0x8911;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long ActiveStencilFaceEXT;
 
-	@JavadocExclude
 	protected EXTStencilTwoSide() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTStencilTwoSide(FunctionProvider provider) {
 		ActiveStencilFaceEXT = provider.getFunctionAddress("glActiveStencilFaceEXT");
 	}

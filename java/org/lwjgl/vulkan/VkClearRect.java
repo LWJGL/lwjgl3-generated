@@ -16,19 +16,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkClearRect {
- *     {@link VkRect2D VkRect2D} rect;
- *     uint32_t baseArrayLayer;
- *     uint32_t layerCount;
- * }</code></pre>
+ * <pre><code>struct VkClearRect {
+    {@link VkRect2D VkRect2D} rect;
+    uint32_t baseArrayLayer;
+    uint32_t layerCount;
+}</code></pre>
  */
 public class VkClearRect extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -115,12 +113,12 @@ public class VkClearRect extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkClearRect} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkClearRect} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkClearRect malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkClearRect} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkClearRect} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkClearRect calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -136,7 +134,7 @@ public class VkClearRect extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkClearRect.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkClearRect.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -145,7 +143,7 @@ public class VkClearRect extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkClearRect.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkClearRect.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

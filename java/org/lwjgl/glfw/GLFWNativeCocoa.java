@@ -14,17 +14,14 @@ import static org.lwjgl.system.JNI.*;
 public class GLFWNativeCocoa {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetCocoaMonitor,
 		GetCocoaWindow;
 
-	@JavadocExclude
 	protected GLFWNativeCocoa() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLFWNativeCocoa(FunctionProvider provider) {
 		GetCocoaMonitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetCocoaMonitor"));
 		GetCocoaWindow = checkFunctionAddress(provider.getFunctionAddress("glfwGetCocoaWindow"));
@@ -47,13 +44,13 @@ public class GLFWNativeCocoa {
 	// --- [ glfwGetCocoaMonitor ] ---
 
 	/**
-	 * Returns the <code style="font-family: monospace">CGDirectDisplayID</code> of the specified monitor.
+	 * Returns the <code>CGDirectDisplayID</code> of the specified monitor.
 	 * 
 	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @param monitor the GLFW monitor
 	 *
-	 * @return The <code style="font-family: monospace">CGDirectDisplayID</code> of the specified monitor, or kCGNullDirectDisplay` if an error occurred.
+	 * @return The <code>CGDirectDisplayID</code> of the specified monitor, or kCGNullDirectDisplay` if an error occurred.
 	 *
 	 * @since version 3.1
 	 */
@@ -67,13 +64,13 @@ public class GLFWNativeCocoa {
 	// --- [ glfwGetCocoaWindow ] ---
 
 	/**
-	 * Returns the <code style="font-family: monospace">NSWindow</code> of the specified GLFW window.
+	 * Returns the <code>NSWindow</code> of the specified GLFW window.
 	 * 
 	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @param window the GLFW window
 	 *
-	 * @return The <code style="font-family: monospace">NSWindow</code> of the specified window, or nil if an error occurred.
+	 * @return The <code>NSWindow</code> of the specified window, or nil if an error occurred.
 	 *
 	 * @since version 3.0
 	 */

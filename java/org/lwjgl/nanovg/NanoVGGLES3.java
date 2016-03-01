@@ -32,7 +32,6 @@ public class NanoVGGLES3 {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected NanoVGGLES3() {
 		throw new UnsupportedOperationException();
 	}
@@ -40,7 +39,6 @@ public class NanoVGGLES3 {
 	// --- [ nvglCreateImageFromHandleGLES3 ] ---
 
 	/** JNI method for {@link #nvglCreateImageFromHandleGLES3 lCreateImageFromHandleGLES3} */
-	@JavadocExclude
 	public static native int nnvglCreateImageFromHandleGLES3(long ctx, int textureId, int w, int h, int flags);
 
 	/**
@@ -61,7 +59,6 @@ public class NanoVGGLES3 {
 	// --- [ nvglImageHandleGLES3 ] ---
 
 	/** JNI method for {@link #nvglImageHandleGLES3 lImageHandleGLES3} */
-	@JavadocExclude
 	public static native int nnvglImageHandleGLES3(long ctx, int image);
 
 	/**
@@ -91,7 +88,6 @@ public class NanoVGGLES3 {
 	// --- [ nvgDeleteGLES3 ] ---
 
 	/** JNI method for {@link #nvgDeleteGLES3 DeleteGLES3} */
-	@JavadocExclude
 	public static native void nnvgDeleteGLES3(long ctx);
 
 	/**
@@ -108,7 +104,6 @@ public class NanoVGGLES3 {
 	// --- [ nvgluCreateFramebuffer ] ---
 
 	/** JNI method for {@link #nvgluCreateFramebuffer luCreateFramebuffer} */
-	@JavadocExclude
 	public static native long nnvgluCreateFramebuffer(long ctx, int w, int h, int imageFlags);
 
 	/**
@@ -129,7 +124,6 @@ public class NanoVGGLES3 {
 	// --- [ nvgluBindFramebuffer ] ---
 
 	/** JNI method for {@link #nvgluBindFramebuffer luBindFramebuffer} */
-	@JavadocExclude
 	public static native void nnvgluBindFramebuffer(long ctx, long fb);
 
 	/**
@@ -147,7 +141,6 @@ public class NanoVGGLES3 {
 	// --- [ nvgluDeleteFramebuffer ] ---
 
 	/** JNI method for {@link #nvgluDeleteFramebuffer luDeleteFramebuffer} */
-	@JavadocExclude
 	public static native void nnvgluDeleteFramebuffer(long ctx, long fb);
 
 	/**

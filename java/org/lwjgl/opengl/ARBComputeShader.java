@@ -76,17 +76,14 @@ public class ARBComputeShader {
 	public static final int GL_COMPUTE_SHADER_BIT = 0x20;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DispatchCompute,
 		DispatchComputeIndirect;
 
-	@JavadocExclude
 	protected ARBComputeShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBComputeShader(FunctionProvider provider) {
 		DispatchCompute = provider.getFunctionAddress("glDispatchCompute");
 		DispatchComputeIndirect = provider.getFunctionAddress("glDispatchComputeIndirect");
@@ -137,18 +134,16 @@ public class ARBComputeShader {
 	 * 
 	 * <p>The parameters addressed by indirect are packed a structure, which takes the form (in C):</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * typedef struct {
-	 * 	uint num_groups_x;
-	 * 	uint num_groups_y;
-	 * 	uint num_groups_z;
-	 * } DispatchIndirectCommand;</code></pre>
+	 * <pre><code>typedef struct {
+	uint num_groups_x;
+	uint num_groups_y;
+	uint num_groups_z;
+} DispatchIndirectCommand;</code></pre>
 	 * 
 	 * <p>A call to {@code glDispatchComputeIndirect} is equivalent, assuming no errors are generated, to:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * cmd = (const DispatchIndirectCommand *)indirect;
-	 * glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</code></pre>
+	 * <pre><code>cmd = (const DispatchIndirectCommand *)indirect;
+glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</code></pre>
 	 *
 	 * @param indirect the offset into the buffer object currently bound to the {@link #GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER} buffer target at which the dispatch parameters are
 	 *                 stored.

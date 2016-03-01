@@ -16,20 +16,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkImageBlit {
- *     {@link VkImageSubresourceLayers VkImageSubresourceLayers} srcSubresource;
- *     {@link VkOffset3D VkOffset3D}[2] srcOffsets;
- *     {@link VkImageSubresourceLayers VkImageSubresourceLayers} dstSubresource;
- *     {@link VkOffset3D VkOffset3D}[2] dstOffsets;
- * }</code></pre>
+ * <pre><code>struct VkImageBlit {
+    {@link VkImageSubresourceLayers VkImageSubresourceLayers} srcSubresource;
+    {@link VkOffset3D VkOffset3D}[2] srcOffsets;
+    {@link VkImageSubresourceLayers VkImageSubresourceLayers} dstSubresource;
+    {@link VkOffset3D VkOffset3D}[2] dstOffsets;
+}</code></pre>
  */
 public class VkImageBlit extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -133,12 +131,12 @@ public class VkImageBlit extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkImageBlit} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageBlit} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkImageBlit malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkImageBlit} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkImageBlit} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkImageBlit calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -154,7 +152,7 @@ public class VkImageBlit extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageBlit.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageBlit.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -163,7 +161,7 @@ public class VkImageBlit extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkImageBlit.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkImageBlit.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

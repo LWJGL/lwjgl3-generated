@@ -67,15 +67,12 @@ public class EXTFramebufferMultisample {
 	public static final int GL_MAX_SAMPLES_EXT = 0x8D57;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long RenderbufferStorageMultisampleEXT;
 
-	@JavadocExclude
 	protected EXTFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTFramebufferMultisample(FunctionProvider provider) {
 		RenderbufferStorageMultisampleEXT = provider.getFunctionAddress("glRenderbufferStorageMultisampleEXT");
 	}

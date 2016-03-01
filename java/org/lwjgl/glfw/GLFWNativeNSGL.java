@@ -14,15 +14,12 @@ import static org.lwjgl.system.JNI.*;
 public class GLFWNativeNSGL {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetNSGLContext;
 
-	@JavadocExclude
 	protected GLFWNativeNSGL() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GLFWNativeNSGL(FunctionProvider provider) {
 		GetNSGLContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetNSGLContext"));
 	}
@@ -44,13 +41,13 @@ public class GLFWNativeNSGL {
 	// --- [ glfwGetNSGLContext ] ---
 
 	/**
-	 * Returns the <code style="font-family: monospace">NSOpenGLContext</code> of the specified GLFW window.
+	 * Returns the <code>NSOpenGLContext</code> of the specified GLFW window.
 	 * 
 	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @param window the GLFW window
 	 *
-	 * @return The <code style="font-family: monospace">NSOpenGLContext</code> of the specified window, or nil if an error occurred.
+	 * @return The <code>NSOpenGLContext</code> of the specified window, or nil if an error occurred.
 	 *
 	 * @since version 3.0
 	 */

@@ -46,15 +46,12 @@ public class KHRStreamFIFO {
 		EGL_STREAM_TIME_PRODUCER_KHR = 0x31FF;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long QueryStreamTimeKHR;
 
-	@JavadocExclude
 	protected KHRStreamFIFO() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRStreamFIFO(FunctionProvider provider) {
 		QueryStreamTimeKHR = provider.getFunctionAddress("eglQueryStreamTimeKHR");
 	}
@@ -74,7 +71,6 @@ public class KHRStreamFIFO {
 	// --- [ eglQueryStreamTimeKHR ] ---
 
 	/** Unsafe version of {@link #eglQueryStreamTimeKHR QueryStreamTimeKHR} */
-	@JavadocExclude
 	public static int neglQueryStreamTimeKHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = getInstance().QueryStreamTimeKHR;
 		if ( CHECKS ) {

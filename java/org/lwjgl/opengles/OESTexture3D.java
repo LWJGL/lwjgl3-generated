@@ -40,7 +40,6 @@ public class OESTexture3D {
 		GL_TEXTURE_BINDING_3D_OES  = 0x806A;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		TexImage3DOES,
 		TexSubImage3DOES,
@@ -49,12 +48,10 @@ public class OESTexture3D {
 		CompressedTexSubImage3DOES,
 		FramebufferTexture3DOES;
 
-	@JavadocExclude
 	protected OESTexture3D() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESTexture3D(FunctionProvider provider) {
 		TexImage3DOES = provider.getFunctionAddress("glTexImage3DOES");
 		TexSubImage3DOES = provider.getFunctionAddress("glTexSubImage3DOES");
@@ -91,7 +88,6 @@ public class OESTexture3D {
 	// --- [ glTexImage3DOES ] ---
 
 	/** Unsafe version of {@link #glTexImage3DOES TexImage3DOES} */
-	@JavadocExclude
 	public static void nglTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage3DOES;
 		callIIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -141,7 +137,6 @@ public class OESTexture3D {
 	// --- [ glTexSubImage3DOES ] ---
 
 	/** Unsafe version of {@link #glTexSubImage3DOES TexSubImage3DOES} */
-	@JavadocExclude
 	public static void nglTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage3DOES;
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -198,7 +193,6 @@ public class OESTexture3D {
 	// --- [ glCompressedTexImage3DOES ] ---
 
 	/** Unsafe version of {@link #glCompressedTexImage3DOES CompressedTexImage3DOES} */
-	@JavadocExclude
 	public static void nglCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3DOES;
 		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
@@ -229,7 +223,6 @@ public class OESTexture3D {
 	// --- [ glCompressedTexSubImage3DOES ] ---
 
 	/** Unsafe version of {@link #glCompressedTexSubImage3DOES CompressedTexSubImage3DOES} */
-	@JavadocExclude
 	public static void nglCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3DOES;
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);

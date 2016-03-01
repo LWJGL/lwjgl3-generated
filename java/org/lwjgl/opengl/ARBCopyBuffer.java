@@ -29,15 +29,12 @@ public class ARBCopyBuffer {
 		GL_COPY_WRITE_BUFFER = 0x8F37;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long CopyBufferSubData;
 
-	@JavadocExclude
 	protected ARBCopyBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBCopyBuffer(FunctionProvider provider) {
 		CopyBufferSubData = provider.getFunctionAddress("glCopyBufferSubData");
 	}

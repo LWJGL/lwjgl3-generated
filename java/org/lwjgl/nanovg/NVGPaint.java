@@ -18,20 +18,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct NVGpaint {
- *     float[6] xform;
- *     float[2] extent;
- *     float radius;
- *     float feather;
- *     {@link NVGColor NVGcolor} innerColor;
- *     {@link NVGColor NVGcolor} outerColor;
- *     int image;
- * }</code></pre>
+ * <pre><code>struct NVGpaint {
+    float[6] xform;
+    float[2] extent;
+    float radius;
+    float feather;
+    {@link NVGColor NVGcolor} innerColor;
+    {@link NVGColor NVGcolor} outerColor;
+    int image;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>xform</td><td>the transformation matrix</td></tr>
  * <tr><td>extent</td><td>the extent</td></tr>
  * <tr><td>radius</td><td>the radius</td></tr>
@@ -46,7 +45,6 @@ public class NVGPaint extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -177,12 +175,12 @@ public class NVGPaint extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link NVGPaint} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link NVGPaint} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static NVGPaint malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link NVGPaint} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link NVGPaint} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static NVGPaint calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -198,7 +196,7 @@ public class NVGPaint extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link NVGPaint.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link NVGPaint.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -207,7 +205,7 @@ public class NVGPaint extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link NVGPaint.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link NVGPaint.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

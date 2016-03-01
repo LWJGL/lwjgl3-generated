@@ -85,7 +85,6 @@ public class EGL10 {
 		EGL_NO_SURFACE = 0x0L;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ChooseConfig,
 		CopyBuffers,
@@ -112,12 +111,10 @@ public class EGL10 {
 		WaitGL,
 		WaitNative;
 
-	@JavadocExclude
 	protected EGL10() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EGL10(FunctionProvider provider) {
 		ChooseConfig = provider.getFunctionAddress("eglChooseConfig");
 		CopyBuffers = provider.getFunctionAddress("eglCopyBuffers");
@@ -160,7 +157,6 @@ public class EGL10 {
 	// --- [ eglChooseConfig ] ---
 
 	/** Unsafe version of {@link #eglChooseConfig ChooseConfig} */
-	@JavadocExclude
 	public static int neglChooseConfig(long dpy, long attrib_list, long configs, int config_size, long num_config) {
 		long __functionAddress = getInstance().ChooseConfig;
 		if ( CHECKS )
@@ -201,7 +197,6 @@ public class EGL10 {
 	// --- [ eglCreateContext ] ---
 
 	/** Unsafe version of {@link #eglCreateContext CreateContext} */
-	@JavadocExclude
 	public static long neglCreateContext(long dpy, long config, long share_context, long attrib_list) {
 		long __functionAddress = getInstance().CreateContext;
 		if ( CHECKS ) {
@@ -227,7 +222,6 @@ public class EGL10 {
 	// --- [ eglCreatePbufferSurface ] ---
 
 	/** Unsafe version of {@link #eglCreatePbufferSurface CreatePbufferSurface} */
-	@JavadocExclude
 	public static long neglCreatePbufferSurface(long dpy, long config, long attrib_list) {
 		long __functionAddress = getInstance().CreatePbufferSurface;
 		if ( CHECKS ) {
@@ -253,7 +247,6 @@ public class EGL10 {
 	// --- [ eglCreatePixmapSurface ] ---
 
 	/** Unsafe version of {@link #eglCreatePixmapSurface CreatePixmapSurface} */
-	@JavadocExclude
 	public static long neglCreatePixmapSurface(long dpy, long config, long pixmap, long attrib_list) {
 		long __functionAddress = getInstance().CreatePixmapSurface;
 		if ( CHECKS ) {
@@ -280,7 +273,6 @@ public class EGL10 {
 	// --- [ eglCreateWindowSurface ] ---
 
 	/** Unsafe version of {@link #eglCreateWindowSurface CreateWindowSurface} */
-	@JavadocExclude
 	public static long neglCreateWindowSurface(long dpy, long config, long win, long attrib_list) {
 		long __functionAddress = getInstance().CreateWindowSurface;
 		if ( CHECKS ) {
@@ -329,7 +321,6 @@ public class EGL10 {
 	// --- [ eglGetConfigAttrib ] ---
 
 	/** Unsafe version of {@link #eglGetConfigAttrib GetConfigAttrib} */
-	@JavadocExclude
 	public static int neglGetConfigAttrib(long dpy, long config, int attribute, long value) {
 		long __functionAddress = getInstance().GetConfigAttrib;
 		if ( CHECKS ) {
@@ -355,7 +346,6 @@ public class EGL10 {
 	// --- [ eglGetConfigs ] ---
 
 	/** Unsafe version of {@link #eglGetConfigs GetConfigs} */
-	@JavadocExclude
 	public static int neglGetConfigs(long dpy, long configs, int config_size, long num_config) {
 		long __functionAddress = getInstance().GetConfigs;
 		if ( CHECKS )
@@ -409,7 +399,6 @@ public class EGL10 {
 	// --- [ eglGetProcAddress ] ---
 
 	/** Unsafe version of {@link #eglGetProcAddress GetProcAddress} */
-	@JavadocExclude
 	public static long neglGetProcAddress(long procname) {
 		long __functionAddress = getInstance().GetProcAddress;
 		return callPP(__functionAddress, procname);
@@ -431,7 +420,6 @@ public class EGL10 {
 	// --- [ eglInitialize ] ---
 
 	/** Unsafe version of {@link #eglInitialize Initialize} */
-	@JavadocExclude
 	public static int neglInitialize(long dpy, long major, long minor) {
 		long __functionAddress = getInstance().Initialize;
 		if ( CHECKS )
@@ -472,7 +460,6 @@ public class EGL10 {
 	// --- [ eglQueryContext ] ---
 
 	/** Unsafe version of {@link #eglQueryContext QueryContext} */
-	@JavadocExclude
 	public static int neglQueryContext(long dpy, long ctx, int attribute, long value) {
 		long __functionAddress = getInstance().QueryContext;
 		if ( CHECKS ) {
@@ -498,7 +485,6 @@ public class EGL10 {
 	// --- [ eglQueryString ] ---
 
 	/** Unsafe version of {@link #eglQueryString QueryString} */
-	@JavadocExclude
 	public static long neglQueryString(long dpy, int name) {
 		long __functionAddress = getInstance().QueryString;
 		return callPIP(__functionAddress, dpy, name);
@@ -512,7 +498,6 @@ public class EGL10 {
 	// --- [ eglQuerySurface ] ---
 
 	/** Unsafe version of {@link #eglQuerySurface QuerySurface} */
-	@JavadocExclude
 	public static int neglQuerySurface(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = getInstance().QuerySurface;
 		if ( CHECKS ) {

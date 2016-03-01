@@ -18,19 +18,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct MSG {
- *     HWND hwnd;
- *     UINT message;
- *     WPARAM wParam;
- *     LPARAM lParam;
- *     DWORD time;
- *     {@link POINT POINT} pt;
- * }</code></pre>
+ * <pre><code>struct MSG {
+    HWND hwnd;
+    UINT message;
+    WPARAM wParam;
+    LPARAM lParam;
+    DWORD time;
+    {@link POINT POINT} pt;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>hwnd</td><td>a handle to the window whose window procedure receives the message. This member is {@code NULL} when the message is a thread message.</td></tr>
  * <tr><td>message</td><td>the message identifier. Applications can only use the low word; the high word is reserved by the system.</td></tr>
  * <tr><td>wParam</td><td>additional information about the message. The exact meaning depends on the value of the message member.</td></tr>
@@ -44,7 +43,6 @@ public class MSG extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -158,12 +156,12 @@ public class MSG extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link MSG} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link MSG} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static MSG malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link MSG} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link MSG} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static MSG calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -179,7 +177,7 @@ public class MSG extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link MSG.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link MSG.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -188,7 +186,7 @@ public class MSG extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link MSG.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link MSG.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

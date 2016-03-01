@@ -56,19 +56,16 @@ public class ARBTransformFeedback3 {
 		GL_MAX_VERTEX_STREAMS             = 0x8E71;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawTransformFeedbackStream,
 		BeginQueryIndexed,
 		EndQueryIndexed,
 		GetQueryIndexediv;
 
-	@JavadocExclude
 	protected ARBTransformFeedback3() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBTransformFeedback3(FunctionProvider provider) {
 		DrawTransformFeedbackStream = provider.getFunctionAddress("glDrawTransformFeedbackStream");
 		BeginQueryIndexed = provider.getFunctionAddress("glBeginQueryIndexed");
@@ -144,7 +141,6 @@ public class ARBTransformFeedback3 {
 	// --- [ glGetQueryIndexediv ] ---
 
 	/** Unsafe version of {@link #glGetQueryIndexediv GetQueryIndexediv} */
-	@JavadocExclude
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryIndexediv;
 		callIIIPV(__functionAddress, target, index, pname, params);

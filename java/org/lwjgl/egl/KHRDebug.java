@@ -68,18 +68,15 @@ public class KHRDebug {
 	public static final int EGL_DEBUG_CALLBACK_KHR = 0x33B8;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DebugMessageControlKHR,
 		QueryDebugKHR,
 		LabelObjectKHR;
 
-	@JavadocExclude
 	protected KHRDebug() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public KHRDebug(FunctionProvider provider) {
 		DebugMessageControlKHR = provider.getFunctionAddress("eglDebugMessageControlKHR");
 		QueryDebugKHR = provider.getFunctionAddress("eglQueryDebugKHR");
@@ -101,7 +98,6 @@ public class KHRDebug {
 	// --- [ eglDebugMessageControlKHR ] ---
 
 	/** Unsafe version of {@link #eglDebugMessageControlKHR DebugMessageControlKHR} */
-	@JavadocExclude
 	public static int neglDebugMessageControlKHR(long callback, long attrib_list) {
 		long __functionAddress = getInstance().DebugMessageControlKHR;
 		return callPPI(__functionAddress, callback, attrib_list);
@@ -119,7 +115,6 @@ public class KHRDebug {
 	// --- [ eglQueryDebugKHR ] ---
 
 	/** Unsafe version of {@link #eglQueryDebugKHR QueryDebugKHR} */
-	@JavadocExclude
 	public static int neglQueryDebugKHR(int attribute, long value) {
 		long __functionAddress = getInstance().QueryDebugKHR;
 		return callIPI(__functionAddress, attribute, value);

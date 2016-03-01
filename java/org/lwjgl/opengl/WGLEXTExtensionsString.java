@@ -17,15 +17,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class WGLEXTExtensionsString {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetExtensionsStringEXT;
 
-	@JavadocExclude
 	protected WGLEXTExtensionsString() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public WGLEXTExtensionsString(FunctionProvider provider) {
 		GetExtensionsStringEXT = provider.getFunctionAddress("wglGetExtensionsStringEXT");
 	}
@@ -57,7 +54,6 @@ public class WGLEXTExtensionsString {
 	// --- [ wglGetExtensionsStringEXT ] ---
 
 	/** Unsafe version of {@link #wglGetExtensionsStringEXT GetExtensionsStringEXT} */
-	@JavadocExclude
 	public static long nwglGetExtensionsStringEXT() {
 		long __functionAddress = getInstance().GetExtensionsStringEXT;
 		return callP(__functionAddress);

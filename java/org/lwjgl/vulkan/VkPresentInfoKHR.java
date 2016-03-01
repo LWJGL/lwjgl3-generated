@@ -16,21 +16,20 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct VkPresentInfoKHR {
- *     VkStructureType sType;
- *     const void * pNext;
- *     uint32_t waitSemaphoreCount;
- *     const VkSemaphore * pWaitSemaphores;
- *     uint32_t swapchainCount;
- *     const VkSwapchainKHR * pSwapchains;
- *     const uint32_t * pImageIndices;
- *     VkResult * pResults;
- * }</code></pre>
+ * <pre><code>struct VkPresentInfoKHR {
+    VkStructureType sType;
+    const void * pNext;
+    uint32_t waitSemaphoreCount;
+    const VkSemaphore * pWaitSemaphores;
+    uint32_t swapchainCount;
+    const VkSwapchainKHR * pSwapchains;
+    const uint32_t * pImageIndices;
+    VkResult * pResults;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */
@@ -39,7 +38,6 @@ public class VkPresentInfoKHR extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -167,12 +165,12 @@ public class VkPresentInfoKHR extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkPresentInfoKHR} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPresentInfoKHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static VkPresentInfoKHR malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link VkPresentInfoKHR} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link VkPresentInfoKHR} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static VkPresentInfoKHR calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -188,7 +186,7 @@ public class VkPresentInfoKHR extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPresentInfoKHR.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPresentInfoKHR.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -197,7 +195,7 @@ public class VkPresentInfoKHR extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link VkPresentInfoKHR.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link VkPresentInfoKHR.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

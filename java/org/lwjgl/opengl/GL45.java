@@ -92,7 +92,6 @@ public class GL45 {
 	public static final int GL_CONTEXT_LOST = 0x507;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ClipControl,
 		CreateTransformFeedbacks,
@@ -217,12 +216,10 @@ public class GL45 {
 		GetnUniformiv,
 		GetnUniformuiv;
 
-	@JavadocExclude
 	protected GL45() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL45(FunctionProvider provider) {
 		ClipControl = provider.getFunctionAddress("glClipControl");
 		CreateTransformFeedbacks = provider.getFunctionAddress("glCreateTransformFeedbacks");
@@ -419,7 +416,6 @@ public class GL45 {
 	// --- [ glCreateTransformFeedbacks ] ---
 
 	/** Unsafe version of {@link #glCreateTransformFeedbacks CreateTransformFeedbacks} */
-	@JavadocExclude
 	public static void nglCreateTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().CreateTransformFeedbacks;
 		callIPV(__functionAddress, n, ids);
@@ -489,7 +485,6 @@ public class GL45 {
 	// --- [ glGetTransformFeedbackiv ] ---
 
 	/** Unsafe version of {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
-	@JavadocExclude
 	public static void nglGetTransformFeedbackiv(int xfb, int pname, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbackiv;
 		callIIPV(__functionAddress, xfb, pname, param);
@@ -528,7 +523,6 @@ public class GL45 {
 	// --- [ glGetTransformFeedbacki_v ] ---
 
 	/** Unsafe version of {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
-	@JavadocExclude
 	public static void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbacki_v;
 		callIIIPV(__functionAddress, xfb, pname, index, param);
@@ -568,7 +562,6 @@ public class GL45 {
 	// --- [ glGetTransformFeedbacki64_v ] ---
 
 	/** Unsafe version of {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
-	@JavadocExclude
 	public static void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbacki64_v;
 		callIIIPV(__functionAddress, xfb, pname, index, param);
@@ -608,7 +601,6 @@ public class GL45 {
 	// --- [ glCreateBuffers ] ---
 
 	/** Unsafe version of {@link #glCreateBuffers CreateBuffers} */
-	@JavadocExclude
 	public static void nglCreateBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().CreateBuffers;
 		callIPV(__functionAddress, n, buffers);
@@ -645,7 +637,6 @@ public class GL45 {
 	// --- [ glNamedBufferStorage ] ---
 
 	/** Unsafe version of {@link #glNamedBufferStorage NamedBufferStorage} */
-	@JavadocExclude
 	public static void nglNamedBufferStorage(int buffer, long size, long data, int flags) {
 		long __functionAddress = getInstance().NamedBufferStorage;
 		callIPPIV(__functionAddress, buffer, size, data, flags);
@@ -736,7 +727,6 @@ public class GL45 {
 	// --- [ glNamedBufferData ] ---
 
 	/** Unsafe version of {@link #glNamedBufferData NamedBufferData} */
-	@JavadocExclude
 	public static void nglNamedBufferData(int buffer, long size, long data, int usage) {
 		long __functionAddress = getInstance().NamedBufferData;
 		callIPPIV(__functionAddress, buffer, size, data, usage);
@@ -791,7 +781,6 @@ public class GL45 {
 	// --- [ glNamedBufferSubData ] ---
 
 	/** Unsafe version of {@link #glNamedBufferSubData NamedBufferSubData} */
-	@JavadocExclude
 	public static void nglNamedBufferSubData(int buffer, long offset, long size, long data) {
 		long __functionAddress = getInstance().NamedBufferSubData;
 		callIPPPV(__functionAddress, buffer, offset, size, data);
@@ -859,7 +848,6 @@ public class GL45 {
 	// --- [ glClearNamedBufferData ] ---
 
 	/** Unsafe version of {@link #glClearNamedBufferData ClearNamedBufferData} */
-	@JavadocExclude
 	public static void nglClearNamedBufferData(int buffer, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferData;
 		callIIIIPV(__functionAddress, buffer, internalformat, format, type, data);
@@ -900,7 +888,6 @@ public class GL45 {
 	// --- [ glClearNamedBufferSubData ] ---
 
 	/** Unsafe version of {@link #glClearNamedBufferSubData ClearNamedBufferSubData} */
-	@JavadocExclude
 	public static void nglClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferSubData;
 		callIIPPIIPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
@@ -943,7 +930,6 @@ public class GL45 {
 	// --- [ glMapNamedBuffer ] ---
 
 	/** Unsafe version of {@link #glMapNamedBuffer MapNamedBuffer} */
-	@JavadocExclude
 	public static long nglMapNamedBuffer(int buffer, int access) {
 		long __functionAddress = getInstance().MapNamedBuffer;
 		return callIIP(__functionAddress, buffer, access);
@@ -978,7 +964,6 @@ public class GL45 {
 	// --- [ glMapNamedBufferRange ] ---
 
 	/** Unsafe version of {@link #glMapNamedBufferRange MapNamedBufferRange} */
-	@JavadocExclude
 	public static long nglMapNamedBufferRange(int buffer, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapNamedBufferRange;
 		return callIPPIP(__functionAddress, buffer, offset, length, access);
@@ -1038,7 +1023,6 @@ public class GL45 {
 	// --- [ glGetNamedBufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetNamedBufferParameteriv(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameteriv;
 		callIIPV(__functionAddress, buffer, pname, params);
@@ -1077,7 +1061,6 @@ public class GL45 {
 	// --- [ glGetNamedBufferParameteri64v ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
-	@JavadocExclude
 	public static void nglGetNamedBufferParameteri64v(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameteri64v;
 		callIIPV(__functionAddress, buffer, pname, params);
@@ -1116,7 +1099,6 @@ public class GL45 {
 	// --- [ glGetNamedBufferPointerv ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
-	@JavadocExclude
 	public static void nglGetNamedBufferPointerv(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferPointerv;
 		callIIPV(__functionAddress, buffer, pname, params);
@@ -1155,7 +1137,6 @@ public class GL45 {
 	// --- [ glGetNamedBufferSubData ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
-	@JavadocExclude
 	public static void nglGetNamedBufferSubData(int buffer, long offset, long size, long data) {
 		long __functionAddress = getInstance().GetNamedBufferSubData;
 		callIPPPV(__functionAddress, buffer, offset, size, data);
@@ -1205,7 +1186,6 @@ public class GL45 {
 	// --- [ glCreateFramebuffers ] ---
 
 	/** Unsafe version of {@link #glCreateFramebuffers CreateFramebuffers} */
-	@JavadocExclude
 	public static void nglCreateFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().CreateFramebuffers;
 		callIPV(__functionAddress, n, framebuffers);
@@ -1324,7 +1304,6 @@ public class GL45 {
 	// --- [ glNamedFramebufferDrawBuffers ] ---
 
 	/** Unsafe version of {@link #glNamedFramebufferDrawBuffers NamedFramebufferDrawBuffers} */
-	@JavadocExclude
 	public static void nglNamedFramebufferDrawBuffers(int framebuffer, int n, long bufs) {
 		long __functionAddress = getInstance().NamedFramebufferDrawBuffers;
 		callIIPV(__functionAddress, framebuffer, n, bufs);
@@ -1375,7 +1354,6 @@ public class GL45 {
 	// --- [ glInvalidateNamedFramebufferData ] ---
 
 	/** Unsafe version of {@link #glInvalidateNamedFramebufferData InvalidateNamedFramebufferData} */
-	@JavadocExclude
 	public static void nglInvalidateNamedFramebufferData(int framebuffer, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().InvalidateNamedFramebufferData;
 		callIIPV(__functionAddress, framebuffer, numAttachments, attachments);
@@ -1411,7 +1389,6 @@ public class GL45 {
 	// --- [ glInvalidateNamedFramebufferSubData ] ---
 
 	/** Unsafe version of {@link #glInvalidateNamedFramebufferSubData InvalidateNamedFramebufferSubData} */
-	@JavadocExclude
 	public static void nglInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().InvalidateNamedFramebufferSubData;
 		callIIPIIIIV(__functionAddress, framebuffer, numAttachments, attachments, x, y, width, height);
@@ -1451,7 +1428,6 @@ public class GL45 {
 	// --- [ glClearNamedFramebufferiv ] ---
 
 	/** Unsafe version of {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
-	@JavadocExclude
 	public static void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferiv;
 		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
@@ -1484,7 +1460,6 @@ public class GL45 {
 	// --- [ glClearNamedFramebufferuiv ] ---
 
 	/** Unsafe version of {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
-	@JavadocExclude
 	public static void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferuiv;
 		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
@@ -1516,7 +1491,6 @@ public class GL45 {
 	// --- [ glClearNamedFramebufferfv ] ---
 
 	/** Unsafe version of {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
-	@JavadocExclude
 	public static void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferfv;
 		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
@@ -1607,7 +1581,6 @@ public class GL45 {
 	// --- [ glGetNamedFramebufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferParameteriv;
 		callIIPV(__functionAddress, framebuffer, pname, params);
@@ -1646,7 +1619,6 @@ public class GL45 {
 	// --- [ glGetNamedFramebufferAttachmentParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
-	@JavadocExclude
 	public static void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferAttachmentParameteriv;
 		callIIIPV(__functionAddress, framebuffer, attachment, pname, params);
@@ -1686,7 +1658,6 @@ public class GL45 {
 	// --- [ glCreateRenderbuffers ] ---
 
 	/** Unsafe version of {@link #glCreateRenderbuffers CreateRenderbuffers} */
-	@JavadocExclude
 	public static void nglCreateRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().CreateRenderbuffers;
 		callIPV(__functionAddress, n, renderbuffers);
@@ -1757,7 +1728,6 @@ public class GL45 {
 	// --- [ glGetNamedRenderbufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedRenderbufferParameteriv;
 		callIIPV(__functionAddress, renderbuffer, pname, params);
@@ -1796,7 +1766,6 @@ public class GL45 {
 	// --- [ glCreateTextures ] ---
 
 	/** Unsafe version of {@link #glCreateTextures CreateTextures} */
-	@JavadocExclude
 	public static void nglCreateTextures(int target, int n, long textures) {
 		long __functionAddress = getInstance().CreateTextures;
 		callIIPV(__functionAddress, target, n, textures);
@@ -1962,7 +1931,6 @@ public class GL45 {
 	// --- [ glTextureSubImage1D ] ---
 
 	/** Unsafe version of {@link #glTextureSubImage1D TextureSubImage1D} */
-	@JavadocExclude
 	public static void nglTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage1D;
 		callIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
@@ -2025,7 +1993,6 @@ public class GL45 {
 	// --- [ glTextureSubImage2D ] ---
 
 	/** Unsafe version of {@link #glTextureSubImage2D TextureSubImage2D} */
-	@JavadocExclude
 	public static void nglTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage2D;
 		callIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -2090,7 +2057,6 @@ public class GL45 {
 	// --- [ glTextureSubImage3D ] ---
 
 	/** Unsafe version of {@link #glTextureSubImage3D TextureSubImage3D} */
-	@JavadocExclude
 	public static void nglTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage3D;
 		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -2157,7 +2123,6 @@ public class GL45 {
 	// --- [ glCompressedTextureSubImage1D ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage1D CompressedTextureSubImage1D} */
-	@JavadocExclude
 	public static void nglCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage1D;
 		callIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, imageSize, data);
@@ -2201,7 +2166,6 @@ public class GL45 {
 	// --- [ glCompressedTextureSubImage2D ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage2D CompressedTextureSubImage2D} */
-	@JavadocExclude
 	public static void nglCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage2D;
 		callIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, imageSize, data);
@@ -2247,7 +2211,6 @@ public class GL45 {
 	// --- [ glCompressedTextureSubImage3D ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage3D CompressedTextureSubImage3D} */
-	@JavadocExclude
 	public static void nglCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage3D;
 		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
@@ -2373,7 +2336,6 @@ public class GL45 {
 	// --- [ glTextureParameterfv ] ---
 
 	/** Unsafe version of {@link #glTextureParameterfv TextureParameterfv} */
-	@JavadocExclude
 	public static void nglTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterfv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2420,7 +2382,6 @@ public class GL45 {
 	// --- [ glTextureParameterIiv ] ---
 
 	/** Unsafe version of {@link #glTextureParameterIiv TextureParameterIiv} */
-	@JavadocExclude
 	public static void nglTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIiv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2458,7 +2419,6 @@ public class GL45 {
 	// --- [ glTextureParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glTextureParameterIuiv TextureParameterIuiv} */
-	@JavadocExclude
 	public static void nglTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIuiv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2496,7 +2456,6 @@ public class GL45 {
 	// --- [ glTextureParameteriv ] ---
 
 	/** Unsafe version of {@link #glTextureParameteriv TextureParameteriv} */
-	@JavadocExclude
 	public static void nglTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameteriv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2560,7 +2519,6 @@ public class GL45 {
 	// --- [ glGetTextureImage ] ---
 
 	/** Unsafe version of {@link #glGetTextureImage GetTextureImage} */
-	@JavadocExclude
 	public static void nglGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetTextureImage;
 		callIIIIIPV(__functionAddress, texture, level, format, type, bufSize, pixels);
@@ -2631,7 +2589,6 @@ public class GL45 {
 	// --- [ glGetCompressedTextureImage ] ---
 
 	/** Unsafe version of {@link #glGetCompressedTextureImage GetCompressedTextureImage} */
-	@JavadocExclude
 	public static void nglGetCompressedTextureImage(int texture, int level, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTextureImage;
 		callIIIPV(__functionAddress, texture, level, bufSize, pixels);
@@ -2677,7 +2634,6 @@ public class GL45 {
 	// --- [ glGetTextureLevelParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
-	@JavadocExclude
 	public static void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterfv;
 		callIIIPV(__functionAddress, texture, level, pname, params);
@@ -2717,7 +2673,6 @@ public class GL45 {
 	// --- [ glGetTextureLevelParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
-	@JavadocExclude
 	public static void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameteriv;
 		callIIIPV(__functionAddress, texture, level, pname, params);
@@ -2757,7 +2712,6 @@ public class GL45 {
 	// --- [ glGetTextureParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterfv GetTextureParameterfv} */
-	@JavadocExclude
 	public static void nglGetTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterfv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2796,7 +2750,6 @@ public class GL45 {
 	// --- [ glGetTextureParameterIiv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
-	@JavadocExclude
 	public static void nglGetTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIiv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2835,7 +2788,6 @@ public class GL45 {
 	// --- [ glGetTextureParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
-	@JavadocExclude
 	public static void nglGetTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIuiv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2874,7 +2826,6 @@ public class GL45 {
 	// --- [ glGetTextureParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameteriv GetTextureParameteriv} */
-	@JavadocExclude
 	public static void nglGetTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameteriv;
 		callIIPV(__functionAddress, texture, pname, params);
@@ -2913,7 +2864,6 @@ public class GL45 {
 	// --- [ glCreateVertexArrays ] ---
 
 	/** Unsafe version of {@link #glCreateVertexArrays CreateVertexArrays} */
-	@JavadocExclude
 	public static void nglCreateVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().CreateVertexArrays;
 		callIPV(__functionAddress, n, arrays);
@@ -3012,7 +2962,6 @@ public class GL45 {
 	// --- [ glVertexArrayVertexBuffers ] ---
 
 	/** Unsafe version of {@link #glVertexArrayVertexBuffers VertexArrayVertexBuffers} */
-	@JavadocExclude
 	public static void nglVertexArrayVertexBuffers(int vaobj, int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = getInstance().VertexArrayVertexBuffers;
 		callIIIPPPV(__functionAddress, vaobj, first, count, buffers, offsets, strides);
@@ -3139,7 +3088,6 @@ public class GL45 {
 	// --- [ glGetVertexArrayiv ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayiv GetVertexArrayiv} */
-	@JavadocExclude
 	public static void nglGetVertexArrayiv(int vaobj, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayiv;
 		callIIPV(__functionAddress, vaobj, pname, param);
@@ -3178,7 +3126,6 @@ public class GL45 {
 	// --- [ glGetVertexArrayIndexediv ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
-	@JavadocExclude
 	public static void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIndexediv;
 		callIIIPV(__functionAddress, vaobj, index, pname, param);
@@ -3218,7 +3165,6 @@ public class GL45 {
 	// --- [ glGetVertexArrayIndexed64iv ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
-	@JavadocExclude
 	public static void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIndexed64iv;
 		callIIIPV(__functionAddress, vaobj, index, pname, param);
@@ -3258,7 +3204,6 @@ public class GL45 {
 	// --- [ glCreateSamplers ] ---
 
 	/** Unsafe version of {@link #glCreateSamplers CreateSamplers} */
-	@JavadocExclude
 	public static void nglCreateSamplers(int n, long samplers) {
 		long __functionAddress = getInstance().CreateSamplers;
 		callIPV(__functionAddress, n, samplers);
@@ -3294,7 +3239,6 @@ public class GL45 {
 	// --- [ glCreateProgramPipelines ] ---
 
 	/** Unsafe version of {@link #glCreateProgramPipelines CreateProgramPipelines} */
-	@JavadocExclude
 	public static void nglCreateProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().CreateProgramPipelines;
 		callIPV(__functionAddress, n, pipelines);
@@ -3330,7 +3274,6 @@ public class GL45 {
 	// --- [ glCreateQueries ] ---
 
 	/** Unsafe version of {@link #glCreateQueries CreateQueries} */
-	@JavadocExclude
 	public static void nglCreateQueries(int target, int n, long ids) {
 		long __functionAddress = getInstance().CreateQueries;
 		callIIPV(__functionAddress, target, n, ids);
@@ -3461,7 +3404,6 @@ public class GL45 {
 	// --- [ glGetTextureSubImage ] ---
 
 	/** Unsafe version of {@link #glGetTextureSubImage GetTextureSubImage} */
-	@JavadocExclude
 	public static void nglGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetTextureSubImage;
 		callIIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
@@ -3538,7 +3480,6 @@ public class GL45 {
 	// --- [ glGetCompressedTextureSubImage ] ---
 
 	/** Unsafe version of {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
-	@JavadocExclude
 	public static void nglGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTextureSubImage;
 		callIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
@@ -3669,7 +3610,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnMapdv ] ---
 
 	/** Unsafe version of {@link #glGetnMapdv GetnMapdv} */
-	@JavadocExclude
 	public static void nglGetnMapdv(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapdv;
 		if ( CHECKS )
@@ -3709,7 +3649,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnMapfv ] ---
 
 	/** Unsafe version of {@link #glGetnMapfv GetnMapfv} */
-	@JavadocExclude
 	public static void nglGetnMapfv(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapfv;
 		if ( CHECKS )
@@ -3749,7 +3688,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnMapiv ] ---
 
 	/** Unsafe version of {@link #glGetnMapiv GetnMapiv} */
-	@JavadocExclude
 	public static void nglGetnMapiv(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapiv;
 		if ( CHECKS )
@@ -3789,7 +3727,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnPixelMapfv ] ---
 
 	/** Unsafe version of {@link #glGetnPixelMapfv GetnPixelMapfv} */
-	@JavadocExclude
 	public static void nglGetnPixelMapfv(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapfv;
 		if ( CHECKS )
@@ -3820,7 +3757,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnPixelMapuiv ] ---
 
 	/** Unsafe version of {@link #glGetnPixelMapuiv GetnPixelMapuiv} */
-	@JavadocExclude
 	public static void nglGetnPixelMapuiv(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapuiv;
 		if ( CHECKS )
@@ -3851,7 +3787,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnPixelMapusv ] ---
 
 	/** Unsafe version of {@link #glGetnPixelMapusv GetnPixelMapusv} */
-	@JavadocExclude
 	public static void nglGetnPixelMapusv(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapusv;
 		if ( CHECKS )
@@ -3882,7 +3817,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnPolygonStipple ] ---
 
 	/** Unsafe version of {@link #glGetnPolygonStipple GetnPolygonStipple} */
-	@JavadocExclude
 	public static void nglGetnPolygonStipple(int bufSize, long pattern) {
 		long __functionAddress = getInstance().GetnPolygonStipple;
 		if ( CHECKS )
@@ -3923,7 +3857,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnTexImage ] ---
 
 	/** Unsafe version of {@link #glGetnTexImage GetnTexImage} */
-	@JavadocExclude
 	public static void nglGetnTexImage(int tex, int level, int format, int type, int bufSize, long img) {
 		long __functionAddress = getInstance().GetnTexImage;
 		if ( CHECKS )
@@ -3996,7 +3929,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glReadnPixels ] ---
 
 	/** Unsafe version of {@link #glReadnPixels ReadnPixels} */
-	@JavadocExclude
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().ReadnPixels;
 		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
@@ -4062,7 +3994,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnColorTable ] ---
 
 	/** Unsafe version of {@link #glGetnColorTable GetnColorTable} */
-	@JavadocExclude
 	public static void nglGetnColorTable(int target, int format, int type, int bufSize, long table) {
 		long __functionAddress = getInstance().GetnColorTable;
 		if ( CHECKS )
@@ -4127,7 +4058,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnConvolutionFilter ] ---
 
 	/** Unsafe version of {@link #glGetnConvolutionFilter GetnConvolutionFilter} */
-	@JavadocExclude
 	public static void nglGetnConvolutionFilter(int target, int format, int type, int bufSize, long image) {
 		long __functionAddress = getInstance().GetnConvolutionFilter;
 		if ( CHECKS )
@@ -4171,7 +4101,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnSeparableFilter ] ---
 
 	/** Unsafe version of {@link #glGetnSeparableFilter GetnSeparableFilter} */
-	@JavadocExclude
 	public static void nglGetnSeparableFilter(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span) {
 		long __functionAddress = getInstance().GetnSeparableFilter;
 		if ( CHECKS )
@@ -4219,7 +4148,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnHistogram ] ---
 
 	/** Unsafe version of {@link #glGetnHistogram GetnHistogram} */
-	@JavadocExclude
 	public static void nglGetnHistogram(int target, boolean reset, int format, int type, int bufSize, long values) {
 		long __functionAddress = getInstance().GetnHistogram;
 		if ( CHECKS )
@@ -4264,7 +4192,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnMinmax ] ---
 
 	/** Unsafe version of {@link #glGetnMinmax GetnMinmax} */
-	@JavadocExclude
 	public static void nglGetnMinmax(int target, boolean reset, int format, int type, int bufSize, long values) {
 		long __functionAddress = getInstance().GetnMinmax;
 		if ( CHECKS )
@@ -4310,7 +4237,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnCompressedTexImage ] ---
 
 	/** Unsafe version of {@link #glGetnCompressedTexImage GetnCompressedTexImage} */
-	@JavadocExclude
 	public static void nglGetnCompressedTexImage(int target, int level, int bufSize, long img) {
 		long __functionAddress = getInstance().GetnCompressedTexImage;
 		if ( CHECKS )
@@ -4358,7 +4284,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnUniformfv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformfv GetnUniformfv} */
-	@JavadocExclude
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfv;
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -4396,7 +4321,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnUniformdv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformdv GetnUniformdv} */
-	@JavadocExclude
 	public static void nglGetnUniformdv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformdv;
 		if ( CHECKS )
@@ -4436,7 +4360,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnUniformiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformiv GetnUniformiv} */
-	@JavadocExclude
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformiv;
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -4474,7 +4397,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	// --- [ glGetnUniformuiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformuiv GetnUniformuiv} */
-	@JavadocExclude
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuiv;
 		callIIIPV(__functionAddress, program, location, bufSize, params);

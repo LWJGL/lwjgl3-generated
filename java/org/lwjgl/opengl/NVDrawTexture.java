@@ -25,15 +25,12 @@ import static org.lwjgl.system.JNI.*;
 public class NVDrawTexture {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long DrawTextureNV;
 
-	@JavadocExclude
 	protected NVDrawTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVDrawTexture(FunctionProvider provider) {
 		DrawTextureNV = provider.getFunctionAddress("glDrawTextureNV");
 	}

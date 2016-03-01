@@ -18,39 +18,38 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct PIXELFORMATDESCRIPTOR {
- *     WORD nSize;
- *     WORD nVersion;
- *     DWORD dwFlags;
- *     BYTE iPixelType;
- *     BYTE cColorBits;
- *     BYTE cRedBits;
- *     BYTE cRedShift;
- *     BYTE cGreenBits;
- *     BYTE cGreenShift;
- *     BYTE cBlueBits;
- *     BYTE cBlueShift;
- *     BYTE cAlphaBits;
- *     BYTE cAlphaShift;
- *     BYTE cAccumBits;
- *     BYTE cAccumRedBits;
- *     BYTE cAccumGreenBits;
- *     BYTE cAccumBlueBits;
- *     BYTE cAccumAlphaBits;
- *     BYTE cDepthBits;
- *     BYTE cStencilBits;
- *     BYTE cAuxBuffers;
- *     BYTE iLayerType;
- *     BYTE bReserved;
- *     DWORD dwLayerMask;
- *     DWORD dwVisibleMask;
- *     DWORD dwDamageMask;
- * }</code></pre>
+ * <pre><code>struct PIXELFORMATDESCRIPTOR {
+    WORD nSize;
+    WORD nVersion;
+    DWORD dwFlags;
+    BYTE iPixelType;
+    BYTE cColorBits;
+    BYTE cRedBits;
+    BYTE cRedShift;
+    BYTE cGreenBits;
+    BYTE cGreenShift;
+    BYTE cBlueBits;
+    BYTE cBlueShift;
+    BYTE cAlphaBits;
+    BYTE cAlphaShift;
+    BYTE cAccumBits;
+    BYTE cAccumRedBits;
+    BYTE cAccumGreenBits;
+    BYTE cAccumBlueBits;
+    BYTE cAccumAlphaBits;
+    BYTE cDepthBits;
+    BYTE cStencilBits;
+    BYTE cAuxBuffers;
+    BYTE iLayerType;
+    BYTE bReserved;
+    DWORD dwLayerMask;
+    DWORD dwVisibleMask;
+    DWORD dwDamageMask;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>nSize</td><td>specifies the size of this data structure. This value should be set to {@link #SIZEOF}.</td></tr>
  * <tr><td>nVersion</td><td>specifies the version of this data structure. This value should be set to 1</td></tr>
  * <tr><td>dwFlags</td><td>a set of bit flags that specify properties of the pixel buffer</td></tr>
@@ -87,7 +86,6 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -381,12 +379,12 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link PIXELFORMATDESCRIPTOR} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link PIXELFORMATDESCRIPTOR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static PIXELFORMATDESCRIPTOR malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link PIXELFORMATDESCRIPTOR} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link PIXELFORMATDESCRIPTOR} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static PIXELFORMATDESCRIPTOR calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -402,7 +400,7 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link PIXELFORMATDESCRIPTOR.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link PIXELFORMATDESCRIPTOR.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -411,7 +409,7 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link PIXELFORMATDESCRIPTOR.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link PIXELFORMATDESCRIPTOR.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

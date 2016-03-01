@@ -476,7 +476,6 @@ public class GL30 {
 	public static final int GL_FRAMEBUFFER_SRGB = 0x8DB9;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetStringi,
 		ClearBufferiv,
@@ -563,12 +562,10 @@ public class GL30 {
 		GenVertexArrays,
 		IsVertexArray;
 
-	@JavadocExclude
 	protected GL30() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public GL30(FunctionProvider provider) {
 		GetStringi = provider.getFunctionAddress("glGetStringi");
 		ClearBufferiv = provider.getFunctionAddress("glClearBufferiv");
@@ -697,7 +694,6 @@ public class GL30 {
 	// --- [ glGetStringi ] ---
 
 	/** Unsafe version of {@link #glGetStringi GetStringi} */
-	@JavadocExclude
 	public static long nglGetStringi(int name, int index) {
 		long __functionAddress = getInstance().GetStringi;
 		return callIIP(__functionAddress, name, index);
@@ -719,7 +715,6 @@ public class GL30 {
 	// --- [ glClearBufferiv ] ---
 
 	/** Unsafe version of {@link #glClearBufferiv ClearBufferiv} */
-	@JavadocExclude
 	public static void nglClearBufferiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferiv;
 		callIIPV(__functionAddress, buffer, drawbuffer, value);
@@ -751,7 +746,6 @@ public class GL30 {
 	// --- [ glClearBufferuiv ] ---
 
 	/** Unsafe version of {@link #glClearBufferuiv ClearBufferuiv} */
-	@JavadocExclude
 	public static void nglClearBufferuiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferuiv;
 		callIIPV(__functionAddress, buffer, drawbuffer, value);
@@ -782,7 +776,6 @@ public class GL30 {
 	// --- [ glClearBufferfv ] ---
 
 	/** Unsafe version of {@link #glClearBufferfv ClearBufferfv} */
-	@JavadocExclude
 	public static void nglClearBufferfv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferfv;
 		callIIPV(__functionAddress, buffer, drawbuffer, value);
@@ -963,7 +956,6 @@ public class GL30 {
 	// --- [ glVertexAttribI1iv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI1iv VertexAttribI1iv} */
-	@JavadocExclude
 	public static void nglVertexAttribI1iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI1iv;
 		callIPV(__functionAddress, index, v);
@@ -993,7 +985,6 @@ public class GL30 {
 	// --- [ glVertexAttribI2iv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI2iv VertexAttribI2iv} */
-	@JavadocExclude
 	public static void nglVertexAttribI2iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI2iv;
 		callIPV(__functionAddress, index, v);
@@ -1023,7 +1014,6 @@ public class GL30 {
 	// --- [ glVertexAttribI3iv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI3iv VertexAttribI3iv} */
-	@JavadocExclude
 	public static void nglVertexAttribI3iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI3iv;
 		callIPV(__functionAddress, index, v);
@@ -1053,7 +1043,6 @@ public class GL30 {
 	// --- [ glVertexAttribI4iv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI4iv VertexAttribI4iv} */
-	@JavadocExclude
 	public static void nglVertexAttribI4iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4iv;
 		callIPV(__functionAddress, index, v);
@@ -1083,7 +1072,6 @@ public class GL30 {
 	// --- [ glVertexAttribI1uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI1uiv VertexAttribI1uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribI1uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI1uiv;
 		callIPV(__functionAddress, index, v);
@@ -1113,7 +1101,6 @@ public class GL30 {
 	// --- [ glVertexAttribI2uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI2uiv VertexAttribI2uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribI2uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI2uiv;
 		callIPV(__functionAddress, index, v);
@@ -1143,7 +1130,6 @@ public class GL30 {
 	// --- [ glVertexAttribI3uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI3uiv VertexAttribI3uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribI3uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI3uiv;
 		callIPV(__functionAddress, index, v);
@@ -1173,7 +1159,6 @@ public class GL30 {
 	// --- [ glVertexAttribI4uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI4uiv VertexAttribI4uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribI4uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4uiv;
 		callIPV(__functionAddress, index, v);
@@ -1203,7 +1188,6 @@ public class GL30 {
 	// --- [ glVertexAttribI4bv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI4bv VertexAttribI4bv} */
-	@JavadocExclude
 	public static void nglVertexAttribI4bv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4bv;
 		callIPV(__functionAddress, index, v);
@@ -1226,7 +1210,6 @@ public class GL30 {
 	// --- [ glVertexAttribI4sv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI4sv VertexAttribI4sv} */
-	@JavadocExclude
 	public static void nglVertexAttribI4sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4sv;
 		callIPV(__functionAddress, index, v);
@@ -1256,7 +1239,6 @@ public class GL30 {
 	// --- [ glVertexAttribI4ubv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI4ubv VertexAttribI4ubv} */
-	@JavadocExclude
 	public static void nglVertexAttribI4ubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4ubv;
 		callIPV(__functionAddress, index, v);
@@ -1279,7 +1261,6 @@ public class GL30 {
 	// --- [ glVertexAttribI4usv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribI4usv VertexAttribI4usv} */
-	@JavadocExclude
 	public static void nglVertexAttribI4usv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4usv;
 		callIPV(__functionAddress, index, v);
@@ -1309,7 +1290,6 @@ public class GL30 {
 	// --- [ glVertexAttribIPointer ] ---
 
 	/** Unsafe version of {@link #glVertexAttribIPointer VertexAttribIPointer} */
-	@JavadocExclude
 	public static void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribIPointer;
 		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
@@ -1358,7 +1338,6 @@ public class GL30 {
 	// --- [ glGetVertexAttribIiv ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribIiv GetVertexAttribIiv} */
-	@JavadocExclude
 	public static void nglGetVertexAttribIiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIiv;
 		callIIPV(__functionAddress, index, pname, params);
@@ -1397,7 +1376,6 @@ public class GL30 {
 	// --- [ glGetVertexAttribIuiv ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribIuiv GetVertexAttribIuiv} */
-	@JavadocExclude
 	public static void nglGetVertexAttribIuiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIuiv;
 		callIIPV(__functionAddress, index, pname, params);
@@ -1502,7 +1480,6 @@ public class GL30 {
 	// --- [ glUniform1uiv ] ---
 
 	/** Unsafe version of {@link #glUniform1uiv Uniform1uiv} */
-	@JavadocExclude
 	public static void nglUniform1uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1uiv;
 		callIIPV(__functionAddress, location, count, value);
@@ -1531,7 +1508,6 @@ public class GL30 {
 	// --- [ glUniform2uiv ] ---
 
 	/** Unsafe version of {@link #glUniform2uiv Uniform2uiv} */
-	@JavadocExclude
 	public static void nglUniform2uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2uiv;
 		callIIPV(__functionAddress, location, count, value);
@@ -1560,7 +1536,6 @@ public class GL30 {
 	// --- [ glUniform3uiv ] ---
 
 	/** Unsafe version of {@link #glUniform3uiv Uniform3uiv} */
-	@JavadocExclude
 	public static void nglUniform3uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3uiv;
 		callIIPV(__functionAddress, location, count, value);
@@ -1589,7 +1564,6 @@ public class GL30 {
 	// --- [ glUniform4uiv ] ---
 
 	/** Unsafe version of {@link #glUniform4uiv Uniform4uiv} */
-	@JavadocExclude
 	public static void nglUniform4uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4uiv;
 		callIIPV(__functionAddress, location, count, value);
@@ -1618,7 +1592,6 @@ public class GL30 {
 	// --- [ glGetUniformuiv ] ---
 
 	/** Unsafe version of {@link #glGetUniformuiv GetUniformuiv} */
-	@JavadocExclude
 	public static void nglGetUniformuiv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformuiv;
 		callIIPV(__functionAddress, program, location, params);
@@ -1657,7 +1630,6 @@ public class GL30 {
 	// --- [ glBindFragDataLocation ] ---
 
 	/** Unsafe version of {@link #glBindFragDataLocation BindFragDataLocation} */
-	@JavadocExclude
 	public static void nglBindFragDataLocation(int program, int colorNumber, long name) {
 		long __functionAddress = getInstance().BindFragDataLocation;
 		callIIPV(__functionAddress, program, colorNumber, name);
@@ -1688,7 +1660,6 @@ public class GL30 {
 	// --- [ glGetFragDataLocation ] ---
 
 	/** Unsafe version of {@link #glGetFragDataLocation GetFragDataLocation} */
-	@JavadocExclude
 	public static int nglGetFragDataLocation(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataLocation;
 		return callIPI(__functionAddress, program, name);
@@ -1745,7 +1716,6 @@ Ends conditional rendering.
 	// --- [ glMapBufferRange ] ---
 
 	/** Unsafe version of {@link #glMapBufferRange MapBufferRange} */
-	@JavadocExclude
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapBufferRange;
 		return callIPPIP(__functionAddress, target, offset, length, access);
@@ -1842,7 +1812,6 @@ Ends conditional rendering.
 	// --- [ glDeleteRenderbuffers ] ---
 
 	/** Unsafe version of {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
-	@JavadocExclude
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffers;
 		callIPV(__functionAddress, n, renderbuffers);
@@ -1877,7 +1846,6 @@ Ends conditional rendering.
 	// --- [ glGenRenderbuffers ] ---
 
 	/** Unsafe version of {@link #glGenRenderbuffers GenRenderbuffers} */
-	@JavadocExclude
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffers;
 		callIPV(__functionAddress, n, renderbuffers);
@@ -1950,7 +1918,6 @@ Ends conditional rendering.
 	// --- [ glGetRenderbufferParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
-	@JavadocExclude
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameteriv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -2018,7 +1985,6 @@ Ends conditional rendering.
 	// --- [ glDeleteFramebuffers ] ---
 
 	/** Unsafe version of {@link #glDeleteFramebuffers DeleteFramebuffers} */
-	@JavadocExclude
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffers;
 		callIPV(__functionAddress, n, framebuffers);
@@ -2053,7 +2019,6 @@ Ends conditional rendering.
 	// --- [ glGenFramebuffers ] ---
 
 	/** Unsafe version of {@link #glGenFramebuffers GenFramebuffers} */
-	@JavadocExclude
 	public static void nglGenFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffers;
 		callIPV(__functionAddress, n, framebuffers);
@@ -2193,7 +2158,6 @@ Ends conditional rendering.
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
-	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
 		callIIIPV(__functionAddress, target, attachment, pname, params);
@@ -2270,7 +2234,6 @@ Ends conditional rendering.
 	// --- [ glTexParameterIiv ] ---
 
 	/** Unsafe version of {@link #glTexParameterIiv TexParameterIiv} */
-	@JavadocExclude
 	public static void nglTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIiv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -2308,7 +2271,6 @@ Ends conditional rendering.
 	// --- [ glTexParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glTexParameterIuiv TexParameterIuiv} */
-	@JavadocExclude
 	public static void nglTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuiv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -2346,7 +2308,6 @@ Ends conditional rendering.
 	// --- [ glGetTexParameterIiv ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIiv GetTexParameterIiv} */
-	@JavadocExclude
 	public static void nglGetTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIiv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -2385,7 +2346,6 @@ Ends conditional rendering.
 	// --- [ glGetTexParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
-	@JavadocExclude
 	public static void nglGetTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuiv;
 		callIIPV(__functionAddress, target, pname, params);
@@ -2442,7 +2402,6 @@ Ends conditional rendering.
 	// --- [ glGetBooleani_v ] ---
 
 	/** Unsafe version of {@link #glGetBooleani_v GetBooleani_v} */
-	@JavadocExclude
 	public static void nglGetBooleani_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetBooleani_v;
 		callIIPV(__functionAddress, target, index, data);
@@ -2474,7 +2433,6 @@ Ends conditional rendering.
 	// --- [ glGetIntegeri_v ] ---
 
 	/** Unsafe version of {@link #glGetIntegeri_v GetIntegeri_v} */
-	@JavadocExclude
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegeri_v;
 		callIIPV(__functionAddress, target, index, data);
@@ -2618,7 +2576,6 @@ Ends transform feedback operation.
 	// --- [ glTransformFeedbackVaryings ] ---
 
 	/** Unsafe version of {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
-	@JavadocExclude
 	public static void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackVaryings;
 		callIIPIV(__functionAddress, program, count, varyings, bufferMode);
@@ -2670,7 +2627,6 @@ Ends transform feedback operation.
 	// --- [ glGetTransformFeedbackVarying ] ---
 
 	/** Unsafe version of {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
-	@JavadocExclude
 	public static void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetTransformFeedbackVarying;
 		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
@@ -2753,7 +2709,6 @@ Ends transform feedback operation.
 	// --- [ glDeleteVertexArrays ] ---
 
 	/** Unsafe version of {@link #glDeleteVertexArrays DeleteVertexArrays} */
-	@JavadocExclude
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().DeleteVertexArrays;
 		callIPV(__functionAddress, n, arrays);
@@ -2788,7 +2743,6 @@ Ends transform feedback operation.
 	// --- [ glGenVertexArrays ] ---
 
 	/** Unsafe version of {@link #glGenVertexArrays GenVertexArrays} */
-	@JavadocExclude
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().GenVertexArrays;
 		callIPV(__functionAddress, n, arrays);

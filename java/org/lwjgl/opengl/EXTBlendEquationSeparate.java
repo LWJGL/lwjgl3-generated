@@ -33,15 +33,12 @@ public class EXTBlendEquationSeparate {
 		GL_BLEND_EQUATION_ALPHA_EXT = 0x883D;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long BlendEquationSeparateEXT;
 
-	@JavadocExclude
 	protected EXTBlendEquationSeparate() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTBlendEquationSeparate(FunctionProvider provider) {
 		BlendEquationSeparateEXT = provider.getFunctionAddress("glBlendEquationSeparateEXT");
 	}

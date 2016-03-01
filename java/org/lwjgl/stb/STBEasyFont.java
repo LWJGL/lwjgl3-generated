@@ -34,26 +34,24 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Here's sample code for old OpenGL; it's a lot more complicated to make work on modern APIs, and that's your problem.</p>
  * 
- * <pre><code style="font-family: monospace">
- * void print_string(float x, float y, char *text, float r, float g, float b)
- * {
- * 	static char buffer[99999]; // ~500 chars
- * 	int num_quads;
- * 
- * 	num_quads = stb_easy_font_print(x, y, text, NULL, buffer, sizeof(buffer));
- * 
- * 	glColor3f(r,g,b);
- * 	glEnableClientState(GL_VERTEX_ARRAY);
- * 	glVertexPointer(2, GL_FLOAT, 16, buffer);
- * 	glDrawArrays(GL_QUADS, 0, num_quads*4);
- * 	glDisableClientState(GL_VERTEX_ARRAY);
- * }</code></pre>
+ * <pre><code>void print_string(float x, float y, char *text, float r, float g, float b)
+{
+	static char buffer[99999]; // ~500 chars
+	int num_quads;
+
+	num_quads = stb_easy_font_print(x, y, text, NULL, buffer, sizeof(buffer));
+
+	glColor3f(r,g,b);
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glVertexPointer(2, GL_FLOAT, 16, buffer);
+	glDrawArrays(GL_QUADS, 0, num_quads*4);
+	glDisableClientState(GL_VERTEX_ARRAY);
+}</code></pre>
  */
 public class STBEasyFont {
 
 	static { Library.initialize(); }
 
-	@JavadocExclude
 	protected STBEasyFont() {
 		throw new UnsupportedOperationException();
 	}
@@ -61,7 +59,6 @@ public class STBEasyFont {
 	// --- [ stb_easy_font_width ] ---
 
 	/** JNI method for {@link #stb_easy_font_width easy_font_width} */
-	@JavadocExclude
 	public static native int nstb_easy_font_width(long text);
 
 	/**
@@ -87,7 +84,6 @@ public class STBEasyFont {
 	// --- [ stb_easy_font_height ] ---
 
 	/** JNI method for {@link #stb_easy_font_height easy_font_height} */
-	@JavadocExclude
 	public static native int nstb_easy_font_height(long text);
 
 	/**
@@ -113,7 +109,6 @@ public class STBEasyFont {
 	// --- [ stb_easy_font_print ] ---
 
 	/** JNI method for {@link #stb_easy_font_print easy_font_print} */
-	@JavadocExclude
 	public static native int nstb_easy_font_print(float x, float y, long text, long color, long vertex_buffer, int vbuf_size);
 
 	/**
@@ -124,11 +119,10 @@ public class STBEasyFont {
 	 * 
 	 * <p>The vertices are stored in an interleaved format:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * x:float
-	 * y:float
-	 * z:float
-	 * color:uint8[4]</code></pre>
+	 * <pre><code>x:float
+y:float
+z:float
+color:uint8[4]</code></pre>
 	 * 
 	 * <p>You can ignore z and color if you get them from elsewhere. This format was chosen in the hopes it would make it easier for you to reuse existing
 	 * buffer-drawing code.</p>

@@ -35,15 +35,12 @@ public class NVConservativeRaster {
 		GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV = 0x9349;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long SubpixelPrecisionBiasNV;
 
-	@JavadocExclude
 	protected NVConservativeRaster() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public NVConservativeRaster(FunctionProvider provider) {
 		SubpixelPrecisionBiasNV = provider.getFunctionAddress("glSubpixelPrecisionBiasNV");
 	}

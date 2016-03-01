@@ -200,7 +200,6 @@ public class ARBImaging {
 		GL_FUNC_REVERSE_SUBTRACT = 0x800B;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ColorTable,
 		CopyColorTable,
@@ -237,12 +236,10 @@ public class ARBImaging {
 		BlendColor,
 		BlendEquation;
 
-	@JavadocExclude
 	protected ARBImaging() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBImaging(FunctionProvider provider, boolean fc) {
 		ColorTable = GL.getFunctionAddress(provider, "glColorTable", fc);
 		CopyColorTable = GL.getFunctionAddress(provider, "glCopyColorTable", fc);
@@ -315,7 +312,6 @@ public class ARBImaging {
 	// --- [ glColorTable ] ---
 
 	/** Unsafe version of {@link #glColorTable ColorTable} */
-	@JavadocExclude
 	public static void nglColorTable(int target, int internalformat, int width, int format, int type, long table) {
 		long __functionAddress = getInstance().ColorTable;
 		if ( CHECKS )
@@ -388,7 +384,6 @@ public class ARBImaging {
 	// --- [ glColorTableParameteriv ] ---
 
 	/** Unsafe version of {@link #glColorTableParameteriv ColorTableParameteriv} */
-	@JavadocExclude
 	public static void nglColorTableParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ColorTableParameteriv;
 		if ( CHECKS )
@@ -419,7 +414,6 @@ public class ARBImaging {
 	// --- [ glColorTableParameterfv ] ---
 
 	/** Unsafe version of {@link #glColorTableParameterfv ColorTableParameterfv} */
-	@JavadocExclude
 	public static void nglColorTableParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ColorTableParameterfv;
 		if ( CHECKS )
@@ -450,7 +444,6 @@ public class ARBImaging {
 	// --- [ glGetColorTable ] ---
 
 	/** Unsafe version of {@link #glGetColorTable GetColorTable} */
-	@JavadocExclude
 	public static void nglGetColorTable(int target, int format, int type, long table) {
 		long __functionAddress = getInstance().GetColorTable;
 		if ( CHECKS )
@@ -503,7 +496,6 @@ public class ARBImaging {
 	// --- [ glGetColorTableParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetColorTableParameteriv GetColorTableParameteriv} */
-	@JavadocExclude
 	public static void nglGetColorTableParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetColorTableParameteriv;
 		if ( CHECKS )
@@ -542,7 +534,6 @@ public class ARBImaging {
 	// --- [ glGetColorTableParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetColorTableParameterfv GetColorTableParameterfv} */
-	@JavadocExclude
 	public static void nglGetColorTableParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetColorTableParameterfv;
 		if ( CHECKS )
@@ -581,7 +572,6 @@ public class ARBImaging {
 	// --- [ glColorSubTable ] ---
 
 	/** Unsafe version of {@link #glColorSubTable ColorSubTable} */
-	@JavadocExclude
 	public static void nglColorSubTable(int target, int start, int count, int format, int type, long data) {
 		long __functionAddress = getInstance().ColorSubTable;
 		if ( CHECKS )
@@ -633,7 +623,6 @@ public class ARBImaging {
 	// --- [ glConvolutionFilter1D ] ---
 
 	/** Unsafe version of {@link #glConvolutionFilter1D ConvolutionFilter1D} */
-	@JavadocExclude
 	public static void nglConvolutionFilter1D(int target, int internalformat, int width, int format, int type, long data) {
 		long __functionAddress = getInstance().ConvolutionFilter1D;
 		if ( CHECKS )
@@ -667,7 +656,6 @@ public class ARBImaging {
 	// --- [ glConvolutionFilter2D ] ---
 
 	/** Unsafe version of {@link #glConvolutionFilter2D ConvolutionFilter2D} */
-	@JavadocExclude
 	public static void nglConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, long data) {
 		long __functionAddress = getInstance().ConvolutionFilter2D;
 		if ( CHECKS )
@@ -741,7 +729,6 @@ public class ARBImaging {
 	// --- [ glGetConvolutionFilter ] ---
 
 	/** Unsafe version of {@link #glGetConvolutionFilter GetConvolutionFilter} */
-	@JavadocExclude
 	public static void nglGetConvolutionFilter(int target, int format, int type, long image) {
 		long __functionAddress = getInstance().GetConvolutionFilter;
 		if ( CHECKS )
@@ -773,7 +760,6 @@ public class ARBImaging {
 	// --- [ glSeparableFilter2D ] ---
 
 	/** Unsafe version of {@link #glSeparableFilter2D SeparableFilter2D} */
-	@JavadocExclude
 	public static void nglSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long row, long column) {
 		long __functionAddress = getInstance().SeparableFilter2D;
 		if ( CHECKS )
@@ -809,7 +795,6 @@ public class ARBImaging {
 	// --- [ glGetSeparableFilter ] ---
 
 	/** Unsafe version of {@link #glGetSeparableFilter GetSeparableFilter} */
-	@JavadocExclude
 	public static void nglGetSeparableFilter(int target, int format, int type, long row, long column, long span) {
 		long __functionAddress = getInstance().GetSeparableFilter;
 		if ( CHECKS )
@@ -859,7 +844,6 @@ public class ARBImaging {
 	// --- [ glConvolutionParameteriv ] ---
 
 	/** Unsafe version of {@link #glConvolutionParameteriv ConvolutionParameteriv} */
-	@JavadocExclude
 	public static void nglConvolutionParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ConvolutionParameteriv;
 		if ( CHECKS )
@@ -906,7 +890,6 @@ public class ARBImaging {
 	// --- [ glConvolutionParameterfv ] ---
 
 	/** Unsafe version of {@link #glConvolutionParameterfv ConvolutionParameterfv} */
-	@JavadocExclude
 	public static void nglConvolutionParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ConvolutionParameterfv;
 		if ( CHECKS )
@@ -937,7 +920,6 @@ public class ARBImaging {
 	// --- [ glGetConvolutionParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetConvolutionParameteriv GetConvolutionParameteriv} */
-	@JavadocExclude
 	public static void nglGetConvolutionParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetConvolutionParameteriv;
 		if ( CHECKS )
@@ -976,7 +958,6 @@ public class ARBImaging {
 	// --- [ glGetConvolutionParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetConvolutionParameterfv GetConvolutionParameterfv} */
-	@JavadocExclude
 	public static void nglGetConvolutionParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetConvolutionParameterfv;
 		if ( CHECKS )
@@ -1046,7 +1027,6 @@ public class ARBImaging {
 	// --- [ glGetHistogram ] ---
 
 	/** Unsafe version of {@link #glGetHistogram GetHistogram} */
-	@JavadocExclude
 	public static void nglGetHistogram(int target, boolean reset, int format, int type, long values) {
 		long __functionAddress = getInstance().GetHistogram;
 		if ( CHECKS )
@@ -1079,7 +1059,6 @@ public class ARBImaging {
 	// --- [ glGetHistogramParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetHistogramParameteriv GetHistogramParameteriv} */
-	@JavadocExclude
 	public static void nglGetHistogramParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetHistogramParameteriv;
 		if ( CHECKS )
@@ -1118,7 +1097,6 @@ public class ARBImaging {
 	// --- [ glGetHistogramParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetHistogramParameterfv GetHistogramParameterfv} */
-	@JavadocExclude
 	public static void nglGetHistogramParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetHistogramParameterfv;
 		if ( CHECKS )
@@ -1187,7 +1165,6 @@ public class ARBImaging {
 	// --- [ glGetMinmax ] ---
 
 	/** Unsafe version of {@link #glGetMinmax GetMinmax} */
-	@JavadocExclude
 	public static void nglGetMinmax(int target, boolean reset, int format, int type, long values) {
 		long __functionAddress = getInstance().GetMinmax;
 		if ( CHECKS )
@@ -1221,7 +1198,6 @@ public class ARBImaging {
 	// --- [ glGetMinmaxParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetMinmaxParameteriv GetMinmaxParameteriv} */
-	@JavadocExclude
 	public static void nglGetMinmaxParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMinmaxParameteriv;
 		if ( CHECKS )
@@ -1260,7 +1236,6 @@ public class ARBImaging {
 	// --- [ glGetMinmaxParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetMinmaxParameterfv GetMinmaxParameterfv} */
-	@JavadocExclude
 	public static void nglGetMinmaxParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMinmaxParameterfv;
 		if ( CHECKS )

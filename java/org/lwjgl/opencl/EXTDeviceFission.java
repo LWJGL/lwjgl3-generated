@@ -84,18 +84,15 @@ public class EXTDeviceFission {
 	public static final int CL_INVALID_PARTITION_NAME_EXT = -1059;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ReleaseDeviceEXT,
 		RetainDeviceEXT,
 		CreateSubDevicesEXT;
 
-	@JavadocExclude
 	protected EXTDeviceFission() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDeviceFission(FunctionProvider provider) {
 		ReleaseDeviceEXT = provider.getFunctionAddress("clReleaseDeviceEXT");
 		RetainDeviceEXT = provider.getFunctionAddress("clRetainDeviceEXT");
@@ -145,7 +142,6 @@ public class EXTDeviceFission {
 	// --- [ clCreateSubDevicesEXT ] ---
 
 	/** Unsafe version of {@link #clCreateSubDevicesEXT CreateSubDevicesEXT} */
-	@JavadocExclude
 	public static int nclCreateSubDevicesEXT(long in_device, long properties, int num_entries, long out_devices, long num_devices) {
 		long __functionAddress = getInstance().CreateSubDevicesEXT;
 		if ( CHECKS )

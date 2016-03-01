@@ -25,17 +25,14 @@ import static org.lwjgl.system.JNI.*;
 public class OESEGLImage {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		EGLImageTargetTexture2DOES,
 		EGLImageTargetRenderbufferStorageOES;
 
-	@JavadocExclude
 	protected OESEGLImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESEGLImage(FunctionProvider provider) {
 		EGLImageTargetTexture2DOES = provider.getFunctionAddress("glEGLImageTargetTexture2DOES");
 		EGLImageTargetRenderbufferStorageOES = provider.getFunctionAddress("glEGLImageTargetRenderbufferStorageOES");

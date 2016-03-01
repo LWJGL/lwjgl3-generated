@@ -32,15 +32,12 @@ public class ANGLETranslatedShaderSource {
 	public static final int GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE = 0x93A0;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long GetTranslatedShaderSourceANGLE;
 
-	@JavadocExclude
 	protected ANGLETranslatedShaderSource() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ANGLETranslatedShaderSource(FunctionProvider provider) {
 		GetTranslatedShaderSourceANGLE = provider.getFunctionAddress("glGetTranslatedShaderSourceANGLE");
 	}
@@ -71,7 +68,6 @@ public class ANGLETranslatedShaderSource {
 	// --- [ glGetTranslatedShaderSourceANGLE ] ---
 
 	/** Unsafe version of {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
-	@JavadocExclude
 	public static void nglGetTranslatedShaderSourceANGLE(int shader, int bufsize, long length, long source) {
 		long __functionAddress = getInstance().GetTranslatedShaderSourceANGLE;
 		callIIPPV(__functionAddress, shader, bufsize, length, source);

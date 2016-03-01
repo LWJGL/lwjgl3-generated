@@ -72,7 +72,6 @@ public class ARBOcclusionQuery {
 		GL_QUERY_RESULT_AVAILABLE_ARB = 0x8867;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GenQueriesARB,
 		DeleteQueriesARB,
@@ -83,12 +82,10 @@ public class ARBOcclusionQuery {
 		GetQueryObjectivARB,
 		GetQueryObjectuivARB;
 
-	@JavadocExclude
 	protected ARBOcclusionQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBOcclusionQuery(FunctionProvider provider) {
 		GenQueriesARB = provider.getFunctionAddress("glGenQueriesARB");
 		DeleteQueriesARB = provider.getFunctionAddress("glDeleteQueriesARB");
@@ -128,7 +125,6 @@ public class ARBOcclusionQuery {
 	// --- [ glGenQueriesARB ] ---
 
 	/** Unsafe version of {@link #glGenQueriesARB GenQueriesARB} */
-	@JavadocExclude
 	public static void nglGenQueriesARB(int n, long ids) {
 		long __functionAddress = getInstance().GenQueriesARB;
 		callIPV(__functionAddress, n, ids);
@@ -162,7 +158,6 @@ public class ARBOcclusionQuery {
 	// --- [ glDeleteQueriesARB ] ---
 
 	/** Unsafe version of {@link #glDeleteQueriesARB DeleteQueriesARB} */
-	@JavadocExclude
 	public static void nglDeleteQueriesARB(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueriesARB;
 		callIPV(__functionAddress, n, ids);
@@ -232,7 +227,6 @@ public class ARBOcclusionQuery {
 	// --- [ glGetQueryivARB ] ---
 
 	/** Unsafe version of {@link #glGetQueryivARB GetQueryivARB} */
-	@JavadocExclude
 	public static void nglGetQueryivARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryivARB;
 		callIIPV(__functionAddress, target, pname, params);
@@ -269,7 +263,6 @@ public class ARBOcclusionQuery {
 	// --- [ glGetQueryObjectivARB ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
-	@JavadocExclude
 	public static void nglGetQueryObjectivARB(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectivARB;
 		callIIPV(__functionAddress, id, pname, params);
@@ -306,7 +299,6 @@ public class ARBOcclusionQuery {
 	// --- [ glGetQueryObjectuivARB ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
-	@JavadocExclude
 	public static void nglGetQueryObjectuivARB(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuivARB;
 		callIIPV(__functionAddress, id, pname, params);

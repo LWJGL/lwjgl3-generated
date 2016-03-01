@@ -29,62 +29,55 @@ import static org.lwjgl.system.Pointer.*;
  * <p>For example consider the (very contrived and simple) example of drawing two triangles to form a quad. In the typical example you have the following
  * setup:</p>
  * 
- * <pre><code style="font-family: monospace">
- *          vertices                indices
- *          ----------                -----
- *       0 | (-1,  1) |            0 |  0  |
- *       1 | (-1, -1) |            1 |  1  |
- *       2 | ( 1, -1) |            2 |  2  |
- *       3 | ( 1,  1) |            3 |  3  |
- *          ----------             4 |  0  |
- *                                 5 |  2  |
- *                                    -----</code></pre>
+ * <pre><code>         vertices                indices
+         ----------                -----
+      0 | (-1,  1) |            0 |  0  |
+      1 | (-1, -1) |            1 |  1  |
+      2 | ( 1, -1) |            2 |  2  |
+      3 | ( 1,  1) |            3 |  3  |
+         ----------             4 |  0  |
+                                5 |  2  |
+                                   -----</code></pre>
  * 
  * <p>which is normally rendered with the call</p>
  * 
- * <pre><code style="font-family: monospace">
- * 		DrawElements(TRIANGLES, 6, UNSIGNED_BYTE, &indices).</code></pre>
+ * <pre><code>		DrawElements(TRIANGLES, 6, UNSIGNED_BYTE, &indices).</code></pre>
  * 
  * <p>Now consider the case where the vertices you want to draw are not at the start of a vertex array but are instead located at offset 100 into a larger
  * array:</p>
  * 
- * <pre><code style="font-family: monospace">
- *            vertices2             indices2
- *            ----------             -----
- *               ....             0 | 100 |
- *       100 | (-1,  1) |         1 | 101 |
- *       101 | (-1, -1) |         2 | 102 |
- *       102 | ( 1, -1) |         3 | 103 |
- *       103 | ( 1,  1) |         4 | 100 |
- *               ....             5 | 102 |
- *            ----------             -----</code></pre>
+ * <pre><code>           vertices2             indices2
+           ----------             -----
+              ....             0 | 100 |
+      100 | (-1,  1) |         1 | 101 |
+      101 | (-1, -1) |         2 | 102 |
+      102 | ( 1, -1) |         3 | 103 |
+      103 | ( 1,  1) |         4 | 100 |
+              ....             5 | 102 |
+           ----------             -----</code></pre>
  * 
  * <p>The typical choices for rendering this are to rebind your vertex attributes with an additional offset of 100*stride, or to create an new array of
  * indices (as indices2 in the example). However both rebinding vertex attributes and rebuilding index arrays can be quite costly activities.</p>
  * 
  * <p>With the new drawing commands introduced by this extension you can instead draw using vertices2 and the new draw call:</p>
  * 
- * <pre><code style="font-family: monospace">
- * 		DrawElementsBaseVertexOES(TRIANGLES, 6, UNSIGNED_BYTE, &indices, 100)</code></pre>
+ * <pre><code>		DrawElementsBaseVertexOES(TRIANGLES, 6, UNSIGNED_BYTE, &indices, 100)</code></pre>
  * 
  * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class OESDrawElementsBaseVertex {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		DrawElementsBaseVertexOES,
 		DrawRangeElementsBaseVertexOES,
 		DrawElementsInstancedBaseVertexOES,
 		MultiDrawElementsBaseVertexOES;
 
-	@JavadocExclude
 	protected OESDrawElementsBaseVertex() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESDrawElementsBaseVertex(FunctionProvider provider) {
 		DrawElementsBaseVertexOES = provider.getFunctionAddress("glDrawElementsBaseVertexOES");
 		DrawRangeElementsBaseVertexOES = provider.getFunctionAddress("glDrawRangeElementsBaseVertexOES");
@@ -120,7 +113,6 @@ public class OESDrawElementsBaseVertex {
 	// --- [ glDrawElementsBaseVertexOES ] ---
 
 	/** Unsafe version of {@link #glDrawElementsBaseVertexOES DrawElementsBaseVertexOES} */
-	@JavadocExclude
 	public static void nglDrawElementsBaseVertexOES(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsBaseVertexOES;
 		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
@@ -172,7 +164,6 @@ public class OESDrawElementsBaseVertex {
 	// --- [ glDrawRangeElementsBaseVertexOES ] ---
 
 	/** Unsafe version of {@link #glDrawRangeElementsBaseVertexOES DrawRangeElementsBaseVertexOES} */
-	@JavadocExclude
 	public static void nglDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertexOES;
 		if ( CHECKS )
@@ -226,7 +217,6 @@ public class OESDrawElementsBaseVertex {
 	// --- [ glDrawElementsInstancedBaseVertexOES ] ---
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertexOES DrawElementsInstancedBaseVertexOES} */
-	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexOES(int mode, int count, int type, long indices, int instancecount, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexOES;
 		if ( CHECKS )
@@ -280,7 +270,6 @@ public class OESDrawElementsBaseVertex {
 	// --- [ glMultiDrawElementsBaseVertexOES ] ---
 
 	/** Unsafe version of {@link #glMultiDrawElementsBaseVertexOES MultiDrawElementsBaseVertexOES} */
-	@JavadocExclude
 	public static void nglMultiDrawElementsBaseVertexOES(int mode, long count, int type, long indices, int primcount, long basevertex) {
 		long __functionAddress = getInstance().MultiDrawElementsBaseVertexOES;
 		if ( CHECKS )

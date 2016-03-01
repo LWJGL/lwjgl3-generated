@@ -18,19 +18,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code style="font-family: monospace">
- * struct JAWT {
- *     jint version;
- *     void * GetDrawingSurface;
- *     void * FreeDrawingSurface;
- *     void * Lock;
- *     void * Unlock;
- *     void * GetComponent;
- * }</code></pre>
+ * <pre><code>struct JAWT {
+    jint version;
+    void * GetDrawingSurface;
+    void * FreeDrawingSurface;
+    void * Lock;
+    void * Unlock;
+    void * GetComponent;
+}</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <table class=lwjgl>
  * <tr><td>version</td><td>Version of this structure. This must always be set before calling JAWT_GetAWT()</td></tr>
  * </table>
  */
@@ -39,7 +38,6 @@ public class JAWT extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	@JavadocExclude
 	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
@@ -153,12 +151,12 @@ public class JAWT extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link JAWT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link JAWT} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
 	public static JAWT malloc() {
 		return create(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link JAWT} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	/** Returns a new {@link JAWT} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
 	public static JAWT calloc() {
 		return create(nmemCalloc(1, SIZEOF));
 	}
@@ -174,7 +172,7 @@ public class JAWT extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link JAWT.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link JAWT.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -183,7 +181,7 @@ public class JAWT extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link JAWT.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link JAWT.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */

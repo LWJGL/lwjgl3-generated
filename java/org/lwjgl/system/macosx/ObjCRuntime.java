@@ -22,13 +22,12 @@ import static org.lwjgl.system.Pointer.*;
  * <p>Due to the nature of the {@code objc_msgSend*} functions, they are not directly exposed in this binding. Advanced users with good understanding of
  * the complexity involved with using these functions, may access them via the {@link #getLibrary} method:</p>
  * 
- * <pre><code style="font-family: monospace">
- * SharedLibrary objc = ObjCRuntime.getLibrary();
- * long objc_msgSend = objc.getFunctionAddress("objc_msgSend");
- * 
- * // example usage
- * long NSThread = objc_getClass("NSThread");
- * long currentThread = invokePPP(objc_msgSend, NSThread, sel_getUid("currentThread"));</code></pre>
+ * <pre><code>SharedLibrary objc = ObjCRuntime.getLibrary();
+long objc_msgSend = objc.getFunctionAddress("objc_msgSend");
+
+// example usage
+long NSThread = objc_getClass("NSThread");
+long currentThread = invokePPP(objc_msgSend, NSThread, sel_getUid("currentThread"));</code></pre>
  * 
  * <p>The safe way to use objc_msgSend in C code is to cast it to an appropriate function pointer. This is exactly what the
  * {@link org.lwjgl.system.JNI JNI} class does. If a particular function signature is not available, {@link org.lwjgl.system.libffi.LibFFI LibFFI} may
@@ -97,7 +96,6 @@ public class ObjCRuntime {
 	static { Library.initialize(); }
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		__object_copy,
 		__object_dispose,
@@ -199,12 +197,10 @@ public class ObjCRuntime {
 		__objc_getAssociatedObject,
 		__objc_removeAssociatedObjects;
 
-	@JavadocExclude
 	protected ObjCRuntime() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ObjCRuntime(FunctionProvider provider) {
 		__object_copy = checkFunctionAddress(provider.getFunctionAddress("object_copy"));
 		__object_dispose = checkFunctionAddress(provider.getFunctionAddress("object_dispose"));
@@ -395,7 +391,6 @@ public class ObjCRuntime {
 	// --- [ object_getClassName ] ---
 
 	/** Unsafe version of {@link #object_getClassName} */
-	@JavadocExclude
 	public static long nobject_getClassName(long obj) {
 		long __functionAddress = getInstance().__object_getClassName;
 		return invokePP(__functionAddress, obj);
@@ -477,7 +472,6 @@ public class ObjCRuntime {
 	// --- [ object_setInstanceVariable ] ---
 
 	/** Unsafe version of {@link #object_setInstanceVariable} */
-	@JavadocExclude
 	public static long nobject_setInstanceVariable(long obj, long name, long value) {
 		long __functionAddress = getInstance().__object_setInstanceVariable;
 		if ( CHECKS )
@@ -510,7 +504,6 @@ public class ObjCRuntime {
 	// --- [ object_getInstanceVariable ] ---
 
 	/** Unsafe version of {@link #object_getInstanceVariable} */
-	@JavadocExclude
 	public static long nobject_getInstanceVariable(long obj, long name, long outValue) {
 		long __functionAddress = getInstance().__object_getInstanceVariable;
 		if ( CHECKS )
@@ -550,7 +543,6 @@ public class ObjCRuntime {
 	// --- [ objc_getClass ] ---
 
 	/** Unsafe version of {@link #objc_getClass} */
-	@JavadocExclude
 	public static long nobjc_getClass(long name) {
 		long __functionAddress = getInstance().__objc_getClass;
 		return invokePP(__functionAddress, name);
@@ -582,7 +574,6 @@ public class ObjCRuntime {
 	// --- [ objc_getMetaClass ] ---
 
 	/** Unsafe version of {@link #objc_getMetaClass} */
-	@JavadocExclude
 	public static long nobjc_getMetaClass(long name) {
 		long __functionAddress = getInstance().__objc_getMetaClass;
 		return invokePP(__functionAddress, name);
@@ -615,7 +606,6 @@ public class ObjCRuntime {
 	// --- [ objc_lookUpClass ] ---
 
 	/** Unsafe version of {@link #objc_lookUpClass} */
-	@JavadocExclude
 	public static long nobjc_lookUpClass(long name) {
 		long __functionAddress = getInstance().__objc_lookUpClass;
 		return invokePP(__functionAddress, name);
@@ -647,7 +637,6 @@ public class ObjCRuntime {
 	// --- [ objc_getRequiredClass ] ---
 
 	/** Unsafe version of {@link #objc_getRequiredClass} */
-	@JavadocExclude
 	public static long nobjc_getRequiredClass(long name) {
 		long __functionAddress = getInstance().__objc_getRequiredClass;
 		return invokePP(__functionAddress, name);
@@ -680,7 +669,6 @@ public class ObjCRuntime {
 	// --- [ objc_getClassList ] ---
 
 	/** Unsafe version of {@link #objc_getClassList} */
-	@JavadocExclude
 	public static int nobjc_getClassList(long buffer, int bufferCount) {
 		long __functionAddress = getInstance().__objc_getClassList;
 		return invokePII(__functionAddress, buffer, bufferCount);
@@ -719,7 +707,6 @@ public class ObjCRuntime {
 	// --- [ objc_copyClassList ] ---
 
 	/** Unsafe version of {@link #objc_copyClassList} */
-	@JavadocExclude
 	public static long nobjc_copyClassList(long outCount) {
 		long __functionAddress = getInstance().__objc_copyClassList;
 		return invokePP(__functionAddress, outCount);
@@ -740,7 +727,6 @@ public class ObjCRuntime {
 	// --- [ class_getName ] ---
 
 	/** Unsafe version of {@link #class_getName} */
-	@JavadocExclude
 	public static long nclass_getName(long cls) {
 		long __functionAddress = getInstance().__class_getName;
 		return invokePP(__functionAddress, cls);
@@ -848,7 +834,6 @@ public class ObjCRuntime {
 	// --- [ class_getInstanceVariable ] ---
 
 	/** Unsafe version of {@link #class_getInstanceVariable} */
-	@JavadocExclude
 	public static long nclass_getInstanceVariable(long cls, long name) {
 		long __functionAddress = getInstance().__class_getInstanceVariable;
 		if ( CHECKS )
@@ -880,7 +865,6 @@ public class ObjCRuntime {
 	// --- [ class_getClassVariable ] ---
 
 	/** Unsafe version of {@link #class_getClassVariable} */
-	@JavadocExclude
 	public static long nclass_getClassVariable(long cls, long name) {
 		long __functionAddress = getInstance().__class_getClassVariable;
 		if ( CHECKS )
@@ -912,7 +896,6 @@ public class ObjCRuntime {
 	// --- [ class_copyIvarList ] ---
 
 	/** Unsafe version of {@link #class_copyIvarList} */
-	@JavadocExclude
 	public static long nclass_copyIvarList(long cls, long outCount) {
 		long __functionAddress = getInstance().__class_copyIvarList;
 		return invokePPP(__functionAddress, cls, outCount);
@@ -984,7 +967,7 @@ public class ObjCRuntime {
 	/**
 	 * Returns the function pointer that would be called if a particular message were sent to an instance of a class.
 	 * 
-	 * <p>class_getMethodImplementation may be faster than <code style="font-family: monospace">method_getImplementation(class_getInstanceMethod(cls, name))</code>.</p>
+	 * <p>class_getMethodImplementation may be faster than <code>method_getImplementation(class_getInstanceMethod(cls, name))</code>.</p>
 	 * 
 	 * <p>The function pointer returned may be a function internal to the runtime instead of an actual method implementation. For example, if instances of the
 	 * class do not respond to the selector, the function pointer returned will be part of the runtime's message forwarding machinery.</p>
@@ -992,7 +975,7 @@ public class ObjCRuntime {
 	 * @param cls  the class you want to inspect
 	 * @param name a selector
 	 *
-	 * @return the function pointer that would be called if <code style="font-family: monospace">[object name]</code> were called with an instance of the class, or {@code NULL} if {@code cls} is Nil
+	 * @return the function pointer that would be called if <code>[object name]</code> were called with an instance of the class, or {@code NULL} if {@code cls} is Nil
 	 */
 	public static long class_getMethodImplementation(long cls, long name) {
 		long __functionAddress = getInstance().__class_getMethodImplementation;
@@ -1025,7 +1008,6 @@ public class ObjCRuntime {
 	// --- [ class_copyMethodList ] ---
 
 	/** Unsafe version of {@link #class_copyMethodList} */
-	@JavadocExclude
 	public static long nclass_copyMethodList(long cls, long outCount) {
 		long __functionAddress = getInstance().__class_copyMethodList;
 		return invokePPP(__functionAddress, cls, outCount);
@@ -1072,7 +1054,6 @@ public class ObjCRuntime {
 	// --- [ class_copyProtocolList ] ---
 
 	/** Unsafe version of {@link #class_copyProtocolList} */
-	@JavadocExclude
 	public static long nclass_copyProtocolList(long cls, long outCount) {
 		long __functionAddress = getInstance().__class_copyProtocolList;
 		return invokePPP(__functionAddress, cls, outCount);
@@ -1098,7 +1079,6 @@ public class ObjCRuntime {
 	// --- [ class_getProperty ] ---
 
 	/** Unsafe version of {@link #class_getProperty} */
-	@JavadocExclude
 	public static long nclass_getProperty(long cls, long name) {
 		long __functionAddress = getInstance().__class_getProperty;
 		return invokePPP(__functionAddress, cls, name);
@@ -1129,7 +1109,6 @@ public class ObjCRuntime {
 	// --- [ class_copyPropertyList ] ---
 
 	/** Unsafe version of {@link #class_copyPropertyList} */
-	@JavadocExclude
 	public static long nclass_copyPropertyList(long cls, long outCount) {
 		long __functionAddress = getInstance().__class_copyPropertyList;
 		return invokePPP(__functionAddress, cls, outCount);
@@ -1155,7 +1134,6 @@ public class ObjCRuntime {
 	// --- [ class_getIvarLayout ] ---
 
 	/** Unsafe version of {@link #class_getIvarLayout} */
-	@JavadocExclude
 	public static long nclass_getIvarLayout(long cls) {
 		long __functionAddress = getInstance().__class_getIvarLayout;
 		if ( CHECKS )
@@ -1178,7 +1156,6 @@ public class ObjCRuntime {
 	// --- [ class_getWeakIvarLayout ] ---
 
 	/** Unsafe version of {@link #class_getWeakIvarLayout} */
-	@JavadocExclude
 	public static long nclass_getWeakIvarLayout(long cls) {
 		long __functionAddress = getInstance().__class_getWeakIvarLayout;
 		if ( CHECKS )
@@ -1201,7 +1178,6 @@ public class ObjCRuntime {
 	// --- [ class_addMethod ] ---
 
 	/** Unsafe version of {@link #class_addMethod} */
-	@JavadocExclude
 	public static boolean nclass_addMethod(long cls, long name, long imp, long types) {
 		long __functionAddress = getInstance().__class_addMethod;
 		if ( CHECKS ) {
@@ -1223,16 +1199,14 @@ public class ObjCRuntime {
 	 * <p>An Objective-C method is simply a C function that takes at least two arguments &ndash; {@code self} and {@code _cmd}. For example, given the following
 	 * function:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * void myMethodIMP(id self, SEL _cmd)
-	 * {
-	 * 	// implementation ....
-	 * }</code></pre>
+	 * <pre><code>void myMethodIMP(id self, SEL _cmd)
+{
+	// implementation ....
+}</code></pre>
 	 * 
 	 * <p>you can dynamically add it to a class as a method (called {@code resolveThisMethodDynamically}) like this:</p>
 	 * 
-	 * <pre><code style="font-family: monospace">
-	 * class_addMethod([self class], @selector(resolveThisMethodDynamically), (IMP) myMethodIMP, "v@:");</code></pre>
+	 * <pre><code>class_addMethod([self class], @selector(resolveThisMethodDynamically), (IMP) myMethodIMP, "v@:");</code></pre>
 	 *
 	 * @param cls   the class to which to add a method
 	 * @param name  a selector that specifies the name of the method being added
@@ -1259,7 +1233,6 @@ public class ObjCRuntime {
 	// --- [ class_replaceMethod ] ---
 
 	/** Unsafe version of {@link #class_replaceMethod} */
-	@JavadocExclude
 	public static long nclass_replaceMethod(long cls, long name, long imp, long types) {
 		long __functionAddress = getInstance().__class_replaceMethod;
 		if ( CHECKS ) {
@@ -1309,7 +1282,6 @@ public class ObjCRuntime {
 	// --- [ class_addIvar ] ---
 
 	/** Unsafe version of {@link #class_addIvar} */
-	@JavadocExclude
 	public static boolean nclass_addIvar(long cls, long name, long size, byte alignment, long types) {
 		long __functionAddress = getInstance().__class_addIvar;
 		if ( CHECKS )
@@ -1325,8 +1297,8 @@ public class ObjCRuntime {
 	 * 
 	 * <p>The class must not be a metaclass. Adding an instance variable to a metaclass is not supported.</p>
 	 * 
-	 * <p>The instance variable's minimum alignment in bytes is <code style="font-family: monospace">1<<align</code>. The minimum alignment of an instance variable depends on the ivar's type and
-	 * the machine architecture. For variables of any pointer type, pass <code style="font-family: monospace">log2(sizeof(pointer_type))</code>.</p>
+	 * <p>The instance variable's minimum alignment in bytes is <code>1<<align</code>. The minimum alignment of an instance variable depends on the ivar's type and
+	 * the machine architecture. For variables of any pointer type, pass <code>log2(sizeof(pointer_type))</code>.</p>
 	 *
 	 * @param cls       
 	 * @param name      
@@ -1374,7 +1346,6 @@ public class ObjCRuntime {
 	// --- [ class_addProperty ] ---
 
 	/** Unsafe version of {@link #class_addProperty} */
-	@JavadocExclude
 	public static boolean nclass_addProperty(long cls, long name, long attributes, int attributeCount) {
 		long __functionAddress = getInstance().__class_addProperty;
 		if ( CHECKS ) {
@@ -1419,7 +1390,6 @@ public class ObjCRuntime {
 	// --- [ class_replaceProperty ] ---
 
 	/** Unsafe version of {@link #class_replaceProperty} */
-	@JavadocExclude
 	public static void nclass_replaceProperty(long cls, long name, long attributes, int attributeCount) {
 		long __functionAddress = getInstance().__class_replaceProperty;
 		if ( CHECKS ) {
@@ -1462,7 +1432,6 @@ public class ObjCRuntime {
 	// --- [ class_setIvarLayout ] ---
 
 	/** Unsafe version of {@link #class_setIvarLayout} */
-	@JavadocExclude
 	public static void nclass_setIvarLayout(long cls, long layout) {
 		long __functionAddress = getInstance().__class_setIvarLayout;
 		if ( CHECKS )
@@ -1492,7 +1461,6 @@ public class ObjCRuntime {
 	// --- [ class_setWeakIvarLayout ] ---
 
 	/** Unsafe version of {@link #class_setWeakIvarLayout} */
-	@JavadocExclude
 	public static void nclass_setWeakIvarLayout(long cls, long layout) {
 		long __functionAddress = getInstance().__class_setWeakIvarLayout;
 		if ( CHECKS )
@@ -1540,7 +1508,6 @@ public class ObjCRuntime {
 	// --- [ objc_constructInstance ] ---
 
 	/** Unsafe version of {@link #objc_constructInstance} */
-	@JavadocExclude
 	public static long nobjc_constructInstance(long cls, long bytes) {
 		long __functionAddress = getInstance().__objc_constructInstance;
 		return invokePPP(__functionAddress, cls, bytes);
@@ -1550,7 +1517,7 @@ public class ObjCRuntime {
 	 * Creates an instance of a class at the specified location.
 	 *
 	 * @param cls   the class that you want to allocate an instance of
-	 * @param bytes the location at which to allocate an instance of the {@code cls} class. {@code bytes} must point to at least <code style="font-family: monospace">class_getInstanceSize(cls)</code>
+	 * @param bytes the location at which to allocate an instance of the {@code cls} class. {@code bytes} must point to at least <code>class_getInstanceSize(cls)</code>
 	 *              bytes of well-aligned, zero-filled memory.
 	 *
 	 * @return an instance of the class {@code cls} at {@code bytes}, if successful; otherwise {@link #nil} (for example, if {@code cls} or {@code bytes} are themselves {@link #nil})
@@ -1583,7 +1550,6 @@ public class ObjCRuntime {
 	// --- [ objc_allocateClassPair ] ---
 
 	/** Unsafe version of {@link #objc_allocateClassPair} */
-	@JavadocExclude
 	public static long nobjc_allocateClassPair(long superclass, long name, long extraBytes) {
 		long __functionAddress = getInstance().__objc_allocateClassPair;
 		return invokePPPP(__functionAddress, superclass, name, extraBytes);
@@ -1592,7 +1558,7 @@ public class ObjCRuntime {
 	/**
 	 * Creates a new class and metaclass.
 	 * 
-	 * <p>You can get a pointer to the new metaclass by calling <code style="font-family: monospace">object_getClass(newClass)</code>.</p>
+	 * <p>You can get a pointer to the new metaclass by calling <code>object_getClass(newClass)</code>.</p>
 	 * 
 	 * <p>To create a new class, start by calling objc_allocateClassPair. Then set the class's attributes with functions like {@link #class_addMethod} and
 	 * {@link #class_addIvar}. When you are done building the class, call {@link #objc_registerClassPair}. The new class is now ready for use.</p>
@@ -1653,7 +1619,7 @@ public class ObjCRuntime {
 	/**
 	 * Returns the name of a method.
 	 * 
-	 * <p>To get the method name as a C string, call <code style="font-family: monospace">sel_getName(method_getName(method))</code>.</p>
+	 * <p>To get the method name as a C string, call <code>sel_getName(method_getName(method))</code>.</p>
 	 *
 	 * @param m the method to inspect
 	 *
@@ -1685,7 +1651,6 @@ public class ObjCRuntime {
 	// --- [ method_getTypeEncoding ] ---
 
 	/** Unsafe version of {@link #method_getTypeEncoding} */
-	@JavadocExclude
 	public static long nmethod_getTypeEncoding(long m) {
 		long __functionAddress = getInstance().__method_getTypeEncoding;
 		if ( CHECKS )
@@ -1724,7 +1689,6 @@ public class ObjCRuntime {
 	// --- [ method_copyReturnType ] ---
 
 	/** Unsafe version of {@link #method_copyReturnType} */
-	@JavadocExclude
 	public static long nmethod_copyReturnType(long m) {
 		long __functionAddress = getInstance().__method_copyReturnType;
 		if ( CHECKS )
@@ -1747,7 +1711,6 @@ public class ObjCRuntime {
 	// --- [ method_copyArgumentType ] ---
 
 	/** Unsafe version of {@link #method_copyArgumentType} */
-	@JavadocExclude
 	public static long nmethod_copyArgumentType(long m, int index) {
 		long __functionAddress = getInstance().__method_copyArgumentType;
 		if ( CHECKS )
@@ -1772,7 +1735,6 @@ public class ObjCRuntime {
 	// --- [ method_getReturnType ] ---
 
 	/** Unsafe version of {@link #method_getReturnType} */
-	@JavadocExclude
 	public static void nmethod_getReturnType(long m, long dst, long dst_len) {
 		long __functionAddress = getInstance().__method_getReturnType;
 		if ( CHECKS )
@@ -1783,7 +1745,7 @@ public class ObjCRuntime {
 	/**
 	 * Returns by reference a string describing a method's return type.
 	 * 
-	 * <p>The method's return type string is copied to {@code dst}. {@code dst} is filled as if <code style="font-family: monospace">strncpy(dst, parameter_type, dst_len)</code> were called.</p>
+	 * <p>The method's return type string is copied to {@code dst}. {@code dst} is filled as if <code>strncpy(dst, parameter_type, dst_len)</code> were called.</p>
 	 *
 	 * @param m       the method to inspect
 	 * @param dst     the reference string to store the description
@@ -1811,7 +1773,6 @@ public class ObjCRuntime {
 	// --- [ method_getArgumentType ] ---
 
 	/** Unsafe version of {@link #method_getArgumentType} */
-	@JavadocExclude
 	public static void nmethod_getArgumentType(long m, int index, long dst, long dst_len) {
 		long __functionAddress = getInstance().__method_getArgumentType;
 		if ( CHECKS )
@@ -1822,8 +1783,8 @@ public class ObjCRuntime {
 	/**
 	 * Returns by reference a string describing a single parameter type of a method.
 	 * 
-	 * <p>The parameter type string is copied to {@code dst}. {@code dst} is filled as if <code style="font-family: monospace">strncpy(dst, parameter_type, dst_len)</code> were called. If the
-	 * method contains no parameter with that index, {@code dst} is filled as if <code style="font-family: monospace">strncpy(dst, "", dst_len)</code> were called.</p>
+	 * <p>The parameter type string is copied to {@code dst}. {@code dst} is filled as if <code>strncpy(dst, parameter_type, dst_len)</code> were called. If the
+	 * method contains no parameter with that index, {@code dst} is filled as if <code>strncpy(dst, "", dst_len)</code> were called.</p>
 	 *
 	 * @param m       the method you want to inquire about
 	 * @param index   the index of the parameter you want to inquire about
@@ -1888,7 +1849,6 @@ public class ObjCRuntime {
 	// --- [ ivar_getName ] ---
 
 	/** Unsafe version of {@link #ivar_getName} */
-	@JavadocExclude
 	public static long nivar_getName(long v) {
 		long __functionAddress = getInstance().__ivar_getName;
 		if ( CHECKS )
@@ -1911,7 +1871,6 @@ public class ObjCRuntime {
 	// --- [ ivar_getTypeEncoding ] ---
 
 	/** Unsafe version of {@link #ivar_getTypeEncoding} */
-	@JavadocExclude
 	public static long nivar_getTypeEncoding(long v) {
 		long __functionAddress = getInstance().__ivar_getTypeEncoding;
 		if ( CHECKS )
@@ -1953,7 +1912,6 @@ public class ObjCRuntime {
 	// --- [ property_getName ] ---
 
 	/** Unsafe version of {@link #property_getName} */
-	@JavadocExclude
 	public static long nproperty_getName(long property) {
 		long __functionAddress = getInstance().__property_getName;
 		if ( CHECKS )
@@ -1976,7 +1934,6 @@ public class ObjCRuntime {
 	// --- [ property_getAttributes ] ---
 
 	/** Unsafe version of {@link #property_getAttributes} */
-	@JavadocExclude
 	public static long nproperty_getAttributes(long property) {
 		long __functionAddress = getInstance().__property_getAttributes;
 		if ( CHECKS )
@@ -1999,7 +1956,6 @@ public class ObjCRuntime {
 	// --- [ property_copyAttributeList ] ---
 
 	/** Unsafe version of {@link #property_copyAttributeList} */
-	@JavadocExclude
 	public static long nproperty_copyAttributeList(long property, long outCount) {
 		long __functionAddress = getInstance().__property_copyAttributeList;
 		if ( CHECKS )
@@ -2025,7 +1981,6 @@ public class ObjCRuntime {
 	// --- [ property_copyAttributeValue ] ---
 
 	/** Unsafe version of {@link #property_copyAttributeValue} */
-	@JavadocExclude
 	public static long nproperty_copyAttributeValue(long property, long attributeName) {
 		long __functionAddress = getInstance().__property_copyAttributeValue;
 		if ( CHECKS )
@@ -2068,7 +2023,6 @@ public class ObjCRuntime {
 	// --- [ objc_getProtocol ] ---
 
 	/** Unsafe version of {@link #objc_getProtocol} */
-	@JavadocExclude
 	public static long nobjc_getProtocol(long name) {
 		long __functionAddress = getInstance().__objc_getProtocol;
 		return invokePP(__functionAddress, name);
@@ -2099,7 +2053,6 @@ public class ObjCRuntime {
 	// --- [ objc_copyProtocolList ] ---
 
 	/** Unsafe version of {@link #objc_copyProtocolList} */
-	@JavadocExclude
 	public static long nobjc_copyProtocolList(long outCount) {
 		long __functionAddress = getInstance().__objc_copyProtocolList;
 		return invokePP(__functionAddress, outCount);
@@ -2127,7 +2080,7 @@ public class ObjCRuntime {
 	 * 
 	 * <p>One protocol can incorporate other protocols using the same syntax that classes use to adopt a protocol:</p>
 	 * 
-	 * <p><code style="font-family: monospace">@protocol ProtocolName < protocol list ></code></p>
+	 * <p><code>@protocol ProtocolName < protocol list ></code></p>
 	 * 
 	 * <p>All the protocols listed between angle brackets are considered part of the {@code ProtocolName} protocol.</p>
 	 *
@@ -2167,7 +2120,6 @@ public class ObjCRuntime {
 	// --- [ protocol_getName ] ---
 
 	/** Unsafe version of {@link #protocol_getName} */
-	@JavadocExclude
 	public static long nprotocol_getName(long p) {
 		long __functionAddress = getInstance().__protocol_getName;
 		if ( CHECKS )
@@ -2190,11 +2142,9 @@ public class ObjCRuntime {
 	// --- [ protocol_getMethodDescription ] ---
 
 	/** JNI method for {@link #protocol_getMethodDescription} */
-	@JavadocExclude
 	public static native void nprotocol_getMethodDescription(long __functionAddress, long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, long __result);
 
 	/** Unsafe version of {@link #protocol_getMethodDescription} */
-	@JavadocExclude
 	public static void nprotocol_getMethodDescription(long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, long __result) {
 		long __functionAddress = getInstance().__protocol_getMethodDescription;
 		if ( CHECKS ) {
@@ -2214,7 +2164,7 @@ public class ObjCRuntime {
 	 * @param __result         an objc_method_description structure that describes the method specified by {@code aSel}, {@code isRequiredMethod}, and {@code isInstanceMethod} for
 	 *                         the protocol {@code p}.
 	 *                         
-	 *                         <p>If the protocol does not contain the specified method, returns an objc_method_description structure with the value <code style="font-family: monospace">{NULL, NULL}</code>.</p>
+	 *                         <p>If the protocol does not contain the specified method, returns an objc_method_description structure with the value <code>{NULL, NULL}</code>.</p>
 	 */
 	public static void protocol_getMethodDescription(long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, ObjCMethodDescription __result) {
 		nprotocol_getMethodDescription(p, aSel, isRequiredMethod, isInstanceMethod, __result.address());
@@ -2223,7 +2173,6 @@ public class ObjCRuntime {
 	// --- [ protocol_copyMethodDescriptionList ] ---
 
 	/** Unsafe version of {@link #protocol_copyMethodDescriptionList} */
-	@JavadocExclude
 	public static long nprotocol_copyMethodDescriptionList(long p, boolean isRequiredMethod, boolean isInstanceMethod, long outCount) {
 		long __functionAddress = getInstance().__protocol_copyMethodDescriptionList;
 		if ( CHECKS )
@@ -2256,7 +2205,6 @@ public class ObjCRuntime {
 	// --- [ protocol_getProperty ] ---
 
 	/** Unsafe version of {@link #protocol_getProperty} */
-	@JavadocExclude
 	public static long nprotocol_getProperty(long proto, long name, boolean isRequiredProperty, boolean isInstanceProperty) {
 		long __functionAddress = getInstance().__protocol_getProperty;
 		if ( CHECKS )
@@ -2291,7 +2239,6 @@ public class ObjCRuntime {
 	// --- [ protocol_copyPropertyList ] ---
 
 	/** Unsafe version of {@link #protocol_copyPropertyList} */
-	@JavadocExclude
 	public static long nprotocol_copyPropertyList(long proto, long outCount) {
 		long __functionAddress = getInstance().__protocol_copyPropertyList;
 		if ( CHECKS )
@@ -2319,7 +2266,6 @@ public class ObjCRuntime {
 	// --- [ protocol_copyProtocolList ] ---
 
 	/** Unsafe version of {@link #protocol_copyProtocolList} */
-	@JavadocExclude
 	public static long nprotocol_copyProtocolList(long proto, long outCount) {
 		long __functionAddress = getInstance().__protocol_copyProtocolList;
 		if ( CHECKS )
@@ -2347,7 +2293,6 @@ public class ObjCRuntime {
 	// --- [ objc_allocateProtocol ] ---
 
 	/** Unsafe version of {@link #objc_allocateProtocol} */
-	@JavadocExclude
 	public static long nobjc_allocateProtocol(long name) {
 		long __functionAddress = getInstance().__objc_allocateProtocol;
 		return invokePP(__functionAddress, name);
@@ -2397,7 +2342,6 @@ public class ObjCRuntime {
 	// --- [ protocol_addMethodDescription ] ---
 
 	/** Unsafe version of {@link #protocol_addMethodDescription} */
-	@JavadocExclude
 	public static void nprotocol_addMethodDescription(long proto, long name, long types, boolean isRequiredMethod, boolean isInstanceMethod) {
 		long __functionAddress = getInstance().__protocol_addMethodDescription;
 		if ( CHECKS ) {
@@ -2456,7 +2400,6 @@ public class ObjCRuntime {
 	// --- [ protocol_addProperty ] ---
 
 	/** Unsafe version of {@link #protocol_addProperty} */
-	@JavadocExclude
 	public static void nprotocol_addProperty(long proto, long name, long attributes, int attributeCount, boolean isRequiredProperty, boolean isInstanceProperty) {
 		long __functionAddress = getInstance().__protocol_addProperty;
 		if ( CHECKS ) {
@@ -2506,7 +2449,6 @@ public class ObjCRuntime {
 	// --- [ objc_copyImageNames ] ---
 
 	/** Unsafe version of {@link #objc_copyImageNames} */
-	@JavadocExclude
 	public static long nobjc_copyImageNames(long outCount) {
 		long __functionAddress = getInstance().__objc_copyImageNames;
 		return invokePP(__functionAddress, outCount);
@@ -2527,7 +2469,6 @@ public class ObjCRuntime {
 	// --- [ class_getImageName ] ---
 
 	/** Unsafe version of {@link #class_getImageName} */
-	@JavadocExclude
 	public static long nclass_getImageName(long cls) {
 		long __functionAddress = getInstance().__class_getImageName;
 		if ( CHECKS )
@@ -2550,7 +2491,6 @@ public class ObjCRuntime {
 	// --- [ objc_copyClassNamesForImage ] ---
 
 	/** Unsafe version of {@link #objc_copyClassNamesForImage} */
-	@JavadocExclude
 	public static long nobjc_copyClassNamesForImage(long image, long outCount) {
 		long __functionAddress = getInstance().__objc_copyClassNamesForImage;
 		return invokePPP(__functionAddress, image, outCount);
@@ -2584,7 +2524,6 @@ public class ObjCRuntime {
 	// --- [ sel_getName ] ---
 
 	/** Unsafe version of {@link #sel_getName} */
-	@JavadocExclude
 	public static long nsel_getName(long sel) {
 		long __functionAddress = getInstance().__sel_getName;
 		if ( CHECKS )
@@ -2607,7 +2546,6 @@ public class ObjCRuntime {
 	// --- [ sel_getUid ] ---
 
 	/** Unsafe version of {@link #sel_getUid} */
-	@JavadocExclude
 	public static long nsel_getUid(long str) {
 		long __functionAddress = getInstance().__sel_getUid;
 		return invokePP(__functionAddress, str);
@@ -2638,7 +2576,6 @@ public class ObjCRuntime {
 	// --- [ sel_registerName ] ---
 
 	/** Unsafe version of {@link #sel_registerName} */
-	@JavadocExclude
 	public static long nsel_registerName(long str) {
 		long __functionAddress = getInstance().__sel_registerName;
 		return invokePP(__functionAddress, str);
@@ -2723,8 +2660,8 @@ public class ObjCRuntime {
 	/**
 	 * Creates a pointer to a function that calls the specified block when the method is called.
 	 *
-	 * @param block the block that implements this method. The signature of {@code block} should be <code style="font-family: monospace">method_return_type ^(id self, self, method_args …)</code>. The
-	 *              selector of the method is not available to {@code block}. {@code block} is copied with <code style="font-family: monospace">Block_copy()</code>.
+	 * @param block the block that implements this method. The signature of {@code block} should be <code>method_return_type ^(id self, self, method_args …)</code>. The
+	 *              selector of the method is not available to {@code block}. {@code block} is copied with <code>Block_copy()</code>.
 	 *
 	 * @return the IMP that calls {@code block}. You must dispose of the returned IMP using the function.
 	 */
@@ -2771,7 +2708,6 @@ public class ObjCRuntime {
 	// --- [ objc_loadWeak ] ---
 
 	/** Unsafe version of {@link #objc_loadWeak} */
-	@JavadocExclude
 	public static long nobjc_loadWeak(long location) {
 		long __functionAddress = getInstance().__objc_loadWeak;
 		return invokePP(__functionAddress, location);
@@ -2799,7 +2735,6 @@ public class ObjCRuntime {
 	// --- [ objc_storeWeak ] ---
 
 	/** Unsafe version of {@link #objc_storeWeak} */
-	@JavadocExclude
 	public static long nobjc_storeWeak(long location, long obj) {
 		long __functionAddress = getInstance().__objc_storeWeak;
 		if ( CHECKS )

@@ -36,15 +36,12 @@ public class OESPrimitiveBoundingBox {
 	public static final int GL_PRIMITIVE_BOUNDING_BOX_OES = 0x92BE;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long PrimitiveBoundingBoxOES;
 
-	@JavadocExclude
 	protected OESPrimitiveBoundingBox() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public OESPrimitiveBoundingBox(FunctionProvider provider) {
 		PrimitiveBoundingBoxOES = provider.getFunctionAddress("glPrimitiveBoundingBoxOES");
 	}

@@ -64,11 +64,10 @@ import static org.lwjgl.system.Pointer.*;
  * (for example, glTexImage2D or glReadPixels respectively), the current unpack and pack pixel store state determines how the pixels are unpacked
  * from/packed to client memory or pixel buffer objects. For example, consider:</p>
  * 
- * <pre><code style="font-family: monospace">
- * glPixelStorei(GL_UNPACK_SWAP_BYTES, GL_TRUE);
- * glPixelStorei(GL_UNPACK_ROW_LENGTH, 640);
- * glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 47);
- * glDrawPixels(100, 100, GL_RGB, GL_FLOAT, pixels);</code></pre>
+ * <pre><code>glPixelStorei(GL_UNPACK_SWAP_BYTES, GL_TRUE);
+glPixelStorei(GL_UNPACK_ROW_LENGTH, 640);
+glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 47);
+glDrawPixels(100, 100, GL_RGB, GL_FLOAT, pixels);</code></pre>
  * 
  * <p>The unpack swap bytes and row length state set by the preceding glPixelStorei commands (as well as the 6 other unpack pixel store state variables)
  * control how data is read (unpacked) from buffer of data pointed to by pixels. The glBindBuffer command also specifies an unpack buffer object (47) so
@@ -77,9 +76,8 @@ import static org.lwjgl.system.Pointer.*;
  * <p>When an application issues a command to configure a vertex array, the current array buffer state is latched as the binding for the particular vertex
  * array being specified. For example, consider:</p>
  * 
- * <pre><code style="font-family: monospace">
- * glBindBuffer(GL_ARRAY_BUFFER, 23);
- * glVertexPointer(3, GL_FLOAT, 12, pointer);</code></pre>
+ * <pre><code>glBindBuffer(GL_ARRAY_BUFFER, 23);
+glVertexPointer(3, GL_FLOAT, 12, pointer);</code></pre>
  * 
  * <p>The glBindBuffer command updates the array buffering binding (GL_ARRAY_BUFFER_BINDING) to the buffer object named 23. The subsequent glVertexPointer
  * command specifies explicit parameters for the size, type, stride, and pointer to access the position vertex array BUT ALSO latches the current array
@@ -100,16 +98,15 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <p>Consider the following routine to set the modelview matrix involving the matrix mode selector:</p>
  * 
- * <pre><code style="font-family: monospace">
- * void setModelviewMatrix(const GLfloat matrix[16])
- * {
- * 	GLenum savedMatrixMode;
- * 
- * 	glGetIntegerv(GL_MATRIX_MODE, &savedMatrixMode);
- * 	glMatrixMode(GL_MODELVIEW);
- * 	glLoadMatrixf(matrix);
- * 	glMatrixMode(savedMatrixMode);
- * }</code></pre>
+ * <pre><code>void setModelviewMatrix(const GLfloat matrix[16])
+{
+	GLenum savedMatrixMode;
+
+	glGetIntegerv(GL_MATRIX_MODE, &savedMatrixMode);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadMatrixf(matrix);
+	glMatrixMode(savedMatrixMode);
+}</code></pre>
  * 
  * <p>Notice that four OpenGL commands are required to update the current modelview matrix without disturbing the matrix mode selector.</p>
  * 
@@ -126,20 +123,18 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <p>The above example can be reimplemented more efficiently and without selector side-effects:</p>
  * 
- * <pre><code style="font-family: monospace">
- * void setModelviewMatrix(const GLfloat matrix[16])
- * {
- * 	glMatrixLoadfEXT(GL_MODELVIEW, matrix);
- * }</code></pre>
+ * <pre><code>void setModelviewMatrix(const GLfloat matrix[16])
+{
+	glMatrixLoadfEXT(GL_MODELVIEW, matrix);
+}</code></pre>
  * 
  * <p>Consider a layered library seeking to load a texture:</p>
  * 
- * <pre><code style="font-family: monospace">
- * void loadTexture(GLint texobj, GLint width, GLint height, void *data)
- * {
- * 	glBindTexture(GL_TEXTURE_2D, texobj);
- * 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
- * }</code></pre>
+ * <pre><code>void loadTexture(GLint texobj, GLint width, GLint height, void *data)
+{
+	glBindTexture(GL_TEXTURE_2D, texobj);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
+}</code></pre>
  * 
  * <p>The library expects the data to be packed into the buffer pointed to by data. But what if the current pixel unpack buffer binding is not zero so the
  * current pixel unpack buffer, rather than client memory, will be read? Or what if the application has modified the GL_UNPACK_ROW_LENGTH pixel store state
@@ -151,13 +146,12 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <p>We can more efficiently implement this routine without disturbing selector or latched state as follows:</p>
  * 
- * <pre><code style="font-family: monospace">
- * void loadTexture(GLint texobj, GLint width, GLint height, void *data)
- * {
- * 	glPushClientAttribDefaultEXT(GL_CLIENT_PIXEL_STORE_BIT);
- * 	glTextureImage2D(texobj, GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
- * 	glPopClientAttrib();
- * }</code></pre>
+ * <pre><code>void loadTexture(GLint texobj, GLint width, GLint height, void *data)
+{
+	glPushClientAttribDefaultEXT(GL_CLIENT_PIXEL_STORE_BIT);
+	glTextureImage2D(texobj, GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
+	glPopClientAttrib();
+}</code></pre>
  * 
  * <p>Now loadTexture does not have to worry about inappropriately configured pixel store state or a non-zero pixel unpack buffer binding. And loadTexture has
  * no unintended side-effects for selector or latched state (assuming the client attrib state does not overflow).</p>
@@ -171,7 +165,6 @@ public class EXTDirectStateAccess {
 		GL_PROGRAM_MATRIX_STACK_DEPTH_EXT = 0x8E2F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		ClientAttribDefaultEXT,
 		PushClientAttribDefaultEXT,
@@ -391,12 +384,10 @@ public class EXTDirectStateAccess {
 		MapNamedBufferRangeEXT,
 		FlushMappedNamedBufferRangeEXT;
 
-	@JavadocExclude
 	protected EXTDirectStateAccess() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTDirectStateAccess(FunctionProvider provider) {
 		ClientAttribDefaultEXT = provider.getFunctionAddress("glClientAttribDefaultEXT");
 		PushClientAttribDefaultEXT = provider.getFunctionAddress("glPushClientAttribDefaultEXT");
@@ -770,7 +761,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMatrixLoadfEXT ] ---
 
 	/** Unsafe version of {@link #glMatrixLoadfEXT MatrixLoadfEXT} */
-	@JavadocExclude
 	public static void nglMatrixLoadfEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixLoadfEXT;
 		callIPV(__functionAddress, matrixMode, m);
@@ -792,7 +782,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMatrixLoaddEXT ] ---
 
 	/** Unsafe version of {@link #glMatrixLoaddEXT MatrixLoaddEXT} */
-	@JavadocExclude
 	public static void nglMatrixLoaddEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixLoaddEXT;
 		callIPV(__functionAddress, matrixMode, m);
@@ -814,7 +803,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMatrixMultfEXT ] ---
 
 	/** Unsafe version of {@link #glMatrixMultfEXT MatrixMultfEXT} */
-	@JavadocExclude
 	public static void nglMatrixMultfEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixMultfEXT;
 		callIPV(__functionAddress, matrixMode, m);
@@ -836,7 +824,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMatrixMultdEXT ] ---
 
 	/** Unsafe version of {@link #glMatrixMultdEXT MatrixMultdEXT} */
-	@JavadocExclude
 	public static void nglMatrixMultdEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixMultdEXT;
 		callIPV(__functionAddress, matrixMode, m);
@@ -942,7 +929,6 @@ public class EXTDirectStateAccess {
 	// --- [ glTextureParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glTextureParameterivEXT TextureParameterivEXT} */
-	@JavadocExclude
 	public static void nglTextureParameterivEXT(int texture, int target, int pname, long param) {
 		long __functionAddress = getInstance().TextureParameterivEXT;
 		callIIIPV(__functionAddress, texture, target, pname, param);
@@ -971,7 +957,6 @@ public class EXTDirectStateAccess {
 	// --- [ glTextureParameterfvEXT ] ---
 
 	/** Unsafe version of {@link #glTextureParameterfvEXT TextureParameterfvEXT} */
-	@JavadocExclude
 	public static void nglTextureParameterfvEXT(int texture, int target, int pname, long param) {
 		long __functionAddress = getInstance().TextureParameterfvEXT;
 		callIIIPV(__functionAddress, texture, target, pname, param);
@@ -993,7 +978,6 @@ public class EXTDirectStateAccess {
 	// --- [ glTextureImage1DEXT ] ---
 
 	/** Unsafe version of {@link #glTextureImage1DEXT TextureImage1DEXT} */
-	@JavadocExclude
 	public static void nglTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureImage1DEXT;
 		callIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
@@ -1043,7 +1027,6 @@ public class EXTDirectStateAccess {
 	// --- [ glTextureImage2DEXT ] ---
 
 	/** Unsafe version of {@link #glTextureImage2DEXT TextureImage2DEXT} */
-	@JavadocExclude
 	public static void nglTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureImage2DEXT;
 		callIIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
@@ -1093,7 +1076,6 @@ public class EXTDirectStateAccess {
 	// --- [ glTextureSubImage1DEXT ] ---
 
 	/** Unsafe version of {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
-	@JavadocExclude
 	public static void nglTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage1DEXT;
 		callIIIIIIIPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
@@ -1143,7 +1125,6 @@ public class EXTDirectStateAccess {
 	// --- [ glTextureSubImage2DEXT ] ---
 
 	/** Unsafe version of {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
-	@JavadocExclude
 	public static void nglTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage2DEXT;
 		callIIIIIIIIIPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -1221,7 +1202,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetTextureImageEXT ] ---
 
 	/** Unsafe version of {@link #glGetTextureImageEXT GetTextureImageEXT} */
-	@JavadocExclude
 	public static void nglGetTextureImageEXT(int texture, int target, int level, int format, int type, long pixels) {
 		long __functionAddress = getInstance().GetTextureImageEXT;
 		callIIIIIPV(__functionAddress, texture, target, level, format, type, pixels);
@@ -1271,7 +1251,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetTextureParameterfvEXT ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterfvEXT GetTextureParameterfvEXT} */
-	@JavadocExclude
 	public static void nglGetTextureParameterfvEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterfvEXT;
 		callIIIPV(__functionAddress, texture, target, pname, params);
@@ -1301,7 +1280,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetTextureParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterivEXT GetTextureParameterivEXT} */
-	@JavadocExclude
 	public static void nglGetTextureParameterivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterivEXT;
 		callIIIPV(__functionAddress, texture, target, pname, params);
@@ -1331,7 +1309,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetTextureLevelParameterfvEXT ] ---
 
 	/** Unsafe version of {@link #glGetTextureLevelParameterfvEXT GetTextureLevelParameterfvEXT} */
-	@JavadocExclude
 	public static void nglGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterfvEXT;
 		callIIIIPV(__functionAddress, texture, target, level, pname, params);
@@ -1361,7 +1338,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetTextureLevelParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glGetTextureLevelParameterivEXT GetTextureLevelParameterivEXT} */
-	@JavadocExclude
 	public static void nglGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterivEXT;
 		callIIIIPV(__functionAddress, texture, target, level, pname, params);
@@ -1391,7 +1367,6 @@ public class EXTDirectStateAccess {
 	// --- [ glTextureImage3DEXT ] ---
 
 	/** Unsafe version of {@link #glTextureImage3DEXT TextureImage3DEXT} */
-	@JavadocExclude
 	public static void nglTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureImage3DEXT;
 		if ( CHECKS )
@@ -1443,7 +1418,6 @@ public class EXTDirectStateAccess {
 	// --- [ glTextureSubImage3DEXT ] ---
 
 	/** Unsafe version of {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
-	@JavadocExclude
 	public static void nglTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage3DEXT;
 		if ( CHECKS )
@@ -1513,7 +1487,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexCoordPointerEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
-	@JavadocExclude
 	public static void nglMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().MultiTexCoordPointerEXT;
 		if ( CHECKS )
@@ -1567,7 +1540,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexEnvfvEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexEnvfvEXT MultiTexEnvfvEXT} */
-	@JavadocExclude
 	public static void nglMultiTexEnvfvEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexEnvfvEXT;
 		if ( CHECKS )
@@ -1600,7 +1572,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexEnvivEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexEnvivEXT MultiTexEnvivEXT} */
-	@JavadocExclude
 	public static void nglMultiTexEnvivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexEnvivEXT;
 		if ( CHECKS )
@@ -1633,7 +1604,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexGendvEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexGendvEXT MultiTexGendvEXT} */
-	@JavadocExclude
 	public static void nglMultiTexGendvEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexGendvEXT;
 		if ( CHECKS )
@@ -1666,7 +1636,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexGenfvEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexGenfvEXT MultiTexGenfvEXT} */
-	@JavadocExclude
 	public static void nglMultiTexGenfvEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexGenfvEXT;
 		if ( CHECKS )
@@ -1699,7 +1668,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexGenivEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexGenivEXT MultiTexGenivEXT} */
-	@JavadocExclude
 	public static void nglMultiTexGenivEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexGenivEXT;
 		if ( CHECKS )
@@ -1723,7 +1691,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexEnvfvEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexEnvfvEXT GetMultiTexEnvfvEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexEnvfvEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexEnvfvEXT;
 		if ( CHECKS )
@@ -1755,7 +1722,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexEnvivEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexEnvivEXT GetMultiTexEnvivEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexEnvivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexEnvivEXT;
 		if ( CHECKS )
@@ -1787,7 +1753,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexGendvEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexGendvEXT GetMultiTexGendvEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexGendvEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexGendvEXT;
 		if ( CHECKS )
@@ -1819,7 +1784,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexGenfvEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexGenfvEXT GetMultiTexGenfvEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexGenfvEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexGenfvEXT;
 		if ( CHECKS )
@@ -1851,7 +1815,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexGenivEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexGenivEXT GetMultiTexGenivEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexGenivEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexGenivEXT;
 		if ( CHECKS )
@@ -1892,7 +1855,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexParameterivEXT MultiTexParameterivEXT} */
-	@JavadocExclude
 	public static void nglMultiTexParameterivEXT(int texunit, int target, int pname, long param) {
 		long __functionAddress = getInstance().MultiTexParameterivEXT;
 		if ( CHECKS )
@@ -1925,7 +1887,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexParameterfvEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexParameterfvEXT MultiTexParameterfvEXT} */
-	@JavadocExclude
 	public static void nglMultiTexParameterfvEXT(int texunit, int target, int pname, long param) {
 		long __functionAddress = getInstance().MultiTexParameterfvEXT;
 		if ( CHECKS )
@@ -1949,7 +1910,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexImage1DEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
-	@JavadocExclude
 	public static void nglMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().MultiTexImage1DEXT;
 		if ( CHECKS )
@@ -2001,7 +1961,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexImage2DEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
-	@JavadocExclude
 	public static void nglMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().MultiTexImage2DEXT;
 		if ( CHECKS )
@@ -2053,7 +2012,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexSubImage1DEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
-	@JavadocExclude
 	public static void nglMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().MultiTexSubImage1DEXT;
 		if ( CHECKS )
@@ -2105,7 +2063,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexSubImage2DEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
-	@JavadocExclude
 	public static void nglMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().MultiTexSubImage2DEXT;
 		if ( CHECKS )
@@ -2193,7 +2150,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexImageEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, long pixels) {
 		long __functionAddress = getInstance().GetMultiTexImageEXT;
 		if ( CHECKS )
@@ -2245,7 +2201,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexParameterfvEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexParameterfvEXT GetMultiTexParameterfvEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexParameterfvEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexParameterfvEXT;
 		if ( CHECKS )
@@ -2277,7 +2232,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexParameterivEXT GetMultiTexParameterivEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexParameterivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexParameterivEXT;
 		if ( CHECKS )
@@ -2309,7 +2263,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexLevelParameterfvEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexLevelParameterfvEXT GetMultiTexLevelParameterfvEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexLevelParameterfvEXT(int texunit, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexLevelParameterfvEXT;
 		if ( CHECKS )
@@ -2341,7 +2294,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexLevelParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexLevelParameterivEXT GetMultiTexLevelParameterivEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexLevelParameterivEXT(int texunit, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexLevelParameterivEXT;
 		if ( CHECKS )
@@ -2373,7 +2325,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexImage3DEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
-	@JavadocExclude
 	public static void nglMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().MultiTexImage3DEXT;
 		if ( CHECKS )
@@ -2425,7 +2376,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexSubImage3DEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
-	@JavadocExclude
 	public static void nglMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().MultiTexSubImage3DEXT;
 		if ( CHECKS )
@@ -2522,7 +2472,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetFloatIndexedvEXT ] ---
 
 	/** Unsafe version of {@link #glGetFloatIndexedvEXT GetFloatIndexedvEXT} */
-	@JavadocExclude
 	public static void nglGetFloatIndexedvEXT(int target, int index, long params) {
 		long __functionAddress = getInstance().GetFloatIndexedvEXT;
 		if ( CHECKS )
@@ -2554,7 +2503,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetDoubleIndexedvEXT ] ---
 
 	/** Unsafe version of {@link #glGetDoubleIndexedvEXT GetDoubleIndexedvEXT} */
-	@JavadocExclude
 	public static void nglGetDoubleIndexedvEXT(int target, int index, long params) {
 		long __functionAddress = getInstance().GetDoubleIndexedvEXT;
 		if ( CHECKS )
@@ -2586,7 +2534,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetPointerIndexedvEXT ] ---
 
 	/** Unsafe version of {@link #glGetPointerIndexedvEXT GetPointerIndexedvEXT} */
-	@JavadocExclude
 	public static void nglGetPointerIndexedvEXT(int target, int index, long params) {
 		long __functionAddress = getInstance().GetPointerIndexedvEXT;
 		if ( CHECKS )
@@ -2618,7 +2565,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetFloati_vEXT ] ---
 
 	/** Unsafe version of {@link #glGetFloati_vEXT GetFloati_vEXT} */
-	@JavadocExclude
 	public static void nglGetFloati_vEXT(int pname, int index, long params) {
 		long __functionAddress = getInstance().GetFloati_vEXT;
 		if ( CHECKS )
@@ -2650,7 +2596,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetDoublei_vEXT ] ---
 
 	/** Unsafe version of {@link #glGetDoublei_vEXT GetDoublei_vEXT} */
-	@JavadocExclude
 	public static void nglGetDoublei_vEXT(int pname, int index, long params) {
 		long __functionAddress = getInstance().GetDoublei_vEXT;
 		if ( CHECKS )
@@ -2682,7 +2627,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetPointeri_vEXT ] ---
 
 	/** Unsafe version of {@link #glGetPointeri_vEXT GetPointeri_vEXT} */
-	@JavadocExclude
 	public static void nglGetPointeri_vEXT(int pname, int index, long params) {
 		long __functionAddress = getInstance().GetPointeri_vEXT;
 		if ( CHECKS )
@@ -2741,7 +2685,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
 	/** Unsafe version of {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
-	@JavadocExclude
 	public static void nglGetIntegerIndexedvEXT(int target, int index, long params) {
 		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
 		if ( CHECKS )
@@ -2773,7 +2716,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
 	/** Unsafe version of {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
-	@JavadocExclude
 	public static void nglGetBooleanIndexedvEXT(int target, int index, long params) {
 		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
 		if ( CHECKS )
@@ -2798,7 +2740,6 @@ public class EXTDirectStateAccess {
 	// --- [ glNamedProgramStringEXT ] ---
 
 	/** Unsafe version of {@link #glNamedProgramStringEXT NamedProgramStringEXT} */
-	@JavadocExclude
 	public static void nglNamedProgramStringEXT(int program, int target, int format, int len, long string) {
 		long __functionAddress = getInstance().NamedProgramStringEXT;
 		if ( CHECKS )
@@ -2829,7 +2770,6 @@ public class EXTDirectStateAccess {
 	// --- [ glNamedProgramLocalParameter4dvEXT ] ---
 
 	/** Unsafe version of {@link #glNamedProgramLocalParameter4dvEXT NamedProgramLocalParameter4dvEXT} */
-	@JavadocExclude
 	public static void nglNamedProgramLocalParameter4dvEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParameter4dvEXT;
 		if ( CHECKS )
@@ -2862,7 +2802,6 @@ public class EXTDirectStateAccess {
 	// --- [ glNamedProgramLocalParameter4fvEXT ] ---
 
 	/** Unsafe version of {@link #glNamedProgramLocalParameter4fvEXT NamedProgramLocalParameter4fvEXT} */
-	@JavadocExclude
 	public static void nglNamedProgramLocalParameter4fvEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParameter4fvEXT;
 		if ( CHECKS )
@@ -2886,7 +2825,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetNamedProgramLocalParameterdvEXT ] ---
 
 	/** Unsafe version of {@link #glGetNamedProgramLocalParameterdvEXT GetNamedProgramLocalParameterdvEXT} */
-	@JavadocExclude
 	public static void nglGetNamedProgramLocalParameterdvEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterdvEXT;
 		if ( CHECKS )
@@ -2910,7 +2848,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetNamedProgramLocalParameterfvEXT ] ---
 
 	/** Unsafe version of {@link #glGetNamedProgramLocalParameterfvEXT GetNamedProgramLocalParameterfvEXT} */
-	@JavadocExclude
 	public static void nglGetNamedProgramLocalParameterfvEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterfvEXT;
 		if ( CHECKS )
@@ -2934,7 +2871,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetNamedProgramivEXT ] ---
 
 	/** Unsafe version of {@link #glGetNamedProgramivEXT GetNamedProgramivEXT} */
-	@JavadocExclude
 	public static void nglGetNamedProgramivEXT(int program, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedProgramivEXT;
 		if ( CHECKS )
@@ -2966,7 +2902,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetNamedProgramStringEXT ] ---
 
 	/** Unsafe version of {@link #glGetNamedProgramStringEXT GetNamedProgramStringEXT} */
-	@JavadocExclude
 	public static void nglGetNamedProgramStringEXT(int program, int target, int pname, long string) {
 		long __functionAddress = getInstance().GetNamedProgramStringEXT;
 		if ( CHECKS )
@@ -2984,7 +2919,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedTextureImage3DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureImage3DEXT CompressedTextureImage3DEXT} */
-	@JavadocExclude
 	public static void nglCompressedTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureImage3DEXT;
 		if ( CHECKS )
@@ -3017,7 +2951,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedTextureImage2DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureImage2DEXT CompressedTextureImage2DEXT} */
-	@JavadocExclude
 	public static void nglCompressedTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureImage2DEXT;
 		if ( CHECKS )
@@ -3050,7 +2983,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedTextureImage1DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureImage1DEXT CompressedTextureImage1DEXT} */
-	@JavadocExclude
 	public static void nglCompressedTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureImage1DEXT;
 		if ( CHECKS )
@@ -3083,7 +3015,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedTextureSubImage3DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage3DEXT CompressedTextureSubImage3DEXT} */
-	@JavadocExclude
 	public static void nglCompressedTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage3DEXT;
 		if ( CHECKS )
@@ -3116,7 +3047,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedTextureSubImage2DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage2DEXT CompressedTextureSubImage2DEXT} */
-	@JavadocExclude
 	public static void nglCompressedTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage2DEXT;
 		if ( CHECKS )
@@ -3149,7 +3079,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedTextureSubImage1DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage1DEXT CompressedTextureSubImage1DEXT} */
-	@JavadocExclude
 	public static void nglCompressedTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage1DEXT;
 		if ( CHECKS )
@@ -3182,7 +3111,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetCompressedTextureImageEXT ] ---
 
 	/** Unsafe version of {@link #glGetCompressedTextureImageEXT GetCompressedTextureImageEXT} */
-	@JavadocExclude
 	public static void nglGetCompressedTextureImageEXT(int texture, int target, int level, long img) {
 		long __functionAddress = getInstance().GetCompressedTextureImageEXT;
 		if ( CHECKS )
@@ -3209,7 +3137,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedMultiTexImage3DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedMultiTexImage3DEXT CompressedMultiTexImage3DEXT} */
-	@JavadocExclude
 	public static void nglCompressedMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedMultiTexImage3DEXT;
 		if ( CHECKS )
@@ -3242,7 +3169,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedMultiTexImage2DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedMultiTexImage2DEXT CompressedMultiTexImage2DEXT} */
-	@JavadocExclude
 	public static void nglCompressedMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedMultiTexImage2DEXT;
 		if ( CHECKS )
@@ -3275,7 +3201,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedMultiTexImage1DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedMultiTexImage1DEXT CompressedMultiTexImage1DEXT} */
-	@JavadocExclude
 	public static void nglCompressedMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedMultiTexImage1DEXT;
 		if ( CHECKS )
@@ -3308,7 +3233,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedMultiTexSubImage3DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedMultiTexSubImage3DEXT CompressedMultiTexSubImage3DEXT} */
-	@JavadocExclude
 	public static void nglCompressedMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedMultiTexSubImage3DEXT;
 		if ( CHECKS )
@@ -3341,7 +3265,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedMultiTexSubImage2DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedMultiTexSubImage2DEXT CompressedMultiTexSubImage2DEXT} */
-	@JavadocExclude
 	public static void nglCompressedMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedMultiTexSubImage2DEXT;
 		if ( CHECKS )
@@ -3374,7 +3297,6 @@ public class EXTDirectStateAccess {
 	// --- [ glCompressedMultiTexSubImage1DEXT ] ---
 
 	/** Unsafe version of {@link #glCompressedMultiTexSubImage1DEXT CompressedMultiTexSubImage1DEXT} */
-	@JavadocExclude
 	public static void nglCompressedMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedMultiTexSubImage1DEXT;
 		if ( CHECKS )
@@ -3407,7 +3329,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetCompressedMultiTexImageEXT ] ---
 
 	/** Unsafe version of {@link #glGetCompressedMultiTexImageEXT GetCompressedMultiTexImageEXT} */
-	@JavadocExclude
 	public static void nglGetCompressedMultiTexImageEXT(int texunit, int target, int level, long img) {
 		long __functionAddress = getInstance().GetCompressedMultiTexImageEXT;
 		if ( CHECKS )
@@ -3434,7 +3355,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMatrixLoadTransposefEXT ] ---
 
 	/** Unsafe version of {@link #glMatrixLoadTransposefEXT MatrixLoadTransposefEXT} */
-	@JavadocExclude
 	public static void nglMatrixLoadTransposefEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixLoadTransposefEXT;
 		if ( CHECKS )
@@ -3458,7 +3378,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMatrixLoadTransposedEXT ] ---
 
 	/** Unsafe version of {@link #glMatrixLoadTransposedEXT MatrixLoadTransposedEXT} */
-	@JavadocExclude
 	public static void nglMatrixLoadTransposedEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixLoadTransposedEXT;
 		if ( CHECKS )
@@ -3482,7 +3401,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMatrixMultTransposefEXT ] ---
 
 	/** Unsafe version of {@link #glMatrixMultTransposefEXT MatrixMultTransposefEXT} */
-	@JavadocExclude
 	public static void nglMatrixMultTransposefEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixMultTransposefEXT;
 		if ( CHECKS )
@@ -3506,7 +3424,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMatrixMultTransposedEXT ] ---
 
 	/** Unsafe version of {@link #glMatrixMultTransposedEXT MatrixMultTransposedEXT} */
-	@JavadocExclude
 	public static void nglMatrixMultTransposedEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixMultTransposedEXT;
 		if ( CHECKS )
@@ -3530,7 +3447,6 @@ public class EXTDirectStateAccess {
 	// --- [ glNamedBufferDataEXT ] ---
 
 	/** Unsafe version of {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
-	@JavadocExclude
 	public static void nglNamedBufferDataEXT(int buffer, long size, long data, int usage) {
 		long __functionAddress = getInstance().NamedBufferDataEXT;
 		if ( CHECKS )
@@ -3577,7 +3493,6 @@ public class EXTDirectStateAccess {
 	// --- [ glNamedBufferSubDataEXT ] ---
 
 	/** Unsafe version of {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
-	@JavadocExclude
 	public static void nglNamedBufferSubDataEXT(int buffer, long offset, long size, long data) {
 		long __functionAddress = getInstance().NamedBufferSubDataEXT;
 		if ( CHECKS )
@@ -3619,7 +3534,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMapNamedBufferEXT ] ---
 
 	/** Unsafe version of {@link #glMapNamedBufferEXT MapNamedBufferEXT} */
-	@JavadocExclude
 	public static long nglMapNamedBufferEXT(int buffer, int access) {
 		long __functionAddress = getInstance().MapNamedBufferEXT;
 		if ( CHECKS )
@@ -3657,7 +3571,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetNamedBufferParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferParameterivEXT GetNamedBufferParameterivEXT} */
-	@JavadocExclude
 	public static void nglGetNamedBufferParameterivEXT(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameterivEXT;
 		if ( CHECKS )
@@ -3689,7 +3602,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetNamedBufferSubDataEXT ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
-	@JavadocExclude
 	public static void nglGetNamedBufferSubDataEXT(int buffer, long offset, long size, long data) {
 		long __functionAddress = getInstance().GetNamedBufferSubDataEXT;
 		if ( CHECKS )
@@ -3803,7 +3715,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform1fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1fvEXT ProgramUniform1fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform1fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1fvEXT;
 		if ( CHECKS )
@@ -3825,7 +3736,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform2fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2fvEXT ProgramUniform2fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform2fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2fvEXT;
 		if ( CHECKS )
@@ -3847,7 +3757,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform3fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3fvEXT ProgramUniform3fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform3fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3fvEXT;
 		if ( CHECKS )
@@ -3869,7 +3778,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform4fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4fvEXT ProgramUniform4fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform4fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4fvEXT;
 		if ( CHECKS )
@@ -3891,7 +3799,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform1ivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1ivEXT ProgramUniform1ivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform1ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1ivEXT;
 		if ( CHECKS )
@@ -3913,7 +3820,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform2ivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2ivEXT ProgramUniform2ivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform2ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2ivEXT;
 		if ( CHECKS )
@@ -3935,7 +3841,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform3ivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3ivEXT ProgramUniform3ivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform3ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3ivEXT;
 		if ( CHECKS )
@@ -3957,7 +3862,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform4ivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4ivEXT ProgramUniform4ivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform4ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4ivEXT;
 		if ( CHECKS )
@@ -3979,7 +3883,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniformMatrix2fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2fvEXT ProgramUniformMatrix2fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2fvEXT;
 		if ( CHECKS )
@@ -4001,7 +3904,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniformMatrix3fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3fvEXT ProgramUniformMatrix3fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3fvEXT;
 		if ( CHECKS )
@@ -4023,7 +3925,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniformMatrix4fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4fvEXT ProgramUniformMatrix4fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4fvEXT;
 		if ( CHECKS )
@@ -4045,7 +3946,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniformMatrix2x3fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x3fvEXT ProgramUniformMatrix2x3fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3fvEXT;
 		if ( CHECKS )
@@ -4067,7 +3967,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniformMatrix3x2fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x2fvEXT ProgramUniformMatrix3x2fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2fvEXT;
 		if ( CHECKS )
@@ -4089,7 +3988,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniformMatrix2x4fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x4fvEXT ProgramUniformMatrix2x4fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4fvEXT;
 		if ( CHECKS )
@@ -4111,7 +4009,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniformMatrix4x2fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x2fvEXT ProgramUniformMatrix4x2fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2fvEXT;
 		if ( CHECKS )
@@ -4133,7 +4030,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniformMatrix3x4fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x4fvEXT ProgramUniformMatrix3x4fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4fvEXT;
 		if ( CHECKS )
@@ -4155,7 +4051,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniformMatrix4x3fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x3fvEXT ProgramUniformMatrix4x3fvEXT} */
-	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3fvEXT;
 		if ( CHECKS )
@@ -4195,7 +4090,6 @@ public class EXTDirectStateAccess {
 	// --- [ glTextureParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glTextureParameterIivEXT TextureParameterIivEXT} */
-	@JavadocExclude
 	public static void nglTextureParameterIivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIivEXT;
 		if ( CHECKS )
@@ -4219,7 +4113,6 @@ public class EXTDirectStateAccess {
 	// --- [ glTextureParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glTextureParameterIuivEXT TextureParameterIuivEXT} */
-	@JavadocExclude
 	public static void nglTextureParameterIuivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIuivEXT;
 		if ( CHECKS )
@@ -4243,7 +4136,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetTextureParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterIivEXT GetTextureParameterIivEXT} */
-	@JavadocExclude
 	public static void nglGetTextureParameterIivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIivEXT;
 		if ( CHECKS )
@@ -4275,7 +4167,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetTextureParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterIuivEXT GetTextureParameterIuivEXT} */
-	@JavadocExclude
 	public static void nglGetTextureParameterIuivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIuivEXT;
 		if ( CHECKS )
@@ -4307,7 +4198,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexParameterIivEXT MultiTexParameterIivEXT} */
-	@JavadocExclude
 	public static void nglMultiTexParameterIivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexParameterIivEXT;
 		if ( CHECKS )
@@ -4331,7 +4221,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMultiTexParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glMultiTexParameterIuivEXT MultiTexParameterIuivEXT} */
-	@JavadocExclude
 	public static void nglMultiTexParameterIuivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexParameterIuivEXT;
 		if ( CHECKS )
@@ -4355,7 +4244,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexParameterIivEXT GetMultiTexParameterIivEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexParameterIivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexParameterIivEXT;
 		if ( CHECKS )
@@ -4387,7 +4275,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetMultiTexParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetMultiTexParameterIuivEXT GetMultiTexParameterIuivEXT} */
-	@JavadocExclude
 	public static void nglGetMultiTexParameterIuivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexParameterIuivEXT;
 		if ( CHECKS )
@@ -4455,7 +4342,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform1uivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform1uivEXT ProgramUniform1uivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform1uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1uivEXT;
 		if ( CHECKS )
@@ -4477,7 +4363,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform2uivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform2uivEXT ProgramUniform2uivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform2uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2uivEXT;
 		if ( CHECKS )
@@ -4499,7 +4384,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform3uivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform3uivEXT ProgramUniform3uivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform3uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3uivEXT;
 		if ( CHECKS )
@@ -4521,7 +4405,6 @@ public class EXTDirectStateAccess {
 	// --- [ glProgramUniform4uivEXT ] ---
 
 	/** Unsafe version of {@link #glProgramUniform4uivEXT ProgramUniform4uivEXT} */
-	@JavadocExclude
 	public static void nglProgramUniform4uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4uivEXT;
 		if ( CHECKS )
@@ -4543,7 +4426,6 @@ public class EXTDirectStateAccess {
 	// --- [ glNamedProgramLocalParameters4fvEXT ] ---
 
 	/** Unsafe version of {@link #glNamedProgramLocalParameters4fvEXT NamedProgramLocalParameters4fvEXT} */
-	@JavadocExclude
 	public static void nglNamedProgramLocalParameters4fvEXT(int program, int target, int index, int count, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParameters4fvEXT;
 		if ( CHECKS )
@@ -4574,7 +4456,6 @@ public class EXTDirectStateAccess {
 	// --- [ glNamedProgramLocalParameterI4ivEXT ] ---
 
 	/** Unsafe version of {@link #glNamedProgramLocalParameterI4ivEXT NamedProgramLocalParameterI4ivEXT} */
-	@JavadocExclude
 	public static void nglNamedProgramLocalParameterI4ivEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParameterI4ivEXT;
 		if ( CHECKS )
@@ -4598,7 +4479,6 @@ public class EXTDirectStateAccess {
 	// --- [ glNamedProgramLocalParametersI4ivEXT ] ---
 
 	/** Unsafe version of {@link #glNamedProgramLocalParametersI4ivEXT NamedProgramLocalParametersI4ivEXT} */
-	@JavadocExclude
 	public static void nglNamedProgramLocalParametersI4ivEXT(int program, int target, int index, int count, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParametersI4ivEXT;
 		if ( CHECKS )
@@ -4629,7 +4509,6 @@ public class EXTDirectStateAccess {
 	// --- [ glNamedProgramLocalParameterI4uivEXT ] ---
 
 	/** Unsafe version of {@link #glNamedProgramLocalParameterI4uivEXT NamedProgramLocalParameterI4uivEXT} */
-	@JavadocExclude
 	public static void nglNamedProgramLocalParameterI4uivEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParameterI4uivEXT;
 		if ( CHECKS )
@@ -4653,7 +4532,6 @@ public class EXTDirectStateAccess {
 	// --- [ glNamedProgramLocalParametersI4uivEXT ] ---
 
 	/** Unsafe version of {@link #glNamedProgramLocalParametersI4uivEXT NamedProgramLocalParametersI4uivEXT} */
-	@JavadocExclude
 	public static void nglNamedProgramLocalParametersI4uivEXT(int program, int target, int index, int count, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParametersI4uivEXT;
 		if ( CHECKS )
@@ -4675,7 +4553,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetNamedProgramLocalParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glGetNamedProgramLocalParameterIivEXT GetNamedProgramLocalParameterIivEXT} */
-	@JavadocExclude
 	public static void nglGetNamedProgramLocalParameterIivEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterIivEXT;
 		if ( CHECKS )
@@ -4699,7 +4576,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetNamedProgramLocalParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetNamedProgramLocalParameterIuivEXT GetNamedProgramLocalParameterIuivEXT} */
-	@JavadocExclude
 	public static void nglGetNamedProgramLocalParameterIuivEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterIuivEXT;
 		if ( CHECKS )
@@ -4732,7 +4608,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetNamedRenderbufferParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glGetNamedRenderbufferParameterivEXT GetNamedRenderbufferParameterivEXT} */
-	@JavadocExclude
 	public static void nglGetNamedRenderbufferParameterivEXT(int renderbuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedRenderbufferParameterivEXT;
 		if ( CHECKS )
@@ -4827,7 +4702,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetNamedFramebufferAttachmentParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glGetNamedFramebufferAttachmentParameterivEXT GetNamedFramebufferAttachmentParameterivEXT} */
-	@JavadocExclude
 	public static void nglGetNamedFramebufferAttachmentParameterivEXT(int framebuffer, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferAttachmentParameterivEXT;
 		if ( CHECKS )
@@ -4886,7 +4760,6 @@ public class EXTDirectStateAccess {
 	// --- [ glFramebufferDrawBuffersEXT ] ---
 
 	/** Unsafe version of {@link #glFramebufferDrawBuffersEXT FramebufferDrawBuffersEXT} */
-	@JavadocExclude
 	public static void nglFramebufferDrawBuffersEXT(int framebuffer, int n, long bufs) {
 		long __functionAddress = getInstance().FramebufferDrawBuffersEXT;
 		if ( CHECKS )
@@ -4917,7 +4790,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetFramebufferParameterivEXT ] ---
 
 	/** Unsafe version of {@link #glGetFramebufferParameterivEXT GetFramebufferParameterivEXT} */
-	@JavadocExclude
 	public static void nglGetFramebufferParameterivEXT(int framebuffer, int pname, long param) {
 		long __functionAddress = getInstance().GetFramebufferParameterivEXT;
 		if ( CHECKS )
@@ -5138,7 +5010,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetVertexArrayIntegervEXT ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayIntegervEXT GetVertexArrayIntegervEXT} */
-	@JavadocExclude
 	public static void nglGetVertexArrayIntegervEXT(int vaobj, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIntegervEXT;
 		if ( CHECKS )
@@ -5170,7 +5041,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetVertexArrayPointervEXT ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayPointervEXT GetVertexArrayPointervEXT} */
-	@JavadocExclude
 	public static void nglGetVertexArrayPointervEXT(int vaobj, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayPointervEXT;
 		if ( CHECKS )
@@ -5202,7 +5072,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetVertexArrayIntegeri_vEXT ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayIntegeri_vEXT GetVertexArrayIntegeri_vEXT} */
-	@JavadocExclude
 	public static void nglGetVertexArrayIntegeri_vEXT(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIntegeri_vEXT;
 		if ( CHECKS )
@@ -5234,7 +5103,6 @@ public class EXTDirectStateAccess {
 	// --- [ glGetVertexArrayPointeri_vEXT ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayPointeri_vEXT GetVertexArrayPointeri_vEXT} */
-	@JavadocExclude
 	public static void nglGetVertexArrayPointeri_vEXT(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayPointeri_vEXT;
 		if ( CHECKS )
@@ -5266,7 +5134,6 @@ public class EXTDirectStateAccess {
 	// --- [ glMapNamedBufferRangeEXT ] ---
 
 	/** Unsafe version of {@link #glMapNamedBufferRangeEXT MapNamedBufferRangeEXT} */
-	@JavadocExclude
 	public static long nglMapNamedBufferRangeEXT(int buffer, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapNamedBufferRangeEXT;
 		if ( CHECKS )

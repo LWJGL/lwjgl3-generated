@@ -24,17 +24,14 @@ import static org.lwjgl.system.Pointer.*;
 public class EXTMultiDrawArrays {
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		MultiDrawArraysEXT,
 		MultiDrawElementsEXT;
 
-	@JavadocExclude
 	protected EXTMultiDrawArrays() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public EXTMultiDrawArrays(FunctionProvider provider) {
 		MultiDrawArraysEXT = provider.getFunctionAddress("glMultiDrawArraysEXT");
 		MultiDrawElementsEXT = provider.getFunctionAddress("glMultiDrawElementsEXT");
@@ -66,7 +63,6 @@ public class EXTMultiDrawArrays {
 	// --- [ glMultiDrawArraysEXT ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
-	@JavadocExclude
 	public static void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount) {
 		long __functionAddress = getInstance().MultiDrawArraysEXT;
 		callIPPIV(__functionAddress, mode, first, count, primcount);
@@ -90,7 +86,6 @@ public class EXTMultiDrawArrays {
 	// --- [ glMultiDrawElementsEXT ] ---
 
 	/** Unsafe version of {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
-	@JavadocExclude
 	public static void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().MultiDrawElementsEXT;
 		callIPIPIV(__functionAddress, mode, count, type, indices, primcount);

@@ -49,7 +49,6 @@ public class ARBBindlessTexture {
 	public static final int GL_UNSIGNED_INT64_ARB = 0x140F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		GetTextureHandleARB,
 		GetTextureSamplerHandleARB,
@@ -68,12 +67,10 @@ public class ARBBindlessTexture {
 		VertexAttribL1ui64vARB,
 		GetVertexAttribLui64vARB;
 
-	@JavadocExclude
 	protected ARBBindlessTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBBindlessTexture(FunctionProvider provider) {
 		GetTextureHandleARB = provider.getFunctionAddress("glGetTextureHandleARB");
 		GetTextureSamplerHandleARB = provider.getFunctionAddress("glGetTextureSamplerHandleARB");
@@ -302,7 +299,6 @@ public class ARBBindlessTexture {
 	// --- [ glUniformHandleui64vARB ] ---
 
 	/** Unsafe version of {@link #glUniformHandleui64vARB UniformHandleui64vARB} */
-	@JavadocExclude
 	public static void nglUniformHandleui64vARB(int location, int count, long values) {
 		long __functionAddress = getInstance().UniformHandleui64vARB;
 		callIIPV(__functionAddress, location, count, values);
@@ -343,7 +339,6 @@ public class ARBBindlessTexture {
 	// --- [ glProgramUniformHandleui64vARB ] ---
 
 	/** Unsafe version of {@link #glProgramUniformHandleui64vARB ProgramUniformHandleui64vARB} */
-	@JavadocExclude
 	public static void nglProgramUniformHandleui64vARB(int program, int location, int count, long values) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64vARB;
 		callIIIPV(__functionAddress, program, location, count, values);
@@ -408,7 +403,6 @@ public class ARBBindlessTexture {
 	// --- [ glVertexAttribL1ui64vARB ] ---
 
 	/** Unsafe version of {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
-	@JavadocExclude
 	public static void nglVertexAttribL1ui64vARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1ui64vARB;
 		callIPV(__functionAddress, index, v);
@@ -432,7 +426,6 @@ public class ARBBindlessTexture {
 	// --- [ glGetVertexAttribLui64vARB ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
-	@JavadocExclude
 	public static void nglGetVertexAttribLui64vARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLui64vARB;
 		callIIPV(__functionAddress, index, pname, params);

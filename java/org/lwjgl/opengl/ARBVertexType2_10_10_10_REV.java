@@ -31,7 +31,6 @@ public class ARBVertexType2_10_10_10_REV {
 	public static final int GL_INT_2_10_10_10_REV = 0x8D9F;
 
 	/** Function address. */
-	@JavadocExclude
 	public final long
 		VertexP2ui,
 		VertexP3ui,
@@ -72,12 +71,10 @@ public class ARBVertexType2_10_10_10_REV {
 		VertexAttribP3uiv,
 		VertexAttribP4uiv;
 
-	@JavadocExclude
 	protected ARBVertexType2_10_10_10_REV() {
 		throw new UnsupportedOperationException();
 	}
 
-	@JavadocExclude
 	public ARBVertexType2_10_10_10_REV(FunctionProvider provider, boolean fc) {
 		VertexP2ui = GL.getFunctionAddress(provider, "glVertexP2ui", fc);
 		VertexP3ui = GL.getFunctionAddress(provider, "glVertexP3ui", fc);
@@ -198,7 +195,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glVertexP2uiv ] ---
 
 	/** Unsafe version of {@link #glVertexP2uiv VertexP2uiv} */
-	@JavadocExclude
 	public static void nglVertexP2uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP2uiv;
 		if ( CHECKS )
@@ -228,7 +224,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glVertexP3uiv ] ---
 
 	/** Unsafe version of {@link #glVertexP3uiv VertexP3uiv} */
-	@JavadocExclude
 	public static void nglVertexP3uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP3uiv;
 		if ( CHECKS )
@@ -258,7 +253,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glVertexP4uiv ] ---
 
 	/** Unsafe version of {@link #glVertexP4uiv VertexP4uiv} */
-	@JavadocExclude
 	public static void nglVertexP4uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP4uiv;
 		if ( CHECKS )
@@ -348,7 +342,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glTexCoordP1uiv ] ---
 
 	/** Unsafe version of {@link #glTexCoordP1uiv TexCoordP1uiv} */
-	@JavadocExclude
 	public static void nglTexCoordP1uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP1uiv;
 		if ( CHECKS )
@@ -378,7 +371,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glTexCoordP2uiv ] ---
 
 	/** Unsafe version of {@link #glTexCoordP2uiv TexCoordP2uiv} */
-	@JavadocExclude
 	public static void nglTexCoordP2uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP2uiv;
 		if ( CHECKS )
@@ -408,7 +400,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glTexCoordP3uiv ] ---
 
 	/** Unsafe version of {@link #glTexCoordP3uiv TexCoordP3uiv} */
-	@JavadocExclude
 	public static void nglTexCoordP3uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP3uiv;
 		if ( CHECKS )
@@ -438,7 +429,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glTexCoordP4uiv ] ---
 
 	/** Unsafe version of {@link #glTexCoordP4uiv TexCoordP4uiv} */
-	@JavadocExclude
 	public static void nglTexCoordP4uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP4uiv;
 		if ( CHECKS )
@@ -532,7 +522,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glMultiTexCoordP1uiv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv} */
-	@JavadocExclude
 	public static void nglMultiTexCoordP1uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP1uiv;
 		if ( CHECKS )
@@ -563,7 +552,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glMultiTexCoordP2uiv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv} */
-	@JavadocExclude
 	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP2uiv;
 		if ( CHECKS )
@@ -594,7 +582,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glMultiTexCoordP3uiv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv} */
-	@JavadocExclude
 	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP3uiv;
 		if ( CHECKS )
@@ -625,7 +612,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glMultiTexCoordP4uiv ] ---
 
 	/** Unsafe version of {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv} */
-	@JavadocExclude
 	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP4uiv;
 		if ( CHECKS )
@@ -671,7 +657,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glNormalP3uiv ] ---
 
 	/** Unsafe version of {@link #glNormalP3uiv NormalP3uiv} */
-	@JavadocExclude
 	public static void nglNormalP3uiv(int type, long coords) {
 		long __functionAddress = getInstance().NormalP3uiv;
 		if ( CHECKS )
@@ -731,7 +716,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glColorP3uiv ] ---
 
 	/** Unsafe version of {@link #glColorP3uiv ColorP3uiv} */
-	@JavadocExclude
 	public static void nglColorP3uiv(int type, long color) {
 		long __functionAddress = getInstance().ColorP3uiv;
 		if ( CHECKS )
@@ -761,7 +745,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glColorP4uiv ] ---
 
 	/** Unsafe version of {@link #glColorP4uiv ColorP4uiv} */
-	@JavadocExclude
 	public static void nglColorP4uiv(int type, long color) {
 		long __functionAddress = getInstance().ColorP4uiv;
 		if ( CHECKS )
@@ -806,7 +789,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glSecondaryColorP3uiv ] ---
 
 	/** Unsafe version of {@link #glSecondaryColorP3uiv SecondaryColorP3uiv} */
-	@JavadocExclude
 	public static void nglSecondaryColorP3uiv(int type, long color) {
 		long __functionAddress = getInstance().SecondaryColorP3uiv;
 		if ( CHECKS )
@@ -896,7 +878,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glVertexAttribP1uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribP1uiv VertexAttribP1uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP1uiv;
 		callIIZPV(__functionAddress, index, type, normalized, value);
@@ -926,7 +907,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glVertexAttribP2uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribP2uiv VertexAttribP2uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP2uiv;
 		callIIZPV(__functionAddress, index, type, normalized, value);
@@ -956,7 +936,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glVertexAttribP3uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribP3uiv VertexAttribP3uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP3uiv;
 		callIIZPV(__functionAddress, index, type, normalized, value);
@@ -986,7 +965,6 @@ public class ARBVertexType2_10_10_10_REV {
 	// --- [ glVertexAttribP4uiv ] ---
 
 	/** Unsafe version of {@link #glVertexAttribP4uiv VertexAttribP4uiv} */
-	@JavadocExclude
 	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP4uiv;
 		callIIZPV(__functionAddress, index, type, normalized, value);
