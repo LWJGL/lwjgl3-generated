@@ -100,12 +100,12 @@ glVertexPointer(3, GL_FLOAT, 12, pointer);</code></pre>
  * 
  * <pre><code>void setModelviewMatrix(const GLfloat matrix[16])
 {
-	GLenum savedMatrixMode;
+    GLenum savedMatrixMode;
 
-	glGetIntegerv(GL_MATRIX_MODE, &savedMatrixMode);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadMatrixf(matrix);
-	glMatrixMode(savedMatrixMode);
+    glGetIntegerv(GL_MATRIX_MODE, &savedMatrixMode);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadMatrixf(matrix);
+    glMatrixMode(savedMatrixMode);
 }</code></pre>
  * 
  * <p>Notice that four OpenGL commands are required to update the current modelview matrix without disturbing the matrix mode selector.</p>
@@ -125,15 +125,15 @@ glVertexPointer(3, GL_FLOAT, 12, pointer);</code></pre>
  * 
  * <pre><code>void setModelviewMatrix(const GLfloat matrix[16])
 {
-	glMatrixLoadfEXT(GL_MODELVIEW, matrix);
+    glMatrixLoadfEXT(GL_MODELVIEW, matrix);
 }</code></pre>
  * 
  * <p>Consider a layered library seeking to load a texture:</p>
  * 
  * <pre><code>void loadTexture(GLint texobj, GLint width, GLint height, void *data)
 {
-	glBindTexture(GL_TEXTURE_2D, texobj);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
+    glBindTexture(GL_TEXTURE_2D, texobj);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
 }</code></pre>
  * 
  * <p>The library expects the data to be packed into the buffer pointed to by data. But what if the current pixel unpack buffer binding is not zero so the
@@ -148,9 +148,9 @@ glVertexPointer(3, GL_FLOAT, 12, pointer);</code></pre>
  * 
  * <pre><code>void loadTexture(GLint texobj, GLint width, GLint height, void *data)
 {
-	glPushClientAttribDefaultEXT(GL_CLIENT_PIXEL_STORE_BIT);
-	glTextureImage2D(texobj, GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
-	glPopClientAttrib();
+    glPushClientAttribDefaultEXT(GL_CLIENT_PIXEL_STORE_BIT);
+    glTextureImage2D(texobj, GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
+    glPopClientAttrib();
 }</code></pre>
  * 
  * <p>Now loadTexture does not have to worry about inappropriately configured pixel store state or a non-zero pixel unpack buffer binding. And loadTexture has

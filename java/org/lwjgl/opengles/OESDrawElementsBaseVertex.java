@@ -41,7 +41,7 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <p>which is normally rendered with the call</p>
  * 
- * <pre><code>		DrawElements(TRIANGLES, 6, UNSIGNED_BYTE, &indices).</code></pre>
+ * <pre><code>        DrawElements(TRIANGLES, 6, UNSIGNED_BYTE, &indices).</code></pre>
  * 
  * <p>Now consider the case where the vertices you want to draw are not at the start of a vertex array but are instead located at offset 100 into a larger
  * array:</p>
@@ -61,7 +61,7 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <p>With the new drawing commands introduced by this extension you can instead draw using vertices2 and the new draw call:</p>
  * 
- * <pre><code>		DrawElementsBaseVertexOES(TRIANGLES, 6, UNSIGNED_BYTE, &indices, 100)</code></pre>
+ * <pre><code>        DrawElementsBaseVertexOES(TRIANGLES, 6, UNSIGNED_BYTE, &indices, 100)</code></pre>
  * 
  * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */

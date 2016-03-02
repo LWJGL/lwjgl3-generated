@@ -135,9 +135,9 @@ public class ARBComputeShader {
 	 * <p>The parameters addressed by indirect are packed a structure, which takes the form (in C):</p>
 	 * 
 	 * <pre><code>typedef struct {
-	uint num_groups_x;
-	uint num_groups_y;
-	uint num_groups_z;
+    uint num_groups_x;
+    uint num_groups_y;
+    uint num_groups_z;
 } DispatchIndirectCommand;</code></pre>
 	 * 
 	 * <p>A call to {@code glDispatchComputeIndirect} is equivalent, assuming no errors are generated, to:</p>

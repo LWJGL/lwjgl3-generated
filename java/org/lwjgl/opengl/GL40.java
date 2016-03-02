@@ -408,10 +408,10 @@ public class GL40 {
 	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
 	 * 
 	 * <pre><code>typedef struct {
-	uint count;
-	uint primCount;
-	uint first;
-	uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
+    uint count;
+    uint primCount;
+    uint first;
+    uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
 } DrawArraysIndirectCommand;
 
 const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
@@ -463,26 +463,26 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
 	 * 
 	 * <pre><code>typedef struct {
-	uint count;
-	uint primCount;
-	uint firstIndex;
-	uint baseVertex;
-	uint baseInstance;
+    uint count;
+    uint primCount;
+    uint firstIndex;
+    uint baseVertex;
+    uint baseInstance;
 } DrawElementsIndirectCommand;</code></pre>
 	 * 
 	 * <p>{@code glDrawElementsIndirect} is equivalent to:</p>
 	 * 
 	 * <pre><code>void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
-	const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
-	glDrawElementsInstancedBaseVertexBaseInstance(
-		mode,
-		cmd->count,
-		type,
-		cmd->firstIndex + size-of-type,
-		cmd->primCount,
-		cmd->baseVertex,
-		cmd->baseInstance
-	);
+    const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
+    glDrawElementsInstancedBaseVertexBaseInstance(
+        mode,
+        cmd->count,
+        type,
+        cmd->firstIndex + size-of-type,
+        cmd->primCount,
+        cmd->baseVertex,
+        cmd->baseInstance
+    );
 }</code></pre>
 	 *
 	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}

@@ -13,8 +13,8 @@ package org.lwjgl.opengles;
  * specific format/type combination queried using the tokens IMPLEMENTATION_COLOR_READ_FORMAT_OES and IMPLEMENTATION_COLOR_READ_TYPE_OES
  * (GL_OES_read_format extension). This extension adds the following format/type combinations to those currently allowed to be returned by GetIntegerV:</p>
  * 
- * <pre><code>	format                      type
-	------                      ----
+ * <pre><code>    format                      type
+    ------                      ----
     BGRA_EXT                    UNSIGNED_BYTE
     BGRA_EXT                    UNSIGNED_SHORT_4_4_4_4_REV_EXT
     BGRA_EXT                    UNSIGNED_SHORT_1_5_5_5_REV_EXT</code></pre>

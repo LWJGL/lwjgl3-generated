@@ -822,7 +822,7 @@ fwidth(p)</code></pre>
 	 * <p>This extension allows the fragment shader to control whether values in {@code gl_SampleMaskIn[]} reflect the coverage after application of the early
 	 * depth and stencil tests. This feature can be enabled with the following layout qualifier in the fragment shader:</p>
 	 * 
-	 * <pre><code>		layout(post_depth_coverage) in;</code></pre>
+	 * <pre><code>        layout(post_depth_coverage) in;</code></pre>
 	 * 
 	 * <p>Use of this feature implicitly enables early fragment tests.</p>
 	 */
@@ -950,9 +950,9 @@ fwidth(p)</code></pre>
 	 * non-compute shader invocations and execute them in a SIMD fashion. When executing code like</p>
 	 * 
 	 * <pre><code>if (condition) {
-	result = do_fast_path();
+    result = do_fast_path();
 } else {
-	result = do_general_path();
+    result = do_general_path();
 }</code></pre>
 	 * 
 	 * <p>where {@code condition} diverges between invocations, a SIMD implementation might first call do_fast_path() for the invocations where {@code condition}
@@ -963,9 +963,9 @@ fwidth(p)</code></pre>
 	 * <p>This extension provides the ability to avoid divergent execution by evaluting a condition across an entire SIMD invocation group using code like:</p>
 	 * 
 	 * <pre><code>if (allInvocationsARB(condition)) {
-	result = do_fast_path();
+    result = do_fast_path();
 } else {
-	result = do_general_path();
+    result = do_general_path();
 }</code></pre>
 	 * 
 	 * <p>The built-in function allInvocationsARB() will return the same value for all invocations in the group, so the group will either execute do_fast_path()
@@ -1054,62 +1054,62 @@ shadow2DLod,    shadow2DProjLod</code></pre>
 	 * <p>New anisotropic texture functions, providing explicit derivatives:</p>
 	 * 
 	 * <pre><code>texture1DGradARB(
-	sampler1D sampler,
-	float P, float dPdx, float dPdy);
+    sampler1D sampler,
+    float P, float dPdx, float dPdy);
 texture1DProjGradARB(
-	sampler1D sampler,
-	vec2 P, float dPdx, float dPdy);
+    sampler1D sampler,
+    vec2 P, float dPdx, float dPdy);
 texture1DProjGradARB(
-	sampler1D sampler,
-	vec4 P, float dPdx, float dPdy);
+    sampler1D sampler,
+    vec4 P, float dPdx, float dPdy);
 texture2DGradARB(
-	sampler2D sampler,
-	vec2 P, vec2 dPdx, vec2 dPdy);
+    sampler2D sampler,
+    vec2 P, vec2 dPdx, vec2 dPdy);
 texture2DProjGradARB(
-	sampler2D sampler,
-	vec3 P, vec2 dPdx, vec2 dPdy);
+    sampler2D sampler,
+    vec3 P, vec2 dPdx, vec2 dPdy);
 texture2DProjGradARB(
-	sampler2D sampler,
-	vec4 P, vec2 dPdx, vec2 dPdy);
+    sampler2D sampler,
+    vec4 P, vec2 dPdx, vec2 dPdy);
 texture3DGradARB(
-	sampler3D sampler,
-	vec3 P, vec3 dPdx, vec3 dPdy);
+    sampler3D sampler,
+    vec3 P, vec3 dPdx, vec3 dPdy);
 texture3DProjGradARB(
-	sampler3D sampler,
-	vec4 P, vec3 dPdx, vec3 dPdy);
+    sampler3D sampler,
+    vec4 P, vec3 dPdx, vec3 dPdy);
 textureCubeGradARB(
-	samplerCube sampler,
-	vec3 P, vec3 dPdx, vec3 dPdy);
+    samplerCube sampler,
+    vec3 P, vec3 dPdx, vec3 dPdy);
 
 shadow1DGradARB(
-	sampler1DShadow sampler,
-	vec3 P, float dPdx, float dPdy);
+    sampler1DShadow sampler,
+    vec3 P, float dPdx, float dPdy);
 shadow1DProjGradARB(
-	sampler1DShadow sampler,
-	vec4 P, float dPdx, float dPdy);
+    sampler1DShadow sampler,
+    vec4 P, float dPdx, float dPdy);
 shadow2DGradARB(
-	sampler2DShadow sampler,
-	vec3 P, vec2 dPdx, vec2 dPdy);
+    sampler2DShadow sampler,
+    vec3 P, vec2 dPdx, vec2 dPdy);
 shadow2DProjGradARB(
-	sampler2DShadow sampler,
-	vec4 P, vec2 dPdx, vec2 dPdy);
+    sampler2DShadow sampler,
+    vec4 P, vec2 dPdx, vec2 dPdy);
 
 texture2DRectGradARB(
-	sampler2DRect sampler,
-	vec2 P, vec2 dPdx, vec2 dPdy);
+    sampler2DRect sampler,
+    vec2 P, vec2 dPdx, vec2 dPdy);
 texture2DRectProjGradARB(
-	sampler2DRect sampler,
-	vec3 P, vec2 dPdx, vec2 dPdy);
+    sampler2DRect sampler,
+    vec3 P, vec2 dPdx, vec2 dPdy);
 texture2DRectProjGradARB(
-	sampler2DRect sampler,
-	vec4 P, vec2 dPdx, vec2 dPdy);
+    sampler2DRect sampler,
+    vec4 P, vec2 dPdx, vec2 dPdy);
 
 shadow2DRectGradARB(
-	sampler2DRectShadow sampler,
-	vec3 P, vec2 dPdx, vec2 dPdy);
+    sampler2DRectShadow sampler,
+    vec3 P, vec2 dPdx, vec2 dPdy);
 shadow2DRectProjGradARB(
-	sampler2DRectShadow sampler,
-	vec4 P, vec2 dPdx, vec2 dPdy);</code></pre>
+    sampler2DRectShadow sampler,
+    vec4 P, vec2 dPdx, vec2 dPdy);</code></pre>
 	 * 
 	 * <p>are added to the built-in functions for vertex shaders and fragment shaders.</p>
 	 * 

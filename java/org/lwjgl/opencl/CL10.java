@@ -3579,12 +3579,12 @@ public class CL10 {
 	 *                  <p>For example, consider the following kernel:</p>
 	 *                  
 	 *                  <pre><code>kernel void image_filter (
-	int n, int m,
-	__constant float *filter_weights,
-	__read_only image2d_t src_image,
-	__write_only image2d_t dst_image
+    int n, int m,
+    __constant float *filter_weights,
+    __read_only image2d_t src_image,
+    __write_only image2d_t dst_image
 ) {
-	&hellip;
+    &hellip;
 }</code></pre>
 	 *                  
 	 *                  <p>Argument index values for image_filter will be 0 for {@code n}, 1 for {@code m}, 2 for {@code filter_weights}, 3 for {@code src_image} and 4 for

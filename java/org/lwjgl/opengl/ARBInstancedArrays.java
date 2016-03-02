@@ -98,7 +98,7 @@ public class ARBInstancedArrays {
 	 * 
 	 * <pre><code>GLCapabilities caps = GL.getCapabilities();
 if ( caps.GL_ARB_instanced_arrays && ARBInstancedArrays.getInstance().VertexArrayVertexAttribDivisorEXT != NULL )
-	glVertexArrayVertexAttribDivisorEXT(...); // the DSA function can now be used</code></pre>
+    glVertexArrayVertexAttribDivisorEXT(...); // the DSA function can now be used</code></pre>
 	 *
 	 * @param vaobj   the vertex array object
 	 * @param index   the attribute index

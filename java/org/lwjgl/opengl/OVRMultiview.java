@@ -96,9 +96,9 @@ public class OVRMultiview {
 	 * <p>When multi-view rendering is enabled, drawing commands have the same effect as:</p>
 	 * 
 	 * <pre><code>for( int i = 0; i < numViews; i++ ) {
-	FramebufferTextureLayer( target, attachment, texture, level, baseViewIndex + i );
-	View( i );
-	&lt;drawing-command&gt;
+    FramebufferTextureLayer( target, attachment, texture, level, baseViewIndex + i );
+    View( i );
+    &lt;drawing-command&gt;
 }</code></pre>
 	 * 
 	 * <p>The result is that every drawing command is broadcast into every active view. The shader uses {@code gl_ViewID_OVR} to compute view dependent outputs.</p>

@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * &lt;i&gt; by setting <code>glVertexAttribI1iEXT(attrLoc, i);</code> and using a shader as such:</p>
  * 
  * <pre><code>struct MyObjectType {
-	mat4x4 modelView;
+    mat4x4 modelView;
     vec4 materialPropertyX;
     // etc.
 };

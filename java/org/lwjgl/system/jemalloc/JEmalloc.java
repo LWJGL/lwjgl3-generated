@@ -545,12 +545,12 @@ mallctl("arenas.nbins", &nbins, &len, NULL, 0);
 miblen = 4;
 mallctlnametomib("arenas.bin.0.size", mib, &miblen);
 for (i = 0; i < nbins; i++) {
-	size_t bin_size;
+    size_t bin_size;
 
-	mib[2] = i;
-	len = sizeof(bin_size);
-	mallctlbymib(mib, miblen, &bin_size, &len, NULL, 0);
-	// Do something with bin_size...
+    mib[2] = i;
+    len = sizeof(bin_size);
+    mallctlbymib(mib, miblen, &bin_size, &len, NULL, 0);
+    // Do something with bin_size...
 }</code></pre>
 	 *
 	 * @param name    the namespace location

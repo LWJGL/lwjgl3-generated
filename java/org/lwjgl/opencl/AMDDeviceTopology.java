@@ -18,8 +18,8 @@ public final class AMDDeviceTopology {
 	 * 
 	 * <pre><code>typedef union
 {
-	struct { cl_uint type; cl_uint data[5]; } raw;
-	struct { cl_uint type; cl_char unused[17]; cl_char bus; cl_char device; cl_char function; } pcie;
+    struct { cl_uint type; cl_uint data[5]; } raw;
+    struct { cl_uint type; cl_char unused[17]; cl_char bus; cl_char device; cl_char function; } pcie;
 } cl_device_topology_amd;</code></pre>
 	 * 
 	 * <p>The type of the structure returned can be queried by reading the first unsigned int of the returned data. The developer can use this type to cast the

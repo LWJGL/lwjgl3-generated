@@ -273,7 +273,7 @@ public final class GLESCapabilities {
 	 * capabilities of version 3.10 of the OpenGL ES Shading Language. Shaders using the new functionality provided by this extension should enable this
 	 * functionality via the construct</p>
 	 * 
-	 * <pre><code>	#extension GL_EXT_gpu_shader5 : require (or enable)</code></pre>
+	 * <pre><code>    #extension GL_EXT_gpu_shader5 : require (or enable)</code></pre>
 	 * 
 	 * <p>This extension provides a variety of new features for all shader types, including:</p>
 	 * 
@@ -323,11 +323,11 @@ public final class GLESCapabilities {
 	 * <p>This extension allows the fragment shader to control whether values in gl_SampleMaskIn[] reflect the coverage after application of the early depth and
 	 * stencil tests. This feature can be enabled with the following layout qualifier in the fragment shader:</p>
 	 * 
-	 * <pre><code>	layout(post_depth_coverage) in;</code></pre>
+	 * <pre><code>    layout(post_depth_coverage) in;</code></pre>
 	 * 
 	 * <p>To use this feature, early fragment tests must also be enabled in the fragment shader via:</p>
 	 * 
-	 * <pre><code>	layout(early_fragment_tests) in;</code></pre>
+	 * <pre><code>    layout(early_fragment_tests) in;</code></pre>
 	 * 
 	 * <p>Requires {@link #GL_OES_sample_variables OES_sample_variables}.</p>
 	 */
@@ -359,9 +359,9 @@ public final class GLESCapabilities {
 	 * non-compute shader invocations and execute them in a SIMD fashion. When executing code like</p>
 	 * 
 	 * <pre><code>if (condition) {
-	result = do_fast_path();
+    result = do_fast_path();
 } else {
-	result = do_general_path();
+    result = do_general_path();
 }</code></pre>
 	 * 
 	 * <p>where {@code condition} diverges between invocations, a SIMD implementation might first call do_fast_path() for the invocations where <condition> is
@@ -372,9 +372,9 @@ public final class GLESCapabilities {
 	 * <p>This extension provides the ability to avoid divergent execution by evaluting a condition across an entire SIMD invocation group using code like:</p>
 	 * 
 	 * <pre><code>if (allInvocationsEXT(condition)) {
-	result = do_fast_path();
+    result = do_fast_path();
 } else {
-	result = do_general_path();
+    result = do_general_path();
 }</code></pre>
 	 * 
 	 * <p>The built-in function allInvocationsEXT() will return the same value for all invocations in the group, so the group will either execute do_fast_path()
@@ -444,41 +444,41 @@ public final class GLESCapabilities {
 	 * 
 	 * <p>The existing isotropic vertex texture functions:</p>
 	 * 
-	 * <pre><code>	vec4 texture2DLodEXT(sampler2D sampler,
-	                     vec2 coord,
-	                     float lod);
-	vec4 texture2DProjLodEXT(sampler2D sampler,
-	                         vec3 coord,
-	                         float lod);
-	vec4 texture2DProjLodEXT(sampler2D sampler,
-	                         vec4 coord,
-	                         float lod);
+	 * <pre><code>    vec4 texture2DLodEXT(sampler2D sampler,
+                         vec2 coord,
+                         float lod);
+    vec4 texture2DProjLodEXT(sampler2D sampler,
+                             vec3 coord,
+                             float lod);
+    vec4 texture2DProjLodEXT(sampler2D sampler,
+                             vec4 coord,
+                             float lod);
 
-	vec4 textureCubeLodEXT(samplerCube sampler,
-	                       vec3 coord,
-	                       float lod);</code></pre>
+    vec4 textureCubeLodEXT(samplerCube sampler,
+                           vec3 coord,
+                           float lod);</code></pre>
 	 * 
 	 * <p>are added to the built-in functions for fragment shaders with "EXT" suffix appended.</p>
 	 * 
 	 * <p>New anisotropic texture functions, providing explicit derivatives:</p>
 	 * 
-	 * <pre><code>	vec4 texture2DGradEXT(sampler2D sampler,
-	                      vec2 P,
-	                      vec2 dPdx,
-	                      vec2  dPdy);
-	vec4 texture2DProjGradEXT(sampler2D sampler,
-	                          vec3 P,
-	                          vec2 dPdx,
-	                          vec2 dPdy);
-	vec4 texture2DProjGradEXT(sampler2D sampler,
-	                          vec4 P,
-	                          vec2 dPdx,
-	                          vec2 dPdy);
+	 * <pre><code>    vec4 texture2DGradEXT(sampler2D sampler,
+                          vec2 P,
+                          vec2 dPdx,
+                          vec2  dPdy);
+    vec4 texture2DProjGradEXT(sampler2D sampler,
+                              vec3 P,
+                              vec2 dPdx,
+                              vec2 dPdy);
+    vec4 texture2DProjGradEXT(sampler2D sampler,
+                              vec4 P,
+                              vec2 dPdx,
+                              vec2 dPdy);
 
-	vec4 textureCubeGradEXT(samplerCube sampler,
-	                        vec3 P,
-	                        vec3 dPdx,
-	                        vec3 dPdy);</code></pre>
+    vec4 textureCubeGradEXT(samplerCube sampler,
+                            vec3 P,
+                            vec3 dPdx,
+                            vec3 dPdy);</code></pre>
 	 * 
 	 * <p>are added to the built-in functions for vertex shaders and fragment shaders.</p>
 	 */
@@ -825,7 +825,7 @@ public final class GLESCapabilities {
 	 * primitive, or that failed the early depth/stencil tests. This can be enabled by redeclaring the gl_SampleMask output with the "override_coverage"
 	 * layout qualifier:</p>
 	 * 
-	 * <pre><code>	layout(override_coverage) out int gl_SampleMask[];</code></pre>
+	 * <pre><code>    layout(override_coverage) out int gl_SampleMask[];</code></pre>
 	 * 
 	 * <p>Requires {@link #GL_OES_sample_variables OES_sample_variables}.</p>
 	 */
@@ -975,7 +975,7 @@ public final class GLESCapabilities {
 	 * capabilities of version 3.10 of the OpenGL ES Shading Language. Shaders using the new functionality provided by this extension should enable this
 	 * functionality via the construct</p>
 	 * 
-	 * <pre><code>	#extension GL_OES_gpu_shader5 : require (or enable)</code></pre>
+	 * <pre><code>    #extension GL_OES_gpu_shader5 : require (or enable)</code></pre>
 	 * 
 	 * <p>This extension provides a variety of new features for all shader types, including:</p>
 	 * 

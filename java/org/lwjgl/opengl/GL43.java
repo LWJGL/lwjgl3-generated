@@ -680,9 +680,9 @@ public class GL43 {
 	 * <p>The parameters addressed by indirect are packed a structure, which takes the form (in C):</p>
 	 * 
 	 * <pre><code>typedef struct {
-	uint num_groups_x;
-	uint num_groups_y;
-	uint num_groups_z;
+    uint num_groups_x;
+    uint num_groups_y;
+    uint num_groups_z;
 } DispatchIndirectCommand;</code></pre>
 	 * 
 	 * <p>A call to {@code glDispatchComputeIndirect} is equivalent, assuming no errors are generated, to:</p>
@@ -1439,21 +1439,21 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * <p>The parameters addressed by {@code indirect} are packed into an array of structures, each element of which takes the form (in C):</p>
 	 * 
 	 * <pre><code>typedef struct {
-	uint count;
-	uint primCount;
-	uint first;
-	uint baseInstance;
+    uint count;
+    uint primCount;
+    uint first;
+    uint baseInstance;
 } DrawArraysIndirectCommand;</code></pre>
 	 * 
 	 * <p>A single call to {@code glMultiDrawArraysIndirect} is equivalent, assuming no errors are generated to:</p>
 	 * 
 	 * <pre><code>const ubyte *ptr = (const ubyte *)indirect;
 for ( i = 0; i < primcount; i++ ) {
-	DrawArraysIndirect(mode, (DrawArraysIndirectCommand*)ptr);
-	if ( stride == 0 )
-		ptr += sizeof(DrawArraysIndirectCommand);
-	else
-		ptr += stride;
+    DrawArraysIndirect(mode, (DrawArraysIndirectCommand*)ptr);
+    if ( stride == 0 )
+        ptr += sizeof(DrawArraysIndirectCommand);
+    else
+        ptr += stride;
 }</code></pre>
 	 *
 	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
@@ -1501,22 +1501,22 @@ for ( i = 0; i < primcount; i++ ) {
 	 * <p>The parameters addressed by indirect are packed into a structure that takes the form (in C):</p>
 	 * 
 	 * <pre><code>typedef struct {
-	uint count;
-	uint primCount;
-	uint firstIndex;
-	uint baseVertex;
-	uint baseInstance;
+    uint count;
+    uint primCount;
+    uint firstIndex;
+    uint baseVertex;
+    uint baseInstance;
 } DrawElementsIndirectCommand;</code></pre>
 	 * 
 	 * <p>A single call to {@code glMultiDrawElementsIndirect} is equivalent, assuming no errors are generated to:</p>
 	 * 
 	 * <pre><code>const ubyte *ptr = (const ubyte *)indirect;
 for ( i = 0; i < primcount; i++ ) {
-	DrawElementsIndirect(mode, type, (DrawElementsIndirectCommand *)ptr);
-	if ( stride == 0 )
-		ptr += sizeof(DrawElementsIndirectCommand);
-	else
-		ptr += stride;
+    DrawElementsIndirect(mode, type, (DrawElementsIndirectCommand *)ptr);
+    if ( stride == 0 )
+        ptr += sizeof(DrawElementsIndirectCommand);
+    else
+        ptr += stride;
 }</code></pre>
 	 *
 	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
