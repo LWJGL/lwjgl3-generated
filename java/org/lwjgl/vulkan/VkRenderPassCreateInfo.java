@@ -270,7 +270,10 @@ public class VkRenderPassCreateInfo extends Struct {
 	public static void validate(long struct) {
 		if ( nattachmentCount(struct) != 0 )
 			checkPointer(memGetAddress(struct + VkRenderPassCreateInfo.PATTACHMENTS));
-		checkPointer(memGetAddress(struct + VkRenderPassCreateInfo.PSUBPASSES));
+		int subpassCount = nsubpassCount(struct);
+		long pSubpasses = memGetAddress(struct + VkRenderPassCreateInfo.PSUBPASSES);
+		checkPointer(pSubpasses);
+		VkSubpassDescription.validate(pSubpasses, subpassCount);
 		if ( ndependencyCount(struct) != 0 )
 			checkPointer(memGetAddress(struct + VkRenderPassCreateInfo.PDEPENDENCIES));
 	}

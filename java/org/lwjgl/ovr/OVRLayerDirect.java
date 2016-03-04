@@ -226,6 +226,34 @@ public class OVRLayerDirect extends Struct {
 	/** Unsafe version of {@link #Viewport(int, OVRRecti) Viewport}. */
 	public static void nViewport(long struct, int index, OVRRecti value) { memCopy(value.address(), struct + OVRLayerDirect.VIEWPORT + index * OVRRecti.SIZEOF, OVRRecti.SIZEOF); }
 
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		long ColorTexture = struct + OVRLayerDirect.COLORTEXTURE;
+		for ( int i = 0; i < 2; i++ ) {
+		   if ( i < 1 )
+		       checkPointer(memGetAddress(ColorTexture));
+		   else if ( memGetAddress(ColorTexture) == NULL )
+		       break;
+		   OVRSwapTextureSet.validate(ColorTexture);
+		   ColorTexture += POINTER_SIZE;
+		}
+	}
+
+	/**
+	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
+	 *
+	 * @param array the struct array to validate
+	 * @param count the number of structs in {@code array}
+	 */
+	public static void validate(long array, int count) {
+		for ( int i = 0; i < count; i++ )
+			validate(array + i * SIZEOF);
+	}
+
 	// -----------------------------------
 
 	/** An array of {@link OVRLayerDirect} structs. */

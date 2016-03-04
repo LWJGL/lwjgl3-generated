@@ -282,10 +282,8 @@ public class VkSubpassDescription extends Struct {
 	public static void validate(long struct) {
 		if ( ninputAttachmentCount(struct) != 0 )
 			checkPointer(memGetAddress(struct + VkSubpassDescription.PINPUTATTACHMENTS));
-		if ( ncolorAttachmentCount(struct) != 0 ) {
+		if ( ncolorAttachmentCount(struct) != 0 )
 			checkPointer(memGetAddress(struct + VkSubpassDescription.PCOLORATTACHMENTS));
-			checkPointer(memGetAddress(struct + VkSubpassDescription.PRESOLVEATTACHMENTS));
-		}
 		if ( npreserveAttachmentCount(struct) != 0 )
 			checkPointer(memGetAddress(struct + VkSubpassDescription.PPRESERVEATTACHMENTS));
 	}

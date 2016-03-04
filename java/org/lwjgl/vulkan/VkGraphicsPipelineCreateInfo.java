@@ -416,10 +416,21 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PSTAGES));
-		checkPointer(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PVERTEXINPUTSTATE));
+		int stageCount = nstageCount(struct);
+		long pStages = memGetAddress(struct + VkGraphicsPipelineCreateInfo.PSTAGES);
+		checkPointer(pStages);
+		VkPipelineShaderStageCreateInfo.validate(pStages, stageCount);
+		long pVertexInputState = memGetAddress(struct + VkGraphicsPipelineCreateInfo.PVERTEXINPUTSTATE);
+		checkPointer(pVertexInputState);
+		VkPipelineVertexInputStateCreateInfo.validate(pVertexInputState);
 		checkPointer(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PINPUTASSEMBLYSTATE));
 		checkPointer(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PRASTERIZATIONSTATE));
+		long pColorBlendState = memGetAddress(struct + VkGraphicsPipelineCreateInfo.PCOLORBLENDSTATE);
+		if ( pColorBlendState != NULL )
+			VkPipelineColorBlendStateCreateInfo.validate(pColorBlendState);
+		long pDynamicState = memGetAddress(struct + VkGraphicsPipelineCreateInfo.PDYNAMICSTATE);
+		if ( pDynamicState != NULL )
+			VkPipelineDynamicStateCreateInfo.validate(pDynamicState);
 	}
 
 	/**

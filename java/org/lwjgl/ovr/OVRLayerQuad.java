@@ -237,7 +237,9 @@ public class OVRLayerQuad extends Struct {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + OVRLayerQuad.COLORTEXTURE));
+		long ColorTexture = memGetAddress(struct + OVRLayerQuad.COLORTEXTURE);
+		checkPointer(ColorTexture);
+		OVRSwapTextureSet.validate(ColorTexture);
 	}
 
 	/**

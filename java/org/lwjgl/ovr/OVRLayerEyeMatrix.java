@@ -318,6 +318,34 @@ public class OVRLayerEyeMatrix extends Struct {
 	/** Unsafe version of {@link #SensorSampleTime(double) SensorSampleTime}. */
 	public static void nSensorSampleTime(long struct, double value) { memPutDouble(struct + OVRLayerEyeMatrix.SENSORSAMPLETIME, value); }
 
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		long ColorTexture = struct + OVRLayerEyeMatrix.COLORTEXTURE;
+		for ( int i = 0; i < 2; i++ ) {
+		   if ( i < 1 )
+		       checkPointer(memGetAddress(ColorTexture));
+		   else if ( memGetAddress(ColorTexture) == NULL )
+		       break;
+		   OVRSwapTextureSet.validate(ColorTexture);
+		   ColorTexture += POINTER_SIZE;
+		}
+	}
+
+	/**
+	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
+	 *
+	 * @param array the struct array to validate
+	 * @param count the number of structs in {@code array}
+	 */
+	public static void validate(long array, int count) {
+		for ( int i = 0; i < count; i++ )
+			validate(array + i * SIZEOF);
+	}
+
 	// -----------------------------------
 
 	/** An array of {@link OVRLayerEyeMatrix} structs. */

@@ -282,7 +282,10 @@ public class VkDeviceCreateInfo extends Struct {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS));
+		int queueCreateInfoCount = nqueueCreateInfoCount(struct);
+		long pQueueCreateInfos = memGetAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS);
+		checkPointer(pQueueCreateInfos);
+		VkDeviceQueueCreateInfo.validate(pQueueCreateInfos, queueCreateInfoCount);
 		if ( nenabledLayerCount(struct) != 0 )
 			checkPointer(memGetAddress(struct + VkDeviceCreateInfo.PPENABLEDLAYERNAMES));
 		if ( nenabledExtensionCount(struct) != 0 )

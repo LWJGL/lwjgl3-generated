@@ -348,6 +348,43 @@ public class OVRLayerEyeFovDepth extends Struct {
 	/** Unsafe version of {@link #ProjectionDesc(OVRTimewarpProjectionDesc) ProjectionDesc}. */
 	public static void nProjectionDesc(long struct, OVRTimewarpProjectionDesc value) { memCopy(value.address(), struct + OVRLayerEyeFovDepth.PROJECTIONDESC, OVRTimewarpProjectionDesc.SIZEOF); }
 
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		long ColorTexture = struct + OVRLayerEyeFovDepth.COLORTEXTURE;
+		for ( int i = 0; i < 2; i++ ) {
+		   if ( i < 1 )
+		       checkPointer(memGetAddress(ColorTexture));
+		   else if ( memGetAddress(ColorTexture) == NULL )
+		       break;
+		   OVRSwapTextureSet.validate(ColorTexture);
+		   ColorTexture += POINTER_SIZE;
+		}
+		long DepthTexture = struct + OVRLayerEyeFovDepth.DEPTHTEXTURE;
+		for ( int i = 0; i < 2; i++ ) {
+		   if ( i < 1 )
+		       checkPointer(memGetAddress(DepthTexture));
+		   else if ( memGetAddress(DepthTexture) == NULL )
+		       break;
+		   OVRSwapTextureSet.validate(DepthTexture);
+		   DepthTexture += POINTER_SIZE;
+		}
+	}
+
+	/**
+	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
+	 *
+	 * @param array the struct array to validate
+	 * @param count the number of structs in {@code array}
+	 */
+	public static void validate(long array, int count) {
+		for ( int i = 0; i < count; i++ )
+			validate(array + i * SIZEOF);
+	}
+
 	// -----------------------------------
 
 	/** An array of {@link OVRLayerEyeFovDepth} structs. */

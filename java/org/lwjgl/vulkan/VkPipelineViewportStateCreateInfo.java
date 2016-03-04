@@ -246,29 +246,6 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 	/** Unsafe version of {@link #pScissors(VkRect2D.Buffer) pScissors}. */
 	public static void npScissors(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS, addressSafe(value)); nscissorCount(struct, value == null ? 0 : value.remaining()); }
 
-	/**
-	 * Validates pointer members that should not be {@code NULL}.
-	 *
-	 * @param struct the struct to validate
-	 */
-	public static void validate(long struct) {
-		if ( nviewportCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS));
-		if ( nscissorCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS));
-	}
-
-	/**
-	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-	 *
-	 * @param array the struct array to validate
-	 * @param count the number of structs in {@code array}
-	 */
-	public static void validate(long array, int count) {
-		for ( int i = 0; i < count; i++ )
-			validate(array + i * SIZEOF);
-	}
-
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineViewportStateCreateInfo} structs. */

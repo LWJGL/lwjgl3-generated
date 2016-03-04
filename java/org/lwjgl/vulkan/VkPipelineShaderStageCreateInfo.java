@@ -272,6 +272,9 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 	 */
 	public static void validate(long struct) {
 		checkPointer(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME));
+		long pSpecializationInfo = memGetAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO);
+		if ( pSpecializationInfo != NULL )
+			VkSpecializationInfo.validate(pSpecializationInfo);
 	}
 
 	/**

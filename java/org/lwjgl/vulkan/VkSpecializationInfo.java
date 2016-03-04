@@ -184,7 +184,7 @@ public class VkSpecializationInfo extends Struct {
 	/** Sets the specified value to the {@code mapEntryCount} field of the specified {@code struct}. */
 	public static void nmapEntryCount(long struct, int value) { memPutInt(struct + VkSpecializationInfo.MAPENTRYCOUNT, value); }
 	/** Unsafe version of {@link #pMapEntries(VkSpecializationMapEntry.Buffer) pMapEntries}. */
-	public static void npMapEntries(long struct, VkSpecializationMapEntry.Buffer value) { memPutAddress(struct + VkSpecializationInfo.PMAPENTRIES, value.address()); nmapEntryCount(struct, value.remaining()); }
+	public static void npMapEntries(long struct, VkSpecializationMapEntry.Buffer value) { memPutAddress(struct + VkSpecializationInfo.PMAPENTRIES, addressSafe(value)); nmapEntryCount(struct, value == null ? 0 : value.remaining()); }
 	/** Sets the specified value to the {@code dataSize} field of the specified {@code struct}. */
 	public static void ndataSize(long struct, long value) { memPutAddress(struct + VkSpecializationInfo.DATASIZE, value); }
 	/** Unsafe version of {@link #pData(ByteBuffer) pData}. */
@@ -196,7 +196,8 @@ public class VkSpecializationInfo extends Struct {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkSpecializationInfo.PMAPENTRIES));
+		if ( nmapEntryCount(struct) != 0 )
+			checkPointer(memGetAddress(struct + VkSpecializationInfo.PMAPENTRIES));
 		if ( ndataSize(struct) != 0 )
 			checkPointer(memGetAddress(struct + VkSpecializationInfo.PDATA));
 	}

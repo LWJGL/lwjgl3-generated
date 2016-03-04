@@ -290,12 +290,13 @@ public class VkWriteDescriptorSet extends Struct {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
+		int descriptorCount = ndescriptorCount(struct);
 		if (
-			ndescriptorCount(struct) != 0 &&
+			descriptorCount == 0 || (
 			memGetAddress(struct + VkWriteDescriptorSet.PIMAGEINFO) == NULL &&
 			memGetAddress(struct + VkWriteDescriptorSet.PBUFFERINFO) == NULL &&
 			memGetAddress(struct + VkWriteDescriptorSet.PTEXELBUFFERVIEW) == NULL
-		) {
+		)) {
 			throw new NullPointerException("At least one of pImageInfo, pBufferInfo, pTexelBufferView must not be null");
 		}
 	}
