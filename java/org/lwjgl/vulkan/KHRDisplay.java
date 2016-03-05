@@ -27,12 +27,23 @@ public class KHRDisplay {
 		VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR    = 1000002000,
 		VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR = 1000002001;
 
-	/** VkDisplayPlaneAlphaFlagBitsKHR */
-	public static final int
-		VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR                  = 0x1,
-		VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR                  = 0x2,
-		VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR               = 0x4,
-		VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR = 0x8;
+	/** The source image will be treated as opaque. */
+	public static final int VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR = 0x1;
+
+	/** A global alpha value must be specified that will be applied to all pixels in the source image. */
+	public static final int VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR = 0x2;
+
+	/**
+	 * The alpha value will be determined by the alpha channel of the source image’s pixels. If the source format contains no alpha values, no blending
+	 * will be applied. The source alpha values are not premultiplied into the source image’s other color channels.
+	 */
+	public static final int VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR = 0x4;
+
+	/**
+	 * This is equivalent to {@link #VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR} except the source alpha values are assumed to be premultiplied into the source image’s
+	 * other color channels.
+	 */
+	public static final int VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR = 0x8;
 
 	/** Function address. */
 	public final long

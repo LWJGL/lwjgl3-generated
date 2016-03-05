@@ -29,48 +29,105 @@ public class KHRSurface {
 	/** The extension name. */
 	public static final String VK_KHR_SURFACE_EXTENSION_NAME = "VK_KHR_surface";
 
-	/** VkResult */
-	public static final int
-		VK_ERROR_SURFACE_LOST_KHR         = -1000000000,
-		VK_ERROR_NATIVE_WINDOW_IN_USE_KHR = -1000000001;
+	/** A surface is no longer available. */
+	public static final int VK_ERROR_SURFACE_LOST_KHR = -1000000000;
+
+	/** The requested window is already connected to a VkSurfaceKHR, or to some other non-Vulkan API. */
+	public static final int VK_ERROR_NATIVE_WINDOW_IN_USE_KHR = -1000000001;
+
+	/** The presentation engine supports the sRGB colorspace. */
+	public static final int VK_COLORSPACE_SRGB_NONLINEAR_KHR = 0;
 
 	/** VkColorSpaceKHR */
 	public static final int
-		VK_COLORSPACE_SRGB_NONLINEAR_KHR = 0,
-		VK_COLORSPACE_BEGIN_RANGE        = VK_COLORSPACE_SRGB_NONLINEAR_KHR,
-		VK_COLORSPACE_END_RANGE          = VK_COLORSPACE_SRGB_NONLINEAR_KHR,
-		VK_COLORSPACE_RANGE_SIZE         = (VK_COLORSPACE_SRGB_NONLINEAR_KHR - VK_COLORSPACE_SRGB_NONLINEAR_KHR + 1),
-		VK_COLORSPACE_MAX_ENUM           = 0x7FFFFFFF;
+		VK_COLORSPACE_BEGIN_RANGE = VK_COLORSPACE_SRGB_NONLINEAR_KHR,
+		VK_COLORSPACE_END_RANGE   = VK_COLORSPACE_SRGB_NONLINEAR_KHR,
+		VK_COLORSPACE_RANGE_SIZE  = (VK_COLORSPACE_SRGB_NONLINEAR_KHR - VK_COLORSPACE_SRGB_NONLINEAR_KHR + 1),
+		VK_COLORSPACE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/**
+	 * The presentation engine does not wait for a vertical blanking period to update the current image, meaning this mode <b>may</b> result in visible tearing.
+	 * No internal queuing of presentation requests is needed, as the requests are applied immediately.
+	 */
+	public static final int VK_PRESENT_MODE_IMMEDIATE_KHR = 0;
+
+	/**
+	 * The presentation engine waits for the next vertical blanking period to update the current image. Tearing <b>cannot</b> be observed. An internal
+	 * single-entry queue is used to hold pending presentation requests. If the queue is full when a new presentation request is received, the new request
+	 * replaces the existing entry, and any images associated with the prior entry become available for re-use by the application. One request is removed
+	 * from the queue and processed during each vertical blanking period in which the queue is non-empty.
+	 */
+	public static final int VK_PRESENT_MODE_MAILBOX_KHR = 1;
+
+	/**
+	 * The presentation engine waits for the next vertical blanking period to update the current image. Tearing <b>cannot</b> be observed. An internal queue
+	 * containing {@code (numSwapchainImages - 1)} entries, where {@code numSwapchainImages} is the number of presentable images in the swapchain, is used
+	 * to hold pending presentation requests. New requests are appended to the end of the queue, and one request is removed from the beginning of the
+	 * queue and processed during each vertical blanking period in which the queue is non-empty. This is the only value of {@code presentMode} that is
+	 * required to be supported.
+	 */
+	public static final int VK_PRESENT_MODE_FIFO_KHR = 2;
 
 	/** VkPresentModeKHR */
 	public static final int
-		VK_PRESENT_MODE_IMMEDIATE_KHR    = 0,
-		VK_PRESENT_MODE_MAILBOX_KHR      = 1,
-		VK_PRESENT_MODE_FIFO_KHR         = 2,
 		VK_PRESENT_MODE_FIFO_RELAXED_KHR = 3,
 		VK_PRESENT_MODE_BEGIN_RANGE      = VK_PRESENT_MODE_IMMEDIATE_KHR,
 		VK_PRESENT_MODE_END_RANGE        = VK_PRESENT_MODE_FIFO_RELAXED_KHR,
 		VK_PRESENT_MODE_RANGE_SIZE       = (VK_PRESENT_MODE_FIFO_RELAXED_KHR - VK_PRESENT_MODE_IMMEDIATE_KHR + 1),
 		VK_PRESENT_MODE_MAX_ENUM         = 0x7FFFFFFF;
 
-	/** VkSurfaceTransformFlagBitsKHR */
-	public static final int
-		VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR                     = 0x1,
-		VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR                    = 0x2,
-		VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR                   = 0x4,
-		VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR                   = 0x8,
-		VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_BIT_KHR            = 0x10,
-		VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_90_BIT_KHR  = 0x20,
-		VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_180_BIT_KHR = 0x40,
-		VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_270_BIT_KHR = 0x80,
-		VK_SURFACE_TRANSFORM_INHERIT_BIT_KHR                      = 0x100;
+	/** The image content is presented without being transformed. */
+	public static final int VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR = 0x1;
 
-	/** VkCompositeAlphaFlagBitsKHR */
-	public static final int
-		VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR          = 0x1,
-		VK_COMPOSITE_ALPHA_PRE_MULTIPLIED_BIT_KHR  = 0x2,
-		VK_COMPOSITE_ALPHA_POST_MULTIPLIED_BIT_KHR = 0x4,
-		VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR         = 0x8;
+	/** The image content is rotated 90 degrees clockwise. */
+	public static final int VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR = 0x2;
+
+	/** The image content is rotated 180 degrees clockwise. */
+	public static final int VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR = 0x4;
+
+	/** The image content is rotated 270 degrees clockwise. */
+	public static final int VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR = 0x8;
+
+	/** The image content is mirrored horizontally. */
+	public static final int VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_BIT_KHR = 0x10;
+
+	/** The image content is mirrored horizontally, then rotated 90 degrees clockwise. */
+	public static final int VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_90_BIT_KHR = 0x20;
+
+	/** The image content is mirrored horizontally, then rotated 180 degrees clockwise. */
+	public static final int VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_180_BIT_KHR = 0x40;
+
+	/** The image content is mirrored horizontally, then rotated 270 degrees clockwise. */
+	public static final int VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_270_BIT_KHR = 0x80;
+
+	/** The presentation transform is not specified, and is instead determined by platform-specific considerations and mechanisms outside Vulkan. */
+	public static final int VK_SURFACE_TRANSFORM_INHERIT_BIT_KHR = 0x100;
+
+	/**
+	 * The alpha channel, if it exists, of the images is ignored in the compositing process. Instead, the image is treated as if it has a constant alpha
+	 * of 1.0.
+	 */
+	public static final int VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR = 0x1;
+
+	/**
+	 * The alpha channel, if it exists, of the images is respected in the compositing process. The non-alpha channels of the image are expected to already
+	 * be multiplied by the alpha channel by the application.
+	 */
+	public static final int VK_COMPOSITE_ALPHA_PRE_MULTIPLIED_BIT_KHR = 0x2;
+
+	/**
+	 * The alpha channel, if it exists, of the images is respected in the compositing process. The non-alpha channels of the image are not expected to
+	 * already be multiplied by the alpha channel by the application; instead, the compositor will multiply the non-alpha channels of the image by the
+	 * alpha channel during compositing.
+	 */
+	public static final int VK_COMPOSITE_ALPHA_POST_MULTIPLIED_BIT_KHR = 0x4;
+
+	/**
+	 * The way in which the presentation engine treats the alpha channel in the images is unknown to the Vulkan API. Instead, the application is
+	 * responsible for setting the composite alpha blending mode using native window system commands. If the application does not set the blending mode
+	 * using native window system commands, then a platform-specific default will be used.
+	 */
+	public static final int VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR = 0x8;
 
 	/** Function address. */
 	public final long

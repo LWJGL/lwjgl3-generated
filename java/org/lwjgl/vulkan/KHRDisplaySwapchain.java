@@ -25,7 +25,7 @@ public class KHRDisplaySwapchain {
 	/** VkStructureType */
 	public static final int VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR = 1000003000;
 
-	/** VkResult */
+	/** The display used by a swapchain does not use the same presentable image layout, or is incompatible in a way that prevents sharing an image. */
 	public static final int VK_ERROR_INCOMPATIBLE_DISPLAY_KHR = -1000003001;
 
 	/** Function address. */

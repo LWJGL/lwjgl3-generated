@@ -96,29 +96,63 @@ public class VK10 {
 		VK_PIPELINE_CACHE_HEADER_VERSION_RANGE_SIZE  = VK_PIPELINE_CACHE_HEADER_VERSION_ONE - VK_PIPELINE_CACHE_HEADER_VERSION_ONE + 1,
 		VK_PIPELINE_CACHE_HEADER_VERSION_MAX_ENUM    = 0x7FFFFFFF;
 
+	/** Command successfully completed. */
+	public static final int VK_SUCCESS = 0;
+
+	/** A fence or query has not yet completed. */
+	public static final int VK_NOT_READY = 1;
+
+	/** A wait operation has not completed in the specified time. */
+	public static final int VK_TIMEOUT = 2;
+
+	/** An event is signaled. */
+	public static final int VK_EVENT_SET = 3;
+
+	/** An event is unsignaled. */
+	public static final int VK_EVENT_RESET = 4;
+
+	/** A return array was too small for the result. */
+	public static final int VK_INCOMPLETE = 5;
+
+	/** A host memory allocation has failed. */
+	public static final int VK_ERROR_OUT_OF_HOST_MEMORY = -1;
+
+	/** A device memory allocation has failed. */
+	public static final int VK_ERROR_OUT_OF_DEVICE_MEMORY = -2;
+
+	/** Initialization of an object could not be completed for implementation-specific reasons. */
+	public static final int VK_ERROR_INITIALIZATION_FAILED = -3;
+
+	/** The logical or physical device has been lost. */
+	public static final int VK_ERROR_DEVICE_LOST = -4;
+
+	/** Mapping of a memory object has failed. */
+	public static final int VK_ERROR_MEMORY_MAP_FAILED = -5;
+
+	/** A requested layer is not present or could not be loaded. */
+	public static final int VK_ERROR_LAYER_NOT_PRESENT = -6;
+
+	/** A requested extension is not supported. */
+	public static final int VK_ERROR_EXTENSION_NOT_PRESENT = -7;
+
+	/** A requested feature is not supported. */
+	public static final int VK_ERROR_FEATURE_NOT_PRESENT = -8;
+
+	/** The requested version of Vulkan is not supported by the driver or is otherwise incompatible for implementation-specific reasons. */
+	public static final int VK_ERROR_INCOMPATIBLE_DRIVER = -9;
+
+	/** Too many objects of the type have already been created. */
+	public static final int VK_ERROR_TOO_MANY_OBJECTS = -10;
+
+	/** A requested format is not supported on this device. */
+	public static final int VK_ERROR_FORMAT_NOT_SUPPORTED = -11;
+
 	/** VkResult */
 	public static final int
-		VK_SUCCESS                     = 0,
-		VK_NOT_READY                   = 1,
-		VK_TIMEOUT                     = 2,
-		VK_EVENT_SET                   = 3,
-		VK_EVENT_RESET                 = 4,
-		VK_INCOMPLETE                  = 5,
-		VK_ERROR_OUT_OF_HOST_MEMORY    = -1,
-		VK_ERROR_OUT_OF_DEVICE_MEMORY  = -2,
-		VK_ERROR_INITIALIZATION_FAILED = -3,
-		VK_ERROR_DEVICE_LOST           = -4,
-		VK_ERROR_MEMORY_MAP_FAILED     = -5,
-		VK_ERROR_LAYER_NOT_PRESENT     = -6,
-		VK_ERROR_EXTENSION_NOT_PRESENT = -7,
-		VK_ERROR_FEATURE_NOT_PRESENT   = -8,
-		VK_ERROR_INCOMPATIBLE_DRIVER   = -9,
-		VK_ERROR_TOO_MANY_OBJECTS      = -10,
-		VK_ERROR_FORMAT_NOT_SUPPORTED  = -11,
-		VK_RESULT_BEGIN_RANGE          = VK_ERROR_FORMAT_NOT_SUPPORTED,
-		VK_RESULT_END_RANGE            = VK_INCOMPLETE,
-		VK_RESULT_RANGE_SIZE           = VK_INCOMPLETE - VK_ERROR_FORMAT_NOT_SUPPORTED + 1,
-		VK_RESULT_MAX_ENUM             = 0x7FFFFFFF;
+		VK_RESULT_BEGIN_RANGE = VK_ERROR_FORMAT_NOT_SUPPORTED,
+		VK_RESULT_END_RANGE   = VK_INCOMPLETE,
+		VK_RESULT_RANGE_SIZE  = VK_INCOMPLETE - VK_ERROR_FORMAT_NOT_SUPPORTED + 1,
+		VK_RESULT_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** VkStructureType */
 	public static final int
@@ -1430,19 +1464,26 @@ A = max(A<sub>s0</sub>, A<sub>d</sub>)</code></pre>
 	 * 
 	 * <p>Computes the integer texel coordinates that the unnormalized coordinates lie within:</p>
 	 * 
-	 * <pre><code>i = ⌊u⌋=
-j = ⌊v⌋
-k = ⌊w⌋</code></pre>
+	 * <pre><code>i = floor(u)
+j = floor(v)
+k = floor(w)</code></pre>
 	 */
 	public static final int VK_FILTER_NEAREST = 0;
 
 	/**
 	 * Linear filtering.
 	 * 
-	 * <p>Computes a set of neighboring coordinates which bound the unnormalized coordinates. The integer texel coordinates are combinations of {@code i0} or
-	 * {@code i1}, {@code j0} or {@code j1}, {@code k0} or {@code k1}, as well as weights {@code α}, {@code β}, and {@code γ}.</p>
+	 * <p>Computes a set of neighboring coordinates which bound the unnormalized coordinates. The integer texel coordinates are combinations of
+	 * <code>i<sub>0</sub></code> or <code>i<sub>1</sub></code>, <code>j<sub>0</sub></code> or <code>j<sub>1</sub></code>, <code>k<sub>0</sub></code> or
+	 * <code>k<sub>1</sub></code>, as well as weights {@code α}, {@code β}, and {@code γ}.</p>
 	 * 
-	 * <p>i0j0k0αβγ=⌊u−12⌋=⌊v−12⌋=⌊w−12⌋=frac(u−12)=frac(v−12)=frac(w−12)i1j1k1=i0+1=j0+1=k0+1</p>
+	 * <pre><code>i<sub>0</sub> = floor(u - 0.5)      i<sub>1</sub> = i<sub>0</sub> + 1
+j<sub>0</sub> = floor(v - 0.5)      j<sub>1</sub> = j<sub>0</sub> + 1
+k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
+
+α = frac(u - 0.5)
+β = frac(v - 0.5)
+γ = frac(w - 0.5)</code></pre>
 	 */
 	public static final int VK_FILTER_LINEAR = 1;
 
@@ -1453,39 +1494,95 @@ k = ⌊w⌋</code></pre>
 		VK_FILTER_RANGE_SIZE  = VK_FILTER_LINEAR - VK_FILTER_NEAREST + 1,
 		VK_FILTER_MAX_ENUM    = 0x7FFFFFFF;
 
+	/**
+	 * Texels are read from the image level {@code d}, where:
+	 * 
+	 * <table>
+	 * <tr><td><code>d = level<sub>base</sub></code></td><td><code>when λ &le; 0.5</code></td></tr>
+	 * <tr><td><code>d = nearest(λ)</code></td><td><code>when λ &gt; 0.5 && level<sub>base</sub> + λ &le; q + 0.5</code></td></tr>
+	 * <tr><td><code>d = q</code></td><td><code>when λ &gt; 0.5 && level<sub>base</sub> + λ &gt; q + 0.5</code></td></tr>
+	 * </table>
+	 * 
+	 * <p>and:</p>
+	 * 
+	 * <table>
+	 * <tr><td><code>nearest(λ) = ceil(level<sub>base</sub> + λ + 0.5) - 1,</code></td><td>preferred</td></tr>
+	 * <tr><td><code>nearest(λ) = floor(level<sub>base</sub> + λ + 0.5),</code></td><td>alternative</td></tr>
+	 * </table>
+	 * 
+	 * <p>and where {@code q} is the {@code levelCount} from the {@code subresourceRange} of the image view.</p>
+	 */
+	public static final int VK_SAMPLER_MIPMAP_MODE_NEAREST = 0;
+
+	/**
+	 * Texels are read from image levels <code>d<sub>hi</sub></code> and <code>d<sub>lo</sub></code>, where:
+	 * 
+	 * <table>
+	 * <tr><td><code>d<sub>hi</sub> = q</code></td><td><code>when level<sub>base</sub> + λ &ge; q</code></td></tr>
+	 * <tr><td><code>d<sub>hi</sub> = floor(level<sub>base</sub> + λ)</code></td><td>otherwise</td></tr>
+	 * </table>
+	 * 
+	 * <p>and:</p>
+	 * 
+	 * <table>
+	 * <tr><td><code>d<sub>lo</sub> = q</code></td><td><code>when level<sub>base</sub> + λ &ge; q</code></td></tr>
+	 * <tr><td><code>d<sub>lo</sub> = d<sub>hi</sub> + 1</code></td><td>otherwise</td></tr>
+	 * </table>
+	 * 
+	 * <p><code>δ = frac(λ)</code> is the fractional value used for linear filtering between levels:</p>
+	 */
+	public static final int VK_SAMPLER_MIPMAP_MODE_LINEAR = 1;
+
 	/** VkSamplerMipmapMode */
 	public static final int
-		VK_SAMPLER_MIPMAP_MODE_NEAREST     = 0,
-		VK_SAMPLER_MIPMAP_MODE_LINEAR      = 1,
 		VK_SAMPLER_MIPMAP_MODE_BEGIN_RANGE = VK_SAMPLER_MIPMAP_MODE_NEAREST,
 		VK_SAMPLER_MIPMAP_MODE_END_RANGE   = VK_SAMPLER_MIPMAP_MODE_LINEAR,
 		VK_SAMPLER_MIPMAP_MODE_RANGE_SIZE  = VK_SAMPLER_MIPMAP_MODE_LINEAR - VK_SAMPLER_MIPMAP_MODE_NEAREST + 1,
 		VK_SAMPLER_MIPMAP_MODE_MAX_ENUM    = 0x7FFFFFFF;
 
+	/** Indicates that the repeat wrap mode will be used. */
+	public static final int VK_SAMPLER_ADDRESS_MODE_REPEAT = 0;
+
+	/** Indicates that the mirrored repeat wrap mode will be used. */
+	public static final int VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT = 1;
+
+	/** Indicates that the clamp to edge wrap mode will be used. */
+	public static final int VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE = 2;
+
+	/** Indicates that the clamp to border wrap mode will be used. */
+	public static final int VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER = 3;
+
 	/** VkSamplerAddressMode */
 	public static final int
-		VK_SAMPLER_ADDRESS_MODE_REPEAT               = 0,
-		VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT      = 1,
-		VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE        = 2,
-		VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER      = 3,
-		VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4,
-		VK_SAMPLER_ADDRESS_MODE_BEGIN_RANGE          = VK_SAMPLER_ADDRESS_MODE_REPEAT,
-		VK_SAMPLER_ADDRESS_MODE_END_RANGE            = VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER,
-		VK_SAMPLER_ADDRESS_MODE_RANGE_SIZE           = VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER - VK_SAMPLER_ADDRESS_MODE_REPEAT + 1,
-		VK_SAMPLER_ADDRESS_MODE_MAX_ENUM             = 0x7FFFFFFF;
+		VK_SAMPLER_ADDRESS_MODE_BEGIN_RANGE = VK_SAMPLER_ADDRESS_MODE_REPEAT,
+		VK_SAMPLER_ADDRESS_MODE_END_RANGE   = VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER,
+		VK_SAMPLER_ADDRESS_MODE_RANGE_SIZE  = VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER - VK_SAMPLER_ADDRESS_MODE_REPEAT + 1,
+		VK_SAMPLER_ADDRESS_MODE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/** <code>(0.0, 0.0, 0.0, 0.0)</code> */
+	public static final int VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0;
+
+	/** <code>(0, 0, 0, 0)</code> */
+	public static final int VK_BORDER_COLOR_INT_TRANSPARENT_BLACK = 1;
+
+	/** <code>(0.0, 0.0, 0.0, 1.0)</code> */
+	public static final int VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK = 2;
+
+	/** <code>(0, 0, 0, 1)</code> */
+	public static final int VK_BORDER_COLOR_INT_OPAQUE_BLACK = 3;
+
+	/** <code>(1.0, 1.0, 1.0, 1.0)</code> */
+	public static final int VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE = 4;
+
+	/** <code>(1, 1, 1, 1)</code> */
+	public static final int VK_BORDER_COLOR_INT_OPAQUE_WHITE = 5;
 
 	/** VkBorderColor */
 	public static final int
-		VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0,
-		VK_BORDER_COLOR_INT_TRANSPARENT_BLACK   = 1,
-		VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK      = 2,
-		VK_BORDER_COLOR_INT_OPAQUE_BLACK        = 3,
-		VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE      = 4,
-		VK_BORDER_COLOR_INT_OPAQUE_WHITE        = 5,
-		VK_BORDER_COLOR_BEGIN_RANGE             = VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK,
-		VK_BORDER_COLOR_END_RANGE               = VK_BORDER_COLOR_INT_OPAQUE_WHITE,
-		VK_BORDER_COLOR_RANGE_SIZE              = VK_BORDER_COLOR_INT_OPAQUE_WHITE - VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK + 1,
-		VK_BORDER_COLOR_MAX_ENUM                = 0x7FFFFFFF;
+		VK_BORDER_COLOR_BEGIN_RANGE = VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK,
+		VK_BORDER_COLOR_END_RANGE   = VK_BORDER_COLOR_INT_OPAQUE_WHITE,
+		VK_BORDER_COLOR_RANGE_SIZE  = VK_BORDER_COLOR_INT_OPAQUE_WHITE - VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK + 1,
+		VK_BORDER_COLOR_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** VkDescriptorType */
 	public static final int
@@ -1505,20 +1602,37 @@ k = ⌊w⌋</code></pre>
 		VK_DESCRIPTOR_TYPE_RANGE_SIZE             = VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT - VK_DESCRIPTOR_TYPE_SAMPLER + 1,
 		VK_DESCRIPTOR_TYPE_MAX_ENUM               = 0x7FFFFFFF;
 
+	/** Means the contents within the render area will be preserved. */
+	public static final int VK_ATTACHMENT_LOAD_OP_LOAD = 0;
+
+	/** Means the contents within the render area will be cleared to a uniform value, which is specified when a render pass instance is begun. */
+	public static final int VK_ATTACHMENT_LOAD_OP_CLEAR = 1;
+
+	/** Means the contents within the area need not be preserved; the contents of the attachment will be undefined inside the render area. */
+	public static final int VK_ATTACHMENT_LOAD_OP_DONT_CARE = 2;
+
 	/** VkAttachmentLoadOp */
 	public static final int
-		VK_ATTACHMENT_LOAD_OP_LOAD        = 0,
-		VK_ATTACHMENT_LOAD_OP_CLEAR       = 1,
-		VK_ATTACHMENT_LOAD_OP_DONT_CARE   = 2,
 		VK_ATTACHMENT_LOAD_OP_BEGIN_RANGE = VK_ATTACHMENT_LOAD_OP_LOAD,
 		VK_ATTACHMENT_LOAD_OP_END_RANGE   = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
 		VK_ATTACHMENT_LOAD_OP_RANGE_SIZE  = VK_ATTACHMENT_LOAD_OP_DONT_CARE - VK_ATTACHMENT_LOAD_OP_LOAD + 1,
 		VK_ATTACHMENT_LOAD_OP_MAX_ENUM    = 0x7FFFFFFF;
 
+	/**
+	 * Means the contents within the render area are written to memory and will be available for reading after the render pass instance completes once the
+	 * writes have been synchronized with {@link #VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT} (for color attachments) or {@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT} (for
+	 * depth/stencil attachments).
+	 */
+	public static final int VK_ATTACHMENT_STORE_OP_STORE = 0;
+
+	/**
+	 * Means the contents within the render area are not needed after rendering, and may be discarded; the contents of the attachment will be undefined
+	 * inside the render area.
+	 */
+	public static final int VK_ATTACHMENT_STORE_OP_DONT_CARE = 1;
+
 	/** VkAttachmentStoreOp */
 	public static final int
-		VK_ATTACHMENT_STORE_OP_STORE       = 0,
-		VK_ATTACHMENT_STORE_OP_DONT_CARE   = 1,
 		VK_ATTACHMENT_STORE_OP_BEGIN_RANGE = VK_ATTACHMENT_STORE_OP_STORE,
 		VK_ATTACHMENT_STORE_OP_END_RANGE   = VK_ATTACHMENT_STORE_OP_DONT_CARE,
 		VK_ATTACHMENT_STORE_OP_RANGE_SIZE  = VK_ATTACHMENT_STORE_OP_DONT_CARE - VK_ATTACHMENT_STORE_OP_STORE + 1,
@@ -1551,97 +1665,299 @@ k = ⌊w⌋</code></pre>
 		VK_INDEX_TYPE_RANGE_SIZE  = VK_INDEX_TYPE_UINT32 - VK_INDEX_TYPE_UINT16 + 1,
 		VK_INDEX_TYPE_MAX_ENUM    = 0x7FFFFFFF;
 
+	/**
+	 * The contents of the subpass will be recorded inline in the primary command buffer, and secondary command buffers must not be executed within the
+	 * subpass.
+	 */
+	public static final int VK_SUBPASS_CONTENTS_INLINE = 0;
+
+	/**
+	 * The contents are recorded in secondary command buffers that will be called from the primary command buffer, and {@link #vkCmdExecuteCommands CmdExecuteCommands} is the only
+	 * valid command on the command buffer until {@link #vkCmdNextSubpass CmdNextSubpass} or {@link #vkCmdEndRenderPass CmdEndRenderPass}.
+	 */
+	public static final int VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS = 1;
+
 	/** VkSubpassContents */
 	public static final int
-		VK_SUBPASS_CONTENTS_INLINE                    = 0,
-		VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS = 1,
-		VK_SUBPASS_CONTENTS_BEGIN_RANGE               = VK_SUBPASS_CONTENTS_INLINE,
-		VK_SUBPASS_CONTENTS_END_RANGE                 = VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS,
-		VK_SUBPASS_CONTENTS_RANGE_SIZE                = VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS - VK_SUBPASS_CONTENTS_INLINE + 1,
-		VK_SUBPASS_CONTENTS_MAX_ENUM                  = 0x7FFFFFFF;
+		VK_SUBPASS_CONTENTS_BEGIN_RANGE = VK_SUBPASS_CONTENTS_INLINE,
+		VK_SUBPASS_CONTENTS_END_RANGE   = VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS,
+		VK_SUBPASS_CONTENTS_RANGE_SIZE  = VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS - VK_SUBPASS_CONTENTS_INLINE + 1,
+		VK_SUBPASS_CONTENTS_MAX_ENUM    = 0x7FFFFFFF;
 
-	/** VkFormatFeatureFlagBits */
-	public static final int
-		VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT               = 0x1,
-		VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT               = 0x2,
-		VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT        = 0x4,
-		VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT        = 0x8,
-		VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT        = 0x10,
-		VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT = 0x20,
-		VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT               = 0x40,
-		VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT            = 0x80,
-		VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT      = 0x100,
-		VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT    = 0x200,
-		VK_FORMAT_FEATURE_BLIT_SRC_BIT                    = 0x400,
-		VK_FORMAT_FEATURE_BLIT_DST_BIT                    = 0x800,
-		VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT = 0x1000;
+	/** {@code VkImageView} <b>can</b> be sampled from. */
+	public static final int VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT = 0x1;
 
-	/** VkImageUsageFlagBits */
-	public static final int
-		VK_IMAGE_USAGE_TRANSFER_SRC_BIT             = 0x1,
-		VK_IMAGE_USAGE_TRANSFER_DST_BIT             = 0x2,
-		VK_IMAGE_USAGE_SAMPLED_BIT                  = 0x4,
-		VK_IMAGE_USAGE_STORAGE_BIT                  = 0x8,
-		VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT         = 0x10,
-		VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT = 0x20,
-		VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT     = 0x40,
-		VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT         = 0x80;
+	/** {@code VkImageView} <b>can</b> be used as storage image. */
+	public static final int VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT = 0x2;
 
-	/** VkImageCreateFlagBits */
-	public static final int
-		VK_IMAGE_CREATE_SPARSE_BINDING_BIT   = 0x1,
-		VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT = 0x2,
-		VK_IMAGE_CREATE_SPARSE_ALIASED_BIT   = 0x4,
-		VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT   = 0x8,
-		VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT  = 0x10;
+	/** {@code VkImageView} <b>can</b> be used as storage image that supports atomic operations. */
+	public static final int VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT = 0x4;
 
-	/** VkSampleCountFlagBits */
-	public static final int
-		VK_SAMPLE_COUNT_1_BIT  = 0x1,
-		VK_SAMPLE_COUNT_2_BIT  = 0x2,
-		VK_SAMPLE_COUNT_4_BIT  = 0x4,
-		VK_SAMPLE_COUNT_8_BIT  = 0x8,
-		VK_SAMPLE_COUNT_16_BIT = 0x10,
-		VK_SAMPLE_COUNT_32_BIT = 0x20,
-		VK_SAMPLE_COUNT_64_BIT = 0x40;
+	/** Format <b>can</b> be used to create a {@code VkBufferView} that <b>can</b> be bound to a {@link #VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER} descriptor. */
+	public static final int VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT = 0x8;
 
-	/** VkQueueFlagBits */
-	public static final int
-		VK_QUEUE_GRAPHICS_BIT       = 0x1,
-		VK_QUEUE_COMPUTE_BIT        = 0x2,
-		VK_QUEUE_TRANSFER_BIT       = 0x4,
-		VK_QUEUE_SPARSE_BINDING_BIT = 0x8;
+	/** Format <b>can</b> be used to create a {@code VkBufferView} that <b>can</b> be bound to a {@link #VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER} descriptor. */
+	public static final int VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT = 0x10;
 
-	/** VkMemoryPropertyFlagBits */
-	public static final int
-		VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT     = 0x1,
-		VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT     = 0x2,
-		VK_MEMORY_PROPERTY_HOST_COHERENT_BIT    = 0x4,
-		VK_MEMORY_PROPERTY_HOST_CACHED_BIT      = 0x8,
-		VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT = 0x10;
+	/** Atomic operations are supported on {@link #VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER} with this format. */
+	public static final int VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT = 0x20;
 
-	/** VkMemoryHeapFlagBits */
+	/** Format <b>can</b> be used as a vertex attribute format ({@link VkVertexInputAttributeDescription}{@code .format}). */
+	public static final int VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT = 0x40;
+
+	/** {@code VkImageView} <b>can</b> be used as a framebuffer color attachment and as an input attachment. */
+	public static final int VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT = 0x80;
+
+	/** {@code VkImageView} <b>can</b> be used as a framebuffer color attachment that supports blending and as an input attachment. */
+	public static final int VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT = 0x100;
+
+	/** {@code VkImageView} 4can be used as a framebuffer depth/stencil attachment and as an input attachment. */
+	public static final int VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT = 0x200;
+
+	/** {@code VkImage} <b>can</b> be used as {@code srcImage} for the {@link #vkCmdBlitImage CmdBlitImage} command. */
+	public static final int VK_FORMAT_FEATURE_BLIT_SRC_BIT = 0x400;
+
+	/** {@code VkImage} <b>can</b> be used as {@code dstImage} for the {@link #vkCmdBlitImage CmdBlitImage} command. */
+	public static final int VK_FORMAT_FEATURE_BLIT_DST_BIT = 0x800;
+
+	/**
+	 * {@code VkImage} <b>can</b> be used with a sampler that has either of {@code magFilter} or {@code minFilter} set to {@link #VK_FILTER_LINEAR FILTER_LINEAR}, or {@code mipmapMode}
+	 * set to {@link #VK_SAMPLER_MIPMAP_MODE_LINEAR SAMPLER_MIPMAP_MODE_LINEAR}. This bit <b>must</b> only be exposed for formats that also support the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}.
+	 * 
+	 * <p>If the format being queried is a depth/stencil format, this bit only indicates that the depth aspect (not the stencil aspect) supports linear
+	 * filtering, and that linear filtering of the depth aspect is supported whether depth compare is enabled in the sampler or not. If this bit is not
+	 * present, linear filtering with depth compare disabled is unsupported and linear filtering with depth compare enabled is supported, but <b>may</b> compute
+	 * the filtered value in an implementation-dependent manner which differs from the normal rules of linear filtering. The resulting value <b>must</b> be in
+	 * the range {@code [0,1]} and should be proportional to, or a weighted average of, the number of comparison passes or failures.</p>
+	 */
+	public static final int VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT = 0x1000;
+
+	/** Indicates that the image <b>can</b> be used as the source of a transfer command. */
+	public static final int VK_IMAGE_USAGE_TRANSFER_SRC_BIT = 0x1;
+
+	/** Indicates that the image <b>can</b> be used as the destination of a transfer command. */
+	public static final int VK_IMAGE_USAGE_TRANSFER_DST_BIT = 0x2;
+
+	/**
+	 * Indicates that the image <b>can</b> be used to create a {@code VkImageView} suitable for occupying a {@code VkDescriptorSet} slot either of type
+	 * {@link #VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE DESCRIPTOR_TYPE_SAMPLED_IMAGE} or {@link #VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER}, and be sampled by a shader.
+	 */
+	public static final int VK_IMAGE_USAGE_SAMPLED_BIT = 0x4;
+
+	/**
+	 * Indicates that the image <b>can</b> be used to create a {@code VkImageView} suitable for occupying a {@code VkDescriptorSet} slot of type
+	 * {@link #VK_DESCRIPTOR_TYPE_STORAGE_IMAGE DESCRIPTOR_TYPE_STORAGE_IMAGE}.
+	 */
+	public static final int VK_IMAGE_USAGE_STORAGE_BIT = 0x8;
+
+	/** Indicates that the image <b>can</b> be used to create a {@code VkImageView} suitable for use as a color or resolve attachment in a {@code VkFramebuffer}. */
+	public static final int VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT = 0x10;
+
+	/** Indicates that the image <b>can</b> be used to create a {@code VkImageView} suitable for use as a depth/stencil attachment in a {@code VkFramebuffer}. */
+	public static final int VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT = 0x20;
+
+	/**
+	 * Indicates that the memory bound to this image will have been allocated with the {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT}. If this is set, then bits
+	 * other than {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}, and {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} <b>must not</b> be set.
+	 */
+	public static final int VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT = 0x40;
+
+	/**
+	 * Indicates that the image <b>can</b> be used to create a {@code VkImageView} suitable for occupying {@code VkDescriptorSet} slot of type
+	 * {@link #VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT DESCRIPTOR_TYPE_INPUT_ATTACHMENT}; be read from a shader as an input attachment; and be used as an input attachment in a framebuffer.
+	 */
+	public static final int VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT = 0x80;
+
+	/** Indicates that the image will be backed using sparse memory binding. */
+	public static final int VK_IMAGE_CREATE_SPARSE_BINDING_BIT = 0x1;
+
+	/** Indicates that the image <b>can</b> be partially backed using sparse memory binding. */
+	public static final int VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT = 0x2;
+
+	/**
+	 * Indicates that the image will be backed using sparse memory binding with memory ranges that might also simultaneously be backing another image (or
+	 * another portion of the same image). Sparse images created with this flag must also be created with the {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}.
+	 */
+	public static final int VK_IMAGE_CREATE_SPARSE_ALIASED_BIT = 0x4;
+
+	/** Indicates that the image <b>can</b> be used to create a {@code VkImageView} with a different format from the image. */
+	public static final int VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT = 0x8;
+
+	/** Indicates that the image <b>can</b> be used to create a {@code VkImageView} of type {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}. */
+	public static final int VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT = 0x10;
+
+	/**
+	 * 1 sample per pixel. Standard sample locations:
+	 * 
+	 * <pre><code>(0.5, 0.5)</code></pre>
+	 */
+	public static final int VK_SAMPLE_COUNT_1_BIT = 0x1;
+
+	/**
+	 * 2 samples per pixel. Standard sample locations:
+	 * 
+	 * <pre><code>(0.25, 0.25)
+(0.75, 0.75)</code></pre>
+	 */
+	public static final int VK_SAMPLE_COUNT_2_BIT = 0x2;
+
+	/**
+	 * 4 samples per pixel. Standard sample locations:
+	 * 
+	 * <pre><code>(0.375, 0.125)
+(0.875, 0.375)
+(0.125, 0.625)
+(0.625, 0.875)</code></pre>
+	 */
+	public static final int VK_SAMPLE_COUNT_4_BIT = 0x4;
+
+	/**
+	 * 8 samples per pixel. Standard sample locations:
+	 * 
+	 * <pre><code>(0.5625, 0.3125)
+(0.4375, 0.6875)
+(0.8125, 0.5625)
+(0.3125, 0.1875)
+(0.1875, 0.8125)
+(0.0625, 0.4375)
+(0.6875, 0.9375)
+(0.9375, 0.0625)</code></pre>
+	 */
+	public static final int VK_SAMPLE_COUNT_8_BIT = 0x8;
+
+	/**
+	 * 16 samples per pixel. Standard sample locations:
+	 * 
+	 * <pre><code>(0.5625, 0.5625)
+(0.4375, 0.3125)
+(0.3125, 0.625)
+(0.75, 0.4375)
+(0.1875, 0.375)
+(0.625, 0.8125)
+(0.8125, 0.6875)
+(0.6875, 0.1875)
+(0.375, 0.875)
+(0.5, 0.0625)
+(0.25, 0.125)
+(0.125, 0.75)
+(0.0, 0.5)
+(0.9375, 0.25)
+(0.875, 0.9375)
+(0.0625, 0.0)</code></pre>
+	 */
+	public static final int VK_SAMPLE_COUNT_16_BIT = 0x10;
+
+	/** 32 samples per pixel. */
+	public static final int VK_SAMPLE_COUNT_32_BIT = 0x20;
+
+	/** 64 samples per pixel. */
+	public static final int VK_SAMPLE_COUNT_64_BIT = 0x40;
+
+	/** If set, then the queues in this queue family support graphics operations. */
+	public static final int VK_QUEUE_GRAPHICS_BIT = 0x1;
+
+	/** If set, then the queues in this queue family support compute operations. */
+	public static final int VK_QUEUE_COMPUTE_BIT = 0x2;
+
+	/** If set, then the queues in this queue family support transfer operations. */
+	public static final int VK_QUEUE_TRANSFER_BIT = 0x4;
+
+	/**
+	 * If set, then the queues in this queue family support sparse memory management operations. If any of the sparse resource features are enabled, then
+	 * at least one queue family must support this bit.
+	 */
+	public static final int VK_QUEUE_SPARSE_BINDING_BIT = 0x8;
+
+	/**
+	 * If set, memory allocated with this type is the most efficient for device access. This property will only be set for memory types belonging to heaps
+	 * with the {@link #VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT} set.
+	 */
+	public static final int VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT = 0x1;
+
+	/** If set, memory allocated with this type can be mapped using {@link #vkMapMemory MapMemory} so that it can be accessed on the host. */
+	public static final int VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT = 0x2;
+
+	/**
+	 * If set, host cache management commands {@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} and {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} are not needed to make host writes visible to
+	 * the device or device writes visible to the host, respectively.
+	 */
+	public static final int VK_MEMORY_PROPERTY_HOST_COHERENT_BIT = 0x4;
+
+	/**
+	 * If set, memory allocated with this type is cached on the host. Host memory accesses to uncached memory are slower than to cached memory, however
+	 * uncached memory is always host coherent.
+	 */
+	public static final int VK_MEMORY_PROPERTY_HOST_CACHED_BIT = 0x8;
+
+	/**
+	 * If set, the memory type only allows device access to the memory. Memory types must not have both {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} and
+	 * {@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} set. Additionally, the object's backing memory may be provided by the implementation lazily.
+	 */
+	public static final int VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT = 0x10;
+
+	/**
+	 * Means the heap corresponds to device local memory. Device local memory may have different performance characteristics than host local memory, and
+	 * may support different memory property flags.
+	 */
 	public static final int VK_MEMORY_HEAP_DEVICE_LOCAL_BIT = 0x1;
 
-	/** VkPipelineStageFlagBits */
-	public static final int
-		VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT                    = 0x1,
-		VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT                  = 0x2,
-		VK_PIPELINE_STAGE_VERTEX_INPUT_BIT                   = 0x4,
-		VK_PIPELINE_STAGE_VERTEX_SHADER_BIT                  = 0x8,
-		VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT    = 0x10,
-		VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT = 0x20,
-		VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT                = 0x40,
-		VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT                = 0x80,
-		VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT           = 0x100,
-		VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT            = 0x200,
-		VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT        = 0x400,
-		VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT                 = 0x800,
-		VK_PIPELINE_STAGE_TRANSFER_BIT                       = 0x1000,
-		VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT                 = 0x2000,
-		VK_PIPELINE_STAGE_HOST_BIT                           = 0x4000,
-		VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT                   = 0x8000,
-		VK_PIPELINE_STAGE_ALL_COMMANDS_BIT                   = 0x10000;
+	/** Stage of the pipeline where commands are initially received by the queue. */
+	public static final int VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT = 0x1;
+
+	/** Stage of the pipeline where Draw/DispatchIndirect data structures are consumed. */
+	public static final int VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT = 0x2;
+
+	/** Stage of the pipeline where vertex and index buffers are consumed. */
+	public static final int VK_PIPELINE_STAGE_VERTEX_INPUT_BIT = 0x4;
+
+	/** Vertex shader stage. */
+	public static final int VK_PIPELINE_STAGE_VERTEX_SHADER_BIT = 0x8;
+
+	/** Tessellation control shader stage. */
+	public static final int VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT = 0x10;
+
+	/** Tessellation evaluation shader stage. */
+	public static final int VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT = 0x20;
+
+	/** Geometry shader stage. */
+	public static final int VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT = 0x40;
+
+	/** Fragment shader stage. */
+	public static final int VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT = 0x80;
+
+	/** Stage of the pipeline where early fragment tests (depth and stencil tests before fragment shading) are performed. */
+	public static final int VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT = 0x100;
+
+	/** Stage of the pipeline where late fragment tests (depth and stencil tests after fragment shading) are performed. */
+	public static final int VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT = 0x200;
+
+	/**
+	 * Stage of the pipeline after blending where the final color values are output from the pipeline. This stage also includes resolve operations that
+	 * occur at the end of a subpass. Note that this does not necessarily indicate that the values have been committed to memory.
+	 */
+	public static final int VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT = 0x400;
+
+	/** Execution of a compute shader. */
+	public static final int VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT = 0x800;
+
+	/**
+	 * Execution of copy commands. This includes the operations resulting from all transfer commands. The set of transfer commands comprises
+	 * {@link #vkCmdCopyBuffer CmdCopyBuffer}, {@link #vkCmdCopyImage CmdCopyImage}, {@link #vkCmdBlitImage CmdBlitImage}, {@link #vkCmdCopyBufferToImage CmdCopyBufferToImage}, {@link #vkCmdCopyImageToBuffer CmdCopyImageToBuffer}, {@link #vkCmdUpdateBuffer CmdUpdateBuffer}, {@link #vkCmdFillBuffer CmdFillBuffer},
+	 * {@link #vkCmdClearColorImage CmdClearColorImage}, {@link #vkCmdClearDepthStencilImage CmdClearDepthStencilImage}, {@link #vkCmdResolveImage CmdResolveImage}, and {@link #vkCmdCopyQueryPoolResults CmdCopyQueryPoolResults}.
+	 */
+	public static final int VK_PIPELINE_STAGE_TRANSFER_BIT = 0x1000;
+
+	/** Final stage in the pipeline where commands complete execution. */
+	public static final int VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT = 0x2000;
+
+	/** A pseudo-stage indicating execution on the host of reads/writes of device memory. */
+	public static final int VK_PIPELINE_STAGE_HOST_BIT = 0x4000;
+
+	/** Execution of all graphics pipeline stages. */
+	public static final int VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT = 0x8000;
+
+	/** Execution of all stages supported on the queue. */
+	public static final int VK_PIPELINE_STAGE_ALL_COMMANDS_BIT = 0x10000;
 
 	/** VkImageAspectFlagBits */
 	public static final int
@@ -1650,62 +1966,179 @@ k = ⌊w⌋</code></pre>
 		VK_IMAGE_ASPECT_STENCIL_BIT  = 0x4,
 		VK_IMAGE_ASPECT_METADATA_BIT = 0x8;
 
-	/** VkSparseImageFormatFlagBits */
-	public static final int
-		VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT         = 0x1,
-		VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT       = 0x2,
-		VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT = 0x4;
+	/** If set, the image uses a single mip tail region for all array layers. */
+	public static final int VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT = 0x1;
 
-	/** VkSparseMemoryBindFlagBits */
+	/** If set, the first mip level that is not an exact multiple of the sparse image block size begins the mip tail region. */
+	public static final int VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT = 0x2;
+
+	/**
+	 * If set, the image uses a non-standard sparse block size, and the imageGranularity values do not match the standard block size for the given pixel
+	 * format.
+	 */
+	public static final int VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT = 0x4;
+
+	/** Is used to indicate that the memory being bound is only for the metadata aspect. */
 	public static final int VK_SPARSE_MEMORY_BIND_METADATA_BIT = 0x1;
 
-	/** VkFenceCreateFlagBits */
+	/** If set, then the fence object is created in the signaled state. Otherwise it is created in the unsignaled state. */
 	public static final int VK_FENCE_CREATE_SIGNALED_BIT = 0x1;
 
-	/** VkQueryPipelineStatisticFlagBits */
-	public static final int
-		VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT                    = 0x1,
-		VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT                  = 0x2,
-		VK_QUERY_PIPELINE_STATISTIC_VERTEX_SHADER_INVOCATIONS_BIT                  = 0x4,
-		VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_INVOCATIONS_BIT                = 0x8,
-		VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_PRIMITIVES_BIT                 = 0x10,
-		VK_QUERY_PIPELINE_STATISTIC_CLIPPING_INVOCATIONS_BIT                       = 0x20,
-		VK_QUERY_PIPELINE_STATISTIC_CLIPPING_PRIMITIVES_BIT                        = 0x40,
-		VK_QUERY_PIPELINE_STATISTIC_FRAGMENT_SHADER_INVOCATIONS_BIT                = 0x80,
-		VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_CONTROL_SHADER_PATCHES_BIT        = 0x100,
-		VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_EVALUATION_SHADER_INVOCATIONS_BIT = 0x200,
-		VK_QUERY_PIPELINE_STATISTIC_COMPUTE_SHADER_INVOCATIONS_BIT                 = 0x400;
+	/**
+	 * If set, queries managed by the pool will count the number of vertices processed by the input assembly stage. Vertices corresponding to incomplete
+	 * primitives may contribute to the count.
+	 */
+	public static final int VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT = 0x1;
 
-	/** VkQueryResultFlagBits */
-	public static final int
-		VK_QUERY_RESULT_64_BIT                = 0x1,
-		VK_QUERY_RESULT_WAIT_BIT              = 0x2,
-		VK_QUERY_RESULT_WITH_AVAILABILITY_BIT = 0x4,
-		VK_QUERY_RESULT_PARTIAL_BIT           = 0x8;
+	/**
+	 * If set, queries managed by the pool will count the number of primitives processed by the input assembly stage. If primitive restart is enabled,
+	 * restarting the primitive topology has no effect on the count. Incomplete primitives may be counted.
+	 */
+	public static final int VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT = 0x2;
 
-	/** VkBufferCreateFlagBits */
-	public static final int
-		VK_BUFFER_CREATE_SPARSE_BINDING_BIT   = 0x1,
-		VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT = 0x2,
-		VK_BUFFER_CREATE_SPARSE_ALIASED_BIT   = 0x4;
+	/**
+	 * If set, queries managed by the pool will count the number of vertex shader invocations. This counter’s value is incremented each time a vertex
+	 * shader is invoked.
+	 */
+	public static final int VK_QUERY_PIPELINE_STATISTIC_VERTEX_SHADER_INVOCATIONS_BIT = 0x4;
 
-	/** VkBufferUsageFlagBits */
-	public static final int
-		VK_BUFFER_USAGE_TRANSFER_SRC_BIT         = 0x1,
-		VK_BUFFER_USAGE_TRANSFER_DST_BIT         = 0x2,
-		VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT = 0x4,
-		VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT = 0x8,
-		VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT       = 0x10,
-		VK_BUFFER_USAGE_STORAGE_BUFFER_BIT       = 0x20,
-		VK_BUFFER_USAGE_INDEX_BUFFER_BIT         = 0x40,
-		VK_BUFFER_USAGE_VERTEX_BUFFER_BIT        = 0x80,
-		VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT      = 0x100;
+	/**
+	 * If set, queries managed by the pool will count the number of geometry shader invocations. This counter’s value is incremented each time a geometry
+	 * shader is invoked. In the case of instanced geometry shaders, the geometry shader invocations count is incremented for each separate instanced
+	 * invocation.
+	 */
+	public static final int VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_INVOCATIONS_BIT = 0x8;
 
-	/** VkPipelineCreateFlagBits */
-	public static final int
-		VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 0x1,
-		VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT    = 0x2,
-		VK_PIPELINE_CREATE_DERIVATIVE_BIT           = 0x4;
+	/**
+	 * If set, queries managed by the pool will count the number of primitives generated by geometry shader invocations. The counter’s value is
+	 * incremented each time the geometry shader emits a primitive. Restarting primitive topology using the SPIR-V instructions {@code OpEndPrimitive} or
+	 * {@code OpEndStreamPrimitive} has no effect on the geometry shader output primitives count.
+	 */
+	public static final int VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_PRIMITIVES_BIT = 0x10;
+
+	/**
+	 * If set, queries managed by the pool will count the number of primitives processed by the Primitive Clipping stage of the pipeline. The counter’s
+	 * value is incremented each time a primitive reaches the primitive clipping stage.
+	 */
+	public static final int VK_QUERY_PIPELINE_STATISTIC_CLIPPING_INVOCATIONS_BIT = 0x20;
+
+	/**
+	 * IF set, queries managed by the pool will count the number of primitives output by the Primitive Clipping stage of the pipeline. The counter’s value
+	 * is incremented each time a primitive passes the primitive clipping stage. The actual number of primitives output by the primitive clipping stage
+	 * for a particular input primitive is implementation-dependent but must satisfy the following conditions:
+	 * 
+	 * <ul>
+	 * <li>If at least one vertex of the input primitive lies inside the clipping volume, the counter is incremented by one or more.</li>
+	 * <li>Otherwise, the counter is incremented by zero or more.</li>
+	 * </ul>
+	 */
+	public static final int VK_QUERY_PIPELINE_STATISTIC_CLIPPING_PRIMITIVES_BIT = 0x40;
+
+	/**
+	 * IF set, queries managed by the pool will count the number of fragment shader invocations. The counter’s value is incremented each time the fragment
+	 * shader is invoked.
+	 */
+	public static final int VK_QUERY_PIPELINE_STATISTIC_FRAGMENT_SHADER_INVOCATIONS_BIT = 0x80;
+
+	/**
+	 * If set, queries managed by the pool will count the number of patches processed by the tessellation control shader. The counter’s value is
+	 * incremented once for each patch for which a tessellation control shader is invoked.
+	 */
+	public static final int VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_CONTROL_SHADER_PATCHES_BIT = 0x100;
+
+	/**
+	 * If set, queries managed by the pool will count the number of invocations of the tessellation evaluation shader. The counter’s value is incremented
+	 * each time the tessellation evaluation shader is invoked.
+	 */
+	public static final int VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_EVALUATION_SHADER_INVOCATIONS_BIT = 0x200;
+
+	/**
+	 * If set, queries managed by the pool will count the number of compute shader invocations. The counter’s value is incremented every time the compute
+	 * shader is invoked. Implementations may skip the execution of certain compute shader invocations or execute additional compute shader invocations
+	 * for implementation-dependent reasons as long as the results of rendering otherwise remain unchanged.
+	 */
+	public static final int VK_QUERY_PIPELINE_STATISTIC_COMPUTE_SHADER_INVOCATIONS_BIT = 0x400;
+
+	/**
+	 * Indicates the results will be written as an array of 64-bit unsigned integer values. If this bit is not set, the results will be written as an
+	 * array of 32-bit unsigned integer values.
+	 */
+	public static final int VK_QUERY_RESULT_64_BIT = 0x1;
+
+	/** Indicates that Vulkan will wait for each query’s status to become available before retrieving its results. */
+	public static final int VK_QUERY_RESULT_WAIT_BIT = 0x2;
+
+	/** Indicates that the availability status accompanies the results. */
+	public static final int VK_QUERY_RESULT_WITH_AVAILABILITY_BIT = 0x4;
+
+	/** Indicates that returning partial results is acceptable. */
+	public static final int VK_QUERY_RESULT_PARTIAL_BIT = 0x8;
+
+	/** Indicates that the buffer will be backed using sparse memory binding. */
+	public static final int VK_BUFFER_CREATE_SPARSE_BINDING_BIT = 0x1;
+
+	/** Indicates that the buffer <b>can</b> be partially backed using sparse memory binding. */
+	public static final int VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT = 0x2;
+
+	/**
+	 * Iindicates that the buffer will be backed using sparse memory binding with memory ranges that might also simultaneously be backing another buffer
+	 * (or another portion of the same buffer).
+	 */
+	public static final int VK_BUFFER_CREATE_SPARSE_ALIASED_BIT = 0x4;
+
+	/** Indicates that the buffer <b>can</b> be used as the source of a transfer command. */
+	public static final int VK_BUFFER_USAGE_TRANSFER_SRC_BIT = 0x1;
+
+	/** Indicates that the buffer <b>can</b> be used as the destination of a transfer command. */
+	public static final int VK_BUFFER_USAGE_TRANSFER_DST_BIT = 0x2;
+
+	/**
+	 * Indicates that the buffer <b>can</b> be used to create a {@code VkBufferView} suitable for occupying a {@code VkDescriptorSet} slot of type
+	 * {@link #VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER}.
+	 */
+	public static final int VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT = 0x4;
+
+	/**
+	 * Indicates that the buffer <b>can</b> be used to create a {@code VkBufferView} suitable for occupying a {@code VkDescriptorSet} slot of type
+	 * {@link #VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER}.
+	 */
+	public static final int VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT = 0x8;
+
+	/**
+	 * Indicates that the buffer <b>can</b> be used in a {@link VkDescriptorBufferInfo} suitable for occupying a {@code VkDescriptorSet} slot either of type
+	 * {@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER} or {@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC}.
+	 */
+	public static final int VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT = 0x10;
+
+	/**
+	 * Indicates that the buffer <b>can</b> be used in a {@link VkDescriptorBufferInfo} suitable for occupying a {@code VkDescriptorSet} slot either of type
+	 * {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER} or {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC}.
+	 */
+	public static final int VK_BUFFER_USAGE_STORAGE_BUFFER_BIT = 0x20;
+
+	/** Indicates that the buffer is suitable for passing as the {@code buffer} parameter to {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}. */
+	public static final int VK_BUFFER_USAGE_INDEX_BUFFER_BIT = 0x40;
+
+	/** Indicates that the buffer is suitable for passing as an element of the {@code pBuffers} array to {@link #vkCmdBindVertexBuffers CmdBindVertexBuffers}. */
+	public static final int VK_BUFFER_USAGE_VERTEX_BUFFER_BIT = 0x80;
+
+	/**
+	 * Indicates that the buffer is suitable for passing as the {@code buffer} parameter to {@link #vkCmdDrawIndirect CmdDrawIndirect}, {@link #vkCmdDrawIndexedIndirect CmdDrawIndexedIndirect}, or
+	 * {@link #vkCmdDispatchIndirect CmdDispatchIndirect}.
+	 */
+	public static final int VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT = 0x100;
+
+	/** Specifies that the created pipeline will not be optimized. Using this flag <b>may</b> reduce the time taken to create the pipeline. */
+	public static final int VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 0x1;
+
+	/**
+	 * Specifies that the pipeline to be created is allowed to be the parent of a pipeline that will be created in a subsequent call to
+	 * {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines}.
+	 */
+	public static final int VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT = 0x2;
+
+	/** Specifies that the pipeline to be created will be a child of a previously created parent pipeline. */
+	public static final int VK_PIPELINE_CREATE_DERIVATIVE_BIT = 0x4;
 
 	/** VkShaderStageFlagBits */
 	public static final int
@@ -1718,74 +2151,194 @@ k = ⌊w⌋</code></pre>
 		VK_SHADER_STAGE_ALL_GRAPHICS                = 0x1F,
 		VK_SHADER_STAGE_ALL                         = 0x7FFFFFFF;
 
-	/** VkCullModeFlagBits */
-	public static final int
-		VK_CULL_MODE_NONE           = 0,
-		VK_CULL_MODE_FRONT_BIT      = 0x1,
-		VK_CULL_MODE_BACK_BIT       = 0x2,
-		VK_CULL_MODE_FRONT_AND_BACK = 0x3;
+	/** If set, no triangles are discarded. */
+	public static final int VK_CULL_MODE_NONE = 0;
 
-	/** VkColorComponentFlagBits */
-	public static final int
-		VK_COLOR_COMPONENT_R_BIT = 0x1,
-		VK_COLOR_COMPONENT_G_BIT = 0x2,
-		VK_COLOR_COMPONENT_B_BIT = 0x4,
-		VK_COLOR_COMPONENT_A_BIT = 0x8;
+	/** If set, front-facing triangles are discarded. */
+	public static final int VK_CULL_MODE_FRONT_BIT = 0x1;
 
-	/** VkDescriptorPoolCreateFlagBits */
+	/** If set, back-facing triangles are discarded. */
+	public static final int VK_CULL_MODE_BACK_BIT = 0x2;
+
+	/** If set, all triangles are discarded. */
+	public static final int VK_CULL_MODE_FRONT_AND_BACK = 0x3;
+
+	/** If set, then the {@code R} value is written to color attachment for the appropriate sample, otherwise the value in memory is unmodified. */
+	public static final int VK_COLOR_COMPONENT_R_BIT = 0x1;
+
+	/** If set, then the {@code G} value is written to color attachment for the appropriate sample, otherwise the value in memory is unmodified. */
+	public static final int VK_COLOR_COMPONENT_G_BIT = 0x2;
+
+	/** If set, then the {@code B} value is written to color attachment for the appropriate sample, otherwise the value in memory is unmodified. */
+	public static final int VK_COLOR_COMPONENT_B_BIT = 0x4;
+
+	/** If set, then the {@code A} value is written to color attachment for the appropriate sample, otherwise the value in memory is unmodified. */
+	public static final int VK_COLOR_COMPONENT_A_BIT = 0x8;
+
+	/**
+	 * If set, then descriptor sets can return their individual allocations to the pool, i.e. all of {@link #vkAllocateDescriptorSets AllocateDescriptorSets}, {@link #vkFreeDescriptorSets FreeDescriptorSets}, and
+	 * {@link #vkResetDescriptorPool ResetDescriptorPool} are allowed. Otherwise, descriptor sets allocated from the pool must not be individually freed back to the pool, i.e. only
+	 * {@link #vkAllocateDescriptorSets AllocateDescriptorSets} and {@link #vkResetDescriptorPool ResetDescriptorPool} are allowed.
+	 */
 	public static final int VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT = 0x1;
 
-	/** VkAttachmentDescriptionFlagBits */
+	/**
+	 * If set, then the attachment is treated as if it shares physical memory with another attachment in the same render pass. This information limits the
+	 * ability of the implementation to reorder certain operations (like layout transitions and the {@code loadOp}) such that it is not improperly
+	 * reordered against other uses of the same physical memory via a different attachment. This is described in more detail below.
+	 * 
+	 * <p>If a render pass uses multiple attachments that alias the same device memory, those attachments <b>must</b> each include the
+	 * {@code ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT} bit in their attachment description flags. Attachments aliasing the same memory occurs in multiple
+	 * ways:</p>
+	 * 
+	 * <ul>
+	 * <li>Multiple attachments being assigned the same image view as part of framebuffer creation.</li>
+	 * <li>Attachments using distinct image views that correspond to the same subresource of an image.</li>
+	 * <li>Attachments using views of distinct image subresources which are bound to overlapping memory.</li>
+	 * </ul>
+	 * 
+	 * <p>Render passes <b>must</b> include subpass dependencies (either directly or via a subpass dependency chain) between any two subpasses that operate on the
+	 * same attachment or aliasing attachments and those subpass dependencies <b>must</b> include execution and memory dependencies separating uses of the
+	 * aliases, if at least one of those subpasses writes to one of the aliases. Those dependencies <b>must not</b> include the {@link #VK_DEPENDENCY_BY_REGION_BIT DEPENDENCY_BY_REGION_BIT} if the
+	 * aliases are views of distinct image subresources which overlap in memory.</p>
+	 * 
+	 * <p>Multiple attachments that alias the same memory <b>must not</b> be used in a single subpass. A given attachment index <b>must not</b> be used multiple times in
+	 * a single subpass, with one exception: two subpass attachments <b>can</b> use the same attachment index if at least one use is as an input attachment and
+	 * neither use is as a resolve or preserve attachment. In other words, the same view <b>can</b> be used simultaneously as an input and color or
+	 * depth/stencil attachment, but <b>must not</b> be used as multiple color or depth/stencil attachments nor as resolve or preserve attachments.</p>
+	 * 
+	 * <p>If a set of attachments alias each other, then all except the first to be used in the render pass must use an initialLayout of
+	 * {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, since the earlier uses of the other aliases make their contents undefined. Once an alias has been used and a different
+	 * alias has been used after it, the first alias <b>must not</b> be used in any later subpasses. However, an application can assign the same image view to
+	 * multiple aliasing attachment indices, which allows that image view to be used multiple times even if other aliases are used in between. Once an
+	 * attachment needs the {@code ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT} bit, there should be no additional cost of introducing additional aliases, and
+	 * using these additional aliases may allow more efficient clearing of the attachments on multiple uses via {@link #VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}.</p>
+	 * 
+	 * <h3>Note</h3>
+	 * 
+	 * <p>The exact set of attachment indices that alias with each other is not known until a framebuffer is created using the render pass, so the above
+	 * conditions cannot be validated at render pass creation time.</p>
+	 */
 	public static final int VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT = 0x1;
 
-	/** VkAccessFlagBits */
-	public static final int
-		VK_ACCESS_INDIRECT_COMMAND_READ_BIT          = 0x1,
-		VK_ACCESS_INDEX_READ_BIT                     = 0x2,
-		VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT          = 0x4,
-		VK_ACCESS_UNIFORM_READ_BIT                   = 0x8,
-		VK_ACCESS_INPUT_ATTACHMENT_READ_BIT          = 0x10,
-		VK_ACCESS_SHADER_READ_BIT                    = 0x20,
-		VK_ACCESS_SHADER_WRITE_BIT                   = 0x40,
-		VK_ACCESS_COLOR_ATTACHMENT_READ_BIT          = 0x80,
-		VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT         = 0x100,
-		VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT  = 0x200,
-		VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT = 0x400,
-		VK_ACCESS_TRANSFER_READ_BIT                  = 0x800,
-		VK_ACCESS_TRANSFER_WRITE_BIT                 = 0x1000,
-		VK_ACCESS_HOST_READ_BIT                      = 0x2000,
-		VK_ACCESS_HOST_WRITE_BIT                     = 0x4000,
-		VK_ACCESS_MEMORY_READ_BIT                    = 0x8000,
-		VK_ACCESS_MEMORY_WRITE_BIT                   = 0x10000;
+	/** Indicates that the access is an indirect command structure read as part of an indirect drawing command. */
+	public static final int VK_ACCESS_INDIRECT_COMMAND_READ_BIT = 0x1;
 
-	/** VkDependencyFlagBits */
+	/** Indicates that the access is an index buffer read. */
+	public static final int VK_ACCESS_INDEX_READ_BIT = 0x2;
+
+	/** Indicates that the access is a read via the vertex input bindings. */
+	public static final int VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT = 0x4;
+
+	/** Indicates that the access is a read via a uniform buffer or dynamic uniform buffer descriptor. */
+	public static final int VK_ACCESS_UNIFORM_READ_BIT = 0x8;
+
+	/** Indicates that the access is a read via an input attachment descriptor. */
+	public static final int VK_ACCESS_INPUT_ATTACHMENT_READ_BIT = 0x10;
+
+	/** Indicates that the access is a read from a shader via any other descriptor type. */
+	public static final int VK_ACCESS_SHADER_READ_BIT = 0x20;
+
+	/** Indicates that the access is a write or atomic from a shader via the same descriptor types as in {@link #VK_ACCESS_SHADER_READ_BIT ACCESS_SHADER_READ_BIT}. */
+	public static final int VK_ACCESS_SHADER_WRITE_BIT = 0x40;
+
+	/** Indicates that the access is a read via a color attachment. */
+	public static final int VK_ACCESS_COLOR_ATTACHMENT_READ_BIT = 0x80;
+
+	/** Indicates that the access is a write via a color or resolve attachment. */
+	public static final int VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT = 0x100;
+
+	/** Indicates that the access is a read via a depth/stencil attachment. */
+	public static final int VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT = 0x200;
+
+	/** Indicates that the access is a write via a depth/stencil attachment. */
+	public static final int VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT = 0x400;
+
+	/**
+	 * Indicates that the access is a read from a transfer (copy, blit, resolve, etc.) operation. For the complete set of transfer operations, see
+	 * {@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}.
+	 */
+	public static final int VK_ACCESS_TRANSFER_READ_BIT = 0x800;
+
+	/**
+	 * Indicates that the access is a write from a transfer (copy, blit, resolve, etc.) operation. For the complete set of transfer operations, see
+	 * {@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}.
+	 */
+	public static final int VK_ACCESS_TRANSFER_WRITE_BIT = 0x1000;
+
+	/** Indicates that the access is a read via the host. */
+	public static final int VK_ACCESS_HOST_READ_BIT = 0x2000;
+
+	/** Indicates that the access is a write via the host. */
+	public static final int VK_ACCESS_HOST_WRITE_BIT = 0x4000;
+
+	/**
+	 * Indicates that the access is a read via a non-specific unit attached to the memory. This unit may be external to the Vulkan device or otherwise not
+	 * part of the core Vulkan pipeline. When included in {@code dstAccessMask}, all writes using access types in {@code srcAccessMask} performed by
+	 * pipeline stages in {@code srcStageMask} must be visible in memory.
+	 */
+	public static final int VK_ACCESS_MEMORY_READ_BIT = 0x8000;
+
+	/**
+	 * Indicates that the access is a write via a non-specific unit attached to the memory. This unit may be external to the Vulkan device or otherwise
+	 * not part of the core Vulkan pipeline. When included in {@code srcAccessMask}, all access types in {@code dstAccessMask} from pipeline stages in
+	 * {@code dstStageMask} will observe the side effects of commands that executed before the barrier. When included in {@code dstAccessMask} all writes
+	 * using access types in {@code srcAccessMask} performed by pipeline stages in {@code srcStageMask} must be visible in memory.
+	 */
+	public static final int VK_ACCESS_MEMORY_WRITE_BIT = 0x10000;
+
+	/** If set, then the dependency is by-region. */
 	public static final int VK_DEPENDENCY_BY_REGION_BIT = 0x1;
 
-	/** VkCommandPoolCreateFlagBits */
-	public static final int
-		VK_COMMAND_POOL_CREATE_TRANSIENT_BIT            = 0x1,
-		VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT = 0x2;
+	/**
+	 * Indicates that command buffers allocated from the pool will be short-lived, meaning that they will be reset or freed in a relatively short
+	 * timeframe. This flag may be used by the implementation to control memory allocation behavior within the pool.
+	 */
+	public static final int VK_COMMAND_POOL_CREATE_TRANSIENT_BIT = 0x1;
 
-	/** VkCommandPoolResetFlagBits */
+	/**
+	 * Controls whether command buffers allocated from the pool <b>can</b> be individually reset. If this flag is set, individual command buffers allocated from
+	 * the pool <b>can</b> be reset either explicitly, by calling {@link #vkResetCommandBuffer ResetCommandBuffer}, or implicitly, by calling {@link #vkBeginCommandBuffer BeginCommandBuffer} on an executable
+	 * command buffer. If this flag is not set, then {@link #vkResetCommandBuffer ResetCommandBuffer} and {@link #vkBeginCommandBuffer BeginCommandBuffer} (on an executable command buffer) must not be called
+	 * on the command buffers allocated from the pool, and they can only be reset in bulk by calling {@link #vkResetCommandPool ResetCommandPool}.
+	 */
+	public static final int VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT = 0x2;
+
+	/** If set, resetting a command pool recycles all of the resources from the command pool back to the system. */
 	public static final int VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT = 0x1;
 
-	/** VkCommandBufferUsageFlagBits */
-	public static final int
-		VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT      = 0x1,
-		VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT = 0x2,
-		VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT     = 0x4;
+	/**
+	 * Indicates that each recording of the command buffer will only be submitted once, and the command buffer will be reset and recorded again between
+	 * each submission.
+	 */
+	public static final int VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT = 0x1;
 
-	/** VkQueryControlFlagBits */
+	/**
+	 * Indicates that a secondary command buffer is considered to be entirely inside a render pass. If this is a primary command buffer, then this bit is
+	 * ignored.
+	 */
+	public static final int VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT = 0x2;
+
+	/** Allows the command buffer to be resubmitted to a queue or recorded into a primary command buffer while it is pending execution. */
+	public static final int VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT = 0x4;
+
+	/** If set, an implementation <b>must</b> return a result that matches the actual number of samples passed. */
 	public static final int VK_QUERY_CONTROL_PRECISE_BIT = 0x1;
 
-	/** VkCommandBufferResetFlagBits */
+	/**
+	 * If set, then most or all memory resources currently owned by the command buffer should be returned to the parent command pool. If this flag is not
+	 * set, then the command buffer may hold onto memory resources and reuse them when recording commands.
+	 */
 	public static final int VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT = 0x1;
 
-	/** VkStencilFaceFlagBits */
-	public static final int
-		VK_STENCIL_FACE_FRONT_BIT = 0x1,
-		VK_STENCIL_FACE_BACK_BIT  = 0x2,
-		VK_STENCIL_FRONT_AND_BACK = 0x3;
+	/** Indicates that only the front set of stencil state is updated. */
+	public static final int VK_STENCIL_FACE_FRONT_BIT = 0x1;
+
+	/** Indicates that only the back set of stencil state is updated. */
+	public static final int VK_STENCIL_FACE_BACK_BIT = 0x2;
+
+	/** Is the combination of {@link #VK_STENCIL_FACE_FRONT_BIT STENCIL_FACE_FRONT_BIT} and {@link #VK_STENCIL_FACE_BACK_BIT STENCIL_FACE_BACK_BIT} and indicates that both sets of stencil state are updated. */
+	public static final int VK_STENCIL_FRONT_AND_BACK = 0x3;
 
 	/** Function address. */
 	public final long
@@ -1887,6 +2440,7 @@ k = ⌊w⌋</code></pre>
 		CmdSetScissor,
 		CmdSetLineWidth,
 		CmdSetDepthBias,
+		CmdSetBlendConstants,
 		CmdSetDepthBounds,
 		CmdSetStencilCompareMask,
 		CmdSetStencilWriteMask,
@@ -2029,6 +2583,7 @@ k = ⌊w⌋</code></pre>
 		CmdSetScissor = provider.getFunctionAddress("vkCmdSetScissor");
 		CmdSetLineWidth = provider.getFunctionAddress("vkCmdSetLineWidth");
 		CmdSetDepthBias = provider.getFunctionAddress("vkCmdSetDepthBias");
+		CmdSetBlendConstants = provider.getFunctionAddress("vkCmdSetBlendConstants");
 		CmdSetDepthBounds = provider.getFunctionAddress("vkCmdSetDepthBounds");
 		CmdSetStencilCompareMask = provider.getFunctionAddress("vkCmdSetStencilCompareMask");
 		CmdSetStencilWriteMask = provider.getFunctionAddress("vkCmdSetStencilWriteMask");
@@ -2112,13 +2667,14 @@ k = ⌊w⌋</code></pre>
 			funcs.DestroyFramebuffer, funcs.CreateRenderPass, funcs.DestroyRenderPass, funcs.GetRenderAreaGranularity, funcs.CreateCommandPool, 
 			funcs.DestroyCommandPool, funcs.ResetCommandPool, funcs.AllocateCommandBuffers, funcs.FreeCommandBuffers, funcs.BeginCommandBuffer, 
 			funcs.EndCommandBuffer, funcs.ResetCommandBuffer, funcs.CmdBindPipeline, funcs.CmdSetViewport, funcs.CmdSetScissor, funcs.CmdSetLineWidth, 
-			funcs.CmdSetDepthBias, funcs.CmdSetDepthBounds, funcs.CmdSetStencilCompareMask, funcs.CmdSetStencilWriteMask, funcs.CmdSetStencilReference, 
-			funcs.CmdBindDescriptorSets, funcs.CmdBindIndexBuffer, funcs.CmdBindVertexBuffers, funcs.CmdDraw, funcs.CmdDrawIndexed, funcs.CmdDrawIndirect, 
-			funcs.CmdDrawIndexedIndirect, funcs.CmdDispatch, funcs.CmdDispatchIndirect, funcs.CmdCopyBuffer, funcs.CmdCopyImage, funcs.CmdBlitImage, 
-			funcs.CmdCopyBufferToImage, funcs.CmdCopyImageToBuffer, funcs.CmdUpdateBuffer, funcs.CmdFillBuffer, funcs.CmdClearColorImage, 
-			funcs.CmdClearDepthStencilImage, funcs.CmdClearAttachments, funcs.CmdResolveImage, funcs.CmdSetEvent, funcs.CmdResetEvent, funcs.CmdWaitEvents, 
-			funcs.CmdPipelineBarrier, funcs.CmdBeginQuery, funcs.CmdEndQuery, funcs.CmdResetQueryPool, funcs.CmdWriteTimestamp, funcs.CmdCopyQueryPoolResults, 
-			funcs.CmdPushConstants, funcs.CmdBeginRenderPass, funcs.CmdNextSubpass, funcs.CmdEndRenderPass, funcs.CmdExecuteCommands
+			funcs.CmdSetDepthBias, funcs.CmdSetBlendConstants, funcs.CmdSetDepthBounds, funcs.CmdSetStencilCompareMask, funcs.CmdSetStencilWriteMask, 
+			funcs.CmdSetStencilReference, funcs.CmdBindDescriptorSets, funcs.CmdBindIndexBuffer, funcs.CmdBindVertexBuffers, funcs.CmdDraw, 
+			funcs.CmdDrawIndexed, funcs.CmdDrawIndirect, funcs.CmdDrawIndexedIndirect, funcs.CmdDispatch, funcs.CmdDispatchIndirect, funcs.CmdCopyBuffer, 
+			funcs.CmdCopyImage, funcs.CmdBlitImage, funcs.CmdCopyBufferToImage, funcs.CmdCopyImageToBuffer, funcs.CmdUpdateBuffer, funcs.CmdFillBuffer, 
+			funcs.CmdClearColorImage, funcs.CmdClearDepthStencilImage, funcs.CmdClearAttachments, funcs.CmdResolveImage, funcs.CmdSetEvent, funcs.CmdResetEvent, 
+			funcs.CmdWaitEvents, funcs.CmdPipelineBarrier, funcs.CmdBeginQuery, funcs.CmdEndQuery, funcs.CmdResetQueryPool, funcs.CmdWriteTimestamp, 
+			funcs.CmdCopyQueryPoolResults, funcs.CmdPushConstants, funcs.CmdBeginRenderPass, funcs.CmdNextSubpass, funcs.CmdEndRenderPass, 
+			funcs.CmdExecuteCommands
 		);
 
 		return supported ? funcs : null;
@@ -4809,6 +5365,35 @@ k = ⌊w⌋</code></pre>
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPFFFV(__functionAddress, commandBuffer.address(), depthBiasConstantFactor, depthBiasClamp, depthBiasSlopeFactor);
+	}
+
+	// --- [ vkCmdSetBlendConstants ] ---
+
+	/** Unsafe version of {@link #vkCmdSetBlendConstants CmdSetBlendConstants} */
+	public static void nvkCmdSetBlendConstants(VkCommandBuffer commandBuffer, long blendConstants) {
+		long __functionAddress = getInstance(commandBuffer).CmdSetBlendConstants;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, commandBuffer.address(), blendConstants);
+	}
+
+	/**
+	 * Sets the values of blend constants.
+	 *
+	 * @param commandBuffer  
+	 * @param blendConstants 
+	 */
+	public static void vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, ByteBuffer blendConstants) {
+		if ( CHECKS )
+			checkBuffer(blendConstants, 4 << 2);
+		nvkCmdSetBlendConstants(commandBuffer, memAddress(blendConstants));
+	}
+
+	/** Alternative version of: {@link #vkCmdSetBlendConstants CmdSetBlendConstants} */
+	public static void vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, FloatBuffer blendConstants) {
+		if ( CHECKS )
+			checkBuffer(blendConstants, 4);
+		nvkCmdSetBlendConstants(commandBuffer, memAddress(blendConstants));
 	}
 
 	// --- [ vkCmdSetDepthBounds ] ---

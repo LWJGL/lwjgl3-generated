@@ -30,13 +30,20 @@ public class KHRSwapchain {
 		VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR = 1000001000,
 		VK_STRUCTURE_TYPE_PRESENT_INFO_KHR          = 1000001001;
 
-	/** VkImageLayout */
+	/**
+	 * <b>must</b> only be used for presenting a swapchain image for display. A swapchain’s image <b>must</b> be transitioned to this layout before calling
+	 * {@link #vkQueuePresentKHR QueuePresentKHR}, and <b>must</b> be transitioned away from this layout after calling {@link #vkAcquireNextImageKHR AcquireNextImageKHR}.
+	 */
 	public static final int VK_IMAGE_LAYOUT_PRESENT_SRC_KHR = 1000001002;
 
-	/** VkResult */
-	public static final int
-		VK_SUBOPTIMAL_KHR        = 1000001003,
-		VK_ERROR_OUT_OF_DATE_KHR = -1000001004;
+	/** A swapchain no longer matches the surface properties exactly, but <b>can</b> still be used to present to the surface successfully. */
+	public static final int VK_SUBOPTIMAL_KHR = 1000001003;
+
+	/**
+	 * A surface has changed in such a way that it is no longer compatible with the swapchain, and further presentation requests using the swapchain will
+	 * fail. Applications <b>must</b> query the new surface properties and recreate their swapchain if they wish to continue presenting to the surface.
+	 */
+	public static final int VK_ERROR_OUT_OF_DATE_KHR = -1000001004;
 
 	/** Function address. */
 	public final long
