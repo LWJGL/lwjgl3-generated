@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTDebugReport {
 
 	/** The extension specification version. */
-	public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 0x2;
+	public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 2;
 
 	/** The extension name. */
 	public static final String VK_EXT_DEBUG_REPORT_EXTENSION_NAME = "VK_EXT_debug_report";

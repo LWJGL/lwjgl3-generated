@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class KHRSwapchain {
 
 	/** The extension specification version. */
-	public static final int VK_KHR_SWAPCHAIN_SPEC_VERSION = 0x43;
+	public static final int VK_KHR_SWAPCHAIN_SPEC_VERSION = 67;
 
 	/** The extension name. */
 	public static final String VK_KHR_SWAPCHAIN_EXTENSION_NAME = "VK_KHR_swapchain";

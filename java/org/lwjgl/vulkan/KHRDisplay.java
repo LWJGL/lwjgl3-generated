@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class KHRDisplay {
 
 	/** The extension specification version. */
-	public static final int VK_KHR_DISPLAY_SPEC_VERSION = 0x15;
+	public static final int VK_KHR_DISPLAY_SPEC_VERSION = 21;
 
 	/** The extension name. */
 	public static final String VK_KHR_DISPLAY_EXTENSION_NAME = "VK_KHR_display";

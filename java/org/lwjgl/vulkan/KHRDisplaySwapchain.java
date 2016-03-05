@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class KHRDisplaySwapchain {
 
 	/** The extension specification version. */
-	public static final int VK_KHR_DISPLAY_SWAPCHAIN_SPEC_VERSION = 0x9;
+	public static final int VK_KHR_DISPLAY_SWAPCHAIN_SPEC_VERSION = 9;
 
 	/** The extension name. */
 	public static final String VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME = "VK_KHR_display_swapchain";

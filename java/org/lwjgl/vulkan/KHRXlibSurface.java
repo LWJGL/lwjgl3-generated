@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class KHRXlibSurface {
 
 	/** The extension specification version. */
-	public static final int VK_KHR_XLIB_SURFACE_SPEC_VERSION = 0x6;
+	public static final int VK_KHR_XLIB_SURFACE_SPEC_VERSION = 6;
 
 	/** The extension name. */
 	public static final String VK_KHR_XLIB_SURFACE_EXTENSION_NAME = "VK_KHR_xlib_surface";

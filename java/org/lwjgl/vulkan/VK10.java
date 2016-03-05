@@ -26,7 +26,7 @@ public class VK10 {
 	public static final int VK_VERSION_MINOR = 0;
 
 	/** The Vulkan patch version number. */
-	public static final int VK_VERSION_PATCH = 4;
+	public static final int VK_VERSION_PATCH = 5;
 
 	/**
 	 * The Vulkan version number is used in several places in the API. In each such use, the API major version number, minor version number, and patch version
@@ -1356,26 +1356,98 @@ A = max(A<sub>s0</sub>, A<sub>d</sub>)</code></pre>
 		VK_BLEND_OP_RANGE_SIZE  = VK_BLEND_OP_MAX - VK_BLEND_OP_ADD + 1,
 		VK_BLEND_OP_MAX_ENUM    = 0x7FFFFFFF;
 
+	/**
+	 * Indicates that the {@code pViewports} state in {@link VkPipelineViewportStateCreateInfo} will be ignored and must be set dynamically with
+	 * {@link #vkCmdSetViewport CmdSetViewport} before any draw commands. The number of viewports used by a pipeline is still specified by the {@code viewportCount} member of
+	 * {@code VkPipelineViewportStateCreateInfo}.
+	 */
+	public static final int VK_DYNAMIC_STATE_VIEWPORT = 0;
+
+	/**
+	 * Indicates that the {@code pScissors} state in {@link VkPipelineViewportStateCreateInfo} will be ignored and must be set dynamically with {@link #vkCmdSetScissor CmdSetScissor}
+	 * before any draw commands. The number of scissor rectangles used by a pipeline is still specified by the {@code scissorCount} member of
+	 * {@code VkPipelineViewportStateCreateInfo}.
+	 */
+	public static final int VK_DYNAMIC_STATE_SCISSOR = 1;
+
+	/**
+	 * Indicates that the {@code lineWidth} state in {@link VkPipelineRasterizationStateCreateInfo} will be ignored and must be set dynamically with
+	 * {@link #vkCmdSetLineWidth CmdSetLineWidth} before any draw commands that generate line primitives for the rasterizer.
+	 */
+	public static final int VK_DYNAMIC_STATE_LINE_WIDTH = 2;
+
+	/**
+	 * Indicates that the {@code depthBiasConstantFactor}, {@code depthBiasClamp} and {@code depthBiasSlopeFactor} states in
+	 * {@link VkPipelineRasterizationStateCreateInfo} will be ignored and must be set dynamically with {@link #vkCmdSetDepthBias CmdSetDepthBias} before any draws are performed with
+	 * {@code depthBiasEnable} in {@code VkPipelineRasterizationStateCreateInfo} set to {@link #VK_TRUE TRUE}.
+	 */
+	public static final int VK_DYNAMIC_STATE_DEPTH_BIAS = 3;
+
+	/**
+	 * Indicates that the {@code blendConstants} state in {@link VkPipelineColorBlendStateCreateInfo} will be ignored and must be set dynamically with
+	 * {@link #vkCmdSetBlendConstants CmdSetBlendConstants} before any draws are performed with a pipeline state with {@code VkPipelineColorBlendAttachmentState} member
+	 * {@code blendEnable} set to {@link #VK_TRUE TRUE} and any of the blend functions using a constant blend color.
+	 */
+	public static final int VK_DYNAMIC_STATE_BLEND_CONSTANTS = 4;
+
+	/**
+	 * Indicates that the {@code minDepthBounds} and {@code maxDepthBounds} states of {@link VkPipelineDepthStencilStateCreateInfo} will be ignored and must be
+	 * set dynamically with {@link #vkCmdSetDepthBounds CmdSetDepthBounds} before any draws are performed with a pipeline state with {@code VkPipelineDepthStencilStateCreateInfo}
+	 * member {@code depthBoundsTestEnable} set to {@link #VK_TRUE TRUE}.
+	 */
+	public static final int VK_DYNAMIC_STATE_DEPTH_BOUNDS = 5;
+
+	/**
+	 * Indicates that the {@code compareMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both front and back will be ignored and must be set
+	 * dynamically with {@link #vkCmdSetStencilCompareMask CmdSetStencilCompareMask} before any draws are performed with a pipeline state with
+	 * {@code VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}.
+	 */
+	public static final int VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK = 6;
+
+	/**
+	 * Indicates that the {@code writeMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both front and back will be ignored and must be set
+	 * dynamically with {@link #vkCmdSetStencilWriteMask CmdSetStencilWriteMask} before any draws are performed with a pipeline state with {@code VkPipelineDepthStencilStateCreateInfo}
+	 * member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}.
+	 */
+	public static final int VK_DYNAMIC_STATE_STENCIL_WRITE_MASK = 7;
+
+	/**
+	 * Indicates that the reference state in {@link VkPipelineDepthStencilStateCreateInfo} for both front and back will be ignored and must be set dynamically
+	 * with {@link #vkCmdSetStencilReference CmdSetStencilReference} before any draws are performed with a pipeline state with {@code VkPipelineDepthStencilStateCreateInfo} member
+	 * {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}.
+	 */
+	public static final int VK_DYNAMIC_STATE_STENCIL_REFERENCE = 8;
+
 	/** VkDynamicState */
 	public static final int
-		VK_DYNAMIC_STATE_VIEWPORT             = 0,
-		VK_DYNAMIC_STATE_SCISSOR              = 1,
-		VK_DYNAMIC_STATE_LINE_WIDTH           = 2,
-		VK_DYNAMIC_STATE_DEPTH_BIAS           = 3,
-		VK_DYNAMIC_STATE_BLEND_CONSTANTS      = 4,
-		VK_DYNAMIC_STATE_DEPTH_BOUNDS         = 5,
-		VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK = 6,
-		VK_DYNAMIC_STATE_STENCIL_WRITE_MASK   = 7,
-		VK_DYNAMIC_STATE_STENCIL_REFERENCE    = 8,
-		VK_DYNAMIC_STATE_BEGIN_RANGE          = VK_DYNAMIC_STATE_VIEWPORT,
-		VK_DYNAMIC_STATE_END_RANGE            = VK_DYNAMIC_STATE_STENCIL_REFERENCE,
-		VK_DYNAMIC_STATE_RANGE_SIZE           = VK_DYNAMIC_STATE_STENCIL_REFERENCE - VK_DYNAMIC_STATE_VIEWPORT + 1,
-		VK_DYNAMIC_STATE_MAX_ENUM             = 0x7FFFFFFF;
+		VK_DYNAMIC_STATE_BEGIN_RANGE = VK_DYNAMIC_STATE_VIEWPORT,
+		VK_DYNAMIC_STATE_END_RANGE   = VK_DYNAMIC_STATE_STENCIL_REFERENCE,
+		VK_DYNAMIC_STATE_RANGE_SIZE  = VK_DYNAMIC_STATE_STENCIL_REFERENCE - VK_DYNAMIC_STATE_VIEWPORT + 1,
+		VK_DYNAMIC_STATE_MAX_ENUM    = 0x7FFFFFFF;
+
+	/**
+	 * Nearest filtering.
+	 * 
+	 * <p>Computes the integer texel coordinates that the unnormalized coordinates lie within:</p>
+	 * 
+	 * <pre><code>i = ⌊u⌋=
+j = ⌊v⌋
+k = ⌊w⌋</code></pre>
+	 */
+	public static final int VK_FILTER_NEAREST = 0;
+
+	/**
+	 * Linear filtering.
+	 * 
+	 * <p>Computes a set of neighboring coordinates which bound the unnormalized coordinates. The integer texel coordinates are combinations of {@code i0} or
+	 * {@code i1}, {@code j0} or {@code j1}, {@code k0} or {@code k1}, as well as weights {@code α}, {@code β}, and {@code γ}.</p>
+	 * 
+	 * <p>i0j0k0αβγ=⌊u−12⌋=⌊v−12⌋=⌊w−12⌋=frac(u−12)=frac(v−12)=frac(w−12)i1j1k1=i0+1=j0+1=k0+1</p>
+	 */
+	public static final int VK_FILTER_LINEAR = 1;
 
 	/** VkFilter */
 	public static final int
-		VK_FILTER_NEAREST     = 0,
-		VK_FILTER_LINEAR      = 1,
 		VK_FILTER_BEGIN_RANGE = VK_FILTER_NEAREST,
 		VK_FILTER_END_RANGE   = VK_FILTER_LINEAR,
 		VK_FILTER_RANGE_SIZE  = VK_FILTER_LINEAR - VK_FILTER_NEAREST + 1,
@@ -3928,6 +4000,7 @@ A = max(A<sub>s0</sub>, A<sub>d</sub>)</code></pre>
 		long __functionAddress = getInstance(device).CreateComputePipelines;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			VkComputePipelineCreateInfo.validate(pCreateInfos);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
 		return callPJIPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);

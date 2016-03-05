@@ -31,16 +31,7 @@ public class VKCapabilities {
 	public final boolean VK_KHR_display;
 	/** When true, {@link KHRDisplaySwapchain} is supported. */
 	public final boolean VK_KHR_display_swapchain;
-	/**
-	 * When true, the KHR_sampler_mirror_clamp_to_edge extension is supported.
-	 * 
-	 * <p>Extends the set of sampler address modes to include an additional mode ({@link VK10#VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE
-	 * SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE}) that effectively uses a texture map twice as large as the original image in which the additional half of
-	 * the new image is a mirror image of the original image.</p>
-	 * 
-	 * <p>This new mode relaxes the need to generate images whose opposite edges match by using the original image to generate a matching "mirror image". This
-	 * mode allows the texture to be mirrored only once in the negative s, t, and r directions.</p>
-	 */
+	/** When true, {@link KHRSamplerMirrorClampToEdge} is supported. */
 	public final boolean VK_KHR_sampler_mirror_clamp_to_edge;
 	/** When true, {@link KHRSurface} is supported. */
 	public final boolean VK_KHR_surface;
@@ -50,6 +41,8 @@ public class VKCapabilities {
 	public final boolean VK_KHR_win32_surface;
 	/** When true, {@link KHRXlibSurface} is supported. */
 	public final boolean VK_KHR_xlib_surface;
+	/** When true, {@link NVGLSLShader} is supported. */
+	public final boolean VK_NV_glsl_shader;
 
 	VKCapabilities(FunctionProvider provider) {
 		this.apiVersion = 0;
@@ -63,6 +56,7 @@ public class VKCapabilities {
 		VK_KHR_swapchain = (__KHRSwapchain = KHRSwapchain.create(provider)) != null;
 		VK_KHR_win32_surface = (__KHRWin32Surface = KHRWin32Surface.create(provider)) != null;
 		VK_KHR_xlib_surface = (__KHRXlibSurface = KHRXlibSurface.create(provider)) != null;
+		VK_NV_glsl_shader = false;
 	}
 
 	VKCapabilities(int apiVersion, Set<String> ext, FunctionProvider provider) {
@@ -77,6 +71,7 @@ public class VKCapabilities {
 		VK_KHR_swapchain = (__KHRSwapchain = KHRSwapchain.create(ext, provider)) != null;
 		VK_KHR_win32_surface = (__KHRWin32Surface = KHRWin32Surface.create(ext, provider)) != null;
 		VK_KHR_xlib_surface = (__KHRXlibSurface = KHRXlibSurface.create(ext, provider)) != null;
+		VK_NV_glsl_shader = ext.contains("VK_NV_glsl_shader");
 	}
 
 }

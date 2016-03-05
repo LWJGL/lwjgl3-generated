@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class KHRWin32Surface {
 
 	/** The extension specification version. */
-	public static final int VK_KHR_WIN32_SURFACE_SPEC_VERSION = 0x5;
+	public static final int VK_KHR_WIN32_SURFACE_SPEC_VERSION = 5;
 
 	/** The extension name. */
 	public static final String VK_KHR_WIN32_SURFACE_EXTENSION_NAME = "VK_KHR_win32_surface";
