@@ -1164,7 +1164,7 @@ public class GLFW {
 	 * <p>This function does not check whether the specified hint values are valid. If you set hints to invalid values this will instead be reported by the next
 	 * call to {@link #glfwCreateWindow CreateWindow}.</p>
 	 * 
-	 * <h3>Supported and default values</h3>
+	 * <h5>Supported and default values</h5>
 	 * 
 	 * <table class=lwjgl>
 	 * <tr><th>Name</th><th>Default value</th><th>Supported values</th></tr>

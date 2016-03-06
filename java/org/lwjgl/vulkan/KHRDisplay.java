@@ -308,7 +308,7 @@ public class KHRDisplay {
 	}
 
 	/**
-	 * Creates a {@link VkSurfaceKHR} structure representing a display plane and mode.
+	 * Creates a {@code VkSurfaceKHR} structure representing a display plane and mode.
 	 *
 	 * @param instance    the {@code VkInstance} to associate the surface
 	 * @param pCreateInfo a pointer to an instance of the {@link VkDisplaySurfaceCreateInfoKHR} structure containing the parameters affecting the creation of the surface object

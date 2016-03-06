@@ -680,7 +680,7 @@ public class ObjCRuntime {
 	 * <p>The Objective-C runtime library automatically registers all the classes defined in your source code. You can create class definitions at runtime and
 	 * register them with the {@link #objc_allocateClassPair} and {@link #objc_registerClassPair} functions.</p>
 	 * 
-	 * <h3>Special Considerations</h3>
+	 * <h5>Special Considerations</h5>
 	 * 
 	 * <p>You cannot assume that class objects you get from this function are classes that inherit from NSObject, so you cannot safely call any methods on such
 	 * classes without detecting that the method is implemented first.</p>
@@ -1191,7 +1191,7 @@ public class ObjCRuntime {
 	/**
 	 * Adds a new method to a class with a given name and implementation.
 	 * 
-	 * <h3>Discussion</h3>
+	 * <h5>Discussion</h5>
 	 * 
 	 * <p>class_addMethod will add an override of a superclass's implementation, but will not replace an existing implementation in this class. To change an
 	 * existing implementation, use {@link #method_setImplementation}.</p>
@@ -1246,7 +1246,7 @@ public class ObjCRuntime {
 	/**
 	 * Replaces the implementation of a method for a given class.
 	 * 
-	 * <h3>Discussion</h3>
+	 * <h5>Discussion</h5>
 	 * 
 	 * <p>This function behaves in two different ways:</p>
 	 * 
@@ -1533,7 +1533,7 @@ public class ObjCRuntime {
 	 * 
 	 * <p>This method does nothing if obj is {@link #nil}.</p>
 	 * 
-	 * <h3>Important</h3>
+	 * <h5>Important</h5>
 	 * 
 	 * <p>The garbage collector does not call this function. As a result, if you edit this function, you should also edit finalize. That said, Core Foundation
 	 * and other clients do call this function under garbage collection.</p>
@@ -2076,7 +2076,7 @@ public class ObjCRuntime {
 	/**
 	 * Returns a Boolean value that indicates whether one protocol conforms to another protocol.
 	 * 
-	 * <h3>Discussion</h3>
+	 * <h5>Discussion</h5>
 	 * 
 	 * <p>One protocol can incorporate other protocols using the same syntax that classes use to adopt a protocol:</p>
 	 * 

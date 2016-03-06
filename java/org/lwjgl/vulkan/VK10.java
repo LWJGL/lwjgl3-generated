@@ -42,13 +42,13 @@ public class VK10 {
 	 * scope of changes.</p>
 	 * 
 	 * <p>A difference in patch version numbers indicates that some usually small aspect of the specification or header has been modified, typically to fix a
-	 * bug, and may have an impact on the behavior of existing functionality. Differences in this version number should not affect either full compatibility
+	 * bug, and may have an impact on the behavior of existing functionality. Differences in this version number <b>should not</b> affect either full compatibility
 	 * or backwards compatibility between two versions, or add additional interfaces to the API.</p>
 	 * 
 	 * <p>A difference in minor version numbers indicates that some amount of new functionality has been added. This will usually include new interfaces in the
 	 * header, and may also include behavior changes and bug fixes. Functionality may be deprecated in a minor revision, but will not be removed. When a new
 	 * minor version is introduced, the patch version is reset to 0, and each minor revision maintains its own set of patch versions. Differences in this
-	 * version should not affect backwards compatibility, but will affect full compatibility.</p>
+	 * version <b>should not</b> affect backwards compatibility, but will affect full compatibility.</p>
 	 * 
 	 * <p>A difference in major version numbers indicates a large set of changes to the API, potentially including new functionality and header interfaces,
 	 * behavioral changes, removal of deprecated features, modification or outright replacement of any feature, and is thus very likely to break any and all
@@ -57,8 +57,8 @@ public class VK10 {
 	public static final int VK_API_VERSION = (VK_VERSION_MAJOR << 22) | (VK_VERSION_MINOR << 12) | VK_VERSION_PATCH;
 
 	/**
-	 * The reserved handle {@code VK_NULL_HANDLE} can be passed in place of valid object handles when explicitly called out in the specification. Any command
-	 * that creates an object successfully must not return {@code VK_NULL_HANDLE}. It is valid to pass {@code VK_NULL_HANDLE} to any {@code vkDestroy*} or
+	 * The reserved handle {@code VK_NULL_HANDLE} <b>can</b> be passed in place of valid object handles when explicitly called out in the specification. Any command
+	 * that creates an object successfully <b>must not</b> return {@code VK_NULL_HANDLE}. It is valid to pass {@code VK_NULL_HANDLE} to any {@code vkDestroy*} or
 	 * {@code vkFree*} command, which will silently ignore these values.
 	 */
 	public static final long VK_NULL_HANDLE = 0x0L;
@@ -885,7 +885,7 @@ public class VK10 {
 		VK_SHARING_MODE_MAX_ENUM    = 0x7FFFFFFF;
 
 	/**
-	 * Supports no device access. This layout must only be used as an {@code initialLayout} or as the {@code oldLayout} in an image transition. When
+	 * Supports no device access. This layout <b>must</b> only be used as an {@code initialLayout} or as the {@code oldLayout} in an image transition. When
 	 * transitioning out of this layout, the contents of the memory are not guaranteed to be preserved.
 	 */
 	public static final int VK_IMAGE_LAYOUT_UNDEFINED = 0;
@@ -906,14 +906,14 @@ public class VK10 {
 	public static final int VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL = 3;
 
 	/**
-	 * <b>must</b> only be used as a read-only depth/stencil attachment in a {@code VkFramebuffer} and/or as a read-only image in a shader (which can be read as
+	 * <b>must</b> only be used as a read-only depth/stencil attachment in a {@code VkFramebuffer} and/or as a read-only image in a shader (which <b>can</b> be read as
 	 * a sampled image, combined image/sampler and/or input attachment). This layout is valid only for subresources of images created with both the
 	 * {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled.
 	 */
 	public static final int VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL = 4;
 
 	/**
-	 * <b>must</b> only be used as a read-only image in a shader (which can be read as a sampled image, combined image/sampler and/or input attachment). This
+	 * <b>must</b> only be used as a read-only image in a shader (which <b>can</b> be read as a sampled image, combined image/sampler and/or input attachment). This
 	 * layout is valid only for subresources of images created with the {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} usage bit enabled.
 	 */
 	public static final int VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL = 5;
@@ -931,9 +931,9 @@ public class VK10 {
 	public static final int VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL = 7;
 
 	/**
-	 * Supports no device access. This layout must only be used as an {@code initialLayout} or as the {@code oldLayout} in an image transition. When
+	 * Supports no device access. This layout <b>must</b> only be used as an {@code initialLayout} or as the {@code oldLayout} in an image transition. When
 	 * transitioning out of this layout, the contents of the memory are preserved. This layout is intended to be used as the initial layout for an image
-	 * whose contents are written by the host, and hence the data can be written to memory immediately, without first executing a layout transition.
+	 * whose contents are written by the host, and hence the data <b>can</b> be written to memory immediately, without first executing a layout transition.
 	 * Currently, {@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED} is only useful with {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} images because there is not a standard layout defined for
 	 * {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL} images.
 	 */
@@ -1391,62 +1391,62 @@ A = max(A<sub>s0</sub>, A<sub>d</sub>)</code></pre>
 		VK_BLEND_OP_MAX_ENUM    = 0x7FFFFFFF;
 
 	/**
-	 * Indicates that the {@code pViewports} state in {@link VkPipelineViewportStateCreateInfo} will be ignored and must be set dynamically with
+	 * Indicates that the {@code pViewports} state in {@link VkPipelineViewportStateCreateInfo} will be ignored and <b>must</b> be set dynamically with
 	 * {@link #vkCmdSetViewport CmdSetViewport} before any draw commands. The number of viewports used by a pipeline is still specified by the {@code viewportCount} member of
 	 * {@code VkPipelineViewportStateCreateInfo}.
 	 */
 	public static final int VK_DYNAMIC_STATE_VIEWPORT = 0;
 
 	/**
-	 * Indicates that the {@code pScissors} state in {@link VkPipelineViewportStateCreateInfo} will be ignored and must be set dynamically with {@link #vkCmdSetScissor CmdSetScissor}
-	 * before any draw commands. The number of scissor rectangles used by a pipeline is still specified by the {@code scissorCount} member of
-	 * {@code VkPipelineViewportStateCreateInfo}.
+	 * Indicates that the {@code pScissors} state in {@link VkPipelineViewportStateCreateInfo} will be ignored and <b>must</b> be set dynamically with
+	 * {@link #vkCmdSetScissor CmdSetScissor} before any draw commands. The number of scissor rectangles used by a pipeline is still specified by the {@code scissorCount}
+	 * member of {@code VkPipelineViewportStateCreateInfo}.
 	 */
 	public static final int VK_DYNAMIC_STATE_SCISSOR = 1;
 
 	/**
-	 * Indicates that the {@code lineWidth} state in {@link VkPipelineRasterizationStateCreateInfo} will be ignored and must be set dynamically with
+	 * Indicates that the {@code lineWidth} state in {@link VkPipelineRasterizationStateCreateInfo} will be ignored and <b>must</b> be set dynamically with
 	 * {@link #vkCmdSetLineWidth CmdSetLineWidth} before any draw commands that generate line primitives for the rasterizer.
 	 */
 	public static final int VK_DYNAMIC_STATE_LINE_WIDTH = 2;
 
 	/**
 	 * Indicates that the {@code depthBiasConstantFactor}, {@code depthBiasClamp} and {@code depthBiasSlopeFactor} states in
-	 * {@link VkPipelineRasterizationStateCreateInfo} will be ignored and must be set dynamically with {@link #vkCmdSetDepthBias CmdSetDepthBias} before any draws are performed with
+	 * {@link VkPipelineRasterizationStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetDepthBias CmdSetDepthBias} before any draws are performed with
 	 * {@code depthBiasEnable} in {@code VkPipelineRasterizationStateCreateInfo} set to {@link #VK_TRUE TRUE}.
 	 */
 	public static final int VK_DYNAMIC_STATE_DEPTH_BIAS = 3;
 
 	/**
-	 * Indicates that the {@code blendConstants} state in {@link VkPipelineColorBlendStateCreateInfo} will be ignored and must be set dynamically with
+	 * Indicates that the {@code blendConstants} state in {@link VkPipelineColorBlendStateCreateInfo} will be ignored and <b>must</b> be set dynamically with
 	 * {@link #vkCmdSetBlendConstants CmdSetBlendConstants} before any draws are performed with a pipeline state with {@code VkPipelineColorBlendAttachmentState} member
 	 * {@code blendEnable} set to {@link #VK_TRUE TRUE} and any of the blend functions using a constant blend color.
 	 */
 	public static final int VK_DYNAMIC_STATE_BLEND_CONSTANTS = 4;
 
 	/**
-	 * Indicates that the {@code minDepthBounds} and {@code maxDepthBounds} states of {@link VkPipelineDepthStencilStateCreateInfo} will be ignored and must be
+	 * Indicates that the {@code minDepthBounds} and {@code maxDepthBounds} states of {@link VkPipelineDepthStencilStateCreateInfo} will be ignored and <b>must</b> be
 	 * set dynamically with {@link #vkCmdSetDepthBounds CmdSetDepthBounds} before any draws are performed with a pipeline state with {@code VkPipelineDepthStencilStateCreateInfo}
 	 * member {@code depthBoundsTestEnable} set to {@link #VK_TRUE TRUE}.
 	 */
 	public static final int VK_DYNAMIC_STATE_DEPTH_BOUNDS = 5;
 
 	/**
-	 * Indicates that the {@code compareMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both front and back will be ignored and must be set
+	 * Indicates that the {@code compareMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both front and back will be ignored and <b>must</b> be set
 	 * dynamically with {@link #vkCmdSetStencilCompareMask CmdSetStencilCompareMask} before any draws are performed with a pipeline state with
 	 * {@code VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}.
 	 */
 	public static final int VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK = 6;
 
 	/**
-	 * Indicates that the {@code writeMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both front and back will be ignored and must be set
+	 * Indicates that the {@code writeMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both front and back will be ignored and <b>must</b> be set
 	 * dynamically with {@link #vkCmdSetStencilWriteMask CmdSetStencilWriteMask} before any draws are performed with a pipeline state with {@code VkPipelineDepthStencilStateCreateInfo}
 	 * member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}.
 	 */
 	public static final int VK_DYNAMIC_STATE_STENCIL_WRITE_MASK = 7;
 
 	/**
-	 * Indicates that the reference state in {@link VkPipelineDepthStencilStateCreateInfo} for both front and back will be ignored and must be set dynamically
+	 * Indicates that the reference state in {@link VkPipelineDepthStencilStateCreateInfo} for both front and back will be ignored and <b>must</b> be set dynamically
 	 * with {@link #vkCmdSetStencilReference CmdSetStencilReference} before any draws are performed with a pipeline state with {@code VkPipelineDepthStencilStateCreateInfo} member
 	 * {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}.
 	 */
@@ -1626,7 +1626,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	public static final int VK_ATTACHMENT_STORE_OP_STORE = 0;
 
 	/**
-	 * Means the contents within the render area are not needed after rendering, and may be discarded; the contents of the attachment will be undefined
+	 * Means the contents within the render area are not needed after rendering, and <b>may</b> be discarded; the contents of the attachment will be undefined
 	 * inside the render area.
 	 */
 	public static final int VK_ATTACHMENT_STORE_OP_DONT_CARE = 1;
@@ -1666,7 +1666,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 		VK_INDEX_TYPE_MAX_ENUM    = 0x7FFFFFFF;
 
 	/**
-	 * The contents of the subpass will be recorded inline in the primary command buffer, and secondary command buffers must not be executed within the
+	 * The contents of the subpass will be recorded inline in the primary command buffer, and secondary command buffers <b>must not</b> be executed within the
 	 * subpass.
 	 */
 	public static final int VK_SUBPASS_CONTENTS_INLINE = 0;
@@ -1711,7 +1711,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	/** {@code VkImageView} <b>can</b> be used as a framebuffer color attachment that supports blending and as an input attachment. */
 	public static final int VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT = 0x100;
 
-	/** {@code VkImageView} 4can be used as a framebuffer depth/stencil attachment and as an input attachment. */
+	/** {@code VkImageView} <b>can</b> be used as a framebuffer depth/stencil attachment and as an input attachment. */
 	public static final int VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT = 0x200;
 
 	/** {@code VkImage} <b>can</b> be used as {@code srcImage} for the {@link #vkCmdBlitImage CmdBlitImage} command. */
@@ -1728,7 +1728,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * filtering, and that linear filtering of the depth aspect is supported whether depth compare is enabled in the sampler or not. If this bit is not
 	 * present, linear filtering with depth compare disabled is unsupported and linear filtering with depth compare enabled is supported, but <b>may</b> compute
 	 * the filtered value in an implementation-dependent manner which differs from the normal rules of linear filtering. The resulting value <b>must</b> be in
-	 * the range {@code [0,1]} and should be proportional to, or a weighted average of, the number of comparison passes or failures.</p>
+	 * the range {@code [0,1]} and <b>should</b> be proportional to, or a weighted average of, the number of comparison passes or failures.</p>
 	 */
 	public static final int VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT = 0x1000;
 
@@ -1776,7 +1776,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Indicates that the image will be backed using sparse memory binding with memory ranges that might also simultaneously be backing another image (or
-	 * another portion of the same image). Sparse images created with this flag must also be created with the {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}.
+	 * another portion of the same image). Sparse images created with this flag <b>must</b> also be created with the {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}.
 	 */
 	public static final int VK_IMAGE_CREATE_SPARSE_ALIASED_BIT = 0x4;
 
@@ -1864,7 +1864,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * If set, then the queues in this queue family support sparse memory management operations. If any of the sparse resource features are enabled, then
-	 * at least one queue family must support this bit.
+	 * at least one queue family <b>must</b> support this bit.
 	 */
 	public static final int VK_QUEUE_SPARSE_BINDING_BIT = 0x8;
 
@@ -1874,7 +1874,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 */
 	public static final int VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT = 0x1;
 
-	/** If set, memory allocated with this type can be mapped using {@link #vkMapMemory MapMemory} so that it can be accessed on the host. */
+	/** If set, memory allocated with this type <b>can</b> be mapped using {@link #vkMapMemory MapMemory} so that it <b>can</b> be accessed on the host. */
 	public static final int VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT = 0x2;
 
 	/**
@@ -1890,14 +1890,14 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	public static final int VK_MEMORY_PROPERTY_HOST_CACHED_BIT = 0x8;
 
 	/**
-	 * If set, the memory type only allows device access to the memory. Memory types must not have both {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} and
-	 * {@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} set. Additionally, the object's backing memory may be provided by the implementation lazily.
+	 * If set, the memory type only allows device access to the memory. Memory types <b>must</b> not have both {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} and
+	 * {@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} set. Additionally, the object's backing memory <b>may</b> be provided by the implementation lazily.
 	 */
 	public static final int VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT = 0x10;
 
 	/**
-	 * Means the heap corresponds to device local memory. Device local memory may have different performance characteristics than host local memory, and
-	 * may support different memory property flags.
+	 * Means the heap corresponds to device local memory. Device local memory <b>may</b> have different performance characteristics than host local memory, and
+	 * <b>may</b> support different memory property flags.
 	 */
 	public static final int VK_MEMORY_HEAP_DEVICE_LOCAL_BIT = 0x1;
 
@@ -1986,13 +1986,13 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * If set, queries managed by the pool will count the number of vertices processed by the input assembly stage. Vertices corresponding to incomplete
-	 * primitives may contribute to the count.
+	 * primitives <b>may</b> contribute to the count.
 	 */
 	public static final int VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT = 0x1;
 
 	/**
 	 * If set, queries managed by the pool will count the number of primitives processed by the input assembly stage. If primitive restart is enabled,
-	 * restarting the primitive topology has no effect on the count. Incomplete primitives may be counted.
+	 * restarting the primitive topology has no effect on the count. Incomplete primitives <b>may</b> be counted.
 	 */
 	public static final int VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT = 0x2;
 
@@ -2025,7 +2025,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	/**
 	 * IF set, queries managed by the pool will count the number of primitives output by the Primitive Clipping stage of the pipeline. The counter’s value
 	 * is incremented each time a primitive passes the primitive clipping stage. The actual number of primitives output by the primitive clipping stage
-	 * for a particular input primitive is implementation-dependent but must satisfy the following conditions:
+	 * for a particular input primitive is implementation-dependent but <b>must</b> satisfy the following conditions:
 	 * 
 	 * <ul>
 	 * <li>If at least one vertex of the input primitive lies inside the clipping volume, the counter is incremented by one or more.</li>
@@ -2054,7 +2054,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * If set, queries managed by the pool will count the number of compute shader invocations. The counter’s value is incremented every time the compute
-	 * shader is invoked. Implementations may skip the execution of certain compute shader invocations or execute additional compute shader invocations
+	 * shader is invoked. Implementations <b>may</b> skip the execution of certain compute shader invocations or execute additional compute shader invocations
 	 * for implementation-dependent reasons as long as the results of rendering otherwise remain unchanged.
 	 */
 	public static final int VK_QUERY_PIPELINE_STATISTIC_COMPUTE_SHADER_INVOCATIONS_BIT = 0x400;
@@ -2176,8 +2176,8 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	public static final int VK_COLOR_COMPONENT_A_BIT = 0x8;
 
 	/**
-	 * If set, then descriptor sets can return their individual allocations to the pool, i.e. all of {@link #vkAllocateDescriptorSets AllocateDescriptorSets}, {@link #vkFreeDescriptorSets FreeDescriptorSets}, and
-	 * {@link #vkResetDescriptorPool ResetDescriptorPool} are allowed. Otherwise, descriptor sets allocated from the pool must not be individually freed back to the pool, i.e. only
+	 * If set, then descriptor sets <b>can</b> return their individual allocations to the pool, i.e. all of {@link #vkAllocateDescriptorSets AllocateDescriptorSets}, {@link #vkFreeDescriptorSets FreeDescriptorSets}, and
+	 * {@link #vkResetDescriptorPool ResetDescriptorPool} are allowed. Otherwise, descriptor sets allocated from the pool <b>must</b> not be individually freed back to the pool, i.e. only
 	 * {@link #vkAllocateDescriptorSets AllocateDescriptorSets} and {@link #vkResetDescriptorPool ResetDescriptorPool} are allowed.
 	 */
 	public static final int VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT = 0x1;
@@ -2207,17 +2207,17 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * neither use is as a resolve or preserve attachment. In other words, the same view <b>can</b> be used simultaneously as an input and color or
 	 * depth/stencil attachment, but <b>must not</b> be used as multiple color or depth/stencil attachments nor as resolve or preserve attachments.</p>
 	 * 
-	 * <p>If a set of attachments alias each other, then all except the first to be used in the render pass must use an initialLayout of
+	 * <p>If a set of attachments alias each other, then all except the first to be used in the render pass <b>must</b> use an initialLayout of
 	 * {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, since the earlier uses of the other aliases make their contents undefined. Once an alias has been used and a different
-	 * alias has been used after it, the first alias <b>must not</b> be used in any later subpasses. However, an application can assign the same image view to
+	 * alias has been used after it, the first alias <b>must not</b> be used in any later subpasses. However, an application <b>can</b> assign the same image view to
 	 * multiple aliasing attachment indices, which allows that image view to be used multiple times even if other aliases are used in between. Once an
-	 * attachment needs the {@code ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT} bit, there should be no additional cost of introducing additional aliases, and
-	 * using these additional aliases may allow more efficient clearing of the attachments on multiple uses via {@link #VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}.</p>
+	 * attachment needs the {@code ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT} bit, there <b>should</b> be no additional cost of introducing additional aliases, and
+	 * using these additional aliases <b>may</b> allow more efficient clearing of the attachments on multiple uses via {@link #VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}.</p>
 	 * 
-	 * <h3>Note</h3>
+	 * <h5>Note</h5>
 	 * 
 	 * <p>The exact set of attachment indices that alias with each other is not known until a framebuffer is created using the render pass, so the above
-	 * conditions cannot be validated at render pass creation time.</p>
+	 * conditions <b>cannot</b> be validated at render pass creation time.</p>
 	 */
 	public static final int VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT = 0x1;
 
@@ -2273,17 +2273,17 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	public static final int VK_ACCESS_HOST_WRITE_BIT = 0x4000;
 
 	/**
-	 * Indicates that the access is a read via a non-specific unit attached to the memory. This unit may be external to the Vulkan device or otherwise not
+	 * Indicates that the access is a read via a non-specific unit attached to the memory. This unit <b>may</b> be external to the Vulkan device or otherwise not
 	 * part of the core Vulkan pipeline. When included in {@code dstAccessMask}, all writes using access types in {@code srcAccessMask} performed by
-	 * pipeline stages in {@code srcStageMask} must be visible in memory.
+	 * pipeline stages in {@code srcStageMask} <b>must</b> be visible in memory.
 	 */
 	public static final int VK_ACCESS_MEMORY_READ_BIT = 0x8000;
 
 	/**
-	 * Indicates that the access is a write via a non-specific unit attached to the memory. This unit may be external to the Vulkan device or otherwise
+	 * Indicates that the access is a write via a non-specific unit attached to the memory. This unit <b>may</b> be external to the Vulkan device or otherwise
 	 * not part of the core Vulkan pipeline. When included in {@code srcAccessMask}, all access types in {@code dstAccessMask} from pipeline stages in
 	 * {@code dstStageMask} will observe the side effects of commands that executed before the barrier. When included in {@code dstAccessMask} all writes
-	 * using access types in {@code srcAccessMask} performed by pipeline stages in {@code srcStageMask} must be visible in memory.
+	 * using access types in {@code srcAccessMask} performed by pipeline stages in {@code srcStageMask} <b>must</b> be visible in memory.
 	 */
 	public static final int VK_ACCESS_MEMORY_WRITE_BIT = 0x10000;
 
@@ -2292,15 +2292,15 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Indicates that command buffers allocated from the pool will be short-lived, meaning that they will be reset or freed in a relatively short
-	 * timeframe. This flag may be used by the implementation to control memory allocation behavior within the pool.
+	 * timeframe. This flag <b>may</b> be used by the implementation to control memory allocation behavior within the pool.
 	 */
 	public static final int VK_COMMAND_POOL_CREATE_TRANSIENT_BIT = 0x1;
 
 	/**
 	 * Controls whether command buffers allocated from the pool <b>can</b> be individually reset. If this flag is set, individual command buffers allocated from
 	 * the pool <b>can</b> be reset either explicitly, by calling {@link #vkResetCommandBuffer ResetCommandBuffer}, or implicitly, by calling {@link #vkBeginCommandBuffer BeginCommandBuffer} on an executable
-	 * command buffer. If this flag is not set, then {@link #vkResetCommandBuffer ResetCommandBuffer} and {@link #vkBeginCommandBuffer BeginCommandBuffer} (on an executable command buffer) must not be called
-	 * on the command buffers allocated from the pool, and they can only be reset in bulk by calling {@link #vkResetCommandPool ResetCommandPool}.
+	 * command buffer. If this flag is not set, then {@link #vkResetCommandBuffer ResetCommandBuffer} and {@link #vkBeginCommandBuffer BeginCommandBuffer} (on an executable command buffer) <b>must</b> not be called
+	 * on the command buffers allocated from the pool, and they <b>can</b> only be reset in bulk by calling {@link #vkResetCommandPool ResetCommandPool}.
 	 */
 	public static final int VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT = 0x2;
 
@@ -2326,8 +2326,8 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	public static final int VK_QUERY_CONTROL_PRECISE_BIT = 0x1;
 
 	/**
-	 * If set, then most or all memory resources currently owned by the command buffer should be returned to the parent command pool. If this flag is not
-	 * set, then the command buffer may hold onto memory resources and reuse them when recording commands.
+	 * If set, then most or all memory resources currently owned by the command buffer <b>should</b> be returned to the parent command pool. If this flag is not
+	 * set, then the command buffer <b>may</b> hold onto memory resources and reuse them when recording commands.
 	 */
 	public static final int VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT = 0x1;
 
@@ -2702,7 +2702,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * <p>{@code vkCreateInstance} creates the instance, then enables and initializes global layers and extensions requested by the application. If an extension
 	 * is provided by a layer, both the layer and extension <b>must</b> be specified at {@code vkCreateInstance} time.</p>
 	 * 
-	 * <h3>Valid Usage</h3>
+	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
 	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkInstanceCreateInfo} structure</li>
@@ -2742,11 +2742,11 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	/**
 	 * Destroys an instance of Vulkan.
 	 * 
-	 * <p>After destruction of the instance, all devices (logical and physical) and any objects created by those devices become invalid and should not be
-	 * accessed. However, objects allocated directly or indirectly through the instance are not destroyed automatically and so may be leaked. Applications
-	 * should destroy all objects created through instance before destroying the instance itself.</p>
+	 * <p>After destruction of the instance, all devices (logical and physical) and any objects created by those devices become invalid and <b>should not</b> be
+	 * accessed. However, objects allocated directly or indirectly through the instance are not destroyed automatically and so <b>may</b> be leaked. Applications
+	 * <b>should</b> destroy all objects created through instance before destroying the instance itself.</p>
 	 * 
-	 * <h3>Valid Usage</h3>
+	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
 	 * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
@@ -2756,7 +2756,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * <li>If no {@link VkAllocationCallbacks} were provided when instance was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
 	 * 
-	 * <p>Host access to {@code instance} <b>must</b> be externally synchronized</p>
+	 * <p>Host access to {@code instance} <b>must</b> be externally synchronized.</p>
 	 *
 	 * @param instance   the handle of the instance to destroy
 	 * @param pAllocator controls host memory allocation
@@ -2776,11 +2776,29 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Enumerates the physical devices accessible to a Vulkan instance.
+	 * Retrieves a list of physical device objects representing the physical devices installed in the system.
+	 * 
+	 * <p>If {@code pPhysicalDevices} is {@code NULL}, then the number of physical devices available is returned in {@code pPhysicalDeviceCount}. Otherwise,
+	 * {@code pPhysicalDeviceCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pPhysicalDevices} array, and on return
+	 * the variable is overwritten with the number of structures actually written to {@code pPhysicalDevices}. If the value of {@code pPhysicalDeviceCount} is
+	 * less than the number of physical devices available, at most {@code pPhysicalDeviceCount} structures will be written. If {@code pPhysicalDeviceCount} is
+	 * smaller than the number of physical devices available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available
+	 * physical devices were returned.</p>
+	 * 
+	 * <p>Once enumerated, general properties of the physical devices are queried by calling {@link #vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>instance <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>{@code pPhysicalDeviceCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPhysicalDeviceCount} is not 0, and {@code pPhysicalDevices is} not {@code NULL}, {@code pPhysicalDevices} <b>must</b> be a
+	 * pointer to an array of {@code pPhysicalDeviceCount} {@code VkPhysicalDevice} handles.</li>
+	 * </ul>
 	 *
-	 * @param instance             
-	 * @param pPhysicalDeviceCount 
-	 * @param pPhysicalDevices     
+	 * @param instance             a handle to a Vulkan instance previously created with {@link #vkCreateInstance CreateInstance}
+	 * @param pPhysicalDeviceCount a pointer to an integer related to the number of physical devices available or queried
+	 * @param pPhysicalDevices     either {@code NULL} or a pointer to an array of {@code VkPhysicalDevice} structures
 	 */
 	public static int vkEnumeratePhysicalDevices(VkInstance instance, ByteBuffer pPhysicalDeviceCount, ByteBuffer pPhysicalDevices) {
 		if ( CHECKS ) {
@@ -2811,9 +2829,16 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Reports capabilities of a physical device.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pProperties} <b>must</b> be a pointer to a {@link VkPhysicalDeviceProperties} structure</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice 
-	 * @param pFeatures      
+	 * @param physicalDevice the handle to the physical device whose properties will be queried
+	 * @param pFeatures      points to an instance of the {@link VkPhysicalDeviceProperties} structure, that will be filled with returned information
 	 */
 	public static void vkGetPhysicalDeviceFeatures(VkPhysicalDevice physicalDevice, VkPhysicalDeviceFeatures pFeatures) {
 		nvkGetPhysicalDeviceFeatures(physicalDevice, pFeatures.address());
@@ -2831,10 +2856,18 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Lists physical device’s format capabilities.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
+	 * <li>{@code pFormatProperties} <b>must</b> be a pointer to a {@link VkFormatProperties} structure</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice    
-	 * @param format            
-	 * @param pFormatProperties 
+	 * @param physicalDevice    the physical device from which to query the format properties
+	 * @param format            the format whose properties are queried
+	 * @param pFormatProperties a pointer to a {@link VkFormatProperties} structure in which physical device properties for format are returned
 	 */
 	public static void vkGetPhysicalDeviceFormatProperties(VkPhysicalDevice physicalDevice, int format, VkFormatProperties pFormatProperties) {
 		nvkGetPhysicalDeviceFormatProperties(physicalDevice, format, pFormatProperties.address());
@@ -2852,14 +2885,33 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Lists physical device's image format capabilities.
+	 * 
+	 * <p>In addition to the minimum capabilities, implementations <b>may</b> support additional capabilities for certain types of images. For example, larger
+	 * dimensions or additional sample counts for certain image types, or additional capabilities for linear tiling format images.</p>
+	 * 
+	 * <p>The {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags} parameters correspond to parameters that would be consumed by
+	 * {@link #vkCreateImage CreateImage}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
+	 * <li>{@code type} <b>must</b> be a valid {@code VkImageType} value</li>
+	 * <li>{@code tiling} <b>must</b> be a valid {@code VkImageTiling} value</li>
+	 * <li>{@code usage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
+	 * <li>{@code usage} <b>must</b> not be 0</li>
+	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkImageCreateFlagBits} values</li>
+	 * <li>{@code pImageFormatProperties} <b>must</b> be a pointer to a {@link VkImageFormatProperties} structure</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice         
-	 * @param format                 
-	 * @param type                   
-	 * @param tiling                 
-	 * @param usage                  
-	 * @param flags                  
-	 * @param pImageFormatProperties 
+	 * @param physicalDevice         the physical device from which to query the image capabilities
+	 * @param format                 the image format, corresponding to {@code VkImageCreateInfo.format}
+	 * @param type                   the image type, corresponding to {@code VkImageCreateInfo.imageType}
+	 * @param tiling                 the image tiling, corresponding to {@code VkImageCreateInfo.tiling}
+	 * @param usage                  the intended usage of the image, corresponding to {@code VkImageCreateInfo.usage}
+	 * @param flags                  a bitfield describing additional parameters of the image, corresponding to {@code VkImageCreateInfo.flags}
+	 * @param pImageFormatProperties points to an instance of the {@link VkImageFormatProperties} structure in which capabilities are returned
 	 */
 	public static int vkGetPhysicalDeviceImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int tiling, int usage, int flags, VkImageFormatProperties pImageFormatProperties) {
 		return nvkGetPhysicalDeviceImageFormatProperties(physicalDevice, format, type, tiling, usage, flags, pImageFormatProperties.address());
@@ -2877,9 +2929,16 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Returns properties of a physical device.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} must be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pProperties} must be a pointer to a {@link VkPhysicalDeviceProperties} structure</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice 
-	 * @param pProperties    
+	 * @param physicalDevice the handle to the physical device whose properties will be queried
+	 * @param pProperties    points to an instance of the {@link VkPhysicalDeviceProperties} structure, that will be filled with returned information
 	 */
 	public static void vkGetPhysicalDeviceProperties(VkPhysicalDevice physicalDevice, VkPhysicalDeviceProperties pProperties) {
 		nvkGetPhysicalDeviceProperties(physicalDevice, pProperties.address());

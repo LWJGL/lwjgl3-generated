@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * Defines the capabilities of an OpenCL platform or device.
  *
- * <p>The instance returned by {@link CLPlatform#createCapabilities} )} exposes the functionality present on either the platform or any of its devices. This is
+ * <p>The instance returned by {@link CLPlatform#createCapabilities} exposes the functionality present on either the platform or any of its devices. This is
  * unlike the {@link CL10#CL_PLATFORM_EXTENSIONS} string, which returns only platform functionality, supported across all platform devices.</p>
  *
  * <p>The instance returned by {@link CLDevice#createCapabilities} exposes only the functionality available on that particular device.</p>
@@ -356,7 +356,7 @@ Description
 	 * <p>The following macros are predefined when compiling OpenCL™ C kernels. These macros are defined automatically based on the device for which the code is
 	 * being compiled.</p>
 	 * 
-	 * <h3>GPU devices</h3>
+	 * <h5>GPU devices</h5>
 	 * 
 	 * <ul>
 	 * <li>__Barts__</li>
@@ -396,7 +396,7 @@ Description
 	 * <li>__GPU__</li>
 	 * </ul>
 	 * 
-	 * <h3>CPU devices<h3>
+	 * <h5>CPU devices</h5>
 	 * 
 	 * <ul>
 	 * <li>__CPU__</li>
@@ -666,17 +666,17 @@ Description
 	/**
 	 * When true, the <a href="http://www.khronos.org/registry/cl/extensions/nv/cl_nv_pragma_unroll.txt">nv_pragma_unroll</a> extension is supported.
 	 * 
-	 * <h3>Overview</h3>
+	 * <h5>Overview</h5>
 	 * 
 	 * <p>This extension extends the OpenCL C language with a hint that allows loops to be unrolled. This pragma must be used for a loop and can be used to
 	 * specify full unrolling or partial unrolling by a certain amount. This is a hint and the compiler may ignore this pragma for any reason.</p>
 	 * 
-	 * <h3>Goals</h3>
+	 * <h5>Goals</h5>
 	 * 
 	 * <p>The principal goal of the pragma unroll is to improve the performance of loops via unrolling. Typically this enables other optimizations or improves
 	 * instruction level parallelism of a thread.</p>
 	 * 
-	 * <h3>Details</h3>
+	 * <h5>Details</h5>
 	 * 
 	 * <p>A user may specify that a loop in the source program be unrolled. This is done via a pragma. The syntax of this pragma is as follows</p>
 	 * 

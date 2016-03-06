@@ -361,7 +361,7 @@ public class GL12 {
 	 * <p>Vertex attributes that are modified by glDrawRangeElements have an unspecified value after glDrawRangeElements returns. Attributes that aren't modified
 	 * maintain their previous values.</p>
 	 * 
-	 * <h3>Errors</h3>
+	 * <h5>Errors</h5>
 	 * 
 	 * <p>It is an error for indices to lie outside the range start end, but implementations may not check for this situation. Such indices cause
 	 * implementation-dependent behavior.</p>

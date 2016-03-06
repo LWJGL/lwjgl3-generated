@@ -97,7 +97,7 @@ public class EXTRasterMultisample {
 	 * <li>a multisample draw framebuffer is bound ({@link GL13#GL_SAMPLE_BUFFERS SAMPLE_BUFFERS} is one)</li>
 	 * </ul>
 	 * 
-	 * <h3>Errors</h3>
+	 * <h5>Errors</h5>
 	 * 
 	 * <p>An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code samples} is greater than the value of {@link #GL_MAX_RASTER_SAMPLES_EXT MAX_RASTER_SAMPLES_EXT} (the implementation-dependent maximum
 	 * number of samples).</p>
