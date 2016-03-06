@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/**  */
+/** Instances of this interface may be set to the {@code pfnAllocation} member of the {@link VkAllocationCallbacks} struct. */
 public abstract class VkAllocationFunction extends Closure.P {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -49,7 +49,17 @@ public abstract class VkAllocationFunction extends Closure.P {
 		);
 	}
 
-
+	/**
+	 * Will be called by the Vulkan implementation to allocate memory.
+	 *
+	 * @param pUserData       the value specified for {@link VkAllocationCallbacks}{@code .pUserData} in the allocator specified by the application
+	 * @param size            the size in bytes of the requested allocation
+	 * @param alignment       the requested alignment of the allocation in bytes and <b>must</b> be a power of two
+	 * @param allocationScope a {@code VkSystemAllocationScope} value specifying the scope of the lifetime of the allocation
+	 *
+	 * @return <b>must</b> either return {@code NULL} (in case of allocation failure or if size is zero) or a valid pointer to a memory allocation containing at least size bytes, and
+	 *         with the pointer value being a multiple of alignment.
+	 */
 	public abstract long invoke(long pUserData, long size, long alignment, int allocationScope);
 
 	/** A functional interface for {@link VkAllocationFunction}. */

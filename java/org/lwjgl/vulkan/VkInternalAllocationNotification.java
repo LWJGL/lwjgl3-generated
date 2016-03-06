@@ -14,7 +14,11 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/**  */
+/**
+ * Instances of this interface may be set to the {@code pfnInternalAllocation} member of the {@link VkAllocationCallbacks} struct.
+ * 
+ * <p>This is a purely informational callback.</p>
+ */
 public abstract class VkInternalAllocationNotification extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -49,7 +53,14 @@ public abstract class VkInternalAllocationNotification extends Closure.V {
 		);
 	}
 
-
+	/**
+	 * Will be called by the Vulkan implementation when an internal allocation occurs.
+	 *
+	 * @param pUserData       the value specified for {@link VkAllocationCallbacks}{@code .pUserData} in the allocator specified by the application
+	 * @param size            the requested size of an allocation
+	 * @param allocationType  the requested type of an allocation
+	 * @param allocationScope a {@code VkSystemAllocationScope} value specifying the scope of the lifetime of the allocation
+	 */
 	public abstract void invoke(long pUserData, long size, int allocationType, int allocationScope);
 
 	/** A functional interface for {@link VkInternalAllocationNotification}. */
