@@ -1941,6 +1941,11 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_system_JNI_invokeIZ(JNIEnv *__env, jcl
 	return ((jboolean (*) (jint))(intptr_t)__functionAddress)(param0);
 }
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_JNI_invokeJ(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
+	UNUSED_PARAMS(__env, clazz)
+	return ((jlong (*) ())(intptr_t)__functionAddress)();
+}
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_JNI_invokeP(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)((intptr_t (*) ())(intptr_t)__functionAddress)();

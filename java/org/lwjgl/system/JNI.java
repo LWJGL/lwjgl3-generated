@@ -409,6 +409,7 @@ public final class JNI {
 	public static native void invokeIPV(long __functionAddress, int param0, long param1);
 	public static native void invokeIV(long __functionAddress, int param0);
 	public static native boolean invokeIZ(long __functionAddress, int param0);
+	public static native long invokeJ(long __functionAddress);
 	public static native long invokeP(long __functionAddress);
 	public static native void invokePDDV(long __functionAddress, long param0, double param1, double param2);
 	public static native void invokePFV(long __functionAddress, long param0, float param1);

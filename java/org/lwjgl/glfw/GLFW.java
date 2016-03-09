@@ -506,6 +506,7 @@ public class GLFW {
 		SetFramebufferSizeCallback,
 		PollEvents,
 		WaitEvents,
+		WaitEventsTimeout,
 		PostEmptyEvent,
 		GetInputMode,
 		SetInputMode,
@@ -534,6 +535,8 @@ public class GLFW {
 		GetClipboardString,
 		GetTime,
 		SetTime,
+		GetTimerValue,
+		GetTimerFrequency,
 		MakeContextCurrent,
 		GetCurrentContext,
 		SwapBuffers,
@@ -596,6 +599,7 @@ public class GLFW {
 		SetFramebufferSizeCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetFramebufferSizeCallback"));
 		PollEvents = checkFunctionAddress(provider.getFunctionAddress("glfwPollEvents"));
 		WaitEvents = checkFunctionAddress(provider.getFunctionAddress("glfwWaitEvents"));
+		WaitEventsTimeout = checkFunctionAddress(provider.getFunctionAddress("glfwWaitEventsTimeout"));
 		PostEmptyEvent = checkFunctionAddress(provider.getFunctionAddress("glfwPostEmptyEvent"));
 		GetInputMode = checkFunctionAddress(provider.getFunctionAddress("glfwGetInputMode"));
 		SetInputMode = checkFunctionAddress(provider.getFunctionAddress("glfwSetInputMode"));
@@ -624,6 +628,8 @@ public class GLFW {
 		GetClipboardString = checkFunctionAddress(provider.getFunctionAddress("glfwGetClipboardString"));
 		GetTime = checkFunctionAddress(provider.getFunctionAddress("glfwGetTime"));
 		SetTime = checkFunctionAddress(provider.getFunctionAddress("glfwSetTime"));
+		GetTimerValue = checkFunctionAddress(provider.getFunctionAddress("glfwGetTimerValue"));
+		GetTimerFrequency = checkFunctionAddress(provider.getFunctionAddress("glfwGetTimerFrequency"));
 		MakeContextCurrent = checkFunctionAddress(provider.getFunctionAddress("glfwMakeContextCurrent"));
 		GetCurrentContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetCurrentContext"));
 		SwapBuffers = checkFunctionAddress(provider.getFunctionAddress("glfwSwapBuffers"));
@@ -2116,13 +2122,53 @@ public class GLFW {
 	 * <ul>
 	 * <li>This function must only be called from the main thread.</li>
 	 * <li>This function must not be called from a callback.</li>
-	 * <li>On some platforms, certain callbacks may be called outside of a call to one of the event processing functions.</li>
 	 * </ul>
 	 */
 	public static void glfwWaitEvents() {
 		long __functionAddress = getInstance().WaitEvents;
 		EventLoop.OnScreen.check();
 		invokeV(__functionAddress);
+	}
+
+	// --- [ glfwWaitEventsTimeout ] ---
+
+	/**
+	 * Waits with timeout until events are queued and processes them.
+	 * 
+	 * <p>This function puts the calling thread to sleep until at least one event is available in the event queue, or until the specified timeout is reached. If
+	 * one or more events are available, it behaves exactly like {@link #glfwPollEvents PollEvents}, i.e. the events in the queue are processed and the function then returns
+	 * immediately. Processing events will cause the window and input callbacks associated with those events to be called.</p>
+	 * 
+	 * <p>The timeout value must be a positive finite number.</p>
+	 * 
+	 * <p>Since not all events are associated with callbacks, this function may return without a callback having been called even if you are monitoring all
+	 * callbacks.</p>
+	 * 
+	 * <p>On some platforms, a window move, resize or menu operation will cause event processing to block. This is due to how event processing is designed on
+	 * those platforms. You can use the window refresh callback to redraw the contents of your window when necessary during such operations.</p>
+	 * 
+	 * <p>On some platforms, certain callbacks may be called outside of a call to one of the event processing functions.</p>
+	 * 
+	 * <p>If no windows exist, this function returns immediately. For synchronization of threads in applications that do not create windows, use your threading
+	 * library of choice.</p>
+	 * 
+	 * <p>Event processing is not required for joystick input to work.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
+	 * </ul>
+	 *
+	 * @param timeout the maximum amount of time, in seconds, to wait
+	 *
+	 * @since version 3.2
+	 */
+	public static void glfwWaitEventsTimeout(double timeout) {
+		long __functionAddress = getInstance().WaitEventsTimeout;
+		EventLoop.OnScreen.check();
+		invokeDV(__functionAddress, timeout);
 	}
 
 	// --- [ glfwPostEmptyEvent ] ---
@@ -2899,7 +2945,7 @@ public class GLFW {
 	 * <p>The resolution of the timer is system dependent, but is usually on the order of a few micro- or nanoseconds. It uses the highest-resolution monotonic
 	 * time source on each supported platform.</p>
 	 * 
-	 * <p>This function may be called from any thread. Access is not synchronized.</p>
+	 * <p>This function may be called from any thread. Reading of the internal timer offset is not atomic.</p>
 	 *
 	 * @return the current value, in seconds, or zero if an error occurred
 	 *
@@ -2919,7 +2965,7 @@ public class GLFW {
 	 * <p>The upper limit of the timer is calculated as <code>floor((2<sup>64</sup> - 1) / 10<sup>9</sup>)</code> and is due to implementations storing nanoseconds
 	 * in 64 bits. The limit may be increased in the future.</p>
 	 * 
-	 * <p>This function must only be called from the main thread.</p>
+	 * <p>This function may be called from any thread. Writing of the internal timer offset is not atomic.</p>
 	 *
 	 * @param time the new value, in seconds
 	 *
@@ -2928,6 +2974,40 @@ public class GLFW {
 	public static void glfwSetTime(double time) {
 		long __functionAddress = getInstance().SetTime;
 		invokeDV(__functionAddress, time);
+	}
+
+	// --- [ glfwGetTimerValue ] ---
+
+	/**
+	 * Returns the current value of the raw timer.
+	 * 
+	 * <p>This function returns the current value of the raw timer, measured in {@code 1 / frequency} seconds. To get the frequency, call {@link #glfwGetTimerFrequency GetTimerFrequency}.</p>
+	 * 
+	 * <p>This function may be called from any thread.</p>
+	 *
+	 * @return the value of the timer, or zero if an error occurred
+	 *
+	 * @since version 3.2
+	 */
+	public static long glfwGetTimerValue() {
+		long __functionAddress = getInstance().GetTimerValue;
+		return invokeJ(__functionAddress);
+	}
+
+	// --- [ glfwGetTimerFrequency ] ---
+
+	/**
+	 * Returns the frequency, in Hz, of the raw timer.
+	 * 
+	 * <p>This function may be called from any thread.</p>
+	 *
+	 * @return the frequency of the timer, in Hz, or zero if an error occurred
+	 *
+	 * @since version 3.2
+	 */
+	public static long glfwGetTimerFrequency() {
+		long __functionAddress = getInstance().GetTimerFrequency;
+		return invokeJ(__functionAddress);
 	}
 
 	// --- [ glfwMakeContextCurrent ] ---
