@@ -2214,10 +2214,11 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * attachment needs the {@code ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT} bit, there <b>should</b> be no additional cost of introducing additional aliases, and
 	 * using these additional aliases <b>may</b> allow more efficient clearing of the attachments on multiple uses via {@link #VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}.</p>
 	 * 
-	 * <h5>Note</h5>
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
 	 * <p>The exact set of attachment indices that alias with each other is not known until a framebuffer is created using the render pass, so the above
 	 * conditions <b>cannot</b> be validated at render pass creation time.</p>
+	 * </div>
 	 */
 	public static final int VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT = 0x1;
 
@@ -2907,10 +2908,10 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param physicalDevice         the physical device from which to query the image capabilities
 	 * @param format                 the image format, corresponding to {@code VkImageCreateInfo.format}
-	 * @param type                   the image type, corresponding to {@code VkImageCreateInfo.imageType}
-	 * @param tiling                 the image tiling, corresponding to {@code VkImageCreateInfo.tiling}
-	 * @param usage                  the intended usage of the image, corresponding to {@code VkImageCreateInfo.usage}
-	 * @param flags                  a bitfield describing additional parameters of the image, corresponding to {@code VkImageCreateInfo.flags}
+	 * @param type                   the image type, corresponding to {@code VkImageCreateInfo.imageType}. One of:<br>{@link #VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}, {@link #VK_IMAGE_TYPE_2D IMAGE_TYPE_2D}, {@link #VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}
+	 * @param tiling                 the image tiling, corresponding to {@code VkImageCreateInfo.tiling}. One of:<br>{@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}
+	 * @param usage                  the intended usage of the image, corresponding to {@code VkImageCreateInfo.usage}. One or more of:<br>{@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT}, {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT}, {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, {@link #VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}, {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT}
+	 * @param flags                  a bitfield describing additional parameters of the image, corresponding to {@code VkImageCreateInfo.flags}. One or more of:<br>{@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}, {@link #VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT}, {@link #VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT}, {@link #VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT IMAGE_CREATE_CUBE_COMPATIBLE_BIT}
 	 * @param pImageFormatProperties points to an instance of the {@link VkImageFormatProperties} structure in which capabilities are returned
 	 */
 	public static int vkGetPhysicalDeviceImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int tiling, int usage, int flags, VkImageFormatProperties pImageFormatProperties) {
@@ -2956,10 +2957,25 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Reports properties of the queues of the specified physical device.
+	 * 
+	 * <p>If {@code pQueueFamilyProperties} is {@code NULL}, then the number of queue families available is returned in {@code pQueueFamilyPropertyCount}. Otherwise,
+	 * {@code pQueueFamilyPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pQueueFamilyProperties} array, and
+	 * on return the variable is overwritten with the number of structures actually written to {@code pQueueFamilyProperties}. If the value of
+	 * {@code pQueueFamilyPropertyCount} is less than the number of queue families available, at most {@code pQueueFamilyPropertyCount} structures will be
+	 * written.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pQueueFamilyPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pQueueFamilyPropertyCount} is not 0, and {@code pQueueFamilyProperties} is not {@code NULL},
+	 * {@code pQueueFamilyProperties} <b>must</b> be a pointer to an array of {@code pQueueFamilyPropertyCount} {@link VkQueueFamilyProperties} structures</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice            
-	 * @param pQueueFamilyPropertyCount 
-	 * @param pQueueFamilyProperties    
+	 * @param physicalDevice            the handle to the physical device whose properties will be queried
+	 * @param pQueueFamilyPropertyCount a pointer to an integer related to the number of queue families available or queried
+	 * @param pQueueFamilyProperties    either {@code NULL} or a pointer to an array of {@link VkQueueFamilyProperties} structures
 	 */
 	public static void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, ByteBuffer pQueueFamilyPropertyCount, VkQueueFamilyProperties.Buffer pQueueFamilyProperties) {
 		if ( CHECKS ) {
@@ -2990,9 +3006,16 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Reports memory information for the specified physical device.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pMemoryProperties} <b>must</b> be a pointer to a {@link VkPhysicalDeviceMemoryProperties} structure</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice    
-	 * @param pMemoryProperties 
+	 * @param physicalDevice    the handle to the device to query
+	 * @param pMemoryProperties points to an instance of {@link VkPhysicalDeviceMemoryProperties} structure in which the properties are returned
 	 */
 	public static void vkGetPhysicalDeviceMemoryProperties(VkPhysicalDevice physicalDevice, VkPhysicalDeviceMemoryProperties pMemoryProperties) {
 		nvkGetPhysicalDeviceMemoryProperties(physicalDevice, pMemoryProperties.address());
@@ -3010,9 +3033,38 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Returns a function pointer for a command.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>If {@code instance} is not {@code NULL}, instance <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
+	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be one of:
+	 * 
+	 * <ul>
+	 * <li>vkEnumerateInstanceExtensionProperties</li>
+	 * <li>vkEnumerateInstanceLayerProperties</li>
+	 * <li>vkCreateInstance</li>
+	 * </ul></li>
+	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must</b> be the name of a core command or a command from an enabled extension, other than:
+	 * 
+	 * <ul>
+	 * <li>vkEnumerateInstanceExtensionProperties</li>
+	 * <li>vkEnumerateInstanceLayerProperties</li>
+	 * <li>vkCreateInstance</li>
+	 * </ul></li>
+	 * </ul>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
+	 * 
+	 * <p>LWJGL requires a non-{@code NULL} {@code instance} argument when calling this method. If {@code NULL} must be used, do the following:</p>
+	 * 
+	 * <pre><code>long GetInstanceProcAddr = VK.getFunctionProvider().getFunctionAddress("vkGetInstanceProcAddr");
+long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
+	 * </div>
 	 *
-	 * @param instance 
-	 * @param pName    
+	 * @param instance the instance that the function pointer will be compatible with
+	 * @param pName    the name of the command to obtain
 	 */
 	public static long vkGetInstanceProcAddr(VkInstance instance, ByteBuffer pName) {
 		if ( CHECKS )
@@ -3038,10 +3090,39 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Returns a function pointer for a command.
+	 * Returns a device-specific function pointer for a command.
+	 * 
+	 * <p>In order to support systems with multiple Vulkan implementations comprising heterogeneous collections of hardware and software, the function pointers
+	 * returned by {@link #vkGetInstanceProcAddr GetInstanceProcAddr} <b>may</b> point to dispatch code, which calls a different real implementation for different {@code VkDevice} objects (and
+	 * objects created from them). The overhead of this internal dispatch <b>can</b> be avoided by obtaining device-specific function pointers for any commands that
+	 * use a device or device-child object as their dispatchable object.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
+	 * <li>{@code pName} <b>must</b> be the name of a supported command that has a first parameter of type {@code VkDevice}, {@code VkQueue} or
+	 * {@code VkCommandBuffer}, either in the core API or an enabled extension</li>
+	 * </ul>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
+	 * 
+	 * <p>The function pointers used by LWJGL for commands that have a first parameter of type {@link VkDevice}, {@link VkQueue} or {@link VkCommandBuffer}, have been acquired
+	 * using this command.</p>
+	 * </div>
 	 *
-	 * @param device 
-	 * @param pName  
+	 * @param device the logical device that provides the function pointer
+	 * @param pName  the name of any Vulkan command whose first parameter is one of
+	 *               
+	 *               <ul>
+	 *               <li>{@link VkDevice}</li>
+	 *               <li>{@link VkQueue}</li>
+	 *               <li>{@link VkCommandBuffer}</li>
+	 *               </ul>
+	 *               
+	 *               <p>If {@code pName} is not the name of one of these Vulkan commands, and is not the name of an extension command belonging to an extension enabled for
+	 *               device, then {@code vkGetDeviceProcAddr} will return {@code NULL}.</p>
 	 */
 	public static long vkGetDeviceProcAddr(VkDevice device, ByteBuffer pName) {
 		if ( CHECKS )
@@ -3070,12 +3151,21 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Creates a new device instance.
+	 * Creates a new logical device instance.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkDeviceCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pDevice} <b>must</b> be a pointer to a {@code VkDevice} handle</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice 
-	 * @param pCreateInfo    
-	 * @param pAllocator     
-	 * @param pDevice        
+	 * @param physicalDevice <b>must</b> be one of the device handles returned from a call to {@link #vkEnumeratePhysicalDevices EnumeratePhysicalDevices}
+	 * @param pCreateInfo    a pointer to a {@link VkDeviceCreateInfo} structure containing information about how to create the device
+	 * @param pAllocator     controls host memory allocation
+	 * @param pDevice        points to a handle in which the created {@code VkDevice} is returned
 	 */
 	public static int vkCreateDevice(VkPhysicalDevice physicalDevice, VkDeviceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pDevice) {
 		if ( CHECKS )
@@ -3104,9 +3194,31 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Destroys a logical device.
+	 * 
+	 * <p>To ensure that no work is active on the device, {@link #vkDeviceWaitIdle DeviceWaitIdle} <b>can</b> be used to gate the destruction of the device. Prior to destroying a device, an
+	 * application is responsible for destroying/freeing any Vulkan objects that were created using that device as the first parameter of the corresponding
+	 * {@code vkCreate*} or {@code vkAllocate*} command.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The lifetime of each of these objects is bound by the lifetime of the {@code VkDevice} object. Therefore, to avoid resource leaks, it is critical
+	 * that an application explicitly free all of these resources prior to calling {@code vkDestroyDevice}.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>If {@code device} is not {@code NULL}, {@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>All child objects created on device <b>must</b> have been destroyed prior to destroying device</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when device was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when device was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <p>Host access to {@code device} <b>must</b> be externally synchronized.</p>
 	 *
-	 * @param device     
-	 * @param pAllocator 
+	 * @param device     the logical device to destroy
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyDevice(VkDevice device, VkAllocationCallbacks pAllocator) {
 		nvkDestroyDevice(device, pAllocator == null ? NULL : pAllocator.address());
@@ -3123,11 +3235,38 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Returns up to requested number of global extension properties.
+	 * Queries the available instance extensions.
+	 * 
+	 * <p>Extensions <b>may</b> define new Vulkan commands, structures, and enumerants. For compilation purposes, the interfaces defined by registered extensions,
+	 * including new structures and enumerants as well as function pointer types for new commands, are defined in the Khronos-supplied vulkan.h together with
+	 * the core API. However, commands defined by extensions may not be available for static linking - in which case function pointers to these commands
+	 * should be queried at runtime. Extensions <b>may</b> be provided by layers as well as by a Vulkan implementation.</p>
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of extensions properties available is returned in {@code pPropertyCount}. Otherwise,
+	 * {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable
+	 * is overwritten with the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than the number of
+	 * extension properties available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of
+	 * extensions available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available properties were returned.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated string</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of an instance layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
+	 * </ul>
+	 * 
+	 * <p>Any instance extensions provided by the Vulkan implementation or by implicitly enabled layers, but not by explicitly enabled layers, are returned when
+	 * {@code pLayerName} parameter is {@code NULL}. When {@code pLayerName} is the name of a layer, the instance extensions provided by that layer are returned.</p>
+	 * 
+	 * <p>To enable an instance extension, the name of the extension should be added to the {@code ppEnabledExtensionNames} member of {@link VkInstanceCreateInfo} when
+	 * creating a {@code VkInstance}.</p>
 	 *
-	 * @param pLayerName     pointer to optional layer name. If not null, will only return extension properties for the requested layer.
-	 * @param pPropertyCount pointer to count indicating space available on input and structures returned on output
-	 * @param pProperties    pointer to a data structure to receive the results
+	 * @param pLayerName     either {@code NULL} or the name of a instance layer to retrieve extensions from
+	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
 	public static int vkEnumerateInstanceExtensionProperties(ByteBuffer pLayerName, ByteBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
@@ -3170,12 +3309,35 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Returns properties of available physical device extensions.
+	 * Queries the extensions available to a given physical device.
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of extensions properties available is returned in {@code pPropertyCount}. Otherwise,
+	 * {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable
+	 * is overwritten with the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than the number of
+	 * extension properties available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of
+	 * extensions available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available properties were returned.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated string</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a device layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
+	 * </ul>
+	 * 
+	 * <p>Any device extensions provided by the Vulkan implementation or by implicitly enabled layers, but not by explicitly enabled layers, are returned when
+	 * {@code pLayerName} parameter is {@code NULL}. When {@code pLayerName} is the name of a layer, the device extensions provided by that layer are returned.</p>
+	 * 
+	 * <p>To enable a device layer, the name of the layer should be added to the {@code ppEnabledExtensionNames} member of {@link VkDeviceCreateInfo} when creating a
+	 * {@code VkDevice}.</p>
 	 *
-	 * @param physicalDevice the physical device to query
-	 * @param pLayerName     optional layer name to query
-	 * @param pPropertyCount count indicating number of {@code VkExtensionProperties} pointed to by {@code pProperties}
-	 * @param pProperties    pointer to an array of {@code VkExtensionProperties}
+	 * @param physicalDevice the physical device that will be queried
+	 * @param pLayerName     either {@code NULL} or the name of a device layer to retrieve extensions from
+	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
 	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, ByteBuffer pLayerName, ByteBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
@@ -3218,10 +3380,32 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Returns up to requested number of global layer properties.
+	 * Queries the available instance layers.
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of layer properties available is returned in {@code pPropertyCount}. Otherwise, {@code pPropertyCount}
+	 * <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable is overwritten with
+	 * the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than the number of layer properties
+	 * available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of layers available,
+	 * {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available layer properties were returned.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkLayerProperties} structures</li>
+	 * </ul>
+	 * 
+	 * <p>To enable a instance layer, the name of the layer should be added to the {@code ppEnabledLayerNames} member of {@link VkInstanceCreateInfo} when creating a
+	 * {@code VkInstance}.</p>
+	 * 
+	 * <p>When a layer is enabled, it inserts itself into the call chain for Vulkan commands the layer is interested in. A common use of layers is to validate
+	 * application behavior during development. For example, the implementation will not check that Vulkan enums used by the application fall within allowed
+	 * ranges. Instead, a validation layer would do those checks and flag issues. This avoids a performance penalty during production use of the application
+	 * because those layers would not be enabled in production.</p>
 	 *
-	 * @param pPropertyCount pointer to count indicating space available on input and structures returned on output
-	 * @param pProperties    pointer to a array to receive the results
+	 * @param pPropertyCount a pointer to an integer related to the number of layer properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkLayerProperties} structures
 	 */
 	public static int vkEnumerateInstanceLayerProperties(ByteBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
 		if ( CHECKS ) {
@@ -3251,11 +3435,34 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Returns properties of available physical device layers.
+	 * Queries the available device layers.
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of layer properties available is returned in {@code pPropertyCount}. Otherwise, {@code pPropertyCount}
+	 * <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable is overwritten with
+	 * the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than the number of layer properties
+	 * available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of layers available,
+	 * {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available layer properties were returned.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} must be a valid {@link VkPhysicalDevice} handle</li>
+	 * <li>{@code pPropertyCount} must be a pointer to a {@code uint32_t} value</li>
+	 * <li>If {@code pProperties} is not {@code NULL}, {@code pProperties} must be a pointer to an array of {@code pPropertyCount} {@link VkLayerProperties} structures</li>
+	 * <li>If {@code pProperties} is not {@code NULL}, the value referenced by {@code pPropertyCount} must be greater than 0</li>
+	 * </ul>
+	 * 
+	 * <p>To enable a device layer, the name of the layer should be added to the {@code ppEnabledLayerNames} member of {@link VkDeviceCreateInfo} when creating a
+	 * {@code VkDevice}.</p>
+	 * 
+	 * <p>Loader implementations may provide mechanisms outside the Vulkan API for enabling specific layers. Layers enabled through such a mechanism are
+	 * implicitly enabled, while layers enabled by including the layer name in the {@code ppEnabledLayerNames} member of {@link VkDeviceCreateInfo} are explicitly
+	 * enabled. Except where otherwise specified, implicitly enabled and explicitly enabled layers differ only in the way they are enabled. Explicitly
+	 * enabling a layer that is implicitly enabled has no additional effect.</p>
 	 *
-	 * @param physicalDevice the physical device to query
-	 * @param pPropertyCount count indicating number of {@code VkLayerProperties} pointed to by {@code pProperties}
-	 * @param pProperties    pointer to an array of {@code VkLayerProperties}
+	 * @param physicalDevice the physical device that will be queried
+	 * @param pPropertyCount a pointer to an integer related to the number of layer properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of VkLayerProperties structures
 	 */
 	public static int vkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, ByteBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
 		if ( CHECKS ) {
@@ -3285,12 +3492,50 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Gets a queue handle from a device.
+	 * Retrieves a handle to a {@code VkQueue} object.
+	 * 
+	 * <p>The queue family index is used in multiple places in Vulkan in order to tie operations to a specific family of queues.</p>
+	 * 
+	 * <p>When retrieving a handle to the queue via {@code vkGetDeviceQueue}, the queue family index is used to select which queue family to retrieve the
+	 * {@code VkQueue} handle from.</p>
+	 * 
+	 * <p>When creating a {@code VkCommandPool} object (see Command Pools), a queue family index is specified in the {@link VkCommandPoolCreateInfo} structure. Command
+	 * buffers from this pool can only be submitted on queues corresponding to this queue family.</p>
+	 * 
+	 * <p>When creating {@code VkImage} and {@code VkBuffer} resources, a set of queue families is included in the {@link VkImageCreateInfo} and {@link VkBufferCreateInfo}
+	 * structures to specify the queue families that can access the resource.</p>
+	 * 
+	 * <p>When inserting a {@link VkBufferMemoryBarrier} or {@link VkImageMemoryBarrier} a source and destination queue family index is specified to allow the ownership of a
+	 * buffer or image to be transferred from one queue family to another.</p>
+	 * 
+	 * <p>Each queue is assigned a priority, as set in the {@link VkDeviceQueueCreateInfo} structures when creating the device. The priority of each queue is a
+	 * normalized floating point value between 0.0 and 1.0, which is then translated to a discrete priority level by the implementation. Higher values
+	 * indicate a higher priority, with 0.0 being the lowest priority and 1.0 being the highest.</p>
+	 * 
+	 * <p>Within the same device, queues with higher priority <b>may</b> be allotted more processing time than queues with lower priority. The implementation makes no
+	 * guarantees with regards to ordering or scheduling among queues with the same priority, other than the constraints defined by explicit scheduling
+	 * primitives. The implementation make no guarantees with regards to queues across different devices.</p>
+	 * 
+	 * <p>An implementation <b>may</b> allow a higher-priority queue to starve a lower-priority queue on the same {@code VkDevice} until the higher-priority queue has
+	 * no further commands to execute. The relationship of queue priorities <b>must not</b> cause queues on one {@code VkDevice} to starve queues on another
+	 * {@code VkDevice}.</p>
+	 * 
+	 * <p>No specific guarantees are made about higher priority queues receiving more processing time or better quality of service than lower priority queues.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pQueue} <b>must</b> be a pointer to a {@code VkQueue} handle</li>
+	 * <li>{@code queueFamilyIndex} <b>must</b> be one of the queue family indices specified when device was created, via the {@link VkDeviceQueueCreateInfo} structure</li>
+	 * <li>{@code queueIndex} <b>must</b> be less than the number of queues created for the specified queue family index when device was created, via the
+	 * {@code queueCount} member of the {@code VkDeviceQueueCreateInfo} structure</li>
+	 * </ul>
 	 *
-	 * @param device           
-	 * @param queueFamilyIndex 
-	 * @param queueIndex       
-	 * @param pQueue           
+	 * @param device           the logical device that owns the queue
+	 * @param queueFamilyIndex the index of the queue family to which the queue belongs
+	 * @param queueIndex       the index within this queue family of the queue to retrieve
+	 * @param pQueue           a pointer to a {@code VkQueue} object that will be filled with the handle for the requested queue
 	 */
 	public static void vkGetDeviceQueue(VkDevice device, int queueFamilyIndex, int queueIndex, ByteBuffer pQueue) {
 		if ( CHECKS )
@@ -3319,11 +3564,46 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Submits a sequence of semaphores or command buffers to a queue.
+	 * 
+	 * <p>Each call to {@code vkQueueSubmit} submits zero or more batches of work to the queue for execution. {@code submitCount} is used to specify the number
+	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
+	 * be signalled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
+	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
+	 * address of which is passed in {@code pSubmitInfo}.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The exact definition of a submission is platform-specific, but is considered a relatively expensive operation. In general, applications should
+	 * attempt to batch work together into as few calls to {@code vkQueueSubmit} as possible.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
+	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
+	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code fence} <b>must</b> be unsignalled</li>
+	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code queue} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pSubmits[].pWaitSemaphores[]} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pSubmits[].pSignalSemaphores[]} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
+	 * </ul>
 	 *
-	 * @param queue       
-	 * @param submitCount 
-	 * @param pSubmits    
-	 * @param fence       
+	 * @param queue       the handle of the queue that the command buffers will be submitted to
+	 * @param submitCount the number of elements in the {@code pSubmits} array
+	 * @param pSubmits    a pointer to an array of {@link VkSubmitInfo} structures which describe the work to submit. All work described by {@code pSubmits} <b>must</b> be submitted to
+	 *                    the queue before the command returns.
+	 * @param fence       an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all
+	 *                    {@code VkSubmitInfo::pCommandBuffers} members of {@code pSubmits} is completed. If {@code submitCount} is zero but fence is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the
+	 *                    fence will still be submitted to the queue and will become signaled when all work previously submitted to the queue has completed.
 	 */
 	public static int vkQueueSubmit(VkQueue queue, int submitCount, VkSubmitInfo.Buffer pSubmits, long fence) {
 		if ( CHECKS )
@@ -3344,9 +3624,17 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	// --- [ vkQueueWaitIdle ] ---
 
 	/**
-	 * Waits for a queue to become idle.
+	 * Waits on the completion of all work within a single queue.
+	 * 
+	 * <p>{@code vkQueueWaitIdle} will block until all command buffers and sparse binding operations in the queue have completed.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
+	 * </ul>
 	 *
-	 * @param queue 
+	 * @param queue the queue on which to wait
 	 */
 	public static int vkQueueWaitIdle(VkQueue queue) {
 		long __functionAddress = getInstance(queue).QueueWaitIdle;
@@ -3359,8 +3647,20 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Waits for a device to become idle.
+	 * 
+	 * <p>A device is active while any of its queues have work to process. Once all device queues are idle, the device is idle.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to all {@code VkQueue} objects created from device <b>must</b> be externally synchronized.</p>
 	 *
-	 * @param device 
+	 * @param device the logical device to idle
 	 */
 	public static int vkDeviceWaitIdle(VkDevice device) {
 		long __functionAddress = getInstance(device).DeviceWaitIdle;
@@ -3382,12 +3682,41 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Alocates GPU memory.
+	 * Allocates device memory.
+	 * 
+	 * <p>Allocations returned by {@code vkAllocateMemory} are guaranteed to meet any alignment requirement by the implementation. For example, if an
+	 * implementation requires 128 byte alignment for images and 64 byte alignment for buffers, the device memory returned through this mechanism would be
+	 * 128-byte aligned. This ensures that applications can correctly suballocate objects of different types (with potentially different alignment
+	 * requirements) in the same memory object.</p>
+	 * 
+	 * <p>When memory is allocated, its contents are undefined.</p>
+	 * 
+	 * <p>There is an implementation-dependent maximum number of memory allocations which can be simultaneously created on a device. This is specified by the
+	 * {@code maxMemoryAllocationCount} member of the {@link VkPhysicalDeviceLimits} structure. If {@code maxMemoryAllocationCount} is exceeded,
+	 * {@code vkAllocateMemory} will return {@link #VK_ERROR_TOO_MANY_OBJECTS ERROR_TOO_MANY_OBJECTS}.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Some platforms may have a limit on the maximum size of a single allocation. For example, certain systems may fail to create allocations with a size
+	 * greater than or equal to 4GB. Such a limit is implementation-dependent, and if such a failure occurs then the error {@link #VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}
+	 * should be returned.</p>
+	 * </div>
+	 * 
+	 * <h3>Valid Usage</h3>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pAllocateInfo} <b>must</b> be a pointer to a valid {@link VkMemoryAllocateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pMemory} <b>must</b> be a pointer to a {@code VkDeviceMemory} handle</li>
+	 * <li>The number of currently valid memory objects, allocated from device, <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxMemoryAllocationCount}</li>
+	 * </ul>
 	 *
-	 * @param device        
-	 * @param pAllocateInfo 
-	 * @param pAllocator    
-	 * @param pMemory       
+	 * @param device        the logical device that owns the memory
+	 * @param pAllocateInfo a pointer to a structure of type {@link VkMemoryAllocateInfo}, which contains parameters of the allocation. A successful returned allocation must use the
+	 *                      requested parameters — no substitution is permitted by the implementation.
+	 * @param pAllocator    controls host memory allocation
+	 * @param pMemory       a pointer to a {@code VkDeviceMemory} structure in which information about the allocated memory is returned
 	 */
 	public static int vkAllocateMemory(VkDevice device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pMemory) {
 		if ( CHECKS )
@@ -3415,11 +3744,35 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Frees GPU memory.
+	 * Frees a memory object.
+	 * 
+	 * <p>Before freeing a memory object, an application <b>must</b> ensure the memory object is no longer in use by the device — for example by command buffers queued
+	 * for execution. The memory <b>can</b> remain bound to images or buffers at the time the memory object is freed, but any further use of them (on host or
+	 * device) for anything other than destroying those objects will result in undefined behavior. If there are still any bound images or buffers, the memory
+	 * <b>may</b> not be immediately released by the implementation, but <b>must</b> be released by the time all bound images and buffers have been destroyed. Once memory
+	 * is released, it is returned to the heap from which it was allocated.</p>
+	 * 
+	 * <p>If a memory object is mapped at the time it is freed, it is implicitly unmapped.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code memory} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
+	 * <li>If {@code pAllocator is} not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code memory} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code memory} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code memory} (via images or buffers) <b>must</b> have completed execution</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to memory <b>must</b> be externally synchronized</p>
 	 *
-	 * @param device     
-	 * @param memory     
-	 * @param pAllocator 
+	 * @param device     the logical device that owns the memory
+	 * @param memory     the {@code VkDeviceMemory} object to be freed
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkFreeMemory(VkDevice device, long memory, VkAllocationCallbacks pAllocator) {
 		nvkFreeMemory(device, memory, pAllocator == null ? NULL : pAllocator.address());
@@ -3436,14 +3789,58 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Maps a memory object into application address space.
+	 * Retrieves a host virtual address pointer to a region of a mappable memory object.
+	 * 
+	 * <p>Memory objects created with {@link #vkAllocateMemory AllocateMemory} are not directly host accessible. Memory objects created with the memory property
+	 * {@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} are considered mappable. Memory objects must be mappable in order to be successfully mapped on the host.</p>
+	 * 
+	 * <p>It is an application error to call {@code vkMapMemory} on a memory object that is already mapped.</p>
+	 * 
+	 * <p>{@code vkMapMemory} does not check whether the device memory is currently in use before returning the host-accessible pointer. The application <b>must</b>
+	 * guarantee that any previously submitted command that writes to this range has completed before the host reads from or writes to that range, and that
+	 * any previously submitted command that reads from that range has completed before the host writes to that region. If the device memory was allocated
+	 * without the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} set, these guarantees <b>must</b> be made for an extended range: the application <b>must</b> round down the start of
+	 * the range to the nearest multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}, and round the end of the range up to the nearest multiple
+	 * of {@code VkPhysicalDeviceLimits::nonCoherentAtomSize}.</p>
+	 * 
+	 * <p>While a range of device memory is mapped for host access, the application is responsible for synchronizing both device and host access to that memory
+	 * range.</p>
+	 * 
+	 * <p>Host-visible memory types that advertise the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} property still require memory barriers between host and device in order
+	 * to be coherent, but do not require additional cache management operations ({@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} or {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges}) to achieve
+	 * coherency. For host writes to be seen by subsequent command buffer operations, a pipeline barrier from a source of {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} and
+	 * {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} to a destination of the relevant device pipeline stages and access types <b>must</b> be performed. Note that such a barrier is
+	 * performed implicitly upon each command buffer submission, so an explicit barrier is only rarely needed (e.g. if a command buffer waits upon an event
+	 * signaled by the host, where the host wrote some data after submission). For device writes to be seen by subsequent host reads, a pipeline barrier is
+	 * required to make the writes visible.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
+	 * <li>{@code flags} <b>must</b> be 0</li>
+	 * <li>{@code ppData} <b>must</b> be a pointer to a pointer</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code memory} <b>must not</b> currently be mapped</li>
+	 * <li>{@code offset} <b>must</b> be less than the size of memory</li>
+	 * <li>{@code size} <b>must</b> be greater than 0</li>
+	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be less than or equal to the size of the memory minus offset</li>
+	 * <li>{@code memory} <b>must</b> have been created with a memory type that reports {@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to {@code memory} <b>must</b> be externally synchronized.</p>
 	 *
-	 * @param device 
-	 * @param memory 
-	 * @param offset 
-	 * @param size   
-	 * @param flags  
-	 * @param ppData 
+	 * @param device the logical device that owns the memory
+	 * @param memory the {@code VkDeviceMemory} object to be mapped
+	 * @param offset a zero-based byte offset from the beginning of the memory object
+	 * @param size   he size of the memory range to map, or {@link #VK_WHOLE_SIZE WHOLE_SIZE} to map from offset to the end of the allocation
+	 * @param flags  reserved for future use, and <b>must</b> be zero
+	 * @param ppData points to a pointer in which is returned a host-accessible pointer to the beginning of the mapped range. This pointer minus offset must be aligned
+	 *               to at least {@link VkPhysicalDeviceLimits}{@code ::minMemoryMapAlignment}.
 	 */
 	public static int vkMapMemory(VkDevice device, long memory, long offset, long size, int flags, ByteBuffer ppData) {
 		if ( CHECKS )
@@ -3462,9 +3859,23 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Unmaps a previously mapped memory object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code memory} <b>must</b> currently be mapped</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to memory <b>must</b> be externally synchronized.</p>
 	 *
-	 * @param device 
-	 * @param memory 
+	 * @param device the logical device that owns the memory
+	 * @param memory the memory object to be unmapped
 	 */
 	public static void vkUnmapMemory(VkDevice device, long memory) {
 		long __functionAddress = getInstance(device).UnmapMemory;
@@ -3485,10 +3896,21 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Flushes mapped memory ranges.
+	 * 
+	 * <p>{@code vkFlushMappedMemoryRanges} <b>must</b> be called after the host writes to non-coherent memory have completed and before command buffers that will read
+	 * or write any of those memory locations are submitted to a queue.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
+	 * <li>The value of {@code memoryRangeCount} <b>must</b> be greater than 0</li>
+	 * </ul>
 	 *
-	 * @param device           
-	 * @param memoryRangeCount 
-	 * @param pMemoryRanges    
+	 * @param device           the logical device that owns the memory ranges
+	 * @param memoryRangeCount the length of the {@code pMemoryRanges} array
+	 * @param pMemoryRanges    a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to flush
 	 */
 	public static int vkFlushMappedMemoryRanges(VkDevice device, int memoryRangeCount, VkMappedMemoryRange.Buffer pMemoryRanges) {
 		if ( CHECKS )
@@ -3518,10 +3940,21 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Invalidates ranges of mapped memory objects.
+	 * 
+	 * <p>{@code vkInvalidateMappedMemoryRanges} <b>must</b> be called after command buffers that execute and flush (via memory barriers) the device writes have
+	 * completed, and before the host will read or write any of those locations.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
+	 * <li>The value of {@code memoryRangeCount} <b>must</b> be greater than 0</li>
+	 * </ul>
 	 *
-	 * @param device           
-	 * @param memoryRangeCount 
-	 * @param pMemoryRanges    
+	 * @param device           the logical device that owns the memory ranges
+	 * @param memoryRangeCount the length of the {@code pMemoryRanges} array
+	 * @param pMemoryRanges    a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to invalidate
 	 */
 	public static int vkInvalidateMappedMemoryRanges(VkDevice device, int memoryRangeCount, VkMappedMemoryRange.Buffer pMemoryRanges) {
 		if ( CHECKS )
@@ -3550,11 +3983,39 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Queries the current commitment for a {@code VkDeviceMemory}.
+	 * Determines the amount of lazily-allocated memory that is currently committed for a memory object.
+	 * 
+	 * <p>If the memory object is allocated from a heap with the {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} bit set, that object’s backing memory may be provided by
+	 * the implementation lazily. The actual committed size of the memory may initially be as small as zero (or as large as the requested size), and
+	 * monotonically increases as additional memory is needed.</p>
+	 * 
+	 * <p>A memory type with this flag set is only allowed to be bound to a {@code VkImage} whose usage flags include {@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT}.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Using lazily allocated memory objects for framebuffer attachments that are not needed once a render pass instance has completed may allow some
+	 * implementations to never allocate memory for such attachments.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
+	 * <li>{@code pCommittedMemoryInBytes} <b>must</b> be a pointer to a {@code VkDeviceSize} value</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code memory} <b>must</b> have been created with a memory type that reports {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT}</li>
+	 * </ul>
+	 * 
+	 * <p>The implementation <b>may</b> update the commitment at any time, and the value returned by this query <b>may</b> be out of date.</p>
+	 * 
+	 * <p>The implementation guarantees to allocate any committed memory from the {@code heapIndex} indicated by the memory type that the memory object was
+	 * created with.</p>
 	 *
-	 * @param device                  
-	 * @param memory                  
-	 * @param pCommittedMemoryInBytes 
+	 * @param device                  the logical device that owns the memory
+	 * @param memory                  the memory object being queried
+	 * @param pCommittedMemoryInBytes a pointer to a {@code VkDeviceSize} value in which the number of bytes currently committed is returned, on success
 	 */
 	public static void vkGetDeviceMemoryCommitment(VkDevice device, long memory, ByteBuffer pCommittedMemoryInBytes) {
 		if ( CHECKS )
@@ -3572,12 +4033,42 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	// --- [ vkBindBufferMemory ] ---
 
 	/**
-	 * Binds device memory to a buffer object.
+	 * Attaches memory to a buffer object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
+	 * <li>{@code buffer} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device}, {@code buffer} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code buffer} <b>must not</b> already be backed by a memory object</li>
+	 * <li>{@code buffer} <b>must not</b> have been created with any sparse memory binding flags</li>
+	 * <li>{@code memoryOffset} <b>must</b> be less than the size of memory</li>
+	 * <li>If {@code buffer} was created with the {@link #VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT} or {@link #VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT}, {@code memoryOffset} <b>must</b>
+	 * be a multiple of the value of {@link VkPhysicalDeviceLimits}{@code ::minTexelBufferOffsetAlignment}</li>
+	 * <li>If {@code buffer} was created with the {@link #VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT BUFFER_USAGE_UNIFORM_BUFFER_BIT}, {@code memoryOffset} <b>must</b> be a multiple of the value of
+	 * {@link VkPhysicalDeviceLimits}{@code ::minUniformBufferOffsetAlignment}</li>
+	 * <li>If {@code buffer} was created with the {@link #VK_BUFFER_USAGE_STORAGE_BUFFER_BIT BUFFER_USAGE_STORAGE_BUFFER_BIT}, {@code memoryOffset} <b>must</b> be a multiple of the value of
+	 * {@link VkPhysicalDeviceLimits}{@code ::minStorageBufferOffsetAlignment}</li>
+	 * <li>{@code memory} <b>must</b> have been allocated using one of the memory types allowed in the {@code memoryTypeBits} member of the {@link VkMemoryRequirements}
+	 * structure returned from a call to {@link #vkGetBufferMemoryRequirements GetBufferMemoryRequirements} with {@code buffer}</li>
+	 * <li>The size of {@code buffer} <b>must</b> be less than or equal to the size of {@code memory} minus {@code memoryOffset}</li>
+	 * <li>{@code memoryOffset} <b>must</b> be an integer multiple of the alignment member of the {@link VkMemoryRequirements} structure returned from a call to
+	 * {@link #vkGetBufferMemoryRequirements GetBufferMemoryRequirements} with {@code buffer}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to {@code buffer} <b>must</b> be externally synchronized.</p>
 	 *
-	 * @param device       
-	 * @param buffer       
-	 * @param memory       
-	 * @param memoryOffset 
+	 * @param device       the logical device that owns the buffer and memory
+	 * @param buffer       the buffer
+	 * @param memory       a {@code VkDeviceMemory} object describing the device memory to attach
+	 * @param memoryOffset the start offset of the region of {@code memory} which is to be bound to the buffer. The number of bytes returned in the
+	 *                     {@link VkMemoryRequirements}{@code ::size} member in {@code memory}, starting from {@code memoryOffset} bytes, will be bound to the specified buffer.
 	 */
 	public static int vkBindBufferMemory(VkDevice device, long buffer, long memory, long memoryOffset) {
 		long __functionAddress = getInstance(device).BindBufferMemory;
@@ -3589,12 +4080,37 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	// --- [ vkBindImageMemory ] ---
 
 	/**
-	 * Binds device memory to an image object.
+	 * Attaches memory to an image object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device}, {@code image} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code image} <b>must not</b> already be backed by a memory object</li>
+	 * <li>{@code image} <b>must not</b> have been created with any sparse memory binding flags</li>
+	 * <li>{@code memoryOffset} <b>must</b> be less than the size of memory</li>
+	 * <li>{@code memory} <b>must</b> have been allocated using one of the memory types allowed in the {@code memoryTypeBits} member of the {@link VkMemoryRequirements}
+	 * structure returned from a call to {@link #vkGetImageMemoryRequirements GetImageMemoryRequirements} with {@code image}</li>
+	 * <li>{@code memoryOffset} <b>must</b> be an integer multiple of the alignment member of the {@link VkMemoryRequirements} structure returned from a call to
+	 * {@link #vkGetImageMemoryRequirements GetImageMemoryRequirements} with {@code image}</li>
+	 * <li>The {@code size} member of the {@link VkMemoryRequirements} structure returned from a call to {@link #vkGetImageMemoryRequirements GetImageMemoryRequirements} with {@code image} <b>must</b> be
+	 * less than or equal to the size of {@code memory} minus {@code memoryOffset}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to {@code image} <b>must</b> be externally synchronized.</p>
 	 *
-	 * @param device       
-	 * @param image        
-	 * @param memory       
-	 * @param memoryOffset 
+	 * @param device       the logical device that owns the image and memory
+	 * @param image        the image
+	 * @param memory       a {@code VkDeviceMemory} object describing the device memory to attach
+	 * @param memoryOffset the start offset of the region of {@code memory} which is to be bound to the image. The number of bytes returned in the
+	 *                     {@link VkMemoryRequirements}{@code ::size} member in {@code memory}, starting from {@code memoryOffset} bytes, will be bound to the specified image.
 	 */
 	public static int vkBindImageMemory(VkDevice device, long image, long memory, long memoryOffset) {
 		long __functionAddress = getInstance(device).BindImageMemory;
@@ -3614,11 +4130,21 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Returns the memory requirements for specified Vulkan object.
+	 * Determines the memory requirements for a non-sparse buffer resource.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements} structure</li>
+	 * <li>{@code buffer} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code buffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
 	 *
-	 * @param device              
-	 * @param buffer              
-	 * @param pMemoryRequirements 
+	 * @param device              the logical device that owns the buffer
+	 * @param buffer              the buffer to query
+	 * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements} structure in which the memory requirements of the buffer object are returned
 	 */
 	public static void vkGetBufferMemoryRequirements(VkDevice device, long buffer, VkMemoryRequirements pMemoryRequirements) {
 		nvkGetBufferMemoryRequirements(device, buffer, pMemoryRequirements.address());
@@ -3635,11 +4161,21 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Returns the memory requirements for specified Vulkan object.
+	 * Determines the memory requirements for a non-sparse image resource.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements} structure</li>
+	 * <li>{@code image} must have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
 	 *
-	 * @param device              
-	 * @param image               
-	 * @param pMemoryRequirements 
+	 * @param device              the logical device that owns the image
+	 * @param image               the image to query
+	 * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements} structure in which the memory requirements of the image object are returned
 	 */
 	public static void vkGetImageMemoryRequirements(VkDevice device, long image, VkMemoryRequirements pMemoryRequirements) {
 		nvkGetImageMemoryRequirements(device, image, pMemoryRequirements.address());
@@ -3656,12 +4192,43 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Queries the memory requirements for a sparse image.
+	 * Query sparse memory requirements for an image.
+	 * 
+	 * <p>If {@code pSparseMemoryRequirements} is {@code NULL}, then the number of sparse memory requirements available is returned in
+	 * {@code pSparseMemoryRequirementCount}. Otherwise, {@code pSparseMemoryRequirementCount} <b>must</b> point to a variable set by the user to the number of
+	 * elements in the {@code pSparseMemoryRequirements} array, and on return the variable is overwritten with the number of structures actually written to
+	 * {@code pSparseMemoryRequirements}. If the value of {@code pSparseMemoryRequirementCount} is less than the number of sparse memory requirements
+	 * available, at most {@code pSparseMemoryRequirementCount} structures will be written, and {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS} to indicate
+	 * that not all the available values were returned.</p>
+	 * 
+	 * <p>If the image was not created with {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} then {@code pSparseMemoryRequirementCount} will be set to zero and
+	 * {@code pSparseMemoryRequirements} will not be written to.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>It is legal for an implementation to report a larger value in {@link VkMemoryRequirements}{@code ::size} than would be obtained by adding together memory
+	 * sizes for all {@link VkSparseImageMemoryRequirements} returned by {@code vkGetImageSparseMemoryRequirements}. This may occur when the hardware requires
+	 * unused padding in the address range describing the resource.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code pSparseMemoryRequirementCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pSparseMemoryRequirementCount} is not 0, and {@code pSparseMemoryRequirements} is not {@code NULL},
+	 * {@code pSparseMemoryRequirements} <b>must</b> be a pointer to an array of {@code pSparseMemoryRequirementCount} {@link VkSparseImageMemoryRequirements}
+	 * structures</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created with the {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} flag</li>
+	 * </ul>
 	 *
-	 * @param device                        
-	 * @param image                         
-	 * @param pSparseMemoryRequirementCount 
-	 * @param pSparseMemoryRequirements     
+	 * @param device                        the logical device that owns the image
+	 * @param image                         the {@code VkImage} object to get the memory requirements for
+	 * @param pSparseMemoryRequirementCount a pointer to an integer related to the number of sparse memory requirements available or queried
+	 * @param pSparseMemoryRequirements     either {@code NULL} or a pointer to an array of {@link VkSparseImageMemoryRequirements} structures
 	 */
 	public static void vkGetImageSparseMemoryRequirements(VkDevice device, long image, ByteBuffer pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements.Buffer pSparseMemoryRequirements) {
 		if ( CHECKS ) {
@@ -3692,15 +4259,63 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Retrieves properties of an image format applied to sparse images.
+	 * 
+	 * <p>Given that certain aspects of sparse image support, including the sparse image block size, may be implementation-dependent,
+	 * {@code vkGetPhysicalDeviceSparseImageFormatProperties} can be used to query for sparse image format properties prior to resource creation. This command
+	 * is used to check whether a given set of sparse image parameters is supported and what the sparse block shape will be.</p>
+	 * 
+	 * <p>{@code vkGetPhysicalDeviceSparseImageFormatProperties} returns an array of {@link VkSparseImageFormatProperties}. Each element will describe properties for
+	 * one set of image aspects that are bound simultaneously in the image. This is usually one element for each aspect in the image, but for interleaved
+	 * depth/stencil images there is only one element describing the combined aspects.</p>
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of sparse format properties available is returned in {@code pPropertyCount}. Otherwise,
+	 * {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable
+	 * is overwritten with the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than the number of
+	 * sparse format properties available, at most {@code pPropertyCount} structures will be written, and {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS} to
+	 * indicate that not all the available values were returned.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
+	 * <li>{@code type} <b>must</b> be a valid {@code VkImageType} value</li>
+	 * <li>{@code samples} <b>must</b> be a valid {@code VkSampleCountFlagBits} value</li>
+	 * <li>{@code usage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
+	 * <li>{@code usage} <b>must not</b> be 0</li>
+	 * <li>{@code tiling} <b>must</b> be a valid {@code VkImageTiling} value</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, pProperties <b>must</b> be a pointer to an array of
+	 * {@code pPropertyCount} {@link VkSparseImageFormatProperties} structures</li>
+	 * <li>If format is an integer format, samples <b>must</b> be one of the bit flag values specified in the value of
+	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageIntegerSampleCounts}</li>
+	 * <li>If format is a non-integer color format, samples <b>must</b> be one of the bit flag values specified in the value of
+	 * {@code VkPhysicalDeviceLimits::sampledImageColorSampleCounts}</li>
+	 * <li>If format is a depth format, samples <b>must</b> be one of the bit flag values specified in the value of
+	 * {@code VkPhysicalDeviceLimits::sampledImageDepthSampleCounts}</li>
+	 * <li>If format is a stencil format, samples <b>must</b> be one of the bit flag values specified in the value of
+	 * {@code VkPhysicalDeviceLimits::sampledImageStencilSampleCounts}</li>
+	 * <li>If usage includes {@link #VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}, samples <b>must</b> be one of the bit flag values specified in the value of
+	 * {@code VkPhysicalDeviceLimits::storageImageSampleCounts}</li>
+	 * </ul>
+	 * 
+	 * <p>If {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} is not supported for the given arguments, {@code pPropertyCount} will be set to zero upon return, and no data
+	 * will be written to {@code pProperties}.</p>
+	 * 
+	 * <p>Multiple aspects are returned for depth/stencil images that are implemented as separate planes by the implementation. The depth and stencil data planes
+	 * each have unique {@link VkSparseImageFormatProperties} data.</p>
+	 * 
+	 * <p>Depth/stencil images with depth and stencil data interleaved into a single plane will return a single {@link VkSparseImageFormatProperties} structure with
+	 * the {@code aspectMask} set to <code>{@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} | {@link #VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}</code>.</p>
 	 *
-	 * @param physicalDevice 
-	 * @param format         
-	 * @param type           
-	 * @param samples        
-	 * @param usage          
-	 * @param tiling         
-	 * @param pPropertyCount 
-	 * @param pProperties    
+	 * @param physicalDevice the physical device from which to query the sparse image capabilities
+	 * @param format         the image format
+	 * @param type           the dimensionality of image. One of:<br>{@link #VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}, {@link #VK_IMAGE_TYPE_2D IMAGE_TYPE_2D}, {@link #VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}
+	 * @param samples        the number of samples per pixel as defined in {@code VkSampleCountFlagBits}. One of:<br>{@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}, {@link #VK_SAMPLE_COUNT_2_BIT SAMPLE_COUNT_2_BIT}, {@link #VK_SAMPLE_COUNT_4_BIT SAMPLE_COUNT_4_BIT}, {@link #VK_SAMPLE_COUNT_8_BIT SAMPLE_COUNT_8_BIT}, {@link #VK_SAMPLE_COUNT_16_BIT SAMPLE_COUNT_16_BIT}, {@link #VK_SAMPLE_COUNT_32_BIT SAMPLE_COUNT_32_BIT}, {@link #VK_SAMPLE_COUNT_64_BIT SAMPLE_COUNT_64_BIT}
+	 * @param usage          a bitfield describing the intended usage of the image. One or more of:<br>{@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT}, {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT}, {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, {@link #VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}, {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT}
+	 * @param tiling         the tiling arrangement of the data elements in memory. One of:<br>{@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}
+	 * @param pPropertyCount a pointer to an integer related to the number of sparse format properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkSparseImageFormatProperties} structures
 	 */
 	public static void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, ByteBuffer pPropertyCount, VkSparseImageFormatProperties.Buffer pProperties) {
 		if ( CHECKS ) {
@@ -3732,12 +4347,47 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Binds device memory to a sparse resource object.
+	 * Submits sparse binding operations to a queue for execution.
+	 * 
+	 * <p>Each batch of sparse binding operations is represented by a list of {@link VkSparseBufferMemoryBindInfo}, {@link VkSparseImageOpaqueMemoryBindInfo}, and
+	 * {@link VkSparseImageMemoryBindInfo} structures (encapsulated in a {@link VkBindSparseInfo} structure), each preceded by a list of semaphores upon which to wait
+	 * before beginning execution of the operations, and followed by a second list of semaphores to signal upon completion of the operations.</p>
+	 * 
+	 * <p>When all sparse binding operations in {@code pBindInfo} have completed execution, the status of fence is set to signaled, providing certain implicit
+	 * ordering guarantees.</p>
+	 * 
+	 * <p>Within a batch, a given range of a resource <b>must not</b> be bound more than once. Across batches, if a range is to be bound to one allocation and offset
+	 * and then to another allocation and offset, then the application <b>must</b> guarantee (usually using semaphores) that the binding operations are executed in
+	 * the correct order, as well as to order binding operations against the execution of command buffer submissions.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
+	 * <li>If {@code bindInfoCount} is not 0, {@code pBindInfo} <b>must</b> be a pointer to an array of {@code bindInfoCount} valid {@link VkBindSparseInfo} structures</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, fence <b>must</b> be a valid {@code VkFence} handle</li>
+	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
+	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code fence} <b>must</b> be unsignalled</li>
+	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code queue} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo[].pWaitSemaphores[]} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo[].pSignalSemaphores[]} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo[].pBufferBinds[].buffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo[].pImageOpaqueBinds[].image} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo[].pImageBinds[].image} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
+	 * </ul>
 	 *
-	 * @param queue         
-	 * @param bindInfoCount 
-	 * @param pBindInfo     
-	 * @param fence         
+	 * @param queue         the queue to submit the sparse binding operation to
+	 * @param bindInfoCount the size of the array pointed to by {@code pBindInfo}
+	 * @param pBindInfo     an array of {@link VkBindSparseInfo} structures each specifying the parameters of a sparse binding operation batch
+	 * @param fence         if not {@link #VK_NULL_HANDLE NULL_HANDLE}, is a fence to be signaled once the sparse binding operation completes
 	 */
 	public static int vkQueueBindSparse(VkQueue queue, int bindInfoCount, VkBindSparseInfo.Buffer pBindInfo, long fence) {
 		if ( CHECKS )
@@ -3769,11 +4419,25 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Creates a new fence object.
+	 * 
+	 * <p>Fences can be used by the host to determine completion of execution of submissions to queues performed with {@link #vkQueueSubmit QueueSubmit} and {@link #vkQueueBindSparse QueueBindSparse}.</p>
+	 * 
+	 * <p>A fence’s status is always either signaled or unsignaled. The host can poll the status of a single fence, or wait for any or all of a group of fences
+	 * to become signaled.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkFenceCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pFence} <b>must</b> be a pointer to a {@code VkFence} handle</li>
+	 * </ul>
 	 *
-	 * @param device      
-	 * @param pCreateInfo 
-	 * @param pAllocator  
-	 * @param pFence      
+	 * @param device      the logical device that creates the fence
+	 * @param pCreateInfo points to a {@link VkFenceCreateInfo} structure specifying the state of the fence object
+	 * @param pAllocator  controls host memory allocation
+	 * @param pFence      points to a handle in which the resulting fence object is returned
 	 */
 	public static int vkCreateFence(VkDevice device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pFence) {
 		if ( CHECKS )
@@ -3802,10 +4466,28 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Destroys a fence object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>{@code fence} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
+	 * <li>If {@link VkAllocationCallbacks} were provided when {@code fence} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@link VkAllocationCallbacks} were provided when {@code fence} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to {@code fence} <b>must</b> be externally synchronized.</p>
 	 *
-	 * @param device     
-	 * @param fence      
-	 * @param pAllocator 
+	 * @param device     the logical device that destroys the fence
+	 * @param fence      the handle of the fence to destroy
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyFence(VkDevice device, long fence, VkAllocationCallbacks pAllocator) {
 		nvkDestroyFence(device, fence, pAllocator == null ? NULL : pAllocator.address());
@@ -3822,11 +4504,28 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Resets one or more fence objects.
+	 * Resets the status of one or more fences to the unsignaled state.
+	 * 
+	 * <p>If a fence is already in the unsignaled state, then resetting it has no effect.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
+	 * <li>The value of {@code fenceCount} <b>must</b> be greater than 0</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>Any given element of {@code pFences} <b>must</b> not currently be associated with any queue command that has not yet completed execution on that queue</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to each member of {@code pFences} <b>must</b> be externally synchronized</p>
 	 *
-	 * @param device     
-	 * @param fenceCount 
-	 * @param pFences    
+	 * @param device     the logical device that owns the fences
+	 * @param fenceCount the number of fences to reset
+	 * @param pFences    a pointer to an array of {@code fenceCount} fence handles to reset
 	 */
 	public static int vkResetFences(VkDevice device, int fenceCount, ByteBuffer pFences) {
 		if ( CHECKS )
@@ -3849,10 +4548,26 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	// --- [ vkGetFenceStatus ] ---
 
 	/**
-	 * Returns the status of a fence.
+	 * Queries the status of a fence from the host.
+	 * 
+	 * <p>Upon success, {@code vkGetFenceStatus} returns the status of the fence, which is one of:</p>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_SUCCESS SUCCESS} indicates that the fence is signaled.</li>
+	 * <li>{@link #VK_NOT_READY NOT_READY} indicates that the fence is unsignaled.</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
+	 * <li>{@code fence} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code fence} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
 	 *
-	 * @param device 
-	 * @param fence  
+	 * @param device the logical device that owns the fence
+	 * @param fence  the handle of the fence to query
 	 */
 	public static int vkGetFenceStatus(VkDevice device, long fence) {
 		long __functionAddress = getInstance(device).GetFenceStatus;
@@ -3872,13 +4587,42 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Waits for one or more fences to become signaled.
+	 * Causes the host to wait until any one or all of a group of fences is signaled.
+	 * 
+	 * <p>If the condition is satisfied when {@code vkWaitForFences} is called, then {@code vkWaitForFences} returns immediately. If the condition is not
+	 * satisfied at the time {@code vkWaitForFences} is called, then {@code vkWaitForFences} will block and wait up to timeout nanoseconds for the condition
+	 * to become satisfied.</p>
+	 * 
+	 * <p>If the value of {@code timeout} is zero, then {@code vkWaitForFences} does not wait, but simply returns the current state of the fences. {@link #VK_TIMEOUT TIMEOUT} will
+	 * be returned in this case if the condition is not satisfied, even though no actual wait was performed.</p>
+	 * 
+	 * <p>If the specified {@code timeout} period expires before the condition is satisfied, {@code vkWaitForFences} returns {@link #VK_TIMEOUT TIMEOUT}. If the condition is
+	 * satisfied before timeout nanoseconds has expired, {@code vkWaitForFences} returns {@link #VK_SUCCESS SUCCESS}.</p>
+	 * 
+	 * <p>Fences become signaled when the device completes executing the work that was submitted to a queue accompanied by the fence. But this alone is not
+	 * sufficient for the host to be guaranteed to see the results of device writes to memory. To provide that guarantee, the application <b>must</b> insert a
+	 * memory barrier between the device writes and the end of the submission that will signal the fence, with {@code dstAccessMask} having the
+	 * {@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} bit set, with {@code dstStageMask} having the {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} bit set, and with the appropriate {@code srcStageMask} and
+	 * {@code srcAccessMask} members set to guarantee completion of the writes. If the memory was allocated without the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT}
+	 * set, then {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} <b>must</b> be called after the fence is signaled in order to ensure the writes are visible to the host.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
+	 * <li>The value of {@code fenceCount} <b>must</b> be greater than 0</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
 	 *
-	 * @param device     
-	 * @param fenceCount 
-	 * @param pFences    
-	 * @param waitAll    
-	 * @param timeout    
+	 * @param device     the logical device that owns the fences
+	 * @param fenceCount the number of fences to wait on
+	 * @param pFences    a pointer to an array of {@code fenceCount} fence handles
+	 * @param waitAll    the condition that must be satisfied to successfully unblock the wait. If {@code waitAll} is {@link #VK_TRUE TRUE}, then the condition is that all fences in
+	 *                   {@code pFences} are signaled. Otherwise, the condition is that at least one fence in {@code pFences} is signaled.
+	 * @param timeout    the timeout period in units of nanoseconds. The value of {@code timeout} is adjusted to the closest value allowed by the implementation-dependent
+	 *                   timeout accuracy, which may be substantially longer than one nanosecond, and may be longer than the requested period.
 	 */
 	public static int vkWaitForFences(VkDevice device, int fenceCount, ByteBuffer pFences, int waitAll, long timeout) {
 		if ( CHECKS )
@@ -3912,11 +4656,75 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Creates a new queue semaphore object.
+	 * 
+	 * <p>Semaphores are used to coordinate operations between queues and between queue submissions within a single queue. An application might associate
+	 * semaphores with resources or groups of resources to marshal ownership of shared data. A semaphore’s status is always either <em>signaled</em> or
+	 * <em>unsignaled</em>. Semaphores are signaled by queues and <b>can</b> also be waited on in the same or different queues until they are signaled.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkSemaphoreCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pSemaphore} <b>must</b> be a pointer to a {@code VkSemaphore} handle</li>
+	 * </ul>
+	 * 
+	 * <p>To signal a semaphore from a queue, include it in an element of the array of {@link VkSubmitInfo} structures passed through the {@code pSubmitInfo} parameter
+	 * to a call to {@link #vkQueueSubmit QueueSubmit}, or in an element of the array of {@link VkBindSparseInfo} structures passed through the {@code pBindInfo} parameter to a call to
+	 * {@link #vkQueueBindSparse QueueBindSparse}.</p>
+	 * 
+	 * <p>Semaphores included in the {@code pSignalSemaphores} array of one of the elements of a queue submission are signaled once queue execution reaches the
+	 * signal operation, and all previous work in the queue completes. Any operations waiting on that semaphore in other queues will be released once it is
+	 * signaled.</p>
+	 * 
+	 * <p>Similarly, to wait on a semaphore from a queue, include it in the {@code pWaitSemaphores} array of one of the elements of a batch in a queue
+	 * submission. When queue execution reaches the wait operation, will stall execution of subsequently submitted operations until the semaphore reaches the
+	 * signaled state due to a signaling operation. Once the semaphore is signaled, the subsequent operations will be permitted to execute and the status of
+	 * the semaphore will be reset to the unsignaled state.</p>
+	 * 
+	 * <p>In the case of {@code VkSubmitInfo}, command buffers wait at specific pipeline stages, rather than delaying the entire command buffer’s execution, with the
+	 * pipeline stages determined by the value of the corresponding element of the {@code pWaitDstStageMask} member of {@code VkSubmitInfo}. Execution of work
+	 * by those stages in subsequent commands is stalled until the corresponding semaphore reaches the signaled state. Subsequent sparse binding operations
+	 * wait for the semaphore to become signaled, regardless of the values of {@code pWaitDstStageMask}.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>A common scenario for using {@code pWaitDstStageMask} with values other than {@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT} is when synchronizing a window system
+	 * presentation operation against subsequent command buffers which render the next frame. In this case, an image that was being presented <b>must not</b> be
+	 * overwritten until the presentation operation completes, but other pipeline stages <b>can</b> execute without waiting. A mask of
+	 * {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT} prevents subsequent color attachment writes from executing until the semaphore signals. Some
+	 * implementations <b>may</b> be able to execute transfer operations and/or vertex processing work before the semaphore is signaled.</p>
+	 * 
+	 * <p>If an image layout transition needs to be performed on a swapchain image before it is used in a framebuffer, that can be performed as the first
+	 * operation submitted to the queue after acquiring the image, and <b>should not</b> prevent other work from overlapping with the presentation operation.
+	 * For example, a {@link VkImageMemoryBarrier} could use:</p>
+	 * 
+	 * <ul>
+	 * <li><code>srcStageMask = {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}</code></li>
+	 * <li><code>srcAccessMask = {@link #VK_ACCESS_MEMORY_READ_BIT ACCESS_MEMORY_READ_BIT}</code></li>
+	 * <li><code>dstStageMask = {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}</code></li>
+	 * <li><code>dstAccessMask = {@link #VK_ACCESS_COLOR_ATTACHMENT_READ_BIT ACCESS_COLOR_ATTACHMENT_READ_BIT} | {@link #VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}.</code></li>
+	 * <li><code>oldLayout = {@link KHRSwapchain#VK_IMAGE_LAYOUT_PRESENT_SRC_KHR IMAGE_LAYOUT_PRESENT_SRC_KHR}</code></li>
+	 * <li><code>newLayout = {@link #VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL}</code></li>
+	 * </ul>
+	 * 
+	 * <p>Alternately, {@code oldLayout} can be {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, if the image’s contents need not be preserved.</p>
+	 * 
+	 * <p>This barrier accomplishes a dependency chain between previous presentation operations and subsequent color attachment output operations, with the
+	 * layout transition performed in between, and does not introduce a dependency between previous work and any vertex processing stages. More precisely,
+	 * the semaphore signals after the presentation operation completes, then the semaphore wait stalls the {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}
+	 * stage, then there is a dependency from that same stage to itself with the layout transition performed in between.</p>
+	 * </div>
+	 * 
+	 * <p>When a queue signals or waits upon a semaphore, certain implicit ordering guarantees are provided.</p>
+	 * 
+	 * <p>Semaphore operations <b>may</b> not make the side effects of commands visible to the host.</p>
 	 *
-	 * @param device      
-	 * @param pCreateInfo 
-	 * @param pAllocator  
-	 * @param pSemaphore  
+	 * @param device      the logical device that creates the semaphore
+	 * @param pCreateInfo points to a {@link VkSemaphoreCreateInfo} structure specifying the state of the semaphore object
+	 * @param pAllocator  controls host memory allocation
+	 * @param pSemaphore  points to a handle in which the resulting semaphore object is returned. The semaphore is created in the unsignaled state.
 	 */
 	public static int vkCreateSemaphore(VkDevice device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSemaphore) {
 		if ( CHECKS )
@@ -3945,10 +4753,28 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Destroys a semaphore object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code semaphore} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code semaphore} <b>must</b> be a valid {@code VkSemaphore} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code semaphore} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>{@code semaphore} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
+	 * <li>If {@link VkAllocationCallbacks} were provided when semaphore was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@link VkAllocationCallbacks} were provided when semaphore was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to {@code semaphore} <b>must</b> be externally synchronized</p>
 	 *
-	 * @param device     
-	 * @param semaphore  
-	 * @param pAllocator 
+	 * @param device     the logical device that destroys the semaphore
+	 * @param semaphore  the handle of the semaphore to destroy
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroySemaphore(VkDevice device, long semaphore, VkAllocationCallbacks pAllocator) {
 		nvkDestroySemaphore(device, semaphore, pAllocator == null ? NULL : pAllocator.address());
@@ -3968,11 +4794,25 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Creates a new event object.
+	 * 
+	 * <p>Events represent a fine-grained synchronization primitive that can be used to gauge progress through a sequence of commands executed on a queue by
+	 * Vulkan. An event is initially in the unsignaled state. It <b>can</b> be signaled by a device, using commands inserted into the command buffer, or by the
+	 * host. It <b>can</b> also be reset to the unsignaled state by a device or the host. The host can query the state of an event. A device <b>can</b> wait for one or
+	 * more events to become signaled.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkEventCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pEvent} <b>must</b> be a pointer to a {@code VkEvent} handle</li>
+	 * </ul>
 	 *
-	 * @param device      
-	 * @param pCreateInfo 
-	 * @param pAllocator  
-	 * @param pEvent      
+	 * @param device      the logical device that creates the event
+	 * @param pCreateInfo a pointer to an instance of the {@link VkEventCreateInfo} structure which contains information about how the event is to be created
+	 * @param pAllocator  controls host memory allocation
+	 * @param pEvent      points to a handle in which the resulting event object is returned
 	 */
 	public static int vkCreateEvent(VkDevice device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pEvent) {
 		if ( CHECKS )
@@ -4001,10 +4841,27 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Destroys an event object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code event} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, event <b>must</b> be a valid VkEvent handle</li>
+	 * <li>If pAllocator is not NULL, pAllocator <b>must</b> be a pointer to a valid VkAllocationCallbacks structure</li>
+	 * <li>If event is a valid handle, it <b>must</b> have been created, allocated or retrieved from device</li>
+	 * <li>Each of device and event that are valid handles <b>must</b> have been created, allocated or retrieved from the same VkPhysicalDevice</li>
+	 * <li>All submitted commands that refer to event <b>must</b> have completed execution</li>
+	 * <li>If VkAllocationCallbacks were provided when event was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no VkAllocationCallbacks were provided when event was created, pAllocator <b>must</b> be NULL</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to {@code event} <b>must</b> be externally synchronized</p>
 	 *
-	 * @param device     
-	 * @param event      
-	 * @param pAllocator 
+	 * @param device     the logical device that destroys the event
+	 * @param event      the handle of the event to destroy
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyEvent(VkDevice device, long event, VkAllocationCallbacks pAllocator) {
 		nvkDestroyEvent(device, event, pAllocator == null ? NULL : pAllocator.address());
@@ -4013,10 +4870,29 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	// --- [ vkGetEventStatus ] ---
 
 	/**
-	 * Retrieves the status of an event object.
+	 * Queries the state of an event from the host.
+	 * 
+	 * <p>Upon success, {@code vkGetEventStatus} returns the state of the event object with the following return codes:</p>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_EVENT_SET EVENT_SET} - The event specified by event is signaled.</li>
+	 * <li>{@link #VK_EVENT_RESET EVENT_RESET} - The event specified by event is unsignaled.</li>
+	 * </ul>
+	 * 
+	 * <p>The state of an event <b>can</b> be updated by the host. The state of the event is immediately changed, and subsequent calls to {@code vkGetEventStatus} will
+	 * return the new state. If an event is already in the requested state, then updating it to the same state has no effect.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
+	 * <li>{@code event} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code event} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
 	 *
-	 * @param device 
-	 * @param event  
+	 * @param device the logical device that owns the event
+	 * @param event  the handle of the event to query
 	 */
 	public static int vkGetEventStatus(VkDevice device, long event) {
 		long __functionAddress = getInstance(device).GetEventStatus;
@@ -4028,10 +4904,23 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	// --- [ vkSetEvent ] ---
 
 	/**
-	 * Sets an event to signaled state.
+	 * Sets the state of an event to signaled from the host.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
+	 * <li>{@code event} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code event} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to {@code event} <b>must</b> be externally synchronized.</p>
 	 *
-	 * @param device 
-	 * @param event  
+	 * @param device the logical device that owns the event
+	 * @param event  the event to set
 	 */
 	public static int vkSetEvent(VkDevice device, long event) {
 		long __functionAddress = getInstance(device).SetEvent;
@@ -4043,10 +4932,23 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	// --- [ vkResetEvent ] ---
 
 	/**
-	 * Resets an event to non-signaled state.
+	 * Sets the state of an event to unsignaled from the host.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
+	 * <li>{@code event} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code event} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to {@code event} <b>must</b> be externally synchronized</p>
 	 *
-	 * @param device 
-	 * @param event  
+	 * @param device the logical device that owns the event
+	 * @param event  the event to reset
 	 */
 	public static int vkResetEvent(VkDevice device, long event) {
 		long __functionAddress = getInstance(device).ResetEvent;
@@ -4069,11 +4971,22 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Creates a new query pool object.
+	 * 
+	 * <p>Queries are managed using query pool objects. Each query pool is a collection of a specific number of queries of a particular type.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkQueryPoolCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pQueryPool} <b>must</b> be a pointer to a {@code VkQueryPool} handle</li>
+	 * </ul>
 	 *
-	 * @param device      
-	 * @param pCreateInfo 
-	 * @param pAllocator  
-	 * @param pQueryPool  
+	 * @param device      the logical device that creates the query pool
+	 * @param pCreateInfo pointer to an instance of the {@link VkQueryPoolCreateInfo} structure containing the number and type of queries to be managed by the pool
+	 * @param pAllocator  controls host memory allocation
+	 * @param pQueryPool  a pointer to a {@code VkQueryPool} handle in which the resulting query pool object is returned
 	 */
 	public static int vkCreateQueryPool(VkDevice device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pQueryPool) {
 		if ( CHECKS )
@@ -4102,10 +5015,28 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Destroys a query pool object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code queryPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code queryPool} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code queryPool} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code queryPool} <b>must</b> have completed execution</li>
+	 * <li>If {@link VkAllocationCallbacks} were provided when {@code queryPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@link VkAllocationCallbacks} were provided when {@code queryPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <p>Host access to {@code queryPool} <b>must</b> be externally synchronized</p>
 	 *
-	 * @param device     
-	 * @param queryPool  
-	 * @param pAllocator 
+	 * @param device     the logical device that destroys the query pool
+	 * @param queryPool  the query pool to destroy
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyQueryPool(VkDevice device, long queryPool, VkAllocationCallbacks pAllocator) {
 		nvkDestroyQueryPool(device, queryPool, pAllocator == null ? NULL : pAllocator.address());
@@ -4122,16 +5053,82 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	}
 
 	/**
-	 * Copies results of queries in a query pool to a host memory region.
+	 * Retrieves status and results for a set of queries.
+	 * 
+	 * <p>If no bits are set in {@code flags}, and all requested queries are in the available state, results are written as an array of 32-bit unsigned integer
+	 * values. The behavior when not all queries are available, is described below.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set and the result overflows a 32-bit value, the value <b>may</b> either wrap or saturate. Similarly, if {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT}
+	 * is set and the result overflows a 64-bit value, the value <b>may</b> either wrap or saturate.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is set, Vulkan will wait for each query to be in the available state before retrieving the numerical results for that query.
+	 * In this case, {@code vkGetQueryPoolResults} is guaranteed to succeed and return {@link #VK_SUCCESS SUCCESS} if the queries become available in a finite time (i.e. if they
+	 * have been issued and not reset). If queries will never finish (e.g. due to being reset but not issued), then {@code vkGetQueryPoolResults} <b>may</b> not
+	 * return in finite time.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} and {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} are both not set then no result values are written to {@code pData} for queries that are in the
+	 * unavailable state at the time of the call, and {@code vkGetQueryPoolResults} returns {@link #VK_NOT_READY NOT_READY}. However, availability state is still written to
+	 * {@code pData} for those queries if {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is set.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Applications <b>must</b> take care to ensure that use of the {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} bit has the desired effect.</p>
+	 * 
+	 * <p>For example, if a query has been used previously and a command buffer records the commands {@link #vkCmdResetQueryPool CmdResetQueryPool}, {@link #vkCmdBeginQuery CmdBeginQuery}, and
+	 * {@link #vkCmdEndQuery CmdEndQuery} for that query, then the query will remain in the available state until the {@code vkCmdResetQueryPool} command executes on a queue.
+	 * Applications can use fences or events to ensure that an query has already been reset before checking for its results or availability status.
+	 * Otherwise, a stale value could be returned from a previous use of the query.</p>
+	 * 
+	 * <p>The above also applies when {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is used in combination with {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT}. In this case, the returned
+	 * availability status <b>may</b> reflect the result of a previous use of the query unless the {@code vkCmdResetQueryPool} command has been executed since
+	 * the last use of the query.</p>
+	 * </div>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Applications <b>can</b> double-buffer query pool usage, with a pool per frame, and reset queries at the end of the frame in which they are read.</p>
+	 * </div>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} is set, {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is not set, and the query’s status is unavailable, an intermediate result value between
+	 * zero and the final result value is written to {@code pData} for that query.</p>
+	 * 
+	 * <p>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} <b>must not</b> be used if the pool’s {@code queryType} is {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is set, the final integer value written for each query is non-zero if the query’s status was available or zero
+	 * if the status was unavailable. When {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is used, implementations <b>must</b> guarantee that if they return a non-zero
+	 * availability value then the numerical results <b>must</b> be valid, assuming the results are not reset by a subsequent command.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Satisfying this guarantee <b>may</b> require careful ordering by the application, e.g. to read the availability status before reading the results.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkQueryResultFlagBits} values</li>
+	 * <li>The value of {@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>{@code queryPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code queryPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code firstQuery} <b>must</b> be less than the number of queries in {@code queryPool}</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in flags then {@code pData} and {@code stride} <b>must</b> be multiples of 4</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in flags then {@code pData} and {@code stride} <b>must</b> be multiples of 8</li>
+	 * <li>The sum of {@code firstQuery} and {@code queryCount} <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
+	 * <li>{@code dataSize} <b>must</b> be large enough to contain the result of each query</li>
+	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must</b> not contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
+	 * </ul>
 	 *
-	 * @param device     
-	 * @param queryPool  
-	 * @param firstQuery 
-	 * @param queryCount 
-	 * @param dataSize   
-	 * @param pData      
-	 * @param stride     
-	 * @param flags      
+	 * @param device     the logical device that owns the query pool
+	 * @param queryPool  the query pool managing the queries containing the desired results
+	 * @param firstQuery the initial query index
+	 * @param queryCount the number of queries. {@code firstQuery} and {@code queryCount} together define a range of queries
+	 * @param dataSize   the size in bytes of the buffer pointed to by {@code pData}
+	 * @param pData      a pointer to a user-allocated buffer where the results will be written
+	 * @param stride     the stride in bytes between results for individual queries within {@code pData}.
+	 * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned. One or more of:<br>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT}, {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT}, {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT}, {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}
 	 */
 	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, long dataSize, ByteBuffer pData, long stride, int flags) {
 		if ( CHECKS )
@@ -4142,6 +5139,16 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	/** Alternative version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
 	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, ByteBuffer pData, long stride, int flags) {
 		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining(), memAddress(pData), stride, flags);
+	}
+
+	/** IntBuffer version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
+	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, IntBuffer pData, long stride, int flags) {
+		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 2, memAddress(pData), stride, flags);
+	}
+
+	/** LongBuffer version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
+	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, LongBuffer pData, long stride, int flags) {
+		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 3, memAddress(pData), stride, flags);
 	}
 
 	// --- [ vkCreateBuffer ] ---
@@ -4162,7 +5169,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device      
 	 * @param pCreateInfo 
-	 * @param pAllocator  
+	 * @param pAllocator  controls host memory allocation
 	 * @param pBuffer     
 	 */
 	public static int vkCreateBuffer(VkDevice device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pBuffer) {
@@ -4195,7 +5202,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device     
 	 * @param buffer     
-	 * @param pAllocator 
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyBuffer(VkDevice device, long buffer, VkAllocationCallbacks pAllocator) {
 		nvkDestroyBuffer(device, buffer, pAllocator == null ? NULL : pAllocator.address());
@@ -4218,7 +5225,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device      
 	 * @param pCreateInfo 
-	 * @param pAllocator  
+	 * @param pAllocator  controls host memory allocation
 	 * @param pView       
 	 */
 	public static int vkCreateBufferView(VkDevice device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pView) {
@@ -4251,7 +5258,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device     
 	 * @param bufferView 
-	 * @param pAllocator 
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyBufferView(VkDevice device, long bufferView, VkAllocationCallbacks pAllocator) {
 		nvkDestroyBufferView(device, bufferView, pAllocator == null ? NULL : pAllocator.address());
@@ -4275,7 +5282,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device      
 	 * @param pCreateInfo 
-	 * @param pAllocator  
+	 * @param pAllocator  controls host memory allocation
 	 * @param pImage      
 	 */
 	public static int vkCreateImage(VkDevice device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pImage) {
@@ -4308,7 +5315,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device     
 	 * @param image      
-	 * @param pAllocator 
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyImage(VkDevice device, long image, VkAllocationCallbacks pAllocator) {
 		nvkDestroyImage(device, image, pAllocator == null ? NULL : pAllocator.address());
@@ -4353,7 +5360,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device      
 	 * @param pCreateInfo 
-	 * @param pAllocator  
+	 * @param pAllocator  controls host memory allocation
 	 * @param pView       
 	 */
 	public static int vkCreateImageView(VkDevice device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pView) {
@@ -4386,7 +5393,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device     
 	 * @param imageView  
-	 * @param pAllocator 
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyImageView(VkDevice device, long imageView, VkAllocationCallbacks pAllocator) {
 		nvkDestroyImageView(device, imageView, pAllocator == null ? NULL : pAllocator.address());
@@ -4410,7 +5417,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device        
 	 * @param pCreateInfo   
-	 * @param pAllocator    
+	 * @param pAllocator    controls host memory allocation
 	 * @param pShaderModule 
 	 */
 	public static int vkCreateShaderModule(VkDevice device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pShaderModule) {
@@ -4443,7 +5450,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device       
 	 * @param shaderModule 
-	 * @param pAllocator   
+	 * @param pAllocator   controls host memory allocation
 	 */
 	public static void vkDestroyShaderModule(VkDevice device, long shaderModule, VkAllocationCallbacks pAllocator) {
 		nvkDestroyShaderModule(device, shaderModule, pAllocator == null ? NULL : pAllocator.address());
@@ -4467,7 +5474,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device         
 	 * @param pCreateInfo    
-	 * @param pAllocator     
+	 * @param pAllocator     controls host memory allocation
 	 * @param pPipelineCache 
 	 */
 	public static int vkCreatePipelineCache(VkDevice device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pPipelineCache) {
@@ -4500,7 +5507,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device        
 	 * @param pipelineCache 
-	 * @param pAllocator    
+	 * @param pAllocator    controls host memory allocation
 	 */
 	public static void vkDestroyPipelineCache(VkDevice device, long pipelineCache, VkAllocationCallbacks pAllocator) {
 		nvkDestroyPipelineCache(device, pipelineCache, pAllocator == null ? NULL : pAllocator.address());
@@ -4590,7 +5597,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * @param pipelineCache   
 	 * @param createInfoCount 
 	 * @param pCreateInfos    
-	 * @param pAllocator      
+	 * @param pAllocator      controls host memory allocation
 	 * @param pPipelines      
 	 */
 	public static int vkCreateGraphicsPipelines(VkDevice device, long pipelineCache, int createInfoCount, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, ByteBuffer pPipelines) {
@@ -4628,7 +5635,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * @param pipelineCache   
 	 * @param createInfoCount 
 	 * @param pCreateInfos    
-	 * @param pAllocator      
+	 * @param pAllocator      controls host memory allocation
 	 * @param pPipelines      
 	 */
 	public static int vkCreateComputePipelines(VkDevice device, long pipelineCache, int createInfoCount, VkComputePipelineCreateInfo pCreateInfos, VkAllocationCallbacks pAllocator, ByteBuffer pPipelines) {
@@ -4661,7 +5668,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device     
 	 * @param pipeline   
-	 * @param pAllocator 
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyPipeline(VkDevice device, long pipeline, VkAllocationCallbacks pAllocator) {
 		nvkDestroyPipeline(device, pipeline, pAllocator == null ? NULL : pAllocator.address());
@@ -4685,7 +5692,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device          
 	 * @param pCreateInfo     
-	 * @param pAllocator      
+	 * @param pAllocator      controls host memory allocation
 	 * @param pPipelineLayout 
 	 */
 	public static int vkCreatePipelineLayout(VkDevice device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pPipelineLayout) {
@@ -4718,7 +5725,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device         
 	 * @param pipelineLayout 
-	 * @param pAllocator     
+	 * @param pAllocator     controls host memory allocation
 	 */
 	public static void vkDestroyPipelineLayout(VkDevice device, long pipelineLayout, VkAllocationCallbacks pAllocator) {
 		nvkDestroyPipelineLayout(device, pipelineLayout, pAllocator == null ? NULL : pAllocator.address());
@@ -4741,7 +5748,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device      
 	 * @param pCreateInfo 
-	 * @param pAllocator  
+	 * @param pAllocator  controls host memory allocation
 	 * @param pSampler    
 	 */
 	public static int vkCreateSampler(VkDevice device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSampler) {
@@ -4774,7 +5781,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device     
 	 * @param sampler    
-	 * @param pAllocator 
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroySampler(VkDevice device, long sampler, VkAllocationCallbacks pAllocator) {
 		nvkDestroySampler(device, sampler, pAllocator == null ? NULL : pAllocator.address());
@@ -4798,7 +5805,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device      
 	 * @param pCreateInfo 
-	 * @param pAllocator  
+	 * @param pAllocator  controls host memory allocation
 	 * @param pSetLayout  
 	 */
 	public static int vkCreateDescriptorSetLayout(VkDevice device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSetLayout) {
@@ -4831,7 +5838,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device              
 	 * @param descriptorSetLayout 
-	 * @param pAllocator          
+	 * @param pAllocator          controls host memory allocation
 	 */
 	public static void vkDestroyDescriptorSetLayout(VkDevice device, long descriptorSetLayout, VkAllocationCallbacks pAllocator) {
 		nvkDestroyDescriptorSetLayout(device, descriptorSetLayout, pAllocator == null ? NULL : pAllocator.address());
@@ -4855,7 +5862,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device          
 	 * @param pCreateInfo     
-	 * @param pAllocator      
+	 * @param pAllocator      controls host memory allocation
 	 * @param pDescriptorPool 
 	 */
 	public static int vkCreateDescriptorPool(VkDevice device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pDescriptorPool) {
@@ -4888,7 +5895,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device         
 	 * @param descriptorPool 
-	 * @param pAllocator     
+	 * @param pAllocator     controls host memory allocation
 	 */
 	public static void vkDestroyDescriptorPool(VkDevice device, long descriptorPool, VkAllocationCallbacks pAllocator) {
 		nvkDestroyDescriptorPool(device, descriptorPool, pAllocator == null ? NULL : pAllocator.address());
@@ -5023,7 +6030,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device       
 	 * @param pCreateInfo  
-	 * @param pAllocator   
+	 * @param pAllocator   controls host memory allocation
 	 * @param pFramebuffer 
 	 */
 	public static int vkCreateFramebuffer(VkDevice device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pFramebuffer) {
@@ -5056,7 +6063,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device      
 	 * @param framebuffer 
-	 * @param pAllocator  
+	 * @param pAllocator  controls host memory allocation
 	 */
 	public static void vkDestroyFramebuffer(VkDevice device, long framebuffer, VkAllocationCallbacks pAllocator) {
 		nvkDestroyFramebuffer(device, framebuffer, pAllocator == null ? NULL : pAllocator.address());
@@ -5080,7 +6087,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device      
 	 * @param pCreateInfo 
-	 * @param pAllocator  
+	 * @param pAllocator  controls host memory allocation
 	 * @param pRenderPass 
 	 */
 	public static int vkCreateRenderPass(VkDevice device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pRenderPass) {
@@ -5113,7 +6120,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device     
 	 * @param renderPass 
-	 * @param pAllocator 
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyRenderPass(VkDevice device, long renderPass, VkAllocationCallbacks pAllocator) {
 		nvkDestroyRenderPass(device, renderPass, pAllocator == null ? NULL : pAllocator.address());
@@ -5157,7 +6164,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device       
 	 * @param pCreateInfo  
-	 * @param pAllocator   
+	 * @param pAllocator   controls host memory allocation
 	 * @param pCommandPool 
 	 */
 	public static int vkCreateCommandPool(VkDevice device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pCommandPool) {
@@ -5190,7 +6197,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param device      
 	 * @param commandPool 
-	 * @param pAllocator  
+	 * @param pAllocator  controls host memory allocation
 	 */
 	public static void vkDestroyCommandPool(VkDevice device, long commandPool, VkAllocationCallbacks pAllocator) {
 		nvkDestroyCommandPool(device, commandPool, pAllocator == null ? NULL : pAllocator.address());
@@ -6284,6 +7291,31 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	/** Alternative version of: {@link #vkCmdPushConstants CmdPushConstants} */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, ByteBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining(), memAddress(pValues));
+	}
+
+	/** ShortBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, ShortBuffer pValues) {
+		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 1, memAddress(pValues));
+	}
+
+	/** IntBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, IntBuffer pValues) {
+		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 2, memAddress(pValues));
+	}
+
+	/** LongBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, LongBuffer pValues) {
+		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 3, memAddress(pValues));
+	}
+
+	/** FloatBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, FloatBuffer pValues) {
+		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 2, memAddress(pValues));
+	}
+
+	/** DoubleBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, DoubleBuffer pValues) {
+		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 3, memAddress(pValues));
 	}
 
 	// --- [ vkCmdBeginRenderPass ] ---
