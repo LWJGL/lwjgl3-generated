@@ -30,11 +30,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * {@code IsOculusHMDConnected} will be {@link OVR#ovrFalse} in this case.
  * 
  * <p>is {@link OVR#ovrTrue} when the Oculus Service is running. This means that the Oculus Service is installed and running. {@code IsOculusHMDConnected} will
- * reflect the state of the HMD.</td></tr>
- * <tr><td>IsOculusHMDConnected</td><td>is {@link OVR#ovrFalse} when an Oculus HMD is not detected. If the Oculus Service is not running, this will be {@link OVR#ovrFalse}.</p>
+ * reflect the state of the HMD.</p></td></tr>
+ * <tr><td>IsOculusHMDConnected</td><td>is {@link OVR#ovrFalse} when an Oculus HMD is not detected. If the Oculus Service is not running, this will be {@link OVR#ovrFalse}.
  * 
- * <p>is {@link OVR#ovrTrue} when an Oculus HMD is detected. This implies that the Oculus Service is also installed and running.</td></tr>
- * </table></p>
+ * <p>is {@link OVR#ovrTrue} when an Oculus HMD is detected. This implies that the Oculus Service is also installed and running.</p></td></tr>
+ * </table>
  */
 public class OVRDetectResult extends Struct {
 

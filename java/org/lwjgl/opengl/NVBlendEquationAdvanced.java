@@ -28,7 +28,7 @@ public class NVBlendEquationAdvanced {
 		GL_BLEND_PREMULTIPLIED_SRC_NV = 0x9280,
 		GL_BLEND_OVERLAP_NV           = 0x9281;
 
-	/** Accepted by the {@code value} parameter of BlendParameteriNV when <pname> is BLEND_OVERLAP_NV. */
+	/** Accepted by the {@code value} parameter of BlendParameteriNV when {@code pname} is BLEND_OVERLAP_NV. */
 	public static final int
 		GL_UNCORRELATED_NV = 0x8521,
 		GL_DISJOINT_NV     = 0x9283,

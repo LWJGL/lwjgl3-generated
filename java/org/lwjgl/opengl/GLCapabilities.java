@@ -1536,8 +1536,8 @@ shadow2DRectProjGradARB(
 	 * be requested by leaving ARBSparseTexture#VIRTUAL_PAGE_SIZE_INDEX_ARB at its initial value (0).</p>
 	 * 
 	 * <p>Support for creating sparse multisample and multisample array textures is added. However, the virtual page sizes for such textures remain fully
-	 * implementation-dependent.</li>
-	 * </ul></p>
+	 * implementation-dependent.</p></li>
+	 * </ul>
 	 * 
 	 * <p>Requires {@link ARBSparseTexture ARB_sparse_texture}.</p>
 	 */

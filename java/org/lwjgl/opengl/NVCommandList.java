@@ -257,7 +257,7 @@ public class NVCommandList {
 	}
 
 	/**
-	 * Returns <code>n</code> previously unused state object names in <code>states</code>, and creates a state object in the initial state for each name.
+	 * Returns {@code n} previously unused state object names in {@code states}, and creates a state object in the initial state for each name.
 	 *
 	 * @param n      the number of state object names to create
 	 * @param states the buffer in which to write the created state object names
@@ -290,8 +290,8 @@ public class NVCommandList {
 	}
 
 	/**
-	 * Deletes <code>n</code> names of state objects given by <code>states</code>. Once a state object is deleted it has no contents and its name is again
-	 * unused. Unused names in <code>states</code> are silently ignored, as is the value zero.
+	 * Deletes {@code n} names of state objects given by {@code states}. Once a state object is deleted it has no contents and its name is again unused.
+	 * Unused names in {@code states} are silently ignored, as is the value zero.
 	 *
 	 * @param n      the number of state object names to delete
 	 * @param states the buffer from which to read the state object names to delete
@@ -329,7 +329,7 @@ public class NVCommandList {
 	// --- [ glStateCaptureNV ] ---
 
 	/**
-	 * Captures the current state of the rendering pipeline into the object indicated by <code>state</code>.
+	 * Captures the current state of the rendering pipeline into the object indicated by {@code state}.
 	 * 
 	 * <p>The captured rendering state includes:</p>
 	 * 
@@ -374,7 +374,7 @@ public class NVCommandList {
 
 	/**
 	 * Returns the 16bit value for a specific shader stage; the returned value is implementation specific. The value is to be used with the stage field within
-	 * <code>UniformAddressCommandNV</code> tokens.
+	 * {@code UniformAddressCommandNV} tokens.
 	 *
 	 * @param shadertype the shader stage type
 	 */
@@ -392,8 +392,8 @@ public class NVCommandList {
 	}
 
 	/**
-	 * Accepts arrays of buffer addresses as an array of offsets <code>indirects</code> into a buffer named by <code>buffer</code>, an array of command
-	 * lengths in <code>sizes</code>. All arrays have <code>count</code> entries.
+	 * Accepts arrays of buffer addresses as an array of offsets {@code indirects} into a buffer named by {@code buffer}, an array of command lengths in
+	 * {@code sizes}. All arrays have {@code count} entries.
 	 *
 	 * @param primitiveMode the primitive mode
 	 * @param buffer        the buffer object name
@@ -425,8 +425,8 @@ public class NVCommandList {
 	}
 
 	/**
-	 * Accepts arrays of buffer addresses as an array of GPU addresses <code>indirects</code>, an array of sequence lengths in <code>sizes</code>. All arrays
-	 * have <code>count</code> entries.
+	 * Accepts arrays of buffer addresses as an array of GPU addresses {@code indirects}, an array of sequence lengths in {@code sizes}. All arrays have
+	 * {@code count} entries.
 	 *
 	 * @param primitiveMode the primitive mode
 	 * @param indirects     the array of GPU addreses
@@ -457,10 +457,10 @@ public class NVCommandList {
 	}
 
 	/**
-	 * Accepts arrays of buffer addresses as an array of offsets <code>indirects</code> into a buffer named by <code>buffer</code>, an array of command
-	 * lengths in <code>sizes</code>, and an array of state object names in <code>states</code>, of which all names must be non-zero. Frame buffer object
-	 * names are stored in <code>fbos</code> and can be either zero or non-zero. All arrays have <code>count</code> entries. The residency of textures used as
-	 * attachment inside the state object's captured fbo or the passed fbo must managed explicitly.
+	 * Accepts arrays of buffer addresses as an array of offsets {@code indirects} into a buffer named by {@code buffer}, an array of command lengths in
+	 * {@code sizes}, and an array of state object names in {@code states}, of which all names must be non-zero. Frame buffer object names are stored in
+	 * {@code fbos} and can be either zero or non-zero. All arrays have {@code count} entries. The residency of textures used as attachment inside the state
+	 * object's captured fbo or the passed fbo must managed explicitly.
 	 *
 	 * @param buffer    the buffer object name
 	 * @param indirects the array of offsets into the buffer
@@ -498,10 +498,10 @@ public class NVCommandList {
 	}
 
 	/**
-	 * Accepts arrays of buffer addresses as an array of GPU addresses <code>indirects</code>, an array of command lengths in <code>sizes</code>, and an array
-	 * of state object names in <code>states</code>, of which all names must be non-zero. Frame buffer object names are stored in <code>fbos</code> and can be
-	 * either zero or non-zero. All arrays have <code>count</code> entries. The residency of textures used as attachment inside the state object's captured
-	 * fbo or the passed fbo must managed explicitly.
+	 * Accepts arrays of buffer addresses as an array of GPU addresses {@code indirects}, an array of command lengths in {@code sizes}, and an array of state
+	 * object names in {@code states}, of which all names must be non-zero. Frame buffer object names are stored in {@code fbos} and can be either zero or
+	 * non-zero. All arrays have {@code count} entries. The residency of textures used as attachment inside the state object's captured fbo or the passed fbo
+	 * must managed explicitly.
 	 *
 	 * @param indirects the array of GPU addresses
 	 * @param sizes     the array of command lengths
@@ -538,7 +538,7 @@ public class NVCommandList {
 	}
 
 	/**
-	 * Returns <code>n</code> previously unused command list names in <code>lists</code>, and creates a command list in the initial state for each name.
+	 * Returns {@code n} previously unused command list names in {@code lists}, and creates a command list in the initial state for each name.
 	 *
 	 * @param n     the number of command list names to create
 	 * @param lists the buffer in which to return the created command list names
@@ -571,8 +571,8 @@ public class NVCommandList {
 	}
 
 	/**
-	 * Deletes <code>n</code> command lists stored in <code>lists</code>. Once a command list is deleted it has no contents and its name is again unused.
-	 * Unused names in <code>lists</code> are silently ignored, as is the value zero.
+	 * Deletes {@code n} command lists stored in {@code lists}. Once a command list is deleted it has no contents and its name is again unused. Unused names
+	 * in {@code lists} are silently ignored, as is the value zero.
 	 *
 	 * @param n     the number of command list names to delete
 	 * @param lists the buffer from which to read the command list names to delete
@@ -617,7 +617,7 @@ public class NVCommandList {
 
 	/**
 	 * A list has multiple segments and each segment enqueues an ordered list of commands. This command enqueues the equivalent of the
-	 * DrawCommandsStatesClientNV commands into the list indicated by <code>list</code> on the segment indicated by <code>segment</code>.
+	 * DrawCommandsStatesClientNV commands into the list indicated by {@code list} on the segment indicated by {@code segment}.
 	 * 
 	 * <p>A list has multiple segments and each segment enqueues an ordered list of command sequences. This command enqueues the equivalent of the
 	 * DrawCommandsStatesNV commands into the list indicated by {@code list} on the segment indicated by {@code segment} except that the sequence data is
@@ -677,8 +677,8 @@ public class NVCommandList {
 	// --- [ glCompileCommandListNV ] ---
 
 	/**
-	 * Makes the list indicated by <code>list</code> switch from allowing collection of commands to allowing its execution. At this time, the implementation
-	 * may generate optimized commands to transition between states as efficiently as possible.
+	 * Makes the list indicated by {@code list} switch from allowing collection of commands to allowing its execution. At this time, the implementation may
+	 * generate optimized commands to transition between states as efficiently as possible.
 	 *
 	 * @param list the command list to compile
 	 */
@@ -690,7 +690,7 @@ public class NVCommandList {
 	// --- [ glCallCommandListNV ] ---
 
 	/**
-	 * Executes the command list indicated by <code>list</code>, which operates as if the DrawCommandsStates* commands were replayed in the order they were
+	 * Executes the command list indicated by {@code list}, which operates as if the DrawCommandsStates* commands were replayed in the order they were
 	 * enqueued on each segment, starting from segment zero and proceeding to the maximum segment. All buffer or texture resources' residency must be managed
 	 * explicitly, including texture attachments of the effective fbos during list enqueuing.
 	 *

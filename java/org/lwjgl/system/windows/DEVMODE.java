@@ -95,7 +95,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * zero. If {@link GDI32#DM_DISPLAYORIENTATION} is set, this member must be one of the following values:<br>{@link GDI32#DMDO_DEFAULT}, {@link GDI32#DMDO_90}, {@link GDI32#DMDO_180}, {@link GDI32#DMDO_270}
  * 
  * <p>To determine whether the display orientation is portrait or landscape orientation, check the ratio of {@code dmPelsWidth} to
- * {@code dmPelsHeight}.</td></tr>
+ * {@code dmPelsHeight}.</p></td></tr>
  * <tr><td>dmDisplayFixedOutput</td><td>for fixed-resolution display devices only, how the display presents a low-resolution mode on a higher-resolution display. For example, if a
  * display device's resolution is fixed at 1024 x 768 pixels but its mode is set to 640 x 480 pixels, the device can either display a 640 x 480
  * image somewhere in the interior of the 1024 x 768 screen space or stretch the 640 x 480 image to fill the larger screen space. If
@@ -115,11 +115,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>dmDisplayFlags</td><td>specifies the device's display mode, one or more of:<br>{@link GDI32#DM_INTERLACED}, {@link GDI32#DMDISPLAYFLAGS_TEXTMODE}</td></tr>
  * <tr><td>dmNup</td><td>for printer devices only</td></tr>
  * <tr><td>dmDisplayFrequency</td><td>specifies the frequency, in hertz (cycles per second), of the display device in a particular mode. This value is also known as the display device's
- * vertical refresh rate.</p>
+ * vertical refresh rate.
  * 
  * <p>When you call the {@link User32#EnumDisplaySettingsEx User32.EnumDisplaySettingsEx} function, the {@code dmDisplayFrequency} member may return with the value 0 or 1. These values
  * represent the display hardware's default refresh rate. This default rate is typically set by switches on a display card or computer motherboard, or by
- * a configuration program that does not use display functions such as {@code ChangeDisplaySettingsEx}.</td></tr>
+ * a configuration program that does not use display functions such as {@code ChangeDisplaySettingsEx}.</p></td></tr>
  * <tr><td>dmICMMethod</td><td>for printer devices only</td></tr>
  * <tr><td>dmICMIntent</td><td>for printer devices only</td></tr>
  * <tr><td>dmMediaType</td><td>for printer devices only</td></tr>
@@ -128,7 +128,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>dmReserved2</td><td>not used; must be zero</td></tr>
  * <tr><td>dmPanningWidth</td><td>this member must be zero</td></tr>
  * <tr><td>dmPanningHeight</td><td>this member must be zero</td></tr>
- * </table></p>
+ * </table>
  */
 public class DEVMODE extends Struct {
 

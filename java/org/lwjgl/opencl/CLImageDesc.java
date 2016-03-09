@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>image_array_size</td><td>the number of images in the image array. This is only used if the image is a 1D or 2D image array. The values for {@code image_array_size}, if
  * specified, must be a value &ge; 1 and &le; {@link CL10#CL_DEVICE_IMAGE_MAX_ARRAY_SIZE}.
  * 
- * <p>Note that reading and writing 2D image arrays from a kernel with {@code image_array_size = 1} may be lower performance than 2D images.</td></tr>
+ * <p>Note that reading and writing 2D image arrays from a kernel with {@code image_array_size = 1} may be lower performance than 2D images.</p></td></tr>
  * <tr><td>image_row_pitch</td><td>the scan-line pitch in bytes. This must be 0 if {@code host_ptr} is {@code NULL} and can be either 0 or &ge; {@code image_width * size} of element in bytes if
  * {@code host_ptr} is not {@code NULL}. If {@code host_ptr} is not {@code NULL} and {@code image_row_pitch = 0}, {@code image_row_pitch} is calculated as
  * {@code image_width * size} of element in bytes. If {@code image_row_pitch} is not 0, it must be a multiple of the image element size in bytes.</td></tr>
@@ -59,7 +59,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * object, the image pixels are taken from the buffer object's data store. When the contents of a buffer object's data store are modified, those changes
  * are reflected in the contents of the 1D image buffer object and vice-versa at corresponding sychronization points. The {@code image_width * size} of
  * element in bytes must be &le; size of buffer object data store.</td></tr>
- * </table></p>
+ * </table>
  */
 public class CLImageDesc extends Struct {
 

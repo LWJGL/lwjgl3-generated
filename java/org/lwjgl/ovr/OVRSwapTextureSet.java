@@ -53,8 +53,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Once a particular {@code Textures[CurrentIndex]} has been sent to {@link OVR#ovr_SubmitFrame OVR.ovr_SubmitFrame}, that texture should not be rendered to until a subsequent
  * {@link OVR#ovr_SubmitFrame OVR.ovr_SubmitFrame} is made (either with a different {@code CurrentIndex} value, or with a different {@code ovrSwapTextureSet}, or disabling the
- * layer).</td></tr>
- * </table></p>
+ * layer).</p></td></tr>
+ * </table>
  */
 public class OVRSwapTextureSet extends Struct {
 

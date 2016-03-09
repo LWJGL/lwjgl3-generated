@@ -364,10 +364,10 @@ public final class GLESCapabilities {
     result = do_general_path();
 }</code></pre>
 	 * 
-	 * <p>where {@code condition} diverges between invocations, a SIMD implementation might first call do_fast_path() for the invocations where <condition> is
-	 * true and leave the other invocations dormant. Once do_fast_path() returns, it might call do_general_path() for invocations where <condition> is false
-	 * and leave the other invocations dormant. In this case, the shader executes *both* the fast and the general path and might be better off just using the
-	 * general path for all invocations.</p>
+	 * <p>where {@code condition} diverges between invocations, a SIMD implementation might first call do_fast_path() for the invocations where {@code condition}
+	 * is true and leave the other invocations dormant. Once do_fast_path() returns, it might call do_general_path() for invocations where {@code condition}
+	 * is false and leave the other invocations dormant. In this case, the shader executes *both* the fast and the general path and might be better off just
+	 * using the general path for all invocations.</p>
 	 * 
 	 * <p>This extension provides the ability to avoid divergent execution by evaluting a condition across an entire SIMD invocation group using code like:</p>
 	 * 
@@ -949,7 +949,7 @@ public final class GLESCapabilities {
 	/**
 	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_element_index_uint.txt">OES_element_index_uint</a> extension is supported.
 	 * 
-	 * <p>OpenGL ES 1.0 supports DrawElements with <type> value of UNSIGNED_BYTE and UNSIGNED_SHORT. This extension adds support for UNSIGNED_INT <type> values.</p>
+	 * <p>OpenGL ES 1.0 supports DrawElements with {@code type} value of UNSIGNED_BYTE and UNSIGNED_SHORT. This extension adds support for UNSIGNED_INT <type> values.</p>
 	 */
 	public final boolean GL_OES_element_index_uint;
 	/**

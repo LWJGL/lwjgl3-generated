@@ -21,9 +21,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>An array texture is accessed as a single unit in a programmable shader, using a single coordinate vector. A single layer is selected, using the "p"
  * texture coordinate, and that layer is then accessed as though it were a two-dimensional texture. The layer coordinate is provided as an unnormalized
- * floating-point value in the range [0,<n>-1], where <n> is the number of layers in the array texture. Texture lookups do not filter between layers,
- * though such filtering can be achieved using programmable shaders. When mipmapping is used, each level of an array texture has the same number of layers
- * as the base level; the number of layers is not reduced as the image size decreases.</p>
+ * floating-point value in the range {@code [0,<n>-1]}, where {@code <n>} is the number of layers in the array texture. Texture lookups do not filter
+ * between layers, though such filtering can be achieved using programmable shaders. When mipmapping is used, each level of an array texture has the same
+ * number of layers as the base level; the number of layers is not reduced as the image size decreases.</p>
  * 
  * <p>Single layers of array textures can be rendered to by binding them to a framebuffer object using the FramebufferTextureLayerNV function.</p>
  */

@@ -55,23 +55,23 @@ import static org.lwjgl.opengles.GLES20.*;
  * so long as all the weighted paths have consistent command sequences.</p>
  * 
  * <p>Each path object contains zero or more subpaths specified by a sequence of line segments, partial elliptical arcs, and (cubic or quadratic) Bezier
- * curve segments. Each path may contain multiple subpaths that can be closed (forming a contour) or open.</li>
- * <li>Path stenciling is the process of updating the stencil buffer based on a path's coverage transformed into window space.</p>
+ * curve segments. Each path may contain multiple subpaths that can be closed (forming a contour) or open.</p></li>
+ * <li>Path stenciling is the process of updating the stencil buffer based on a path's coverage transformed into window space.
  * 
  * <p>Path stenciling can determine either the filled or stroked coverage of a path.</p>
  * 
  * <p>The details of path stenciling are explained within the core of the specification.</p>
  * 
  * <p>Stenciling a stroked path supports all the standard embellishments for path stroking such as end caps, join styles, miter limits, dashing, and dash
- * caps. These stroking properties specified are parameters of path objects.</li>
+ * caps. These stroking properties specified are parameters of path objects.</p></li>
  * <li>Path covering is the process of emitting simple (convex & planar) geometry that (conservatively) "covers" the path's sample coverage in the stencil
  * buffer. During path covering, stencil testing can be configured to discard fragments not within the actual coverage of the path as determined by
- * prior path stenciling.</p>
+ * prior path stenciling.
  * 
  * <p>Path covering can cover either the filled or stroked coverage of a path.</p>
  * 
- * <p>The details of path covering are explained within the core of the specification.</li>
- * </ol></p>
+ * <p>The details of path covering are explained within the core of the specification.</p></li>
+ * </ol>
  * 
  * <p>To render a path object into the color buffer, an application specifies a path object and then uses a two-step rendering process. First, the path
  * object is stenciled whereby the path object's stroked or filled coverage is rasterized into the stencil buffer. Second, the path object is covered

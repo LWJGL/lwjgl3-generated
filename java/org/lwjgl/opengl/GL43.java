@@ -890,7 +890,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * 
 	 * Retrieves messages from the debug message log.
 	 * 
-	 * <p>This function fetches a maximum of <count> messages from the message log, and will return the number of messages successfully fetched.</p>
+	 * <p>This function fetches a maximum of {@code count} messages from the message log, and will return the number of messages successfully fetched.</p>
 	 * 
 	 * <p>Messages will be fetched from the log in order of oldest to newest. Those messages that were fetched will be removed from the log.</p>
 	 * 

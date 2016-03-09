@@ -21,7 +21,7 @@ import static org.lwjgl.system.JNI.*;
  * introduced by that extension, but redefines them so that a vertex shader can instead use vertex array attributes as a source of instance data.</p>
  * 
  * <p>This extension introduces an array "divisor" for generic vertex array attributes, which when non-zero specifies that the attribute is "instanced." An
- * instanced attribute does not advance per-vertex as usual, but rather after every <divisor> conceptual draw calls.</p>
+ * instanced attribute does not advance per-vertex as usual, but rather after every {@code</p><divisor>} conceptual draw calls.
  * 
  * <p>(Attributes which aren't instanced are repeated in their entirety for every conceptual draw call.)</p>
  * 

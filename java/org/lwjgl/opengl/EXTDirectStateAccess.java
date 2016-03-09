@@ -58,7 +58,9 @@ import static org.lwjgl.system.Pointer.*;
  * <li>The current bound buffer for each supported buffer target.</li>
  * <li>The current GLSL program.</li>
  * <li>The current framebuffer object.</li>
- * </ul>  The new selector-free update commands can be compiled into display lists.
+ * </ul>
+ * 
+ * <p>The new selector-free update commands can be compiled into display lists.</p>
  * 
  * <p>The OpenGL API has latched state for vertex array buffer objects and pixel store state. When an application issues a GL command to unpack or pack pixels
  * (for example, glTexImage2D or glReadPixels respectively), the current unpack and pack pixel store state determines how the pixels are unpacked

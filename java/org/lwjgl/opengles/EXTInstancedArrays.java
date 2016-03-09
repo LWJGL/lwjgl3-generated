@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * amount of duplicate data to a minimum.</p>
  * 
  * <p>This extension introduces an array "divisor" for generic vertex array attributes, which when non-zero specifies that the attribute is "instanced." An
- * instanced attribute does not advance per-vertex as usual, but rather after every <divisor> conceptual draw calls.</p>
+ * instanced attribute does not advance per-vertex as usual, but rather after every {@code</p><divisor>} conceptual draw calls.
  * 
  * <p>(Attributes which aren't instanced are repeated in their entirety for every conceptual draw call.)</p>
  * 

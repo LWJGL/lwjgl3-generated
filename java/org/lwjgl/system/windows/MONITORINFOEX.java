@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>cbSize</td><td>the size, in bytes, of the structure.
  * 
  * <p>Set this member to {@link #SIZEOF} before calling the {@link User32#GetMonitorInfo User32.GetMonitorInfo} function. Doing so lets the function determine the type of structure you are
- * passing to it.</td></tr>
+ * passing to it.</p></td></tr>
  * <tr><td>rcMonitor</td><td>a {@link RECT} structure that specifies the display monitor rectangle, expressed in virtual-screen coordinates. Note that if the monitor is not the primary
  * display monitor, some of the rectangle's coordinates may be negative values.</td></tr>
  * <tr><td>rcWork</td><td>a {@link RECT} structure that specifies the work area rectangle of the display monitor that can be used by applications, expressed in virtual-screen
@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * values.</td></tr>
  * <tr><td>dwFlags</td><td>the attributes of the display monitor. May be:<br>{@link User32#MONITORINFOF_PRIMARY}</td></tr>
  * <tr><td>szDevice</td><td>a string that specifies the device name of the monitor being used</td></tr>
- * </table></p>
+ * </table>
  */
 public class MONITORINFOEX extends Struct {
 

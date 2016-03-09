@@ -20,11 +20,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * in {@link GL11#glDrawArrays DrawArrays} and the {@code basevertex} parameter in {@link GL11#glDrawElements DrawElements}. When instanced rendering is performed (for example, through
  * {@link GL31#glDrawArraysInstanced DrawArraysInstanced}), instanced vertex attributes whose vertex attribute divisors are non-zero are fetched from enabled vertex arrays
  * per-instance rather than per-vertex. However, in unextended OpenGL, there is no way to define the offset into those arrays from which the attributes are
- * fetched. This extension adds that offset in the form of a <baseinstance> parameter to several new procedures.</p>
+ * fetched. This extension adds that offset in the form of a {@code <baseinstance>} parameter to several new procedures.</p>
  * 
  * <p>The {@code baseinstance} parameter is added to the index of the array element, after division by the vertex attribute divisor. This allows several sets
  * of instanced vertex attribute data to be stored in a single vertex array, and the base offset of that data to be specified for each draw. Further, this
- * extension exposes the <baseinstance> parameter as the final and previously undefined structure member of the draw-indirect data structure.</p>
+ * extension exposes the {@code <baseinstance>} parameter as the final and previously undefined structure member of the draw-indirect data structure.</p>
  * 
  * <p>Requires {@link GL31 OpenGL 3.1} or {@link ARBDrawInstanced ARB_draw_instanced}. Promoted to core in {@link GL42 OpenGL 4.2}.</p>
  */

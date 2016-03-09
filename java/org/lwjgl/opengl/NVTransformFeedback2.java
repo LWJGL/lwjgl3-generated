@@ -26,9 +26,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * feedback object. When transform feedback is resumed, additional primitives are captured and appended to previously captured primitives for the object.</p>
  * 
  * <p>Additionally, this extension provides the ability to draw primitives captured in transform feedback mode without querying the captured primitive count.
- * The command DrawTransformFeedbackNV() is equivalent to glDrawArrays(<mode>, 0, <count>), where <count> is the number of vertices captured to buffer
- * objects during the last transform feedback capture operation on the transform feedback object used. This draw operation only provides a vertex count --
- * it does not automatically set up vertex array state or vertex buffer object bindings, which must be done separately by the application.</p>
+ * The command DrawTransformFeedbackNV() is equivalent to {@code glDrawArrays(<mode>, 0, <count>)}, where {@code count} is the number of vertices captured
+ * to buffer objects during the last transform feedback capture operation on the transform feedback object used. This draw operation only provides a
+ * vertex count -- it does not automatically set up vertex array state or vertex buffer object bindings, which must be done separately by the application.</p>
  * 
  * <p>Requires {@link GL15 OpenGL 1.5} and {@link NVTransformFeedback NV_transform_feedback} or {@link EXTTransformFeedback EXT_transform_feedback}.</p>
  */

@@ -17,12 +17,12 @@ import static org.lwjgl.system.JNI.*;
  * distinguishes between color samples and coverage samples.</p>
  * 
  * <p>EXT_framebuffer_multisample introduced the function RenderbufferStorageMultisampleEXT as a method of defining the storage parameters for a multisample
- * render buffer. This function takes a <samples> parameter. Using rules provided by the specification, the <samples> parameter is resolved to an actual
- * number of samples that is supported by the underlying hardware. EXT_framebuffer_multisample does not specify whether <samples> refers to coverage
+ * render buffer. This function takes a {@code samples} parameter. Using rules provided by the specification, the <samples> parameter is resolved to an actual
+ * number of samples that is supported by the underlying hardware. EXT_framebuffer_multisample does not specify whether {@code samples} refers to coverage
  * samples or color samples.</p>
  * 
- * <p>This extension adds the function RenderbufferStorageMultisamplCoverageNV, which takes a <coverageSamples> parameter as well as a <colorSamples>
- * parameter. These two parameters give developers more fine grained control over the quality of multisampled images.</p>
+ * <p>This extension adds the function RenderbufferStorageMultisamplCoverageNV, which takes a {@code coverageSamples} parameter as well as a
+ * {@code colorSamples} parameter. These two parameters give developers more fine grained control over the quality of multisampled images.</p>
  * 
  * <p>Requires {@link EXTFramebufferObject EXT_framebuffer_object}, {@link EXTFramebufferBlit EXT_framebuffer_blit} and {@link EXTFramebufferMultisample EXT_framebuffer_multisample}.</p>
  */

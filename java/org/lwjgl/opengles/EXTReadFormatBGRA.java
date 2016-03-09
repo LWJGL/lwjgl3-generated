@@ -19,8 +19,8 @@ package org.lwjgl.opengles;
     BGRA_EXT                    UNSIGNED_SHORT_4_4_4_4_REV_EXT
     BGRA_EXT                    UNSIGNED_SHORT_1_5_5_5_REV_EXT</code></pre>
  * 
- * <p>E.g. Calling GetIntegerv with a <pname> parameter of IMPLEMENTATION_COLOR_READ_FORMAT_OES can now return BGRA_EXT, with the corresponding call to
- * GetIntegerv using a <pname> parameter of IMPLEMENTATION_COLOR_READ_TYPE_OES returning UNSIGNED_BYTE;</p>
+ * <p>E.g. Calling GetIntegerv with a {@code pname} parameter of IMPLEMENTATION_COLOR_READ_FORMAT_OES can now return BGRA_EXT, with the corresponding call to
+ * GetIntegerv using a {@code pname} parameter of IMPLEMENTATION_COLOR_READ_TYPE_OES returning UNSIGNED_BYTE;</p>
  */
 public final class EXTReadFormatBGRA {
 

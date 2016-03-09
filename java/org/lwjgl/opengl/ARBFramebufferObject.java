@@ -191,12 +191,12 @@ import org.lwjgl.system.linux.*;
  * Additionally, "bind" establishes a connection between a context and an object, while "attach" establishes a connection between two objects.</p>
  * 
  * <p>Finally, if object "A" is attached to object "B" and object "B" is bound to context "C", then in most respects, we treat "A" as if it is
- * <em>implicitly</em> bound to "C".</li>
+ * <em>implicitly</em> bound to "C".</p></li>
  * <li><b>framebuffer attachment completeness</b> &ndash; Similar to texture "mipmap" or "cube" completeness, defines a minimum set of criteria for
  * framebuffer attachment points.</li>
  * <li><b>framebuffer completeness</b> &ndash; Similar to texture "mipmap cube completeness", defines a composite set of "completeness" requirements and
  * relationships among the attached framebuffer-attachable images.</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
