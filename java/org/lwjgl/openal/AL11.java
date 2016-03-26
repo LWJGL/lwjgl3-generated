@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to AL 1.1 functionality. */
@@ -32,66 +32,15 @@ public class AL11 {
 		AL_EXPONENT_DISTANCE         = 0xD005,
 		AL_EXPONENT_DISTANCE_CLAMPED = 0xD006;
 
-	/** Function address. */
-	public final long
-		Listener3i,
-		GetListeneriv,
-		Source3i,
-		Listeneriv,
-		Sourceiv,
-		Bufferf,
-		Buffer3f,
-		Bufferfv,
-		Bufferi,
-		Buffer3i,
-		Bufferiv,
-		GetBufferi,
-		GetBufferiv,
-		GetBufferf,
-		GetBufferfv,
-		SpeedOfSound;
-
 	protected AL11() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AL11(FunctionProvider provider) {
-		Listener3i = provider.getFunctionAddress("alListener3i");
-		GetListeneriv = provider.getFunctionAddress("alGetListeneriv");
-		Source3i = provider.getFunctionAddress("alSource3i");
-		Listeneriv = provider.getFunctionAddress("alListeneriv");
-		Sourceiv = provider.getFunctionAddress("alSourceiv");
-		Bufferf = provider.getFunctionAddress("alBufferf");
-		Buffer3f = provider.getFunctionAddress("alBuffer3f");
-		Bufferfv = provider.getFunctionAddress("alBufferfv");
-		Bufferi = provider.getFunctionAddress("alBufferi");
-		Buffer3i = provider.getFunctionAddress("alBuffer3i");
-		Bufferiv = provider.getFunctionAddress("alBufferiv");
-		GetBufferi = provider.getFunctionAddress("alGetBufferi");
-		GetBufferiv = provider.getFunctionAddress("alGetBufferiv");
-		GetBufferf = provider.getFunctionAddress("alGetBufferf");
-		GetBufferfv = provider.getFunctionAddress("alGetBufferfv");
-		SpeedOfSound = provider.getFunctionAddress("alSpeedOfSound");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AL11} instance of the current context. */
-	public static AL11 getInstance() {
-		return checkFunctionality(AL.getCapabilities().__AL11);
-	}
-
-	static AL11 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenAL11") ) return null;
-
-		AL11 funcs = new AL11(provider);
-
-		boolean supported = checkFunctions(
-			funcs.Listener3i, funcs.GetListeneriv, funcs.Source3i, funcs.Listeneriv, funcs.Sourceiv, funcs.Bufferf, funcs.Buffer3f, funcs.Bufferfv, 
-			funcs.Bufferi, funcs.Buffer3i, funcs.Bufferiv, funcs.GetBufferi, funcs.GetBufferiv, funcs.GetBufferf, funcs.GetBufferfv, funcs.SpeedOfSound
+	static boolean isAvailable(ALCapabilities caps) {
+		return checkFunctions(
+			caps.alListener3i, caps.alGetListeneriv, caps.alSource3i, caps.alListeneriv, caps.alSourceiv, caps.alBufferf, caps.alBuffer3f, caps.alBufferfv, 
+			caps.alBufferi, caps.alBuffer3i, caps.alBufferiv, caps.alGetBufferi, caps.alGetBufferiv, caps.alGetBufferf, caps.alGetBufferfv, caps.alSpeedOfSound
 		);
-
-		return AL.checkExtension("OpenAL11", funcs, supported);
 	}
 
 	// --- [ alListener3i ] ---
@@ -105,7 +54,9 @@ public class AL11 {
 	 * @param value3    the third value
 	 */
 	public static void alListener3i(int paramName, float value1, float value2, float value3) {
-		long __functionAddress = getInstance().Listener3i;
+		long __functionAddress = AL.getCapabilities().alListener3i;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIFFFV(__functionAddress, paramName, value1, value2, value3);
 	}
 
@@ -113,7 +64,9 @@ public class AL11 {
 
 	/** Unsafe version of {@link #alGetListeneriv GetListeneriv} */
 	public static void nalGetListeneriv(int param, long values) {
-		long __functionAddress = getInstance().GetListeneriv;
+		long __functionAddress = AL.getCapabilities().alGetListeneriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIPV(__functionAddress, param, values);
 	}
 
@@ -148,7 +101,9 @@ public class AL11 {
 	 * @param value3    the third value
 	 */
 	public static void alSource3i(int source, int paramName, int value1, int value2, int value3) {
-		long __functionAddress = getInstance().Source3i;
+		long __functionAddress = AL.getCapabilities().alSource3i;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIIIIV(__functionAddress, source, paramName, value1, value2, value3);
 	}
 
@@ -156,7 +111,9 @@ public class AL11 {
 
 	/** Unsafe version of {@link #alListeneriv Listeneriv} */
 	public static void nalListeneriv(int listener, long value) {
-		long __functionAddress = getInstance().Listeneriv;
+		long __functionAddress = AL.getCapabilities().alListeneriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIPV(__functionAddress, listener, value);
 	}
 
@@ -183,7 +140,9 @@ public class AL11 {
 
 	/** Unsafe version of {@link #alSourceiv Sourceiv} */
 	public static void nalSourceiv(int source, int paramName, long value) {
-		long __functionAddress = getInstance().Sourceiv;
+		long __functionAddress = AL.getCapabilities().alSourceiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, source, paramName, value);
 	}
 
@@ -217,7 +176,9 @@ public class AL11 {
 	 * @param value     the value
 	 */
 	public static void alBufferf(int buffer, int paramName, float value) {
-		long __functionAddress = getInstance().Bufferf;
+		long __functionAddress = AL.getCapabilities().alBufferf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIFV(__functionAddress, buffer, paramName, value);
 	}
 
@@ -233,7 +194,9 @@ public class AL11 {
 	 * @param value3    the third value
 	 */
 	public static void alBuffer3f(int buffer, int paramName, float value1, float value2, float value3) {
-		long __functionAddress = getInstance().Buffer3f;
+		long __functionAddress = AL.getCapabilities().alBuffer3f;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIFFFV(__functionAddress, buffer, paramName, value1, value2, value3);
 	}
 
@@ -241,7 +204,9 @@ public class AL11 {
 
 	/** Unsafe version of {@link #alBufferfv Bufferfv} */
 	public static void nalBufferfv(int buffer, int paramName, long value) {
-		long __functionAddress = getInstance().Bufferfv;
+		long __functionAddress = AL.getCapabilities().alBufferfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, buffer, paramName, value);
 	}
 
@@ -275,7 +240,9 @@ public class AL11 {
 	 * @param value     the value
 	 */
 	public static void alBufferi(int buffer, int paramName, int value) {
-		long __functionAddress = getInstance().Bufferi;
+		long __functionAddress = AL.getCapabilities().alBufferi;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIIV(__functionAddress, buffer, paramName, value);
 	}
 
@@ -291,7 +258,9 @@ public class AL11 {
 	 * @param value3    the third value
 	 */
 	public static void alBuffer3i(int buffer, int paramName, int value1, int value2, int value3) {
-		long __functionAddress = getInstance().Buffer3i;
+		long __functionAddress = AL.getCapabilities().alBuffer3i;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIIIIV(__functionAddress, buffer, paramName, value1, value2, value3);
 	}
 
@@ -299,7 +268,9 @@ public class AL11 {
 
 	/** Unsafe version of {@link #alBufferiv Bufferiv} */
 	public static void nalBufferiv(int buffer, int paramName, long value) {
-		long __functionAddress = getInstance().Bufferiv;
+		long __functionAddress = AL.getCapabilities().alBufferiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, buffer, paramName, value);
 	}
 
@@ -327,7 +298,9 @@ public class AL11 {
 
 	/** Unsafe version of {@link #alGetBufferi GetBufferi} */
 	public static void nalGetBufferi(int buffer, int param, long value) {
-		long __functionAddress = getInstance().GetBufferi;
+		long __functionAddress = AL.getCapabilities().alGetBufferi;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, buffer, param, value);
 	}
 
@@ -353,17 +326,23 @@ public class AL11 {
 
 	/** Single return value version of: {@link #alGetBufferi GetBufferi} */
 	public static int alGetBufferi(int buffer, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.intParam();
-		nalGetBufferi(buffer, param, __buffer.address(value));
-		return __buffer.intValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer value = stack.callocInt(1);
+			nalGetBufferi(buffer, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetBufferiv ] ---
 
 	/** Unsafe version of {@link #alGetBufferiv GetBufferiv} */
 	public static void nalGetBufferiv(int buffer, int param, long values) {
-		long __functionAddress = getInstance().GetBufferiv;
+		long __functionAddress = AL.getCapabilities().alGetBufferiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, buffer, param, values);
 	}
 
@@ -391,7 +370,9 @@ public class AL11 {
 
 	/** Unsafe version of {@link #alGetBufferf GetBufferf} */
 	public static void nalGetBufferf(int buffer, int param, long value) {
-		long __functionAddress = getInstance().GetBufferf;
+		long __functionAddress = AL.getCapabilities().alGetBufferf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, buffer, param, value);
 	}
 
@@ -417,17 +398,23 @@ public class AL11 {
 
 	/** Single return value version of: {@link #alGetBufferf GetBufferf} */
 	public static float alGetBufferf(int buffer, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.floatParam();
-		nalGetBufferf(buffer, param, __buffer.address(value));
-		return __buffer.floatValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer value = stack.callocFloat(1);
+			nalGetBufferf(buffer, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetBufferfv ] ---
 
 	/** Unsafe version of {@link #alGetBufferfv GetBufferfv} */
 	public static void nalGetBufferfv(int buffer, int param, long values) {
-		long __functionAddress = getInstance().GetBufferfv;
+		long __functionAddress = AL.getCapabilities().alGetBufferfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, buffer, param, values);
 	}
 
@@ -459,7 +446,9 @@ public class AL11 {
 	 * @param value the speed of sound
 	 */
 	public static void alSpeedOfSound(float value) {
-		long __functionAddress = getInstance().SpeedOfSound;
+		long __functionAddress = AL.getCapabilities().alSpeedOfSound;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeFV(__functionAddress, value);
 	}
 

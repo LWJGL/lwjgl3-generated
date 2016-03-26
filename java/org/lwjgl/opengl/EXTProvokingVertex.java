@@ -43,45 +43,22 @@ public class EXTProvokingVertex {
 		GL_PROVOKING_VERTEX_EXT                         = 0x8E4F,
 		GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT = 0x8E4C;
 
-	/** Function address. */
-	public final long ProvokingVertexEXT;
-
 	protected EXTProvokingVertex() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTProvokingVertex(FunctionProvider provider) {
-		ProvokingVertexEXT = provider.getFunctionAddress("glProvokingVertexEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTProvokingVertex} instance of the current context. */
-	public static EXTProvokingVertex getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTProvokingVertex} instance of the specified {@link GLCapabilities}. */
-	public static EXTProvokingVertex getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTProvokingVertex);
-	}
-
-	static EXTProvokingVertex create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_provoking_vertex") ) return null;
-
-		EXTProvokingVertex funcs = new EXTProvokingVertex(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ProvokingVertexEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glProvokingVertexEXT
 		);
-
-		return GL.checkExtension("GL_EXT_provoking_vertex", funcs, supported);
 	}
 
 	// --- [ glProvokingVertexEXT ] ---
 
 	public static void glProvokingVertexEXT(int mode) {
-		long __functionAddress = getInstance().ProvokingVertexEXT;
+		long __functionAddress = GL.getCapabilities().glProvokingVertexEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
 	}
 

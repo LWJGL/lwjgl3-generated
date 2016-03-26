@@ -44,51 +44,26 @@ public class EXTOutputBase {
 		EGL_NO_OUTPUT_LAYER_EXT = 0x0L,
 		EGL_NO_OUTPUT_PORT_EXT  = 0x0L;
 
-	/** Function address. */
-	public final long
-		GetOutputLayersEXT,
-		GetOutputPortsEXT,
-		OutputLayerAttribEXT,
-		QueryOutputLayerAttribEXT,
-		QueryOutputLayerStringEXT,
-		OutputPortAttribEXT,
-		QueryOutputPortAttribEXT,
-		QueryOutputPortStringEXT;
-
 	protected EXTOutputBase() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTOutputBase(FunctionProvider provider) {
-		GetOutputLayersEXT = provider.getFunctionAddress("eglGetOutputLayersEXT");
-		GetOutputPortsEXT = provider.getFunctionAddress("eglGetOutputPortsEXT");
-		OutputLayerAttribEXT = provider.getFunctionAddress("eglOutputLayerAttribEXT");
-		QueryOutputLayerAttribEXT = provider.getFunctionAddress("eglQueryOutputLayerAttribEXT");
-		QueryOutputLayerStringEXT = provider.getFunctionAddress("eglQueryOutputLayerStringEXT");
-		OutputPortAttribEXT = provider.getFunctionAddress("eglOutputPortAttribEXT");
-		QueryOutputPortAttribEXT = provider.getFunctionAddress("eglQueryOutputPortAttribEXT");
-		QueryOutputPortStringEXT = provider.getFunctionAddress("eglQueryOutputPortStringEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTOutputBase} instance. */
-	public static EXTOutputBase getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTOutputBase} instance of the specified {@link EGLCapabilities}. */
-	public static EXTOutputBase getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__EXTOutputBase);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglGetOutputLayersEXT, caps.eglGetOutputPortsEXT, caps.eglOutputLayerAttribEXT, caps.eglQueryOutputLayerAttribEXT, 
+			caps.eglQueryOutputLayerStringEXT, caps.eglOutputPortAttribEXT, caps.eglQueryOutputPortAttribEXT, caps.eglQueryOutputPortStringEXT
+		);
 	}
 
 	// --- [ eglGetOutputLayersEXT ] ---
 
 	/** Unsafe version of {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */
 	public static int neglGetOutputLayersEXT(long dpy, long attrib_list, long layers, int max_layers, long num_layers) {
-		long __functionAddress = getInstance().GetOutputLayersEXT;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglGetOutputLayersEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPPPIPI(__functionAddress, dpy, attrib_list, layers, max_layers, num_layers);
 	}
 
@@ -114,9 +89,11 @@ public class EXTOutputBase {
 
 	/** Unsafe version of {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
 	public static int neglGetOutputPortsEXT(long dpy, long attrib_list, long ports, int max_ports, long num_ports) {
-		long __functionAddress = getInstance().GetOutputPortsEXT;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglGetOutputPortsEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPPPIPI(__functionAddress, dpy, attrib_list, ports, max_ports, num_ports);
 	}
 
@@ -141,8 +118,9 @@ public class EXTOutputBase {
 	// --- [ eglOutputLayerAttribEXT ] ---
 
 	public static int eglOutputLayerAttribEXT(long dpy, long layer, int attribute, long value) {
-		long __functionAddress = getInstance().OutputLayerAttribEXT;
+		long __functionAddress = EGL.getCapabilities().eglOutputLayerAttribEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
@@ -153,8 +131,9 @@ public class EXTOutputBase {
 
 	/** Unsafe version of {@link #eglQueryOutputLayerAttribEXT QueryOutputLayerAttribEXT} */
 	public static int neglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, long value) {
-		long __functionAddress = getInstance().QueryOutputLayerAttribEXT;
+		long __functionAddress = EGL.getCapabilities().eglQueryOutputLayerAttribEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
@@ -178,8 +157,9 @@ public class EXTOutputBase {
 
 	/** Unsafe version of {@link #eglQueryOutputLayerStringEXT QueryOutputLayerStringEXT} */
 	public static long neglQueryOutputLayerStringEXT(long dpy, long layer, int name) {
-		long __functionAddress = getInstance().QueryOutputLayerStringEXT;
+		long __functionAddress = EGL.getCapabilities().eglQueryOutputLayerStringEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
@@ -188,14 +168,15 @@ public class EXTOutputBase {
 
 	public static String eglQueryOutputLayerStringEXT(long dpy, long layer, int name) {
 		long __result = neglQueryOutputLayerStringEXT(dpy, layer, name);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ eglOutputPortAttribEXT ] ---
 
 	public static int eglOutputPortAttribEXT(long dpy, long port, int attribute, long value) {
-		long __functionAddress = getInstance().OutputPortAttribEXT;
+		long __functionAddress = EGL.getCapabilities().eglOutputPortAttribEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(port);
 		}
@@ -206,8 +187,9 @@ public class EXTOutputBase {
 
 	/** Unsafe version of {@link #eglQueryOutputPortAttribEXT QueryOutputPortAttribEXT} */
 	public static int neglQueryOutputPortAttribEXT(long dpy, long port, int attribute, long value) {
-		long __functionAddress = getInstance().QueryOutputPortAttribEXT;
+		long __functionAddress = EGL.getCapabilities().eglQueryOutputPortAttribEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(port);
 		}
@@ -231,8 +213,9 @@ public class EXTOutputBase {
 
 	/** Unsafe version of {@link #eglQueryOutputPortStringEXT QueryOutputPortStringEXT} */
 	public static long neglQueryOutputPortStringEXT(long dpy, long port, int name) {
-		long __functionAddress = getInstance().QueryOutputPortStringEXT;
+		long __functionAddress = EGL.getCapabilities().eglQueryOutputPortStringEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(port);
 		}
@@ -241,7 +224,7 @@ public class EXTOutputBase {
 
 	public static String eglQueryOutputPortStringEXT(long dpy, long port, int name) {
 		long __result = neglQueryOutputPortStringEXT(dpy, port, name);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 }

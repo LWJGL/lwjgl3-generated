@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Contains OpenGL-specific texture information.
@@ -35,7 +36,7 @@ public class OVRGLTexture extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -44,12 +45,12 @@ public class OVRGLTexture extends Struct {
 
 	static {
 		Layout layout = __union(
-			__member(OVRTexture.SIZEOF, OVRTexture.__ALIGNMENT),
-			__member(OVRGLTextureData.SIZEOF, OVRGLTextureData.__ALIGNMENT)
+			__member(OVRTexture.SIZEOF, OVRTexture.ALIGNOF),
+			__member(OVRGLTextureData.SIZEOF, OVRGLTextureData.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		TEXTURE = layout.offsetof(0);
 		OGL = layout.offsetof(1);
@@ -158,6 +159,76 @@ public class OVRGLTexture extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link OVRGLTexture} instance allocated on the thread-local {@link MemoryStack}. */
+	public static OVRGLTexture mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link OVRGLTexture} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static OVRGLTexture callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRGLTexture} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRGLTexture mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRGLTexture} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRGLTexture callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRGLTexture.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRGLTexture.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRGLTexture.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link OVRGLTexture.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #Texture}. */
 	public static OVRTexture nTexture(long struct) { return OVRTexture.create(struct + OVRGLTexture.TEXTURE); }
 	/** Unsafe version of {@link #OGL}. */
@@ -202,7 +273,7 @@ public class OVRGLTexture extends Struct {
 
 		@Override
 		protected OVRGLTexture newInstance(long address) {
-			return new OVRGLTexture(address, container);
+			return new OVRGLTexture(address, getContainer());
 		}
 
 		@Override

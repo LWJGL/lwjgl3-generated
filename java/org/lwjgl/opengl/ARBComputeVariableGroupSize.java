@@ -36,39 +36,14 @@ public class ARBComputeVariableGroupSize {
 		GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB = 0x9345,
 		GL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB    = 0x91BF;
 
-	/** Function address. */
-	public final long DispatchComputeGroupSizeARB;
-
 	protected ARBComputeVariableGroupSize() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBComputeVariableGroupSize(FunctionProvider provider) {
-		DispatchComputeGroupSizeARB = provider.getFunctionAddress("glDispatchComputeGroupSizeARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBComputeVariableGroupSize} instance of the current context. */
-	public static ARBComputeVariableGroupSize getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBComputeVariableGroupSize} instance of the specified {@link GLCapabilities}. */
-	public static ARBComputeVariableGroupSize getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBComputeVariableGroupSize);
-	}
-
-	static ARBComputeVariableGroupSize create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_compute_variable_group_size") ) return null;
-
-		ARBComputeVariableGroupSize funcs = new ARBComputeVariableGroupSize(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DispatchComputeGroupSizeARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDispatchComputeGroupSizeARB
 		);
-
-		return GL.checkExtension("GL_ARB_compute_variable_group_size", funcs, supported);
 	}
 
 	// --- [ glDispatchComputeGroupSizeARB ] ---
@@ -95,7 +70,9 @@ public class ARBComputeVariableGroupSize {
 	 * @param group_size_z the group size in the Z dimension
 	 */
 	public static void glDispatchComputeGroupSizeARB(int num_groups_x, int num_groups_y, int num_groups_z, int group_size_x, int group_size_y, int group_size_z) {
-		long __functionAddress = getInstance().DispatchComputeGroupSizeARB;
+		long __functionAddress = GL.getCapabilities().glDispatchComputeGroupSizeARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z);
 	}
 

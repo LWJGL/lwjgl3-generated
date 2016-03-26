@@ -30,41 +30,22 @@ public class EGL11 {
 		EGL_TEXTURE_RGBA         = 0x305E,
 		EGL_TEXTURE_TARGET       = 0x3081;
 
-	/** Function address. */
-	public final long
-		BindTexImage,
-		ReleaseTexImage,
-		SurfaceAttrib,
-		SwapInterval;
-
 	protected EGL11() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EGL11(FunctionProvider provider) {
-		BindTexImage = provider.getFunctionAddress("eglBindTexImage");
-		ReleaseTexImage = provider.getFunctionAddress("eglReleaseTexImage");
-		SurfaceAttrib = provider.getFunctionAddress("eglSurfaceAttrib");
-		SwapInterval = provider.getFunctionAddress("eglSwapInterval");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EGL11} instance. */
-	public static EGL11 getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link EGL11} instance of the specified {@link EGLCapabilities}. */
-	public static EGL11 getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__EGL11);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglBindTexImage, caps.eglReleaseTexImage, caps.eglSurfaceAttrib, caps.eglSwapInterval
+		);
 	}
 
 	// --- [ eglBindTexImage ] ---
 
 	public static int eglBindTexImage(long dpy, long surface, int buffer) {
-		long __functionAddress = getInstance().BindTexImage;
+		long __functionAddress = EGL.getCapabilities().eglBindTexImage;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -74,8 +55,9 @@ public class EGL11 {
 	// --- [ eglReleaseTexImage ] ---
 
 	public static int eglReleaseTexImage(long dpy, long surface, int buffer) {
-		long __functionAddress = getInstance().ReleaseTexImage;
+		long __functionAddress = EGL.getCapabilities().eglReleaseTexImage;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -85,8 +67,9 @@ public class EGL11 {
 	// --- [ eglSurfaceAttrib ] ---
 
 	public static int eglSurfaceAttrib(long dpy, long surface, int attribute, int value) {
-		long __functionAddress = getInstance().SurfaceAttrib;
+		long __functionAddress = EGL.getCapabilities().eglSurfaceAttrib;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -96,9 +79,11 @@ public class EGL11 {
 	// --- [ eglSwapInterval ] ---
 
 	public static int eglSwapInterval(long dpy, int interval) {
-		long __functionAddress = getInstance().SwapInterval;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglSwapInterval;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPII(__functionAddress, dpy, interval);
 	}
 

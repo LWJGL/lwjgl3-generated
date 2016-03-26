@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -41,45 +41,23 @@ public class EXTDiscardFramebuffer {
 		GL_DEPTH_EXT   = 0x1801,
 		GL_STENCIL_EXT = 0x1802;
 
-	/** Function address. */
-	public final long DiscardFramebufferEXT;
-
 	protected EXTDiscardFramebuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDiscardFramebuffer(FunctionProvider provider) {
-		DiscardFramebufferEXT = provider.getFunctionAddress("glDiscardFramebufferEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDiscardFramebuffer} instance of the current context. */
-	public static EXTDiscardFramebuffer getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDiscardFramebuffer} instance of the specified {@link GLESCapabilities}. */
-	public static EXTDiscardFramebuffer getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTDiscardFramebuffer);
-	}
-
-	static EXTDiscardFramebuffer create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_discard_framebuffer") ) return null;
-
-		EXTDiscardFramebuffer funcs = new EXTDiscardFramebuffer(provider);
-		boolean supported = checkFunctions(
-			funcs.DiscardFramebufferEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glDiscardFramebufferEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_discard_framebuffer", funcs, supported);
 	}
 
 	// --- [ glDiscardFramebufferEXT ] ---
 
 	/** Unsafe version of {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
 	public static void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments) {
-		long __functionAddress = getInstance().DiscardFramebufferEXT;
+		long __functionAddress = GLES.getCapabilities().glDiscardFramebufferEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, numAttachments, attachments);
 	}
 
@@ -96,9 +74,13 @@ public class EXTDiscardFramebuffer {
 
 	/** Single value version of: {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
 	public static void glDiscardFramebufferEXT(int target, int attachment) {
-		APIBuffer __buffer = apiBuffer();
-		int attachments = __buffer.intParam(attachment);
-		nglDiscardFramebufferEXT(target, 1, __buffer.address(attachments));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer attachments = stack.ints(attachment);
+			nglDiscardFramebufferEXT(target, 1, memAddress(attachments));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

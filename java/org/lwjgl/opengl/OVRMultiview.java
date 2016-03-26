@@ -45,39 +45,14 @@ public class OVRMultiview {
 	/** Returned by CheckFramebufferStatus. */
 	public static final int GL_FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR = 0x9633;
 
-	/** Function address. */
-	public final long FramebufferTextureMultiviewOVR;
-
 	protected OVRMultiview() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OVRMultiview(FunctionProvider provider) {
-		FramebufferTextureMultiviewOVR = provider.getFunctionAddress("glFramebufferTextureMultiviewOVR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OVRMultiview} instance of the current context. */
-	public static OVRMultiview getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link OVRMultiview} instance of the specified {@link GLCapabilities}. */
-	public static OVRMultiview getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__OVRMultiview);
-	}
-
-	static OVRMultiview create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OVR_multiview") ) return null;
-
-		OVRMultiview funcs = new OVRMultiview(provider);
-
-		boolean supported = checkFunctions(
-			funcs.FramebufferTextureMultiviewOVR
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glFramebufferTextureMultiviewOVR
 		);
-
-		return GL.checkExtension("GL_OVR_multiview", funcs, supported);
 	}
 
 	// --- [ glFramebufferTextureMultiviewOVR ] ---
@@ -135,7 +110,9 @@ public class OVRMultiview {
 	 * @param numViews      the number of views to target when rendering
 	 */
 	public static void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews) {
-		long __functionAddress = getInstance().FramebufferTextureMultiviewOVR;
+		long __functionAddress = GL.getCapabilities().glFramebufferTextureMultiviewOVR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, target, attachment, texture, level, baseViewIndex, numViews);
 	}
 

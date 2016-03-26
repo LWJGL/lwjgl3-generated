@@ -27,44 +27,22 @@ public class NVReadBuffer {
 	/** Accepted by the {@code pname} parameter of GetIntegerv. */
 	public static final int GL_READ_BUFFER_NV = 0xC02;
 
-	/** Function address. */
-	public final long ReadBufferNV;
-
 	protected NVReadBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVReadBuffer(FunctionProvider provider) {
-		ReadBufferNV = provider.getFunctionAddress("glReadBufferNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVReadBuffer} instance of the current context. */
-	public static NVReadBuffer getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVReadBuffer} instance of the specified {@link GLESCapabilities}. */
-	public static NVReadBuffer getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVReadBuffer);
-	}
-
-	static NVReadBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_read_buffer") ) return null;
-
-		NVReadBuffer funcs = new NVReadBuffer(provider);
-		boolean supported = checkFunctions(
-			funcs.ReadBufferNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glReadBufferNV
 		);
-
-		return GLES.checkExtension("GL_NV_read_buffer", funcs, supported);
 	}
 
 	// --- [ glReadBufferNV ] ---
 
 	public static void glReadBufferNV(int mode) {
-		long __functionAddress = getInstance().ReadBufferNV;
+		long __functionAddress = GLES.getCapabilities().glReadBufferNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
 	}
 

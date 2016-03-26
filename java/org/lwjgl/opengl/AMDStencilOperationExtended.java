@@ -34,45 +34,22 @@ public class AMDStencilOperationExtended {
 		GL_STENCIL_OP_VALUE_AMD      = 0x874C,
 		GL_STENCIL_BACK_OP_VALUE_AMD = 0x874D;
 
-	/** Function address. */
-	public final long StencilOpValueAMD;
-
 	protected AMDStencilOperationExtended() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AMDStencilOperationExtended(FunctionProvider provider) {
-		StencilOpValueAMD = provider.getFunctionAddress("glStencilOpValueAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AMDStencilOperationExtended} instance of the current context. */
-	public static AMDStencilOperationExtended getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link AMDStencilOperationExtended} instance of the specified {@link GLCapabilities}. */
-	public static AMDStencilOperationExtended getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__AMDStencilOperationExtended);
-	}
-
-	static AMDStencilOperationExtended create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_AMD_stencil_operation_extended") ) return null;
-
-		AMDStencilOperationExtended funcs = new AMDStencilOperationExtended(provider);
-
-		boolean supported = checkFunctions(
-			funcs.StencilOpValueAMD
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glStencilOpValueAMD
 		);
-
-		return GL.checkExtension("GL_AMD_stencil_operation_extended", funcs, supported);
 	}
 
 	// --- [ glStencilOpValueAMD ] ---
 
 	public static void glStencilOpValueAMD(int face, int value) {
-		long __functionAddress = getInstance().StencilOpValueAMD;
+		long __functionAddress = GL.getCapabilities().glStencilOpValueAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, face, value);
 	}
 

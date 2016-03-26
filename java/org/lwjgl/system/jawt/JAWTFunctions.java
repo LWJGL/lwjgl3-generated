@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -60,36 +61,26 @@ public class JAWTFunctions {
 
 	static { Library.initialize(); }
 
-	/** Function address. */
-	public final long GetAWT;
-
 	protected JAWTFunctions() {
 		throw new UnsupportedOperationException();
 	}
 
-	public JAWTFunctions(FunctionProvider provider) {
-		GetAWT = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 || Platform.get() != Platform.WINDOWS ? "JAWT_GetAWT" : "_JAWT_GetAWT@8"));
+	private static final SharedLibrary JAWT = Library.loadNative("jawt");
+
+	/** Contains the function pointers loaded from the jawt {@link SharedLibrary}. */
+	public static final class Functions {
+
+		private Functions() {}
+
+		/** Function address. */
+		public static final long
+			GetAWT = apiGetFunctionAddress(JAWT, Pointer.BITS64 || Platform.get() != Platform.WINDOWS ? "JAWT_GetAWT" : "_JAWT_GetAWT@8");
+
 	}
 
-	// --- [ Function Addresses ] ---
-
-	private static final SharedLibrary LIB_JAWT;
-
-	private static final JAWTFunctions instance;
-
-	static {
-		LIB_JAWT = Library.loadNative("jawt");
-		instance = new JAWTFunctions(LIB_JAWT);
-	}
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	/** Returns the jawt {@link SharedLibrary}. */
 	public static SharedLibrary getLibrary() {
-		return LIB_JAWT;
-	}
-
-	/** Returns the {@link JAWTFunctions} instance. */
-	public static JAWTFunctions getInstance() {
-		return instance;
+		return JAWT;
 	}
 
 	// --- [ JAWT_GetAWT ] ---
@@ -99,7 +90,7 @@ public class JAWTFunctions {
 
 	/** Unsafe version of {@link #JAWT_GetAWT GetAWT} */
 	public static boolean nJAWT_GetAWT(long awt) {
-		long __functionAddress = getInstance().GetAWT;
+		long __functionAddress = Functions.GetAWT;
 		return nJAWT_GetAWT(__functionAddress, awt);
 	}
 

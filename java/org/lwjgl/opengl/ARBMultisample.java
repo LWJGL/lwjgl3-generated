@@ -50,39 +50,14 @@ public class ARBMultisample {
 		GL_SAMPLE_COVERAGE_VALUE_ARB  = 0x80AA,
 		GL_SAMPLE_COVERAGE_INVERT_ARB = 0x80AB;
 
-	/** Function address. */
-	public final long SampleCoverageARB;
-
 	protected ARBMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBMultisample(FunctionProvider provider) {
-		SampleCoverageARB = provider.getFunctionAddress("glSampleCoverageARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBMultisample} instance of the current context. */
-	public static ARBMultisample getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBMultisample} instance of the specified {@link GLCapabilities}. */
-	public static ARBMultisample getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBMultisample);
-	}
-
-	static ARBMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_multisample") ) return null;
-
-		ARBMultisample funcs = new ARBMultisample(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SampleCoverageARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glSampleCoverageARB
 		);
-
-		return GL.checkExtension("GL_ARB_multisample", funcs, supported);
 	}
 
 	// --- [ glSampleCoverageARB ] ---
@@ -98,7 +73,9 @@ public class ARBMultisample {
 	 * @param invert if true, the temporary coverage is inverted. One of:<br>{@link GL11#GL_TRUE TRUE}, {@link GL11#GL_FALSE FALSE}
 	 */
 	public static void glSampleCoverageARB(float value, boolean invert) {
-		long __functionAddress = getInstance().SampleCoverageARB;
+		long __functionAddress = GL.getCapabilities().glSampleCoverageARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFZV(__functionAddress, value, invert);
 	}
 

@@ -34,44 +34,22 @@ public class ANGLEFramebufferBlit {
 		GL_DRAW_FRAMEBUFFER_BINDING_ANGLE = 0x8CA6,
 		GL_READ_FRAMEBUFFER_BINDING_ANGLE = 0x8CAA;
 
-	/** Function address. */
-	public final long BlitFramebufferANGLE;
-
 	protected ANGLEFramebufferBlit() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ANGLEFramebufferBlit(FunctionProvider provider) {
-		BlitFramebufferANGLE = provider.getFunctionAddress("glBlitFramebufferANGLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ANGLEFramebufferBlit} instance of the current context. */
-	public static ANGLEFramebufferBlit getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link ANGLEFramebufferBlit} instance of the specified {@link GLESCapabilities}. */
-	public static ANGLEFramebufferBlit getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__ANGLEFramebufferBlit);
-	}
-
-	static ANGLEFramebufferBlit create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ANGLE_framebuffer_blit") ) return null;
-
-		ANGLEFramebufferBlit funcs = new ANGLEFramebufferBlit(provider);
-		boolean supported = checkFunctions(
-			funcs.BlitFramebufferANGLE
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glBlitFramebufferANGLE
 		);
-
-		return GLES.checkExtension("GL_ANGLE_framebuffer_blit", funcs, supported);
 	}
 
 	// --- [ glBlitFramebufferANGLE ] ---
 
 	public static void glBlitFramebufferANGLE(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = getInstance().BlitFramebufferANGLE;
+		long __functionAddress = GLES.getCapabilities().glBlitFramebufferANGLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 

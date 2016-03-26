@@ -22,35 +22,23 @@ import static org.lwjgl.system.Pointer.*;
  */
 public class ANGLEQuerySurfacePointer {
 
-	/** Function address. */
-	public final long QuerySurfacePointerANGLE;
-
 	protected ANGLEQuerySurfacePointer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ANGLEQuerySurfacePointer(FunctionProvider provider) {
-		QuerySurfacePointerANGLE = provider.getFunctionAddress("eglQuerySurfacePointerANGLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ANGLEQuerySurfacePointer} instance. */
-	public static ANGLEQuerySurfacePointer getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link ANGLEQuerySurfacePointer} instance of the specified {@link EGLCapabilities}. */
-	public static ANGLEQuerySurfacePointer getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__ANGLEQuerySurfacePointer);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglQuerySurfacePointerANGLE
+		);
 	}
 
 	// --- [ eglQuerySurfacePointerANGLE ] ---
 
 	/** Unsafe version of {@link #eglQuerySurfacePointerANGLE QuerySurfacePointerANGLE} */
 	public static int neglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, long value) {
-		long __functionAddress = getInstance().QuerySurfacePointerANGLE;
+		long __functionAddress = EGL.getCapabilities().eglQuerySurfacePointerANGLE;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}

@@ -38,44 +38,22 @@ public class EXTTextureFilterMinmax {
 	 */
 	public static final int GL_WEIGHTED_AVERAGE_EXT = 0x9367;
 
-	/** Function address. */
-	public final long RasterSamplesEXT;
-
 	protected EXTTextureFilterMinmax() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTTextureFilterMinmax(FunctionProvider provider) {
-		RasterSamplesEXT = provider.getFunctionAddress("glRasterSamplesEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTTextureFilterMinmax} instance of the current context. */
-	public static EXTTextureFilterMinmax getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTTextureFilterMinmax} instance of the specified {@link GLESCapabilities}. */
-	public static EXTTextureFilterMinmax getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTTextureFilterMinmax);
-	}
-
-	static EXTTextureFilterMinmax create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_texture_filter_minmax") ) return null;
-
-		EXTTextureFilterMinmax funcs = new EXTTextureFilterMinmax(provider);
-		boolean supported = checkFunctions(
-			funcs.RasterSamplesEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glRasterSamplesEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_texture_filter_minmax", funcs, supported);
 	}
 
 	// --- [ glRasterSamplesEXT ] ---
 
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().RasterSamplesEXT;
+		long __functionAddress = GLES.getCapabilities().glRasterSamplesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIZV(__functionAddress, samples, fixedsamplelocations);
 	}
 

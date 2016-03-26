@@ -30,35 +30,24 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ANDROIDBlobCache {
 
-	/** Function address. */
-	public final long SetBlobCacheFuncsANDROID;
-
 	protected ANDROIDBlobCache() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ANDROIDBlobCache(FunctionProvider provider) {
-		SetBlobCacheFuncsANDROID = provider.getFunctionAddress("eglSetBlobCacheFuncsANDROID");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ANDROIDBlobCache} instance. */
-	public static ANDROIDBlobCache getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link ANDROIDBlobCache} instance of the specified {@link EGLCapabilities}. */
-	public static ANDROIDBlobCache getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__ANDROIDBlobCache);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglSetBlobCacheFuncsANDROID
+		);
 	}
 
 	// --- [ eglSetBlobCacheFuncsANDROID ] ---
 
 	public static void eglSetBlobCacheFuncsANDROID(long dpy, EGLSetBlobFuncANDROID set, EGLGetBlobFuncANDROID get) {
-		long __functionAddress = getInstance().SetBlobCacheFuncsANDROID;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglSetBlobCacheFuncsANDROID;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		callPPPV(__functionAddress, dpy, set.address(), get.address());
 	}
 

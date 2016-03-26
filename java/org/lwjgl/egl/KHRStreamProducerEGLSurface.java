@@ -26,35 +26,23 @@ public class KHRStreamProducerEGLSurface {
 	/**  */
 	public static final int EGL_STREAM_BIT_KHR = 0x800;
 
-	/** Function address. */
-	public final long CreateStreamProducerSurfaceKHR;
-
 	protected KHRStreamProducerEGLSurface() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRStreamProducerEGLSurface(FunctionProvider provider) {
-		CreateStreamProducerSurfaceKHR = provider.getFunctionAddress("eglCreateStreamProducerSurfaceKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRStreamProducerEGLSurface} instance. */
-	public static KHRStreamProducerEGLSurface getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRStreamProducerEGLSurface} instance of the specified {@link EGLCapabilities}. */
-	public static KHRStreamProducerEGLSurface getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRStreamProducerEGLSurface);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglCreateStreamProducerSurfaceKHR
+		);
 	}
 
 	// --- [ eglCreateStreamProducerSurfaceKHR ] ---
 
 	/** Unsafe version of {@link #eglCreateStreamProducerSurfaceKHR CreateStreamProducerSurfaceKHR} */
 	public static long neglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, long attrib_list) {
-		long __functionAddress = getInstance().CreateStreamProducerSurfaceKHR;
+		long __functionAddress = EGL.getCapabilities().eglCreateStreamProducerSurfaceKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(stream);

@@ -30,121 +30,21 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static final int GL_INT_2_10_10_10_REV = 0x8D9F;
 
-	/** Function address. */
-	public final long
-		VertexP2ui,
-		VertexP3ui,
-		VertexP4ui,
-		VertexP2uiv,
-		VertexP3uiv,
-		VertexP4uiv,
-		TexCoordP1ui,
-		TexCoordP2ui,
-		TexCoordP3ui,
-		TexCoordP4ui,
-		TexCoordP1uiv,
-		TexCoordP2uiv,
-		TexCoordP3uiv,
-		TexCoordP4uiv,
-		MultiTexCoordP1ui,
-		MultiTexCoordP2ui,
-		MultiTexCoordP3ui,
-		MultiTexCoordP4ui,
-		MultiTexCoordP1uiv,
-		MultiTexCoordP2uiv,
-		MultiTexCoordP3uiv,
-		MultiTexCoordP4uiv,
-		NormalP3ui,
-		NormalP3uiv,
-		ColorP3ui,
-		ColorP4ui,
-		ColorP3uiv,
-		ColorP4uiv,
-		SecondaryColorP3ui,
-		SecondaryColorP3uiv,
-		VertexAttribP1ui,
-		VertexAttribP2ui,
-		VertexAttribP3ui,
-		VertexAttribP4ui,
-		VertexAttribP1uiv,
-		VertexAttribP2uiv,
-		VertexAttribP3uiv,
-		VertexAttribP4uiv;
-
 	protected ARBVertexType2_10_10_10_REV() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBVertexType2_10_10_10_REV(FunctionProvider provider, boolean fc) {
-		VertexP2ui = GL.getFunctionAddress(provider, "glVertexP2ui", fc);
-		VertexP3ui = GL.getFunctionAddress(provider, "glVertexP3ui", fc);
-		VertexP4ui = GL.getFunctionAddress(provider, "glVertexP4ui", fc);
-		VertexP2uiv = GL.getFunctionAddress(provider, "glVertexP2uiv", fc);
-		VertexP3uiv = GL.getFunctionAddress(provider, "glVertexP3uiv", fc);
-		VertexP4uiv = GL.getFunctionAddress(provider, "glVertexP4uiv", fc);
-		TexCoordP1ui = GL.getFunctionAddress(provider, "glTexCoordP1ui", fc);
-		TexCoordP2ui = GL.getFunctionAddress(provider, "glTexCoordP2ui", fc);
-		TexCoordP3ui = GL.getFunctionAddress(provider, "glTexCoordP3ui", fc);
-		TexCoordP4ui = GL.getFunctionAddress(provider, "glTexCoordP4ui", fc);
-		TexCoordP1uiv = GL.getFunctionAddress(provider, "glTexCoordP1uiv", fc);
-		TexCoordP2uiv = GL.getFunctionAddress(provider, "glTexCoordP2uiv", fc);
-		TexCoordP3uiv = GL.getFunctionAddress(provider, "glTexCoordP3uiv", fc);
-		TexCoordP4uiv = GL.getFunctionAddress(provider, "glTexCoordP4uiv", fc);
-		MultiTexCoordP1ui = GL.getFunctionAddress(provider, "glMultiTexCoordP1ui", fc);
-		MultiTexCoordP2ui = GL.getFunctionAddress(provider, "glMultiTexCoordP2ui", fc);
-		MultiTexCoordP3ui = GL.getFunctionAddress(provider, "glMultiTexCoordP3ui", fc);
-		MultiTexCoordP4ui = GL.getFunctionAddress(provider, "glMultiTexCoordP4ui", fc);
-		MultiTexCoordP1uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP1uiv", fc);
-		MultiTexCoordP2uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP2uiv", fc);
-		MultiTexCoordP3uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP3uiv", fc);
-		MultiTexCoordP4uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP4uiv", fc);
-		NormalP3ui = GL.getFunctionAddress(provider, "glNormalP3ui", fc);
-		NormalP3uiv = GL.getFunctionAddress(provider, "glNormalP3uiv", fc);
-		ColorP3ui = GL.getFunctionAddress(provider, "glColorP3ui", fc);
-		ColorP4ui = GL.getFunctionAddress(provider, "glColorP4ui", fc);
-		ColorP3uiv = GL.getFunctionAddress(provider, "glColorP3uiv", fc);
-		ColorP4uiv = GL.getFunctionAddress(provider, "glColorP4uiv", fc);
-		SecondaryColorP3ui = GL.getFunctionAddress(provider, "glSecondaryColorP3ui", fc);
-		SecondaryColorP3uiv = GL.getFunctionAddress(provider, "glSecondaryColorP3uiv", fc);
-		VertexAttribP1ui = provider.getFunctionAddress("glVertexAttribP1ui");
-		VertexAttribP2ui = provider.getFunctionAddress("glVertexAttribP2ui");
-		VertexAttribP3ui = provider.getFunctionAddress("glVertexAttribP3ui");
-		VertexAttribP4ui = provider.getFunctionAddress("glVertexAttribP4ui");
-		VertexAttribP1uiv = provider.getFunctionAddress("glVertexAttribP1uiv");
-		VertexAttribP2uiv = provider.getFunctionAddress("glVertexAttribP2uiv");
-		VertexAttribP3uiv = provider.getFunctionAddress("glVertexAttribP3uiv");
-		VertexAttribP4uiv = provider.getFunctionAddress("glVertexAttribP4uiv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBVertexType2_10_10_10_REV} instance of the current context. */
-	public static ARBVertexType2_10_10_10_REV getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBVertexType2_10_10_10_REV} instance of the specified {@link GLCapabilities}. */
-	public static ARBVertexType2_10_10_10_REV getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBVertexType2_10_10_10_REV);
-	}
-
-	static ARBVertexType2_10_10_10_REV create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {
-		if ( !ext.contains("GL_ARB_vertex_type_2_10_10_10_rev") ) return null;
-
-		ARBVertexType2_10_10_10_REV funcs = new ARBVertexType2_10_10_10_REV(provider, fc);
-
-		boolean supported = (fc || checkFunctions(
-			funcs.VertexP2ui, funcs.VertexP3ui, funcs.VertexP4ui, funcs.VertexP2uiv, funcs.VertexP3uiv, funcs.VertexP4uiv, funcs.TexCoordP1ui, 
-			funcs.TexCoordP2ui, funcs.TexCoordP3ui, funcs.TexCoordP4ui, funcs.TexCoordP1uiv, funcs.TexCoordP2uiv, funcs.TexCoordP3uiv, funcs.TexCoordP4uiv, 
-			funcs.MultiTexCoordP1ui, funcs.MultiTexCoordP2ui, funcs.MultiTexCoordP3ui, funcs.MultiTexCoordP4ui, funcs.MultiTexCoordP1uiv, 
-			funcs.MultiTexCoordP2uiv, funcs.MultiTexCoordP3uiv, funcs.MultiTexCoordP4uiv, funcs.NormalP3ui, funcs.NormalP3uiv, funcs.ColorP3ui, funcs.ColorP4ui, 
-			funcs.ColorP3uiv, funcs.ColorP4uiv, funcs.SecondaryColorP3ui, funcs.SecondaryColorP3uiv
+	static boolean isAvailable(GLCapabilities caps, boolean fc) {
+		return (fc || checkFunctions(
+			caps.glVertexP2ui, caps.glVertexP3ui, caps.glVertexP4ui, caps.glVertexP2uiv, caps.glVertexP3uiv, caps.glVertexP4uiv, caps.glTexCoordP1ui, 
+			caps.glTexCoordP2ui, caps.glTexCoordP3ui, caps.glTexCoordP4ui, caps.glTexCoordP1uiv, caps.glTexCoordP2uiv, caps.glTexCoordP3uiv, 
+			caps.glTexCoordP4uiv, caps.glMultiTexCoordP1ui, caps.glMultiTexCoordP2ui, caps.glMultiTexCoordP3ui, caps.glMultiTexCoordP4ui, 
+			caps.glMultiTexCoordP1uiv, caps.glMultiTexCoordP2uiv, caps.glMultiTexCoordP3uiv, caps.glMultiTexCoordP4uiv, caps.glNormalP3ui, caps.glNormalP3uiv, 
+			caps.glColorP3ui, caps.glColorP4ui, caps.glColorP3uiv, caps.glColorP4uiv, caps.glSecondaryColorP3ui, caps.glSecondaryColorP3uiv
 		)) && checkFunctions(
-			funcs.VertexAttribP1ui, funcs.VertexAttribP2ui, funcs.VertexAttribP3ui, funcs.VertexAttribP4ui, funcs.VertexAttribP1uiv, funcs.VertexAttribP2uiv, 
-			funcs.VertexAttribP3uiv, funcs.VertexAttribP4uiv
+			caps.glVertexAttribP1ui, caps.glVertexAttribP2ui, caps.glVertexAttribP3ui, caps.glVertexAttribP4ui, caps.glVertexAttribP1uiv, 
+			caps.glVertexAttribP2uiv, caps.glVertexAttribP3uiv, caps.glVertexAttribP4uiv
 		);
-
-		return GL.checkExtension("GL_ARB_vertex_type_2_10_10_10_rev", funcs, supported);
 	}
 
 	// --- [ glVertexP2ui ] ---
@@ -156,7 +56,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value the packed value
 	 */
 	public static void glVertexP2ui(int type, int value) {
-		long __functionAddress = getInstance().VertexP2ui;
+		long __functionAddress = GL.getCapabilities().glVertexP2ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, value);
@@ -171,7 +71,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value the packed value
 	 */
 	public static void glVertexP3ui(int type, int value) {
-		long __functionAddress = getInstance().VertexP3ui;
+		long __functionAddress = GL.getCapabilities().glVertexP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, value);
@@ -186,7 +86,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value the packed value
 	 */
 	public static void glVertexP4ui(int type, int value) {
-		long __functionAddress = getInstance().VertexP4ui;
+		long __functionAddress = GL.getCapabilities().glVertexP4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, value);
@@ -196,7 +96,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glVertexP2uiv VertexP2uiv} */
 	public static void nglVertexP2uiv(int type, long value) {
-		long __functionAddress = getInstance().VertexP2uiv;
+		long __functionAddress = GL.getCapabilities().glVertexP2uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, value);
@@ -225,7 +125,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glVertexP3uiv VertexP3uiv} */
 	public static void nglVertexP3uiv(int type, long value) {
-		long __functionAddress = getInstance().VertexP3uiv;
+		long __functionAddress = GL.getCapabilities().glVertexP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, value);
@@ -254,7 +154,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glVertexP4uiv VertexP4uiv} */
 	public static void nglVertexP4uiv(int type, long value) {
-		long __functionAddress = getInstance().VertexP4uiv;
+		long __functionAddress = GL.getCapabilities().glVertexP4uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, value);
@@ -288,7 +188,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP1ui(int type, int coords) {
-		long __functionAddress = getInstance().TexCoordP1ui;
+		long __functionAddress = GL.getCapabilities().glTexCoordP1ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
@@ -303,7 +203,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP2ui(int type, int coords) {
-		long __functionAddress = getInstance().TexCoordP2ui;
+		long __functionAddress = GL.getCapabilities().glTexCoordP2ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
@@ -318,7 +218,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP3ui(int type, int coords) {
-		long __functionAddress = getInstance().TexCoordP3ui;
+		long __functionAddress = GL.getCapabilities().glTexCoordP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
@@ -333,7 +233,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP4ui(int type, int coords) {
-		long __functionAddress = getInstance().TexCoordP4ui;
+		long __functionAddress = GL.getCapabilities().glTexCoordP4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
@@ -343,7 +243,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glTexCoordP1uiv TexCoordP1uiv} */
 	public static void nglTexCoordP1uiv(int type, long coords) {
-		long __functionAddress = getInstance().TexCoordP1uiv;
+		long __functionAddress = GL.getCapabilities().glTexCoordP1uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
@@ -372,7 +272,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glTexCoordP2uiv TexCoordP2uiv} */
 	public static void nglTexCoordP2uiv(int type, long coords) {
-		long __functionAddress = getInstance().TexCoordP2uiv;
+		long __functionAddress = GL.getCapabilities().glTexCoordP2uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
@@ -401,7 +301,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glTexCoordP3uiv TexCoordP3uiv} */
 	public static void nglTexCoordP3uiv(int type, long coords) {
-		long __functionAddress = getInstance().TexCoordP3uiv;
+		long __functionAddress = GL.getCapabilities().glTexCoordP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
@@ -430,7 +330,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glTexCoordP4uiv TexCoordP4uiv} */
 	public static void nglTexCoordP4uiv(int type, long coords) {
-		long __functionAddress = getInstance().TexCoordP4uiv;
+		long __functionAddress = GL.getCapabilities().glTexCoordP4uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
@@ -465,7 +365,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP1ui(int texture, int type, int coords) {
-		long __functionAddress = getInstance().MultiTexCoordP1ui;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP1ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
@@ -481,7 +381,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP2ui(int texture, int type, int coords) {
-		long __functionAddress = getInstance().MultiTexCoordP2ui;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP2ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
@@ -497,7 +397,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP3ui(int texture, int type, int coords) {
-		long __functionAddress = getInstance().MultiTexCoordP3ui;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
@@ -513,7 +413,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP4ui(int texture, int type, int coords) {
-		long __functionAddress = getInstance().MultiTexCoordP4ui;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
@@ -523,7 +423,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv} */
 	public static void nglMultiTexCoordP1uiv(int texture, int type, long coords) {
-		long __functionAddress = getInstance().MultiTexCoordP1uiv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP1uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
@@ -553,7 +453,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv} */
 	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
-		long __functionAddress = getInstance().MultiTexCoordP2uiv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP2uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
@@ -583,7 +483,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv} */
 	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
-		long __functionAddress = getInstance().MultiTexCoordP3uiv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
@@ -613,7 +513,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv} */
 	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
-		long __functionAddress = getInstance().MultiTexCoordP4uiv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP4uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
@@ -648,7 +548,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords the packed value
 	 */
 	public static void glNormalP3ui(int type, int coords) {
-		long __functionAddress = getInstance().NormalP3ui;
+		long __functionAddress = GL.getCapabilities().glNormalP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
@@ -658,7 +558,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glNormalP3uiv NormalP3uiv} */
 	public static void nglNormalP3uiv(int type, long coords) {
-		long __functionAddress = getInstance().NormalP3uiv;
+		long __functionAddress = GL.getCapabilities().glNormalP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
@@ -692,7 +592,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param color the packed value
 	 */
 	public static void glColorP3ui(int type, int color) {
-		long __functionAddress = getInstance().ColorP3ui;
+		long __functionAddress = GL.getCapabilities().glColorP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, color);
@@ -707,7 +607,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param color the packed value
 	 */
 	public static void glColorP4ui(int type, int color) {
-		long __functionAddress = getInstance().ColorP4ui;
+		long __functionAddress = GL.getCapabilities().glColorP4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, color);
@@ -717,7 +617,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glColorP3uiv ColorP3uiv} */
 	public static void nglColorP3uiv(int type, long color) {
-		long __functionAddress = getInstance().ColorP3uiv;
+		long __functionAddress = GL.getCapabilities().glColorP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, color);
@@ -746,7 +646,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glColorP4uiv ColorP4uiv} */
 	public static void nglColorP4uiv(int type, long color) {
-		long __functionAddress = getInstance().ColorP4uiv;
+		long __functionAddress = GL.getCapabilities().glColorP4uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, color);
@@ -780,7 +680,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param color the packed value
 	 */
 	public static void glSecondaryColorP3ui(int type, int color) {
-		long __functionAddress = getInstance().SecondaryColorP3ui;
+		long __functionAddress = GL.getCapabilities().glSecondaryColorP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, color);
@@ -790,7 +690,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glSecondaryColorP3uiv SecondaryColorP3uiv} */
 	public static void nglSecondaryColorP3uiv(int type, long color) {
-		long __functionAddress = getInstance().SecondaryColorP3uiv;
+		long __functionAddress = GL.getCapabilities().glSecondaryColorP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, color);
@@ -826,7 +726,9 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP1ui(int index, int type, boolean normalized, int value) {
-		long __functionAddress = getInstance().VertexAttribP1ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP1ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -841,7 +743,9 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP2ui(int index, int type, boolean normalized, int value) {
-		long __functionAddress = getInstance().VertexAttribP2ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP2ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -856,7 +760,9 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP3ui(int index, int type, boolean normalized, int value) {
-		long __functionAddress = getInstance().VertexAttribP3ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP3ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -871,7 +777,9 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP4ui(int index, int type, boolean normalized, int value) {
-		long __functionAddress = getInstance().VertexAttribP4ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP4ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -879,7 +787,9 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glVertexAttribP1uiv VertexAttribP1uiv} */
 	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
-		long __functionAddress = getInstance().VertexAttribP1uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP1uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -908,7 +818,9 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glVertexAttribP2uiv VertexAttribP2uiv} */
 	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
-		long __functionAddress = getInstance().VertexAttribP2uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP2uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -937,7 +849,9 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glVertexAttribP3uiv VertexAttribP3uiv} */
 	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
-		long __functionAddress = getInstance().VertexAttribP3uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP3uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -966,7 +880,9 @@ public class ARBVertexType2_10_10_10_REV {
 
 	/** Unsafe version of {@link #glVertexAttribP4uiv VertexAttribP4uiv} */
 	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
-		long __functionAddress = getInstance().VertexAttribP4uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP4uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 

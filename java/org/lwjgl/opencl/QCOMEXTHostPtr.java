@@ -46,46 +46,25 @@ public class QCOMEXTHostPtr {
 		CL_IMAGE_ROW_ALIGNMENT_QCOM   = 0x40A2,
 		CL_IMAGE_SLICE_ALIGNMENT_QCOM = 0x40A3;
 
-	/** Function address. */
-	public final long GetDeviceImageInfoQCOM;
-
 	protected QCOMEXTHostPtr() {
 		throw new UnsupportedOperationException();
 	}
 
-	public QCOMEXTHostPtr(FunctionProvider provider) {
-		GetDeviceImageInfoQCOM = provider.getFunctionAddress("clGetDeviceImageInfoQCOM");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link QCOMEXTHostPtr} instance of the currently loaded ICD. */
-	public static QCOMEXTHostPtr getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link QCOMEXTHostPtr} instance of the specified {@link CLCapabilities}. */
-	public static QCOMEXTHostPtr getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__QCOMEXTHostPtr);
-	}
-
-	static QCOMEXTHostPtr create(FunctionProvider provider) {
-		QCOMEXTHostPtr funcs = new QCOMEXTHostPtr(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetDeviceImageInfoQCOM
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clGetDeviceImageInfoQCOM
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clGetDeviceImageInfoQCOM ] ---
 
 	/** Unsafe version of {@link #clGetDeviceImageInfoQCOM GetDeviceImageInfoQCOM} */
 	public static int nclGetDeviceImageInfoQCOM(long device, long image_width, long image_height, long image_format, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetDeviceImageInfoQCOM;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clGetDeviceImageInfoQCOM;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPPPPIPPPI(__functionAddress, device, image_width, image_height, image_format, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 

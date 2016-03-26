@@ -22,53 +22,25 @@ public class GLX11 {
 		GLX_VERSION    = 0x2,
 		GLX_EXTENSIONS = 0x3;
 
-	/** Function address. */
-	public final long
-		QueryExtensionsString,
-		GetClientString,
-		QueryServerString;
-
 	protected GLX11() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLX11(FunctionProvider provider) {
-		QueryExtensionsString = provider.getFunctionAddress("glXQueryExtensionsString");
-		GetClientString = provider.getFunctionAddress("glXGetClientString");
-		QueryServerString = provider.getFunctionAddress("glXQueryServerString");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLX11} instance of the current context. */
-	public static GLX11 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLX11} instance of the specified {@link GLCapabilities}. */
-	public static GLX11 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLX11);
-	}
-
-	static GLX11 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX11") ) return null;
-
-		GLX11 funcs = new GLX11(provider);
-
-		boolean supported = checkFunctions(
-			funcs.QueryExtensionsString, funcs.GetClientString, funcs.QueryServerString
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXQueryExtensionsString, caps.glXGetClientString, caps.glXQueryServerString
 		);
-
-		return GL.checkExtension("GLX11", funcs, supported);
 	}
 
 	// --- [ glXQueryExtensionsString ] ---
 
 	/** Unsafe version of {@link #glXQueryExtensionsString QueryExtensionsString} */
 	public static long nglXQueryExtensionsString(long display, int screen) {
-		long __functionAddress = getInstance().QueryExtensionsString;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryExtensionsString;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPIP(__functionAddress, display, screen);
 	}
 
@@ -80,16 +52,18 @@ public class GLX11 {
 	 */
 	public static String glXQueryExtensionsString(long display, int screen) {
 		long __result = nglXQueryExtensionsString(display, screen);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ glXGetClientString ] ---
 
 	/** Unsafe version of {@link #glXGetClientString GetClientString} */
 	public static long nglXGetClientString(long display, int name) {
-		long __functionAddress = getInstance().GetClientString;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetClientString;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPIP(__functionAddress, display, name);
 	}
 
@@ -101,16 +75,18 @@ public class GLX11 {
 	 */
 	public static String glXGetClientString(long display, int name) {
 		long __result = nglXGetClientString(display, name);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ glXQueryServerString ] ---
 
 	/** Unsafe version of {@link #glXQueryServerString QueryServerString} */
 	public static long nglXQueryServerString(long display, int screen, int name) {
-		long __functionAddress = getInstance().QueryServerString;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryServerString;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPIIP(__functionAddress, display, screen, name);
 	}
 
@@ -123,7 +99,7 @@ public class GLX11 {
 	 */
 	public static String glXQueryServerString(long display, int screen, int name) {
 		long __result = nglXQueryServerString(display, screen, name);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 }

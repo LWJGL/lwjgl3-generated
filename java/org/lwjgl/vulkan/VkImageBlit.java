@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -28,7 +29,7 @@ public class VkImageBlit extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -39,14 +40,14 @@ public class VkImageBlit extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(VkImageSubresourceLayers.SIZEOF, VkImageSubresourceLayers.__ALIGNMENT),
-			__array(VkOffset3D.SIZEOF, VkOffset3D.__ALIGNMENT, 2),
-			__member(VkImageSubresourceLayers.SIZEOF, VkImageSubresourceLayers.__ALIGNMENT),
-			__array(VkOffset3D.SIZEOF, VkOffset3D.__ALIGNMENT, 2)
+			__member(VkImageSubresourceLayers.SIZEOF, VkImageSubresourceLayers.ALIGNOF),
+			__array(VkOffset3D.SIZEOF, VkOffset3D.ALIGNOF, 2),
+			__member(VkImageSubresourceLayers.SIZEOF, VkImageSubresourceLayers.ALIGNOF),
+			__array(VkOffset3D.SIZEOF, VkOffset3D.ALIGNOF, 2)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		SRCSUBRESOURCE = layout.offsetof(0);
 		SRCOFFSETS = layout.offsetof(1);
@@ -188,6 +189,76 @@ public class VkImageBlit extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkImageBlit} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkImageBlit mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkImageBlit} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkImageBlit callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkImageBlit} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkImageBlit mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkImageBlit} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkImageBlit callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkImageBlit.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkImageBlit.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkImageBlit.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkImageBlit.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #srcSubresource}. */
 	public static VkImageSubresourceLayers nsrcSubresource(long struct) { return VkImageSubresourceLayers.create(struct + VkImageBlit.SRCSUBRESOURCE); }
 	/** Unsafe version of {@link #srcOffsets}. */
@@ -262,7 +333,7 @@ public class VkImageBlit extends Struct {
 
 		@Override
 		protected VkImageBlit newInstance(long address) {
-			return new VkImageBlit(address, container);
+			return new VkImageBlit(address, getContainer());
 		}
 
 		@Override

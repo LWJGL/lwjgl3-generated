@@ -40,44 +40,22 @@ public class NVFramebufferMultisample {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
 	public static final int GL_MAX_SAMPLES_NV = 0x8D57;
 
-	/** Function address. */
-	public final long RenderbufferStorageMultisampleNV;
-
 	protected NVFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVFramebufferMultisample(FunctionProvider provider) {
-		RenderbufferStorageMultisampleNV = provider.getFunctionAddress("glRenderbufferStorageMultisampleNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVFramebufferMultisample} instance of the current context. */
-	public static NVFramebufferMultisample getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVFramebufferMultisample} instance of the specified {@link GLESCapabilities}. */
-	public static NVFramebufferMultisample getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVFramebufferMultisample);
-	}
-
-	static NVFramebufferMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_framebuffer_multisample") ) return null;
-
-		NVFramebufferMultisample funcs = new NVFramebufferMultisample(provider);
-		boolean supported = checkFunctions(
-			funcs.RenderbufferStorageMultisampleNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glRenderbufferStorageMultisampleNV
 		);
-
-		return GLES.checkExtension("GL_NV_framebuffer_multisample", funcs, supported);
 	}
 
 	// --- [ glRenderbufferStorageMultisampleNV ] ---
 
 	public static void glRenderbufferStorageMultisampleNV(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().RenderbufferStorageMultisampleNV;
+		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 

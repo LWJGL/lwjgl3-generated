@@ -99,48 +99,23 @@ public class SOFTBufferSamples {
 		AL_BYTE_RW_OFFSETS_SOFT   = 0x1031,
 		AL_SAMPLE_RW_OFFSETS_SOFT = 0x1032;
 
-	/** Function address. */
-	public final long
-		BufferSamplesSOFT,
-		IsBufferFormatSupportedSOFT,
-		BufferSubSamplesSOFT,
-		GetBufferSamplesSOFT;
-
 	protected SOFTBufferSamples() {
 		throw new UnsupportedOperationException();
 	}
 
-	public SOFTBufferSamples(FunctionProvider provider) {
-		BufferSamplesSOFT = provider.getFunctionAddress("alBufferSamplesSOFT");
-		IsBufferFormatSupportedSOFT = provider.getFunctionAddress("alIsBufferFormatSupportedSOFT");
-		BufferSubSamplesSOFT = provider.getFunctionAddress("alBufferSubSamplesSOFT");
-		GetBufferSamplesSOFT = provider.getFunctionAddress("alGetBufferSamplesSOFT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link SOFTBufferSamples} instance of the current context. */
-	public static SOFTBufferSamples getInstance() {
-		return checkFunctionality(AL.getCapabilities().__SOFTBufferSamples);
-	}
-
-	static SOFTBufferSamples create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("AL_SOFT_buffer_samples") ) return null;
-
-		SOFTBufferSamples funcs = new SOFTBufferSamples(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BufferSamplesSOFT, funcs.IsBufferFormatSupportedSOFT, funcs.BufferSubSamplesSOFT, funcs.GetBufferSamplesSOFT
+	static boolean isAvailable(ALCapabilities caps) {
+		return checkFunctions(
+			caps.alBufferSamplesSOFT, caps.alIsBufferFormatSupportedSOFT, caps.alBufferSubSamplesSOFT, caps.alGetBufferSamplesSOFT
 		);
-
-		return AL.checkExtension("AL_SOFT_buffer_samples", funcs, supported);
 	}
 
 	// --- [ alBufferSamplesSOFT ] ---
 
 	/** Unsafe version of {@link #alBufferSamplesSOFT BufferSamplesSOFT} */
 	public static void nalBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, long data) {
-		long __functionAddress = getInstance().BufferSamplesSOFT;
+		long __functionAddress = AL.getCapabilities().alBufferSamplesSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIIIIIPV(__functionAddress, buffer, samplerate, internalformat, samples, channels, type, data);
 	}
 
@@ -181,7 +156,9 @@ public class SOFTBufferSamples {
 	 *         {@code internalformat} for {@link #alBufferSamplesSOFT BufferSamplesSOFT}.
 	 */
 	public static boolean alIsBufferFormatSupportedSOFT(int format) {
-		long __functionAddress = getInstance().IsBufferFormatSupportedSOFT;
+		long __functionAddress = AL.getCapabilities().alIsBufferFormatSupportedSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return invokeIZ(__functionAddress, format);
 	}
 
@@ -189,7 +166,9 @@ public class SOFTBufferSamples {
 
 	/** Unsafe version of {@link #alBufferSubSamplesSOFT BufferSubSamplesSOFT} */
 	public static void nalBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
-		long __functionAddress = getInstance().BufferSubSamplesSOFT;
+		long __functionAddress = AL.getCapabilities().alBufferSubSamplesSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIIIIPV(__functionAddress, buffer, offset, samples, channels, type, data);
 	}
 
@@ -219,7 +198,9 @@ public class SOFTBufferSamples {
 
 	/** Unsafe version of {@link #alGetBufferSamplesSOFT GetBufferSamplesSOFT} */
 	public static void nalGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
-		long __functionAddress = getInstance().GetBufferSamplesSOFT;
+		long __functionAddress = AL.getCapabilities().alGetBufferSamplesSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIIIIPV(__functionAddress, buffer, offset, samples, channels, type, data);
 	}
 

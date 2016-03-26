@@ -29,7 +29,7 @@ public class JEmacros {
 	/** Returns the version string. */
 	public static String JEMALLOC_VERSION() {
 		long __result = nJEMALLOC_VERSION();
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ JEMALLOC_VERSION_MAJOR ] ---
@@ -60,7 +60,7 @@ public class JEmacros {
 	/** Returns the globally unique identifier (git commit hash). */
 	public static String JEMALLOC_VERSION_GID() {
 		long __result = nJEMALLOC_VERSION_GID();
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ MALLOCX_LG_ALIGN ] ---

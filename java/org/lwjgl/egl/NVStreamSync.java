@@ -28,35 +28,23 @@ public class NVStreamSync {
 		EGL_SYNC_TYPE_KHR     = 0x30F7,
 		EGL_SYNC_NEW_FRAME_NV = 0x321F;
 
-	/** Function address. */
-	public final long CreateStreamSyncNV;
-
 	protected NVStreamSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVStreamSync(FunctionProvider provider) {
-		CreateStreamSyncNV = provider.getFunctionAddress("eglCreateStreamSyncNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVStreamSync} instance. */
-	public static NVStreamSync getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link NVStreamSync} instance of the specified {@link EGLCapabilities}. */
-	public static NVStreamSync getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__NVStreamSync);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglCreateStreamSyncNV
+		);
 	}
 
 	// --- [ eglCreateStreamSyncNV ] ---
 
 	/** Unsafe version of {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
 	public static long neglCreateStreamSyncNV(long dpy, long stream, int type, long attrib_list) {
-		long __functionAddress = getInstance().CreateStreamSyncNV;
+		long __functionAddress = EGL.getCapabilities().eglCreateStreamSyncNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}

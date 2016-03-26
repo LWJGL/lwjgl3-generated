@@ -7,6 +7,7 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -15,34 +16,21 @@ import org.lwjgl.egl.EGL10;
 /** Native bindings to the GLFW library's EGL native access functions. */
 public class GLFWNativeEGL {
 
-	/** Function address. */
-	public final long
-		GetEGLDisplay,
-		GetEGLContext,
-		GetEGLSurface;
-
 	protected GLFWNativeEGL() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLFWNativeEGL(FunctionProvider provider) {
-		GetEGLDisplay = checkFunctionAddress(provider.getFunctionAddress("glfwGetEGLDisplay"));
-		GetEGLContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetEGLContext"));
-		GetEGLSurface = checkFunctionAddress(provider.getFunctionAddress("glfwGetEGLSurface"));
-	}
+	/** Contains the function pointers loaded from {@code GLFW.getLibrary()}. */
+	public static final class Functions {
 
-	// --- [ Function Addresses ] ---
+		private Functions() {}
 
-	private static final GLFWNativeEGL instance = new GLFWNativeEGL(getLibrary());
+		/** Function address. */
+		public static final long
+			GetEGLDisplay = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetEGLDisplay"),
+			GetEGLContext = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetEGLContext"),
+			GetEGLSurface = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetEGLSurface");
 
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return GLFW.getLibrary();
-	}
-
-	/** Returns the {@link GLFWNativeEGL} instance. */
-	public static GLFWNativeEGL getInstance() {
-		return instance;
 	}
 
 	// --- [ glfwGetEGLDisplay ] ---
@@ -57,7 +45,7 @@ public class GLFWNativeEGL {
 	 * @since version 3.0
 	 */
 	public static long glfwGetEGLDisplay() {
-		long __functionAddress = getInstance().GetEGLDisplay;
+		long __functionAddress = Functions.GetEGLDisplay;
 		return invokeP(__functionAddress);
 	}
 
@@ -75,7 +63,7 @@ public class GLFWNativeEGL {
 	 * @since version 3.0
 	 */
 	public static long glfwGetEGLContext(long window) {
-		long __functionAddress = getInstance().GetEGLContext;
+		long __functionAddress = Functions.GetEGLContext;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
@@ -95,7 +83,7 @@ public class GLFWNativeEGL {
 	 * @since version 3.0
 	 */
 	public static long glfwGetEGLSurface(long window) {
-		long __functionAddress = getInstance().GetEGLSurface;
+		long __functionAddress = Functions.GetEGLSurface;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);

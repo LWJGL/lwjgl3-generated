@@ -28,45 +28,22 @@ public class EXTStencilTwoSide {
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_ACTIVE_STENCIL_FACE_EXT = 0x8911;
 
-	/** Function address. */
-	public final long ActiveStencilFaceEXT;
-
 	protected EXTStencilTwoSide() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTStencilTwoSide(FunctionProvider provider) {
-		ActiveStencilFaceEXT = provider.getFunctionAddress("glActiveStencilFaceEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTStencilTwoSide} instance of the current context. */
-	public static EXTStencilTwoSide getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTStencilTwoSide} instance of the specified {@link GLCapabilities}. */
-	public static EXTStencilTwoSide getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTStencilTwoSide);
-	}
-
-	static EXTStencilTwoSide create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_stencil_two_side") ) return null;
-
-		EXTStencilTwoSide funcs = new EXTStencilTwoSide(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ActiveStencilFaceEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glActiveStencilFaceEXT
 		);
-
-		return GL.checkExtension("GL_EXT_stencil_two_side", funcs, supported);
 	}
 
 	// --- [ glActiveStencilFaceEXT ] ---
 
 	public static void glActiveStencilFaceEXT(int face) {
-		long __functionAddress = getInstance().ActiveStencilFaceEXT;
+		long __functionAddress = GL.getCapabilities().glActiveStencilFaceEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, face);
 	}
 

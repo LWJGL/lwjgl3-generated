@@ -9,8 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -178,10 +178,14 @@ public class STBImage {
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		long __result = nstbi_load(__buffer.address(filenameEncoded), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			long __result = nstbi_load(memAddress(filenameEncoded), memAddress(x), memAddress(y), memAddress(comp), req_comp);
+			return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_load_from_memory ] ---
@@ -309,10 +313,14 @@ public class STBImage {
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		long __result = nstbi_loadf(__buffer.address(filenameEncoded), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			long __result = nstbi_loadf(memAddress(filenameEncoded), memAddress(x), memAddress(y), memAddress(comp), req_comp);
+			return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_loadf_from_memory ] ---
@@ -446,9 +454,13 @@ public class STBImage {
 
 	/** CharSequence version of: {@link #stbi_is_hdr is_hdr} */
 	public static int stbi_is_hdr(CharSequence filename) {
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		return nstbi_is_hdr(__buffer.address(filenameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstbi_is_hdr(memAddress(filenameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_is_hdr_from_memory ] ---
@@ -498,7 +510,7 @@ public class STBImage {
 	/** Returns a brief reason for failure. */
 	public static String stbi_failure_reason() {
 		long __result = nstbi_failure_reason();
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ stbi_image_free ] ---
@@ -558,9 +570,13 @@ public class STBImage {
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		return nstbi_info(__buffer.address(filenameEncoded), memAddress(x), memAddress(y), memAddress(comp));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstbi_info(memAddress(filenameEncoded), memAddress(x), memAddress(y), memAddress(comp));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_info_from_memory ] ---
@@ -675,18 +691,26 @@ public class STBImage {
 	public static ByteBuffer stbi_zlib_decode_malloc_guesssize(ByteBuffer buffer, int len, int initial_size) {
 		if ( CHECKS )
 			checkBuffer(buffer, len);
-		APIBuffer __buffer = apiBuffer();
-		int outlen = __buffer.intParam();
-		long __result = nstbi_zlib_decode_malloc_guesssize(memAddress(buffer), len, initial_size, __buffer.address(outlen));
-		return memByteBuffer(__result, __buffer.intValue(outlen));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outlen = stack.callocInt(1);
+		try {
+			long __result = nstbi_zlib_decode_malloc_guesssize(memAddress(buffer), len, initial_size, memAddress(outlen));
+			return memByteBuffer(__result, outlen.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Alternative version of: {@link #stbi_zlib_decode_malloc_guesssize zlib_decode_malloc_guesssize} */
 	public static ByteBuffer stbi_zlib_decode_malloc_guesssize(ByteBuffer buffer, int initial_size) {
-		APIBuffer __buffer = apiBuffer();
-		int outlen = __buffer.intParam();
-		long __result = nstbi_zlib_decode_malloc_guesssize(memAddress(buffer), buffer.remaining(), initial_size, __buffer.address(outlen));
-		return memByteBuffer(__result, __buffer.intValue(outlen));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+		IntBuffer outlen = stack.callocInt(1);
+			long __result = nstbi_zlib_decode_malloc_guesssize(memAddress(buffer), buffer.remaining(), initial_size, memAddress(outlen));
+			return memByteBuffer(__result, outlen.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_zlib_decode_malloc_guesssize_headerflag ] ---
@@ -705,18 +729,26 @@ public class STBImage {
 	public static ByteBuffer stbi_zlib_decode_malloc_guesssize_headerflag(ByteBuffer buffer, int len, int initial_size, int parse_header) {
 		if ( CHECKS )
 			checkBuffer(buffer, len);
-		APIBuffer __buffer = apiBuffer();
-		int outlen = __buffer.intParam();
-		long __result = nstbi_zlib_decode_malloc_guesssize_headerflag(memAddress(buffer), len, initial_size, __buffer.address(outlen), parse_header);
-		return memByteBuffer(__result, __buffer.intValue(outlen));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outlen = stack.callocInt(1);
+		try {
+			long __result = nstbi_zlib_decode_malloc_guesssize_headerflag(memAddress(buffer), len, initial_size, memAddress(outlen), parse_header);
+			return memByteBuffer(__result, outlen.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Alternative version of: {@link #stbi_zlib_decode_malloc_guesssize_headerflag zlib_decode_malloc_guesssize_headerflag} */
 	public static ByteBuffer stbi_zlib_decode_malloc_guesssize_headerflag(ByteBuffer buffer, int initial_size, int parse_header) {
-		APIBuffer __buffer = apiBuffer();
-		int outlen = __buffer.intParam();
-		long __result = nstbi_zlib_decode_malloc_guesssize_headerflag(memAddress(buffer), buffer.remaining(), initial_size, __buffer.address(outlen), parse_header);
-		return memByteBuffer(__result, __buffer.intValue(outlen));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+		IntBuffer outlen = stack.callocInt(1);
+			long __result = nstbi_zlib_decode_malloc_guesssize_headerflag(memAddress(buffer), buffer.remaining(), initial_size, memAddress(outlen), parse_header);
+			return memByteBuffer(__result, outlen.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_zlib_decode_malloc ] ---
@@ -733,18 +765,26 @@ public class STBImage {
 	public static ByteBuffer stbi_zlib_decode_malloc(ByteBuffer buffer, int len) {
 		if ( CHECKS )
 			checkBuffer(buffer, len);
-		APIBuffer __buffer = apiBuffer();
-		int outlen = __buffer.intParam();
-		long __result = nstbi_zlib_decode_malloc(memAddress(buffer), len, __buffer.address(outlen));
-		return memByteBuffer(__result, __buffer.intValue(outlen));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outlen = stack.callocInt(1);
+		try {
+			long __result = nstbi_zlib_decode_malloc(memAddress(buffer), len, memAddress(outlen));
+			return memByteBuffer(__result, outlen.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Alternative version of: {@link #stbi_zlib_decode_malloc zlib_decode_malloc} */
 	public static ByteBuffer stbi_zlib_decode_malloc(ByteBuffer buffer) {
-		APIBuffer __buffer = apiBuffer();
-		int outlen = __buffer.intParam();
-		long __result = nstbi_zlib_decode_malloc(memAddress(buffer), buffer.remaining(), __buffer.address(outlen));
-		return memByteBuffer(__result, __buffer.intValue(outlen));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+		IntBuffer outlen = stack.callocInt(1);
+			long __result = nstbi_zlib_decode_malloc(memAddress(buffer), buffer.remaining(), memAddress(outlen));
+			return memByteBuffer(__result, outlen.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_zlib_decode_buffer ] ---
@@ -787,18 +827,26 @@ public class STBImage {
 	public static ByteBuffer stbi_zlib_decode_noheader_malloc(ByteBuffer buffer, int len) {
 		if ( CHECKS )
 			checkBuffer(buffer, len);
-		APIBuffer __buffer = apiBuffer();
-		int outlen = __buffer.intParam();
-		long __result = nstbi_zlib_decode_noheader_malloc(memAddress(buffer), len, __buffer.address(outlen));
-		return memByteBuffer(__result, __buffer.intValue(outlen));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outlen = stack.callocInt(1);
+		try {
+			long __result = nstbi_zlib_decode_noheader_malloc(memAddress(buffer), len, memAddress(outlen));
+			return memByteBuffer(__result, outlen.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Alternative version of: {@link #stbi_zlib_decode_noheader_malloc zlib_decode_noheader_malloc} */
 	public static ByteBuffer stbi_zlib_decode_noheader_malloc(ByteBuffer buffer) {
-		APIBuffer __buffer = apiBuffer();
-		int outlen = __buffer.intParam();
-		long __result = nstbi_zlib_decode_noheader_malloc(memAddress(buffer), buffer.remaining(), __buffer.address(outlen));
-		return memByteBuffer(__result, __buffer.intValue(outlen));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+		IntBuffer outlen = stack.callocInt(1);
+			long __result = nstbi_zlib_decode_noheader_malloc(memAddress(buffer), buffer.remaining(), memAddress(outlen));
+			return memByteBuffer(__result, outlen.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_zlib_decode_noheader_buffer ] ---

@@ -23,46 +23,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBDrawBuffersBlend {
 
-	/** Function address. */
-	public final long
-		BlendEquationiARB,
-		BlendEquationSeparateiARB,
-		BlendFunciARB,
-		BlendFuncSeparateiARB;
-
 	protected ARBDrawBuffersBlend() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBDrawBuffersBlend(FunctionProvider provider) {
-		BlendEquationiARB = provider.getFunctionAddress("glBlendEquationiARB");
-		BlendEquationSeparateiARB = provider.getFunctionAddress("glBlendEquationSeparateiARB");
-		BlendFunciARB = provider.getFunctionAddress("glBlendFunciARB");
-		BlendFuncSeparateiARB = provider.getFunctionAddress("glBlendFuncSeparateiARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBDrawBuffersBlend} instance of the current context. */
-	public static ARBDrawBuffersBlend getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBDrawBuffersBlend} instance of the specified {@link GLCapabilities}. */
-	public static ARBDrawBuffersBlend getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBDrawBuffersBlend);
-	}
-
-	static ARBDrawBuffersBlend create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_draw_buffers_blend") ) return null;
-
-		ARBDrawBuffersBlend funcs = new ARBDrawBuffersBlend(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BlendEquationiARB, funcs.BlendEquationSeparateiARB, funcs.BlendFunciARB, funcs.BlendFuncSeparateiARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBlendEquationiARB, caps.glBlendEquationSeparateiARB, caps.glBlendFunciARB, caps.glBlendFuncSeparateiARB
 		);
-
-		return GL.checkExtension("GL_ARB_draw_buffers_blend", funcs, supported);
 	}
 
 	// --- [ glBlendEquationiARB ] ---
@@ -84,7 +52,9 @@ public class ARBDrawBuffersBlend {
 	 * @param mode determines both the RGB and alpha blend equations. One of:<br>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
 	 */
 	public static void glBlendEquationiARB(int buf, int mode) {
-		long __functionAddress = getInstance().BlendEquationiARB;
+		long __functionAddress = GL.getCapabilities().glBlendEquationiARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, buf, mode);
 	}
 
@@ -108,7 +78,9 @@ public class ARBDrawBuffersBlend {
 	 * @param modeAlpha the alpha blend equation. One of:<br>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
 	 */
 	public static void glBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha) {
-		long __functionAddress = getInstance().BlendEquationSeparateiARB;
+		long __functionAddress = GL.getCapabilities().glBlendEquationSeparateiARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
@@ -131,7 +103,9 @@ public class ARBDrawBuffersBlend {
 	 * @param dst determines both RGB and alpha destination functions
 	 */
 	public static void glBlendFunciARB(int buf, int src, int dst) {
-		long __functionAddress = getInstance().BlendFunciARB;
+		long __functionAddress = GL.getCapabilities().glBlendFunciARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, buf, src, dst);
 	}
 
@@ -156,7 +130,9 @@ public class ARBDrawBuffersBlend {
 	 * @param dstAlpha the destination alpha blend function
 	 */
 	public static void glBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		long __functionAddress = getInstance().BlendFuncSeparateiARB;
+		long __functionAddress = GL.getCapabilities().glBlendFuncSeparateiARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 

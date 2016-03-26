@@ -32,45 +32,22 @@ public class EXTBlendMinmax {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_BLEND_EQUATION_EXT = 0x8009;
 
-	/** Function address. */
-	public final long BlendEquationEXT;
-
 	protected EXTBlendMinmax() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTBlendMinmax(FunctionProvider provider) {
-		BlendEquationEXT = provider.getFunctionAddress("glBlendEquationEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTBlendMinmax} instance of the current context. */
-	public static EXTBlendMinmax getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTBlendMinmax} instance of the specified {@link GLCapabilities}. */
-	public static EXTBlendMinmax getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTBlendMinmax);
-	}
-
-	static EXTBlendMinmax create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_blend_minmax") ) return null;
-
-		EXTBlendMinmax funcs = new EXTBlendMinmax(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BlendEquationEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBlendEquationEXT
 		);
-
-		return GL.checkExtension("GL_EXT_blend_minmax", funcs, supported);
 	}
 
 	// --- [ glBlendEquationEXT ] ---
 
 	public static void glBlendEquationEXT(int mode) {
-		long __functionAddress = getInstance().BlendEquationEXT;
+		long __functionAddress = GL.getCapabilities().glBlendEquationEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
 	}
 

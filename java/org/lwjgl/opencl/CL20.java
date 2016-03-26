@@ -112,72 +112,25 @@ public class CL20 {
 	/** cl_profiling_info */
 	public static final int CL_PROFILING_COMMAND_COMPLETE = 0x1284;
 
-	/** Function address. */
-	public final long
-		CreateCommandQueueWithProperties,
-		CreatePipe,
-		GetPipeInfo,
-		SVMAlloc,
-		SVMFree,
-		EnqueueSVMFree,
-		EnqueueSVMMemcpy,
-		EnqueueSVMMemFill,
-		EnqueueSVMMap,
-		EnqueueSVMUnmap,
-		SetKernelArgSVMPointer,
-		SetKernelExecInfo,
-		CreateSamplerWithProperties;
-
 	protected CL20() {
 		throw new UnsupportedOperationException();
 	}
 
-	public CL20(FunctionProvider provider) {
-		CreateCommandQueueWithProperties = provider.getFunctionAddress("clCreateCommandQueueWithProperties");
-		CreatePipe = provider.getFunctionAddress("clCreatePipe");
-		GetPipeInfo = provider.getFunctionAddress("clGetPipeInfo");
-		SVMAlloc = provider.getFunctionAddress("clSVMAlloc");
-		SVMFree = provider.getFunctionAddress("clSVMFree");
-		EnqueueSVMFree = provider.getFunctionAddress("clEnqueueSVMFree");
-		EnqueueSVMMemcpy = provider.getFunctionAddress("clEnqueueSVMMemcpy");
-		EnqueueSVMMemFill = provider.getFunctionAddress("clEnqueueSVMMemFill");
-		EnqueueSVMMap = provider.getFunctionAddress("clEnqueueSVMMap");
-		EnqueueSVMUnmap = provider.getFunctionAddress("clEnqueueSVMUnmap");
-		SetKernelArgSVMPointer = provider.getFunctionAddress("clSetKernelArgSVMPointer");
-		SetKernelExecInfo = provider.getFunctionAddress("clSetKernelExecInfo");
-		CreateSamplerWithProperties = provider.getFunctionAddress("clCreateSamplerWithProperties");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link CL20} instance of the currently loaded ICD. */
-	public static CL20 getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link CL20} instance of the specified {@link CLCapabilities}. */
-	public static CL20 getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__CL20);
-	}
-
-	static CL20 create(FunctionProvider provider) {
-		CL20 funcs = new CL20(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateCommandQueueWithProperties, funcs.CreatePipe, funcs.GetPipeInfo, funcs.SVMAlloc, funcs.SVMFree, funcs.EnqueueSVMFree, 
-			funcs.EnqueueSVMMemcpy, funcs.EnqueueSVMMemFill, funcs.EnqueueSVMMap, funcs.EnqueueSVMUnmap, funcs.SetKernelArgSVMPointer, funcs.SetKernelExecInfo, 
-			funcs.CreateSamplerWithProperties
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clCreateCommandQueueWithProperties, caps.clCreatePipe, caps.clGetPipeInfo, caps.clSVMAlloc, caps.clSVMFree, caps.clEnqueueSVMFree, 
+			caps.clEnqueueSVMMemcpy, caps.clEnqueueSVMMemFill, caps.clEnqueueSVMMap, caps.clEnqueueSVMUnmap, caps.clSetKernelArgSVMPointer, 
+			caps.clSetKernelExecInfo, caps.clCreateSamplerWithProperties
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateCommandQueueWithProperties ] ---
 
 	/** Unsafe version of {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties} */
 	public static long nclCreateCommandQueueWithProperties(long context, long device, long properties, long errcode_ret) {
-		long __functionAddress = getInstance().CreateCommandQueueWithProperties;
+		long __functionAddress = CL.getICD().clCreateCommandQueueWithProperties;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(device);
 		}
@@ -233,9 +186,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clCreatePipe CreatePipe} */
 	public static long nclCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, long properties, long errcode_ret) {
-		long __functionAddress = getInstance().CreatePipe;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreatePipe;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPJIIPPP(__functionAddress, context, flags, pipe_packet_size, pipe_max_packets, properties, errcode_ret);
 	}
 
@@ -286,9 +241,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clGetPipeInfo GetPipeInfo} */
 	public static int nclGetPipeInfo(long pipe, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetPipeInfo;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clGetPipeInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(pipe);
+		}
 		return callPIPPPI(__functionAddress, pipe, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -337,9 +294,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clSVMAlloc SVMAlloc} */
 	public static long nclSVMAlloc(long context, long flags, long size, int alignment) {
-		long __functionAddress = getInstance().SVMAlloc;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clSVMAlloc;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPJPIP(__functionAddress, context, flags, size, alignment);
 	}
 
@@ -399,9 +358,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clSVMFree SVMFree} */
 	public static void nclSVMFree(long context, long svm_pointer) {
-		long __functionAddress = getInstance().SVMFree;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clSVMFree;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		callPPV(__functionAddress, context, svm_pointer);
 	}
 
@@ -428,9 +389,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clEnqueueSVMFree EnqueueSVMFree} */
 	public static int nclEnqueueSVMFree(long command_queue, int num_svm_pointers, long svm_pointers, long pfn_free_func, long user_data, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueSVMFree;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueSVMFree;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPPPIPPI(__functionAddress, command_queue, num_svm_pointers, svm_pointers, pfn_free_func, user_data, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -488,9 +451,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clEnqueueSVMMemcpy EnqueueSVMMemcpy} */
 	public static int nclEnqueueSVMMemcpy(long command_queue, int blocking_copy, long dst_ptr, long src_ptr, long size, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueSVMMemcpy;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueSVMMemcpy;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPPPIPPI(__functionAddress, command_queue, blocking_copy, dst_ptr, src_ptr, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -557,9 +522,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clEnqueueSVMMemFill EnqueueSVMMemFill} */
 	public static int nclEnqueueSVMMemFill(long command_queue, long svm_ptr, long pattern, long pattern_size, long size, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueSVMMemFill;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueSVMMemFill;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPPPPPIPPI(__functionAddress, command_queue, svm_ptr, pattern, pattern_size, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -622,9 +589,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clEnqueueSVMMap EnqueueSVMMap} */
 	public static int nclEnqueueSVMMap(long command_queue, int blocking_map, long map_flags, long svm_ptr, long size, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueSVMMap;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueSVMMap;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIJPPIPPI(__functionAddress, command_queue, blocking_map, map_flags, svm_ptr, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -689,9 +658,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clEnqueueSVMUnmap EnqueueSVMUnmap} */
 	public static int nclEnqueueSVMUnmap(long command_queue, long svm_ptr, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueSVMUnmap;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueSVMUnmap;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPPIPPI(__functionAddress, command_queue, svm_ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -742,9 +713,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clSetKernelArgSVMPointer SetKernelArgSVMPointer} */
 	public static int nclSetKernelArgSVMPointer(long kernel, int arg_index, long arg_value) {
-		long __functionAddress = getInstance().SetKernelArgSVMPointer;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clSetKernelArgSVMPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(kernel);
+		}
 		return callPIPI(__functionAddress, kernel, arg_index, arg_value);
 	}
 
@@ -779,9 +752,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clSetKernelExecInfo SetKernelExecInfo} */
 	public static int nclSetKernelExecInfo(long kernel, int param_name, long param_value_size, long param_value) {
-		long __functionAddress = getInstance().SetKernelExecInfo;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clSetKernelExecInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(kernel);
+		}
 		return callPIPPI(__functionAddress, kernel, param_name, param_value_size, param_value);
 	}
 
@@ -857,9 +832,11 @@ public class CL20 {
 
 	/** Unsafe version of {@link #clCreateSamplerWithProperties CreateSamplerWithProperties} */
 	public static long nclCreateSamplerWithProperties(long context, long sampler_properties, long errcode_ret) {
-		long __functionAddress = getInstance().CreateSamplerWithProperties;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateSamplerWithProperties;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPPPP(__functionAddress, context, sampler_properties, errcode_ret);
 	}
 

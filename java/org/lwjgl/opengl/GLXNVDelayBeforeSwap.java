@@ -23,39 +23,14 @@ import org.lwjgl.system.linux.*;
  */
 public class GLXNVDelayBeforeSwap {
 
-	/** Function address. */
-	public final long DelayBeforeSwapNV;
-
 	protected GLXNVDelayBeforeSwap() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXNVDelayBeforeSwap(FunctionProvider provider) {
-		DelayBeforeSwapNV = provider.getFunctionAddress("glXDelayBeforeSwapNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXNVDelayBeforeSwap} instance of the current context. */
-	public static GLXNVDelayBeforeSwap getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXNVDelayBeforeSwap} instance of the specified {@link GLCapabilities}. */
-	public static GLXNVDelayBeforeSwap getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXNVDelayBeforeSwap);
-	}
-
-	static GLXNVDelayBeforeSwap create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_NV_delay_before_swap") ) return null;
-
-		GLXNVDelayBeforeSwap funcs = new GLXNVDelayBeforeSwap(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DelayBeforeSwapNV
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXDelayBeforeSwapNV
 		);
-
-		return GL.checkExtension("GLX_NV_delay_before_swap", funcs, supported);
 	}
 
 	// --- [ glXDelayBeforeSwapNV ] ---
@@ -85,8 +60,9 @@ public class GLXNVDelayBeforeSwap {
 	 * @param seconds  the delay, in seconds
 	 */
 	public static int glXDelayBeforeSwapNV(long display, long drawable, float seconds) {
-		long __functionAddress = getInstance().DelayBeforeSwapNV;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXDelayBeforeSwapNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}

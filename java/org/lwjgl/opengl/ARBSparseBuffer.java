@@ -27,44 +27,14 @@ public class ARBSparseBuffer {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetFloatv, GetIntegerv, and GetInteger64v. */
 	public static final int GL_SPARSE_BUFFER_PAGE_SIZE_ARB = 0x82F8;
 
-	/** Function address. */
-	public final long
-		BufferPageCommitmentARB,
-		NamedBufferPageCommitmentEXT,
-		NamedBufferPageCommitmentARB;
-
 	protected ARBSparseBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBSparseBuffer(FunctionProvider provider) {
-		BufferPageCommitmentARB = provider.getFunctionAddress("glBufferPageCommitmentARB");
-		NamedBufferPageCommitmentEXT = provider.getFunctionAddress("glNamedBufferPageCommitmentEXT");
-		NamedBufferPageCommitmentARB = provider.getFunctionAddress("glNamedBufferPageCommitmentARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBSparseBuffer} instance of the current context. */
-	public static ARBSparseBuffer getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBSparseBuffer} instance of the specified {@link GLCapabilities}. */
-	public static ARBSparseBuffer getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBSparseBuffer);
-	}
-
-	static ARBSparseBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_sparse_buffer") ) return null;
-
-		ARBSparseBuffer funcs = new ARBSparseBuffer(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BufferPageCommitmentARB
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glBufferPageCommitmentARB
 		);
-
-		return GL.checkExtension("GL_ARB_sparse_buffer", funcs, supported);
 	}
 
 	// --- [ glBufferPageCommitmentARB ] ---
@@ -80,7 +50,9 @@ public class ARBSparseBuffer {
 	 *               redundantly committing pages does not alter their content.
 	 */
 	public static void glBufferPageCommitmentARB(int target, long offset, long size, boolean commit) {
-		long __functionAddress = getInstance().BufferPageCommitmentARB;
+		long __functionAddress = GL.getCapabilities().glBufferPageCommitmentARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPZV(__functionAddress, target, offset, size, commit);
 	}
 
@@ -95,7 +67,7 @@ public class ARBSparseBuffer {
 	 * @param commit the commit state
 	 */
 	public static void glNamedBufferPageCommitmentEXT(int buffer, long offset, long size, boolean commit) {
-		long __functionAddress = getInstance().NamedBufferPageCommitmentEXT;
+		long __functionAddress = GL.getCapabilities().glNamedBufferPageCommitmentEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPPZV(__functionAddress, buffer, offset, size, commit);
@@ -112,7 +84,7 @@ public class ARBSparseBuffer {
 	 * @param commit the commit state
 	 */
 	public static void glNamedBufferPageCommitmentARB(int buffer, long offset, long size, boolean commit) {
-		long __functionAddress = getInstance().NamedBufferPageCommitmentARB;
+		long __functionAddress = GL.getCapabilities().glNamedBufferPageCommitmentARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPPZV(__functionAddress, buffer, offset, size, commit);

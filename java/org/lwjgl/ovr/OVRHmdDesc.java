@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * A complete descriptor of the HMD.
@@ -72,7 +73,7 @@ public class OVRHmdDesc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -116,15 +117,15 @@ public class OVRHmdDesc extends Struct {
 			__member(4),
 			__member(4),
 			__member(4),
-			__array(OVRFovPort.SIZEOF, OVRFovPort.__ALIGNMENT, 2),
-			__array(OVRFovPort.SIZEOF, OVRFovPort.__ALIGNMENT, 2),
-			__member(OVRSizei.SIZEOF, OVRSizei.__ALIGNMENT),
+			__array(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF, 2),
+			__array(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF, 2),
+			__member(OVRSizei.SIZEOF, OVRSizei.ALIGNOF),
 			__member(4),
 			__padding(4, Pointer.BITS64)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		TYPE = layout.offsetof(0);
 		PRODUCTNAME = layout.offsetof(2);
@@ -275,16 +276,86 @@ public class OVRHmdDesc extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link OVRHmdDesc} instance allocated on the thread-local {@link MemoryStack}. */
+	public static OVRHmdDesc mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link OVRHmdDesc} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static OVRHmdDesc callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRHmdDesc} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRHmdDesc mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRHmdDesc} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRHmdDesc callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRHmdDesc.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRHmdDesc.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRHmdDesc.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link OVRHmdDesc.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #Type}. */
 	public static int nType(long struct) { return memGetInt(struct + OVRHmdDesc.TYPE); }
 	/** Unsafe version of {@link #ProductName}. */
 	public static ByteBuffer nProductName(long struct) { return memByteBuffer(struct + OVRHmdDesc.PRODUCTNAME, 64); }
 	/** Unsafe version of {@link #ProductNameString}. */
-	public static String nProductNameString(long struct) { return memDecodeUTF8(struct + OVRHmdDesc.PRODUCTNAME); }
+	public static String nProductNameString(long struct) { return memUTF8(struct + OVRHmdDesc.PRODUCTNAME); }
 	/** Unsafe version of {@link #Manufacturer}. */
 	public static ByteBuffer nManufacturer(long struct) { return memByteBuffer(struct + OVRHmdDesc.MANUFACTURER, 64); }
 	/** Unsafe version of {@link #ManufacturerString}. */
-	public static String nManufacturerString(long struct) { return memDecodeUTF8(struct + OVRHmdDesc.MANUFACTURER); }
+	public static String nManufacturerString(long struct) { return memUTF8(struct + OVRHmdDesc.MANUFACTURER); }
 	/** Unsafe version of {@link #VendorId}. */
 	public static short nVendorId(long struct) { return memGetShort(struct + OVRHmdDesc.VENDORID); }
 	/** Unsafe version of {@link #ProductId}. */
@@ -292,7 +363,7 @@ public class OVRHmdDesc extends Struct {
 	/** Unsafe version of {@link #SerialNumber}. */
 	public static ByteBuffer nSerialNumber(long struct) { return memByteBuffer(struct + OVRHmdDesc.SERIALNUMBER, 24); }
 	/** Unsafe version of {@link #SerialNumberString}. */
-	public static String nSerialNumberString(long struct) { return memDecodeASCII(struct + OVRHmdDesc.SERIALNUMBER); }
+	public static String nSerialNumberString(long struct) { return memASCII(struct + OVRHmdDesc.SERIALNUMBER); }
 	/** Unsafe version of {@link #FirmwareMajor}. */
 	public static short nFirmwareMajor(long struct) { return memGetShort(struct + OVRHmdDesc.FIRMWAREMAJOR); }
 	/** Unsafe version of {@link #FirmwareMinor}. */
@@ -368,7 +439,7 @@ public class OVRHmdDesc extends Struct {
 
 		@Override
 		protected OVRHmdDesc newInstance(long address) {
-			return new OVRHmdDesc(address, container);
+			return new OVRHmdDesc(address, getContainer());
 		}
 
 		@Override

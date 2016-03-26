@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -30,7 +31,7 @@ public class VkViewport extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -52,7 +53,7 @@ public class VkViewport extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		X = layout.offsetof(0);
 		Y = layout.offsetof(1);
@@ -200,6 +201,76 @@ public class VkViewport extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkViewport} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkViewport mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkViewport} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkViewport callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkViewport} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkViewport mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkViewport} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkViewport callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkViewport.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkViewport.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkViewport.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkViewport.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #x}. */
 	public static float nx(long struct) { return memGetFloat(struct + VkViewport.X); }
 	/** Unsafe version of {@link #y}. */
@@ -260,7 +331,7 @@ public class VkViewport extends Struct {
 
 		@Override
 		protected VkViewport newInstance(long address) {
-			return new VkViewport(address, container);
+			return new VkViewport(address, getContainer());
 		}
 
 		@Override

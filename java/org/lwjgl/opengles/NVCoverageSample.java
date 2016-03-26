@@ -61,54 +61,31 @@ public class NVCoverageSample {
 		GL_COVERAGE_BUFFERS_NV = 0x8ED3,
 		GL_COVERAGE_SAMPLES_NV = 0x8ED4;
 
-	/** Function address. */
-	public final long
-		CoverageMaskNV,
-		CoverageOperationNV;
-
 	protected NVCoverageSample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVCoverageSample(FunctionProvider provider) {
-		CoverageMaskNV = provider.getFunctionAddress("glCoverageMaskNV");
-		CoverageOperationNV = provider.getFunctionAddress("glCoverageOperationNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVCoverageSample} instance of the current context. */
-	public static NVCoverageSample getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVCoverageSample} instance of the specified {@link GLESCapabilities}. */
-	public static NVCoverageSample getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVCoverageSample);
-	}
-
-	static NVCoverageSample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_coverage_sample") ) return null;
-
-		NVCoverageSample funcs = new NVCoverageSample(provider);
-		boolean supported = checkFunctions(
-			funcs.CoverageMaskNV, funcs.CoverageOperationNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glCoverageMaskNV, caps.glCoverageOperationNV
 		);
-
-		return GLES.checkExtension("GL_NV_coverage_sample", funcs, supported);
 	}
 
 	// --- [ glCoverageMaskNV ] ---
 
 	public static void glCoverageMaskNV(boolean mask) {
-		long __functionAddress = getInstance().CoverageMaskNV;
+		long __functionAddress = GLES.getCapabilities().glCoverageMaskNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callZV(__functionAddress, mask);
 	}
 
 	// --- [ glCoverageOperationNV ] ---
 
 	public static void glCoverageOperationNV(int operation) {
-		long __functionAddress = getInstance().CoverageOperationNV;
+		long __functionAddress = GLES.getCapabilities().glCoverageOperationNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, operation);
 	}
 

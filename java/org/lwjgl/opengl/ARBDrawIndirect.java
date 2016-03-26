@@ -41,49 +41,23 @@ public class ARBDrawIndirect {
 	/** Accepted by the {@code value} parameter of GetIntegerv, GetBooleanv, GetFloatv, and GetDoublev. */
 	public static final int GL_DRAW_INDIRECT_BUFFER_BINDING = 0x8F43;
 
-	/** Function address. */
-	public final long
-		DrawArraysIndirect,
-		DrawElementsIndirect;
-
 	protected ARBDrawIndirect() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBDrawIndirect(FunctionProvider provider) {
-		DrawArraysIndirect = provider.getFunctionAddress("glDrawArraysIndirect");
-		DrawElementsIndirect = provider.getFunctionAddress("glDrawElementsIndirect");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBDrawIndirect} instance of the current context. */
-	public static ARBDrawIndirect getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBDrawIndirect} instance of the specified {@link GLCapabilities}. */
-	public static ARBDrawIndirect getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBDrawIndirect);
-	}
-
-	static ARBDrawIndirect create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_draw_indirect") ) return null;
-
-		ARBDrawIndirect funcs = new ARBDrawIndirect(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DrawArraysIndirect, funcs.DrawElementsIndirect
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawArraysIndirect, caps.glDrawElementsIndirect
 		);
-
-		return GL.checkExtension("GL_ARB_draw_indirect", funcs, supported);
 	}
 
 	// --- [ glDrawArraysIndirect ] ---
 
 	/** Unsafe version of {@link #glDrawArraysIndirect DrawArraysIndirect} */
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
-		long __functionAddress = getInstance().DrawArraysIndirect;
+		long __functionAddress = GL.getCapabilities().glDrawArraysIndirect;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, mode, indirect);
 	}
 
@@ -136,7 +110,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glDrawElementsIndirect DrawElementsIndirect} */
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
-		long __functionAddress = getInstance().DrawElementsIndirect;
+		long __functionAddress = GL.getCapabilities().glDrawElementsIndirect;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, mode, type, indirect);
 	}
 

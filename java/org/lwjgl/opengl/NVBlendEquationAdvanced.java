@@ -81,55 +81,31 @@ public class NVBlendEquationAdvanced {
 		GL_GREEN_NV              = 0x1904,
 		GL_BLUE_NV               = 0x1905;
 
-	/** Function address. */
-	public final long
-		BlendParameteriNV,
-		BlendBarrierNV;
-
 	protected NVBlendEquationAdvanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVBlendEquationAdvanced(FunctionProvider provider) {
-		BlendParameteriNV = provider.getFunctionAddress("glBlendParameteriNV");
-		BlendBarrierNV = provider.getFunctionAddress("glBlendBarrierNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVBlendEquationAdvanced} instance of the current context. */
-	public static NVBlendEquationAdvanced getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVBlendEquationAdvanced} instance of the specified {@link GLCapabilities}. */
-	public static NVBlendEquationAdvanced getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVBlendEquationAdvanced);
-	}
-
-	static NVBlendEquationAdvanced create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_blend_equation_advanced") ) return null;
-
-		NVBlendEquationAdvanced funcs = new NVBlendEquationAdvanced(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BlendParameteriNV, funcs.BlendBarrierNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBlendParameteriNV, caps.glBlendBarrierNV
 		);
-
-		return GL.checkExtension("GL_NV_blend_equation_advanced", funcs, supported);
 	}
 
 	// --- [ glBlendParameteriNV ] ---
 
 	public static void glBlendParameteriNV(int pname, int value) {
-		long __functionAddress = getInstance().BlendParameteriNV;
+		long __functionAddress = GL.getCapabilities().glBlendParameteriNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, value);
 	}
 
 	// --- [ glBlendBarrierNV ] ---
 
 	public static void glBlendBarrierNV() {
-		long __functionAddress = getInstance().BlendBarrierNV;
+		long __functionAddress = GL.getCapabilities().glBlendBarrierNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

@@ -106,44 +106,14 @@ public class WGLARBRenderTexture {
 		WGL_AUX8_ARB        = 0x208F,
 		WGL_AUX9_ARB        = 0x2090;
 
-	/** Function address. */
-	public final long
-		BindTexImageARB,
-		ReleaseTexImageARB,
-		SetPbufferAttribARB;
-
 	protected WGLARBRenderTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLARBRenderTexture(FunctionProvider provider) {
-		BindTexImageARB = provider.getFunctionAddress("wglBindTexImageARB");
-		ReleaseTexImageARB = provider.getFunctionAddress("wglReleaseTexImageARB");
-		SetPbufferAttribARB = provider.getFunctionAddress("wglSetPbufferAttribARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLARBRenderTexture} instance of the current context. */
-	public static WGLARBRenderTexture getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLARBRenderTexture} instance of the specified {@link GLCapabilities}. */
-	public static WGLARBRenderTexture getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLARBRenderTexture);
-	}
-
-	static WGLARBRenderTexture create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_render_texture") ) return null;
-
-		WGLARBRenderTexture funcs = new WGLARBRenderTexture(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindTexImageARB, funcs.ReleaseTexImageARB, funcs.SetPbufferAttribARB
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglBindTexImageARB, caps.wglReleaseTexImageARB, caps.wglSetPbufferAttribARB
 		);
-
-		return GL.checkExtension("WGL_ARB_render_texture", funcs, supported);
 	}
 
 	// --- [ wglBindTexImageARB ] ---
@@ -157,9 +127,11 @@ public class WGLARBRenderTexture {
 	 * @param buffer  the target buffer. One of:<br>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}, {@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}, {@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}, {@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}, {@link #WGL_AUX0_ARB AUX0_ARB}, WGL_AUX[1-9]_ARB
 	 */
 	public static int wglBindTexImageARB(long pbuffer, int buffer) {
-		long __functionAddress = getInstance().BindTexImageARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglBindTexImageARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
+		}
 		return callPII(__functionAddress, pbuffer, buffer);
 	}
 
@@ -173,9 +145,11 @@ public class WGLARBRenderTexture {
 	 * @param buffer  the target buffer. One of:<br>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}, {@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}, {@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}, {@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}, {@link #WGL_AUX0_ARB AUX0_ARB}, WGL_AUX[1-9]_ARB
 	 */
 	public static int wglReleaseTexImageARB(long pbuffer, int buffer) {
-		long __functionAddress = getInstance().ReleaseTexImageARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglReleaseTexImageARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
+		}
 		return callPII(__functionAddress, pbuffer, buffer);
 	}
 
@@ -183,9 +157,11 @@ public class WGLARBRenderTexture {
 
 	/** Unsafe version of {@link #wglSetPbufferAttribARB SetPbufferAttribARB} */
 	public static int nwglSetPbufferAttribARB(long pbuffer, long attribList) {
-		long __functionAddress = getInstance().SetPbufferAttribARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglSetPbufferAttribARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
+		}
 		return callPPI(__functionAddress, pbuffer, attribList);
 	}
 

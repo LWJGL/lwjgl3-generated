@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -444,139 +444,32 @@ public class GL43 {
 		GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D9,
 		GL_MAX_VERTEX_ATTRIB_BINDINGS        = 0x82DA;
 
-	/** Function address. */
-	public final long
-		ClearBufferData,
-		ClearBufferSubData,
-		DispatchCompute,
-		DispatchComputeIndirect,
-		CopyImageSubData,
-		DebugMessageControl,
-		DebugMessageInsert,
-		DebugMessageCallback,
-		GetDebugMessageLog,
-		PushDebugGroup,
-		PopDebugGroup,
-		ObjectLabel,
-		GetObjectLabel,
-		ObjectPtrLabel,
-		GetObjectPtrLabel,
-		FramebufferParameteri,
-		GetFramebufferParameteriv,
-		GetInternalformati64v,
-		InvalidateTexSubImage,
-		InvalidateTexImage,
-		InvalidateBufferSubData,
-		InvalidateBufferData,
-		InvalidateFramebuffer,
-		InvalidateSubFramebuffer,
-		MultiDrawArraysIndirect,
-		MultiDrawElementsIndirect,
-		GetProgramInterfaceiv,
-		GetProgramResourceIndex,
-		GetProgramResourceName,
-		GetProgramResourceiv,
-		GetProgramResourceLocation,
-		GetProgramResourceLocationIndex,
-		ShaderStorageBlockBinding,
-		TexBufferRange,
-		TexStorage2DMultisample,
-		TexStorage3DMultisample,
-		TextureView,
-		BindVertexBuffer,
-		VertexAttribFormat,
-		VertexAttribIFormat,
-		VertexAttribLFormat,
-		VertexAttribBinding,
-		VertexBindingDivisor;
-
 	protected GL43() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL43(FunctionProvider provider) {
-		ClearBufferData = provider.getFunctionAddress("glClearBufferData");
-		ClearBufferSubData = provider.getFunctionAddress("glClearBufferSubData");
-		DispatchCompute = provider.getFunctionAddress("glDispatchCompute");
-		DispatchComputeIndirect = provider.getFunctionAddress("glDispatchComputeIndirect");
-		CopyImageSubData = provider.getFunctionAddress("glCopyImageSubData");
-		DebugMessageControl = provider.getFunctionAddress("glDebugMessageControl");
-		DebugMessageInsert = provider.getFunctionAddress("glDebugMessageInsert");
-		DebugMessageCallback = provider.getFunctionAddress("glDebugMessageCallback");
-		GetDebugMessageLog = provider.getFunctionAddress("glGetDebugMessageLog");
-		PushDebugGroup = provider.getFunctionAddress("glPushDebugGroup");
-		PopDebugGroup = provider.getFunctionAddress("glPopDebugGroup");
-		ObjectLabel = provider.getFunctionAddress("glObjectLabel");
-		GetObjectLabel = provider.getFunctionAddress("glGetObjectLabel");
-		ObjectPtrLabel = provider.getFunctionAddress("glObjectPtrLabel");
-		GetObjectPtrLabel = provider.getFunctionAddress("glGetObjectPtrLabel");
-		FramebufferParameteri = provider.getFunctionAddress("glFramebufferParameteri");
-		GetFramebufferParameteriv = provider.getFunctionAddress("glGetFramebufferParameteriv");
-		GetInternalformati64v = provider.getFunctionAddress("glGetInternalformati64v");
-		InvalidateTexSubImage = provider.getFunctionAddress("glInvalidateTexSubImage");
-		InvalidateTexImage = provider.getFunctionAddress("glInvalidateTexImage");
-		InvalidateBufferSubData = provider.getFunctionAddress("glInvalidateBufferSubData");
-		InvalidateBufferData = provider.getFunctionAddress("glInvalidateBufferData");
-		InvalidateFramebuffer = provider.getFunctionAddress("glInvalidateFramebuffer");
-		InvalidateSubFramebuffer = provider.getFunctionAddress("glInvalidateSubFramebuffer");
-		MultiDrawArraysIndirect = provider.getFunctionAddress("glMultiDrawArraysIndirect");
-		MultiDrawElementsIndirect = provider.getFunctionAddress("glMultiDrawElementsIndirect");
-		GetProgramInterfaceiv = provider.getFunctionAddress("glGetProgramInterfaceiv");
-		GetProgramResourceIndex = provider.getFunctionAddress("glGetProgramResourceIndex");
-		GetProgramResourceName = provider.getFunctionAddress("glGetProgramResourceName");
-		GetProgramResourceiv = provider.getFunctionAddress("glGetProgramResourceiv");
-		GetProgramResourceLocation = provider.getFunctionAddress("glGetProgramResourceLocation");
-		GetProgramResourceLocationIndex = provider.getFunctionAddress("glGetProgramResourceLocationIndex");
-		ShaderStorageBlockBinding = provider.getFunctionAddress("glShaderStorageBlockBinding");
-		TexBufferRange = provider.getFunctionAddress("glTexBufferRange");
-		TexStorage2DMultisample = provider.getFunctionAddress("glTexStorage2DMultisample");
-		TexStorage3DMultisample = provider.getFunctionAddress("glTexStorage3DMultisample");
-		TextureView = provider.getFunctionAddress("glTextureView");
-		BindVertexBuffer = provider.getFunctionAddress("glBindVertexBuffer");
-		VertexAttribFormat = provider.getFunctionAddress("glVertexAttribFormat");
-		VertexAttribIFormat = provider.getFunctionAddress("glVertexAttribIFormat");
-		VertexAttribLFormat = provider.getFunctionAddress("glVertexAttribLFormat");
-		VertexAttribBinding = provider.getFunctionAddress("glVertexAttribBinding");
-		VertexBindingDivisor = provider.getFunctionAddress("glVertexBindingDivisor");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL43} instance of the current context. */
-	public static GL43 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL43} instance of the specified {@link GLCapabilities}. */
-	public static GL43 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL43);
-	}
-
-	static GL43 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL43") ) return null;
-
-		GL43 funcs = new GL43(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ClearBufferData, funcs.ClearBufferSubData, funcs.DispatchCompute, funcs.DispatchComputeIndirect, funcs.CopyImageSubData, 
-			funcs.DebugMessageControl, funcs.DebugMessageInsert, funcs.DebugMessageCallback, funcs.GetDebugMessageLog, funcs.PushDebugGroup, 
-			funcs.PopDebugGroup, funcs.ObjectLabel, funcs.GetObjectLabel, funcs.ObjectPtrLabel, funcs.GetObjectPtrLabel, funcs.FramebufferParameteri, 
-			funcs.GetFramebufferParameteriv, funcs.GetInternalformati64v, funcs.InvalidateTexSubImage, funcs.InvalidateTexImage, funcs.InvalidateBufferSubData, 
-			funcs.InvalidateBufferData, funcs.InvalidateFramebuffer, funcs.InvalidateSubFramebuffer, funcs.MultiDrawArraysIndirect, 
-			funcs.MultiDrawElementsIndirect, funcs.GetProgramInterfaceiv, funcs.GetProgramResourceIndex, funcs.GetProgramResourceName, 
-			funcs.GetProgramResourceiv, funcs.GetProgramResourceLocation, funcs.GetProgramResourceLocationIndex, funcs.ShaderStorageBlockBinding, 
-			funcs.TexBufferRange, funcs.TexStorage2DMultisample, funcs.TexStorage3DMultisample, funcs.TextureView, funcs.BindVertexBuffer, 
-			funcs.VertexAttribFormat, funcs.VertexAttribIFormat, funcs.VertexAttribLFormat, funcs.VertexAttribBinding, funcs.VertexBindingDivisor
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glClearBufferData, caps.glClearBufferSubData, caps.glDispatchCompute, caps.glDispatchComputeIndirect, caps.glCopyImageSubData, 
+			caps.glDebugMessageControl, caps.glDebugMessageInsert, caps.glDebugMessageCallback, caps.glGetDebugMessageLog, caps.glPushDebugGroup, 
+			caps.glPopDebugGroup, caps.glObjectLabel, caps.glGetObjectLabel, caps.glObjectPtrLabel, caps.glGetObjectPtrLabel, caps.glFramebufferParameteri, 
+			caps.glGetFramebufferParameteriv, caps.glGetInternalformati64v, caps.glInvalidateTexSubImage, caps.glInvalidateTexImage, 
+			caps.glInvalidateBufferSubData, caps.glInvalidateBufferData, caps.glInvalidateFramebuffer, caps.glInvalidateSubFramebuffer, 
+			caps.glMultiDrawArraysIndirect, caps.glMultiDrawElementsIndirect, caps.glGetProgramInterfaceiv, caps.glGetProgramResourceIndex, 
+			caps.glGetProgramResourceName, caps.glGetProgramResourceiv, caps.glGetProgramResourceLocation, caps.glGetProgramResourceLocationIndex, 
+			caps.glShaderStorageBlockBinding, caps.glTexBufferRange, caps.glTexStorage2DMultisample, caps.glTexStorage3DMultisample, caps.glTextureView, 
+			caps.glBindVertexBuffer, caps.glVertexAttribFormat, caps.glVertexAttribIFormat, caps.glVertexAttribLFormat, caps.glVertexAttribBinding, 
+			caps.glVertexBindingDivisor
 		);
-
-		return GL.checkExtension("OpenGL43", funcs, supported);
 	}
 
 	// --- [ glClearBufferData ] ---
 
 	/** Unsafe version of {@link #glClearBufferData ClearBufferData} */
 	public static void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearBufferData;
+		long __functionAddress = GL.getCapabilities().glClearBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, internalformat, format, type, data);
 	}
 
@@ -616,7 +509,9 @@ public class GL43 {
 
 	/** Unsafe version of {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearBufferSubData;
+		long __functionAddress = GL.getCapabilities().glClearBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPIIPV(__functionAddress, target, internalformat, offset, size, format, type, data);
 	}
 
@@ -666,7 +561,9 @@ public class GL43 {
 	 * @param num_groups_z the number of work groups to be launched in the Z dimension
 	 */
 	public static void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z) {
-		long __functionAddress = getInstance().DispatchCompute;
+		long __functionAddress = GL.getCapabilities().glDispatchCompute;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, num_groups_x, num_groups_y, num_groups_z);
 	}
 
@@ -694,9 +591,11 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 *                 stored.
 	 */
 	public static void glDispatchComputeIndirect(long indirect) {
-		long __functionAddress = getInstance().DispatchComputeIndirect;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glDispatchComputeIndirect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL43.GL_DISPATCH_INDIRECT_BUFFER_BINDING, true);
+		}
 		callPV(__functionAddress, indirect);
 	}
 
@@ -724,7 +623,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param srcDepth  the depth of the region to be copied
 	 */
 	public static void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
-		long __functionAddress = getInstance().CopyImageSubData;
+		long __functionAddress = GL.getCapabilities().glCopyImageSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIIIIIIV(__functionAddress, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 	}
 
@@ -732,7 +633,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** Unsafe version of {@link #glDebugMessageControl DebugMessageControl} */
 	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
-		long __functionAddress = getInstance().DebugMessageControl;
+		long __functionAddress = GL.getCapabilities().glDebugMessageControl;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
@@ -784,16 +687,22 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** Single value version of: {@link #glDebugMessageControl DebugMessageControl} */
 	public static void glDebugMessageControl(int source, int type, int severity, int id, boolean enabled) {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam(id);
-		nglDebugMessageControl(source, type, severity, 1, __buffer.address(ids), enabled);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.ints(id);
+			nglDebugMessageControl(source, type, severity, 1, memAddress(ids), enabled);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDebugMessageInsert ] ---
 
 	/** Unsafe version of {@link #glDebugMessageInsert DebugMessageInsert} */
 	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
-		long __functionAddress = getInstance().DebugMessageInsert;
+		long __functionAddress = GL.getCapabilities().glDebugMessageInsert;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIPV(__functionAddress, source, type, id, severity, length, message);
 	}
 
@@ -831,10 +740,14 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** CharSequence version of: {@link #glDebugMessageInsert DebugMessageInsert} */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, CharSequence message) {
-		APIBuffer __buffer = apiBuffer();
-		int messageEncoded = __buffer.stringParamUTF8(message, false);
-		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
-		nglDebugMessageInsert(source, type, id, severity, messageEncodedLen, __buffer.address(messageEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer messageEncoded = stack.UTF8(message, false);
+			int messageEncodedLen = messageEncoded.capacity();
+			nglDebugMessageInsert(source, type, id, severity, messageEncodedLen, memAddress(messageEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDebugMessageCallback ] ---
@@ -873,7 +786,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
 	public static void glDebugMessageCallback(GLDebugMessageCallback callback, long userParam) {
-		long __functionAddress = getInstance().DebugMessageCallback;
+		long __functionAddress = GL.getCapabilities().glDebugMessageCallback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, callback == null ? NULL : callback.address(), userParam);
 	}
 
@@ -881,7 +796,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** Unsafe version of {@link #glGetDebugMessageLog GetDebugMessageLog} */
 	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
-		long __functionAddress = getInstance().GetDebugMessageLog;
+		long __functionAddress = GL.getCapabilities().glGetDebugMessageLog;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
 	}
 
@@ -949,7 +866,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** Unsafe version of {@link #glPushDebugGroup PushDebugGroup} */
 	public static void nglPushDebugGroup(int source, int id, int length, long message) {
-		long __functionAddress = getInstance().PushDebugGroup;
+		long __functionAddress = GL.getCapabilities().glPushDebugGroup;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, source, id, length, message);
 	}
 
@@ -985,10 +904,14 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** CharSequence version of: {@link #glPushDebugGroup PushDebugGroup} */
 	public static void glPushDebugGroup(int source, int id, CharSequence message) {
-		APIBuffer __buffer = apiBuffer();
-		int messageEncoded = __buffer.stringParamUTF8(message, false);
-		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
-		nglPushDebugGroup(source, id, messageEncodedLen, __buffer.address(messageEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer messageEncoded = stack.UTF8(message, false);
+			int messageEncodedLen = messageEncoded.capacity();
+			nglPushDebugGroup(source, id, messageEncodedLen, memAddress(messageEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glPopDebugGroup ] ---
@@ -1005,7 +928,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * {@link #GL_MAX_DEBUG_GROUP_STACK_DEPTH MAX_DEBUG_GROUP_STACK_DEPTH} minus one elements will generate a {@link GL11#GL_STACK_OVERFLOW STACK_OVERFLOW} error.</p>
 	 */
 	public static void glPopDebugGroup() {
-		long __functionAddress = getInstance().PopDebugGroup;
+		long __functionAddress = GL.getCapabilities().glPopDebugGroup;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -1013,7 +938,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** Unsafe version of {@link #glObjectLabel ObjectLabel} */
 	public static void nglObjectLabel(int identifier, int name, int length, long label) {
-		long __functionAddress = getInstance().ObjectLabel;
+		long __functionAddress = GL.getCapabilities().glObjectLabel;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, identifier, name, length, label);
 	}
 
@@ -1040,17 +967,23 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** CharSequence version of: {@link #glObjectLabel ObjectLabel} */
 	public static void glObjectLabel(int identifier, int name, CharSequence label) {
-		APIBuffer __buffer = apiBuffer();
-		int labelEncoded = __buffer.stringParamUTF8(label, false);
-		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
-		nglObjectLabel(identifier, name, labelEncodedLen, __buffer.address(labelEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer labelEncoded = stack.UTF8(label, false);
+			int labelEncodedLen = labelEncoded.capacity();
+			nglObjectLabel(identifier, name, labelEncodedLen, memAddress(labelEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetObjectLabel ] ---
 
 	/** Unsafe version of {@link #glGetObjectLabel GetObjectLabel} */
 	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
-		long __functionAddress = getInstance().GetObjectLabel;
+		long __functionAddress = GL.getCapabilities().glGetObjectLabel;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
 	}
 
@@ -1082,30 +1015,40 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** String return version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static String glGetObjectLabel(int identifier, int name, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer label = stack.malloc(bufSize);
+			nglGetObjectLabel(identifier, name, bufSize, memAddress(length), memAddress(label));
+			return memUTF8(label, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static String glGetObjectLabel(int identifier, int name) {
 		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer label = stack.malloc(bufSize);
+			nglGetObjectLabel(identifier, name, bufSize, memAddress(length), memAddress(label));
+			return memUTF8(label, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glObjectPtrLabel ] ---
 
 	/** Unsafe version of {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
-		long __functionAddress = getInstance().ObjectPtrLabel;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glObjectPtrLabel;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
+		}
 		callPIPV(__functionAddress, ptr, length, label);
 	}
 
@@ -1131,19 +1074,25 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** CharSequence version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, CharSequence label) {
-		APIBuffer __buffer = apiBuffer();
-		int labelEncoded = __buffer.stringParamUTF8(label, false);
-		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
-		nglObjectPtrLabel(ptr, labelEncodedLen, __buffer.address(labelEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer labelEncoded = stack.UTF8(label, false);
+			int labelEncodedLen = labelEncoded.capacity();
+			nglObjectPtrLabel(ptr, labelEncodedLen, memAddress(labelEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetObjectPtrLabel ] ---
 
 	/** Unsafe version of {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
-		long __functionAddress = getInstance().GetObjectPtrLabel;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glGetObjectPtrLabel;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
+		}
 		callPIPPV(__functionAddress, ptr, bufSize, length, label);
 	}
 
@@ -1174,21 +1123,29 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** String return version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static String glGetObjectPtrLabel(long ptr, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer label = stack.malloc(bufSize);
+			nglGetObjectPtrLabel(ptr, bufSize, memAddress(length), memAddress(label));
+			return memUTF8(label, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static String glGetObjectPtrLabel(long ptr) {
 		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer label = stack.malloc(bufSize);
+			nglGetObjectPtrLabel(ptr, bufSize, memAddress(length), memAddress(label));
+			return memUTF8(label, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glFramebufferParameteri ] ---
@@ -1203,7 +1160,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param param  the new value for the parameter named {@code pname}
 	 */
 	public static void glFramebufferParameteri(int target, int pname, int param) {
-		long __functionAddress = getInstance().FramebufferParameteri;
+		long __functionAddress = GL.getCapabilities().glFramebufferParameteri;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, target, pname, param);
 	}
 
@@ -1211,7 +1170,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** Unsafe version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetFramebufferParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetFramebufferParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -1239,17 +1200,23 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** Single return value version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static int glGetFramebufferParameteri(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetFramebufferParameteriv(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetFramebufferParameteriv(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetInternalformati64v ] ---
 
 	/** Unsafe version of {@link #glGetInternalformati64v GetInternalformati64v} */
 	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
-		long __functionAddress = getInstance().GetInternalformati64v;
+		long __functionAddress = GL.getCapabilities().glGetInternalformati64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
@@ -1277,10 +1244,14 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** Single return value version of: {@link #glGetInternalformati64v GetInternalformati64v} */
 	public static long glGetInternalformati64(int target, int internalformat, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetInternalformati64v(target, internalformat, pname, 1, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetInternalformati64v(target, internalformat, pname, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glInvalidateTexSubImage ] ---
@@ -1300,7 +1271,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param depth   the depth of the region to be invalidated
 	 */
 	public static void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) {
-		long __functionAddress = getInstance().InvalidateTexSubImage;
+		long __functionAddress = GL.getCapabilities().glInvalidateTexSubImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth);
 	}
 
@@ -1315,7 +1288,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param level   the level of detail of the texture object to invalidate
 	 */
 	public static void glInvalidateTexImage(int texture, int level) {
-		long __functionAddress = getInstance().InvalidateTexImage;
+		long __functionAddress = GL.getCapabilities().glInvalidateTexImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, texture, level);
 	}
 
@@ -1331,7 +1306,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param length the length of the range within the buffer's data store to be invalidated
 	 */
 	public static void glInvalidateBufferSubData(int buffer, long offset, long length) {
-		long __functionAddress = getInstance().InvalidateBufferSubData;
+		long __functionAddress = GL.getCapabilities().glInvalidateBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPV(__functionAddress, buffer, offset, length);
 	}
 
@@ -1345,7 +1322,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param buffer the name of a buffer object whose data store to invalidate
 	 */
 	public static void glInvalidateBufferData(int buffer) {
-		long __functionAddress = getInstance().InvalidateBufferData;
+		long __functionAddress = GL.getCapabilities().glInvalidateBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, buffer);
 	}
 
@@ -1353,7 +1332,9 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** Unsafe version of {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
-		long __functionAddress = getInstance().InvalidateFramebuffer;
+		long __functionAddress = GL.getCapabilities().glInvalidateFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, numAttachments, attachments);
 	}
 
@@ -1379,16 +1360,22 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** Single value version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, int attachment) {
-		APIBuffer __buffer = apiBuffer();
-		int attachments = __buffer.intParam(attachment);
-		nglInvalidateFramebuffer(target, 1, __buffer.address(attachments));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer attachments = stack.ints(attachment);
+			nglInvalidateFramebuffer(target, 1, memAddress(attachments));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glInvalidateSubFramebuffer ] ---
 
 	/** Unsafe version of {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().InvalidateSubFramebuffer;
+		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
 	}
 
@@ -1418,16 +1405,22 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	/** Single value version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
-		APIBuffer __buffer = apiBuffer();
-		int attachments = __buffer.intParam(attachment);
-		nglInvalidateSubFramebuffer(target, 1, __buffer.address(attachments), x, y, width, height);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer attachments = stack.ints(attachment);
+			nglInvalidateSubFramebuffer(target, 1, memAddress(attachments), x, y, width, height);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glMultiDrawArraysIndirect ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
 	public static void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
-		long __functionAddress = getInstance().MultiDrawArraysIndirect;
+		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirect;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPIIV(__functionAddress, mode, indirect, primcount, stride);
 	}
 
@@ -1489,7 +1482,9 @@ for ( i = 0; i < primcount; i++ ) {
 
 	/** Unsafe version of {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
 	public static void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
-		long __functionAddress = getInstance().MultiDrawElementsIndirect;
+		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirect;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIV(__functionAddress, mode, type, indirect, primcount, stride);
 	}
 
@@ -1553,7 +1548,9 @@ for ( i = 0; i < primcount; i++ ) {
 
 	/** Unsafe version of {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
-		long __functionAddress = getInstance().GetProgramInterfaceiv;
+		long __functionAddress = GL.getCapabilities().glGetProgramInterfaceiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, programInterface, pname, params);
 	}
 
@@ -1582,17 +1579,23 @@ for ( i = 0; i < primcount; i++ ) {
 
 	/** Single return value version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static int glGetProgramInterfacei(int program, int programInterface, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetProgramInterfaceiv(program, programInterface, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramResourceIndex ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
 	public static int nglGetProgramResourceIndex(int program, int programInterface, long name) {
-		long __functionAddress = getInstance().GetProgramResourceIndex;
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceIndex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
@@ -1613,16 +1616,22 @@ for ( i = 0; i < primcount; i++ ) {
 
 	/** CharSequence version of: {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nglGetProgramResourceIndex(program, programInterface, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nglGetProgramResourceIndex(program, programInterface, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramResourceName ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
-		long __functionAddress = getInstance().GetProgramResourceName;
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceName;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
 	}
 
@@ -1655,28 +1664,38 @@ for ( i = 0; i < primcount; i++ ) {
 
 	/** String return version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static String glGetProgramResourceName(int program, int programInterface, int index, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufSize);
-		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufSize);
+			nglGetProgramResourceName(program, programInterface, index, bufSize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static String glGetProgramResourceName(int program, int programInterface, int index) {
 		int bufSize = glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufSize);
-		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufSize);
+			nglGetProgramResourceName(program, programInterface, index, bufSize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramResourceiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceiv GetProgramResourceiv} */
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
-		long __functionAddress = getInstance().GetProgramResourceiv;
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
 	}
 
@@ -1710,21 +1729,13 @@ for ( i = 0; i < primcount; i++ ) {
 		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
 
-	/** Buffer return version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
-	public static IntBuffer glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		IntBuffer params = BufferUtils.createIntBuffer(bufSize);
-		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), memAddress(params));
-		params.limit(__buffer.intValue(length));
-		return params.slice();
-	}
-
 	// --- [ glGetProgramResourceLocation ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
 	public static int nglGetProgramResourceLocation(int program, int programInterface, long name) {
-		long __functionAddress = getInstance().GetProgramResourceLocation;
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceLocation;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
@@ -1745,16 +1756,22 @@ for ( i = 0; i < primcount; i++ ) {
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
 	public static int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetProgramResourceLocation(program, programInterface, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetProgramResourceLocation(program, programInterface, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramResourceLocationIndex ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
 	public static int nglGetProgramResourceLocationIndex(int program, int programInterface, long name) {
-		long __functionAddress = getInstance().GetProgramResourceLocationIndex;
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceLocationIndex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
@@ -1775,9 +1792,13 @@ for ( i = 0; i < primcount; i++ ) {
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetProgramResourceLocationIndex(program, programInterface, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glShaderStorageBlockBinding ] ---
@@ -1792,7 +1813,9 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param storageBlockBinding the index storage block binding to associate with the specified storage block
 	 */
 	public static void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding) {
-		long __functionAddress = getInstance().ShaderStorageBlockBinding;
+		long __functionAddress = GL.getCapabilities().glShaderStorageBlockBinding;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, program, storageBlockIndex, storageBlockBinding);
 	}
 
@@ -1810,7 +1833,9 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param size           the size of the range of the buffer's data store to attach
 	 */
 	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
-		long __functionAddress = getInstance().TexBufferRange;
+		long __functionAddress = GL.getCapabilities().glTexBufferRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 
@@ -1830,7 +1855,9 @@ for ( i = 0; i < primcount; i++ ) {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TexStorage2DMultisample;
+		long __functionAddress = GL.getCapabilities().glTexStorage2DMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
@@ -1851,7 +1878,9 @@ for ( i = 0; i < primcount; i++ ) {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TexStorage3DMultisample;
+		long __functionAddress = GL.getCapabilities().glTexStorage3DMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
@@ -1872,7 +1901,9 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param numlayers      the number of layers to include in the view
 	 */
 	public static void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
-		long __functionAddress = getInstance().TextureView;
+		long __functionAddress = GL.getCapabilities().glTextureView;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 	}
 
@@ -1889,7 +1920,9 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param stride       the distance between elements within the buffer
 	 */
 	public static void glBindVertexBuffer(int bindingindex, int buffer, long offset, int stride) {
-		long __functionAddress = getInstance().BindVertexBuffer;
+		long __functionAddress = GL.getCapabilities().glBindVertexBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIV(__functionAddress, bindingindex, buffer, offset, stride);
 	}
 
@@ -1908,7 +1941,9 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
 	public static void glVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset) {
-		long __functionAddress = getInstance().VertexAttribFormat;
+		long __functionAddress = GL.getCapabilities().glVertexAttribFormat;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZIV(__functionAddress, attribindex, size, type, normalized, relativeoffset);
 	}
 
@@ -1925,7 +1960,9 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
 	public static void glVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset) {
-		long __functionAddress = getInstance().VertexAttribIFormat;
+		long __functionAddress = GL.getCapabilities().glVertexAttribIFormat;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
 	}
 
@@ -1942,7 +1979,9 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
 	public static void glVertexAttribLFormat(int attribindex, int size, int type, int relativeoffset) {
-		long __functionAddress = getInstance().VertexAttribLFormat;
+		long __functionAddress = GL.getCapabilities().glVertexAttribLFormat;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
 	}
 
@@ -1957,7 +1996,9 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param bindingindex the index of the vertex buffer binding with which to associate the generic vertex attribute
 	 */
 	public static void glVertexAttribBinding(int attribindex, int bindingindex) {
-		long __functionAddress = getInstance().VertexAttribBinding;
+		long __functionAddress = GL.getCapabilities().glVertexAttribBinding;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, attribindex, bindingindex);
 	}
 
@@ -1972,7 +2013,9 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param divisor      the number of instances that will pass between updates of the generic attribute at slot {@code index}
 	 */
 	public static void glVertexBindingDivisor(int bindingindex, int divisor) {
-		long __functionAddress = getInstance().VertexBindingDivisor;
+		long __functionAddress = GL.getCapabilities().glVertexBindingDivisor;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, bindingindex, divisor);
 	}
 

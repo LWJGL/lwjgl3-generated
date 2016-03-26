@@ -39,44 +39,14 @@ public class INTELMapTexture {
 		GL_LAYOUT_LINEAR_INTEL            = 0x1,
 		GL_LAYOUT_LINEAR_CPU_CACHED_INTEL = 0x2;
 
-	/** Function address. */
-	public final long
-		SyncTextureINTEL,
-		UnmapTexture2DINTEL,
-		MapTexture2DINTEL;
-
 	protected INTELMapTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public INTELMapTexture(FunctionProvider provider) {
-		SyncTextureINTEL = provider.getFunctionAddress("glSyncTextureINTEL");
-		UnmapTexture2DINTEL = provider.getFunctionAddress("glUnmapTexture2DINTEL");
-		MapTexture2DINTEL = provider.getFunctionAddress("glMapTexture2DINTEL");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link INTELMapTexture} instance of the current context. */
-	public static INTELMapTexture getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link INTELMapTexture} instance of the specified {@link GLCapabilities}. */
-	public static INTELMapTexture getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__INTELMapTexture);
-	}
-
-	static INTELMapTexture create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_INTEL_map_texture") ) return null;
-
-		INTELMapTexture funcs = new INTELMapTexture(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SyncTextureINTEL, funcs.UnmapTexture2DINTEL, funcs.MapTexture2DINTEL
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glSyncTextureINTEL, caps.glUnmapTexture2DINTEL, caps.glMapTexture2DINTEL
 		);
-
-		return GL.checkExtension("GL_INTEL_map_texture", funcs, supported);
 	}
 
 	// --- [ glSyncTextureINTEL ] ---
@@ -92,7 +62,9 @@ public class INTELMapTexture {
 	 * @param texture the texture to synchronize
 	 */
 	public static void glSyncTextureINTEL(int texture) {
-		long __functionAddress = getInstance().SyncTextureINTEL;
+		long __functionAddress = GL.getCapabilities().glSyncTextureINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, texture);
 	}
 
@@ -107,7 +79,9 @@ public class INTELMapTexture {
 	 * @param level   the mipmap level-of-detail of the texture
 	 */
 	public static void glUnmapTexture2DINTEL(int texture, int level) {
-		long __functionAddress = getInstance().UnmapTexture2DINTEL;
+		long __functionAddress = GL.getCapabilities().glUnmapTexture2DINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, texture, level);
 	}
 
@@ -115,7 +89,9 @@ public class INTELMapTexture {
 
 	/** Unsafe version of {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
 	public static long nglMapTexture2DINTEL(int texture, int level, int access, long stride, long layout) {
-		long __functionAddress = getInstance().MapTexture2DINTEL;
+		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIIPPP(__functionAddress, texture, level, access, stride, layout);
 	}
 

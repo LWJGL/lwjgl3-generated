@@ -50,51 +50,15 @@ public class CL21 {
 		CL_KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE    = 0x2034,
 		CL_KERNEL_LOCAL_SIZE_FOR_SUB_GROUP_COUNT = 0x11B8;
 
-	/** Function address. */
-	public final long
-		SetDefaultDeviceCommandQueue,
-		GetDeviceAndHostTimer,
-		GetHostTimer,
-		CreateProgramWithIL,
-		CloneKernel,
-		GetKernelSubGroupInfo,
-		EnqueueSVMMigrateMem;
-
 	protected CL21() {
 		throw new UnsupportedOperationException();
 	}
 
-	public CL21(FunctionProvider provider) {
-		SetDefaultDeviceCommandQueue = provider.getFunctionAddress("clSetDefaultDeviceCommandQueue");
-		GetDeviceAndHostTimer = provider.getFunctionAddress("clGetDeviceAndHostTimer");
-		GetHostTimer = provider.getFunctionAddress("clGetHostTimer");
-		CreateProgramWithIL = provider.getFunctionAddress("clCreateProgramWithIL");
-		CloneKernel = provider.getFunctionAddress("clCloneKernel");
-		GetKernelSubGroupInfo = provider.getFunctionAddress("clGetKernelSubGroupInfo");
-		EnqueueSVMMigrateMem = provider.getFunctionAddress("clEnqueueSVMMigrateMem");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link CL21} instance of the currently loaded ICD. */
-	public static CL21 getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link CL21} instance of the specified {@link CLCapabilities}. */
-	public static CL21 getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__CL21);
-	}
-
-	static CL21 create(FunctionProvider provider) {
-		CL21 funcs = new CL21(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SetDefaultDeviceCommandQueue, funcs.GetDeviceAndHostTimer, funcs.GetHostTimer, funcs.CreateProgramWithIL, funcs.CloneKernel, 
-			funcs.GetKernelSubGroupInfo, funcs.EnqueueSVMMigrateMem
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clSetDefaultDeviceCommandQueue, caps.clGetDeviceAndHostTimer, caps.clGetHostTimer, caps.clCreateProgramWithIL, caps.clCloneKernel, 
+			caps.clGetKernelSubGroupInfo, caps.clEnqueueSVMMigrateMem
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clSetDefaultDeviceCommandQueue ] ---
@@ -117,8 +81,9 @@ public class CL21 {
 	 *         </ul>
 	 */
 	public static int clSetDefaultDeviceCommandQueue(long context, long device, long command_queue) {
-		long __functionAddress = getInstance().SetDefaultDeviceCommandQueue;
+		long __functionAddress = CL.getICD().clSetDefaultDeviceCommandQueue;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(device);
 			checkPointer(command_queue);
@@ -130,9 +95,11 @@ public class CL21 {
 
 	/** Unsafe version of {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer} */
 	public static int nclGetDeviceAndHostTimer(long device, long device_timestamp, long host_timestamp) {
-		long __functionAddress = getInstance().GetDeviceAndHostTimer;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clGetDeviceAndHostTimer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPPPI(__functionAddress, device, device_timestamp, host_timestamp);
 	}
 
@@ -179,9 +146,11 @@ public class CL21 {
 
 	/** Unsafe version of {@link #clGetHostTimer GetHostTimer} */
 	public static int nclGetHostTimer(long device, long host_timestamp) {
-		long __functionAddress = getInstance().GetHostTimer;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clGetHostTimer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPPI(__functionAddress, device, host_timestamp);
 	}
 
@@ -218,9 +187,11 @@ public class CL21 {
 
 	/** Unsafe version of {@link #clCreateProgramWithIL CreateProgramWithIL} */
 	public static long nclCreateProgramWithIL(long context, long il, long length, long errcode_ret) {
-		long __functionAddress = getInstance().CreateProgramWithIL;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateProgramWithIL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPPPPP(__functionAddress, context, il, length, errcode_ret);
 	}
 
@@ -263,9 +234,11 @@ public class CL21 {
 
 	/** Unsafe version of {@link #clCloneKernel CloneKernel} */
 	public static long nclCloneKernel(long source_kernel, long errcode_ret) {
-		long __functionAddress = getInstance().CloneKernel;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCloneKernel;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(source_kernel);
+		}
 		return callPPP(__functionAddress, source_kernel, errcode_ret);
 	}
 
@@ -315,9 +288,11 @@ public class CL21 {
 
 	/** Unsafe version of {@link #clGetKernelSubGroupInfo GetKernelSubGroupInfo} */
 	public static int nclGetKernelSubGroupInfo(long kernel, long device, int param_name, long input_value_size, long input_value, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetKernelSubGroupInfo;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clGetKernelSubGroupInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(kernel);
+		}
 		return callPPIPPPPPI(__functionAddress, kernel, device, param_name, input_value_size, input_value, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -375,9 +350,11 @@ public class CL21 {
 
 	/** Unsafe version of {@link #clEnqueueSVMMigrateMem EnqueueSVMMigrateMem} */
 	public static int nclEnqueueSVMMigrateMem(long command_queue, int num_svm_pointers, long svm_pointers, long sizes, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueSVMMigrateMem;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueSVMMigrateMem;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPPJIPPI(__functionAddress, command_queue, num_svm_pointers, svm_pointers, sizes, flags, num_events_in_wait_list, event_wait_list, event);
 	}
 

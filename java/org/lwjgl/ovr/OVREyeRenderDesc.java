@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * rendering information for each eye. Computed by either {@link OVR#ovr_GetRenderDesc OVR.ovr_GetRenderDesc} based on the specified FOV. Note that the rendering viewport is not
@@ -41,7 +42,7 @@ public class OVREyeRenderDesc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -54,14 +55,14 @@ public class OVREyeRenderDesc extends Struct {
 	static {
 		Layout layout = __struct(
 			__member(4),
-			__member(OVRFovPort.SIZEOF, OVRFovPort.__ALIGNMENT),
-			__member(OVRRecti.SIZEOF, OVRRecti.__ALIGNMENT),
-			__member(OVRVector2f.SIZEOF, OVRVector2f.__ALIGNMENT),
-			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT)
+			__member(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF),
+			__member(OVRRecti.SIZEOF, OVRRecti.ALIGNOF),
+			__member(OVRVector2f.SIZEOF, OVRVector2f.ALIGNOF),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		EYE = layout.offsetof(0);
 		FOV = layout.offsetof(1);
@@ -157,6 +158,76 @@ public class OVREyeRenderDesc extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link OVREyeRenderDesc} instance allocated on the thread-local {@link MemoryStack}. */
+	public static OVREyeRenderDesc mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link OVREyeRenderDesc} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static OVREyeRenderDesc callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVREyeRenderDesc} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVREyeRenderDesc mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVREyeRenderDesc} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVREyeRenderDesc callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVREyeRenderDesc.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVREyeRenderDesc.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVREyeRenderDesc.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link OVREyeRenderDesc.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #Eye}. */
 	public static int nEye(long struct) { return memGetInt(struct + OVREyeRenderDesc.EYE); }
 	/** Unsafe version of {@link #Fov}. */
@@ -202,7 +273,7 @@ public class OVREyeRenderDesc extends Struct {
 
 		@Override
 		protected OVREyeRenderDesc newInstance(long address) {
-			return new OVREyeRenderDesc(address, container);
+			return new OVREyeRenderDesc(address, getContainer());
 		}
 
 		@Override

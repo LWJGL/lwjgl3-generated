@@ -55,41 +55,25 @@ public class NVStreamMetadata {
 		EGL_METADATA2_TYPE_NV = 0x325B,
 		EGL_METADATA3_TYPE_NV = 0x325C;
 
-	/** Function address. */
-	public final long
-		QueryDisplayAttribNV,
-		SetStreamMetadataNV,
-		QueryStreamMetadataNV;
-
 	protected NVStreamMetadata() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVStreamMetadata(FunctionProvider provider) {
-		QueryDisplayAttribNV = provider.getFunctionAddress("eglQueryDisplayAttribNV");
-		SetStreamMetadataNV = provider.getFunctionAddress("eglSetStreamMetadataNV");
-		QueryStreamMetadataNV = provider.getFunctionAddress("eglQueryStreamMetadataNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVStreamMetadata} instance. */
-	public static NVStreamMetadata getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link NVStreamMetadata} instance of the specified {@link EGLCapabilities}. */
-	public static NVStreamMetadata getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__NVStreamMetadata);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglQueryDisplayAttribNV, caps.eglSetStreamMetadataNV, caps.eglQueryStreamMetadataNV
+		);
 	}
 
 	// --- [ eglQueryDisplayAttribNV ] ---
 
 	/** Unsafe version of {@link #eglQueryDisplayAttribNV QueryDisplayAttribNV} */
 	public static int neglQueryDisplayAttribNV(long dpy, int attribute, long value) {
-		long __functionAddress = getInstance().QueryDisplayAttribNV;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglQueryDisplayAttribNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPIPI(__functionAddress, dpy, attribute, value);
 	}
 
@@ -110,8 +94,9 @@ public class NVStreamMetadata {
 
 	/** Unsafe version of {@link #eglSetStreamMetadataNV SetStreamMetadataNV} */
 	public static int neglSetStreamMetadataNV(long dpy, long stream, int n, int offset, int size, long data) {
-		long __functionAddress = getInstance().SetStreamMetadataNV;
+		long __functionAddress = EGL.getCapabilities().eglSetStreamMetadataNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -133,8 +118,9 @@ public class NVStreamMetadata {
 
 	/** Unsafe version of {@link #eglQueryStreamMetadataNV QueryStreamMetadataNV} */
 	public static int neglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, int size, long data) {
-		long __functionAddress = getInstance().QueryStreamMetadataNV;
+		long __functionAddress = EGL.getCapabilities().eglQueryStreamMetadataNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}

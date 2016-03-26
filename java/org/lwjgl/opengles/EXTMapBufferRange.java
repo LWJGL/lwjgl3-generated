@@ -42,48 +42,23 @@ public class EXTMapBufferRange {
 		GL_MAP_FLUSH_EXPLICIT_BIT_EXT    = 0x10,
 		GL_MAP_UNSYNCHRONIZED_BIT_EXT    = 0x20;
 
-	/** Function address. */
-	public final long
-		MapBufferRangeEXT,
-		FlushMappedBufferRangeEXT;
-
 	protected EXTMapBufferRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTMapBufferRange(FunctionProvider provider) {
-		MapBufferRangeEXT = provider.getFunctionAddress("glMapBufferRangeEXT");
-		FlushMappedBufferRangeEXT = provider.getFunctionAddress("glFlushMappedBufferRangeEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTMapBufferRange} instance of the current context. */
-	public static EXTMapBufferRange getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTMapBufferRange} instance of the specified {@link GLESCapabilities}. */
-	public static EXTMapBufferRange getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTMapBufferRange);
-	}
-
-	static EXTMapBufferRange create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_map_buffer_range") ) return null;
-
-		EXTMapBufferRange funcs = new EXTMapBufferRange(provider);
-		boolean supported = checkFunctions(
-			funcs.MapBufferRangeEXT, funcs.FlushMappedBufferRangeEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glMapBufferRangeEXT, caps.glFlushMappedBufferRangeEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_map_buffer_range", funcs, supported);
 	}
 
 	// --- [ glMapBufferRangeEXT ] ---
 
 	/** Unsafe version of {@link #glMapBufferRangeEXT MapBufferRangeEXT} */
 	public static long nglMapBufferRangeEXT(int target, long offset, long length, int access) {
-		long __functionAddress = getInstance().MapBufferRangeEXT;
+		long __functionAddress = GLES.getCapabilities().glMapBufferRangeEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPPIP(__functionAddress, target, offset, length, access);
 	}
 
@@ -101,7 +76,9 @@ public class EXTMapBufferRange {
 	// --- [ glFlushMappedBufferRangeEXT ] ---
 
 	public static void glFlushMappedBufferRangeEXT(int target, long offset, long length) {
-		long __functionAddress = getInstance().FlushMappedBufferRangeEXT;
+		long __functionAddress = GLES.getCapabilities().glFlushMappedBufferRangeEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPV(__functionAddress, target, offset, length);
 	}
 

@@ -26,44 +26,22 @@ public class NVCopyBuffer {
 		GL_COPY_READ_BUFFER_NV  = 0x8F36,
 		GL_COPY_WRITE_BUFFER_NV = 0x8F37;
 
-	/** Function address. */
-	public final long CopyBufferSubDataNV;
-
 	protected NVCopyBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVCopyBuffer(FunctionProvider provider) {
-		CopyBufferSubDataNV = provider.getFunctionAddress("glCopyBufferSubDataNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVCopyBuffer} instance of the current context. */
-	public static NVCopyBuffer getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVCopyBuffer} instance of the specified {@link GLESCapabilities}. */
-	public static NVCopyBuffer getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVCopyBuffer);
-	}
-
-	static NVCopyBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_copy_buffer") ) return null;
-
-		NVCopyBuffer funcs = new NVCopyBuffer(provider);
-		boolean supported = checkFunctions(
-			funcs.CopyBufferSubDataNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glCopyBufferSubDataNV
 		);
-
-		return GLES.checkExtension("GL_NV_copy_buffer", funcs, supported);
 	}
 
 	// --- [ glCopyBufferSubDataNV ] ---
 
 	public static void glCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		long __functionAddress = getInstance().CopyBufferSubDataNV;
+		long __functionAddress = GLES.getCapabilities().glCopyBufferSubDataNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 

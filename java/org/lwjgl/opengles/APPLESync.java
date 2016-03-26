@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -70,94 +70,67 @@ public class APPLESync {
 	/** Accepted by the {@code type} parameter of LabelObjectEXT and GetObjectLabelEXT. */
 	public static final int GL_SYNC_OBJECT_APPLE = 0x8A53;
 
-	/** Function address. */
-	public final long
-		FenceSyncAPPLE,
-		IsSyncAPPLE,
-		DeleteSyncAPPLE,
-		ClientWaitSyncAPPLE,
-		WaitSyncAPPLE,
-		GetInteger64vAPPLE,
-		GetSyncivAPPLE;
-
 	protected APPLESync() {
 		throw new UnsupportedOperationException();
 	}
 
-	public APPLESync(FunctionProvider provider) {
-		FenceSyncAPPLE = provider.getFunctionAddress("glFenceSyncAPPLE");
-		IsSyncAPPLE = provider.getFunctionAddress("glIsSyncAPPLE");
-		DeleteSyncAPPLE = provider.getFunctionAddress("glDeleteSyncAPPLE");
-		ClientWaitSyncAPPLE = provider.getFunctionAddress("glClientWaitSyncAPPLE");
-		WaitSyncAPPLE = provider.getFunctionAddress("glWaitSyncAPPLE");
-		GetInteger64vAPPLE = provider.getFunctionAddress("glGetInteger64vAPPLE");
-		GetSyncivAPPLE = provider.getFunctionAddress("glGetSyncivAPPLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link APPLESync} instance of the current context. */
-	public static APPLESync getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link APPLESync} instance of the specified {@link GLESCapabilities}. */
-	public static APPLESync getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__APPLESync);
-	}
-
-	static APPLESync create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_APPLE_sync") ) return null;
-
-		APPLESync funcs = new APPLESync(provider);
-		boolean supported = checkFunctions(
-			funcs.FenceSyncAPPLE, funcs.IsSyncAPPLE, funcs.DeleteSyncAPPLE, funcs.ClientWaitSyncAPPLE, funcs.WaitSyncAPPLE, funcs.GetInteger64vAPPLE, 
-			funcs.GetSyncivAPPLE
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glFenceSyncAPPLE, caps.glIsSyncAPPLE, caps.glDeleteSyncAPPLE, caps.glClientWaitSyncAPPLE, caps.glWaitSyncAPPLE, caps.glGetInteger64vAPPLE, 
+			caps.glGetSyncivAPPLE
 		);
-
-		return GLES.checkExtension("GL_APPLE_sync", funcs, supported);
 	}
 
 	// --- [ glFenceSyncAPPLE ] ---
 
 	public static long glFenceSyncAPPLE(int condition, int flags) {
-		long __functionAddress = getInstance().FenceSyncAPPLE;
+		long __functionAddress = GLES.getCapabilities().glFenceSyncAPPLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIP(__functionAddress, condition, flags);
 	}
 
 	// --- [ glIsSyncAPPLE ] ---
 
 	public static boolean glIsSyncAPPLE(long sync) {
-		long __functionAddress = getInstance().IsSyncAPPLE;
-		if ( CHECKS )
+		long __functionAddress = GLES.getCapabilities().glIsSyncAPPLE;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		return callPZ(__functionAddress, sync);
 	}
 
 	// --- [ glDeleteSyncAPPLE ] ---
 
 	public static void glDeleteSyncAPPLE(long sync) {
-		long __functionAddress = getInstance().DeleteSyncAPPLE;
-		if ( CHECKS )
+		long __functionAddress = GLES.getCapabilities().glDeleteSyncAPPLE;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		callPV(__functionAddress, sync);
 	}
 
 	// --- [ glClientWaitSyncAPPLE ] ---
 
 	public static int glClientWaitSyncAPPLE(long sync, int flags, long timeout) {
-		long __functionAddress = getInstance().ClientWaitSyncAPPLE;
-		if ( CHECKS )
+		long __functionAddress = GLES.getCapabilities().glClientWaitSyncAPPLE;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glWaitSyncAPPLE ] ---
 
 	public static void glWaitSyncAPPLE(long sync, int flags, long timeout) {
-		long __functionAddress = getInstance().WaitSyncAPPLE;
-		if ( CHECKS )
+		long __functionAddress = GLES.getCapabilities().glWaitSyncAPPLE;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		callPIJV(__functionAddress, sync, flags, timeout);
 	}
 
@@ -165,7 +138,9 @@ public class APPLESync {
 
 	/** Unsafe version of {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
 	public static void nglGetInteger64vAPPLE(int pname, long params) {
-		long __functionAddress = getInstance().GetInteger64vAPPLE;
+		long __functionAddress = GLES.getCapabilities().glGetInteger64vAPPLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
 
@@ -184,19 +159,25 @@ public class APPLESync {
 
 	/** Single return value version of: {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
 	public static long glGetInteger64APPLE(int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetInteger64vAPPLE(pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetInteger64vAPPLE(pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetSyncivAPPLE ] ---
 
 	/** Unsafe version of {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
 	public static void nglGetSyncivAPPLE(long sync, int pname, int bufSize, long length, long values) {
-		long __functionAddress = getInstance().GetSyncivAPPLE;
-		if ( CHECKS )
+		long __functionAddress = GLES.getCapabilities().glGetSyncivAPPLE;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
@@ -219,10 +200,14 @@ public class APPLESync {
 	public static int glGetSynciAPPLE(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		APIBuffer __buffer = apiBuffer();
-		int values = __buffer.intParam();
-		nglGetSyncivAPPLE(sync, pname, 1, memAddressSafe(length), __buffer.address(values));
-		return __buffer.intValue(values);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer values = stack.callocInt(1);
+			nglGetSyncivAPPLE(sync, pname, 1, memAddressSafe(length), memAddress(values));
+			return values.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

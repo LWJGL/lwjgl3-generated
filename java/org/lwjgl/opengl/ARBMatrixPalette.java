@@ -54,48 +54,14 @@ public class ARBMatrixPalette {
 	/** Accepted by the {@code pname} parameter of GetPointerv. */
 	public static final int GL_MATRIX_INDEX_ARRAY_POINTER_ARB = 0x8849;
 
-	/** Function address. */
-	public final long
-		CurrentPaletteMatrixARB,
-		MatrixIndexuivARB,
-		MatrixIndexubvARB,
-		MatrixIndexusvARB,
-		MatrixIndexPointerARB;
-
 	protected ARBMatrixPalette() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBMatrixPalette(FunctionProvider provider) {
-		CurrentPaletteMatrixARB = provider.getFunctionAddress("glCurrentPaletteMatrixARB");
-		MatrixIndexuivARB = provider.getFunctionAddress("glMatrixIndexuivARB");
-		MatrixIndexubvARB = provider.getFunctionAddress("glMatrixIndexubvARB");
-		MatrixIndexusvARB = provider.getFunctionAddress("glMatrixIndexusvARB");
-		MatrixIndexPointerARB = provider.getFunctionAddress("glMatrixIndexPointerARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBMatrixPalette} instance of the current context. */
-	public static ARBMatrixPalette getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBMatrixPalette} instance of the specified {@link GLCapabilities}. */
-	public static ARBMatrixPalette getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBMatrixPalette);
-	}
-
-	static ARBMatrixPalette create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_matrix_palette") ) return null;
-
-		ARBMatrixPalette funcs = new ARBMatrixPalette(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CurrentPaletteMatrixARB, funcs.MatrixIndexuivARB, funcs.MatrixIndexubvARB, funcs.MatrixIndexusvARB, funcs.MatrixIndexPointerARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glCurrentPaletteMatrixARB, caps.glMatrixIndexuivARB, caps.glMatrixIndexubvARB, caps.glMatrixIndexusvARB, caps.glMatrixIndexPointerARB
 		);
-
-		return GL.checkExtension("GL_ARB_matrix_palette", funcs, supported);
 	}
 
 	// --- [ glCurrentPaletteMatrixARB ] ---
@@ -106,7 +72,9 @@ public class ARBMatrixPalette {
 	 * @param index the current matrix index. Must be a value between 0 and {@link #GL_MAX_PALETTE_MATRICES_ARB MAX_PALETTE_MATRICES_ARB}.
 	 */
 	public static void glCurrentPaletteMatrixARB(int index) {
-		long __functionAddress = getInstance().CurrentPaletteMatrixARB;
+		long __functionAddress = GL.getCapabilities().glCurrentPaletteMatrixARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, index);
 	}
 
@@ -114,7 +82,9 @@ public class ARBMatrixPalette {
 
 	/** Unsafe version of {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
 	public static void nglMatrixIndexuivARB(int size, long indices) {
-		long __functionAddress = getInstance().MatrixIndexuivARB;
+		long __functionAddress = GL.getCapabilities().glMatrixIndexuivARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, indices);
 	}
 
@@ -139,7 +109,9 @@ public class ARBMatrixPalette {
 
 	/** Unsafe version of {@link #glMatrixIndexubvARB MatrixIndexubvARB} */
 	public static void nglMatrixIndexubvARB(int size, long indices) {
-		long __functionAddress = getInstance().MatrixIndexubvARB;
+		long __functionAddress = GL.getCapabilities().glMatrixIndexubvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, indices);
 	}
 
@@ -164,7 +136,9 @@ public class ARBMatrixPalette {
 
 	/** Unsafe version of {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
 	public static void nglMatrixIndexusvARB(int size, long indices) {
-		long __functionAddress = getInstance().MatrixIndexusvARB;
+		long __functionAddress = GL.getCapabilities().glMatrixIndexusvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, indices);
 	}
 
@@ -189,7 +163,9 @@ public class ARBMatrixPalette {
 
 	/** Unsafe version of {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
 	public static void nglMatrixIndexPointerARB(int size, int type, int stride, long pointer) {
-		long __functionAddress = getInstance().MatrixIndexPointerARB;
+		long __functionAddress = GL.getCapabilities().glMatrixIndexPointerARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 

@@ -30,39 +30,14 @@ public class NVFragmentCoverageToColor {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int GL_FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;
 
-	/** Function address. */
-	public final long FragmentCoverageColorNV;
-
 	protected NVFragmentCoverageToColor() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVFragmentCoverageToColor(FunctionProvider provider) {
-		FragmentCoverageColorNV = provider.getFunctionAddress("glFragmentCoverageColorNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVFragmentCoverageToColor} instance of the current context. */
-	public static NVFragmentCoverageToColor getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVFragmentCoverageToColor} instance of the specified {@link GLCapabilities}. */
-	public static NVFragmentCoverageToColor getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVFragmentCoverageToColor);
-	}
-
-	static NVFragmentCoverageToColor create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_fragment_coverage_to_color") ) return null;
-
-		NVFragmentCoverageToColor funcs = new NVFragmentCoverageToColor(provider);
-
-		boolean supported = checkFunctions(
-			funcs.FragmentCoverageColorNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glFragmentCoverageColorNV
 		);
-
-		return GL.checkExtension("GL_NV_fragment_coverage_to_color", funcs, supported);
 	}
 
 	// --- [ glFragmentCoverageColorNV ] ---
@@ -73,7 +48,9 @@ public class NVFragmentCoverageToColor {
 	 * @param color the draw buffer index that the coverage value will be written to. Must be between 0 and the value of MAX_DRAW_BUFFERS minus one, inclusive.
 	 */
 	public static void glFragmentCoverageColorNV(int color) {
-		long __functionAddress = getInstance().FragmentCoverageColorNV;
+		long __functionAddress = GL.getCapabilities().glFragmentCoverageColorNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, color);
 	}
 

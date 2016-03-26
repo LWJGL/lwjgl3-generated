@@ -28,49 +28,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBMultiDrawIndirect {
 
-	/** Function address. */
-	public final long
-		MultiDrawArraysIndirect,
-		MultiDrawElementsIndirect;
-
 	protected ARBMultiDrawIndirect() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBMultiDrawIndirect(FunctionProvider provider) {
-		MultiDrawArraysIndirect = provider.getFunctionAddress("glMultiDrawArraysIndirect");
-		MultiDrawElementsIndirect = provider.getFunctionAddress("glMultiDrawElementsIndirect");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBMultiDrawIndirect} instance of the current context. */
-	public static ARBMultiDrawIndirect getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBMultiDrawIndirect} instance of the specified {@link GLCapabilities}. */
-	public static ARBMultiDrawIndirect getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBMultiDrawIndirect);
-	}
-
-	static ARBMultiDrawIndirect create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_multi_draw_indirect") ) return null;
-
-		ARBMultiDrawIndirect funcs = new ARBMultiDrawIndirect(provider);
-
-		boolean supported = checkFunctions(
-			funcs.MultiDrawArraysIndirect, funcs.MultiDrawElementsIndirect
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glMultiDrawArraysIndirect, caps.glMultiDrawElementsIndirect
 		);
-
-		return GL.checkExtension("GL_ARB_multi_draw_indirect", funcs, supported);
 	}
 
 	// --- [ glMultiDrawArraysIndirect ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
 	public static void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
-		long __functionAddress = getInstance().MultiDrawArraysIndirect;
+		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirect;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPIIV(__functionAddress, mode, indirect, primcount, stride);
 	}
 
@@ -130,7 +104,9 @@ for ( i = 0; i < primcount; i++ ) {
 
 	/** Unsafe version of {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
 	public static void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
-		long __functionAddress = getInstance().MultiDrawElementsIndirect;
+		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirect;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIV(__functionAddress, mode, type, indirect, primcount, stride);
 	}
 

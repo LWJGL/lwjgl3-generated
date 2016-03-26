@@ -23,48 +23,22 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDrawInstanced {
 
-	/** Function address. */
-	public final long
-		DrawArraysInstancedEXT,
-		DrawElementsInstancedEXT;
-
 	protected EXTDrawInstanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDrawInstanced(FunctionProvider provider) {
-		DrawArraysInstancedEXT = provider.getFunctionAddress("glDrawArraysInstancedEXT");
-		DrawElementsInstancedEXT = provider.getFunctionAddress("glDrawElementsInstancedEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDrawInstanced} instance of the current context. */
-	public static EXTDrawInstanced getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDrawInstanced} instance of the specified {@link GLCapabilities}. */
-	public static EXTDrawInstanced getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTDrawInstanced);
-	}
-
-	static EXTDrawInstanced create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_draw_instanced") ) return null;
-
-		EXTDrawInstanced funcs = new EXTDrawInstanced(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DrawArraysInstancedEXT, funcs.DrawElementsInstancedEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawArraysInstancedEXT, caps.glDrawElementsInstancedEXT
 		);
-
-		return GL.checkExtension("GL_EXT_draw_instanced", funcs, supported);
 	}
 
 	// --- [ glDrawArraysInstancedEXT ] ---
 
 	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
-		long __functionAddress = getInstance().DrawArraysInstancedEXT;
+		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, mode, start, count, primcount);
 	}
 
@@ -72,7 +46,9 @@ public class EXTDrawInstanced {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedEXT DrawElementsInstancedEXT} */
 	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = getInstance().DrawElementsInstancedEXT;
+		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 

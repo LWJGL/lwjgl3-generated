@@ -38,45 +38,22 @@ public class AMDInterleavedElements {
 	/** Selected by the {@code pname} parameter of ProgramParameteri and GetProgramiv. */
 	public static final int GL_VERTEX_ID_SWIZZLE_AMD = 0x91A5;
 
-	/** Function address. */
-	public final long VertexAttribParameteriAMD;
-
 	protected AMDInterleavedElements() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AMDInterleavedElements(FunctionProvider provider) {
-		VertexAttribParameteriAMD = provider.getFunctionAddress("glVertexAttribParameteriAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AMDInterleavedElements} instance of the current context. */
-	public static AMDInterleavedElements getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link AMDInterleavedElements} instance of the specified {@link GLCapabilities}. */
-	public static AMDInterleavedElements getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__AMDInterleavedElements);
-	}
-
-	static AMDInterleavedElements create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_AMD_interleaved_elements") ) return null;
-
-		AMDInterleavedElements funcs = new AMDInterleavedElements(provider);
-
-		boolean supported = checkFunctions(
-			funcs.VertexAttribParameteriAMD
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glVertexAttribParameteriAMD
 		);
-
-		return GL.checkExtension("GL_AMD_interleaved_elements", funcs, supported);
 	}
 
 	// --- [ glVertexAttribParameteriAMD ] ---
 
 	public static void glVertexAttribParameteriAMD(int index, int pname, int param) {
-		long __functionAddress = getInstance().VertexAttribParameteriAMD;
+		long __functionAddress = GL.getCapabilities().glVertexAttribParameteriAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, index, pname, param);
 	}
 

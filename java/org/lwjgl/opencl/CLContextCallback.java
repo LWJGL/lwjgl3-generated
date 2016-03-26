@@ -96,7 +96,7 @@ public abstract class CLContextCallback extends Closure.V {
 		return new CLContextCallback() {
 			@Override
 			public void invoke(long errinfo, long private_info, long cb, long user_data) {
-				sam.invoke(memDecodeUTF8(errinfo), memByteBuffer(private_info, (int)cb), user_data);
+				sam.invoke(memUTF8(errinfo), memByteBuffer(private_info, (int)cb), user_data);
 			}
 		};
 	}

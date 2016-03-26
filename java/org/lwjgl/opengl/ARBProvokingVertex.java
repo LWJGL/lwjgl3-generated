@@ -43,39 +43,14 @@ public class ARBProvokingVertex {
 		GL_PROVOKING_VERTEX                         = 0x8E4F,
 		GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION = 0x8E4C;
 
-	/** Function address. */
-	public final long ProvokingVertex;
-
 	protected ARBProvokingVertex() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBProvokingVertex(FunctionProvider provider) {
-		ProvokingVertex = provider.getFunctionAddress("glProvokingVertex");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBProvokingVertex} instance of the current context. */
-	public static ARBProvokingVertex getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBProvokingVertex} instance of the specified {@link GLCapabilities}. */
-	public static ARBProvokingVertex getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBProvokingVertex);
-	}
-
-	static ARBProvokingVertex create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_provoking_vertex") ) return null;
-
-		ARBProvokingVertex funcs = new ARBProvokingVertex(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ProvokingVertex
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glProvokingVertex
 		);
-
-		return GL.checkExtension("GL_ARB_provoking_vertex", funcs, supported);
 	}
 
 	// --- [ glProvokingVertex ] ---
@@ -86,7 +61,9 @@ public class ARBProvokingVertex {
 	 * @param mode the provoking vertex mode. One of:<br>{@link #GL_FIRST_VERTEX_CONVENTION FIRST_VERTEX_CONVENTION}, {@link #GL_LAST_VERTEX_CONVENTION LAST_VERTEX_CONVENTION}
 	 */
 	public static void glProvokingVertex(int mode) {
-		long __functionAddress = getInstance().ProvokingVertex;
+		long __functionAddress = GL.getCapabilities().glProvokingVertex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
 	}
 

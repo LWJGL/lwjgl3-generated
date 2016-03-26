@@ -29,55 +29,31 @@ public class EXTCompiledVertexArray {
 		GL_ARRAY_ELEMENT_LOCK_FIRST_EXT = 0x81A8,
 		GL_ARRAY_ELEMENT_LOCK_COUNT_EXT = 0x81A9;
 
-	/** Function address. */
-	public final long
-		LockArraysEXT,
-		UnlockArraysEXT;
-
 	protected EXTCompiledVertexArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTCompiledVertexArray(FunctionProvider provider) {
-		LockArraysEXT = provider.getFunctionAddress("glLockArraysEXT");
-		UnlockArraysEXT = provider.getFunctionAddress("glUnlockArraysEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTCompiledVertexArray} instance of the current context. */
-	public static EXTCompiledVertexArray getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTCompiledVertexArray} instance of the specified {@link GLCapabilities}. */
-	public static EXTCompiledVertexArray getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTCompiledVertexArray);
-	}
-
-	static EXTCompiledVertexArray create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_compiled_vertex_array") ) return null;
-
-		EXTCompiledVertexArray funcs = new EXTCompiledVertexArray(provider);
-
-		boolean supported = checkFunctions(
-			funcs.LockArraysEXT, funcs.UnlockArraysEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glLockArraysEXT, caps.glUnlockArraysEXT
 		);
-
-		return GL.checkExtension("GL_EXT_compiled_vertex_array", funcs, supported);
 	}
 
 	// --- [ glLockArraysEXT ] ---
 
 	public static void glLockArraysEXT(int first, int count) {
-		long __functionAddress = getInstance().LockArraysEXT;
+		long __functionAddress = GL.getCapabilities().glLockArraysEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, first, count);
 	}
 
 	// --- [ glUnlockArraysEXT ] ---
 
 	public static void glUnlockArraysEXT() {
-		long __functionAddress = getInstance().UnlockArraysEXT;
+		long __functionAddress = GL.getCapabilities().glUnlockArraysEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

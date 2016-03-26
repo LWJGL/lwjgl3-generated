@@ -53,50 +53,23 @@ public class AMDBusAddressableMemory {
 		CL_COMMAND_WRITE_SIGNAL_AMD          = 0x4081,
 		CL_COMMAND_MAKE_BUFFERS_RESIDENT_AMD = 0x4082;
 
-	/** Function address. */
-	public final long
-		EnqueueWaitSignalAMD,
-		EnqueueWriteSignalAMD,
-		EnqueueMakeBuffersResidentAMD;
-
 	protected AMDBusAddressableMemory() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AMDBusAddressableMemory(FunctionProvider provider) {
-		EnqueueWaitSignalAMD = provider.getFunctionAddress("clEnqueueWaitSignalAMD");
-		EnqueueWriteSignalAMD = provider.getFunctionAddress("clEnqueueWriteSignalAMD");
-		EnqueueMakeBuffersResidentAMD = provider.getFunctionAddress("clEnqueueMakeBuffersResidentAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AMDBusAddressableMemory} instance of the currently loaded ICD. */
-	public static AMDBusAddressableMemory getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link AMDBusAddressableMemory} instance of the specified {@link CLCapabilities}. */
-	public static AMDBusAddressableMemory getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__AMDBusAddressableMemory);
-	}
-
-	static AMDBusAddressableMemory create(FunctionProvider provider) {
-		AMDBusAddressableMemory funcs = new AMDBusAddressableMemory(provider);
-
-		boolean supported = checkFunctions(
-			funcs.EnqueueWaitSignalAMD, funcs.EnqueueWriteSignalAMD, funcs.EnqueueMakeBuffersResidentAMD
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clEnqueueWaitSignalAMD, caps.clEnqueueWriteSignalAMD, caps.clEnqueueMakeBuffersResidentAMD
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clEnqueueWaitSignalAMD ] ---
 
 	/** Unsafe version of {@link #clEnqueueWaitSignalAMD EnqueueWaitSignalAMD} */
 	public static int nclEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueWaitSignalAMD;
+		long __functionAddress = CL.getICD().clEnqueueWaitSignalAMD;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(mem_object);
 		}
@@ -147,8 +120,9 @@ public class AMDBusAddressableMemory {
 
 	/** Unsafe version of {@link #clEnqueueWriteSignalAMD EnqueueWriteSignalAMD} */
 	public static int nclEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueWriteSignalAMD;
+		long __functionAddress = CL.getICD().clEnqueueWriteSignalAMD;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(mem_object);
 		}
@@ -204,9 +178,11 @@ public class AMDBusAddressableMemory {
 
 	/** Unsafe version of {@link #clEnqueueMakeBuffersResidentAMD EnqueueMakeBuffersResidentAMD} */
 	public static int nclEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, long mem_objects, int blocking_make_resident, long bus_addresses, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueMakeBuffersResidentAMD;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueMakeBuffersResidentAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPIPIPPI(__functionAddress, command_queue, num_mem_objs, mem_objects, blocking_make_resident, bus_addresses, num_events_in_wait_list, event_wait_list, event);
 	}
 

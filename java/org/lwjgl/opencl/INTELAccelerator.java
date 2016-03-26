@@ -51,53 +51,25 @@ public class INTELAccelerator {
 		CL_INVALID_ACCELERATOR_DESCRIPTOR_INTEL = 0xFFFFFBB8,
 		CL_ACCELERATOR_TYPE_NOT_SUPPORTED_INTEL = 0xFFFFFBB7;
 
-	/** Function address. */
-	public final long
-		CreateAcceleratorINTEL,
-		RetainAcceleratorINTEL,
-		ReleaseAcceleratorINTEL,
-		GetAcceleratorInfoINTEL;
-
 	protected INTELAccelerator() {
 		throw new UnsupportedOperationException();
 	}
 
-	public INTELAccelerator(FunctionProvider provider) {
-		CreateAcceleratorINTEL = provider.getFunctionAddress("clCreateAcceleratorINTEL");
-		RetainAcceleratorINTEL = provider.getFunctionAddress("clRetainAcceleratorINTEL");
-		ReleaseAcceleratorINTEL = provider.getFunctionAddress("clReleaseAcceleratorINTEL");
-		GetAcceleratorInfoINTEL = provider.getFunctionAddress("clGetAcceleratorInfoINTEL");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link INTELAccelerator} instance of the currently loaded ICD. */
-	public static INTELAccelerator getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link INTELAccelerator} instance of the specified {@link CLCapabilities}. */
-	public static INTELAccelerator getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__INTELAccelerator);
-	}
-
-	static INTELAccelerator create(FunctionProvider provider) {
-		INTELAccelerator funcs = new INTELAccelerator(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateAcceleratorINTEL, funcs.RetainAcceleratorINTEL, funcs.ReleaseAcceleratorINTEL, funcs.GetAcceleratorInfoINTEL
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clCreateAcceleratorINTEL, caps.clRetainAcceleratorINTEL, caps.clReleaseAcceleratorINTEL, caps.clGetAcceleratorInfoINTEL
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateAcceleratorINTEL ] ---
 
 	/** Unsafe version of {@link #clCreateAcceleratorINTEL CreateAcceleratorINTEL} */
 	public static long nclCreateAcceleratorINTEL(long context, int accelerator_type, long descriptor_size, long descriptor, long errcode_ret) {
-		long __functionAddress = getInstance().CreateAcceleratorINTEL;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateAcceleratorINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPIPPPP(__functionAddress, context, accelerator_type, descriptor_size, descriptor, errcode_ret);
 	}
 
@@ -165,9 +137,11 @@ public class INTELAccelerator {
 	 *         </ul>
 	 */
 	public static int clRetainAcceleratorINTEL(long accelerator) {
-		long __functionAddress = getInstance().RetainAcceleratorINTEL;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clRetainAcceleratorINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(accelerator);
+		}
 		return callPI(__functionAddress, accelerator);
 	}
 
@@ -188,9 +162,11 @@ public class INTELAccelerator {
 	 *         </ul>
 	 */
 	public static int clReleaseAcceleratorINTEL(long accelerator) {
-		long __functionAddress = getInstance().ReleaseAcceleratorINTEL;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clReleaseAcceleratorINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(accelerator);
+		}
 		return callPI(__functionAddress, accelerator);
 	}
 
@@ -198,9 +174,11 @@ public class INTELAccelerator {
 
 	/** Unsafe version of {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
 	public static int nclGetAcceleratorInfoINTEL(long accelerator, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetAcceleratorInfoINTEL;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clGetAcceleratorInfoINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(accelerator);
+		}
 		return callPIPPPI(__functionAddress, accelerator, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 

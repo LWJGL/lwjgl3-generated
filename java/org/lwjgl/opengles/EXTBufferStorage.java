@@ -47,45 +47,23 @@ public class EXTBufferStorage {
 	/** Accepted by the {@code barriers} parameter of MemoryBarrier. */
 	public static final int GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT = 0x4000;
 
-	/** Function address. */
-	public final long BufferStorageEXT;
-
 	protected EXTBufferStorage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTBufferStorage(FunctionProvider provider) {
-		BufferStorageEXT = provider.getFunctionAddress("glBufferStorageEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTBufferStorage} instance of the current context. */
-	public static EXTBufferStorage getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTBufferStorage} instance of the specified {@link GLESCapabilities}. */
-	public static EXTBufferStorage getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTBufferStorage);
-	}
-
-	static EXTBufferStorage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_buffer_storage") ) return null;
-
-		EXTBufferStorage funcs = new EXTBufferStorage(provider);
-		boolean supported = checkFunctions(
-			funcs.BufferStorageEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glBufferStorageEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_buffer_storage", funcs, supported);
 	}
 
 	// --- [ glBufferStorageEXT ] ---
 
 	/** Unsafe version of {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void nglBufferStorageEXT(int target, long size, long data, int flags) {
-		long __functionAddress = getInstance().BufferStorageEXT;
+		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPIV(__functionAddress, target, size, data, flags);
 	}
 

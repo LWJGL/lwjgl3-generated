@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -46,51 +46,23 @@ public class SOFTLoopback {
 		ALC_FORMAT_CHANNELS_SOFT = 0x1990,
 		ALC_FORMAT_TYPE_SOFT     = 0x1991;
 
-	/** Function address. */
-	public final long
-		LoopbackOpenDeviceSOFT,
-		IsRenderFormatSupportedSOFT,
-		RenderSamplesSOFT;
-
 	protected SOFTLoopback() {
 		throw new UnsupportedOperationException();
 	}
 
-	public SOFTLoopback(FunctionProviderLocal provider, long device) {
-		LoopbackOpenDeviceSOFT = provider.getFunctionAddress(device, "alcLoopbackOpenDeviceSOFT");
-		IsRenderFormatSupportedSOFT = provider.getFunctionAddress(device, "alcIsRenderFormatSupportedSOFT");
-		RenderSamplesSOFT = provider.getFunctionAddress(device, "alcRenderSamplesSOFT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link SOFTLoopback} instance of the current context. */
-	public static SOFTLoopback getInstance() {
-		return getInstance(ALC.getCapabilities());
-	}
-
-	/** Returns the {@link SOFTLoopback} instance of the specified {@link ALCCapabilities}. */
-	public static SOFTLoopback getInstance(ALCCapabilities caps) {
-		return checkFunctionality(caps.__SOFTLoopback);
-	}
-
-	static SOFTLoopback create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
-		if ( device != 0L && !ext.contains("ALC_SOFT_loopback") ) return null;
-
-		SOFTLoopback funcs = new SOFTLoopback(provider, device);
-
-		boolean supported = checkFunctions(
-			funcs.LoopbackOpenDeviceSOFT, funcs.IsRenderFormatSupportedSOFT, funcs.RenderSamplesSOFT
+	static boolean isAvailable(ALCCapabilities caps) {
+		return checkFunctions(
+			caps.alcLoopbackOpenDeviceSOFT, caps.alcIsRenderFormatSupportedSOFT, caps.alcRenderSamplesSOFT
 		);
-
-		return device == 0L && !supported ? null : ALC.checkExtension("ALC_SOFT_loopback", funcs, supported);
 	}
 
 	// --- [ alcLoopbackOpenDeviceSOFT ] ---
 
 	/** Unsafe version of {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
 	public static long nalcLoopbackOpenDeviceSOFT(long deviceName) {
-		long __functionAddress = getInstance().LoopbackOpenDeviceSOFT;
+		long __functionAddress = ALC.getICD().alcLoopbackOpenDeviceSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return invokePP(__functionAddress, deviceName);
 	}
 
@@ -118,9 +90,13 @@ public class SOFTLoopback {
 
 	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
 	public static long alcLoopbackOpenDeviceSOFT(CharSequence deviceName) {
-		APIBuffer __buffer = apiBuffer();
-		int deviceNameEncoded = deviceName == null ? 0 : __buffer.stringParamUTF8(deviceName, true);
-		return nalcLoopbackOpenDeviceSOFT(__buffer.addressSafe(deviceName, deviceNameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer deviceNameEncoded = deviceName == null ? null : stack.UTF8(deviceName);
+			return nalcLoopbackOpenDeviceSOFT(memAddressSafe(deviceNameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alcIsRenderFormatSupportedSOFT ] ---
@@ -137,9 +113,11 @@ public class SOFTLoopback {
 	 * @param type      sample type of the written audio. One of:<br>{@link #ALC_BYTE_SOFT BYTE_SOFT}, {@link #ALC_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #ALC_SHORT_SOFT SHORT_SOFT}, {@link #ALC_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #ALC_INT_SOFT INT_SOFT}, {@link #ALC_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #ALC_FLOAT_SOFT FLOAT_SOFT}
 	 */
 	public static boolean alcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type) {
-		long __functionAddress = getInstance().IsRenderFormatSupportedSOFT;
-		if ( CHECKS )
+		long __functionAddress = ALC.getICD().alcIsRenderFormatSupportedSOFT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return invokePIIIZ(__functionAddress, device, frequency, channels, type);
 	}
 
@@ -147,9 +125,11 @@ public class SOFTLoopback {
 
 	/** Unsafe version of {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
 	public static void nalcRenderSamplesSOFT(long device, long buffer, int samples) {
-		long __functionAddress = getInstance().RenderSamplesSOFT;
-		if ( CHECKS )
+		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		invokePPIV(__functionAddress, device, buffer, samples);
 	}
 

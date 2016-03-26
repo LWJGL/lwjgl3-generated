@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -44,7 +45,7 @@ public class GLXStereoNotifyEventEXT extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -70,7 +71,7 @@ public class GLXStereoNotifyEventEXT extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		TYPE = layout.offsetof(0);
 		SERIAL = layout.offsetof(1);
@@ -175,6 +176,76 @@ public class GLXStereoNotifyEventEXT extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link GLXStereoNotifyEventEXT} instance allocated on the thread-local {@link MemoryStack}. */
+	public static GLXStereoNotifyEventEXT mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link GLXStereoNotifyEventEXT} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static GLXStereoNotifyEventEXT callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link GLXStereoNotifyEventEXT} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static GLXStereoNotifyEventEXT mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link GLXStereoNotifyEventEXT} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static GLXStereoNotifyEventEXT callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link GLXStereoNotifyEventEXT.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link GLXStereoNotifyEventEXT.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link GLXStereoNotifyEventEXT.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link GLXStereoNotifyEventEXT.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #type}. */
 	public static int ntype(long struct) { return memGetInt(struct + GLXStereoNotifyEventEXT.TYPE); }
 	/** Unsafe version of {@link #serial}. */
@@ -226,7 +297,7 @@ public class GLXStereoNotifyEventEXT extends Struct {
 
 		@Override
 		protected GLXStereoNotifyEventEXT newInstance(long address) {
-			return new GLXStereoNotifyEventEXT(address, container);
+			return new GLXStereoNotifyEventEXT(address, getContainer());
 		}
 
 		@Override

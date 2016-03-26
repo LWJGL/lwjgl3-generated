@@ -35,44 +35,22 @@ public class NVPolygonMode {
 		GL_LINE_NV  = 0x1B01,
 		GL_FILL_NV  = 0x1B02;
 
-	/** Function address. */
-	public final long PolygonModeNV;
-
 	protected NVPolygonMode() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVPolygonMode(FunctionProvider provider) {
-		PolygonModeNV = provider.getFunctionAddress("glPolygonModeNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVPolygonMode} instance of the current context. */
-	public static NVPolygonMode getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVPolygonMode} instance of the specified {@link GLESCapabilities}. */
-	public static NVPolygonMode getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVPolygonMode);
-	}
-
-	static NVPolygonMode create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_polygon_mode") ) return null;
-
-		NVPolygonMode funcs = new NVPolygonMode(provider);
-		boolean supported = checkFunctions(
-			funcs.PolygonModeNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glPolygonModeNV
 		);
-
-		return GLES.checkExtension("GL_NV_polygon_mode", funcs, supported);
 	}
 
 	// --- [ glPolygonModeNV ] ---
 
 	public static void glPolygonModeNV(int face, int mode) {
-		long __functionAddress = getInstance().PolygonModeNV;
+		long __functionAddress = GLES.getCapabilities().glPolygonModeNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, face, mode);
 	}
 

@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -475,227 +475,38 @@ public class GL30 {
 	 */
 	public static final int GL_FRAMEBUFFER_SRGB = 0x8DB9;
 
-	/** Function address. */
-	public final long
-		GetStringi,
-		ClearBufferiv,
-		ClearBufferuiv,
-		ClearBufferfv,
-		ClearBufferfi,
-		VertexAttribI1i,
-		VertexAttribI2i,
-		VertexAttribI3i,
-		VertexAttribI4i,
-		VertexAttribI1ui,
-		VertexAttribI2ui,
-		VertexAttribI3ui,
-		VertexAttribI4ui,
-		VertexAttribI1iv,
-		VertexAttribI2iv,
-		VertexAttribI3iv,
-		VertexAttribI4iv,
-		VertexAttribI1uiv,
-		VertexAttribI2uiv,
-		VertexAttribI3uiv,
-		VertexAttribI4uiv,
-		VertexAttribI4bv,
-		VertexAttribI4sv,
-		VertexAttribI4ubv,
-		VertexAttribI4usv,
-		VertexAttribIPointer,
-		GetVertexAttribIiv,
-		GetVertexAttribIuiv,
-		Uniform1ui,
-		Uniform2ui,
-		Uniform3ui,
-		Uniform4ui,
-		Uniform1uiv,
-		Uniform2uiv,
-		Uniform3uiv,
-		Uniform4uiv,
-		GetUniformuiv,
-		BindFragDataLocation,
-		GetFragDataLocation,
-		BeginConditionalRender,
-		EndConditionalRender,
-		MapBufferRange,
-		FlushMappedBufferRange,
-		ClampColor,
-		IsRenderbuffer,
-		BindRenderbuffer,
-		DeleteRenderbuffers,
-		GenRenderbuffers,
-		RenderbufferStorage,
-		RenderbufferStorageMultisample,
-		GetRenderbufferParameteriv,
-		IsFramebuffer,
-		BindFramebuffer,
-		DeleteFramebuffers,
-		GenFramebuffers,
-		CheckFramebufferStatus,
-		FramebufferTexture1D,
-		FramebufferTexture2D,
-		FramebufferTexture3D,
-		FramebufferTextureLayer,
-		FramebufferRenderbuffer,
-		GetFramebufferAttachmentParameteriv,
-		BlitFramebuffer,
-		GenerateMipmap,
-		TexParameterIiv,
-		TexParameterIuiv,
-		GetTexParameterIiv,
-		GetTexParameterIuiv,
-		ColorMaski,
-		GetBooleani_v,
-		GetIntegeri_v,
-		Enablei,
-		Disablei,
-		IsEnabledi,
-		BindBufferRange,
-		BindBufferBase,
-		BeginTransformFeedback,
-		EndTransformFeedback,
-		TransformFeedbackVaryings,
-		GetTransformFeedbackVarying,
-		BindVertexArray,
-		DeleteVertexArrays,
-		GenVertexArrays,
-		IsVertexArray;
-
 	protected GL30() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL30(FunctionProvider provider) {
-		GetStringi = provider.getFunctionAddress("glGetStringi");
-		ClearBufferiv = provider.getFunctionAddress("glClearBufferiv");
-		ClearBufferuiv = provider.getFunctionAddress("glClearBufferuiv");
-		ClearBufferfv = provider.getFunctionAddress("glClearBufferfv");
-		ClearBufferfi = provider.getFunctionAddress("glClearBufferfi");
-		VertexAttribI1i = provider.getFunctionAddress("glVertexAttribI1i");
-		VertexAttribI2i = provider.getFunctionAddress("glVertexAttribI2i");
-		VertexAttribI3i = provider.getFunctionAddress("glVertexAttribI3i");
-		VertexAttribI4i = provider.getFunctionAddress("glVertexAttribI4i");
-		VertexAttribI1ui = provider.getFunctionAddress("glVertexAttribI1ui");
-		VertexAttribI2ui = provider.getFunctionAddress("glVertexAttribI2ui");
-		VertexAttribI3ui = provider.getFunctionAddress("glVertexAttribI3ui");
-		VertexAttribI4ui = provider.getFunctionAddress("glVertexAttribI4ui");
-		VertexAttribI1iv = provider.getFunctionAddress("glVertexAttribI1iv");
-		VertexAttribI2iv = provider.getFunctionAddress("glVertexAttribI2iv");
-		VertexAttribI3iv = provider.getFunctionAddress("glVertexAttribI3iv");
-		VertexAttribI4iv = provider.getFunctionAddress("glVertexAttribI4iv");
-		VertexAttribI1uiv = provider.getFunctionAddress("glVertexAttribI1uiv");
-		VertexAttribI2uiv = provider.getFunctionAddress("glVertexAttribI2uiv");
-		VertexAttribI3uiv = provider.getFunctionAddress("glVertexAttribI3uiv");
-		VertexAttribI4uiv = provider.getFunctionAddress("glVertexAttribI4uiv");
-		VertexAttribI4bv = provider.getFunctionAddress("glVertexAttribI4bv");
-		VertexAttribI4sv = provider.getFunctionAddress("glVertexAttribI4sv");
-		VertexAttribI4ubv = provider.getFunctionAddress("glVertexAttribI4ubv");
-		VertexAttribI4usv = provider.getFunctionAddress("glVertexAttribI4usv");
-		VertexAttribIPointer = provider.getFunctionAddress("glVertexAttribIPointer");
-		GetVertexAttribIiv = provider.getFunctionAddress("glGetVertexAttribIiv");
-		GetVertexAttribIuiv = provider.getFunctionAddress("glGetVertexAttribIuiv");
-		Uniform1ui = provider.getFunctionAddress("glUniform1ui");
-		Uniform2ui = provider.getFunctionAddress("glUniform2ui");
-		Uniform3ui = provider.getFunctionAddress("glUniform3ui");
-		Uniform4ui = provider.getFunctionAddress("glUniform4ui");
-		Uniform1uiv = provider.getFunctionAddress("glUniform1uiv");
-		Uniform2uiv = provider.getFunctionAddress("glUniform2uiv");
-		Uniform3uiv = provider.getFunctionAddress("glUniform3uiv");
-		Uniform4uiv = provider.getFunctionAddress("glUniform4uiv");
-		GetUniformuiv = provider.getFunctionAddress("glGetUniformuiv");
-		BindFragDataLocation = provider.getFunctionAddress("glBindFragDataLocation");
-		GetFragDataLocation = provider.getFunctionAddress("glGetFragDataLocation");
-		BeginConditionalRender = provider.getFunctionAddress("glBeginConditionalRender");
-		EndConditionalRender = provider.getFunctionAddress("glEndConditionalRender");
-		MapBufferRange = provider.getFunctionAddress("glMapBufferRange");
-		FlushMappedBufferRange = provider.getFunctionAddress("glFlushMappedBufferRange");
-		ClampColor = provider.getFunctionAddress("glClampColor");
-		IsRenderbuffer = provider.getFunctionAddress("glIsRenderbuffer");
-		BindRenderbuffer = provider.getFunctionAddress("glBindRenderbuffer");
-		DeleteRenderbuffers = provider.getFunctionAddress("glDeleteRenderbuffers");
-		GenRenderbuffers = provider.getFunctionAddress("glGenRenderbuffers");
-		RenderbufferStorage = provider.getFunctionAddress("glRenderbufferStorage");
-		RenderbufferStorageMultisample = provider.getFunctionAddress("glRenderbufferStorageMultisample");
-		GetRenderbufferParameteriv = provider.getFunctionAddress("glGetRenderbufferParameteriv");
-		IsFramebuffer = provider.getFunctionAddress("glIsFramebuffer");
-		BindFramebuffer = provider.getFunctionAddress("glBindFramebuffer");
-		DeleteFramebuffers = provider.getFunctionAddress("glDeleteFramebuffers");
-		GenFramebuffers = provider.getFunctionAddress("glGenFramebuffers");
-		CheckFramebufferStatus = provider.getFunctionAddress("glCheckFramebufferStatus");
-		FramebufferTexture1D = provider.getFunctionAddress("glFramebufferTexture1D");
-		FramebufferTexture2D = provider.getFunctionAddress("glFramebufferTexture2D");
-		FramebufferTexture3D = provider.getFunctionAddress("glFramebufferTexture3D");
-		FramebufferTextureLayer = provider.getFunctionAddress("glFramebufferTextureLayer");
-		FramebufferRenderbuffer = provider.getFunctionAddress("glFramebufferRenderbuffer");
-		GetFramebufferAttachmentParameteriv = provider.getFunctionAddress("glGetFramebufferAttachmentParameteriv");
-		BlitFramebuffer = provider.getFunctionAddress("glBlitFramebuffer");
-		GenerateMipmap = provider.getFunctionAddress("glGenerateMipmap");
-		TexParameterIiv = provider.getFunctionAddress("glTexParameterIiv");
-		TexParameterIuiv = provider.getFunctionAddress("glTexParameterIuiv");
-		GetTexParameterIiv = provider.getFunctionAddress("glGetTexParameterIiv");
-		GetTexParameterIuiv = provider.getFunctionAddress("glGetTexParameterIuiv");
-		ColorMaski = provider.getFunctionAddress("glColorMaski");
-		GetBooleani_v = provider.getFunctionAddress("glGetBooleani_v");
-		GetIntegeri_v = provider.getFunctionAddress("glGetIntegeri_v");
-		Enablei = provider.getFunctionAddress("glEnablei");
-		Disablei = provider.getFunctionAddress("glDisablei");
-		IsEnabledi = provider.getFunctionAddress("glIsEnabledi");
-		BindBufferRange = provider.getFunctionAddress("glBindBufferRange");
-		BindBufferBase = provider.getFunctionAddress("glBindBufferBase");
-		BeginTransformFeedback = provider.getFunctionAddress("glBeginTransformFeedback");
-		EndTransformFeedback = provider.getFunctionAddress("glEndTransformFeedback");
-		TransformFeedbackVaryings = provider.getFunctionAddress("glTransformFeedbackVaryings");
-		GetTransformFeedbackVarying = provider.getFunctionAddress("glGetTransformFeedbackVarying");
-		BindVertexArray = provider.getFunctionAddress("glBindVertexArray");
-		DeleteVertexArrays = provider.getFunctionAddress("glDeleteVertexArrays");
-		GenVertexArrays = provider.getFunctionAddress("glGenVertexArrays");
-		IsVertexArray = provider.getFunctionAddress("glIsVertexArray");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL30} instance of the current context. */
-	public static GL30 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL30} instance of the specified {@link GLCapabilities}. */
-	public static GL30 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL30);
-	}
-
-	static GL30 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL30") ) return null;
-
-		GL30 funcs = new GL30(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetStringi, funcs.ClearBufferiv, funcs.ClearBufferuiv, funcs.ClearBufferfv, funcs.ClearBufferfi, funcs.VertexAttribI1i, funcs.VertexAttribI2i, 
-			funcs.VertexAttribI3i, funcs.VertexAttribI4i, funcs.VertexAttribI1ui, funcs.VertexAttribI2ui, funcs.VertexAttribI3ui, funcs.VertexAttribI4ui, 
-			funcs.VertexAttribI1iv, funcs.VertexAttribI2iv, funcs.VertexAttribI3iv, funcs.VertexAttribI4iv, funcs.VertexAttribI1uiv, funcs.VertexAttribI2uiv, 
-			funcs.VertexAttribI3uiv, funcs.VertexAttribI4uiv, funcs.VertexAttribI4bv, funcs.VertexAttribI4sv, funcs.VertexAttribI4ubv, funcs.VertexAttribI4usv, 
-			funcs.VertexAttribIPointer, funcs.GetVertexAttribIiv, funcs.GetVertexAttribIuiv, funcs.Uniform1ui, funcs.Uniform2ui, funcs.Uniform3ui, 
-			funcs.Uniform4ui, funcs.Uniform1uiv, funcs.Uniform2uiv, funcs.Uniform3uiv, funcs.Uniform4uiv, funcs.GetUniformuiv, funcs.BindFragDataLocation, 
-			funcs.GetFragDataLocation, funcs.BeginConditionalRender, funcs.EndConditionalRender, funcs.MapBufferRange, funcs.FlushMappedBufferRange, 
-			funcs.ClampColor, funcs.IsRenderbuffer, funcs.BindRenderbuffer, funcs.DeleteRenderbuffers, funcs.GenRenderbuffers, funcs.RenderbufferStorage, 
-			funcs.RenderbufferStorageMultisample, funcs.GetRenderbufferParameteriv, funcs.IsFramebuffer, funcs.BindFramebuffer, funcs.DeleteFramebuffers, 
-			funcs.GenFramebuffers, funcs.CheckFramebufferStatus, funcs.FramebufferTexture1D, funcs.FramebufferTexture2D, funcs.FramebufferTexture3D, 
-			funcs.FramebufferTextureLayer, funcs.FramebufferRenderbuffer, funcs.GetFramebufferAttachmentParameteriv, funcs.BlitFramebuffer, 
-			funcs.GenerateMipmap, funcs.TexParameterIiv, funcs.TexParameterIuiv, funcs.GetTexParameterIiv, funcs.GetTexParameterIuiv, funcs.ColorMaski, 
-			funcs.GetBooleani_v, funcs.GetIntegeri_v, funcs.Enablei, funcs.Disablei, funcs.IsEnabledi, funcs.BindBufferRange, funcs.BindBufferBase, 
-			funcs.BeginTransformFeedback, funcs.EndTransformFeedback, funcs.TransformFeedbackVaryings, funcs.GetTransformFeedbackVarying, funcs.BindVertexArray, 
-			funcs.DeleteVertexArrays, funcs.GenVertexArrays, funcs.IsVertexArray
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetStringi, caps.glClearBufferiv, caps.glClearBufferuiv, caps.glClearBufferfv, caps.glClearBufferfi, caps.glVertexAttribI1i, 
+			caps.glVertexAttribI2i, caps.glVertexAttribI3i, caps.glVertexAttribI4i, caps.glVertexAttribI1ui, caps.glVertexAttribI2ui, caps.glVertexAttribI3ui, 
+			caps.glVertexAttribI4ui, caps.glVertexAttribI1iv, caps.glVertexAttribI2iv, caps.glVertexAttribI3iv, caps.glVertexAttribI4iv, 
+			caps.glVertexAttribI1uiv, caps.glVertexAttribI2uiv, caps.glVertexAttribI3uiv, caps.glVertexAttribI4uiv, caps.glVertexAttribI4bv, 
+			caps.glVertexAttribI4sv, caps.glVertexAttribI4ubv, caps.glVertexAttribI4usv, caps.glVertexAttribIPointer, caps.glGetVertexAttribIiv, 
+			caps.glGetVertexAttribIuiv, caps.glUniform1ui, caps.glUniform2ui, caps.glUniform3ui, caps.glUniform4ui, caps.glUniform1uiv, caps.glUniform2uiv, 
+			caps.glUniform3uiv, caps.glUniform4uiv, caps.glGetUniformuiv, caps.glBindFragDataLocation, caps.glGetFragDataLocation, 
+			caps.glBeginConditionalRender, caps.glEndConditionalRender, caps.glMapBufferRange, caps.glFlushMappedBufferRange, caps.glClampColor, 
+			caps.glIsRenderbuffer, caps.glBindRenderbuffer, caps.glDeleteRenderbuffers, caps.glGenRenderbuffers, caps.glRenderbufferStorage, 
+			caps.glRenderbufferStorageMultisample, caps.glGetRenderbufferParameteriv, caps.glIsFramebuffer, caps.glBindFramebuffer, caps.glDeleteFramebuffers, 
+			caps.glGenFramebuffers, caps.glCheckFramebufferStatus, caps.glFramebufferTexture1D, caps.glFramebufferTexture2D, caps.glFramebufferTexture3D, 
+			caps.glFramebufferTextureLayer, caps.glFramebufferRenderbuffer, caps.glGetFramebufferAttachmentParameteriv, caps.glBlitFramebuffer, 
+			caps.glGenerateMipmap, caps.glTexParameterIiv, caps.glTexParameterIuiv, caps.glGetTexParameterIiv, caps.glGetTexParameterIuiv, caps.glColorMaski, 
+			caps.glGetBooleani_v, caps.glGetIntegeri_v, caps.glEnablei, caps.glDisablei, caps.glIsEnabledi, caps.glBindBufferRange, caps.glBindBufferBase, 
+			caps.glBeginTransformFeedback, caps.glEndTransformFeedback, caps.glTransformFeedbackVaryings, caps.glGetTransformFeedbackVarying, 
+			caps.glBindVertexArray, caps.glDeleteVertexArrays, caps.glGenVertexArrays, caps.glIsVertexArray
 		);
-
-		return GL.checkExtension("OpenGL30", funcs, supported);
 	}
 
 	// --- [ glGetStringi ] ---
 
 	/** Unsafe version of {@link #glGetStringi GetStringi} */
 	public static long nglGetStringi(int name, int index) {
-		long __functionAddress = getInstance().GetStringi;
+		long __functionAddress = GL.getCapabilities().glGetStringi;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIP(__functionAddress, name, index);
 	}
 
@@ -709,14 +520,16 @@ public class GL30 {
 	 */
 	public static String glGetStringi(int name, int index) {
 		long __result = nglGetStringi(name, index);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ glClearBufferiv ] ---
 
 	/** Unsafe version of {@link #glClearBufferiv ClearBufferiv} */
 	public static void nglClearBufferiv(int buffer, int drawbuffer, long value) {
-		long __functionAddress = getInstance().ClearBufferiv;
+		long __functionAddress = GL.getCapabilities().glClearBufferiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
@@ -747,7 +560,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glClearBufferuiv ClearBufferuiv} */
 	public static void nglClearBufferuiv(int buffer, int drawbuffer, long value) {
-		long __functionAddress = getInstance().ClearBufferuiv;
+		long __functionAddress = GL.getCapabilities().glClearBufferuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
@@ -777,7 +592,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glClearBufferfv ClearBufferfv} */
 	public static void nglClearBufferfv(int buffer, int drawbuffer, long value) {
-		long __functionAddress = getInstance().ClearBufferfv;
+		long __functionAddress = GL.getCapabilities().glClearBufferfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
@@ -817,7 +634,9 @@ public class GL30 {
 	 * @param stencil    the stencil value to clear the buffer to
 	 */
 	public static void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil) {
-		long __functionAddress = getInstance().ClearBufferfi;
+		long __functionAddress = GL.getCapabilities().glClearBufferfi;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIFIV(__functionAddress, buffer, drawbuffer, depth, stencil);
 	}
 
@@ -832,7 +651,9 @@ public class GL30 {
 	 * @param x     the vertex attribute x component
 	 */
 	public static void glVertexAttribI1i(int index, int x) {
-		long __functionAddress = getInstance().VertexAttribI1i;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1i;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, x);
 	}
 
@@ -848,7 +669,9 @@ public class GL30 {
 	 * @param y     the vertex attribute y component
 	 */
 	public static void glVertexAttribI2i(int index, int x, int y) {
-		long __functionAddress = getInstance().VertexAttribI2i;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2i;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, index, x, y);
 	}
 
@@ -865,7 +688,9 @@ public class GL30 {
 	 * @param z     the vertex attribute z component
 	 */
 	public static void glVertexAttribI3i(int index, int x, int y, int z) {
-		long __functionAddress = getInstance().VertexAttribI3i;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3i;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, index, x, y, z);
 	}
 
@@ -883,7 +708,9 @@ public class GL30 {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttribI4i(int index, int x, int y, int z, int w) {
-		long __functionAddress = getInstance().VertexAttribI4i;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4i;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -898,7 +725,9 @@ public class GL30 {
 	 * @param x     the vertex attribute x component
 	 */
 	public static void glVertexAttribI1ui(int index, int x) {
-		long __functionAddress = getInstance().VertexAttribI1ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, x);
 	}
 
@@ -914,7 +743,9 @@ public class GL30 {
 	 * @param y     the vertex attribute y component
 	 */
 	public static void glVertexAttribI2ui(int index, int x, int y) {
-		long __functionAddress = getInstance().VertexAttribI2ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, index, x, y);
 	}
 
@@ -931,7 +762,9 @@ public class GL30 {
 	 * @param z     the vertex attribute z component
 	 */
 	public static void glVertexAttribI3ui(int index, int x, int y, int z) {
-		long __functionAddress = getInstance().VertexAttribI3ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, index, x, y, z);
 	}
 
@@ -949,7 +782,9 @@ public class GL30 {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttribI4ui(int index, int x, int y, int z, int w) {
-		long __functionAddress = getInstance().VertexAttribI4ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -957,7 +792,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI1iv VertexAttribI1iv} */
 	public static void nglVertexAttribI1iv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI1iv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1iv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -986,7 +823,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI2iv VertexAttribI2iv} */
 	public static void nglVertexAttribI2iv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI2iv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2iv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1015,7 +854,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI3iv VertexAttribI3iv} */
 	public static void nglVertexAttribI3iv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI3iv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3iv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1044,7 +885,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI4iv VertexAttribI4iv} */
 	public static void nglVertexAttribI4iv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4iv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4iv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1073,7 +916,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI1uiv VertexAttribI1uiv} */
 	public static void nglVertexAttribI1uiv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI1uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1102,7 +947,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI2uiv VertexAttribI2uiv} */
 	public static void nglVertexAttribI2uiv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI2uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1131,7 +978,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI3uiv VertexAttribI3uiv} */
 	public static void nglVertexAttribI3uiv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI3uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1160,7 +1009,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI4uiv VertexAttribI4uiv} */
 	public static void nglVertexAttribI4uiv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1189,7 +1040,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI4bv VertexAttribI4bv} */
 	public static void nglVertexAttribI4bv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4bv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4bv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1211,7 +1064,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI4sv VertexAttribI4sv} */
 	public static void nglVertexAttribI4sv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4sv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4sv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1240,7 +1095,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI4ubv VertexAttribI4ubv} */
 	public static void nglVertexAttribI4ubv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4ubv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4ubv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1262,7 +1119,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribI4usv VertexAttribI4usv} */
 	public static void nglVertexAttribI4usv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4usv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4usv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1291,7 +1150,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
-		long __functionAddress = getInstance().VertexAttribIPointer;
+		long __functionAddress = GL.getCapabilities().glVertexAttribIPointer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
@@ -1339,7 +1200,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glGetVertexAttribIiv GetVertexAttribIiv} */
 	public static void nglGetVertexAttribIiv(int index, int pname, long params) {
-		long __functionAddress = getInstance().GetVertexAttribIiv;
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribIiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
@@ -1367,17 +1230,23 @@ public class GL30 {
 
 	/** Single return value version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv} */
 	public static int glGetVertexAttribIi(int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetVertexAttribIiv(index, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetVertexAttribIiv(index, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetVertexAttribIuiv ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribIuiv GetVertexAttribIuiv} */
 	public static void nglGetVertexAttribIuiv(int index, int pname, long params) {
-		long __functionAddress = getInstance().GetVertexAttribIuiv;
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribIuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
@@ -1405,10 +1274,14 @@ public class GL30 {
 
 	/** Single return value version of: {@link #glGetVertexAttribIuiv GetVertexAttribIuiv} */
 	public static int glGetVertexAttribIui(int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetVertexAttribIuiv(index, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetVertexAttribIuiv(index, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glUniform1ui ] ---
@@ -1422,7 +1295,9 @@ public class GL30 {
 	 * @param v0       the uniform value
 	 */
 	public static void glUniform1ui(int location, int v0) {
-		long __functionAddress = getInstance().Uniform1ui;
+		long __functionAddress = GL.getCapabilities().glUniform1ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, location, v0);
 	}
 
@@ -1438,7 +1313,9 @@ public class GL30 {
 	 * @param v1       the uniform y value
 	 */
 	public static void glUniform2ui(int location, int v0, int v1) {
-		long __functionAddress = getInstance().Uniform2ui;
+		long __functionAddress = GL.getCapabilities().glUniform2ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, location, v0, v1);
 	}
 
@@ -1455,7 +1332,9 @@ public class GL30 {
 	 * @param v2       the uniform z value
 	 */
 	public static void glUniform3ui(int location, int v0, int v1, int v2) {
-		long __functionAddress = getInstance().Uniform3ui;
+		long __functionAddress = GL.getCapabilities().glUniform3ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, location, v0, v1, v2);
 	}
 
@@ -1473,7 +1352,9 @@ public class GL30 {
 	 * @param v3       the uniform w value
 	 */
 	public static void glUniform4ui(int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = getInstance().Uniform4ui;
+		long __functionAddress = GL.getCapabilities().glUniform4ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
@@ -1481,7 +1362,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glUniform1uiv Uniform1uiv} */
 	public static void nglUniform1uiv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform1uiv;
+		long __functionAddress = GL.getCapabilities().glUniform1uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -1509,7 +1392,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glUniform2uiv Uniform2uiv} */
 	public static void nglUniform2uiv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform2uiv;
+		long __functionAddress = GL.getCapabilities().glUniform2uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -1537,7 +1422,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glUniform3uiv Uniform3uiv} */
 	public static void nglUniform3uiv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform3uiv;
+		long __functionAddress = GL.getCapabilities().glUniform3uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -1565,7 +1452,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glUniform4uiv Uniform4uiv} */
 	public static void nglUniform4uiv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform4uiv;
+		long __functionAddress = GL.getCapabilities().glUniform4uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -1593,7 +1482,9 @@ public class GL30 {
 
 	/** Unsafe version of {@link #glGetUniformuiv GetUniformuiv} */
 	public static void nglGetUniformuiv(int program, int location, long params) {
-		long __functionAddress = getInstance().GetUniformuiv;
+		long __functionAddress = GL.getCapabilities().glGetUniformuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, location, params);
 	}
 
@@ -1621,17 +1512,23 @@ public class GL30 {
 
 	/** Single return value version of: {@link #glGetUniformuiv GetUniformuiv} */
 	public static int glGetUniformui(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetUniformuiv(program, location, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetUniformuiv(program, location, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glBindFragDataLocation ] ---
 
 	/** Unsafe version of {@link #glBindFragDataLocation BindFragDataLocation} */
 	public static void nglBindFragDataLocation(int program, int colorNumber, long name) {
-		long __functionAddress = getInstance().BindFragDataLocation;
+		long __functionAddress = GL.getCapabilities().glBindFragDataLocation;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, colorNumber, name);
 	}
 
@@ -1652,16 +1549,22 @@ public class GL30 {
 
 	/** CharSequence version of: {@link #glBindFragDataLocation BindFragDataLocation} */
 	public static void glBindFragDataLocation(int program, int colorNumber, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindFragDataLocation(program, colorNumber, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			nglBindFragDataLocation(program, colorNumber, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetFragDataLocation ] ---
 
 	/** Unsafe version of {@link #glGetFragDataLocation GetFragDataLocation} */
 	public static int nglGetFragDataLocation(int program, long name) {
-		long __functionAddress = getInstance().GetFragDataLocation;
+		long __functionAddress = GL.getCapabilities().glGetFragDataLocation;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPI(__functionAddress, program, name);
 	}
 
@@ -1681,9 +1584,13 @@ public class GL30 {
 
 	/** CharSequence version of: {@link #glGetFragDataLocation GetFragDataLocation} */
 	public static int glGetFragDataLocation(int program, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetFragDataLocation(program, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetFragDataLocation(program, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glBeginConditionalRender ] ---
@@ -1697,7 +1604,9 @@ public class GL30 {
 	 * @param mode how {@code glBeginConditionalRender} interprets the results of the occlusion query. One of:<br>{@link #GL_QUERY_WAIT QUERY_WAIT}, {@link #GL_QUERY_NO_WAIT QUERY_NO_WAIT}, {@link #GL_QUERY_BY_REGION_WAIT QUERY_BY_REGION_WAIT}, {@link #GL_QUERY_BY_REGION_NO_WAIT QUERY_BY_REGION_NO_WAIT}, {@link GL45#GL_QUERY_WAIT_INVERTED QUERY_WAIT_INVERTED}, {@link GL45#GL_QUERY_NO_WAIT_INVERTED QUERY_NO_WAIT_INVERTED}, {@link GL45#GL_QUERY_BY_REGION_WAIT_INVERTED QUERY_BY_REGION_WAIT_INVERTED}, {@link GL45#GL_QUERY_BY_REGION_NO_WAIT_INVERTED QUERY_BY_REGION_NO_WAIT_INVERTED}
 	 */
 	public static void glBeginConditionalRender(int id, int mode) {
-		long __functionAddress = getInstance().BeginConditionalRender;
+		long __functionAddress = GL.getCapabilities().glBeginConditionalRender;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, id, mode);
 	}
 
@@ -1709,7 +1618,9 @@ public class GL30 {
 Ends conditional rendering.
 	 */
 	public static void glEndConditionalRender() {
-		long __functionAddress = getInstance().EndConditionalRender;
+		long __functionAddress = GL.getCapabilities().glEndConditionalRender;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -1717,7 +1628,9 @@ Ends conditional rendering.
 
 	/** Unsafe version of {@link #glMapBufferRange MapBufferRange} */
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
-		long __functionAddress = getInstance().MapBufferRange;
+		long __functionAddress = GL.getCapabilities().glMapBufferRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPPIP(__functionAddress, target, offset, length, access);
 	}
 
@@ -1761,7 +1674,9 @@ Ends conditional rendering.
 	 * @param length the length of the buffer subrange, in basic machine units
 	 */
 	public static void glFlushMappedBufferRange(int target, long offset, long length) {
-		long __functionAddress = getInstance().FlushMappedBufferRange;
+		long __functionAddress = GL.getCapabilities().glFlushMappedBufferRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPV(__functionAddress, target, offset, length);
 	}
 
@@ -1776,7 +1691,9 @@ Ends conditional rendering.
 	 * @param clamp  whether to apply color clamping. One of:<br>{@link GL11#GL_TRUE TRUE}, {@link GL11#GL_FALSE FALSE}, {@link #GL_FIXED_ONLY FIXED_ONLY}
 	 */
 	public static void glClampColor(int target, int clamp) {
-		long __functionAddress = getInstance().ClampColor;
+		long __functionAddress = GL.getCapabilities().glClampColor;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, clamp);
 	}
 
@@ -1790,7 +1707,9 @@ Ends conditional rendering.
 	 * @param renderbuffer a value that may be the name of a renderbuffer object
 	 */
 	public static boolean glIsRenderbuffer(int renderbuffer) {
-		long __functionAddress = getInstance().IsRenderbuffer;
+		long __functionAddress = GL.getCapabilities().glIsRenderbuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, renderbuffer);
 	}
 
@@ -1805,7 +1724,9 @@ Ends conditional rendering.
 	 * @param renderbuffer the name of the renderbuffer object to bind
 	 */
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
-		long __functionAddress = getInstance().BindRenderbuffer;
+		long __functionAddress = GL.getCapabilities().glBindRenderbuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, renderbuffer);
 	}
 
@@ -1813,7 +1734,9 @@ Ends conditional rendering.
 
 	/** Unsafe version of {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
-		long __functionAddress = getInstance().DeleteRenderbuffers;
+		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, renderbuffers);
 	}
 
@@ -1838,16 +1761,22 @@ Ends conditional rendering.
 
 	/** Single value version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(int renderbuffer) {
-		APIBuffer __buffer = apiBuffer();
-		int renderbuffers = __buffer.intParam(renderbuffer);
-		nglDeleteRenderbuffers(1, __buffer.address(renderbuffers));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer renderbuffers = stack.ints(renderbuffer);
+			nglDeleteRenderbuffers(1, memAddress(renderbuffers));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenRenderbuffers ] ---
 
 	/** Unsafe version of {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
-		long __functionAddress = getInstance().GenRenderbuffers;
+		long __functionAddress = GL.getCapabilities().glGenRenderbuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, renderbuffers);
 	}
 
@@ -1872,10 +1801,14 @@ Ends conditional rendering.
 
 	/** Single return value version of: {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static int glGenRenderbuffers() {
-		APIBuffer __buffer = apiBuffer();
-		int renderbuffers = __buffer.intParam();
-		nglGenRenderbuffers(1, __buffer.address(renderbuffers));
-		return __buffer.intValue(renderbuffers);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer renderbuffers = stack.callocInt(1);
+			nglGenRenderbuffers(1, memAddress(renderbuffers));
+			return renderbuffers.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glRenderbufferStorage ] ---
@@ -1891,7 +1824,9 @@ Ends conditional rendering.
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().RenderbufferStorage;
+		long __functionAddress = GL.getCapabilities().glRenderbufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, internalformat, width, height);
 	}
 
@@ -1911,7 +1846,9 @@ Ends conditional rendering.
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().RenderbufferStorageMultisample;
+		long __functionAddress = GL.getCapabilities().glRenderbufferStorageMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
@@ -1919,7 +1856,9 @@ Ends conditional rendering.
 
 	/** Unsafe version of {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetRenderbufferParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -1947,10 +1886,14 @@ Ends conditional rendering.
 
 	/** Single return value version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static int glGetRenderbufferParameteri(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetRenderbufferParameteriv(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetRenderbufferParameteriv(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsFramebuffer ] ---
@@ -1963,7 +1906,9 @@ Ends conditional rendering.
 	 * @param framebuffer a value that may be the name of a framebuffer object
 	 */
 	public static boolean glIsFramebuffer(int framebuffer) {
-		long __functionAddress = getInstance().IsFramebuffer;
+		long __functionAddress = GL.getCapabilities().glIsFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, framebuffer);
 	}
 
@@ -1978,7 +1923,9 @@ Ends conditional rendering.
 	 * @param framebuffer the name of the framebuffer object to bind
 	 */
 	public static void glBindFramebuffer(int target, int framebuffer) {
-		long __functionAddress = getInstance().BindFramebuffer;
+		long __functionAddress = GL.getCapabilities().glBindFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, framebuffer);
 	}
 
@@ -1986,7 +1933,9 @@ Ends conditional rendering.
 
 	/** Unsafe version of {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
-		long __functionAddress = getInstance().DeleteFramebuffers;
+		long __functionAddress = GL.getCapabilities().glDeleteFramebuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, framebuffers);
 	}
 
@@ -2011,16 +1960,22 @@ Ends conditional rendering.
 
 	/** Single value version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void glDeleteFramebuffers(int framebuffer) {
-		APIBuffer __buffer = apiBuffer();
-		int framebuffers = __buffer.intParam(framebuffer);
-		nglDeleteFramebuffers(1, __buffer.address(framebuffers));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer framebuffers = stack.ints(framebuffer);
+			nglDeleteFramebuffers(1, memAddress(framebuffers));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenFramebuffers ] ---
 
 	/** Unsafe version of {@link #glGenFramebuffers GenFramebuffers} */
 	public static void nglGenFramebuffers(int n, long framebuffers) {
-		long __functionAddress = getInstance().GenFramebuffers;
+		long __functionAddress = GL.getCapabilities().glGenFramebuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, framebuffers);
 	}
 
@@ -2045,10 +2000,14 @@ Ends conditional rendering.
 
 	/** Single return value version of: {@link #glGenFramebuffers GenFramebuffers} */
 	public static int glGenFramebuffers() {
-		APIBuffer __buffer = apiBuffer();
-		int framebuffers = __buffer.intParam();
-		nglGenFramebuffers(1, __buffer.address(framebuffers));
-		return __buffer.intValue(framebuffers);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer framebuffers = stack.callocInt(1);
+			nglGenFramebuffers(1, memAddress(framebuffers));
+			return framebuffers.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glCheckFramebufferStatus ] ---
@@ -2061,7 +2020,9 @@ Ends conditional rendering.
 	 * @param target the target of the framebuffer completeness check. One of:<br>{@link #GL_FRAMEBUFFER FRAMEBUFFER}, {@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}
 	 */
 	public static int glCheckFramebufferStatus(int target) {
-		long __functionAddress = getInstance().CheckFramebufferStatus;
+		long __functionAddress = GL.getCapabilities().glCheckFramebufferStatus;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, target);
 	}
 
@@ -2079,7 +2040,9 @@ Ends conditional rendering.
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
 	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
-		long __functionAddress = getInstance().FramebufferTexture1D;
+		long __functionAddress = GL.getCapabilities().glFramebufferTexture1D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
@@ -2097,7 +2060,9 @@ Ends conditional rendering.
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
-		long __functionAddress = getInstance().FramebufferTexture2D;
+		long __functionAddress = GL.getCapabilities().glFramebufferTexture2D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
@@ -2116,7 +2081,9 @@ Ends conditional rendering.
 	 * @param layer      the layer of a 2-dimensional image within the 3-dimensional texture.
 	 */
 	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
-		long __functionAddress = getInstance().FramebufferTexture3D;
+		long __functionAddress = GL.getCapabilities().glFramebufferTexture3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, layer);
 	}
 
@@ -2134,7 +2101,9 @@ Ends conditional rendering.
 	 * @param layer      the layer of {@code texture} to attach.
 	 */
 	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
-		long __functionAddress = getInstance().FramebufferTextureLayer;
+		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
@@ -2151,7 +2120,9 @@ Ends conditional rendering.
 	 * @param renderbuffer       the name of an existing renderbuffer object of type {@code renderbuffertarget} to attach
 	 */
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
-		long __functionAddress = getInstance().FramebufferRenderbuffer;
+		long __functionAddress = GL.getCapabilities().glFramebufferRenderbuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
 	}
 
@@ -2159,7 +2130,9 @@ Ends conditional rendering.
 
 	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
-		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, attachment, pname, params);
 	}
 
@@ -2188,10 +2161,14 @@ Ends conditional rendering.
 
 	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glBlitFramebuffer ] ---
@@ -2213,7 +2190,9 @@ Ends conditional rendering.
 	 * @param filter the interpolation to be applied if the image is stretched. One of:<br>{@link GL11#GL_NEAREST NEAREST}, {@link GL11#GL_LINEAR LINEAR}
 	 */
 	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = getInstance().BlitFramebuffer;
+		long __functionAddress = GL.getCapabilities().glBlitFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
@@ -2227,7 +2206,9 @@ Ends conditional rendering.
 	 * @param target the target to which the texture whose mimaps to generate is bound. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link #GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link #GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
 	 */
 	public static void glGenerateMipmap(int target) {
-		long __functionAddress = getInstance().GenerateMipmap;
+		long __functionAddress = GL.getCapabilities().glGenerateMipmap;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, target);
 	}
 
@@ -2235,7 +2216,9 @@ Ends conditional rendering.
 
 	/** Unsafe version of {@link #glTexParameterIiv TexParameterIiv} */
 	public static void nglTexParameterIiv(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexParameterIiv;
+		long __functionAddress = GL.getCapabilities().glTexParameterIiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -2263,16 +2246,22 @@ Ends conditional rendering.
 
 	/** Single value version of: {@link #glTexParameterIiv TexParameterIiv} */
 	public static void glTexParameterIi(int target, int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		nglTexParameterIiv(target, pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			nglTexParameterIiv(target, pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glTexParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glTexParameterIuiv TexParameterIuiv} */
 	public static void nglTexParameterIuiv(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexParameterIuiv;
+		long __functionAddress = GL.getCapabilities().glTexParameterIuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -2300,16 +2289,22 @@ Ends conditional rendering.
 
 	/** Single value version of: {@link #glTexParameterIuiv TexParameterIuiv} */
 	public static void glTexParameterIui(int target, int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		nglTexParameterIuiv(target, pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			nglTexParameterIuiv(target, pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexParameterIiv ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIiv GetTexParameterIiv} */
 	public static void nglGetTexParameterIiv(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetTexParameterIiv;
+		long __functionAddress = GL.getCapabilities().glGetTexParameterIiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -2337,17 +2332,23 @@ Ends conditional rendering.
 
 	/** Single return value version of: {@link #glGetTexParameterIiv GetTexParameterIiv} */
 	public static int glGetTexParameterIi(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTexParameterIiv(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTexParameterIiv(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
 	public static void nglGetTexParameterIuiv(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetTexParameterIuiv;
+		long __functionAddress = GL.getCapabilities().glGetTexParameterIuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -2375,10 +2376,14 @@ Ends conditional rendering.
 
 	/** Single return value version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
 	public static int glGetTexParameterIui(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTexParameterIuiv(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTexParameterIuiv(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glColorMaski ] ---
@@ -2395,7 +2400,9 @@ Ends conditional rendering.
 	 * @param a   whether A values are written or not
 	 */
 	public static void glColorMaski(int buf, boolean r, boolean g, boolean b, boolean a) {
-		long __functionAddress = getInstance().ColorMaski;
+		long __functionAddress = GL.getCapabilities().glColorMaski;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIZZZZV(__functionAddress, buf, r, g, b, a);
 	}
 
@@ -2403,7 +2410,9 @@ Ends conditional rendering.
 
 	/** Unsafe version of {@link #glGetBooleani_v GetBooleani_v} */
 	public static void nglGetBooleani_v(int target, int index, long data) {
-		long __functionAddress = getInstance().GetBooleani_v;
+		long __functionAddress = GL.getCapabilities().glGetBooleani_v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, index, data);
 	}
 
@@ -2423,18 +2432,24 @@ Ends conditional rendering.
 	}
 
 	/** Single return value version of: {@link #glGetBooleani_v GetBooleani_v} */
-	public static boolean glGetBooleani(int target, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.booleanParam();
-		nglGetBooleani_v(target, index, __buffer.address(data));
-		return __buffer.booleanValue(data);
+	public static byte glGetBooleani(int target, int index) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer data = stack.calloc(1);
+			nglGetBooleani_v(target, index, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetIntegeri_v ] ---
 
 	/** Unsafe version of {@link #glGetIntegeri_v GetIntegeri_v} */
 	public static void nglGetIntegeri_v(int target, int index, long data) {
-		long __functionAddress = getInstance().GetIntegeri_v;
+		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, index, data);
 	}
 
@@ -2462,10 +2477,14 @@ Ends conditional rendering.
 
 	/** Single return value version of: {@link #glGetIntegeri_v GetIntegeri_v} */
 	public static int glGetIntegeri(int target, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.intParam();
-		nglGetIntegeri_v(target, index, __buffer.address(data));
-		return __buffer.intValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer data = stack.callocInt(1);
+			nglGetIntegeri_v(target, index, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glEnablei ] ---
@@ -2479,7 +2498,9 @@ Ends conditional rendering.
 	 * @param index the index to enable
 	 */
 	public static void glEnablei(int cap, int index) {
-		long __functionAddress = getInstance().Enablei;
+		long __functionAddress = GL.getCapabilities().glEnablei;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, cap, index);
 	}
 
@@ -2494,7 +2515,9 @@ Ends conditional rendering.
 	 * @param index  the index to disable
 	 */
 	public static void glDisablei(int target, int index) {
-		long __functionAddress = getInstance().Disablei;
+		long __functionAddress = GL.getCapabilities().glDisablei;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, index);
 	}
 
@@ -2509,7 +2532,9 @@ Ends conditional rendering.
 	 * @param index  the index to query
 	 */
 	public static boolean glIsEnabledi(int target, int index) {
-		long __functionAddress = getInstance().IsEnabledi;
+		long __functionAddress = GL.getCapabilities().glIsEnabledi;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIZ(__functionAddress, target, index);
 	}
 
@@ -2527,7 +2552,9 @@ Ends conditional rendering.
 	 * @param size   the amount of data in machine units that can be read from the buffer object while used as an indexed target
 	 */
 	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
-		long __functionAddress = getInstance().BindBufferRange;
+		long __functionAddress = GL.getCapabilities().glBindBufferRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
@@ -2543,7 +2570,9 @@ Ends conditional rendering.
 	 * @param buffer a buffer object to bind to the specified binding point
 	 */
 	public static void glBindBufferBase(int target, int index, int buffer) {
-		long __functionAddress = getInstance().BindBufferBase;
+		long __functionAddress = GL.getCapabilities().glBindBufferBase;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, target, index, buffer);
 	}
 
@@ -2557,7 +2586,9 @@ Ends conditional rendering.
 	 * @param primitiveMode the output type of the primitives that will be recorded into the buffer objects that are bound for transform feedback. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_TRIANGLES TRIANGLES}
 	 */
 	public static void glBeginTransformFeedback(int primitiveMode) {
-		long __functionAddress = getInstance().BeginTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glBeginTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, primitiveMode);
 	}
 
@@ -2569,7 +2600,9 @@ Ends conditional rendering.
 Ends transform feedback operation.
 	 */
 	public static void glEndTransformFeedback() {
-		long __functionAddress = getInstance().EndTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glEndTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -2577,7 +2610,9 @@ Ends transform feedback operation.
 
 	/** Unsafe version of {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode) {
-		long __functionAddress = getInstance().TransformFeedbackVaryings;
+		long __functionAddress = GL.getCapabilities().glTransformFeedbackVaryings;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIV(__functionAddress, program, count, varyings, bufferMode);
 	}
 
@@ -2604,23 +2639,25 @@ Ends transform feedback operation.
 
 	/** Array version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence[] varyings, int bufferMode) {
-		APIBuffer __buffer = apiBuffer();
-		int varyingsAddress = __buffer.pointerArrayParamASCII(varyings);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			nglTransformFeedbackVaryings(program, varyings.length, __buffer.address(varyingsAddress), bufferMode);
+			long varyingsAddress = org.lwjgl.system.APIUtil.apiArrayASCII(stack, varyings);
+			nglTransformFeedbackVaryings(program, varyings.length, varyingsAddress, bufferMode);
+			org.lwjgl.system.APIUtil.apiArrayFree(varyingsAddress, varyings.length);
 		} finally {
-			__buffer.pointerArrayFree(varyingsAddress, varyings.length);
+			stack.setPointer(stackPointer);
 		}
 	}
 
 	/** Single varying version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence varying, int bufferMode) {
-		APIBuffer __buffer = apiBuffer();
-		int varyingsAddress = __buffer.pointerArrayParamASCII(varying);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			nglTransformFeedbackVaryings(program, 1, __buffer.address(varyingsAddress), bufferMode);
+			long varyingsAddress = org.lwjgl.system.APIUtil.apiArrayASCII(stack, varying);
+			nglTransformFeedbackVaryings(program, 1, varyingsAddress, bufferMode);
+			org.lwjgl.system.APIUtil.apiArrayFree(varyingsAddress, 1);
 		} finally {
-			__buffer.pointerArrayFree(varyingsAddress, 1);
+			stack.setPointer(stackPointer);
 		}
 	}
 
@@ -2628,7 +2665,9 @@ Ends transform feedback operation.
 
 	/** Unsafe version of {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name) {
-		long __functionAddress = getInstance().GetTransformFeedbackVarying;
+		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVarying;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
@@ -2671,11 +2710,15 @@ Ends transform feedback operation.
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufSize);
-		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufSize);
+			nglGetTransformFeedbackVarying(program, index, bufSize, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
@@ -2685,11 +2728,15 @@ Ends transform feedback operation.
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufSize);
-		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufSize);
+			nglGetTransformFeedbackVarying(program, index, bufSize, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glBindVertexArray ] ---
@@ -2702,7 +2749,9 @@ Ends transform feedback operation.
 	 * @param array the name of the vertex array to bind
 	 */
 	public static void glBindVertexArray(int array) {
-		long __functionAddress = getInstance().BindVertexArray;
+		long __functionAddress = GL.getCapabilities().glBindVertexArray;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, array);
 	}
 
@@ -2710,7 +2759,9 @@ Ends transform feedback operation.
 
 	/** Unsafe version of {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void nglDeleteVertexArrays(int n, long arrays) {
-		long __functionAddress = getInstance().DeleteVertexArrays;
+		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, arrays);
 	}
 
@@ -2735,16 +2786,22 @@ Ends transform feedback operation.
 
 	/** Single value version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(int array) {
-		APIBuffer __buffer = apiBuffer();
-		int arrays = __buffer.intParam(array);
-		nglDeleteVertexArrays(1, __buffer.address(arrays));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer arrays = stack.ints(array);
+			nglDeleteVertexArrays(1, memAddress(arrays));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenVertexArrays ] ---
 
 	/** Unsafe version of {@link #glGenVertexArrays GenVertexArrays} */
 	public static void nglGenVertexArrays(int n, long arrays) {
-		long __functionAddress = getInstance().GenVertexArrays;
+		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, arrays);
 	}
 
@@ -2769,10 +2826,14 @@ Ends transform feedback operation.
 
 	/** Single return value version of: {@link #glGenVertexArrays GenVertexArrays} */
 	public static int glGenVertexArrays() {
-		APIBuffer __buffer = apiBuffer();
-		int arrays = __buffer.intParam();
-		nglGenVertexArrays(1, __buffer.address(arrays));
-		return __buffer.intValue(arrays);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer arrays = stack.callocInt(1);
+			nglGenVertexArrays(1, memAddress(arrays));
+			return arrays.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsVertexArray ] ---
@@ -2785,7 +2846,9 @@ Ends transform feedback operation.
 	 * @param array a value that may be the name of a vertex array object
 	 */
 	public static boolean glIsVertexArray(int array) {
-		long __functionAddress = getInstance().IsVertexArray;
+		long __functionAddress = GL.getCapabilities().glIsVertexArray;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, array);
 	}
 

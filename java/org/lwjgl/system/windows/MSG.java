@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Contains message information from a thread's message queue.
@@ -43,7 +44,7 @@ public class MSG extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -61,11 +62,11 @@ public class MSG extends Struct {
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
 			__member(4),
-			__member(POINT.SIZEOF, POINT.__ALIGNMENT)
+			__member(POINT.SIZEOF, POINT.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		HWND = layout.offsetof(0);
 		MESSAGE = layout.offsetof(1);
@@ -213,6 +214,76 @@ public class MSG extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link MSG} instance allocated on the thread-local {@link MemoryStack}. */
+	public static MSG mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link MSG} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static MSG callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link MSG} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static MSG mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link MSG} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static MSG callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link MSG.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link MSG.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link MSG.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link MSG.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #hwnd}. */
 	public static long nhwnd(long struct) { return memGetAddress(struct + MSG.HWND); }
 	/** Unsafe version of {@link #message}. */
@@ -273,7 +344,7 @@ public class MSG extends Struct {
 
 		@Override
 		protected MSG newInstance(long address) {
-			return new MSG(address, container);
+			return new MSG(address, getContainer());
 		}
 
 		@Override

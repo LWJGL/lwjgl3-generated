@@ -22,41 +22,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTStaticBuffer {
 
-	/** Function address. */
-	public final long BufferDataStatic;
-
 	protected EXTStaticBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTStaticBuffer(FunctionProvider provider) {
-		BufferDataStatic = provider.getFunctionAddress("alBufferDataStatic");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTStaticBuffer} instance of the current context. */
-	public static EXTStaticBuffer getInstance() {
-		return checkFunctionality(AL.getCapabilities().__EXTStaticBuffer);
-	}
-
-	static EXTStaticBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("AL_EXT_static_buffer") ) return null;
-
-		EXTStaticBuffer funcs = new EXTStaticBuffer(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BufferDataStatic
+	static boolean isAvailable(ALCapabilities caps) {
+		return checkFunctions(
+			caps.alBufferDataStatic
 		);
-
-		return AL.checkExtension("AL_EXT_static_buffer", funcs, supported);
 	}
 
 	// --- [ alBufferDataStatic ] ---
 
 	/** Unsafe version of {@link #alBufferDataStatic BufferDataStatic} */
 	public static void nalBufferDataStatic(int buffer, int format, long data, int len, int freq) {
-		long __functionAddress = getInstance().BufferDataStatic;
+		long __functionAddress = AL.getCapabilities().alBufferDataStatic;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPIIV(__functionAddress, buffer, format, data, len, freq);
 	}
 

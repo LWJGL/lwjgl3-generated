@@ -136,53 +136,23 @@ public class GL12 {
 		GL_MAX_ELEMENTS_VERTICES = 0x80E8,
 		GL_MAX_ELEMENTS_INDICES  = 0x80E9;
 
-	/** Function address. */
-	public final long
-		TexImage3D,
-		TexSubImage3D,
-		CopyTexSubImage3D,
-		DrawRangeElements;
-
 	protected GL12() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL12(FunctionProvider provider) {
-		TexImage3D = provider.getFunctionAddress("glTexImage3D");
-		TexSubImage3D = provider.getFunctionAddress("glTexSubImage3D");
-		CopyTexSubImage3D = provider.getFunctionAddress("glCopyTexSubImage3D");
-		DrawRangeElements = provider.getFunctionAddress("glDrawRangeElements");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL12} instance of the current context. */
-	public static GL12 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL12} instance of the specified {@link GLCapabilities}. */
-	public static GL12 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL12);
-	}
-
-	static GL12 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL12") ) return null;
-
-		GL12 funcs = new GL12(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TexImage3D, funcs.TexSubImage3D, funcs.CopyTexSubImage3D, funcs.DrawRangeElements
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glTexImage3D, caps.glTexSubImage3D, caps.glCopyTexSubImage3D, caps.glDrawRangeElements
 		);
-
-		return GL.checkExtension("OpenGL12", funcs, supported);
 	}
 
 	// --- [ glTexImage3D ] ---
 
 	/** Unsafe version of {@link #glTexImage3D TexImage3D} */
 	public static void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
-		long __functionAddress = getInstance().TexImage3D;
+		long __functionAddress = GL.getCapabilities().glTexImage3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
@@ -247,7 +217,9 @@ public class GL12 {
 
 	/** Unsafe version of {@link #glTexSubImage3D TexSubImage3D} */
 	public static void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
-		long __functionAddress = getInstance().TexSubImage3D;
+		long __functionAddress = GL.getCapabilities().glTexSubImage3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
@@ -330,7 +302,9 @@ public class GL12 {
 	 * @param height  the texture subregion height
 	 */
 	public static void glCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().CopyTexSubImage3D;
+		long __functionAddress = GL.getCapabilities().glCopyTexSubImage3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
@@ -338,7 +312,9 @@ public class GL12 {
 
 	/** Unsafe version of {@link #glDrawRangeElements DrawRangeElements} */
 	public static void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices) {
-		long __functionAddress = getInstance().DrawRangeElements;
+		long __functionAddress = GL.getCapabilities().glDrawRangeElements;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIPV(__functionAddress, mode, start, end, count, type, indices);
 	}
 

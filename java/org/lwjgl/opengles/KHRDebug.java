@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -160,67 +160,25 @@ public class KHRDebug {
 		GL_PROGRAM_PIPELINE_KHR = 0x82E4,
 		GL_SAMPLER_KHR          = 0x82E6;
 
-	/** Function address. */
-	public final long
-		DebugMessageControlKHR,
-		DebugMessageInsertKHR,
-		DebugMessageCallbackKHR,
-		GetDebugMessageLogKHR,
-		GetPointervKHR,
-		PushDebugGroupKHR,
-		PopDebugGroupKHR,
-		ObjectLabelKHR,
-		GetObjectLabelKHR,
-		ObjectPtrLabelKHR,
-		GetObjectPtrLabelKHR;
-
 	protected KHRDebug() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRDebug(FunctionProvider provider) {
-		DebugMessageControlKHR = provider.getFunctionAddress("glDebugMessageControlKHR");
-		DebugMessageInsertKHR = provider.getFunctionAddress("glDebugMessageInsertKHR");
-		DebugMessageCallbackKHR = provider.getFunctionAddress("glDebugMessageCallbackKHR");
-		GetDebugMessageLogKHR = provider.getFunctionAddress("glGetDebugMessageLogKHR");
-		GetPointervKHR = provider.getFunctionAddress("glGetPointervKHR");
-		PushDebugGroupKHR = provider.getFunctionAddress("glPushDebugGroupKHR");
-		PopDebugGroupKHR = provider.getFunctionAddress("glPopDebugGroupKHR");
-		ObjectLabelKHR = provider.getFunctionAddress("glObjectLabelKHR");
-		GetObjectLabelKHR = provider.getFunctionAddress("glGetObjectLabelKHR");
-		ObjectPtrLabelKHR = provider.getFunctionAddress("glObjectPtrLabelKHR");
-		GetObjectPtrLabelKHR = provider.getFunctionAddress("glGetObjectPtrLabelKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRDebug} instance of the current context. */
-	public static KHRDebug getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link KHRDebug} instance of the specified {@link GLESCapabilities}. */
-	public static KHRDebug getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__KHRDebug);
-	}
-
-	static KHRDebug create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_KHR_debug") ) return null;
-
-		KHRDebug funcs = new KHRDebug(provider);
-		boolean supported = checkFunctions(
-			funcs.DebugMessageControlKHR, funcs.DebugMessageInsertKHR, funcs.DebugMessageCallbackKHR, funcs.GetDebugMessageLogKHR, funcs.GetPointervKHR, 
-			funcs.PushDebugGroupKHR, funcs.PopDebugGroupKHR, funcs.ObjectLabelKHR, funcs.GetObjectLabelKHR, funcs.ObjectPtrLabelKHR, funcs.GetObjectPtrLabelKHR
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glDebugMessageControlKHR, caps.glDebugMessageInsertKHR, caps.glDebugMessageCallbackKHR, caps.glGetDebugMessageLogKHR, caps.glGetPointervKHR, 
+			caps.glPushDebugGroupKHR, caps.glPopDebugGroupKHR, caps.glObjectLabelKHR, caps.glGetObjectLabelKHR, caps.glObjectPtrLabelKHR, 
+			caps.glGetObjectPtrLabelKHR
 		);
-
-		return GLES.checkExtension("GL_KHR_debug", funcs, supported);
 	}
 
 	// --- [ glDebugMessageControlKHR ] ---
 
 	/** Unsafe version of {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
 	public static void nglDebugMessageControlKHR(int source, int type, int severity, int count, long ids, boolean enabled) {
-		long __functionAddress = getInstance().DebugMessageControlKHR;
+		long __functionAddress = GLES.getCapabilities().glDebugMessageControlKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
@@ -271,16 +229,22 @@ public class KHRDebug {
 
 	/** Single value version of: {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
 	public static void glDebugMessageControlKHR(int source, int type, int severity, int id, boolean enabled) {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam(id);
-		nglDebugMessageControlKHR(source, type, severity, 1, __buffer.address(ids), enabled);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.ints(id);
+			nglDebugMessageControlKHR(source, type, severity, 1, memAddress(ids), enabled);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDebugMessageInsertKHR ] ---
 
 	/** Unsafe version of {@link #glDebugMessageInsertKHR DebugMessageInsertKHR} */
 	public static void nglDebugMessageInsertKHR(int source, int type, int id, int severity, int length, long message) {
-		long __functionAddress = getInstance().DebugMessageInsertKHR;
+		long __functionAddress = GLES.getCapabilities().glDebugMessageInsertKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIPV(__functionAddress, source, type, id, severity, length, message);
 	}
 
@@ -316,10 +280,14 @@ public class KHRDebug {
 
 	/** CharSequence version of: {@link #glDebugMessageInsertKHR DebugMessageInsertKHR} */
 	public static void glDebugMessageInsertKHR(int source, int type, int id, int severity, CharSequence message) {
-		APIBuffer __buffer = apiBuffer();
-		int messageEncoded = __buffer.stringParamUTF8(message, false);
-		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
-		nglDebugMessageInsertKHR(source, type, id, severity, messageEncodedLen, __buffer.address(messageEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer messageEncoded = stack.UTF8(message, false);
+			int messageEncodedLen = messageEncoded.capacity();
+			nglDebugMessageInsertKHR(source, type, id, severity, messageEncodedLen, memAddress(messageEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDebugMessageCallbackKHR ] ---
@@ -356,7 +324,9 @@ public class KHRDebug {
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
 	public static void glDebugMessageCallbackKHR(GLDebugMessageKHRCallback callback, long userParam) {
-		long __functionAddress = getInstance().DebugMessageCallbackKHR;
+		long __functionAddress = GLES.getCapabilities().glDebugMessageCallbackKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, callback == null ? NULL : callback.address(), userParam);
 	}
 
@@ -364,7 +334,9 @@ public class KHRDebug {
 
 	/** Unsafe version of {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR} */
 	public static int nglGetDebugMessageLogKHR(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
-		long __functionAddress = getInstance().GetDebugMessageLogKHR;
+		long __functionAddress = GLES.getCapabilities().glGetDebugMessageLogKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
 	}
 
@@ -429,7 +401,9 @@ public class KHRDebug {
 
 	/** Unsafe version of {@link #glGetPointervKHR GetPointervKHR} */
 	public static void nglGetPointervKHR(int pname, long params) {
-		long __functionAddress = getInstance().GetPointervKHR;
+		long __functionAddress = GLES.getCapabilities().glGetPointervKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
 
@@ -448,17 +422,23 @@ public class KHRDebug {
 
 	/** Single return value version of: {@link #glGetPointervKHR GetPointervKHR} */
 	public static long glGetPointerKHR(int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.pointerParam();
-		nglGetPointervKHR(pname, __buffer.address(params));
-		return __buffer.pointerValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer params = stack.callocPointer(1);
+			nglGetPointervKHR(pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glPushDebugGroupKHR ] ---
 
 	/** Unsafe version of {@link #glPushDebugGroupKHR PushDebugGroupKHR} */
 	public static void nglPushDebugGroupKHR(int source, int id, int length, long message) {
-		long __functionAddress = getInstance().PushDebugGroupKHR;
+		long __functionAddress = GLES.getCapabilities().glPushDebugGroupKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, source, id, length, message);
 	}
 
@@ -493,10 +473,14 @@ public class KHRDebug {
 
 	/** CharSequence version of: {@link #glPushDebugGroupKHR PushDebugGroupKHR} */
 	public static void glPushDebugGroupKHR(int source, int id, CharSequence message) {
-		APIBuffer __buffer = apiBuffer();
-		int messageEncoded = __buffer.stringParamUTF8(message, false);
-		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
-		nglPushDebugGroupKHR(source, id, messageEncodedLen, __buffer.address(messageEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer messageEncoded = stack.UTF8(message, false);
+			int messageEncodedLen = messageEncoded.capacity();
+			nglPushDebugGroupKHR(source, id, messageEncodedLen, memAddress(messageEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glPopDebugGroupKHR ] ---
@@ -512,7 +496,9 @@ public class KHRDebug {
 	 * {@link #GL_MAX_DEBUG_GROUP_STACK_DEPTH_KHR MAX_DEBUG_GROUP_STACK_DEPTH_KHR} minus one elements will generate a {@link #GL_STACK_OVERFLOW_KHR STACK_OVERFLOW_KHR} error.</p>
 	 */
 	public static void glPopDebugGroupKHR() {
-		long __functionAddress = getInstance().PopDebugGroupKHR;
+		long __functionAddress = GLES.getCapabilities().glPopDebugGroupKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -520,7 +506,9 @@ public class KHRDebug {
 
 	/** Unsafe version of {@link #glObjectLabelKHR ObjectLabelKHR} */
 	public static void nglObjectLabelKHR(int identifier, int name, int length, long label) {
-		long __functionAddress = getInstance().ObjectLabelKHR;
+		long __functionAddress = GLES.getCapabilities().glObjectLabelKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, identifier, name, length, label);
 	}
 
@@ -545,17 +533,23 @@ public class KHRDebug {
 
 	/** CharSequence version of: {@link #glObjectLabelKHR ObjectLabelKHR} */
 	public static void glObjectLabelKHR(int identifier, int name, CharSequence label) {
-		APIBuffer __buffer = apiBuffer();
-		int labelEncoded = __buffer.stringParamUTF8(label, false);
-		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
-		nglObjectLabelKHR(identifier, name, labelEncodedLen, __buffer.address(labelEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer labelEncoded = stack.UTF8(label, false);
+			int labelEncodedLen = labelEncoded.capacity();
+			nglObjectLabelKHR(identifier, name, labelEncodedLen, memAddress(labelEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetObjectLabelKHR ] ---
 
 	/** Unsafe version of {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
 	public static void nglGetObjectLabelKHR(int identifier, int name, int bufSize, long length, long label) {
-		long __functionAddress = getInstance().GetObjectLabelKHR;
+		long __functionAddress = GLES.getCapabilities().glGetObjectLabelKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
 	}
 
@@ -585,30 +579,40 @@ public class KHRDebug {
 
 	/** String return version of: {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
 	public static String glGetObjectLabelKHR(int identifier, int name, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectLabelKHR(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer label = stack.malloc(bufSize);
+			nglGetObjectLabelKHR(identifier, name, bufSize, memAddress(length), memAddress(label));
+			return memUTF8(label, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
 	public static String glGetObjectLabelKHR(int identifier, int name) {
 		int bufSize = GLES20.glGetInteger(GL_MAX_LABEL_LENGTH_KHR);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectLabelKHR(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer label = stack.malloc(bufSize);
+			nglGetObjectLabelKHR(identifier, name, bufSize, memAddress(length), memAddress(label));
+			return memUTF8(label, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glObjectPtrLabelKHR ] ---
 
 	/** Unsafe version of {@link #glObjectPtrLabelKHR ObjectPtrLabelKHR} */
 	public static void nglObjectPtrLabelKHR(long ptr, int length, long label) {
-		long __functionAddress = getInstance().ObjectPtrLabelKHR;
-		if ( CHECKS )
+		long __functionAddress = GLES.getCapabilities().glObjectPtrLabelKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
+		}
 		callPIPV(__functionAddress, ptr, length, label);
 	}
 
@@ -632,19 +636,25 @@ public class KHRDebug {
 
 	/** CharSequence version of: {@link #glObjectPtrLabelKHR ObjectPtrLabelKHR} */
 	public static void glObjectPtrLabelKHR(long ptr, CharSequence label) {
-		APIBuffer __buffer = apiBuffer();
-		int labelEncoded = __buffer.stringParamUTF8(label, false);
-		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
-		nglObjectPtrLabelKHR(ptr, labelEncodedLen, __buffer.address(labelEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer labelEncoded = stack.UTF8(label, false);
+			int labelEncodedLen = labelEncoded.capacity();
+			nglObjectPtrLabelKHR(ptr, labelEncodedLen, memAddress(labelEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetObjectPtrLabelKHR ] ---
 
 	/** Unsafe version of {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
 	public static void nglGetObjectPtrLabelKHR(long ptr, int bufSize, long length, long label) {
-		long __functionAddress = getInstance().GetObjectPtrLabelKHR;
-		if ( CHECKS )
+		long __functionAddress = GLES.getCapabilities().glGetObjectPtrLabelKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
+		}
 		callPIPPV(__functionAddress, ptr, bufSize, length, label);
 	}
 
@@ -673,21 +683,29 @@ public class KHRDebug {
 
 	/** String return version of: {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
 	public static String glGetObjectPtrLabelKHR(long ptr, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectPtrLabelKHR(ptr, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer label = stack.malloc(bufSize);
+			nglGetObjectPtrLabelKHR(ptr, bufSize, memAddress(length), memAddress(label));
+			return memUTF8(label, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
 	public static String glGetObjectPtrLabelKHR(long ptr) {
 		int bufSize = GLES20.glGetInteger(GL_MAX_LABEL_LENGTH_KHR);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectPtrLabelKHR(ptr, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer label = stack.malloc(bufSize);
+			nglGetObjectPtrLabelKHR(ptr, bufSize, memAddress(length), memAddress(label));
+			return memUTF8(label, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

@@ -40,65 +40,25 @@ public class WGLAMDGPUAssociation {
 		WGL_GPU_NUM_RB_AMD                = 0x21A7,
 		WGL_GPU_NUM_SPI_AMD               = 0x21A8;
 
-	/** Function address. */
-	public final long
-		GetGPUIDsAMD,
-		GetGPUInfoAMD,
-		GetContextGPUIDAMD,
-		CreateAssociatedContextAMD,
-		CreateAssociatedContextAttribsAMD,
-		DeleteAssociatedContextAMD,
-		MakeAssociatedContextCurrentAMD,
-		GetCurrentAssociatedContextAMD,
-		BlitContextFramebufferAMD;
-
 	protected WGLAMDGPUAssociation() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLAMDGPUAssociation(FunctionProvider provider) {
-		GetGPUIDsAMD = provider.getFunctionAddress("wglGetGPUIDsAMD");
-		GetGPUInfoAMD = provider.getFunctionAddress("wglGetGPUInfoAMD");
-		GetContextGPUIDAMD = provider.getFunctionAddress("wglGetContextGPUIDAMD");
-		CreateAssociatedContextAMD = provider.getFunctionAddress("wglCreateAssociatedContextAMD");
-		CreateAssociatedContextAttribsAMD = provider.getFunctionAddress("wglCreateAssociatedContextAttribsAMD");
-		DeleteAssociatedContextAMD = provider.getFunctionAddress("wglDeleteAssociatedContextAMD");
-		MakeAssociatedContextCurrentAMD = provider.getFunctionAddress("wglMakeAssociatedContextCurrentAMD");
-		GetCurrentAssociatedContextAMD = provider.getFunctionAddress("wglGetCurrentAssociatedContextAMD");
-		BlitContextFramebufferAMD = provider.getFunctionAddress("wglBlitContextFramebufferAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLAMDGPUAssociation} instance of the current context. */
-	public static WGLAMDGPUAssociation getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLAMDGPUAssociation} instance of the specified {@link GLCapabilities}. */
-	public static WGLAMDGPUAssociation getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLAMDGPUAssociation);
-	}
-
-	static WGLAMDGPUAssociation create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_AMD_gpu_association") ) return null;
-
-		WGLAMDGPUAssociation funcs = new WGLAMDGPUAssociation(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetGPUIDsAMD, funcs.GetGPUInfoAMD, funcs.GetContextGPUIDAMD, funcs.CreateAssociatedContextAMD, funcs.CreateAssociatedContextAttribsAMD, 
-			funcs.DeleteAssociatedContextAMD, funcs.MakeAssociatedContextCurrentAMD, funcs.GetCurrentAssociatedContextAMD, 
-			ext.contains("GL_EXT_framebuffer_blit") ? funcs.BlitContextFramebufferAMD : -1L
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglGetGPUIDsAMD, caps.wglGetGPUInfoAMD, caps.wglGetContextGPUIDAMD, caps.wglCreateAssociatedContextAMD, 
+			caps.wglCreateAssociatedContextAttribsAMD, caps.wglDeleteAssociatedContextAMD, caps.wglMakeAssociatedContextCurrentAMD, 
+			caps.wglGetCurrentAssociatedContextAMD
 		);
-
-		return GL.checkExtension("WGL_AMD_gpu_association", funcs, supported);
 	}
 
 	// --- [ wglGetGPUIDsAMD ] ---
 
 	/** Unsafe version of {@link #wglGetGPUIDsAMD GetGPUIDsAMD} */
 	public static int nwglGetGPUIDsAMD(int maxCount, long ids) {
-		long __functionAddress = getInstance().GetGPUIDsAMD;
+		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUIDsAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPI(__functionAddress, maxCount, ids);
 	}
 
@@ -106,8 +66,8 @@ public class WGLAMDGPUAssociation {
 	 * Returns the IDs for available GPUs.
 	 * 
 	 * <p>If the function succeeds, the return value is the number of total GPUs available. The value 0 is returned if no GPUs are available or if the call has
-	 * failed. The ID 0 is reserved and will not be retuned as a valid GPU ID. If the array {@code ids} is NULL, the function will only return the total number
-	 * of GPUs. {@code ids} will be tightly packed with no 0 values between valid ids.</p>
+	 * failed. The ID 0 is reserved and will not be retuned as a valid GPU ID. If the array {@code ids} is {@code NULL}, the function will only return the total
+	 * number of GPUs. {@code ids} will be tightly packed with no 0 values between valid ids.</p>
 	 *
 	 * @param maxCount the max number of IDs that can be returned
 	 * @param ids      the array of returned IDs
@@ -127,7 +87,9 @@ public class WGLAMDGPUAssociation {
 
 	/** Unsafe version of {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
 	public static int nwglGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
-		long __functionAddress = getInstance().GetGPUInfoAMD;
+		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUInfoAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIIIPI(__functionAddress, id, property, dataType, size, data);
 	}
 
@@ -135,10 +97,10 @@ public class WGLAMDGPUAssociation {
 	 * Each GPU in a system may have different properties, performance characteristics and different supported OpenGL versions. Use this function to determine
 	 * which GPU is best suited for a specific task.
 	 * 
-	 * <p>For a string, {@code size} will be the number of characters allocated and will include NULL termination. For arrays of type GL_UNSIGNED_INT, GL_INT, and
-	 * GL_FLOAT {@code size} will be the array depth. If the function succeeds, the number of values written will be returned. If the number of values written
-	 * is equal to {@code size}, the query should be repeated with a larger {@code data} buffer. Strings should be queried using the GL_UNSIGNED_BYTE type,
-	 * are UTF-8 encoded and will be NULL terminated. If the function fails, -1 will be returned.</p>
+	 * <p>For a string, {@code size} will be the number of characters allocated and will include {@code NULL} termination. For arrays of type GL_UNSIGNED_INT, GL_INT,
+	 * and GL_FLOAT {@code size} will be the array depth. If the function succeeds, the number of values written will be returned. If the number of values
+	 * written is equal to {@code size}, the query should be repeated with a larger {@code data} buffer. Strings should be queried using the GL_UNSIGNED_BYTE
+	 * type, are UTF-8 encoded and will be {@code NULL} terminated. If the function fails, -1 will be returned.</p>
 	 *
 	 * @param id       a GPU id obtained from calling {@link #wglGetGPUIDsAMD GetGPUIDsAMD}
 	 * @param property the information being queried. One of:<br>{@link #WGL_GPU_VENDOR_AMD GPU_VENDOR_AMD}, {@link #WGL_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}, {@link #WGL_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}, {@link #WGL_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}, {@link #WGL_GPU_RAM_AMD GPU_RAM_AMD}, {@link #WGL_GPU_CLOCK_AMD GPU_CLOCK_AMD}, {@link #WGL_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}, {@link #WGL_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}, {@link #WGL_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}, {@link #WGL_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}
@@ -179,9 +141,11 @@ public class WGLAMDGPUAssociation {
 	 * @param hglrc the context for which the GPU id will be returned
 	 */
 	public static int wglGetContextGPUIDAMD(long hglrc) {
-		long __functionAddress = getInstance().GetContextGPUIDAMD;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglGetContextGPUIDAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hglrc);
+		}
 		return callPI(__functionAddress, hglrc);
 	}
 
@@ -193,7 +157,9 @@ public class WGLAMDGPUAssociation {
 	 * @param id a valid GPU id
 	 */
 	public static long wglCreateAssociatedContextAMD(int id) {
-		long __functionAddress = getInstance().CreateAssociatedContextAMD;
+		long __functionAddress = GL.getCapabilitiesWGL().wglCreateAssociatedContextAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIP(__functionAddress, id);
 	}
 
@@ -201,7 +167,9 @@ public class WGLAMDGPUAssociation {
 
 	/** Unsafe version of {@link #wglCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	public static long nwglCreateAssociatedContextAttribsAMD(int id, long shareContext, long attribList) {
-		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
+		long __functionAddress = GL.getCapabilitiesWGL().wglCreateAssociatedContextAttribsAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPPP(__functionAddress, id, shareContext, attribList);
 	}
 
@@ -211,7 +179,7 @@ public class WGLAMDGPUAssociation {
 	 * <p>All capabilities and limitations of {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB} apply to {@code CreateAssociatedContextAttribsAMD}.</p>
 	 *
 	 * @param id           a valid GPU id
-	 * @param shareContext must either be NULL or that of an associated context created with the same GPU ID as {@code id}
+	 * @param shareContext must either be {@code NULL} or that of an associated context created with the same GPU ID as {@code id}
 	 * @param attribList   a 0-terminated list of attributes for the context
 	 */
 	public static long wglCreateAssociatedContextAttribsAMD(int id, long shareContext, ByteBuffer attribList) {
@@ -235,9 +203,11 @@ public class WGLAMDGPUAssociation {
 	 * @param hglrc a valid associated context created by calling {@link #wglCreateAssociatedContextAMD CreateAssociatedContextAMD}
 	 */
 	public static int wglDeleteAssociatedContextAMD(long hglrc) {
-		long __functionAddress = getInstance().DeleteAssociatedContextAMD;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglDeleteAssociatedContextAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hglrc);
+		}
 		return callPI(__functionAddress, hglrc);
 	}
 
@@ -249,9 +219,11 @@ public class WGLAMDGPUAssociation {
 	 * @param hglrc a context handle created by calling {@link #wglCreateAssociatedContextAMD CreateAssociatedContextAMD}
 	 */
 	public static int wglMakeAssociatedContextCurrentAMD(long hglrc) {
-		long __functionAddress = getInstance().MakeAssociatedContextCurrentAMD;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglMakeAssociatedContextCurrentAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hglrc);
+		}
 		return callPI(__functionAddress, hglrc);
 	}
 
@@ -259,7 +231,9 @@ public class WGLAMDGPUAssociation {
 
 	/** Returns the current associated context in the current thread. */
 	public static long wglGetCurrentAssociatedContextAMD() {
-		long __functionAddress = getInstance().GetCurrentAssociatedContextAMD;
+		long __functionAddress = GL.getCapabilitiesWGL().wglGetCurrentAssociatedContextAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callP(__functionAddress);
 	}
 
@@ -281,7 +255,7 @@ public class WGLAMDGPUAssociation {
 	 * @param filter the interpolation method to apply if the image is stretched. One of:<br>{@link GL11#GL_LINEAR}, {@link GL11#GL_NEAREST}
 	 */
 	public static void wglBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = getInstance().BlitContextFramebufferAMD;
+		long __functionAddress = GL.getCapabilitiesWGL().wglBlitContextFramebufferAMD;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dstCtx);

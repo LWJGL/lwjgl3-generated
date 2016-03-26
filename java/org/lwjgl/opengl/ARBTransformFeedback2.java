@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -45,53 +45,15 @@ public class ARBTransformFeedback2 {
 		GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE = 0x8E24,
 		GL_TRANSFORM_FEEDBACK_BINDING       = 0x8E25;
 
-	/** Function address. */
-	public final long
-		BindTransformFeedback,
-		DeleteTransformFeedbacks,
-		GenTransformFeedbacks,
-		IsTransformFeedback,
-		PauseTransformFeedback,
-		ResumeTransformFeedback,
-		DrawTransformFeedback;
-
 	protected ARBTransformFeedback2() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTransformFeedback2(FunctionProvider provider) {
-		BindTransformFeedback = provider.getFunctionAddress("glBindTransformFeedback");
-		DeleteTransformFeedbacks = provider.getFunctionAddress("glDeleteTransformFeedbacks");
-		GenTransformFeedbacks = provider.getFunctionAddress("glGenTransformFeedbacks");
-		IsTransformFeedback = provider.getFunctionAddress("glIsTransformFeedback");
-		PauseTransformFeedback = provider.getFunctionAddress("glPauseTransformFeedback");
-		ResumeTransformFeedback = provider.getFunctionAddress("glResumeTransformFeedback");
-		DrawTransformFeedback = provider.getFunctionAddress("glDrawTransformFeedback");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTransformFeedback2} instance of the current context. */
-	public static ARBTransformFeedback2 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTransformFeedback2} instance of the specified {@link GLCapabilities}. */
-	public static ARBTransformFeedback2 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTransformFeedback2);
-	}
-
-	static ARBTransformFeedback2 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_transform_feedback2") ) return null;
-
-		ARBTransformFeedback2 funcs = new ARBTransformFeedback2(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindTransformFeedback, funcs.DeleteTransformFeedbacks, funcs.GenTransformFeedbacks, funcs.IsTransformFeedback, funcs.PauseTransformFeedback, 
-			funcs.ResumeTransformFeedback, funcs.DrawTransformFeedback
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBindTransformFeedback, caps.glDeleteTransformFeedbacks, caps.glGenTransformFeedbacks, caps.glIsTransformFeedback, 
+			caps.glPauseTransformFeedback, caps.glResumeTransformFeedback, caps.glDrawTransformFeedback
 		);
-
-		return GL.checkExtension("GL_ARB_transform_feedback2", funcs, supported);
 	}
 
 	// --- [ glBindTransformFeedback ] ---
@@ -103,7 +65,9 @@ public class ARBTransformFeedback2 {
 	 * @param id     the name of a transform feedback object
 	 */
 	public static void glBindTransformFeedback(int target, int id) {
-		long __functionAddress = getInstance().BindTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glBindTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, id);
 	}
 
@@ -111,7 +75,9 @@ public class ARBTransformFeedback2 {
 
 	/** Unsafe version of {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
-		long __functionAddress = getInstance().DeleteTransformFeedbacks;
+		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacks;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -134,16 +100,22 @@ public class ARBTransformFeedback2 {
 
 	/** Single value version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(int id) {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam(id);
-		nglDeleteTransformFeedbacks(1, __buffer.address(ids));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.ints(id);
+			nglDeleteTransformFeedbacks(1, memAddress(ids));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenTransformFeedbacks ] ---
 
 	/** Unsafe version of {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static void nglGenTransformFeedbacks(int n, long ids) {
-		long __functionAddress = getInstance().GenTransformFeedbacks;
+		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacks;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -166,10 +138,14 @@ public class ARBTransformFeedback2 {
 
 	/** Single return value version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static int glGenTransformFeedbacks() {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam();
-		nglGenTransformFeedbacks(1, __buffer.address(ids));
-		return __buffer.intValue(ids);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.callocInt(1);
+			nglGenTransformFeedbacks(1, memAddress(ids));
+			return ids.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsTransformFeedback ] ---
@@ -180,7 +156,9 @@ public class ARBTransformFeedback2 {
 	 * @param id a value that may be the name of a transform feedback object
 	 */
 	public static boolean glIsTransformFeedback(int id) {
-		long __functionAddress = getInstance().IsTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glIsTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, id);
 	}
 
@@ -200,7 +178,9 @@ public class ARBTransformFeedback2 {
 	 * paused.</p>
 	 */
 	public static void glPauseTransformFeedback() {
-		long __functionAddress = getInstance().PauseTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glPauseTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -212,7 +192,9 @@ public class ARBTransformFeedback2 {
 	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated by {@link #glResumeTransformFeedback ResumeTransformFeedback} if the currently bound transform feedback is not active or is not paused.</p>
 	 */
 	public static void glResumeTransformFeedback() {
-		long __functionAddress = getInstance().ResumeTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glResumeTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -225,7 +207,9 @@ public class ARBTransformFeedback2 {
 	 * @param id   the name of a transform feedback object from which to retrieve a primitive count
 	 */
 	public static void glDrawTransformFeedback(int mode, int id) {
-		long __functionAddress = getInstance().DrawTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glDrawTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, mode, id);
 	}
 

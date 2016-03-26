@@ -35,53 +35,23 @@ public class ARBTransposeMatrix {
 		GL_TRANSPOSE_TEXTURE_MATRIX_ARB    = 0x84E5,
 		GL_TRANSPOSE_COLOR_MATRIX_ARB      = 0x84E6;
 
-	/** Function address. */
-	public final long
-		LoadTransposeMatrixfARB,
-		LoadTransposeMatrixdARB,
-		MultTransposeMatrixfARB,
-		MultTransposeMatrixdARB;
-
 	protected ARBTransposeMatrix() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTransposeMatrix(FunctionProvider provider) {
-		LoadTransposeMatrixfARB = provider.getFunctionAddress("glLoadTransposeMatrixfARB");
-		LoadTransposeMatrixdARB = provider.getFunctionAddress("glLoadTransposeMatrixdARB");
-		MultTransposeMatrixfARB = provider.getFunctionAddress("glMultTransposeMatrixfARB");
-		MultTransposeMatrixdARB = provider.getFunctionAddress("glMultTransposeMatrixdARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTransposeMatrix} instance of the current context. */
-	public static ARBTransposeMatrix getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTransposeMatrix} instance of the specified {@link GLCapabilities}. */
-	public static ARBTransposeMatrix getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTransposeMatrix);
-	}
-
-	static ARBTransposeMatrix create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_transpose_matrix") ) return null;
-
-		ARBTransposeMatrix funcs = new ARBTransposeMatrix(provider);
-
-		boolean supported = checkFunctions(
-			funcs.LoadTransposeMatrixfARB, funcs.LoadTransposeMatrixdARB, funcs.MultTransposeMatrixfARB, funcs.MultTransposeMatrixdARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glLoadTransposeMatrixfARB, caps.glLoadTransposeMatrixdARB, caps.glMultTransposeMatrixfARB, caps.glMultTransposeMatrixdARB
 		);
-
-		return GL.checkExtension("GL_ARB_transpose_matrix", funcs, supported);
 	}
 
 	// --- [ glLoadTransposeMatrixfARB ] ---
 
 	/** Unsafe version of {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} */
 	public static void nglLoadTransposeMatrixfARB(long m) {
-		long __functionAddress = getInstance().LoadTransposeMatrixfARB;
+		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixfARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 
@@ -116,7 +86,9 @@ public class ARBTransposeMatrix {
 
 	/** Unsafe version of {@link #glLoadTransposeMatrixdARB LoadTransposeMatrixdARB} */
 	public static void nglLoadTransposeMatrixdARB(long m) {
-		long __functionAddress = getInstance().LoadTransposeMatrixdARB;
+		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixdARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 
@@ -142,7 +114,9 @@ public class ARBTransposeMatrix {
 
 	/** Unsafe version of {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB} */
 	public static void nglMultTransposeMatrixfARB(long m) {
-		long __functionAddress = getInstance().MultTransposeMatrixfARB;
+		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixfARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 
@@ -168,7 +142,9 @@ public class ARBTransposeMatrix {
 
 	/** Unsafe version of {@link #glMultTransposeMatrixdARB MultTransposeMatrixdARB} */
 	public static void nglMultTransposeMatrixdARB(long m) {
-		long __functionAddress = getInstance().MultTransposeMatrixdARB;
+		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixdARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 

@@ -156,7 +156,7 @@ public abstract class GLFWDropCallback extends Closure.V {
 		String[] strings = new String[count];
 
 		for ( int i = 0; i < count; i++ )
-			strings[i] = memDecodeUTF8(memGetAddress(names + POINTER_SIZE * i));
+			strings[i] = memUTF8(memGetAddress(names + POINTER_SIZE * i));
 
 		return strings;
 	}
@@ -196,7 +196,7 @@ public abstract class GLFWDropCallback extends Closure.V {
 	 */
 	public static void apply(int count, long names, ConsumerString consumer) {
 		for ( int i = 0; i < count; i++ )
-			consumer.accept(i, memDecodeUTF8(memGetAddress(names + POINTER_SIZE * i)));
+			consumer.accept(i, memUTF8(memGetAddress(names + POINTER_SIZE * i)));
 	}
 
 	/** See {@link GLFW#glfwSetDropCallback SetDropCallback}. */

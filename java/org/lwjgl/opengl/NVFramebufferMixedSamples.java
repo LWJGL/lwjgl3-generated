@@ -48,52 +48,22 @@ public class NVFramebufferMixedSamples {
 		GL_COVERAGE_MODULATION_NV                = 0x9332,
 		GL_COVERAGE_MODULATION_TABLE_SIZE_NV     = 0x9333;
 
-	/** Function address. */
-	public final long
-		RasterSamplesEXT,
-		CoverageModulationTableNV,
-		GetCoverageModulationTableNV,
-		CoverageModulationNV;
-
 	protected NVFramebufferMixedSamples() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVFramebufferMixedSamples(FunctionProvider provider) {
-		RasterSamplesEXT = provider.getFunctionAddress("glRasterSamplesEXT");
-		CoverageModulationTableNV = provider.getFunctionAddress("glCoverageModulationTableNV");
-		GetCoverageModulationTableNV = provider.getFunctionAddress("glGetCoverageModulationTableNV");
-		CoverageModulationNV = provider.getFunctionAddress("glCoverageModulationNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVFramebufferMixedSamples} instance of the current context. */
-	public static NVFramebufferMixedSamples getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVFramebufferMixedSamples} instance of the specified {@link GLCapabilities}. */
-	public static NVFramebufferMixedSamples getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVFramebufferMixedSamples);
-	}
-
-	static NVFramebufferMixedSamples create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_framebuffer_mixed_samples") ) return null;
-
-		NVFramebufferMixedSamples funcs = new NVFramebufferMixedSamples(provider);
-
-		boolean supported = checkFunctions(
-			funcs.RasterSamplesEXT, funcs.CoverageModulationTableNV, funcs.GetCoverageModulationTableNV, funcs.CoverageModulationNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glRasterSamplesEXT, caps.glCoverageModulationTableNV, caps.glGetCoverageModulationTableNV, caps.glCoverageModulationNV
 		);
-
-		return GL.checkExtension("GL_NV_framebuffer_mixed_samples", funcs, supported);
 	}
 
 	// --- [ glRasterSamplesEXT ] ---
 
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().RasterSamplesEXT;
+		long __functionAddress = GL.getCapabilities().glRasterSamplesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIZV(__functionAddress, samples, fixedsamplelocations);
 	}
 
@@ -101,7 +71,9 @@ public class NVFramebufferMixedSamples {
 
 	/** Unsafe version of {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
 	public static void nglCoverageModulationTableNV(int n, long v) {
-		long __functionAddress = getInstance().CoverageModulationTableNV;
+		long __functionAddress = GL.getCapabilities().glCoverageModulationTableNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, v);
 	}
 
@@ -124,7 +96,9 @@ public class NVFramebufferMixedSamples {
 
 	/** Unsafe version of {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
 	public static void nglGetCoverageModulationTableNV(int bufsize, long v) {
-		long __functionAddress = getInstance().GetCoverageModulationTableNV;
+		long __functionAddress = GL.getCapabilities().glGetCoverageModulationTableNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, bufsize, v);
 	}
 
@@ -140,7 +114,9 @@ public class NVFramebufferMixedSamples {
 	// --- [ glCoverageModulationNV ] ---
 
 	public static void glCoverageModulationNV(int components) {
-		long __functionAddress = getInstance().CoverageModulationNV;
+		long __functionAddress = GL.getCapabilities().glCoverageModulationNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, components);
 	}
 

@@ -172,8 +172,8 @@ public class CoreFoundation {
 	 * Creates an immutable string from a C string.
 	 *
 	 * @param allocator the allocator to use to allocate memory for the new object. Pass {@code NULL} or {@code kCFAllocatorDefault} to use the current default allocator.
-	 * @param cStr      the NULL-terminated C string to be used to create the {@code CFString} object. The string must use an 8-bit encoding.
-	 * @param encoding  the encoding of the characters in the C string. The encoding must specify an 8-bit encoding.
+	 * @param cStr      the {@code NULL}-terminated C string to be used to create the {@code CFString} object. The string must use an 8-bit encoding.
+	 * @param encoding  the encoding of the characters in the C string. The encoding must specify an 8-bit encoding. One of:<br>{@link #kCFStringEncodingMacRoman}, {@link #kCFStringEncodingWindowsLatin1}, {@link #kCFStringEncodingISOLatin1}, {@link #kCFStringEncodingNextStepLatin}, {@link #kCFStringEncodingASCII}, {@link #kCFStringEncodingUnicode}, {@link #kCFStringEncodingUTF8}, {@link #kCFStringEncodingNonLossyASCII}, {@link #kCFStringEncodingUTF16}, {@link #kCFStringEncodingUTF16BE}, {@link #kCFStringEncodingUTF16LE}, {@link #kCFStringEncodingUTF32}, {@link #kCFStringEncodingUTF32BE}, {@link #kCFStringEncodingUTF32LE}
 	 */
 	public static long CFStringCreateWithCString(long allocator, ByteBuffer cStr, int encoding) {
 		return nCFStringCreateWithCString(allocator, memAddress(cStr), encoding);
@@ -188,8 +188,8 @@ public class CoreFoundation {
 	 * Creates a CFString object from an external C string buffer that might serve as the backing store for the object.
 	 *
 	 * @param allocator           the allocator to use to allocate memory for the new object. Pass {@code NULL} or {@code kCFAllocatorDefault} to use the current default allocator.
-	 * @param cStr                the NULL-terminated C string to be used to create the {@code CFString} object. The string must use an 8-bit encoding.
-	 * @param encoding            the encoding of the characters in the C string. The encoding must specify an 8-bit encoding.
+	 * @param cStr                the {@code NULL}-terminated C string to be used to create the {@code CFString} object. The string must use an 8-bit encoding.
+	 * @param encoding            the encoding of the characters in the C string. The encoding must specify an 8-bit encoding. One of:<br>{@link #kCFStringEncodingMacRoman}, {@link #kCFStringEncodingWindowsLatin1}, {@link #kCFStringEncodingISOLatin1}, {@link #kCFStringEncodingNextStepLatin}, {@link #kCFStringEncodingASCII}, {@link #kCFStringEncodingUnicode}, {@link #kCFStringEncodingUTF8}, {@link #kCFStringEncodingNonLossyASCII}, {@link #kCFStringEncodingUTF16}, {@link #kCFStringEncodingUTF16BE}, {@link #kCFStringEncodingUTF16LE}, {@link #kCFStringEncodingUTF32}, {@link #kCFStringEncodingUTF32BE}, {@link #kCFStringEncodingUTF32LE}
 	 * @param contentsDeallocator the {@code CFAllocator} object to use to deallocate the external string buffer when it is no longer needed. You can pass {@code NULL} or
 	 *                            {@code kCFAllocatorDefault} to request the default allocator for this purpose. If the buffer does not need to be deallocated, or if you want to
 	 *                            assume responsibility for deallocating the buffer (and not have the {@code CFString} object deallocate it), pass {@code kCFAllocatorNull}.
@@ -209,7 +209,7 @@ public class CoreFoundation {
 	 * @param allocator   the allocator to use to allocate memory for the new object. Pass {@code NULL} or {@code kCFAllocatorDefault} to use the current default allocator.
 	 * @param filePath    the path string to convert to a {@code CFURL} object. If {@code filePath} is not absolute, the resulting URL will be considered relative to the
 	 *                    current working directory (evaluated when this function is being invoked).
-	 * @param pathStyle   the operating system path style used in {@code filePath}
+	 * @param pathStyle   the operating system path style used in {@code filePath}. One of:<br>{@link #kCFURLPOSIXPathStyle}, {@link #kCFURLHFSPathStyle}, {@link #kCFURLWindowsPathStyle}
 	 * @param isDirectory a Boolean value that specifies whether filePath is treated as a directory path when resolving against relative path components. Pass true if the
 	 *                    pathname indicates a directory, false otherwise.
 	 */

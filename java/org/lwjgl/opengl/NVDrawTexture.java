@@ -24,45 +24,22 @@ import static org.lwjgl.system.JNI.*;
  */
 public class NVDrawTexture {
 
-	/** Function address. */
-	public final long DrawTextureNV;
-
 	protected NVDrawTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVDrawTexture(FunctionProvider provider) {
-		DrawTextureNV = provider.getFunctionAddress("glDrawTextureNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVDrawTexture} instance of the current context. */
-	public static NVDrawTexture getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVDrawTexture} instance of the specified {@link GLCapabilities}. */
-	public static NVDrawTexture getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVDrawTexture);
-	}
-
-	static NVDrawTexture create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_draw_texture") ) return null;
-
-		NVDrawTexture funcs = new NVDrawTexture(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DrawTextureNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawTextureNV
 		);
-
-		return GL.checkExtension("GL_NV_draw_texture", funcs, supported);
 	}
 
 	// --- [ glDrawTextureNV ] ---
 
 	public static void glDrawTextureNV(int texture, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1) {
-		long __functionAddress = getInstance().DrawTextureNV;
+		long __functionAddress = GL.getCapabilities().glDrawTextureNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIFFFFFFFFFV(__functionAddress, texture, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
 	}
 

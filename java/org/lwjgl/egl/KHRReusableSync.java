@@ -44,45 +44,25 @@ public class KHRReusableSync {
 		EGL_FOREVER_KHR = 0xFFFFFFFFFFFFFFFFL,
 		EGL_NO_SYNC_KHR = 0x0L;
 
-	/** Function address. */
-	public final long
-		CreateSyncKHR,
-		DestroySyncKHR,
-		ClientWaitSyncKHR,
-		SignalSyncKHR,
-		GetSyncAttribKHR;
-
 	protected KHRReusableSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRReusableSync(FunctionProvider provider) {
-		CreateSyncKHR = provider.getFunctionAddress("eglCreateSyncKHR");
-		DestroySyncKHR = provider.getFunctionAddress("eglDestroySyncKHR");
-		ClientWaitSyncKHR = provider.getFunctionAddress("eglClientWaitSyncKHR");
-		SignalSyncKHR = provider.getFunctionAddress("eglSignalSyncKHR");
-		GetSyncAttribKHR = provider.getFunctionAddress("eglGetSyncAttribKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRReusableSync} instance. */
-	public static KHRReusableSync getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRReusableSync} instance of the specified {@link EGLCapabilities}. */
-	public static KHRReusableSync getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRReusableSync);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglCreateSyncKHR, caps.eglDestroySyncKHR, caps.eglClientWaitSyncKHR, caps.eglSignalSyncKHR, caps.eglGetSyncAttribKHR
+		);
 	}
 
 	// --- [ eglCreateSyncKHR ] ---
 
 	/** Unsafe version of {@link #eglCreateSyncKHR CreateSyncKHR} */
 	public static long neglCreateSyncKHR(long dpy, int type, long attrib_list) {
-		long __functionAddress = getInstance().CreateSyncKHR;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
@@ -102,8 +82,9 @@ public class KHRReusableSync {
 	// --- [ eglDestroySyncKHR ] ---
 
 	public static int eglDestroySyncKHR(long dpy, long sync) {
-		long __functionAddress = getInstance().DestroySyncKHR;
+		long __functionAddress = EGL.getCapabilities().eglDestroySyncKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -113,8 +94,9 @@ public class KHRReusableSync {
 	// --- [ eglClientWaitSyncKHR ] ---
 
 	public static int eglClientWaitSyncKHR(long dpy, long sync, int flags, long timeout) {
-		long __functionAddress = getInstance().ClientWaitSyncKHR;
+		long __functionAddress = EGL.getCapabilities().eglClientWaitSyncKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -124,8 +106,9 @@ public class KHRReusableSync {
 	// --- [ eglSignalSyncKHR ] ---
 
 	public static int eglSignalSyncKHR(long dpy, long sync, int mode) {
-		long __functionAddress = getInstance().SignalSyncKHR;
+		long __functionAddress = EGL.getCapabilities().eglSignalSyncKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -136,8 +119,9 @@ public class KHRReusableSync {
 
 	/** Unsafe version of {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
 	public static int neglGetSyncAttribKHR(long dpy, long sync, int attribute, long value) {
-		long __functionAddress = getInstance().GetSyncAttribKHR;
+		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}

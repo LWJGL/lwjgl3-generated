@@ -25,39 +25,14 @@ public class GLXEXTSwapControl {
 		GLX_SWAP_INTERVAL_EXT     = 0x20F1,
 		GLX_MAX_SWAP_INTERVAL_EXT = 0x20F2;
 
-	/** Function address. */
-	public final long SwapIntervalEXT;
-
 	protected GLXEXTSwapControl() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXEXTSwapControl(FunctionProvider provider) {
-		SwapIntervalEXT = provider.getFunctionAddress("glXSwapIntervalEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXEXTSwapControl} instance of the current context. */
-	public static GLXEXTSwapControl getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXEXTSwapControl} instance of the specified {@link GLCapabilities}. */
-	public static GLXEXTSwapControl getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXEXTSwapControl);
-	}
-
-	static GLXEXTSwapControl create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_EXT_swap_control") ) return null;
-
-		GLXEXTSwapControl funcs = new GLXEXTSwapControl(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SwapIntervalEXT
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXSwapIntervalEXT
 		);
-
-		return GL.checkExtension("GLX_EXT_swap_control", funcs, supported);
 	}
 
 	// --- [ glXSwapIntervalEXT ] ---
@@ -72,8 +47,9 @@ public class GLXEXTSwapControl {
 	 * @param interval the swap interval
 	 */
 	public static void glXSwapIntervalEXT(long display, long drawable, int interval) {
-		long __functionAddress = getInstance().SwapIntervalEXT;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXSwapIntervalEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}

@@ -91,54 +91,31 @@ public class QCOMTiledRendering {
 		GL_MULTISAMPLE_BUFFER_BIT6_QCOM = 0x40000000,
 		GL_MULTISAMPLE_BUFFER_BIT7_QCOM = 0x80000000;
 
-	/** Function address. */
-	public final long
-		StartTilingQCOM,
-		EndTilingQCOM;
-
 	protected QCOMTiledRendering() {
 		throw new UnsupportedOperationException();
 	}
 
-	public QCOMTiledRendering(FunctionProvider provider) {
-		StartTilingQCOM = provider.getFunctionAddress("glStartTilingQCOM");
-		EndTilingQCOM = provider.getFunctionAddress("glEndTilingQCOM");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link QCOMTiledRendering} instance of the current context. */
-	public static QCOMTiledRendering getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link QCOMTiledRendering} instance of the specified {@link GLESCapabilities}. */
-	public static QCOMTiledRendering getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__QCOMTiledRendering);
-	}
-
-	static QCOMTiledRendering create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_QCOM_tiled_rendering") ) return null;
-
-		QCOMTiledRendering funcs = new QCOMTiledRendering(provider);
-		boolean supported = checkFunctions(
-			funcs.StartTilingQCOM, funcs.EndTilingQCOM
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glStartTilingQCOM, caps.glEndTilingQCOM
 		);
-
-		return GLES.checkExtension("GL_QCOM_tiled_rendering", funcs, supported);
 	}
 
 	// --- [ glStartTilingQCOM ] ---
 
 	public static void glStartTilingQCOM(int x, int y, int width, int height, int preserveMask) {
-		long __functionAddress = getInstance().StartTilingQCOM;
+		long __functionAddress = GLES.getCapabilities().glStartTilingQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, x, y, width, height, preserveMask);
 	}
 
 	// --- [ glEndTilingQCOM ] ---
 
 	public static void glEndTilingQCOM(int preserveMask) {
-		long __functionAddress = getInstance().EndTilingQCOM;
+		long __functionAddress = GLES.getCapabilities().glEndTilingQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, preserveMask);
 	}
 

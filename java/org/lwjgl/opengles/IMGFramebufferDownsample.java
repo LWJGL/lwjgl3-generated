@@ -35,54 +35,31 @@ public class IMGFramebufferDownsample {
 	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
 	public static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG = 0x913F;
 
-	/** Function address. */
-	public final long
-		FramebufferTexture2DDownsampleIMG,
-		FramebufferTextureLayerDownsampleIMG;
-
 	protected IMGFramebufferDownsample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public IMGFramebufferDownsample(FunctionProvider provider) {
-		FramebufferTexture2DDownsampleIMG = provider.getFunctionAddress("glFramebufferTexture2DDownsampleIMG");
-		FramebufferTextureLayerDownsampleIMG = provider.getFunctionAddress("glFramebufferTextureLayerDownsampleIMG");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link IMGFramebufferDownsample} instance of the current context. */
-	public static IMGFramebufferDownsample getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link IMGFramebufferDownsample} instance of the specified {@link GLESCapabilities}. */
-	public static IMGFramebufferDownsample getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__IMGFramebufferDownsample);
-	}
-
-	static IMGFramebufferDownsample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_IMG_framebuffer_downsample") ) return null;
-
-		IMGFramebufferDownsample funcs = new IMGFramebufferDownsample(provider);
-		boolean supported = checkFunctions(
-			funcs.FramebufferTexture2DDownsampleIMG, funcs.FramebufferTextureLayerDownsampleIMG
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glFramebufferTexture2DDownsampleIMG, caps.glFramebufferTextureLayerDownsampleIMG
 		);
-
-		return GLES.checkExtension("GL_IMG_framebuffer_downsample", funcs, supported);
 	}
 
 	// --- [ glFramebufferTexture2DDownsampleIMG ] ---
 
 	public static void glFramebufferTexture2DDownsampleIMG(int target, int attachment, int textarget, int texture, int level, int xscale, int yscale) {
-		long __functionAddress = getInstance().FramebufferTexture2DDownsampleIMG;
+		long __functionAddress = GLES.getCapabilities().glFramebufferTexture2DDownsampleIMG;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, xscale, yscale);
 	}
 
 	// --- [ glFramebufferTextureLayerDownsampleIMG ] ---
 
 	public static void glFramebufferTextureLayerDownsampleIMG(int target, int attachment, int texture, int level, int layer, int xscale, int yscale) {
-		long __functionAddress = getInstance().FramebufferTextureLayerDownsampleIMG;
+		long __functionAddress = GLES.getCapabilities().glFramebufferTextureLayerDownsampleIMG;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIV(__functionAddress, target, attachment, texture, level, layer, xscale, yscale);
 	}
 

@@ -67,45 +67,25 @@ public class KHRStream {
 		EGL_BAD_STREAM_KHR                       = 0x321B,
 		EGL_BAD_STATE_KHR                        = 0x321C;
 
-	/** Function address. */
-	public final long
-		CreateStreamKHR,
-		DestroyStreamKHR,
-		StreamAttribKHR,
-		QueryStreamKHR,
-		QueryStreamu64KHR;
-
 	protected KHRStream() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRStream(FunctionProvider provider) {
-		CreateStreamKHR = provider.getFunctionAddress("eglCreateStreamKHR");
-		DestroyStreamKHR = provider.getFunctionAddress("eglDestroyStreamKHR");
-		StreamAttribKHR = provider.getFunctionAddress("eglStreamAttribKHR");
-		QueryStreamKHR = provider.getFunctionAddress("eglQueryStreamKHR");
-		QueryStreamu64KHR = provider.getFunctionAddress("eglQueryStreamu64KHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRStream} instance. */
-	public static KHRStream getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRStream} instance of the specified {@link EGLCapabilities}. */
-	public static KHRStream getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRStream);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglCreateStreamKHR, caps.eglDestroyStreamKHR, caps.eglStreamAttribKHR, caps.eglQueryStreamKHR, caps.eglQueryStreamu64KHR
+		);
 	}
 
 	// --- [ eglCreateStreamKHR ] ---
 
 	/** Unsafe version of {@link #eglCreateStreamKHR CreateStreamKHR} */
 	public static long neglCreateStreamKHR(long dpy, long attrib_list) {
-		long __functionAddress = getInstance().CreateStreamKHR;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglCreateStreamKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPPP(__functionAddress, dpy, attrib_list);
 	}
 
@@ -125,8 +105,9 @@ public class KHRStream {
 	// --- [ eglDestroyStreamKHR ] ---
 
 	public static int eglDestroyStreamKHR(long dpy, long stream) {
-		long __functionAddress = getInstance().DestroyStreamKHR;
+		long __functionAddress = EGL.getCapabilities().eglDestroyStreamKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -136,8 +117,9 @@ public class KHRStream {
 	// --- [ eglStreamAttribKHR ] ---
 
 	public static int eglStreamAttribKHR(long dpy, long stream, int attribute, int value) {
-		long __functionAddress = getInstance().StreamAttribKHR;
+		long __functionAddress = EGL.getCapabilities().eglStreamAttribKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -148,8 +130,9 @@ public class KHRStream {
 
 	/** Unsafe version of {@link #eglQueryStreamKHR QueryStreamKHR} */
 	public static int neglQueryStreamKHR(long dpy, long stream, int attribute, long value) {
-		long __functionAddress = getInstance().QueryStreamKHR;
+		long __functionAddress = EGL.getCapabilities().eglQueryStreamKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -173,8 +156,9 @@ public class KHRStream {
 
 	/** Unsafe version of {@link #eglQueryStreamu64KHR QueryStreamu64KHR} */
 	public static int neglQueryStreamu64KHR(long dpy, long stream, int attribute, long value) {
-		long __functionAddress = getInstance().QueryStreamu64KHR;
+		long __functionAddress = EGL.getCapabilities().eglQueryStreamu64KHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}

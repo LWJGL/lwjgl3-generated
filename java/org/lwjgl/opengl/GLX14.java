@@ -23,46 +23,23 @@ public class GLX14 {
 		GLX_SAMPLE_BUFFERS = 0x186A0,
 		GLX_SAMPLES        = 0x186A1;
 
-	/** Function address. */
-	public final long GetProcAddress;
-
 	protected GLX14() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLX14(FunctionProvider provider) {
-		GetProcAddress = provider.getFunctionAddress("glXGetProcAddress");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLX14} instance of the current context. */
-	public static GLX14 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLX14} instance of the specified {@link GLCapabilities}. */
-	public static GLX14 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLX14);
-	}
-
-	static GLX14 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX14") ) return null;
-
-		GLX14 funcs = new GLX14(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetProcAddress
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXGetProcAddress
 		);
-
-		return GL.checkExtension("GLX14", funcs, supported);
 	}
 
 	// --- [ glXGetProcAddress ] ---
 
 	/** Unsafe version of {@link #glXGetProcAddress GetProcAddress} */
 	public static long nglXGetProcAddress(long procName) {
-		long __functionAddress = getInstance().GetProcAddress;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetProcAddress;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callPP(__functionAddress, procName);
 	}
 

@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -67,51 +67,22 @@ public class EXTRobustness {
 		GL_LOSE_CONTEXT_ON_RESET_EXT = 0x8252,
 		GL_NO_RESET_NOTIFICATION_EXT = 0x8261;
 
-	/** Function address. */
-	public final long
-		GetGraphicsResetStatusEXT,
-		ReadnPixelsEXT,
-		GetnUniformfvEXT,
-		GetnUniformivEXT;
-
 	protected EXTRobustness() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTRobustness(FunctionProvider provider) {
-		GetGraphicsResetStatusEXT = provider.getFunctionAddress("glGetGraphicsResetStatusEXT");
-		ReadnPixelsEXT = provider.getFunctionAddress("glReadnPixelsEXT");
-		GetnUniformfvEXT = provider.getFunctionAddress("glGetnUniformfvEXT");
-		GetnUniformivEXT = provider.getFunctionAddress("glGetnUniformivEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTRobustness} instance of the current context. */
-	public static EXTRobustness getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTRobustness} instance of the specified {@link GLESCapabilities}. */
-	public static EXTRobustness getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTRobustness);
-	}
-
-	static EXTRobustness create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_robustness") ) return null;
-
-		EXTRobustness funcs = new EXTRobustness(provider);
-		boolean supported = checkFunctions(
-			funcs.GetGraphicsResetStatusEXT, funcs.ReadnPixelsEXT, funcs.GetnUniformfvEXT, funcs.GetnUniformivEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glGetGraphicsResetStatusEXT, caps.glReadnPixelsEXT, caps.glGetnUniformfvEXT, caps.glGetnUniformivEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_robustness", funcs, supported);
 	}
 
 	// --- [ glGetGraphicsResetStatusEXT ] ---
 
 	public static int glGetGraphicsResetStatusEXT() {
-		long __functionAddress = getInstance().GetGraphicsResetStatusEXT;
+		long __functionAddress = GLES.getCapabilities().glGetGraphicsResetStatusEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -119,7 +90,9 @@ public class EXTRobustness {
 
 	/** Unsafe version of {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void nglReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
-		long __functionAddress = getInstance().ReadnPixelsEXT;
+		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
 	}
 
@@ -170,7 +143,9 @@ public class EXTRobustness {
 
 	/** Unsafe version of {@link #glGetnUniformfvEXT GetnUniformfvEXT} */
 	public static void nglGetnUniformfvEXT(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformfvEXT;
+		long __functionAddress = GLES.getCapabilities().glGetnUniformfvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -187,17 +162,23 @@ public class EXTRobustness {
 
 	/** Single return value version of: {@link #glGetnUniformfvEXT GetnUniformfvEXT} */
 	public static float glGetnUniformfEXT(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetnUniformfvEXT(program, location, 1, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetnUniformfvEXT(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnUniformivEXT ] ---
 
 	/** Unsafe version of {@link #glGetnUniformivEXT GetnUniformivEXT} */
 	public static void nglGetnUniformivEXT(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformivEXT;
+		long __functionAddress = GLES.getCapabilities().glGetnUniformivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -214,10 +195,14 @@ public class EXTRobustness {
 
 	/** Single return value version of: {@link #glGetnUniformivEXT GetnUniformivEXT} */
 	public static int glGetnUniformiEXT(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetnUniformivEXT(program, location, 1, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetnUniformivEXT(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

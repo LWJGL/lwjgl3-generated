@@ -13,6 +13,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -220,148 +221,73 @@ public class CGL {
 		kCGLSupersampleBit = 0x1,
 		kCGLMultisampleBit = 0x2;
 
-	/** Function address. */
-	public final long
-		GetCurrentContext,
-		SetCurrentContext,
-		GetShareGroup,
-		ChoosePixelFormat,
-		DestroyPixelFormat,
-		DescribePixelFormat,
-		ReleasePixelFormat,
-		RetainPixelFormat,
-		GetPixelFormatRetainCount,
-		QueryRendererInfo,
-		DestroyRendererInfo,
-		DescribeRenderer,
-		CreateContext,
-		DestroyContext,
-		CopyContext,
-		RetainContext,
-		ReleaseContext,
-		GetContextRetainCount,
-		GetPixelFormat,
-		CreatePBuffer,
-		DestroyPBuffer,
-		DescribePBuffer,
-		TexImagePBuffer,
-		RetainPBuffer,
-		ReleasePBuffer,
-		GetPBufferRetainCount,
-		SetOffScreen,
-		GetOffScreen,
-		SetFullScreen,
-		SetFullScreenOnDisplay,
-		SetPBuffer,
-		GetPBuffer,
-		ClearDrawable,
-		FlushDrawable,
-		Enable,
-		Disable,
-		IsEnabled,
-		SetParameter,
-		GetParameter,
-		SetVirtualScreen,
-		GetVirtualScreen,
-		UpdateContext,
-		SetGlobalOption,
-		GetGlobalOption,
-		LockContext,
-		UnlockContext,
-		GetVersion,
-		ErrorString;
-
 	protected CGL() {
 		throw new UnsupportedOperationException();
 	}
 
-	public CGL(FunctionProvider provider) {
-		GetCurrentContext = provider.getFunctionAddress("CGLGetCurrentContext");
-		SetCurrentContext = provider.getFunctionAddress("CGLSetCurrentContext");
-		GetShareGroup = provider.getFunctionAddress("CGLGetShareGroup");
-		ChoosePixelFormat = provider.getFunctionAddress("CGLChoosePixelFormat");
-		DestroyPixelFormat = provider.getFunctionAddress("CGLDestroyPixelFormat");
-		DescribePixelFormat = provider.getFunctionAddress("CGLDescribePixelFormat");
-		ReleasePixelFormat = provider.getFunctionAddress("CGLReleasePixelFormat");
-		RetainPixelFormat = provider.getFunctionAddress("CGLRetainPixelFormat");
-		GetPixelFormatRetainCount = provider.getFunctionAddress("CGLGetPixelFormatRetainCount");
-		QueryRendererInfo = provider.getFunctionAddress("CGLQueryRendererInfo");
-		DestroyRendererInfo = provider.getFunctionAddress("CGLDestroyRendererInfo");
-		DescribeRenderer = provider.getFunctionAddress("CGLDescribeRenderer");
-		CreateContext = provider.getFunctionAddress("CGLCreateContext");
-		DestroyContext = provider.getFunctionAddress("CGLDestroyContext");
-		CopyContext = provider.getFunctionAddress("CGLCopyContext");
-		RetainContext = provider.getFunctionAddress("CGLRetainContext");
-		ReleaseContext = provider.getFunctionAddress("CGLReleaseContext");
-		GetContextRetainCount = provider.getFunctionAddress("CGLGetContextRetainCount");
-		GetPixelFormat = provider.getFunctionAddress("CGLGetPixelFormat");
-		CreatePBuffer = provider.getFunctionAddress("CGLCreatePBuffer");
-		DestroyPBuffer = provider.getFunctionAddress("CGLDestroyPBuffer");
-		DescribePBuffer = provider.getFunctionAddress("CGLDescribePBuffer");
-		TexImagePBuffer = provider.getFunctionAddress("CGLTexImagePBuffer");
-		RetainPBuffer = provider.getFunctionAddress("CGLRetainPBuffer");
-		ReleasePBuffer = provider.getFunctionAddress("CGLReleasePBuffer");
-		GetPBufferRetainCount = provider.getFunctionAddress("CGLGetPBufferRetainCount");
-		SetOffScreen = provider.getFunctionAddress("CGLSetOffScreen");
-		GetOffScreen = provider.getFunctionAddress("CGLGetOffScreen");
-		SetFullScreen = provider.getFunctionAddress("CGLSetFullScreen");
-		SetFullScreenOnDisplay = provider.getFunctionAddress("CGLSetFullScreenOnDisplay");
-		SetPBuffer = provider.getFunctionAddress("CGLSetPBuffer");
-		GetPBuffer = provider.getFunctionAddress("CGLGetPBuffer");
-		ClearDrawable = provider.getFunctionAddress("CGLClearDrawable");
-		FlushDrawable = provider.getFunctionAddress("CGLFlushDrawable");
-		Enable = provider.getFunctionAddress("CGLEnable");
-		Disable = provider.getFunctionAddress("CGLDisable");
-		IsEnabled = provider.getFunctionAddress("CGLIsEnabled");
-		SetParameter = provider.getFunctionAddress("CGLSetParameter");
-		GetParameter = provider.getFunctionAddress("CGLGetParameter");
-		SetVirtualScreen = provider.getFunctionAddress("CGLSetVirtualScreen");
-		GetVirtualScreen = provider.getFunctionAddress("CGLGetVirtualScreen");
-		UpdateContext = provider.getFunctionAddress("CGLUpdateContext");
-		SetGlobalOption = provider.getFunctionAddress("CGLSetGlobalOption");
-		GetGlobalOption = provider.getFunctionAddress("CGLGetGlobalOption");
-		LockContext = provider.getFunctionAddress("CGLLockContext");
-		UnlockContext = provider.getFunctionAddress("CGLUnlockContext");
-		GetVersion = provider.getFunctionAddress("CGLGetVersion");
-		ErrorString = provider.getFunctionAddress("CGLErrorString");
-	}
+	/** Contains the function pointers loaded from {@code GL.getFunctionProvider()}. */
+	public static final class Functions {
 
-	// --- [ Function Addresses ] ---
+		private Functions() {}
 
-	/** Returns the {@link CGL} instance of the current context. */
-	public static CGL getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
+		/** Function address. */
+		public static final long
+			GetCurrentContext = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetCurrentContext"),
+			SetCurrentContext = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLSetCurrentContext"),
+			GetShareGroup = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetShareGroup"),
+			ChoosePixelFormat = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLChoosePixelFormat"),
+			DestroyPixelFormat = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLDestroyPixelFormat"),
+			DescribePixelFormat = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLDescribePixelFormat"),
+			ReleasePixelFormat = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLReleasePixelFormat"),
+			RetainPixelFormat = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLRetainPixelFormat"),
+			GetPixelFormatRetainCount = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetPixelFormatRetainCount"),
+			QueryRendererInfo = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLQueryRendererInfo"),
+			DestroyRendererInfo = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLDestroyRendererInfo"),
+			DescribeRenderer = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLDescribeRenderer"),
+			CreateContext = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLCreateContext"),
+			DestroyContext = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLDestroyContext"),
+			CopyContext = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLCopyContext"),
+			RetainContext = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLRetainContext"),
+			ReleaseContext = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLReleaseContext"),
+			GetContextRetainCount = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetContextRetainCount"),
+			GetPixelFormat = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetPixelFormat"),
+			CreatePBuffer = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLCreatePBuffer"),
+			DestroyPBuffer = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLDestroyPBuffer"),
+			DescribePBuffer = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLDescribePBuffer"),
+			TexImagePBuffer = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLTexImagePBuffer"),
+			RetainPBuffer = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLRetainPBuffer"),
+			ReleasePBuffer = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLReleasePBuffer"),
+			GetPBufferRetainCount = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetPBufferRetainCount"),
+			SetOffScreen = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLSetOffScreen"),
+			GetOffScreen = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetOffScreen"),
+			SetFullScreen = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLSetFullScreen"),
+			SetFullScreenOnDisplay = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLSetFullScreenOnDisplay"),
+			SetPBuffer = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLSetPBuffer"),
+			GetPBuffer = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetPBuffer"),
+			ClearDrawable = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLClearDrawable"),
+			FlushDrawable = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLFlushDrawable"),
+			Enable = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLEnable"),
+			Disable = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLDisable"),
+			IsEnabled = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLIsEnabled"),
+			SetParameter = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLSetParameter"),
+			GetParameter = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetParameter"),
+			SetVirtualScreen = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLSetVirtualScreen"),
+			GetVirtualScreen = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetVirtualScreen"),
+			UpdateContext = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLUpdateContext"),
+			SetGlobalOption = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLSetGlobalOption"),
+			GetGlobalOption = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetGlobalOption"),
+			LockContext = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLLockContext"),
+			UnlockContext = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLUnlockContext"),
+			GetVersion = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLGetVersion"),
+			ErrorString = apiGetFunctionAddress(GL.getFunctionProvider(), "CGLErrorString");
 
-	/** Returns the {@link CGL} instance of the specified {@link GLCapabilities}. */
-	public static CGL getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__CGL);
-	}
-
-	static CGL create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("CGL") ) return null;
-
-		CGL funcs = new CGL(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetCurrentContext, funcs.SetCurrentContext, funcs.GetShareGroup, funcs.ChoosePixelFormat, funcs.DestroyPixelFormat, funcs.DescribePixelFormat, 
-			funcs.ReleasePixelFormat, funcs.RetainPixelFormat, funcs.GetPixelFormatRetainCount, funcs.QueryRendererInfo, funcs.DestroyRendererInfo, 
-			funcs.DescribeRenderer, funcs.CreateContext, funcs.DestroyContext, funcs.CopyContext, funcs.RetainContext, funcs.ReleaseContext, 
-			funcs.GetContextRetainCount, funcs.GetPixelFormat, funcs.CreatePBuffer, funcs.DestroyPBuffer, funcs.DescribePBuffer, funcs.TexImagePBuffer, 
-			funcs.RetainPBuffer, funcs.ReleasePBuffer, funcs.GetPBufferRetainCount, funcs.SetOffScreen, funcs.GetOffScreen, funcs.SetFullScreen, 
-			funcs.SetFullScreenOnDisplay, funcs.SetPBuffer, funcs.GetPBuffer, funcs.ClearDrawable, funcs.FlushDrawable, funcs.Enable, funcs.Disable, 
-			funcs.IsEnabled, funcs.SetParameter, funcs.GetParameter, funcs.SetVirtualScreen, funcs.GetVirtualScreen, funcs.UpdateContext, funcs.SetGlobalOption, 
-			funcs.GetGlobalOption, funcs.LockContext, funcs.UnlockContext, funcs.GetVersion, funcs.ErrorString
-		);
-
-		return GL.checkExtension("CGL", funcs, supported);
 	}
 
 	// --- [ CGLGetCurrentContext ] ---
 
 	/** Returns the current rendering context. If there is none, returns {@code NULL}. */
 	public static long CGLGetCurrentContext() {
-		long __functionAddress = getInstance().GetCurrentContext;
+		long __functionAddress = Functions.GetCurrentContext;
 		return callP(__functionAddress);
 	}
 
@@ -380,7 +306,7 @@ public class CGL {
 	 * @param context the rendering context to set as the current rendering context. Pass {@code NULL} to release the current rendering context without assigning a new one.
 	 */
 	public static int CGLSetCurrentContext(long context) {
-		long __functionAddress = getInstance().SetCurrentContext;
+		long __functionAddress = Functions.SetCurrentContext;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPI(__functionAddress, context);
@@ -394,7 +320,7 @@ public class CGL {
 	 * @param ctx a rendering context
 	 */
 	public static long CGLGetShareGroup(long ctx) {
-		long __functionAddress = getInstance().GetShareGroup;
+		long __functionAddress = Functions.GetShareGroup;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPP(__functionAddress, ctx);
@@ -404,7 +330,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLChoosePixelFormat ChoosePixelFormat} */
 	public static int nCGLChoosePixelFormat(long attribs, long pix, long npix) {
-		long __functionAddress = getInstance().ChoosePixelFormat;
+		long __functionAddress = Functions.ChoosePixelFormat;
 		return callPPPI(__functionAddress, attribs, pix, npix);
 	}
 
@@ -444,7 +370,7 @@ public class CGL {
 	 * @param pix the pixel format object to destroy
 	 */
 	public static int CGLDestroyPixelFormat(long pix) {
-		long __functionAddress = getInstance().DestroyPixelFormat;
+		long __functionAddress = Functions.DestroyPixelFormat;
 		if ( CHECKS )
 			checkPointer(pix);
 		return callPI(__functionAddress, pix);
@@ -454,7 +380,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLDescribePixelFormat DescribePixelFormat} */
 	public static int nCGLDescribePixelFormat(long pix, int pix_num, int attrib, long value) {
-		long __functionAddress = getInstance().DescribePixelFormat;
+		long __functionAddress = Functions.DescribePixelFormat;
 		if ( CHECKS )
 			checkPointer(pix);
 		return callPIIPI(__functionAddress, pix, pix_num, attrib, value);
@@ -494,7 +420,7 @@ public class CGL {
 	 * @param pix the pixel format object whose reference count should be decremented
 	 */
 	public static void CGLReleasePixelFormat(long pix) {
-		long __functionAddress = getInstance().ReleasePixelFormat;
+		long __functionAddress = Functions.ReleasePixelFormat;
 		if ( CHECKS )
 			checkPointer(pix);
 		callPV(__functionAddress, pix);
@@ -511,7 +437,7 @@ public class CGL {
 	 * @param pix the pixel format object whose reference count should be incremented
 	 */
 	public static long CGLRetainPixelFormat(long pix) {
-		long __functionAddress = getInstance().RetainPixelFormat;
+		long __functionAddress = Functions.RetainPixelFormat;
 		if ( CHECKS )
 			checkPointer(pix);
 		return callPP(__functionAddress, pix);
@@ -525,7 +451,7 @@ public class CGL {
 	 * @param pix a pixel format object
 	 */
 	public static int CGLGetPixelFormatRetainCount(long pix) {
-		long __functionAddress = getInstance().GetPixelFormatRetainCount;
+		long __functionAddress = Functions.GetPixelFormatRetainCount;
 		if ( CHECKS )
 			checkPointer(pix);
 		return callPI(__functionAddress, pix);
@@ -535,7 +461,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLQueryRendererInfo QueryRendererInfo} */
 	public static int nCGLQueryRendererInfo(int display_mask, long rend, long nrend) {
-		long __functionAddress = getInstance().QueryRendererInfo;
+		long __functionAddress = Functions.QueryRendererInfo;
 		return callIPPI(__functionAddress, display_mask, rend, nrend);
 	}
 
@@ -576,7 +502,7 @@ public class CGL {
 	 * @param rend the renderer information object to destroy
 	 */
 	public static int CGLDestroyRendererInfo(long rend) {
-		long __functionAddress = getInstance().DestroyRendererInfo;
+		long __functionAddress = Functions.DestroyRendererInfo;
 		if ( CHECKS )
 			checkPointer(rend);
 		return callPI(__functionAddress, rend);
@@ -586,7 +512,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLDescribeRenderer DescribeRenderer} */
 	public static int nCGLDescribeRenderer(long rend, int rend_num, int prop, long value) {
-		long __functionAddress = getInstance().DescribeRenderer;
+		long __functionAddress = Functions.DescribeRenderer;
 		if ( CHECKS )
 			checkPointer(rend);
 		return callPIIPI(__functionAddress, rend, rend_num, prop, value);
@@ -621,7 +547,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLCreateContext CreateContext} */
 	public static int nCGLCreateContext(long pix, long share, long ctx) {
-		long __functionAddress = getInstance().CreateContext;
+		long __functionAddress = Functions.CreateContext;
 		if ( CHECKS ) {
 			checkPointer(pix);
 			checkPointer(share);
@@ -664,7 +590,7 @@ public class CGL {
 	 * @param ctx the rendering context to destroy
 	 */
 	public static int CGLDestroyContext(long ctx) {
-		long __functionAddress = getInstance().DestroyContext;
+		long __functionAddress = Functions.DestroyContext;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
@@ -682,7 +608,7 @@ public class CGL {
 	 *             as possible, supply the constant {@link GL11#GL_ALL_ATTRIB_BITS}.
 	 */
 	public static int CGLCopyContext(long src, long dst, int mask) {
-		long __functionAddress = getInstance().CopyContext;
+		long __functionAddress = Functions.CopyContext;
 		if ( CHECKS ) {
 			checkPointer(src);
 			checkPointer(dst);
@@ -703,7 +629,7 @@ public class CGL {
 	 * @return the same context that was passed into the function.
 	 */
 	public static long CGLRetainContext(long ctx) {
-		long __functionAddress = getInstance().RetainContext;
+		long __functionAddress = Functions.RetainContext;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPP(__functionAddress, ctx);
@@ -724,7 +650,7 @@ public class CGL {
 	 * @param ctx the rendering context to be released
 	 */
 	public static void CGLReleaseContext(long ctx) {
-		long __functionAddress = getInstance().ReleaseContext;
+		long __functionAddress = Functions.ReleaseContext;
 		if ( CHECKS )
 			checkPointer(ctx);
 		callPV(__functionAddress, ctx);
@@ -738,7 +664,7 @@ public class CGL {
 	 * @param ctx the CGL rendering context whose retain count you wish to discover
 	 */
 	public static int CGLGetContextRetainCount(long ctx) {
-		long __functionAddress = getInstance().GetContextRetainCount;
+		long __functionAddress = Functions.GetContextRetainCount;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
@@ -755,7 +681,7 @@ public class CGL {
 	 * @param ctx the CGL rendering context whose format you want to receive
 	 */
 	public static long CGLGetPixelFormat(long ctx) {
-		long __functionAddress = getInstance().GetPixelFormat;
+		long __functionAddress = Functions.GetPixelFormat;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPP(__functionAddress, ctx);
@@ -765,7 +691,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLCreatePBuffer CreatePBuffer} */
 	public static int nCGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, long pbuffer) {
-		long __functionAddress = getInstance().CreatePBuffer;
+		long __functionAddress = Functions.CreatePBuffer;
 		return callIIIIIPI(__functionAddress, width, height, target, internalFormat, max_level, pbuffer);
 	}
 
@@ -822,7 +748,7 @@ public class CGL {
 	 * @param pbuffer the pixel buffer object whose resources you want to release
 	 */
 	public static int CGLDestroyPBuffer(long pbuffer) {
-		long __functionAddress = getInstance().DestroyPBuffer;
+		long __functionAddress = Functions.DestroyPBuffer;
 		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPI(__functionAddress, pbuffer);
@@ -832,7 +758,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLDescribePBuffer DescribePBuffer} */
 	public static int nCGLDescribePBuffer(long obj, long width, long height, long target, long internalFormat, long mipmap) {
-		long __functionAddress = getInstance().DescribePBuffer;
+		long __functionAddress = Functions.DescribePBuffer;
 		if ( CHECKS )
 			checkPointer(obj);
 		return callPPPPPPI(__functionAddress, obj, width, height, target, internalFormat, mipmap);
@@ -911,7 +837,7 @@ public class CGL {
 	 *                possess the buffer in question for the texturing operation to succeed.
 	 */
 	public static int CGLTexImagePBuffer(long ctx, long pbuffer, int source) {
-		long __functionAddress = getInstance().TexImagePBuffer;
+		long __functionAddress = Functions.TexImagePBuffer;
 		if ( CHECKS ) {
 			checkPointer(ctx);
 			checkPointer(pbuffer);
@@ -932,7 +858,7 @@ public class CGL {
 	 * @param pbuffer the pixel buffer object whose retain count you wish to increment
 	 */
 	public static long CGLRetainPBuffer(long pbuffer) {
-		long __functionAddress = getInstance().RetainPBuffer;
+		long __functionAddress = Functions.RetainPBuffer;
 		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPP(__functionAddress, pbuffer);
@@ -950,7 +876,7 @@ public class CGL {
 	 * @param pbuffer the pixel buffer object whose resources you want to release
 	 */
 	public static void CGLReleasePBuffer(long pbuffer) {
-		long __functionAddress = getInstance().ReleasePBuffer;
+		long __functionAddress = Functions.ReleasePBuffer;
 		if ( CHECKS )
 			checkPointer(pbuffer);
 		callPV(__functionAddress, pbuffer);
@@ -966,7 +892,7 @@ public class CGL {
 	 * @param pbuffer the pixel buffer object whose retain count you wish to retrieve
 	 */
 	public static int CGLGetPBufferRetainCount(long pbuffer) {
-		long __functionAddress = getInstance().GetPBufferRetainCount;
+		long __functionAddress = Functions.GetPBufferRetainCount;
 		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPI(__functionAddress, pbuffer);
@@ -976,7 +902,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLSetOffScreen SetOffScreen} */
 	public static int nCGLSetOffScreen(long ctx, int width, int height, int rowbytes, long baseaddr) {
-		long __functionAddress = getInstance().SetOffScreen;
+		long __functionAddress = Functions.SetOffScreen;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPIIIPI(__functionAddress, ctx, width, height, rowbytes, baseaddr);
@@ -1014,7 +940,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLGetOffScreen GetOffScreen} */
 	public static int nCGLGetOffScreen(long ctx, long width, long height, long rowbytes, long baseaddr) {
-		long __functionAddress = getInstance().GetOffScreen;
+		long __functionAddress = Functions.GetOffScreen;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPPPPPI(__functionAddress, ctx, width, height, rowbytes, baseaddr);
@@ -1076,7 +1002,7 @@ public class CGL {
 	 * @param ctx a rendering context
 	 */
 	public static int CGLSetFullScreen(long ctx) {
-		long __functionAddress = getInstance().SetFullScreen;
+		long __functionAddress = Functions.SetFullScreen;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
@@ -1108,7 +1034,7 @@ public class CGL {
 	 * @param display_mask a bit field that contains the OpenGL display mask for the screen you wish the context to cover
 	 */
 	public static int CGLSetFullScreenOnDisplay(long ctx, int display_mask) {
-		long __functionAddress = getInstance().SetFullScreenOnDisplay;
+		long __functionAddress = Functions.SetFullScreenOnDisplay;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPII(__functionAddress, ctx, display_mask);
@@ -1150,7 +1076,7 @@ public class CGL {
 	 *                that's the texturing target.
 	 */
 	public static int CGLSetPBuffer(long ctx, long pbuffer, int face, int level, int screen) {
-		long __functionAddress = getInstance().SetPBuffer;
+		long __functionAddress = Functions.SetPBuffer;
 		if ( CHECKS ) {
 			checkPointer(ctx);
 			checkPointer(pbuffer);
@@ -1162,7 +1088,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLGetPBuffer GetPBuffer} */
 	public static int nCGLGetPBuffer(long ctx, long pbuffer, long face, long level, long screen) {
-		long __functionAddress = getInstance().GetPBuffer;
+		long __functionAddress = Functions.GetPBuffer;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPPPPPI(__functionAddress, ctx, pbuffer, face, level, screen);
@@ -1209,7 +1135,7 @@ public class CGL {
 	 * @param ctx a rendering context
 	 */
 	public static int CGLClearDrawable(long ctx) {
-		long __functionAddress = getInstance().ClearDrawable;
+		long __functionAddress = Functions.ClearDrawable;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
@@ -1232,7 +1158,7 @@ public class CGL {
 	 * @param ctx the context object
 	 */
 	public static int CGLFlushDrawable(long ctx) {
-		long __functionAddress = getInstance().FlushDrawable;
+		long __functionAddress = Functions.FlushDrawable;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
@@ -1247,7 +1173,7 @@ public class CGL {
 	 * @param pname the option to enable. One of:<br>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
 	 */
 	public static int CGLEnable(long ctx, int pname) {
-		long __functionAddress = getInstance().Enable;
+		long __functionAddress = Functions.Enable;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPII(__functionAddress, ctx, pname);
@@ -1262,7 +1188,7 @@ public class CGL {
 	 * @param pname the option to disable. One of:<br>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
 	 */
 	public static int CGLDisable(long ctx, int pname) {
-		long __functionAddress = getInstance().Disable;
+		long __functionAddress = Functions.Disable;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPII(__functionAddress, ctx, pname);
@@ -1272,7 +1198,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLIsEnabled IsEnabled} */
 	public static int nCGLIsEnabled(long ctx, int pname, long enable) {
-		long __functionAddress = getInstance().IsEnabled;
+		long __functionAddress = Functions.IsEnabled;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPIPI(__functionAddress, ctx, pname, enable);
@@ -1302,7 +1228,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLSetParameter SetParameter} */
 	public static int nCGLSetParameter(long ctx, int pname, long params) {
-		long __functionAddress = getInstance().SetParameter;
+		long __functionAddress = Functions.SetParameter;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPIPI(__functionAddress, ctx, pname, params);
@@ -1330,16 +1256,20 @@ public class CGL {
 
 	/** Single value version of: {@link #CGLSetParameter SetParameter} */
 	public static int CGLSetParameter(long ctx, int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		return nCGLSetParameter(ctx, pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			return nCGLSetParameter(ctx, pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ CGLGetParameter ] ---
 
 	/** Unsafe version of {@link #CGLGetParameter GetParameter} */
 	public static int nCGLGetParameter(long ctx, int pname, long params) {
-		long __functionAddress = getInstance().GetParameter;
+		long __functionAddress = Functions.GetParameter;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPIPI(__functionAddress, ctx, pname, params);
@@ -1381,7 +1311,7 @@ public class CGL {
 	 *               context, 0 for the virtual screen number ({@code pix_num} parameter), and the attribute constant {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}.
 	 */
 	public static int CGLSetVirtualScreen(long ctx, int screen) {
-		long __functionAddress = getInstance().SetVirtualScreen;
+		long __functionAddress = Functions.SetVirtualScreen;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPII(__functionAddress, ctx, screen);
@@ -1391,7 +1321,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLGetVirtualScreen GetVirtualScreen} */
 	public static int nCGLGetVirtualScreen(long ctx, long screen) {
-		long __functionAddress = getInstance().GetVirtualScreen;
+		long __functionAddress = Functions.GetVirtualScreen;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPPI(__functionAddress, ctx, screen);
@@ -1428,7 +1358,7 @@ public class CGL {
 	 * @param ctx a rendering context
 	 */
 	public static int CGLUpdateContext(long ctx) {
-		long __functionAddress = getInstance().UpdateContext;
+		long __functionAddress = Functions.UpdateContext;
 		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
@@ -1438,7 +1368,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLSetGlobalOption SetGlobalOption} */
 	public static int nCGLSetGlobalOption(int pname, long params) {
-		long __functionAddress = getInstance().SetGlobalOption;
+		long __functionAddress = Functions.SetGlobalOption;
 		return callIPI(__functionAddress, pname, params);
 	}
 
@@ -1463,16 +1393,20 @@ public class CGL {
 
 	/** Single value version of: {@link #CGLSetGlobalOption SetGlobalOption} */
 	public static int CGLSetGlobalOption(int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		return nCGLSetGlobalOption(pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			return nCGLSetGlobalOption(pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ CGLGetGlobalOption ] ---
 
 	/** Unsafe version of {@link #CGLGetGlobalOption GetGlobalOption} */
 	public static int nCGLGetGlobalOption(int pname, long params) {
-		long __functionAddress = getInstance().GetGlobalOption;
+		long __functionAddress = Functions.GetGlobalOption;
 		return callIPI(__functionAddress, pname, params);
 	}
 
@@ -1512,7 +1446,7 @@ public class CGL {
 	 * @param context a rendering context
 	 */
 	public static int CGLLockContext(long context) {
-		long __functionAddress = getInstance().LockContext;
+		long __functionAddress = Functions.LockContext;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPI(__functionAddress, context);
@@ -1526,7 +1460,7 @@ public class CGL {
 	 * @param context the CGL context to unlock
 	 */
 	public static int CGLUnlockContext(long context) {
-		long __functionAddress = getInstance().UnlockContext;
+		long __functionAddress = Functions.UnlockContext;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPI(__functionAddress, context);
@@ -1536,7 +1470,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLGetVersion GetVersion} */
 	public static void nCGLGetVersion(long majorvers, long minorvers) {
-		long __functionAddress = getInstance().GetVersion;
+		long __functionAddress = Functions.GetVersion;
 		callPPV(__functionAddress, majorvers, minorvers);
 	}
 
@@ -1567,7 +1501,7 @@ public class CGL {
 
 	/** Unsafe version of {@link #CGLErrorString ErrorString} */
 	public static long nCGLErrorString(int error) {
-		long __functionAddress = getInstance().ErrorString;
+		long __functionAddress = Functions.ErrorString;
 		return callIP(__functionAddress, error);
 	}
 
@@ -1578,7 +1512,7 @@ public class CGL {
 	 */
 	public static String CGLErrorString(int error) {
 		long __result = nCGLErrorString(error);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 }

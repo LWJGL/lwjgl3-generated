@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -32,7 +33,7 @@ public class VkPhysicalDeviceProperties extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -55,12 +56,12 @@ public class VkPhysicalDeviceProperties extends Struct {
 			__member(4),
 			__array(1, 256),
 			__array(1, 16),
-			__member(VkPhysicalDeviceLimits.SIZEOF, VkPhysicalDeviceLimits.__ALIGNMENT),
-			__member(VkPhysicalDeviceSparseProperties.SIZEOF, VkPhysicalDeviceSparseProperties.__ALIGNMENT)
+			__member(VkPhysicalDeviceLimits.SIZEOF, VkPhysicalDeviceLimits.ALIGNOF),
+			__member(VkPhysicalDeviceSparseProperties.SIZEOF, VkPhysicalDeviceSparseProperties.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		APIVERSION = layout.offsetof(0);
 		DRIVERVERSION = layout.offsetof(1);
@@ -172,6 +173,76 @@ public class VkPhysicalDeviceProperties extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkPhysicalDeviceProperties} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkPhysicalDeviceProperties mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkPhysicalDeviceProperties} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkPhysicalDeviceProperties callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkPhysicalDeviceProperties} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkPhysicalDeviceProperties mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkPhysicalDeviceProperties} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkPhysicalDeviceProperties callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkPhysicalDeviceProperties.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkPhysicalDeviceProperties.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkPhysicalDeviceProperties.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkPhysicalDeviceProperties.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #apiVersion}. */
 	public static int napiVersion(long struct) { return memGetInt(struct + VkPhysicalDeviceProperties.APIVERSION); }
 	/** Unsafe version of {@link #driverVersion}. */
@@ -185,7 +256,7 @@ public class VkPhysicalDeviceProperties extends Struct {
 	/** Unsafe version of {@link #deviceName}. */
 	public static ByteBuffer ndeviceName(long struct) { return memByteBuffer(struct + VkPhysicalDeviceProperties.DEVICENAME, 256); }
 	/** Unsafe version of {@link #deviceNameString}. */
-	public static String ndeviceNameString(long struct) { return memDecodeUTF8(struct + VkPhysicalDeviceProperties.DEVICENAME); }
+	public static String ndeviceNameString(long struct) { return memUTF8(struct + VkPhysicalDeviceProperties.DEVICENAME); }
 	/** Unsafe version of {@link #pipelineCacheUUID}. */
 	public static ByteBuffer npipelineCacheUUID(long struct) {
 		return memByteBuffer(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID, 16);
@@ -231,7 +302,7 @@ public class VkPhysicalDeviceProperties extends Struct {
 
 		@Override
 		protected VkPhysicalDeviceProperties newInstance(long address) {
-			return new VkPhysicalDeviceProperties(address, container);
+			return new VkPhysicalDeviceProperties(address, getContainer());
 		}
 
 		@Override

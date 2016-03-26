@@ -161,140 +161,23 @@ public class GL14 {
 	 */
 	public static final int GL_MIRRORED_REPEAT = 0x8370;
 
-	/** Function address. */
-	public final long
-		BlendColor,
-		BlendEquation,
-		FogCoordf,
-		FogCoordd,
-		FogCoordfv,
-		FogCoorddv,
-		FogCoordPointer,
-		MultiDrawArrays,
-		MultiDrawElements,
-		PointParameterf,
-		PointParameteri,
-		PointParameterfv,
-		PointParameteriv,
-		SecondaryColor3b,
-		SecondaryColor3s,
-		SecondaryColor3i,
-		SecondaryColor3f,
-		SecondaryColor3d,
-		SecondaryColor3ub,
-		SecondaryColor3us,
-		SecondaryColor3ui,
-		SecondaryColor3bv,
-		SecondaryColor3sv,
-		SecondaryColor3iv,
-		SecondaryColor3fv,
-		SecondaryColor3dv,
-		SecondaryColor3ubv,
-		SecondaryColor3usv,
-		SecondaryColor3uiv,
-		SecondaryColorPointer,
-		BlendFuncSeparate,
-		WindowPos2i,
-		WindowPos2s,
-		WindowPos2f,
-		WindowPos2d,
-		WindowPos2iv,
-		WindowPos2sv,
-		WindowPos2fv,
-		WindowPos2dv,
-		WindowPos3i,
-		WindowPos3s,
-		WindowPos3f,
-		WindowPos3d,
-		WindowPos3iv,
-		WindowPos3sv,
-		WindowPos3fv,
-		WindowPos3dv;
-
 	protected GL14() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL14(FunctionProvider provider, boolean fc) {
-		BlendColor = provider.getFunctionAddress("glBlendColor");
-		BlendEquation = provider.getFunctionAddress("glBlendEquation");
-		FogCoordf = GL.getFunctionAddress(provider, "glFogCoordf", fc);
-		FogCoordd = GL.getFunctionAddress(provider, "glFogCoordd", fc);
-		FogCoordfv = GL.getFunctionAddress(provider, "glFogCoordfv", fc);
-		FogCoorddv = GL.getFunctionAddress(provider, "glFogCoorddv", fc);
-		FogCoordPointer = GL.getFunctionAddress(provider, "glFogCoordPointer", fc);
-		MultiDrawArrays = provider.getFunctionAddress("glMultiDrawArrays");
-		MultiDrawElements = provider.getFunctionAddress("glMultiDrawElements");
-		PointParameterf = provider.getFunctionAddress("glPointParameterf");
-		PointParameteri = provider.getFunctionAddress("glPointParameteri");
-		PointParameterfv = provider.getFunctionAddress("glPointParameterfv");
-		PointParameteriv = provider.getFunctionAddress("glPointParameteriv");
-		SecondaryColor3b = GL.getFunctionAddress(provider, "glSecondaryColor3b", fc);
-		SecondaryColor3s = GL.getFunctionAddress(provider, "glSecondaryColor3s", fc);
-		SecondaryColor3i = GL.getFunctionAddress(provider, "glSecondaryColor3i", fc);
-		SecondaryColor3f = GL.getFunctionAddress(provider, "glSecondaryColor3f", fc);
-		SecondaryColor3d = GL.getFunctionAddress(provider, "glSecondaryColor3d", fc);
-		SecondaryColor3ub = GL.getFunctionAddress(provider, "glSecondaryColor3ub", fc);
-		SecondaryColor3us = GL.getFunctionAddress(provider, "glSecondaryColor3us", fc);
-		SecondaryColor3ui = GL.getFunctionAddress(provider, "glSecondaryColor3ui", fc);
-		SecondaryColor3bv = GL.getFunctionAddress(provider, "glSecondaryColor3bv", fc);
-		SecondaryColor3sv = GL.getFunctionAddress(provider, "glSecondaryColor3sv", fc);
-		SecondaryColor3iv = GL.getFunctionAddress(provider, "glSecondaryColor3iv", fc);
-		SecondaryColor3fv = GL.getFunctionAddress(provider, "glSecondaryColor3fv", fc);
-		SecondaryColor3dv = GL.getFunctionAddress(provider, "glSecondaryColor3dv", fc);
-		SecondaryColor3ubv = GL.getFunctionAddress(provider, "glSecondaryColor3ubv", fc);
-		SecondaryColor3usv = GL.getFunctionAddress(provider, "glSecondaryColor3usv", fc);
-		SecondaryColor3uiv = GL.getFunctionAddress(provider, "glSecondaryColor3uiv", fc);
-		SecondaryColorPointer = GL.getFunctionAddress(provider, "glSecondaryColorPointer", fc);
-		BlendFuncSeparate = provider.getFunctionAddress("glBlendFuncSeparate");
-		WindowPos2i = GL.getFunctionAddress(provider, "glWindowPos2i", fc);
-		WindowPos2s = GL.getFunctionAddress(provider, "glWindowPos2s", fc);
-		WindowPos2f = GL.getFunctionAddress(provider, "glWindowPos2f", fc);
-		WindowPos2d = GL.getFunctionAddress(provider, "glWindowPos2d", fc);
-		WindowPos2iv = GL.getFunctionAddress(provider, "glWindowPos2iv", fc);
-		WindowPos2sv = GL.getFunctionAddress(provider, "glWindowPos2sv", fc);
-		WindowPos2fv = GL.getFunctionAddress(provider, "glWindowPos2fv", fc);
-		WindowPos2dv = GL.getFunctionAddress(provider, "glWindowPos2dv", fc);
-		WindowPos3i = GL.getFunctionAddress(provider, "glWindowPos3i", fc);
-		WindowPos3s = GL.getFunctionAddress(provider, "glWindowPos3s", fc);
-		WindowPos3f = GL.getFunctionAddress(provider, "glWindowPos3f", fc);
-		WindowPos3d = GL.getFunctionAddress(provider, "glWindowPos3d", fc);
-		WindowPos3iv = GL.getFunctionAddress(provider, "glWindowPos3iv", fc);
-		WindowPos3sv = GL.getFunctionAddress(provider, "glWindowPos3sv", fc);
-		WindowPos3fv = GL.getFunctionAddress(provider, "glWindowPos3fv", fc);
-		WindowPos3dv = GL.getFunctionAddress(provider, "glWindowPos3dv", fc);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL14} instance of the current context. */
-	public static GL14 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL14} instance of the specified {@link GLCapabilities}. */
-	public static GL14 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL14);
-	}
-
-	static GL14 create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {
-		if ( !ext.contains("OpenGL14") ) return null;
-
-		GL14 funcs = new GL14(provider, fc);
-
-		boolean supported = (fc || checkFunctions(
-			funcs.FogCoordf, funcs.FogCoordd, funcs.FogCoordfv, funcs.FogCoorddv, funcs.FogCoordPointer, funcs.SecondaryColor3b, funcs.SecondaryColor3s, 
-			funcs.SecondaryColor3i, funcs.SecondaryColor3f, funcs.SecondaryColor3d, funcs.SecondaryColor3ub, funcs.SecondaryColor3us, funcs.SecondaryColor3ui, 
-			funcs.SecondaryColor3bv, funcs.SecondaryColor3sv, funcs.SecondaryColor3iv, funcs.SecondaryColor3fv, funcs.SecondaryColor3dv, 
-			funcs.SecondaryColor3ubv, funcs.SecondaryColor3usv, funcs.SecondaryColor3uiv, funcs.SecondaryColorPointer, funcs.WindowPos2i, funcs.WindowPos2s, 
-			funcs.WindowPos2f, funcs.WindowPos2d, funcs.WindowPos2iv, funcs.WindowPos2sv, funcs.WindowPos2fv, funcs.WindowPos2dv, funcs.WindowPos3i, 
-			funcs.WindowPos3s, funcs.WindowPos3f, funcs.WindowPos3d, funcs.WindowPos3iv, funcs.WindowPos3sv, funcs.WindowPos3fv, funcs.WindowPos3dv
+	static boolean isAvailable(GLCapabilities caps, boolean fc) {
+		return (fc || checkFunctions(
+			caps.glFogCoordf, caps.glFogCoordd, caps.glFogCoordfv, caps.glFogCoorddv, caps.glFogCoordPointer, caps.glSecondaryColor3b, caps.glSecondaryColor3s, 
+			caps.glSecondaryColor3i, caps.glSecondaryColor3f, caps.glSecondaryColor3d, caps.glSecondaryColor3ub, caps.glSecondaryColor3us, 
+			caps.glSecondaryColor3ui, caps.glSecondaryColor3bv, caps.glSecondaryColor3sv, caps.glSecondaryColor3iv, caps.glSecondaryColor3fv, 
+			caps.glSecondaryColor3dv, caps.glSecondaryColor3ubv, caps.glSecondaryColor3usv, caps.glSecondaryColor3uiv, caps.glSecondaryColorPointer, 
+			caps.glWindowPos2i, caps.glWindowPos2s, caps.glWindowPos2f, caps.glWindowPos2d, caps.glWindowPos2iv, caps.glWindowPos2sv, caps.glWindowPos2fv, 
+			caps.glWindowPos2dv, caps.glWindowPos3i, caps.glWindowPos3s, caps.glWindowPos3f, caps.glWindowPos3d, caps.glWindowPos3iv, caps.glWindowPos3sv, 
+			caps.glWindowPos3fv, caps.glWindowPos3dv
 		)) && checkFunctions(
-			funcs.BlendColor, funcs.BlendEquation, funcs.MultiDrawArrays, funcs.MultiDrawElements, funcs.PointParameterf, funcs.PointParameteri, 
-			funcs.PointParameterfv, funcs.PointParameteriv, funcs.BlendFuncSeparate
+			caps.glBlendColor, caps.glBlendEquation, caps.glMultiDrawArrays, caps.glMultiDrawElements, caps.glPointParameterf, caps.glPointParameteri, 
+			caps.glPointParameterfv, caps.glPointParameteriv, caps.glBlendFuncSeparate
 		);
-
-		return GL.checkExtension("OpenGL14", funcs, supported);
 	}
 
 	// --- [ glBlendColor ] ---
@@ -310,7 +193,9 @@ public class GL14 {
 	 * @param alpha the alpha color component
 	 */
 	public static void glBlendColor(float red, float green, float blue, float alpha) {
-		long __functionAddress = getInstance().BlendColor;
+		long __functionAddress = GL.getCapabilities().glBlendColor;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -324,7 +209,9 @@ public class GL14 {
 	 * @param mode the blend equation. One of:<br>{@link #GL_FUNC_ADD FUNC_ADD}, {@link #GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link #GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link #GL_MIN MIN}, {@link #GL_MAX MAX}
 	 */
 	public static void glBlendEquation(int mode) {
-		long __functionAddress = getInstance().BlendEquation;
+		long __functionAddress = GL.getCapabilities().glBlendEquation;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
 	}
 
@@ -338,7 +225,7 @@ public class GL14 {
 	 * @param coord the fog coordinate value
 	 */
 	public static void glFogCoordf(float coord) {
-		long __functionAddress = getInstance().FogCoordf;
+		long __functionAddress = GL.getCapabilities().glFogCoordf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, coord);
@@ -354,7 +241,7 @@ public class GL14 {
 	 * @param coord the fog coordinate value
 	 */
 	public static void glFogCoordd(double coord) {
-		long __functionAddress = getInstance().FogCoordd;
+		long __functionAddress = GL.getCapabilities().glFogCoordd;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDV(__functionAddress, coord);
@@ -364,7 +251,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glFogCoordfv FogCoordfv} */
 	public static void nglFogCoordfv(long coord) {
-		long __functionAddress = getInstance().FogCoordfv;
+		long __functionAddress = GL.getCapabilities().glFogCoordfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coord);
@@ -394,7 +281,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glFogCoorddv FogCoorddv} */
 	public static void nglFogCoorddv(long coord) {
-		long __functionAddress = getInstance().FogCoorddv;
+		long __functionAddress = GL.getCapabilities().glFogCoorddv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coord);
@@ -424,7 +311,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glFogCoordPointer FogCoordPointer} */
 	public static void nglFogCoordPointer(int type, int stride, long pointer) {
-		long __functionAddress = getInstance().FogCoordPointer;
+		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, type, stride, pointer);
@@ -470,7 +357,9 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glMultiDrawArrays MultiDrawArrays} */
 	public static void nglMultiDrawArrays(int mode, long first, long count, int primcount) {
-		long __functionAddress = getInstance().MultiDrawArrays;
+		long __functionAddress = GL.getCapabilities().glMultiDrawArrays;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPIV(__functionAddress, mode, first, count, primcount);
 	}
 
@@ -503,7 +392,9 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glMultiDrawElements MultiDrawElements} */
 	public static void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount) {
-		long __functionAddress = getInstance().MultiDrawElements;
+		long __functionAddress = GL.getCapabilities().glMultiDrawElements;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
@@ -546,7 +437,9 @@ public class GL14 {
 	 * @param param the parameter value
 	 */
 	public static void glPointParameterf(int pname, float param) {
-		long __functionAddress = getInstance().PointParameterf;
+		long __functionAddress = GL.getCapabilities().glPointParameterf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, pname, param);
 	}
 
@@ -561,7 +454,9 @@ public class GL14 {
 	 * @param param the parameter value
 	 */
 	public static void glPointParameteri(int pname, int param) {
-		long __functionAddress = getInstance().PointParameteri;
+		long __functionAddress = GL.getCapabilities().glPointParameteri;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, param);
 	}
 
@@ -569,7 +464,9 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glPointParameterfv PointParameterfv} */
 	public static void nglPointParameterfv(int pname, long params) {
-		long __functionAddress = getInstance().PointParameterfv;
+		long __functionAddress = GL.getCapabilities().glPointParameterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
 
@@ -598,7 +495,9 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glPointParameteriv PointParameteriv} */
 	public static void nglPointParameteriv(int pname, long params) {
-		long __functionAddress = getInstance().PointParameteriv;
+		long __functionAddress = GL.getCapabilities().glPointParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
 
@@ -635,7 +534,7 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3b(byte red, byte green, byte blue) {
-		long __functionAddress = getInstance().SecondaryColor3b;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3b;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBV(__functionAddress, red, green, blue);
@@ -653,7 +552,7 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3s(short red, short green, short blue) {
-		long __functionAddress = getInstance().SecondaryColor3s;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, red, green, blue);
@@ -671,7 +570,7 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3i(int red, int green, int blue) {
-		long __functionAddress = getInstance().SecondaryColor3i;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, red, green, blue);
@@ -689,7 +588,7 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3f(float red, float green, float blue) {
-		long __functionAddress = getInstance().SecondaryColor3f;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, red, green, blue);
@@ -707,7 +606,7 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3d(double red, double green, double blue) {
-		long __functionAddress = getInstance().SecondaryColor3d;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, red, green, blue);
@@ -725,7 +624,7 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3ub(byte red, byte green, byte blue) {
-		long __functionAddress = getInstance().SecondaryColor3ub;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3ub;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBV(__functionAddress, red, green, blue);
@@ -743,7 +642,7 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3us(short red, short green, short blue) {
-		long __functionAddress = getInstance().SecondaryColor3us;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3us;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, red, green, blue);
@@ -761,7 +660,7 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3ui(int red, int green, int blue) {
-		long __functionAddress = getInstance().SecondaryColor3ui;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, red, green, blue);
@@ -771,7 +670,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glSecondaryColor3bv SecondaryColor3bv} */
 	public static void nglSecondaryColor3bv(long v) {
-		long __functionAddress = getInstance().SecondaryColor3bv;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3bv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -794,7 +693,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glSecondaryColor3sv SecondaryColor3sv} */
 	public static void nglSecondaryColor3sv(long v) {
-		long __functionAddress = getInstance().SecondaryColor3sv;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -824,7 +723,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glSecondaryColor3iv SecondaryColor3iv} */
 	public static void nglSecondaryColor3iv(long v) {
-		long __functionAddress = getInstance().SecondaryColor3iv;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -854,7 +753,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glSecondaryColor3fv SecondaryColor3fv} */
 	public static void nglSecondaryColor3fv(long v) {
-		long __functionAddress = getInstance().SecondaryColor3fv;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -884,7 +783,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glSecondaryColor3dv SecondaryColor3dv} */
 	public static void nglSecondaryColor3dv(long v) {
-		long __functionAddress = getInstance().SecondaryColor3dv;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -914,7 +813,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glSecondaryColor3ubv SecondaryColor3ubv} */
 	public static void nglSecondaryColor3ubv(long v) {
-		long __functionAddress = getInstance().SecondaryColor3ubv;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3ubv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -937,7 +836,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glSecondaryColor3usv SecondaryColor3usv} */
 	public static void nglSecondaryColor3usv(long v) {
-		long __functionAddress = getInstance().SecondaryColor3usv;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3usv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -967,7 +866,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glSecondaryColor3uiv SecondaryColor3uiv} */
 	public static void nglSecondaryColor3uiv(long v) {
-		long __functionAddress = getInstance().SecondaryColor3uiv;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -997,7 +896,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	public static void nglSecondaryColorPointer(int size, int type, int stride, long pointer) {
-		long __functionAddress = getInstance().SecondaryColorPointer;
+		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, size, type, stride, pointer);
@@ -1060,7 +959,9 @@ public class GL14 {
 	 * @param dfactorAlpha how the alpha destination blending factor is computed. The initial value is GL_ZERO.
 	 */
 	public static void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
-		long __functionAddress = getInstance().BlendFuncSeparate;
+		long __functionAddress = GL.getCapabilities().glBlendFuncSeparate;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 	}
 
@@ -1075,7 +976,7 @@ public class GL14 {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2i(int x, int y) {
-		long __functionAddress = getInstance().WindowPos2i;
+		long __functionAddress = GL.getCapabilities().glWindowPos2i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, x, y);
@@ -1092,7 +993,7 @@ public class GL14 {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2s(short x, short y) {
-		long __functionAddress = getInstance().WindowPos2s;
+		long __functionAddress = GL.getCapabilities().glWindowPos2s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSV(__functionAddress, x, y);
@@ -1109,7 +1010,7 @@ public class GL14 {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2f(float x, float y) {
-		long __functionAddress = getInstance().WindowPos2f;
+		long __functionAddress = GL.getCapabilities().glWindowPos2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, x, y);
@@ -1126,7 +1027,7 @@ public class GL14 {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2d(double x, double y) {
-		long __functionAddress = getInstance().WindowPos2d;
+		long __functionAddress = GL.getCapabilities().glWindowPos2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, x, y);
@@ -1136,7 +1037,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glWindowPos2iv WindowPos2iv} */
 	public static void nglWindowPos2iv(long p) {
-		long __functionAddress = getInstance().WindowPos2iv;
+		long __functionAddress = GL.getCapabilities().glWindowPos2iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
@@ -1166,7 +1067,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glWindowPos2sv WindowPos2sv} */
 	public static void nglWindowPos2sv(long p) {
-		long __functionAddress = getInstance().WindowPos2sv;
+		long __functionAddress = GL.getCapabilities().glWindowPos2sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
@@ -1196,7 +1097,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glWindowPos2fv WindowPos2fv} */
 	public static void nglWindowPos2fv(long p) {
-		long __functionAddress = getInstance().WindowPos2fv;
+		long __functionAddress = GL.getCapabilities().glWindowPos2fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
@@ -1226,7 +1127,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glWindowPos2dv WindowPos2dv} */
 	public static void nglWindowPos2dv(long p) {
-		long __functionAddress = getInstance().WindowPos2dv;
+		long __functionAddress = GL.getCapabilities().glWindowPos2dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
@@ -1264,7 +1165,7 @@ public class GL14 {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3i(int x, int y, int z) {
-		long __functionAddress = getInstance().WindowPos3i;
+		long __functionAddress = GL.getCapabilities().glWindowPos3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, x, y, z);
@@ -1282,7 +1183,7 @@ public class GL14 {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3s(short x, short y, short z) {
-		long __functionAddress = getInstance().WindowPos3s;
+		long __functionAddress = GL.getCapabilities().glWindowPos3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, x, y, z);
@@ -1300,7 +1201,7 @@ public class GL14 {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3f(float x, float y, float z) {
-		long __functionAddress = getInstance().WindowPos3f;
+		long __functionAddress = GL.getCapabilities().glWindowPos3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, x, y, z);
@@ -1318,7 +1219,7 @@ public class GL14 {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3d(double x, double y, double z) {
-		long __functionAddress = getInstance().WindowPos3d;
+		long __functionAddress = GL.getCapabilities().glWindowPos3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, x, y, z);
@@ -1328,7 +1229,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glWindowPos3iv WindowPos3iv} */
 	public static void nglWindowPos3iv(long p) {
-		long __functionAddress = getInstance().WindowPos3iv;
+		long __functionAddress = GL.getCapabilities().glWindowPos3iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
@@ -1358,7 +1259,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glWindowPos3sv WindowPos3sv} */
 	public static void nglWindowPos3sv(long p) {
-		long __functionAddress = getInstance().WindowPos3sv;
+		long __functionAddress = GL.getCapabilities().glWindowPos3sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
@@ -1388,7 +1289,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glWindowPos3fv WindowPos3fv} */
 	public static void nglWindowPos3fv(long p) {
-		long __functionAddress = getInstance().WindowPos3fv;
+		long __functionAddress = GL.getCapabilities().glWindowPos3fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
@@ -1418,7 +1319,7 @@ public class GL14 {
 
 	/** Unsafe version of {@link #glWindowPos3dv WindowPos3dv} */
 	public static void nglWindowPos3dv(long p) {
-		long __functionAddress = getInstance().WindowPos3dv;
+		long __functionAddress = GL.getCapabilities().glWindowPos3dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);

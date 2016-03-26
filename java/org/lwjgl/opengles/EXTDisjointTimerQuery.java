@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -55,67 +55,24 @@ public class EXTDisjointTimerQuery {
 	/** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int GL_GPU_DISJOINT_EXT = 0x8FBB;
 
-	/** Function address. */
-	public final long
-		GenQueriesEXT,
-		DeleteQueriesEXT,
-		IsQueryEXT,
-		BeginQueryEXT,
-		EndQueryEXT,
-		QueryCounterEXT,
-		GetQueryivEXT,
-		GetQueryObjectivEXT,
-		GetQueryObjectuivEXT,
-		GetQueryObjecti64vEXT,
-		GetQueryObjectui64vEXT;
-
 	protected EXTDisjointTimerQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDisjointTimerQuery(FunctionProvider provider) {
-		GenQueriesEXT = provider.getFunctionAddress("glGenQueriesEXT");
-		DeleteQueriesEXT = provider.getFunctionAddress("glDeleteQueriesEXT");
-		IsQueryEXT = provider.getFunctionAddress("glIsQueryEXT");
-		BeginQueryEXT = provider.getFunctionAddress("glBeginQueryEXT");
-		EndQueryEXT = provider.getFunctionAddress("glEndQueryEXT");
-		QueryCounterEXT = provider.getFunctionAddress("glQueryCounterEXT");
-		GetQueryivEXT = provider.getFunctionAddress("glGetQueryivEXT");
-		GetQueryObjectivEXT = provider.getFunctionAddress("glGetQueryObjectivEXT");
-		GetQueryObjectuivEXT = provider.getFunctionAddress("glGetQueryObjectuivEXT");
-		GetQueryObjecti64vEXT = provider.getFunctionAddress("glGetQueryObjecti64vEXT");
-		GetQueryObjectui64vEXT = provider.getFunctionAddress("glGetQueryObjectui64vEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDisjointTimerQuery} instance of the current context. */
-	public static EXTDisjointTimerQuery getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDisjointTimerQuery} instance of the specified {@link GLESCapabilities}. */
-	public static EXTDisjointTimerQuery getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTDisjointTimerQuery);
-	}
-
-	static EXTDisjointTimerQuery create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_disjoint_timer_query") ) return null;
-
-		EXTDisjointTimerQuery funcs = new EXTDisjointTimerQuery(provider);
-		boolean supported = checkFunctions(
-			funcs.GenQueriesEXT, funcs.DeleteQueriesEXT, funcs.IsQueryEXT, funcs.BeginQueryEXT, funcs.EndQueryEXT, funcs.QueryCounterEXT, funcs.GetQueryivEXT, 
-			funcs.GetQueryObjectuivEXT, funcs.GetQueryObjecti64vEXT, funcs.GetQueryObjectui64vEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glGenQueriesEXT, caps.glDeleteQueriesEXT, caps.glIsQueryEXT, caps.glBeginQueryEXT, caps.glEndQueryEXT, caps.glQueryCounterEXT, 
+			caps.glGetQueryivEXT, caps.glGetQueryObjectuivEXT, caps.glGetQueryObjecti64vEXT, caps.glGetQueryObjectui64vEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_disjoint_timer_query", funcs, supported);
 	}
 
 	// --- [ glGenQueriesEXT ] ---
 
 	/** Unsafe version of {@link #glGenQueriesEXT GenQueriesEXT} */
 	public static void nglGenQueriesEXT(int n, long ids) {
-		long __functionAddress = getInstance().GenQueriesEXT;
+		long __functionAddress = GLES.getCapabilities().glGenQueriesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -132,17 +89,23 @@ public class EXTDisjointTimerQuery {
 
 	/** Single return value version of: {@link #glGenQueriesEXT GenQueriesEXT} */
 	public static int glGenQueriesEXT() {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam();
-		nglGenQueriesEXT(1, __buffer.address(ids));
-		return __buffer.intValue(ids);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.callocInt(1);
+			nglGenQueriesEXT(1, memAddress(ids));
+			return ids.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDeleteQueriesEXT ] ---
 
 	/** Unsafe version of {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
 	public static void nglDeleteQueriesEXT(int n, long ids) {
-		long __functionAddress = getInstance().DeleteQueriesEXT;
+		long __functionAddress = GLES.getCapabilities().glDeleteQueriesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -159,36 +122,48 @@ public class EXTDisjointTimerQuery {
 
 	/** Single value version of: {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
 	public static void glDeleteQueriesEXT(int id) {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam(id);
-		nglDeleteQueriesEXT(1, __buffer.address(ids));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.ints(id);
+			nglDeleteQueriesEXT(1, memAddress(ids));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsQueryEXT ] ---
 
 	public static boolean glIsQueryEXT(int id) {
-		long __functionAddress = getInstance().IsQueryEXT;
+		long __functionAddress = GLES.getCapabilities().glIsQueryEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQueryEXT ] ---
 
 	public static void glBeginQueryEXT(int target, int id) {
-		long __functionAddress = getInstance().BeginQueryEXT;
+		long __functionAddress = GLES.getCapabilities().glBeginQueryEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQueryEXT ] ---
 
 	public static void glEndQueryEXT(int target) {
-		long __functionAddress = getInstance().EndQueryEXT;
+		long __functionAddress = GLES.getCapabilities().glEndQueryEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, target);
 	}
 
 	// --- [ glQueryCounterEXT ] ---
 
 	public static void glQueryCounterEXT(int id, int target) {
-		long __functionAddress = getInstance().QueryCounterEXT;
+		long __functionAddress = GLES.getCapabilities().glQueryCounterEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, id, target);
 	}
 
@@ -196,7 +171,9 @@ public class EXTDisjointTimerQuery {
 
 	/** Unsafe version of {@link #glGetQueryivEXT GetQueryivEXT} */
 	public static void nglGetQueryivEXT(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryivEXT;
+		long __functionAddress = GLES.getCapabilities().glGetQueryivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -215,17 +192,21 @@ public class EXTDisjointTimerQuery {
 
 	/** Single return value version of: {@link #glGetQueryivEXT GetQueryivEXT} */
 	public static int glGetQueryiEXT(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetQueryivEXT(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetQueryivEXT(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetQueryObjectivEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectivEXT GetQueryObjectivEXT} */
 	public static void nglGetQueryObjectivEXT(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjectivEXT;
+		long __functionAddress = GLES.getCapabilities().glGetQueryObjectivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
@@ -246,17 +227,23 @@ public class EXTDisjointTimerQuery {
 
 	/** Single return value version of: {@link #glGetQueryObjectivEXT GetQueryObjectivEXT} */
 	public static int glGetQueryObjectiEXT(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetQueryObjectivEXT(id, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetQueryObjectivEXT(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetQueryObjectuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	public static void nglGetQueryObjectuivEXT(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjectuivEXT;
+		long __functionAddress = GLES.getCapabilities().glGetQueryObjectuivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -275,17 +262,23 @@ public class EXTDisjointTimerQuery {
 
 	/** Single return value version of: {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	public static int glGetQueryObjectuiEXT(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetQueryObjectuivEXT(id, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetQueryObjectuivEXT(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetQueryObjecti64vEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	public static void nglGetQueryObjecti64vEXT(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjecti64vEXT;
+		long __functionAddress = GLES.getCapabilities().glGetQueryObjecti64vEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -304,17 +297,23 @@ public class EXTDisjointTimerQuery {
 
 	/** Single return value version of: {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	public static long glGetQueryObjecti64EXT(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetQueryObjecti64vEXT(id, pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetQueryObjectui64vEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	public static void nglGetQueryObjectui64vEXT(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjectui64vEXT;
+		long __functionAddress = GLES.getCapabilities().glGetQueryObjectui64vEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -333,10 +332,14 @@ public class EXTDisjointTimerQuery {
 
 	/** Single return value version of: {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	public static long glGetQueryObjectui64EXT(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetQueryObjectui64vEXT(id, pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

@@ -7,38 +7,27 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to the GLFW library's Cocoa native access functions. */
 public class GLFWNativeCocoa {
 
-	/** Function address. */
-	public final long
-		GetCocoaMonitor,
-		GetCocoaWindow;
-
 	protected GLFWNativeCocoa() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLFWNativeCocoa(FunctionProvider provider) {
-		GetCocoaMonitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetCocoaMonitor"));
-		GetCocoaWindow = checkFunctionAddress(provider.getFunctionAddress("glfwGetCocoaWindow"));
-	}
+	/** Contains the function pointers loaded from {@code GLFW.getLibrary()}. */
+	public static final class Functions {
 
-	// --- [ Function Addresses ] ---
+		private Functions() {}
 
-	private static final GLFWNativeCocoa instance = new GLFWNativeCocoa(getLibrary());
+		/** Function address. */
+		public static final long
+			GetCocoaMonitor = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetCocoaMonitor"),
+			GetCocoaWindow = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetCocoaWindow");
 
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return GLFW.getLibrary();
-	}
-
-	/** Returns the {@link GLFWNativeCocoa} instance. */
-	public static GLFWNativeCocoa getInstance() {
-		return instance;
 	}
 
 	// --- [ glfwGetCocoaMonitor ] ---
@@ -55,7 +44,7 @@ public class GLFWNativeCocoa {
 	 * @since version 3.1
 	 */
 	public static long glfwGetCocoaMonitor(long monitor) {
-		long __functionAddress = getInstance().GetCocoaMonitor;
+		long __functionAddress = Functions.GetCocoaMonitor;
 		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
@@ -75,7 +64,7 @@ public class GLFWNativeCocoa {
 	 * @since version 3.0
 	 */
 	public static long glfwGetCocoaWindow(long window) {
-		long __functionAddress = getInstance().GetCocoaWindow;
+		long __functionAddress = Functions.GetCocoaWindow;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);

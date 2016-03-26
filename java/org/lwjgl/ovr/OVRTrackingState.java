@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Tracking state at a given absolute time (describes predicted HMD pose etc). Returned by {@link OVR#ovr_GetTrackingState OVR.ovr_GetTrackingState}.
@@ -50,7 +51,7 @@ public class OVRTrackingState extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -65,18 +66,18 @@ public class OVRTrackingState extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(OVRPoseStatef.SIZEOF, OVRPoseStatef.__ALIGNMENT),
-			__member(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT),
-			__member(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT),
-			__array(OVRPoseStatef.SIZEOF, OVRPoseStatef.__ALIGNMENT, 2),
-			__member(OVRSensorData.SIZEOF, OVRSensorData.__ALIGNMENT),
+			__member(OVRPoseStatef.SIZEOF, OVRPoseStatef.ALIGNOF),
+			__member(OVRPosef.SIZEOF, OVRPosef.ALIGNOF),
+			__member(OVRPosef.SIZEOF, OVRPosef.ALIGNOF),
+			__array(OVRPoseStatef.SIZEOF, OVRPoseStatef.ALIGNOF, 2),
+			__member(OVRSensorData.SIZEOF, OVRSensorData.ALIGNOF),
 			__member(4),
 			__array(4, 2),
 			__member(4)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		HEADPOSE = layout.offsetof(0);
 		CAMERAPOSE = layout.offsetof(1);
@@ -185,6 +186,76 @@ public class OVRTrackingState extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link OVRTrackingState} instance allocated on the thread-local {@link MemoryStack}. */
+	public static OVRTrackingState mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link OVRTrackingState} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static OVRTrackingState callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRTrackingState} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRTrackingState mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRTrackingState} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRTrackingState callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRTrackingState.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRTrackingState.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRTrackingState.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link OVRTrackingState.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #HeadPose}. */
 	public static OVRPoseStatef nHeadPose(long struct) { return OVRPoseStatef.create(struct + OVRTrackingState.HEADPOSE); }
 	/** Unsafe version of {@link #CameraPose}. */
@@ -246,7 +317,7 @@ public class OVRTrackingState extends Struct {
 
 		@Override
 		protected OVRTrackingState newInstance(long address) {
-			return new OVRTrackingState(address, container);
+			return new OVRTrackingState(address, getContainer());
 		}
 
 		@Override

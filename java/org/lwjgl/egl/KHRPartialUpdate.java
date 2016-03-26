@@ -37,35 +37,23 @@ public class KHRPartialUpdate {
 	/**  */
 	public static final int EGL_BUFFER_AGE_KHR = 0x313D;
 
-	/** Function address. */
-	public final long SetDamageRegionKHR;
-
 	protected KHRPartialUpdate() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRPartialUpdate(FunctionProvider provider) {
-		SetDamageRegionKHR = provider.getFunctionAddress("eglSetDamageRegionKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRPartialUpdate} instance. */
-	public static KHRPartialUpdate getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRPartialUpdate} instance of the specified {@link EGLCapabilities}. */
-	public static KHRPartialUpdate getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRPartialUpdate);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglSetDamageRegionKHR
+		);
 	}
 
 	// --- [ eglSetDamageRegionKHR ] ---
 
 	/** Unsafe version of {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
 	public static int neglSetDamageRegionKHR(long dpy, long surface, long rects, int n_rects) {
-		long __functionAddress = getInstance().SetDamageRegionKHR;
+		long __functionAddress = EGL.getCapabilities().eglSetDamageRegionKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}

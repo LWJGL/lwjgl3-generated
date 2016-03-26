@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Contains information about the initialization and environment of a printer or a display device.
@@ -135,7 +136,7 @@ public class DEVMODE extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -198,7 +199,7 @@ public class DEVMODE extends Struct {
 					__member(2)
 				),
 				__struct(
-					__member(POINTL.SIZEOF, POINTL.__ALIGNMENT),
+					__member(POINTL.SIZEOF, POINTL.ALIGNOF),
 					__member(4),
 					__member(4)
 				)
@@ -229,7 +230,7 @@ public class DEVMODE extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		DMDEVICENAME = layout.offsetof(0);
 		DMSPECVERSION = layout.offsetof(1);
@@ -452,10 +453,80 @@ public class DEVMODE extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link DEVMODE} instance allocated on the thread-local {@link MemoryStack}. */
+	public static DEVMODE mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link DEVMODE} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static DEVMODE callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link DEVMODE} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static DEVMODE mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link DEVMODE} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static DEVMODE callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link DEVMODE.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link DEVMODE.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link DEVMODE.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link DEVMODE.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #dmDeviceName}. */
 	public static ByteBuffer ndmDeviceName(long struct) { return memByteBuffer(struct + DEVMODE.DMDEVICENAME, 64); }
 	/** Unsafe version of {@link #dmDeviceNameString}. */
-	public static String ndmDeviceNameString(long struct) { return memDecodeUTF16(struct + DEVMODE.DMDEVICENAME); }
+	public static String ndmDeviceNameString(long struct) { return memUTF16(struct + DEVMODE.DMDEVICENAME); }
 	/** Unsafe version of {@link #dmSpecVersion}. */
 	public static short ndmSpecVersion(long struct) { return memGetShort(struct + DEVMODE.DMSPECVERSION); }
 	/** Unsafe version of {@link #dmDriverVersion}. */
@@ -501,7 +572,7 @@ public class DEVMODE extends Struct {
 	/** Unsafe version of {@link #dmFormName}. */
 	public static ByteBuffer ndmFormName(long struct) { return memByteBuffer(struct + DEVMODE.DMFORMNAME, 64); }
 	/** Unsafe version of {@link #dmFormNameString}. */
-	public static String ndmFormNameString(long struct) { return memDecodeUTF16(struct + DEVMODE.DMFORMNAME); }
+	public static String ndmFormNameString(long struct) { return memUTF16(struct + DEVMODE.DMFORMNAME); }
 	/** Unsafe version of {@link #dmLogPixels}. */
 	public static short ndmLogPixels(long struct) { return memGetShort(struct + DEVMODE.DMLOGPIXELS); }
 	/** Unsafe version of {@link #dmBitsPerPel}. */
@@ -574,7 +645,7 @@ public class DEVMODE extends Struct {
 
 		@Override
 		protected DEVMODE newInstance(long address) {
-			return new DEVMODE(address, container);
+			return new DEVMODE(address, getContainer());
 		}
 
 		@Override

@@ -71,39 +71,14 @@ public class KHRBlendEquationAdvanced {
 		GL_HSL_COLOR_KHR      = 0x92AF,
 		GL_HSL_LUMINOSITY_KHR = 0x92B0;
 
-	/** Function address. */
-	public final long BlendBarrierKHR;
-
 	protected KHRBlendEquationAdvanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRBlendEquationAdvanced(FunctionProvider provider) {
-		BlendBarrierKHR = provider.getFunctionAddress("glBlendBarrierKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRBlendEquationAdvanced} instance of the current context. */
-	public static KHRBlendEquationAdvanced getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRBlendEquationAdvanced} instance of the specified {@link GLCapabilities}. */
-	public static KHRBlendEquationAdvanced getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__KHRBlendEquationAdvanced);
-	}
-
-	static KHRBlendEquationAdvanced create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_KHR_blend_equation_advanced") ) return null;
-
-		KHRBlendEquationAdvanced funcs = new KHRBlendEquationAdvanced(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BlendBarrierKHR
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBlendBarrierKHR
 		);
-
-		return GL.checkExtension("GL_KHR_blend_equation_advanced", funcs, supported);
 	}
 
 	// --- [ glBlendBarrierKHR ] ---
@@ -117,7 +92,9 @@ public class KHRBlendEquationAdvanced {
 	 * blended or unblended primitives, and {@link GL30#glBlitFramebuffer BlitFramebuffer} copies.</p>
 	 */
 	public static void glBlendBarrierKHR() {
-		long __functionAddress = getInstance().BlendBarrierKHR;
+		long __functionAddress = GL.getCapabilities().glBlendBarrierKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

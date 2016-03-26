@@ -24,58 +24,35 @@ import static org.lwjgl.system.JNI.*;
  */
 public class OESEGLImage {
 
-	/** Function address. */
-	public final long
-		EGLImageTargetTexture2DOES,
-		EGLImageTargetRenderbufferStorageOES;
-
 	protected OESEGLImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OESEGLImage(FunctionProvider provider) {
-		EGLImageTargetTexture2DOES = provider.getFunctionAddress("glEGLImageTargetTexture2DOES");
-		EGLImageTargetRenderbufferStorageOES = provider.getFunctionAddress("glEGLImageTargetRenderbufferStorageOES");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OESEGLImage} instance of the current context. */
-	public static OESEGLImage getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OESEGLImage} instance of the specified {@link GLESCapabilities}. */
-	public static OESEGLImage getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OESEGLImage);
-	}
-
-	static OESEGLImage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OES_EGL_image") ) return null;
-
-		OESEGLImage funcs = new OESEGLImage(provider);
-		boolean supported = checkFunctions(
-			funcs.EGLImageTargetTexture2DOES, funcs.EGLImageTargetRenderbufferStorageOES
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glEGLImageTargetTexture2DOES, caps.glEGLImageTargetRenderbufferStorageOES
 		);
-
-		return GLES.checkExtension("GL_OES_EGL_image", funcs, supported);
 	}
 
 	// --- [ glEGLImageTargetTexture2DOES ] ---
 
 	public static void glEGLImageTargetTexture2DOES(int target, long image) {
-		long __functionAddress = getInstance().EGLImageTargetTexture2DOES;
-		if ( CHECKS )
+		long __functionAddress = GLES.getCapabilities().glEGLImageTargetTexture2DOES;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(image);
+		}
 		callIPV(__functionAddress, target, image);
 	}
 
 	// --- [ glEGLImageTargetRenderbufferStorageOES ] ---
 
 	public static void glEGLImageTargetRenderbufferStorageOES(int target, long image) {
-		long __functionAddress = getInstance().EGLImageTargetRenderbufferStorageOES;
-		if ( CHECKS )
+		long __functionAddress = GLES.getCapabilities().glEGLImageTargetRenderbufferStorageOES;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(image);
+		}
 		callIPV(__functionAddress, target, image);
 	}
 

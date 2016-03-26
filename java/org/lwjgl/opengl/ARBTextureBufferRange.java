@@ -30,42 +30,14 @@ public class ARBTextureBufferRange {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
 
-	/** Function address. */
-	public final long
-		TexBufferRange,
-		TextureBufferRangeEXT;
-
 	protected ARBTextureBufferRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTextureBufferRange(FunctionProvider provider) {
-		TexBufferRange = provider.getFunctionAddress("glTexBufferRange");
-		TextureBufferRangeEXT = provider.getFunctionAddress("glTextureBufferRangeEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTextureBufferRange} instance of the current context. */
-	public static ARBTextureBufferRange getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTextureBufferRange} instance of the specified {@link GLCapabilities}. */
-	public static ARBTextureBufferRange getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTextureBufferRange);
-	}
-
-	static ARBTextureBufferRange create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_texture_buffer_range") ) return null;
-
-		ARBTextureBufferRange funcs = new ARBTextureBufferRange(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TexBufferRange, ext.contains("GL_EXT_direct_state_access") ? funcs.TextureBufferRangeEXT : -1L
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glTexBufferRange, ext.contains("GL_EXT_direct_state_access") ? caps.glTextureBufferRangeEXT : -1L
 		);
-
-		return GL.checkExtension("GL_ARB_texture_buffer_range", funcs, supported);
 	}
 
 	// --- [ glTexBufferRange ] ---
@@ -80,7 +52,9 @@ public class ARBTextureBufferRange {
 	 * @param size           the size of the range of the buffer's data store to attach
 	 */
 	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
-		long __functionAddress = getInstance().TexBufferRange;
+		long __functionAddress = GL.getCapabilities().glTexBufferRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 
@@ -97,7 +71,7 @@ public class ARBTextureBufferRange {
 	 * @param size           the size of the range of the buffer's data store to attach
 	 */
 	public static void glTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size) {
-		long __functionAddress = getInstance().TextureBufferRangeEXT;
+		long __functionAddress = GL.getCapabilities().glTextureBufferRangeEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPPV(__functionAddress, texture, target, internalformat, buffer, offset, size);

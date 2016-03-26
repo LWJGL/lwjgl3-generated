@@ -10,8 +10,8 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -208,7 +208,7 @@ public class STBVorbis {
 	 * <p>Note that on resynch, stb_vorbis will rarely consume all of the buffer, instead only {@code datablock_length_in_bytes-3} or less. This is because it
 	 * wants to avoid missing parts of a page header if they cross a datablock boundary, without writing state-machiney code to record a partial detection.</p>
 	 * 
-	 * <p>The number of channels returned are stored in *channels (which can be NULL -- it is always the same as the number of channels reported by {@link #stb_vorbis_get_info get_info}).
+	 * <p>The number of channels returned are stored in *channels (which can be {@code NULL} -- it is always the same as the number of channels reported by {@link #stb_vorbis_get_info get_info}).
 	 * {@code *output} will contain an array of {@code float*} buffers, one per channel. In other words, {@code (*output)[0][0]} contains the first sample
 	 * from the first channel, and {@code (*output)[1][0]} contains the first sample from the second channel.</p>
 	 *
@@ -316,9 +316,13 @@ public class STBVorbis {
 			checkBuffer(sample_rate, 1);
 			checkBuffer(output, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		return nstb_vorbis_decode_filename(__buffer.address(filenameEncoded), memAddress(channels), memAddress(sample_rate), memAddress(output));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstb_vorbis_decode_filename(memAddress(filenameEncoded), memAddress(channels), memAddress(sample_rate), memAddress(output));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Buffer return version of: {@link #stb_vorbis_decode_filename decode_filename} */
@@ -327,11 +331,15 @@ public class STBVorbis {
 			checkBuffer(channels, 1);
 			checkBuffer(sample_rate, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		int output = __buffer.pointerParam();
-		int __result = nstb_vorbis_decode_filename(__buffer.address(filenameEncoded), memAddress(channels), memAddress(sample_rate), __buffer.address(output));
-		return memShortBuffer(__buffer.pointerValue(output), __result * channels.get(0));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			PointerBuffer output = stack.pointers(NULL);
+			int __result = nstb_vorbis_decode_filename(memAddress(filenameEncoded), memAddress(channels), memAddress(sample_rate), memAddress(output));
+			return memShortBuffer(output.get(0), __result * channels.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stb_vorbis_decode_memory ] ---
@@ -374,10 +382,14 @@ public class STBVorbis {
 			checkBuffer(channels, 1);
 			checkBuffer(sample_rate, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int output = __buffer.pointerParam();
-		int __result = nstb_vorbis_decode_memory(memAddress(mem), mem.remaining(), memAddress(channels), memAddress(sample_rate), __buffer.address(output));
-		return memShortBuffer(__buffer.pointerValue(output), __result * channels.get(0));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer output = stack.pointers(NULL);
+			int __result = nstb_vorbis_decode_memory(memAddress(mem), mem.remaining(), memAddress(channels), memAddress(sample_rate), memAddress(output));
+			return memShortBuffer(output.get(0), __result * channels.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stb_vorbis_open_memory ] ---
@@ -452,9 +464,13 @@ public class STBVorbis {
 			checkBuffer(error, 1);
 			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
 		}
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		return nstb_vorbis_open_filename(__buffer.address(filenameEncoded), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstb_vorbis_open_filename(memAddress(filenameEncoded), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stb_vorbis_seek_frame ] ---

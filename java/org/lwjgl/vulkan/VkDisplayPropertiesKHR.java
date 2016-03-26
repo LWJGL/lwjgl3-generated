@@ -10,8 +10,8 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -31,7 +31,7 @@ public class VkDisplayPropertiesKHR extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -47,15 +47,15 @@ public class VkDisplayPropertiesKHR extends Struct {
 		Layout layout = __struct(
 			__member(8),
 			__member(POINTER_SIZE),
-			__member(VkExtent2D.SIZEOF, VkExtent2D.__ALIGNMENT),
-			__member(VkExtent2D.SIZEOF, VkExtent2D.__ALIGNMENT),
+			__member(VkExtent2D.SIZEOF, VkExtent2D.ALIGNOF),
+			__member(VkExtent2D.SIZEOF, VkExtent2D.ALIGNOF),
 			__member(4),
 			__member(4),
 			__member(4)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		DISPLAY = layout.offsetof(0);
 		DISPLAYNAME = layout.offsetof(1);
@@ -99,67 +99,6 @@ public class VkDisplayPropertiesKHR extends Struct {
 	public int planeReorderPossible() { return nplaneReorderPossible(address()); }
 	/** Returns the value of the {@code persistentContent} field. */
 	public int persistentContent() { return npersistentContent(address()); }
-
-	/** Sets the specified value to the {@code display} field. */
-	public VkDisplayPropertiesKHR display(long value) { ndisplay(address(), value); return this; }
-	/** Sets the address of the specified encoded string to the {@code displayName} field. */
-	public VkDisplayPropertiesKHR displayName(ByteBuffer value) { ndisplayName(address(), value); return this; }
-	/**
-	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code displayName} field.
-	 *
-	 * <p>The encoded string must be explicitly freed with {@link #displayNameFree}.</p>
-	 */
-	public VkDisplayPropertiesKHR displayName(CharSequence value) { ndisplayName(address(), value); return this; }
-	/** Frees the string encoded by {@link #displayName(CharSequence)} and stored in the {@code displayName} field. */
-	public VkDisplayPropertiesKHR displayNameFree() { ndisplayNameFree(address()); return this; }
-	/** Copies the specified {@link VkExtent2D} to the {@code physicalDimensions} field. */
-	public VkDisplayPropertiesKHR physicalDimensions(VkExtent2D value) { nphysicalDimensions(address(), value); return this; }
-	/** Copies the specified {@link VkExtent2D} to the {@code physicalResolution} field. */
-	public VkDisplayPropertiesKHR physicalResolution(VkExtent2D value) { nphysicalResolution(address(), value); return this; }
-	/** Sets the specified value to the {@code supportedTransforms} field. */
-	public VkDisplayPropertiesKHR supportedTransforms(int value) { nsupportedTransforms(address(), value); return this; }
-	/** Sets the specified value to the {@code planeReorderPossible} field. */
-	public VkDisplayPropertiesKHR planeReorderPossible(int value) { nplaneReorderPossible(address(), value); return this; }
-	/** Sets the specified value to the {@code persistentContent} field. */
-	public VkDisplayPropertiesKHR persistentContent(int value) { npersistentContent(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public VkDisplayPropertiesKHR set(
-		long display,
-		ByteBuffer displayName,
-		VkExtent2D physicalDimensions,
-		VkExtent2D physicalResolution,
-		int supportedTransforms,
-		int planeReorderPossible,
-		int persistentContent
-	) {
-		display(display);
-		displayName(displayName);
-		physicalDimensions(physicalDimensions);
-		physicalResolution(physicalResolution);
-		supportedTransforms(supportedTransforms);
-		planeReorderPossible(planeReorderPossible);
-		persistentContent(persistentContent);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(VkDisplayPropertiesKHR) set}. */
-	public VkDisplayPropertiesKHR nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public VkDisplayPropertiesKHR set(VkDisplayPropertiesKHR src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -220,12 +159,82 @@ public class VkDisplayPropertiesKHR extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkDisplayPropertiesKHR} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkDisplayPropertiesKHR mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkDisplayPropertiesKHR} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkDisplayPropertiesKHR callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPropertiesKHR} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkDisplayPropertiesKHR mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPropertiesKHR} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkDisplayPropertiesKHR callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPropertiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPropertiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPropertiesKHR.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPropertiesKHR.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #display}. */
 	public static long ndisplay(long struct) { return memGetLong(struct + VkDisplayPropertiesKHR.DISPLAY); }
 	/** Unsafe version of {@link #displayName}. */
 	public static ByteBuffer ndisplayName(long struct) { return memByteBufferNT1(memGetAddress(struct + VkDisplayPropertiesKHR.DISPLAYNAME)); }
 	/** Unsafe version of {@link #displayNameString}. */
-	public static String ndisplayNameString(long struct) { return memDecodeUTF8(memGetAddress(struct + VkDisplayPropertiesKHR.DISPLAYNAME)); }
+	public static String ndisplayNameString(long struct) { return memUTF8(memGetAddress(struct + VkDisplayPropertiesKHR.DISPLAYNAME)); }
 	/** Unsafe version of {@link #physicalDimensions}. */
 	public static VkExtent2D nphysicalDimensions(long struct) { return VkExtent2D.create(struct + VkDisplayPropertiesKHR.PHYSICALDIMENSIONS); }
 	/** Unsafe version of {@link #physicalResolution}. */
@@ -236,48 +245,6 @@ public class VkDisplayPropertiesKHR extends Struct {
 	public static int nplaneReorderPossible(long struct) { return memGetInt(struct + VkDisplayPropertiesKHR.PLANEREORDERPOSSIBLE); }
 	/** Unsafe version of {@link #persistentContent}. */
 	public static int npersistentContent(long struct) { return memGetInt(struct + VkDisplayPropertiesKHR.PERSISTENTCONTENT); }
-
-	/** Unsafe version of {@link #display(long) display}. */
-	public static void ndisplay(long struct, long value) { memPutLong(struct + VkDisplayPropertiesKHR.DISPLAY, value); }
-	/** Unsafe version of {@link #displayName(ByteBuffer) displayName}. */
-	public static void ndisplayName(long struct, ByteBuffer value) { 
-		if ( CHECKS && value != null ) checkNT1(value); 
-		memPutAddress(struct + VkDisplayPropertiesKHR.DISPLAYNAME, memAddress(value));
-	}
-	/** Unsafe version of {@link #displayName(CharSequence) displayName}. */
-	public static void ndisplayName(long struct, CharSequence value) { ndisplayName(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
-	/** Unsafe version of {@link #displayNameFree}. */
-	public static void ndisplayNameFree(long struct) { nmemFree(memGetAddress(struct + VkDisplayPropertiesKHR.DISPLAYNAME)); }
-	/** Unsafe version of {@link #physicalDimensions(VkExtent2D) physicalDimensions}. */
-	public static void nphysicalDimensions(long struct, VkExtent2D value) { memCopy(value.address(), struct + VkDisplayPropertiesKHR.PHYSICALDIMENSIONS, VkExtent2D.SIZEOF); }
-	/** Unsafe version of {@link #physicalResolution(VkExtent2D) physicalResolution}. */
-	public static void nphysicalResolution(long struct, VkExtent2D value) { memCopy(value.address(), struct + VkDisplayPropertiesKHR.PHYSICALRESOLUTION, VkExtent2D.SIZEOF); }
-	/** Unsafe version of {@link #supportedTransforms(int) supportedTransforms}. */
-	public static void nsupportedTransforms(long struct, int value) { memPutInt(struct + VkDisplayPropertiesKHR.SUPPORTEDTRANSFORMS, value); }
-	/** Unsafe version of {@link #planeReorderPossible(int) planeReorderPossible}. */
-	public static void nplaneReorderPossible(long struct, int value) { memPutInt(struct + VkDisplayPropertiesKHR.PLANEREORDERPOSSIBLE, value); }
-	/** Unsafe version of {@link #persistentContent(int) persistentContent}. */
-	public static void npersistentContent(long struct, int value) { memPutInt(struct + VkDisplayPropertiesKHR.PERSISTENTCONTENT, value); }
-
-	/**
-	 * Validates pointer members that should not be {@code NULL}.
-	 *
-	 * @param struct the struct to validate
-	 */
-	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkDisplayPropertiesKHR.DISPLAYNAME));
-	}
-
-	/**
-	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-	 *
-	 * @param array the struct array to validate
-	 * @param count the number of structs in {@code array}
-	 */
-	public static void validate(long array, int count) {
-		for ( int i = 0; i < count; i++ )
-			validate(array + i * SIZEOF);
-	}
 
 	// -----------------------------------
 
@@ -313,7 +280,7 @@ public class VkDisplayPropertiesKHR extends Struct {
 
 		@Override
 		protected VkDisplayPropertiesKHR newInstance(long address) {
-			return new VkDisplayPropertiesKHR(address, container);
+			return new VkDisplayPropertiesKHR(address, getContainer());
 		}
 
 		@Override
@@ -337,29 +304,6 @@ public class VkDisplayPropertiesKHR extends Struct {
 		public int planeReorderPossible() { return VkDisplayPropertiesKHR.nplaneReorderPossible(address()); }
 		/** Returns the value of the {@code persistentContent} field. */
 		public int persistentContent() { return VkDisplayPropertiesKHR.npersistentContent(address()); }
-
-		/** Sets the specified value to the {@code display} field. */
-		public VkDisplayPropertiesKHR.Buffer display(long value) { VkDisplayPropertiesKHR.ndisplay(address(), value); return this; }
-		/** Sets the address of the specified encoded string to the {@code displayName} field. */
-		public VkDisplayPropertiesKHR.Buffer displayName(ByteBuffer value) { VkDisplayPropertiesKHR.ndisplayName(address(), value); return this; }
-		/**
-		 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code displayName} field.
-		 *
-		 * <p>The encoded string must be explicitly freed with {@link #displayNameFree}.</p>
-		 */
-		public VkDisplayPropertiesKHR.Buffer displayName(CharSequence value) { VkDisplayPropertiesKHR.ndisplayName(address(), value); return this; }
-		/** Frees the string encoded by {@link #displayName(CharSequence)} and stored in the {@code displayName} field. */
-		public VkDisplayPropertiesKHR.Buffer displayNameFree() { VkDisplayPropertiesKHR.ndisplayNameFree(address()); return this; }
-		/** Copies the specified {@link VkExtent2D} to the {@code physicalDimensions} field. */
-		public VkDisplayPropertiesKHR.Buffer physicalDimensions(VkExtent2D value) { VkDisplayPropertiesKHR.nphysicalDimensions(address(), value); return this; }
-		/** Copies the specified {@link VkExtent2D} to the {@code physicalResolution} field. */
-		public VkDisplayPropertiesKHR.Buffer physicalResolution(VkExtent2D value) { VkDisplayPropertiesKHR.nphysicalResolution(address(), value); return this; }
-		/** Sets the specified value to the {@code supportedTransforms} field. */
-		public VkDisplayPropertiesKHR.Buffer supportedTransforms(int value) { VkDisplayPropertiesKHR.nsupportedTransforms(address(), value); return this; }
-		/** Sets the specified value to the {@code planeReorderPossible} field. */
-		public VkDisplayPropertiesKHR.Buffer planeReorderPossible(int value) { VkDisplayPropertiesKHR.nplaneReorderPossible(address(), value); return this; }
-		/** Sets the specified value to the {@code persistentContent} field. */
-		public VkDisplayPropertiesKHR.Buffer persistentContent(int value) { VkDisplayPropertiesKHR.npersistentContent(address(), value); return this; }
 
 	}
 

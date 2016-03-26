@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to WinUser.h and user32.dll. */
@@ -906,125 +907,70 @@ public class User32 {
 
 	static { Library.initialize(); }
 
-	/** Function address. */
-	public final long
-		__RegisterClassEx,
-		__UnregisterClass,
-		__CreateWindowEx,
-		__DestroyWindow,
-		__DefWindowProc,
-		__ShowWindow,
-		__UpdateWindow,
-		__SetWindowPos,
-		__SetWindowText,
-		__GetMessage,
-		__PeekMessage,
-		__TranslateMessage,
-		__WaitMessage,
-		__DispatchMessage,
-		__PostMessage,
-		__SendMessage,
-		__AdjustWindowRectEx,
-		__GetWindowRect,
-		__MoveWindow,
-		__GetWindowPlacement,
-		__SetWindowPlacement,
-		__IsWindowVisible,
-		__IsIconic,
-		__IsZoomed,
-		__BringWindowToTop,
-		__SetWindowLongPtr,
-		__GetWindowLongPtr,
-		__SetClassLongPtr,
-		__GetClassLongPtr,
-		__SetLayeredWindowAttributes,
-		__LoadIcon,
-		__LoadCursor,
-		__GetDC,
-		__ReleaseDC,
-		__GetSystemMetrics,
-		__RegisterTouchWindow,
-		__UnregisterTouchWindow,
-		__IsTouchWindow,
-		__GetTouchInputInfo,
-		__CloseTouchInputHandle,
-		__MonitorFromWindow,
-		__GetMonitorInfo,
-		__EnumDisplayDevices,
-		__EnumDisplaySettingsEx,
-		__ChangeDisplaySettingsEx;
-
 	protected User32() {
 		throw new UnsupportedOperationException();
 	}
 
-	public User32(FunctionProvider provider) {
-		__RegisterClassEx = checkFunctionAddress(provider.getFunctionAddress("RegisterClassExW"));
-		__UnregisterClass = checkFunctionAddress(provider.getFunctionAddress("UnregisterClassW"));
-		__CreateWindowEx = checkFunctionAddress(provider.getFunctionAddress("CreateWindowExW"));
-		__DestroyWindow = checkFunctionAddress(provider.getFunctionAddress("DestroyWindow"));
-		__DefWindowProc = checkFunctionAddress(provider.getFunctionAddress("DefWindowProcW"));
-		__ShowWindow = checkFunctionAddress(provider.getFunctionAddress("ShowWindow"));
-		__UpdateWindow = checkFunctionAddress(provider.getFunctionAddress("UpdateWindow"));
-		__SetWindowPos = checkFunctionAddress(provider.getFunctionAddress("SetWindowPos"));
-		__SetWindowText = checkFunctionAddress(provider.getFunctionAddress("SetWindowTextW"));
-		__GetMessage = checkFunctionAddress(provider.getFunctionAddress("GetMessageW"));
-		__PeekMessage = checkFunctionAddress(provider.getFunctionAddress("PeekMessageW"));
-		__TranslateMessage = checkFunctionAddress(provider.getFunctionAddress("TranslateMessage"));
-		__WaitMessage = checkFunctionAddress(provider.getFunctionAddress("WaitMessage"));
-		__DispatchMessage = checkFunctionAddress(provider.getFunctionAddress("DispatchMessageW"));
-		__PostMessage = checkFunctionAddress(provider.getFunctionAddress("PostMessageW"));
-		__SendMessage = checkFunctionAddress(provider.getFunctionAddress("SendMessageW"));
-		__AdjustWindowRectEx = checkFunctionAddress(provider.getFunctionAddress("AdjustWindowRectEx"));
-		__GetWindowRect = checkFunctionAddress(provider.getFunctionAddress("GetWindowRect"));
-		__MoveWindow = checkFunctionAddress(provider.getFunctionAddress("MoveWindow"));
-		__GetWindowPlacement = checkFunctionAddress(provider.getFunctionAddress("GetWindowPlacement"));
-		__SetWindowPlacement = checkFunctionAddress(provider.getFunctionAddress("SetWindowPlacement"));
-		__IsWindowVisible = checkFunctionAddress(provider.getFunctionAddress("IsWindowVisible"));
-		__IsIconic = checkFunctionAddress(provider.getFunctionAddress("IsIconic"));
-		__IsZoomed = checkFunctionAddress(provider.getFunctionAddress("IsZoomed"));
-		__BringWindowToTop = checkFunctionAddress(provider.getFunctionAddress("BringWindowToTop"));
-		__SetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 ? "SetWindowLongPtrW" : "SetWindowLongW"));
-		__GetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 ? "GetWindowLongPtrW" : "GetWindowLongW"));
-		__SetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 ? "SetClassLongPtrW" : "SetClassLongW"));
-		__GetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 ? "GetClassLongPtrW" : "GetClassLongW"));
-		__SetLayeredWindowAttributes = checkFunctionAddress(provider.getFunctionAddress("SetLayeredWindowAttributes"));
-		__LoadIcon = checkFunctionAddress(provider.getFunctionAddress("LoadIconW"));
-		__LoadCursor = checkFunctionAddress(provider.getFunctionAddress("LoadCursorW"));
-		__GetDC = checkFunctionAddress(provider.getFunctionAddress("GetDC"));
-		__ReleaseDC = checkFunctionAddress(provider.getFunctionAddress("ReleaseDC"));
-		__GetSystemMetrics = checkFunctionAddress(provider.getFunctionAddress("GetSystemMetrics"));
-		__RegisterTouchWindow = provider.getFunctionAddress("RegisterTouchWindow");
-		__UnregisterTouchWindow = provider.getFunctionAddress("UnregisterTouchWindow");
-		__IsTouchWindow = provider.getFunctionAddress("IsTouchWindow");
-		__GetTouchInputInfo = provider.getFunctionAddress("GetTouchInputInfo");
-		__CloseTouchInputHandle = provider.getFunctionAddress("CloseTouchInputHandle");
-		__MonitorFromWindow = checkFunctionAddress(provider.getFunctionAddress("MonitorFromWindow"));
-		__GetMonitorInfo = checkFunctionAddress(provider.getFunctionAddress("GetMonitorInfoW"));
-		__EnumDisplayDevices = checkFunctionAddress(provider.getFunctionAddress("EnumDisplayDevicesW"));
-		__EnumDisplaySettingsEx = checkFunctionAddress(provider.getFunctionAddress("EnumDisplaySettingsExW"));
-		__ChangeDisplaySettingsEx = checkFunctionAddress(provider.getFunctionAddress("ChangeDisplaySettingsExW"));
+	private static final SharedLibrary USER32 = Library.loadNative("user32");
+
+	/** Contains the function pointers loaded from the user32 {@link SharedLibrary}. */
+	public static final class Functions {
+
+		private Functions() {}
+
+		/** Function address. */
+		public static final long
+			RegisterClassEx = apiGetFunctionAddress(USER32, "RegisterClassExW"),
+			UnregisterClass = apiGetFunctionAddress(USER32, "UnregisterClassW"),
+			CreateWindowEx = apiGetFunctionAddress(USER32, "CreateWindowExW"),
+			DestroyWindow = apiGetFunctionAddress(USER32, "DestroyWindow"),
+			DefWindowProc = apiGetFunctionAddress(USER32, "DefWindowProcW"),
+			ShowWindow = apiGetFunctionAddress(USER32, "ShowWindow"),
+			UpdateWindow = apiGetFunctionAddress(USER32, "UpdateWindow"),
+			SetWindowPos = apiGetFunctionAddress(USER32, "SetWindowPos"),
+			SetWindowText = apiGetFunctionAddress(USER32, "SetWindowTextW"),
+			GetMessage = apiGetFunctionAddress(USER32, "GetMessageW"),
+			PeekMessage = apiGetFunctionAddress(USER32, "PeekMessageW"),
+			TranslateMessage = apiGetFunctionAddress(USER32, "TranslateMessage"),
+			WaitMessage = apiGetFunctionAddress(USER32, "WaitMessage"),
+			DispatchMessage = apiGetFunctionAddress(USER32, "DispatchMessageW"),
+			PostMessage = apiGetFunctionAddress(USER32, "PostMessageW"),
+			SendMessage = apiGetFunctionAddress(USER32, "SendMessageW"),
+			AdjustWindowRectEx = apiGetFunctionAddress(USER32, "AdjustWindowRectEx"),
+			GetWindowRect = apiGetFunctionAddress(USER32, "GetWindowRect"),
+			MoveWindow = apiGetFunctionAddress(USER32, "MoveWindow"),
+			GetWindowPlacement = apiGetFunctionAddress(USER32, "GetWindowPlacement"),
+			SetWindowPlacement = apiGetFunctionAddress(USER32, "SetWindowPlacement"),
+			IsWindowVisible = apiGetFunctionAddress(USER32, "IsWindowVisible"),
+			IsIconic = apiGetFunctionAddress(USER32, "IsIconic"),
+			IsZoomed = apiGetFunctionAddress(USER32, "IsZoomed"),
+			BringWindowToTop = apiGetFunctionAddress(USER32, "BringWindowToTop"),
+			SetWindowLongPtr = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "SetWindowLongPtrW" : "SetWindowLongW"),
+			GetWindowLongPtr = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "GetWindowLongPtrW" : "GetWindowLongW"),
+			SetClassLongPtr = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "SetClassLongPtrW" : "SetClassLongW"),
+			GetClassLongPtr = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "GetClassLongPtrW" : "GetClassLongW"),
+			SetLayeredWindowAttributes = apiGetFunctionAddress(USER32, "SetLayeredWindowAttributes"),
+			LoadIcon = apiGetFunctionAddress(USER32, "LoadIconW"),
+			LoadCursor = apiGetFunctionAddress(USER32, "LoadCursorW"),
+			GetDC = apiGetFunctionAddress(USER32, "GetDC"),
+			ReleaseDC = apiGetFunctionAddress(USER32, "ReleaseDC"),
+			GetSystemMetrics = apiGetFunctionAddress(USER32, "GetSystemMetrics"),
+			RegisterTouchWindow = apiGetFunctionAddress(USER32, "RegisterTouchWindow"),
+			UnregisterTouchWindow = apiGetFunctionAddress(USER32, "UnregisterTouchWindow"),
+			IsTouchWindow = apiGetFunctionAddress(USER32, "IsTouchWindow"),
+			GetTouchInputInfo = apiGetFunctionAddress(USER32, "GetTouchInputInfo"),
+			CloseTouchInputHandle = apiGetFunctionAddress(USER32, "CloseTouchInputHandle"),
+			MonitorFromWindow = apiGetFunctionAddress(USER32, "MonitorFromWindow"),
+			GetMonitorInfo = apiGetFunctionAddress(USER32, "GetMonitorInfoW"),
+			EnumDisplayDevices = apiGetFunctionAddress(USER32, "EnumDisplayDevicesW"),
+			EnumDisplaySettingsEx = apiGetFunctionAddress(USER32, "EnumDisplaySettingsExW"),
+			ChangeDisplaySettingsEx = apiGetFunctionAddress(USER32, "ChangeDisplaySettingsExW");
+
 	}
 
-	// --- [ Function Addresses ] ---
-
-	private static final SharedLibrary USER32;
-
-	private static final User32 instance;
-
-	static {
-		USER32 = Library.loadNative("user32");
-		instance = new User32(USER32);
-	}
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	/** Returns the user32 {@link SharedLibrary}. */
 	public static SharedLibrary getLibrary() {
 		return USER32;
-	}
-
-	/** Returns the {@link User32} instance. */
-	public static User32 getInstance() {
-		return instance;
 	}
 
 	// --- [ RegisterClassEx ] ---
@@ -1034,7 +980,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #RegisterClassEx} */
 	public static short nRegisterClassEx(long lpwcx) {
-		long __functionAddress = getInstance().__RegisterClassEx;
+		long __functionAddress = Functions.RegisterClassEx;
 		if ( CHECKS )
 			WNDCLASSEX.validate(lpwcx);
 		return nRegisterClassEx(__functionAddress, lpwcx);
@@ -1056,7 +1002,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #UnregisterClass} */
 	public static int nUnregisterClass(long lpClassName, long hInstance) {
-		long __functionAddress = getInstance().__UnregisterClass;
+		long __functionAddress = Functions.UnregisterClass;
 		return nUnregisterClass(__functionAddress, lpClassName, hInstance);
 	}
 
@@ -1077,9 +1023,13 @@ public class User32 {
 
 	/** CharSequence version of: {@link #UnregisterClass} */
 	public static int UnregisterClass(CharSequence lpClassName, long hInstance) {
-		APIBuffer __buffer = apiBuffer();
-		int lpClassNameEncoded = __buffer.stringParamUTF16(lpClassName, true);
-		return nUnregisterClass(__buffer.address(lpClassNameEncoded), hInstance);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer lpClassNameEncoded = stack.UTF16(lpClassName);
+			return nUnregisterClass(memAddress(lpClassNameEncoded), hInstance);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ CreateWindowEx ] ---
@@ -1089,7 +1039,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #CreateWindowEx} */
 	public static long nCreateWindowEx(int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
-		long __functionAddress = getInstance().__CreateWindowEx;
+		long __functionAddress = Functions.CreateWindowEx;
 		return nCreateWindowEx(__functionAddress, dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
 	}
 
@@ -1112,18 +1062,22 @@ public class User32 {
 	 */
 	public static long CreateWindowEx(int dwExStyle, ByteBuffer lpClassName, ByteBuffer lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
 		if ( CHECKS ) {
-			checkNT2(lpClassName);
-			checkNT2(lpWindowName);
+			if ( lpClassName != null ) checkNT2(lpClassName);
+			if ( lpWindowName != null ) checkNT2(lpWindowName);
 		}
-		return nCreateWindowEx(dwExStyle, memAddress(lpClassName), memAddress(lpWindowName), dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
+		return nCreateWindowEx(dwExStyle, memAddressSafe(lpClassName), memAddressSafe(lpWindowName), dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
 	}
 
 	/** CharSequence version of: {@link #CreateWindowEx} */
 	public static long CreateWindowEx(int dwExStyle, CharSequence lpClassName, CharSequence lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
-		APIBuffer __buffer = apiBuffer();
-		int lpClassNameEncoded = __buffer.stringParamUTF16(lpClassName, true);
-		int lpWindowNameEncoded = __buffer.stringParamUTF16(lpWindowName, true);
-		return nCreateWindowEx(dwExStyle, __buffer.address(lpClassNameEncoded), __buffer.address(lpWindowNameEncoded), dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer lpClassNameEncoded = lpClassName == null ? null : stack.UTF16(lpClassName);
+			ByteBuffer lpWindowNameEncoded = lpWindowName == null ? null : stack.UTF16(lpWindowName);
+			return nCreateWindowEx(dwExStyle, memAddressSafe(lpClassNameEncoded), memAddressSafe(lpWindowNameEncoded), dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ DestroyWindow ] ---
@@ -1142,7 +1096,7 @@ public class User32 {
 	 * @param hWnd a handle to the window to be destroyed
 	 */
 	public static int DestroyWindow(long hWnd) {
-		long __functionAddress = getInstance().__DestroyWindow;
+		long __functionAddress = Functions.DestroyWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nDestroyWindow(__functionAddress, hWnd);
@@ -1160,7 +1114,7 @@ public class User32 {
 	 * @param lParam additional message information. The content of this parameter depends on the value of the {@code Msg} parameter.
 	 */
 	public static long DefWindowProc(long hWnd, int Msg, long wParam, long lParam) {
-		long __functionAddress = getInstance().__DefWindowProc;
+		long __functionAddress = Functions.DefWindowProc;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPIPPP(__functionAddress, hWnd, Msg, wParam, lParam);
@@ -1177,7 +1131,7 @@ public class User32 {
 	 *                 value obtained by the {@code WinMain} function in its {@code nCmdShow} parameter. In subsequent calls, this parameter can be one of:<br>{@link #SW_HIDE}, {@link #SW_SHOWNORMAL}, {@link #SW_NORMAL}, {@link #SW_SHOWMINIMIZED}, {@link #SW_SHOWMAXIMIZED}, {@link #SW_MAXIMIZE}, {@link #SW_SHOWNOACTIVATE}, {@link #SW_SHOW}, {@link #SW_MINIMIZE}, {@link #SW_SHOWMINNOACTIVE}, {@link #SW_SHOWNA}, {@link #SW_RESTORE}, {@link #SW_SHOWDEFAULT}, {@link #SW_FORCEMINIMIZE}, {@link #SW_MAX}
 	 */
 	public static int ShowWindow(long hWnd, int nCmdShow) {
-		long __functionAddress = getInstance().__ShowWindow;
+		long __functionAddress = Functions.ShowWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPII(__functionAddress, hWnd, nCmdShow);
@@ -1193,7 +1147,7 @@ public class User32 {
 	 * @param hWnd handle to the window to be updated
 	 */
 	public static int UpdateWindow(long hWnd) {
-		long __functionAddress = getInstance().__UpdateWindow;
+		long __functionAddress = Functions.UpdateWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPI(__functionAddress, hWnd);
@@ -1217,7 +1171,7 @@ public class User32 {
 	 * @param uFlags          the window sizing and positioning flags. One or more of:<br>{@link #SWP_NOSIZE}, {@link #SWP_NOMOVE}, {@link #SWP_NOZORDER}, {@link #SWP_NOREDRAW}, {@link #SWP_NOACTIVATE}, {@link #SWP_FRAMECHANGED}, {@link #SWP_SHOWWINDOW}, {@link #SWP_HIDEWINDOW}, {@link #SWP_NOCOPYBITS}, {@link #SWP_NOOWNERZORDER}, {@link #SWP_NOSENDCHANGING}, {@link #SWP_DRAWFRAME}, {@link #SWP_NOREPOSITION}, {@link #SWP_DEFERERASE}, {@link #SWP_ASYNCWINDOWPOS}
 	 */
 	public static int SetWindowPos(long hWnd, long hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags) {
-		long __functionAddress = getInstance().__SetWindowPos;
+		long __functionAddress = Functions.SetWindowPos;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nSetWindowPos(__functionAddress, hWnd, hWndInsertAfter, X, Y, cx, cy, uFlags);
@@ -1230,7 +1184,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #SetWindowText} */
 	public static int nSetWindowText(long hWnd, long lpString) {
-		long __functionAddress = getInstance().__SetWindowText;
+		long __functionAddress = Functions.SetWindowText;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nSetWindowText(__functionAddress, hWnd, lpString);
@@ -1251,9 +1205,13 @@ public class User32 {
 
 	/** CharSequence version of: {@link #SetWindowText} */
 	public static int SetWindowText(long hWnd, CharSequence lpString) {
-		APIBuffer __buffer = apiBuffer();
-		int lpStringEncoded = __buffer.stringParamUTF16(lpString, true);
-		return nSetWindowText(hWnd, __buffer.address(lpStringEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer lpStringEncoded = stack.UTF16(lpString);
+			return nSetWindowText(hWnd, memAddress(lpStringEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ GetMessage ] ---
@@ -1263,7 +1221,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #GetMessage} */
 	public static int nGetMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax) {
-		long __functionAddress = getInstance().__GetMessage;
+		long __functionAddress = Functions.GetMessage;
 		return nGetMessage(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
 	}
 
@@ -1291,7 +1249,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #PeekMessage} */
 	public static int nPeekMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax, int wRemoveMsg) {
-		long __functionAddress = getInstance().__PeekMessage;
+		long __functionAddress = Functions.PeekMessage;
 		return callPPIIII(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax, wRemoveMsg);
 	}
 
@@ -1319,7 +1277,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #TranslateMessage} */
 	public static int nTranslateMessage(long lpMsg) {
-		long __functionAddress = getInstance().__TranslateMessage;
+		long __functionAddress = Functions.TranslateMessage;
 		return callPI(__functionAddress, lpMsg);
 	}
 
@@ -1344,7 +1302,7 @@ public class User32 {
 	 * return until a new message is placed in the thread's message queue.
 	 */
 	public static int WaitMessage() {
-		long __functionAddress = getInstance().__WaitMessage;
+		long __functionAddress = Functions.WaitMessage;
 		return nWaitMessage(__functionAddress);
 	}
 
@@ -1352,7 +1310,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #DispatchMessage} */
 	public static long nDispatchMessage(long lpmsg) {
-		long __functionAddress = getInstance().__DispatchMessage;
+		long __functionAddress = Functions.DispatchMessage;
 		return callPP(__functionAddress, lpmsg);
 	}
 
@@ -1386,7 +1344,7 @@ public class User32 {
 	 * @param lParam additional message-specific information
 	 */
 	public static int PostMessage(long hWnd, int Msg, long wParam, long lParam) {
-		long __functionAddress = getInstance().__PostMessage;
+		long __functionAddress = Functions.PostMessage;
 		return nPostMessage(__functionAddress, hWnd, Msg, wParam, lParam);
 	}
 
@@ -1410,7 +1368,7 @@ public class User32 {
 	 * @param lParam additional message-specific information
 	 */
 	public static int SendMessage(long hWnd, int Msg, long wParam, long lParam) {
-		long __functionAddress = getInstance().__SendMessage;
+		long __functionAddress = Functions.SendMessage;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nSendMessage(__functionAddress, hWnd, Msg, wParam, lParam);
@@ -1423,7 +1381,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #AdjustWindowRectEx} */
 	public static int nAdjustWindowRectEx(long lpRect, int dwStyle, int bMenu, int dwExStyle) {
-		long __functionAddress = getInstance().__AdjustWindowRectEx;
+		long __functionAddress = Functions.AdjustWindowRectEx;
 		return nAdjustWindowRectEx(__functionAddress, lpRect, dwStyle, bMenu, dwExStyle);
 	}
 
@@ -1449,7 +1407,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #GetWindowRect} */
 	public static int nGetWindowRect(long hWnd, long lpRect) {
-		long __functionAddress = getInstance().__GetWindowRect;
+		long __functionAddress = Functions.GetWindowRect;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nGetWindowRect(__functionAddress, hWnd, lpRect);
@@ -1485,7 +1443,7 @@ public class User32 {
 	 *                 window uncovered as a result of moving a child window.
 	 */
 	public static int MoveWindow(long hWnd, int X, int Y, int nWidth, int nHeight, int bRepaint) {
-		long __functionAddress = getInstance().__MoveWindow;
+		long __functionAddress = Functions.MoveWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nMoveWindow(__functionAddress, hWnd, X, Y, nWidth, nHeight, bRepaint);
@@ -1498,7 +1456,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #GetWindowPlacement} */
 	public static int nGetWindowPlacement(long hWnd, long lpwndpl) {
-		long __functionAddress = getInstance().__GetWindowPlacement;
+		long __functionAddress = Functions.GetWindowPlacement;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nGetWindowPlacement(__functionAddress, hWnd, lpwndpl);
@@ -1524,7 +1482,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #SetWindowPlacement} */
 	public static int nSetWindowPlacement(long hWnd, long lpwndpl) {
-		long __functionAddress = getInstance().__SetWindowPlacement;
+		long __functionAddress = Functions.SetWindowPlacement;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nSetWindowPlacement(__functionAddress, hWnd, lpwndpl);
@@ -1551,7 +1509,7 @@ public class User32 {
 	 * @param hWnd a handle to the window to be tested
 	 */
 	public static int IsWindowVisible(long hWnd) {
-		long __functionAddress = getInstance().__IsWindowVisible;
+		long __functionAddress = Functions.IsWindowVisible;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPI(__functionAddress, hWnd);
@@ -1565,7 +1523,7 @@ public class User32 {
 	 * @param hWnd a handle to the window to be tested
 	 */
 	public static int IsIconic(long hWnd) {
-		long __functionAddress = getInstance().__IsIconic;
+		long __functionAddress = Functions.IsIconic;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPI(__functionAddress, hWnd);
@@ -1579,7 +1537,7 @@ public class User32 {
 	 * @param hWnd a handle to the window to be tested
 	 */
 	public static int IsZoomed(long hWnd) {
-		long __functionAddress = getInstance().__IsZoomed;
+		long __functionAddress = Functions.IsZoomed;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPI(__functionAddress, hWnd);
@@ -1594,7 +1552,7 @@ public class User32 {
 	 * @param hWnd a handle to the window to bring to the top of the Z order
 	 */
 	public static int BringWindowToTop(long hWnd) {
-		long __functionAddress = getInstance().__BringWindowToTop;
+		long __functionAddress = Functions.BringWindowToTop;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPI(__functionAddress, hWnd);
@@ -1616,7 +1574,7 @@ public class User32 {
 	 * @return the previous value at the given {@code index}
 	 */
 	public static long SetWindowLongPtr(long hWnd, int nIndex, long dwNewLong) {
-		long __functionAddress = getInstance().__SetWindowLongPtr;
+		long __functionAddress = Functions.SetWindowLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nSetWindowLongPtr(__functionAddress, hWnd, nIndex, dwNewLong);
@@ -1635,7 +1593,7 @@ public class User32 {
 	 *               of an integer. To set any other value, specify one of:<br>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
 	 */
 	public static long GetWindowLongPtr(long hWnd, int nIndex) {
-		long __functionAddress = getInstance().__GetWindowLongPtr;
+		long __functionAddress = Functions.GetWindowLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nGetWindowLongPtr(__functionAddress, hWnd, nIndex);
@@ -1661,7 +1619,7 @@ public class User32 {
 	 *         <p>If the function fails, the return value is zero. To get extended error information, call {@link WinBase#getLastError WinBase.getLastError}.</p>
 	 */
 	public static long SetClassLongPtr(long hWnd, int nIndex, long dwNewLong) {
-		long __functionAddress = getInstance().__SetClassLongPtr;
+		long __functionAddress = Functions.SetClassLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nSetClassLongPtr(__functionAddress, hWnd, nIndex, dwNewLong);
@@ -1682,7 +1640,7 @@ public class User32 {
 	 *               structure, specify one of:<br>{@link #GCL_MENUNAME}, {@link #GCL_HBRBACKGROUND}, {@link #GCL_HCURSOR}, {@link #GCL_HICON}, {@link #GCL_HMODULE}, {@link #GCL_CBWNDEXTRA}, {@link #GCL_CBCLSEXTRA}, {@link #GCL_WNDPROC}, {@link #GCL_STYLE}, {@link #GCW_ATOM}, {@link #GCL_HICONSM}
 	 */
 	public static long GetClassLongPtr(long hWnd, int nIndex) {
-		long __functionAddress = getInstance().__GetClassLongPtr;
+		long __functionAddress = Functions.GetClassLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nGetClassLongPtr(__functionAddress, hWnd, nIndex);
@@ -1705,7 +1663,7 @@ public class User32 {
 	 * @param dwFlags an action to be taken. One or more of:<br>{@link #LWA_COLORKEY}, {@link #LWA_ALPHA}
 	 */
 	public static int SetLayeredWindowAttributes(long hwnd, int crKey, byte bAlpha, int dwFlags) {
-		long __functionAddress = getInstance().__SetLayeredWindowAttributes;
+		long __functionAddress = Functions.SetLayeredWindowAttributes;
 		if ( CHECKS )
 			checkPointer(hwnd);
 		return nSetLayeredWindowAttributes(__functionAddress, hwnd, crKey, bAlpha, dwFlags);
@@ -1718,7 +1676,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #LoadIcon} */
 	public static long nLoadIcon(long instance, long iconName) {
-		long __functionAddress = getInstance().__LoadIcon;
+		long __functionAddress = Functions.LoadIcon;
 		return nLoadIcon(__functionAddress, instance, iconName);
 	}
 
@@ -1737,9 +1695,13 @@ public class User32 {
 
 	/** CharSequence version of: {@link #LoadIcon} */
 	public static long LoadIcon(long instance, CharSequence iconName) {
-		APIBuffer __buffer = apiBuffer();
-		int iconNameEncoded = __buffer.stringParamUTF16(iconName, true);
-		return nLoadIcon(instance, __buffer.address(iconNameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer iconNameEncoded = stack.UTF16(iconName);
+			return nLoadIcon(instance, memAddress(iconNameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ LoadCursor ] ---
@@ -1749,7 +1711,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #LoadCursor} */
 	public static long nLoadCursor(long instance, long cursorName) {
-		long __functionAddress = getInstance().__LoadCursor;
+		long __functionAddress = Functions.LoadCursor;
 		return nLoadCursor(__functionAddress, instance, cursorName);
 	}
 
@@ -1767,9 +1729,13 @@ public class User32 {
 
 	/** CharSequence version of: {@link #LoadCursor} */
 	public static long LoadCursor(long instance, CharSequence cursorName) {
-		APIBuffer __buffer = apiBuffer();
-		int cursorNameEncoded = __buffer.stringParamUTF16(cursorName, true);
-		return nLoadCursor(instance, __buffer.address(cursorNameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer cursorNameEncoded = stack.UTF16(cursorName);
+			return nLoadCursor(instance, memAddress(cursorNameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ GetDC ] ---
@@ -1781,7 +1747,7 @@ public class User32 {
 	 * @param hWnd a handle to the window whose DC is to be retrieved. If this value is {@code NULL}, GetDC retrieves the DC for the entire screen.
 	 */
 	public static long GetDC(long hWnd) {
-		long __functionAddress = getInstance().__GetDC;
+		long __functionAddress = Functions.GetDC;
 		return callPP(__functionAddress, hWnd);
 	}
 
@@ -1795,7 +1761,7 @@ public class User32 {
 	 * @param hDC  a handle to the DC to be released
 	 */
 	public static int ReleaseDC(long hWnd, long hDC) {
-		long __functionAddress = getInstance().__ReleaseDC;
+		long __functionAddress = Functions.ReleaseDC;
 		if ( CHECKS ) {
 			checkPointer(hWnd);
 			checkPointer(hDC);
@@ -1811,7 +1777,7 @@ public class User32 {
 	 * @param index the system metric or configuration setting to be retrieved. One of:<br>{@link #SM_CXSCREEN}, {@link #SM_CYSCREEN}, {@link #SM_CXVSCROLL}, {@link #SM_CYHSCROLL}, {@link #SM_CYCAPTION}, {@link #SM_CXBORDER}, {@link #SM_CYBORDER}, {@link #SM_CXDLGFRAME}, {@link #SM_CYDLGFRAME}, {@link #SM_CYVTHUMB}, {@link #SM_CXHTHUMB}, {@link #SM_CXICON}, {@link #SM_CYICON}, {@link #SM_CXCURSOR}, {@link #SM_CYCURSOR}, {@link #SM_CYMENU}, {@link #SM_CXFULLSCREEN}, {@link #SM_CYFULLSCREEN}, {@link #SM_CYKANJIWINDOW}, {@link #SM_MOUSEPRESENT}, {@link #SM_CYVSCROLL}, {@link #SM_CXHSCROLL}, {@link #SM_DEBUG}, {@link #SM_SWAPBUTTON}, {@link #SM_RESERVED1}, {@link #SM_RESERVED2}, {@link #SM_RESERVED3}, {@link #SM_RESERVED4}, {@link #SM_CXMIN}, {@link #SM_CYMIN}, {@link #SM_CXSIZE}, {@link #SM_CYSIZE}, {@link #SM_CXFRAME}, {@link #SM_CYFRAME}, {@link #SM_CXMINTRACK}, {@link #SM_CYMINTRACK}, {@link #SM_CXDOUBLECLK}, {@link #SM_CYDOUBLECLK}, {@link #SM_CXICONSPACING}, {@link #SM_CYICONSPACING}, {@link #SM_MENUDROPALIGNMENT}, {@link #SM_PENWINDOWS}, {@link #SM_DBCSENABLED}, {@link #SM_CMOUSEBUTTONS}, {@link #SM_CXFIXEDFRAME}, {@link #SM_CYFIXEDFRAME}, {@link #SM_CXSIZEFRAME}, {@link #SM_CYSIZEFRAME}, {@link #SM_SECURE}, {@link #SM_CXEDGE}, {@link #SM_CYEDGE}, {@link #SM_CXMINSPACING}, {@link #SM_CYMINSPACING}, {@link #SM_CXSMICON}, {@link #SM_CYSMICON}, {@link #SM_CYSMCAPTION}, {@link #SM_CXSMSIZE}, {@link #SM_CYSMSIZE}, {@link #SM_CXMENUSIZE}, {@link #SM_CYMENUSIZE}, {@link #SM_ARRANGE}, {@link #SM_CXMINIMIZED}, {@link #SM_CYMINIMIZED}, {@link #SM_CXMAXTRACK}, {@link #SM_CYMAXTRACK}, {@link #SM_CXMAXIMIZED}, {@link #SM_CYMAXIMIZED}, {@link #SM_NETWORK}, {@link #SM_CLEANBOOT}, {@link #SM_CXDRAG}, {@link #SM_CYDRAG}, {@link #SM_SHOWSOUNDS}, {@link #SM_CXMENUCHECK}, {@link #SM_CYMENUCHECK}, {@link #SM_SLOWMACHINE}, {@link #SM_MIDEASTENABLED}, {@link #SM_MOUSEWHEELPRESENT}, {@link #SM_XVIRTUALSCREEN}, {@link #SM_YVIRTUALSCREEN}, {@link #SM_CXVIRTUALSCREEN}, {@link #SM_CYVIRTUALSCREEN}, {@link #SM_CMONITORS}, {@link #SM_SAMEDISPLAYFORMAT}, {@link #SM_IMMENABLED}, {@link #SM_REMOTESESSION}, {@link #SM_SHUTTINGDOWN}, {@link #SM_REMOTECONTROL}, {@link #SM_CARETBLINKINGENABLED}, {@link #SM_CXFOCUSBORDER}, {@link #SM_CYFOCUSBORDER}, {@link #SM_TABLETPC}, {@link #SM_MEDIACENTER}, {@link #SM_STARTER}, {@link #SM_SERVERR2}, {@link #SM_MOUSEHORIZONTALWHEELPRESENT}, {@link #SM_CXPADDEDBORDER}, {@link #SM_DIGITIZER}, {@link #SM_MAXIMUMTOUCHES}
 	 */
 	public static int GetSystemMetrics(int index) {
-		long __functionAddress = getInstance().__GetSystemMetrics;
+		long __functionAddress = Functions.GetSystemMetrics;
 		return callII(__functionAddress, index);
 	}
 
@@ -1835,7 +1801,7 @@ public class User32 {
 	 * @since Windows 7 (desktop apps only)
 	 */
 	public static int RegisterTouchWindow(long hWnd, int ulFlags) {
-		long __functionAddress = getInstance().__RegisterTouchWindow;
+		long __functionAddress = Functions.RegisterTouchWindow;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hWnd);
@@ -1856,7 +1822,7 @@ public class User32 {
 	 * @since Windows 7 (desktop apps only)
 	 */
 	public static int UnregisterTouchWindow(long hWnd) {
-		long __functionAddress = getInstance().__UnregisterTouchWindow;
+		long __functionAddress = Functions.UnregisterTouchWindow;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hWnd);
@@ -1868,7 +1834,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #IsTouchWindow} */
 	public static int nIsTouchWindow(long hWnd, long pulFlags) {
-		long __functionAddress = getInstance().__IsTouchWindow;
+		long __functionAddress = Functions.IsTouchWindow;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hWnd);
@@ -1901,7 +1867,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #GetTouchInputInfo} */
 	public static int nGetTouchInputInfo(long hTouchInput, int cInputs, long pInputs, int cbSize) {
-		long __functionAddress = getInstance().__GetTouchInputInfo;
+		long __functionAddress = Functions.GetTouchInputInfo;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hTouchInput);
@@ -1950,7 +1916,7 @@ public class User32 {
 	 * @since Windows 7 (desktop apps only)
 	 */
 	public static int CloseTouchInputHandle(long hTouchInput) {
-		long __functionAddress = getInstance().__CloseTouchInputHandle;
+		long __functionAddress = Functions.CloseTouchInputHandle;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hTouchInput);
@@ -1967,7 +1933,7 @@ public class User32 {
 	 * @param dwFlags determines the function's return value if the window does not intersect any display monitor. One of:<br>{@link #MONITOR_DEFAULTTONULL}, {@link #MONITOR_DEFAULTTOPRIMARY}, {@link #MONITOR_DEFAULTTONEAREST}
 	 */
 	public static long MonitorFromWindow(long hWnd, int dwFlags) {
-		long __functionAddress = getInstance().__MonitorFromWindow;
+		long __functionAddress = Functions.MonitorFromWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPIP(__functionAddress, hWnd, dwFlags);
@@ -1977,7 +1943,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #GetMonitorInfo} */
 	public static int nGetMonitorInfo(long hMonitor, long lpmi) {
-		long __functionAddress = getInstance().__GetMonitorInfo;
+		long __functionAddress = Functions.GetMonitorInfo;
 		if ( CHECKS )
 			checkPointer(hMonitor);
 		return callPPI(__functionAddress, hMonitor, lpmi);
@@ -2000,7 +1966,7 @@ public class User32 {
 
 	/** Unsafe version of {@link #EnumDisplayDevices} */
 	public static int nEnumDisplayDevices(long lpDevice, int iDevNum, long lpDisplayDevice, int dwFlags) {
-		long __functionAddress = getInstance().__EnumDisplayDevices;
+		long __functionAddress = Functions.EnumDisplayDevices;
 		return callPIPII(__functionAddress, lpDevice, iDevNum, lpDisplayDevice, dwFlags);
 	}
 
@@ -2029,16 +1995,20 @@ public class User32 {
 
 	/** CharSequence version of: {@link #EnumDisplayDevices} */
 	public static int EnumDisplayDevices(CharSequence lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
-		APIBuffer __buffer = apiBuffer();
-		int lpDeviceEncoded = lpDevice == null ? 0 : __buffer.stringParamUTF16(lpDevice, true);
-		return nEnumDisplayDevices(__buffer.addressSafe(lpDevice, lpDeviceEncoded), iDevNum, lpDisplayDevice.address(), dwFlags);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer lpDeviceEncoded = lpDevice == null ? null : stack.UTF16(lpDevice);
+			return nEnumDisplayDevices(memAddressSafe(lpDeviceEncoded), iDevNum, lpDisplayDevice.address(), dwFlags);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ EnumDisplaySettingsEx ] ---
 
 	/** Unsafe version of {@link #EnumDisplaySettingsEx} */
 	public static int nEnumDisplaySettingsEx(long lpszDeviceName, int iModeNum, long lpDevMode, int dwFlags) {
-		long __functionAddress = getInstance().__EnumDisplaySettingsEx;
+		long __functionAddress = Functions.EnumDisplaySettingsEx;
 		return callPIPII(__functionAddress, lpszDeviceName, iModeNum, lpDevMode, dwFlags);
 	}
 
@@ -2077,16 +2047,20 @@ public class User32 {
 
 	/** CharSequence version of: {@link #EnumDisplaySettingsEx} */
 	public static int EnumDisplaySettingsEx(CharSequence lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
-		APIBuffer __buffer = apiBuffer();
-		int lpszDeviceNameEncoded = lpszDeviceName == null ? 0 : __buffer.stringParamUTF16(lpszDeviceName, true);
-		return nEnumDisplaySettingsEx(__buffer.addressSafe(lpszDeviceName, lpszDeviceNameEncoded), iModeNum, lpDevMode.address(), dwFlags);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer lpszDeviceNameEncoded = lpszDeviceName == null ? null : stack.UTF16(lpszDeviceName);
+			return nEnumDisplaySettingsEx(memAddressSafe(lpszDeviceNameEncoded), iModeNum, lpDevMode.address(), dwFlags);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ ChangeDisplaySettingsEx ] ---
 
 	/** Unsafe version of {@link #ChangeDisplaySettingsEx} */
 	public static int nChangeDisplaySettingsEx(long lpszDeviceName, long lpDevMode, long hwnd, int dwflags, long lParam) {
-		long __functionAddress = getInstance().__ChangeDisplaySettingsEx;
+		long __functionAddress = Functions.ChangeDisplaySettingsEx;
 		return callPPPIPI(__functionAddress, lpszDeviceName, lpDevMode, hwnd, dwflags, lParam);
 	}
 
@@ -2118,9 +2092,13 @@ public class User32 {
 
 	/** CharSequence version of: {@link #ChangeDisplaySettingsEx} */
 	public static int ChangeDisplaySettingsEx(CharSequence lpszDeviceName, DEVMODE lpDevMode, long hwnd, int dwflags, long lParam) {
-		APIBuffer __buffer = apiBuffer();
-		int lpszDeviceNameEncoded = lpszDeviceName == null ? 0 : __buffer.stringParamUTF16(lpszDeviceName, true);
-		return nChangeDisplaySettingsEx(__buffer.addressSafe(lpszDeviceName, lpszDeviceNameEncoded), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer lpszDeviceNameEncoded = lpszDeviceName == null ? null : stack.UTF16(lpszDeviceName);
+			return nChangeDisplaySettingsEx(memAddressSafe(lpszDeviceNameEncoded), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

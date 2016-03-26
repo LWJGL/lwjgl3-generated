@@ -45,45 +45,23 @@ public class NVInternalformatSampleQuery {
 		GL_SUPERSAMPLE_SCALE_Y_NV = 0x9373,
 		GL_CONFORMANT_NV          = 0x9374;
 
-	/** Function address. */
-	public final long GetInternalformatSampleivNV;
-
 	protected NVInternalformatSampleQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVInternalformatSampleQuery(FunctionProvider provider) {
-		GetInternalformatSampleivNV = provider.getFunctionAddress("glGetInternalformatSampleivNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVInternalformatSampleQuery} instance of the current context. */
-	public static NVInternalformatSampleQuery getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVInternalformatSampleQuery} instance of the specified {@link GLESCapabilities}. */
-	public static NVInternalformatSampleQuery getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVInternalformatSampleQuery);
-	}
-
-	static NVInternalformatSampleQuery create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_internalformat_sample_query") ) return null;
-
-		NVInternalformatSampleQuery funcs = new NVInternalformatSampleQuery(provider);
-		boolean supported = checkFunctions(
-			funcs.GetInternalformatSampleivNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glGetInternalformatSampleivNV
 		);
-
-		return GLES.checkExtension("GL_NV_internalformat_sample_query", funcs, supported);
 	}
 
 	// --- [ glGetInternalformatSampleivNV ] ---
 
 	/** Unsafe version of {@link #glGetInternalformatSampleivNV GetInternalformatSampleivNV} */
 	public static void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params) {
-		long __functionAddress = getInstance().GetInternalformatSampleivNV;
+		long __functionAddress = GLES.getCapabilities().glGetInternalformatSampleivNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIPV(__functionAddress, target, internalformat, samples, pname, bufSize, params);
 	}
 

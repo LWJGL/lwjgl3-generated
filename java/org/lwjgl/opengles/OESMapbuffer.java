@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -35,50 +35,23 @@ public class OESMapbuffer {
 	/** Accepted by the {@code pname} parameter of GetBufferPointervOES. */
 	public static final int GL_BUFFER_MAP_POINTER_OES = 0x88BD;
 
-	/** Function address. */
-	public final long
-		MapBufferOES,
-		UnmapBufferOES,
-		GetBufferPointervOES;
-
 	protected OESMapbuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OESMapbuffer(FunctionProvider provider) {
-		MapBufferOES = provider.getFunctionAddress("glMapBufferOES");
-		UnmapBufferOES = provider.getFunctionAddress("glUnmapBufferOES");
-		GetBufferPointervOES = provider.getFunctionAddress("glGetBufferPointervOES");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OESMapbuffer} instance of the current context. */
-	public static OESMapbuffer getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OESMapbuffer} instance of the specified {@link GLESCapabilities}. */
-	public static OESMapbuffer getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OESMapbuffer);
-	}
-
-	static OESMapbuffer create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OES_mapbuffer") ) return null;
-
-		OESMapbuffer funcs = new OESMapbuffer(provider);
-		boolean supported = checkFunctions(
-			funcs.MapBufferOES, funcs.UnmapBufferOES, funcs.GetBufferPointervOES
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glMapBufferOES, caps.glUnmapBufferOES, caps.glGetBufferPointervOES
 		);
-
-		return GLES.checkExtension("GL_OES_mapbuffer", funcs, supported);
 	}
 
 	// --- [ glMapBufferOES ] ---
 
 	/** Unsafe version of {@link #glMapBufferOES MapBufferOES} */
 	public static long nglMapBufferOES(int target, int access) {
-		long __functionAddress = getInstance().MapBufferOES;
+		long __functionAddress = GLES.getCapabilities().glMapBufferOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIP(__functionAddress, target, access);
 	}
 
@@ -103,7 +76,9 @@ public class OESMapbuffer {
 	// --- [ glUnmapBufferOES ] ---
 
 	public static boolean glUnmapBufferOES(int target) {
-		long __functionAddress = getInstance().UnmapBufferOES;
+		long __functionAddress = GLES.getCapabilities().glUnmapBufferOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, target);
 	}
 
@@ -111,7 +86,9 @@ public class OESMapbuffer {
 
 	/** Unsafe version of {@link #glGetBufferPointervOES GetBufferPointervOES} */
 	public static void nglGetBufferPointervOES(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetBufferPointervOES;
+		long __functionAddress = GLES.getCapabilities().glGetBufferPointervOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -130,10 +107,14 @@ public class OESMapbuffer {
 
 	/** Single return value version of: {@link #glGetBufferPointervOES GetBufferPointervOES} */
 	public static long glGetBufferPointerOES(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.pointerParam();
-		nglGetBufferPointervOES(target, pname, __buffer.address(params));
-		return __buffer.pointerValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer params = stack.callocPointer(1);
+			nglGetBufferPointervOES(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

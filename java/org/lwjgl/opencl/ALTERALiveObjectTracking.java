@@ -36,40 +36,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ALTERALiveObjectTracking {
 
-	/** Function address. */
-	public final long
-		TrackLiveObjectsAltera,
-		ReportLiveObjectsAltera;
-
 	protected ALTERALiveObjectTracking() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ALTERALiveObjectTracking(FunctionProvider provider) {
-		TrackLiveObjectsAltera = provider.getFunctionAddress("clTrackLiveObjectsAltera");
-		ReportLiveObjectsAltera = provider.getFunctionAddress("clReportLiveObjectsAltera");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ALTERALiveObjectTracking} instance of the currently loaded ICD. */
-	public static ALTERALiveObjectTracking getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link ALTERALiveObjectTracking} instance of the specified {@link CLCapabilities}. */
-	public static ALTERALiveObjectTracking getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__ALTERALiveObjectTracking);
-	}
-
-	static ALTERALiveObjectTracking create(FunctionProvider provider) {
-		ALTERALiveObjectTracking funcs = new ALTERALiveObjectTracking(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TrackLiveObjectsAltera, funcs.ReportLiveObjectsAltera
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clTrackLiveObjectsAltera, caps.clReportLiveObjectsAltera
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clTrackLiveObjectsAltera ] ---
@@ -83,9 +57,11 @@ public class ALTERALiveObjectTracking {
 	 * @param platform the platform ID
 	 */
 	public static void clTrackLiveObjectsAltera(long platform) {
-		long __functionAddress = getInstance().TrackLiveObjectsAltera;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clTrackLiveObjectsAltera;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(platform);
+		}
 		callPV(__functionAddress, platform);
 	}
 
@@ -93,9 +69,11 @@ public class ALTERALiveObjectTracking {
 
 	/** Unsafe version of {@link #clReportLiveObjectsAltera ReportLiveObjectsAltera} */
 	public static void nclReportLiveObjectsAltera(long platform, long report_fn, long user_data) {
-		long __functionAddress = getInstance().ReportLiveObjectsAltera;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clReportLiveObjectsAltera;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(platform);
+		}
 		callPPPV(__functionAddress, platform, report_fn, user_data);
 	}
 

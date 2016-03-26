@@ -20,49 +20,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class GLXSGIVideoSync {
 
-	/** Function address. */
-	public final long
-		GetVideoSyncSGI,
-		WaitVideoSyncSGI;
-
 	protected GLXSGIVideoSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXSGIVideoSync(FunctionProvider provider) {
-		GetVideoSyncSGI = provider.getFunctionAddress("glXGetVideoSyncSGI");
-		WaitVideoSyncSGI = provider.getFunctionAddress("glXWaitVideoSyncSGI");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXSGIVideoSync} instance of the current context. */
-	public static GLXSGIVideoSync getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXSGIVideoSync} instance of the specified {@link GLCapabilities}. */
-	public static GLXSGIVideoSync getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXSGIVideoSync);
-	}
-
-	static GLXSGIVideoSync create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGI_video_sync") ) return null;
-
-		GLXSGIVideoSync funcs = new GLXSGIVideoSync(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetVideoSyncSGI, funcs.WaitVideoSyncSGI
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXGetVideoSyncSGI, caps.glXWaitVideoSyncSGI
 		);
-
-		return GL.checkExtension("GLX_SGI_video_sync", funcs, supported);
 	}
 
 	// --- [ glXGetVideoSyncSGI ] ---
 
 	/** Unsafe version of {@link #glXGetVideoSyncSGI GetVideoSyncSGI} */
 	public static int nglXGetVideoSyncSGI(long count) {
-		long __functionAddress = getInstance().GetVideoSyncSGI;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetVideoSyncSGI;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callPI(__functionAddress, count);
 	}
 
@@ -88,7 +62,9 @@ public class GLXSGIVideoSync {
 
 	/** Unsafe version of {@link #glXWaitVideoSyncSGI WaitVideoSyncSGI} */
 	public static int nglXWaitVideoSyncSGI(int divisor, int remainder, long count) {
-		long __functionAddress = getInstance().WaitVideoSyncSGI;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXWaitVideoSyncSGI;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, divisor, remainder, count);
 	}
 

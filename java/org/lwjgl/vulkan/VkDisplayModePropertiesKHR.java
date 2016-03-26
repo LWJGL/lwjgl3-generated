@@ -10,8 +10,8 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -26,7 +26,7 @@ public class VkDisplayModePropertiesKHR extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -36,11 +36,11 @@ public class VkDisplayModePropertiesKHR extends Struct {
 	static {
 		Layout layout = __struct(
 			__member(8),
-			__member(VkDisplayModeParametersKHR.SIZEOF, VkDisplayModeParametersKHR.__ALIGNMENT)
+			__member(VkDisplayModeParametersKHR.SIZEOF, VkDisplayModeParametersKHR.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		DISPLAYMODE = layout.offsetof(0);
 		PARAMETERS = layout.offsetof(1);
@@ -67,39 +67,6 @@ public class VkDisplayModePropertiesKHR extends Struct {
 	public long displayMode() { return ndisplayMode(address()); }
 	/** Returns a {@link VkDisplayModeParametersKHR} view of the {@code parameters} field. */
 	public VkDisplayModeParametersKHR parameters() { return nparameters(address()); }
-
-	/** Sets the specified value to the {@code displayMode} field. */
-	public VkDisplayModePropertiesKHR displayMode(long value) { ndisplayMode(address(), value); return this; }
-	/** Copies the specified {@link VkDisplayModeParametersKHR} to the {@code parameters} field. */
-	public VkDisplayModePropertiesKHR parameters(VkDisplayModeParametersKHR value) { nparameters(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public VkDisplayModePropertiesKHR set(
-		long displayMode,
-		VkDisplayModeParametersKHR parameters
-	) {
-		displayMode(displayMode);
-		parameters(parameters);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(VkDisplayModePropertiesKHR) set}. */
-	public VkDisplayModePropertiesKHR nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public VkDisplayModePropertiesKHR set(VkDisplayModePropertiesKHR src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -160,15 +127,80 @@ public class VkDisplayModePropertiesKHR extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkDisplayModePropertiesKHR} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkDisplayModePropertiesKHR mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkDisplayModePropertiesKHR} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkDisplayModePropertiesKHR callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayModePropertiesKHR} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkDisplayModePropertiesKHR mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayModePropertiesKHR} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkDisplayModePropertiesKHR callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayModePropertiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayModePropertiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayModePropertiesKHR.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayModePropertiesKHR.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #displayMode}. */
 	public static long ndisplayMode(long struct) { return memGetLong(struct + VkDisplayModePropertiesKHR.DISPLAYMODE); }
 	/** Unsafe version of {@link #parameters}. */
 	public static VkDisplayModeParametersKHR nparameters(long struct) { return VkDisplayModeParametersKHR.create(struct + VkDisplayModePropertiesKHR.PARAMETERS); }
-
-	/** Unsafe version of {@link #displayMode(long) displayMode}. */
-	public static void ndisplayMode(long struct, long value) { memPutLong(struct + VkDisplayModePropertiesKHR.DISPLAYMODE, value); }
-	/** Unsafe version of {@link #parameters(VkDisplayModeParametersKHR) parameters}. */
-	public static void nparameters(long struct, VkDisplayModeParametersKHR value) { memCopy(value.address(), struct + VkDisplayModePropertiesKHR.PARAMETERS, VkDisplayModeParametersKHR.SIZEOF); }
 
 	// -----------------------------------
 
@@ -204,7 +236,7 @@ public class VkDisplayModePropertiesKHR extends Struct {
 
 		@Override
 		protected VkDisplayModePropertiesKHR newInstance(long address) {
-			return new VkDisplayModePropertiesKHR(address, container);
+			return new VkDisplayModePropertiesKHR(address, getContainer());
 		}
 
 		@Override
@@ -216,11 +248,6 @@ public class VkDisplayModePropertiesKHR extends Struct {
 		public long displayMode() { return VkDisplayModePropertiesKHR.ndisplayMode(address()); }
 		/** Returns a {@link VkDisplayModeParametersKHR} view of the {@code parameters} field. */
 		public VkDisplayModeParametersKHR parameters() { return VkDisplayModePropertiesKHR.nparameters(address()); }
-
-		/** Sets the specified value to the {@code displayMode} field. */
-		public VkDisplayModePropertiesKHR.Buffer displayMode(long value) { VkDisplayModePropertiesKHR.ndisplayMode(address(), value); return this; }
-		/** Copies the specified {@link VkDisplayModeParametersKHR} to the {@code parameters} field. */
-		public VkDisplayModePropertiesKHR.Buffer parameters(VkDisplayModeParametersKHR value) { VkDisplayModePropertiesKHR.nparameters(address(), value); return this; }
 
 	}
 

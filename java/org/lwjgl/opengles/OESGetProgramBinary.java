@@ -7,10 +7,8 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -43,48 +41,23 @@ public class OESGetProgramBinary {
 		GL_NUM_PROGRAM_BINARY_FORMATS_OES = 0x87FE,
 		GL_PROGRAM_BINARY_FORMATS_OES     = 0x87FF;
 
-	/** Function address. */
-	public final long
-		GetProgramBinaryOES,
-		ProgramBinaryOES;
-
 	protected OESGetProgramBinary() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OESGetProgramBinary(FunctionProvider provider) {
-		GetProgramBinaryOES = provider.getFunctionAddress("glGetProgramBinaryOES");
-		ProgramBinaryOES = provider.getFunctionAddress("glProgramBinaryOES");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OESGetProgramBinary} instance of the current context. */
-	public static OESGetProgramBinary getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OESGetProgramBinary} instance of the specified {@link GLESCapabilities}. */
-	public static OESGetProgramBinary getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OESGetProgramBinary);
-	}
-
-	static OESGetProgramBinary create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OES_get_program_binary") ) return null;
-
-		OESGetProgramBinary funcs = new OESGetProgramBinary(provider);
-		boolean supported = checkFunctions(
-			funcs.GetProgramBinaryOES, funcs.ProgramBinaryOES
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glGetProgramBinaryOES, caps.glProgramBinaryOES
 		);
-
-		return GLES.checkExtension("GL_OES_get_program_binary", funcs, supported);
 	}
 
 	// --- [ glGetProgramBinaryOES ] ---
 
 	/** Unsafe version of {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
 	public static void nglGetProgramBinaryOES(int program, int bufSize, long length, long binaryFormat, long binary) {
-		long __functionAddress = getInstance().GetProgramBinaryOES;
+		long __functionAddress = GLES.getCapabilities().glGetProgramBinaryOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
@@ -106,36 +79,13 @@ public class OESGetProgramBinary {
 		nglGetProgramBinaryOES(program, binary.remaining(), memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
 	}
 
-	/** Buffer return version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
-	public static ByteBuffer glGetProgramBinaryOES(int program, int bufSize, IntBuffer binaryFormat) {
-		if ( CHECKS )
-			checkBuffer(binaryFormat, 1);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
-		nglGetProgramBinaryOES(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
-		binary.limit(__buffer.intValue(length));
-		return binary.slice();
-	}
-
-	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
-	public static ByteBuffer glGetProgramBinaryOES(int program, IntBuffer binaryFormat) {
-		int bufSize = GLES20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH_OES);
-		if ( CHECKS )
-			checkBuffer(binaryFormat, 1);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
-		nglGetProgramBinaryOES(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
-		binary.limit(__buffer.intValue(length));
-		return binary.slice();
-	}
-
 	// --- [ glProgramBinaryOES ] ---
 
 	/** Unsafe version of {@link #glProgramBinaryOES ProgramBinaryOES} */
 	public static void nglProgramBinaryOES(int program, int binaryFormat, long binary, int length) {
-		long __functionAddress = getInstance().ProgramBinaryOES;
+		long __functionAddress = GLES.getCapabilities().glProgramBinaryOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIV(__functionAddress, program, binaryFormat, binary, length);
 	}
 

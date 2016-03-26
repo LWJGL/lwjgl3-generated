@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -26,51 +26,22 @@ public class OESVertexArrayObject {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv. */
 	public static final int GL_VERTEX_ARRAY_BINDING_OES = 0x85B5;
 
-	/** Function address. */
-	public final long
-		BindVertexArrayOES,
-		DeleteVertexArraysOES,
-		GenVertexArraysOES,
-		IsVertexArrayOES;
-
 	protected OESVertexArrayObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OESVertexArrayObject(FunctionProvider provider) {
-		BindVertexArrayOES = provider.getFunctionAddress("glBindVertexArrayOES");
-		DeleteVertexArraysOES = provider.getFunctionAddress("glDeleteVertexArraysOES");
-		GenVertexArraysOES = provider.getFunctionAddress("glGenVertexArraysOES");
-		IsVertexArrayOES = provider.getFunctionAddress("glIsVertexArrayOES");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OESVertexArrayObject} instance of the current context. */
-	public static OESVertexArrayObject getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OESVertexArrayObject} instance of the specified {@link GLESCapabilities}. */
-	public static OESVertexArrayObject getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OESVertexArrayObject);
-	}
-
-	static OESVertexArrayObject create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OES_vertex_array_object") ) return null;
-
-		OESVertexArrayObject funcs = new OESVertexArrayObject(provider);
-		boolean supported = checkFunctions(
-			funcs.BindVertexArrayOES, funcs.DeleteVertexArraysOES, funcs.GenVertexArraysOES, funcs.IsVertexArrayOES
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glBindVertexArrayOES, caps.glDeleteVertexArraysOES, caps.glGenVertexArraysOES, caps.glIsVertexArrayOES
 		);
-
-		return GLES.checkExtension("GL_OES_vertex_array_object", funcs, supported);
 	}
 
 	// --- [ glBindVertexArrayOES ] ---
 
 	public static void glBindVertexArrayOES(int array) {
-		long __functionAddress = getInstance().BindVertexArrayOES;
+		long __functionAddress = GLES.getCapabilities().glBindVertexArrayOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, array);
 	}
 
@@ -78,7 +49,9 @@ public class OESVertexArrayObject {
 
 	/** Unsafe version of {@link #glDeleteVertexArraysOES DeleteVertexArraysOES} */
 	public static void nglDeleteVertexArraysOES(int n, long arrays) {
-		long __functionAddress = getInstance().DeleteVertexArraysOES;
+		long __functionAddress = GLES.getCapabilities().glDeleteVertexArraysOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, arrays);
 	}
 
@@ -95,16 +68,22 @@ public class OESVertexArrayObject {
 
 	/** Single value version of: {@link #glDeleteVertexArraysOES DeleteVertexArraysOES} */
 	public static void glDeleteVertexArraysOES(int array) {
-		APIBuffer __buffer = apiBuffer();
-		int arrays = __buffer.intParam(array);
-		nglDeleteVertexArraysOES(1, __buffer.address(arrays));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer arrays = stack.ints(array);
+			nglDeleteVertexArraysOES(1, memAddress(arrays));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenVertexArraysOES ] ---
 
 	/** Unsafe version of {@link #glGenVertexArraysOES GenVertexArraysOES} */
 	public static void nglGenVertexArraysOES(int n, long arrays) {
-		long __functionAddress = getInstance().GenVertexArraysOES;
+		long __functionAddress = GLES.getCapabilities().glGenVertexArraysOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, arrays);
 	}
 
@@ -125,16 +104,22 @@ public class OESVertexArrayObject {
 
 	/** Single return value version of: {@link #glGenVertexArraysOES GenVertexArraysOES} */
 	public static int glGenVertexArraysOES() {
-		APIBuffer __buffer = apiBuffer();
-		int arrays = __buffer.intParam();
-		nglGenVertexArraysOES(1, __buffer.address(arrays));
-		return __buffer.intValue(arrays);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer arrays = stack.callocInt(1);
+			nglGenVertexArraysOES(1, memAddress(arrays));
+			return arrays.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsVertexArrayOES ] ---
 
 	public static boolean glIsVertexArrayOES(int array) {
-		long __functionAddress = getInstance().IsVertexArrayOES;
+		long __functionAddress = GLES.getCapabilities().glIsVertexArrayOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, array);
 	}
 

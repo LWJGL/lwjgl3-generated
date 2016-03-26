@@ -67,55 +67,26 @@ public class EGL15 {
 		EGL_NO_SYNC  = 0x0L,
 		EGL_NO_IMAGE = 0x0L;
 
-	/** Function address. */
-	public final long
-		CreateSync,
-		DestroySync,
-		ClientWaitSync,
-		GetSyncAttrib,
-		CreateImage,
-		DestroyImage,
-		GetPlatformDisplay,
-		CreatePlatformWindowSurface,
-		CreatePlatformPixmapSurface,
-		WaitSync;
-
 	protected EGL15() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EGL15(FunctionProvider provider) {
-		CreateSync = provider.getFunctionAddress("eglCreateSync");
-		DestroySync = provider.getFunctionAddress("eglDestroySync");
-		ClientWaitSync = provider.getFunctionAddress("eglClientWaitSync");
-		GetSyncAttrib = provider.getFunctionAddress("eglGetSyncAttrib");
-		CreateImage = provider.getFunctionAddress("eglCreateImage");
-		DestroyImage = provider.getFunctionAddress("eglDestroyImage");
-		GetPlatformDisplay = provider.getFunctionAddress("eglGetPlatformDisplay");
-		CreatePlatformWindowSurface = provider.getFunctionAddress("eglCreatePlatformWindowSurface");
-		CreatePlatformPixmapSurface = provider.getFunctionAddress("eglCreatePlatformPixmapSurface");
-		WaitSync = provider.getFunctionAddress("eglWaitSync");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EGL15} instance. */
-	public static EGL15 getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link EGL15} instance of the specified {@link EGLCapabilities}. */
-	public static EGL15 getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__EGL15);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglCreateSync, caps.eglDestroySync, caps.eglClientWaitSync, caps.eglGetSyncAttrib, caps.eglCreateImage, caps.eglDestroyImage, 
+			caps.eglGetPlatformDisplay, caps.eglCreatePlatformWindowSurface, caps.eglCreatePlatformPixmapSurface, caps.eglWaitSync
+		);
 	}
 
 	// --- [ eglCreateSync ] ---
 
 	/** Unsafe version of {@link #eglCreateSync CreateSync} */
 	public static long neglCreateSync(long dpy, int type, long attrib_list) {
-		long __functionAddress = getInstance().CreateSync;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglCreateSync;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
@@ -135,8 +106,9 @@ public class EGL15 {
 	// --- [ eglDestroySync ] ---
 
 	public static int eglDestroySync(long dpy, long sync) {
-		long __functionAddress = getInstance().DestroySync;
+		long __functionAddress = EGL.getCapabilities().eglDestroySync;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -146,8 +118,9 @@ public class EGL15 {
 	// --- [ eglClientWaitSync ] ---
 
 	public static int eglClientWaitSync(long dpy, long sync, int flags, long timeout) {
-		long __functionAddress = getInstance().ClientWaitSync;
+		long __functionAddress = EGL.getCapabilities().eglClientWaitSync;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -158,8 +131,9 @@ public class EGL15 {
 
 	/** Unsafe version of {@link #eglGetSyncAttrib GetSyncAttrib} */
 	public static int neglGetSyncAttrib(long dpy, long sync, int attribute, long value) {
-		long __functionAddress = getInstance().GetSyncAttrib;
+		long __functionAddress = EGL.getCapabilities().eglGetSyncAttrib;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -183,8 +157,9 @@ public class EGL15 {
 
 	/** Unsafe version of {@link #eglCreateImage CreateImage} */
 	public static long neglCreateImage(long dpy, long ctx, int target, long buffer, long attrib_list) {
-		long __functionAddress = getInstance().CreateImage;
+		long __functionAddress = EGL.getCapabilities().eglCreateImage;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(ctx);
 			checkPointer(buffer);
@@ -208,8 +183,9 @@ public class EGL15 {
 	// --- [ eglDestroyImage ] ---
 
 	public static int eglDestroyImage(long dpy, long image) {
-		long __functionAddress = getInstance().DestroyImage;
+		long __functionAddress = EGL.getCapabilities().eglDestroyImage;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(image);
 		}
@@ -220,9 +196,11 @@ public class EGL15 {
 
 	/** Unsafe version of {@link #eglGetPlatformDisplay GetPlatformDisplay} */
 	public static long neglGetPlatformDisplay(int platform, long native_display, long attrib_list) {
-		long __functionAddress = getInstance().GetPlatformDisplay;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglGetPlatformDisplay;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(native_display);
+		}
 		return callIPPP(__functionAddress, platform, native_display, attrib_list);
 	}
 
@@ -243,8 +221,9 @@ public class EGL15 {
 
 	/** Unsafe version of {@link #eglCreatePlatformWindowSurface CreatePlatformWindowSurface} */
 	public static long neglCreatePlatformWindowSurface(long dpy, long config, long native_window, long attrib_list) {
-		long __functionAddress = getInstance().CreatePlatformWindowSurface;
+		long __functionAddress = EGL.getCapabilities().eglCreatePlatformWindowSurface;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(native_window);
@@ -269,8 +248,9 @@ public class EGL15 {
 
 	/** Unsafe version of {@link #eglCreatePlatformPixmapSurface CreatePlatformPixmapSurface} */
 	public static long neglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, long attrib_list) {
-		long __functionAddress = getInstance().CreatePlatformPixmapSurface;
+		long __functionAddress = EGL.getCapabilities().eglCreatePlatformPixmapSurface;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(native_pixmap);
@@ -294,8 +274,9 @@ public class EGL15 {
 	// --- [ eglWaitSync ] ---
 
 	public static int eglWaitSync(long dpy, long sync, int flags) {
-		long __functionAddress = getInstance().WaitSync;
+		long __functionAddress = EGL.getCapabilities().eglWaitSync;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}

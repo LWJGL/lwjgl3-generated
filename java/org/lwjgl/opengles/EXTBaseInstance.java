@@ -30,49 +30,22 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTBaseInstance {
 
-	/** Function address. */
-	public final long
-		DrawArraysInstancedBaseInstanceEXT,
-		DrawElementsInstancedBaseInstanceEXT,
-		DrawElementsInstancedBaseVertexBaseInstanceEXT;
-
 	protected EXTBaseInstance() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTBaseInstance(FunctionProvider provider) {
-		DrawArraysInstancedBaseInstanceEXT = provider.getFunctionAddress("glDrawArraysInstancedBaseInstanceEXT");
-		DrawElementsInstancedBaseInstanceEXT = provider.getFunctionAddress("glDrawElementsInstancedBaseInstanceEXT");
-		DrawElementsInstancedBaseVertexBaseInstanceEXT = provider.getFunctionAddress("glDrawElementsInstancedBaseVertexBaseInstanceEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTBaseInstance} instance of the current context. */
-	public static EXTBaseInstance getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTBaseInstance} instance of the specified {@link GLESCapabilities}. */
-	public static EXTBaseInstance getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTBaseInstance);
-	}
-
-	static EXTBaseInstance create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_base_instance") ) return null;
-
-		EXTBaseInstance funcs = new EXTBaseInstance(provider);
-		boolean supported = checkFunctions(
-			funcs.DrawArraysInstancedBaseInstanceEXT, funcs.DrawElementsInstancedBaseInstanceEXT, funcs.DrawElementsInstancedBaseVertexBaseInstanceEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawArraysInstancedBaseInstanceEXT, caps.glDrawElementsInstancedBaseInstanceEXT, caps.glDrawElementsInstancedBaseVertexBaseInstanceEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_base_instance", funcs, supported);
 	}
 
 	// --- [ glDrawArraysInstancedBaseInstanceEXT ] ---
 
 	public static void glDrawArraysInstancedBaseInstanceEXT(int mode, int first, int count, int instancecount, int baseinstance) {
-		long __functionAddress = getInstance().DrawArraysInstancedBaseInstanceEXT;
+		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedBaseInstanceEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, mode, first, count, instancecount, baseinstance);
 	}
 
@@ -80,7 +53,9 @@ public class EXTBaseInstance {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseInstanceEXT DrawElementsInstancedBaseInstanceEXT} */
 	public static void nglDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int baseinstance) {
-		long __functionAddress = getInstance().DrawElementsInstancedBaseInstanceEXT;
+		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseInstanceEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, baseinstance);
 	}
 
@@ -131,7 +106,9 @@ public class EXTBaseInstance {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertexBaseInstanceEXT DrawElementsInstancedBaseVertexBaseInstanceEXT} */
 	public static void nglDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int basevertex, int baseinstance) {
-		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstanceEXT;
+		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseVertexBaseInstanceEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex, baseinstance);
 	}
 

@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -37,7 +38,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -61,7 +62,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		STYPE = layout.offsetof(0);
 		PNEXT = layout.offsetof(1);
@@ -226,6 +227,76 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkPipelineShaderStageCreateInfo} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkPipelineShaderStageCreateInfo mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkPipelineShaderStageCreateInfo} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkPipelineShaderStageCreateInfo callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineShaderStageCreateInfo} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkPipelineShaderStageCreateInfo mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineShaderStageCreateInfo} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkPipelineShaderStageCreateInfo callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineShaderStageCreateInfo.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineShaderStageCreateInfo.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineShaderStageCreateInfo.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineShaderStageCreateInfo.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #sType}. */
 	public static int nsType(long struct) { return memGetInt(struct + VkPipelineShaderStageCreateInfo.STYPE); }
 	/** Unsafe version of {@link #pNext}. */
@@ -239,7 +310,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 	/** Unsafe version of {@link #pName}. */
 	public static ByteBuffer npName(long struct) { return memByteBufferNT1(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME)); }
 	/** Unsafe version of {@link #pNameString}. */
-	public static String npNameString(long struct) { return memDecodeUTF8(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME)); }
+	public static String npNameString(long struct) { return memUTF8(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME)); }
 	/** Unsafe version of {@link #pSpecializationInfo}. */
 	public static VkSpecializationInfo npSpecializationInfo(long struct) { return VkSpecializationInfo.create(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO)); }
 
@@ -259,7 +330,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 		memPutAddress(struct + VkPipelineShaderStageCreateInfo.PNAME, memAddress(value));
 	}
 	/** Unsafe version of {@link #pName(CharSequence) pName}. */
-	public static void npName(long struct, CharSequence value) { npName(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
+	public static void npName(long struct, CharSequence value) { npName(struct, memUTF8(value)); }
 	/** Unsafe version of {@link #pNameFree}. */
 	public static void npNameFree(long struct) { nmemFree(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME)); }
 	/** Unsafe version of {@link #pSpecializationInfo(VkSpecializationInfo) pSpecializationInfo}. */
@@ -322,7 +393,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 
 		@Override
 		protected VkPipelineShaderStageCreateInfo newInstance(long address) {
-			return new VkPipelineShaderStageCreateInfo(address, container);
+			return new VkPipelineShaderStageCreateInfo(address, getContainer());
 		}
 
 		@Override

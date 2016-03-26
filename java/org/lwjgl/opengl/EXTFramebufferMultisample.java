@@ -66,45 +66,22 @@ public class EXTFramebufferMultisample {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_MAX_SAMPLES_EXT = 0x8D57;
 
-	/** Function address. */
-	public final long RenderbufferStorageMultisampleEXT;
-
 	protected EXTFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTFramebufferMultisample(FunctionProvider provider) {
-		RenderbufferStorageMultisampleEXT = provider.getFunctionAddress("glRenderbufferStorageMultisampleEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTFramebufferMultisample} instance of the current context. */
-	public static EXTFramebufferMultisample getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTFramebufferMultisample} instance of the specified {@link GLCapabilities}. */
-	public static EXTFramebufferMultisample getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTFramebufferMultisample);
-	}
-
-	static EXTFramebufferMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_framebuffer_multisample") ) return null;
-
-		EXTFramebufferMultisample funcs = new EXTFramebufferMultisample(provider);
-
-		boolean supported = checkFunctions(
-			funcs.RenderbufferStorageMultisampleEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glRenderbufferStorageMultisampleEXT
 		);
-
-		return GL.checkExtension("GL_EXT_framebuffer_multisample", funcs, supported);
 	}
 
 	// --- [ glRenderbufferStorageMultisampleEXT ] ---
 
 	public static void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().RenderbufferStorageMultisampleEXT;
+		long __functionAddress = GL.getCapabilities().glRenderbufferStorageMultisampleEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 

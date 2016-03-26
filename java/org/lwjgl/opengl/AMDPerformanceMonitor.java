@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -40,69 +40,25 @@ public class AMDPerformanceMonitor {
 		GL_PERFMON_RESULT_SIZE_AMD      = 0x8BC5,
 		GL_PERFMON_RESULT_AMD           = 0x8BC6;
 
-	/** Function address. */
-	public final long
-		GetPerfMonitorGroupsAMD,
-		GetPerfMonitorCountersAMD,
-		GetPerfMonitorGroupStringAMD,
-		GetPerfMonitorCounterStringAMD,
-		GetPerfMonitorCounterInfoAMD,
-		GenPerfMonitorsAMD,
-		DeletePerfMonitorsAMD,
-		SelectPerfMonitorCountersAMD,
-		BeginPerfMonitorAMD,
-		EndPerfMonitorAMD,
-		GetPerfMonitorCounterDataAMD;
-
 	protected AMDPerformanceMonitor() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AMDPerformanceMonitor(FunctionProvider provider) {
-		GetPerfMonitorGroupsAMD = provider.getFunctionAddress("glGetPerfMonitorGroupsAMD");
-		GetPerfMonitorCountersAMD = provider.getFunctionAddress("glGetPerfMonitorCountersAMD");
-		GetPerfMonitorGroupStringAMD = provider.getFunctionAddress("glGetPerfMonitorGroupStringAMD");
-		GetPerfMonitorCounterStringAMD = provider.getFunctionAddress("glGetPerfMonitorCounterStringAMD");
-		GetPerfMonitorCounterInfoAMD = provider.getFunctionAddress("glGetPerfMonitorCounterInfoAMD");
-		GenPerfMonitorsAMD = provider.getFunctionAddress("glGenPerfMonitorsAMD");
-		DeletePerfMonitorsAMD = provider.getFunctionAddress("glDeletePerfMonitorsAMD");
-		SelectPerfMonitorCountersAMD = provider.getFunctionAddress("glSelectPerfMonitorCountersAMD");
-		BeginPerfMonitorAMD = provider.getFunctionAddress("glBeginPerfMonitorAMD");
-		EndPerfMonitorAMD = provider.getFunctionAddress("glEndPerfMonitorAMD");
-		GetPerfMonitorCounterDataAMD = provider.getFunctionAddress("glGetPerfMonitorCounterDataAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AMDPerformanceMonitor} instance of the current context. */
-	public static AMDPerformanceMonitor getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link AMDPerformanceMonitor} instance of the specified {@link GLCapabilities}. */
-	public static AMDPerformanceMonitor getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__AMDPerformanceMonitor);
-	}
-
-	static AMDPerformanceMonitor create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_AMD_performance_monitor") ) return null;
-
-		AMDPerformanceMonitor funcs = new AMDPerformanceMonitor(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetPerfMonitorGroupsAMD, funcs.GetPerfMonitorCountersAMD, funcs.GetPerfMonitorGroupStringAMD, funcs.GetPerfMonitorCounterStringAMD, 
-			funcs.GetPerfMonitorCounterInfoAMD, funcs.GenPerfMonitorsAMD, funcs.DeletePerfMonitorsAMD, funcs.SelectPerfMonitorCountersAMD, 
-			funcs.BeginPerfMonitorAMD, funcs.EndPerfMonitorAMD, funcs.GetPerfMonitorCounterDataAMD
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetPerfMonitorGroupsAMD, caps.glGetPerfMonitorCountersAMD, caps.glGetPerfMonitorGroupStringAMD, caps.glGetPerfMonitorCounterStringAMD, 
+			caps.glGetPerfMonitorCounterInfoAMD, caps.glGenPerfMonitorsAMD, caps.glDeletePerfMonitorsAMD, caps.glSelectPerfMonitorCountersAMD, 
+			caps.glBeginPerfMonitorAMD, caps.glEndPerfMonitorAMD, caps.glGetPerfMonitorCounterDataAMD
 		);
-
-		return GL.checkExtension("GL_AMD_performance_monitor", funcs, supported);
 	}
 
 	// --- [ glGetPerfMonitorGroupsAMD ] ---
 
 	/** Unsafe version of {@link #glGetPerfMonitorGroupsAMD GetPerfMonitorGroupsAMD} */
 	public static void nglGetPerfMonitorGroupsAMD(long numGroups, int groupsSize, long groups) {
-		long __functionAddress = getInstance().GetPerfMonitorGroupsAMD;
+		long __functionAddress = GL.getCapabilities().glGetPerfMonitorGroupsAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPIPV(__functionAddress, numGroups, groupsSize, groups);
 	}
 
@@ -125,7 +81,9 @@ public class AMDPerformanceMonitor {
 
 	/** Unsafe version of {@link #glGetPerfMonitorCountersAMD GetPerfMonitorCountersAMD} */
 	public static void nglGetPerfMonitorCountersAMD(int group, long numCounters, long maxActiveCounters, int counterSize, long counters) {
-		long __functionAddress = getInstance().GetPerfMonitorCountersAMD;
+		long __functionAddress = GL.getCapabilities().glGetPerfMonitorCountersAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPIPV(__functionAddress, group, numCounters, maxActiveCounters, counterSize, counters);
 	}
 
@@ -151,7 +109,9 @@ public class AMDPerformanceMonitor {
 
 	/** Unsafe version of {@link #glGetPerfMonitorGroupStringAMD GetPerfMonitorGroupStringAMD} */
 	public static void nglGetPerfMonitorGroupStringAMD(int group, int bufSize, long length, long groupString) {
-		long __functionAddress = getInstance().GetPerfMonitorGroupStringAMD;
+		long __functionAddress = GL.getCapabilities().glGetPerfMonitorGroupStringAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, group, bufSize, length, groupString);
 	}
 
@@ -174,7 +134,9 @@ public class AMDPerformanceMonitor {
 
 	/** Unsafe version of {@link #glGetPerfMonitorCounterStringAMD GetPerfMonitorCounterStringAMD} */
 	public static void nglGetPerfMonitorCounterStringAMD(int group, int counter, int bufSize, long length, long counterString) {
-		long __functionAddress = getInstance().GetPerfMonitorCounterStringAMD;
+		long __functionAddress = GL.getCapabilities().glGetPerfMonitorCounterStringAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, group, counter, bufSize, length, counterString);
 	}
 
@@ -197,7 +159,9 @@ public class AMDPerformanceMonitor {
 
 	/** Unsafe version of {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
 	public static void nglGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, long data) {
-		long __functionAddress = getInstance().GetPerfMonitorCounterInfoAMD;
+		long __functionAddress = GL.getCapabilities().glGetPerfMonitorCounterInfoAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, group, counter, pname, data);
 	}
 
@@ -225,7 +189,9 @@ public class AMDPerformanceMonitor {
 
 	/** Unsafe version of {@link #glGenPerfMonitorsAMD GenPerfMonitorsAMD} */
 	public static void nglGenPerfMonitorsAMD(int n, long monitors) {
-		long __functionAddress = getInstance().GenPerfMonitorsAMD;
+		long __functionAddress = GL.getCapabilities().glGenPerfMonitorsAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, monitors);
 	}
 
@@ -242,17 +208,23 @@ public class AMDPerformanceMonitor {
 
 	/** Single return value version of: {@link #glGenPerfMonitorsAMD GenPerfMonitorsAMD} */
 	public static int glGenPerfMonitorsAMD() {
-		APIBuffer __buffer = apiBuffer();
-		int monitors = __buffer.intParam();
-		nglGenPerfMonitorsAMD(1, __buffer.address(monitors));
-		return __buffer.intValue(monitors);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer monitors = stack.callocInt(1);
+			nglGenPerfMonitorsAMD(1, memAddress(monitors));
+			return monitors.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDeletePerfMonitorsAMD ] ---
 
 	/** Unsafe version of {@link #glDeletePerfMonitorsAMD DeletePerfMonitorsAMD} */
 	public static void nglDeletePerfMonitorsAMD(int n, long monitors) {
-		long __functionAddress = getInstance().DeletePerfMonitorsAMD;
+		long __functionAddress = GL.getCapabilities().glDeletePerfMonitorsAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, monitors);
 	}
 
@@ -269,16 +241,22 @@ public class AMDPerformanceMonitor {
 
 	/** Single value version of: {@link #glDeletePerfMonitorsAMD DeletePerfMonitorsAMD} */
 	public static void glDeletePerfMonitorsAMD(int monitor) {
-		APIBuffer __buffer = apiBuffer();
-		int monitors = __buffer.intParam(monitor);
-		nglDeletePerfMonitorsAMD(1, __buffer.address(monitors));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer monitors = stack.ints(monitor);
+			nglDeletePerfMonitorsAMD(1, memAddress(monitors));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glSelectPerfMonitorCountersAMD ] ---
 
 	/** Unsafe version of {@link #glSelectPerfMonitorCountersAMD SelectPerfMonitorCountersAMD} */
 	public static void nglSelectPerfMonitorCountersAMD(int monitor, boolean enable, int group, int numCounters, long counterList) {
-		long __functionAddress = getInstance().SelectPerfMonitorCountersAMD;
+		long __functionAddress = GL.getCapabilities().glSelectPerfMonitorCountersAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIZIIPV(__functionAddress, monitor, enable, group, numCounters, counterList);
 	}
 
@@ -296,14 +274,18 @@ public class AMDPerformanceMonitor {
 	// --- [ glBeginPerfMonitorAMD ] ---
 
 	public static void glBeginPerfMonitorAMD(int monitor) {
-		long __functionAddress = getInstance().BeginPerfMonitorAMD;
+		long __functionAddress = GL.getCapabilities().glBeginPerfMonitorAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, monitor);
 	}
 
 	// --- [ glEndPerfMonitorAMD ] ---
 
 	public static void glEndPerfMonitorAMD(int monitor) {
-		long __functionAddress = getInstance().EndPerfMonitorAMD;
+		long __functionAddress = GL.getCapabilities().glEndPerfMonitorAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, monitor);
 	}
 
@@ -311,7 +293,9 @@ public class AMDPerformanceMonitor {
 
 	/** Unsafe version of {@link #glGetPerfMonitorCounterDataAMD GetPerfMonitorCounterDataAMD} */
 	public static void nglGetPerfMonitorCounterDataAMD(int monitor, int pname, int dataSize, long data, long bytesWritten) {
-		long __functionAddress = getInstance().GetPerfMonitorCounterDataAMD;
+		long __functionAddress = GL.getCapabilities().glGetPerfMonitorCounterDataAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, monitor, pname, dataSize, data, bytesWritten);
 	}
 

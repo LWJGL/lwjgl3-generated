@@ -74,56 +74,23 @@ public class GLXSGIXPbuffer {
 		GLX_ACCUM_BUFFER_BIT_SGIX       = 0x80,
 		GLX_SAMPLE_BUFFERS_BIT_SGIX     = 0x100;
 
-	/** Function address. */
-	public final long
-		CreateGLXPbufferSGIX,
-		DestroyGLXPbufferSGIX,
-		QueryGLXPbufferSGIX,
-		SelectEventSGIX,
-		GetSelectedEventSGIX;
-
 	protected GLXSGIXPbuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXSGIXPbuffer(FunctionProvider provider) {
-		CreateGLXPbufferSGIX = provider.getFunctionAddress("glXCreateGLXPbufferSGIX");
-		DestroyGLXPbufferSGIX = provider.getFunctionAddress("glXDestroyGLXPbufferSGIX");
-		QueryGLXPbufferSGIX = provider.getFunctionAddress("glXQueryGLXPbufferSGIX");
-		SelectEventSGIX = provider.getFunctionAddress("glXSelectEventSGIX");
-		GetSelectedEventSGIX = provider.getFunctionAddress("glXGetSelectedEventSGIX");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXSGIXPbuffer} instance of the current context. */
-	public static GLXSGIXPbuffer getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXSGIXPbuffer} instance of the specified {@link GLCapabilities}. */
-	public static GLXSGIXPbuffer getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXSGIXPbuffer);
-	}
-
-	static GLXSGIXPbuffer create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGIX_pbuffer") ) return null;
-
-		GLXSGIXPbuffer funcs = new GLXSGIXPbuffer(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateGLXPbufferSGIX, funcs.DestroyGLXPbufferSGIX, funcs.QueryGLXPbufferSGIX, funcs.SelectEventSGIX, funcs.GetSelectedEventSGIX
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXCreateGLXPbufferSGIX, caps.glXDestroyGLXPbufferSGIX, caps.glXQueryGLXPbufferSGIX, caps.glXSelectEventSGIX, caps.glXGetSelectedEventSGIX
 		);
-
-		return GL.checkExtension("GLX_SGIX_pbuffer", funcs, supported);
 	}
 
 	// --- [ glXCreateGLXPbufferSGIX ] ---
 
 	/** Unsafe version of {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
 	public static long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list) {
-		long __functionAddress = getInstance().CreateGLXPbufferSGIX;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateGLXPbufferSGIX;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -161,8 +128,9 @@ public class GLXSGIXPbuffer {
 	 * @param pbuf    the pbuffer to destroy
 	 */
 	public static void glXDestroyGLXPbufferSGIX(long display, long pbuf) {
-		long __functionAddress = getInstance().DestroyGLXPbufferSGIX;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXDestroyGLXPbufferSGIX;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
@@ -173,8 +141,9 @@ public class GLXSGIXPbuffer {
 
 	/** Unsafe version of {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
 	public static void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value) {
-		long __functionAddress = getInstance().QueryGLXPbufferSGIX;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryGLXPbufferSGIX;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
@@ -212,8 +181,9 @@ public class GLXSGIXPbuffer {
 	 * @param mask     the selection mask
 	 */
 	public static void glXSelectEventSGIX(long display, long drawable, long mask) {
-		long __functionAddress = getInstance().SelectEventSGIX;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXSelectEventSGIX;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -224,8 +194,9 @@ public class GLXSGIXPbuffer {
 
 	/** Unsafe version of {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX} */
 	public static void nglXGetSelectedEventSGIX(long display, long drawable, long mask) {
-		long __functionAddress = getInstance().GetSelectedEventSGIX;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetSelectedEventSGIX;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}

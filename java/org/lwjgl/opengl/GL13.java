@@ -206,146 +206,32 @@ public class GL13 {
 		GL_TRANSPOSE_TEXTURE_MATRIX    = 0x84E5,
 		GL_TRANSPOSE_COLOR_MATRIX      = 0x84E6;
 
-	/** Function address. */
-	public final long
-		CompressedTexImage3D,
-		CompressedTexImage2D,
-		CompressedTexImage1D,
-		CompressedTexSubImage3D,
-		CompressedTexSubImage2D,
-		CompressedTexSubImage1D,
-		GetCompressedTexImage,
-		SampleCoverage,
-		ActiveTexture,
-		ClientActiveTexture,
-		MultiTexCoord1f,
-		MultiTexCoord1s,
-		MultiTexCoord1i,
-		MultiTexCoord1d,
-		MultiTexCoord1fv,
-		MultiTexCoord1sv,
-		MultiTexCoord1iv,
-		MultiTexCoord1dv,
-		MultiTexCoord2f,
-		MultiTexCoord2s,
-		MultiTexCoord2i,
-		MultiTexCoord2d,
-		MultiTexCoord2fv,
-		MultiTexCoord2sv,
-		MultiTexCoord2iv,
-		MultiTexCoord2dv,
-		MultiTexCoord3f,
-		MultiTexCoord3s,
-		MultiTexCoord3i,
-		MultiTexCoord3d,
-		MultiTexCoord3fv,
-		MultiTexCoord3sv,
-		MultiTexCoord3iv,
-		MultiTexCoord3dv,
-		MultiTexCoord4f,
-		MultiTexCoord4s,
-		MultiTexCoord4i,
-		MultiTexCoord4d,
-		MultiTexCoord4fv,
-		MultiTexCoord4sv,
-		MultiTexCoord4iv,
-		MultiTexCoord4dv,
-		LoadTransposeMatrixf,
-		LoadTransposeMatrixd,
-		MultTransposeMatrixf,
-		MultTransposeMatrixd;
-
 	protected GL13() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL13(FunctionProvider provider, boolean fc) {
-		CompressedTexImage3D = provider.getFunctionAddress("glCompressedTexImage3D");
-		CompressedTexImage2D = provider.getFunctionAddress("glCompressedTexImage2D");
-		CompressedTexImage1D = provider.getFunctionAddress("glCompressedTexImage1D");
-		CompressedTexSubImage3D = provider.getFunctionAddress("glCompressedTexSubImage3D");
-		CompressedTexSubImage2D = provider.getFunctionAddress("glCompressedTexSubImage2D");
-		CompressedTexSubImage1D = provider.getFunctionAddress("glCompressedTexSubImage1D");
-		GetCompressedTexImage = provider.getFunctionAddress("glGetCompressedTexImage");
-		SampleCoverage = provider.getFunctionAddress("glSampleCoverage");
-		ActiveTexture = provider.getFunctionAddress("glActiveTexture");
-		ClientActiveTexture = GL.getFunctionAddress(provider, "glClientActiveTexture", fc);
-		MultiTexCoord1f = GL.getFunctionAddress(provider, "glMultiTexCoord1f", fc);
-		MultiTexCoord1s = GL.getFunctionAddress(provider, "glMultiTexCoord1s", fc);
-		MultiTexCoord1i = GL.getFunctionAddress(provider, "glMultiTexCoord1i", fc);
-		MultiTexCoord1d = GL.getFunctionAddress(provider, "glMultiTexCoord1d", fc);
-		MultiTexCoord1fv = GL.getFunctionAddress(provider, "glMultiTexCoord1fv", fc);
-		MultiTexCoord1sv = GL.getFunctionAddress(provider, "glMultiTexCoord1sv", fc);
-		MultiTexCoord1iv = GL.getFunctionAddress(provider, "glMultiTexCoord1iv", fc);
-		MultiTexCoord1dv = GL.getFunctionAddress(provider, "glMultiTexCoord1dv", fc);
-		MultiTexCoord2f = GL.getFunctionAddress(provider, "glMultiTexCoord2f", fc);
-		MultiTexCoord2s = GL.getFunctionAddress(provider, "glMultiTexCoord2s", fc);
-		MultiTexCoord2i = GL.getFunctionAddress(provider, "glMultiTexCoord2i", fc);
-		MultiTexCoord2d = GL.getFunctionAddress(provider, "glMultiTexCoord2d", fc);
-		MultiTexCoord2fv = GL.getFunctionAddress(provider, "glMultiTexCoord2fv", fc);
-		MultiTexCoord2sv = GL.getFunctionAddress(provider, "glMultiTexCoord2sv", fc);
-		MultiTexCoord2iv = GL.getFunctionAddress(provider, "glMultiTexCoord2iv", fc);
-		MultiTexCoord2dv = GL.getFunctionAddress(provider, "glMultiTexCoord2dv", fc);
-		MultiTexCoord3f = GL.getFunctionAddress(provider, "glMultiTexCoord3f", fc);
-		MultiTexCoord3s = GL.getFunctionAddress(provider, "glMultiTexCoord3s", fc);
-		MultiTexCoord3i = GL.getFunctionAddress(provider, "glMultiTexCoord3i", fc);
-		MultiTexCoord3d = GL.getFunctionAddress(provider, "glMultiTexCoord3d", fc);
-		MultiTexCoord3fv = GL.getFunctionAddress(provider, "glMultiTexCoord3fv", fc);
-		MultiTexCoord3sv = GL.getFunctionAddress(provider, "glMultiTexCoord3sv", fc);
-		MultiTexCoord3iv = GL.getFunctionAddress(provider, "glMultiTexCoord3iv", fc);
-		MultiTexCoord3dv = GL.getFunctionAddress(provider, "glMultiTexCoord3dv", fc);
-		MultiTexCoord4f = GL.getFunctionAddress(provider, "glMultiTexCoord4f", fc);
-		MultiTexCoord4s = GL.getFunctionAddress(provider, "glMultiTexCoord4s", fc);
-		MultiTexCoord4i = GL.getFunctionAddress(provider, "glMultiTexCoord4i", fc);
-		MultiTexCoord4d = GL.getFunctionAddress(provider, "glMultiTexCoord4d", fc);
-		MultiTexCoord4fv = GL.getFunctionAddress(provider, "glMultiTexCoord4fv", fc);
-		MultiTexCoord4sv = GL.getFunctionAddress(provider, "glMultiTexCoord4sv", fc);
-		MultiTexCoord4iv = GL.getFunctionAddress(provider, "glMultiTexCoord4iv", fc);
-		MultiTexCoord4dv = GL.getFunctionAddress(provider, "glMultiTexCoord4dv", fc);
-		LoadTransposeMatrixf = GL.getFunctionAddress(provider, "glLoadTransposeMatrixf", fc);
-		LoadTransposeMatrixd = GL.getFunctionAddress(provider, "glLoadTransposeMatrixd", fc);
-		MultTransposeMatrixf = GL.getFunctionAddress(provider, "glMultTransposeMatrixf", fc);
-		MultTransposeMatrixd = GL.getFunctionAddress(provider, "glMultTransposeMatrixd", fc);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL13} instance of the current context. */
-	public static GL13 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL13} instance of the specified {@link GLCapabilities}. */
-	public static GL13 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL13);
-	}
-
-	static GL13 create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {
-		if ( !ext.contains("OpenGL13") ) return null;
-
-		GL13 funcs = new GL13(provider, fc);
-
-		boolean supported = (fc || checkFunctions(
-			funcs.ClientActiveTexture, funcs.MultiTexCoord1f, funcs.MultiTexCoord1s, funcs.MultiTexCoord1i, funcs.MultiTexCoord1d, funcs.MultiTexCoord1fv, 
-			funcs.MultiTexCoord1sv, funcs.MultiTexCoord1iv, funcs.MultiTexCoord1dv, funcs.MultiTexCoord2f, funcs.MultiTexCoord2s, funcs.MultiTexCoord2i, 
-			funcs.MultiTexCoord2d, funcs.MultiTexCoord2fv, funcs.MultiTexCoord2sv, funcs.MultiTexCoord2iv, funcs.MultiTexCoord2dv, funcs.MultiTexCoord3f, 
-			funcs.MultiTexCoord3s, funcs.MultiTexCoord3i, funcs.MultiTexCoord3d, funcs.MultiTexCoord3fv, funcs.MultiTexCoord3sv, funcs.MultiTexCoord3iv, 
-			funcs.MultiTexCoord3dv, funcs.MultiTexCoord4f, funcs.MultiTexCoord4s, funcs.MultiTexCoord4i, funcs.MultiTexCoord4d, funcs.MultiTexCoord4fv, 
-			funcs.MultiTexCoord4sv, funcs.MultiTexCoord4iv, funcs.MultiTexCoord4dv, funcs.LoadTransposeMatrixf, funcs.LoadTransposeMatrixd, 
-			funcs.MultTransposeMatrixf, funcs.MultTransposeMatrixd
+	static boolean isAvailable(GLCapabilities caps, boolean fc) {
+		return (fc || checkFunctions(
+			caps.glClientActiveTexture, caps.glMultiTexCoord1f, caps.glMultiTexCoord1s, caps.glMultiTexCoord1i, caps.glMultiTexCoord1d, caps.glMultiTexCoord1fv, 
+			caps.glMultiTexCoord1sv, caps.glMultiTexCoord1iv, caps.glMultiTexCoord1dv, caps.glMultiTexCoord2f, caps.glMultiTexCoord2s, caps.glMultiTexCoord2i, 
+			caps.glMultiTexCoord2d, caps.glMultiTexCoord2fv, caps.glMultiTexCoord2sv, caps.glMultiTexCoord2iv, caps.glMultiTexCoord2dv, caps.glMultiTexCoord3f, 
+			caps.glMultiTexCoord3s, caps.glMultiTexCoord3i, caps.glMultiTexCoord3d, caps.glMultiTexCoord3fv, caps.glMultiTexCoord3sv, caps.glMultiTexCoord3iv, 
+			caps.glMultiTexCoord3dv, caps.glMultiTexCoord4f, caps.glMultiTexCoord4s, caps.glMultiTexCoord4i, caps.glMultiTexCoord4d, caps.glMultiTexCoord4fv, 
+			caps.glMultiTexCoord4sv, caps.glMultiTexCoord4iv, caps.glMultiTexCoord4dv, caps.glLoadTransposeMatrixf, caps.glLoadTransposeMatrixd, 
+			caps.glMultTransposeMatrixf, caps.glMultTransposeMatrixd
 		)) && checkFunctions(
-			funcs.CompressedTexImage3D, funcs.CompressedTexImage2D, funcs.CompressedTexImage1D, funcs.CompressedTexSubImage3D, funcs.CompressedTexSubImage2D, 
-			funcs.CompressedTexSubImage1D, funcs.GetCompressedTexImage, funcs.SampleCoverage, funcs.ActiveTexture
+			caps.glCompressedTexImage3D, caps.glCompressedTexImage2D, caps.glCompressedTexImage1D, caps.glCompressedTexSubImage3D, 
+			caps.glCompressedTexSubImage2D, caps.glCompressedTexSubImage1D, caps.glGetCompressedTexImage, caps.glSampleCoverage, caps.glActiveTexture
 		);
-
-		return GL.checkExtension("OpenGL13", funcs, supported);
 	}
 
 	// --- [ glCompressedTexImage3D ] ---
 
 	/** Unsafe version of {@link #glCompressedTexImage3D CompressedTexImage3D} */
 	public static void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexImage3D;
+		long __functionAddress = GL.getCapabilities().glCompressedTexImage3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
@@ -390,7 +276,9 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glCompressedTexImage2D CompressedTexImage2D} */
 	public static void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexImage2D;
+		long __functionAddress = GL.getCapabilities().glCompressedTexImage2D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
 	}
 
@@ -434,7 +322,9 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glCompressedTexImage1D CompressedTexImage1D} */
 	public static void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexImage1D;
+		long __functionAddress = GL.getCapabilities().glCompressedTexImage1D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIPV(__functionAddress, target, level, internalformat, width, border, imageSize, data);
 	}
 
@@ -477,7 +367,9 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
 	public static void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexSubImage3D;
+		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
@@ -524,7 +416,9 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
 	public static void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexSubImage2D;
+		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage2D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
@@ -569,7 +463,9 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
 	public static void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexSubImage1D;
+		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage1D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIPV(__functionAddress, target, level, xoffset, width, format, imageSize, data);
 	}
 
@@ -612,7 +508,9 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glGetCompressedTexImage GetCompressedTexImage} */
 	public static void nglGetCompressedTexImage(int target, int level, long pixels) {
-		long __functionAddress = getInstance().GetCompressedTexImage;
+		long __functionAddress = GL.getCapabilities().glGetCompressedTexImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, level, pixels);
 	}
 
@@ -665,7 +563,9 @@ public class GL13 {
 	 * @param invert if the coverage masks should be inverted. The initial value is false.
 	 */
 	public static void glSampleCoverage(float value, boolean invert) {
-		long __functionAddress = getInstance().SampleCoverage;
+		long __functionAddress = GL.getCapabilities().glSampleCoverage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFZV(__functionAddress, value, invert);
 	}
 
@@ -680,7 +580,9 @@ public class GL13 {
 	 * @param texture which texture unit to make active. One of:<br>{@link #GL_TEXTURE0 TEXTURE0}, GL_TEXTURE[1-31]
 	 */
 	public static void glActiveTexture(int texture) {
-		long __functionAddress = getInstance().ActiveTexture;
+		long __functionAddress = GL.getCapabilities().glActiveTexture;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, texture);
 	}
 
@@ -695,7 +597,7 @@ public class GL13 {
 	 * @param texture which texture coordinate array to make active. One of:<br>{@link #GL_TEXTURE0 TEXTURE0}, GL_TEXTURE[1-31]
 	 */
 	public static void glClientActiveTexture(int texture) {
-		long __functionAddress = getInstance().ClientActiveTexture;
+		long __functionAddress = GL.getCapabilities().glClientActiveTexture;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, texture);
@@ -712,7 +614,7 @@ public class GL13 {
 	 * @param s       the s component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord1f(int texture, float s) {
-		long __functionAddress = getInstance().MultiTexCoord1f;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, texture, s);
@@ -729,7 +631,7 @@ public class GL13 {
 	 * @param s       the s component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord1s(int texture, short s) {
-		long __functionAddress = getInstance().MultiTexCoord1s;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISV(__functionAddress, texture, s);
@@ -746,7 +648,7 @@ public class GL13 {
 	 * @param s       the s component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord1i(int texture, int s) {
-		long __functionAddress = getInstance().MultiTexCoord1i;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, texture, s);
@@ -763,7 +665,7 @@ public class GL13 {
 	 * @param s       the s component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord1d(int texture, double s) {
-		long __functionAddress = getInstance().MultiTexCoord1d;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDV(__functionAddress, texture, s);
@@ -773,7 +675,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord1fv MultiTexCoord1fv} */
 	public static void nglMultiTexCoord1fv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord1fv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -804,7 +706,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord1sv MultiTexCoord1sv} */
 	public static void nglMultiTexCoord1sv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord1sv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -835,7 +737,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord1iv MultiTexCoord1iv} */
 	public static void nglMultiTexCoord1iv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord1iv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -866,7 +768,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord1dv MultiTexCoord1dv} */
 	public static void nglMultiTexCoord1dv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord1dv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -905,7 +807,7 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord2f(int texture, float s, float t) {
-		long __functionAddress = getInstance().MultiTexCoord2f;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFV(__functionAddress, texture, s, t);
@@ -923,7 +825,7 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord2s(int texture, short s, short t) {
-		long __functionAddress = getInstance().MultiTexCoord2s;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISSV(__functionAddress, texture, s, t);
@@ -941,7 +843,7 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord2i(int texture, int s, int t) {
-		long __functionAddress = getInstance().MultiTexCoord2i;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, s, t);
@@ -959,7 +861,7 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord2d(int texture, double s, double t) {
-		long __functionAddress = getInstance().MultiTexCoord2d;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDV(__functionAddress, texture, s, t);
@@ -969,7 +871,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord2fv MultiTexCoord2fv} */
 	public static void nglMultiTexCoord2fv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord2fv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1000,7 +902,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord2sv MultiTexCoord2sv} */
 	public static void nglMultiTexCoord2sv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord2sv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1031,7 +933,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord2iv MultiTexCoord2iv} */
 	public static void nglMultiTexCoord2iv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord2iv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1062,7 +964,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord2dv MultiTexCoord2dv} */
 	public static void nglMultiTexCoord2dv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord2dv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1102,7 +1004,7 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord3f(int texture, float s, float t, float r) {
-		long __functionAddress = getInstance().MultiTexCoord3f;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFFV(__functionAddress, texture, s, t, r);
@@ -1121,7 +1023,7 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord3s(int texture, short s, short t, short r) {
-		long __functionAddress = getInstance().MultiTexCoord3s;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISSSV(__functionAddress, texture, s, t, r);
@@ -1140,7 +1042,7 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord3i(int texture, int s, int t, int r) {
-		long __functionAddress = getInstance().MultiTexCoord3i;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, texture, s, t, r);
@@ -1159,7 +1061,7 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord3d(int texture, double s, double t, double r) {
-		long __functionAddress = getInstance().MultiTexCoord3d;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDDV(__functionAddress, texture, s, t, r);
@@ -1169,7 +1071,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord3fv MultiTexCoord3fv} */
 	public static void nglMultiTexCoord3fv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord3fv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1200,7 +1102,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord3sv MultiTexCoord3sv} */
 	public static void nglMultiTexCoord3sv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord3sv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1231,7 +1133,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord3iv MultiTexCoord3iv} */
 	public static void nglMultiTexCoord3iv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord3iv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1262,7 +1164,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord3dv MultiTexCoord3dv} */
 	public static void nglMultiTexCoord3dv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord3dv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1303,7 +1205,7 @@ public class GL13 {
 	 * @param q       the q component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord4f(int texture, float s, float t, float r, float q) {
-		long __functionAddress = getInstance().MultiTexCoord4f;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFFFV(__functionAddress, texture, s, t, r, q);
@@ -1323,7 +1225,7 @@ public class GL13 {
 	 * @param q       the q component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord4s(int texture, short s, short t, short r, short q) {
-		long __functionAddress = getInstance().MultiTexCoord4s;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISSSSV(__functionAddress, texture, s, t, r, q);
@@ -1343,7 +1245,7 @@ public class GL13 {
 	 * @param q       the q component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord4i(int texture, int s, int t, int r, int q) {
-		long __functionAddress = getInstance().MultiTexCoord4i;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, texture, s, t, r, q);
@@ -1363,7 +1265,7 @@ public class GL13 {
 	 * @param q       the q component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord4d(int texture, double s, double t, double r, double q) {
-		long __functionAddress = getInstance().MultiTexCoord4d;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDDDV(__functionAddress, texture, s, t, r, q);
@@ -1373,7 +1275,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord4fv MultiTexCoord4fv} */
 	public static void nglMultiTexCoord4fv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord4fv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1404,7 +1306,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord4sv MultiTexCoord4sv} */
 	public static void nglMultiTexCoord4sv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord4sv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1435,7 +1337,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord4iv MultiTexCoord4iv} */
 	public static void nglMultiTexCoord4iv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord4iv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1466,7 +1368,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultiTexCoord4dv MultiTexCoord4dv} */
 	public static void nglMultiTexCoord4dv(int texture, long v) {
-		long __functionAddress = getInstance().MultiTexCoord4dv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
@@ -1497,7 +1399,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
 	public static void nglLoadTransposeMatrixf(long m) {
-		long __functionAddress = getInstance().LoadTransposeMatrixf;
+		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
@@ -1536,7 +1438,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
 	public static void nglLoadTransposeMatrixd(long m) {
-		long __functionAddress = getInstance().LoadTransposeMatrixd;
+		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixd;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
@@ -1566,7 +1468,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
 	public static void nglMultTransposeMatrixf(long m) {
-		long __functionAddress = getInstance().MultTransposeMatrixf;
+		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
@@ -1596,7 +1498,7 @@ public class GL13 {
 
 	/** Unsafe version of {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
 	public static void nglMultTransposeMatrixd(long m) {
-		long __functionAddress = getInstance().MultTransposeMatrixd;
+		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixd;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);

@@ -18,38 +18,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class OVRMultiviewMultisampledRenderToTexture {
 
-	/** Function address. */
-	public final long FramebufferTextureMultisampleMultiviewOVR;
-
 	protected OVRMultiviewMultisampledRenderToTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OVRMultiviewMultisampledRenderToTexture(FunctionProvider provider) {
-		FramebufferTextureMultisampleMultiviewOVR = provider.getFunctionAddress("glFramebufferTextureMultisampleMultiviewOVR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OVRMultiviewMultisampledRenderToTexture} instance of the current context. */
-	public static OVRMultiviewMultisampledRenderToTexture getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OVRMultiviewMultisampledRenderToTexture} instance of the specified {@link GLESCapabilities}. */
-	public static OVRMultiviewMultisampledRenderToTexture getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OVRMultiviewMultisampledRenderToTexture);
-	}
-
-	static OVRMultiviewMultisampledRenderToTexture create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OVR_multiview_multisampled_render_to_texture") ) return null;
-
-		OVRMultiviewMultisampledRenderToTexture funcs = new OVRMultiviewMultisampledRenderToTexture(provider);
-		boolean supported = checkFunctions(
-			funcs.FramebufferTextureMultisampleMultiviewOVR
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glFramebufferTextureMultisampleMultiviewOVR
 		);
-
-		return GLES.checkExtension("GL_OVR_multiview_multisampled_render_to_texture", funcs, supported);
 	}
 
 	// --- [ glFramebufferTextureMultisampleMultiviewOVR ] ---
@@ -67,7 +43,9 @@ public class OVRMultiviewMultisampledRenderToTexture {
 	 * @param numViews      
 	 */
 	public static void glFramebufferTextureMultisampleMultiviewOVR(int target, int attachment, int texture, int level, int samples, int baseViewIndex, int numViews) {
-		long __functionAddress = getInstance().FramebufferTextureMultisampleMultiviewOVR;
+		long __functionAddress = GLES.getCapabilities().glFramebufferTextureMultisampleMultiviewOVR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIV(__functionAddress, target, attachment, texture, level, samples, baseViewIndex, numViews);
 	}
 

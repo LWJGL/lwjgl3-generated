@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import org.lwjgl.system.windows.*;
@@ -329,82 +329,18 @@ public class ARBFramebufferObject {
 	/** Accepted by the {@code value} parameter of GetTexLevelParameter. */
 	public static final int GL_TEXTURE_STENCIL_SIZE = 0x88F1;
 
-	/** Function address. */
-	public final long
-		IsRenderbuffer,
-		BindRenderbuffer,
-		DeleteRenderbuffers,
-		GenRenderbuffers,
-		RenderbufferStorage,
-		RenderbufferStorageMultisample,
-		GetRenderbufferParameteriv,
-		IsFramebuffer,
-		BindFramebuffer,
-		DeleteFramebuffers,
-		GenFramebuffers,
-		CheckFramebufferStatus,
-		FramebufferTexture1D,
-		FramebufferTexture2D,
-		FramebufferTexture3D,
-		FramebufferTextureLayer,
-		FramebufferRenderbuffer,
-		GetFramebufferAttachmentParameteriv,
-		BlitFramebuffer,
-		GenerateMipmap;
-
 	protected ARBFramebufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBFramebufferObject(FunctionProvider provider) {
-		IsRenderbuffer = provider.getFunctionAddress("glIsRenderbuffer");
-		BindRenderbuffer = provider.getFunctionAddress("glBindRenderbuffer");
-		DeleteRenderbuffers = provider.getFunctionAddress("glDeleteRenderbuffers");
-		GenRenderbuffers = provider.getFunctionAddress("glGenRenderbuffers");
-		RenderbufferStorage = provider.getFunctionAddress("glRenderbufferStorage");
-		RenderbufferStorageMultisample = provider.getFunctionAddress("glRenderbufferStorageMultisample");
-		GetRenderbufferParameteriv = provider.getFunctionAddress("glGetRenderbufferParameteriv");
-		IsFramebuffer = provider.getFunctionAddress("glIsFramebuffer");
-		BindFramebuffer = provider.getFunctionAddress("glBindFramebuffer");
-		DeleteFramebuffers = provider.getFunctionAddress("glDeleteFramebuffers");
-		GenFramebuffers = provider.getFunctionAddress("glGenFramebuffers");
-		CheckFramebufferStatus = provider.getFunctionAddress("glCheckFramebufferStatus");
-		FramebufferTexture1D = provider.getFunctionAddress("glFramebufferTexture1D");
-		FramebufferTexture2D = provider.getFunctionAddress("glFramebufferTexture2D");
-		FramebufferTexture3D = provider.getFunctionAddress("glFramebufferTexture3D");
-		FramebufferTextureLayer = provider.getFunctionAddress("glFramebufferTextureLayer");
-		FramebufferRenderbuffer = provider.getFunctionAddress("glFramebufferRenderbuffer");
-		GetFramebufferAttachmentParameteriv = provider.getFunctionAddress("glGetFramebufferAttachmentParameteriv");
-		BlitFramebuffer = provider.getFunctionAddress("glBlitFramebuffer");
-		GenerateMipmap = provider.getFunctionAddress("glGenerateMipmap");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBFramebufferObject} instance of the current context. */
-	public static ARBFramebufferObject getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBFramebufferObject} instance of the specified {@link GLCapabilities}. */
-	public static ARBFramebufferObject getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBFramebufferObject);
-	}
-
-	static ARBFramebufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_framebuffer_object") ) return null;
-
-		ARBFramebufferObject funcs = new ARBFramebufferObject(provider);
-
-		boolean supported = checkFunctions(
-			funcs.IsRenderbuffer, funcs.BindRenderbuffer, funcs.DeleteRenderbuffers, funcs.GenRenderbuffers, funcs.RenderbufferStorage, 
-			funcs.RenderbufferStorageMultisample, funcs.GetRenderbufferParameteriv, funcs.IsFramebuffer, funcs.BindFramebuffer, funcs.DeleteFramebuffers, 
-			funcs.GenFramebuffers, funcs.CheckFramebufferStatus, funcs.FramebufferTexture1D, funcs.FramebufferTexture2D, funcs.FramebufferTexture3D, 
-			funcs.FramebufferTextureLayer, funcs.FramebufferRenderbuffer, funcs.GetFramebufferAttachmentParameteriv, funcs.BlitFramebuffer, 
-			funcs.GenerateMipmap
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glIsRenderbuffer, caps.glBindRenderbuffer, caps.glDeleteRenderbuffers, caps.glGenRenderbuffers, caps.glRenderbufferStorage, 
+			caps.glRenderbufferStorageMultisample, caps.glGetRenderbufferParameteriv, caps.glIsFramebuffer, caps.glBindFramebuffer, caps.glDeleteFramebuffers, 
+			caps.glGenFramebuffers, caps.glCheckFramebufferStatus, caps.glFramebufferTexture1D, caps.glFramebufferTexture2D, caps.glFramebufferTexture3D, 
+			caps.glFramebufferTextureLayer, caps.glFramebufferRenderbuffer, caps.glGetFramebufferAttachmentParameteriv, caps.glBlitFramebuffer, 
+			caps.glGenerateMipmap
 		);
-
-		return GL.checkExtension("GL_ARB_framebuffer_object", funcs, supported);
 	}
 
 	// --- [ glIsRenderbuffer ] ---
@@ -415,7 +351,9 @@ public class ARBFramebufferObject {
 	 * @param renderbuffer a value that may be the name of a renderbuffer object
 	 */
 	public static boolean glIsRenderbuffer(int renderbuffer) {
-		long __functionAddress = getInstance().IsRenderbuffer;
+		long __functionAddress = GL.getCapabilities().glIsRenderbuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, renderbuffer);
 	}
 
@@ -428,7 +366,9 @@ public class ARBFramebufferObject {
 	 * @param renderbuffer the name of the renderbuffer object to bind
 	 */
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
-		long __functionAddress = getInstance().BindRenderbuffer;
+		long __functionAddress = GL.getCapabilities().glBindRenderbuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, renderbuffer);
 	}
 
@@ -436,7 +376,9 @@ public class ARBFramebufferObject {
 
 	/** Unsafe version of {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
-		long __functionAddress = getInstance().DeleteRenderbuffers;
+		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, renderbuffers);
 	}
 
@@ -459,16 +401,22 @@ public class ARBFramebufferObject {
 
 	/** Single value version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(int renderbuffer) {
-		APIBuffer __buffer = apiBuffer();
-		int renderbuffers = __buffer.intParam(renderbuffer);
-		nglDeleteRenderbuffers(1, __buffer.address(renderbuffers));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer renderbuffers = stack.ints(renderbuffer);
+			nglDeleteRenderbuffers(1, memAddress(renderbuffers));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenRenderbuffers ] ---
 
 	/** Unsafe version of {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
-		long __functionAddress = getInstance().GenRenderbuffers;
+		long __functionAddress = GL.getCapabilities().glGenRenderbuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, renderbuffers);
 	}
 
@@ -491,10 +439,14 @@ public class ARBFramebufferObject {
 
 	/** Single return value version of: {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static int glGenRenderbuffers() {
-		APIBuffer __buffer = apiBuffer();
-		int renderbuffers = __buffer.intParam();
-		nglGenRenderbuffers(1, __buffer.address(renderbuffers));
-		return __buffer.intValue(renderbuffers);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer renderbuffers = stack.callocInt(1);
+			nglGenRenderbuffers(1, memAddress(renderbuffers));
+			return renderbuffers.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glRenderbufferStorage ] ---
@@ -508,7 +460,9 @@ public class ARBFramebufferObject {
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().RenderbufferStorage;
+		long __functionAddress = GL.getCapabilities().glRenderbufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, internalformat, width, height);
 	}
 
@@ -526,7 +480,9 @@ public class ARBFramebufferObject {
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().RenderbufferStorageMultisample;
+		long __functionAddress = GL.getCapabilities().glRenderbufferStorageMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
@@ -534,7 +490,9 @@ public class ARBFramebufferObject {
 
 	/** Unsafe version of {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetRenderbufferParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -560,10 +518,14 @@ public class ARBFramebufferObject {
 
 	/** Single return value version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static int glGetRenderbufferParameteri(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetRenderbufferParameteriv(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetRenderbufferParameteriv(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsFramebuffer ] ---
@@ -574,7 +536,9 @@ public class ARBFramebufferObject {
 	 * @param framebuffer a value that may be the name of a framebuffer object
 	 */
 	public static boolean glIsFramebuffer(int framebuffer) {
-		long __functionAddress = getInstance().IsFramebuffer;
+		long __functionAddress = GL.getCapabilities().glIsFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, framebuffer);
 	}
 
@@ -587,7 +551,9 @@ public class ARBFramebufferObject {
 	 * @param framebuffer the name of the framebuffer object to bind
 	 */
 	public static void glBindFramebuffer(int target, int framebuffer) {
-		long __functionAddress = getInstance().BindFramebuffer;
+		long __functionAddress = GL.getCapabilities().glBindFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, framebuffer);
 	}
 
@@ -595,7 +561,9 @@ public class ARBFramebufferObject {
 
 	/** Unsafe version of {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
-		long __functionAddress = getInstance().DeleteFramebuffers;
+		long __functionAddress = GL.getCapabilities().glDeleteFramebuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, framebuffers);
 	}
 
@@ -618,16 +586,22 @@ public class ARBFramebufferObject {
 
 	/** Single value version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void glDeleteFramebuffers(int framebuffer) {
-		APIBuffer __buffer = apiBuffer();
-		int framebuffers = __buffer.intParam(framebuffer);
-		nglDeleteFramebuffers(1, __buffer.address(framebuffers));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer framebuffers = stack.ints(framebuffer);
+			nglDeleteFramebuffers(1, memAddress(framebuffers));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenFramebuffers ] ---
 
 	/** Unsafe version of {@link #glGenFramebuffers GenFramebuffers} */
 	public static void nglGenFramebuffers(int n, long framebuffers) {
-		long __functionAddress = getInstance().GenFramebuffers;
+		long __functionAddress = GL.getCapabilities().glGenFramebuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, framebuffers);
 	}
 
@@ -650,10 +624,14 @@ public class ARBFramebufferObject {
 
 	/** Single return value version of: {@link #glGenFramebuffers GenFramebuffers} */
 	public static int glGenFramebuffers() {
-		APIBuffer __buffer = apiBuffer();
-		int framebuffers = __buffer.intParam();
-		nglGenFramebuffers(1, __buffer.address(framebuffers));
-		return __buffer.intValue(framebuffers);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer framebuffers = stack.callocInt(1);
+			nglGenFramebuffers(1, memAddress(framebuffers));
+			return framebuffers.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glCheckFramebufferStatus ] ---
@@ -664,7 +642,9 @@ public class ARBFramebufferObject {
 	 * @param target the target of the framebuffer completeness check. One of:<br>{@link #GL_FRAMEBUFFER FRAMEBUFFER}, {@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}
 	 */
 	public static int glCheckFramebufferStatus(int target) {
-		long __functionAddress = getInstance().CheckFramebufferStatus;
+		long __functionAddress = GL.getCapabilities().glCheckFramebufferStatus;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, target);
 	}
 
@@ -680,7 +660,9 @@ public class ARBFramebufferObject {
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
 	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
-		long __functionAddress = getInstance().FramebufferTexture1D;
+		long __functionAddress = GL.getCapabilities().glFramebufferTexture1D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
@@ -696,7 +678,9 @@ public class ARBFramebufferObject {
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
-		long __functionAddress = getInstance().FramebufferTexture2D;
+		long __functionAddress = GL.getCapabilities().glFramebufferTexture2D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
@@ -713,7 +697,9 @@ public class ARBFramebufferObject {
 	 * @param layer      the layer of a 2-dimensional image within the 3-dimensional texture.
 	 */
 	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
-		long __functionAddress = getInstance().FramebufferTexture3D;
+		long __functionAddress = GL.getCapabilities().glFramebufferTexture3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, layer);
 	}
 
@@ -729,7 +715,9 @@ public class ARBFramebufferObject {
 	 * @param layer      the layer of {@code texture} to attach.
 	 */
 	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
-		long __functionAddress = getInstance().FramebufferTextureLayer;
+		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
@@ -744,7 +732,9 @@ public class ARBFramebufferObject {
 	 * @param renderbuffer       the name of an existing renderbuffer object of type {@code renderbuffertarget} to attach
 	 */
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
-		long __functionAddress = getInstance().FramebufferRenderbuffer;
+		long __functionAddress = GL.getCapabilities().glFramebufferRenderbuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
 	}
 
@@ -752,7 +742,9 @@ public class ARBFramebufferObject {
 
 	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
-		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, attachment, pname, params);
 	}
 
@@ -779,10 +771,14 @@ public class ARBFramebufferObject {
 
 	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glBlitFramebuffer ] ---
@@ -802,7 +798,9 @@ public class ARBFramebufferObject {
 	 * @param filter the interpolation to be applied if the image is stretched. One of:<br>{@link GL11#GL_NEAREST NEAREST}, {@link GL11#GL_LINEAR LINEAR}
 	 */
 	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = getInstance().BlitFramebuffer;
+		long __functionAddress = GL.getCapabilities().glBlitFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
@@ -814,7 +812,9 @@ public class ARBFramebufferObject {
 	 * @param target the target to which the texture whose mimaps to generate is bound. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
 	 */
 	public static void glGenerateMipmap(int target) {
-		long __functionAddress = getInstance().GenerateMipmap;
+		long __functionAddress = GL.getCapabilities().glGenerateMipmap;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, target);
 	}
 

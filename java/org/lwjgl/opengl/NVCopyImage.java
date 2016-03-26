@@ -19,39 +19,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class NVCopyImage {
 
-	/** Function address. */
-	public final long CopyImageSubDataNV;
-
 	protected NVCopyImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVCopyImage(FunctionProvider provider) {
-		CopyImageSubDataNV = provider.getFunctionAddress("glCopyImageSubDataNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVCopyImage} instance of the current context. */
-	public static NVCopyImage getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVCopyImage} instance of the specified {@link GLCapabilities}. */
-	public static NVCopyImage getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVCopyImage);
-	}
-
-	static NVCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_copy_image") ) return null;
-
-		NVCopyImage funcs = new NVCopyImage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CopyImageSubDataNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glCopyImageSubDataNV
 		);
-
-		return GL.checkExtension("GL_NV_copy_image", funcs, supported);
 	}
 
 	// --- [ glCopyImageSubDataNV ] ---
@@ -76,7 +51,9 @@ public class NVCopyImage {
 	 * @param depth     
 	 */
 	public static void glCopyImageSubDataNV(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
-		long __functionAddress = getInstance().CopyImageSubDataNV;
+		long __functionAddress = GL.getCapabilities().glCopyImageSubDataNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIIIIIIV(__functionAddress, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 	}
 

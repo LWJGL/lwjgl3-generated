@@ -22,49 +22,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBGetTextureSubImage {
 
-	/** Function address. */
-	public final long
-		GetTextureSubImage,
-		GetCompressedTextureSubImage;
-
 	protected ARBGetTextureSubImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBGetTextureSubImage(FunctionProvider provider) {
-		GetTextureSubImage = provider.getFunctionAddress("glGetTextureSubImage");
-		GetCompressedTextureSubImage = provider.getFunctionAddress("glGetCompressedTextureSubImage");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBGetTextureSubImage} instance of the current context. */
-	public static ARBGetTextureSubImage getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBGetTextureSubImage} instance of the specified {@link GLCapabilities}. */
-	public static ARBGetTextureSubImage getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBGetTextureSubImage);
-	}
-
-	static ARBGetTextureSubImage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_get_texture_sub_image") ) return null;
-
-		ARBGetTextureSubImage funcs = new ARBGetTextureSubImage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetTextureSubImage, funcs.GetCompressedTextureSubImage
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetTextureSubImage, caps.glGetCompressedTextureSubImage
 		);
-
-		return GL.checkExtension("GL_ARB_get_texture_sub_image", funcs, supported);
 	}
 
 	// --- [ glGetTextureSubImage ] ---
 
 	/** Unsafe version of {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void nglGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixels) {
-		long __functionAddress = getInstance().GetTextureSubImage;
+		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
 	}
 
@@ -138,7 +112,9 @@ public class ARBGetTextureSubImage {
 
 	/** Unsafe version of {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void nglGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, long pixels) {
-		long __functionAddress = getInstance().GetCompressedTextureSubImage;
+		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
 	}
 

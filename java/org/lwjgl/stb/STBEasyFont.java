@@ -9,8 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -76,9 +76,13 @@ public class STBEasyFont {
 
 	/** CharSequence version of: {@link #stb_easy_font_width easy_font_width} */
 	public static int stb_easy_font_width(CharSequence text) {
-		APIBuffer __buffer = apiBuffer();
-		int textEncoded = __buffer.stringParamASCII(text, true);
-		return nstb_easy_font_width(__buffer.address(textEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer textEncoded = stack.ASCII(text);
+			return nstb_easy_font_width(memAddress(textEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stb_easy_font_height ] ---
@@ -101,9 +105,13 @@ public class STBEasyFont {
 
 	/** CharSequence version of: {@link #stb_easy_font_height easy_font_height} */
 	public static int stb_easy_font_height(CharSequence text) {
-		APIBuffer __buffer = apiBuffer();
-		int textEncoded = __buffer.stringParamASCII(text, true);
-		return nstb_easy_font_height(__buffer.address(textEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer textEncoded = stack.ASCII(text);
+			return nstb_easy_font_height(memAddress(textEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stb_easy_font_print ] ---
@@ -164,9 +172,13 @@ color:uint8[4]</code></pre>
 	public static int stb_easy_font_print(float x, float y, CharSequence text, ByteBuffer color, ByteBuffer vertex_buffer) {
 		if ( CHECKS )
 			if ( color != null ) checkBuffer(color, 4);
-		APIBuffer __buffer = apiBuffer();
-		int textEncoded = __buffer.stringParamASCII(text, true);
-		return nstb_easy_font_print(x, y, __buffer.address(textEncoded), memAddressSafe(color), memAddress(vertex_buffer), vertex_buffer.remaining());
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer textEncoded = stack.ASCII(text);
+			return nstb_easy_font_print(x, y, memAddress(textEncoded), memAddressSafe(color), memAddress(vertex_buffer), vertex_buffer.remaining());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stb_easy_font_spacing ] ---

@@ -78,62 +78,26 @@ public class CL11 {
 	/** cl_buffer_create_type. */
 	public static final int CL_BUFFER_CREATE_TYPE_REGION = 0x1220;
 
-	/** Function address. */
-	public final long
-		CreateSubBuffer,
-		SetMemObjectDestructorCallback,
-		EnqueueReadBufferRect,
-		EnqueueWriteBufferRect,
-		EnqueueCopyBufferRect,
-		CreateUserEvent,
-		SetUserEventStatus,
-		SetEventCallback;
-
 	protected CL11() {
 		throw new UnsupportedOperationException();
 	}
 
-	public CL11(FunctionProvider provider) {
-		CreateSubBuffer = provider.getFunctionAddress("clCreateSubBuffer");
-		SetMemObjectDestructorCallback = provider.getFunctionAddress("clSetMemObjectDestructorCallback");
-		EnqueueReadBufferRect = provider.getFunctionAddress("clEnqueueReadBufferRect");
-		EnqueueWriteBufferRect = provider.getFunctionAddress("clEnqueueWriteBufferRect");
-		EnqueueCopyBufferRect = provider.getFunctionAddress("clEnqueueCopyBufferRect");
-		CreateUserEvent = provider.getFunctionAddress("clCreateUserEvent");
-		SetUserEventStatus = provider.getFunctionAddress("clSetUserEventStatus");
-		SetEventCallback = provider.getFunctionAddress("clSetEventCallback");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link CL11} instance of the currently loaded ICD. */
-	public static CL11 getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link CL11} instance of the specified {@link CLCapabilities}. */
-	public static CL11 getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__CL11);
-	}
-
-	static CL11 create(FunctionProvider provider) {
-		CL11 funcs = new CL11(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateSubBuffer, funcs.SetMemObjectDestructorCallback, funcs.EnqueueReadBufferRect, funcs.EnqueueWriteBufferRect, funcs.EnqueueCopyBufferRect, 
-			funcs.CreateUserEvent, funcs.SetUserEventStatus, funcs.SetEventCallback
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clCreateSubBuffer, caps.clSetMemObjectDestructorCallback, caps.clEnqueueReadBufferRect, caps.clEnqueueWriteBufferRect, 
+			caps.clEnqueueCopyBufferRect, caps.clCreateUserEvent, caps.clSetUserEventStatus, caps.clSetEventCallback
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateSubBuffer ] ---
 
 	/** Unsafe version of {@link #clCreateSubBuffer CreateSubBuffer} */
 	public static long nclCreateSubBuffer(long buffer, long flags, int buffer_create_type, long buffer_create_info, long errcode_ret) {
-		long __functionAddress = getInstance().CreateSubBuffer;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateSubBuffer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(buffer);
+		}
 		return callPJIPPP(__functionAddress, buffer, flags, buffer_create_type, buffer_create_info, errcode_ret);
 	}
 
@@ -218,9 +182,11 @@ public class CL11 {
 	 *         </ul>
 	 */
 	public static int clSetMemObjectDestructorCallback(long memobj, CLMemObjectDestructorCallback pfn_notify, long user_data) {
-		long __functionAddress = getInstance().SetMemObjectDestructorCallback;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clSetMemObjectDestructorCallback;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(memobj);
+		}
 		return callPPPI(__functionAddress, memobj, pfn_notify.address(), user_data);
 	}
 
@@ -228,8 +194,9 @@ public class CL11 {
 
 	/** Unsafe version of {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
 	public static int nclEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueReadBufferRect;
+		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
@@ -381,8 +348,9 @@ public class CL11 {
 
 	/** Unsafe version of {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
 	public static int nclEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueWriteBufferRect;
+		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
@@ -534,8 +502,9 @@ public class CL11 {
 
 	/** Unsafe version of {@link #clEnqueueCopyBufferRect EnqueueCopyBufferRect} */
 	public static int nclEnqueueCopyBufferRect(long command_queue, long src_buffer, long dst_buffer, long src_origin, long dst_origin, long region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueCopyBufferRect;
+		long __functionAddress = CL.getICD().clEnqueueCopyBufferRect;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(src_buffer);
 			checkPointer(dst_buffer);
@@ -637,9 +606,11 @@ public class CL11 {
 
 	/** Unsafe version of {@link #clCreateUserEvent CreateUserEvent} */
 	public static long nclCreateUserEvent(long context, long errcode_ret) {
-		long __functionAddress = getInstance().CreateUserEvent;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateUserEvent;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPPP(__functionAddress, context, errcode_ret);
 	}
 
@@ -715,9 +686,11 @@ clReleaseMemObject(buf2);</code></pre>
 	 *         </ul>
 	 */
 	public static int clSetUserEventStatus(long event, int execution_status) {
-		long __functionAddress = getInstance().SetUserEventStatus;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clSetUserEventStatus;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(event);
+		}
 		return callPII(__functionAddress, event, execution_status);
 	}
 
@@ -771,9 +744,11 @@ clReleaseMemObject(buf2);</code></pre>
 	 *         </ul>
 	 */
 	public static int clSetEventCallback(long event, int command_exec_callback_type, CLEventCallback pfn_notify, long user_data) {
-		long __functionAddress = getInstance().SetEventCallback;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clSetEventCallback;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(event);
+		}
 		return callPIPPI(__functionAddress, event, command_exec_callback_type, pfn_notify.address(), user_data);
 	}
 

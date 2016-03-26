@@ -29,38 +29,23 @@ public class KHRImage {
 	/**  */
 	public static final long EGL_NO_IMAGE_KHR = 0x0L;
 
-	/** Function address. */
-	public final long
-		CreateImageKHR,
-		DestroyImageKHR;
-
 	protected KHRImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRImage(FunctionProvider provider) {
-		CreateImageKHR = provider.getFunctionAddress("eglCreateImageKHR");
-		DestroyImageKHR = provider.getFunctionAddress("eglDestroyImageKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRImage} instance. */
-	public static KHRImage getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRImage} instance of the specified {@link EGLCapabilities}. */
-	public static KHRImage getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRImage);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglCreateImageKHR, caps.eglDestroyImageKHR
+		);
 	}
 
 	// --- [ eglCreateImageKHR ] ---
 
 	/** Unsafe version of {@link #eglCreateImageKHR CreateImageKHR} */
 	public static long neglCreateImageKHR(long dpy, long ctx, int target, long buffer, long attrib_list) {
-		long __functionAddress = getInstance().CreateImageKHR;
+		long __functionAddress = EGL.getCapabilities().eglCreateImageKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(ctx);
 			checkPointer(buffer);
@@ -84,8 +69,9 @@ public class KHRImage {
 	// --- [ eglDestroyImageKHR ] ---
 
 	public static int eglDestroyImageKHR(long dpy, long image) {
-		long __functionAddress = getInstance().DestroyImageKHR;
+		long __functionAddress = EGL.getCapabilities().eglDestroyImageKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(image);
 		}

@@ -28,46 +28,23 @@ public class AMDSamplePositions {
 	/** Accepted by the {@code pname} parameter of GetFloatv. */
 	public static final int GL_SUBSAMPLE_DISTANCE_AMD = 0x883F;
 
-	/** Function address. */
-	public final long SetMultisamplefvAMD;
-
 	protected AMDSamplePositions() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AMDSamplePositions(FunctionProvider provider) {
-		SetMultisamplefvAMD = provider.getFunctionAddress("glSetMultisamplefvAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AMDSamplePositions} instance of the current context. */
-	public static AMDSamplePositions getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link AMDSamplePositions} instance of the specified {@link GLCapabilities}. */
-	public static AMDSamplePositions getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__AMDSamplePositions);
-	}
-
-	static AMDSamplePositions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_AMD_sample_positions") ) return null;
-
-		AMDSamplePositions funcs = new AMDSamplePositions(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SetMultisamplefvAMD
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glSetMultisamplefvAMD
 		);
-
-		return GL.checkExtension("GL_AMD_sample_positions", funcs, supported);
 	}
 
 	// --- [ glSetMultisamplefvAMD ] ---
 
 	/** Unsafe version of {@link #glSetMultisamplefvAMD SetMultisamplefvAMD} */
 	public static void nglSetMultisamplefvAMD(int pname, int index, long val) {
-		long __functionAddress = getInstance().SetMultisamplefvAMD;
+		long __functionAddress = GL.getCapabilities().glSetMultisamplefvAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, pname, index, val);
 	}
 

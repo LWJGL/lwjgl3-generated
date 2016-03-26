@@ -108,44 +108,22 @@ public class OESGeometryShader {
 	/** Accepted by the {@code props} parameter of GetProgramResourceiv. */
 	public static final int GL_REFERENCED_BY_GEOMETRY_SHADER_OES = 0x9309;
 
-	/** Function address. */
-	public final long FramebufferTextureOES;
-
 	protected OESGeometryShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OESGeometryShader(FunctionProvider provider) {
-		FramebufferTextureOES = provider.getFunctionAddress("glFramebufferTextureOES");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OESGeometryShader} instance of the current context. */
-	public static OESGeometryShader getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OESGeometryShader} instance of the specified {@link GLESCapabilities}. */
-	public static OESGeometryShader getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OESGeometryShader);
-	}
-
-	static OESGeometryShader create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OES_geometry_shader") ) return null;
-
-		OESGeometryShader funcs = new OESGeometryShader(provider);
-		boolean supported = checkFunctions(
-			funcs.FramebufferTextureOES
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glFramebufferTextureOES
 		);
-
-		return GLES.checkExtension("GL_OES_geometry_shader", funcs, supported);
 	}
 
 	// --- [ glFramebufferTextureOES ] ---
 
 	public static void glFramebufferTextureOES(int target, int attachment, int texture, int level) {
-		long __functionAddress = getInstance().FramebufferTextureOES;
+		long __functionAddress = GLES.getCapabilities().glFramebufferTextureOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 

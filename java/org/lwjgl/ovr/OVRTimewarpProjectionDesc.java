@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Projection information for {@link OVRLayerEyeFovDepth}.
@@ -39,7 +40,7 @@ public class OVRTimewarpProjectionDesc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -55,7 +56,7 @@ public class OVRTimewarpProjectionDesc extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		PROJECTION22 = layout.offsetof(0);
 		PROJECTION23 = layout.offsetof(1);
@@ -182,6 +183,76 @@ public class OVRTimewarpProjectionDesc extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link OVRTimewarpProjectionDesc} instance allocated on the thread-local {@link MemoryStack}. */
+	public static OVRTimewarpProjectionDesc mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link OVRTimewarpProjectionDesc} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static OVRTimewarpProjectionDesc callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRTimewarpProjectionDesc} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRTimewarpProjectionDesc mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRTimewarpProjectionDesc} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRTimewarpProjectionDesc callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRTimewarpProjectionDesc.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRTimewarpProjectionDesc.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRTimewarpProjectionDesc.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link OVRTimewarpProjectionDesc.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #Projection22}. */
 	public static float nProjection22(long struct) { return memGetFloat(struct + OVRTimewarpProjectionDesc.PROJECTION22); }
 	/** Unsafe version of {@link #Projection23}. */
@@ -230,7 +301,7 @@ public class OVRTimewarpProjectionDesc extends Struct {
 
 		@Override
 		protected OVRTimewarpProjectionDesc newInstance(long address) {
-			return new OVRTimewarpProjectionDesc(address, container);
+			return new OVRTimewarpProjectionDesc(address, getContainer());
 		}
 
 		@Override

@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -45,61 +45,24 @@ public class OESTextureBorderClamp {
 	 */
 	public static final int GL_CLAMP_TO_BORDER_OES = 0x812D;
 
-	/** Function address. */
-	public final long
-		TexParameterIivOES,
-		TexParameterIuivOES,
-		GetTexParameterIivOES,
-		GetTexParameterIuivOES,
-		SamplerParameterIivOES,
-		SamplerParameterIuivOES,
-		GetSamplerParameterIivOES,
-		GetSamplerParameterIuivOES;
-
 	protected OESTextureBorderClamp() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OESTextureBorderClamp(FunctionProvider provider) {
-		TexParameterIivOES = provider.getFunctionAddress("glTexParameterIivOES");
-		TexParameterIuivOES = provider.getFunctionAddress("glTexParameterIuivOES");
-		GetTexParameterIivOES = provider.getFunctionAddress("glGetTexParameterIivOES");
-		GetTexParameterIuivOES = provider.getFunctionAddress("glGetTexParameterIuivOES");
-		SamplerParameterIivOES = provider.getFunctionAddress("glSamplerParameterIivOES");
-		SamplerParameterIuivOES = provider.getFunctionAddress("glSamplerParameterIuivOES");
-		GetSamplerParameterIivOES = provider.getFunctionAddress("glGetSamplerParameterIivOES");
-		GetSamplerParameterIuivOES = provider.getFunctionAddress("glGetSamplerParameterIuivOES");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OESTextureBorderClamp} instance of the current context. */
-	public static OESTextureBorderClamp getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OESTextureBorderClamp} instance of the specified {@link GLESCapabilities}. */
-	public static OESTextureBorderClamp getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OESTextureBorderClamp);
-	}
-
-	static OESTextureBorderClamp create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OES_texture_border_clamp") ) return null;
-
-		OESTextureBorderClamp funcs = new OESTextureBorderClamp(provider);
-		boolean supported = checkFunctions(
-			funcs.TexParameterIivOES, funcs.TexParameterIuivOES, funcs.GetTexParameterIivOES, funcs.GetTexParameterIuivOES, funcs.SamplerParameterIivOES, 
-			funcs.SamplerParameterIuivOES, funcs.GetSamplerParameterIivOES, funcs.GetSamplerParameterIuivOES
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glTexParameterIivOES, caps.glTexParameterIuivOES, caps.glGetTexParameterIivOES, caps.glGetTexParameterIuivOES, caps.glSamplerParameterIivOES, 
+			caps.glSamplerParameterIuivOES, caps.glGetSamplerParameterIivOES, caps.glGetSamplerParameterIuivOES
 		);
-
-		return GLES.checkExtension("GL_OES_texture_border_clamp", funcs, supported);
 	}
 
 	// --- [ glTexParameterIivOES ] ---
 
 	/** Unsafe version of {@link #glTexParameterIivOES TexParameterIivOES} */
 	public static void nglTexParameterIivOES(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexParameterIivOES;
+		long __functionAddress = GLES.getCapabilities().glTexParameterIivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -114,16 +77,22 @@ public class OESTextureBorderClamp {
 
 	/** Single value version of: {@link #glTexParameterIivOES TexParameterIivOES} */
 	public static void glTexParameterIiOES(int target, int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		nglTexParameterIivOES(target, pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			nglTexParameterIivOES(target, pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glTexParameterIuivOES ] ---
 
 	/** Unsafe version of {@link #glTexParameterIuivOES TexParameterIuivOES} */
 	public static void nglTexParameterIuivOES(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexParameterIuivOES;
+		long __functionAddress = GLES.getCapabilities().glTexParameterIuivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -138,16 +107,22 @@ public class OESTextureBorderClamp {
 
 	/** Single value version of: {@link #glTexParameterIuivOES TexParameterIuivOES} */
 	public static void glTexParameterIuiOES(int target, int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		nglTexParameterIuivOES(target, pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			nglTexParameterIuivOES(target, pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexParameterIivOES ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIivOES GetTexParameterIivOES} */
 	public static void nglGetTexParameterIivOES(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetTexParameterIivOES;
+		long __functionAddress = GLES.getCapabilities().glGetTexParameterIivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -166,17 +141,23 @@ public class OESTextureBorderClamp {
 
 	/** Single return value version of: {@link #glGetTexParameterIivOES GetTexParameterIivOES} */
 	public static int glGetTexParameterIiOES(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTexParameterIivOES(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTexParameterIivOES(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexParameterIuivOES ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIuivOES GetTexParameterIuivOES} */
 	public static void nglGetTexParameterIuivOES(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetTexParameterIuivOES;
+		long __functionAddress = GLES.getCapabilities().glGetTexParameterIuivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -195,17 +176,23 @@ public class OESTextureBorderClamp {
 
 	/** Single return value version of: {@link #glGetTexParameterIuivOES GetTexParameterIuivOES} */
 	public static int glGetTexParameterIuiOES(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTexParameterIuivOES(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTexParameterIuivOES(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glSamplerParameterIivOES ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIivOES SamplerParameterIivOES} */
 	public static void nglSamplerParameterIivOES(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().SamplerParameterIivOES;
+		long __functionAddress = GLES.getCapabilities().glSamplerParameterIivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -220,16 +207,22 @@ public class OESTextureBorderClamp {
 
 	/** Single value version of: {@link #glSamplerParameterIivOES SamplerParameterIivOES} */
 	public static void glSamplerParameterIiOES(int sampler, int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		nglSamplerParameterIivOES(sampler, pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			nglSamplerParameterIivOES(sampler, pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glSamplerParameterIuivOES ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIuivOES SamplerParameterIuivOES} */
 	public static void nglSamplerParameterIuivOES(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().SamplerParameterIuivOES;
+		long __functionAddress = GLES.getCapabilities().glSamplerParameterIuivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -244,16 +237,22 @@ public class OESTextureBorderClamp {
 
 	/** Single value version of: {@link #glSamplerParameterIuivOES SamplerParameterIuivOES} */
 	public static void glSamplerParameterIuiOES(int sampler, int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		nglSamplerParameterIuivOES(sampler, pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			nglSamplerParameterIuivOES(sampler, pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetSamplerParameterIivOES ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIivOES GetSamplerParameterIivOES} */
 	public static void nglGetSamplerParameterIivOES(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().GetSamplerParameterIivOES;
+		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -272,17 +271,23 @@ public class OESTextureBorderClamp {
 
 	/** Single return value version of: {@link #glGetSamplerParameterIivOES GetSamplerParameterIivOES} */
 	public static int glGetSamplerParameterIiOES(int sampler, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetSamplerParameterIivOES(sampler, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetSamplerParameterIivOES(sampler, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetSamplerParameterIuivOES ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIuivOES GetSamplerParameterIuivOES} */
 	public static void nglGetSamplerParameterIuivOES(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().GetSamplerParameterIuivOES;
+		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIuivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -301,10 +306,14 @@ public class OESTextureBorderClamp {
 
 	/** Single return value version of: {@link #glGetSamplerParameterIuivOES GetSamplerParameterIuivOES} */
 	public static int glGetSamplerParameterIuiOES(int sampler, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetSamplerParameterIuivOES(sampler, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetSamplerParameterIuivOES(sampler, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

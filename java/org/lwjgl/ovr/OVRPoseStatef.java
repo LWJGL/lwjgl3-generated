@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * A full pose (rigid body) configuration with first and second derivatives.
@@ -45,7 +46,7 @@ public class OVRPoseStatef extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -58,16 +59,16 @@ public class OVRPoseStatef extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT),
-			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
-			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
-			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
-			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
+			__member(OVRPosef.SIZEOF, OVRPosef.ALIGNOF),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF),
 			__member(8)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		THEPOSE = layout.offsetof(0);
 		ANGULARVELOCITY = layout.offsetof(1);
@@ -166,6 +167,76 @@ public class OVRPoseStatef extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link OVRPoseStatef} instance allocated on the thread-local {@link MemoryStack}. */
+	public static OVRPoseStatef mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link OVRPoseStatef} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static OVRPoseStatef callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRPoseStatef} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRPoseStatef mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRPoseStatef} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRPoseStatef callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRPoseStatef.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRPoseStatef.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRPoseStatef.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link OVRPoseStatef.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #ThePose}. */
 	public static OVRPosef nThePose(long struct) { return OVRPosef.create(struct + OVRPoseStatef.THEPOSE); }
 	/** Unsafe version of {@link #AngularVelocity}. */
@@ -213,7 +284,7 @@ public class OVRPoseStatef extends Struct {
 
 		@Override
 		protected OVRPoseStatef newInstance(long address) {
-			return new OVRPoseStatef(address, container);
+			return new OVRPoseStatef(address, getContainer());
 		}
 
 		@Override

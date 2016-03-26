@@ -95,7 +95,7 @@ public abstract class GLDebugMessageAMDCallback extends Closure.V {
 	 * @return the message as a String
 	 */
 	public static String getMessage(int length, long message) {
-		return memDecodeUTF8(memByteBuffer(message, length));
+		return memUTF8(memByteBuffer(message, length));
 	}
 
 	/** A functional interface for {@link GLDebugMessageAMDCallback}. */

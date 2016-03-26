@@ -40,45 +40,23 @@ public class APPLEGLSharing {
 	 */
 	public static final int CL_CGL_DEVICE_FOR_CURRENT_VIRTUAL_SCREEN_APPLE = 0x10000002;
 
-	/** Function address. */
-	public final long GetGLContextInfoAPPLE;
-
 	protected APPLEGLSharing() {
 		throw new UnsupportedOperationException();
 	}
 
-	public APPLEGLSharing(FunctionProvider provider) {
-		GetGLContextInfoAPPLE = provider.getFunctionAddress("clGetGLContextInfoAPPLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link APPLEGLSharing} instance of the currently loaded ICD. */
-	public static APPLEGLSharing getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link APPLEGLSharing} instance of the specified {@link CLCapabilities}. */
-	public static APPLEGLSharing getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__APPLEGLSharing);
-	}
-
-	static APPLEGLSharing create(FunctionProvider provider) {
-		APPLEGLSharing funcs = new APPLEGLSharing(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetGLContextInfoAPPLE
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clGetGLContextInfoAPPLE
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clGetGLContextInfoAPPLE ] ---
 
 	/** Unsafe version of {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
 	public static int nclGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetGLContextInfoAPPLE;
+		long __functionAddress = CL.getICD().clGetGLContextInfoAPPLE;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(platform_gl_ctx);
 		}

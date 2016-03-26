@@ -19,43 +19,31 @@ import static org.lwjgl.system.JNI.*;
  */
 public class NVSystemTime {
 
-	/** Function address. */
-	public final long
-		GetSystemTimeFrequencyNV,
-		GetSystemTimeNV;
-
 	protected NVSystemTime() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVSystemTime(FunctionProvider provider) {
-		GetSystemTimeFrequencyNV = provider.getFunctionAddress("eglGetSystemTimeFrequencyNV");
-		GetSystemTimeNV = provider.getFunctionAddress("eglGetSystemTimeNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVSystemTime} instance. */
-	public static NVSystemTime getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link NVSystemTime} instance of the specified {@link EGLCapabilities}. */
-	public static NVSystemTime getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__NVSystemTime);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglGetSystemTimeFrequencyNV, caps.eglGetSystemTimeNV
+		);
 	}
 
 	// --- [ eglGetSystemTimeFrequencyNV ] ---
 
 	public static long eglGetSystemTimeFrequencyNV() {
-		long __functionAddress = getInstance().GetSystemTimeFrequencyNV;
+		long __functionAddress = EGL.getCapabilities().eglGetSystemTimeFrequencyNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callJ(__functionAddress);
 	}
 
 	// --- [ eglGetSystemTimeNV ] ---
 
 	public static long eglGetSystemTimeNV() {
-		long __functionAddress = getInstance().GetSystemTimeNV;
+		long __functionAddress = EGL.getCapabilities().eglGetSystemTimeNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callJ(__functionAddress);
 	}
 

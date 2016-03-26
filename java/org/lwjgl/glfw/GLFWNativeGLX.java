@@ -7,38 +7,27 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to the GLFW library's GLX native access functions. */
 public class GLFWNativeGLX {
 
-	/** Function address. */
-	public final long
-		GetGLXContext,
-		GetGLXWindow;
-
 	protected GLFWNativeGLX() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLFWNativeGLX(FunctionProvider provider) {
-		GetGLXContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetGLXContext"));
-		GetGLXWindow = checkFunctionAddress(provider.getFunctionAddress("glfwGetGLXWindow"));
-	}
+	/** Contains the function pointers loaded from {@code GLFW.getLibrary()}. */
+	public static final class Functions {
 
-	// --- [ Function Addresses ] ---
+		private Functions() {}
 
-	private static final GLFWNativeGLX instance = new GLFWNativeGLX(getLibrary());
+		/** Function address. */
+		public static final long
+			GetGLXContext = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetGLXContext"),
+			GetGLXWindow = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetGLXWindow");
 
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return GLFW.getLibrary();
-	}
-
-	/** Returns the {@link GLFWNativeGLX} instance. */
-	public static GLFWNativeGLX getInstance() {
-		return instance;
 	}
 
 	// --- [ glfwGetGLXContext ] ---
@@ -55,7 +44,7 @@ public class GLFWNativeGLX {
 	 * @since version 3.0
 	 */
 	public static long glfwGetGLXContext(long window) {
-		long __functionAddress = getInstance().GetGLXContext;
+		long __functionAddress = Functions.GetGLXContext;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
@@ -75,7 +64,7 @@ public class GLFWNativeGLX {
 	 * @since version 3.2
 	 */
 	public static long glfwGetGLXWindow(long window) {
-		long __functionAddress = getInstance().GetGLXWindow;
+		long __functionAddress = Functions.GetGLXWindow;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);

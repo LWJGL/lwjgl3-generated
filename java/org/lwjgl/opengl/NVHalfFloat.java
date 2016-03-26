@@ -34,149 +34,35 @@ public class NVHalfFloat {
 	 */
 	public static final int GL_HALF_FLOAT_NV = 0x140B;
 
-	/** Function address. */
-	public final long
-		Vertex2hNV,
-		Vertex2hvNV,
-		Vertex3hNV,
-		Vertex3hvNV,
-		Vertex4hNV,
-		Vertex4hvNV,
-		Normal3hNV,
-		Normal3hvNV,
-		Color3hNV,
-		Color3hvNV,
-		Color4hNV,
-		Color4hvNV,
-		TexCoord1hNV,
-		TexCoord1hvNV,
-		TexCoord2hNV,
-		TexCoord2hvNV,
-		TexCoord3hNV,
-		TexCoord3hvNV,
-		TexCoord4hNV,
-		TexCoord4hvNV,
-		MultiTexCoord1hNV,
-		MultiTexCoord1hvNV,
-		MultiTexCoord2hNV,
-		MultiTexCoord2hvNV,
-		MultiTexCoord3hNV,
-		MultiTexCoord3hvNV,
-		MultiTexCoord4hNV,
-		MultiTexCoord4hvNV,
-		FogCoordhNV,
-		FogCoordhvNV,
-		SecondaryColor3hNV,
-		SecondaryColor3hvNV,
-		VertexWeighthNV,
-		VertexWeighthvNV,
-		VertexAttrib1hNV,
-		VertexAttrib1hvNV,
-		VertexAttrib2hNV,
-		VertexAttrib2hvNV,
-		VertexAttrib3hNV,
-		VertexAttrib3hvNV,
-		VertexAttrib4hNV,
-		VertexAttrib4hvNV,
-		VertexAttribs1hvNV,
-		VertexAttribs2hvNV,
-		VertexAttribs3hvNV,
-		VertexAttribs4hvNV;
-
 	protected NVHalfFloat() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVHalfFloat(FunctionProvider provider) {
-		Vertex2hNV = provider.getFunctionAddress("glVertex2hNV");
-		Vertex2hvNV = provider.getFunctionAddress("glVertex2hvNV");
-		Vertex3hNV = provider.getFunctionAddress("glVertex3hNV");
-		Vertex3hvNV = provider.getFunctionAddress("glVertex3hvNV");
-		Vertex4hNV = provider.getFunctionAddress("glVertex4hNV");
-		Vertex4hvNV = provider.getFunctionAddress("glVertex4hvNV");
-		Normal3hNV = provider.getFunctionAddress("glNormal3hNV");
-		Normal3hvNV = provider.getFunctionAddress("glNormal3hvNV");
-		Color3hNV = provider.getFunctionAddress("glColor3hNV");
-		Color3hvNV = provider.getFunctionAddress("glColor3hvNV");
-		Color4hNV = provider.getFunctionAddress("glColor4hNV");
-		Color4hvNV = provider.getFunctionAddress("glColor4hvNV");
-		TexCoord1hNV = provider.getFunctionAddress("glTexCoord1hNV");
-		TexCoord1hvNV = provider.getFunctionAddress("glTexCoord1hvNV");
-		TexCoord2hNV = provider.getFunctionAddress("glTexCoord2hNV");
-		TexCoord2hvNV = provider.getFunctionAddress("glTexCoord2hvNV");
-		TexCoord3hNV = provider.getFunctionAddress("glTexCoord3hNV");
-		TexCoord3hvNV = provider.getFunctionAddress("glTexCoord3hvNV");
-		TexCoord4hNV = provider.getFunctionAddress("glTexCoord4hNV");
-		TexCoord4hvNV = provider.getFunctionAddress("glTexCoord4hvNV");
-		MultiTexCoord1hNV = provider.getFunctionAddress("glMultiTexCoord1hNV");
-		MultiTexCoord1hvNV = provider.getFunctionAddress("glMultiTexCoord1hvNV");
-		MultiTexCoord2hNV = provider.getFunctionAddress("glMultiTexCoord2hNV");
-		MultiTexCoord2hvNV = provider.getFunctionAddress("glMultiTexCoord2hvNV");
-		MultiTexCoord3hNV = provider.getFunctionAddress("glMultiTexCoord3hNV");
-		MultiTexCoord3hvNV = provider.getFunctionAddress("glMultiTexCoord3hvNV");
-		MultiTexCoord4hNV = provider.getFunctionAddress("glMultiTexCoord4hNV");
-		MultiTexCoord4hvNV = provider.getFunctionAddress("glMultiTexCoord4hvNV");
-		FogCoordhNV = provider.getFunctionAddress("glFogCoordhNV");
-		FogCoordhvNV = provider.getFunctionAddress("glFogCoordhvNV");
-		SecondaryColor3hNV = provider.getFunctionAddress("glSecondaryColor3hNV");
-		SecondaryColor3hvNV = provider.getFunctionAddress("glSecondaryColor3hvNV");
-		VertexWeighthNV = provider.getFunctionAddress("glVertexWeighthNV");
-		VertexWeighthvNV = provider.getFunctionAddress("glVertexWeighthvNV");
-		VertexAttrib1hNV = provider.getFunctionAddress("glVertexAttrib1hNV");
-		VertexAttrib1hvNV = provider.getFunctionAddress("glVertexAttrib1hvNV");
-		VertexAttrib2hNV = provider.getFunctionAddress("glVertexAttrib2hNV");
-		VertexAttrib2hvNV = provider.getFunctionAddress("glVertexAttrib2hvNV");
-		VertexAttrib3hNV = provider.getFunctionAddress("glVertexAttrib3hNV");
-		VertexAttrib3hvNV = provider.getFunctionAddress("glVertexAttrib3hvNV");
-		VertexAttrib4hNV = provider.getFunctionAddress("glVertexAttrib4hNV");
-		VertexAttrib4hvNV = provider.getFunctionAddress("glVertexAttrib4hvNV");
-		VertexAttribs1hvNV = provider.getFunctionAddress("glVertexAttribs1hvNV");
-		VertexAttribs2hvNV = provider.getFunctionAddress("glVertexAttribs2hvNV");
-		VertexAttribs3hvNV = provider.getFunctionAddress("glVertexAttribs3hvNV");
-		VertexAttribs4hvNV = provider.getFunctionAddress("glVertexAttribs4hvNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVHalfFloat} instance of the current context. */
-	public static NVHalfFloat getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVHalfFloat} instance of the specified {@link GLCapabilities}. */
-	public static NVHalfFloat getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVHalfFloat);
-	}
-
-	static NVHalfFloat create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_half_float") ) return null;
-
-		NVHalfFloat funcs = new NVHalfFloat(provider);
-
-		boolean supported = checkFunctions(
-			funcs.Vertex2hNV, funcs.Vertex2hvNV, funcs.Vertex3hNV, funcs.Vertex3hvNV, funcs.Vertex4hNV, funcs.Vertex4hvNV, funcs.Normal3hNV, funcs.Normal3hvNV, 
-			funcs.Color3hNV, funcs.Color3hvNV, funcs.Color4hNV, funcs.Color4hvNV, funcs.TexCoord1hNV, funcs.TexCoord1hvNV, funcs.TexCoord2hNV, 
-			funcs.TexCoord2hvNV, funcs.TexCoord3hNV, funcs.TexCoord3hvNV, funcs.TexCoord4hNV, funcs.TexCoord4hvNV, funcs.MultiTexCoord1hNV, 
-			funcs.MultiTexCoord1hvNV, funcs.MultiTexCoord2hNV, funcs.MultiTexCoord2hvNV, funcs.MultiTexCoord3hNV, funcs.MultiTexCoord3hvNV, 
-			funcs.MultiTexCoord4hNV, funcs.MultiTexCoord4hvNV, ext.contains("GL_EXT_fog_coord") ? funcs.FogCoordhNV : -1L, 
-			ext.contains("GL_EXT_fog_coord") ? funcs.FogCoordhvNV : -1L, ext.contains("GL_EXT_secondary_color") ? funcs.SecondaryColor3hNV : -1L, 
-			ext.contains("GL_EXT_secondary_color") ? funcs.SecondaryColor3hvNV : -1L, ext.contains("GL_EXT_vertex_weighting") ? funcs.VertexWeighthNV : -1L, 
-			ext.contains("GL_EXT_vertex_weighting") ? funcs.VertexWeighthvNV : -1L, ext.contains("GL_NV_vertex_program") ? funcs.VertexAttrib1hNV : -1L, 
-			ext.contains("GL_NV_vertex_program") ? funcs.VertexAttrib1hvNV : -1L, ext.contains("GL_NV_vertex_program") ? funcs.VertexAttrib2hNV : -1L, 
-			ext.contains("GL_NV_vertex_program") ? funcs.VertexAttrib2hvNV : -1L, ext.contains("GL_NV_vertex_program") ? funcs.VertexAttrib3hNV : -1L, 
-			ext.contains("GL_NV_vertex_program") ? funcs.VertexAttrib3hvNV : -1L, ext.contains("GL_NV_vertex_program") ? funcs.VertexAttrib4hNV : -1L, 
-			ext.contains("GL_NV_vertex_program") ? funcs.VertexAttrib4hvNV : -1L, ext.contains("GL_NV_vertex_program") ? funcs.VertexAttribs1hvNV : -1L, 
-			ext.contains("GL_NV_vertex_program") ? funcs.VertexAttribs2hvNV : -1L, ext.contains("GL_NV_vertex_program") ? funcs.VertexAttribs3hvNV : -1L, 
-			ext.contains("GL_NV_vertex_program") ? funcs.VertexAttribs4hvNV : -1L
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glVertex2hNV, caps.glVertex2hvNV, caps.glVertex3hNV, caps.glVertex3hvNV, caps.glVertex4hNV, caps.glVertex4hvNV, caps.glNormal3hNV, 
+			caps.glNormal3hvNV, caps.glColor3hNV, caps.glColor3hvNV, caps.glColor4hNV, caps.glColor4hvNV, caps.glTexCoord1hNV, caps.glTexCoord1hvNV, 
+			caps.glTexCoord2hNV, caps.glTexCoord2hvNV, caps.glTexCoord3hNV, caps.glTexCoord3hvNV, caps.glTexCoord4hNV, caps.glTexCoord4hvNV, 
+			caps.glMultiTexCoord1hNV, caps.glMultiTexCoord1hvNV, caps.glMultiTexCoord2hNV, caps.glMultiTexCoord2hvNV, caps.glMultiTexCoord3hNV, 
+			caps.glMultiTexCoord3hvNV, caps.glMultiTexCoord4hNV, caps.glMultiTexCoord4hvNV, ext.contains("GL_EXT_fog_coord") ? caps.glFogCoordhNV : -1L, 
+			ext.contains("GL_EXT_fog_coord") ? caps.glFogCoordhvNV : -1L, ext.contains("GL_EXT_secondary_color") ? caps.glSecondaryColor3hNV : -1L, 
+			ext.contains("GL_EXT_secondary_color") ? caps.glSecondaryColor3hvNV : -1L, ext.contains("GL_EXT_vertex_weighting") ? caps.glVertexWeighthNV : -1L, 
+			ext.contains("GL_EXT_vertex_weighting") ? caps.glVertexWeighthvNV : -1L, ext.contains("GL_NV_vertex_program") ? caps.glVertexAttrib1hNV : -1L, 
+			ext.contains("GL_NV_vertex_program") ? caps.glVertexAttrib1hvNV : -1L, ext.contains("GL_NV_vertex_program") ? caps.glVertexAttrib2hNV : -1L, 
+			ext.contains("GL_NV_vertex_program") ? caps.glVertexAttrib2hvNV : -1L, ext.contains("GL_NV_vertex_program") ? caps.glVertexAttrib3hNV : -1L, 
+			ext.contains("GL_NV_vertex_program") ? caps.glVertexAttrib3hvNV : -1L, ext.contains("GL_NV_vertex_program") ? caps.glVertexAttrib4hNV : -1L, 
+			ext.contains("GL_NV_vertex_program") ? caps.glVertexAttrib4hvNV : -1L, ext.contains("GL_NV_vertex_program") ? caps.glVertexAttribs1hvNV : -1L, 
+			ext.contains("GL_NV_vertex_program") ? caps.glVertexAttribs2hvNV : -1L, ext.contains("GL_NV_vertex_program") ? caps.glVertexAttribs3hvNV : -1L, 
+			ext.contains("GL_NV_vertex_program") ? caps.glVertexAttribs4hvNV : -1L
 		);
-
-		return GL.checkExtension("GL_NV_half_float", funcs, supported);
 	}
 
 	// --- [ glVertex2hNV ] ---
 
 	public static void glVertex2hNV(short x, short y) {
-		long __functionAddress = getInstance().Vertex2hNV;
+		long __functionAddress = GL.getCapabilities().glVertex2hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callSSV(__functionAddress, x, y);
 	}
 
@@ -184,7 +70,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertex2hvNV Vertex2hvNV} */
 	public static void nglVertex2hvNV(long v) {
-		long __functionAddress = getInstance().Vertex2hvNV;
+		long __functionAddress = GL.getCapabilities().glVertex2hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -204,7 +92,9 @@ public class NVHalfFloat {
 	// --- [ glVertex3hNV ] ---
 
 	public static void glVertex3hNV(short x, short y, short z) {
-		long __functionAddress = getInstance().Vertex3hNV;
+		long __functionAddress = GL.getCapabilities().glVertex3hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, x, y, z);
 	}
 
@@ -212,7 +102,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertex3hvNV Vertex3hvNV} */
 	public static void nglVertex3hvNV(long v) {
-		long __functionAddress = getInstance().Vertex3hvNV;
+		long __functionAddress = GL.getCapabilities().glVertex3hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -232,7 +124,9 @@ public class NVHalfFloat {
 	// --- [ glVertex4hNV ] ---
 
 	public static void glVertex4hNV(short x, short y, short z, short w) {
-		long __functionAddress = getInstance().Vertex4hNV;
+		long __functionAddress = GL.getCapabilities().glVertex4hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, x, y, z, w);
 	}
 
@@ -240,7 +134,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertex4hvNV Vertex4hvNV} */
 	public static void nglVertex4hvNV(long v) {
-		long __functionAddress = getInstance().Vertex4hvNV;
+		long __functionAddress = GL.getCapabilities().glVertex4hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -260,7 +156,9 @@ public class NVHalfFloat {
 	// --- [ glNormal3hNV ] ---
 
 	public static void glNormal3hNV(short nx, short ny, short nz) {
-		long __functionAddress = getInstance().Normal3hNV;
+		long __functionAddress = GL.getCapabilities().glNormal3hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, nx, ny, nz);
 	}
 
@@ -268,7 +166,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glNormal3hvNV Normal3hvNV} */
 	public static void nglNormal3hvNV(long v) {
-		long __functionAddress = getInstance().Normal3hvNV;
+		long __functionAddress = GL.getCapabilities().glNormal3hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -288,7 +188,9 @@ public class NVHalfFloat {
 	// --- [ glColor3hNV ] ---
 
 	public static void glColor3hNV(short red, short green, short blue) {
-		long __functionAddress = getInstance().Color3hNV;
+		long __functionAddress = GL.getCapabilities().glColor3hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, red, green, blue);
 	}
 
@@ -296,7 +198,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glColor3hvNV Color3hvNV} */
 	public static void nglColor3hvNV(long v) {
-		long __functionAddress = getInstance().Color3hvNV;
+		long __functionAddress = GL.getCapabilities().glColor3hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -316,7 +220,9 @@ public class NVHalfFloat {
 	// --- [ glColor4hNV ] ---
 
 	public static void glColor4hNV(short red, short green, short blue, short alpha) {
-		long __functionAddress = getInstance().Color4hNV;
+		long __functionAddress = GL.getCapabilities().glColor4hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -324,7 +230,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glColor4hvNV Color4hvNV} */
 	public static void nglColor4hvNV(long v) {
-		long __functionAddress = getInstance().Color4hvNV;
+		long __functionAddress = GL.getCapabilities().glColor4hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -344,7 +252,9 @@ public class NVHalfFloat {
 	// --- [ glTexCoord1hNV ] ---
 
 	public static void glTexCoord1hNV(short s) {
-		long __functionAddress = getInstance().TexCoord1hNV;
+		long __functionAddress = GL.getCapabilities().glTexCoord1hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callSV(__functionAddress, s);
 	}
 
@@ -352,7 +262,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glTexCoord1hvNV TexCoord1hvNV} */
 	public static void nglTexCoord1hvNV(long v) {
-		long __functionAddress = getInstance().TexCoord1hvNV;
+		long __functionAddress = GL.getCapabilities().glTexCoord1hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -372,7 +284,9 @@ public class NVHalfFloat {
 	// --- [ glTexCoord2hNV ] ---
 
 	public static void glTexCoord2hNV(short s, short t) {
-		long __functionAddress = getInstance().TexCoord2hNV;
+		long __functionAddress = GL.getCapabilities().glTexCoord2hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callSSV(__functionAddress, s, t);
 	}
 
@@ -380,7 +294,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glTexCoord2hvNV TexCoord2hvNV} */
 	public static void nglTexCoord2hvNV(long v) {
-		long __functionAddress = getInstance().TexCoord2hvNV;
+		long __functionAddress = GL.getCapabilities().glTexCoord2hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -400,7 +316,9 @@ public class NVHalfFloat {
 	// --- [ glTexCoord3hNV ] ---
 
 	public static void glTexCoord3hNV(short s, short t, short r) {
-		long __functionAddress = getInstance().TexCoord3hNV;
+		long __functionAddress = GL.getCapabilities().glTexCoord3hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, s, t, r);
 	}
 
@@ -408,7 +326,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glTexCoord3hvNV TexCoord3hvNV} */
 	public static void nglTexCoord3hvNV(long v) {
-		long __functionAddress = getInstance().TexCoord3hvNV;
+		long __functionAddress = GL.getCapabilities().glTexCoord3hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -428,7 +348,9 @@ public class NVHalfFloat {
 	// --- [ glTexCoord4hNV ] ---
 
 	public static void glTexCoord4hNV(short s, short t, short r, short q) {
-		long __functionAddress = getInstance().TexCoord4hNV;
+		long __functionAddress = GL.getCapabilities().glTexCoord4hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, s, t, r, q);
 	}
 
@@ -436,7 +358,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glTexCoord4hvNV TexCoord4hvNV} */
 	public static void nglTexCoord4hvNV(long v) {
-		long __functionAddress = getInstance().TexCoord4hvNV;
+		long __functionAddress = GL.getCapabilities().glTexCoord4hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -456,7 +380,9 @@ public class NVHalfFloat {
 	// --- [ glMultiTexCoord1hNV ] ---
 
 	public static void glMultiTexCoord1hNV(int target, short s) {
-		long __functionAddress = getInstance().MultiTexCoord1hNV;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callISV(__functionAddress, target, s);
 	}
 
@@ -464,7 +390,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glMultiTexCoord1hvNV MultiTexCoord1hvNV} */
 	public static void nglMultiTexCoord1hvNV(int target, long v) {
-		long __functionAddress = getInstance().MultiTexCoord1hvNV;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, target, v);
 	}
 
@@ -484,7 +412,9 @@ public class NVHalfFloat {
 	// --- [ glMultiTexCoord2hNV ] ---
 
 	public static void glMultiTexCoord2hNV(int target, short s, short t) {
-		long __functionAddress = getInstance().MultiTexCoord2hNV;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callISSV(__functionAddress, target, s, t);
 	}
 
@@ -492,7 +422,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glMultiTexCoord2hvNV MultiTexCoord2hvNV} */
 	public static void nglMultiTexCoord2hvNV(int target, long v) {
-		long __functionAddress = getInstance().MultiTexCoord2hvNV;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, target, v);
 	}
 
@@ -512,7 +444,9 @@ public class NVHalfFloat {
 	// --- [ glMultiTexCoord3hNV ] ---
 
 	public static void glMultiTexCoord3hNV(int target, short s, short t, short r) {
-		long __functionAddress = getInstance().MultiTexCoord3hNV;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callISSSV(__functionAddress, target, s, t, r);
 	}
 
@@ -520,7 +454,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glMultiTexCoord3hvNV MultiTexCoord3hvNV} */
 	public static void nglMultiTexCoord3hvNV(int target, long v) {
-		long __functionAddress = getInstance().MultiTexCoord3hvNV;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, target, v);
 	}
 
@@ -540,7 +476,9 @@ public class NVHalfFloat {
 	// --- [ glMultiTexCoord4hNV ] ---
 
 	public static void glMultiTexCoord4hNV(int target, short s, short t, short r, short q) {
-		long __functionAddress = getInstance().MultiTexCoord4hNV;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4hNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callISSSSV(__functionAddress, target, s, t, r, q);
 	}
 
@@ -548,7 +486,9 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glMultiTexCoord4hvNV MultiTexCoord4hvNV} */
 	public static void nglMultiTexCoord4hvNV(int target, long v) {
-		long __functionAddress = getInstance().MultiTexCoord4hvNV;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4hvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, target, v);
 	}
 
@@ -568,7 +508,7 @@ public class NVHalfFloat {
 	// --- [ glFogCoordhNV ] ---
 
 	public static void glFogCoordhNV(short fog) {
-		long __functionAddress = getInstance().FogCoordhNV;
+		long __functionAddress = GL.getCapabilities().glFogCoordhNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSV(__functionAddress, fog);
@@ -578,7 +518,7 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glFogCoordhvNV FogCoordhvNV} */
 	public static void nglFogCoordhvNV(long fog) {
-		long __functionAddress = getInstance().FogCoordhvNV;
+		long __functionAddress = GL.getCapabilities().glFogCoordhvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, fog);
@@ -600,7 +540,7 @@ public class NVHalfFloat {
 	// --- [ glSecondaryColor3hNV ] ---
 
 	public static void glSecondaryColor3hNV(short red, short green, short blue) {
-		long __functionAddress = getInstance().SecondaryColor3hNV;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3hNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, red, green, blue);
@@ -610,7 +550,7 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glSecondaryColor3hvNV SecondaryColor3hvNV} */
 	public static void nglSecondaryColor3hvNV(long v) {
-		long __functionAddress = getInstance().SecondaryColor3hvNV;
+		long __functionAddress = GL.getCapabilities().glSecondaryColor3hvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -632,7 +572,7 @@ public class NVHalfFloat {
 	// --- [ glVertexWeighthNV ] ---
 
 	public static void glVertexWeighthNV(short weight) {
-		long __functionAddress = getInstance().VertexWeighthNV;
+		long __functionAddress = GL.getCapabilities().glVertexWeighthNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSV(__functionAddress, weight);
@@ -642,7 +582,7 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertexWeighthvNV VertexWeighthvNV} */
 	public static void nglVertexWeighthvNV(long weight) {
-		long __functionAddress = getInstance().VertexWeighthvNV;
+		long __functionAddress = GL.getCapabilities().glVertexWeighthvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, weight);
@@ -664,7 +604,7 @@ public class NVHalfFloat {
 	// --- [ glVertexAttrib1hNV ] ---
 
 	public static void glVertexAttrib1hNV(int index, short x) {
-		long __functionAddress = getInstance().VertexAttrib1hNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib1hNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISV(__functionAddress, index, x);
@@ -674,7 +614,7 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertexAttrib1hvNV VertexAttrib1hvNV} */
 	public static void nglVertexAttrib1hvNV(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib1hvNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib1hvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
@@ -696,7 +636,7 @@ public class NVHalfFloat {
 	// --- [ glVertexAttrib2hNV ] ---
 
 	public static void glVertexAttrib2hNV(int index, short x, short y) {
-		long __functionAddress = getInstance().VertexAttrib2hNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib2hNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISSV(__functionAddress, index, x, y);
@@ -706,7 +646,7 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertexAttrib2hvNV VertexAttrib2hvNV} */
 	public static void nglVertexAttrib2hvNV(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib2hvNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib2hvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
@@ -728,7 +668,7 @@ public class NVHalfFloat {
 	// --- [ glVertexAttrib3hNV ] ---
 
 	public static void glVertexAttrib3hNV(int index, short x, short y, short z) {
-		long __functionAddress = getInstance().VertexAttrib3hNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib3hNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISSSV(__functionAddress, index, x, y, z);
@@ -738,7 +678,7 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertexAttrib3hvNV VertexAttrib3hvNV} */
 	public static void nglVertexAttrib3hvNV(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib3hvNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib3hvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
@@ -760,7 +700,7 @@ public class NVHalfFloat {
 	// --- [ glVertexAttrib4hNV ] ---
 
 	public static void glVertexAttrib4hNV(int index, short x, short y, short z, short w) {
-		long __functionAddress = getInstance().VertexAttrib4hNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4hNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISSSSV(__functionAddress, index, x, y, z, w);
@@ -770,7 +710,7 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertexAttrib4hvNV VertexAttrib4hvNV} */
 	public static void nglVertexAttrib4hvNV(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4hvNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4hvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
@@ -793,7 +733,7 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertexAttribs1hvNV VertexAttribs1hvNV} */
 	public static void nglVertexAttribs1hvNV(int index, int n, long v) {
-		long __functionAddress = getInstance().VertexAttribs1hvNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttribs1hvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, n, v);
@@ -814,7 +754,7 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertexAttribs2hvNV VertexAttribs2hvNV} */
 	public static void nglVertexAttribs2hvNV(int index, int n, long v) {
-		long __functionAddress = getInstance().VertexAttribs2hvNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttribs2hvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, n, v);
@@ -835,7 +775,7 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertexAttribs3hvNV VertexAttribs3hvNV} */
 	public static void nglVertexAttribs3hvNV(int index, int n, long v) {
-		long __functionAddress = getInstance().VertexAttribs3hvNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttribs3hvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, n, v);
@@ -856,7 +796,7 @@ public class NVHalfFloat {
 
 	/** Unsafe version of {@link #glVertexAttribs4hvNV VertexAttribs4hvNV} */
 	public static void nglVertexAttribs4hvNV(int index, int n, long v) {
-		long __functionAddress = getInstance().VertexAttribs4hvNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttribs4hvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, n, v);

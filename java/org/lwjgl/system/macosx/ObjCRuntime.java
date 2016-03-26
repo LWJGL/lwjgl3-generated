@@ -13,6 +13,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -95,233 +96,124 @@ public class ObjCRuntime {
 
 	static { Library.initialize(); }
 
-	/** Function address. */
-	public final long
-		__object_copy,
-		__object_dispose,
-		__object_getClass,
-		__object_setClass,
-		__object_getClassName,
-		__object_getIndexedIvars,
-		__object_getIvar,
-		__object_setIvar,
-		__object_setInstanceVariable,
-		__object_getInstanceVariable,
-		__objc_getClass,
-		__objc_getMetaClass,
-		__objc_lookUpClass,
-		__objc_getRequiredClass,
-		__objc_getClassList,
-		__objc_copyClassList,
-		__class_getName,
-		__class_isMetaClass,
-		__class_getSuperclass,
-		__class_getVersion,
-		__class_setVersion,
-		__class_getInstanceSize,
-		__class_getInstanceVariable,
-		__class_getClassVariable,
-		__class_copyIvarList,
-		__class_getInstanceMethod,
-		__class_getClassMethod,
-		__class_getMethodImplementation,
-		__class_respondsToSelector,
-		__class_copyMethodList,
-		__class_conformsToProtocol,
-		__class_copyProtocolList,
-		__class_getProperty,
-		__class_copyPropertyList,
-		__class_getIvarLayout,
-		__class_getWeakIvarLayout,
-		__class_addMethod,
-		__class_replaceMethod,
-		__class_addIvar,
-		__class_addProtocol,
-		__class_addProperty,
-		__class_replaceProperty,
-		__class_setIvarLayout,
-		__class_setWeakIvarLayout,
-		__class_createInstance,
-		__objc_constructInstance,
-		__objc_destructInstance,
-		__objc_allocateClassPair,
-		__objc_registerClassPair,
-		__objc_disposeClassPair,
-		__method_getName,
-		__method_getImplementation,
-		__method_getTypeEncoding,
-		__method_getNumberOfArguments,
-		__method_copyReturnType,
-		__method_copyArgumentType,
-		__method_getReturnType,
-		__method_getArgumentType,
-		__method_setImplementation,
-		__method_exchangeImplementations,
-		__ivar_getName,
-		__ivar_getTypeEncoding,
-		__ivar_getOffset,
-		__property_getName,
-		__property_getAttributes,
-		__property_copyAttributeList,
-		__property_copyAttributeValue,
-		__objc_getProtocol,
-		__objc_copyProtocolList,
-		__protocol_conformsToProtocol,
-		__protocol_isEqual,
-		__protocol_getName,
-		__protocol_getMethodDescription,
-		__protocol_copyMethodDescriptionList,
-		__protocol_getProperty,
-		__protocol_copyPropertyList,
-		__protocol_copyProtocolList,
-		__objc_allocateProtocol,
-		__objc_registerProtocol,
-		__protocol_addMethodDescription,
-		__protocol_addProtocol,
-		__protocol_addProperty,
-		__objc_copyImageNames,
-		__class_getImageName,
-		__objc_copyClassNamesForImage,
-		__sel_getName,
-		__sel_getUid,
-		__sel_registerName,
-		__sel_isEqual,
-		__objc_enumerationMutation,
-		__objc_setEnumerationMutationHandler,
-		__imp_implementationWithBlock,
-		__imp_getBlock,
-		__imp_removeBlock,
-		__objc_loadWeak,
-		__objc_storeWeak,
-		__objc_setAssociatedObject,
-		__objc_getAssociatedObject,
-		__objc_removeAssociatedObjects;
-
 	protected ObjCRuntime() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ObjCRuntime(FunctionProvider provider) {
-		__object_copy = checkFunctionAddress(provider.getFunctionAddress("object_copy"));
-		__object_dispose = checkFunctionAddress(provider.getFunctionAddress("object_dispose"));
-		__object_getClass = checkFunctionAddress(provider.getFunctionAddress("object_getClass"));
-		__object_setClass = checkFunctionAddress(provider.getFunctionAddress("object_setClass"));
-		__object_getClassName = checkFunctionAddress(provider.getFunctionAddress("object_getClassName"));
-		__object_getIndexedIvars = checkFunctionAddress(provider.getFunctionAddress("object_getIndexedIvars"));
-		__object_getIvar = checkFunctionAddress(provider.getFunctionAddress("object_getIvar"));
-		__object_setIvar = checkFunctionAddress(provider.getFunctionAddress("object_setIvar"));
-		__object_setInstanceVariable = checkFunctionAddress(provider.getFunctionAddress("object_setInstanceVariable"));
-		__object_getInstanceVariable = checkFunctionAddress(provider.getFunctionAddress("object_getInstanceVariable"));
-		__objc_getClass = checkFunctionAddress(provider.getFunctionAddress("objc_getClass"));
-		__objc_getMetaClass = checkFunctionAddress(provider.getFunctionAddress("objc_getMetaClass"));
-		__objc_lookUpClass = checkFunctionAddress(provider.getFunctionAddress("objc_lookUpClass"));
-		__objc_getRequiredClass = checkFunctionAddress(provider.getFunctionAddress("objc_getRequiredClass"));
-		__objc_getClassList = checkFunctionAddress(provider.getFunctionAddress("objc_getClassList"));
-		__objc_copyClassList = checkFunctionAddress(provider.getFunctionAddress("objc_copyClassList"));
-		__class_getName = checkFunctionAddress(provider.getFunctionAddress("class_getName"));
-		__class_isMetaClass = checkFunctionAddress(provider.getFunctionAddress("class_isMetaClass"));
-		__class_getSuperclass = checkFunctionAddress(provider.getFunctionAddress("class_getSuperclass"));
-		__class_getVersion = checkFunctionAddress(provider.getFunctionAddress("class_getVersion"));
-		__class_setVersion = checkFunctionAddress(provider.getFunctionAddress("class_setVersion"));
-		__class_getInstanceSize = checkFunctionAddress(provider.getFunctionAddress("class_getInstanceSize"));
-		__class_getInstanceVariable = checkFunctionAddress(provider.getFunctionAddress("class_getInstanceVariable"));
-		__class_getClassVariable = checkFunctionAddress(provider.getFunctionAddress("class_getClassVariable"));
-		__class_copyIvarList = checkFunctionAddress(provider.getFunctionAddress("class_copyIvarList"));
-		__class_getInstanceMethod = checkFunctionAddress(provider.getFunctionAddress("class_getInstanceMethod"));
-		__class_getClassMethod = checkFunctionAddress(provider.getFunctionAddress("class_getClassMethod"));
-		__class_getMethodImplementation = checkFunctionAddress(provider.getFunctionAddress("class_getMethodImplementation"));
-		__class_respondsToSelector = checkFunctionAddress(provider.getFunctionAddress("class_respondsToSelector"));
-		__class_copyMethodList = checkFunctionAddress(provider.getFunctionAddress("class_copyMethodList"));
-		__class_conformsToProtocol = checkFunctionAddress(provider.getFunctionAddress("class_conformsToProtocol"));
-		__class_copyProtocolList = checkFunctionAddress(provider.getFunctionAddress("class_copyProtocolList"));
-		__class_getProperty = checkFunctionAddress(provider.getFunctionAddress("class_getProperty"));
-		__class_copyPropertyList = checkFunctionAddress(provider.getFunctionAddress("class_copyPropertyList"));
-		__class_getIvarLayout = checkFunctionAddress(provider.getFunctionAddress("class_getIvarLayout"));
-		__class_getWeakIvarLayout = checkFunctionAddress(provider.getFunctionAddress("class_getWeakIvarLayout"));
-		__class_addMethod = checkFunctionAddress(provider.getFunctionAddress("class_addMethod"));
-		__class_replaceMethod = checkFunctionAddress(provider.getFunctionAddress("class_replaceMethod"));
-		__class_addIvar = checkFunctionAddress(provider.getFunctionAddress("class_addIvar"));
-		__class_addProtocol = checkFunctionAddress(provider.getFunctionAddress("class_addProtocol"));
-		__class_addProperty = checkFunctionAddress(provider.getFunctionAddress("class_addProperty"));
-		__class_replaceProperty = checkFunctionAddress(provider.getFunctionAddress("class_replaceProperty"));
-		__class_setIvarLayout = checkFunctionAddress(provider.getFunctionAddress("class_setIvarLayout"));
-		__class_setWeakIvarLayout = checkFunctionAddress(provider.getFunctionAddress("class_setWeakIvarLayout"));
-		__class_createInstance = checkFunctionAddress(provider.getFunctionAddress("class_createInstance"));
-		__objc_constructInstance = checkFunctionAddress(provider.getFunctionAddress("objc_constructInstance"));
-		__objc_destructInstance = checkFunctionAddress(provider.getFunctionAddress("objc_destructInstance"));
-		__objc_allocateClassPair = checkFunctionAddress(provider.getFunctionAddress("objc_allocateClassPair"));
-		__objc_registerClassPair = checkFunctionAddress(provider.getFunctionAddress("objc_registerClassPair"));
-		__objc_disposeClassPair = checkFunctionAddress(provider.getFunctionAddress("objc_disposeClassPair"));
-		__method_getName = checkFunctionAddress(provider.getFunctionAddress("method_getName"));
-		__method_getImplementation = checkFunctionAddress(provider.getFunctionAddress("method_getImplementation"));
-		__method_getTypeEncoding = checkFunctionAddress(provider.getFunctionAddress("method_getTypeEncoding"));
-		__method_getNumberOfArguments = checkFunctionAddress(provider.getFunctionAddress("method_getNumberOfArguments"));
-		__method_copyReturnType = checkFunctionAddress(provider.getFunctionAddress("method_copyReturnType"));
-		__method_copyArgumentType = checkFunctionAddress(provider.getFunctionAddress("method_copyArgumentType"));
-		__method_getReturnType = checkFunctionAddress(provider.getFunctionAddress("method_getReturnType"));
-		__method_getArgumentType = checkFunctionAddress(provider.getFunctionAddress("method_getArgumentType"));
-		__method_setImplementation = checkFunctionAddress(provider.getFunctionAddress("method_setImplementation"));
-		__method_exchangeImplementations = checkFunctionAddress(provider.getFunctionAddress("method_exchangeImplementations"));
-		__ivar_getName = checkFunctionAddress(provider.getFunctionAddress("ivar_getName"));
-		__ivar_getTypeEncoding = checkFunctionAddress(provider.getFunctionAddress("ivar_getTypeEncoding"));
-		__ivar_getOffset = checkFunctionAddress(provider.getFunctionAddress("ivar_getOffset"));
-		__property_getName = checkFunctionAddress(provider.getFunctionAddress("property_getName"));
-		__property_getAttributes = checkFunctionAddress(provider.getFunctionAddress("property_getAttributes"));
-		__property_copyAttributeList = checkFunctionAddress(provider.getFunctionAddress("property_copyAttributeList"));
-		__property_copyAttributeValue = checkFunctionAddress(provider.getFunctionAddress("property_copyAttributeValue"));
-		__objc_getProtocol = checkFunctionAddress(provider.getFunctionAddress("objc_getProtocol"));
-		__objc_copyProtocolList = checkFunctionAddress(provider.getFunctionAddress("objc_copyProtocolList"));
-		__protocol_conformsToProtocol = checkFunctionAddress(provider.getFunctionAddress("protocol_conformsToProtocol"));
-		__protocol_isEqual = checkFunctionAddress(provider.getFunctionAddress("protocol_isEqual"));
-		__protocol_getName = checkFunctionAddress(provider.getFunctionAddress("protocol_getName"));
-		__protocol_getMethodDescription = checkFunctionAddress(provider.getFunctionAddress("protocol_getMethodDescription"));
-		__protocol_copyMethodDescriptionList = checkFunctionAddress(provider.getFunctionAddress("protocol_copyMethodDescriptionList"));
-		__protocol_getProperty = checkFunctionAddress(provider.getFunctionAddress("protocol_getProperty"));
-		__protocol_copyPropertyList = checkFunctionAddress(provider.getFunctionAddress("protocol_copyPropertyList"));
-		__protocol_copyProtocolList = checkFunctionAddress(provider.getFunctionAddress("protocol_copyProtocolList"));
-		__objc_allocateProtocol = checkFunctionAddress(provider.getFunctionAddress("objc_allocateProtocol"));
-		__objc_registerProtocol = checkFunctionAddress(provider.getFunctionAddress("objc_registerProtocol"));
-		__protocol_addMethodDescription = checkFunctionAddress(provider.getFunctionAddress("protocol_addMethodDescription"));
-		__protocol_addProtocol = checkFunctionAddress(provider.getFunctionAddress("protocol_addProtocol"));
-		__protocol_addProperty = checkFunctionAddress(provider.getFunctionAddress("protocol_addProperty"));
-		__objc_copyImageNames = checkFunctionAddress(provider.getFunctionAddress("objc_copyImageNames"));
-		__class_getImageName = checkFunctionAddress(provider.getFunctionAddress("class_getImageName"));
-		__objc_copyClassNamesForImage = checkFunctionAddress(provider.getFunctionAddress("objc_copyClassNamesForImage"));
-		__sel_getName = checkFunctionAddress(provider.getFunctionAddress("sel_getName"));
-		__sel_getUid = checkFunctionAddress(provider.getFunctionAddress("sel_getUid"));
-		__sel_registerName = checkFunctionAddress(provider.getFunctionAddress("sel_registerName"));
-		__sel_isEqual = checkFunctionAddress(provider.getFunctionAddress("sel_isEqual"));
-		__objc_enumerationMutation = checkFunctionAddress(provider.getFunctionAddress("objc_enumerationMutation"));
-		__objc_setEnumerationMutationHandler = checkFunctionAddress(provider.getFunctionAddress("objc_setEnumerationMutationHandler"));
-		__imp_implementationWithBlock = checkFunctionAddress(provider.getFunctionAddress("imp_implementationWithBlock"));
-		__imp_getBlock = checkFunctionAddress(provider.getFunctionAddress("imp_getBlock"));
-		__imp_removeBlock = checkFunctionAddress(provider.getFunctionAddress("imp_removeBlock"));
-		__objc_loadWeak = checkFunctionAddress(provider.getFunctionAddress("objc_loadWeak"));
-		__objc_storeWeak = checkFunctionAddress(provider.getFunctionAddress("objc_storeWeak"));
-		__objc_setAssociatedObject = checkFunctionAddress(provider.getFunctionAddress("objc_setAssociatedObject"));
-		__objc_getAssociatedObject = checkFunctionAddress(provider.getFunctionAddress("objc_getAssociatedObject"));
-		__objc_removeAssociatedObjects = checkFunctionAddress(provider.getFunctionAddress("objc_removeAssociatedObjects"));
+	private static final SharedLibrary OBJC = Library.loadNative("objc");
+
+	/** Contains the function pointers loaded from the objc {@link SharedLibrary}. */
+	public static final class Functions {
+
+		private Functions() {}
+
+		/** Function address. */
+		public static final long
+			object_copy = apiGetFunctionAddress(OBJC, "object_copy"),
+			object_dispose = apiGetFunctionAddress(OBJC, "object_dispose"),
+			object_getClass = apiGetFunctionAddress(OBJC, "object_getClass"),
+			object_setClass = apiGetFunctionAddress(OBJC, "object_setClass"),
+			object_getClassName = apiGetFunctionAddress(OBJC, "object_getClassName"),
+			object_getIndexedIvars = apiGetFunctionAddress(OBJC, "object_getIndexedIvars"),
+			object_getIvar = apiGetFunctionAddress(OBJC, "object_getIvar"),
+			object_setIvar = apiGetFunctionAddress(OBJC, "object_setIvar"),
+			object_setInstanceVariable = apiGetFunctionAddress(OBJC, "object_setInstanceVariable"),
+			object_getInstanceVariable = apiGetFunctionAddress(OBJC, "object_getInstanceVariable"),
+			objc_getClass = apiGetFunctionAddress(OBJC, "objc_getClass"),
+			objc_getMetaClass = apiGetFunctionAddress(OBJC, "objc_getMetaClass"),
+			objc_lookUpClass = apiGetFunctionAddress(OBJC, "objc_lookUpClass"),
+			objc_getRequiredClass = apiGetFunctionAddress(OBJC, "objc_getRequiredClass"),
+			objc_getClassList = apiGetFunctionAddress(OBJC, "objc_getClassList"),
+			objc_copyClassList = apiGetFunctionAddress(OBJC, "objc_copyClassList"),
+			class_getName = apiGetFunctionAddress(OBJC, "class_getName"),
+			class_isMetaClass = apiGetFunctionAddress(OBJC, "class_isMetaClass"),
+			class_getSuperclass = apiGetFunctionAddress(OBJC, "class_getSuperclass"),
+			class_getVersion = apiGetFunctionAddress(OBJC, "class_getVersion"),
+			class_setVersion = apiGetFunctionAddress(OBJC, "class_setVersion"),
+			class_getInstanceSize = apiGetFunctionAddress(OBJC, "class_getInstanceSize"),
+			class_getInstanceVariable = apiGetFunctionAddress(OBJC, "class_getInstanceVariable"),
+			class_getClassVariable = apiGetFunctionAddress(OBJC, "class_getClassVariable"),
+			class_copyIvarList = apiGetFunctionAddress(OBJC, "class_copyIvarList"),
+			class_getInstanceMethod = apiGetFunctionAddress(OBJC, "class_getInstanceMethod"),
+			class_getClassMethod = apiGetFunctionAddress(OBJC, "class_getClassMethod"),
+			class_getMethodImplementation = apiGetFunctionAddress(OBJC, "class_getMethodImplementation"),
+			class_respondsToSelector = apiGetFunctionAddress(OBJC, "class_respondsToSelector"),
+			class_copyMethodList = apiGetFunctionAddress(OBJC, "class_copyMethodList"),
+			class_conformsToProtocol = apiGetFunctionAddress(OBJC, "class_conformsToProtocol"),
+			class_copyProtocolList = apiGetFunctionAddress(OBJC, "class_copyProtocolList"),
+			class_getProperty = apiGetFunctionAddress(OBJC, "class_getProperty"),
+			class_copyPropertyList = apiGetFunctionAddress(OBJC, "class_copyPropertyList"),
+			class_getIvarLayout = apiGetFunctionAddress(OBJC, "class_getIvarLayout"),
+			class_getWeakIvarLayout = apiGetFunctionAddress(OBJC, "class_getWeakIvarLayout"),
+			class_addMethod = apiGetFunctionAddress(OBJC, "class_addMethod"),
+			class_replaceMethod = apiGetFunctionAddress(OBJC, "class_replaceMethod"),
+			class_addIvar = apiGetFunctionAddress(OBJC, "class_addIvar"),
+			class_addProtocol = apiGetFunctionAddress(OBJC, "class_addProtocol"),
+			class_addProperty = apiGetFunctionAddress(OBJC, "class_addProperty"),
+			class_replaceProperty = apiGetFunctionAddress(OBJC, "class_replaceProperty"),
+			class_setIvarLayout = apiGetFunctionAddress(OBJC, "class_setIvarLayout"),
+			class_setWeakIvarLayout = apiGetFunctionAddress(OBJC, "class_setWeakIvarLayout"),
+			class_createInstance = apiGetFunctionAddress(OBJC, "class_createInstance"),
+			objc_constructInstance = apiGetFunctionAddress(OBJC, "objc_constructInstance"),
+			objc_destructInstance = apiGetFunctionAddress(OBJC, "objc_destructInstance"),
+			objc_allocateClassPair = apiGetFunctionAddress(OBJC, "objc_allocateClassPair"),
+			objc_registerClassPair = apiGetFunctionAddress(OBJC, "objc_registerClassPair"),
+			objc_disposeClassPair = apiGetFunctionAddress(OBJC, "objc_disposeClassPair"),
+			method_getName = apiGetFunctionAddress(OBJC, "method_getName"),
+			method_getImplementation = apiGetFunctionAddress(OBJC, "method_getImplementation"),
+			method_getTypeEncoding = apiGetFunctionAddress(OBJC, "method_getTypeEncoding"),
+			method_getNumberOfArguments = apiGetFunctionAddress(OBJC, "method_getNumberOfArguments"),
+			method_copyReturnType = apiGetFunctionAddress(OBJC, "method_copyReturnType"),
+			method_copyArgumentType = apiGetFunctionAddress(OBJC, "method_copyArgumentType"),
+			method_getReturnType = apiGetFunctionAddress(OBJC, "method_getReturnType"),
+			method_getArgumentType = apiGetFunctionAddress(OBJC, "method_getArgumentType"),
+			method_setImplementation = apiGetFunctionAddress(OBJC, "method_setImplementation"),
+			method_exchangeImplementations = apiGetFunctionAddress(OBJC, "method_exchangeImplementations"),
+			ivar_getName = apiGetFunctionAddress(OBJC, "ivar_getName"),
+			ivar_getTypeEncoding = apiGetFunctionAddress(OBJC, "ivar_getTypeEncoding"),
+			ivar_getOffset = apiGetFunctionAddress(OBJC, "ivar_getOffset"),
+			property_getName = apiGetFunctionAddress(OBJC, "property_getName"),
+			property_getAttributes = apiGetFunctionAddress(OBJC, "property_getAttributes"),
+			property_copyAttributeList = apiGetFunctionAddress(OBJC, "property_copyAttributeList"),
+			property_copyAttributeValue = apiGetFunctionAddress(OBJC, "property_copyAttributeValue"),
+			objc_getProtocol = apiGetFunctionAddress(OBJC, "objc_getProtocol"),
+			objc_copyProtocolList = apiGetFunctionAddress(OBJC, "objc_copyProtocolList"),
+			protocol_conformsToProtocol = apiGetFunctionAddress(OBJC, "protocol_conformsToProtocol"),
+			protocol_isEqual = apiGetFunctionAddress(OBJC, "protocol_isEqual"),
+			protocol_getName = apiGetFunctionAddress(OBJC, "protocol_getName"),
+			protocol_getMethodDescription = apiGetFunctionAddress(OBJC, "protocol_getMethodDescription"),
+			protocol_copyMethodDescriptionList = apiGetFunctionAddress(OBJC, "protocol_copyMethodDescriptionList"),
+			protocol_getProperty = apiGetFunctionAddress(OBJC, "protocol_getProperty"),
+			protocol_copyPropertyList = apiGetFunctionAddress(OBJC, "protocol_copyPropertyList"),
+			protocol_copyProtocolList = apiGetFunctionAddress(OBJC, "protocol_copyProtocolList"),
+			objc_allocateProtocol = apiGetFunctionAddress(OBJC, "objc_allocateProtocol"),
+			objc_registerProtocol = apiGetFunctionAddress(OBJC, "objc_registerProtocol"),
+			protocol_addMethodDescription = apiGetFunctionAddress(OBJC, "protocol_addMethodDescription"),
+			protocol_addProtocol = apiGetFunctionAddress(OBJC, "protocol_addProtocol"),
+			protocol_addProperty = apiGetFunctionAddress(OBJC, "protocol_addProperty"),
+			objc_copyImageNames = apiGetFunctionAddress(OBJC, "objc_copyImageNames"),
+			class_getImageName = apiGetFunctionAddress(OBJC, "class_getImageName"),
+			objc_copyClassNamesForImage = apiGetFunctionAddress(OBJC, "objc_copyClassNamesForImage"),
+			sel_getName = apiGetFunctionAddress(OBJC, "sel_getName"),
+			sel_getUid = apiGetFunctionAddress(OBJC, "sel_getUid"),
+			sel_registerName = apiGetFunctionAddress(OBJC, "sel_registerName"),
+			sel_isEqual = apiGetFunctionAddress(OBJC, "sel_isEqual"),
+			objc_enumerationMutation = apiGetFunctionAddress(OBJC, "objc_enumerationMutation"),
+			objc_setEnumerationMutationHandler = apiGetFunctionAddress(OBJC, "objc_setEnumerationMutationHandler"),
+			imp_implementationWithBlock = apiGetFunctionAddress(OBJC, "imp_implementationWithBlock"),
+			imp_getBlock = apiGetFunctionAddress(OBJC, "imp_getBlock"),
+			imp_removeBlock = apiGetFunctionAddress(OBJC, "imp_removeBlock"),
+			objc_loadWeak = apiGetFunctionAddress(OBJC, "objc_loadWeak"),
+			objc_storeWeak = apiGetFunctionAddress(OBJC, "objc_storeWeak"),
+			objc_setAssociatedObject = apiGetFunctionAddress(OBJC, "objc_setAssociatedObject"),
+			objc_getAssociatedObject = apiGetFunctionAddress(OBJC, "objc_getAssociatedObject"),
+			objc_removeAssociatedObjects = apiGetFunctionAddress(OBJC, "objc_removeAssociatedObjects");
+
 	}
 
-	// --- [ Function Addresses ] ---
-
-	private static final SharedLibrary OBJC;
-
-	private static final ObjCRuntime instance;
-
-	static {
-		OBJC = Library.loadNative("objc");
-		instance = new ObjCRuntime(OBJC);
-	}
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	/** Returns the objc {@link SharedLibrary}. */
 	public static SharedLibrary getLibrary() {
 		return OBJC;
-	}
-
-	/** Returns the {@link ObjCRuntime} instance. */
-	public static ObjCRuntime getInstance() {
-		return instance;
 	}
 
 	// --- [ object_copy ] ---
@@ -335,7 +227,7 @@ public class ObjCRuntime {
 	 * @return a copy of obj
 	 */
 	public static long object_copy(long obj, long size) {
-		long __functionAddress = getInstance().__object_copy;
+		long __functionAddress = Functions.object_copy;
 		if ( CHECKS )
 			checkPointer(obj);
 		return invokePPP(__functionAddress, obj, size);
@@ -351,7 +243,7 @@ public class ObjCRuntime {
 	 * @return {@link #nil}
 	 */
 	public static long object_dispose(long obj) {
-		long __functionAddress = getInstance().__object_dispose;
+		long __functionAddress = Functions.object_dispose;
 		if ( CHECKS )
 			checkPointer(obj);
 		return invokePP(__functionAddress, obj);
@@ -367,7 +259,7 @@ public class ObjCRuntime {
 	 * @return the class object of which object is an instance, or Nil if {@code obj} is {@link #nil}
 	 */
 	public static long object_getClass(long obj) {
-		long __functionAddress = getInstance().__object_getClass;
+		long __functionAddress = Functions.object_getClass;
 		return invokePP(__functionAddress, obj);
 	}
 
@@ -382,7 +274,7 @@ public class ObjCRuntime {
 	 * @return the previous value of object's class, or Nil if {@code obj} is {@link #nil}
 	 */
 	public static long object_setClass(long obj, long cls) {
-		long __functionAddress = getInstance().__object_setClass;
+		long __functionAddress = Functions.object_setClass;
 		if ( CHECKS )
 			checkPointer(cls);
 		return invokePPP(__functionAddress, obj, cls);
@@ -392,7 +284,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #object_getClassName} */
 	public static long nobject_getClassName(long obj) {
-		long __functionAddress = getInstance().__object_getClassName;
+		long __functionAddress = Functions.object_getClassName;
 		return invokePP(__functionAddress, obj);
 	}
 
@@ -405,7 +297,7 @@ public class ObjCRuntime {
 	 */
 	public static String object_getClassName(long obj) {
 		long __result = nobject_getClassName(obj);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ object_getIndexedIvars ] ---
@@ -425,7 +317,7 @@ public class ObjCRuntime {
 	 *         is undefined.
 	 */
 	public static long object_getIndexedIvars(long obj) {
-		long __functionAddress = getInstance().__object_getIndexedIvars;
+		long __functionAddress = Functions.object_getIndexedIvars;
 		if ( CHECKS )
 			checkPointer(obj);
 		return invokePP(__functionAddress, obj);
@@ -442,7 +334,7 @@ public class ObjCRuntime {
 	 * @return the value of the instance variable specified by {@code ivar}, or {@link #nil} if {@code obj} is {@link #nil}
 	 */
 	public static long object_getIvar(long obj, long ivar) {
-		long __functionAddress = getInstance().__object_getIvar;
+		long __functionAddress = Functions.object_getIvar;
 		if ( CHECKS )
 			checkPointer(ivar);
 		return invokePPP(__functionAddress, obj, ivar);
@@ -460,7 +352,7 @@ public class ObjCRuntime {
 	 * @param value the new value for the instance variable
 	 */
 	public static void object_setIvar(long obj, long ivar, long value) {
-		long __functionAddress = getInstance().__object_setIvar;
+		long __functionAddress = Functions.object_setIvar;
 		if ( CHECKS ) {
 			checkPointer(obj);
 			checkPointer(ivar);
@@ -473,7 +365,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #object_setInstanceVariable} */
 	public static long nobject_setInstanceVariable(long obj, long name, long value) {
-		long __functionAddress = getInstance().__object_setInstanceVariable;
+		long __functionAddress = Functions.object_setInstanceVariable;
 		if ( CHECKS )
 			checkPointer(obj);
 		return invokePPPP(__functionAddress, obj, name, value);
@@ -496,16 +388,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #object_setInstanceVariable} */
 	public static long object_setInstanceVariable(long obj, CharSequence name, ByteBuffer value) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nobject_setInstanceVariable(obj, __buffer.address(nameEncoded), memAddress(value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nobject_setInstanceVariable(obj, memAddress(nameEncoded), memAddress(value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ object_getInstanceVariable ] ---
 
 	/** Unsafe version of {@link #object_getInstanceVariable} */
 	public static long nobject_getInstanceVariable(long obj, long name, long outValue) {
-		long __functionAddress = getInstance().__object_getInstanceVariable;
+		long __functionAddress = Functions.object_getInstanceVariable;
 		if ( CHECKS )
 			checkPointer(obj);
 		return invokePPPP(__functionAddress, obj, name, outValue);
@@ -535,16 +431,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #object_getInstanceVariable} */
 	public static long object_getInstanceVariable(long obj, CharSequence name, PointerBuffer outValue) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nobject_getInstanceVariable(obj, __buffer.address(nameEncoded), memAddress(outValue));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nobject_getInstanceVariable(obj, memAddress(nameEncoded), memAddress(outValue));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ objc_getClass ] ---
 
 	/** Unsafe version of {@link #objc_getClass} */
 	public static long nobjc_getClass(long name) {
-		long __functionAddress = getInstance().__objc_getClass;
+		long __functionAddress = Functions.objc_getClass;
 		return invokePP(__functionAddress, name);
 	}
 
@@ -566,16 +466,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #objc_getClass} */
 	public static long objc_getClass(CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nobjc_getClass(__buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nobjc_getClass(memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ objc_getMetaClass ] ---
 
 	/** Unsafe version of {@link #objc_getMetaClass} */
 	public static long nobjc_getMetaClass(long name) {
-		long __functionAddress = getInstance().__objc_getMetaClass;
+		long __functionAddress = Functions.objc_getMetaClass;
 		return invokePP(__functionAddress, name);
 	}
 
@@ -598,16 +502,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #objc_getMetaClass} */
 	public static long objc_getMetaClass(CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nobjc_getMetaClass(__buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nobjc_getMetaClass(memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ objc_lookUpClass ] ---
 
 	/** Unsafe version of {@link #objc_lookUpClass} */
 	public static long nobjc_lookUpClass(long name) {
-		long __functionAddress = getInstance().__objc_lookUpClass;
+		long __functionAddress = Functions.objc_lookUpClass;
 		return invokePP(__functionAddress, name);
 	}
 
@@ -629,16 +537,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #objc_lookUpClass} */
 	public static long objc_lookUpClass(CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nobjc_lookUpClass(__buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nobjc_lookUpClass(memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ objc_getRequiredClass ] ---
 
 	/** Unsafe version of {@link #objc_getRequiredClass} */
 	public static long nobjc_getRequiredClass(long name) {
-		long __functionAddress = getInstance().__objc_getRequiredClass;
+		long __functionAddress = Functions.objc_getRequiredClass;
 		return invokePP(__functionAddress, name);
 	}
 
@@ -661,16 +573,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #objc_getRequiredClass} */
 	public static long objc_getRequiredClass(CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nobjc_getRequiredClass(__buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nobjc_getRequiredClass(memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ objc_getClassList ] ---
 
 	/** Unsafe version of {@link #objc_getClassList} */
 	public static int nobjc_getClassList(long buffer, int bufferCount) {
-		long __functionAddress = getInstance().__objc_getClassList;
+		long __functionAddress = Functions.objc_getClassList;
 		return invokePII(__functionAddress, buffer, bufferCount);
 	}
 
@@ -708,7 +624,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #objc_copyClassList} */
 	public static long nobjc_copyClassList(long outCount) {
-		long __functionAddress = getInstance().__objc_copyClassList;
+		long __functionAddress = Functions.objc_copyClassList;
 		return invokePP(__functionAddress, outCount);
 	}
 
@@ -718,17 +634,21 @@ public class ObjCRuntime {
 	 * @return a {@link #nil} terminated array of classes. You must free the array with free()
 	 */
 	public static PointerBuffer objc_copyClassList() {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nobjc_copyClassList(__buffer.address(outCount));
-		return memPointerBuffer(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nobjc_copyClassList(memAddress(outCount));
+			return memPointerBuffer(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_getName ] ---
 
 	/** Unsafe version of {@link #class_getName} */
 	public static long nclass_getName(long cls) {
-		long __functionAddress = getInstance().__class_getName;
+		long __functionAddress = Functions.class_getName;
 		return invokePP(__functionAddress, cls);
 	}
 
@@ -741,7 +661,7 @@ public class ObjCRuntime {
 	 */
 	public static String class_getName(long cls) {
 		long __result = nclass_getName(cls);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ class_isMetaClass ] ---
@@ -754,7 +674,7 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if cls is a metaclass, {@link #NO} if cls is a non-meta class, {@link #NO} if cls is Nil
 	 */
 	public static boolean class_isMetaClass(long cls) {
-		long __functionAddress = getInstance().__class_isMetaClass;
+		long __functionAddress = Functions.class_isMetaClass;
 		return invokePZ(__functionAddress, cls);
 	}
 
@@ -768,7 +688,7 @@ public class ObjCRuntime {
 	 * @return the superclass of the class, or Nil if cls is a root class, or Nil if cls is Nil
 	 */
 	public static long class_getSuperclass(long cls) {
-		long __functionAddress = getInstance().__class_getSuperclass;
+		long __functionAddress = Functions.class_getSuperclass;
 		return invokePP(__functionAddress, cls);
 	}
 
@@ -789,7 +709,7 @@ public class ObjCRuntime {
 	 * @return an integer indicating the version number of the class definition
 	 */
 	public static int class_getVersion(long cls) {
-		long __functionAddress = getInstance().__class_getVersion;
+		long __functionAddress = Functions.class_getVersion;
 		if ( CHECKS )
 			checkPointer(cls);
 		return invokePI(__functionAddress, cls);
@@ -811,7 +731,7 @@ public class ObjCRuntime {
 	 * @param version the new version number of the class definition
 	 */
 	public static void class_setVersion(long cls, int version) {
-		long __functionAddress = getInstance().__class_setVersion;
+		long __functionAddress = Functions.class_setVersion;
 		if ( CHECKS )
 			checkPointer(cls);
 		invokePIV(__functionAddress, cls, version);
@@ -827,7 +747,7 @@ public class ObjCRuntime {
 	 * @return the size in bytes of instances of the class {@code cls}, or 0 if {@code cls} is Nil
 	 */
 	public static long class_getInstanceSize(long cls) {
-		long __functionAddress = getInstance().__class_getInstanceSize;
+		long __functionAddress = Functions.class_getInstanceSize;
 		return invokePP(__functionAddress, cls);
 	}
 
@@ -835,7 +755,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #class_getInstanceVariable} */
 	public static long nclass_getInstanceVariable(long cls, long name) {
-		long __functionAddress = getInstance().__class_getInstanceVariable;
+		long __functionAddress = Functions.class_getInstanceVariable;
 		if ( CHECKS )
 			checkPointer(cls);
 		return invokePPP(__functionAddress, cls, name);
@@ -857,16 +777,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #class_getInstanceVariable} */
 	public static long class_getInstanceVariable(long cls, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nclass_getInstanceVariable(cls, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nclass_getInstanceVariable(cls, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_getClassVariable ] ---
 
 	/** Unsafe version of {@link #class_getClassVariable} */
 	public static long nclass_getClassVariable(long cls, long name) {
-		long __functionAddress = getInstance().__class_getClassVariable;
+		long __functionAddress = Functions.class_getClassVariable;
 		if ( CHECKS )
 			checkPointer(cls);
 		return invokePPP(__functionAddress, cls, name);
@@ -888,16 +812,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #class_getClassVariable} */
 	public static long class_getClassVariable(long cls, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nclass_getClassVariable(cls, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nclass_getClassVariable(cls, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_copyIvarList ] ---
 
 	/** Unsafe version of {@link #class_copyIvarList} */
 	public static long nclass_copyIvarList(long cls, long outCount) {
-		long __functionAddress = getInstance().__class_copyIvarList;
+		long __functionAddress = Functions.class_copyIvarList;
 		return invokePPP(__functionAddress, cls, outCount);
 	}
 
@@ -912,10 +840,14 @@ public class ObjCRuntime {
 	 *         <p>If the class declares no instance variables, or {@code cls} is Nil, {@code NULL} is returned and {@code *outCount} is 0.</p>
 	 */
 	public static PointerBuffer class_copyIvarList(long cls) {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nclass_copyIvarList(cls, __buffer.address(outCount));
-		return memPointerBuffer(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nclass_copyIvarList(cls, memAddress(outCount));
+			return memPointerBuffer(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_getInstanceMethod ] ---
@@ -932,7 +864,7 @@ public class ObjCRuntime {
 	 *         specified class or its superclasses do not contain an instance method with the specified selector.
 	 */
 	public static long class_getInstanceMethod(long cls, long name) {
-		long __functionAddress = getInstance().__class_getInstanceMethod;
+		long __functionAddress = Functions.class_getInstanceMethod;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			checkPointer(name);
@@ -954,7 +886,7 @@ public class ObjCRuntime {
 	 *         {@code cls}, or {@code NULL} if the specified class or its superclasses do not contain a class method with the specified selector.
 	 */
 	public static long class_getClassMethod(long cls, long name) {
-		long __functionAddress = getInstance().__class_getClassMethod;
+		long __functionAddress = Functions.class_getClassMethod;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			checkPointer(name);
@@ -978,7 +910,7 @@ public class ObjCRuntime {
 	 * @return the function pointer that would be called if <code>[object name]</code> were called with an instance of the class, or {@code NULL} if {@code cls} is Nil
 	 */
 	public static long class_getMethodImplementation(long cls, long name) {
-		long __functionAddress = getInstance().__class_getMethodImplementation;
+		long __functionAddress = Functions.class_getMethodImplementation;
 		if ( CHECKS )
 			checkPointer(name);
 		return invokePPP(__functionAddress, cls, name);
@@ -997,7 +929,7 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if instances of the class respond to the selector, otherwise {@link #NO}
 	 */
 	public static boolean class_respondsToSelector(long cls, long name) {
-		long __functionAddress = getInstance().__class_respondsToSelector;
+		long __functionAddress = Functions.class_respondsToSelector;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			checkPointer(name);
@@ -1009,7 +941,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #class_copyMethodList} */
 	public static long nclass_copyMethodList(long cls, long outCount) {
-		long __functionAddress = getInstance().__class_copyMethodList;
+		long __functionAddress = Functions.class_copyMethodList;
 		return invokePPP(__functionAddress, cls, outCount);
 	}
 
@@ -1024,10 +956,14 @@ public class ObjCRuntime {
 	 *         <p>If {@code cls} implements no instance methods, or {@code cls} is Nil, returns {@code NULL} and {@code *outCount} is 0.</p>
 	 */
 	public static PointerBuffer class_copyMethodList(long cls) {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nclass_copyMethodList(cls, __buffer.address(outCount));
-		return memPointerBuffer(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nclass_copyMethodList(cls, memAddress(outCount));
+			return memPointerBuffer(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_conformsToProtocol ] ---
@@ -1043,7 +979,7 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if {@code cls} conforms to {@code protocol}, otherwise {@link #NO}
 	 */
 	public static boolean class_conformsToProtocol(long cls, long protocol) {
-		long __functionAddress = getInstance().__class_conformsToProtocol;
+		long __functionAddress = Functions.class_conformsToProtocol;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			checkPointer(protocol);
@@ -1055,7 +991,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #class_copyProtocolList} */
 	public static long nclass_copyProtocolList(long cls, long outCount) {
-		long __functionAddress = getInstance().__class_copyProtocolList;
+		long __functionAddress = Functions.class_copyProtocolList;
 		return invokePPP(__functionAddress, cls, outCount);
 	}
 
@@ -1070,17 +1006,21 @@ public class ObjCRuntime {
 	 *         <p>If {@code cls} adopts no protocols, or {@code cls} is Nil, returns {@code NULL} and {@code *outCount} is 0.</p>
 	 */
 	public static PointerBuffer class_copyProtocolList(long cls) {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nclass_copyProtocolList(cls, __buffer.address(outCount));
-		return memPointerBuffer(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nclass_copyProtocolList(cls, memAddress(outCount));
+			return memPointerBuffer(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_getProperty ] ---
 
 	/** Unsafe version of {@link #class_getProperty} */
 	public static long nclass_getProperty(long cls, long name) {
-		long __functionAddress = getInstance().__class_getProperty;
+		long __functionAddress = Functions.class_getProperty;
 		return invokePPP(__functionAddress, cls, name);
 	}
 
@@ -1101,16 +1041,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #class_getProperty} */
 	public static long class_getProperty(long cls, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nclass_getProperty(cls, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nclass_getProperty(cls, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_copyPropertyList ] ---
 
 	/** Unsafe version of {@link #class_copyPropertyList} */
 	public static long nclass_copyPropertyList(long cls, long outCount) {
-		long __functionAddress = getInstance().__class_copyPropertyList;
+		long __functionAddress = Functions.class_copyPropertyList;
 		return invokePPP(__functionAddress, cls, outCount);
 	}
 
@@ -1125,17 +1069,21 @@ public class ObjCRuntime {
 	 *         <p>If {@code cls} declares no properties, or {@code cls} is Nil, returns {@code NULL} and {@code *outCount} is 0.</p>
 	 */
 	public static PointerBuffer class_copyPropertyList(long cls) {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nclass_copyPropertyList(cls, __buffer.address(outCount));
-		return memPointerBuffer(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nclass_copyPropertyList(cls, memAddress(outCount));
+			return memPointerBuffer(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_getIvarLayout ] ---
 
 	/** Unsafe version of {@link #class_getIvarLayout} */
 	public static long nclass_getIvarLayout(long cls) {
-		long __functionAddress = getInstance().__class_getIvarLayout;
+		long __functionAddress = Functions.class_getIvarLayout;
 		if ( CHECKS )
 			checkPointer(cls);
 		return invokePP(__functionAddress, cls);
@@ -1150,14 +1098,14 @@ public class ObjCRuntime {
 	 */
 	public static String class_getIvarLayout(long cls) {
 		long __result = nclass_getIvarLayout(cls);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ class_getWeakIvarLayout ] ---
 
 	/** Unsafe version of {@link #class_getWeakIvarLayout} */
 	public static long nclass_getWeakIvarLayout(long cls) {
-		long __functionAddress = getInstance().__class_getWeakIvarLayout;
+		long __functionAddress = Functions.class_getWeakIvarLayout;
 		if ( CHECKS )
 			checkPointer(cls);
 		return invokePP(__functionAddress, cls);
@@ -1172,14 +1120,14 @@ public class ObjCRuntime {
 	 */
 	public static String class_getWeakIvarLayout(long cls) {
 		long __result = nclass_getWeakIvarLayout(cls);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ class_addMethod ] ---
 
 	/** Unsafe version of {@link #class_addMethod} */
 	public static boolean nclass_addMethod(long cls, long name, long imp, long types) {
-		long __functionAddress = getInstance().__class_addMethod;
+		long __functionAddress = Functions.class_addMethod;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			checkPointer(name);
@@ -1225,16 +1173,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #class_addMethod} */
 	public static boolean class_addMethod(long cls, long name, long imp, CharSequence types) {
-		APIBuffer __buffer = apiBuffer();
-		int typesEncoded = __buffer.stringParamUTF8(types, true);
-		return nclass_addMethod(cls, name, imp, __buffer.address(typesEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer typesEncoded = stack.UTF8(types);
+			return nclass_addMethod(cls, name, imp, memAddress(typesEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_replaceMethod ] ---
 
 	/** Unsafe version of {@link #class_replaceMethod} */
 	public static long nclass_replaceMethod(long cls, long name, long imp, long types) {
-		long __functionAddress = getInstance().__class_replaceMethod;
+		long __functionAddress = Functions.class_replaceMethod;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			checkPointer(name);
@@ -1274,16 +1226,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #class_replaceMethod} */
 	public static long class_replaceMethod(long cls, long name, long imp, CharSequence types) {
-		APIBuffer __buffer = apiBuffer();
-		int typesEncoded = __buffer.stringParamUTF8(types, true);
-		return nclass_replaceMethod(cls, name, imp, __buffer.address(typesEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer typesEncoded = stack.UTF8(types);
+			return nclass_replaceMethod(cls, name, imp, memAddress(typesEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_addIvar ] ---
 
 	/** Unsafe version of {@link #class_addIvar} */
 	public static boolean nclass_addIvar(long cls, long name, long size, byte alignment, long types) {
-		long __functionAddress = getInstance().__class_addIvar;
+		long __functionAddress = Functions.class_addIvar;
 		if ( CHECKS )
 			checkPointer(cls);
 		return invokePPPBPZ(__functionAddress, cls, name, size, alignment, types);
@@ -1318,10 +1274,14 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #class_addIvar} */
 	public static boolean class_addIvar(long cls, CharSequence name, long size, byte alignment, CharSequence types) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		int typesEncoded = __buffer.stringParamUTF8(types, true);
-		return nclass_addIvar(cls, __buffer.address(nameEncoded), size, alignment, __buffer.address(typesEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			ByteBuffer typesEncoded = stack.UTF8(types);
+			return nclass_addIvar(cls, memAddress(nameEncoded), size, alignment, memAddress(typesEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_addProtocol ] ---
@@ -1335,7 +1295,7 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if the protocol was added successfully, otherwise {@link #NO} (for example, the class already conforms to that protocol)
 	 */
 	public static boolean class_addProtocol(long cls, long protocol) {
-		long __functionAddress = getInstance().__class_addProtocol;
+		long __functionAddress = Functions.class_addProtocol;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			checkPointer(protocol);
@@ -1347,7 +1307,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #class_addProperty} */
 	public static boolean nclass_addProperty(long cls, long name, long attributes, int attributeCount) {
-		long __functionAddress = getInstance().__class_addProperty;
+		long __functionAddress = Functions.class_addProperty;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			ObjCPropertyAttribute.validate(attributes, attributeCount);
@@ -1382,16 +1342,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #class_addProperty} */
 	public static boolean class_addProperty(long cls, CharSequence name, ObjCPropertyAttribute.Buffer attributes) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nclass_addProperty(cls, __buffer.address(nameEncoded), attributes.address(), attributes.remaining());
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nclass_addProperty(cls, memAddress(nameEncoded), attributes.address(), attributes.remaining());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_replaceProperty ] ---
 
 	/** Unsafe version of {@link #class_replaceProperty} */
 	public static void nclass_replaceProperty(long cls, long name, long attributes, int attributeCount) {
-		long __functionAddress = getInstance().__class_replaceProperty;
+		long __functionAddress = Functions.class_replaceProperty;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			ObjCPropertyAttribute.validate(attributes, attributeCount);
@@ -1424,16 +1388,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #class_replaceProperty} */
 	public static void class_replaceProperty(long cls, CharSequence name, ObjCPropertyAttribute.Buffer attributes) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		nclass_replaceProperty(cls, __buffer.address(nameEncoded), attributes.address(), attributes.remaining());
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			nclass_replaceProperty(cls, memAddress(nameEncoded), attributes.address(), attributes.remaining());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_setIvarLayout ] ---
 
 	/** Unsafe version of {@link #class_setIvarLayout} */
 	public static void nclass_setIvarLayout(long cls, long layout) {
-		long __functionAddress = getInstance().__class_setIvarLayout;
+		long __functionAddress = Functions.class_setIvarLayout;
 		if ( CHECKS )
 			checkPointer(cls);
 		invokePPV(__functionAddress, cls, layout);
@@ -1453,16 +1421,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #class_setIvarLayout} */
 	public static void class_setIvarLayout(long cls, CharSequence layout) {
-		APIBuffer __buffer = apiBuffer();
-		int layoutEncoded = __buffer.stringParamASCII(layout, true);
-		nclass_setIvarLayout(cls, __buffer.address(layoutEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer layoutEncoded = stack.ASCII(layout);
+			nclass_setIvarLayout(cls, memAddress(layoutEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_setWeakIvarLayout ] ---
 
 	/** Unsafe version of {@link #class_setWeakIvarLayout} */
 	public static void nclass_setWeakIvarLayout(long cls, long layout) {
-		long __functionAddress = getInstance().__class_setWeakIvarLayout;
+		long __functionAddress = Functions.class_setWeakIvarLayout;
 		if ( CHECKS )
 			checkPointer(cls);
 		invokePPV(__functionAddress, cls, layout);
@@ -1482,9 +1454,13 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #class_setWeakIvarLayout} */
 	public static void class_setWeakIvarLayout(long cls, CharSequence layout) {
-		APIBuffer __buffer = apiBuffer();
-		int layoutEncoded = __buffer.stringParamASCII(layout, true);
-		nclass_setWeakIvarLayout(cls, __buffer.address(layoutEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer layoutEncoded = stack.ASCII(layout);
+			nclass_setWeakIvarLayout(cls, memAddress(layoutEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_createInstance ] ---
@@ -1499,7 +1475,7 @@ public class ObjCRuntime {
 	 * @return an instance of the class {@code cls}
 	 */
 	public static long class_createInstance(long cls, long extraBytes) {
-		long __functionAddress = getInstance().__class_createInstance;
+		long __functionAddress = Functions.class_createInstance;
 		if ( CHECKS )
 			checkPointer(cls);
 		return invokePPP(__functionAddress, cls, extraBytes);
@@ -1509,7 +1485,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #objc_constructInstance} */
 	public static long nobjc_constructInstance(long cls, long bytes) {
-		long __functionAddress = getInstance().__objc_constructInstance;
+		long __functionAddress = Functions.objc_constructInstance;
 		return invokePPP(__functionAddress, cls, bytes);
 	}
 
@@ -1541,7 +1517,7 @@ public class ObjCRuntime {
 	 * @param obj the instance to destroy
 	 */
 	public static long objc_destructInstance(long obj) {
-		long __functionAddress = getInstance().__objc_destructInstance;
+		long __functionAddress = Functions.objc_destructInstance;
 		if ( CHECKS )
 			checkPointer(obj);
 		return invokePP(__functionAddress, obj);
@@ -1551,7 +1527,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #objc_allocateClassPair} */
 	public static long nobjc_allocateClassPair(long superclass, long name, long extraBytes) {
-		long __functionAddress = getInstance().__objc_allocateClassPair;
+		long __functionAddress = Functions.objc_allocateClassPair;
 		return invokePPPP(__functionAddress, superclass, name, extraBytes);
 	}
 
@@ -1579,9 +1555,13 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #objc_allocateClassPair} */
 	public static long objc_allocateClassPair(long superclass, CharSequence name, long extraBytes) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nobjc_allocateClassPair(superclass, __buffer.address(nameEncoded), extraBytes);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nobjc_allocateClassPair(superclass, memAddress(nameEncoded), extraBytes);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ objc_registerClassPair ] ---
@@ -1592,7 +1572,7 @@ public class ObjCRuntime {
 	 * @param cls the class you want to register
 	 */
 	public static void objc_registerClassPair(long cls) {
-		long __functionAddress = getInstance().__objc_registerClassPair;
+		long __functionAddress = Functions.objc_registerClassPair;
 		if ( CHECKS )
 			checkPointer(cls);
 		invokePV(__functionAddress, cls);
@@ -1608,7 +1588,7 @@ public class ObjCRuntime {
 	 * @param cls the class to be destroyed. This class must have been allocated using {@link #objc_allocateClassPair}.
 	 */
 	public static void objc_disposeClassPair(long cls) {
-		long __functionAddress = getInstance().__objc_disposeClassPair;
+		long __functionAddress = Functions.objc_disposeClassPair;
 		if ( CHECKS )
 			checkPointer(cls);
 		invokePV(__functionAddress, cls);
@@ -1626,7 +1606,7 @@ public class ObjCRuntime {
 	 * @return a pointer of type SEL
 	 */
 	public static long method_getName(long m) {
-		long __functionAddress = getInstance().__method_getName;
+		long __functionAddress = Functions.method_getName;
 		if ( CHECKS )
 			checkPointer(m);
 		return invokePP(__functionAddress, m);
@@ -1642,7 +1622,7 @@ public class ObjCRuntime {
 	 * @return a function pointer of type IMP
 	 */
 	public static long method_getImplementation(long m) {
-		long __functionAddress = getInstance().__method_getImplementation;
+		long __functionAddress = Functions.method_getImplementation;
 		if ( CHECKS )
 			checkPointer(m);
 		return invokePP(__functionAddress, m);
@@ -1652,7 +1632,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #method_getTypeEncoding} */
 	public static long nmethod_getTypeEncoding(long m) {
-		long __functionAddress = getInstance().__method_getTypeEncoding;
+		long __functionAddress = Functions.method_getTypeEncoding;
 		if ( CHECKS )
 			checkPointer(m);
 		return invokePP(__functionAddress, m);
@@ -1667,7 +1647,7 @@ public class ObjCRuntime {
 	 */
 	public static String method_getTypeEncoding(long m) {
 		long __result = nmethod_getTypeEncoding(m);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ method_getNumberOfArguments ] ---
@@ -1680,7 +1660,7 @@ public class ObjCRuntime {
 	 * @return an integer containing the number of arguments accepted by the given method
 	 */
 	public static int method_getNumberOfArguments(long m) {
-		long __functionAddress = getInstance().__method_getNumberOfArguments;
+		long __functionAddress = Functions.method_getNumberOfArguments;
 		if ( CHECKS )
 			checkPointer(m);
 		return invokePI(__functionAddress, m);
@@ -1690,7 +1670,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #method_copyReturnType} */
 	public static long nmethod_copyReturnType(long m) {
-		long __functionAddress = getInstance().__method_copyReturnType;
+		long __functionAddress = Functions.method_copyReturnType;
 		if ( CHECKS )
 			checkPointer(m);
 		return invokePP(__functionAddress, m);
@@ -1705,14 +1685,14 @@ public class ObjCRuntime {
 	 */
 	public static String method_copyReturnType(long m) {
 		long __result = nmethod_copyReturnType(m);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ method_copyArgumentType ] ---
 
 	/** Unsafe version of {@link #method_copyArgumentType} */
 	public static long nmethod_copyArgumentType(long m, int index) {
-		long __functionAddress = getInstance().__method_copyArgumentType;
+		long __functionAddress = Functions.method_copyArgumentType;
 		if ( CHECKS )
 			checkPointer(m);
 		return invokePIP(__functionAddress, m, index);
@@ -1729,14 +1709,14 @@ public class ObjCRuntime {
 	 */
 	public static String method_copyArgumentType(long m, int index) {
 		long __result = nmethod_copyArgumentType(m, index);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ method_getReturnType ] ---
 
 	/** Unsafe version of {@link #method_getReturnType} */
 	public static void nmethod_getReturnType(long m, long dst, long dst_len) {
-		long __functionAddress = getInstance().__method_getReturnType;
+		long __functionAddress = Functions.method_getReturnType;
 		if ( CHECKS )
 			checkPointer(m);
 		invokePPPV(__functionAddress, m, dst, dst_len);
@@ -1764,17 +1744,21 @@ public class ObjCRuntime {
 
 	/** String return version of: {@link #method_getReturnType} */
 	public static String method_getReturnType(long m, long dst_len) {
-		APIBuffer __buffer = apiBuffer();
-		int dst = __buffer.bufferParam((int)dst_len);
-		nmethod_getReturnType(m, __buffer.address(dst), dst_len);
-		return memDecodeUTF8(memByteBufferNT1(__buffer.address(dst), (int)dst_len));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer dst = stack.malloc((int)dst_len);
+			nmethod_getReturnType(m, memAddress(dst), dst_len);
+			return memUTF8(memByteBufferNT1(memAddress(dst), (int)dst_len));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ method_getArgumentType ] ---
 
 	/** Unsafe version of {@link #method_getArgumentType} */
 	public static void nmethod_getArgumentType(long m, int index, long dst, long dst_len) {
-		long __functionAddress = getInstance().__method_getArgumentType;
+		long __functionAddress = Functions.method_getArgumentType;
 		if ( CHECKS )
 			checkPointer(m);
 		invokePIPPV(__functionAddress, m, index, dst, dst_len);
@@ -1804,10 +1788,14 @@ public class ObjCRuntime {
 
 	/** String return version of: {@link #method_getArgumentType} */
 	public static String method_getArgumentType(long m, int index, long dst_len) {
-		APIBuffer __buffer = apiBuffer();
-		int dst = __buffer.bufferParam((int)dst_len);
-		nmethod_getArgumentType(m, index, __buffer.address(dst), dst_len);
-		return memDecodeUTF8(memByteBufferNT1(__buffer.address(dst), (int)dst_len));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer dst = stack.malloc((int)dst_len);
+			nmethod_getArgumentType(m, index, memAddress(dst), dst_len);
+			return memUTF8(memByteBufferNT1(memAddress(dst), (int)dst_len));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ method_setImplementation ] ---
@@ -1821,7 +1809,7 @@ public class ObjCRuntime {
 	 * @return the previous implementation of the method
 	 */
 	public static long method_setImplementation(long m, long imp) {
-		long __functionAddress = getInstance().__method_setImplementation;
+		long __functionAddress = Functions.method_setImplementation;
 		if ( CHECKS ) {
 			checkPointer(m);
 			checkPointer(imp);
@@ -1838,7 +1826,7 @@ public class ObjCRuntime {
 	 * @param m2 the method to exchange with first method
 	 */
 	public static void method_exchangeImplementations(long m1, long m2) {
-		long __functionAddress = getInstance().__method_exchangeImplementations;
+		long __functionAddress = Functions.method_exchangeImplementations;
 		if ( CHECKS ) {
 			checkPointer(m1);
 			checkPointer(m2);
@@ -1850,7 +1838,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #ivar_getName} */
 	public static long nivar_getName(long v) {
-		long __functionAddress = getInstance().__ivar_getName;
+		long __functionAddress = Functions.ivar_getName;
 		if ( CHECKS )
 			checkPointer(v);
 		return invokePP(__functionAddress, v);
@@ -1865,14 +1853,14 @@ public class ObjCRuntime {
 	 */
 	public static String ivar_getName(long v) {
 		long __result = nivar_getName(v);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ ivar_getTypeEncoding ] ---
 
 	/** Unsafe version of {@link #ivar_getTypeEncoding} */
 	public static long nivar_getTypeEncoding(long v) {
-		long __functionAddress = getInstance().__ivar_getTypeEncoding;
+		long __functionAddress = Functions.ivar_getTypeEncoding;
 		if ( CHECKS )
 			checkPointer(v);
 		return invokePP(__functionAddress, v);
@@ -1887,7 +1875,7 @@ public class ObjCRuntime {
 	 */
 	public static String ivar_getTypeEncoding(long v) {
 		long __result = nivar_getTypeEncoding(v);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ ivar_getOffset ] ---
@@ -1903,7 +1891,7 @@ public class ObjCRuntime {
 	 * @return the offset of {@code v}
 	 */
 	public static long ivar_getOffset(long v) {
-		long __functionAddress = getInstance().__ivar_getOffset;
+		long __functionAddress = Functions.ivar_getOffset;
 		if ( CHECKS )
 			checkPointer(v);
 		return invokePP(__functionAddress, v);
@@ -1913,7 +1901,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #property_getName} */
 	public static long nproperty_getName(long property) {
-		long __functionAddress = getInstance().__property_getName;
+		long __functionAddress = Functions.property_getName;
 		if ( CHECKS )
 			checkPointer(property);
 		return invokePP(__functionAddress, property);
@@ -1928,14 +1916,14 @@ public class ObjCRuntime {
 	 */
 	public static String property_getName(long property) {
 		long __result = nproperty_getName(property);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ property_getAttributes ] ---
 
 	/** Unsafe version of {@link #property_getAttributes} */
 	public static long nproperty_getAttributes(long property) {
-		long __functionAddress = getInstance().__property_getAttributes;
+		long __functionAddress = Functions.property_getAttributes;
 		if ( CHECKS )
 			checkPointer(property);
 		return invokePP(__functionAddress, property);
@@ -1950,14 +1938,14 @@ public class ObjCRuntime {
 	 */
 	public static String property_getAttributes(long property) {
 		long __result = nproperty_getAttributes(property);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ property_copyAttributeList ] ---
 
 	/** Unsafe version of {@link #property_copyAttributeList} */
 	public static long nproperty_copyAttributeList(long property, long outCount) {
-		long __functionAddress = getInstance().__property_copyAttributeList;
+		long __functionAddress = Functions.property_copyAttributeList;
 		if ( CHECKS )
 			checkPointer(property);
 		return invokePPP(__functionAddress, property, outCount);
@@ -1972,17 +1960,21 @@ public class ObjCRuntime {
 	 * @return an array of property attributes. You must free the array with free().
 	 */
 	public static ObjCPropertyAttribute.Buffer property_copyAttributeList(long property) {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nproperty_copyAttributeList(property, __buffer.address(outCount));
-		return ObjCPropertyAttribute.create(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nproperty_copyAttributeList(property, memAddress(outCount));
+			return ObjCPropertyAttribute.create(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ property_copyAttributeValue ] ---
 
 	/** Unsafe version of {@link #property_copyAttributeValue} */
 	public static long nproperty_copyAttributeValue(long property, long attributeName) {
-		long __functionAddress = getInstance().__property_copyAttributeValue;
+		long __functionAddress = Functions.property_copyAttributeValue;
 		if ( CHECKS )
 			checkPointer(property);
 		return invokePPP(__functionAddress, property, attributeName);
@@ -2001,7 +1993,7 @@ public class ObjCRuntime {
 		if ( CHECKS )
 			checkNT1(attributeName);
 		long __result = nproperty_copyAttributeValue(property, memAddress(attributeName));
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	/**
@@ -2014,17 +2006,21 @@ public class ObjCRuntime {
 	 *         with free().
 	 */
 	public static String property_copyAttributeValue(long property, CharSequence attributeName) {
-		APIBuffer __buffer = apiBuffer();
-		int attributeNameEncoded = __buffer.stringParamUTF8(attributeName, true);
-		long __result = nproperty_copyAttributeValue(property, __buffer.address(attributeNameEncoded));
-		return memDecodeUTF8(__result);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer attributeNameEncoded = stack.UTF8(attributeName);
+			long __result = nproperty_copyAttributeValue(property, memAddress(attributeNameEncoded));
+			return memUTF8(__result);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ objc_getProtocol ] ---
 
 	/** Unsafe version of {@link #objc_getProtocol} */
 	public static long nobjc_getProtocol(long name) {
-		long __functionAddress = getInstance().__objc_getProtocol;
+		long __functionAddress = Functions.objc_getProtocol;
 		return invokePP(__functionAddress, name);
 	}
 
@@ -2045,16 +2041,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #objc_getProtocol} */
 	public static long objc_getProtocol(CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nobjc_getProtocol(__buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nobjc_getProtocol(memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ objc_copyProtocolList ] ---
 
 	/** Unsafe version of {@link #objc_copyProtocolList} */
 	public static long nobjc_copyProtocolList(long outCount) {
-		long __functionAddress = getInstance().__objc_copyProtocolList;
+		long __functionAddress = Functions.objc_copyProtocolList;
 		return invokePP(__functionAddress, outCount);
 	}
 
@@ -2065,10 +2065,14 @@ public class ObjCRuntime {
 	 *         list with free().
 	 */
 	public static PointerBuffer objc_copyProtocolList() {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nobjc_copyProtocolList(__buffer.address(outCount));
-		return memPointerBuffer(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nobjc_copyProtocolList(memAddress(outCount));
+			return memPointerBuffer(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ protocol_conformsToProtocol ] ---
@@ -2090,7 +2094,7 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if {@code proto} conforms to {@code other}, otherwise {@link #NO}
 	 */
 	public static boolean protocol_conformsToProtocol(long proto, long other) {
-		long __functionAddress = getInstance().__protocol_conformsToProtocol;
+		long __functionAddress = Functions.protocol_conformsToProtocol;
 		if ( CHECKS ) {
 			checkPointer(proto);
 			checkPointer(other);
@@ -2109,7 +2113,7 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if proto is the same as other, otherwise {@link #NO}
 	 */
 	public static boolean protocol_isEqual(long proto, long other) {
-		long __functionAddress = getInstance().__protocol_isEqual;
+		long __functionAddress = Functions.protocol_isEqual;
 		if ( CHECKS ) {
 			checkPointer(proto);
 			checkPointer(other);
@@ -2121,7 +2125,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #protocol_getName} */
 	public static long nprotocol_getName(long p) {
-		long __functionAddress = getInstance().__protocol_getName;
+		long __functionAddress = Functions.protocol_getName;
 		if ( CHECKS )
 			checkPointer(p);
 		return invokePP(__functionAddress, p);
@@ -2136,7 +2140,7 @@ public class ObjCRuntime {
 	 */
 	public static String protocol_getName(long p) {
 		long __result = nprotocol_getName(p);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ protocol_getMethodDescription ] ---
@@ -2146,7 +2150,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #protocol_getMethodDescription} */
 	public static void nprotocol_getMethodDescription(long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, long __result) {
-		long __functionAddress = getInstance().__protocol_getMethodDescription;
+		long __functionAddress = Functions.protocol_getMethodDescription;
 		if ( CHECKS ) {
 			checkPointer(p);
 			checkPointer(aSel);
@@ -2174,7 +2178,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #protocol_copyMethodDescriptionList} */
 	public static long nprotocol_copyMethodDescriptionList(long p, boolean isRequiredMethod, boolean isInstanceMethod, long outCount) {
-		long __functionAddress = getInstance().__protocol_copyMethodDescriptionList;
+		long __functionAddress = Functions.protocol_copyMethodDescriptionList;
 		if ( CHECKS )
 			checkPointer(p);
 		return invokePZZPP(__functionAddress, p, isRequiredMethod, isInstanceMethod, outCount);
@@ -2196,17 +2200,21 @@ public class ObjCRuntime {
 	 *         <p>If the protocol declares no methods that meet the specification, {@code NULL} is returned and {@code *outCount} is 0.</p>
 	 */
 	public static ObjCMethodDescription.Buffer protocol_copyMethodDescriptionList(long p, boolean isRequiredMethod, boolean isInstanceMethod) {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nprotocol_copyMethodDescriptionList(p, isRequiredMethod, isInstanceMethod, __buffer.address(outCount));
-		return ObjCMethodDescription.create(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nprotocol_copyMethodDescriptionList(p, isRequiredMethod, isInstanceMethod, memAddress(outCount));
+			return ObjCMethodDescription.create(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ protocol_getProperty ] ---
 
 	/** Unsafe version of {@link #protocol_getProperty} */
 	public static long nprotocol_getProperty(long proto, long name, boolean isRequiredProperty, boolean isInstanceProperty) {
-		long __functionAddress = getInstance().__protocol_getProperty;
+		long __functionAddress = Functions.protocol_getProperty;
 		if ( CHECKS )
 			checkPointer(proto);
 		return invokePPZZP(__functionAddress, proto, name, isRequiredProperty, isInstanceProperty);
@@ -2231,16 +2239,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #protocol_getProperty} */
 	public static long protocol_getProperty(long proto, CharSequence name, boolean isRequiredProperty, boolean isInstanceProperty) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nprotocol_getProperty(proto, __buffer.address(nameEncoded), isRequiredProperty, isInstanceProperty);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nprotocol_getProperty(proto, memAddress(nameEncoded), isRequiredProperty, isInstanceProperty);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ protocol_copyPropertyList ] ---
 
 	/** Unsafe version of {@link #protocol_copyPropertyList} */
 	public static long nprotocol_copyPropertyList(long proto, long outCount) {
-		long __functionAddress = getInstance().__protocol_copyPropertyList;
+		long __functionAddress = Functions.protocol_copyPropertyList;
 		if ( CHECKS )
 			checkPointer(proto);
 		return invokePPP(__functionAddress, proto, outCount);
@@ -2257,17 +2269,21 @@ public class ObjCRuntime {
 	 *         <p>If the protocol declares no properties, {@code NULL} is returned and {@code *outCount} is 0.</p>
 	 */
 	public static PointerBuffer protocol_copyPropertyList(long proto) {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nprotocol_copyPropertyList(proto, __buffer.address(outCount));
-		return memPointerBuffer(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nprotocol_copyPropertyList(proto, memAddress(outCount));
+			return memPointerBuffer(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ protocol_copyProtocolList ] ---
 
 	/** Unsafe version of {@link #protocol_copyProtocolList} */
 	public static long nprotocol_copyProtocolList(long proto, long outCount) {
-		long __functionAddress = getInstance().__protocol_copyProtocolList;
+		long __functionAddress = Functions.protocol_copyProtocolList;
 		if ( CHECKS )
 			checkPointer(proto);
 		return invokePPP(__functionAddress, proto, outCount);
@@ -2284,17 +2300,21 @@ public class ObjCRuntime {
 	 *         <p>If the protocol declares no properties, {@code NULL} is returned and {@code *outCount} is 0.</p>
 	 */
 	public static PointerBuffer protocol_copyProtocolList(long proto) {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nprotocol_copyProtocolList(proto, __buffer.address(outCount));
-		return memPointerBuffer(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nprotocol_copyProtocolList(proto, memAddress(outCount));
+			return memPointerBuffer(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ objc_allocateProtocol ] ---
 
 	/** Unsafe version of {@link #objc_allocateProtocol} */
 	public static long nobjc_allocateProtocol(long name) {
-		long __functionAddress = getInstance().__objc_allocateProtocol;
+		long __functionAddress = Functions.objc_allocateProtocol;
 		return invokePP(__functionAddress, name);
 	}
 
@@ -2317,9 +2337,13 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #objc_allocateProtocol} */
 	public static long objc_allocateProtocol(CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nobjc_allocateProtocol(__buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nobjc_allocateProtocol(memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ objc_registerProtocol ] ---
@@ -2333,7 +2357,7 @@ public class ObjCRuntime {
 	 * @param proto the protocol you want to register with the Objective-C runtime
 	 */
 	public static void objc_registerProtocol(long proto) {
-		long __functionAddress = getInstance().__objc_registerProtocol;
+		long __functionAddress = Functions.objc_registerProtocol;
 		if ( CHECKS )
 			checkPointer(proto);
 		invokePV(__functionAddress, proto);
@@ -2343,7 +2367,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #protocol_addMethodDescription} */
 	public static void nprotocol_addMethodDescription(long proto, long name, long types, boolean isRequiredMethod, boolean isInstanceMethod) {
-		long __functionAddress = getInstance().__protocol_addMethodDescription;
+		long __functionAddress = Functions.protocol_addMethodDescription;
 		if ( CHECKS ) {
 			checkPointer(proto);
 			checkPointer(name);
@@ -2372,9 +2396,13 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #protocol_addMethodDescription} */
 	public static void protocol_addMethodDescription(long proto, long name, CharSequence types, boolean isRequiredMethod, boolean isInstanceMethod) {
-		APIBuffer __buffer = apiBuffer();
-		int typesEncoded = __buffer.stringParamUTF8(types, true);
-		nprotocol_addMethodDescription(proto, name, __buffer.address(typesEncoded), isRequiredMethod, isInstanceMethod);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer typesEncoded = stack.UTF8(types);
+			nprotocol_addMethodDescription(proto, name, memAddress(typesEncoded), isRequiredMethod, isInstanceMethod);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ protocol_addProtocol ] ---
@@ -2389,7 +2417,7 @@ public class ObjCRuntime {
 	 * @param addition the registered protocol you want to add to {@code proto}
 	 */
 	public static void protocol_addProtocol(long proto, long addition) {
-		long __functionAddress = getInstance().__protocol_addProtocol;
+		long __functionAddress = Functions.protocol_addProtocol;
 		if ( CHECKS ) {
 			checkPointer(proto);
 			checkPointer(addition);
@@ -2401,7 +2429,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #protocol_addProperty} */
 	public static void nprotocol_addProperty(long proto, long name, long attributes, int attributeCount, boolean isRequiredProperty, boolean isInstanceProperty) {
-		long __functionAddress = getInstance().__protocol_addProperty;
+		long __functionAddress = Functions.protocol_addProperty;
 		if ( CHECKS ) {
 			checkPointer(proto);
 			ObjCPropertyAttribute.validate(attributes, attributeCount);
@@ -2441,16 +2469,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #protocol_addProperty} */
 	public static void protocol_addProperty(long proto, CharSequence name, ObjCPropertyAttribute.Buffer attributes, boolean isRequiredProperty, boolean isInstanceProperty) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		nprotocol_addProperty(proto, __buffer.address(nameEncoded), attributes.address(), attributes.remaining(), isRequiredProperty, isInstanceProperty);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			nprotocol_addProperty(proto, memAddress(nameEncoded), attributes.address(), attributes.remaining(), isRequiredProperty, isInstanceProperty);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ objc_copyImageNames ] ---
 
 	/** Unsafe version of {@link #objc_copyImageNames} */
 	public static long nobjc_copyImageNames(long outCount) {
-		long __functionAddress = getInstance().__objc_copyImageNames;
+		long __functionAddress = Functions.objc_copyImageNames;
 		return invokePP(__functionAddress, outCount);
 	}
 
@@ -2460,17 +2492,21 @@ public class ObjCRuntime {
 	 * @return an array of C strings representing the names of all the loaded Objective-C frameworks and dynamic libraries
 	 */
 	public static PointerBuffer objc_copyImageNames() {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nobjc_copyImageNames(__buffer.address(outCount));
-		return memPointerBuffer(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nobjc_copyImageNames(memAddress(outCount));
+			return memPointerBuffer(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ class_getImageName ] ---
 
 	/** Unsafe version of {@link #class_getImageName} */
 	public static long nclass_getImageName(long cls) {
-		long __functionAddress = getInstance().__class_getImageName;
+		long __functionAddress = Functions.class_getImageName;
 		if ( CHECKS )
 			checkPointer(cls);
 		return invokePP(__functionAddress, cls);
@@ -2485,14 +2521,14 @@ public class ObjCRuntime {
 	 */
 	public static String class_getImageName(long cls) {
 		long __result = nclass_getImageName(cls);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ objc_copyClassNamesForImage ] ---
 
 	/** Unsafe version of {@link #objc_copyClassNamesForImage} */
 	public static long nobjc_copyClassNamesForImage(long image, long outCount) {
-		long __functionAddress = getInstance().__objc_copyClassNamesForImage;
+		long __functionAddress = Functions.objc_copyClassNamesForImage;
 		return invokePPP(__functionAddress, image, outCount);
 	}
 
@@ -2506,26 +2542,34 @@ public class ObjCRuntime {
 	public static PointerBuffer objc_copyClassNamesForImage(ByteBuffer image) {
 		if ( CHECKS )
 			checkNT1(image);
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		long __result = nobjc_copyClassNamesForImage(memAddress(image), __buffer.address(outCount));
-		return memPointerBuffer(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer outCount = stack.callocInt(1);
+		try {
+			long __result = nobjc_copyClassNamesForImage(memAddress(image), memAddress(outCount));
+			return memPointerBuffer(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** CharSequence version of: {@link #objc_copyClassNamesForImage} */
 	public static PointerBuffer objc_copyClassNamesForImage(CharSequence image) {
-		APIBuffer __buffer = apiBuffer();
-		int outCount = __buffer.intParam();
-		int imageEncoded = __buffer.stringParamUTF8(image, true);
-		long __result = nobjc_copyClassNamesForImage(__buffer.address(imageEncoded), __buffer.address(outCount));
-		return memPointerBuffer(__result, __buffer.intValue(outCount));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+		IntBuffer outCount = stack.callocInt(1);
+			ByteBuffer imageEncoded = stack.UTF8(image);
+			long __result = nobjc_copyClassNamesForImage(memAddress(imageEncoded), memAddress(outCount));
+			return memPointerBuffer(__result, outCount.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ sel_getName ] ---
 
 	/** Unsafe version of {@link #sel_getName} */
 	public static long nsel_getName(long sel) {
-		long __functionAddress = getInstance().__sel_getName;
+		long __functionAddress = Functions.sel_getName;
 		if ( CHECKS )
 			checkPointer(sel);
 		return invokePP(__functionAddress, sel);
@@ -2540,14 +2584,14 @@ public class ObjCRuntime {
 	 */
 	public static String sel_getName(long sel) {
 		long __result = nsel_getName(sel);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ sel_getUid ] ---
 
 	/** Unsafe version of {@link #sel_getUid} */
 	public static long nsel_getUid(long str) {
-		long __functionAddress = getInstance().__sel_getUid;
+		long __functionAddress = Functions.sel_getUid;
 		return invokePP(__functionAddress, str);
 	}
 
@@ -2568,16 +2612,20 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #sel_getUid} */
 	public static long sel_getUid(CharSequence str) {
-		APIBuffer __buffer = apiBuffer();
-		int strEncoded = __buffer.stringParamUTF8(str, true);
-		return nsel_getUid(__buffer.address(strEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer strEncoded = stack.UTF8(str);
+			return nsel_getUid(memAddress(strEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ sel_registerName ] ---
 
 	/** Unsafe version of {@link #sel_registerName} */
 	public static long nsel_registerName(long str) {
-		long __functionAddress = getInstance().__sel_registerName;
+		long __functionAddress = Functions.sel_registerName;
 		return invokePP(__functionAddress, str);
 	}
 
@@ -2599,9 +2647,13 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #sel_registerName} */
 	public static long sel_registerName(CharSequence str) {
-		APIBuffer __buffer = apiBuffer();
-		int strEncoded = __buffer.stringParamUTF8(str, true);
-		return nsel_registerName(__buffer.address(strEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer strEncoded = stack.UTF8(str);
+			return nsel_registerName(memAddress(strEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ sel_isEqual ] ---
@@ -2617,7 +2669,7 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if rhs and rhs are equal, otherwise {@link #NO}
 	 */
 	public static boolean sel_isEqual(long lhs, long rhs) {
-		long __functionAddress = getInstance().__sel_isEqual;
+		long __functionAddress = Functions.sel_isEqual;
 		if ( CHECKS ) {
 			checkPointer(lhs);
 			checkPointer(rhs);
@@ -2637,7 +2689,7 @@ public class ObjCRuntime {
 	 * @param obj the object being mutated
 	 */
 	public static void objc_enumerationMutation(long obj) {
-		long __functionAddress = getInstance().__objc_enumerationMutation;
+		long __functionAddress = Functions.objc_enumerationMutation;
 		if ( CHECKS )
 			checkPointer(obj);
 		invokePV(__functionAddress, obj);
@@ -2651,7 +2703,7 @@ public class ObjCRuntime {
 	 * @param handler a function pointer to the new mutation handler
 	 */
 	public static void objc_setEnumerationMutationHandler(EnumerationMutationHandler handler) {
-		long __functionAddress = getInstance().__objc_setEnumerationMutationHandler;
+		long __functionAddress = Functions.objc_setEnumerationMutationHandler;
 		invokePV(__functionAddress, handler.address());
 	}
 
@@ -2666,7 +2718,7 @@ public class ObjCRuntime {
 	 * @return the IMP that calls {@code block}. You must dispose of the returned IMP using the function.
 	 */
 	public static long imp_implementationWithBlock(long block) {
-		long __functionAddress = getInstance().__imp_implementationWithBlock;
+		long __functionAddress = Functions.imp_implementationWithBlock;
 		if ( CHECKS )
 			checkPointer(block);
 		return invokePP(__functionAddress, block);
@@ -2682,7 +2734,7 @@ public class ObjCRuntime {
 	 * @return the block called by {@code anImp}
 	 */
 	public static long imp_getBlock(long anImp) {
-		long __functionAddress = getInstance().__imp_getBlock;
+		long __functionAddress = Functions.imp_getBlock;
 		if ( CHECKS )
 			checkPointer(anImp);
 		return invokePP(__functionAddress, anImp);
@@ -2699,7 +2751,7 @@ public class ObjCRuntime {
 	 *         previously).
 	 */
 	public static boolean imp_removeBlock(long anImp) {
-		long __functionAddress = getInstance().__imp_removeBlock;
+		long __functionAddress = Functions.imp_removeBlock;
 		if ( CHECKS )
 			checkPointer(anImp);
 		return invokePZ(__functionAddress, anImp);
@@ -2709,7 +2761,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #objc_loadWeak} */
 	public static long nobjc_loadWeak(long location) {
-		long __functionAddress = getInstance().__objc_loadWeak;
+		long __functionAddress = Functions.objc_loadWeak;
 		return invokePP(__functionAddress, location);
 	}
 
@@ -2736,7 +2788,7 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #objc_storeWeak} */
 	public static long nobjc_storeWeak(long location, long obj) {
-		long __functionAddress = getInstance().__objc_storeWeak;
+		long __functionAddress = Functions.objc_storeWeak;
 		if ( CHECKS )
 			checkPointer(obj);
 		return invokePPP(__functionAddress, location, obj);
@@ -2772,7 +2824,7 @@ public class ObjCRuntime {
 	 * @param policy the policy for the association. One of:<br>{@link #OBJC_ASSOCIATION_ASSIGN}, {@link #OBJC_ASSOCIATION_RETAIN_NONATOMIC}, {@link #OBJC_ASSOCIATION_COPY_NONATOMIC}, {@link #OBJC_ASSOCIATION_RETAIN}, {@link #OBJC_ASSOCIATION_COPY}
 	 */
 	public static void objc_setAssociatedObject(long object, long key, long value, long policy) {
-		long __functionAddress = getInstance().__objc_setAssociatedObject;
+		long __functionAddress = Functions.objc_setAssociatedObject;
 		if ( CHECKS ) {
 			checkPointer(object);
 			checkPointer(key);
@@ -2792,7 +2844,7 @@ public class ObjCRuntime {
 	 * @return the value associated with the key {@code key} for {@code object}.
 	 */
 	public static long objc_getAssociatedObject(long object, long key) {
-		long __functionAddress = getInstance().__objc_getAssociatedObject;
+		long __functionAddress = Functions.objc_getAssociatedObject;
 		if ( CHECKS ) {
 			checkPointer(object);
 			checkPointer(key);
@@ -2812,7 +2864,7 @@ public class ObjCRuntime {
 	 * @param object an object that maintains associated objects
 	 */
 	public static void objc_removeAssociatedObjects(long object) {
-		long __functionAddress = getInstance().__objc_removeAssociatedObjects;
+		long __functionAddress = Functions.objc_removeAssociatedObjects;
 		if ( CHECKS )
 			checkPointer(object);
 		invokePV(__functionAddress, object);

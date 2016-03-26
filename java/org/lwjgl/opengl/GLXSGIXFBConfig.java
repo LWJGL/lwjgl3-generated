@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import org.lwjgl.system.linux.*;
@@ -63,59 +63,24 @@ public class GLXSGIXFBConfig {
 		GLX_RGBA_TYPE_SGIX        = 0x8014,
 		GLX_COLOR_INDEX_TYPE_SGIX = 0x8015;
 
-	/** Function address. */
-	public final long
-		GetFBConfigAttribSGIX,
-		ChooseFBConfigSGIX,
-		CreateGLXPixmapWithConfigSGIX,
-		CreateContextWithConfigSGIX,
-		GetVisualFromFBConfigSGIX,
-		GetFBConfigFromVisualSGIX;
-
 	protected GLXSGIXFBConfig() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXSGIXFBConfig(FunctionProvider provider) {
-		GetFBConfigAttribSGIX = provider.getFunctionAddress("glXGetFBConfigAttribSGIX");
-		ChooseFBConfigSGIX = provider.getFunctionAddress("glXChooseFBConfigSGIX");
-		CreateGLXPixmapWithConfigSGIX = provider.getFunctionAddress("glXCreateGLXPixmapWithConfigSGIX");
-		CreateContextWithConfigSGIX = provider.getFunctionAddress("glXCreateContextWithConfigSGIX");
-		GetVisualFromFBConfigSGIX = provider.getFunctionAddress("glXGetVisualFromFBConfigSGIX");
-		GetFBConfigFromVisualSGIX = provider.getFunctionAddress("glXGetFBConfigFromVisualSGIX");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXSGIXFBConfig} instance of the current context. */
-	public static GLXSGIXFBConfig getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXSGIXFBConfig} instance of the specified {@link GLCapabilities}. */
-	public static GLXSGIXFBConfig getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXSGIXFBConfig);
-	}
-
-	static GLXSGIXFBConfig create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGIX_fbconfig") ) return null;
-
-		GLXSGIXFBConfig funcs = new GLXSGIXFBConfig(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetFBConfigAttribSGIX, funcs.ChooseFBConfigSGIX, funcs.CreateGLXPixmapWithConfigSGIX, funcs.CreateContextWithConfigSGIX, 
-			funcs.GetVisualFromFBConfigSGIX, funcs.GetFBConfigFromVisualSGIX
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXGetFBConfigAttribSGIX, caps.glXChooseFBConfigSGIX, caps.glXCreateGLXPixmapWithConfigSGIX, caps.glXCreateContextWithConfigSGIX, 
+			caps.glXGetVisualFromFBConfigSGIX, caps.glXGetFBConfigFromVisualSGIX
 		);
-
-		return GL.checkExtension("GLX_SGIX_fbconfig", funcs, supported);
 	}
 
 	// --- [ glXGetFBConfigAttribSGIX ] ---
 
 	/** Unsafe version of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} */
 	public static int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value) {
-		long __functionAddress = getInstance().GetFBConfigAttribSGIX;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttribSGIX;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -147,9 +112,11 @@ public class GLXSGIXFBConfig {
 
 	/** Unsafe version of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
 	public static long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements) {
-		long __functionAddress = getInstance().ChooseFBConfigSGIX;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfigSGIX;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPIPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
 
@@ -161,18 +128,26 @@ public class GLXSGIXFBConfig {
 	 * @param attrib_list an optional list of attributes, terminated with org.lwjgl.system.linux.{@code None}
 	 */
 	public static PointerBuffer glXChooseFBConfigSGIX(long display, int screen, ByteBuffer attrib_list) {
-		APIBuffer __buffer = apiBuffer();
-		int nelements = __buffer.intParam();
-		long __result = nglXChooseFBConfigSGIX(display, screen, memAddressSafe(attrib_list), __buffer.address(nelements));
-		return memPointerBuffer(__result, __buffer.intValue(nelements));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer nelements = stack.callocInt(1);
+		try {
+			long __result = nglXChooseFBConfigSGIX(display, screen, memAddressSafe(attrib_list), memAddress(nelements));
+			return memPointerBuffer(__result, nelements.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Alternative version of: {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
 	public static PointerBuffer glXChooseFBConfigSGIX(long display, int screen, IntBuffer attrib_list) {
-		APIBuffer __buffer = apiBuffer();
-		int nelements = __buffer.intParam();
-		long __result = nglXChooseFBConfigSGIX(display, screen, memAddressSafe(attrib_list), __buffer.address(nelements));
-		return memPointerBuffer(__result, __buffer.intValue(nelements));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+		IntBuffer nelements = stack.callocInt(1);
+			long __result = nglXChooseFBConfigSGIX(display, screen, memAddressSafe(attrib_list), memAddress(nelements));
+			return memPointerBuffer(__result, nelements.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glXCreateGLXPixmapWithConfigSGIX ] ---
@@ -185,8 +160,9 @@ public class GLXSGIXFBConfig {
 	 * @param pixmap  the pixmap
 	 */
 	public static long glXCreateGLXPixmapWithConfigSGIX(long display, long config, long pixmap) {
-		long __functionAddress = getInstance().CreateGLXPixmapWithConfigSGIX;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateGLXPixmapWithConfigSGIX;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -205,8 +181,9 @@ public class GLXSGIXFBConfig {
 	 * @param direct      direct rendering request
 	 */
 	public static long glXCreateContextWithConfigSGIX(long display, long config, int render_type, long share_list, int direct) {
-		long __functionAddress = getInstance().CreateContextWithConfigSGIX;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextWithConfigSGIX;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			checkPointer(share_list);
@@ -218,8 +195,9 @@ public class GLXSGIXFBConfig {
 
 	/** Unsafe version of {@link #glXGetVisualFromFBConfigSGIX GetVisualFromFBConfigSGIX} */
 	public static long nglXGetVisualFromFBConfigSGIX(long display, long config) {
-		long __functionAddress = getInstance().GetVisualFromFBConfigSGIX;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetVisualFromFBConfigSGIX;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -241,8 +219,9 @@ public class GLXSGIXFBConfig {
 
 	/** Unsafe version of {@link #glXGetFBConfigFromVisualSGIX GetFBConfigFromVisualSGIX} */
 	public static long nglXGetFBConfigFromVisualSGIX(long display, long vis) {
-		long __functionAddress = getInstance().GetFBConfigFromVisualSGIX;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigFromVisualSGIX;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			XVisualInfo.validate(vis);
 		}

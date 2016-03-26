@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -108,61 +108,15 @@ public class ARBVertexBufferObject {
 	/** Accepted by the {@code pname} parameter of GetBufferPointervARB. */
 	public static final int GL_BUFFER_MAP_POINTER_ARB = 0x88BD;
 
-	/** Function address. */
-	public final long
-		BindBufferARB,
-		DeleteBuffersARB,
-		GenBuffersARB,
-		IsBufferARB,
-		BufferDataARB,
-		BufferSubDataARB,
-		GetBufferSubDataARB,
-		MapBufferARB,
-		UnmapBufferARB,
-		GetBufferParameterivARB,
-		GetBufferPointervARB;
-
 	protected ARBVertexBufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBVertexBufferObject(FunctionProvider provider) {
-		BindBufferARB = provider.getFunctionAddress("glBindBufferARB");
-		DeleteBuffersARB = provider.getFunctionAddress("glDeleteBuffersARB");
-		GenBuffersARB = provider.getFunctionAddress("glGenBuffersARB");
-		IsBufferARB = provider.getFunctionAddress("glIsBufferARB");
-		BufferDataARB = provider.getFunctionAddress("glBufferDataARB");
-		BufferSubDataARB = provider.getFunctionAddress("glBufferSubDataARB");
-		GetBufferSubDataARB = provider.getFunctionAddress("glGetBufferSubDataARB");
-		MapBufferARB = provider.getFunctionAddress("glMapBufferARB");
-		UnmapBufferARB = provider.getFunctionAddress("glUnmapBufferARB");
-		GetBufferParameterivARB = provider.getFunctionAddress("glGetBufferParameterivARB");
-		GetBufferPointervARB = provider.getFunctionAddress("glGetBufferPointervARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBVertexBufferObject} instance of the current context. */
-	public static ARBVertexBufferObject getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBVertexBufferObject} instance of the specified {@link GLCapabilities}. */
-	public static ARBVertexBufferObject getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBVertexBufferObject);
-	}
-
-	static ARBVertexBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_vertex_buffer_object") ) return null;
-
-		ARBVertexBufferObject funcs = new ARBVertexBufferObject(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindBufferARB, funcs.DeleteBuffersARB, funcs.GenBuffersARB, funcs.IsBufferARB, funcs.BufferDataARB, funcs.BufferSubDataARB, 
-			funcs.GetBufferSubDataARB, funcs.MapBufferARB, funcs.UnmapBufferARB, funcs.GetBufferParameterivARB, funcs.GetBufferPointervARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBindBufferARB, caps.glDeleteBuffersARB, caps.glGenBuffersARB, caps.glIsBufferARB, caps.glBufferDataARB, caps.glBufferSubDataARB, 
+			caps.glGetBufferSubDataARB, caps.glMapBufferARB, caps.glUnmapBufferARB, caps.glGetBufferParameterivARB, caps.glGetBufferPointervARB
 		);
-
-		return GL.checkExtension("GL_ARB_vertex_buffer_object", funcs, supported);
 	}
 
 	// --- [ glBindBufferARB ] ---
@@ -174,7 +128,9 @@ public class ARBVertexBufferObject {
 	 * @param buffer the name of a buffer object
 	 */
 	public static void glBindBufferARB(int target, int buffer) {
-		long __functionAddress = getInstance().BindBufferARB;
+		long __functionAddress = GL.getCapabilities().glBindBufferARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, buffer);
 	}
 
@@ -182,7 +138,9 @@ public class ARBVertexBufferObject {
 
 	/** Unsafe version of {@link #glDeleteBuffersARB DeleteBuffersARB} */
 	public static void nglDeleteBuffersARB(int n, long buffers) {
-		long __functionAddress = getInstance().DeleteBuffersARB;
+		long __functionAddress = GL.getCapabilities().glDeleteBuffersARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, buffers);
 	}
 
@@ -205,16 +163,22 @@ public class ARBVertexBufferObject {
 
 	/** Single value version of: {@link #glDeleteBuffersARB DeleteBuffersARB} */
 	public static void glDeleteBuffersARB(int buffer) {
-		APIBuffer __buffer = apiBuffer();
-		int buffers = __buffer.intParam(buffer);
-		nglDeleteBuffersARB(1, __buffer.address(buffers));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer buffers = stack.ints(buffer);
+			nglDeleteBuffersARB(1, memAddress(buffers));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenBuffersARB ] ---
 
 	/** Unsafe version of {@link #glGenBuffersARB GenBuffersARB} */
 	public static void nglGenBuffersARB(int n, long buffers) {
-		long __functionAddress = getInstance().GenBuffersARB;
+		long __functionAddress = GL.getCapabilities().glGenBuffersARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, buffers);
 	}
 
@@ -237,10 +201,14 @@ public class ARBVertexBufferObject {
 
 	/** Single return value version of: {@link #glGenBuffersARB GenBuffersARB} */
 	public static int glGenBuffersARB() {
-		APIBuffer __buffer = apiBuffer();
-		int buffers = __buffer.intParam();
-		nglGenBuffersARB(1, __buffer.address(buffers));
-		return __buffer.intValue(buffers);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer buffers = stack.callocInt(1);
+			nglGenBuffersARB(1, memAddress(buffers));
+			return buffers.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsBufferARB ] ---
@@ -251,7 +219,9 @@ public class ARBVertexBufferObject {
 	 * @param buffer a value that may be the name of a buffer object
 	 */
 	public static boolean glIsBufferARB(int buffer) {
-		long __functionAddress = getInstance().IsBufferARB;
+		long __functionAddress = GL.getCapabilities().glIsBufferARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, buffer);
 	}
 
@@ -259,7 +229,9 @@ public class ARBVertexBufferObject {
 
 	/** Unsafe version of {@link #glBufferDataARB BufferDataARB} */
 	public static void nglBufferDataARB(int target, long size, long data, int usage) {
-		long __functionAddress = getInstance().BufferDataARB;
+		long __functionAddress = GL.getCapabilities().glBufferDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPIV(__functionAddress, target, size, data, usage);
 	}
 
@@ -287,7 +259,7 @@ public class ARBVertexBufferObject {
 	 *
 	 * @param target the target buffer object. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
 	 * @param size   the size in bytes of the buffer object's new data store
-	 * @param data   a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be copied
+	 * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
 	 * @param usage  the expected usage pattern of the data store. One of:<br>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}, {@link #GL_STREAM_READ_ARB STREAM_READ_ARB}, {@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}, {@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}, {@link #GL_STATIC_READ_ARB STATIC_READ_ARB}, {@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}, {@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}, {@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}, {@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}
 	 */
 	public static void glBufferDataARB(int target, long size, ByteBuffer data, int usage) {
@@ -330,7 +302,9 @@ public class ARBVertexBufferObject {
 
 	/** Unsafe version of {@link #glBufferSubDataARB BufferSubDataARB} */
 	public static void nglBufferSubDataARB(int target, long offset, long size, long data) {
-		long __functionAddress = getInstance().BufferSubDataARB;
+		long __functionAddress = GL.getCapabilities().glBufferSubDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPPV(__functionAddress, target, offset, size, data);
 	}
 
@@ -377,7 +351,9 @@ public class ARBVertexBufferObject {
 
 	/** Unsafe version of {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
 	public static void nglGetBufferSubDataARB(int target, long offset, long size, long data) {
-		long __functionAddress = getInstance().GetBufferSubDataARB;
+		long __functionAddress = GL.getCapabilities().glGetBufferSubDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPPV(__functionAddress, target, offset, size, data);
 	}
 
@@ -424,7 +400,9 @@ public class ARBVertexBufferObject {
 
 	/** Unsafe version of {@link #glMapBufferARB MapBufferARB} */
 	public static long nglMapBufferARB(int target, int access) {
-		long __functionAddress = getInstance().MapBufferARB;
+		long __functionAddress = GL.getCapabilities().glMapBufferARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIP(__functionAddress, target, access);
 	}
 
@@ -473,7 +451,9 @@ public class ARBVertexBufferObject {
 	 * @param target the target buffer object being unmapped. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
 	 */
 	public static boolean glUnmapBufferARB(int target) {
-		long __functionAddress = getInstance().UnmapBufferARB;
+		long __functionAddress = GL.getCapabilities().glUnmapBufferARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, target);
 	}
 
@@ -481,7 +461,9 @@ public class ARBVertexBufferObject {
 
 	/** Unsafe version of {@link #glGetBufferParameterivARB GetBufferParameterivARB} */
 	public static void nglGetBufferParameterivARB(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetBufferParameterivARB;
+		long __functionAddress = GL.getCapabilities().glGetBufferParameterivARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -507,17 +489,23 @@ public class ARBVertexBufferObject {
 
 	/** Single return value version of: {@link #glGetBufferParameterivARB GetBufferParameterivARB} */
 	public static int glGetBufferParameteriARB(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetBufferParameterivARB(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetBufferParameterivARB(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetBufferPointervARB ] ---
 
 	/** Unsafe version of {@link #glGetBufferPointervARB GetBufferPointervARB} */
 	public static void nglGetBufferPointervARB(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetBufferPointervARB;
+		long __functionAddress = GL.getCapabilities().glGetBufferPointervARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -543,10 +531,14 @@ public class ARBVertexBufferObject {
 
 	/** Single return value version of: {@link #glGetBufferPointervARB GetBufferPointervARB} */
 	public static long glGetBufferPointerARB(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.pointerParam();
-		nglGetBufferPointervARB(target, pname, __buffer.address(params));
-		return __buffer.pointerValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer params = stack.callocPointer(1);
+			nglGetBufferPointervARB(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

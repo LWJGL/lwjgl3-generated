@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -70,53 +70,23 @@ public class AMDDebugOutput {
 		GL_DEBUG_CATEGORY_APPLICATION_AMD        = 0x914F,
 		GL_DEBUG_CATEGORY_OTHER_AMD              = 0x9150;
 
-	/** Function address. */
-	public final long
-		DebugMessageEnableAMD,
-		DebugMessageInsertAMD,
-		DebugMessageCallbackAMD,
-		GetDebugMessageLogAMD;
-
 	protected AMDDebugOutput() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AMDDebugOutput(FunctionProvider provider) {
-		DebugMessageEnableAMD = provider.getFunctionAddress("glDebugMessageEnableAMD");
-		DebugMessageInsertAMD = provider.getFunctionAddress("glDebugMessageInsertAMD");
-		DebugMessageCallbackAMD = provider.getFunctionAddress("glDebugMessageCallbackAMD");
-		GetDebugMessageLogAMD = provider.getFunctionAddress("glGetDebugMessageLogAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AMDDebugOutput} instance of the current context. */
-	public static AMDDebugOutput getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link AMDDebugOutput} instance of the specified {@link GLCapabilities}. */
-	public static AMDDebugOutput getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__AMDDebugOutput);
-	}
-
-	static AMDDebugOutput create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_AMD_debug_output") ) return null;
-
-		AMDDebugOutput funcs = new AMDDebugOutput(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DebugMessageEnableAMD, funcs.DebugMessageInsertAMD, funcs.DebugMessageCallbackAMD, funcs.GetDebugMessageLogAMD
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDebugMessageEnableAMD, caps.glDebugMessageInsertAMD, caps.glDebugMessageCallbackAMD, caps.glGetDebugMessageLogAMD
 		);
-
-		return GL.checkExtension("GL_AMD_debug_output", funcs, supported);
 	}
 
 	// --- [ glDebugMessageEnableAMD ] ---
 
 	/** Unsafe version of {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
 	public static void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled) {
-		long __functionAddress = getInstance().DebugMessageEnableAMD;
+		long __functionAddress = GL.getCapabilities().glDebugMessageEnableAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPZV(__functionAddress, category, severity, count, ids, enabled);
 	}
 
@@ -169,16 +139,22 @@ public class AMDDebugOutput {
 
 	/** Single value version of: {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
 	public static void glDebugMessageEnableAMD(int category, int severity, int id, boolean enabled) {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam(id);
-		nglDebugMessageEnableAMD(category, severity, 1, __buffer.address(ids), enabled);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.ints(id);
+			nglDebugMessageEnableAMD(category, severity, 1, memAddress(ids), enabled);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDebugMessageInsertAMD ] ---
 
 	/** Unsafe version of {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
 	public static void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf) {
-		long __functionAddress = getInstance().DebugMessageInsertAMD;
+		long __functionAddress = GL.getCapabilities().glDebugMessageInsertAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, category, severity, id, length, buf);
 	}
 
@@ -212,10 +188,14 @@ public class AMDDebugOutput {
 
 	/** CharSequence version of: {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, CharSequence buf) {
-		APIBuffer __buffer = apiBuffer();
-		int bufEncoded = __buffer.stringParamUTF8(buf, false);
-		int bufEncodedLen = __buffer.getOffset() - bufEncoded;
-		nglDebugMessageInsertAMD(category, severity, id, bufEncodedLen, __buffer.address(bufEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer bufEncoded = stack.UTF8(buf, false);
+			int bufEncodedLen = bufEncoded.capacity();
+			nglDebugMessageInsertAMD(category, severity, id, bufEncodedLen, memAddress(bufEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDebugMessageCallbackAMD ] ---
@@ -248,7 +228,9 @@ public class AMDDebugOutput {
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
 	public static void glDebugMessageCallbackAMD(GLDebugMessageAMDCallback callback, long userParam) {
-		long __functionAddress = getInstance().DebugMessageCallbackAMD;
+		long __functionAddress = GL.getCapabilities().glDebugMessageCallbackAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, callback == null ? NULL : callback.address(), userParam);
 	}
 
@@ -256,7 +238,9 @@ public class AMDDebugOutput {
 
 	/** Unsafe version of {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
 	public static int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog) {
-		long __functionAddress = getInstance().GetDebugMessageLogAMD;
+		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPPPPPI(__functionAddress, count, bufsize, categories, severities, ids, lengths, messageLog);
 	}
 

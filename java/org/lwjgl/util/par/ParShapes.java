@@ -9,8 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -317,10 +317,14 @@ public class ParShapes {
 
 	/** CharSequence version of: {@link #par_shapes_create_lsystem create_lsystem} */
 	public static ParShapesMesh par_shapes_create_lsystem(CharSequence program, int slices, int maxdepth) {
-		APIBuffer __buffer = apiBuffer();
-		int programEncoded = __buffer.stringParamASCII(program, true);
-		long __result = npar_shapes_create_lsystem(__buffer.address(programEncoded), slices, maxdepth);
-		return ParShapesMesh.create(__result);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer programEncoded = stack.ASCII(program);
+			long __result = npar_shapes_create_lsystem(memAddress(programEncoded), slices, maxdepth);
+			return ParShapesMesh.create(__result);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ par_shapes_export ] ---
@@ -342,9 +346,13 @@ public class ParShapes {
 
 	/** CharSequence version of: {@link #par_shapes_export export} */
 	public static void par_shapes_export(ParShapesMesh mesh, CharSequence objfile) {
-		APIBuffer __buffer = apiBuffer();
-		int objfileEncoded = __buffer.stringParamASCII(objfile, true);
-		npar_shapes_export(mesh.address(), __buffer.address(objfileEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer objfileEncoded = stack.ASCII(objfile);
+			npar_shapes_export(mesh.address(), memAddress(objfileEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ par_shapes_compute_aabb ] ---

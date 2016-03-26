@@ -67,54 +67,25 @@ import static org.lwjgl.system.Pointer.*;
  */
 public class EXTDrawElementsBaseVertex {
 
-	/** Function address. */
-	public final long
-		DrawElementsBaseVertexEXT,
-		DrawRangeElementsBaseVertexEXT,
-		DrawElementsInstancedBaseVertexEXT,
-		MultiDrawElementsBaseVertexEXT;
-
 	protected EXTDrawElementsBaseVertex() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDrawElementsBaseVertex(FunctionProvider provider) {
-		DrawElementsBaseVertexEXT = provider.getFunctionAddress("glDrawElementsBaseVertexEXT");
-		DrawRangeElementsBaseVertexEXT = provider.getFunctionAddress("glDrawRangeElementsBaseVertexEXT");
-		DrawElementsInstancedBaseVertexEXT = provider.getFunctionAddress("glDrawElementsInstancedBaseVertexEXT");
-		MultiDrawElementsBaseVertexEXT = provider.getFunctionAddress("glMultiDrawElementsBaseVertexEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDrawElementsBaseVertex} instance of the current context. */
-	public static EXTDrawElementsBaseVertex getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDrawElementsBaseVertex} instance of the specified {@link GLESCapabilities}. */
-	public static EXTDrawElementsBaseVertex getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTDrawElementsBaseVertex);
-	}
-
-	static EXTDrawElementsBaseVertex create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_draw_elements_base_vertex") ) return null;
-
-		EXTDrawElementsBaseVertex funcs = new EXTDrawElementsBaseVertex(provider);
-		boolean supported = checkFunctions(
-			funcs.DrawElementsBaseVertexEXT, ext.contains("GLES30") ? funcs.DrawRangeElementsBaseVertexEXT : -1L, 
-			ext.contains("GLES30") ? funcs.DrawElementsInstancedBaseVertexEXT : -1L, 
-			ext.contains("GL_EXT_multi_draw_arrays") ? funcs.MultiDrawElementsBaseVertexEXT : -1L
+	static boolean isAvailable(GLESCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glDrawElementsBaseVertexEXT, ext.contains("GLES30") ? caps.glDrawRangeElementsBaseVertexEXT : -1L, 
+			ext.contains("GLES30") ? caps.glDrawElementsInstancedBaseVertexEXT : -1L, 
+			ext.contains("GL_EXT_multi_draw_arrays") ? caps.glMultiDrawElementsBaseVertexEXT : -1L
 		);
-
-		return GLES.checkExtension("GL_EXT_draw_elements_base_vertex", funcs, supported);
 	}
 
 	// --- [ glDrawElementsBaseVertexEXT ] ---
 
 	/** Unsafe version of {@link #glDrawElementsBaseVertexEXT DrawElementsBaseVertexEXT} */
 	public static void nglDrawElementsBaseVertexEXT(int mode, int count, int type, long indices, int basevertex) {
-		long __functionAddress = getInstance().DrawElementsBaseVertexEXT;
+		long __functionAddress = GLES.getCapabilities().glDrawElementsBaseVertexEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
@@ -165,7 +136,7 @@ public class EXTDrawElementsBaseVertex {
 
 	/** Unsafe version of {@link #glDrawRangeElementsBaseVertexEXT DrawRangeElementsBaseVertexEXT} */
 	public static void nglDrawRangeElementsBaseVertexEXT(int mode, int start, int end, int count, int type, long indices, int basevertex) {
-		long __functionAddress = getInstance().DrawRangeElementsBaseVertexEXT;
+		long __functionAddress = GLES.getCapabilities().glDrawRangeElementsBaseVertexEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
@@ -218,7 +189,7 @@ public class EXTDrawElementsBaseVertex {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertexEXT DrawElementsInstancedBaseVertexEXT} */
 	public static void nglDrawElementsInstancedBaseVertexEXT(int mode, int count, int type, long indices, int instancecount, int basevertex) {
-		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexEXT;
+		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseVertexEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
@@ -271,7 +242,7 @@ public class EXTDrawElementsBaseVertex {
 
 	/** Unsafe version of {@link #glMultiDrawElementsBaseVertexEXT MultiDrawElementsBaseVertexEXT} */
 	public static void nglMultiDrawElementsBaseVertexEXT(int mode, long count, int type, long indices, int primcount, long basevertex) {
-		long __functionAddress = getInstance().MultiDrawElementsBaseVertexEXT;
+		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsBaseVertexEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);

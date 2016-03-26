@@ -31,57 +31,24 @@ public class NVNonSquareMatrices {
 		GL_FLOAT_MAT4x2_NV = 0x8B69,
 		GL_FLOAT_MAT4x3_NV = 0x8B6A;
 
-	/** Function address. */
-	public final long
-		UniformMatrix2x3fvNV,
-		UniformMatrix3x2fvNV,
-		UniformMatrix2x4fvNV,
-		UniformMatrix4x2fvNV,
-		UniformMatrix3x4fvNV,
-		UniformMatrix4x3fvNV;
-
 	protected NVNonSquareMatrices() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVNonSquareMatrices(FunctionProvider provider) {
-		UniformMatrix2x3fvNV = provider.getFunctionAddress("glUniformMatrix2x3fvNV");
-		UniformMatrix3x2fvNV = provider.getFunctionAddress("glUniformMatrix3x2fvNV");
-		UniformMatrix2x4fvNV = provider.getFunctionAddress("glUniformMatrix2x4fvNV");
-		UniformMatrix4x2fvNV = provider.getFunctionAddress("glUniformMatrix4x2fvNV");
-		UniformMatrix3x4fvNV = provider.getFunctionAddress("glUniformMatrix3x4fvNV");
-		UniformMatrix4x3fvNV = provider.getFunctionAddress("glUniformMatrix4x3fvNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVNonSquareMatrices} instance of the current context. */
-	public static NVNonSquareMatrices getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVNonSquareMatrices} instance of the specified {@link GLESCapabilities}. */
-	public static NVNonSquareMatrices getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVNonSquareMatrices);
-	}
-
-	static NVNonSquareMatrices create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_non_square_matrices") ) return null;
-
-		NVNonSquareMatrices funcs = new NVNonSquareMatrices(provider);
-		boolean supported = checkFunctions(
-			funcs.UniformMatrix2x3fvNV, funcs.UniformMatrix3x2fvNV, funcs.UniformMatrix2x4fvNV, funcs.UniformMatrix4x2fvNV, funcs.UniformMatrix3x4fvNV, 
-			funcs.UniformMatrix4x3fvNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glUniformMatrix2x3fvNV, caps.glUniformMatrix3x2fvNV, caps.glUniformMatrix2x4fvNV, caps.glUniformMatrix4x2fvNV, caps.glUniformMatrix3x4fvNV, 
+			caps.glUniformMatrix4x3fvNV
 		);
-
-		return GLES.checkExtension("GL_NV_non_square_matrices", funcs, supported);
 	}
 
 	// --- [ glUniformMatrix2x3fvNV ] ---
 
 	/** Unsafe version of {@link #glUniformMatrix2x3fvNV UniformMatrix2x3fvNV} */
 	public static void nglUniformMatrix2x3fvNV(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix2x3fvNV;
+		long __functionAddress = GLES.getCapabilities().glUniformMatrix2x3fvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -100,7 +67,9 @@ public class NVNonSquareMatrices {
 
 	/** Unsafe version of {@link #glUniformMatrix3x2fvNV UniformMatrix3x2fvNV} */
 	public static void nglUniformMatrix3x2fvNV(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix3x2fvNV;
+		long __functionAddress = GLES.getCapabilities().glUniformMatrix3x2fvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -119,7 +88,9 @@ public class NVNonSquareMatrices {
 
 	/** Unsafe version of {@link #glUniformMatrix2x4fvNV UniformMatrix2x4fvNV} */
 	public static void nglUniformMatrix2x4fvNV(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix2x4fvNV;
+		long __functionAddress = GLES.getCapabilities().glUniformMatrix2x4fvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -138,7 +109,9 @@ public class NVNonSquareMatrices {
 
 	/** Unsafe version of {@link #glUniformMatrix4x2fvNV UniformMatrix4x2fvNV} */
 	public static void nglUniformMatrix4x2fvNV(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix4x2fvNV;
+		long __functionAddress = GLES.getCapabilities().glUniformMatrix4x2fvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -157,7 +130,9 @@ public class NVNonSquareMatrices {
 
 	/** Unsafe version of {@link #glUniformMatrix3x4fvNV UniformMatrix3x4fvNV} */
 	public static void nglUniformMatrix3x4fvNV(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix3x4fvNV;
+		long __functionAddress = GLES.getCapabilities().glUniformMatrix3x4fvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -176,7 +151,9 @@ public class NVNonSquareMatrices {
 
 	/** Unsafe version of {@link #glUniformMatrix4x3fvNV UniformMatrix4x3fvNV} */
 	public static void nglUniformMatrix4x3fvNV(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix4x3fvNV;
+		long __functionAddress = GLES.getCapabilities().glUniformMatrix4x3fvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 

@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -30,62 +30,30 @@ public class EXTCapture {
 	/** Integer queries. */
 	public static final int ALC_CAPTURE_SAMPLES = 0x312;
 
-	/** Function address. */
-	public final long
-		CaptureOpenDevice,
-		CaptureCloseDevice,
-		CaptureStart,
-		CaptureStop,
-		CaptureSamples;
-
 	protected EXTCapture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTCapture(FunctionProviderLocal provider, long device) {
-		CaptureOpenDevice = provider.getFunctionAddress(device, "alcCaptureOpenDevice");
-		CaptureCloseDevice = provider.getFunctionAddress(device, "alcCaptureCloseDevice");
-		CaptureStart = provider.getFunctionAddress(device, "alcCaptureStart");
-		CaptureStop = provider.getFunctionAddress(device, "alcCaptureStop");
-		CaptureSamples = provider.getFunctionAddress(device, "alcCaptureSamples");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTCapture} instance of the current context. */
-	public static EXTCapture getInstance() {
-		return getInstance(ALC.getCapabilities());
-	}
-
-	/** Returns the {@link EXTCapture} instance of the specified {@link ALCCapabilities}. */
-	public static EXTCapture getInstance(ALCCapabilities caps) {
-		return checkFunctionality(caps.__EXTCapture);
-	}
-
-	static EXTCapture create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
-		if ( device != 0L && !ext.contains("ALC_EXT_CAPTURE") ) return null;
-
-		EXTCapture funcs = new EXTCapture(provider, device);
-
-		boolean supported = checkFunctions(
-			funcs.CaptureOpenDevice, funcs.CaptureCloseDevice, funcs.CaptureStart, funcs.CaptureStop, funcs.CaptureSamples
+	static boolean isAvailable(ALCCapabilities caps) {
+		return checkFunctions(
+			caps.alcCaptureOpenDevice, caps.alcCaptureCloseDevice, caps.alcCaptureStart, caps.alcCaptureStop, caps.alcCaptureSamples
 		);
-
-		return device == 0L && !supported ? null : ALC.checkExtension("ALC_EXT_CAPTURE", funcs, supported);
 	}
 
 	// --- [ alcCaptureOpenDevice ] ---
 
 	/** Unsafe version of {@link #alcCaptureOpenDevice CaptureOpenDevice} */
 	public static long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize) {
-		long __functionAddress = getInstance().CaptureOpenDevice;
+		long __functionAddress = ALC.getICD().alcCaptureOpenDevice;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return invokePIIIP(__functionAddress, devicename, frequency, format, buffersize);
 	}
 
 	/**
 	 * Allows the application to connect to a capture device.
 	 * 
-	 * <p>The {@code deviceName} argument is a null terminated string that requests a certain device or device configuration. If NULL is specified, the implementation
+	 * <p>The {@code deviceName} argument is a null terminated string that requests a certain device or device configuration. If {@code NULL} is specified, the implementation
 	 * will provide an implementation specific default.</p>
 	 *
 	 * @param devicename the device or device configuration
@@ -101,9 +69,13 @@ public class EXTCapture {
 
 	/** CharSequence version of: {@link #alcCaptureOpenDevice CaptureOpenDevice} */
 	public static long alcCaptureOpenDevice(CharSequence devicename, int frequency, int format, int buffersize) {
-		APIBuffer __buffer = apiBuffer();
-		int devicenameEncoded = devicename == null ? 0 : __buffer.stringParamUTF8(devicename, true);
-		return nalcCaptureOpenDevice(__buffer.addressSafe(devicename, devicenameEncoded), frequency, format, buffersize);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer devicenameEncoded = devicename == null ? null : stack.UTF8(devicename);
+			return nalcCaptureOpenDevice(memAddressSafe(devicenameEncoded), frequency, format, buffersize);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alcCaptureCloseDevice ] ---
@@ -114,9 +86,11 @@ public class EXTCapture {
 	 * @param device the capture device to close
 	 */
 	public static boolean alcCaptureCloseDevice(long device) {
-		long __functionAddress = getInstance().CaptureCloseDevice;
-		if ( CHECKS )
+		long __functionAddress = ALC.getICD().alcCaptureCloseDevice;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return invokePZ(__functionAddress, device);
 	}
 
@@ -132,9 +106,11 @@ public class EXTCapture {
 	 * @param device the capture device
 	 */
 	public static void alcCaptureStart(long device) {
-		long __functionAddress = getInstance().CaptureStart;
-		if ( CHECKS )
+		long __functionAddress = ALC.getICD().alcCaptureStart;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		invokePV(__functionAddress, device);
 	}
 
@@ -149,9 +125,11 @@ public class EXTCapture {
 	 * @param device the capture device
 	 */
 	public static void alcCaptureStop(long device) {
-		long __functionAddress = getInstance().CaptureStop;
-		if ( CHECKS )
+		long __functionAddress = ALC.getICD().alcCaptureStop;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		invokePV(__functionAddress, device);
 	}
 
@@ -159,9 +137,11 @@ public class EXTCapture {
 
 	/** Unsafe version of {@link #alcCaptureSamples CaptureSamples} */
 	public static void nalcCaptureSamples(long device, long buffer, int samples) {
-		long __functionAddress = getInstance().CaptureSamples;
-		if ( CHECKS )
+		long __functionAddress = ALC.getICD().alcCaptureSamples;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		invokePPIV(__functionAddress, device, buffer, samples);
 	}
 

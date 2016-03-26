@@ -51,51 +51,23 @@ public class ARBSampleLocations {
 		GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB = 0x9342,
 		GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB    = 0x9343;
 
-	/** Function address. */
-	public final long
-		FramebufferSampleLocationsfvARB,
-		NamedFramebufferSampleLocationsfvARB,
-		EvaluateDepthValuesARB;
-
 	protected ARBSampleLocations() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBSampleLocations(FunctionProvider provider) {
-		FramebufferSampleLocationsfvARB = provider.getFunctionAddress("glFramebufferSampleLocationsfvARB");
-		NamedFramebufferSampleLocationsfvARB = provider.getFunctionAddress("glNamedFramebufferSampleLocationsfvARB");
-		EvaluateDepthValuesARB = provider.getFunctionAddress("glEvaluateDepthValuesARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBSampleLocations} instance of the current context. */
-	public static ARBSampleLocations getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBSampleLocations} instance of the specified {@link GLCapabilities}. */
-	public static ARBSampleLocations getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBSampleLocations);
-	}
-
-	static ARBSampleLocations create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_sample_locations") ) return null;
-
-		ARBSampleLocations funcs = new ARBSampleLocations(provider);
-
-		boolean supported = checkFunctions(
-			funcs.FramebufferSampleLocationsfvARB, funcs.NamedFramebufferSampleLocationsfvARB, funcs.EvaluateDepthValuesARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glFramebufferSampleLocationsfvARB, caps.glNamedFramebufferSampleLocationsfvARB, caps.glEvaluateDepthValuesARB
 		);
-
-		return GL.checkExtension("GL_ARB_sample_locations", funcs, supported);
 	}
 
 	// --- [ glFramebufferSampleLocationsfvARB ] ---
 
 	/** Unsafe version of {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB} */
 	public static void nglFramebufferSampleLocationsfvARB(int target, int start, int count, long v) {
-		long __functionAddress = getInstance().FramebufferSampleLocationsfvARB;
+		long __functionAddress = GL.getCapabilities().glFramebufferSampleLocationsfvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, start, count, v);
 	}
 
@@ -127,7 +99,9 @@ public class ARBSampleLocations {
 
 	/** Unsafe version of {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB} */
 	public static void nglNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, int count, long v) {
-		long __functionAddress = getInstance().NamedFramebufferSampleLocationsfvARB;
+		long __functionAddress = GL.getCapabilities().glNamedFramebufferSampleLocationsfvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, framebuffer, start, count, v);
 	}
 
@@ -158,7 +132,9 @@ public class ARBSampleLocations {
 	 * generated. If the current framebuffer has no depth buffer, EvaluateDepthValuesARB will have no effect.
 	 */
 	public static void glEvaluateDepthValuesARB() {
-		long __functionAddress = getInstance().EvaluateDepthValuesARB;
+		long __functionAddress = GL.getCapabilities().glEvaluateDepthValuesARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

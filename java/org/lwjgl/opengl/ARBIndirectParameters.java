@@ -40,49 +40,23 @@ public class ARBIndirectParameters {
 	/** Accepted by the {@code value} parameter of GetIntegerv, GetBooleanv, GetFloatv, and GetDoublev. */
 	public static final int GL_PARAMETER_BUFFER_BINDING_ARB = 0x80EF;
 
-	/** Function address. */
-	public final long
-		MultiDrawArraysIndirectCountARB,
-		MultiDrawElementsIndirectCountARB;
-
 	protected ARBIndirectParameters() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBIndirectParameters(FunctionProvider provider) {
-		MultiDrawArraysIndirectCountARB = provider.getFunctionAddress("glMultiDrawArraysIndirectCountARB");
-		MultiDrawElementsIndirectCountARB = provider.getFunctionAddress("glMultiDrawElementsIndirectCountARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBIndirectParameters} instance of the current context. */
-	public static ARBIndirectParameters getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBIndirectParameters} instance of the specified {@link GLCapabilities}. */
-	public static ARBIndirectParameters getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBIndirectParameters);
-	}
-
-	static ARBIndirectParameters create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_indirect_parameters") ) return null;
-
-		ARBIndirectParameters funcs = new ARBIndirectParameters(provider);
-
-		boolean supported = checkFunctions(
-			funcs.MultiDrawArraysIndirectCountARB, funcs.MultiDrawElementsIndirectCountARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glMultiDrawArraysIndirectCountARB, caps.glMultiDrawElementsIndirectCountARB
 		);
-
-		return GL.checkExtension("GL_ARB_indirect_parameters", funcs, supported);
 	}
 
 	// --- [ glMultiDrawArraysIndirectCountARB ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
 	public static void nglMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride) {
-		long __functionAddress = getInstance().MultiDrawArraysIndirectCountARB;
+		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectCountARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPIIV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
 	}
 
@@ -126,7 +100,9 @@ public class ARBIndirectParameters {
 
 	/** Unsafe version of {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
 	public static void nglMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride) {
-		long __functionAddress = getInstance().MultiDrawElementsIndirectCountARB;
+		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectCountARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPIIV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);
 	}
 

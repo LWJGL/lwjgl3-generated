@@ -60,44 +60,22 @@ public class EXTSparseTexture {
 		GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_EXT        = 0x919A,
 		GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT = 0x91A9;
 
-	/** Function address. */
-	public final long TexPageCommitmentARB;
-
 	protected EXTSparseTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTSparseTexture(FunctionProvider provider) {
-		TexPageCommitmentARB = provider.getFunctionAddress("glTexPageCommitmentARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTSparseTexture} instance of the current context. */
-	public static EXTSparseTexture getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTSparseTexture} instance of the specified {@link GLESCapabilities}. */
-	public static EXTSparseTexture getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTSparseTexture);
-	}
-
-	static EXTSparseTexture create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_sparse_texture") ) return null;
-
-		EXTSparseTexture funcs = new EXTSparseTexture(provider);
-		boolean supported = checkFunctions(
-			funcs.TexPageCommitmentARB
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glTexPageCommitmentARB
 		);
-
-		return GLES.checkExtension("GL_EXT_sparse_texture", funcs, supported);
 	}
 
 	// --- [ glTexPageCommitmentARB ] ---
 
 	public static void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
-		long __functionAddress = getInstance().TexPageCommitmentARB;
+		long __functionAddress = GLES.getCapabilities().glTexPageCommitmentARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIZV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 

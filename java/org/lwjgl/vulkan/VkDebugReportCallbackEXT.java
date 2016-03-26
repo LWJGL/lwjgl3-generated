@@ -109,7 +109,7 @@ public abstract class VkDebugReportCallbackEXT extends Closure.I {
 	 * @return the message as a String
 	 */
 	public static String getString(long string) {
-		return memDecodeUTF8(string);
+		return memUTF8(string);
 	}
 
 	/** A functional interface for {@link VkDebugReportCallbackEXT}. */

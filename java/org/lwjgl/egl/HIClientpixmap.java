@@ -23,35 +23,23 @@ public class HIClientpixmap {
 	/**  */
 	public static final int EGL_CLIENT_PIXMAP_POINTER_HI = 0x8F74;
 
-	/** Function address. */
-	public final long CreatePixmapSurfaceHI;
-
 	protected HIClientpixmap() {
 		throw new UnsupportedOperationException();
 	}
 
-	public HIClientpixmap(FunctionProvider provider) {
-		CreatePixmapSurfaceHI = provider.getFunctionAddress("eglCreatePixmapSurfaceHI");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link HIClientpixmap} instance. */
-	public static HIClientpixmap getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link HIClientpixmap} instance of the specified {@link EGLCapabilities}. */
-	public static HIClientpixmap getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__HIClientpixmap);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglCreatePixmapSurfaceHI
+		);
 	}
 
 	// --- [ eglCreatePixmapSurfaceHI ] ---
 
 	/** Unsafe version of {@link #eglCreatePixmapSurfaceHI CreatePixmapSurfaceHI} */
 	public static long neglCreatePixmapSurfaceHI(long dpy, long config, long pixmap) {
-		long __functionAddress = getInstance().CreatePixmapSurfaceHI;
+		long __functionAddress = EGL.getCapabilities().eglCreatePixmapSurfaceHI;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
 			EGLClientPixmapHI.validate(pixmap);

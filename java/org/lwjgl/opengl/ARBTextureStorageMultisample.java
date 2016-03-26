@@ -24,48 +24,16 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBTextureStorageMultisample {
 
-	/** Function address. */
-	public final long
-		TexStorage2DMultisample,
-		TexStorage3DMultisample,
-		TextureStorage2DMultisampleEXT,
-		TextureStorage3DMultisampleEXT;
-
 	protected ARBTextureStorageMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTextureStorageMultisample(FunctionProvider provider) {
-		TexStorage2DMultisample = provider.getFunctionAddress("glTexStorage2DMultisample");
-		TexStorage3DMultisample = provider.getFunctionAddress("glTexStorage3DMultisample");
-		TextureStorage2DMultisampleEXT = provider.getFunctionAddress("glTextureStorage2DMultisampleEXT");
-		TextureStorage3DMultisampleEXT = provider.getFunctionAddress("glTextureStorage3DMultisampleEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTextureStorageMultisample} instance of the current context. */
-	public static ARBTextureStorageMultisample getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTextureStorageMultisample} instance of the specified {@link GLCapabilities}. */
-	public static ARBTextureStorageMultisample getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTextureStorageMultisample);
-	}
-
-	static ARBTextureStorageMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_texture_storage_multisample") ) return null;
-
-		ARBTextureStorageMultisample funcs = new ARBTextureStorageMultisample(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TexStorage2DMultisample, funcs.TexStorage3DMultisample, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.TextureStorage2DMultisampleEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.TextureStorage3DMultisampleEXT : -1L
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glTexStorage2DMultisample, caps.glTexStorage3DMultisample, 
+			ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage2DMultisampleEXT : -1L, 
+			ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage3DMultisampleEXT : -1L
 		);
-
-		return GL.checkExtension("GL_ARB_texture_storage_multisample", funcs, supported);
 	}
 
 	// --- [ glTexStorage2DMultisample ] ---
@@ -82,7 +50,9 @@ public class ARBTextureStorageMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TexStorage2DMultisample;
+		long __functionAddress = GL.getCapabilities().glTexStorage2DMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
@@ -101,7 +71,9 @@ public class ARBTextureStorageMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TexStorage3DMultisample;
+		long __functionAddress = GL.getCapabilities().glTexStorage3DMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
@@ -120,7 +92,7 @@ public class ARBTextureStorageMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTextureStorage2DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TextureStorage2DMultisampleEXT;
+		long __functionAddress = GL.getCapabilities().glTextureStorage2DMultisampleEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, fixedsamplelocations);
@@ -142,7 +114,7 @@ public class ARBTextureStorageMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTextureStorage3DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TextureStorage3DMultisampleEXT;
+		long __functionAddress = GL.getCapabilities().glTextureStorage3DMultisampleEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, depth, fixedsamplelocations);

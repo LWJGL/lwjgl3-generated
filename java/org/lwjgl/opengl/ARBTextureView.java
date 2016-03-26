@@ -45,39 +45,14 @@ public class ARBTextureView {
 		GL_TEXTURE_VIEW_NUM_LAYERS  = 0x82DE,
 		GL_TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
 
-	/** Function address. */
-	public final long TextureView;
-
 	protected ARBTextureView() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTextureView(FunctionProvider provider) {
-		TextureView = provider.getFunctionAddress("glTextureView");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTextureView} instance of the current context. */
-	public static ARBTextureView getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTextureView} instance of the specified {@link GLCapabilities}. */
-	public static ARBTextureView getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTextureView);
-	}
-
-	static ARBTextureView create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_texture_view") ) return null;
-
-		ARBTextureView funcs = new ARBTextureView(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TextureView
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glTextureView
 		);
-
-		return GL.checkExtension("GL_ARB_texture_view", funcs, supported);
 	}
 
 	// --- [ glTextureView ] ---
@@ -95,7 +70,9 @@ public class ARBTextureView {
 	 * @param numlayers      the number of layers to include in the view
 	 */
 	public static void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
-		long __functionAddress = getInstance().TextureView;
+		long __functionAddress = GL.getCapabilities().glTextureView;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 	}
 

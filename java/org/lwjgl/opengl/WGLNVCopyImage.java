@@ -19,39 +19,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class WGLNVCopyImage {
 
-	/** Function address. */
-	public final long CopyImageSubDataNV;
-
 	protected WGLNVCopyImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLNVCopyImage(FunctionProvider provider) {
-		CopyImageSubDataNV = provider.getFunctionAddress("wglCopyImageSubDataNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLNVCopyImage} instance of the current context. */
-	public static WGLNVCopyImage getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLNVCopyImage} instance of the specified {@link GLCapabilities}. */
-	public static WGLNVCopyImage getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLNVCopyImage);
-	}
-
-	static WGLNVCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_NV_copy_image") ) return null;
-
-		WGLNVCopyImage funcs = new WGLNVCopyImage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CopyImageSubDataNV
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglCopyImageSubDataNV
 		);
-
-		return GL.checkExtension("WGL_NV_copy_image", funcs, supported);
 	}
 
 	// --- [ wglCopyImageSubDataNV ] ---
@@ -80,8 +55,9 @@ public class WGLNVCopyImage {
 	 * @param depth     the number of texels to copy in the z-dimension
 	 */
 	public static int wglCopyImageSubDataNV(long srcRC, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstRC, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
-		long __functionAddress = getInstance().CopyImageSubDataNV;
+		long __functionAddress = GL.getCapabilitiesWGL().wglCopyImageSubDataNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(srcRC);
 			checkPointer(dstRC);
 		}

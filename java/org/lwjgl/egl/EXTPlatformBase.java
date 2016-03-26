@@ -40,41 +40,25 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTPlatformBase {
 
-	/** Function address. */
-	public final long
-		GetPlatformDisplayEXT,
-		CreatePlatformWindowSurfaceEXT,
-		CreatePlatformPixmapSurfaceEXT;
-
 	protected EXTPlatformBase() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTPlatformBase(FunctionProvider provider) {
-		GetPlatformDisplayEXT = provider.getFunctionAddress("eglGetPlatformDisplayEXT");
-		CreatePlatformWindowSurfaceEXT = provider.getFunctionAddress("eglCreatePlatformWindowSurfaceEXT");
-		CreatePlatformPixmapSurfaceEXT = provider.getFunctionAddress("eglCreatePlatformPixmapSurfaceEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTPlatformBase} instance. */
-	public static EXTPlatformBase getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTPlatformBase} instance of the specified {@link EGLCapabilities}. */
-	public static EXTPlatformBase getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__EXTPlatformBase);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglGetPlatformDisplayEXT, caps.eglCreatePlatformWindowSurfaceEXT, caps.eglCreatePlatformPixmapSurfaceEXT
+		);
 	}
 
 	// --- [ eglGetPlatformDisplayEXT ] ---
 
 	/** Unsafe version of {@link #eglGetPlatformDisplayEXT GetPlatformDisplayEXT} */
 	public static long neglGetPlatformDisplayEXT(int platform, long native_display, long attrib_list) {
-		long __functionAddress = getInstance().GetPlatformDisplayEXT;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglGetPlatformDisplayEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(native_display);
+		}
 		return callIPPP(__functionAddress, platform, native_display, attrib_list);
 	}
 
@@ -95,8 +79,9 @@ public class EXTPlatformBase {
 
 	/** Unsafe version of {@link #eglCreatePlatformWindowSurfaceEXT CreatePlatformWindowSurfaceEXT} */
 	public static long neglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, long attrib_list) {
-		long __functionAddress = getInstance().CreatePlatformWindowSurfaceEXT;
+		long __functionAddress = EGL.getCapabilities().eglCreatePlatformWindowSurfaceEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(native_window);
@@ -121,8 +106,9 @@ public class EXTPlatformBase {
 
 	/** Unsafe version of {@link #eglCreatePlatformPixmapSurfaceEXT CreatePlatformPixmapSurfaceEXT} */
 	public static long neglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, long attrib_list) {
-		long __functionAddress = getInstance().CreatePlatformPixmapSurfaceEXT;
+		long __functionAddress = EGL.getCapabilities().eglCreatePlatformPixmapSurfaceEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(native_pixmap);

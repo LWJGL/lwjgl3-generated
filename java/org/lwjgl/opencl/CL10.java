@@ -10,13 +10,11 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
-
-import static org.lwjgl.opencl.Info.*;
 
 /** The core OpenCL 1.0 functionality. */
 public class CL10 {
@@ -361,183 +359,32 @@ public class CL10 {
 		CL_PROFILING_COMMAND_START  = 0x1282,
 		CL_PROFILING_COMMAND_END    = 0x1283;
 
-	/** Function address. */
-	public final long
-		GetPlatformIDs,
-		GetPlatformInfo,
-		GetDeviceIDs,
-		GetDeviceInfo,
-		CreateContext,
-		CreateContextFromType,
-		RetainContext,
-		ReleaseContext,
-		GetContextInfo,
-		CreateCommandQueue,
-		RetainCommandQueue,
-		ReleaseCommandQueue,
-		GetCommandQueueInfo,
-		CreateBuffer,
-		EnqueueReadBuffer,
-		EnqueueWriteBuffer,
-		EnqueueCopyBuffer,
-		EnqueueMapBuffer,
-		CreateImage2D,
-		CreateImage3D,
-		GetSupportedImageFormats,
-		EnqueueReadImage,
-		EnqueueWriteImage,
-		EnqueueCopyImage,
-		EnqueueCopyImageToBuffer,
-		EnqueueCopyBufferToImage,
-		EnqueueMapImage,
-		GetImageInfo,
-		RetainMemObject,
-		ReleaseMemObject,
-		EnqueueUnmapMemObject,
-		GetMemObjectInfo,
-		CreateSampler,
-		RetainSampler,
-		ReleaseSampler,
-		GetSamplerInfo,
-		CreateProgramWithSource,
-		CreateProgramWithBinary,
-		RetainProgram,
-		ReleaseProgram,
-		BuildProgram,
-		UnloadCompiler,
-		GetProgramInfo,
-		GetProgramBuildInfo,
-		CreateKernel,
-		CreateKernelsInProgram,
-		RetainKernel,
-		ReleaseKernel,
-		SetKernelArg,
-		GetKernelInfo,
-		GetKernelWorkGroupInfo,
-		EnqueueNDRangeKernel,
-		EnqueueTask,
-		EnqueueNativeKernel,
-		WaitForEvents,
-		GetEventInfo,
-		RetainEvent,
-		ReleaseEvent,
-		EnqueueMarker,
-		EnqueueBarrier,
-		EnqueueWaitForEvents,
-		GetEventProfilingInfo,
-		Flush,
-		Finish,
-		GetExtensionFunctionAddress;
-
 	protected CL10() {
 		throw new UnsupportedOperationException();
 	}
 
-	public CL10(FunctionProvider provider) {
-		GetPlatformIDs = provider.getFunctionAddress("clGetPlatformIDs");
-		GetPlatformInfo = provider.getFunctionAddress("clGetPlatformInfo");
-		GetDeviceIDs = provider.getFunctionAddress("clGetDeviceIDs");
-		GetDeviceInfo = provider.getFunctionAddress("clGetDeviceInfo");
-		CreateContext = provider.getFunctionAddress("clCreateContext");
-		CreateContextFromType = provider.getFunctionAddress("clCreateContextFromType");
-		RetainContext = provider.getFunctionAddress("clRetainContext");
-		ReleaseContext = provider.getFunctionAddress("clReleaseContext");
-		GetContextInfo = provider.getFunctionAddress("clGetContextInfo");
-		CreateCommandQueue = provider.getFunctionAddress("clCreateCommandQueue");
-		RetainCommandQueue = provider.getFunctionAddress("clRetainCommandQueue");
-		ReleaseCommandQueue = provider.getFunctionAddress("clReleaseCommandQueue");
-		GetCommandQueueInfo = provider.getFunctionAddress("clGetCommandQueueInfo");
-		CreateBuffer = provider.getFunctionAddress("clCreateBuffer");
-		EnqueueReadBuffer = provider.getFunctionAddress("clEnqueueReadBuffer");
-		EnqueueWriteBuffer = provider.getFunctionAddress("clEnqueueWriteBuffer");
-		EnqueueCopyBuffer = provider.getFunctionAddress("clEnqueueCopyBuffer");
-		EnqueueMapBuffer = provider.getFunctionAddress("clEnqueueMapBuffer");
-		CreateImage2D = provider.getFunctionAddress("clCreateImage2D");
-		CreateImage3D = provider.getFunctionAddress("clCreateImage3D");
-		GetSupportedImageFormats = provider.getFunctionAddress("clGetSupportedImageFormats");
-		EnqueueReadImage = provider.getFunctionAddress("clEnqueueReadImage");
-		EnqueueWriteImage = provider.getFunctionAddress("clEnqueueWriteImage");
-		EnqueueCopyImage = provider.getFunctionAddress("clEnqueueCopyImage");
-		EnqueueCopyImageToBuffer = provider.getFunctionAddress("clEnqueueCopyImageToBuffer");
-		EnqueueCopyBufferToImage = provider.getFunctionAddress("clEnqueueCopyBufferToImage");
-		EnqueueMapImage = provider.getFunctionAddress("clEnqueueMapImage");
-		GetImageInfo = provider.getFunctionAddress("clGetImageInfo");
-		RetainMemObject = provider.getFunctionAddress("clRetainMemObject");
-		ReleaseMemObject = provider.getFunctionAddress("clReleaseMemObject");
-		EnqueueUnmapMemObject = provider.getFunctionAddress("clEnqueueUnmapMemObject");
-		GetMemObjectInfo = provider.getFunctionAddress("clGetMemObjectInfo");
-		CreateSampler = provider.getFunctionAddress("clCreateSampler");
-		RetainSampler = provider.getFunctionAddress("clRetainSampler");
-		ReleaseSampler = provider.getFunctionAddress("clReleaseSampler");
-		GetSamplerInfo = provider.getFunctionAddress("clGetSamplerInfo");
-		CreateProgramWithSource = provider.getFunctionAddress("clCreateProgramWithSource");
-		CreateProgramWithBinary = provider.getFunctionAddress("clCreateProgramWithBinary");
-		RetainProgram = provider.getFunctionAddress("clRetainProgram");
-		ReleaseProgram = provider.getFunctionAddress("clReleaseProgram");
-		BuildProgram = provider.getFunctionAddress("clBuildProgram");
-		UnloadCompiler = provider.getFunctionAddress("clUnloadCompiler");
-		GetProgramInfo = provider.getFunctionAddress("clGetProgramInfo");
-		GetProgramBuildInfo = provider.getFunctionAddress("clGetProgramBuildInfo");
-		CreateKernel = provider.getFunctionAddress("clCreateKernel");
-		CreateKernelsInProgram = provider.getFunctionAddress("clCreateKernelsInProgram");
-		RetainKernel = provider.getFunctionAddress("clRetainKernel");
-		ReleaseKernel = provider.getFunctionAddress("clReleaseKernel");
-		SetKernelArg = provider.getFunctionAddress("clSetKernelArg");
-		GetKernelInfo = provider.getFunctionAddress("clGetKernelInfo");
-		GetKernelWorkGroupInfo = provider.getFunctionAddress("clGetKernelWorkGroupInfo");
-		EnqueueNDRangeKernel = provider.getFunctionAddress("clEnqueueNDRangeKernel");
-		EnqueueTask = provider.getFunctionAddress("clEnqueueTask");
-		EnqueueNativeKernel = provider.getFunctionAddress("clEnqueueNativeKernel");
-		WaitForEvents = provider.getFunctionAddress("clWaitForEvents");
-		GetEventInfo = provider.getFunctionAddress("clGetEventInfo");
-		RetainEvent = provider.getFunctionAddress("clRetainEvent");
-		ReleaseEvent = provider.getFunctionAddress("clReleaseEvent");
-		EnqueueMarker = provider.getFunctionAddress("clEnqueueMarker");
-		EnqueueBarrier = provider.getFunctionAddress("clEnqueueBarrier");
-		EnqueueWaitForEvents = provider.getFunctionAddress("clEnqueueWaitForEvents");
-		GetEventProfilingInfo = provider.getFunctionAddress("clGetEventProfilingInfo");
-		Flush = provider.getFunctionAddress("clFlush");
-		Finish = provider.getFunctionAddress("clFinish");
-		GetExtensionFunctionAddress = provider.getFunctionAddress("clGetExtensionFunctionAddress");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link CL10} instance of the currently loaded ICD. */
-	public static CL10 getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link CL10} instance of the specified {@link CLCapabilities}. */
-	public static CL10 getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__CL10);
-	}
-
-	static CL10 create(FunctionProvider provider) {
-		CL10 funcs = new CL10(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetPlatformIDs, funcs.GetPlatformInfo, funcs.GetDeviceIDs, funcs.GetDeviceInfo, funcs.CreateContext, funcs.CreateContextFromType, 
-			funcs.RetainContext, funcs.ReleaseContext, funcs.GetContextInfo, funcs.CreateCommandQueue, funcs.RetainCommandQueue, funcs.ReleaseCommandQueue, 
-			funcs.GetCommandQueueInfo, funcs.CreateBuffer, funcs.EnqueueReadBuffer, funcs.EnqueueWriteBuffer, funcs.EnqueueCopyBuffer, funcs.EnqueueMapBuffer, 
-			funcs.CreateImage2D, funcs.CreateImage3D, funcs.GetSupportedImageFormats, funcs.EnqueueReadImage, funcs.EnqueueWriteImage, funcs.EnqueueCopyImage, 
-			funcs.EnqueueCopyImageToBuffer, funcs.EnqueueCopyBufferToImage, funcs.EnqueueMapImage, funcs.GetImageInfo, funcs.RetainMemObject, 
-			funcs.ReleaseMemObject, funcs.EnqueueUnmapMemObject, funcs.GetMemObjectInfo, funcs.CreateSampler, funcs.RetainSampler, funcs.ReleaseSampler, 
-			funcs.GetSamplerInfo, funcs.CreateProgramWithSource, funcs.CreateProgramWithBinary, funcs.RetainProgram, funcs.ReleaseProgram, funcs.BuildProgram, 
-			funcs.UnloadCompiler, funcs.GetProgramInfo, funcs.GetProgramBuildInfo, funcs.CreateKernel, funcs.CreateKernelsInProgram, funcs.RetainKernel, 
-			funcs.ReleaseKernel, funcs.SetKernelArg, funcs.GetKernelInfo, funcs.GetKernelWorkGroupInfo, funcs.EnqueueNDRangeKernel, funcs.EnqueueTask, 
-			funcs.EnqueueNativeKernel, funcs.WaitForEvents, funcs.GetEventInfo, funcs.RetainEvent, funcs.ReleaseEvent, funcs.EnqueueMarker, 
-			funcs.EnqueueBarrier, funcs.EnqueueWaitForEvents, funcs.GetEventProfilingInfo, funcs.Flush, funcs.Finish, funcs.GetExtensionFunctionAddress
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clGetPlatformIDs, caps.clGetPlatformInfo, caps.clGetDeviceIDs, caps.clGetDeviceInfo, caps.clCreateContext, caps.clCreateContextFromType, 
+			caps.clRetainContext, caps.clReleaseContext, caps.clGetContextInfo, caps.clCreateCommandQueue, caps.clRetainCommandQueue, 
+			caps.clReleaseCommandQueue, caps.clGetCommandQueueInfo, caps.clCreateBuffer, caps.clEnqueueReadBuffer, caps.clEnqueueWriteBuffer, 
+			caps.clEnqueueCopyBuffer, caps.clEnqueueMapBuffer, caps.clCreateImage2D, caps.clCreateImage3D, caps.clGetSupportedImageFormats, 
+			caps.clEnqueueReadImage, caps.clEnqueueWriteImage, caps.clEnqueueCopyImage, caps.clEnqueueCopyImageToBuffer, caps.clEnqueueCopyBufferToImage, 
+			caps.clEnqueueMapImage, caps.clGetImageInfo, caps.clRetainMemObject, caps.clReleaseMemObject, caps.clEnqueueUnmapMemObject, caps.clGetMemObjectInfo, 
+			caps.clCreateSampler, caps.clRetainSampler, caps.clReleaseSampler, caps.clGetSamplerInfo, caps.clCreateProgramWithSource, 
+			caps.clCreateProgramWithBinary, caps.clRetainProgram, caps.clReleaseProgram, caps.clBuildProgram, caps.clUnloadCompiler, caps.clGetProgramInfo, 
+			caps.clGetProgramBuildInfo, caps.clCreateKernel, caps.clCreateKernelsInProgram, caps.clRetainKernel, caps.clReleaseKernel, caps.clSetKernelArg, 
+			caps.clGetKernelInfo, caps.clGetKernelWorkGroupInfo, caps.clEnqueueNDRangeKernel, caps.clEnqueueTask, caps.clEnqueueNativeKernel, 
+			caps.clWaitForEvents, caps.clGetEventInfo, caps.clRetainEvent, caps.clReleaseEvent, caps.clEnqueueMarker, caps.clEnqueueBarrier, 
+			caps.clEnqueueWaitForEvents, caps.clGetEventProfilingInfo, caps.clFlush, caps.clFinish, caps.clGetExtensionFunctionAddress
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clGetPlatformIDs ] ---
 
 	/** Unsafe version of {@link #clGetPlatformIDs GetPlatformIDs} */
 	public static int nclGetPlatformIDs(int num_entries, long platforms, long num_platforms) {
-		long __functionAddress = getInstance().GetPlatformIDs;
+		long __functionAddress = CL.getICD().clGetPlatformIDs;
 		return callIPPI(__functionAddress, num_entries, platforms, num_platforms);
 	}
 
@@ -578,7 +425,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetPlatformInfo GetPlatformInfo} */
 	public static int nclGetPlatformInfo(long platform, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetPlatformInfo;
+		long __functionAddress = CL.getICD().clGetPlatformInfo;
 		if ( CHECKS )
 			checkPointer(platform);
 		return callPIPPPI(__functionAddress, platform, param_name, param_value_size, param_value, param_value_size_ret);
@@ -628,7 +475,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetDeviceIDs GetDeviceIDs} */
 	public static int nclGetDeviceIDs(long platform, long device_type, int num_entries, long devices, long num_devices) {
-		long __functionAddress = getInstance().GetDeviceIDs;
+		long __functionAddress = CL.getICD().clGetDeviceIDs;
 		return callPJIPPI(__functionAddress, platform, device_type, num_entries, devices, num_devices);
 	}
 
@@ -675,7 +522,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetDeviceInfo GetDeviceInfo} */
 	public static int nclGetDeviceInfo(long device, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetDeviceInfo;
+		long __functionAddress = CL.getICD().clGetDeviceInfo;
 		if ( CHECKS )
 			checkPointer(device);
 		return callPIPPPI(__functionAddress, device, param_name, param_value_size, param_value, param_value_size_ret);
@@ -742,7 +589,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clCreateContext CreateContext} */
 	public static long nclCreateContext(long properties, int num_devices, long devices, long pfn_notify, long user_data, long errcode_ret) {
-		long __functionAddress = getInstance().CreateContext;
+		long __functionAddress = CL.getICD().clCreateContext;
 		return callPIPPPPP(__functionAddress, properties, num_devices, devices, pfn_notify, user_data, errcode_ret);
 	}
 
@@ -803,16 +650,20 @@ public class CL10 {
 			checkNT(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int devices = __buffer.pointerParam(device);
-		return nclCreateContext(memAddress(properties), 1, __buffer.address(devices), pfn_notify == null ? NULL : pfn_notify.address(), user_data, memAddressSafe(errcode_ret));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer devices = stack.pointers(device);
+			return nclCreateContext(memAddress(properties), 1, memAddress(devices), pfn_notify == null ? NULL : pfn_notify.address(), user_data, memAddressSafe(errcode_ret));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clCreateContextFromType ] ---
 
 	/** Unsafe version of {@link #clCreateContextFromType CreateContextFromType} */
 	public static long nclCreateContextFromType(long properties, long device_type, long pfn_notify, long user_data, long errcode_ret) {
-		long __functionAddress = getInstance().CreateContextFromType;
+		long __functionAddress = CL.getICD().clCreateContextFromType;
 		return callPJPPPP(__functionAddress, properties, device_type, pfn_notify, user_data, errcode_ret);
 	}
 
@@ -863,7 +714,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainContext(long context) {
-		long __functionAddress = getInstance().RetainContext;
+		long __functionAddress = CL.getICD().clRetainContext;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPI(__functionAddress, context);
@@ -888,7 +739,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseContext(long context) {
-		long __functionAddress = getInstance().ReleaseContext;
+		long __functionAddress = CL.getICD().clReleaseContext;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPI(__functionAddress, context);
@@ -898,7 +749,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetContextInfo GetContextInfo} */
 	public static int nclGetContextInfo(long context, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetContextInfo;
+		long __functionAddress = CL.getICD().clGetContextInfo;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPIPPPI(__functionAddress, context, param_name, param_value_size, param_value, param_value_size_ret);
@@ -956,7 +807,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clCreateCommandQueue CreateCommandQueue} */
 	public static long nclCreateCommandQueue(long context, long device, long properties, long errcode_ret) {
-		long __functionAddress = getInstance().CreateCommandQueue;
+		long __functionAddress = CL.getICD().clCreateCommandQueue;
 		if ( CHECKS ) {
 			checkPointer(context);
 			checkPointer(device);
@@ -1023,7 +874,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainCommandQueue(long command_queue) {
-		long __functionAddress = getInstance().RetainCommandQueue;
+		long __functionAddress = CL.getICD().clRetainCommandQueue;
 		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPI(__functionAddress, command_queue);
@@ -1050,7 +901,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseCommandQueue(long command_queue) {
-		long __functionAddress = getInstance().ReleaseCommandQueue;
+		long __functionAddress = CL.getICD().clReleaseCommandQueue;
 		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPI(__functionAddress, command_queue);
@@ -1060,7 +911,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
 	public static int nclGetCommandQueueInfo(long command_queue, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetCommandQueueInfo;
+		long __functionAddress = CL.getICD().clGetCommandQueueInfo;
 		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPIPPPI(__functionAddress, command_queue, param_name, param_value_size, param_value, param_value_size_ret);
@@ -1125,7 +976,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clCreateBuffer CreateBuffer} */
 	public static long nclCreateBuffer(long context, long flags, long size, long host_ptr, long errcode_ret) {
-		long __functionAddress = getInstance().CreateBuffer;
+		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPJPPPP(__functionAddress, context, flags, size, host_ptr, errcode_ret);
@@ -1211,7 +1062,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
 	public static int nclEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, long size, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueReadBuffer;
+		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(buffer);
@@ -1326,7 +1177,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
 	public static int nclEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, long size, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueWriteBuffer;
+		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(buffer);
@@ -1440,7 +1291,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueCopyBuffer EnqueueCopyBuffer} */
 	public static int nclEnqueueCopyBuffer(long command_queue, long src_buffer, long dst_buffer, long src_offset, long dst_offset, long size, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueCopyBuffer;
+		long __functionAddress = CL.getICD().clEnqueueCopyBuffer;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(src_buffer);
@@ -1512,7 +1363,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueMapBuffer EnqueueMapBuffer} */
 	public static long nclEnqueueMapBuffer(long command_queue, long buffer, int blocking_map, long map_flags, long offset, long size, int num_events_in_wait_list, long event_wait_list, long event, long errcode_ret) {
-		long __functionAddress = getInstance().EnqueueMapBuffer;
+		long __functionAddress = CL.getICD().clEnqueueMapBuffer;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(buffer);
@@ -1610,7 +1461,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clCreateImage2D CreateImage2D} */
 	public static long nclCreateImage2D(long context, long flags, long image_format, long image_width, long image_height, long image_row_pitch, long host_ptr, long errcode_ret) {
-		long __functionAddress = getInstance().CreateImage2D;
+		long __functionAddress = CL.getICD().clCreateImage2D;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPJPPPPPPP(__functionAddress, context, flags, image_format, image_width, image_height, image_row_pitch, host_ptr, errcode_ret);
@@ -1690,7 +1541,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clCreateImage3D CreateImage3D} */
 	public static long nclCreateImage3D(long context, long flags, long image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, long host_ptr, long errcode_ret) {
-		long __functionAddress = getInstance().CreateImage3D;
+		long __functionAddress = CL.getICD().clCreateImage3D;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPJPPPPPPPPP(__functionAddress, context, flags, image_format, image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret);
@@ -1777,7 +1628,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetSupportedImageFormats GetSupportedImageFormats} */
 	public static int nclGetSupportedImageFormats(long context, long flags, int image_type, int num_entries, long image_formats, long num_image_formats) {
-		long __functionAddress = getInstance().GetSupportedImageFormats;
+		long __functionAddress = CL.getICD().clGetSupportedImageFormats;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPJIIPPI(__functionAddress, context, flags, image_type, num_entries, image_formats, num_image_formats);
@@ -1832,7 +1683,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueReadImage EnqueueReadImage} */
 	public static int nclEnqueueReadImage(long command_queue, long image, int blocking_read, long origin, long region, long row_pitch, long slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueReadImage;
+		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(image);
@@ -1984,7 +1835,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueWriteImage EnqueueWriteImage} */
 	public static int nclEnqueueWriteImage(long command_queue, long image, int blocking_write, long origin, long region, long input_row_pitch, long input_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueWriteImage;
+		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(image);
@@ -2136,7 +1987,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueCopyImage EnqueueCopyImage} */
 	public static int nclEnqueueCopyImage(long command_queue, long src_image, long dst_image, long src_origin, long dst_origin, long region, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueCopyImage;
+		long __functionAddress = CL.getICD().clEnqueueCopyImage;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(src_image);
@@ -2243,7 +2094,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueCopyImageToBuffer EnqueueCopyImageToBuffer} */
 	public static int nclEnqueueCopyImageToBuffer(long command_queue, long src_image, long dst_buffer, long src_origin, long region, long dst_offset, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueCopyImageToBuffer;
+		long __functionAddress = CL.getICD().clEnqueueCopyImageToBuffer;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(src_image);
@@ -2334,7 +2185,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueCopyBufferToImage EnqueueCopyBufferToImage} */
 	public static int nclEnqueueCopyBufferToImage(long command_queue, long src_buffer, long dst_image, long src_offset, long dst_origin, long region, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueCopyBufferToImage;
+		long __functionAddress = CL.getICD().clEnqueueCopyBufferToImage;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(src_buffer);
@@ -2421,7 +2272,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueMapImage EnqueueMapImage} */
 	public static long nclEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, long origin, long region, long image_row_pitch, long image_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event, long errcode_ret) {
-		long __functionAddress = getInstance().EnqueueMapImage;
+		long __functionAddress = CL.getICD().clEnqueueMapImage;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(image);
@@ -2526,7 +2377,7 @@ public class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		long __result = nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
-		return memByteBuffer(__result, (int)clGetMemObjectInfoPointer(image, CL_MEM_SIZE));
+		return memByteBuffer(__result, (int)getMemObjectInfoPointer(image, CL_MEM_SIZE));
 	}
 
 	/** Alternative version of: {@link #clEnqueueMapImage EnqueueMapImage} */
@@ -2540,7 +2391,7 @@ public class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		long __result = nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
-		int length = (int)clGetMemObjectInfoPointer(image, CL_MEM_SIZE);
+		int length = (int)getMemObjectInfoPointer(image, CL_MEM_SIZE);
 		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
 	}
 
@@ -2562,7 +2413,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetImageInfo GetImageInfo} */
 	public static int nclGetImageInfo(long image, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetImageInfo;
+		long __functionAddress = CL.getICD().clGetImageInfo;
 		if ( CHECKS )
 			checkPointer(image);
 		return callPIPPPI(__functionAddress, image, param_name, param_value_size, param_value, param_value_size_ret);
@@ -2634,7 +2485,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainMemObject(long memobj) {
-		long __functionAddress = getInstance().RetainMemObject;
+		long __functionAddress = CL.getICD().clRetainMemObject;
 		if ( CHECKS )
 			checkPointer(memobj);
 		return callPI(__functionAddress, memobj);
@@ -2660,7 +2511,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseMemObject(long memobj) {
-		long __functionAddress = getInstance().ReleaseMemObject;
+		long __functionAddress = CL.getICD().clReleaseMemObject;
 		if ( CHECKS )
 			checkPointer(memobj);
 		return callPI(__functionAddress, memobj);
@@ -2670,7 +2521,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueUnmapMemObject EnqueueUnmapMemObject} */
 	public static int nclEnqueueUnmapMemObject(long command_queue, long memobj, long mapped_ptr, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueUnmapMemObject;
+		long __functionAddress = CL.getICD().clEnqueueUnmapMemObject;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(memobj);
@@ -2732,7 +2583,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetMemObjectInfo GetMemObjectInfo} */
 	public static int nclGetMemObjectInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetMemObjectInfo;
+		long __functionAddress = CL.getICD().clGetMemObjectInfo;
 		if ( CHECKS )
 			checkPointer(memobj);
 		return callPIPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
@@ -2797,7 +2648,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clCreateSampler CreateSampler} */
 	public static long nclCreateSampler(long context, int normalized_coords, int addressing_mode, int filter_mode, long errcode_ret) {
-		long __functionAddress = getInstance().CreateSampler;
+		long __functionAddress = CL.getICD().clCreateSampler;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPIIIPP(__functionAddress, context, normalized_coords, addressing_mode, filter_mode, errcode_ret);
@@ -2858,7 +2709,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainSampler(long sampler) {
-		long __functionAddress = getInstance().RetainSampler;
+		long __functionAddress = CL.getICD().clRetainSampler;
 		if ( CHECKS )
 			checkPointer(sampler);
 		return callPI(__functionAddress, sampler);
@@ -2881,7 +2732,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseSampler(long sampler) {
-		long __functionAddress = getInstance().ReleaseSampler;
+		long __functionAddress = CL.getICD().clReleaseSampler;
 		if ( CHECKS )
 			checkPointer(sampler);
 		return callPI(__functionAddress, sampler);
@@ -2891,7 +2742,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetSamplerInfo GetSamplerInfo} */
 	public static int nclGetSamplerInfo(long sampler, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetSamplerInfo;
+		long __functionAddress = CL.getICD().clGetSamplerInfo;
 		if ( CHECKS )
 			checkPointer(sampler);
 		return callPIPPPI(__functionAddress, sampler, param_name, param_value_size, param_value, param_value_size_ret);
@@ -2949,7 +2800,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clCreateProgramWithSource CreateProgramWithSource} */
 	public static long nclCreateProgramWithSource(long context, int count, long strings, long lengths, long errcode_ret) {
-		long __functionAddress = getInstance().CreateProgramWithSource;
+		long __functionAddress = CL.getICD().clCreateProgramWithSource;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPIPPPP(__functionAddress, context, count, strings, lengths, errcode_ret);
@@ -3000,12 +2851,14 @@ public class CL10 {
 	public static long clCreateProgramWithSource(long context, CharSequence[] strings, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParamUTF8p(strings);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			return nclCreateProgramWithSource(context, strings.length, __buffer.address(stringsAddress), __buffer.address(stringsAddress + (strings.length << POINTER_SHIFT)), memAddressSafe(errcode_ret));
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8p(stack, strings);
+			long __result = nclCreateProgramWithSource(context, strings.length, stringsAddress, stringsAddress - (strings.length << POINTER_SHIFT), memAddressSafe(errcode_ret));
+			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, strings.length);
+			return __result;
 		} finally {
-			__buffer.pointerArrayFree(stringsAddress, strings.length);
+			stack.setPointer(stackPointer);
 		}
 	}
 
@@ -3013,12 +2866,14 @@ public class CL10 {
 	public static long clCreateProgramWithSource(long context, CharSequence string, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParamUTF8p(string);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			return nclCreateProgramWithSource(context, 1, __buffer.address(stringsAddress), __buffer.address(stringsAddress + POINTER_SIZE), memAddressSafe(errcode_ret));
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8p(stack, string);
+			long __result = nclCreateProgramWithSource(context, 1, stringsAddress, stringsAddress - POINTER_SIZE, memAddressSafe(errcode_ret));
+			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, 1);
+			return __result;
 		} finally {
-			__buffer.pointerArrayFree(stringsAddress, 1);
+			stack.setPointer(stackPointer);
 		}
 	}
 
@@ -3026,7 +2881,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clCreateProgramWithBinary CreateProgramWithBinary} */
 	public static long nclCreateProgramWithBinary(long context, int num_devices, long device_list, long lengths, long binaries, long binary_status, long errcode_ret) {
-		long __functionAddress = getInstance().CreateProgramWithBinary;
+		long __functionAddress = CL.getICD().clCreateProgramWithBinary;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPIPPPPPP(__functionAddress, context, num_devices, device_list, lengths, binaries, binary_status, errcode_ret);
@@ -3077,7 +2932,7 @@ public class CL10 {
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code device_list} is {@code NULL} or {@code num_devices} is zero.</li>
 	 *         <li>{@link #CL_INVALID_DEVICE INVALID_DEVICE} if OpenCL devices listed in {@code device_list} are not in the list of devices associated with {@code context}.</li>
-	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code lengths} or {@code binaries} are NULL or if any entry in {@code lengths[i]} is zero or {@code binaries[i]} is {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code lengths} or {@code binaries} are {@code NULL} or if any entry in {@code lengths[i]} is zero or {@code binaries[i]} is {@code NULL}.</li>
 	 *         <li>{@link #CL_INVALID_BINARY INVALID_BINARY} if an invalid program binary was encountered for any device. {@code binary_status} will return specific status for each device.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
@@ -3112,9 +2967,13 @@ public class CL10 {
 			if ( binary_status != null ) checkBuffer(binary_status, binaries.length);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int binariesAddress = __buffer.pointerArrayParamp(binaries);
-		return nclCreateProgramWithBinary(context, binaries.length, memAddress(device_list), __buffer.address(binariesAddress + (binaries.length << POINTER_SHIFT)), __buffer.address(binariesAddress), memAddressSafe(binary_status), memAddressSafe(errcode_ret));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			long binariesAddress = org.lwjgl.system.APIUtil.apiArrayp(stack, binaries);
+			return nclCreateProgramWithBinary(context, binaries.length, memAddress(device_list), binariesAddress - (binaries.length << POINTER_SHIFT), binariesAddress, memAddressSafe(binary_status), memAddressSafe(errcode_ret));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Single binary version of: {@link #clCreateProgramWithBinary CreateProgramWithBinary} */
@@ -3124,9 +2983,13 @@ public class CL10 {
 			if ( binary_status != null ) checkBuffer(binary_status, 1);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int binariesAddress = __buffer.pointerArrayParamp(binary);
-		return nclCreateProgramWithBinary(context, 1, memAddress(device_list), __buffer.address(binariesAddress + POINTER_SIZE), __buffer.address(binariesAddress), memAddressSafe(binary_status), memAddressSafe(errcode_ret));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			long binariesAddress = org.lwjgl.system.APIUtil.apiArrayp(stack, binary);
+			return nclCreateProgramWithBinary(context, 1, memAddress(device_list), binariesAddress - POINTER_SIZE, binariesAddress, memAddressSafe(binary_status), memAddressSafe(errcode_ret));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clRetainProgram ] ---
@@ -3145,7 +3008,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainProgram(long program) {
-		long __functionAddress = getInstance().RetainProgram;
+		long __functionAddress = CL.getICD().clRetainProgram;
 		if ( CHECKS )
 			checkPointer(program);
 		return callPI(__functionAddress, program);
@@ -3168,7 +3031,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseProgram(long program) {
-		long __functionAddress = getInstance().ReleaseProgram;
+		long __functionAddress = CL.getICD().clReleaseProgram;
 		if ( CHECKS )
 			checkPointer(program);
 		return callPI(__functionAddress, program);
@@ -3178,7 +3041,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clBuildProgram BuildProgram} */
 	public static int nclBuildProgram(long program, int num_devices, long device_list, long options, long pfn_notify, long user_data) {
-		long __functionAddress = getInstance().BuildProgram;
+		long __functionAddress = CL.getICD().clBuildProgram;
 		if ( CHECKS )
 			checkPointer(program);
 		return callPIPPPPI(__functionAddress, program, num_devices, device_list, options, pfn_notify, user_data);
@@ -3206,7 +3069,7 @@ public class CL10 {
 	 *                    device resources needed to perform the build are available. If {@code pfn_notify} is {@code NULL}, {@code clBuildProgram} does not return until the build
 	 *                    has completed. This callback function may be called asynchronously by the OpenCL implementation. It is the application's responsibility to ensure
 	 *                    that the callback function is thread-safe.
-	 * @param user_data   will be passed as an argument when {@code pfn_notify} is called. {@code user_data} can be NULL.
+	 * @param user_data   will be passed as an argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         
@@ -3247,17 +3110,25 @@ public class CL10 {
 
 	/** CharSequence version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(long program, PointerBuffer device_list, CharSequence options, CLProgramCallback pfn_notify, long user_data) {
-		APIBuffer __buffer = apiBuffer();
-		int optionsEncoded = __buffer.stringParamASCII(options, true);
-		return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer optionsEncoded = stack.ASCII(options);
+			return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Single value version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(long program, long device, CharSequence options, CLProgramCallback pfn_notify, long user_data) {
-		APIBuffer __buffer = apiBuffer();
-		int optionsEncoded = __buffer.stringParamASCII(options, true);
-		int device_list = __buffer.pointerParam(device);
-		return nclBuildProgram(program, 1, __buffer.address(device_list), __buffer.address(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer optionsEncoded = stack.ASCII(options);
+			PointerBuffer device_list = stack.pointers(device);
+			return nclBuildProgram(program, 1, memAddress(device_list), memAddress(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clUnloadCompiler ] ---
@@ -3271,7 +3142,7 @@ public class CL10 {
 	 * @return always {@link #CL_SUCCESS SUCCESS}
 	 */
 	public static int clUnloadCompiler() {
-		long __functionAddress = getInstance().UnloadCompiler;
+		long __functionAddress = CL.getICD().clUnloadCompiler;
 		return callI(__functionAddress);
 	}
 
@@ -3279,7 +3150,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetProgramInfo GetProgramInfo} */
 	public static int nclGetProgramInfo(long program, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetProgramInfo;
+		long __functionAddress = CL.getICD().clGetProgramInfo;
 		if ( CHECKS )
 			checkPointer(program);
 		return callPIPPPI(__functionAddress, program, param_name, param_value_size, param_value, param_value_size_ret);
@@ -3339,7 +3210,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetProgramBuildInfo GetProgramBuildInfo} */
 	public static int nclGetProgramBuildInfo(long program, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetProgramBuildInfo;
+		long __functionAddress = CL.getICD().clGetProgramBuildInfo;
 		if ( CHECKS ) {
 			checkPointer(program);
 			checkPointer(device);
@@ -3401,7 +3272,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clCreateKernel CreateKernel} */
 	public static long nclCreateKernel(long program, long kernel_name, long errcode_ret) {
-		long __functionAddress = getInstance().CreateKernel;
+		long __functionAddress = CL.getICD().clCreateKernel;
 		if ( CHECKS )
 			checkPointer(program);
 		return callPPPP(__functionAddress, program, kernel_name, errcode_ret);
@@ -3460,16 +3331,20 @@ public class CL10 {
 	public static long clCreateKernel(long program, CharSequence kernel_name, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		APIBuffer __buffer = apiBuffer();
-		int kernel_nameEncoded = __buffer.stringParamASCII(kernel_name, true);
-		return nclCreateKernel(program, __buffer.address(kernel_nameEncoded), memAddressSafe(errcode_ret));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer kernel_nameEncoded = stack.ASCII(kernel_name);
+			return nclCreateKernel(program, memAddress(kernel_nameEncoded), memAddressSafe(errcode_ret));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clCreateKernelsInProgram ] ---
 
 	/** Unsafe version of {@link #clCreateKernelsInProgram CreateKernelsInProgram} */
 	public static int nclCreateKernelsInProgram(long program, int num_kernels, long kernels, long num_kernels_ret) {
-		long __functionAddress = getInstance().CreateKernelsInProgram;
+		long __functionAddress = CL.getICD().clCreateKernelsInProgram;
 		if ( CHECKS )
 			checkPointer(program);
 		return callPIPPI(__functionAddress, program, num_kernels, kernels, num_kernels_ret);
@@ -3528,7 +3403,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainKernel(long kernel) {
-		long __functionAddress = getInstance().RetainKernel;
+		long __functionAddress = CL.getICD().clRetainKernel;
 		if ( CHECKS )
 			checkPointer(kernel);
 		return callPI(__functionAddress, kernel);
@@ -3553,7 +3428,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseKernel(long kernel) {
-		long __functionAddress = getInstance().ReleaseKernel;
+		long __functionAddress = CL.getICD().clReleaseKernel;
 		if ( CHECKS )
 			checkPointer(kernel);
 		return callPI(__functionAddress, kernel);
@@ -3563,7 +3438,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clSetKernelArg SetKernelArg} */
 	public static int nclSetKernelArg(long kernel, int arg_index, long arg_size, long arg_value) {
-		long __functionAddress = getInstance().SetKernelArg;
+		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
 			checkPointer(kernel);
 		return callPIPPI(__functionAddress, kernel, arg_index, arg_size, arg_value);
@@ -3688,247 +3563,317 @@ public class CL10 {
 
 	/** Single byte value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1b(long kernel, int arg_index, byte arg0) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.byteParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 1, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer arg_value = stack.bytes(arg0);
+			return nclSetKernelArg(kernel, arg_index, (1 << 0) * 1, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** byte2 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg2b(long kernel, int arg_index, byte arg0, byte arg1) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.byteParam(arg0);
-		__buffer.byteParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 2, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer arg_value = stack.bytes(arg0, arg1);
+			return nclSetKernelArg(kernel, arg_index, (1 << 0) * 2, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** byte3 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg3b(long kernel, int arg_index, byte arg0, byte arg1, byte arg2) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.byteParam(arg0);
-		__buffer.byteParam(arg1);
-		__buffer.byteParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 3, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer arg_value = stack.bytes(arg0, arg1, arg2);
+			return nclSetKernelArg(kernel, arg_index, (1 << 0) * 3, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** byte4 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg4b(long kernel, int arg_index, byte arg0, byte arg1, byte arg2, byte arg3) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.byteParam(arg0);
-		__buffer.byteParam(arg1);
-		__buffer.byteParam(arg2);
-		__buffer.byteParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 4, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer arg_value = stack.bytes(arg0, arg1, arg2, arg3);
+			return nclSetKernelArg(kernel, arg_index, (1 << 0) * 4, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Single short value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1s(long kernel, int arg_index, short arg0) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.shortParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 1, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ShortBuffer arg_value = stack.shorts(arg0);
+			return nclSetKernelArg(kernel, arg_index, (1 << 1) * 1, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** short2 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg2s(long kernel, int arg_index, short arg0, short arg1) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.shortParam(arg0);
-		__buffer.shortParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 2, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ShortBuffer arg_value = stack.shorts(arg0, arg1);
+			return nclSetKernelArg(kernel, arg_index, (1 << 1) * 2, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** short3 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg3s(long kernel, int arg_index, short arg0, short arg1, short arg2) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.shortParam(arg0);
-		__buffer.shortParam(arg1);
-		__buffer.shortParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 3, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ShortBuffer arg_value = stack.shorts(arg0, arg1, arg2);
+			return nclSetKernelArg(kernel, arg_index, (1 << 1) * 3, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** short4 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg4s(long kernel, int arg_index, short arg0, short arg1, short arg2, short arg3) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.shortParam(arg0);
-		__buffer.shortParam(arg1);
-		__buffer.shortParam(arg2);
-		__buffer.shortParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 4, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ShortBuffer arg_value = stack.shorts(arg0, arg1, arg2, arg3);
+			return nclSetKernelArg(kernel, arg_index, (1 << 1) * 4, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Single int value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1i(long kernel, int arg_index, int arg0) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.intParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 1, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer arg_value = stack.ints(arg0);
+			return nclSetKernelArg(kernel, arg_index, (1 << 2) * 1, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** int2 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg2i(long kernel, int arg_index, int arg0, int arg1) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.intParam(arg0);
-		__buffer.intParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 2, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer arg_value = stack.ints(arg0, arg1);
+			return nclSetKernelArg(kernel, arg_index, (1 << 2) * 2, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** int3 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg3i(long kernel, int arg_index, int arg0, int arg1, int arg2) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.intParam(arg0);
-		__buffer.intParam(arg1);
-		__buffer.intParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 3, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer arg_value = stack.ints(arg0, arg1, arg2);
+			return nclSetKernelArg(kernel, arg_index, (1 << 2) * 3, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** int4 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg4i(long kernel, int arg_index, int arg0, int arg1, int arg2, int arg3) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.intParam(arg0);
-		__buffer.intParam(arg1);
-		__buffer.intParam(arg2);
-		__buffer.intParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 4, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer arg_value = stack.ints(arg0, arg1, arg2, arg3);
+			return nclSetKernelArg(kernel, arg_index, (1 << 2) * 4, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Single long value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1l(long kernel, int arg_index, long arg0) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.longParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 1, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer arg_value = stack.longs(arg0);
+			return nclSetKernelArg(kernel, arg_index, (1 << 3) * 1, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** long2 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg2l(long kernel, int arg_index, long arg0, long arg1) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.longParam(arg0);
-		__buffer.longParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 2, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer arg_value = stack.longs(arg0, arg1);
+			return nclSetKernelArg(kernel, arg_index, (1 << 3) * 2, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** long3 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg3l(long kernel, int arg_index, long arg0, long arg1, long arg2) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.longParam(arg0);
-		__buffer.longParam(arg1);
-		__buffer.longParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 3, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer arg_value = stack.longs(arg0, arg1, arg2);
+			return nclSetKernelArg(kernel, arg_index, (1 << 3) * 3, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** long4 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg4l(long kernel, int arg_index, long arg0, long arg1, long arg2, long arg3) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.longParam(arg0);
-		__buffer.longParam(arg1);
-		__buffer.longParam(arg2);
-		__buffer.longParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 4, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer arg_value = stack.longs(arg0, arg1, arg2, arg3);
+			return nclSetKernelArg(kernel, arg_index, (1 << 3) * 4, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Single float value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1f(long kernel, int arg_index, float arg0) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.floatParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 1, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer arg_value = stack.floats(arg0);
+			return nclSetKernelArg(kernel, arg_index, (1 << 2) * 1, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** float2 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg2f(long kernel, int arg_index, float arg0, float arg1) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.floatParam(arg0);
-		__buffer.floatParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 2, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer arg_value = stack.floats(arg0, arg1);
+			return nclSetKernelArg(kernel, arg_index, (1 << 2) * 2, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** float3 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg3f(long kernel, int arg_index, float arg0, float arg1, float arg2) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.floatParam(arg0);
-		__buffer.floatParam(arg1);
-		__buffer.floatParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 3, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer arg_value = stack.floats(arg0, arg1, arg2);
+			return nclSetKernelArg(kernel, arg_index, (1 << 2) * 3, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** float4 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg4f(long kernel, int arg_index, float arg0, float arg1, float arg2, float arg3) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.floatParam(arg0);
-		__buffer.floatParam(arg1);
-		__buffer.floatParam(arg2);
-		__buffer.floatParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 4, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer arg_value = stack.floats(arg0, arg1, arg2, arg3);
+			return nclSetKernelArg(kernel, arg_index, (1 << 2) * 4, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Single double value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1d(long kernel, int arg_index, double arg0) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.doubleParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 1, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer arg_value = stack.doubles(arg0);
+			return nclSetKernelArg(kernel, arg_index, (1 << 3) * 1, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** double2 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg2d(long kernel, int arg_index, double arg0, double arg1) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.doubleParam(arg0);
-		__buffer.doubleParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 2, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer arg_value = stack.doubles(arg0, arg1);
+			return nclSetKernelArg(kernel, arg_index, (1 << 3) * 2, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** double3 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg3d(long kernel, int arg_index, double arg0, double arg1, double arg2) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.doubleParam(arg0);
-		__buffer.doubleParam(arg1);
-		__buffer.doubleParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 3, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer arg_value = stack.doubles(arg0, arg1, arg2);
+			return nclSetKernelArg(kernel, arg_index, (1 << 3) * 3, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** double4 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg4d(long kernel, int arg_index, double arg0, double arg1, double arg2, double arg3) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.doubleParam(arg0);
-		__buffer.doubleParam(arg1);
-		__buffer.doubleParam(arg2);
-		__buffer.doubleParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 4, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer arg_value = stack.doubles(arg0, arg1, arg2, arg3);
+			return nclSetKernelArg(kernel, arg_index, (1 << 3) * 4, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Single pointer value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1p(long kernel, int arg_index, long arg0) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.pointerParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 1, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer arg_value = stack.pointers(arg0);
+			return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 1, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** pointer2 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg2p(long kernel, int arg_index, long arg0, long arg1) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.pointerParam(arg0);
-		__buffer.pointerParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 2, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer arg_value = stack.pointers(arg0, arg1);
+			return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 2, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** pointer3 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg3p(long kernel, int arg_index, long arg0, long arg1, long arg2) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.pointerParam(arg0);
-		__buffer.pointerParam(arg1);
-		__buffer.pointerParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 3, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer arg_value = stack.pointers(arg0, arg1, arg2);
+			return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 3, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** pointer4 value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg4p(long kernel, int arg_index, long arg0, long arg1, long arg2, long arg3) {
-		APIBuffer __buffer = apiBuffer();
-		int arg_value = __buffer.pointerParam(arg0);
-		__buffer.pointerParam(arg1);
-		__buffer.pointerParam(arg2);
-		__buffer.pointerParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 4, __buffer.address(arg_value));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer arg_value = stack.pointers(arg0, arg1, arg2, arg3);
+			return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 4, memAddress(arg_value));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clGetKernelInfo ] ---
 
 	/** Unsafe version of {@link #clGetKernelInfo GetKernelInfo} */
 	public static int nclGetKernelInfo(long kernel, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetKernelInfo;
+		long __functionAddress = CL.getICD().clGetKernelInfo;
 		if ( CHECKS )
 			checkPointer(kernel);
 		return callPIPPPI(__functionAddress, kernel, param_name, param_value_size, param_value, param_value_size_ret);
@@ -3986,7 +3931,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
 	public static int nclGetKernelWorkGroupInfo(long kernel, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetKernelWorkGroupInfo;
+		long __functionAddress = CL.getICD().clGetKernelWorkGroupInfo;
 		if ( CHECKS ) {
 			checkPointer(kernel);
 			checkPointer(device);
@@ -4059,7 +4004,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueNDRangeKernel EnqueueNDRangeKernel} */
 	public static int nclEnqueueNDRangeKernel(long command_queue, long kernel, int work_dim, long global_work_offset, long global_work_size, long local_work_size, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueNDRangeKernel;
+		long __functionAddress = CL.getICD().clEnqueueNDRangeKernel;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(kernel);
@@ -4172,7 +4117,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueTask EnqueueTask} */
 	public static int nclEnqueueTask(long command_queue, long kernel, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueTask;
+		long __functionAddress = CL.getICD().clEnqueueTask;
 		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(kernel);
@@ -4218,7 +4163,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueNativeKernel EnqueueNativeKernel} */
 	public static int nclEnqueueNativeKernel(long command_queue, long user_func, long args, long cb_args, int num_mem_objects, long mem_list, long args_mem_loc, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueNativeKernel;
+		long __functionAddress = CL.getICD().clEnqueueNativeKernel;
 		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPPPPIPPIPPI(__functionAddress, command_queue, user_func, args, cb_args, num_mem_objects, mem_list, args_mem_loc, num_events_in_wait_list, event_wait_list, event);
@@ -4298,17 +4243,21 @@ public class CL10 {
 	public static int clEnqueueNativeKernel(long command_queue, CLNativeKernel user_func, ByteBuffer args, long memobj, long memobj_loc, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
-		APIBuffer __buffer = apiBuffer();
-		int mem_list = __buffer.pointerParam(memobj);
-		int args_mem_loc = __buffer.pointerParam(memobj_loc);
-		return nclEnqueueNativeKernel(command_queue, user_func.address(), memAddressSafe(args), args == null ? 0 : args.remaining(), 1, __buffer.address(mem_list), __buffer.address(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer mem_list = stack.pointers(memobj);
+			PointerBuffer args_mem_loc = stack.pointers(memobj_loc);
+			return nclEnqueueNativeKernel(command_queue, user_func.address(), memAddressSafe(args), args == null ? 0 : args.remaining(), 1, memAddress(mem_list), memAddress(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clWaitForEvents ] ---
 
 	/** Unsafe version of {@link #clWaitForEvents WaitForEvents} */
 	public static int nclWaitForEvents(int num_events, long event_list) {
-		long __functionAddress = getInstance().WaitForEvents;
+		long __functionAddress = CL.getICD().clWaitForEvents;
 		return callIPI(__functionAddress, num_events, event_list);
 	}
 
@@ -4343,16 +4292,20 @@ public class CL10 {
 
 	/** Single value version of: {@link #clWaitForEvents WaitForEvents} */
 	public static int clWaitForEvents(long event) {
-		APIBuffer __buffer = apiBuffer();
-		int event_list = __buffer.pointerParam(event);
-		return nclWaitForEvents(1, __buffer.address(event_list));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer event_list = stack.pointers(event);
+			return nclWaitForEvents(1, memAddress(event_list));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clGetEventInfo ] ---
 
 	/** Unsafe version of {@link #clGetEventInfo GetEventInfo} */
 	public static int nclGetEventInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetEventInfo;
+		long __functionAddress = CL.getICD().clGetEventInfo;
 		if ( CHECKS )
 			checkPointer(event);
 		return callPIPPPI(__functionAddress, event, param_name, param_value_size, param_value, param_value_size_ret);
@@ -4427,7 +4380,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainEvent(long event) {
-		long __functionAddress = getInstance().RetainEvent;
+		long __functionAddress = CL.getICD().clRetainEvent;
 		if ( CHECKS )
 			checkPointer(event);
 		return callPI(__functionAddress, event);
@@ -4460,7 +4413,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseEvent(long event) {
-		long __functionAddress = getInstance().ReleaseEvent;
+		long __functionAddress = CL.getICD().clReleaseEvent;
 		if ( CHECKS )
 			checkPointer(event);
 		return callPI(__functionAddress, event);
@@ -4470,7 +4423,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueMarker EnqueueMarker} */
 	public static int nclEnqueueMarker(long command_queue, long event) {
-		long __functionAddress = getInstance().EnqueueMarker;
+		long __functionAddress = CL.getICD().clEnqueueMarker;
 		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPPI(__functionAddress, command_queue, event);
@@ -4526,7 +4479,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueBarrier(long command_queue) {
-		long __functionAddress = getInstance().EnqueueBarrier;
+		long __functionAddress = CL.getICD().clEnqueueBarrier;
 		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPI(__functionAddress, command_queue);
@@ -4536,7 +4489,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clEnqueueWaitForEvents EnqueueWaitForEvents} */
 	public static int nclEnqueueWaitForEvents(long command_queue, int num_events, long event_list) {
-		long __functionAddress = getInstance().EnqueueWaitForEvents;
+		long __functionAddress = CL.getICD().clEnqueueWaitForEvents;
 		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPIPI(__functionAddress, command_queue, num_events, event_list);
@@ -4573,16 +4526,20 @@ public class CL10 {
 
 	/** Single value version of: {@link #clEnqueueWaitForEvents EnqueueWaitForEvents} */
 	public static int clEnqueueWaitForEvents(long command_queue, long event) {
-		APIBuffer __buffer = apiBuffer();
-		int event_list = __buffer.pointerParam(event);
-		return nclEnqueueWaitForEvents(command_queue, 1, __buffer.address(event_list));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer event_list = stack.pointers(event);
+			return nclEnqueueWaitForEvents(command_queue, 1, memAddress(event_list));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clGetEventProfilingInfo ] ---
 
 	/** Unsafe version of {@link #clGetEventProfilingInfo GetEventProfilingInfo} */
 	public static int nclGetEventProfilingInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetEventProfilingInfo;
+		long __functionAddress = CL.getICD().clGetEventProfilingInfo;
 		if ( CHECKS )
 			checkPointer(event);
 		return callPIPPPI(__functionAddress, event, param_name, param_value_size, param_value, param_value_size_ret);
@@ -4658,7 +4615,7 @@ public class CL10 {
 	 *         </ul>
 	 */
 	public static int clFlush(long command_queue) {
-		long __functionAddress = getInstance().Flush;
+		long __functionAddress = CL.getICD().clFlush;
 		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPI(__functionAddress, command_queue);
@@ -4674,7 +4631,7 @@ public class CL10 {
 	 * @param command_queue the command-queue
 	 */
 	public static int clFinish(long command_queue) {
-		long __functionAddress = getInstance().Finish;
+		long __functionAddress = CL.getICD().clFinish;
 		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPI(__functionAddress, command_queue);
@@ -4684,7 +4641,7 @@ public class CL10 {
 
 	/** Unsafe version of {@link #clGetExtensionFunctionAddress GetExtensionFunctionAddress} */
 	public static long nclGetExtensionFunctionAddress(long funcname) {
-		long __functionAddress = getInstance().GetExtensionFunctionAddress;
+		long __functionAddress = CL.getICD().clGetExtensionFunctionAddress;
 		return callPP(__functionAddress, funcname);
 	}
 
@@ -4711,9 +4668,26 @@ public class CL10 {
 
 	/** CharSequence version of: {@link #clGetExtensionFunctionAddress GetExtensionFunctionAddress} */
 	public static long clGetExtensionFunctionAddress(CharSequence funcname) {
-		APIBuffer __buffer = apiBuffer();
-		int funcnameEncoded = __buffer.stringParamASCII(funcname, true);
-		return nclGetExtensionFunctionAddress(__buffer.address(funcnameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer funcnameEncoded = stack.ASCII(funcname);
+			return nclGetExtensionFunctionAddress(memAddress(funcnameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	private static long getMemObjectInfoPointer(long cl_mem, int param_name) {
+		MemoryStack stack = stackPush();
+		try {
+			PointerBuffer pp = stack.pointers(0);
+			int errcode = clGetMemObjectInfo(cl_mem, param_name, pp, null);
+			if ( DEBUG )
+				CLUtil.checkCLError(errcode);
+			return pp.get(0);
+		} finally {
+			stack.pop();
+		}
 	}
 
 }

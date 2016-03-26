@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -21,52 +21,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class QCOMExtendedGet2 {
 
-	/** Function address. */
-	public final long
-		ExtGetShadersQCOM,
-		ExtGetProgramsQCOM,
-		ExtIsProgramBinaryQCOM,
-		ExtGetProgramBinarySourceQCOM;
-
 	protected QCOMExtendedGet2() {
 		throw new UnsupportedOperationException();
 	}
 
-	public QCOMExtendedGet2(FunctionProvider provider) {
-		ExtGetShadersQCOM = provider.getFunctionAddress("glExtGetShadersQCOM");
-		ExtGetProgramsQCOM = provider.getFunctionAddress("glExtGetProgramsQCOM");
-		ExtIsProgramBinaryQCOM = provider.getFunctionAddress("glExtIsProgramBinaryQCOM");
-		ExtGetProgramBinarySourceQCOM = provider.getFunctionAddress("glExtGetProgramBinarySourceQCOM");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link QCOMExtendedGet2} instance of the current context. */
-	public static QCOMExtendedGet2 getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link QCOMExtendedGet2} instance of the specified {@link GLESCapabilities}. */
-	public static QCOMExtendedGet2 getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__QCOMExtendedGet2);
-	}
-
-	static QCOMExtendedGet2 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_QCOM_extended_get2") ) return null;
-
-		QCOMExtendedGet2 funcs = new QCOMExtendedGet2(provider);
-		boolean supported = checkFunctions(
-			funcs.ExtGetShadersQCOM, funcs.ExtGetProgramsQCOM, funcs.ExtIsProgramBinaryQCOM, funcs.ExtGetProgramBinarySourceQCOM
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glExtGetShadersQCOM, caps.glExtGetProgramsQCOM, caps.glExtIsProgramBinaryQCOM, caps.glExtGetProgramBinarySourceQCOM
 		);
-
-		return GLES.checkExtension("GL_QCOM_extended_get2", funcs, supported);
 	}
 
 	// --- [ glExtGetShadersQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetShadersQCOM ExtGetShadersQCOM} */
 	public static void nglExtGetShadersQCOM(long shaders, int maxShaders, long numShaders) {
-		long __functionAddress = getInstance().ExtGetShadersQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtGetShadersQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPIPV(__functionAddress, shaders, maxShaders, numShaders);
 	}
 
@@ -89,7 +60,9 @@ public class QCOMExtendedGet2 {
 
 	/** Unsafe version of {@link #glExtGetProgramsQCOM ExtGetProgramsQCOM} */
 	public static void nglExtGetProgramsQCOM(long programs, int maxPrograms, long numPrograms) {
-		long __functionAddress = getInstance().ExtGetProgramsQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtGetProgramsQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPIPV(__functionAddress, programs, maxPrograms, numPrograms);
 	}
 
@@ -111,7 +84,9 @@ public class QCOMExtendedGet2 {
 	// --- [ glExtIsProgramBinaryQCOM ] ---
 
 	public static boolean glExtIsProgramBinaryQCOM(int program) {
-		long __functionAddress = getInstance().ExtIsProgramBinaryQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtIsProgramBinaryQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, program);
 	}
 
@@ -119,7 +94,9 @@ public class QCOMExtendedGet2 {
 
 	/** Unsafe version of {@link #glExtGetProgramBinarySourceQCOM ExtGetProgramBinarySourceQCOM} */
 	public static void nglExtGetProgramBinarySourceQCOM(int program, int shadertype, long source, long length) {
-		long __functionAddress = getInstance().ExtGetProgramBinarySourceQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtGetProgramBinarySourceQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, program, shadertype, source, length);
 	}
 

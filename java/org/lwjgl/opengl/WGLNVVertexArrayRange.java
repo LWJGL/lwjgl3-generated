@@ -15,49 +15,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public class WGLNVVertexArrayRange {
 
-	/** Function address. */
-	public final long
-		AllocateMemoryNV,
-		FreeMemoryNV;
-
 	protected WGLNVVertexArrayRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLNVVertexArrayRange(FunctionProvider provider) {
-		AllocateMemoryNV = provider.getFunctionAddress("wglAllocateMemoryNV");
-		FreeMemoryNV = provider.getFunctionAddress("wglFreeMemoryNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLNVVertexArrayRange} instance of the current context. */
-	public static WGLNVVertexArrayRange getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLNVVertexArrayRange} instance of the specified {@link GLCapabilities}. */
-	public static WGLNVVertexArrayRange getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLNVVertexArrayRange);
-	}
-
-	static WGLNVVertexArrayRange create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_NV_vertex_array_range") ) return null;
-
-		WGLNVVertexArrayRange funcs = new WGLNVVertexArrayRange(provider);
-
-		boolean supported = checkFunctions(
-			funcs.AllocateMemoryNV, funcs.FreeMemoryNV
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglAllocateMemoryNV, caps.wglFreeMemoryNV
 		);
-
-		return GL.checkExtension("WGL_NV_vertex_array_range", funcs, supported);
 	}
 
 	// --- [ wglAllocateMemoryNV ] ---
 
 	/** Unsafe version of {@link #wglAllocateMemoryNV AllocateMemoryNV} */
 	public static long nwglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
-		long __functionAddress = getInstance().AllocateMemoryNV;
+		long __functionAddress = GL.getCapabilitiesWGL().wglAllocateMemoryNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIFFFP(__functionAddress, size, readfreq, writefreq, priority);
 	}
 
@@ -70,7 +44,9 @@ public class WGLNVVertexArrayRange {
 
 	/** Unsafe version of {@link #wglFreeMemoryNV FreeMemoryNV} */
 	public static void nwglFreeMemoryNV(long pointer) {
-		long __functionAddress = getInstance().FreeMemoryNV;
+		long __functionAddress = GL.getCapabilitiesWGL().wglFreeMemoryNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, pointer);
 	}
 

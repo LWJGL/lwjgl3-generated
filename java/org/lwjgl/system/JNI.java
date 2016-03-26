@@ -207,6 +207,7 @@ public final class JNI {
 	public static native void callIZV(long __functionAddress, int param0, boolean param1);
 	public static native void callIZZZZV(long __functionAddress, int param0, boolean param1, boolean param2, boolean param3, boolean param4);
 	public static native long callJ(long __functionAddress);
+	public static native void callJIFFFFFFFFFV(long __functionAddress, long param0, int param1, float param2, float param3, float param4, float param5, float param6, float param7, float param8, float param9, float param10);
 	public static native void callJIV(long __functionAddress, long param0, int param1);
 	public static native void callJV(long __functionAddress, long param0);
 	public static native boolean callJZ(long __functionAddress, long param0);
@@ -424,11 +425,13 @@ public final class JNI {
 	public static native void invokePIIV(long __functionAddress, long param0, int param1, int param2);
 	public static native long invokePIP(long __functionAddress, long param0, int param1);
 	public static native void invokePIPPV(long __functionAddress, long param0, int param1, long param2, long param3);
+	public static native void invokePIPV(long __functionAddress, long param0, int param1, long param2);
 	public static native void invokePIV(long __functionAddress, long param0, int param1);
 	public static native long invokePP(long __functionAddress, long param0);
 	public static native int invokePPI(long __functionAddress, long param0, long param1);
 	public static native int invokePPII(long __functionAddress, long param0, long param1, int param2);
 	public static native long invokePPIIIIIIIPPPP(long __functionAddress, long param0, long param1, int param2, int param3, int param4, int param5, int param6, int param7, int param8, long param9, long param10, long param11);
+	public static native void invokePPIIIIIV(long __functionAddress, long param0, long param1, int param2, int param3, int param4, int param5, int param6);
 	public static native long invokePPIP(long __functionAddress, long param0, long param1, int param2);
 	public static native void invokePPIV(long __functionAddress, long param0, long param1, int param2);
 	public static native long invokePPP(long __functionAddress, long param0, long param1);

@@ -10,8 +10,8 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -113,10 +113,14 @@ public class NativeFileDialog {
 	public static int NFD_OpenDialog(CharSequence filterList, CharSequence defaultPath, PointerBuffer outPath) {
 		if ( CHECKS )
 			checkBuffer(outPath, 1);
-		APIBuffer __buffer = apiBuffer();
-		int filterListEncoded = filterList == null ? 0 : __buffer.stringParamUTF8(filterList, true);
-		int defaultPathEncoded = defaultPath == null ? 0 : __buffer.stringParamUTF8(defaultPath, true);
-		return nNFD_OpenDialog(__buffer.addressSafe(filterList, filterListEncoded), __buffer.addressSafe(defaultPath, defaultPathEncoded), memAddress(outPath));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filterListEncoded = filterList == null ? null : stack.UTF8(filterList);
+			ByteBuffer defaultPathEncoded = defaultPath == null ? null : stack.UTF8(defaultPath);
+			return nNFD_OpenDialog(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), memAddress(outPath));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ NFD_OpenDialogMultiple ] ---
@@ -144,10 +148,14 @@ public class NativeFileDialog {
 
 	/** CharSequence version of: {@link #NFD_OpenDialogMultiple OpenDialogMultiple} */
 	public static int NFD_OpenDialogMultiple(CharSequence filterList, CharSequence defaultPath, NFDPathSet outPaths) {
-		APIBuffer __buffer = apiBuffer();
-		int filterListEncoded = filterList == null ? 0 : __buffer.stringParamUTF8(filterList, true);
-		int defaultPathEncoded = defaultPath == null ? 0 : __buffer.stringParamUTF8(defaultPath, true);
-		return nNFD_OpenDialogMultiple(__buffer.addressSafe(filterList, filterListEncoded), __buffer.addressSafe(defaultPath, defaultPathEncoded), outPaths.address());
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filterListEncoded = filterList == null ? null : stack.UTF8(filterList);
+			ByteBuffer defaultPathEncoded = defaultPath == null ? null : stack.UTF8(defaultPath);
+			return nNFD_OpenDialogMultiple(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), outPaths.address());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ NFD_SaveDialog ] ---
@@ -188,10 +196,14 @@ public class NativeFileDialog {
 	public static int NFD_SaveDialog(CharSequence filterList, CharSequence defaultPath, PointerBuffer outPath) {
 		if ( CHECKS )
 			checkBuffer(outPath, 1);
-		APIBuffer __buffer = apiBuffer();
-		int filterListEncoded = filterList == null ? 0 : __buffer.stringParamUTF8(filterList, true);
-		int defaultPathEncoded = defaultPath == null ? 0 : __buffer.stringParamUTF8(defaultPath, true);
-		return nNFD_SaveDialog(__buffer.addressSafe(filterList, filterListEncoded), __buffer.addressSafe(defaultPath, defaultPathEncoded), memAddress(outPath));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filterListEncoded = filterList == null ? null : stack.UTF8(filterList);
+			ByteBuffer defaultPathEncoded = defaultPath == null ? null : stack.UTF8(defaultPath);
+			return nNFD_SaveDialog(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), memAddress(outPath));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ NFD_GetError ] ---
@@ -202,7 +214,7 @@ public class NativeFileDialog {
 	/** Returns the last error. */
 	public static String NFD_GetError() {
 		long __result = nNFD_GetError();
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ NFD_PathSet_GetCount ] ---
@@ -232,7 +244,7 @@ public class NativeFileDialog {
 	 */
 	public static String NFD_PathSet_GetPath(NFDPathSet pathSet, long index) {
 		long __result = nNFD_PathSet_GetPath(pathSet.address(), index);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ NFD_PathSet_Free ] ---

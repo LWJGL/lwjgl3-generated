@@ -7,12 +7,11 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.opengles.GLES20.*;
@@ -331,165 +330,30 @@ public class NVPathRendering {
 		GL_OBJECT_LINEAR_NV = 0x2401,
 		GL_CONSTANT_NV      = 0x8576;
 
-	/** Function address. */
-	public final long
-		PathCommandsNV,
-		PathCoordsNV,
-		PathSubCommandsNV,
-		PathSubCoordsNV,
-		PathStringNV,
-		PathGlyphsNV,
-		PathGlyphRangeNV,
-		PathGlyphIndexArrayNV,
-		PathMemoryGlyphIndexArrayNV,
-		CopyPathNV,
-		WeightPathsNV,
-		InterpolatePathsNV,
-		TransformPathNV,
-		PathParameterivNV,
-		PathParameteriNV,
-		PathParameterfvNV,
-		PathParameterfNV,
-		PathDashArrayNV,
-		GenPathsNV,
-		DeletePathsNV,
-		IsPathNV,
-		PathStencilFuncNV,
-		PathStencilDepthOffsetNV,
-		StencilFillPathNV,
-		StencilStrokePathNV,
-		StencilFillPathInstancedNV,
-		StencilStrokePathInstancedNV,
-		PathCoverDepthFuncNV,
-		CoverFillPathNV,
-		CoverStrokePathNV,
-		CoverFillPathInstancedNV,
-		CoverStrokePathInstancedNV,
-		StencilThenCoverFillPathNV,
-		StencilThenCoverStrokePathNV,
-		StencilThenCoverFillPathInstancedNV,
-		StencilThenCoverStrokePathInstancedNV,
-		PathGlyphIndexRangeNV,
-		ProgramPathFragmentInputGenNV,
-		GetPathParameterivNV,
-		GetPathParameterfvNV,
-		GetPathCommandsNV,
-		GetPathCoordsNV,
-		GetPathDashArrayNV,
-		GetPathMetricsNV,
-		GetPathMetricRangeNV,
-		GetPathSpacingNV,
-		IsPointInFillPathNV,
-		IsPointInStrokePathNV,
-		GetPathLengthNV,
-		PointAlongPathNV,
-		MatrixLoad3x2fNV,
-		MatrixLoad3x3fNV,
-		MatrixLoadTranspose3x3fNV,
-		MatrixMult3x2fNV,
-		MatrixMult3x3fNV,
-		MatrixMultTranspose3x3fNV,
-		GetProgramResourcefvNV;
-
 	protected NVPathRendering() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVPathRendering(FunctionProvider provider) {
-		PathCommandsNV = provider.getFunctionAddress("glPathCommandsNV");
-		PathCoordsNV = provider.getFunctionAddress("glPathCoordsNV");
-		PathSubCommandsNV = provider.getFunctionAddress("glPathSubCommandsNV");
-		PathSubCoordsNV = provider.getFunctionAddress("glPathSubCoordsNV");
-		PathStringNV = provider.getFunctionAddress("glPathStringNV");
-		PathGlyphsNV = provider.getFunctionAddress("glPathGlyphsNV");
-		PathGlyphRangeNV = provider.getFunctionAddress("glPathGlyphRangeNV");
-		PathGlyphIndexArrayNV = provider.getFunctionAddress("glPathGlyphIndexArrayNV");
-		PathMemoryGlyphIndexArrayNV = provider.getFunctionAddress("glPathMemoryGlyphIndexArrayNV");
-		CopyPathNV = provider.getFunctionAddress("glCopyPathNV");
-		WeightPathsNV = provider.getFunctionAddress("glWeightPathsNV");
-		InterpolatePathsNV = provider.getFunctionAddress("glInterpolatePathsNV");
-		TransformPathNV = provider.getFunctionAddress("glTransformPathNV");
-		PathParameterivNV = provider.getFunctionAddress("glPathParameterivNV");
-		PathParameteriNV = provider.getFunctionAddress("glPathParameteriNV");
-		PathParameterfvNV = provider.getFunctionAddress("glPathParameterfvNV");
-		PathParameterfNV = provider.getFunctionAddress("glPathParameterfNV");
-		PathDashArrayNV = provider.getFunctionAddress("glPathDashArrayNV");
-		GenPathsNV = provider.getFunctionAddress("glGenPathsNV");
-		DeletePathsNV = provider.getFunctionAddress("glDeletePathsNV");
-		IsPathNV = provider.getFunctionAddress("glIsPathNV");
-		PathStencilFuncNV = provider.getFunctionAddress("glPathStencilFuncNV");
-		PathStencilDepthOffsetNV = provider.getFunctionAddress("glPathStencilDepthOffsetNV");
-		StencilFillPathNV = provider.getFunctionAddress("glStencilFillPathNV");
-		StencilStrokePathNV = provider.getFunctionAddress("glStencilStrokePathNV");
-		StencilFillPathInstancedNV = provider.getFunctionAddress("glStencilFillPathInstancedNV");
-		StencilStrokePathInstancedNV = provider.getFunctionAddress("glStencilStrokePathInstancedNV");
-		PathCoverDepthFuncNV = provider.getFunctionAddress("glPathCoverDepthFuncNV");
-		CoverFillPathNV = provider.getFunctionAddress("glCoverFillPathNV");
-		CoverStrokePathNV = provider.getFunctionAddress("glCoverStrokePathNV");
-		CoverFillPathInstancedNV = provider.getFunctionAddress("glCoverFillPathInstancedNV");
-		CoverStrokePathInstancedNV = provider.getFunctionAddress("glCoverStrokePathInstancedNV");
-		StencilThenCoverFillPathNV = provider.getFunctionAddress("glStencilThenCoverFillPathNV");
-		StencilThenCoverStrokePathNV = provider.getFunctionAddress("glStencilThenCoverStrokePathNV");
-		StencilThenCoverFillPathInstancedNV = provider.getFunctionAddress("glStencilThenCoverFillPathInstancedNV");
-		StencilThenCoverStrokePathInstancedNV = provider.getFunctionAddress("glStencilThenCoverStrokePathInstancedNV");
-		PathGlyphIndexRangeNV = provider.getFunctionAddress("glPathGlyphIndexRangeNV");
-		ProgramPathFragmentInputGenNV = provider.getFunctionAddress("glProgramPathFragmentInputGenNV");
-		GetPathParameterivNV = provider.getFunctionAddress("glGetPathParameterivNV");
-		GetPathParameterfvNV = provider.getFunctionAddress("glGetPathParameterfvNV");
-		GetPathCommandsNV = provider.getFunctionAddress("glGetPathCommandsNV");
-		GetPathCoordsNV = provider.getFunctionAddress("glGetPathCoordsNV");
-		GetPathDashArrayNV = provider.getFunctionAddress("glGetPathDashArrayNV");
-		GetPathMetricsNV = provider.getFunctionAddress("glGetPathMetricsNV");
-		GetPathMetricRangeNV = provider.getFunctionAddress("glGetPathMetricRangeNV");
-		GetPathSpacingNV = provider.getFunctionAddress("glGetPathSpacingNV");
-		IsPointInFillPathNV = provider.getFunctionAddress("glIsPointInFillPathNV");
-		IsPointInStrokePathNV = provider.getFunctionAddress("glIsPointInStrokePathNV");
-		GetPathLengthNV = provider.getFunctionAddress("glGetPathLengthNV");
-		PointAlongPathNV = provider.getFunctionAddress("glPointAlongPathNV");
-		MatrixLoad3x2fNV = provider.getFunctionAddress("glMatrixLoad3x2fNV");
-		MatrixLoad3x3fNV = provider.getFunctionAddress("glMatrixLoad3x3fNV");
-		MatrixLoadTranspose3x3fNV = provider.getFunctionAddress("glMatrixLoadTranspose3x3fNV");
-		MatrixMult3x2fNV = provider.getFunctionAddress("glMatrixMult3x2fNV");
-		MatrixMult3x3fNV = provider.getFunctionAddress("glMatrixMult3x3fNV");
-		MatrixMultTranspose3x3fNV = provider.getFunctionAddress("glMatrixMultTranspose3x3fNV");
-		GetProgramResourcefvNV = provider.getFunctionAddress("glGetProgramResourcefvNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVPathRendering} instance of the current context. */
-	public static NVPathRendering getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVPathRendering} instance of the specified {@link GLESCapabilities}. */
-	public static NVPathRendering getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVPathRendering);
-	}
-
-	static NVPathRendering create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_path_rendering") ) return null;
-
-		NVPathRendering funcs = new NVPathRendering(provider);
-		boolean supported = checkFunctions(
-			funcs.PathCommandsNV, funcs.PathCoordsNV, funcs.PathSubCommandsNV, funcs.PathSubCoordsNV, funcs.PathStringNV, funcs.PathGlyphsNV, 
-			funcs.PathGlyphRangeNV, funcs.CopyPathNV, funcs.InterpolatePathsNV, funcs.TransformPathNV, funcs.PathParameterivNV, funcs.PathParameteriNV, 
-			funcs.PathParameterfvNV, funcs.PathParameterfNV, funcs.PathDashArrayNV, funcs.GenPathsNV, funcs.DeletePathsNV, funcs.IsPathNV, 
-			funcs.PathStencilFuncNV, funcs.PathStencilDepthOffsetNV, funcs.StencilFillPathNV, funcs.StencilStrokePathNV, funcs.StencilFillPathInstancedNV, 
-			funcs.StencilStrokePathInstancedNV, funcs.PathCoverDepthFuncNV, funcs.CoverFillPathNV, funcs.CoverStrokePathNV, funcs.CoverFillPathInstancedNV, 
-			funcs.CoverStrokePathInstancedNV, funcs.GetPathParameterivNV, funcs.GetPathParameterfvNV, funcs.GetPathCommandsNV, funcs.GetPathCoordsNV, 
-			funcs.GetPathDashArrayNV, funcs.GetPathMetricsNV, funcs.GetPathMetricRangeNV, funcs.GetPathSpacingNV, funcs.IsPointInFillPathNV, 
-			funcs.IsPointInStrokePathNV, funcs.GetPathLengthNV, funcs.PointAlongPathNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glPathCommandsNV, caps.glPathCoordsNV, caps.glPathSubCommandsNV, caps.glPathSubCoordsNV, caps.glPathStringNV, caps.glPathGlyphsNV, 
+			caps.glPathGlyphRangeNV, caps.glCopyPathNV, caps.glInterpolatePathsNV, caps.glTransformPathNV, caps.glPathParameterivNV, caps.glPathParameteriNV, 
+			caps.glPathParameterfvNV, caps.glPathParameterfNV, caps.glPathDashArrayNV, caps.glGenPathsNV, caps.glDeletePathsNV, caps.glIsPathNV, 
+			caps.glPathStencilFuncNV, caps.glPathStencilDepthOffsetNV, caps.glStencilFillPathNV, caps.glStencilStrokePathNV, caps.glStencilFillPathInstancedNV, 
+			caps.glStencilStrokePathInstancedNV, caps.glPathCoverDepthFuncNV, caps.glCoverFillPathNV, caps.glCoverStrokePathNV, caps.glCoverFillPathInstancedNV, 
+			caps.glCoverStrokePathInstancedNV, caps.glGetPathParameterivNV, caps.glGetPathParameterfvNV, caps.glGetPathCommandsNV, caps.glGetPathCoordsNV, 
+			caps.glGetPathDashArrayNV, caps.glGetPathMetricsNV, caps.glGetPathMetricRangeNV, caps.glGetPathSpacingNV, caps.glIsPointInFillPathNV, 
+			caps.glIsPointInStrokePathNV, caps.glGetPathLengthNV, caps.glPointAlongPathNV
 		);
-
-		return GLES.checkExtension("GL_NV_path_rendering", funcs, supported);
 	}
 
 	// --- [ glPathCommandsNV ] ---
 
 	/** Unsafe version of {@link #glPathCommandsNV PathCommandsNV} */
 	public static void nglPathCommandsNV(int path, int numCommands, long commands, int numCoords, int coordType, long coords) {
-		long __functionAddress = getInstance().PathCommandsNV;
+		long __functionAddress = GLES.getCapabilities().glPathCommandsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIPV(__functionAddress, path, numCommands, commands, numCoords, coordType, coords);
 	}
 
@@ -530,7 +394,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathCoordsNV PathCoordsNV} */
 	public static void nglPathCoordsNV(int path, int numCoords, int coordType, long coords) {
-		long __functionAddress = getInstance().PathCoordsNV;
+		long __functionAddress = GLES.getCapabilities().glPathCoordsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, path, numCoords, coordType, coords);
 	}
 
@@ -567,7 +433,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathSubCommandsNV PathSubCommandsNV} */
 	public static void nglPathSubCommandsNV(int path, int commandStart, int commandsToDelete, int numCommands, long commands, int numCoords, int coordType, long coords) {
-		long __functionAddress = getInstance().PathSubCommandsNV;
+		long __functionAddress = GLES.getCapabilities().glPathSubCommandsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPIIPV(__functionAddress, path, commandStart, commandsToDelete, numCommands, commands, numCoords, coordType, coords);
 	}
 
@@ -610,7 +478,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathSubCoordsNV PathSubCoordsNV} */
 	public static void nglPathSubCoordsNV(int path, int coordStart, int numCoords, int coordType, long coords) {
-		long __functionAddress = getInstance().PathSubCoordsNV;
+		long __functionAddress = GLES.getCapabilities().glPathSubCoordsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, path, coordStart, numCoords, coordType, coords);
 	}
 
@@ -648,7 +518,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathStringNV PathStringNV} */
 	public static void nglPathStringNV(int path, int format, int length, long pathString) {
-		long __functionAddress = getInstance().PathStringNV;
+		long __functionAddress = GLES.getCapabilities().glPathStringNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, path, format, length, pathString);
 	}
 
@@ -675,7 +547,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathGlyphsNV PathGlyphsNV} */
 	public static void nglPathGlyphsNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int numGlyphs, int type, long charcodes, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
-		long __functionAddress = getInstance().PathGlyphsNV;
+		long __functionAddress = GLES.getCapabilities().glPathGlyphsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIIPIIFV(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, numGlyphs, type, charcodes, handleMissingGlyphs, pathParameterTemplate, emScale);
 	}
 
@@ -712,7 +586,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathGlyphRangeNV PathGlyphRangeNV} */
 	public static void nglPathGlyphRangeNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int firstGlyph, int numGlyphs, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
-		long __functionAddress = getInstance().PathGlyphRangeNV;
+		long __functionAddress = GLES.getCapabilities().glPathGlyphRangeNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIIIIFV(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, firstGlyph, numGlyphs, handleMissingGlyphs, pathParameterTemplate, emScale);
 	}
 
@@ -739,7 +615,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathGlyphIndexArrayNV PathGlyphIndexArrayNV} */
 	public static int nglPathGlyphIndexArrayNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale) {
-		long __functionAddress = getInstance().PathGlyphIndexArrayNV;
+		long __functionAddress = GLES.getCapabilities().glPathGlyphIndexArrayNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callIIPIIIIFI(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
@@ -767,7 +643,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathMemoryGlyphIndexArrayNV PathMemoryGlyphIndexArrayNV} */
 	public static int nglPathMemoryGlyphIndexArrayNV(int firstPathName, int fontTarget, long fontSize, long fontData, int faceIndex, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale) {
-		long __functionAddress = getInstance().PathMemoryGlyphIndexArrayNV;
+		long __functionAddress = GLES.getCapabilities().glPathMemoryGlyphIndexArrayNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callIIPPIIIIFI(__functionAddress, firstPathName, fontTarget, fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
@@ -800,7 +676,9 @@ public class NVPathRendering {
 	// --- [ glCopyPathNV ] ---
 
 	public static void glCopyPathNV(int resultPath, int srcPath) {
-		long __functionAddress = getInstance().CopyPathNV;
+		long __functionAddress = GLES.getCapabilities().glCopyPathNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, resultPath, srcPath);
 	}
 
@@ -808,7 +686,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glWeightPathsNV WeightPathsNV} */
 	public static void nglWeightPathsNV(int resultPath, int numPaths, long paths, long weights) {
-		long __functionAddress = getInstance().WeightPathsNV;
+		long __functionAddress = GLES.getCapabilities().glWeightPathsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, resultPath, numPaths, paths, weights);
@@ -832,7 +710,9 @@ public class NVPathRendering {
 	// --- [ glInterpolatePathsNV ] ---
 
 	public static void glInterpolatePathsNV(int resultPath, int pathA, int pathB, float weight) {
-		long __functionAddress = getInstance().InterpolatePathsNV;
+		long __functionAddress = GLES.getCapabilities().glInterpolatePathsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIFV(__functionAddress, resultPath, pathA, pathB, weight);
 	}
 
@@ -840,7 +720,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glTransformPathNV TransformPathNV} */
 	public static void nglTransformPathNV(int resultPath, int srcPath, int transformType, long transformValues) {
-		long __functionAddress = getInstance().TransformPathNV;
+		long __functionAddress = GLES.getCapabilities().glTransformPathNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, resultPath, srcPath, transformType, transformValues);
 	}
 
@@ -869,7 +751,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathParameterivNV PathParameterivNV} */
 	public static void nglPathParameterivNV(int path, int pname, long value) {
-		long __functionAddress = getInstance().PathParameterivNV;
+		long __functionAddress = GLES.getCapabilities().glPathParameterivNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, path, pname, value);
 	}
 
@@ -903,7 +787,9 @@ public class NVPathRendering {
 	 * @param value 
 	 */
 	public static void glPathParameteriNV(int path, int pname, int value) {
-		long __functionAddress = getInstance().PathParameteriNV;
+		long __functionAddress = GLES.getCapabilities().glPathParameteriNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, path, pname, value);
 	}
 
@@ -911,7 +797,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathParameterfvNV PathParameterfvNV} */
 	public static void nglPathParameterfvNV(int path, int pname, long value) {
-		long __functionAddress = getInstance().PathParameterfvNV;
+		long __functionAddress = GLES.getCapabilities().glPathParameterfvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, path, pname, value);
 	}
 
@@ -945,7 +833,9 @@ public class NVPathRendering {
 	 * @param value 
 	 */
 	public static void glPathParameterfNV(int path, int pname, float value) {
-		long __functionAddress = getInstance().PathParameterfNV;
+		long __functionAddress = GLES.getCapabilities().glPathParameterfNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIFV(__functionAddress, path, pname, value);
 	}
 
@@ -953,7 +843,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathDashArrayNV PathDashArrayNV} */
 	public static void nglPathDashArrayNV(int path, int dashCount, long dashArray) {
-		long __functionAddress = getInstance().PathDashArrayNV;
+		long __functionAddress = GLES.getCapabilities().glPathDashArrayNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, path, dashCount, dashArray);
 	}
 
@@ -971,35 +863,45 @@ public class NVPathRendering {
 	// --- [ glGenPathsNV ] ---
 
 	public static int glGenPathsNV(int range) {
-		long __functionAddress = getInstance().GenPathsNV;
+		long __functionAddress = GLES.getCapabilities().glGenPathsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, range);
 	}
 
 	// --- [ glDeletePathsNV ] ---
 
 	public static void glDeletePathsNV(int path, int range) {
-		long __functionAddress = getInstance().DeletePathsNV;
+		long __functionAddress = GLES.getCapabilities().glDeletePathsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, path, range);
 	}
 
 	// --- [ glIsPathNV ] ---
 
 	public static boolean glIsPathNV(int path) {
-		long __functionAddress = getInstance().IsPathNV;
+		long __functionAddress = GLES.getCapabilities().glIsPathNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, path);
 	}
 
 	// --- [ glPathStencilFuncNV ] ---
 
 	public static void glPathStencilFuncNV(int func, int ref, int mask) {
-		long __functionAddress = getInstance().PathStencilFuncNV;
+		long __functionAddress = GLES.getCapabilities().glPathStencilFuncNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, func, ref, mask);
 	}
 
 	// --- [ glPathStencilDepthOffsetNV ] ---
 
 	public static void glPathStencilDepthOffsetNV(float factor, float units) {
-		long __functionAddress = getInstance().PathStencilDepthOffsetNV;
+		long __functionAddress = GLES.getCapabilities().glPathStencilDepthOffsetNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, factor, units);
 	}
 
@@ -1013,14 +915,18 @@ public class NVPathRendering {
 	 * @param mask     
 	 */
 	public static void glStencilFillPathNV(int path, int fillMode, int mask) {
-		long __functionAddress = getInstance().StencilFillPathNV;
+		long __functionAddress = GLES.getCapabilities().glStencilFillPathNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, path, fillMode, mask);
 	}
 
 	// --- [ glStencilStrokePathNV ] ---
 
 	public static void glStencilStrokePathNV(int path, int reference, int mask) {
-		long __functionAddress = getInstance().StencilStrokePathNV;
+		long __functionAddress = GLES.getCapabilities().glStencilStrokePathNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, path, reference, mask);
 	}
 
@@ -1028,7 +934,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glStencilFillPathInstancedNV StencilFillPathInstancedNV} */
 	public static void nglStencilFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int fillMode, int mask, int transformType, long transformValues) {
-		long __functionAddress = getInstance().StencilFillPathInstancedNV;
+		long __functionAddress = GLES.getCapabilities().glStencilFillPathInstancedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, fillMode, mask, transformType, transformValues);
 	}
 
@@ -1064,7 +972,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glStencilStrokePathInstancedNV StencilStrokePathInstancedNV} */
 	public static void nglStencilStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int reference, int mask, int transformType, long transformValues) {
-		long __functionAddress = getInstance().StencilStrokePathInstancedNV;
+		long __functionAddress = GLES.getCapabilities().glStencilStrokePathInstancedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, reference, mask, transformType, transformValues);
 	}
 
@@ -1099,7 +1009,9 @@ public class NVPathRendering {
 	// --- [ glPathCoverDepthFuncNV ] ---
 
 	public static void glPathCoverDepthFuncNV(int zfunc) {
-		long __functionAddress = getInstance().PathCoverDepthFuncNV;
+		long __functionAddress = GLES.getCapabilities().glPathCoverDepthFuncNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, zfunc);
 	}
 
@@ -1112,7 +1024,9 @@ public class NVPathRendering {
 	 * @param coverMode one of:<br>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}, {@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}
 	 */
 	public static void glCoverFillPathNV(int path, int coverMode) {
-		long __functionAddress = getInstance().CoverFillPathNV;
+		long __functionAddress = GLES.getCapabilities().glCoverFillPathNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, path, coverMode);
 	}
 
@@ -1125,7 +1039,9 @@ public class NVPathRendering {
 	 * @param coverMode one of:<br>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}, {@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}
 	 */
 	public static void glCoverStrokePathNV(int path, int coverMode) {
-		long __functionAddress = getInstance().CoverStrokePathNV;
+		long __functionAddress = GLES.getCapabilities().glCoverStrokePathNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, path, coverMode);
 	}
 
@@ -1133,7 +1049,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glCoverFillPathInstancedNV CoverFillPathInstancedNV} */
 	public static void nglCoverFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int coverMode, int transformType, long transformValues) {
-		long __functionAddress = getInstance().CoverFillPathInstancedNV;
+		long __functionAddress = GLES.getCapabilities().glCoverFillPathInstancedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues);
 	}
 
@@ -1168,7 +1086,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glCoverStrokePathInstancedNV CoverStrokePathInstancedNV} */
 	public static void nglCoverStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int coverMode, int transformType, long transformValues) {
-		long __functionAddress = getInstance().CoverStrokePathInstancedNV;
+		long __functionAddress = GLES.getCapabilities().glCoverStrokePathInstancedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues);
 	}
 
@@ -1210,7 +1130,7 @@ public class NVPathRendering {
 	 * @param coverMode one of:<br>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}, {@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}
 	 */
 	public static void glStencilThenCoverFillPathNV(int path, int fillMode, int mask, int coverMode) {
-		long __functionAddress = getInstance().StencilThenCoverFillPathNV;
+		long __functionAddress = GLES.getCapabilities().glStencilThenCoverFillPathNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, path, fillMode, mask, coverMode);
@@ -1227,7 +1147,7 @@ public class NVPathRendering {
 	 * @param coverMode one of:<br>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}, {@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}
 	 */
 	public static void glStencilThenCoverStrokePathNV(int path, int reference, int mask, int coverMode) {
-		long __functionAddress = getInstance().StencilThenCoverStrokePathNV;
+		long __functionAddress = GLES.getCapabilities().glStencilThenCoverStrokePathNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, path, reference, mask, coverMode);
@@ -1237,7 +1157,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glStencilThenCoverFillPathInstancedNV StencilThenCoverFillPathInstancedNV} */
 	public static void nglStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, long transformValues) {
-		long __functionAddress = getInstance().StencilThenCoverFillPathInstancedNV;
+		long __functionAddress = GLES.getCapabilities().glStencilThenCoverFillPathInstancedNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPIIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, fillMode, mask, coverMode, transformType, transformValues);
@@ -1276,7 +1196,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glStencilThenCoverStrokePathInstancedNV StencilThenCoverStrokePathInstancedNV} */
 	public static void nglStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int reference, int mask, int coverMode, int transformType, long transformValues) {
-		long __functionAddress = getInstance().StencilThenCoverStrokePathInstancedNV;
+		long __functionAddress = GLES.getCapabilities().glStencilThenCoverStrokePathInstancedNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPIIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, reference, mask, coverMode, transformType, transformValues);
@@ -1315,7 +1235,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPathGlyphIndexRangeNV PathGlyphIndexRangeNV} */
 	public static int nglPathGlyphIndexRangeNV(int fontTarget, long fontName, int fontStyle, int pathParameterTemplate, float emScale, int baseAndCount) {
-		long __functionAddress = getInstance().PathGlyphIndexRangeNV;
+		long __functionAddress = GLES.getCapabilities().glPathGlyphIndexRangeNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callIPIIFII(__functionAddress, fontTarget, fontName, fontStyle, pathParameterTemplate, emScale, baseAndCount);
@@ -1341,7 +1261,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glProgramPathFragmentInputGenNV ProgramPathFragmentInputGenNV} */
 	public static void nglProgramPathFragmentInputGenNV(int program, int location, int genMode, int components, long coeffs) {
-		long __functionAddress = getInstance().ProgramPathFragmentInputGenNV;
+		long __functionAddress = GLES.getCapabilities().glProgramPathFragmentInputGenNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, program, location, genMode, components, coeffs);
@@ -1364,7 +1284,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glGetPathParameterivNV GetPathParameterivNV} */
 	public static void nglGetPathParameterivNV(int path, int pname, long value) {
-		long __functionAddress = getInstance().GetPathParameterivNV;
+		long __functionAddress = GLES.getCapabilities().glGetPathParameterivNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, path, pname, value);
 	}
 
@@ -1390,17 +1312,23 @@ public class NVPathRendering {
 
 	/** Single return value version of: {@link #glGetPathParameterivNV GetPathParameterivNV} */
 	public static int glGetPathParameteriNV(int path, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.intParam();
-		nglGetPathParameterivNV(path, pname, __buffer.address(value));
-		return __buffer.intValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer value = stack.callocInt(1);
+			nglGetPathParameterivNV(path, pname, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetPathParameterfvNV ] ---
 
 	/** Unsafe version of {@link #glGetPathParameterfvNV GetPathParameterfvNV} */
 	public static void nglGetPathParameterfvNV(int path, int pname, long value) {
-		long __functionAddress = getInstance().GetPathParameterfvNV;
+		long __functionAddress = GLES.getCapabilities().glGetPathParameterfvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, path, pname, value);
 	}
 
@@ -1426,17 +1354,23 @@ public class NVPathRendering {
 
 	/** Single return value version of: {@link #glGetPathParameterfvNV GetPathParameterfvNV} */
 	public static float glGetPathParameterfNV(int path, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.floatParam();
-		nglGetPathParameterfvNV(path, pname, __buffer.address(value));
-		return __buffer.floatValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer value = stack.callocFloat(1);
+			nglGetPathParameterfvNV(path, pname, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetPathCommandsNV ] ---
 
 	/** Unsafe version of {@link #glGetPathCommandsNV GetPathCommandsNV} */
 	public static void nglGetPathCommandsNV(int path, long commands) {
-		long __functionAddress = getInstance().GetPathCommandsNV;
+		long __functionAddress = GLES.getCapabilities().glGetPathCommandsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, path, commands);
 	}
 
@@ -1451,7 +1385,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glGetPathCoordsNV GetPathCoordsNV} */
 	public static void nglGetPathCoordsNV(int path, long coords) {
-		long __functionAddress = getInstance().GetPathCoordsNV;
+		long __functionAddress = GLES.getCapabilities().glGetPathCoordsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, path, coords);
 	}
 
@@ -1474,7 +1410,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glGetPathDashArrayNV GetPathDashArrayNV} */
 	public static void nglGetPathDashArrayNV(int path, long dashArray) {
-		long __functionAddress = getInstance().GetPathDashArrayNV;
+		long __functionAddress = GLES.getCapabilities().glGetPathDashArrayNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, path, dashArray);
 	}
 
@@ -1497,7 +1435,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glGetPathMetricsNV GetPathMetricsNV} */
 	public static void nglGetPathMetricsNV(int metricQueryMask, int numPaths, int pathNameType, long paths, int pathBase, int stride, long metrics) {
-		long __functionAddress = getInstance().GetPathMetricsNV;
+		long __functionAddress = GLES.getCapabilities().glGetPathMetricsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIIPV(__functionAddress, metricQueryMask, numPaths, pathNameType, paths, pathBase, stride, metrics);
 	}
 
@@ -1532,7 +1472,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glGetPathMetricRangeNV GetPathMetricRangeNV} */
 	public static void nglGetPathMetricRangeNV(int metricQueryMask, int firstPathName, int numPaths, int stride, long metrics) {
-		long __functionAddress = getInstance().GetPathMetricRangeNV;
+		long __functionAddress = GLES.getCapabilities().glGetPathMetricRangeNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, metricQueryMask, firstPathName, numPaths, stride, metrics);
 	}
 
@@ -1562,7 +1504,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glGetPathSpacingNV GetPathSpacingNV} */
 	public static void nglGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, long paths, int pathBase, float advanceScale, float kerningScale, int transformType, long returnedSpacing) {
-		long __functionAddress = getInstance().GetPathSpacingNV;
+		long __functionAddress = GLES.getCapabilities().glGetPathSpacingNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIFFIPV(__functionAddress, pathListMode, numPaths, pathNameType, paths, pathBase, advanceScale, kerningScale, transformType, returnedSpacing);
 	}
 
@@ -1598,21 +1542,27 @@ public class NVPathRendering {
 	// --- [ glIsPointInFillPathNV ] ---
 
 	public static boolean glIsPointInFillPathNV(int path, int mask, float x, float y) {
-		long __functionAddress = getInstance().IsPointInFillPathNV;
+		long __functionAddress = GLES.getCapabilities().glIsPointInFillPathNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIFFZ(__functionAddress, path, mask, x, y);
 	}
 
 	// --- [ glIsPointInStrokePathNV ] ---
 
 	public static boolean glIsPointInStrokePathNV(int path, float x, float y) {
-		long __functionAddress = getInstance().IsPointInStrokePathNV;
+		long __functionAddress = GLES.getCapabilities().glIsPointInStrokePathNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIFFZ(__functionAddress, path, x, y);
 	}
 
 	// --- [ glGetPathLengthNV ] ---
 
 	public static float glGetPathLengthNV(int path, int startSegment, int numSegments) {
-		long __functionAddress = getInstance().GetPathLengthNV;
+		long __functionAddress = GLES.getCapabilities().glGetPathLengthNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIIF(__functionAddress, path, startSegment, numSegments);
 	}
 
@@ -1620,7 +1570,9 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glPointAlongPathNV PointAlongPathNV} */
 	public static boolean nglPointAlongPathNV(int path, int startSegment, int numSegments, float distance, long x, long y, long tangentX, long tangentY) {
-		long __functionAddress = getInstance().PointAlongPathNV;
+		long __functionAddress = GLES.getCapabilities().glPointAlongPathNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIIFPPPPZ(__functionAddress, path, startSegment, numSegments, distance, x, y, tangentX, tangentY);
 	}
 
@@ -1649,7 +1601,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glMatrixLoad3x2fNV MatrixLoad3x2fNV} */
 	public static void nglMatrixLoad3x2fNV(int matrixMode, long m) {
-		long __functionAddress = getInstance().MatrixLoad3x2fNV;
+		long __functionAddress = GLES.getCapabilities().glMatrixLoad3x2fNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, matrixMode, m);
@@ -1678,7 +1630,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glMatrixLoad3x3fNV MatrixLoad3x3fNV} */
 	public static void nglMatrixLoad3x3fNV(int matrixMode, long m) {
-		long __functionAddress = getInstance().MatrixLoad3x3fNV;
+		long __functionAddress = GLES.getCapabilities().glMatrixLoad3x3fNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, matrixMode, m);
@@ -1707,7 +1659,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glMatrixLoadTranspose3x3fNV MatrixLoadTranspose3x3fNV} */
 	public static void nglMatrixLoadTranspose3x3fNV(int matrixMode, long m) {
-		long __functionAddress = getInstance().MatrixLoadTranspose3x3fNV;
+		long __functionAddress = GLES.getCapabilities().glMatrixLoadTranspose3x3fNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, matrixMode, m);
@@ -1736,7 +1688,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glMatrixMult3x2fNV MatrixMult3x2fNV} */
 	public static void nglMatrixMult3x2fNV(int matrixMode, long m) {
-		long __functionAddress = getInstance().MatrixMult3x2fNV;
+		long __functionAddress = GLES.getCapabilities().glMatrixMult3x2fNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, matrixMode, m);
@@ -1765,7 +1717,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glMatrixMult3x3fNV MatrixMult3x3fNV} */
 	public static void nglMatrixMult3x3fNV(int matrixMode, long m) {
-		long __functionAddress = getInstance().MatrixMult3x3fNV;
+		long __functionAddress = GLES.getCapabilities().glMatrixMult3x3fNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, matrixMode, m);
@@ -1794,7 +1746,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glMatrixMultTranspose3x3fNV MatrixMultTranspose3x3fNV} */
 	public static void nglMatrixMultTranspose3x3fNV(int matrixMode, long m) {
-		long __functionAddress = getInstance().MatrixMultTranspose3x3fNV;
+		long __functionAddress = GLES.getCapabilities().glMatrixMultTranspose3x3fNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, matrixMode, m);
@@ -1823,7 +1775,7 @@ public class NVPathRendering {
 
 	/** Unsafe version of {@link #glGetProgramResourcefvNV GetProgramResourcefvNV} */
 	public static void nglGetProgramResourcefvNV(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
-		long __functionAddress = getInstance().GetProgramResourcefvNV;
+		long __functionAddress = GLES.getCapabilities().glGetProgramResourcefvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
@@ -1843,16 +1795,6 @@ public class NVPathRendering {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramResourcefvNV(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
-	}
-
-	/** Buffer return version of: {@link #glGetProgramResourcefvNV GetProgramResourcefvNV} */
-	public static FloatBuffer glGetProgramResourcefvNV(int program, int programInterface, int index, IntBuffer props, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		FloatBuffer params = BufferUtils.createFloatBuffer(bufSize);
-		nglGetProgramResourcefvNV(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), memAddress(params));
-		params.limit(__buffer.intValue(length));
-		return params.slice();
 	}
 
 	private static int charcodeTypeToBytes(int type) {

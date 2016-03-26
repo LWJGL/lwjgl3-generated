@@ -28,45 +28,23 @@ public class KHREGLEvent {
 	/** Returned by {@link CL10#clGetEventInfo GetEventInfo} when param_name is {@link CL10#CL_EVENT_COMMAND_TYPE EVENT_COMMAND_TYPE}. */
 	public static final int CL_COMMAND_EGL_FENCE_SYNC_OBJECT_KHR = 0x202F;
 
-	/** Function address. */
-	public final long CreateEventFromEGLSyncKHR;
-
 	protected KHREGLEvent() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHREGLEvent(FunctionProvider provider) {
-		CreateEventFromEGLSyncKHR = provider.getFunctionAddress("clCreateEventFromEGLSyncKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHREGLEvent} instance of the currently loaded ICD. */
-	public static KHREGLEvent getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link KHREGLEvent} instance of the specified {@link CLCapabilities}. */
-	public static KHREGLEvent getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__KHREGLEvent);
-	}
-
-	static KHREGLEvent create(FunctionProvider provider) {
-		KHREGLEvent funcs = new KHREGLEvent(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateEventFromEGLSyncKHR
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clCreateEventFromEGLSyncKHR
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateEventFromEGLSyncKHR ] ---
 
 	/** Unsafe version of {@link #clCreateEventFromEGLSyncKHR CreateEventFromEGLSyncKHR} */
 	public static long nclCreateEventFromEGLSyncKHR(long context, long sync, long display, long errcode_ret) {
-		long __functionAddress = getInstance().CreateEventFromEGLSyncKHR;
+		long __functionAddress = CL.getICD().clCreateEventFromEGLSyncKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(sync);
 			checkPointer(display);

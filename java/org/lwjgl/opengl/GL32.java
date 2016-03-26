@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -188,86 +188,26 @@ public class GL32 {
 		GL_CONDITION_SATISFIED = 0x911C,
 		GL_WAIT_FAILED         = 0x911D;
 
-	/** Function address. */
-	public final long
-		GetBufferParameteri64v,
-		DrawElementsBaseVertex,
-		DrawRangeElementsBaseVertex,
-		DrawElementsInstancedBaseVertex,
-		MultiDrawElementsBaseVertex,
-		ProvokingVertex,
-		TexImage2DMultisample,
-		TexImage3DMultisample,
-		GetMultisamplefv,
-		SampleMaski,
-		FramebufferTexture,
-		FenceSync,
-		IsSync,
-		DeleteSync,
-		ClientWaitSync,
-		WaitSync,
-		GetInteger64v,
-		GetInteger64i_v,
-		GetSynciv;
-
 	protected GL32() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL32(FunctionProvider provider) {
-		GetBufferParameteri64v = provider.getFunctionAddress("glGetBufferParameteri64v");
-		DrawElementsBaseVertex = provider.getFunctionAddress("glDrawElementsBaseVertex");
-		DrawRangeElementsBaseVertex = provider.getFunctionAddress("glDrawRangeElementsBaseVertex");
-		DrawElementsInstancedBaseVertex = provider.getFunctionAddress("glDrawElementsInstancedBaseVertex");
-		MultiDrawElementsBaseVertex = provider.getFunctionAddress("glMultiDrawElementsBaseVertex");
-		ProvokingVertex = provider.getFunctionAddress("glProvokingVertex");
-		TexImage2DMultisample = provider.getFunctionAddress("glTexImage2DMultisample");
-		TexImage3DMultisample = provider.getFunctionAddress("glTexImage3DMultisample");
-		GetMultisamplefv = provider.getFunctionAddress("glGetMultisamplefv");
-		SampleMaski = provider.getFunctionAddress("glSampleMaski");
-		FramebufferTexture = provider.getFunctionAddress("glFramebufferTexture");
-		FenceSync = provider.getFunctionAddress("glFenceSync");
-		IsSync = provider.getFunctionAddress("glIsSync");
-		DeleteSync = provider.getFunctionAddress("glDeleteSync");
-		ClientWaitSync = provider.getFunctionAddress("glClientWaitSync");
-		WaitSync = provider.getFunctionAddress("glWaitSync");
-		GetInteger64v = provider.getFunctionAddress("glGetInteger64v");
-		GetInteger64i_v = provider.getFunctionAddress("glGetInteger64i_v");
-		GetSynciv = provider.getFunctionAddress("glGetSynciv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL32} instance of the current context. */
-	public static GL32 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL32} instance of the specified {@link GLCapabilities}. */
-	public static GL32 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL32);
-	}
-
-	static GL32 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL32") ) return null;
-
-		GL32 funcs = new GL32(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetBufferParameteri64v, funcs.DrawElementsBaseVertex, funcs.DrawRangeElementsBaseVertex, funcs.DrawElementsInstancedBaseVertex, 
-			funcs.MultiDrawElementsBaseVertex, funcs.ProvokingVertex, funcs.TexImage2DMultisample, funcs.TexImage3DMultisample, funcs.GetMultisamplefv, 
-			funcs.SampleMaski, funcs.FramebufferTexture, funcs.FenceSync, funcs.IsSync, funcs.DeleteSync, funcs.ClientWaitSync, funcs.WaitSync, 
-			funcs.GetInteger64v, funcs.GetInteger64i_v, funcs.GetSynciv
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetBufferParameteri64v, caps.glDrawElementsBaseVertex, caps.glDrawRangeElementsBaseVertex, caps.glDrawElementsInstancedBaseVertex, 
+			caps.glMultiDrawElementsBaseVertex, caps.glProvokingVertex, caps.glTexImage2DMultisample, caps.glTexImage3DMultisample, caps.glGetMultisamplefv, 
+			caps.glSampleMaski, caps.glFramebufferTexture, caps.glFenceSync, caps.glIsSync, caps.glDeleteSync, caps.glClientWaitSync, caps.glWaitSync, 
+			caps.glGetInteger64v, caps.glGetInteger64i_v, caps.glGetSynciv
 		);
-
-		return GL.checkExtension("OpenGL32", funcs, supported);
 	}
 
 	// --- [ glGetBufferParameteri64v ] ---
 
 	/** Unsafe version of {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
 	public static void nglGetBufferParameteri64v(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetBufferParameteri64v;
+		long __functionAddress = GL.getCapabilities().glGetBufferParameteri64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -295,17 +235,23 @@ public class GL32 {
 
 	/** Single return value version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
 	public static long glGetBufferParameteri64(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetBufferParameteri64v(target, pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetBufferParameteri64v(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDrawElementsBaseVertex ] ---
 
 	/** Unsafe version of {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
-		long __functionAddress = getInstance().DrawElementsBaseVertex;
+		long __functionAddress = GL.getCapabilities().glDrawElementsBaseVertex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
@@ -367,7 +313,9 @@ public class GL32 {
 
 	/** Unsafe version of {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
-		long __functionAddress = getInstance().DrawRangeElementsBaseVertex;
+		long __functionAddress = GL.getCapabilities().glDrawRangeElementsBaseVertex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
@@ -431,7 +379,9 @@ public class GL32 {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
-		long __functionAddress = getInstance().DrawElementsInstancedBaseVertex;
+		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
@@ -494,7 +444,9 @@ public class GL32 {
 
 	/** Unsafe version of {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex} */
 	public static void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex) {
-		long __functionAddress = getInstance().MultiDrawElementsBaseVertex;
+		long __functionAddress = GL.getCapabilities().glMultiDrawElementsBaseVertex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
@@ -540,7 +492,9 @@ public class GL32 {
 	 * @param mode the provoking vertex mode. One of:<br>{@link #GL_FIRST_VERTEX_CONVENTION FIRST_VERTEX_CONVENTION}, {@link #GL_LAST_VERTEX_CONVENTION LAST_VERTEX_CONVENTION}
 	 */
 	public static void glProvokingVertex(int mode) {
-		long __functionAddress = getInstance().ProvokingVertex;
+		long __functionAddress = GL.getCapabilities().glProvokingVertex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
 	}
 
@@ -561,7 +515,9 @@ public class GL32 {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TexImage2DMultisample;
+		long __functionAddress = GL.getCapabilities().glTexImage2DMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
@@ -583,7 +539,9 @@ public class GL32 {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TexImage3DMultisample;
+		long __functionAddress = GL.getCapabilities().glTexImage3DMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
@@ -591,7 +549,9 @@ public class GL32 {
 
 	/** Unsafe version of {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
-		long __functionAddress = getInstance().GetMultisamplefv;
+		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, pname, index, val);
 	}
 
@@ -619,10 +579,14 @@ public class GL32 {
 
 	/** Single return value version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static float glGetMultisamplef(int pname, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int val = __buffer.floatParam();
-		nglGetMultisamplefv(pname, index, __buffer.address(val));
-		return __buffer.floatValue(val);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer val = stack.callocFloat(1);
+			nglGetMultisamplefv(pname, index, memAddress(val));
+			return val.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glSampleMaski ] ---
@@ -636,7 +600,9 @@ public class GL32 {
 	 * @param mask  the new value of the mask sub-word
 	 */
 	public static void glSampleMaski(int index, int mask) {
-		long __functionAddress = getInstance().SampleMaski;
+		long __functionAddress = GL.getCapabilities().glSampleMaski;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, mask);
 	}
 
@@ -653,7 +619,9 @@ public class GL32 {
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
 	public static void glFramebufferTexture(int target, int attachment, int texture, int level) {
-		long __functionAddress = getInstance().FramebufferTexture;
+		long __functionAddress = GL.getCapabilities().glFramebufferTexture;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 
@@ -669,7 +637,9 @@ public class GL32 {
 	 *                  be zero.
 	 */
 	public static long glFenceSync(int condition, int flags) {
-		long __functionAddress = getInstance().FenceSync;
+		long __functionAddress = GL.getCapabilities().glFenceSync;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIP(__functionAddress, condition, flags);
 	}
 
@@ -683,9 +653,11 @@ public class GL32 {
 	 * @param sync a value that may be the name of a sync object
 	 */
 	public static boolean glIsSync(long sync) {
-		long __functionAddress = getInstance().IsSync;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glIsSync;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		return callPZ(__functionAddress, sync);
 	}
 
@@ -699,9 +671,11 @@ public class GL32 {
 	 * @param sync the sync object to be deleted
 	 */
 	public static void glDeleteSync(long sync) {
-		long __functionAddress = getInstance().DeleteSync;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glDeleteSync;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		callPV(__functionAddress, sync);
 	}
 
@@ -727,9 +701,11 @@ public class GL32 {
 	 * @param timeout the timeout, specified in nanoseconds, for which the implementation should wait for {@code sync} to become signaled
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
-		long __functionAddress = getInstance().ClientWaitSync;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glClientWaitSync;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
 
@@ -751,9 +727,11 @@ public class GL32 {
 	 * @param timeout the timeout that the server should wait before continuing. Must be:<br>{@link #GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
-		long __functionAddress = getInstance().WaitSync;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glWaitSync;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		callPIJV(__functionAddress, sync, flags, timeout);
 	}
 
@@ -761,7 +739,9 @@ public class GL32 {
 
 	/** Unsafe version of {@link #glGetInteger64v GetInteger64v} */
 	public static void nglGetInteger64v(int pname, long params) {
-		long __functionAddress = getInstance().GetInteger64v;
+		long __functionAddress = GL.getCapabilities().glGetInteger64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
 
@@ -788,17 +768,23 @@ public class GL32 {
 
 	/** Single return value version of: {@link #glGetInteger64v GetInteger64v} */
 	public static long glGetInteger64(int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetInteger64v(pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetInteger64v(pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetInteger64i_v ] ---
 
 	/** Unsafe version of {@link #glGetInteger64i_v GetInteger64i_v} */
 	public static void nglGetInteger64i_v(int pname, int index, long params) {
-		long __functionAddress = getInstance().GetInteger64i_v;
+		long __functionAddress = GL.getCapabilities().glGetInteger64i_v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, pname, index, params);
 	}
 
@@ -826,19 +812,25 @@ public class GL32 {
 
 	/** Single return value version of: {@link #glGetInteger64i_v GetInteger64i_v} */
 	public static long glGetInteger64i(int pname, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetInteger64i_v(pname, index, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetInteger64i_v(pname, index, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetSynciv ] ---
 
 	/** Unsafe version of {@link #glGetSynciv GetSynciv} */
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
-		long __functionAddress = getInstance().GetSynciv;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glGetSynciv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
@@ -872,10 +864,14 @@ public class GL32 {
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		APIBuffer __buffer = apiBuffer();
-		int values = __buffer.intParam();
-		nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address(values));
-		return __buffer.intValue(values);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer values = stack.callocInt(1);
+			nglGetSynciv(sync, pname, 1, memAddressSafe(length), memAddress(values));
+			return values.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

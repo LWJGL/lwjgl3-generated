@@ -29,44 +29,22 @@ import static org.lwjgl.system.JNI.*;
  */
 public class EXTCopyImage {
 
-	/** Function address. */
-	public final long CopyImageSubDataEXT;
-
 	protected EXTCopyImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTCopyImage(FunctionProvider provider) {
-		CopyImageSubDataEXT = provider.getFunctionAddress("glCopyImageSubDataEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTCopyImage} instance of the current context. */
-	public static EXTCopyImage getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTCopyImage} instance of the specified {@link GLESCapabilities}. */
-	public static EXTCopyImage getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTCopyImage);
-	}
-
-	static EXTCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_copy_image") ) return null;
-
-		EXTCopyImage funcs = new EXTCopyImage(provider);
-		boolean supported = checkFunctions(
-			funcs.CopyImageSubDataEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glCopyImageSubDataEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_copy_image", funcs, supported);
 	}
 
 	// --- [ glCopyImageSubDataEXT ] ---
 
 	public static void glCopyImageSubDataEXT(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
-		long __functionAddress = getInstance().CopyImageSubDataEXT;
+		long __functionAddress = GLES.getCapabilities().glCopyImageSubDataEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIIIIIIV(__functionAddress, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 	}
 

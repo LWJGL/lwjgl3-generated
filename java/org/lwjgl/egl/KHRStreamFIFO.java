@@ -45,35 +45,23 @@ public class KHRStreamFIFO {
 		EGL_STREAM_TIME_CONSUMER_KHR = 0x31FE,
 		EGL_STREAM_TIME_PRODUCER_KHR = 0x31FF;
 
-	/** Function address. */
-	public final long QueryStreamTimeKHR;
-
 	protected KHRStreamFIFO() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRStreamFIFO(FunctionProvider provider) {
-		QueryStreamTimeKHR = provider.getFunctionAddress("eglQueryStreamTimeKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRStreamFIFO} instance. */
-	public static KHRStreamFIFO getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRStreamFIFO} instance of the specified {@link EGLCapabilities}. */
-	public static KHRStreamFIFO getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRStreamFIFO);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglQueryStreamTimeKHR
+		);
 	}
 
 	// --- [ eglQueryStreamTimeKHR ] ---
 
 	/** Unsafe version of {@link #eglQueryStreamTimeKHR QueryStreamTimeKHR} */
 	public static int neglQueryStreamTimeKHR(long dpy, long stream, int attribute, long value) {
-		long __functionAddress = getInstance().QueryStreamTimeKHR;
+		long __functionAddress = EGL.getCapabilities().eglQueryStreamTimeKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}

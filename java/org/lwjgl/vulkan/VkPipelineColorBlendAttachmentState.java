@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -32,7 +33,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -58,7 +59,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		BLENDENABLE = layout.offsetof(0);
 		SRCCOLORBLENDFACTOR = layout.offsetof(1);
@@ -220,6 +221,76 @@ public class VkPipelineColorBlendAttachmentState extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkPipelineColorBlendAttachmentState} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkPipelineColorBlendAttachmentState mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkPipelineColorBlendAttachmentState} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkPipelineColorBlendAttachmentState callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineColorBlendAttachmentState} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkPipelineColorBlendAttachmentState mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineColorBlendAttachmentState} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkPipelineColorBlendAttachmentState callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineColorBlendAttachmentState.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineColorBlendAttachmentState.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineColorBlendAttachmentState.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkPipelineColorBlendAttachmentState.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #blendEnable}. */
 	public static int nblendEnable(long struct) { return memGetInt(struct + VkPipelineColorBlendAttachmentState.BLENDENABLE); }
 	/** Unsafe version of {@link #srcColorBlendFactor}. */
@@ -288,7 +359,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct {
 
 		@Override
 		protected VkPipelineColorBlendAttachmentState newInstance(long address) {
-			return new VkPipelineColorBlendAttachmentState(address, container);
+			return new VkPipelineColorBlendAttachmentState(address, getContainer());
 		}
 
 		@Override

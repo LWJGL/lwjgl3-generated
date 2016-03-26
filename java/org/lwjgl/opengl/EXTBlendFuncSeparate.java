@@ -27,45 +27,22 @@ public class EXTBlendFuncSeparate {
 		GL_BLEND_DST_ALPHA_EXT = 0x80CA,
 		GL_BLEND_SRC_ALPHA_EXT = 0x80CB;
 
-	/** Function address. */
-	public final long BlendFuncSeparateEXT;
-
 	protected EXTBlendFuncSeparate() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTBlendFuncSeparate(FunctionProvider provider) {
-		BlendFuncSeparateEXT = provider.getFunctionAddress("glBlendFuncSeparateEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTBlendFuncSeparate} instance of the current context. */
-	public static EXTBlendFuncSeparate getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTBlendFuncSeparate} instance of the specified {@link GLCapabilities}. */
-	public static EXTBlendFuncSeparate getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTBlendFuncSeparate);
-	}
-
-	static EXTBlendFuncSeparate create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_blend_func_separate") ) return null;
-
-		EXTBlendFuncSeparate funcs = new EXTBlendFuncSeparate(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BlendFuncSeparateEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBlendFuncSeparateEXT
 		);
-
-		return GL.checkExtension("GL_EXT_blend_func_separate", funcs, supported);
 	}
 
 	// --- [ glBlendFuncSeparateEXT ] ---
 
 	public static void glBlendFuncSeparateEXT(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
-		long __functionAddress = getInstance().BlendFuncSeparateEXT;
+		long __functionAddress = GL.getCapabilities().glBlendFuncSeparateEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 	}
 

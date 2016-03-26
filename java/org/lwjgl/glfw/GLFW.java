@@ -13,6 +13,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -415,7 +416,7 @@ public class GLFW {
 		GLFW_SAMPLES          = 0x2100D,
 		GLFW_SRGB_CAPABLE     = 0x2100E,
 		GLFW_REFRESH_RATE     = 0x2100F,
-		GLFW_DOUBLE_BUFFER    = 0x21010;
+		GLFW_DOUBLEBUFFER     = 0x21010;
 
 	/** Client API hints. */
 	public static final int
@@ -454,209 +455,114 @@ public class GLFW {
 		GLFW_RELEASE_BEHAVIOR_FLUSH = 0x35001,
 		GLFW_RELEASE_BEHAVIOR_NONE  = 0x35002;
 
-	/** Function address. */
-	public final long
-		Init,
-		Terminate,
-		GetVersion,
-		GetVersionString,
-		SetErrorCallback,
-		GetMonitors,
-		GetPrimaryMonitor,
-		GetMonitorPos,
-		GetMonitorPhysicalSize,
-		GetMonitorName,
-		SetMonitorCallback,
-		GetVideoModes,
-		GetVideoMode,
-		SetGamma,
-		GetGammaRamp,
-		SetGammaRamp,
-		DefaultWindowHints,
-		WindowHint,
-		CreateWindow,
-		DestroyWindow,
-		WindowShouldClose,
-		SetWindowShouldClose,
-		SetWindowTitle,
-		GetWindowPos,
-		SetWindowPos,
-		GetWindowSize,
-		SetWindowSizeLimits,
-		SetWindowAspectRatio,
-		SetWindowSize,
-		GetFramebufferSize,
-		GetWindowFrameSize,
-		IconifyWindow,
-		RestoreWindow,
-		MaximizeWindow,
-		ShowWindow,
-		HideWindow,
-		FocusWindow,
-		GetWindowMonitor,
-		GetWindowAttrib,
-		SetWindowUserPointer,
-		GetWindowUserPointer,
-		SetWindowPosCallback,
-		SetWindowSizeCallback,
-		SetWindowCloseCallback,
-		SetWindowRefreshCallback,
-		SetWindowFocusCallback,
-		SetWindowIconifyCallback,
-		SetFramebufferSizeCallback,
-		PollEvents,
-		WaitEvents,
-		WaitEventsTimeout,
-		PostEmptyEvent,
-		GetInputMode,
-		SetInputMode,
-		GetKeyName,
-		GetKey,
-		GetMouseButton,
-		GetCursorPos,
-		SetCursorPos,
-		CreateCursor,
-		CreateStandardCursor,
-		DestroyCursor,
-		SetCursor,
-		SetKeyCallback,
-		SetCharCallback,
-		SetCharModsCallback,
-		SetMouseButtonCallback,
-		SetCursorPosCallback,
-		SetCursorEnterCallback,
-		SetScrollCallback,
-		SetDropCallback,
-		JoystickPresent,
-		GetJoystickAxes,
-		GetJoystickButtons,
-		GetJoystickName,
-		SetClipboardString,
-		GetClipboardString,
-		GetTime,
-		SetTime,
-		GetTimerValue,
-		GetTimerFrequency,
-		MakeContextCurrent,
-		GetCurrentContext,
-		SwapBuffers,
-		SwapInterval,
-		ExtensionSupported,
-		GetProcAddress;
-
 	protected GLFW() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLFW(FunctionProvider provider) {
-		Init = checkFunctionAddress(provider.getFunctionAddress("glfwInit"));
-		Terminate = checkFunctionAddress(provider.getFunctionAddress("glfwTerminate"));
-		GetVersion = checkFunctionAddress(provider.getFunctionAddress("glfwGetVersion"));
-		GetVersionString = checkFunctionAddress(provider.getFunctionAddress("glfwGetVersionString"));
-		SetErrorCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetErrorCallback"));
-		GetMonitors = checkFunctionAddress(provider.getFunctionAddress("glfwGetMonitors"));
-		GetPrimaryMonitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetPrimaryMonitor"));
-		GetMonitorPos = checkFunctionAddress(provider.getFunctionAddress("glfwGetMonitorPos"));
-		GetMonitorPhysicalSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetMonitorPhysicalSize"));
-		GetMonitorName = checkFunctionAddress(provider.getFunctionAddress("glfwGetMonitorName"));
-		SetMonitorCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetMonitorCallback"));
-		GetVideoModes = checkFunctionAddress(provider.getFunctionAddress("glfwGetVideoModes"));
-		GetVideoMode = checkFunctionAddress(provider.getFunctionAddress("glfwGetVideoMode"));
-		SetGamma = checkFunctionAddress(provider.getFunctionAddress("glfwSetGamma"));
-		GetGammaRamp = checkFunctionAddress(provider.getFunctionAddress("glfwGetGammaRamp"));
-		SetGammaRamp = checkFunctionAddress(provider.getFunctionAddress("glfwSetGammaRamp"));
-		DefaultWindowHints = checkFunctionAddress(provider.getFunctionAddress("glfwDefaultWindowHints"));
-		WindowHint = checkFunctionAddress(provider.getFunctionAddress("glfwWindowHint"));
-		CreateWindow = checkFunctionAddress(provider.getFunctionAddress("glfwCreateWindow"));
-		DestroyWindow = checkFunctionAddress(provider.getFunctionAddress("glfwDestroyWindow"));
-		WindowShouldClose = checkFunctionAddress(provider.getFunctionAddress("glfwWindowShouldClose"));
-		SetWindowShouldClose = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowShouldClose"));
-		SetWindowTitle = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowTitle"));
-		GetWindowPos = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowPos"));
-		SetWindowPos = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowPos"));
-		GetWindowSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowSize"));
-		SetWindowSizeLimits = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowSizeLimits"));
-		SetWindowAspectRatio = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowAspectRatio"));
-		SetWindowSize = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowSize"));
-		GetFramebufferSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetFramebufferSize"));
-		GetWindowFrameSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowFrameSize"));
-		IconifyWindow = checkFunctionAddress(provider.getFunctionAddress("glfwIconifyWindow"));
-		RestoreWindow = checkFunctionAddress(provider.getFunctionAddress("glfwRestoreWindow"));
-		MaximizeWindow = checkFunctionAddress(provider.getFunctionAddress("glfwMaximizeWindow"));
-		ShowWindow = checkFunctionAddress(provider.getFunctionAddress("glfwShowWindow"));
-		HideWindow = checkFunctionAddress(provider.getFunctionAddress("glfwHideWindow"));
-		FocusWindow = checkFunctionAddress(provider.getFunctionAddress("glfwFocusWindow"));
-		GetWindowMonitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowMonitor"));
-		GetWindowAttrib = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowAttrib"));
-		SetWindowUserPointer = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowUserPointer"));
-		GetWindowUserPointer = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowUserPointer"));
-		SetWindowPosCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowPosCallback"));
-		SetWindowSizeCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowSizeCallback"));
-		SetWindowCloseCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowCloseCallback"));
-		SetWindowRefreshCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowRefreshCallback"));
-		SetWindowFocusCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowFocusCallback"));
-		SetWindowIconifyCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowIconifyCallback"));
-		SetFramebufferSizeCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetFramebufferSizeCallback"));
-		PollEvents = checkFunctionAddress(provider.getFunctionAddress("glfwPollEvents"));
-		WaitEvents = checkFunctionAddress(provider.getFunctionAddress("glfwWaitEvents"));
-		WaitEventsTimeout = checkFunctionAddress(provider.getFunctionAddress("glfwWaitEventsTimeout"));
-		PostEmptyEvent = checkFunctionAddress(provider.getFunctionAddress("glfwPostEmptyEvent"));
-		GetInputMode = checkFunctionAddress(provider.getFunctionAddress("glfwGetInputMode"));
-		SetInputMode = checkFunctionAddress(provider.getFunctionAddress("glfwSetInputMode"));
-		GetKeyName = checkFunctionAddress(provider.getFunctionAddress("glfwGetKeyName"));
-		GetKey = checkFunctionAddress(provider.getFunctionAddress("glfwGetKey"));
-		GetMouseButton = checkFunctionAddress(provider.getFunctionAddress("glfwGetMouseButton"));
-		GetCursorPos = checkFunctionAddress(provider.getFunctionAddress("glfwGetCursorPos"));
-		SetCursorPos = checkFunctionAddress(provider.getFunctionAddress("glfwSetCursorPos"));
-		CreateCursor = checkFunctionAddress(provider.getFunctionAddress("glfwCreateCursor"));
-		CreateStandardCursor = checkFunctionAddress(provider.getFunctionAddress("glfwCreateStandardCursor"));
-		DestroyCursor = checkFunctionAddress(provider.getFunctionAddress("glfwDestroyCursor"));
-		SetCursor = checkFunctionAddress(provider.getFunctionAddress("glfwSetCursor"));
-		SetKeyCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetKeyCallback"));
-		SetCharCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetCharCallback"));
-		SetCharModsCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetCharModsCallback"));
-		SetMouseButtonCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetMouseButtonCallback"));
-		SetCursorPosCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetCursorPosCallback"));
-		SetCursorEnterCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetCursorEnterCallback"));
-		SetScrollCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetScrollCallback"));
-		SetDropCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetDropCallback"));
-		JoystickPresent = checkFunctionAddress(provider.getFunctionAddress("glfwJoystickPresent"));
-		GetJoystickAxes = checkFunctionAddress(provider.getFunctionAddress("glfwGetJoystickAxes"));
-		GetJoystickButtons = checkFunctionAddress(provider.getFunctionAddress("glfwGetJoystickButtons"));
-		GetJoystickName = checkFunctionAddress(provider.getFunctionAddress("glfwGetJoystickName"));
-		SetClipboardString = checkFunctionAddress(provider.getFunctionAddress("glfwSetClipboardString"));
-		GetClipboardString = checkFunctionAddress(provider.getFunctionAddress("glfwGetClipboardString"));
-		GetTime = checkFunctionAddress(provider.getFunctionAddress("glfwGetTime"));
-		SetTime = checkFunctionAddress(provider.getFunctionAddress("glfwSetTime"));
-		GetTimerValue = checkFunctionAddress(provider.getFunctionAddress("glfwGetTimerValue"));
-		GetTimerFrequency = checkFunctionAddress(provider.getFunctionAddress("glfwGetTimerFrequency"));
-		MakeContextCurrent = checkFunctionAddress(provider.getFunctionAddress("glfwMakeContextCurrent"));
-		GetCurrentContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetCurrentContext"));
-		SwapBuffers = checkFunctionAddress(provider.getFunctionAddress("glfwSwapBuffers"));
-		SwapInterval = checkFunctionAddress(provider.getFunctionAddress("glfwSwapInterval"));
-		ExtensionSupported = checkFunctionAddress(provider.getFunctionAddress("glfwExtensionSupported"));
-		GetProcAddress = checkFunctionAddress(provider.getFunctionAddress("glfwGetProcAddress"));
+	private static final SharedLibrary GLFW = Library.loadNative(Configuration.GLFW_LIBRARY_NAME.get(Pointer.BITS64 ? "glfw" : "glfw32"));
+
+	/** Contains the function pointers loaded from the glfw {@link SharedLibrary}. */
+	public static final class Functions {
+
+		private Functions() {}
+
+		/** Function address. */
+		public static final long
+			Init = apiGetFunctionAddress(GLFW, "glfwInit"),
+			Terminate = apiGetFunctionAddress(GLFW, "glfwTerminate"),
+			GetVersion = apiGetFunctionAddress(GLFW, "glfwGetVersion"),
+			GetVersionString = apiGetFunctionAddress(GLFW, "glfwGetVersionString"),
+			SetErrorCallback = apiGetFunctionAddress(GLFW, "glfwSetErrorCallback"),
+			GetMonitors = apiGetFunctionAddress(GLFW, "glfwGetMonitors"),
+			GetPrimaryMonitor = apiGetFunctionAddress(GLFW, "glfwGetPrimaryMonitor"),
+			GetMonitorPos = apiGetFunctionAddress(GLFW, "glfwGetMonitorPos"),
+			GetMonitorPhysicalSize = apiGetFunctionAddress(GLFW, "glfwGetMonitorPhysicalSize"),
+			GetMonitorName = apiGetFunctionAddress(GLFW, "glfwGetMonitorName"),
+			SetMonitorCallback = apiGetFunctionAddress(GLFW, "glfwSetMonitorCallback"),
+			GetVideoModes = apiGetFunctionAddress(GLFW, "glfwGetVideoModes"),
+			GetVideoMode = apiGetFunctionAddress(GLFW, "glfwGetVideoMode"),
+			SetGamma = apiGetFunctionAddress(GLFW, "glfwSetGamma"),
+			GetGammaRamp = apiGetFunctionAddress(GLFW, "glfwGetGammaRamp"),
+			SetGammaRamp = apiGetFunctionAddress(GLFW, "glfwSetGammaRamp"),
+			DefaultWindowHints = apiGetFunctionAddress(GLFW, "glfwDefaultWindowHints"),
+			WindowHint = apiGetFunctionAddress(GLFW, "glfwWindowHint"),
+			CreateWindow = apiGetFunctionAddress(GLFW, "glfwCreateWindow"),
+			DestroyWindow = apiGetFunctionAddress(GLFW, "glfwDestroyWindow"),
+			WindowShouldClose = apiGetFunctionAddress(GLFW, "glfwWindowShouldClose"),
+			SetWindowShouldClose = apiGetFunctionAddress(GLFW, "glfwSetWindowShouldClose"),
+			SetWindowTitle = apiGetFunctionAddress(GLFW, "glfwSetWindowTitle"),
+			SetWindowIcon = apiGetFunctionAddress(GLFW, "glfwSetWindowIcon"),
+			GetWindowPos = apiGetFunctionAddress(GLFW, "glfwGetWindowPos"),
+			SetWindowPos = apiGetFunctionAddress(GLFW, "glfwSetWindowPos"),
+			GetWindowSize = apiGetFunctionAddress(GLFW, "glfwGetWindowSize"),
+			SetWindowSizeLimits = apiGetFunctionAddress(GLFW, "glfwSetWindowSizeLimits"),
+			SetWindowAspectRatio = apiGetFunctionAddress(GLFW, "glfwSetWindowAspectRatio"),
+			SetWindowSize = apiGetFunctionAddress(GLFW, "glfwSetWindowSize"),
+			GetFramebufferSize = apiGetFunctionAddress(GLFW, "glfwGetFramebufferSize"),
+			GetWindowFrameSize = apiGetFunctionAddress(GLFW, "glfwGetWindowFrameSize"),
+			IconifyWindow = apiGetFunctionAddress(GLFW, "glfwIconifyWindow"),
+			RestoreWindow = apiGetFunctionAddress(GLFW, "glfwRestoreWindow"),
+			MaximizeWindow = apiGetFunctionAddress(GLFW, "glfwMaximizeWindow"),
+			ShowWindow = apiGetFunctionAddress(GLFW, "glfwShowWindow"),
+			HideWindow = apiGetFunctionAddress(GLFW, "glfwHideWindow"),
+			FocusWindow = apiGetFunctionAddress(GLFW, "glfwFocusWindow"),
+			GetWindowMonitor = apiGetFunctionAddress(GLFW, "glfwGetWindowMonitor"),
+			SetWindowMonitor = apiGetFunctionAddress(GLFW, "glfwSetWindowMonitor"),
+			GetWindowAttrib = apiGetFunctionAddress(GLFW, "glfwGetWindowAttrib"),
+			SetWindowUserPointer = apiGetFunctionAddress(GLFW, "glfwSetWindowUserPointer"),
+			GetWindowUserPointer = apiGetFunctionAddress(GLFW, "glfwGetWindowUserPointer"),
+			SetWindowPosCallback = apiGetFunctionAddress(GLFW, "glfwSetWindowPosCallback"),
+			SetWindowSizeCallback = apiGetFunctionAddress(GLFW, "glfwSetWindowSizeCallback"),
+			SetWindowCloseCallback = apiGetFunctionAddress(GLFW, "glfwSetWindowCloseCallback"),
+			SetWindowRefreshCallback = apiGetFunctionAddress(GLFW, "glfwSetWindowRefreshCallback"),
+			SetWindowFocusCallback = apiGetFunctionAddress(GLFW, "glfwSetWindowFocusCallback"),
+			SetWindowIconifyCallback = apiGetFunctionAddress(GLFW, "glfwSetWindowIconifyCallback"),
+			SetFramebufferSizeCallback = apiGetFunctionAddress(GLFW, "glfwSetFramebufferSizeCallback"),
+			PollEvents = apiGetFunctionAddress(GLFW, "glfwPollEvents"),
+			WaitEvents = apiGetFunctionAddress(GLFW, "glfwWaitEvents"),
+			WaitEventsTimeout = apiGetFunctionAddress(GLFW, "glfwWaitEventsTimeout"),
+			PostEmptyEvent = apiGetFunctionAddress(GLFW, "glfwPostEmptyEvent"),
+			GetInputMode = apiGetFunctionAddress(GLFW, "glfwGetInputMode"),
+			SetInputMode = apiGetFunctionAddress(GLFW, "glfwSetInputMode"),
+			GetKeyName = apiGetFunctionAddress(GLFW, "glfwGetKeyName"),
+			GetKey = apiGetFunctionAddress(GLFW, "glfwGetKey"),
+			GetMouseButton = apiGetFunctionAddress(GLFW, "glfwGetMouseButton"),
+			GetCursorPos = apiGetFunctionAddress(GLFW, "glfwGetCursorPos"),
+			SetCursorPos = apiGetFunctionAddress(GLFW, "glfwSetCursorPos"),
+			CreateCursor = apiGetFunctionAddress(GLFW, "glfwCreateCursor"),
+			CreateStandardCursor = apiGetFunctionAddress(GLFW, "glfwCreateStandardCursor"),
+			DestroyCursor = apiGetFunctionAddress(GLFW, "glfwDestroyCursor"),
+			SetCursor = apiGetFunctionAddress(GLFW, "glfwSetCursor"),
+			SetKeyCallback = apiGetFunctionAddress(GLFW, "glfwSetKeyCallback"),
+			SetCharCallback = apiGetFunctionAddress(GLFW, "glfwSetCharCallback"),
+			SetCharModsCallback = apiGetFunctionAddress(GLFW, "glfwSetCharModsCallback"),
+			SetMouseButtonCallback = apiGetFunctionAddress(GLFW, "glfwSetMouseButtonCallback"),
+			SetCursorPosCallback = apiGetFunctionAddress(GLFW, "glfwSetCursorPosCallback"),
+			SetCursorEnterCallback = apiGetFunctionAddress(GLFW, "glfwSetCursorEnterCallback"),
+			SetScrollCallback = apiGetFunctionAddress(GLFW, "glfwSetScrollCallback"),
+			SetDropCallback = apiGetFunctionAddress(GLFW, "glfwSetDropCallback"),
+			JoystickPresent = apiGetFunctionAddress(GLFW, "glfwJoystickPresent"),
+			GetJoystickAxes = apiGetFunctionAddress(GLFW, "glfwGetJoystickAxes"),
+			GetJoystickButtons = apiGetFunctionAddress(GLFW, "glfwGetJoystickButtons"),
+			GetJoystickName = apiGetFunctionAddress(GLFW, "glfwGetJoystickName"),
+			SetClipboardString = apiGetFunctionAddress(GLFW, "glfwSetClipboardString"),
+			GetClipboardString = apiGetFunctionAddress(GLFW, "glfwGetClipboardString"),
+			GetTime = apiGetFunctionAddress(GLFW, "glfwGetTime"),
+			SetTime = apiGetFunctionAddress(GLFW, "glfwSetTime"),
+			GetTimerValue = apiGetFunctionAddress(GLFW, "glfwGetTimerValue"),
+			GetTimerFrequency = apiGetFunctionAddress(GLFW, "glfwGetTimerFrequency"),
+			MakeContextCurrent = apiGetFunctionAddress(GLFW, "glfwMakeContextCurrent"),
+			GetCurrentContext = apiGetFunctionAddress(GLFW, "glfwGetCurrentContext"),
+			SwapBuffers = apiGetFunctionAddress(GLFW, "glfwSwapBuffers"),
+			SwapInterval = apiGetFunctionAddress(GLFW, "glfwSwapInterval"),
+			ExtensionSupported = apiGetFunctionAddress(GLFW, "glfwExtensionSupported"),
+			GetProcAddress = apiGetFunctionAddress(GLFW, "glfwGetProcAddress");
+
 	}
 
-	// --- [ Function Addresses ] ---
-
-	private static final SharedLibrary GLFW;
-
-	private static final GLFW instance;
-
-	static {
-		GLFW = Library.loadNative(Configuration.LIBRARY_NAME_GLFW.get(Pointer.BITS64 ? "glfw" : "glfw32"));
-		instance = new GLFW(GLFW);
-	}
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	/** Returns the glfw {@link SharedLibrary}. */
 	public static SharedLibrary getLibrary() {
 		return GLFW;
-	}
-
-	/** Returns the {@link GLFW} instance. */
-	public static GLFW getInstance() {
-		return instance;
 	}
 
 	// --- [ glfwInit ] ---
@@ -682,7 +588,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static int glfwInit() {
-		long __functionAddress = getInstance().Init;
+		long __functionAddress = Functions.Init;
 		return invokeI(__functionAddress);
 	}
 
@@ -705,7 +611,7 @@ public class GLFW {
 	 * </ul>
 	 */
 	public static void glfwTerminate() {
-		long __functionAddress = getInstance().Terminate;
+		long __functionAddress = Functions.Terminate;
 		invokeV(__functionAddress);
 	}
 
@@ -713,7 +619,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetVersion GetVersion} */
 	public static void nglfwGetVersion(long major, long minor, long rev) {
-		long __functionAddress = getInstance().GetVersion;
+		long __functionAddress = Functions.GetVersion;
 		invokePPPV(__functionAddress, major, minor, rev);
 	}
 
@@ -759,7 +665,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetVersionString GetVersionString} */
 	public static long nglfwGetVersionString() {
-		long __functionAddress = getInstance().GetVersionString;
+		long __functionAddress = Functions.GetVersionString;
 		return invokeP(__functionAddress);
 	}
 
@@ -785,7 +691,7 @@ public class GLFW {
 	 */
 	public static String glfwGetVersionString() {
 		long __result = nglfwGetVersionString();
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ glfwSetErrorCallback ] ---
@@ -815,7 +721,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWErrorCallback glfwSetErrorCallback(GLFWErrorCallback cbfun) {
-		long __functionAddress = getInstance().SetErrorCallback;
+		long __functionAddress = Functions.SetErrorCallback;
 		return GLFWErrorCallback.create(invokePP(__functionAddress, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -823,7 +729,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetMonitors GetMonitors} */
 	public static long nglfwGetMonitors(long count) {
-		long __functionAddress = getInstance().GetMonitors;
+		long __functionAddress = Functions.GetMonitors;
 		return invokePP(__functionAddress, count);
 	}
 
@@ -841,10 +747,14 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static PointerBuffer glfwGetMonitors() {
-		APIBuffer __buffer = apiBuffer();
-		int count = __buffer.intParam();
-		long __result = nglfwGetMonitors(__buffer.address(count));
-		return memPointerBuffer(__result, __buffer.intValue(count));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer count = stack.callocInt(1);
+		try {
+			long __result = nglfwGetMonitors(memAddress(count));
+			return memPointerBuffer(__result, count.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glfwGetPrimaryMonitor ] ---
@@ -861,7 +771,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static long glfwGetPrimaryMonitor() {
-		long __functionAddress = getInstance().GetPrimaryMonitor;
+		long __functionAddress = Functions.GetPrimaryMonitor;
 		return invokeP(__functionAddress);
 	}
 
@@ -869,7 +779,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetMonitorPos GetMonitorPos} */
 	public static void nglfwGetMonitorPos(long monitor, long xpos, long ypos) {
-		long __functionAddress = getInstance().GetMonitorPos;
+		long __functionAddress = Functions.GetMonitorPos;
 		if ( CHECKS )
 			checkPointer(monitor);
 		invokePPPV(__functionAddress, monitor, xpos, ypos);
@@ -909,7 +819,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
 	public static void nglfwGetMonitorPhysicalSize(long monitor, long widthMM, long heightMM) {
-		long __functionAddress = getInstance().GetMonitorPhysicalSize;
+		long __functionAddress = Functions.GetMonitorPhysicalSize;
 		if ( CHECKS )
 			checkPointer(monitor);
 		invokePPPV(__functionAddress, monitor, widthMM, heightMM);
@@ -958,7 +868,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetMonitorName GetMonitorName} */
 	public static long nglfwGetMonitorName(long monitor) {
-		long __functionAddress = getInstance().GetMonitorName;
+		long __functionAddress = Functions.GetMonitorName;
 		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
@@ -981,7 +891,7 @@ public class GLFW {
 	 */
 	public static String glfwGetMonitorName(long monitor) {
 		long __result = nglfwGetMonitorName(monitor);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ glfwSetMonitorCallback ] ---
@@ -999,7 +909,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWMonitorCallback glfwSetMonitorCallback(GLFWMonitorCallback cbfun) {
-		long __functionAddress = getInstance().SetMonitorCallback;
+		long __functionAddress = Functions.SetMonitorCallback;
 		return GLFWMonitorCallback.create(invokePP(__functionAddress, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -1007,7 +917,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetVideoModes GetVideoModes} */
 	public static long nglfwGetVideoModes(long monitor, long count) {
-		long __functionAddress = getInstance().GetVideoModes;
+		long __functionAddress = Functions.GetVideoModes;
 		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePPP(__functionAddress, monitor, count);
@@ -1030,17 +940,21 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static GLFWVidMode.Buffer glfwGetVideoModes(long monitor) {
-		APIBuffer __buffer = apiBuffer();
-		int count = __buffer.intParam();
-		long __result = nglfwGetVideoModes(monitor, __buffer.address(count));
-		return GLFWVidMode.create(__result, __buffer.intValue(count));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer count = stack.callocInt(1);
+		try {
+			long __result = nglfwGetVideoModes(monitor, memAddress(count));
+			return GLFWVidMode.create(__result, count.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glfwGetVideoMode ] ---
 
 	/** Unsafe version of {@link #glfwGetVideoMode GetVideoMode} */
 	public static long nglfwGetVideoMode(long monitor) {
-		long __functionAddress = getInstance().GetVideoMode;
+		long __functionAddress = Functions.GetVideoMode;
 		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
@@ -1080,7 +994,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static void glfwSetGamma(long monitor, float gamma) {
-		long __functionAddress = getInstance().SetGamma;
+		long __functionAddress = Functions.SetGamma;
 		if ( CHECKS )
 			checkPointer(monitor);
 		invokePFV(__functionAddress, monitor, gamma);
@@ -1090,7 +1004,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetGammaRamp GetGammaRamp} */
 	public static long nglfwGetGammaRamp(long monitor) {
-		long __functionAddress = getInstance().GetGammaRamp;
+		long __functionAddress = Functions.GetGammaRamp;
 		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
@@ -1119,7 +1033,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwSetGammaRamp SetGammaRamp} */
 	public static void nglfwSetGammaRamp(long monitor, long ramp) {
-		long __functionAddress = getInstance().SetGammaRamp;
+		long __functionAddress = Functions.SetGammaRamp;
 		if ( CHECKS ) {
 			checkPointer(monitor);
 			GLFWGammaRamp.validate(ramp);
@@ -1157,7 +1071,7 @@ public class GLFW {
 	 * <p>This function must only be called from the main thread.</p>
 	 */
 	public static void glfwDefaultWindowHints() {
-		long __functionAddress = getInstance().DefaultWindowHints;
+		long __functionAddress = Functions.DefaultWindowHints;
 		invokeV(__functionAddress);
 	}
 
@@ -1174,28 +1088,29 @@ public class GLFW {
 	 * 
 	 * <table class=lwjgl>
 	 * <tr><th>Name</th><th>Default value</th><th>Supported values</th></tr>
-	 * <tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
-	 * <tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
-	 * <tr><td>{@link #GLFW_RED_BITS RED_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
-	 * <tr><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
-	 * <tr><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
-	 * <tr><td>{@link #GLFW_ALPHA_BITS ALPHA_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
-	 * <tr><td>{@link #GLFW_DEPTH_BITS DEPTH_BITS}</td><td>24</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
-	 * <tr><td>{@link #GLFW_STENCIL_BITS STENCIL_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
-	 * <tr><td>{@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
-	 * <tr><td>{@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
-	 * <tr><td>{@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
-	 * <tr><td>{@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
+	 * <tr><td>{@link #GLFW_RED_BITS RED_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
+	 * <tr><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
+	 * <tr><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
+	 * <tr><td>{@link #GLFW_ALPHA_BITS ALPHA_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
+	 * <tr><td>{@link #GLFW_DEPTH_BITS DEPTH_BITS}</td><td>24</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
+	 * <tr><td>{@link #GLFW_STENCIL_BITS STENCIL_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
+	 * <tr><td>{@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
+	 * <tr><td>{@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
+	 * <tr><td>{@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
+	 * <tr><td>{@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
 	 * <tr><td>{@link #GLFW_AUX_BUFFERS AUX_BUFFERS}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
 	 * <tr><td>{@link #GLFW_SAMPLES SAMPLES}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
-	 * <tr><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
+	 * <tr><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>{@link #GLFW_DONT_CARE DONT_CARE}</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
 	 * <tr><td>{@link #GLFW_STEREO STEREO}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_OPENGL_API OPENGL_API}</td><td>{@link #GLFW_NO_API NO_API} {@link #GLFW_OPENGL_API OPENGL_API} {@link #GLFW_OPENGL_ES_API OPENGL_ES_API}</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>1</td><td>Any valid major version number of the chosen client API</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>0</td><td>Any valid minor version number of the chosen client API</td></tr>
@@ -1208,13 +1123,13 @@ public class GLFW {
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
-	 * @param hint  the window hint to set. One of:<br>{@link #GLFW_RESIZABLE RESIZABLE}, {@link #GLFW_VISIBLE VISIBLE}, {@link #GLFW_DECORATED DECORATED}, {@link #GLFW_CLIENT_API CLIENT_API}, {@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}, {@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}, {@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}, {@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}, {@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}, {@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}, {@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}, {@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}, {@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}, {@link #GLFW_RED_BITS RED_BITS}, {@link #GLFW_GREEN_BITS GREEN_BITS}, {@link #GLFW_BLUE_BITS BLUE_BITS}, {@link #GLFW_ALPHA_BITS ALPHA_BITS}, {@link #GLFW_DEPTH_BITS DEPTH_BITS}, {@link #GLFW_STENCIL_BITS STENCIL_BITS}, {@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}, {@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}, {@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}, {@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}, {@link #GLFW_AUX_BUFFERS AUX_BUFFERS}, {@link #GLFW_STEREO STEREO}, {@link #GLFW_SAMPLES SAMPLES}, {@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}, {@link #GLFW_REFRESH_RATE REFRESH_RATE}, {@link #GLFW_DOUBLE_BUFFER DOUBLE_BUFFER}
+	 * @param hint  the window hint to set. One of:<br>{@link #GLFW_RESIZABLE RESIZABLE}, {@link #GLFW_VISIBLE VISIBLE}, {@link #GLFW_DECORATED DECORATED}, {@link #GLFW_CLIENT_API CLIENT_API}, {@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}, {@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}, {@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}, {@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}, {@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}, {@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}, {@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}, {@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}, {@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}, {@link #GLFW_RED_BITS RED_BITS}, {@link #GLFW_GREEN_BITS GREEN_BITS}, {@link #GLFW_BLUE_BITS BLUE_BITS}, {@link #GLFW_ALPHA_BITS ALPHA_BITS}, {@link #GLFW_DEPTH_BITS DEPTH_BITS}, {@link #GLFW_STENCIL_BITS STENCIL_BITS}, {@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}, {@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}, {@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}, {@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}, {@link #GLFW_AUX_BUFFERS AUX_BUFFERS}, {@link #GLFW_STEREO STEREO}, {@link #GLFW_SAMPLES SAMPLES}, {@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}, {@link #GLFW_REFRESH_RATE REFRESH_RATE}, {@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}
 	 * @param value the new value of the window hint
 	 *
 	 * @since version 2.2
 	 */
 	public static void glfwWindowHint(int hint, int value) {
-		long __functionAddress = getInstance().WindowHint;
+		long __functionAddress = Functions.WindowHint;
 		invokeIIV(__functionAddress, hint, value);
 	}
 
@@ -1222,7 +1137,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwCreateWindow CreateWindow} */
 	public static long nglfwCreateWindow(int width, int height, long title, long monitor, long share) {
-		long __functionAddress = getInstance().CreateWindow;
+		long __functionAddress = Functions.CreateWindow;
 		return invokeIIPPPP(__functionAddress, width, height, title, monitor, share);
 	}
 
@@ -1237,20 +1152,20 @@ public class GLFW {
 	 * size of the window, especially for full screen windows. To query the actual attributes of the created window, framebuffer and context, use queries like
 	 * {@link #glfwGetWindowAttrib GetWindowAttrib} and {@link #glfwGetWindowSize GetWindowSize} and {@link #glfwGetFramebufferSize GetFramebufferSize}.</p>
 	 * 
-	 * <p>To create a full screen window, you need to specify the monitor the window will cover. If no monitor is specified, windowed mode will be used. Unless
-	 * you have a way for the user to choose a specific monitor, it is recommended that you pick the primary monitor. For more information on how to query
-	 * connected monitors, see <a href="http://www.glfw.org/docs/latest/monitor.html#monitor_monitors">monitors</a>.</p>
+	 * <p>To create a full screen window, you need to specify the monitor the window will cover. If no monitor is specified, the window will be windowed mode.
+	 * Unless you have a way for the user to choose a specific monitor, it is recommended that you pick the primary monitor. For more information on how to
+	 * query connected monitors, see <a href="http://www.glfw.org/docs/latest/monitor.html#monitor_monitors">monitors</a>.</p>
 	 * 
-	 * <p>For full screen windows, the specified size becomes the resolution of the window's desired video mode. As long as a full screen window has input focus,
-	 * the supported video mode most closely matching the desired video mode is set for the specified monitor. For more information about full screen windows,
-	 * including the creation of so called <i>windowed full screen</i> or <i>borderless full screen windows</i>, see
+	 * <p>For full screen windows, the specified size becomes the resolution of the window's <i>desired video mode</i>. As long as a full screen window is not
+	 * iconified, the supported video mode most closely matching the desired video mode is set for the specified monitor. For more information about full
+	 * screen windows, including the creation of so called <i>windowed full screen</i> or <i>borderless full screen</i> windows, see
 	 * <a href="http://www.glfw.org/docs/latest/window.html#window_windowed_full_screen">full screen</a>.</p>
 	 * 
 	 * <p>By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially
 	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its <a href="http://www.glfw.org/docs/latest/window.html#window_pos">position</a> and then
 	 * <a href="http://www.glfw.org/docs/latest/window.html#window_hide">show</a> it.</p>
 	 * 
-	 * <p>If a full screen window has input focus, the screensaver is prohibited from starting.</p>
+	 * <p>As long as at least one full screen window is not iconified, the screensaver is prohibited from starting.</p>
 	 * 
 	 * <p>Window systems put limits on window sizes. Very large or very small window dimensions may be overridden by the window system on creation. Check the
 	 * actual <a href="http://www.glfw.org/docs/latest/window.html#window_size">size</a> after creation.</p>
@@ -1288,7 +1203,7 @@ public class GLFW {
 	 * @param width   the desired width, in screen coordinates, of the window
 	 * @param height  the desired height, in screen coordinates, of the window
 	 * @param title   initial, UTF-8 encoded window title
-	 * @param monitor the monitor to use for fullscreen mode, or {@code NULL} to use windowed mode
+	 * @param monitor the monitor to use for fullscreen mode, or {@code NULL} for windowed mode
 	 * @param share   the window whose context to share resources with, or {@code NULL} to not share resources
 	 *
 	 * @return the handle of the created window, or {@code NULL} if an error occurred
@@ -1305,9 +1220,13 @@ public class GLFW {
 	/** CharSequence version of: {@link #glfwCreateWindow CreateWindow} */
 	public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
 		EventLoop.OffScreen.check();
-		APIBuffer __buffer = apiBuffer();
-		int titleEncoded = __buffer.stringParamUTF8(title, true);
-		return nglfwCreateWindow(width, height, __buffer.address(titleEncoded), monitor, share);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nglfwCreateWindow(width, height, memAddress(titleEncoded), monitor, share);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glfwDestroyWindow ] ---
@@ -1330,7 +1249,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static void glfwDestroyWindow(long window) {
-		long __functionAddress = getInstance().DestroyWindow;
+		long __functionAddress = Functions.DestroyWindow;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
@@ -1350,7 +1269,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static int glfwWindowShouldClose(long window) {
-		long __functionAddress = getInstance().WindowShouldClose;
+		long __functionAddress = Functions.WindowShouldClose;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePI(__functionAddress, window);
@@ -1370,7 +1289,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static void glfwSetWindowShouldClose(long window, int value) {
-		long __functionAddress = getInstance().SetWindowShouldClose;
+		long __functionAddress = Functions.SetWindowShouldClose;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePIV(__functionAddress, window, value);
@@ -1380,7 +1299,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwSetWindowTitle SetWindowTitle} */
 	public static void nglfwSetWindowTitle(long window, long title) {
-		long __functionAddress = getInstance().SetWindowTitle;
+		long __functionAddress = Functions.SetWindowTitle;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePPV(__functionAddress, window, title);
@@ -1406,16 +1325,66 @@ public class GLFW {
 
 	/** CharSequence version of: {@link #glfwSetWindowTitle SetWindowTitle} */
 	public static void glfwSetWindowTitle(long window, CharSequence title) {
-		APIBuffer __buffer = apiBuffer();
-		int titleEncoded = __buffer.stringParamUTF8(title, true);
-		nglfwSetWindowTitle(window, __buffer.address(titleEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			nglfwSetWindowTitle(window, memAddress(titleEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	// --- [ glfwSetWindowIcon ] ---
+
+	/** Unsafe version of {@link #glfwSetWindowIcon SetWindowIcon} */
+	public static void nglfwSetWindowIcon(long window, int count, long images) {
+		long __functionAddress = Functions.SetWindowIcon;
+		if ( CHECKS ) {
+			checkPointer(window);
+			if ( images != NULL ) GLFWImage.validate(images, count);
+		}
+		invokePIPV(__functionAddress, window, count, images);
+	}
+
+	/**
+	 * Sets the icon for the specified window.
+	 * 
+	 * <p>This function sets the icon of the specified window. If passed an array of candidate images, those of or closest to the sizes desired by the system are
+	 * selected. If no images are specified, the window reverts to its default icon.</p>
+	 * 
+	 * <p>The desired image sizes varies depending on platform and system settings. The selected images will be rescaled as needed. Good sizes include 16x16,
+	 * 32x32 and 48x48.</p>
+	 * 
+	 * <p>The specified image data is copied before this function returns.</p>
+	 * 
+	 * <p><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's icon. For more
+	 * information on bundles, see the <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming
+	 * Guide</a> in the Mac Developer Library.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose icon to set
+	 * @param count  the number of images in the specified array, or zero to revert to the default window icon
+	 * @param images the images to create the icon from. This is ignored if count is zero.
+	 *
+	 * @since version 3.2
+	 */
+	public static void glfwSetWindowIcon(long window, int count, GLFWImage.Buffer images) {
+		if ( CHECKS )
+			if ( images != null ) checkBuffer(images, count);
+		nglfwSetWindowIcon(window, count, images == null ? NULL : images.address());
+	}
+
+	/** Alternative version of: {@link #glfwSetWindowIcon SetWindowIcon} */
+	public static void glfwSetWindowIcon(long window, GLFWImage.Buffer images) {
+		nglfwSetWindowIcon(window, images == null ? 0 : images.remaining(), images == null ? NULL : images.address());
 	}
 
 	// --- [ glfwGetWindowPos ] ---
 
 	/** Unsafe version of {@link #glfwGetWindowPos GetWindowPos} */
 	public static void nglfwGetWindowPos(long window, long xpos, long ypos) {
-		long __functionAddress = getInstance().GetWindowPos;
+		long __functionAddress = Functions.GetWindowPos;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePPPV(__functionAddress, window, xpos, ypos);
@@ -1471,7 +1440,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static void glfwSetWindowPos(long window, int xpos, int ypos) {
-		long __functionAddress = getInstance().SetWindowPos;
+		long __functionAddress = Functions.SetWindowPos;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePIIV(__functionAddress, window, xpos, ypos);
@@ -1481,7 +1450,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetWindowSize GetWindowSize} */
 	public static void nglfwGetWindowSize(long window, long width, long height) {
-		long __functionAddress = getInstance().GetWindowSize;
+		long __functionAddress = Functions.GetWindowSize;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePPPV(__functionAddress, window, width, height);
@@ -1521,10 +1490,10 @@ public class GLFW {
 	// --- [ glfwSetWindowSizeLimits ] ---
 
 	/**
-	 * Sets the size limits of the client area of the specified window. If the window is full screen or not resizable, this function does nothing.
+	 * Sets the size limits of the client area of the specified window. If the window is full screen, the size limits only take effect if once it is made
+	 * windowed. If the window is not resizable, this function does nothing.
 	 * 
-	 * <p>The size limits are applied immediately and may cause the window to be resized. If you set size limits and an aspect ratio that conflict, the results
-	 * are undefined.</p>
+	 * <p>The size limits are applied immediately to a windowed mode window and may cause it to be resized.</p>
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
@@ -1537,7 +1506,7 @@ public class GLFW {
 	 * @since version 3.2
 	 */
 	public static void glfwSetWindowSizeLimits(long window, int minwidth, int minheight, int maxwidth, int maxheight) {
-		long __functionAddress = getInstance().SetWindowSizeLimits;
+		long __functionAddress = Functions.SetWindowSizeLimits;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePIIIIV(__functionAddress, window, minwidth, minheight, maxwidth, maxheight);
@@ -1546,15 +1515,15 @@ public class GLFW {
 	// --- [ glfwSetWindowAspectRatio ] ---
 
 	/**
-	 * Sets the required aspect ratio of the client area of the specified window. If the window is full screen or not resizable, this function does nothing.
+	 * Sets the required aspect ratio of the client area of the specified window. If the window is full screen, the aspect ratio only takes effect once it is
+	 * made windowed. If the window is not resizable, this function does nothing.
 	 * 
 	 * <p>The aspect ratio is specified as a numerator and a denominator and both values must be greater than zero. For example, the common 16:9 aspect ratio is
 	 * specified as 16 and 9, respectively.</p>
 	 * 
 	 * <p>If the numerator and denominator is set to {@link #GLFW_DONT_CARE DONT_CARE} then the aspect ratio limit is disabled.</p>
 	 * 
-	 * <p>The aspect ratio is applied immediately and may cause the window to be  resized. If you set size limits and an aspect ratio that conflict, the results
-	 * are undefined.</p>
+	 * <p>The aspect ratio is applied immediately to a windowed mode window and may cause it to be resized.</p>
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
@@ -1565,7 +1534,7 @@ public class GLFW {
 	 * @since version 3.2
 	 */
 	public static void glfwSetWindowAspectRatio(long window, int numer, int denom) {
-		long __functionAddress = getInstance().SetWindowAspectRatio;
+		long __functionAddress = Functions.SetWindowAspectRatio;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePIIV(__functionAddress, window, numer, denom);
@@ -1576,21 +1545,23 @@ public class GLFW {
 	/**
 	 * Sets the size, in pixels, of the client area of the specified window.
 	 * 
-	 * <p>For full screen windows, this function selects and switches to the resolution closest to the specified size, without affecting the window's context. As
-	 * the context is unaffected, the bit depths of the framebuffer remain unchanged.</p>
+	 * <p>For full screen windows, this function updates the resolution of its desired video mode and switches to the video mode closest to it, without affecting
+	 * the window's context. As the context is unaffected, the bit depths of the framebuffer remain unchanged.</p>
+	 * 
+	 * <p>If you wish to update the refresh rate of the desired video mode in addition to its resolution, see {@link #glfwSetWindowMonitor SetWindowMonitor}.</p>
 	 * 
 	 * <p>The window manager may put limits on what sizes are allowed. GLFW cannot and should not override these limits.</p>
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window to resize
-	 * @param width  the desired width of the specified window
-	 * @param height the desired height of the specified window
+	 * @param width  the desired width, in screen coordinates, of the window client area
+	 * @param height the desired height, in screen coordinates, of the window client area
 	 *
 	 * @since version 1.0
 	 */
 	public static void glfwSetWindowSize(long window, int width, int height) {
-		long __functionAddress = getInstance().SetWindowSize;
+		long __functionAddress = Functions.SetWindowSize;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePIIV(__functionAddress, window, width, height);
@@ -1600,7 +1571,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetFramebufferSize GetFramebufferSize} */
 	public static void nglfwGetFramebufferSize(long window, long width, long height) {
-		long __functionAddress = getInstance().GetFramebufferSize;
+		long __functionAddress = Functions.GetFramebufferSize;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePPPV(__functionAddress, window, width, height);
@@ -1641,7 +1612,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
 	public static void nglfwGetWindowFrameSize(long window, long left, long top, long right, long bottom) {
-		long __functionAddress = getInstance().GetWindowFrameSize;
+		long __functionAddress = Functions.GetWindowFrameSize;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePPPPPV(__functionAddress, window, left, top, right, bottom);
@@ -1702,7 +1673,7 @@ public class GLFW {
 	 * @since version 2.1
 	 */
 	public static void glfwIconifyWindow(long window) {
-		long __functionAddress = getInstance().IconifyWindow;
+		long __functionAddress = Functions.IconifyWindow;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
@@ -1722,7 +1693,7 @@ public class GLFW {
 	 * @since version 2.1
 	 */
 	public static void glfwRestoreWindow(long window) {
-		long __functionAddress = getInstance().RestoreWindow;
+		long __functionAddress = Functions.RestoreWindow;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
@@ -1742,7 +1713,7 @@ public class GLFW {
 	 * @since version 3.2
 	 */
 	public static void glfwMaximizeWindow(long window) {
-		long __functionAddress = getInstance().MaximizeWindow;
+		long __functionAddress = Functions.MaximizeWindow;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
@@ -1760,7 +1731,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static void glfwShowWindow(long window) {
-		long __functionAddress = getInstance().ShowWindow;
+		long __functionAddress = Functions.ShowWindow;
 		EventLoop.OnScreen.check();
 		if ( CHECKS )
 			checkPointer(window);
@@ -1779,7 +1750,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static void glfwHideWindow(long window) {
-		long __functionAddress = getInstance().HideWindow;
+		long __functionAddress = Functions.HideWindow;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
@@ -1802,7 +1773,7 @@ public class GLFW {
 	 * @since version 3.2
 	 */
 	public static void glfwFocusWindow(long window) {
-		long __functionAddress = getInstance().FocusWindow;
+		long __functionAddress = Functions.FocusWindow;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
@@ -1822,10 +1793,47 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static long glfwGetWindowMonitor(long window) {
-		long __functionAddress = getInstance().GetWindowMonitor;
+		long __functionAddress = Functions.GetWindowMonitor;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
+	}
+
+	// --- [ glfwSetWindowMonitor ] ---
+
+	/**
+	 * Sets the mode, monitor, video mode and placement of a window.
+	 * 
+	 * <p>This function sets the monitor that the window uses for full screen mode or, if the monitor is {@code NULL}, makes it windowed mode.</p>
+	 * 
+	 * <p>When setting a monitor, this function updates the width, height and refresh rate of the desired video mode and switches to the video mode closest to
+	 * it. The window position is ignored when setting a monitor.</p>
+	 * 
+	 * <p>When the monitor is {@code NULL}, the position, width and height are used to place the window client area. The refresh rate is ignored when no monitor is
+	 * specified.</p>
+	 * 
+	 * <p>If you only wish to update the resolution of a full screen window or the size of a windowed mode window, see {@link #glfwSetWindowSize SetWindowSize}.</p>
+	 * 
+	 * <p>When a window transitions from full screen to windowed mode, this function restores any previous window settings such as whether it is decorated,
+	 * floating, resizable, has size or aspect ratio limits, etc.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window      the window whose monitor, size or video mode to set
+	 * @param monitor     the desired monitor, or {@code NULL} to set windowed mode
+	 * @param xpos        the desired x-coordinate of the upper-left corner of the client area
+	 * @param ypos        the desired y-coordinate of the upper-left corner of the client area
+	 * @param width       the desired with, in screen coordinates, of the client area or video mode
+	 * @param height      the desired height, in screen coordinates, of the client area or video mode
+	 * @param refreshRate the desired refresh rate, in Hz, of the video mode
+	 *
+	 * @since version 3.2
+	 */
+	public static void glfwSetWindowMonitor(long window, long monitor, int xpos, int ypos, int width, int height, int refreshRate) {
+		long __functionAddress = Functions.SetWindowMonitor;
+		if ( CHECKS )
+			checkPointer(window);
+		invokePPIIIIIV(__functionAddress, window, monitor, xpos, ypos, width, height, refreshRate);
 	}
 
 	// --- [ glfwGetWindowAttrib ] ---
@@ -1848,7 +1856,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static int glfwGetWindowAttrib(long window, int attrib) {
-		long __functionAddress = getInstance().GetWindowAttrib;
+		long __functionAddress = Functions.GetWindowAttrib;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePII(__functionAddress, window, attrib);
@@ -1867,7 +1875,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static void glfwSetWindowUserPointer(long window, long pointer) {
-		long __functionAddress = getInstance().SetWindowUserPointer;
+		long __functionAddress = Functions.SetWindowUserPointer;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePPV(__functionAddress, window, pointer);
@@ -1885,7 +1893,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static long glfwGetWindowUserPointer(long window) {
-		long __functionAddress = getInstance().GetWindowUserPointer;
+		long __functionAddress = Functions.GetWindowUserPointer;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
@@ -1908,7 +1916,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static GLFWWindowPosCallback glfwSetWindowPosCallback(long window, GLFWWindowPosCallback cbfun) {
-		long __functionAddress = getInstance().SetWindowPosCallback;
+		long __functionAddress = Functions.SetWindowPosCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowPosCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -1931,7 +1939,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(long window, GLFWWindowSizeCallback cbfun) {
-		long __functionAddress = getInstance().SetWindowSizeCallback;
+		long __functionAddress = Functions.SetWindowSizeCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowSizeCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -1963,7 +1971,7 @@ public class GLFW {
 	 * @since version 2.5
 	 */
 	public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(long window, GLFWWindowCloseCallback cbfun) {
-		long __functionAddress = getInstance().SetWindowCloseCallback;
+		long __functionAddress = Functions.SetWindowCloseCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowCloseCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -1989,7 +1997,7 @@ public class GLFW {
 	 * @since version 2.5
 	 */
 	public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(long window, GLFWWindowRefreshCallback cbfun) {
-		long __functionAddress = getInstance().SetWindowRefreshCallback;
+		long __functionAddress = Functions.SetWindowRefreshCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowRefreshCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2014,7 +2022,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(long window, GLFWWindowFocusCallback cbfun) {
-		long __functionAddress = getInstance().SetWindowFocusCallback;
+		long __functionAddress = Functions.SetWindowFocusCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowFocusCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2036,7 +2044,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallback cbfun) {
-		long __functionAddress = getInstance().SetWindowIconifyCallback;
+		long __functionAddress = Functions.SetWindowIconifyCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowIconifyCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2058,7 +2066,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(long window, GLFWFramebufferSizeCallback cbfun) {
-		long __functionAddress = getInstance().SetFramebufferSizeCallback;
+		long __functionAddress = Functions.SetFramebufferSizeCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWFramebufferSizeCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2089,7 +2097,7 @@ public class GLFW {
 	 * </ul>
 	 */
 	public static void glfwPollEvents() {
-		long __functionAddress = getInstance().PollEvents;
+		long __functionAddress = Functions.PollEvents;
 		EventLoop.OnScreen.check();
 		invokeV(__functionAddress);
 	}
@@ -2125,7 +2133,7 @@ public class GLFW {
 	 * </ul>
 	 */
 	public static void glfwWaitEvents() {
-		long __functionAddress = getInstance().WaitEvents;
+		long __functionAddress = Functions.WaitEvents;
 		EventLoop.OnScreen.check();
 		invokeV(__functionAddress);
 	}
@@ -2166,7 +2174,7 @@ public class GLFW {
 	 * @since version 3.2
 	 */
 	public static void glfwWaitEventsTimeout(double timeout) {
-		long __functionAddress = getInstance().WaitEventsTimeout;
+		long __functionAddress = Functions.WaitEventsTimeout;
 		EventLoop.OnScreen.check();
 		invokeDV(__functionAddress, timeout);
 	}
@@ -2182,7 +2190,7 @@ public class GLFW {
 	 * <p>This function may be called from any thread.</p>
 	 */
 	public static void glfwPostEmptyEvent() {
-		long __functionAddress = getInstance().PostEmptyEvent;
+		long __functionAddress = Functions.PostEmptyEvent;
 		invokeV(__functionAddress);
 	}
 
@@ -2201,7 +2209,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static int glfwGetInputMode(long window, int mode) {
-		long __functionAddress = getInstance().GetInputMode;
+		long __functionAddress = Functions.GetInputMode;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePII(__functionAddress, window, mode);
@@ -2239,7 +2247,7 @@ public class GLFW {
 	 * @since GFLW 3.0
 	 */
 	public static void glfwSetInputMode(long window, int mode, int value) {
-		long __functionAddress = getInstance().SetInputMode;
+		long __functionAddress = Functions.SetInputMode;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePIIV(__functionAddress, window, mode, value);
@@ -2249,7 +2257,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetKeyName GetKeyName} */
 	public static long nglfwGetKeyName(int key, int scancode) {
-		long __functionAddress = getInstance().GetKeyName;
+		long __functionAddress = Functions.GetKeyName;
 		return invokeIIP(__functionAddress, key, scancode);
 	}
 
@@ -2299,7 +2307,7 @@ public class GLFW {
 	 */
 	public static String glfwGetKeyName(int key, int scancode) {
 		long __result = nglfwGetKeyName(key, scancode);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ glfwGetKey ] ---
@@ -2333,7 +2341,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static int glfwGetKey(long window, int key) {
-		long __functionAddress = getInstance().GetKey;
+		long __functionAddress = Functions.GetKey;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePII(__functionAddress, window, key);
@@ -2358,7 +2366,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static int glfwGetMouseButton(long window, int button) {
-		long __functionAddress = getInstance().GetMouseButton;
+		long __functionAddress = Functions.GetMouseButton;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePII(__functionAddress, window, button);
@@ -2368,7 +2376,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetCursorPos GetCursorPos} */
 	public static void nglfwGetCursorPos(long window, long xpos, long ypos) {
-		long __functionAddress = getInstance().GetCursorPos;
+		long __functionAddress = Functions.GetCursorPos;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePPPV(__functionAddress, window, xpos, ypos);
@@ -2436,7 +2444,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static void glfwSetCursorPos(long window, double xpos, double ypos) {
-		long __functionAddress = getInstance().SetCursorPos;
+		long __functionAddress = Functions.SetCursorPos;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePDDV(__functionAddress, window, xpos, ypos);
@@ -2446,7 +2454,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwCreateCursor CreateCursor} */
 	public static long nglfwCreateCursor(long image, int xhot, int yhot) {
-		long __functionAddress = getInstance().CreateCursor;
+		long __functionAddress = Functions.CreateCursor;
 		if ( CHECKS )
 			GLFWImage.validate(image);
 		return invokePIIP(__functionAddress, image, xhot, yhot);
@@ -2502,7 +2510,7 @@ public class GLFW {
 	 * @since version 3.1
 	 */
 	public static long glfwCreateStandardCursor(int shape) {
-		long __functionAddress = getInstance().CreateStandardCursor;
+		long __functionAddress = Functions.CreateStandardCursor;
 		return invokeIP(__functionAddress, shape);
 	}
 
@@ -2523,7 +2531,7 @@ public class GLFW {
 	 * @since version 3.1
 	 */
 	public static void glfwDestroyCursor(long cursor) {
-		long __functionAddress = getInstance().DestroyCursor;
+		long __functionAddress = Functions.DestroyCursor;
 		if ( CHECKS )
 			checkPointer(cursor);
 		invokePV(__functionAddress, cursor);
@@ -2545,7 +2553,7 @@ public class GLFW {
 	 * @since version 3.1
 	 */
 	public static void glfwSetCursor(long window, long cursor) {
-		long __functionAddress = getInstance().SetCursor;
+		long __functionAddress = Functions.SetCursor;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePPV(__functionAddress, window, cursor);
@@ -2578,7 +2586,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static GLFWKeyCallback glfwSetKeyCallback(long window, GLFWKeyCallback cbfun) {
-		long __functionAddress = getInstance().SetKeyCallback;
+		long __functionAddress = Functions.SetKeyCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWKeyCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2606,7 +2614,7 @@ public class GLFW {
 	 * @since version 2.4
 	 */
 	public static GLFWCharCallback glfwSetCharCallback(long window, GLFWCharCallback cbfun) {
-		long __functionAddress = getInstance().SetCharCallback;
+		long __functionAddress = Functions.SetCharCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWCharCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2633,7 +2641,7 @@ public class GLFW {
 	 * @since version 3.1
 	 */
 	public static GLFWCharModsCallback glfwSetCharModsCallback(long window, GLFWCharModsCallback cbfun) {
-		long __functionAddress = getInstance().SetCharModsCallback;
+		long __functionAddress = Functions.SetCharModsCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWCharModsCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2658,7 +2666,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(long window, GLFWMouseButtonCallback cbfun) {
-		long __functionAddress = getInstance().SetMouseButtonCallback;
+		long __functionAddress = Functions.SetMouseButtonCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWMouseButtonCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2680,7 +2688,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static GLFWCursorPosCallback glfwSetCursorPosCallback(long window, GLFWCursorPosCallback cbfun) {
-		long __functionAddress = getInstance().SetCursorPosCallback;
+		long __functionAddress = Functions.SetCursorPosCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWCursorPosCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2701,7 +2709,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(long window, GLFWCursorEnterCallback cbfun) {
-		long __functionAddress = getInstance().SetCursorEnterCallback;
+		long __functionAddress = Functions.SetCursorEnterCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWCursorEnterCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2724,7 +2732,7 @@ public class GLFW {
 	 * @since version 2.1
 	 */
 	public static GLFWScrollCallback glfwSetScrollCallback(long window, GLFWScrollCallback cbfun) {
-		long __functionAddress = getInstance().SetScrollCallback;
+		long __functionAddress = Functions.SetScrollCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWScrollCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2748,7 +2756,7 @@ public class GLFW {
 	 * @since version 3.1
 	 */
 	public static GLFWDropCallback glfwSetDropCallback(long window, GLFWDropCallback cbfun) {
-		long __functionAddress = getInstance().SetDropCallback;
+		long __functionAddress = Functions.SetDropCallback;
 		if ( CHECKS )
 			checkPointer(window);
 		return GLFWDropCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
@@ -2768,7 +2776,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static int glfwJoystickPresent(int joy) {
-		long __functionAddress = getInstance().JoystickPresent;
+		long __functionAddress = Functions.JoystickPresent;
 		return invokeII(__functionAddress, joy);
 	}
 
@@ -2776,7 +2784,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwGetJoystickAxes GetJoystickAxes} */
 	public static long nglfwGetJoystickAxes(int joy, long count) {
-		long __functionAddress = getInstance().GetJoystickAxes;
+		long __functionAddress = Functions.GetJoystickAxes;
 		return invokeIPP(__functionAddress, joy, count);
 	}
 
@@ -2798,17 +2806,21 @@ public class GLFW {
 	 * @since version 2.2
 	 */
 	public static FloatBuffer glfwGetJoystickAxes(int joy) {
-		APIBuffer __buffer = apiBuffer();
-		int count = __buffer.intParam();
-		long __result = nglfwGetJoystickAxes(joy, __buffer.address(count));
-		return memFloatBuffer(__result, __buffer.intValue(count));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer count = stack.callocInt(1);
+		try {
+			long __result = nglfwGetJoystickAxes(joy, memAddress(count));
+			return memFloatBuffer(__result, count.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glfwGetJoystickButtons ] ---
 
 	/** Unsafe version of {@link #glfwGetJoystickButtons GetJoystickButtons} */
 	public static long nglfwGetJoystickButtons(int joy, long count) {
-		long __functionAddress = getInstance().GetJoystickButtons;
+		long __functionAddress = Functions.GetJoystickButtons;
 		return invokeIPP(__functionAddress, joy, count);
 	}
 
@@ -2830,17 +2842,21 @@ public class GLFW {
 	 * @since version 2.2
 	 */
 	public static ByteBuffer glfwGetJoystickButtons(int joy) {
-		APIBuffer __buffer = apiBuffer();
-		int count = __buffer.intParam();
-		long __result = nglfwGetJoystickButtons(joy, __buffer.address(count));
-		return memByteBuffer(__result, __buffer.intValue(count));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer count = stack.callocInt(1);
+		try {
+			long __result = nglfwGetJoystickButtons(joy, memAddress(count));
+			return memByteBuffer(__result, count.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glfwGetJoystickName ] ---
 
 	/** Unsafe version of {@link #glfwGetJoystickName GetJoystickName} */
 	public static long nglfwGetJoystickName(int joy) {
-		long __functionAddress = getInstance().GetJoystickName;
+		long __functionAddress = Functions.GetJoystickName;
 		return invokeIP(__functionAddress, joy);
 	}
 
@@ -2863,14 +2879,14 @@ public class GLFW {
 	 */
 	public static String glfwGetJoystickName(int joy) {
 		long __result = nglfwGetJoystickName(joy);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ glfwSetClipboardString ] ---
 
 	/** Unsafe version of {@link #glfwSetClipboardString SetClipboardString} */
 	public static void nglfwSetClipboardString(long window, long string) {
-		long __functionAddress = getInstance().SetClipboardString;
+		long __functionAddress = Functions.SetClipboardString;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePPV(__functionAddress, window, string);
@@ -2896,16 +2912,20 @@ public class GLFW {
 
 	/** CharSequence version of: {@link #glfwSetClipboardString SetClipboardString} */
 	public static void glfwSetClipboardString(long window, CharSequence string) {
-		APIBuffer __buffer = apiBuffer();
-		int stringEncoded = __buffer.stringParamUTF8(string, true);
-		nglfwSetClipboardString(window, __buffer.address(stringEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer stringEncoded = stack.UTF8(string);
+			nglfwSetClipboardString(window, memAddress(stringEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glfwGetClipboardString ] ---
 
 	/** Unsafe version of {@link #glfwGetClipboardString GetClipboardString} */
 	public static long nglfwGetClipboardString(long window) {
-		long __functionAddress = getInstance().GetClipboardString;
+		long __functionAddress = Functions.GetClipboardString;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
@@ -2934,7 +2954,7 @@ public class GLFW {
 	 */
 	public static String glfwGetClipboardString(long window) {
 		long __result = nglfwGetClipboardString(window);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ glfwGetTime ] ---
@@ -2952,7 +2972,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static double glfwGetTime() {
-		long __functionAddress = getInstance().GetTime;
+		long __functionAddress = Functions.GetTime;
 		return invokeD(__functionAddress);
 	}
 
@@ -2972,7 +2992,7 @@ public class GLFW {
 	 * @since version 2.2
 	 */
 	public static void glfwSetTime(double time) {
-		long __functionAddress = getInstance().SetTime;
+		long __functionAddress = Functions.SetTime;
 		invokeDV(__functionAddress, time);
 	}
 
@@ -2990,7 +3010,7 @@ public class GLFW {
 	 * @since version 3.2
 	 */
 	public static long glfwGetTimerValue() {
-		long __functionAddress = getInstance().GetTimerValue;
+		long __functionAddress = Functions.GetTimerValue;
 		return invokeJ(__functionAddress);
 	}
 
@@ -3006,7 +3026,7 @@ public class GLFW {
 	 * @since version 3.2
 	 */
 	public static long glfwGetTimerFrequency() {
-		long __functionAddress = getInstance().GetTimerFrequency;
+		long __functionAddress = Functions.GetTimerFrequency;
 		return invokeJ(__functionAddress);
 	}
 
@@ -3029,7 +3049,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static void glfwMakeContextCurrent(long window) {
-		long __functionAddress = getInstance().MakeContextCurrent;
+		long __functionAddress = Functions.MakeContextCurrent;
 		invokePV(__functionAddress, window);
 	}
 
@@ -3045,7 +3065,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static long glfwGetCurrentContext() {
-		long __functionAddress = getInstance().GetCurrentContext;
+		long __functionAddress = Functions.GetCurrentContext;
 		return invokeP(__functionAddress);
 	}
 
@@ -3068,7 +3088,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static void glfwSwapBuffers(long window) {
-		long __functionAddress = getInstance().SwapBuffers;
+		long __functionAddress = Functions.SwapBuffers;
 		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
@@ -3105,7 +3125,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static void glfwSwapInterval(int interval) {
-		long __functionAddress = getInstance().SwapInterval;
+		long __functionAddress = Functions.SwapInterval;
 		invokeIV(__functionAddress, interval);
 	}
 
@@ -3113,7 +3133,7 @@ public class GLFW {
 
 	/** Unsafe version of {@link #glfwExtensionSupported ExtensionSupported} */
 	public static int nglfwExtensionSupported(long extension) {
-		long __functionAddress = getInstance().ExtensionSupported;
+		long __functionAddress = Functions.ExtensionSupported;
 		return invokePI(__functionAddress, extension);
 	}
 
@@ -3145,16 +3165,20 @@ public class GLFW {
 
 	/** CharSequence version of: {@link #glfwExtensionSupported ExtensionSupported} */
 	public static int glfwExtensionSupported(CharSequence extension) {
-		APIBuffer __buffer = apiBuffer();
-		int extensionEncoded = __buffer.stringParamASCII(extension, true);
-		return nglfwExtensionSupported(__buffer.address(extensionEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer extensionEncoded = stack.ASCII(extension);
+			return nglfwExtensionSupported(memAddress(extensionEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glfwGetProcAddress ] ---
 
 	/** Unsafe version of {@link #glfwGetProcAddress GetProcAddress} */
 	public static long nglfwGetProcAddress(long procname) {
-		long __functionAddress = getInstance().GetProcAddress;
+		long __functionAddress = Functions.GetProcAddress;
 		return invokePP(__functionAddress, procname);
 	}
 
@@ -3191,9 +3215,13 @@ public class GLFW {
 
 	/** CharSequence version of: {@link #glfwGetProcAddress GetProcAddress} */
 	public static long glfwGetProcAddress(CharSequence procname) {
-		APIBuffer __buffer = apiBuffer();
-		int procnameEncoded = __buffer.stringParamASCII(procname, true);
-		return nglfwGetProcAddress(__buffer.address(procnameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer procnameEncoded = stack.ASCII(procname);
+			return nglfwGetProcAddress(memAddress(procnameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

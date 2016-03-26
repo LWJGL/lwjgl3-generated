@@ -25,42 +25,14 @@ public class WGLARBMakeCurrentRead {
 		ERROR_INVALID_PIXEL_TYPE_ARB           = 0x2043,
 		ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB = 0x2054;
 
-	/** Function address. */
-	public final long
-		MakeContextCurrentARB,
-		GetCurrentReadDCARB;
-
 	protected WGLARBMakeCurrentRead() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLARBMakeCurrentRead(FunctionProvider provider) {
-		MakeContextCurrentARB = provider.getFunctionAddress("wglMakeContextCurrentARB");
-		GetCurrentReadDCARB = provider.getFunctionAddress("wglGetCurrentReadDCARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLARBMakeCurrentRead} instance of the current context. */
-	public static WGLARBMakeCurrentRead getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLARBMakeCurrentRead} instance of the specified {@link GLCapabilities}. */
-	public static WGLARBMakeCurrentRead getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLARBMakeCurrentRead);
-	}
-
-	static WGLARBMakeCurrentRead create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_make_current_read") ) return null;
-
-		WGLARBMakeCurrentRead funcs = new WGLARBMakeCurrentRead(provider);
-
-		boolean supported = checkFunctions(
-			funcs.MakeContextCurrentARB, funcs.GetCurrentReadDCARB
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglMakeContextCurrentARB, caps.wglGetCurrentReadDCARB
 		);
-
-		return GL.checkExtension("WGL_ARB_make_current_read", funcs, supported);
 	}
 
 	// --- [ wglMakeContextCurrentARB ] ---
@@ -94,8 +66,9 @@ public class WGLARBMakeCurrentRead {
 	 * @param hglrc  the OpenGL context
 	 */
 	public static int wglMakeContextCurrentARB(long drawDC, long readDC, long hglrc) {
-		long __functionAddress = getInstance().MakeContextCurrentARB;
+		long __functionAddress = GL.getCapabilitiesWGL().wglMakeContextCurrentARB;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(drawDC);
 			checkPointer(readDC);
 			checkPointer(hglrc);
@@ -107,7 +80,9 @@ public class WGLARBMakeCurrentRead {
 
 	/** Returns the "read" device context for the current OpenGL context. */
 	public static long wglGetCurrentReadDCARB() {
-		long __functionAddress = getInstance().GetCurrentReadDCARB;
+		long __functionAddress = GL.getCapabilitiesWGL().wglGetCurrentReadDCARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callP(__functionAddress);
 	}
 

@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -41,69 +41,25 @@ public class NVViewportArray {
 		GL_VIEWPORT_BOUNDS_RANGE_NV           = 0x825D,
 		GL_VIEWPORT_INDEX_PROVOKING_VERTEX_NV = 0x825F;
 
-	/** Function address. */
-	public final long
-		ViewportArrayvNV,
-		ViewportIndexedfNV,
-		ViewportIndexedfvNV,
-		ScissorArrayvNV,
-		ScissorIndexedNV,
-		ScissorIndexedvNV,
-		DepthRangeArrayfvNV,
-		DepthRangeIndexedfNV,
-		GetFloati_vNV,
-		EnableiNV,
-		DisableiNV,
-		IsEnablediNV;
-
 	protected NVViewportArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVViewportArray(FunctionProvider provider) {
-		ViewportArrayvNV = provider.getFunctionAddress("glViewportArrayvNV");
-		ViewportIndexedfNV = provider.getFunctionAddress("glViewportIndexedfNV");
-		ViewportIndexedfvNV = provider.getFunctionAddress("glViewportIndexedfvNV");
-		ScissorArrayvNV = provider.getFunctionAddress("glScissorArrayvNV");
-		ScissorIndexedNV = provider.getFunctionAddress("glScissorIndexedNV");
-		ScissorIndexedvNV = provider.getFunctionAddress("glScissorIndexedvNV");
-		DepthRangeArrayfvNV = provider.getFunctionAddress("glDepthRangeArrayfvNV");
-		DepthRangeIndexedfNV = provider.getFunctionAddress("glDepthRangeIndexedfNV");
-		GetFloati_vNV = provider.getFunctionAddress("glGetFloati_vNV");
-		EnableiNV = provider.getFunctionAddress("glEnableiNV");
-		DisableiNV = provider.getFunctionAddress("glDisableiNV");
-		IsEnablediNV = provider.getFunctionAddress("glIsEnablediNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVViewportArray} instance of the current context. */
-	public static NVViewportArray getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVViewportArray} instance of the specified {@link GLESCapabilities}. */
-	public static NVViewportArray getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVViewportArray);
-	}
-
-	static NVViewportArray create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_viewport_array") ) return null;
-
-		NVViewportArray funcs = new NVViewportArray(provider);
-		boolean supported = checkFunctions(
-			funcs.ViewportArrayvNV, funcs.ViewportIndexedfNV, funcs.ViewportIndexedfvNV, funcs.ScissorArrayvNV, funcs.ScissorIndexedNV, funcs.ScissorIndexedvNV, 
-			funcs.DepthRangeArrayfvNV, funcs.DepthRangeIndexedfNV, funcs.GetFloati_vNV, funcs.EnableiNV, funcs.DisableiNV, funcs.IsEnablediNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glViewportArrayvNV, caps.glViewportIndexedfNV, caps.glViewportIndexedfvNV, caps.glScissorArrayvNV, caps.glScissorIndexedNV, 
+			caps.glScissorIndexedvNV, caps.glDepthRangeArrayfvNV, caps.glDepthRangeIndexedfNV, caps.glGetFloati_vNV, caps.glEnableiNV, caps.glDisableiNV, 
+			caps.glIsEnablediNV
 		);
-
-		return GLES.checkExtension("GL_NV_viewport_array", funcs, supported);
 	}
 
 	// --- [ glViewportArrayvNV ] ---
 
 	/** Unsafe version of {@link #glViewportArrayvNV ViewportArrayvNV} */
 	public static void nglViewportArrayvNV(int first, int count, long v) {
-		long __functionAddress = getInstance().ViewportArrayvNV;
+		long __functionAddress = GLES.getCapabilities().glViewportArrayvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, v);
 	}
 
@@ -121,7 +77,9 @@ public class NVViewportArray {
 	// --- [ glViewportIndexedfNV ] ---
 
 	public static void glViewportIndexedfNV(int index, float x, float y, float w, float h) {
-		long __functionAddress = getInstance().ViewportIndexedfNV;
+		long __functionAddress = GLES.getCapabilities().glViewportIndexedfNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFFFFV(__functionAddress, index, x, y, w, h);
 	}
 
@@ -129,7 +87,9 @@ public class NVViewportArray {
 
 	/** Unsafe version of {@link #glViewportIndexedfvNV ViewportIndexedfvNV} */
 	public static void nglViewportIndexedfvNV(int index, long v) {
-		long __functionAddress = getInstance().ViewportIndexedfvNV;
+		long __functionAddress = GLES.getCapabilities().glViewportIndexedfvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -150,7 +110,9 @@ public class NVViewportArray {
 
 	/** Unsafe version of {@link #glScissorArrayvNV ScissorArrayvNV} */
 	public static void nglScissorArrayvNV(int first, int count, long v) {
-		long __functionAddress = getInstance().ScissorArrayvNV;
+		long __functionAddress = GLES.getCapabilities().glScissorArrayvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, v);
 	}
 
@@ -168,7 +130,9 @@ public class NVViewportArray {
 	// --- [ glScissorIndexedNV ] ---
 
 	public static void glScissorIndexedNV(int index, int left, int bottom, int width, int height) {
-		long __functionAddress = getInstance().ScissorIndexedNV;
+		long __functionAddress = GLES.getCapabilities().glScissorIndexedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, index, left, bottom, width, height);
 	}
 
@@ -176,7 +140,9 @@ public class NVViewportArray {
 
 	/** Unsafe version of {@link #glScissorIndexedvNV ScissorIndexedvNV} */
 	public static void nglScissorIndexedvNV(int index, long v) {
-		long __functionAddress = getInstance().ScissorIndexedvNV;
+		long __functionAddress = GLES.getCapabilities().glScissorIndexedvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -197,7 +163,9 @@ public class NVViewportArray {
 
 	/** Unsafe version of {@link #glDepthRangeArrayfvNV DepthRangeArrayfvNV} */
 	public static void nglDepthRangeArrayfvNV(int first, int count, long v) {
-		long __functionAddress = getInstance().DepthRangeArrayfvNV;
+		long __functionAddress = GLES.getCapabilities().glDepthRangeArrayfvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, v);
 	}
 
@@ -215,7 +183,9 @@ public class NVViewportArray {
 	// --- [ glDepthRangeIndexedfNV ] ---
 
 	public static void glDepthRangeIndexedfNV(int index, float n, float f) {
-		long __functionAddress = getInstance().DepthRangeIndexedfNV;
+		long __functionAddress = GLES.getCapabilities().glDepthRangeIndexedfNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFFV(__functionAddress, index, n, f);
 	}
 
@@ -223,7 +193,9 @@ public class NVViewportArray {
 
 	/** Unsafe version of {@link #glGetFloati_vNV GetFloati_vNV} */
 	public static void nglGetFloati_vNV(int target, int index, long data) {
-		long __functionAddress = getInstance().GetFloati_vNV;
+		long __functionAddress = GLES.getCapabilities().glGetFloati_vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, index, data);
 	}
 
@@ -242,30 +214,40 @@ public class NVViewportArray {
 
 	/** Single return value version of: {@link #glGetFloati_vNV GetFloati_vNV} */
 	public static float glGetFloatiNV(int target, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.floatParam();
-		nglGetFloati_vNV(target, index, __buffer.address(data));
-		return __buffer.floatValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer data = stack.callocFloat(1);
+			nglGetFloati_vNV(target, index, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glEnableiNV ] ---
 
 	public static void glEnableiNV(int target, int index) {
-		long __functionAddress = getInstance().EnableiNV;
+		long __functionAddress = GLES.getCapabilities().glEnableiNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableiNV ] ---
 
 	public static void glDisableiNV(int target, int index) {
-		long __functionAddress = getInstance().DisableiNV;
+		long __functionAddress = GLES.getCapabilities().glDisableiNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glIsEnablediNV ] ---
 
 	public static boolean glIsEnablediNV(int target, int index) {
-		long __functionAddress = getInstance().IsEnablediNV;
+		long __functionAddress = GLES.getCapabilities().glIsEnablediNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIZ(__functionAddress, target, index);
 	}
 

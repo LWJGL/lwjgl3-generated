@@ -39,39 +39,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBES31Compatibility {
 
-	/** Function address. */
-	public final long MemoryBarrierByRegion;
-
 	protected ARBES31Compatibility() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBES31Compatibility(FunctionProvider provider) {
-		MemoryBarrierByRegion = provider.getFunctionAddress("glMemoryBarrierByRegion");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBES31Compatibility} instance of the current context. */
-	public static ARBES31Compatibility getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBES31Compatibility} instance of the specified {@link GLCapabilities}. */
-	public static ARBES31Compatibility getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBES31Compatibility);
-	}
-
-	static ARBES31Compatibility create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_ES3_1_compatibility") ) return null;
-
-		ARBES31Compatibility funcs = new ARBES31Compatibility(provider);
-
-		boolean supported = checkFunctions(
-			funcs.MemoryBarrierByRegion
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glMemoryBarrierByRegion
 		);
-
-		return GL.checkExtension("GL_ARB_ES3_1_compatibility", funcs, supported);
 	}
 
 	// --- [ glMemoryBarrierByRegion ] ---
@@ -94,7 +69,9 @@ public class ARBES31Compatibility {
 	 * @param barriers the barriers to insert. One or more of:<br>{@link GL42#GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}, {@link GL42#GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}, {@link GL42#GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}, {@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}, {@link GL42#GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}, {@link GL42#GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}
 	 */
 	public static void glMemoryBarrierByRegion(int barriers) {
-		long __functionAddress = getInstance().MemoryBarrierByRegion;
+		long __functionAddress = GL.getCapabilities().glMemoryBarrierByRegion;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, barriers);
 	}
 

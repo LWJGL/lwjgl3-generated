@@ -43,44 +43,22 @@ public class OVRMultiview {
 	/** Returned by CheckFramebufferStatus. */
 	public static final int GL_FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR = 0x9633;
 
-	/** Function address. */
-	public final long FramebufferTextureMultiviewOVR;
-
 	protected OVRMultiview() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OVRMultiview(FunctionProvider provider) {
-		FramebufferTextureMultiviewOVR = provider.getFunctionAddress("glFramebufferTextureMultiviewOVR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OVRMultiview} instance of the current context. */
-	public static OVRMultiview getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OVRMultiview} instance of the specified {@link GLESCapabilities}. */
-	public static OVRMultiview getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OVRMultiview);
-	}
-
-	static OVRMultiview create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OVR_multiview") ) return null;
-
-		OVRMultiview funcs = new OVRMultiview(provider);
-		boolean supported = checkFunctions(
-			funcs.FramebufferTextureMultiviewOVR
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glFramebufferTextureMultiviewOVR
 		);
-
-		return GLES.checkExtension("GL_OVR_multiview", funcs, supported);
 	}
 
 	// --- [ glFramebufferTextureMultiviewOVR ] ---
 
 	public static void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews) {
-		long __functionAddress = getInstance().FramebufferTextureMultiviewOVR;
+		long __functionAddress = GLES.getCapabilities().glFramebufferTextureMultiviewOVR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, target, attachment, texture, level, baseViewIndex, numViews);
 	}
 

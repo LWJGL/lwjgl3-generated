@@ -28,46 +28,25 @@ public class EXTMigrateMemobject {
 	/** Returned in the {@code param_value} parameter of the clGetEventInfo when {@code param_name} is {@link CL10#CL_EVENT_COMMAND_TYPE EVENT_COMMAND_TYPE}. */
 	public static final int CL_COMMAND_MIGRATE_MEM_OBJECT_EXT = 0x4040;
 
-	/** Function address. */
-	public final long EnqueueMigrateMemObjectEXT;
-
 	protected EXTMigrateMemobject() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTMigrateMemobject(FunctionProvider provider) {
-		EnqueueMigrateMemObjectEXT = provider.getFunctionAddress("clEnqueueMigrateMemObjectEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTMigrateMemobject} instance of the currently loaded ICD. */
-	public static EXTMigrateMemobject getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link EXTMigrateMemobject} instance of the specified {@link CLCapabilities}. */
-	public static EXTMigrateMemobject getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__EXTMigrateMemobject);
-	}
-
-	static EXTMigrateMemobject create(FunctionProvider provider) {
-		EXTMigrateMemobject funcs = new EXTMigrateMemobject(provider);
-
-		boolean supported = checkFunctions(
-			funcs.EnqueueMigrateMemObjectEXT
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clEnqueueMigrateMemObjectEXT
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clEnqueueMigrateMemObjectEXT ] ---
 
 	/** Unsafe version of {@link #clEnqueueMigrateMemObjectEXT EnqueueMigrateMemObjectEXT} */
 	public static int nclEnqueueMigrateMemObjectEXT(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueMigrateMemObjectEXT;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueMigrateMemObjectEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPJIPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
 	}
 

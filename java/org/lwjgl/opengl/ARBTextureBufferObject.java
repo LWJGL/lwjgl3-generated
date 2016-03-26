@@ -49,39 +49,14 @@ public class ARBTextureBufferObject {
 		GL_TEXTURE_BUFFER_DATA_STORE_BINDING_ARB = 0x8C2D,
 		GL_TEXTURE_BUFFER_FORMAT_ARB             = 0x8C2E;
 
-	/** Function address. */
-	public final long TexBufferARB;
-
 	protected ARBTextureBufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTextureBufferObject(FunctionProvider provider) {
-		TexBufferARB = provider.getFunctionAddress("glTexBufferARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTextureBufferObject} instance of the current context. */
-	public static ARBTextureBufferObject getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTextureBufferObject} instance of the specified {@link GLCapabilities}. */
-	public static ARBTextureBufferObject getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTextureBufferObject);
-	}
-
-	static ARBTextureBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_texture_buffer_object") ) return null;
-
-		ARBTextureBufferObject funcs = new ARBTextureBufferObject(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TexBufferARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glTexBufferARB
 		);
-
-		return GL.checkExtension("GL_ARB_texture_buffer_object", funcs, supported);
 	}
 
 	// --- [ glTexBufferARB ] ---
@@ -114,7 +89,9 @@ public class ARBTextureBufferObject {
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */
 	public static void glTexBufferARB(int target, int internalformat, int buffer) {
-		long __functionAddress = getInstance().TexBufferARB;
+		long __functionAddress = GL.getCapabilities().glTexBufferARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, target, internalformat, buffer);
 	}
 

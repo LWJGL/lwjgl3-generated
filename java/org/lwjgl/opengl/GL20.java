@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -173,239 +173,29 @@ public class GL20 {
 		GL_STENCIL_BACK_VALUE_MASK      = 0x8CA4,
 		GL_STENCIL_BACK_WRITEMASK       = 0x8CA5;
 
-	/** Function address. */
-	public final long
-		CreateProgram,
-		DeleteProgram,
-		IsProgram,
-		CreateShader,
-		DeleteShader,
-		IsShader,
-		AttachShader,
-		DetachShader,
-		ShaderSource,
-		CompileShader,
-		LinkProgram,
-		UseProgram,
-		ValidateProgram,
-		Uniform1f,
-		Uniform2f,
-		Uniform3f,
-		Uniform4f,
-		Uniform1i,
-		Uniform2i,
-		Uniform3i,
-		Uniform4i,
-		Uniform1fv,
-		Uniform2fv,
-		Uniform3fv,
-		Uniform4fv,
-		Uniform1iv,
-		Uniform2iv,
-		Uniform3iv,
-		Uniform4iv,
-		UniformMatrix2fv,
-		UniformMatrix3fv,
-		UniformMatrix4fv,
-		GetShaderiv,
-		GetProgramiv,
-		GetShaderInfoLog,
-		GetProgramInfoLog,
-		GetAttachedShaders,
-		GetUniformLocation,
-		GetActiveUniform,
-		GetUniformfv,
-		GetUniformiv,
-		GetShaderSource,
-		VertexAttrib1f,
-		VertexAttrib1s,
-		VertexAttrib1d,
-		VertexAttrib2f,
-		VertexAttrib2s,
-		VertexAttrib2d,
-		VertexAttrib3f,
-		VertexAttrib3s,
-		VertexAttrib3d,
-		VertexAttrib4f,
-		VertexAttrib4s,
-		VertexAttrib4d,
-		VertexAttrib4Nub,
-		VertexAttrib1fv,
-		VertexAttrib1sv,
-		VertexAttrib1dv,
-		VertexAttrib2fv,
-		VertexAttrib2sv,
-		VertexAttrib2dv,
-		VertexAttrib3fv,
-		VertexAttrib3sv,
-		VertexAttrib3dv,
-		VertexAttrib4fv,
-		VertexAttrib4sv,
-		VertexAttrib4dv,
-		VertexAttrib4iv,
-		VertexAttrib4bv,
-		VertexAttrib4ubv,
-		VertexAttrib4usv,
-		VertexAttrib4uiv,
-		VertexAttrib4Nbv,
-		VertexAttrib4Nsv,
-		VertexAttrib4Niv,
-		VertexAttrib4Nubv,
-		VertexAttrib4Nusv,
-		VertexAttrib4Nuiv,
-		VertexAttribPointer,
-		EnableVertexAttribArray,
-		DisableVertexAttribArray,
-		BindAttribLocation,
-		GetActiveAttrib,
-		GetAttribLocation,
-		GetVertexAttribiv,
-		GetVertexAttribfv,
-		GetVertexAttribdv,
-		GetVertexAttribPointerv,
-		DrawBuffers,
-		BlendEquationSeparate,
-		StencilOpSeparate,
-		StencilFuncSeparate,
-		StencilMaskSeparate;
-
 	protected GL20() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL20(FunctionProvider provider) {
-		CreateProgram = provider.getFunctionAddress("glCreateProgram");
-		DeleteProgram = provider.getFunctionAddress("glDeleteProgram");
-		IsProgram = provider.getFunctionAddress("glIsProgram");
-		CreateShader = provider.getFunctionAddress("glCreateShader");
-		DeleteShader = provider.getFunctionAddress("glDeleteShader");
-		IsShader = provider.getFunctionAddress("glIsShader");
-		AttachShader = provider.getFunctionAddress("glAttachShader");
-		DetachShader = provider.getFunctionAddress("glDetachShader");
-		ShaderSource = provider.getFunctionAddress("glShaderSource");
-		CompileShader = provider.getFunctionAddress("glCompileShader");
-		LinkProgram = provider.getFunctionAddress("glLinkProgram");
-		UseProgram = provider.getFunctionAddress("glUseProgram");
-		ValidateProgram = provider.getFunctionAddress("glValidateProgram");
-		Uniform1f = provider.getFunctionAddress("glUniform1f");
-		Uniform2f = provider.getFunctionAddress("glUniform2f");
-		Uniform3f = provider.getFunctionAddress("glUniform3f");
-		Uniform4f = provider.getFunctionAddress("glUniform4f");
-		Uniform1i = provider.getFunctionAddress("glUniform1i");
-		Uniform2i = provider.getFunctionAddress("glUniform2i");
-		Uniform3i = provider.getFunctionAddress("glUniform3i");
-		Uniform4i = provider.getFunctionAddress("glUniform4i");
-		Uniform1fv = provider.getFunctionAddress("glUniform1fv");
-		Uniform2fv = provider.getFunctionAddress("glUniform2fv");
-		Uniform3fv = provider.getFunctionAddress("glUniform3fv");
-		Uniform4fv = provider.getFunctionAddress("glUniform4fv");
-		Uniform1iv = provider.getFunctionAddress("glUniform1iv");
-		Uniform2iv = provider.getFunctionAddress("glUniform2iv");
-		Uniform3iv = provider.getFunctionAddress("glUniform3iv");
-		Uniform4iv = provider.getFunctionAddress("glUniform4iv");
-		UniformMatrix2fv = provider.getFunctionAddress("glUniformMatrix2fv");
-		UniformMatrix3fv = provider.getFunctionAddress("glUniformMatrix3fv");
-		UniformMatrix4fv = provider.getFunctionAddress("glUniformMatrix4fv");
-		GetShaderiv = provider.getFunctionAddress("glGetShaderiv");
-		GetProgramiv = provider.getFunctionAddress("glGetProgramiv");
-		GetShaderInfoLog = provider.getFunctionAddress("glGetShaderInfoLog");
-		GetProgramInfoLog = provider.getFunctionAddress("glGetProgramInfoLog");
-		GetAttachedShaders = provider.getFunctionAddress("glGetAttachedShaders");
-		GetUniformLocation = provider.getFunctionAddress("glGetUniformLocation");
-		GetActiveUniform = provider.getFunctionAddress("glGetActiveUniform");
-		GetUniformfv = provider.getFunctionAddress("glGetUniformfv");
-		GetUniformiv = provider.getFunctionAddress("glGetUniformiv");
-		GetShaderSource = provider.getFunctionAddress("glGetShaderSource");
-		VertexAttrib1f = provider.getFunctionAddress("glVertexAttrib1f");
-		VertexAttrib1s = provider.getFunctionAddress("glVertexAttrib1s");
-		VertexAttrib1d = provider.getFunctionAddress("glVertexAttrib1d");
-		VertexAttrib2f = provider.getFunctionAddress("glVertexAttrib2f");
-		VertexAttrib2s = provider.getFunctionAddress("glVertexAttrib2s");
-		VertexAttrib2d = provider.getFunctionAddress("glVertexAttrib2d");
-		VertexAttrib3f = provider.getFunctionAddress("glVertexAttrib3f");
-		VertexAttrib3s = provider.getFunctionAddress("glVertexAttrib3s");
-		VertexAttrib3d = provider.getFunctionAddress("glVertexAttrib3d");
-		VertexAttrib4f = provider.getFunctionAddress("glVertexAttrib4f");
-		VertexAttrib4s = provider.getFunctionAddress("glVertexAttrib4s");
-		VertexAttrib4d = provider.getFunctionAddress("glVertexAttrib4d");
-		VertexAttrib4Nub = provider.getFunctionAddress("glVertexAttrib4Nub");
-		VertexAttrib1fv = provider.getFunctionAddress("glVertexAttrib1fv");
-		VertexAttrib1sv = provider.getFunctionAddress("glVertexAttrib1sv");
-		VertexAttrib1dv = provider.getFunctionAddress("glVertexAttrib1dv");
-		VertexAttrib2fv = provider.getFunctionAddress("glVertexAttrib2fv");
-		VertexAttrib2sv = provider.getFunctionAddress("glVertexAttrib2sv");
-		VertexAttrib2dv = provider.getFunctionAddress("glVertexAttrib2dv");
-		VertexAttrib3fv = provider.getFunctionAddress("glVertexAttrib3fv");
-		VertexAttrib3sv = provider.getFunctionAddress("glVertexAttrib3sv");
-		VertexAttrib3dv = provider.getFunctionAddress("glVertexAttrib3dv");
-		VertexAttrib4fv = provider.getFunctionAddress("glVertexAttrib4fv");
-		VertexAttrib4sv = provider.getFunctionAddress("glVertexAttrib4sv");
-		VertexAttrib4dv = provider.getFunctionAddress("glVertexAttrib4dv");
-		VertexAttrib4iv = provider.getFunctionAddress("glVertexAttrib4iv");
-		VertexAttrib4bv = provider.getFunctionAddress("glVertexAttrib4bv");
-		VertexAttrib4ubv = provider.getFunctionAddress("glVertexAttrib4ubv");
-		VertexAttrib4usv = provider.getFunctionAddress("glVertexAttrib4usv");
-		VertexAttrib4uiv = provider.getFunctionAddress("glVertexAttrib4uiv");
-		VertexAttrib4Nbv = provider.getFunctionAddress("glVertexAttrib4Nbv");
-		VertexAttrib4Nsv = provider.getFunctionAddress("glVertexAttrib4Nsv");
-		VertexAttrib4Niv = provider.getFunctionAddress("glVertexAttrib4Niv");
-		VertexAttrib4Nubv = provider.getFunctionAddress("glVertexAttrib4Nubv");
-		VertexAttrib4Nusv = provider.getFunctionAddress("glVertexAttrib4Nusv");
-		VertexAttrib4Nuiv = provider.getFunctionAddress("glVertexAttrib4Nuiv");
-		VertexAttribPointer = provider.getFunctionAddress("glVertexAttribPointer");
-		EnableVertexAttribArray = provider.getFunctionAddress("glEnableVertexAttribArray");
-		DisableVertexAttribArray = provider.getFunctionAddress("glDisableVertexAttribArray");
-		BindAttribLocation = provider.getFunctionAddress("glBindAttribLocation");
-		GetActiveAttrib = provider.getFunctionAddress("glGetActiveAttrib");
-		GetAttribLocation = provider.getFunctionAddress("glGetAttribLocation");
-		GetVertexAttribiv = provider.getFunctionAddress("glGetVertexAttribiv");
-		GetVertexAttribfv = provider.getFunctionAddress("glGetVertexAttribfv");
-		GetVertexAttribdv = provider.getFunctionAddress("glGetVertexAttribdv");
-		GetVertexAttribPointerv = provider.getFunctionAddress("glGetVertexAttribPointerv");
-		DrawBuffers = provider.getFunctionAddress("glDrawBuffers");
-		BlendEquationSeparate = provider.getFunctionAddress("glBlendEquationSeparate");
-		StencilOpSeparate = provider.getFunctionAddress("glStencilOpSeparate");
-		StencilFuncSeparate = provider.getFunctionAddress("glStencilFuncSeparate");
-		StencilMaskSeparate = provider.getFunctionAddress("glStencilMaskSeparate");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL20} instance of the current context. */
-	public static GL20 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL20} instance of the specified {@link GLCapabilities}. */
-	public static GL20 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL20);
-	}
-
-	static GL20 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL20") ) return null;
-
-		GL20 funcs = new GL20(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateProgram, funcs.DeleteProgram, funcs.IsProgram, funcs.CreateShader, funcs.DeleteShader, funcs.IsShader, funcs.AttachShader, 
-			funcs.DetachShader, funcs.ShaderSource, funcs.CompileShader, funcs.LinkProgram, funcs.UseProgram, funcs.ValidateProgram, funcs.Uniform1f, 
-			funcs.Uniform2f, funcs.Uniform3f, funcs.Uniform4f, funcs.Uniform1i, funcs.Uniform2i, funcs.Uniform3i, funcs.Uniform4i, funcs.Uniform1fv, 
-			funcs.Uniform2fv, funcs.Uniform3fv, funcs.Uniform4fv, funcs.Uniform1iv, funcs.Uniform2iv, funcs.Uniform3iv, funcs.Uniform4iv, 
-			funcs.UniformMatrix2fv, funcs.UniformMatrix3fv, funcs.UniformMatrix4fv, funcs.GetShaderiv, funcs.GetProgramiv, funcs.GetShaderInfoLog, 
-			funcs.GetProgramInfoLog, funcs.GetAttachedShaders, funcs.GetUniformLocation, funcs.GetActiveUniform, funcs.GetUniformfv, funcs.GetUniformiv, 
-			funcs.GetShaderSource, funcs.VertexAttrib1f, funcs.VertexAttrib1s, funcs.VertexAttrib1d, funcs.VertexAttrib2f, funcs.VertexAttrib2s, 
-			funcs.VertexAttrib2d, funcs.VertexAttrib3f, funcs.VertexAttrib3s, funcs.VertexAttrib3d, funcs.VertexAttrib4f, funcs.VertexAttrib4s, 
-			funcs.VertexAttrib4d, funcs.VertexAttrib4Nub, funcs.VertexAttrib1fv, funcs.VertexAttrib1sv, funcs.VertexAttrib1dv, funcs.VertexAttrib2fv, 
-			funcs.VertexAttrib2sv, funcs.VertexAttrib2dv, funcs.VertexAttrib3fv, funcs.VertexAttrib3sv, funcs.VertexAttrib3dv, funcs.VertexAttrib4fv, 
-			funcs.VertexAttrib4sv, funcs.VertexAttrib4dv, funcs.VertexAttrib4iv, funcs.VertexAttrib4bv, funcs.VertexAttrib4ubv, funcs.VertexAttrib4usv, 
-			funcs.VertexAttrib4uiv, funcs.VertexAttrib4Nbv, funcs.VertexAttrib4Nsv, funcs.VertexAttrib4Niv, funcs.VertexAttrib4Nubv, funcs.VertexAttrib4Nusv, 
-			funcs.VertexAttrib4Nuiv, funcs.VertexAttribPointer, funcs.EnableVertexAttribArray, funcs.DisableVertexAttribArray, funcs.BindAttribLocation, 
-			funcs.GetActiveAttrib, funcs.GetAttribLocation, funcs.GetVertexAttribiv, funcs.GetVertexAttribfv, funcs.GetVertexAttribdv, 
-			funcs.GetVertexAttribPointerv, funcs.DrawBuffers, funcs.BlendEquationSeparate, funcs.StencilOpSeparate, funcs.StencilFuncSeparate, 
-			funcs.StencilMaskSeparate
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glCreateProgram, caps.glDeleteProgram, caps.glIsProgram, caps.glCreateShader, caps.glDeleteShader, caps.glIsShader, caps.glAttachShader, 
+			caps.glDetachShader, caps.glShaderSource, caps.glCompileShader, caps.glLinkProgram, caps.glUseProgram, caps.glValidateProgram, caps.glUniform1f, 
+			caps.glUniform2f, caps.glUniform3f, caps.glUniform4f, caps.glUniform1i, caps.glUniform2i, caps.glUniform3i, caps.glUniform4i, caps.glUniform1fv, 
+			caps.glUniform2fv, caps.glUniform3fv, caps.glUniform4fv, caps.glUniform1iv, caps.glUniform2iv, caps.glUniform3iv, caps.glUniform4iv, 
+			caps.glUniformMatrix2fv, caps.glUniformMatrix3fv, caps.glUniformMatrix4fv, caps.glGetShaderiv, caps.glGetProgramiv, caps.glGetShaderInfoLog, 
+			caps.glGetProgramInfoLog, caps.glGetAttachedShaders, caps.glGetUniformLocation, caps.glGetActiveUniform, caps.glGetUniformfv, caps.glGetUniformiv, 
+			caps.glGetShaderSource, caps.glVertexAttrib1f, caps.glVertexAttrib1s, caps.glVertexAttrib1d, caps.glVertexAttrib2f, caps.glVertexAttrib2s, 
+			caps.glVertexAttrib2d, caps.glVertexAttrib3f, caps.glVertexAttrib3s, caps.glVertexAttrib3d, caps.glVertexAttrib4f, caps.glVertexAttrib4s, 
+			caps.glVertexAttrib4d, caps.glVertexAttrib4Nub, caps.glVertexAttrib1fv, caps.glVertexAttrib1sv, caps.glVertexAttrib1dv, caps.glVertexAttrib2fv, 
+			caps.glVertexAttrib2sv, caps.glVertexAttrib2dv, caps.glVertexAttrib3fv, caps.glVertexAttrib3sv, caps.glVertexAttrib3dv, caps.glVertexAttrib4fv, 
+			caps.glVertexAttrib4sv, caps.glVertexAttrib4dv, caps.glVertexAttrib4iv, caps.glVertexAttrib4bv, caps.glVertexAttrib4ubv, caps.glVertexAttrib4usv, 
+			caps.glVertexAttrib4uiv, caps.glVertexAttrib4Nbv, caps.glVertexAttrib4Nsv, caps.glVertexAttrib4Niv, caps.glVertexAttrib4Nubv, 
+			caps.glVertexAttrib4Nusv, caps.glVertexAttrib4Nuiv, caps.glVertexAttribPointer, caps.glEnableVertexAttribArray, caps.glDisableVertexAttribArray, 
+			caps.glBindAttribLocation, caps.glGetActiveAttrib, caps.glGetAttribLocation, caps.glGetVertexAttribiv, caps.glGetVertexAttribfv, 
+			caps.glGetVertexAttribdv, caps.glGetVertexAttribPointerv, caps.glDrawBuffers, caps.glBlendEquationSeparate, caps.glStencilOpSeparate, 
+			caps.glStencilFuncSeparate, caps.glStencilMaskSeparate
 		);
-
-		return GL.checkExtension("OpenGL20", funcs, supported);
 	}
 
 	// --- [ glCreateProgram ] ---
@@ -416,7 +206,9 @@ public class GL20 {
 Creates a program object.
 	 */
 	public static int glCreateProgram() {
-		long __functionAddress = getInstance().CreateProgram;
+		long __functionAddress = GL.getCapabilities().glCreateProgram;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -430,7 +222,9 @@ Creates a program object.
 	 * @param program the program object to be deleted
 	 */
 	public static void glDeleteProgram(int program) {
-		long __functionAddress = getInstance().DeleteProgram;
+		long __functionAddress = GL.getCapabilities().glDeleteProgram;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, program);
 	}
 
@@ -445,7 +239,9 @@ Creates a program object.
 	 * @param program the program object name to query
 	 */
 	public static boolean glIsProgram(int program) {
-		long __functionAddress = getInstance().IsProgram;
+		long __functionAddress = GL.getCapabilities().glIsProgram;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, program);
 	}
 
@@ -459,7 +255,9 @@ Creates a program object.
 	 * @param type the type of shader to be created. One of:<br>{@link #GL_VERTEX_SHADER VERTEX_SHADER}, {@link #GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 */
 	public static int glCreateShader(int type) {
-		long __functionAddress = getInstance().CreateShader;
+		long __functionAddress = GL.getCapabilities().glCreateShader;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, type);
 	}
 
@@ -473,7 +271,9 @@ Creates a program object.
 	 * @param shader the shader object to be deleted
 	 */
 	public static void glDeleteShader(int shader) {
-		long __functionAddress = getInstance().DeleteShader;
+		long __functionAddress = GL.getCapabilities().glDeleteShader;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, shader);
 	}
 
@@ -488,7 +288,9 @@ Creates a program object.
 	 * @param shader the shader object name to query
 	 */
 	public static boolean glIsShader(int shader) {
-		long __functionAddress = getInstance().IsShader;
+		long __functionAddress = GL.getCapabilities().glIsShader;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, shader);
 	}
 
@@ -514,7 +316,9 @@ Creates a program object.
 	 * @param shader  the shader object that is to be attached
 	 */
 	public static void glAttachShader(int program, int shader) {
-		long __functionAddress = getInstance().AttachShader;
+		long __functionAddress = GL.getCapabilities().glAttachShader;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, program, shader);
 	}
 
@@ -529,7 +333,9 @@ Creates a program object.
 	 * @param shader  the shader object to be detached
 	 */
 	public static void glDetachShader(int program, int shader) {
-		long __functionAddress = getInstance().DetachShader;
+		long __functionAddress = GL.getCapabilities().glDetachShader;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, program, shader);
 	}
 
@@ -537,7 +343,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glShaderSource ShaderSource} */
 	public static void nglShaderSource(int shader, int count, long strings, long length) {
-		long __functionAddress = getInstance().ShaderSource;
+		long __functionAddress = GL.getCapabilities().glShaderSource;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, shader, count, strings, length);
 	}
 
@@ -545,8 +353,8 @@ Creates a program object.
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glShaderSource.xhtml">OpenGL SDK Reference</a></p>
 	 * 
 	 * Sets the source code in {@code shader} to the source code in the array of strings specified by {@code strings}. Any source code previously stored in the
-	 * shader object is completely replaced. The number of strings in the array is specified by {@code count}. If {@code length} is NULL, each string is
-	 * assumed to be null terminated. If {@code length} is a value other than NULL, it points to an array containing a string length for each of the
+	 * shader object is completely replaced. The number of strings in the array is specified by {@code count}. If {@code length} is {@code NULL}, each string is
+	 * assumed to be null terminated. If {@code length} is a value other than {@code NULL}, it points to an array containing a string length for each of the
 	 * corresponding elements of {@code strings}. Each element in the length array may contain the length of the corresponding string (the null character is not
 	 * counted as part of the string length) or a value less than 0 to indicate that the string is null terminated. The source code strings are not scanned or
 	 * parsed at this time; they are simply copied into the specified shader object.
@@ -573,23 +381,25 @@ Creates a program object.
 
 	/** Array version of: {@link #glShaderSource ShaderSource} */
 	public static void glShaderSource(int shader, CharSequence... strings) {
-		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParamUTF8i(strings);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			nglShaderSource(shader, strings.length, __buffer.address(stringsAddress), __buffer.address(stringsAddress + (strings.length << POINTER_SHIFT)));
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8i(stack, strings);
+			nglShaderSource(shader, strings.length, stringsAddress, stringsAddress - (strings.length << 2));
+			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, strings.length);
 		} finally {
-			__buffer.pointerArrayFree(stringsAddress, strings.length);
+			stack.setPointer(stackPointer);
 		}
 	}
 
 	/** Single string version of: {@link #glShaderSource ShaderSource} */
 	public static void glShaderSource(int shader, CharSequence string) {
-		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParamUTF8i(string);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			nglShaderSource(shader, 1, __buffer.address(stringsAddress), __buffer.address(stringsAddress + POINTER_SIZE));
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8i(stack, string);
+			nglShaderSource(shader, 1, stringsAddress, stringsAddress - 4);
+			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, 1);
 		} finally {
-			__buffer.pointerArrayFree(stringsAddress, 1);
+			stack.setPointer(stackPointer);
 		}
 	}
 
@@ -603,7 +413,9 @@ Creates a program object.
 	 * @param shader the shader object to be compiled
 	 */
 	public static void glCompileShader(int shader) {
-		long __functionAddress = getInstance().CompileShader;
+		long __functionAddress = GL.getCapabilities().glCompileShader;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, shader);
 	}
 
@@ -617,7 +429,9 @@ Creates a program object.
 	 * @param program the program object to be linked
 	 */
 	public static void glLinkProgram(int program) {
-		long __functionAddress = getInstance().LinkProgram;
+		long __functionAddress = GL.getCapabilities().glLinkProgram;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, program);
 	}
 
@@ -631,7 +445,9 @@ Creates a program object.
 	 * @param program the program object whose executables are to be used as part of current rendering state
 	 */
 	public static void glUseProgram(int program) {
-		long __functionAddress = getInstance().UseProgram;
+		long __functionAddress = GL.getCapabilities().glUseProgram;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, program);
 	}
 
@@ -645,7 +461,9 @@ Creates a program object.
 	 * @param program the program object to be validated
 	 */
 	public static void glValidateProgram(int program) {
-		long __functionAddress = getInstance().ValidateProgram;
+		long __functionAddress = GL.getCapabilities().glValidateProgram;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, program);
 	}
 
@@ -660,7 +478,9 @@ Creates a program object.
 	 * @param v0       the uniform value
 	 */
 	public static void glUniform1f(int location, float v0) {
-		long __functionAddress = getInstance().Uniform1f;
+		long __functionAddress = GL.getCapabilities().glUniform1f;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, location, v0);
 	}
 
@@ -676,7 +496,9 @@ Creates a program object.
 	 * @param v1       the uniform y value
 	 */
 	public static void glUniform2f(int location, float v0, float v1) {
-		long __functionAddress = getInstance().Uniform2f;
+		long __functionAddress = GL.getCapabilities().glUniform2f;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFFV(__functionAddress, location, v0, v1);
 	}
 
@@ -693,7 +515,9 @@ Creates a program object.
 	 * @param v2       the uniform z value
 	 */
 	public static void glUniform3f(int location, float v0, float v1, float v2) {
-		long __functionAddress = getInstance().Uniform3f;
+		long __functionAddress = GL.getCapabilities().glUniform3f;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFFFV(__functionAddress, location, v0, v1, v2);
 	}
 
@@ -711,7 +535,9 @@ Creates a program object.
 	 * @param v3       the uniform w value
 	 */
 	public static void glUniform4f(int location, float v0, float v1, float v2, float v3) {
-		long __functionAddress = getInstance().Uniform4f;
+		long __functionAddress = GL.getCapabilities().glUniform4f;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFFFFV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
@@ -726,7 +552,9 @@ Creates a program object.
 	 * @param v0       the uniform value
 	 */
 	public static void glUniform1i(int location, int v0) {
-		long __functionAddress = getInstance().Uniform1i;
+		long __functionAddress = GL.getCapabilities().glUniform1i;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, location, v0);
 	}
 
@@ -742,7 +570,9 @@ Creates a program object.
 	 * @param v1       the uniform y value
 	 */
 	public static void glUniform2i(int location, int v0, int v1) {
-		long __functionAddress = getInstance().Uniform2i;
+		long __functionAddress = GL.getCapabilities().glUniform2i;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, location, v0, v1);
 	}
 
@@ -759,7 +589,9 @@ Creates a program object.
 	 * @param v2       the uniform z value
 	 */
 	public static void glUniform3i(int location, int v0, int v1, int v2) {
-		long __functionAddress = getInstance().Uniform3i;
+		long __functionAddress = GL.getCapabilities().glUniform3i;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, location, v0, v1, v2);
 	}
 
@@ -777,7 +609,9 @@ Creates a program object.
 	 * @param v3       the uniform w value
 	 */
 	public static void glUniform4i(int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = getInstance().Uniform4i;
+		long __functionAddress = GL.getCapabilities().glUniform4i;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
@@ -785,7 +619,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glUniform1fv Uniform1fv} */
 	public static void nglUniform1fv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform1fv;
+		long __functionAddress = GL.getCapabilities().glUniform1fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -813,7 +649,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glUniform2fv Uniform2fv} */
 	public static void nglUniform2fv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform2fv;
+		long __functionAddress = GL.getCapabilities().glUniform2fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -841,7 +679,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glUniform3fv Uniform3fv} */
 	public static void nglUniform3fv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform3fv;
+		long __functionAddress = GL.getCapabilities().glUniform3fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -869,7 +709,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glUniform4fv Uniform4fv} */
 	public static void nglUniform4fv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform4fv;
+		long __functionAddress = GL.getCapabilities().glUniform4fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -897,7 +739,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glUniform1iv Uniform1iv} */
 	public static void nglUniform1iv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform1iv;
+		long __functionAddress = GL.getCapabilities().glUniform1iv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -925,7 +769,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glUniform2iv Uniform2iv} */
 	public static void nglUniform2iv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform2iv;
+		long __functionAddress = GL.getCapabilities().glUniform2iv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -953,7 +799,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glUniform3iv Uniform3iv} */
 	public static void nglUniform3iv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform3iv;
+		long __functionAddress = GL.getCapabilities().glUniform3iv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -981,7 +829,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glUniform4iv Uniform4iv} */
 	public static void nglUniform4iv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform4iv;
+		long __functionAddress = GL.getCapabilities().glUniform4iv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -1009,7 +859,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glUniformMatrix2fv UniformMatrix2fv} */
 	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix2fv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix2fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -1038,7 +890,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glUniformMatrix3fv UniformMatrix3fv} */
 	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix3fv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix3fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -1067,7 +921,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glUniformMatrix4fv UniformMatrix4fv} */
 	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix4fv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix4fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -1096,7 +952,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glGetShaderiv GetShaderiv} */
 	public static void nglGetShaderiv(int shader, int pname, long params) {
-		long __functionAddress = getInstance().GetShaderiv;
+		long __functionAddress = GL.getCapabilities().glGetShaderiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, shader, pname, params);
 	}
 
@@ -1124,17 +982,23 @@ Creates a program object.
 
 	/** Single return value version of: {@link #glGetShaderiv GetShaderiv} */
 	public static int glGetShaderi(int shader, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetShaderiv(shader, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetShaderiv(shader, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramiv GetProgramiv} */
 	public static void nglGetProgramiv(int program, int pname, long params) {
-		long __functionAddress = getInstance().GetProgramiv;
+		long __functionAddress = GL.getCapabilities().glGetProgramiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, pname, params);
 	}
 
@@ -1162,17 +1026,23 @@ Creates a program object.
 
 	/** Single return value version of: {@link #glGetProgramiv GetProgramiv} */
 	public static int glGetProgrami(int program, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetProgramiv(program, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetProgramiv(program, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetShaderInfoLog ] ---
 
 	/** Unsafe version of {@link #glGetShaderInfoLog GetShaderInfoLog} */
 	public static void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog) {
-		long __functionAddress = getInstance().GetShaderInfoLog;
+		long __functionAddress = GL.getCapabilities().glGetShaderInfoLog;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, shader, maxLength, length, infoLog);
 	}
 
@@ -1203,28 +1073,40 @@ Creates a program object.
 
 	/** String return version of: {@link #glGetShaderInfoLog GetShaderInfoLog} */
 	public static String glGetShaderInfoLog(int shader, int maxLength) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int infoLog = __buffer.bufferParam(maxLength);
-		nglGetShaderInfoLog(shader, maxLength, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		ByteBuffer infoLog = memAlloc(maxLength);
+		try {
+			IntBuffer length = stack.ints(0);
+			nglGetShaderInfoLog(shader, maxLength, memAddress(length), memAddress(infoLog));
+			return memUTF8(infoLog, length.get(0));
+		} finally {
+			memFree(infoLog);
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetShaderInfoLog GetShaderInfoLog} */
 	public static String glGetShaderInfoLog(int shader) {
 		int maxLength = glGetShaderi(shader, GL_INFO_LOG_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int infoLog = __buffer.bufferParam(maxLength);
-		nglGetShaderInfoLog(shader, maxLength, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		ByteBuffer infoLog = memAlloc(maxLength);
+		try {
+			IntBuffer length = stack.ints(0);
+			nglGetShaderInfoLog(shader, maxLength, memAddress(length), memAddress(infoLog));
+			return memUTF8(infoLog, length.get(0));
+		} finally {
+			memFree(infoLog);
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramInfoLog ] ---
 
 	/** Unsafe version of {@link #glGetProgramInfoLog GetProgramInfoLog} */
 	public static void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog) {
-		long __functionAddress = getInstance().GetProgramInfoLog;
+		long __functionAddress = GL.getCapabilities().glGetProgramInfoLog;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, program, maxLength, length, infoLog);
 	}
 
@@ -1255,28 +1137,40 @@ Creates a program object.
 
 	/** String return version of: {@link #glGetProgramInfoLog GetProgramInfoLog} */
 	public static String glGetProgramInfoLog(int program, int maxLength) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int infoLog = __buffer.bufferParam(maxLength);
-		nglGetProgramInfoLog(program, maxLength, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		ByteBuffer infoLog = memAlloc(maxLength);
+		try {
+			IntBuffer length = stack.ints(0);
+			nglGetProgramInfoLog(program, maxLength, memAddress(length), memAddress(infoLog));
+			return memUTF8(infoLog, length.get(0));
+		} finally {
+			memFree(infoLog);
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramInfoLog GetProgramInfoLog} */
 	public static String glGetProgramInfoLog(int program) {
 		int maxLength = glGetProgrami(program, GL_INFO_LOG_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int infoLog = __buffer.bufferParam(maxLength);
-		nglGetProgramInfoLog(program, maxLength, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		ByteBuffer infoLog = memAlloc(maxLength);
+		try {
+			IntBuffer length = stack.ints(0);
+			nglGetProgramInfoLog(program, maxLength, memAddress(length), memAddress(infoLog));
+			return memUTF8(infoLog, length.get(0));
+		} finally {
+			memFree(infoLog);
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetAttachedShaders ] ---
 
 	/** Unsafe version of {@link #glGetAttachedShaders GetAttachedShaders} */
 	public static void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
-		long __functionAddress = getInstance().GetAttachedShaders;
+		long __functionAddress = GL.getCapabilities().glGetAttachedShaders;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, program, maxCount, count, shaders);
 	}
 
@@ -1305,32 +1199,13 @@ Creates a program object.
 		nglGetAttachedShaders(program, shaders.remaining(), memAddressSafe(count), memAddress(shaders));
 	}
 
-	/** Buffer return version of: {@link #glGetAttachedShaders GetAttachedShaders} */
-	public static IntBuffer glGetAttachedShaders(int program, int maxCount) {
-		APIBuffer __buffer = apiBuffer();
-		int count = __buffer.intParam();
-		IntBuffer shaders = BufferUtils.createIntBuffer(maxCount);
-		nglGetAttachedShaders(program, maxCount, __buffer.address(count), memAddress(shaders));
-		shaders.limit(__buffer.intValue(count));
-		return shaders.slice();
-	}
-
-	/** Buffer return (w/ implicit max length) version of: {@link #glGetAttachedShaders GetAttachedShaders} */
-	public static IntBuffer glGetAttachedShaders(int program) {
-		int maxCount = glGetProgrami(program, GL_ATTACHED_SHADERS);
-		APIBuffer __buffer = apiBuffer();
-		int count = __buffer.intParam();
-		IntBuffer shaders = BufferUtils.createIntBuffer(maxCount);
-		nglGetAttachedShaders(program, maxCount, __buffer.address(count), memAddress(shaders));
-		shaders.limit(__buffer.intValue(count));
-		return shaders.slice();
-	}
-
 	// --- [ glGetUniformLocation ] ---
 
 	/** Unsafe version of {@link #glGetUniformLocation GetUniformLocation} */
 	public static int nglGetUniformLocation(int program, long name) {
-		long __functionAddress = getInstance().GetUniformLocation;
+		long __functionAddress = GL.getCapabilities().glGetUniformLocation;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPI(__functionAddress, program, name);
 	}
 
@@ -1350,16 +1225,22 @@ Creates a program object.
 
 	/** CharSequence version of: {@link #glGetUniformLocation GetUniformLocation} */
 	public static int glGetUniformLocation(int program, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetUniformLocation(program, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetUniformLocation(program, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetActiveUniform ] ---
 
 	/** Unsafe version of {@link #glGetActiveUniform GetActiveUniform} */
 	public static void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name) {
-		long __functionAddress = getInstance().GetActiveUniform;
+		long __functionAddress = GL.getCapabilities().glGetActiveUniform;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
 	}
 
@@ -1402,11 +1283,15 @@ Creates a program object.
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveUniform(program, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(maxLength);
+			nglGetActiveUniform(program, index, maxLength, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniform GetActiveUniform} */
@@ -1416,18 +1301,24 @@ Creates a program object.
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveUniform(program, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(maxLength);
+			nglGetActiveUniform(program, index, maxLength, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetUniformfv ] ---
 
 	/** Unsafe version of {@link #glGetUniformfv GetUniformfv} */
 	public static void nglGetUniformfv(int program, int location, long params) {
-		long __functionAddress = getInstance().GetUniformfv;
+		long __functionAddress = GL.getCapabilities().glGetUniformfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, location, params);
 	}
 
@@ -1455,17 +1346,23 @@ Creates a program object.
 
 	/** Single return value version of: {@link #glGetUniformfv GetUniformfv} */
 	public static float glGetUniformf(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetUniformfv(program, location, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetUniformfv(program, location, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetUniformiv ] ---
 
 	/** Unsafe version of {@link #glGetUniformiv GetUniformiv} */
 	public static void nglGetUniformiv(int program, int location, long params) {
-		long __functionAddress = getInstance().GetUniformiv;
+		long __functionAddress = GL.getCapabilities().glGetUniformiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, location, params);
 	}
 
@@ -1493,17 +1390,23 @@ Creates a program object.
 
 	/** Single return value version of: {@link #glGetUniformiv GetUniformiv} */
 	public static int glGetUniformi(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetUniformiv(program, location, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetUniformiv(program, location, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetShaderSource ] ---
 
 	/** Unsafe version of {@link #glGetShaderSource GetShaderSource} */
 	public static void nglGetShaderSource(int shader, int maxLength, long length, long source) {
-		long __functionAddress = getInstance().GetShaderSource;
+		long __functionAddress = GL.getCapabilities().glGetShaderSource;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, shader, maxLength, length, source);
 	}
 
@@ -1534,21 +1437,31 @@ Creates a program object.
 
 	/** String return version of: {@link #glGetShaderSource GetShaderSource} */
 	public static String glGetShaderSource(int shader, int maxLength) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int source = __buffer.bufferParam(maxLength);
-		nglGetShaderSource(shader, maxLength, __buffer.address(length), __buffer.address(source));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), source);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		ByteBuffer source = memAlloc(maxLength);
+		try {
+			IntBuffer length = stack.ints(0);
+			nglGetShaderSource(shader, maxLength, memAddress(length), memAddress(source));
+			return memUTF8(source, length.get(0));
+		} finally {
+			memFree(source);
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetShaderSource GetShaderSource} */
 	public static String glGetShaderSource(int shader) {
 		int maxLength = glGetShaderi(shader, GL_SHADER_SOURCE_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int source = __buffer.bufferParam(maxLength);
-		nglGetShaderSource(shader, maxLength, __buffer.address(length), __buffer.address(source));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), source);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		ByteBuffer source = memAlloc(maxLength);
+		try {
+			IntBuffer length = stack.ints(0);
+			nglGetShaderSource(shader, maxLength, memAddress(length), memAddress(source));
+			return memUTF8(source, length.get(0));
+		} finally {
+			memFree(source);
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glVertexAttrib1f ] ---
@@ -1562,7 +1475,9 @@ Creates a program object.
 	 * @param v0    the vertex attribute x component
 	 */
 	public static void glVertexAttrib1f(int index, float v0) {
-		long __functionAddress = getInstance().VertexAttrib1f;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib1f;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, index, v0);
 	}
 
@@ -1577,7 +1492,9 @@ Creates a program object.
 	 * @param v0    the vertex attribute x component
 	 */
 	public static void glVertexAttrib1s(int index, short v0) {
-		long __functionAddress = getInstance().VertexAttrib1s;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib1s;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callISV(__functionAddress, index, v0);
 	}
 
@@ -1592,7 +1509,9 @@ Creates a program object.
 	 * @param v0    the vertex attribute x component
 	 */
 	public static void glVertexAttrib1d(int index, double v0) {
-		long __functionAddress = getInstance().VertexAttrib1d;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib1d;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDV(__functionAddress, index, v0);
 	}
 
@@ -1608,7 +1527,9 @@ Creates a program object.
 	 * @param v1    the vertex attribute y component
 	 */
 	public static void glVertexAttrib2f(int index, float v0, float v1) {
-		long __functionAddress = getInstance().VertexAttrib2f;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib2f;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFFV(__functionAddress, index, v0, v1);
 	}
 
@@ -1624,7 +1545,9 @@ Creates a program object.
 	 * @param v1    the vertex attribute y component
 	 */
 	public static void glVertexAttrib2s(int index, short v0, short v1) {
-		long __functionAddress = getInstance().VertexAttrib2s;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib2s;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callISSV(__functionAddress, index, v0, v1);
 	}
 
@@ -1640,7 +1563,9 @@ Creates a program object.
 	 * @param v1    the vertex attribute y component
 	 */
 	public static void glVertexAttrib2d(int index, double v0, double v1) {
-		long __functionAddress = getInstance().VertexAttrib2d;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib2d;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDDV(__functionAddress, index, v0, v1);
 	}
 
@@ -1657,7 +1582,9 @@ Creates a program object.
 	 * @param v2    the vertex attribute z component
 	 */
 	public static void glVertexAttrib3f(int index, float v0, float v1, float v2) {
-		long __functionAddress = getInstance().VertexAttrib3f;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib3f;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFFFV(__functionAddress, index, v0, v1, v2);
 	}
 
@@ -1674,7 +1601,9 @@ Creates a program object.
 	 * @param v2    the vertex attribute z component
 	 */
 	public static void glVertexAttrib3s(int index, short v0, short v1, short v2) {
-		long __functionAddress = getInstance().VertexAttrib3s;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib3s;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callISSSV(__functionAddress, index, v0, v1, v2);
 	}
 
@@ -1691,7 +1620,9 @@ Creates a program object.
 	 * @param v2    the vertex attribute z component
 	 */
 	public static void glVertexAttrib3d(int index, double v0, double v1, double v2) {
-		long __functionAddress = getInstance().VertexAttrib3d;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib3d;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDDDV(__functionAddress, index, v0, v1, v2);
 	}
 
@@ -1709,7 +1640,9 @@ Creates a program object.
 	 * @param v3    the vertex attribute w component
 	 */
 	public static void glVertexAttrib4f(int index, float v0, float v1, float v2, float v3) {
-		long __functionAddress = getInstance().VertexAttrib4f;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4f;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFFFFV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
@@ -1727,7 +1660,9 @@ Creates a program object.
 	 * @param v3    the vertex attribute w component
 	 */
 	public static void glVertexAttrib4s(int index, short v0, short v1, short v2, short v3) {
-		long __functionAddress = getInstance().VertexAttrib4s;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4s;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callISSSSV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
@@ -1745,7 +1680,9 @@ Creates a program object.
 	 * @param v3    the vertex attribute w component
 	 */
 	public static void glVertexAttrib4d(int index, double v0, double v1, double v2, double v3) {
-		long __functionAddress = getInstance().VertexAttrib4d;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4d;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDDDDV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
@@ -1763,7 +1700,9 @@ Creates a program object.
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w) {
-		long __functionAddress = getInstance().VertexAttrib4Nub;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nub;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIBBBBV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -1771,7 +1710,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib1fv VertexAttrib1fv} */
 	public static void nglVertexAttrib1fv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib1fv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib1fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1800,7 +1741,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib1sv VertexAttrib1sv} */
 	public static void nglVertexAttrib1sv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib1sv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib1sv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1829,7 +1772,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib1dv VertexAttrib1dv} */
 	public static void nglVertexAttrib1dv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib1dv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib1dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1858,7 +1803,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib2fv VertexAttrib2fv} */
 	public static void nglVertexAttrib2fv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib2fv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib2fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1887,7 +1834,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib2sv VertexAttrib2sv} */
 	public static void nglVertexAttrib2sv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib2sv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib2sv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1916,7 +1865,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib2dv VertexAttrib2dv} */
 	public static void nglVertexAttrib2dv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib2dv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib2dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1945,7 +1896,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib3fv VertexAttrib3fv} */
 	public static void nglVertexAttrib3fv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib3fv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib3fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -1974,7 +1927,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib3sv VertexAttrib3sv} */
 	public static void nglVertexAttrib3sv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib3sv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib3sv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2003,7 +1958,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib3dv VertexAttrib3dv} */
 	public static void nglVertexAttrib3dv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib3dv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib3dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2032,7 +1989,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4fv VertexAttrib4fv} */
 	public static void nglVertexAttrib4fv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4fv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2061,7 +2020,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4sv VertexAttrib4sv} */
 	public static void nglVertexAttrib4sv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4sv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4sv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2090,7 +2051,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4dv VertexAttrib4dv} */
 	public static void nglVertexAttrib4dv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4dv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2119,7 +2082,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4iv VertexAttrib4iv} */
 	public static void nglVertexAttrib4iv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4iv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4iv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2148,7 +2113,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4bv VertexAttrib4bv} */
 	public static void nglVertexAttrib4bv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4bv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4bv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2170,7 +2137,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4ubv VertexAttrib4ubv} */
 	public static void nglVertexAttrib4ubv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4ubv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4ubv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2192,7 +2161,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4usv VertexAttrib4usv} */
 	public static void nglVertexAttrib4usv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4usv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4usv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2221,7 +2192,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
 	public static void nglVertexAttrib4uiv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2250,7 +2223,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4Nbv VertexAttrib4Nbv} */
 	public static void nglVertexAttrib4Nbv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4Nbv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nbv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2272,7 +2247,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
 	public static void nglVertexAttrib4Nsv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4Nsv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nsv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2301,7 +2278,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
 	public static void nglVertexAttrib4Niv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4Niv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4Niv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2330,7 +2309,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4Nubv VertexAttrib4Nubv} */
 	public static void nglVertexAttrib4Nubv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4Nubv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nubv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2352,7 +2333,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
 	public static void nglVertexAttrib4Nusv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4Nusv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nusv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2381,7 +2364,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
 	public static void nglVertexAttrib4Nuiv(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4Nuiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -2410,7 +2395,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
-		long __functionAddress = getInstance().VertexAttribPointer;
+		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZIPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
@@ -2472,7 +2459,9 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be enabled
 	 */
 	public static void glEnableVertexAttribArray(int index) {
-		long __functionAddress = getInstance().EnableVertexAttribArray;
+		long __functionAddress = GL.getCapabilities().glEnableVertexAttribArray;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, index);
 	}
 
@@ -2486,7 +2475,9 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be disabled
 	 */
 	public static void glDisableVertexAttribArray(int index) {
-		long __functionAddress = getInstance().DisableVertexAttribArray;
+		long __functionAddress = GL.getCapabilities().glDisableVertexAttribArray;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, index);
 	}
 
@@ -2494,7 +2485,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glBindAttribLocation BindAttribLocation} */
 	public static void nglBindAttribLocation(int program, int index, long name) {
-		long __functionAddress = getInstance().BindAttribLocation;
+		long __functionAddress = GL.getCapabilities().glBindAttribLocation;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, index, name);
 	}
 
@@ -2515,16 +2508,22 @@ Creates a program object.
 
 	/** CharSequence version of: {@link #glBindAttribLocation BindAttribLocation} */
 	public static void glBindAttribLocation(int program, int index, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindAttribLocation(program, index, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			nglBindAttribLocation(program, index, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetActiveAttrib ] ---
 
 	/** Unsafe version of {@link #glGetActiveAttrib GetActiveAttrib} */
 	public static void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name) {
-		long __functionAddress = getInstance().GetActiveAttrib;
+		long __functionAddress = GL.getCapabilities().glGetActiveAttrib;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
 	}
 
@@ -2536,7 +2535,8 @@ Creates a program object.
 	 * @param program   the program object to be queried
 	 * @param index     the index of the attribute variable to be queried
 	 * @param maxLength the maximum number of characters OpenGL is allowed to write in the character buffer indicated by {@code name}
-	 * @param length    the number of characters actually written by OpenGL in the string indicated by {@code name} (excluding the null terminator) if a value other than NULL is passed
+	 * @param length    the number of characters actually written by OpenGL in the string indicated by {@code name} (excluding the null terminator) if a value other than
+	 *                  {@code NULL} is passed
 	 * @param size      the size of the attribute variable
 	 * @param type      the data type of the attribute variable
 	 * @param name      a null terminated string containing the name of the attribute variable
@@ -2567,11 +2567,15 @@ Creates a program object.
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveAttrib(program, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(maxLength);
+			nglGetActiveAttrib(program, index, maxLength, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttrib GetActiveAttrib} */
@@ -2581,18 +2585,24 @@ Creates a program object.
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveAttrib(program, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(maxLength);
+			nglGetActiveAttrib(program, index, maxLength, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetAttribLocation ] ---
 
 	/** Unsafe version of {@link #glGetAttribLocation GetAttribLocation} */
 	public static int nglGetAttribLocation(int program, long name) {
-		long __functionAddress = getInstance().GetAttribLocation;
+		long __functionAddress = GL.getCapabilities().glGetAttribLocation;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPI(__functionAddress, program, name);
 	}
 
@@ -2612,16 +2622,22 @@ Creates a program object.
 
 	/** CharSequence version of: {@link #glGetAttribLocation GetAttribLocation} */
 	public static int glGetAttribLocation(int program, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetAttribLocation(program, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetAttribLocation(program, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetVertexAttribiv ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribiv GetVertexAttribiv} */
 	public static void nglGetVertexAttribiv(int index, int pname, long params) {
-		long __functionAddress = getInstance().GetVertexAttribiv;
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
@@ -2649,17 +2665,23 @@ Creates a program object.
 
 	/** Single return value version of: {@link #glGetVertexAttribiv GetVertexAttribiv} */
 	public static int glGetVertexAttribi(int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetVertexAttribiv(index, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetVertexAttribiv(index, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetVertexAttribfv ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribfv GetVertexAttribfv} */
 	public static void nglGetVertexAttribfv(int index, int pname, long params) {
-		long __functionAddress = getInstance().GetVertexAttribfv;
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
@@ -2689,7 +2711,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glGetVertexAttribdv GetVertexAttribdv} */
 	public static void nglGetVertexAttribdv(int index, int pname, long params) {
-		long __functionAddress = getInstance().GetVertexAttribdv;
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribdv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
@@ -2719,7 +2743,9 @@ Creates a program object.
 
 	/** Unsafe version of {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
 	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
-		long __functionAddress = getInstance().GetVertexAttribPointerv;
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribPointerv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, pname, pointer);
 	}
 
@@ -2747,17 +2773,23 @@ Creates a program object.
 
 	/** Single return value version of: {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
 	public static long glGetVertexAttribPointer(int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int pointer = __buffer.pointerParam();
-		nglGetVertexAttribPointerv(index, pname, __buffer.address(pointer));
-		return __buffer.pointerValue(pointer);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer pointer = stack.callocPointer(1);
+			nglGetVertexAttribPointerv(index, pname, memAddress(pointer));
+			return pointer.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDrawBuffers ] ---
 
 	/** Unsafe version of {@link #glDrawBuffers DrawBuffers} */
 	public static void nglDrawBuffers(int n, long bufs) {
-		long __functionAddress = getInstance().DrawBuffers;
+		long __functionAddress = GL.getCapabilities().glDrawBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, bufs);
 	}
 
@@ -2782,9 +2814,13 @@ Creates a program object.
 
 	/** Single value version of: {@link #glDrawBuffers DrawBuffers} */
 	public static void glDrawBuffers(int buf) {
-		APIBuffer __buffer = apiBuffer();
-		int bufs = __buffer.intParam(buf);
-		nglDrawBuffers(1, __buffer.address(bufs));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer bufs = stack.ints(buf);
+			nglDrawBuffers(1, memAddress(bufs));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glBlendEquationSeparate ] ---
@@ -2798,7 +2834,9 @@ Creates a program object.
 	 * @param modeAlpha the alpha blend equation, how the alpha component of the source and destination colors are combined
 	 */
 	public static void glBlendEquationSeparate(int modeRGB, int modeAlpha) {
-		long __functionAddress = getInstance().BlendEquationSeparate;
+		long __functionAddress = GL.getCapabilities().glBlendEquationSeparate;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, modeRGB, modeAlpha);
 	}
 
@@ -2816,7 +2854,9 @@ Creates a program object.
 	 *               testing is not enabled. The initial value is GL_KEEP
 	 */
 	public static void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass) {
-		long __functionAddress = getInstance().StencilOpSeparate;
+		long __functionAddress = GL.getCapabilities().glStencilOpSeparate;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, face, sfail, dpfail, dppass);
 	}
 
@@ -2834,7 +2874,9 @@ Creates a program object.
 	 * @param mask a mask that is ANDed with both the reference value and the stored stencil value when the test is done. The initial value is all 1's.
 	 */
 	public static void glStencilFuncSeparate(int face, int func, int ref, int mask) {
-		long __functionAddress = getInstance().StencilFuncSeparate;
+		long __functionAddress = GL.getCapabilities().glStencilFuncSeparate;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, face, func, ref, mask);
 	}
 
@@ -2849,7 +2891,9 @@ Creates a program object.
 	 * @param mask a bit mask to enable and disable writing of individual bits in the stencil planes. Initially, the mask is all 1's.
 	 */
 	public static void glStencilMaskSeparate(int face, int mask) {
-		long __functionAddress = getInstance().StencilMaskSeparate;
+		long __functionAddress = GL.getCapabilities().glStencilMaskSeparate;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, face, mask);
 	}
 

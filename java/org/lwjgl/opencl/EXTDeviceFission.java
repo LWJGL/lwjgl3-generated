@@ -83,59 +83,35 @@ public class EXTDeviceFission {
 	/** Returned by clCreateSubDevicesEXT when a compute unit name appearing in a name list following CL_DEVICE_PARTITION_BY_NAMES_EXT is not in range. */
 	public static final int CL_INVALID_PARTITION_NAME_EXT = -1059;
 
-	/** Function address. */
-	public final long
-		ReleaseDeviceEXT,
-		RetainDeviceEXT,
-		CreateSubDevicesEXT;
-
 	protected EXTDeviceFission() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDeviceFission(FunctionProvider provider) {
-		ReleaseDeviceEXT = provider.getFunctionAddress("clReleaseDeviceEXT");
-		RetainDeviceEXT = provider.getFunctionAddress("clRetainDeviceEXT");
-		CreateSubDevicesEXT = provider.getFunctionAddress("clCreateSubDevicesEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDeviceFission} instance of the currently loaded ICD. */
-	public static EXTDeviceFission getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link EXTDeviceFission} instance of the specified {@link CLCapabilities}. */
-	public static EXTDeviceFission getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__EXTDeviceFission);
-	}
-
-	static EXTDeviceFission create(FunctionProvider provider) {
-		EXTDeviceFission funcs = new EXTDeviceFission(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ReleaseDeviceEXT, funcs.RetainDeviceEXT, funcs.CreateSubDevicesEXT
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clReleaseDeviceEXT, caps.clRetainDeviceEXT, caps.clCreateSubDevicesEXT
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clReleaseDeviceEXT ] ---
 
 	public static int clReleaseDeviceEXT(long device) {
-		long __functionAddress = getInstance().ReleaseDeviceEXT;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clReleaseDeviceEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPI(__functionAddress, device);
 	}
 
 	// --- [ clRetainDeviceEXT ] ---
 
 	public static int clRetainDeviceEXT(long device) {
-		long __functionAddress = getInstance().RetainDeviceEXT;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clRetainDeviceEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPI(__functionAddress, device);
 	}
 
@@ -143,9 +119,11 @@ public class EXTDeviceFission {
 
 	/** Unsafe version of {@link #clCreateSubDevicesEXT CreateSubDevicesEXT} */
 	public static int nclCreateSubDevicesEXT(long in_device, long properties, int num_entries, long out_devices, long num_devices) {
-		long __functionAddress = getInstance().CreateSubDevicesEXT;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateSubDevicesEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(in_device);
+		}
 		return callPPIPPI(__functionAddress, in_device, properties, num_entries, out_devices, num_devices);
 	}
 

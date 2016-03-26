@@ -48,55 +48,31 @@ public class AMDSparseTexture {
 	/** Accepted by the {@code pname} parameter of TexParameter{if}{v} and GetTexParameter{if}v. */
 	public static final int GL_MIN_LOD_WARNING_AMD = 0x919C;
 
-	/** Function address. */
-	public final long
-		TexStorageSparseAMD,
-		TextureStorageSparseAMD;
-
 	protected AMDSparseTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AMDSparseTexture(FunctionProvider provider) {
-		TexStorageSparseAMD = provider.getFunctionAddress("glTexStorageSparseAMD");
-		TextureStorageSparseAMD = provider.getFunctionAddress("glTextureStorageSparseAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AMDSparseTexture} instance of the current context. */
-	public static AMDSparseTexture getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link AMDSparseTexture} instance of the specified {@link GLCapabilities}. */
-	public static AMDSparseTexture getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__AMDSparseTexture);
-	}
-
-	static AMDSparseTexture create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_AMD_sparse_texture") ) return null;
-
-		AMDSparseTexture funcs = new AMDSparseTexture(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TexStorageSparseAMD, funcs.TextureStorageSparseAMD
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glTexStorageSparseAMD, caps.glTextureStorageSparseAMD
 		);
-
-		return GL.checkExtension("GL_AMD_sparse_texture", funcs, supported);
 	}
 
 	// --- [ glTexStorageSparseAMD ] ---
 
 	public static void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
-		long __functionAddress = getInstance().TexStorageSparseAMD;
+		long __functionAddress = GL.getCapabilities().glTexStorageSparseAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIV(__functionAddress, target, internalFormat, width, height, depth, layers, flags);
 	}
 
 	// --- [ glTextureStorageSparseAMD ] ---
 
 	public static void glTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
-		long __functionAddress = getInstance().TextureStorageSparseAMD;
+		long __functionAddress = GL.getCapabilities().glTextureStorageSparseAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIV(__functionAddress, texture, target, internalFormat, width, height, depth, layers, flags);
 	}
 

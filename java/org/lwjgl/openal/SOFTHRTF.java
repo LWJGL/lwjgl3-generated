@@ -54,51 +54,25 @@ public class SOFTHRTF {
 		ALC_HRTF_HEADPHONES_DETECTED_SOFT = 0x4,
 		ALC_HRTF_UNSUPPORTED_FORMAT_SOFT  = 0x5;
 
-	/** Function address. */
-	public final long
-		GetStringiSOFT,
-		ResetDeviceSOFT;
-
 	protected SOFTHRTF() {
 		throw new UnsupportedOperationException();
 	}
 
-	public SOFTHRTF(FunctionProviderLocal provider, long device) {
-		GetStringiSOFT = provider.getFunctionAddress(device, "alcGetStringiSOFT");
-		ResetDeviceSOFT = provider.getFunctionAddress(device, "alcResetDeviceSOFT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link SOFTHRTF} instance of the current context. */
-	public static SOFTHRTF getInstance() {
-		return getInstance(ALC.getCapabilities());
-	}
-
-	/** Returns the {@link SOFTHRTF} instance of the specified {@link ALCCapabilities}. */
-	public static SOFTHRTF getInstance(ALCCapabilities caps) {
-		return checkFunctionality(caps.__SOFTHRTF);
-	}
-
-	static SOFTHRTF create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
-		if ( device != 0L && !ext.contains("ALC_SOFT_HRTF") ) return null;
-
-		SOFTHRTF funcs = new SOFTHRTF(provider, device);
-
-		boolean supported = checkFunctions(
-			funcs.GetStringiSOFT, funcs.ResetDeviceSOFT
+	static boolean isAvailable(ALCCapabilities caps) {
+		return checkFunctions(
+			caps.alcGetStringiSOFT, caps.alcResetDeviceSOFT
 		);
-
-		return device == 0L && !supported ? null : ALC.checkExtension("ALC_SOFT_HRTF", funcs, supported);
 	}
 
 	// --- [ alcGetStringiSOFT ] ---
 
 	/** Unsafe version of {@link #alcGetStringiSOFT GetStringiSOFT} */
 	public static long nalcGetStringiSOFT(long device, int paramName, int index) {
-		long __functionAddress = getInstance().GetStringiSOFT;
-		if ( CHECKS )
+		long __functionAddress = ALC.getICD().alcGetStringiSOFT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return invokePIIP(__functionAddress, device, paramName, index);
 	}
 
@@ -114,16 +88,18 @@ public class SOFTHRTF {
 	 */
 	public static String alcGetStringiSOFT(long device, int paramName, int index) {
 		long __result = nalcGetStringiSOFT(device, paramName, index);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ alcResetDeviceSOFT ] ---
 
 	/** Unsafe version of {@link #alcResetDeviceSOFT ResetDeviceSOFT} */
 	public static boolean nalcResetDeviceSOFT(long device, long attrList) {
-		long __functionAddress = getInstance().ResetDeviceSOFT;
-		if ( CHECKS )
+		long __functionAddress = ALC.getICD().alcResetDeviceSOFT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return invokePPZ(__functionAddress, device, attrList);
 	}
 

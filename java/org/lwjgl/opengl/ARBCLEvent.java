@@ -29,39 +29,14 @@ public class ARBCLEvent {
 	/** Returned in {@code values} for {@link GL32#glGetSynciv GetSynciv} {@code pname} {@link GL32#GL_SYNC_CONDITION SYNC_CONDITION}. */
 	public static final int GL_SYNC_CL_EVENT_COMPLETE_ARB = 0x8241;
 
-	/** Function address. */
-	public final long CreateSyncFromCLeventARB;
-
 	protected ARBCLEvent() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBCLEvent(FunctionProvider provider) {
-		CreateSyncFromCLeventARB = provider.getFunctionAddress("glCreateSyncFromCLeventARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBCLEvent} instance of the current context. */
-	public static ARBCLEvent getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBCLEvent} instance of the specified {@link GLCapabilities}. */
-	public static ARBCLEvent getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBCLEvent);
-	}
-
-	static ARBCLEvent create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_cl_event") ) return null;
-
-		ARBCLEvent funcs = new ARBCLEvent(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateSyncFromCLeventARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glCreateSyncFromCLeventARB
 		);
-
-		return GL.checkExtension("GL_ARB_cl_event", funcs, supported);
 	}
 
 	// --- [ glCreateSyncFromCLeventARB ] ---
@@ -83,8 +58,9 @@ public class ARBCLEvent {
 	 * @param flags   must be 0 (placeholder for anticipated future extensions of sync object capabilities)
 	 */
 	public static long glCreateSyncFromCLeventARB(long context, long event, int flags) {
-		long __functionAddress = getInstance().CreateSyncFromCLeventARB;
+		long __functionAddress = GL.getCapabilities().glCreateSyncFromCLeventARB;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(event);
 		}

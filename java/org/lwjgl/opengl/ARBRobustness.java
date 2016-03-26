@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -90,92 +90,25 @@ public class ARBRobustness {
 	/** Returned by GetIntegerv when {@code pname} is CONTEXT_FLAGS. */
 	public static final int GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB = 0x4;
 
-	/** Function address. */
-	public final long
-		GetGraphicsResetStatusARB,
-		GetnMapdvARB,
-		GetnMapfvARB,
-		GetnMapivARB,
-		GetnPixelMapfvARB,
-		GetnPixelMapuivARB,
-		GetnPixelMapusvARB,
-		GetnPolygonStippleARB,
-		GetnTexImageARB,
-		ReadnPixelsARB,
-		GetnColorTableARB,
-		GetnConvolutionFilterARB,
-		GetnSeparableFilterARB,
-		GetnHistogramARB,
-		GetnMinmaxARB,
-		GetnCompressedTexImageARB,
-		GetnUniformfvARB,
-		GetnUniformivARB,
-		GetnUniformuivARB,
-		GetnUniformdvARB;
-
 	protected ARBRobustness() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBRobustness(FunctionProvider provider) {
-		GetGraphicsResetStatusARB = provider.getFunctionAddress("glGetGraphicsResetStatusARB");
-		GetnMapdvARB = provider.getFunctionAddress("glGetnMapdvARB");
-		GetnMapfvARB = provider.getFunctionAddress("glGetnMapfvARB");
-		GetnMapivARB = provider.getFunctionAddress("glGetnMapivARB");
-		GetnPixelMapfvARB = provider.getFunctionAddress("glGetnPixelMapfvARB");
-		GetnPixelMapuivARB = provider.getFunctionAddress("glGetnPixelMapuivARB");
-		GetnPixelMapusvARB = provider.getFunctionAddress("glGetnPixelMapusvARB");
-		GetnPolygonStippleARB = provider.getFunctionAddress("glGetnPolygonStippleARB");
-		GetnTexImageARB = provider.getFunctionAddress("glGetnTexImageARB");
-		ReadnPixelsARB = provider.getFunctionAddress("glReadnPixelsARB");
-		GetnColorTableARB = provider.getFunctionAddress("glGetnColorTableARB");
-		GetnConvolutionFilterARB = provider.getFunctionAddress("glGetnConvolutionFilterARB");
-		GetnSeparableFilterARB = provider.getFunctionAddress("glGetnSeparableFilterARB");
-		GetnHistogramARB = provider.getFunctionAddress("glGetnHistogramARB");
-		GetnMinmaxARB = provider.getFunctionAddress("glGetnMinmaxARB");
-		GetnCompressedTexImageARB = provider.getFunctionAddress("glGetnCompressedTexImageARB");
-		GetnUniformfvARB = provider.getFunctionAddress("glGetnUniformfvARB");
-		GetnUniformivARB = provider.getFunctionAddress("glGetnUniformivARB");
-		GetnUniformuivARB = provider.getFunctionAddress("glGetnUniformuivARB");
-		GetnUniformdvARB = provider.getFunctionAddress("glGetnUniformdvARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBRobustness} instance of the current context. */
-	public static ARBRobustness getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBRobustness} instance of the specified {@link GLCapabilities}. */
-	public static ARBRobustness getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBRobustness);
-	}
-
-	static ARBRobustness create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_robustness") ) return null;
-
-		ARBRobustness funcs = new ARBRobustness(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetGraphicsResetStatusARB, provider.getFunctionAddress("glGetMapdv") != NULL ? funcs.GetnMapdvARB : -1L, 
-			provider.getFunctionAddress("glGetMapfv") != NULL ? funcs.GetnMapfvARB : -1L, 
-			provider.getFunctionAddress("glGetMapiv") != NULL ? funcs.GetnMapivARB : -1L, 
-			provider.getFunctionAddress("glGetPixelMapfv") != NULL ? funcs.GetnPixelMapfvARB : -1L, 
-			provider.getFunctionAddress("glGetPixelMapuiv") != NULL ? funcs.GetnPixelMapuivARB : -1L, 
-			provider.getFunctionAddress("glGetPixelMapusv") != NULL ? funcs.GetnPixelMapusvARB : -1L, 
-			provider.getFunctionAddress("glGetPolygonStipple") != NULL ? funcs.GetnPolygonStippleARB : -1L, funcs.GetnTexImageARB, funcs.ReadnPixelsARB, 
-			ext.contains("GL_ARB_imaging") && provider.getFunctionAddress("glGetColorTable") != NULL ? funcs.GetnColorTableARB : -1L, 
-			ext.contains("GL_ARB_imaging") && provider.getFunctionAddress("glGetConvolutionFilter") != NULL ? funcs.GetnConvolutionFilterARB : -1L, 
-			ext.contains("GL_ARB_imaging") && provider.getFunctionAddress("glGetSeparableFilter") != NULL ? funcs.GetnSeparableFilterARB : -1L, 
-			ext.contains("GL_ARB_imaging") && provider.getFunctionAddress("glGetHistogram") != NULL ? funcs.GetnHistogramARB : -1L, 
-			ext.contains("GL_ARB_imaging") && provider.getFunctionAddress("glGetMinmax") != NULL ? funcs.GetnMinmaxARB : -1L, 
-			ext.contains("OpenGL13") ? funcs.GetnCompressedTexImageARB : -1L, ext.contains("OpenGL20") ? funcs.GetnUniformfvARB : -1L, 
-			ext.contains("OpenGL20") ? funcs.GetnUniformivARB : -1L, ext.contains("OpenGL30") ? funcs.GetnUniformuivARB : -1L, 
-			ext.contains("OpenGL40") ? funcs.GetnUniformdvARB : -1L
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glGetGraphicsResetStatusARB, caps.glGetMapdv != NULL ? caps.glGetnMapdvARB : -1L, caps.glGetMapfv != NULL ? caps.glGetnMapfvARB : -1L, 
+			caps.glGetMapiv != NULL ? caps.glGetnMapivARB : -1L, caps.glGetPixelMapfv != NULL ? caps.glGetnPixelMapfvARB : -1L, 
+			caps.glGetPixelMapuiv != NULL ? caps.glGetnPixelMapuivARB : -1L, caps.glGetPixelMapusv != NULL ? caps.glGetnPixelMapusvARB : -1L, 
+			caps.glGetPolygonStipple != NULL ? caps.glGetnPolygonStippleARB : -1L, caps.glGetnTexImageARB, caps.glReadnPixelsARB, 
+			ext.contains("GL_ARB_imaging") && caps.glGetColorTable != NULL ? caps.glGetnColorTableARB : -1L, 
+			ext.contains("GL_ARB_imaging") && caps.glGetConvolutionFilter != NULL ? caps.glGetnConvolutionFilterARB : -1L, 
+			ext.contains("GL_ARB_imaging") && caps.glGetSeparableFilter != NULL ? caps.glGetnSeparableFilterARB : -1L, 
+			ext.contains("GL_ARB_imaging") && caps.glGetHistogram != NULL ? caps.glGetnHistogramARB : -1L, 
+			ext.contains("GL_ARB_imaging") && caps.glGetMinmax != NULL ? caps.glGetnMinmaxARB : -1L, 
+			ext.contains("OpenGL13") ? caps.glGetnCompressedTexImageARB : -1L, ext.contains("OpenGL20") ? caps.glGetnUniformfvARB : -1L, 
+			ext.contains("OpenGL20") ? caps.glGetnUniformivARB : -1L, ext.contains("OpenGL30") ? caps.glGetnUniformuivARB : -1L, 
+			ext.contains("OpenGL40") ? caps.glGetnUniformdvARB : -1L
 		);
-
-		return GL.checkExtension("GL_ARB_robustness", funcs, supported);
 	}
 
 	// --- [ glGetGraphicsResetStatusARB ] ---
@@ -201,7 +134,9 @@ public class ARBRobustness {
 	 * <p>If a graphics reset notification occurs in a context, a notification must also occur in all other contexts which share objects with that context.</p>
 	 */
 	public static int glGetGraphicsResetStatusARB() {
-		long __functionAddress = getInstance().GetGraphicsResetStatusARB;
+		long __functionAddress = GL.getCapabilities().glGetGraphicsResetStatusARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -209,7 +144,7 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnMapdvARB GetnMapdvARB} */
 	public static void nglGetnMapdvARB(int target, int query, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnMapdvARB;
+		long __functionAddress = GL.getCapabilities().glGetnMapdvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
@@ -236,17 +171,21 @@ public class ARBRobustness {
 
 	/** Single return value version of: {@link #glGetnMapdvARB GetnMapdvARB} */
 	public static double glGetnMapdARB(int target, int query) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.doubleParam();
-		nglGetnMapdvARB(target, query, 1, __buffer.address(data));
-		return __buffer.doubleValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer data = stack.callocDouble(1);
+			nglGetnMapdvARB(target, query, 1, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnMapfvARB ] ---
 
 	/** Unsafe version of {@link #glGetnMapfvARB GetnMapfvARB} */
 	public static void nglGetnMapfvARB(int target, int query, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnMapfvARB;
+		long __functionAddress = GL.getCapabilities().glGetnMapfvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
@@ -273,17 +212,21 @@ public class ARBRobustness {
 
 	/** Single return value version of: {@link #glGetnMapfvARB GetnMapfvARB} */
 	public static float glGetnMapfARB(int target, int query) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.floatParam();
-		nglGetnMapfvARB(target, query, 1, __buffer.address(data));
-		return __buffer.floatValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer data = stack.callocFloat(1);
+			nglGetnMapfvARB(target, query, 1, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnMapivARB ] ---
 
 	/** Unsafe version of {@link #glGetnMapivARB GetnMapivARB} */
 	public static void nglGetnMapivARB(int target, int query, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnMapivARB;
+		long __functionAddress = GL.getCapabilities().glGetnMapivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
@@ -310,17 +253,21 @@ public class ARBRobustness {
 
 	/** Single return value version of: {@link #glGetnMapivARB GetnMapivARB} */
 	public static int glGetnMapiARB(int target, int query) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.intParam();
-		nglGetnMapivARB(target, query, 1, __buffer.address(data));
-		return __buffer.intValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer data = stack.callocInt(1);
+			nglGetnMapivARB(target, query, 1, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnPixelMapfvARB ] ---
 
 	/** Unsafe version of {@link #glGetnPixelMapfvARB GetnPixelMapfvARB} */
 	public static void nglGetnPixelMapfvARB(int map, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnPixelMapfvARB;
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapfvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
@@ -348,7 +295,7 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnPixelMapuivARB GetnPixelMapuivARB} */
 	public static void nglGetnPixelMapuivARB(int map, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnPixelMapuivARB;
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapuivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
@@ -376,7 +323,7 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnPixelMapusvARB GetnPixelMapusvARB} */
 	public static void nglGetnPixelMapusvARB(int map, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnPixelMapusvARB;
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapusvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
@@ -404,7 +351,7 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnPolygonStippleARB GetnPolygonStippleARB} */
 	public static void nglGetnPolygonStippleARB(int bufSize, long pattern) {
-		long __functionAddress = getInstance().GetnPolygonStippleARB;
+		long __functionAddress = GL.getCapabilities().glGetnPolygonStippleARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, bufSize, pattern);
@@ -442,7 +389,9 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void nglGetnTexImageARB(int tex, int level, int format, int type, int bufSize, long img) {
-		long __functionAddress = getInstance().GetnTexImageARB;
+		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIPV(__functionAddress, tex, level, format, type, bufSize, img);
 	}
 
@@ -510,7 +459,9 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glReadnPixelsARB ReadnPixelsARB} */
 	public static void nglReadnPixelsARB(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
-		long __functionAddress = getInstance().ReadnPixelsARB;
+		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
 	}
 
@@ -573,7 +524,7 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnColorTableARB GetnColorTableARB} */
 	public static void nglGetnColorTableARB(int target, int format, int type, int bufSize, long table) {
-		long __functionAddress = getInstance().GetnColorTableARB;
+		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, format, type, bufSize, table);
@@ -635,7 +586,7 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnConvolutionFilterARB GetnConvolutionFilterARB} */
 	public static void nglGetnConvolutionFilterARB(int target, int format, int type, int bufSize, long image) {
-		long __functionAddress = getInstance().GetnConvolutionFilterARB;
+		long __functionAddress = GL.getCapabilities().glGetnConvolutionFilterARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, format, type, bufSize, image);
@@ -676,7 +627,7 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnSeparableFilterARB GetnSeparableFilterARB} */
 	public static void nglGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span) {
-		long __functionAddress = getInstance().GetnSeparableFilterARB;
+		long __functionAddress = GL.getCapabilities().glGetnSeparableFilterARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPIPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
@@ -721,7 +672,7 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnHistogramARB GetnHistogramARB} */
 	public static void nglGetnHistogramARB(int target, boolean reset, int format, int type, int bufSize, long values) {
-		long __functionAddress = getInstance().GetnHistogramARB;
+		long __functionAddress = GL.getCapabilities().glGetnHistogramARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
@@ -763,7 +714,7 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnMinmaxARB GetnMinmaxARB} */
 	public static void nglGetnMinmaxARB(int target, boolean reset, int format, int type, int bufSize, long values) {
-		long __functionAddress = getInstance().GetnMinmaxARB;
+		long __functionAddress = GL.getCapabilities().glGetnMinmaxARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
@@ -806,7 +757,7 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnCompressedTexImageARB GetnCompressedTexImageARB} */
 	public static void nglGetnCompressedTexImageARB(int target, int level, int bufSize, long img) {
-		long __functionAddress = getInstance().GetnCompressedTexImageARB;
+		long __functionAddress = GL.getCapabilities().glGetnCompressedTexImageARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, level, bufSize, img);
@@ -851,7 +802,7 @@ public class ARBRobustness {
 
 	/** Unsafe version of {@link #glGetnUniformfvARB GetnUniformfvARB} */
 	public static void nglGetnUniformfvARB(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformfvARB;
+		long __functionAddress = GL.getCapabilities().glGetnUniformfvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -878,17 +829,21 @@ public class ARBRobustness {
 
 	/** Single return value version of: {@link #glGetnUniformfvARB GetnUniformfvARB} */
 	public static float glGetnUniformfARB(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetnUniformfvARB(program, location, 1, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetnUniformfvARB(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnUniformivARB ] ---
 
 	/** Unsafe version of {@link #glGetnUniformivARB GetnUniformivARB} */
 	public static void nglGetnUniformivARB(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformivARB;
+		long __functionAddress = GL.getCapabilities().glGetnUniformivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -915,17 +870,21 @@ public class ARBRobustness {
 
 	/** Single return value version of: {@link #glGetnUniformivARB GetnUniformivARB} */
 	public static int glGetnUniformiARB(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetnUniformivARB(program, location, 1, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetnUniformivARB(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnUniformuivARB ] ---
 
 	/** Unsafe version of {@link #glGetnUniformuivARB GetnUniformuivARB} */
 	public static void nglGetnUniformuivARB(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformuivARB;
+		long __functionAddress = GL.getCapabilities().glGetnUniformuivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -952,17 +911,21 @@ public class ARBRobustness {
 
 	/** Single return value version of: {@link #glGetnUniformuivARB GetnUniformuivARB} */
 	public static int glGetnUniformuiARB(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetnUniformuivARB(program, location, 1, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetnUniformuivARB(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnUniformdvARB ] ---
 
 	/** Unsafe version of {@link #glGetnUniformdvARB GetnUniformdvARB} */
 	public static void nglGetnUniformdvARB(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformdvARB;
+		long __functionAddress = GL.getCapabilities().glGetnUniformdvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -989,10 +952,14 @@ public class ARBRobustness {
 
 	/** Single return value version of: {@link #glGetnUniformdvARB GetnUniformdvARB} */
 	public static double glGetnUniformdARB(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.doubleParam();
-		nglGetnUniformdvARB(program, location, 1, __buffer.address(params));
-		return __buffer.doubleValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer params = stack.callocDouble(1);
+			nglGetnUniformdvARB(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

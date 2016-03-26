@@ -8,106 +8,748 @@ package org.lwjgl.opengles;
 import org.lwjgl.system.*;
 import java.util.Set;
 
+import static org.lwjgl.system.MemoryUtil.*;
+
 /** Defines the capabilities of an OpenGL ES context. */
 public final class GLESCapabilities {
 
-	final GLES20                                  __GLES20;
-	final GLES30                                  __GLES30;
-	final GLES31                                  __GLES31;
-	final GLES32                                  __GLES32;
-	final AMDPerformanceMonitor                   __AMDPerformanceMonitor;
-	final ANGLEFramebufferBlit                    __ANGLEFramebufferBlit;
-	final ANGLEFramebufferMultisample             __ANGLEFramebufferMultisample;
-	final ANGLEInstancedArrays                    __ANGLEInstancedArrays;
-	final ANGLETranslatedShaderSource             __ANGLETranslatedShaderSource;
-	final APPLECopyTextureLevels                  __APPLECopyTextureLevels;
-	final APPLEFramebufferMultisample             __APPLEFramebufferMultisample;
-	final APPLESync                               __APPLESync;
-	final EXTBaseInstance                         __EXTBaseInstance;
-	final EXTBlendFuncExtended                    __EXTBlendFuncExtended;
-	final EXTBufferStorage                        __EXTBufferStorage;
-	final EXTCopyImage                            __EXTCopyImage;
-	final EXTDebugLabel                           __EXTDebugLabel;
-	final EXTDebugMarker                          __EXTDebugMarker;
-	final EXTDiscardFramebuffer                   __EXTDiscardFramebuffer;
-	final EXTDisjointTimerQuery                   __EXTDisjointTimerQuery;
-	final EXTDrawBuffers                          __EXTDrawBuffers;
-	final EXTDrawBuffersIndexed                   __EXTDrawBuffersIndexed;
-	final EXTDrawElementsBaseVertex               __EXTDrawElementsBaseVertex;
-	final EXTDrawInstanced                        __EXTDrawInstanced;
-	final EXTGeometryShader                       __EXTGeometryShader;
-	final EXTInstancedArrays                      __EXTInstancedArrays;
-	final EXTMapBufferRange                       __EXTMapBufferRange;
-	final EXTMultiDrawArrays                      __EXTMultiDrawArrays;
-	final EXTMultiDrawIndirect                    __EXTMultiDrawIndirect;
-	final EXTMultisampledRenderToTexture          __EXTMultisampledRenderToTexture;
-	final EXTMultiviewDrawBuffers                 __EXTMultiviewDrawBuffers;
-	final EXTOcclusionQueryBoolean                __EXTOcclusionQueryBoolean;
-	final EXTPolygonOffsetClamp                   __EXTPolygonOffsetClamp;
-	final EXTPrimitiveBoundingBox                 __EXTPrimitiveBoundingBox;
-	final EXTRasterMultisample                    __EXTRasterMultisample;
-	final EXTRobustness                           __EXTRobustness;
-	final EXTSeparateShaderObjects                __EXTSeparateShaderObjects;
-	final EXTShaderPixelLocalStorage2             __EXTShaderPixelLocalStorage2;
-	final EXTSparseTexture                        __EXTSparseTexture;
-	final EXTTessellationShader                   __EXTTessellationShader;
-	final EXTTextureBorderClamp                   __EXTTextureBorderClamp;
-	final EXTTextureBuffer                        __EXTTextureBuffer;
-	final EXTTextureFilterMinmax                  __EXTTextureFilterMinmax;
-	final EXTTextureStorage                       __EXTTextureStorage;
-	final EXTTextureView                          __EXTTextureView;
-	final IMGFramebufferDownsample                __IMGFramebufferDownsample;
-	final IMGMultisampledRenderToTexture          __IMGMultisampledRenderToTexture;
-	final INTELFramebufferCMAA                    __INTELFramebufferCMAA;
-	final INTELPerformanceQuery                   __INTELPerformanceQuery;
-	final KHRBlendEquationAdvanced                __KHRBlendEquationAdvanced;
-	final KHRDebug                                __KHRDebug;
-	final KHRRobustness                           __KHRRobustness;
-	final NVBindlessTexture                       __NVBindlessTexture;
-	final NVBlendEquationAdvanced                 __NVBlendEquationAdvanced;
-	final NVConditionalRender                     __NVConditionalRender;
-	final NVConservativeRaster                    __NVConservativeRaster;
-	final NVCopyBuffer                            __NVCopyBuffer;
-	final NVCoverageSample                        __NVCoverageSample;
-	final NVDrawBuffers                           __NVDrawBuffers;
-	final NVDrawInstanced                         __NVDrawInstanced;
-	final NVFence                                 __NVFence;
-	final NVFragmentCoverageToColor               __NVFragmentCoverageToColor;
-	final NVFramebufferBlit                       __NVFramebufferBlit;
-	final NVFramebufferMixedSamples               __NVFramebufferMixedSamples;
-	final NVFramebufferMultisample                __NVFramebufferMultisample;
-	final NVInstancedArrays                       __NVInstancedArrays;
-	final NVInternalformatSampleQuery             __NVInternalformatSampleQuery;
-	final NVNonSquareMatrices                     __NVNonSquareMatrices;
-	final NVPathRendering                         __NVPathRendering;
-	final NVPolygonMode                           __NVPolygonMode;
-	final NVReadBuffer                            __NVReadBuffer;
-	final NVSampleLocations                       __NVSampleLocations;
-	final NVTextureArray                          __NVTextureArray;
-	final NVViewportArray                         __NVViewportArray;
-	final OESCopyImage                            __OESCopyImage;
-	final OESDrawBuffersIndexed                   __OESDrawBuffersIndexed;
-	final OESDrawElementsBaseVertex               __OESDrawElementsBaseVertex;
-	final OESEGLImage                             __OESEGLImage;
-	final OESGeometryShader                       __OESGeometryShader;
-	final OESGetProgramBinary                     __OESGetProgramBinary;
-	final OESMapbuffer                            __OESMapbuffer;
-	final OESPrimitiveBoundingBox                 __OESPrimitiveBoundingBox;
-	final OESSampleShading                        __OESSampleShading;
-	final OESTessellationShader                   __OESTessellationShader;
-	final OESTexture3D                            __OESTexture3D;
-	final OESTextureBorderClamp                   __OESTextureBorderClamp;
-	final OESTextureBuffer                        __OESTextureBuffer;
-	final OESTextureStorageMultisample2DArray     __OESTextureStorageMultisample2DArray;
-	final OESTextureView                          __OESTextureView;
-	final OESVertexArrayObject                    __OESVertexArrayObject;
-	final OVRMultiview                            __OVRMultiview;
-	final OVRMultiviewMultisampledRenderToTexture __OVRMultiviewMultisampledRenderToTexture;
-	final QCOMAlphaTest                           __QCOMAlphaTest;
-	final QCOMDriverControl                       __QCOMDriverControl;
-	final QCOMExtendedGet                         __QCOMExtendedGet;
-	final QCOMExtendedGet2                        __QCOMExtendedGet2;
-	final QCOMTiledRendering                      __QCOMTiledRendering;
+	public final long
+		glActiveShaderProgram,
+		glActiveShaderProgramEXT,
+		glActiveTexture,
+		glAlphaFuncQCOM,
+		glApplyFramebufferAttachmentCMAAINTEL,
+		glAttachShader,
+		glBeginConditionalRenderNV,
+		glBeginPerfMonitorAMD,
+		glBeginPerfQueryINTEL,
+		glBeginQuery,
+		glBeginQueryEXT,
+		glBeginTransformFeedback,
+		glBindAttribLocation,
+		glBindBuffer,
+		glBindBufferBase,
+		glBindBufferRange,
+		glBindFragDataLocationEXT,
+		glBindFragDataLocationIndexedEXT,
+		glBindFramebuffer,
+		glBindImageTexture,
+		glBindProgramPipeline,
+		glBindProgramPipelineEXT,
+		glBindRenderbuffer,
+		glBindSampler,
+		glBindTexture,
+		glBindTransformFeedback,
+		glBindVertexArray,
+		glBindVertexArrayOES,
+		glBindVertexBuffer,
+		glBlendBarrier,
+		glBlendBarrierKHR,
+		glBlendBarrierNV,
+		glBlendColor,
+		glBlendEquation,
+		glBlendEquationSeparate,
+		glBlendEquationSeparatei,
+		glBlendEquationSeparateiEXT,
+		glBlendEquationSeparateiOES,
+		glBlendEquationi,
+		glBlendEquationiEXT,
+		glBlendEquationiOES,
+		glBlendFunc,
+		glBlendFuncSeparate,
+		glBlendFuncSeparatei,
+		glBlendFuncSeparateiEXT,
+		glBlendFuncSeparateiOES,
+		glBlendFunci,
+		glBlendFunciEXT,
+		glBlendFunciOES,
+		glBlendParameteriNV,
+		glBlitFramebuffer,
+		glBlitFramebufferANGLE,
+		glBlitFramebufferNV,
+		glBufferData,
+		glBufferStorageEXT,
+		glBufferSubData,
+		glCheckFramebufferStatus,
+		glClear,
+		glClearBufferfi,
+		glClearBufferfv,
+		glClearBufferiv,
+		glClearBufferuiv,
+		glClearColor,
+		glClearDepthf,
+		glClearPixelLocalStorageuiEXT,
+		glClearStencil,
+		glClientWaitSync,
+		glClientWaitSyncAPPLE,
+		glColorMask,
+		glColorMaski,
+		glColorMaskiEXT,
+		glColorMaskiOES,
+		glCompileShader,
+		glCompressedTexImage2D,
+		glCompressedTexImage3D,
+		glCompressedTexImage3DNV,
+		glCompressedTexImage3DOES,
+		glCompressedTexSubImage2D,
+		glCompressedTexSubImage3D,
+		glCompressedTexSubImage3DNV,
+		glCompressedTexSubImage3DOES,
+		glCopyBufferSubData,
+		glCopyBufferSubDataNV,
+		glCopyImageSubData,
+		glCopyImageSubDataEXT,
+		glCopyImageSubDataOES,
+		glCopyPathNV,
+		glCopyTexImage2D,
+		glCopyTexSubImage2D,
+		glCopyTexSubImage3D,
+		glCopyTexSubImage3DNV,
+		glCopyTexSubImage3DOES,
+		glCopyTextureLevelsAPPLE,
+		glCoverFillPathInstancedNV,
+		glCoverFillPathNV,
+		glCoverStrokePathInstancedNV,
+		glCoverStrokePathNV,
+		glCoverageMaskNV,
+		glCoverageModulationNV,
+		glCoverageModulationTableNV,
+		glCoverageOperationNV,
+		glCreatePerfQueryINTEL,
+		glCreateProgram,
+		glCreateShader,
+		glCreateShaderProgramv,
+		glCreateShaderProgramvEXT,
+		glCullFace,
+		glDebugMessageCallback,
+		glDebugMessageCallbackKHR,
+		glDebugMessageControl,
+		glDebugMessageControlKHR,
+		glDebugMessageInsert,
+		glDebugMessageInsertKHR,
+		glDeleteBuffers,
+		glDeleteFencesNV,
+		glDeleteFramebuffers,
+		glDeletePathsNV,
+		glDeletePerfMonitorsAMD,
+		glDeletePerfQueryINTEL,
+		glDeleteProgram,
+		glDeleteProgramPipelines,
+		glDeleteProgramPipelinesEXT,
+		glDeleteQueries,
+		glDeleteQueriesEXT,
+		glDeleteRenderbuffers,
+		glDeleteSamplers,
+		glDeleteShader,
+		glDeleteSync,
+		glDeleteSyncAPPLE,
+		glDeleteTextures,
+		glDeleteTransformFeedbacks,
+		glDeleteVertexArrays,
+		glDeleteVertexArraysOES,
+		glDepthFunc,
+		glDepthMask,
+		glDepthRangeArrayfvNV,
+		glDepthRangeIndexedfNV,
+		glDepthRangef,
+		glDetachShader,
+		glDisable,
+		glDisableDriverControlQCOM,
+		glDisableVertexAttribArray,
+		glDisablei,
+		glDisableiEXT,
+		glDisableiNV,
+		glDisableiOES,
+		glDiscardFramebufferEXT,
+		glDispatchCompute,
+		glDispatchComputeIndirect,
+		glDrawArrays,
+		glDrawArraysIndirect,
+		glDrawArraysInstanced,
+		glDrawArraysInstancedANGLE,
+		glDrawArraysInstancedBaseInstanceEXT,
+		glDrawArraysInstancedEXT,
+		glDrawArraysInstancedNV,
+		glDrawBuffers,
+		glDrawBuffersEXT,
+		glDrawBuffersIndexedEXT,
+		glDrawBuffersNV,
+		glDrawElements,
+		glDrawElementsBaseVertex,
+		glDrawElementsBaseVertexEXT,
+		glDrawElementsBaseVertexOES,
+		glDrawElementsIndirect,
+		glDrawElementsInstanced,
+		glDrawElementsInstancedANGLE,
+		glDrawElementsInstancedBaseInstanceEXT,
+		glDrawElementsInstancedBaseVertex,
+		glDrawElementsInstancedBaseVertexBaseInstanceEXT,
+		glDrawElementsInstancedBaseVertexEXT,
+		glDrawElementsInstancedBaseVertexOES,
+		glDrawElementsInstancedEXT,
+		glDrawElementsInstancedNV,
+		glDrawRangeElements,
+		glDrawRangeElementsBaseVertex,
+		glDrawRangeElementsBaseVertexEXT,
+		glDrawRangeElementsBaseVertexOES,
+		glEGLImageTargetRenderbufferStorageOES,
+		glEGLImageTargetTexture2DOES,
+		glEnable,
+		glEnableDriverControlQCOM,
+		glEnableVertexAttribArray,
+		glEnablei,
+		glEnableiEXT,
+		glEnableiNV,
+		glEnableiOES,
+		glEndConditionalRenderNV,
+		glEndPerfMonitorAMD,
+		glEndPerfQueryINTEL,
+		glEndQuery,
+		glEndQueryEXT,
+		glEndTilingQCOM,
+		glEndTransformFeedback,
+		glExtGetBufferPointervQCOM,
+		glExtGetBuffersQCOM,
+		glExtGetFramebuffersQCOM,
+		glExtGetProgramBinarySourceQCOM,
+		glExtGetProgramsQCOM,
+		glExtGetRenderbuffersQCOM,
+		glExtGetShadersQCOM,
+		glExtGetTexLevelParameterivQCOM,
+		glExtGetTexSubImageQCOM,
+		glExtGetTexturesQCOM,
+		glExtIsProgramBinaryQCOM,
+		glExtTexObjectStateOverrideiQCOM,
+		glFenceSync,
+		glFenceSyncAPPLE,
+		glFinish,
+		glFinishFenceNV,
+		glFlush,
+		glFlushMappedBufferRange,
+		glFlushMappedBufferRangeEXT,
+		glFragmentCoverageColorNV,
+		glFramebufferParameteri,
+		glFramebufferPixelLocalStorageSizeEXT,
+		glFramebufferRenderbuffer,
+		glFramebufferSampleLocationsfvNV,
+		glFramebufferTexture,
+		glFramebufferTexture2D,
+		glFramebufferTexture2DDownsampleIMG,
+		glFramebufferTexture2DMultisampleEXT,
+		glFramebufferTexture2DMultisampleIMG,
+		glFramebufferTexture3DOES,
+		glFramebufferTextureEXT,
+		glFramebufferTextureLayer,
+		glFramebufferTextureLayerDownsampleIMG,
+		glFramebufferTextureLayerNV,
+		glFramebufferTextureMultisampleMultiviewOVR,
+		glFramebufferTextureMultiviewOVR,
+		glFramebufferTextureOES,
+		glFrontFace,
+		glGenBuffers,
+		glGenFencesNV,
+		glGenFramebuffers,
+		glGenPathsNV,
+		glGenPerfMonitorsAMD,
+		glGenProgramPipelines,
+		glGenProgramPipelinesEXT,
+		glGenQueries,
+		glGenQueriesEXT,
+		glGenRenderbuffers,
+		glGenSamplers,
+		glGenTextures,
+		glGenTransformFeedbacks,
+		glGenVertexArrays,
+		glGenVertexArraysOES,
+		glGenerateMipmap,
+		glGetActiveAttrib,
+		glGetActiveUniform,
+		glGetActiveUniformBlockName,
+		glGetActiveUniformBlockiv,
+		glGetActiveUniformsiv,
+		glGetAttachedShaders,
+		glGetAttribLocation,
+		glGetBooleani_v,
+		glGetBooleanv,
+		glGetBufferParameteri64v,
+		glGetBufferParameteriv,
+		glGetBufferPointerv,
+		glGetBufferPointervOES,
+		glGetCoverageModulationTableNV,
+		glGetDebugMessageLog,
+		glGetDebugMessageLogKHR,
+		glGetDriverControlStringQCOM,
+		glGetDriverControlsQCOM,
+		glGetError,
+		glGetFenceivNV,
+		glGetFirstPerfQueryIdINTEL,
+		glGetFloati_vNV,
+		glGetFloatv,
+		glGetFragDataIndexEXT,
+		glGetFragDataLocation,
+		glGetFramebufferAttachmentParameteriv,
+		glGetFramebufferParameteriv,
+		glGetFramebufferPixelLocalStorageSizeEXT,
+		glGetGraphicsResetStatus,
+		glGetGraphicsResetStatusEXT,
+		glGetGraphicsResetStatusKHR,
+		glGetImageHandleNV,
+		glGetInteger64i_v,
+		glGetInteger64v,
+		glGetInteger64vAPPLE,
+		glGetIntegeri_v,
+		glGetIntegeri_vEXT,
+		glGetIntegerv,
+		glGetInternalformatSampleivNV,
+		glGetInternalformativ,
+		glGetMultisamplefv,
+		glGetNextPerfQueryIdINTEL,
+		glGetObjectLabel,
+		glGetObjectLabelEXT,
+		glGetObjectLabelKHR,
+		glGetObjectPtrLabel,
+		glGetObjectPtrLabelKHR,
+		glGetPathCommandsNV,
+		glGetPathCoordsNV,
+		glGetPathDashArrayNV,
+		glGetPathLengthNV,
+		glGetPathMetricRangeNV,
+		glGetPathMetricsNV,
+		glGetPathParameterfvNV,
+		glGetPathParameterivNV,
+		glGetPathSpacingNV,
+		glGetPerfCounterInfoINTEL,
+		glGetPerfMonitorCounterDataAMD,
+		glGetPerfMonitorCounterInfoAMD,
+		glGetPerfMonitorCounterStringAMD,
+		glGetPerfMonitorCountersAMD,
+		glGetPerfMonitorGroupStringAMD,
+		glGetPerfMonitorGroupsAMD,
+		glGetPerfQueryDataINTEL,
+		glGetPerfQueryIdByNameINTEL,
+		glGetPerfQueryInfoINTEL,
+		glGetPointerv,
+		glGetPointervKHR,
+		glGetProgramBinary,
+		glGetProgramBinaryOES,
+		glGetProgramInfoLog,
+		glGetProgramInterfaceiv,
+		glGetProgramPipelineInfoLog,
+		glGetProgramPipelineInfoLogEXT,
+		glGetProgramPipelineiv,
+		glGetProgramPipelineivEXT,
+		glGetProgramResourceIndex,
+		glGetProgramResourceLocation,
+		glGetProgramResourceLocationIndexEXT,
+		glGetProgramResourceName,
+		glGetProgramResourcefvNV,
+		glGetProgramResourceiv,
+		glGetProgramiv,
+		glGetQueryObjecti64vEXT,
+		glGetQueryObjectivEXT,
+		glGetQueryObjectui64vEXT,
+		glGetQueryObjectuiv,
+		glGetQueryObjectuivEXT,
+		glGetQueryiv,
+		glGetQueryivEXT,
+		glGetRenderbufferParameteriv,
+		glGetSamplerParameterIiv,
+		glGetSamplerParameterIivEXT,
+		glGetSamplerParameterIivOES,
+		glGetSamplerParameterIuiv,
+		glGetSamplerParameterIuivEXT,
+		glGetSamplerParameterIuivOES,
+		glGetSamplerParameterfv,
+		glGetSamplerParameteriv,
+		glGetShaderInfoLog,
+		glGetShaderPrecisionFormat,
+		glGetShaderSource,
+		glGetShaderiv,
+		glGetString,
+		glGetStringi,
+		glGetSynciv,
+		glGetSyncivAPPLE,
+		glGetTexLevelParameterfv,
+		glGetTexLevelParameteriv,
+		glGetTexParameterIiv,
+		glGetTexParameterIivEXT,
+		glGetTexParameterIivOES,
+		glGetTexParameterIuiv,
+		glGetTexParameterIuivEXT,
+		glGetTexParameterIuivOES,
+		glGetTexParameterfv,
+		glGetTexParameteriv,
+		glGetTextureHandleNV,
+		glGetTextureSamplerHandleNV,
+		glGetTransformFeedbackVarying,
+		glGetTranslatedShaderSourceANGLE,
+		glGetUniformBlockIndex,
+		glGetUniformIndices,
+		glGetUniformLocation,
+		glGetUniformfv,
+		glGetUniformiv,
+		glGetUniformuiv,
+		glGetVertexAttribIiv,
+		glGetVertexAttribIuiv,
+		glGetVertexAttribPointerv,
+		glGetVertexAttribfv,
+		glGetVertexAttribiv,
+		glGetnUniformfv,
+		glGetnUniformfvEXT,
+		glGetnUniformfvKHR,
+		glGetnUniformiv,
+		glGetnUniformivEXT,
+		glGetnUniformivKHR,
+		glGetnUniformuiv,
+		glGetnUniformuivKHR,
+		glHint,
+		glInsertEventMarkerEXT,
+		glInterpolatePathsNV,
+		glInvalidateFramebuffer,
+		glInvalidateSubFramebuffer,
+		glIsBuffer,
+		glIsEnabled,
+		glIsEnabledi,
+		glIsEnablediEXT,
+		glIsEnablediNV,
+		glIsEnablediOES,
+		glIsFenceNV,
+		glIsFramebuffer,
+		glIsImageHandleResidentNV,
+		glIsPathNV,
+		glIsPointInFillPathNV,
+		glIsPointInStrokePathNV,
+		glIsProgram,
+		glIsProgramPipeline,
+		glIsProgramPipelineEXT,
+		glIsQuery,
+		glIsQueryEXT,
+		glIsRenderbuffer,
+		glIsSampler,
+		glIsShader,
+		glIsSync,
+		glIsSyncAPPLE,
+		glIsTexture,
+		glIsTextureHandleResidentNV,
+		glIsTransformFeedback,
+		glIsVertexArray,
+		glIsVertexArrayOES,
+		glLabelObjectEXT,
+		glLineWidth,
+		glLinkProgram,
+		glMakeImageHandleNonResidentNV,
+		glMakeImageHandleResidentNV,
+		glMakeTextureHandleNonResidentNV,
+		glMakeTextureHandleResidentNV,
+		glMapBufferOES,
+		glMapBufferRange,
+		glMapBufferRangeEXT,
+		glMatrixLoad3x2fNV,
+		glMatrixLoad3x3fNV,
+		glMatrixLoadTranspose3x3fNV,
+		glMatrixMult3x2fNV,
+		glMatrixMult3x3fNV,
+		glMatrixMultTranspose3x3fNV,
+		glMemoryBarrier,
+		glMemoryBarrierByRegion,
+		glMinSampleShading,
+		glMinSampleShadingOES,
+		glMultiDrawArraysEXT,
+		glMultiDrawArraysIndirectEXT,
+		glMultiDrawElementsBaseVertexEXT,
+		glMultiDrawElementsBaseVertexOES,
+		glMultiDrawElementsEXT,
+		glMultiDrawElementsIndirectEXT,
+		glNamedFramebufferSampleLocationsfvNV,
+		glObjectLabel,
+		glObjectLabelKHR,
+		glObjectPtrLabel,
+		glObjectPtrLabelKHR,
+		glPatchParameteri,
+		glPatchParameteriEXT,
+		glPatchParameteriOES,
+		glPathCommandsNV,
+		glPathCoordsNV,
+		glPathCoverDepthFuncNV,
+		glPathDashArrayNV,
+		glPathGlyphIndexArrayNV,
+		glPathGlyphIndexRangeNV,
+		glPathGlyphRangeNV,
+		glPathGlyphsNV,
+		glPathMemoryGlyphIndexArrayNV,
+		glPathParameterfNV,
+		glPathParameterfvNV,
+		glPathParameteriNV,
+		glPathParameterivNV,
+		glPathStencilDepthOffsetNV,
+		glPathStencilFuncNV,
+		glPathStringNV,
+		glPathSubCommandsNV,
+		glPathSubCoordsNV,
+		glPauseTransformFeedback,
+		glPixelStorei,
+		glPointAlongPathNV,
+		glPolygonModeNV,
+		glPolygonOffset,
+		glPolygonOffsetClampEXT,
+		glPopDebugGroup,
+		glPopDebugGroupKHR,
+		glPopGroupMarkerEXT,
+		glPrimitiveBoundingBox,
+		glPrimitiveBoundingBoxEXT,
+		glPrimitiveBoundingBoxOES,
+		glProgramBinary,
+		glProgramBinaryOES,
+		glProgramParameteri,
+		glProgramParameteriEXT,
+		glProgramPathFragmentInputGenNV,
+		glProgramUniform1f,
+		glProgramUniform1fEXT,
+		glProgramUniform1fv,
+		glProgramUniform1fvEXT,
+		glProgramUniform1i,
+		glProgramUniform1iEXT,
+		glProgramUniform1iv,
+		glProgramUniform1ivEXT,
+		glProgramUniform1ui,
+		glProgramUniform1uiEXT,
+		glProgramUniform1uiv,
+		glProgramUniform1uivEXT,
+		glProgramUniform2f,
+		glProgramUniform2fEXT,
+		glProgramUniform2fv,
+		glProgramUniform2fvEXT,
+		glProgramUniform2i,
+		glProgramUniform2iEXT,
+		glProgramUniform2iv,
+		glProgramUniform2ivEXT,
+		glProgramUniform2ui,
+		glProgramUniform2uiEXT,
+		glProgramUniform2uiv,
+		glProgramUniform2uivEXT,
+		glProgramUniform3f,
+		glProgramUniform3fEXT,
+		glProgramUniform3fv,
+		glProgramUniform3fvEXT,
+		glProgramUniform3i,
+		glProgramUniform3iEXT,
+		glProgramUniform3iv,
+		glProgramUniform3ivEXT,
+		glProgramUniform3ui,
+		glProgramUniform3uiEXT,
+		glProgramUniform3uiv,
+		glProgramUniform3uivEXT,
+		glProgramUniform4f,
+		glProgramUniform4fEXT,
+		glProgramUniform4fv,
+		glProgramUniform4fvEXT,
+		glProgramUniform4i,
+		glProgramUniform4iEXT,
+		glProgramUniform4iv,
+		glProgramUniform4ivEXT,
+		glProgramUniform4ui,
+		glProgramUniform4uiEXT,
+		glProgramUniform4uiv,
+		glProgramUniform4uivEXT,
+		glProgramUniformHandleui64NV,
+		glProgramUniformHandleui64vNV,
+		glProgramUniformMatrix2fv,
+		glProgramUniformMatrix2fvEXT,
+		glProgramUniformMatrix2x3fv,
+		glProgramUniformMatrix2x3fvEXT,
+		glProgramUniformMatrix2x4fv,
+		glProgramUniformMatrix2x4fvEXT,
+		glProgramUniformMatrix3fv,
+		glProgramUniformMatrix3fvEXT,
+		glProgramUniformMatrix3x2fv,
+		glProgramUniformMatrix3x2fvEXT,
+		glProgramUniformMatrix3x4fv,
+		glProgramUniformMatrix3x4fvEXT,
+		glProgramUniformMatrix4fv,
+		glProgramUniformMatrix4fvEXT,
+		glProgramUniformMatrix4x2fv,
+		glProgramUniformMatrix4x2fvEXT,
+		glProgramUniformMatrix4x3fv,
+		glProgramUniformMatrix4x3fvEXT,
+		glPushDebugGroup,
+		glPushDebugGroupKHR,
+		glPushGroupMarkerEXT,
+		glQueryCounterEXT,
+		glRasterSamplesEXT,
+		glReadBuffer,
+		glReadBufferIndexedEXT,
+		glReadBufferNV,
+		glReadPixels,
+		glReadnPixels,
+		glReadnPixelsEXT,
+		glReadnPixelsKHR,
+		glReleaseShaderCompiler,
+		glRenderbufferStorage,
+		glRenderbufferStorageMultisample,
+		glRenderbufferStorageMultisampleANGLE,
+		glRenderbufferStorageMultisampleAPPLE,
+		glRenderbufferStorageMultisampleEXT,
+		glRenderbufferStorageMultisampleIMG,
+		glRenderbufferStorageMultisampleNV,
+		glResolveDepthValuesNV,
+		glResolveMultisampleFramebufferAPPLE,
+		glResumeTransformFeedback,
+		glSampleCoverage,
+		glSampleMaski,
+		glSamplerParameterIiv,
+		glSamplerParameterIivEXT,
+		glSamplerParameterIivOES,
+		glSamplerParameterIuiv,
+		glSamplerParameterIuivEXT,
+		glSamplerParameterIuivOES,
+		glSamplerParameterf,
+		glSamplerParameterfv,
+		glSamplerParameteri,
+		glSamplerParameteriv,
+		glScissor,
+		glScissorArrayvNV,
+		glScissorIndexedNV,
+		glScissorIndexedvNV,
+		glSelectPerfMonitorCountersAMD,
+		glSetFenceNV,
+		glShaderBinary,
+		glShaderSource,
+		glStartTilingQCOM,
+		glStencilFillPathInstancedNV,
+		glStencilFillPathNV,
+		glStencilFunc,
+		glStencilFuncSeparate,
+		glStencilMask,
+		glStencilMaskSeparate,
+		glStencilOp,
+		glStencilOpSeparate,
+		glStencilStrokePathInstancedNV,
+		glStencilStrokePathNV,
+		glStencilThenCoverFillPathInstancedNV,
+		glStencilThenCoverFillPathNV,
+		glStencilThenCoverStrokePathInstancedNV,
+		glStencilThenCoverStrokePathNV,
+		glSubpixelPrecisionBiasNV,
+		glTestFenceNV,
+		glTexBuffer,
+		glTexBufferEXT,
+		glTexBufferOES,
+		glTexBufferRange,
+		glTexBufferRangeEXT,
+		glTexBufferRangeOES,
+		glTexImage2D,
+		glTexImage3D,
+		glTexImage3DNV,
+		glTexImage3DOES,
+		glTexPageCommitmentARB,
+		glTexParameterIiv,
+		glTexParameterIivEXT,
+		glTexParameterIivOES,
+		glTexParameterIuiv,
+		glTexParameterIuivEXT,
+		glTexParameterIuivOES,
+		glTexParameterf,
+		glTexParameterfv,
+		glTexParameteri,
+		glTexParameteriv,
+		glTexStorage1DEXT,
+		glTexStorage2D,
+		glTexStorage2DEXT,
+		glTexStorage2DMultisample,
+		glTexStorage3D,
+		glTexStorage3DEXT,
+		glTexStorage3DMultisample,
+		glTexStorage3DMultisampleOES,
+		glTexSubImage2D,
+		glTexSubImage3D,
+		glTexSubImage3DNV,
+		glTexSubImage3DOES,
+		glTextureStorage1DEXT,
+		glTextureStorage2DEXT,
+		glTextureStorage3DEXT,
+		glTextureViewEXT,
+		glTextureViewOES,
+		glTransformFeedbackVaryings,
+		glTransformPathNV,
+		glUniform1f,
+		glUniform1fv,
+		glUniform1i,
+		glUniform1iv,
+		glUniform1ui,
+		glUniform1uiv,
+		glUniform2f,
+		glUniform2fv,
+		glUniform2i,
+		glUniform2iv,
+		glUniform2ui,
+		glUniform2uiv,
+		glUniform3f,
+		glUniform3fv,
+		glUniform3i,
+		glUniform3iv,
+		glUniform3ui,
+		glUniform3uiv,
+		glUniform4f,
+		glUniform4fv,
+		glUniform4i,
+		glUniform4iv,
+		glUniform4ui,
+		glUniform4uiv,
+		glUniformBlockBinding,
+		glUniformHandleui64NV,
+		glUniformHandleui64vNV,
+		glUniformMatrix2fv,
+		glUniformMatrix2x3fv,
+		glUniformMatrix2x3fvNV,
+		glUniformMatrix2x4fv,
+		glUniformMatrix2x4fvNV,
+		glUniformMatrix3fv,
+		glUniformMatrix3x2fv,
+		glUniformMatrix3x2fvNV,
+		glUniformMatrix3x4fv,
+		glUniformMatrix3x4fvNV,
+		glUniformMatrix4fv,
+		glUniformMatrix4x2fv,
+		glUniformMatrix4x2fvNV,
+		glUniformMatrix4x3fv,
+		glUniformMatrix4x3fvNV,
+		glUnmapBuffer,
+		glUnmapBufferOES,
+		glUseProgram,
+		glUseProgramStages,
+		glUseProgramStagesEXT,
+		glValidateProgram,
+		glValidateProgramPipeline,
+		glValidateProgramPipelineEXT,
+		glVertexAttrib1f,
+		glVertexAttrib1fv,
+		glVertexAttrib2f,
+		glVertexAttrib2fv,
+		glVertexAttrib3f,
+		glVertexAttrib3fv,
+		glVertexAttrib4f,
+		glVertexAttrib4fv,
+		glVertexAttribBinding,
+		glVertexAttribDivisor,
+		glVertexAttribDivisorANGLE,
+		glVertexAttribDivisorEXT,
+		glVertexAttribDivisorNV,
+		glVertexAttribFormat,
+		glVertexAttribI4i,
+		glVertexAttribI4iv,
+		glVertexAttribI4ui,
+		glVertexAttribI4uiv,
+		glVertexAttribIFormat,
+		glVertexAttribIPointer,
+		glVertexAttribPointer,
+		glVertexBindingDivisor,
+		glViewport,
+		glViewportArrayvNV,
+		glViewportIndexedfNV,
+		glViewportIndexedfvNV,
+		glWaitSync,
+		glWaitSyncAPPLE,
+		glWeightPathsNV;
 
 	/** When true, {@link GLES20} is supported. */
 	public final boolean GLES20;
@@ -1190,32 +1832,769 @@ public final class GLESCapabilities {
 	public final boolean GL_VIV_shader_binary;
 
 	GLESCapabilities(FunctionProvider provider, Set<String> ext) {
-		GLES20 = (__GLES20 = org.lwjgl.opengles.GLES20.create(ext, provider)) != null;
-		GLES30 = (__GLES30 = org.lwjgl.opengles.GLES30.create(ext, provider)) != null;
-		GLES31 = (__GLES31 = org.lwjgl.opengles.GLES31.create(ext, provider)) != null;
-		GLES32 = (__GLES32 = org.lwjgl.opengles.GLES32.create(ext, provider)) != null;
+		glActiveShaderProgram = provider.getFunctionAddress("glActiveShaderProgram");
+		glActiveShaderProgramEXT = provider.getFunctionAddress("glActiveShaderProgramEXT");
+		glActiveTexture = provider.getFunctionAddress("glActiveTexture");
+		glAlphaFuncQCOM = provider.getFunctionAddress("glAlphaFuncQCOM");
+		glApplyFramebufferAttachmentCMAAINTEL = provider.getFunctionAddress("glApplyFramebufferAttachmentCMAAINTEL");
+		glAttachShader = provider.getFunctionAddress("glAttachShader");
+		glBeginConditionalRenderNV = provider.getFunctionAddress("glBeginConditionalRenderNV");
+		glBeginPerfMonitorAMD = provider.getFunctionAddress("glBeginPerfMonitorAMD");
+		glBeginPerfQueryINTEL = provider.getFunctionAddress("glBeginPerfQueryINTEL");
+		glBeginQuery = provider.getFunctionAddress("glBeginQuery");
+		glBeginQueryEXT = provider.getFunctionAddress("glBeginQueryEXT");
+		glBeginTransformFeedback = provider.getFunctionAddress("glBeginTransformFeedback");
+		glBindAttribLocation = provider.getFunctionAddress("glBindAttribLocation");
+		glBindBuffer = provider.getFunctionAddress("glBindBuffer");
+		glBindBufferBase = provider.getFunctionAddress("glBindBufferBase");
+		glBindBufferRange = provider.getFunctionAddress("glBindBufferRange");
+		glBindFragDataLocationEXT = provider.getFunctionAddress("glBindFragDataLocationEXT");
+		glBindFragDataLocationIndexedEXT = provider.getFunctionAddress("glBindFragDataLocationIndexedEXT");
+		glBindFramebuffer = provider.getFunctionAddress("glBindFramebuffer");
+		glBindImageTexture = provider.getFunctionAddress("glBindImageTexture");
+		glBindProgramPipeline = provider.getFunctionAddress("glBindProgramPipeline");
+		glBindProgramPipelineEXT = provider.getFunctionAddress("glBindProgramPipelineEXT");
+		glBindRenderbuffer = provider.getFunctionAddress("glBindRenderbuffer");
+		glBindSampler = provider.getFunctionAddress("glBindSampler");
+		glBindTexture = provider.getFunctionAddress("glBindTexture");
+		glBindTransformFeedback = provider.getFunctionAddress("glBindTransformFeedback");
+		glBindVertexArray = provider.getFunctionAddress("glBindVertexArray");
+		glBindVertexArrayOES = provider.getFunctionAddress("glBindVertexArrayOES");
+		glBindVertexBuffer = provider.getFunctionAddress("glBindVertexBuffer");
+		glBlendBarrier = provider.getFunctionAddress("glBlendBarrier");
+		glBlendBarrierKHR = provider.getFunctionAddress("glBlendBarrierKHR");
+		glBlendBarrierNV = provider.getFunctionAddress("glBlendBarrierNV");
+		glBlendColor = provider.getFunctionAddress("glBlendColor");
+		glBlendEquation = provider.getFunctionAddress("glBlendEquation");
+		glBlendEquationSeparate = provider.getFunctionAddress("glBlendEquationSeparate");
+		glBlendEquationSeparatei = provider.getFunctionAddress("glBlendEquationSeparatei");
+		glBlendEquationSeparateiEXT = provider.getFunctionAddress("glBlendEquationSeparateiEXT");
+		glBlendEquationSeparateiOES = provider.getFunctionAddress("glBlendEquationSeparateiOES");
+		glBlendEquationi = provider.getFunctionAddress("glBlendEquationi");
+		glBlendEquationiEXT = provider.getFunctionAddress("glBlendEquationiEXT");
+		glBlendEquationiOES = provider.getFunctionAddress("glBlendEquationiOES");
+		glBlendFunc = provider.getFunctionAddress("glBlendFunc");
+		glBlendFuncSeparate = provider.getFunctionAddress("glBlendFuncSeparate");
+		glBlendFuncSeparatei = provider.getFunctionAddress("glBlendFuncSeparatei");
+		glBlendFuncSeparateiEXT = provider.getFunctionAddress("glBlendFuncSeparateiEXT");
+		glBlendFuncSeparateiOES = provider.getFunctionAddress("glBlendFuncSeparateiOES");
+		glBlendFunci = provider.getFunctionAddress("glBlendFunci");
+		glBlendFunciEXT = provider.getFunctionAddress("glBlendFunciEXT");
+		glBlendFunciOES = provider.getFunctionAddress("glBlendFunciOES");
+		glBlendParameteriNV = provider.getFunctionAddress("glBlendParameteriNV");
+		glBlitFramebuffer = provider.getFunctionAddress("glBlitFramebuffer");
+		glBlitFramebufferANGLE = provider.getFunctionAddress("glBlitFramebufferANGLE");
+		glBlitFramebufferNV = provider.getFunctionAddress("glBlitFramebufferNV");
+		glBufferData = provider.getFunctionAddress("glBufferData");
+		glBufferStorageEXT = provider.getFunctionAddress("glBufferStorageEXT");
+		glBufferSubData = provider.getFunctionAddress("glBufferSubData");
+		glCheckFramebufferStatus = provider.getFunctionAddress("glCheckFramebufferStatus");
+		glClear = provider.getFunctionAddress("glClear");
+		glClearBufferfi = provider.getFunctionAddress("glClearBufferfi");
+		glClearBufferfv = provider.getFunctionAddress("glClearBufferfv");
+		glClearBufferiv = provider.getFunctionAddress("glClearBufferiv");
+		glClearBufferuiv = provider.getFunctionAddress("glClearBufferuiv");
+		glClearColor = provider.getFunctionAddress("glClearColor");
+		glClearDepthf = provider.getFunctionAddress("glClearDepthf");
+		glClearPixelLocalStorageuiEXT = provider.getFunctionAddress("glClearPixelLocalStorageuiEXT");
+		glClearStencil = provider.getFunctionAddress("glClearStencil");
+		glClientWaitSync = provider.getFunctionAddress("glClientWaitSync");
+		glClientWaitSyncAPPLE = provider.getFunctionAddress("glClientWaitSyncAPPLE");
+		glColorMask = provider.getFunctionAddress("glColorMask");
+		glColorMaski = provider.getFunctionAddress("glColorMaski");
+		glColorMaskiEXT = provider.getFunctionAddress("glColorMaskiEXT");
+		glColorMaskiOES = provider.getFunctionAddress("glColorMaskiOES");
+		glCompileShader = provider.getFunctionAddress("glCompileShader");
+		glCompressedTexImage2D = provider.getFunctionAddress("glCompressedTexImage2D");
+		glCompressedTexImage3D = provider.getFunctionAddress("glCompressedTexImage3D");
+		glCompressedTexImage3DNV = provider.getFunctionAddress("glCompressedTexImage3DNV");
+		glCompressedTexImage3DOES = provider.getFunctionAddress("glCompressedTexImage3DOES");
+		glCompressedTexSubImage2D = provider.getFunctionAddress("glCompressedTexSubImage2D");
+		glCompressedTexSubImage3D = provider.getFunctionAddress("glCompressedTexSubImage3D");
+		glCompressedTexSubImage3DNV = provider.getFunctionAddress("glCompressedTexSubImage3DNV");
+		glCompressedTexSubImage3DOES = provider.getFunctionAddress("glCompressedTexSubImage3DOES");
+		glCopyBufferSubData = provider.getFunctionAddress("glCopyBufferSubData");
+		glCopyBufferSubDataNV = provider.getFunctionAddress("glCopyBufferSubDataNV");
+		glCopyImageSubData = provider.getFunctionAddress("glCopyImageSubData");
+		glCopyImageSubDataEXT = provider.getFunctionAddress("glCopyImageSubDataEXT");
+		glCopyImageSubDataOES = provider.getFunctionAddress("glCopyImageSubDataOES");
+		glCopyPathNV = provider.getFunctionAddress("glCopyPathNV");
+		glCopyTexImage2D = provider.getFunctionAddress("glCopyTexImage2D");
+		glCopyTexSubImage2D = provider.getFunctionAddress("glCopyTexSubImage2D");
+		glCopyTexSubImage3D = provider.getFunctionAddress("glCopyTexSubImage3D");
+		glCopyTexSubImage3DNV = provider.getFunctionAddress("glCopyTexSubImage3DNV");
+		glCopyTexSubImage3DOES = provider.getFunctionAddress("glCopyTexSubImage3DOES");
+		glCopyTextureLevelsAPPLE = provider.getFunctionAddress("glCopyTextureLevelsAPPLE");
+		glCoverFillPathInstancedNV = provider.getFunctionAddress("glCoverFillPathInstancedNV");
+		glCoverFillPathNV = provider.getFunctionAddress("glCoverFillPathNV");
+		glCoverStrokePathInstancedNV = provider.getFunctionAddress("glCoverStrokePathInstancedNV");
+		glCoverStrokePathNV = provider.getFunctionAddress("glCoverStrokePathNV");
+		glCoverageMaskNV = provider.getFunctionAddress("glCoverageMaskNV");
+		glCoverageModulationNV = provider.getFunctionAddress("glCoverageModulationNV");
+		glCoverageModulationTableNV = provider.getFunctionAddress("glCoverageModulationTableNV");
+		glCoverageOperationNV = provider.getFunctionAddress("glCoverageOperationNV");
+		glCreatePerfQueryINTEL = provider.getFunctionAddress("glCreatePerfQueryINTEL");
+		glCreateProgram = provider.getFunctionAddress("glCreateProgram");
+		glCreateShader = provider.getFunctionAddress("glCreateShader");
+		glCreateShaderProgramv = provider.getFunctionAddress("glCreateShaderProgramv");
+		glCreateShaderProgramvEXT = provider.getFunctionAddress("glCreateShaderProgramvEXT");
+		glCullFace = provider.getFunctionAddress("glCullFace");
+		glDebugMessageCallback = provider.getFunctionAddress("glDebugMessageCallback");
+		glDebugMessageCallbackKHR = provider.getFunctionAddress("glDebugMessageCallbackKHR");
+		glDebugMessageControl = provider.getFunctionAddress("glDebugMessageControl");
+		glDebugMessageControlKHR = provider.getFunctionAddress("glDebugMessageControlKHR");
+		glDebugMessageInsert = provider.getFunctionAddress("glDebugMessageInsert");
+		glDebugMessageInsertKHR = provider.getFunctionAddress("glDebugMessageInsertKHR");
+		glDeleteBuffers = provider.getFunctionAddress("glDeleteBuffers");
+		glDeleteFencesNV = provider.getFunctionAddress("glDeleteFencesNV");
+		glDeleteFramebuffers = provider.getFunctionAddress("glDeleteFramebuffers");
+		glDeletePathsNV = provider.getFunctionAddress("glDeletePathsNV");
+		glDeletePerfMonitorsAMD = provider.getFunctionAddress("glDeletePerfMonitorsAMD");
+		glDeletePerfQueryINTEL = provider.getFunctionAddress("glDeletePerfQueryINTEL");
+		glDeleteProgram = provider.getFunctionAddress("glDeleteProgram");
+		glDeleteProgramPipelines = provider.getFunctionAddress("glDeleteProgramPipelines");
+		glDeleteProgramPipelinesEXT = provider.getFunctionAddress("glDeleteProgramPipelinesEXT");
+		glDeleteQueries = provider.getFunctionAddress("glDeleteQueries");
+		glDeleteQueriesEXT = provider.getFunctionAddress("glDeleteQueriesEXT");
+		glDeleteRenderbuffers = provider.getFunctionAddress("glDeleteRenderbuffers");
+		glDeleteSamplers = provider.getFunctionAddress("glDeleteSamplers");
+		glDeleteShader = provider.getFunctionAddress("glDeleteShader");
+		glDeleteSync = provider.getFunctionAddress("glDeleteSync");
+		glDeleteSyncAPPLE = provider.getFunctionAddress("glDeleteSyncAPPLE");
+		glDeleteTextures = provider.getFunctionAddress("glDeleteTextures");
+		glDeleteTransformFeedbacks = provider.getFunctionAddress("glDeleteTransformFeedbacks");
+		glDeleteVertexArrays = provider.getFunctionAddress("glDeleteVertexArrays");
+		glDeleteVertexArraysOES = provider.getFunctionAddress("glDeleteVertexArraysOES");
+		glDepthFunc = provider.getFunctionAddress("glDepthFunc");
+		glDepthMask = provider.getFunctionAddress("glDepthMask");
+		glDepthRangeArrayfvNV = provider.getFunctionAddress("glDepthRangeArrayfvNV");
+		glDepthRangeIndexedfNV = provider.getFunctionAddress("glDepthRangeIndexedfNV");
+		glDepthRangef = provider.getFunctionAddress("glDepthRangef");
+		glDetachShader = provider.getFunctionAddress("glDetachShader");
+		glDisable = provider.getFunctionAddress("glDisable");
+		glDisableDriverControlQCOM = provider.getFunctionAddress("glDisableDriverControlQCOM");
+		glDisableVertexAttribArray = provider.getFunctionAddress("glDisableVertexAttribArray");
+		glDisablei = provider.getFunctionAddress("glDisablei");
+		glDisableiEXT = provider.getFunctionAddress("glDisableiEXT");
+		glDisableiNV = provider.getFunctionAddress("glDisableiNV");
+		glDisableiOES = provider.getFunctionAddress("glDisableiOES");
+		glDiscardFramebufferEXT = provider.getFunctionAddress("glDiscardFramebufferEXT");
+		glDispatchCompute = provider.getFunctionAddress("glDispatchCompute");
+		glDispatchComputeIndirect = provider.getFunctionAddress("glDispatchComputeIndirect");
+		glDrawArrays = provider.getFunctionAddress("glDrawArrays");
+		glDrawArraysIndirect = provider.getFunctionAddress("glDrawArraysIndirect");
+		glDrawArraysInstanced = provider.getFunctionAddress("glDrawArraysInstanced");
+		glDrawArraysInstancedANGLE = provider.getFunctionAddress("glDrawArraysInstancedANGLE");
+		glDrawArraysInstancedBaseInstanceEXT = provider.getFunctionAddress("glDrawArraysInstancedBaseInstanceEXT");
+		glDrawArraysInstancedEXT = provider.getFunctionAddress("glDrawArraysInstancedEXT");
+		glDrawArraysInstancedNV = provider.getFunctionAddress("glDrawArraysInstancedNV");
+		glDrawBuffers = provider.getFunctionAddress("glDrawBuffers");
+		glDrawBuffersEXT = provider.getFunctionAddress("glDrawBuffersEXT");
+		glDrawBuffersIndexedEXT = provider.getFunctionAddress("glDrawBuffersIndexedEXT");
+		glDrawBuffersNV = provider.getFunctionAddress("glDrawBuffersNV");
+		glDrawElements = provider.getFunctionAddress("glDrawElements");
+		glDrawElementsBaseVertex = provider.getFunctionAddress("glDrawElementsBaseVertex");
+		glDrawElementsBaseVertexEXT = provider.getFunctionAddress("glDrawElementsBaseVertexEXT");
+		glDrawElementsBaseVertexOES = provider.getFunctionAddress("glDrawElementsBaseVertexOES");
+		glDrawElementsIndirect = provider.getFunctionAddress("glDrawElementsIndirect");
+		glDrawElementsInstanced = provider.getFunctionAddress("glDrawElementsInstanced");
+		glDrawElementsInstancedANGLE = provider.getFunctionAddress("glDrawElementsInstancedANGLE");
+		glDrawElementsInstancedBaseInstanceEXT = provider.getFunctionAddress("glDrawElementsInstancedBaseInstanceEXT");
+		glDrawElementsInstancedBaseVertex = provider.getFunctionAddress("glDrawElementsInstancedBaseVertex");
+		glDrawElementsInstancedBaseVertexBaseInstanceEXT = provider.getFunctionAddress("glDrawElementsInstancedBaseVertexBaseInstanceEXT");
+		glDrawElementsInstancedBaseVertexEXT = provider.getFunctionAddress("glDrawElementsInstancedBaseVertexEXT");
+		glDrawElementsInstancedBaseVertexOES = provider.getFunctionAddress("glDrawElementsInstancedBaseVertexOES");
+		glDrawElementsInstancedEXT = provider.getFunctionAddress("glDrawElementsInstancedEXT");
+		glDrawElementsInstancedNV = provider.getFunctionAddress("glDrawElementsInstancedNV");
+		glDrawRangeElements = provider.getFunctionAddress("glDrawRangeElements");
+		glDrawRangeElementsBaseVertex = provider.getFunctionAddress("glDrawRangeElementsBaseVertex");
+		glDrawRangeElementsBaseVertexEXT = provider.getFunctionAddress("glDrawRangeElementsBaseVertexEXT");
+		glDrawRangeElementsBaseVertexOES = provider.getFunctionAddress("glDrawRangeElementsBaseVertexOES");
+		glEGLImageTargetRenderbufferStorageOES = provider.getFunctionAddress("glEGLImageTargetRenderbufferStorageOES");
+		glEGLImageTargetTexture2DOES = provider.getFunctionAddress("glEGLImageTargetTexture2DOES");
+		glEnable = provider.getFunctionAddress("glEnable");
+		glEnableDriverControlQCOM = provider.getFunctionAddress("glEnableDriverControlQCOM");
+		glEnableVertexAttribArray = provider.getFunctionAddress("glEnableVertexAttribArray");
+		glEnablei = provider.getFunctionAddress("glEnablei");
+		glEnableiEXT = provider.getFunctionAddress("glEnableiEXT");
+		glEnableiNV = provider.getFunctionAddress("glEnableiNV");
+		glEnableiOES = provider.getFunctionAddress("glEnableiOES");
+		glEndConditionalRenderNV = provider.getFunctionAddress("glEndConditionalRenderNV");
+		glEndPerfMonitorAMD = provider.getFunctionAddress("glEndPerfMonitorAMD");
+		glEndPerfQueryINTEL = provider.getFunctionAddress("glEndPerfQueryINTEL");
+		glEndQuery = provider.getFunctionAddress("glEndQuery");
+		glEndQueryEXT = provider.getFunctionAddress("glEndQueryEXT");
+		glEndTilingQCOM = provider.getFunctionAddress("glEndTilingQCOM");
+		glEndTransformFeedback = provider.getFunctionAddress("glEndTransformFeedback");
+		glExtGetBufferPointervQCOM = provider.getFunctionAddress("glExtGetBufferPointervQCOM");
+		glExtGetBuffersQCOM = provider.getFunctionAddress("glExtGetBuffersQCOM");
+		glExtGetFramebuffersQCOM = provider.getFunctionAddress("glExtGetFramebuffersQCOM");
+		glExtGetProgramBinarySourceQCOM = provider.getFunctionAddress("glExtGetProgramBinarySourceQCOM");
+		glExtGetProgramsQCOM = provider.getFunctionAddress("glExtGetProgramsQCOM");
+		glExtGetRenderbuffersQCOM = provider.getFunctionAddress("glExtGetRenderbuffersQCOM");
+		glExtGetShadersQCOM = provider.getFunctionAddress("glExtGetShadersQCOM");
+		glExtGetTexLevelParameterivQCOM = provider.getFunctionAddress("glExtGetTexLevelParameterivQCOM");
+		glExtGetTexSubImageQCOM = provider.getFunctionAddress("glExtGetTexSubImageQCOM");
+		glExtGetTexturesQCOM = provider.getFunctionAddress("glExtGetTexturesQCOM");
+		glExtIsProgramBinaryQCOM = provider.getFunctionAddress("glExtIsProgramBinaryQCOM");
+		glExtTexObjectStateOverrideiQCOM = provider.getFunctionAddress("glExtTexObjectStateOverrideiQCOM");
+		glFenceSync = provider.getFunctionAddress("glFenceSync");
+		glFenceSyncAPPLE = provider.getFunctionAddress("glFenceSyncAPPLE");
+		glFinish = provider.getFunctionAddress("glFinish");
+		glFinishFenceNV = provider.getFunctionAddress("glFinishFenceNV");
+		glFlush = provider.getFunctionAddress("glFlush");
+		glFlushMappedBufferRange = provider.getFunctionAddress("glFlushMappedBufferRange");
+		glFlushMappedBufferRangeEXT = provider.getFunctionAddress("glFlushMappedBufferRangeEXT");
+		glFragmentCoverageColorNV = provider.getFunctionAddress("glFragmentCoverageColorNV");
+		glFramebufferParameteri = provider.getFunctionAddress("glFramebufferParameteri");
+		glFramebufferPixelLocalStorageSizeEXT = provider.getFunctionAddress("glFramebufferPixelLocalStorageSizeEXT");
+		glFramebufferRenderbuffer = provider.getFunctionAddress("glFramebufferRenderbuffer");
+		glFramebufferSampleLocationsfvNV = provider.getFunctionAddress("glFramebufferSampleLocationsfvNV");
+		glFramebufferTexture = provider.getFunctionAddress("glFramebufferTexture");
+		glFramebufferTexture2D = provider.getFunctionAddress("glFramebufferTexture2D");
+		glFramebufferTexture2DDownsampleIMG = provider.getFunctionAddress("glFramebufferTexture2DDownsampleIMG");
+		glFramebufferTexture2DMultisampleEXT = provider.getFunctionAddress("glFramebufferTexture2DMultisampleEXT");
+		glFramebufferTexture2DMultisampleIMG = provider.getFunctionAddress("glFramebufferTexture2DMultisampleIMG");
+		glFramebufferTexture3DOES = provider.getFunctionAddress("glFramebufferTexture3DOES");
+		glFramebufferTextureEXT = provider.getFunctionAddress("glFramebufferTextureEXT");
+		glFramebufferTextureLayer = provider.getFunctionAddress("glFramebufferTextureLayer");
+		glFramebufferTextureLayerDownsampleIMG = provider.getFunctionAddress("glFramebufferTextureLayerDownsampleIMG");
+		glFramebufferTextureLayerNV = provider.getFunctionAddress("glFramebufferTextureLayerNV");
+		glFramebufferTextureMultisampleMultiviewOVR = provider.getFunctionAddress("glFramebufferTextureMultisampleMultiviewOVR");
+		glFramebufferTextureMultiviewOVR = provider.getFunctionAddress("glFramebufferTextureMultiviewOVR");
+		glFramebufferTextureOES = provider.getFunctionAddress("glFramebufferTextureOES");
+		glFrontFace = provider.getFunctionAddress("glFrontFace");
+		glGenBuffers = provider.getFunctionAddress("glGenBuffers");
+		glGenFencesNV = provider.getFunctionAddress("glGenFencesNV");
+		glGenFramebuffers = provider.getFunctionAddress("glGenFramebuffers");
+		glGenPathsNV = provider.getFunctionAddress("glGenPathsNV");
+		glGenPerfMonitorsAMD = provider.getFunctionAddress("glGenPerfMonitorsAMD");
+		glGenProgramPipelines = provider.getFunctionAddress("glGenProgramPipelines");
+		glGenProgramPipelinesEXT = provider.getFunctionAddress("glGenProgramPipelinesEXT");
+		glGenQueries = provider.getFunctionAddress("glGenQueries");
+		glGenQueriesEXT = provider.getFunctionAddress("glGenQueriesEXT");
+		glGenRenderbuffers = provider.getFunctionAddress("glGenRenderbuffers");
+		glGenSamplers = provider.getFunctionAddress("glGenSamplers");
+		glGenTextures = provider.getFunctionAddress("glGenTextures");
+		glGenTransformFeedbacks = provider.getFunctionAddress("glGenTransformFeedbacks");
+		glGenVertexArrays = provider.getFunctionAddress("glGenVertexArrays");
+		glGenVertexArraysOES = provider.getFunctionAddress("glGenVertexArraysOES");
+		glGenerateMipmap = provider.getFunctionAddress("glGenerateMipmap");
+		glGetActiveAttrib = provider.getFunctionAddress("glGetActiveAttrib");
+		glGetActiveUniform = provider.getFunctionAddress("glGetActiveUniform");
+		glGetActiveUniformBlockName = provider.getFunctionAddress("glGetActiveUniformBlockName");
+		glGetActiveUniformBlockiv = provider.getFunctionAddress("glGetActiveUniformBlockiv");
+		glGetActiveUniformsiv = provider.getFunctionAddress("glGetActiveUniformsiv");
+		glGetAttachedShaders = provider.getFunctionAddress("glGetAttachedShaders");
+		glGetAttribLocation = provider.getFunctionAddress("glGetAttribLocation");
+		glGetBooleani_v = provider.getFunctionAddress("glGetBooleani_v");
+		glGetBooleanv = provider.getFunctionAddress("glGetBooleanv");
+		glGetBufferParameteri64v = provider.getFunctionAddress("glGetBufferParameteri64v");
+		glGetBufferParameteriv = provider.getFunctionAddress("glGetBufferParameteriv");
+		glGetBufferPointerv = provider.getFunctionAddress("glGetBufferPointerv");
+		glGetBufferPointervOES = provider.getFunctionAddress("glGetBufferPointervOES");
+		glGetCoverageModulationTableNV = provider.getFunctionAddress("glGetCoverageModulationTableNV");
+		glGetDebugMessageLog = provider.getFunctionAddress("glGetDebugMessageLog");
+		glGetDebugMessageLogKHR = provider.getFunctionAddress("glGetDebugMessageLogKHR");
+		glGetDriverControlStringQCOM = provider.getFunctionAddress("glGetDriverControlStringQCOM");
+		glGetDriverControlsQCOM = provider.getFunctionAddress("glGetDriverControlsQCOM");
+		glGetError = provider.getFunctionAddress("glGetError");
+		glGetFenceivNV = provider.getFunctionAddress("glGetFenceivNV");
+		glGetFirstPerfQueryIdINTEL = provider.getFunctionAddress("glGetFirstPerfQueryIdINTEL");
+		glGetFloati_vNV = provider.getFunctionAddress("glGetFloati_vNV");
+		glGetFloatv = provider.getFunctionAddress("glGetFloatv");
+		glGetFragDataIndexEXT = provider.getFunctionAddress("glGetFragDataIndexEXT");
+		glGetFragDataLocation = provider.getFunctionAddress("glGetFragDataLocation");
+		glGetFramebufferAttachmentParameteriv = provider.getFunctionAddress("glGetFramebufferAttachmentParameteriv");
+		glGetFramebufferParameteriv = provider.getFunctionAddress("glGetFramebufferParameteriv");
+		glGetFramebufferPixelLocalStorageSizeEXT = provider.getFunctionAddress("glGetFramebufferPixelLocalStorageSizeEXT");
+		glGetGraphicsResetStatus = provider.getFunctionAddress("glGetGraphicsResetStatus");
+		glGetGraphicsResetStatusEXT = provider.getFunctionAddress("glGetGraphicsResetStatusEXT");
+		glGetGraphicsResetStatusKHR = provider.getFunctionAddress("glGetGraphicsResetStatusKHR");
+		glGetImageHandleNV = provider.getFunctionAddress("glGetImageHandleNV");
+		glGetInteger64i_v = provider.getFunctionAddress("glGetInteger64i_v");
+		glGetInteger64v = provider.getFunctionAddress("glGetInteger64v");
+		glGetInteger64vAPPLE = provider.getFunctionAddress("glGetInteger64vAPPLE");
+		glGetIntegeri_v = provider.getFunctionAddress("glGetIntegeri_v");
+		glGetIntegeri_vEXT = provider.getFunctionAddress("glGetIntegeri_vEXT");
+		glGetIntegerv = provider.getFunctionAddress("glGetIntegerv");
+		glGetInternalformatSampleivNV = provider.getFunctionAddress("glGetInternalformatSampleivNV");
+		glGetInternalformativ = provider.getFunctionAddress("glGetInternalformativ");
+		glGetMultisamplefv = provider.getFunctionAddress("glGetMultisamplefv");
+		glGetNextPerfQueryIdINTEL = provider.getFunctionAddress("glGetNextPerfQueryIdINTEL");
+		glGetObjectLabel = provider.getFunctionAddress("glGetObjectLabel");
+		glGetObjectLabelEXT = provider.getFunctionAddress("glGetObjectLabelEXT");
+		glGetObjectLabelKHR = provider.getFunctionAddress("glGetObjectLabelKHR");
+		glGetObjectPtrLabel = provider.getFunctionAddress("glGetObjectPtrLabel");
+		glGetObjectPtrLabelKHR = provider.getFunctionAddress("glGetObjectPtrLabelKHR");
+		glGetPathCommandsNV = provider.getFunctionAddress("glGetPathCommandsNV");
+		glGetPathCoordsNV = provider.getFunctionAddress("glGetPathCoordsNV");
+		glGetPathDashArrayNV = provider.getFunctionAddress("glGetPathDashArrayNV");
+		glGetPathLengthNV = provider.getFunctionAddress("glGetPathLengthNV");
+		glGetPathMetricRangeNV = provider.getFunctionAddress("glGetPathMetricRangeNV");
+		glGetPathMetricsNV = provider.getFunctionAddress("glGetPathMetricsNV");
+		glGetPathParameterfvNV = provider.getFunctionAddress("glGetPathParameterfvNV");
+		glGetPathParameterivNV = provider.getFunctionAddress("glGetPathParameterivNV");
+		glGetPathSpacingNV = provider.getFunctionAddress("glGetPathSpacingNV");
+		glGetPerfCounterInfoINTEL = provider.getFunctionAddress("glGetPerfCounterInfoINTEL");
+		glGetPerfMonitorCounterDataAMD = provider.getFunctionAddress("glGetPerfMonitorCounterDataAMD");
+		glGetPerfMonitorCounterInfoAMD = provider.getFunctionAddress("glGetPerfMonitorCounterInfoAMD");
+		glGetPerfMonitorCounterStringAMD = provider.getFunctionAddress("glGetPerfMonitorCounterStringAMD");
+		glGetPerfMonitorCountersAMD = provider.getFunctionAddress("glGetPerfMonitorCountersAMD");
+		glGetPerfMonitorGroupStringAMD = provider.getFunctionAddress("glGetPerfMonitorGroupStringAMD");
+		glGetPerfMonitorGroupsAMD = provider.getFunctionAddress("glGetPerfMonitorGroupsAMD");
+		glGetPerfQueryDataINTEL = provider.getFunctionAddress("glGetPerfQueryDataINTEL");
+		glGetPerfQueryIdByNameINTEL = provider.getFunctionAddress("glGetPerfQueryIdByNameINTEL");
+		glGetPerfQueryInfoINTEL = provider.getFunctionAddress("glGetPerfQueryInfoINTEL");
+		glGetPointerv = provider.getFunctionAddress("glGetPointerv");
+		glGetPointervKHR = provider.getFunctionAddress("glGetPointervKHR");
+		glGetProgramBinary = provider.getFunctionAddress("glGetProgramBinary");
+		glGetProgramBinaryOES = provider.getFunctionAddress("glGetProgramBinaryOES");
+		glGetProgramInfoLog = provider.getFunctionAddress("glGetProgramInfoLog");
+		glGetProgramInterfaceiv = provider.getFunctionAddress("glGetProgramInterfaceiv");
+		glGetProgramPipelineInfoLog = provider.getFunctionAddress("glGetProgramPipelineInfoLog");
+		glGetProgramPipelineInfoLogEXT = provider.getFunctionAddress("glGetProgramPipelineInfoLogEXT");
+		glGetProgramPipelineiv = provider.getFunctionAddress("glGetProgramPipelineiv");
+		glGetProgramPipelineivEXT = provider.getFunctionAddress("glGetProgramPipelineivEXT");
+		glGetProgramResourceIndex = provider.getFunctionAddress("glGetProgramResourceIndex");
+		glGetProgramResourceLocation = provider.getFunctionAddress("glGetProgramResourceLocation");
+		glGetProgramResourceLocationIndexEXT = provider.getFunctionAddress("glGetProgramResourceLocationIndexEXT");
+		glGetProgramResourceName = provider.getFunctionAddress("glGetProgramResourceName");
+		glGetProgramResourcefvNV = provider.getFunctionAddress("glGetProgramResourcefvNV");
+		glGetProgramResourceiv = provider.getFunctionAddress("glGetProgramResourceiv");
+		glGetProgramiv = provider.getFunctionAddress("glGetProgramiv");
+		glGetQueryObjecti64vEXT = provider.getFunctionAddress("glGetQueryObjecti64vEXT");
+		glGetQueryObjectivEXT = provider.getFunctionAddress("glGetQueryObjectivEXT");
+		glGetQueryObjectui64vEXT = provider.getFunctionAddress("glGetQueryObjectui64vEXT");
+		glGetQueryObjectuiv = provider.getFunctionAddress("glGetQueryObjectuiv");
+		glGetQueryObjectuivEXT = provider.getFunctionAddress("glGetQueryObjectuivEXT");
+		glGetQueryiv = provider.getFunctionAddress("glGetQueryiv");
+		glGetQueryivEXT = provider.getFunctionAddress("glGetQueryivEXT");
+		glGetRenderbufferParameteriv = provider.getFunctionAddress("glGetRenderbufferParameteriv");
+		glGetSamplerParameterIiv = provider.getFunctionAddress("glGetSamplerParameterIiv");
+		glGetSamplerParameterIivEXT = provider.getFunctionAddress("glGetSamplerParameterIivEXT");
+		glGetSamplerParameterIivOES = provider.getFunctionAddress("glGetSamplerParameterIivOES");
+		glGetSamplerParameterIuiv = provider.getFunctionAddress("glGetSamplerParameterIuiv");
+		glGetSamplerParameterIuivEXT = provider.getFunctionAddress("glGetSamplerParameterIuivEXT");
+		glGetSamplerParameterIuivOES = provider.getFunctionAddress("glGetSamplerParameterIuivOES");
+		glGetSamplerParameterfv = provider.getFunctionAddress("glGetSamplerParameterfv");
+		glGetSamplerParameteriv = provider.getFunctionAddress("glGetSamplerParameteriv");
+		glGetShaderInfoLog = provider.getFunctionAddress("glGetShaderInfoLog");
+		glGetShaderPrecisionFormat = provider.getFunctionAddress("glGetShaderPrecisionFormat");
+		glGetShaderSource = provider.getFunctionAddress("glGetShaderSource");
+		glGetShaderiv = provider.getFunctionAddress("glGetShaderiv");
+		glGetString = provider.getFunctionAddress("glGetString");
+		glGetStringi = provider.getFunctionAddress("glGetStringi");
+		glGetSynciv = provider.getFunctionAddress("glGetSynciv");
+		glGetSyncivAPPLE = provider.getFunctionAddress("glGetSyncivAPPLE");
+		glGetTexLevelParameterfv = provider.getFunctionAddress("glGetTexLevelParameterfv");
+		glGetTexLevelParameteriv = provider.getFunctionAddress("glGetTexLevelParameteriv");
+		glGetTexParameterIiv = provider.getFunctionAddress("glGetTexParameterIiv");
+		glGetTexParameterIivEXT = provider.getFunctionAddress("glGetTexParameterIivEXT");
+		glGetTexParameterIivOES = provider.getFunctionAddress("glGetTexParameterIivOES");
+		glGetTexParameterIuiv = provider.getFunctionAddress("glGetTexParameterIuiv");
+		glGetTexParameterIuivEXT = provider.getFunctionAddress("glGetTexParameterIuivEXT");
+		glGetTexParameterIuivOES = provider.getFunctionAddress("glGetTexParameterIuivOES");
+		glGetTexParameterfv = provider.getFunctionAddress("glGetTexParameterfv");
+		glGetTexParameteriv = provider.getFunctionAddress("glGetTexParameteriv");
+		glGetTextureHandleNV = provider.getFunctionAddress("glGetTextureHandleNV");
+		glGetTextureSamplerHandleNV = provider.getFunctionAddress("glGetTextureSamplerHandleNV");
+		glGetTransformFeedbackVarying = provider.getFunctionAddress("glGetTransformFeedbackVarying");
+		glGetTranslatedShaderSourceANGLE = provider.getFunctionAddress("glGetTranslatedShaderSourceANGLE");
+		glGetUniformBlockIndex = provider.getFunctionAddress("glGetUniformBlockIndex");
+		glGetUniformIndices = provider.getFunctionAddress("glGetUniformIndices");
+		glGetUniformLocation = provider.getFunctionAddress("glGetUniformLocation");
+		glGetUniformfv = provider.getFunctionAddress("glGetUniformfv");
+		glGetUniformiv = provider.getFunctionAddress("glGetUniformiv");
+		glGetUniformuiv = provider.getFunctionAddress("glGetUniformuiv");
+		glGetVertexAttribIiv = provider.getFunctionAddress("glGetVertexAttribIiv");
+		glGetVertexAttribIuiv = provider.getFunctionAddress("glGetVertexAttribIuiv");
+		glGetVertexAttribPointerv = provider.getFunctionAddress("glGetVertexAttribPointerv");
+		glGetVertexAttribfv = provider.getFunctionAddress("glGetVertexAttribfv");
+		glGetVertexAttribiv = provider.getFunctionAddress("glGetVertexAttribiv");
+		glGetnUniformfv = provider.getFunctionAddress("glGetnUniformfv");
+		glGetnUniformfvEXT = provider.getFunctionAddress("glGetnUniformfvEXT");
+		glGetnUniformfvKHR = provider.getFunctionAddress("glGetnUniformfvKHR");
+		glGetnUniformiv = provider.getFunctionAddress("glGetnUniformiv");
+		glGetnUniformivEXT = provider.getFunctionAddress("glGetnUniformivEXT");
+		glGetnUniformivKHR = provider.getFunctionAddress("glGetnUniformivKHR");
+		glGetnUniformuiv = provider.getFunctionAddress("glGetnUniformuiv");
+		glGetnUniformuivKHR = provider.getFunctionAddress("glGetnUniformuivKHR");
+		glHint = provider.getFunctionAddress("glHint");
+		glInsertEventMarkerEXT = provider.getFunctionAddress("glInsertEventMarkerEXT");
+		glInterpolatePathsNV = provider.getFunctionAddress("glInterpolatePathsNV");
+		glInvalidateFramebuffer = provider.getFunctionAddress("glInvalidateFramebuffer");
+		glInvalidateSubFramebuffer = provider.getFunctionAddress("glInvalidateSubFramebuffer");
+		glIsBuffer = provider.getFunctionAddress("glIsBuffer");
+		glIsEnabled = provider.getFunctionAddress("glIsEnabled");
+		glIsEnabledi = provider.getFunctionAddress("glIsEnabledi");
+		glIsEnablediEXT = provider.getFunctionAddress("glIsEnablediEXT");
+		glIsEnablediNV = provider.getFunctionAddress("glIsEnablediNV");
+		glIsEnablediOES = provider.getFunctionAddress("glIsEnablediOES");
+		glIsFenceNV = provider.getFunctionAddress("glIsFenceNV");
+		glIsFramebuffer = provider.getFunctionAddress("glIsFramebuffer");
+		glIsImageHandleResidentNV = provider.getFunctionAddress("glIsImageHandleResidentNV");
+		glIsPathNV = provider.getFunctionAddress("glIsPathNV");
+		glIsPointInFillPathNV = provider.getFunctionAddress("glIsPointInFillPathNV");
+		glIsPointInStrokePathNV = provider.getFunctionAddress("glIsPointInStrokePathNV");
+		glIsProgram = provider.getFunctionAddress("glIsProgram");
+		glIsProgramPipeline = provider.getFunctionAddress("glIsProgramPipeline");
+		glIsProgramPipelineEXT = provider.getFunctionAddress("glIsProgramPipelineEXT");
+		glIsQuery = provider.getFunctionAddress("glIsQuery");
+		glIsQueryEXT = provider.getFunctionAddress("glIsQueryEXT");
+		glIsRenderbuffer = provider.getFunctionAddress("glIsRenderbuffer");
+		glIsSampler = provider.getFunctionAddress("glIsSampler");
+		glIsShader = provider.getFunctionAddress("glIsShader");
+		glIsSync = provider.getFunctionAddress("glIsSync");
+		glIsSyncAPPLE = provider.getFunctionAddress("glIsSyncAPPLE");
+		glIsTexture = provider.getFunctionAddress("glIsTexture");
+		glIsTextureHandleResidentNV = provider.getFunctionAddress("glIsTextureHandleResidentNV");
+		glIsTransformFeedback = provider.getFunctionAddress("glIsTransformFeedback");
+		glIsVertexArray = provider.getFunctionAddress("glIsVertexArray");
+		glIsVertexArrayOES = provider.getFunctionAddress("glIsVertexArrayOES");
+		glLabelObjectEXT = provider.getFunctionAddress("glLabelObjectEXT");
+		glLineWidth = provider.getFunctionAddress("glLineWidth");
+		glLinkProgram = provider.getFunctionAddress("glLinkProgram");
+		glMakeImageHandleNonResidentNV = provider.getFunctionAddress("glMakeImageHandleNonResidentNV");
+		glMakeImageHandleResidentNV = provider.getFunctionAddress("glMakeImageHandleResidentNV");
+		glMakeTextureHandleNonResidentNV = provider.getFunctionAddress("glMakeTextureHandleNonResidentNV");
+		glMakeTextureHandleResidentNV = provider.getFunctionAddress("glMakeTextureHandleResidentNV");
+		glMapBufferOES = provider.getFunctionAddress("glMapBufferOES");
+		glMapBufferRange = provider.getFunctionAddress("glMapBufferRange");
+		glMapBufferRangeEXT = provider.getFunctionAddress("glMapBufferRangeEXT");
+		glMatrixLoad3x2fNV = provider.getFunctionAddress("glMatrixLoad3x2fNV");
+		glMatrixLoad3x3fNV = provider.getFunctionAddress("glMatrixLoad3x3fNV");
+		glMatrixLoadTranspose3x3fNV = provider.getFunctionAddress("glMatrixLoadTranspose3x3fNV");
+		glMatrixMult3x2fNV = provider.getFunctionAddress("glMatrixMult3x2fNV");
+		glMatrixMult3x3fNV = provider.getFunctionAddress("glMatrixMult3x3fNV");
+		glMatrixMultTranspose3x3fNV = provider.getFunctionAddress("glMatrixMultTranspose3x3fNV");
+		glMemoryBarrier = provider.getFunctionAddress("glMemoryBarrier");
+		glMemoryBarrierByRegion = provider.getFunctionAddress("glMemoryBarrierByRegion");
+		glMinSampleShading = provider.getFunctionAddress("glMinSampleShading");
+		glMinSampleShadingOES = provider.getFunctionAddress("glMinSampleShadingOES");
+		glMultiDrawArraysEXT = provider.getFunctionAddress("glMultiDrawArraysEXT");
+		glMultiDrawArraysIndirectEXT = provider.getFunctionAddress("glMultiDrawArraysIndirectEXT");
+		glMultiDrawElementsBaseVertexEXT = provider.getFunctionAddress("glMultiDrawElementsBaseVertexEXT");
+		glMultiDrawElementsBaseVertexOES = provider.getFunctionAddress("glMultiDrawElementsBaseVertexOES");
+		glMultiDrawElementsEXT = provider.getFunctionAddress("glMultiDrawElementsEXT");
+		glMultiDrawElementsIndirectEXT = provider.getFunctionAddress("glMultiDrawElementsIndirectEXT");
+		glNamedFramebufferSampleLocationsfvNV = provider.getFunctionAddress("glNamedFramebufferSampleLocationsfvNV");
+		glObjectLabel = provider.getFunctionAddress("glObjectLabel");
+		glObjectLabelKHR = provider.getFunctionAddress("glObjectLabelKHR");
+		glObjectPtrLabel = provider.getFunctionAddress("glObjectPtrLabel");
+		glObjectPtrLabelKHR = provider.getFunctionAddress("glObjectPtrLabelKHR");
+		glPatchParameteri = provider.getFunctionAddress("glPatchParameteri");
+		glPatchParameteriEXT = provider.getFunctionAddress("glPatchParameteriEXT");
+		glPatchParameteriOES = provider.getFunctionAddress("glPatchParameteriOES");
+		glPathCommandsNV = provider.getFunctionAddress("glPathCommandsNV");
+		glPathCoordsNV = provider.getFunctionAddress("glPathCoordsNV");
+		glPathCoverDepthFuncNV = provider.getFunctionAddress("glPathCoverDepthFuncNV");
+		glPathDashArrayNV = provider.getFunctionAddress("glPathDashArrayNV");
+		glPathGlyphIndexArrayNV = provider.getFunctionAddress("glPathGlyphIndexArrayNV");
+		glPathGlyphIndexRangeNV = provider.getFunctionAddress("glPathGlyphIndexRangeNV");
+		glPathGlyphRangeNV = provider.getFunctionAddress("glPathGlyphRangeNV");
+		glPathGlyphsNV = provider.getFunctionAddress("glPathGlyphsNV");
+		glPathMemoryGlyphIndexArrayNV = provider.getFunctionAddress("glPathMemoryGlyphIndexArrayNV");
+		glPathParameterfNV = provider.getFunctionAddress("glPathParameterfNV");
+		glPathParameterfvNV = provider.getFunctionAddress("glPathParameterfvNV");
+		glPathParameteriNV = provider.getFunctionAddress("glPathParameteriNV");
+		glPathParameterivNV = provider.getFunctionAddress("glPathParameterivNV");
+		glPathStencilDepthOffsetNV = provider.getFunctionAddress("glPathStencilDepthOffsetNV");
+		glPathStencilFuncNV = provider.getFunctionAddress("glPathStencilFuncNV");
+		glPathStringNV = provider.getFunctionAddress("glPathStringNV");
+		glPathSubCommandsNV = provider.getFunctionAddress("glPathSubCommandsNV");
+		glPathSubCoordsNV = provider.getFunctionAddress("glPathSubCoordsNV");
+		glPauseTransformFeedback = provider.getFunctionAddress("glPauseTransformFeedback");
+		glPixelStorei = provider.getFunctionAddress("glPixelStorei");
+		glPointAlongPathNV = provider.getFunctionAddress("glPointAlongPathNV");
+		glPolygonModeNV = provider.getFunctionAddress("glPolygonModeNV");
+		glPolygonOffset = provider.getFunctionAddress("glPolygonOffset");
+		glPolygonOffsetClampEXT = provider.getFunctionAddress("glPolygonOffsetClampEXT");
+		glPopDebugGroup = provider.getFunctionAddress("glPopDebugGroup");
+		glPopDebugGroupKHR = provider.getFunctionAddress("glPopDebugGroupKHR");
+		glPopGroupMarkerEXT = provider.getFunctionAddress("glPopGroupMarkerEXT");
+		glPrimitiveBoundingBox = provider.getFunctionAddress("glPrimitiveBoundingBox");
+		glPrimitiveBoundingBoxEXT = provider.getFunctionAddress("glPrimitiveBoundingBoxEXT");
+		glPrimitiveBoundingBoxOES = provider.getFunctionAddress("glPrimitiveBoundingBoxOES");
+		glProgramBinary = provider.getFunctionAddress("glProgramBinary");
+		glProgramBinaryOES = provider.getFunctionAddress("glProgramBinaryOES");
+		glProgramParameteri = provider.getFunctionAddress("glProgramParameteri");
+		glProgramParameteriEXT = provider.getFunctionAddress("glProgramParameteriEXT");
+		glProgramPathFragmentInputGenNV = provider.getFunctionAddress("glProgramPathFragmentInputGenNV");
+		glProgramUniform1f = provider.getFunctionAddress("glProgramUniform1f");
+		glProgramUniform1fEXT = provider.getFunctionAddress("glProgramUniform1fEXT");
+		glProgramUniform1fv = provider.getFunctionAddress("glProgramUniform1fv");
+		glProgramUniform1fvEXT = provider.getFunctionAddress("glProgramUniform1fvEXT");
+		glProgramUniform1i = provider.getFunctionAddress("glProgramUniform1i");
+		glProgramUniform1iEXT = provider.getFunctionAddress("glProgramUniform1iEXT");
+		glProgramUniform1iv = provider.getFunctionAddress("glProgramUniform1iv");
+		glProgramUniform1ivEXT = provider.getFunctionAddress("glProgramUniform1ivEXT");
+		glProgramUniform1ui = provider.getFunctionAddress("glProgramUniform1ui");
+		glProgramUniform1uiEXT = provider.getFunctionAddress("glProgramUniform1uiEXT");
+		glProgramUniform1uiv = provider.getFunctionAddress("glProgramUniform1uiv");
+		glProgramUniform1uivEXT = provider.getFunctionAddress("glProgramUniform1uivEXT");
+		glProgramUniform2f = provider.getFunctionAddress("glProgramUniform2f");
+		glProgramUniform2fEXT = provider.getFunctionAddress("glProgramUniform2fEXT");
+		glProgramUniform2fv = provider.getFunctionAddress("glProgramUniform2fv");
+		glProgramUniform2fvEXT = provider.getFunctionAddress("glProgramUniform2fvEXT");
+		glProgramUniform2i = provider.getFunctionAddress("glProgramUniform2i");
+		glProgramUniform2iEXT = provider.getFunctionAddress("glProgramUniform2iEXT");
+		glProgramUniform2iv = provider.getFunctionAddress("glProgramUniform2iv");
+		glProgramUniform2ivEXT = provider.getFunctionAddress("glProgramUniform2ivEXT");
+		glProgramUniform2ui = provider.getFunctionAddress("glProgramUniform2ui");
+		glProgramUniform2uiEXT = provider.getFunctionAddress("glProgramUniform2uiEXT");
+		glProgramUniform2uiv = provider.getFunctionAddress("glProgramUniform2uiv");
+		glProgramUniform2uivEXT = provider.getFunctionAddress("glProgramUniform2uivEXT");
+		glProgramUniform3f = provider.getFunctionAddress("glProgramUniform3f");
+		glProgramUniform3fEXT = provider.getFunctionAddress("glProgramUniform3fEXT");
+		glProgramUniform3fv = provider.getFunctionAddress("glProgramUniform3fv");
+		glProgramUniform3fvEXT = provider.getFunctionAddress("glProgramUniform3fvEXT");
+		glProgramUniform3i = provider.getFunctionAddress("glProgramUniform3i");
+		glProgramUniform3iEXT = provider.getFunctionAddress("glProgramUniform3iEXT");
+		glProgramUniform3iv = provider.getFunctionAddress("glProgramUniform3iv");
+		glProgramUniform3ivEXT = provider.getFunctionAddress("glProgramUniform3ivEXT");
+		glProgramUniform3ui = provider.getFunctionAddress("glProgramUniform3ui");
+		glProgramUniform3uiEXT = provider.getFunctionAddress("glProgramUniform3uiEXT");
+		glProgramUniform3uiv = provider.getFunctionAddress("glProgramUniform3uiv");
+		glProgramUniform3uivEXT = provider.getFunctionAddress("glProgramUniform3uivEXT");
+		glProgramUniform4f = provider.getFunctionAddress("glProgramUniform4f");
+		glProgramUniform4fEXT = provider.getFunctionAddress("glProgramUniform4fEXT");
+		glProgramUniform4fv = provider.getFunctionAddress("glProgramUniform4fv");
+		glProgramUniform4fvEXT = provider.getFunctionAddress("glProgramUniform4fvEXT");
+		glProgramUniform4i = provider.getFunctionAddress("glProgramUniform4i");
+		glProgramUniform4iEXT = provider.getFunctionAddress("glProgramUniform4iEXT");
+		glProgramUniform4iv = provider.getFunctionAddress("glProgramUniform4iv");
+		glProgramUniform4ivEXT = provider.getFunctionAddress("glProgramUniform4ivEXT");
+		glProgramUniform4ui = provider.getFunctionAddress("glProgramUniform4ui");
+		glProgramUniform4uiEXT = provider.getFunctionAddress("glProgramUniform4uiEXT");
+		glProgramUniform4uiv = provider.getFunctionAddress("glProgramUniform4uiv");
+		glProgramUniform4uivEXT = provider.getFunctionAddress("glProgramUniform4uivEXT");
+		glProgramUniformHandleui64NV = provider.getFunctionAddress("glProgramUniformHandleui64NV");
+		glProgramUniformHandleui64vNV = provider.getFunctionAddress("glProgramUniformHandleui64vNV");
+		glProgramUniformMatrix2fv = provider.getFunctionAddress("glProgramUniformMatrix2fv");
+		glProgramUniformMatrix2fvEXT = provider.getFunctionAddress("glProgramUniformMatrix2fvEXT");
+		glProgramUniformMatrix2x3fv = provider.getFunctionAddress("glProgramUniformMatrix2x3fv");
+		glProgramUniformMatrix2x3fvEXT = provider.getFunctionAddress("glProgramUniformMatrix2x3fvEXT");
+		glProgramUniformMatrix2x4fv = provider.getFunctionAddress("glProgramUniformMatrix2x4fv");
+		glProgramUniformMatrix2x4fvEXT = provider.getFunctionAddress("glProgramUniformMatrix2x4fvEXT");
+		glProgramUniformMatrix3fv = provider.getFunctionAddress("glProgramUniformMatrix3fv");
+		glProgramUniformMatrix3fvEXT = provider.getFunctionAddress("glProgramUniformMatrix3fvEXT");
+		glProgramUniformMatrix3x2fv = provider.getFunctionAddress("glProgramUniformMatrix3x2fv");
+		glProgramUniformMatrix3x2fvEXT = provider.getFunctionAddress("glProgramUniformMatrix3x2fvEXT");
+		glProgramUniformMatrix3x4fv = provider.getFunctionAddress("glProgramUniformMatrix3x4fv");
+		glProgramUniformMatrix3x4fvEXT = provider.getFunctionAddress("glProgramUniformMatrix3x4fvEXT");
+		glProgramUniformMatrix4fv = provider.getFunctionAddress("glProgramUniformMatrix4fv");
+		glProgramUniformMatrix4fvEXT = provider.getFunctionAddress("glProgramUniformMatrix4fvEXT");
+		glProgramUniformMatrix4x2fv = provider.getFunctionAddress("glProgramUniformMatrix4x2fv");
+		glProgramUniformMatrix4x2fvEXT = provider.getFunctionAddress("glProgramUniformMatrix4x2fvEXT");
+		glProgramUniformMatrix4x3fv = provider.getFunctionAddress("glProgramUniformMatrix4x3fv");
+		glProgramUniformMatrix4x3fvEXT = provider.getFunctionAddress("glProgramUniformMatrix4x3fvEXT");
+		glPushDebugGroup = provider.getFunctionAddress("glPushDebugGroup");
+		glPushDebugGroupKHR = provider.getFunctionAddress("glPushDebugGroupKHR");
+		glPushGroupMarkerEXT = provider.getFunctionAddress("glPushGroupMarkerEXT");
+		glQueryCounterEXT = provider.getFunctionAddress("glQueryCounterEXT");
+		glRasterSamplesEXT = provider.getFunctionAddress("glRasterSamplesEXT");
+		glReadBuffer = provider.getFunctionAddress("glReadBuffer");
+		glReadBufferIndexedEXT = provider.getFunctionAddress("glReadBufferIndexedEXT");
+		glReadBufferNV = provider.getFunctionAddress("glReadBufferNV");
+		glReadPixels = provider.getFunctionAddress("glReadPixels");
+		glReadnPixels = provider.getFunctionAddress("glReadnPixels");
+		glReadnPixelsEXT = provider.getFunctionAddress("glReadnPixelsEXT");
+		glReadnPixelsKHR = provider.getFunctionAddress("glReadnPixelsKHR");
+		glReleaseShaderCompiler = provider.getFunctionAddress("glReleaseShaderCompiler");
+		glRenderbufferStorage = provider.getFunctionAddress("glRenderbufferStorage");
+		glRenderbufferStorageMultisample = provider.getFunctionAddress("glRenderbufferStorageMultisample");
+		glRenderbufferStorageMultisampleANGLE = provider.getFunctionAddress("glRenderbufferStorageMultisampleANGLE");
+		glRenderbufferStorageMultisampleAPPLE = provider.getFunctionAddress("glRenderbufferStorageMultisampleAPPLE");
+		glRenderbufferStorageMultisampleEXT = provider.getFunctionAddress("glRenderbufferStorageMultisampleEXT");
+		glRenderbufferStorageMultisampleIMG = provider.getFunctionAddress("glRenderbufferStorageMultisampleIMG");
+		glRenderbufferStorageMultisampleNV = provider.getFunctionAddress("glRenderbufferStorageMultisampleNV");
+		glResolveDepthValuesNV = provider.getFunctionAddress("glResolveDepthValuesNV");
+		glResolveMultisampleFramebufferAPPLE = provider.getFunctionAddress("glResolveMultisampleFramebufferAPPLE");
+		glResumeTransformFeedback = provider.getFunctionAddress("glResumeTransformFeedback");
+		glSampleCoverage = provider.getFunctionAddress("glSampleCoverage");
+		glSampleMaski = provider.getFunctionAddress("glSampleMaski");
+		glSamplerParameterIiv = provider.getFunctionAddress("glSamplerParameterIiv");
+		glSamplerParameterIivEXT = provider.getFunctionAddress("glSamplerParameterIivEXT");
+		glSamplerParameterIivOES = provider.getFunctionAddress("glSamplerParameterIivOES");
+		glSamplerParameterIuiv = provider.getFunctionAddress("glSamplerParameterIuiv");
+		glSamplerParameterIuivEXT = provider.getFunctionAddress("glSamplerParameterIuivEXT");
+		glSamplerParameterIuivOES = provider.getFunctionAddress("glSamplerParameterIuivOES");
+		glSamplerParameterf = provider.getFunctionAddress("glSamplerParameterf");
+		glSamplerParameterfv = provider.getFunctionAddress("glSamplerParameterfv");
+		glSamplerParameteri = provider.getFunctionAddress("glSamplerParameteri");
+		glSamplerParameteriv = provider.getFunctionAddress("glSamplerParameteriv");
+		glScissor = provider.getFunctionAddress("glScissor");
+		glScissorArrayvNV = provider.getFunctionAddress("glScissorArrayvNV");
+		glScissorIndexedNV = provider.getFunctionAddress("glScissorIndexedNV");
+		glScissorIndexedvNV = provider.getFunctionAddress("glScissorIndexedvNV");
+		glSelectPerfMonitorCountersAMD = provider.getFunctionAddress("glSelectPerfMonitorCountersAMD");
+		glSetFenceNV = provider.getFunctionAddress("glSetFenceNV");
+		glShaderBinary = provider.getFunctionAddress("glShaderBinary");
+		glShaderSource = provider.getFunctionAddress("glShaderSource");
+		glStartTilingQCOM = provider.getFunctionAddress("glStartTilingQCOM");
+		glStencilFillPathInstancedNV = provider.getFunctionAddress("glStencilFillPathInstancedNV");
+		glStencilFillPathNV = provider.getFunctionAddress("glStencilFillPathNV");
+		glStencilFunc = provider.getFunctionAddress("glStencilFunc");
+		glStencilFuncSeparate = provider.getFunctionAddress("glStencilFuncSeparate");
+		glStencilMask = provider.getFunctionAddress("glStencilMask");
+		glStencilMaskSeparate = provider.getFunctionAddress("glStencilMaskSeparate");
+		glStencilOp = provider.getFunctionAddress("glStencilOp");
+		glStencilOpSeparate = provider.getFunctionAddress("glStencilOpSeparate");
+		glStencilStrokePathInstancedNV = provider.getFunctionAddress("glStencilStrokePathInstancedNV");
+		glStencilStrokePathNV = provider.getFunctionAddress("glStencilStrokePathNV");
+		glStencilThenCoverFillPathInstancedNV = provider.getFunctionAddress("glStencilThenCoverFillPathInstancedNV");
+		glStencilThenCoverFillPathNV = provider.getFunctionAddress("glStencilThenCoverFillPathNV");
+		glStencilThenCoverStrokePathInstancedNV = provider.getFunctionAddress("glStencilThenCoverStrokePathInstancedNV");
+		glStencilThenCoverStrokePathNV = provider.getFunctionAddress("glStencilThenCoverStrokePathNV");
+		glSubpixelPrecisionBiasNV = provider.getFunctionAddress("glSubpixelPrecisionBiasNV");
+		glTestFenceNV = provider.getFunctionAddress("glTestFenceNV");
+		glTexBuffer = provider.getFunctionAddress("glTexBuffer");
+		glTexBufferEXT = provider.getFunctionAddress("glTexBufferEXT");
+		glTexBufferOES = provider.getFunctionAddress("glTexBufferOES");
+		glTexBufferRange = provider.getFunctionAddress("glTexBufferRange");
+		glTexBufferRangeEXT = provider.getFunctionAddress("glTexBufferRangeEXT");
+		glTexBufferRangeOES = provider.getFunctionAddress("glTexBufferRangeOES");
+		glTexImage2D = provider.getFunctionAddress("glTexImage2D");
+		glTexImage3D = provider.getFunctionAddress("glTexImage3D");
+		glTexImage3DNV = provider.getFunctionAddress("glTexImage3DNV");
+		glTexImage3DOES = provider.getFunctionAddress("glTexImage3DOES");
+		glTexPageCommitmentARB = provider.getFunctionAddress("glTexPageCommitmentARB");
+		glTexParameterIiv = provider.getFunctionAddress("glTexParameterIiv");
+		glTexParameterIivEXT = provider.getFunctionAddress("glTexParameterIivEXT");
+		glTexParameterIivOES = provider.getFunctionAddress("glTexParameterIivOES");
+		glTexParameterIuiv = provider.getFunctionAddress("glTexParameterIuiv");
+		glTexParameterIuivEXT = provider.getFunctionAddress("glTexParameterIuivEXT");
+		glTexParameterIuivOES = provider.getFunctionAddress("glTexParameterIuivOES");
+		glTexParameterf = provider.getFunctionAddress("glTexParameterf");
+		glTexParameterfv = provider.getFunctionAddress("glTexParameterfv");
+		glTexParameteri = provider.getFunctionAddress("glTexParameteri");
+		glTexParameteriv = provider.getFunctionAddress("glTexParameteriv");
+		glTexStorage1DEXT = provider.getFunctionAddress("glTexStorage1DEXT");
+		glTexStorage2D = provider.getFunctionAddress("glTexStorage2D");
+		glTexStorage2DEXT = provider.getFunctionAddress("glTexStorage2DEXT");
+		glTexStorage2DMultisample = provider.getFunctionAddress("glTexStorage2DMultisample");
+		glTexStorage3D = provider.getFunctionAddress("glTexStorage3D");
+		glTexStorage3DEXT = provider.getFunctionAddress("glTexStorage3DEXT");
+		glTexStorage3DMultisample = provider.getFunctionAddress("glTexStorage3DMultisample");
+		glTexStorage3DMultisampleOES = provider.getFunctionAddress("glTexStorage3DMultisampleOES");
+		glTexSubImage2D = provider.getFunctionAddress("glTexSubImage2D");
+		glTexSubImage3D = provider.getFunctionAddress("glTexSubImage3D");
+		glTexSubImage3DNV = provider.getFunctionAddress("glTexSubImage3DNV");
+		glTexSubImage3DOES = provider.getFunctionAddress("glTexSubImage3DOES");
+		glTextureStorage1DEXT = provider.getFunctionAddress("glTextureStorage1DEXT");
+		glTextureStorage2DEXT = provider.getFunctionAddress("glTextureStorage2DEXT");
+		glTextureStorage3DEXT = provider.getFunctionAddress("glTextureStorage3DEXT");
+		glTextureViewEXT = provider.getFunctionAddress("glTextureViewEXT");
+		glTextureViewOES = provider.getFunctionAddress("glTextureViewOES");
+		glTransformFeedbackVaryings = provider.getFunctionAddress("glTransformFeedbackVaryings");
+		glTransformPathNV = provider.getFunctionAddress("glTransformPathNV");
+		glUniform1f = provider.getFunctionAddress("glUniform1f");
+		glUniform1fv = provider.getFunctionAddress("glUniform1fv");
+		glUniform1i = provider.getFunctionAddress("glUniform1i");
+		glUniform1iv = provider.getFunctionAddress("glUniform1iv");
+		glUniform1ui = provider.getFunctionAddress("glUniform1ui");
+		glUniform1uiv = provider.getFunctionAddress("glUniform1uiv");
+		glUniform2f = provider.getFunctionAddress("glUniform2f");
+		glUniform2fv = provider.getFunctionAddress("glUniform2fv");
+		glUniform2i = provider.getFunctionAddress("glUniform2i");
+		glUniform2iv = provider.getFunctionAddress("glUniform2iv");
+		glUniform2ui = provider.getFunctionAddress("glUniform2ui");
+		glUniform2uiv = provider.getFunctionAddress("glUniform2uiv");
+		glUniform3f = provider.getFunctionAddress("glUniform3f");
+		glUniform3fv = provider.getFunctionAddress("glUniform3fv");
+		glUniform3i = provider.getFunctionAddress("glUniform3i");
+		glUniform3iv = provider.getFunctionAddress("glUniform3iv");
+		glUniform3ui = provider.getFunctionAddress("glUniform3ui");
+		glUniform3uiv = provider.getFunctionAddress("glUniform3uiv");
+		glUniform4f = provider.getFunctionAddress("glUniform4f");
+		glUniform4fv = provider.getFunctionAddress("glUniform4fv");
+		glUniform4i = provider.getFunctionAddress("glUniform4i");
+		glUniform4iv = provider.getFunctionAddress("glUniform4iv");
+		glUniform4ui = provider.getFunctionAddress("glUniform4ui");
+		glUniform4uiv = provider.getFunctionAddress("glUniform4uiv");
+		glUniformBlockBinding = provider.getFunctionAddress("glUniformBlockBinding");
+		glUniformHandleui64NV = provider.getFunctionAddress("glUniformHandleui64NV");
+		glUniformHandleui64vNV = provider.getFunctionAddress("glUniformHandleui64vNV");
+		glUniformMatrix2fv = provider.getFunctionAddress("glUniformMatrix2fv");
+		glUniformMatrix2x3fv = provider.getFunctionAddress("glUniformMatrix2x3fv");
+		glUniformMatrix2x3fvNV = provider.getFunctionAddress("glUniformMatrix2x3fvNV");
+		glUniformMatrix2x4fv = provider.getFunctionAddress("glUniformMatrix2x4fv");
+		glUniformMatrix2x4fvNV = provider.getFunctionAddress("glUniformMatrix2x4fvNV");
+		glUniformMatrix3fv = provider.getFunctionAddress("glUniformMatrix3fv");
+		glUniformMatrix3x2fv = provider.getFunctionAddress("glUniformMatrix3x2fv");
+		glUniformMatrix3x2fvNV = provider.getFunctionAddress("glUniformMatrix3x2fvNV");
+		glUniformMatrix3x4fv = provider.getFunctionAddress("glUniformMatrix3x4fv");
+		glUniformMatrix3x4fvNV = provider.getFunctionAddress("glUniformMatrix3x4fvNV");
+		glUniformMatrix4fv = provider.getFunctionAddress("glUniformMatrix4fv");
+		glUniformMatrix4x2fv = provider.getFunctionAddress("glUniformMatrix4x2fv");
+		glUniformMatrix4x2fvNV = provider.getFunctionAddress("glUniformMatrix4x2fvNV");
+		glUniformMatrix4x3fv = provider.getFunctionAddress("glUniformMatrix4x3fv");
+		glUniformMatrix4x3fvNV = provider.getFunctionAddress("glUniformMatrix4x3fvNV");
+		glUnmapBuffer = provider.getFunctionAddress("glUnmapBuffer");
+		glUnmapBufferOES = provider.getFunctionAddress("glUnmapBufferOES");
+		glUseProgram = provider.getFunctionAddress("glUseProgram");
+		glUseProgramStages = provider.getFunctionAddress("glUseProgramStages");
+		glUseProgramStagesEXT = provider.getFunctionAddress("glUseProgramStagesEXT");
+		glValidateProgram = provider.getFunctionAddress("glValidateProgram");
+		glValidateProgramPipeline = provider.getFunctionAddress("glValidateProgramPipeline");
+		glValidateProgramPipelineEXT = provider.getFunctionAddress("glValidateProgramPipelineEXT");
+		glVertexAttrib1f = provider.getFunctionAddress("glVertexAttrib1f");
+		glVertexAttrib1fv = provider.getFunctionAddress("glVertexAttrib1fv");
+		glVertexAttrib2f = provider.getFunctionAddress("glVertexAttrib2f");
+		glVertexAttrib2fv = provider.getFunctionAddress("glVertexAttrib2fv");
+		glVertexAttrib3f = provider.getFunctionAddress("glVertexAttrib3f");
+		glVertexAttrib3fv = provider.getFunctionAddress("glVertexAttrib3fv");
+		glVertexAttrib4f = provider.getFunctionAddress("glVertexAttrib4f");
+		glVertexAttrib4fv = provider.getFunctionAddress("glVertexAttrib4fv");
+		glVertexAttribBinding = provider.getFunctionAddress("glVertexAttribBinding");
+		glVertexAttribDivisor = provider.getFunctionAddress("glVertexAttribDivisor");
+		glVertexAttribDivisorANGLE = provider.getFunctionAddress("glVertexAttribDivisorANGLE");
+		glVertexAttribDivisorEXT = provider.getFunctionAddress("glVertexAttribDivisorEXT");
+		glVertexAttribDivisorNV = provider.getFunctionAddress("glVertexAttribDivisorNV");
+		glVertexAttribFormat = provider.getFunctionAddress("glVertexAttribFormat");
+		glVertexAttribI4i = provider.getFunctionAddress("glVertexAttribI4i");
+		glVertexAttribI4iv = provider.getFunctionAddress("glVertexAttribI4iv");
+		glVertexAttribI4ui = provider.getFunctionAddress("glVertexAttribI4ui");
+		glVertexAttribI4uiv = provider.getFunctionAddress("glVertexAttribI4uiv");
+		glVertexAttribIFormat = provider.getFunctionAddress("glVertexAttribIFormat");
+		glVertexAttribIPointer = provider.getFunctionAddress("glVertexAttribIPointer");
+		glVertexAttribPointer = provider.getFunctionAddress("glVertexAttribPointer");
+		glVertexBindingDivisor = provider.getFunctionAddress("glVertexBindingDivisor");
+		glViewport = provider.getFunctionAddress("glViewport");
+		glViewportArrayvNV = provider.getFunctionAddress("glViewportArrayvNV");
+		glViewportIndexedfNV = provider.getFunctionAddress("glViewportIndexedfNV");
+		glViewportIndexedfvNV = provider.getFunctionAddress("glViewportIndexedfvNV");
+		glWaitSync = provider.getFunctionAddress("glWaitSync");
+		glWaitSyncAPPLE = provider.getFunctionAddress("glWaitSyncAPPLE");
+		glWeightPathsNV = provider.getFunctionAddress("glWeightPathsNV");
+
+		GLES20 = ext.contains("GLES20") && GLES.checkExtension("GLES20", org.lwjgl.opengles.GLES20.isAvailable(this));
+		GLES30 = ext.contains("GLES30") && GLES.checkExtension("GLES30", org.lwjgl.opengles.GLES30.isAvailable(this));
+		GLES31 = ext.contains("GLES31") && GLES.checkExtension("GLES31", org.lwjgl.opengles.GLES31.isAvailable(this));
+		GLES32 = ext.contains("GLES32") && GLES.checkExtension("GLES32", org.lwjgl.opengles.GLES32.isAvailable(this));
 		GL_AMD_compressed_3DC_texture = ext.contains("GL_AMD_compressed_3DC_texture");
 		GL_AMD_compressed_ATC_texture = ext.contains("GL_AMD_compressed_ATC_texture");
-		GL_AMD_performance_monitor = (__AMDPerformanceMonitor = AMDPerformanceMonitor.create(ext, provider)) != null;
+		GL_AMD_performance_monitor = ext.contains("GL_AMD_performance_monitor") && GLES.checkExtension("GL_AMD_performance_monitor", AMDPerformanceMonitor.isAvailable(this));
 		GL_AMD_program_binary_Z400 = ext.contains("GL_AMD_program_binary_Z400");
 		GL_ANDROID_extension_pack_es31a = ext.contains("GL_ANDROID_extension_pack_es31a");
 		GL_ANGLE_depth_texture = ext.contains("GL_ANGLE_depth_texture");
-		GL_ANGLE_framebuffer_blit = (__ANGLEFramebufferBlit = ANGLEFramebufferBlit.create(ext, provider)) != null;
-		GL_ANGLE_framebuffer_multisample = (__ANGLEFramebufferMultisample = ANGLEFramebufferMultisample.create(ext, provider)) != null;
-		GL_ANGLE_instanced_arrays = (__ANGLEInstancedArrays = ANGLEInstancedArrays.create(ext, provider)) != null;
+		GL_ANGLE_framebuffer_blit = ext.contains("GL_ANGLE_framebuffer_blit") && GLES.checkExtension("GL_ANGLE_framebuffer_blit", ANGLEFramebufferBlit.isAvailable(this));
+		GL_ANGLE_framebuffer_multisample = ext.contains("GL_ANGLE_framebuffer_multisample") && GLES.checkExtension("GL_ANGLE_framebuffer_multisample", ANGLEFramebufferMultisample.isAvailable(this));
+		GL_ANGLE_instanced_arrays = ext.contains("GL_ANGLE_instanced_arrays") && GLES.checkExtension("GL_ANGLE_instanced_arrays", ANGLEInstancedArrays.isAvailable(this));
 		GL_ANGLE_pack_reverse_row_order = ext.contains("GL_ANGLE_pack_reverse_row_order");
 		GL_ANGLE_program_binary = ext.contains("GL_ANGLE_program_binary");
 		GL_ANGLE_texture_compression_dxt1 = ext.contains("GL_ANGLE_texture_compression_dxt1");
 		GL_ANGLE_texture_compression_dxt3 = ext.contains("GL_ANGLE_texture_compression_dxt3");
 		GL_ANGLE_texture_compression_dxt5 = ext.contains("GL_ANGLE_texture_compression_dxt5");
 		GL_ANGLE_texture_usage = ext.contains("GL_ANGLE_texture_usage");
-		GL_ANGLE_translated_shader_source = (__ANGLETranslatedShaderSource = ANGLETranslatedShaderSource.create(ext, provider)) != null;
+		GL_ANGLE_translated_shader_source = ext.contains("GL_ANGLE_translated_shader_source") && GLES.checkExtension("GL_ANGLE_translated_shader_source", ANGLETranslatedShaderSource.isAvailable(this));
 		GL_APPLE_clip_distance = ext.contains("GL_APPLE_clip_distance");
 		GL_APPLE_color_buffer_packed_float = ext.contains("GL_APPLE_color_buffer_packed_float");
-		GL_APPLE_copy_texture_levels = (__APPLECopyTextureLevels = APPLECopyTextureLevels.create(ext, provider)) != null;
-		GL_APPLE_framebuffer_multisample = (__APPLEFramebufferMultisample = APPLEFramebufferMultisample.create(ext, provider)) != null;
+		GL_APPLE_copy_texture_levels = ext.contains("GL_APPLE_copy_texture_levels") && GLES.checkExtension("GL_APPLE_copy_texture_levels", APPLECopyTextureLevels.isAvailable(this));
+		GL_APPLE_framebuffer_multisample = ext.contains("GL_APPLE_framebuffer_multisample") && GLES.checkExtension("GL_APPLE_framebuffer_multisample", APPLEFramebufferMultisample.isAvailable(this));
 		GL_APPLE_rgb_422 = ext.contains("GL_APPLE_rgb_422");
-		GL_APPLE_sync = (__APPLESync = APPLESync.create(ext, provider)) != null;
+		GL_APPLE_sync = ext.contains("GL_APPLE_sync") && GLES.checkExtension("GL_APPLE_sync", APPLESync.isAvailable(this));
 		GL_APPLE_texture_format_BGRA8888 = ext.contains("GL_APPLE_texture_format_BGRA8888");
 		GL_APPLE_texture_max_level = ext.contains("GL_APPLE_texture_max_level");
 		GL_APPLE_texture_packed_float = ext.contains("GL_APPLE_texture_packed_float");
@@ -1226,166 +2605,166 @@ public final class GLESCapabilities {
 		GL_ARM_shader_framebuffer_fetch_depth_stencil = ext.contains("GL_ARM_shader_framebuffer_fetch_depth_stencil");
 		GL_DMP_program_binary = ext.contains("GL_DMP_program_binary");
 		GL_DMP_shader_binary = ext.contains("GL_DMP_shader_binary");
-		GL_EXT_base_instance = (__EXTBaseInstance = EXTBaseInstance.create(ext, provider)) != null;
-		GL_EXT_blend_func_extended = (__EXTBlendFuncExtended = EXTBlendFuncExtended.create(ext, provider)) != null;
+		GL_EXT_base_instance = ext.contains("GL_EXT_base_instance") && GLES.checkExtension("GL_EXT_base_instance", EXTBaseInstance.isAvailable(this));
+		GL_EXT_blend_func_extended = ext.contains("GL_EXT_blend_func_extended") && GLES.checkExtension("GL_EXT_blend_func_extended", EXTBlendFuncExtended.isAvailable(this));
 		GL_EXT_blend_minmax = ext.contains("GL_EXT_blend_minmax");
-		GL_EXT_buffer_storage = (__EXTBufferStorage = EXTBufferStorage.create(ext, provider)) != null;
+		GL_EXT_buffer_storage = ext.contains("GL_EXT_buffer_storage") && GLES.checkExtension("GL_EXT_buffer_storage", EXTBufferStorage.isAvailable(this));
 		GL_EXT_color_buffer_float = ext.contains("GL_EXT_color_buffer_float");
 		GL_EXT_color_buffer_half_float = ext.contains("GL_EXT_color_buffer_half_float");
-		GL_EXT_copy_image = (__EXTCopyImage = EXTCopyImage.create(ext, provider)) != null;
-		GL_EXT_debug_label = (__EXTDebugLabel = EXTDebugLabel.create(ext, provider)) != null;
-		GL_EXT_debug_marker = (__EXTDebugMarker = EXTDebugMarker.create(ext, provider)) != null;
-		GL_EXT_discard_framebuffer = (__EXTDiscardFramebuffer = EXTDiscardFramebuffer.create(ext, provider)) != null;
-		GL_EXT_disjoint_timer_query = (__EXTDisjointTimerQuery = EXTDisjointTimerQuery.create(ext, provider)) != null;
-		GL_EXT_draw_buffers = (__EXTDrawBuffers = EXTDrawBuffers.create(ext, provider)) != null;
-		GL_EXT_draw_buffers_indexed = (__EXTDrawBuffersIndexed = EXTDrawBuffersIndexed.create(ext, provider)) != null;
-		GL_EXT_draw_elements_base_vertex = (__EXTDrawElementsBaseVertex = EXTDrawElementsBaseVertex.create(ext, provider)) != null;
-		GL_EXT_draw_instanced = (__EXTDrawInstanced = EXTDrawInstanced.create(ext, provider)) != null;
+		GL_EXT_copy_image = ext.contains("GL_EXT_copy_image") && GLES.checkExtension("GL_EXT_copy_image", EXTCopyImage.isAvailable(this));
+		GL_EXT_debug_label = ext.contains("GL_EXT_debug_label") && GLES.checkExtension("GL_EXT_debug_label", EXTDebugLabel.isAvailable(this));
+		GL_EXT_debug_marker = ext.contains("GL_EXT_debug_marker") && GLES.checkExtension("GL_EXT_debug_marker", EXTDebugMarker.isAvailable(this));
+		GL_EXT_discard_framebuffer = ext.contains("GL_EXT_discard_framebuffer") && GLES.checkExtension("GL_EXT_discard_framebuffer", EXTDiscardFramebuffer.isAvailable(this));
+		GL_EXT_disjoint_timer_query = ext.contains("GL_EXT_disjoint_timer_query") && GLES.checkExtension("GL_EXT_disjoint_timer_query", EXTDisjointTimerQuery.isAvailable(this));
+		GL_EXT_draw_buffers = ext.contains("GL_EXT_draw_buffers") && GLES.checkExtension("GL_EXT_draw_buffers", EXTDrawBuffers.isAvailable(this));
+		GL_EXT_draw_buffers_indexed = ext.contains("GL_EXT_draw_buffers_indexed") && GLES.checkExtension("GL_EXT_draw_buffers_indexed", EXTDrawBuffersIndexed.isAvailable(this));
+		GL_EXT_draw_elements_base_vertex = ext.contains("GL_EXT_draw_elements_base_vertex") && GLES.checkExtension("GL_EXT_draw_elements_base_vertex", EXTDrawElementsBaseVertex.isAvailable(this, ext));
+		GL_EXT_draw_instanced = ext.contains("GL_EXT_draw_instanced") && GLES.checkExtension("GL_EXT_draw_instanced", EXTDrawInstanced.isAvailable(this));
 		GL_EXT_float_blend = ext.contains("GL_EXT_float_blend");
 		GL_EXT_geometry_point_size = ext.contains("GL_EXT_geometry_point_size");
-		GL_EXT_geometry_shader = (__EXTGeometryShader = EXTGeometryShader.create(ext, provider)) != null;
+		GL_EXT_geometry_shader = ext.contains("GL_EXT_geometry_shader") && GLES.checkExtension("GL_EXT_geometry_shader", EXTGeometryShader.isAvailable(this));
 		GL_EXT_gpu_shader5 = ext.contains("GL_EXT_gpu_shader5");
-		GL_EXT_instanced_arrays = (__EXTInstancedArrays = EXTInstancedArrays.create(ext, provider)) != null;
-		GL_EXT_map_buffer_range = (__EXTMapBufferRange = EXTMapBufferRange.create(ext, provider)) != null;
-		GL_EXT_multi_draw_arrays = (__EXTMultiDrawArrays = EXTMultiDrawArrays.create(ext, provider)) != null;
-		GL_EXT_multi_draw_indirect = (__EXTMultiDrawIndirect = EXTMultiDrawIndirect.create(ext, provider)) != null;
+		GL_EXT_instanced_arrays = ext.contains("GL_EXT_instanced_arrays") && GLES.checkExtension("GL_EXT_instanced_arrays", EXTInstancedArrays.isAvailable(this));
+		GL_EXT_map_buffer_range = ext.contains("GL_EXT_map_buffer_range") && GLES.checkExtension("GL_EXT_map_buffer_range", EXTMapBufferRange.isAvailable(this));
+		GL_EXT_multi_draw_arrays = ext.contains("GL_EXT_multi_draw_arrays") && GLES.checkExtension("GL_EXT_multi_draw_arrays", EXTMultiDrawArrays.isAvailable(this));
+		GL_EXT_multi_draw_indirect = ext.contains("GL_EXT_multi_draw_indirect") && GLES.checkExtension("GL_EXT_multi_draw_indirect", EXTMultiDrawIndirect.isAvailable(this));
 		GL_EXT_multisample_compatibility = ext.contains("GL_EXT_multisample_compatibility");
-		GL_EXT_multisampled_render_to_texture = (__EXTMultisampledRenderToTexture = EXTMultisampledRenderToTexture.create(ext, provider)) != null;
-		GL_EXT_multiview_draw_buffers = (__EXTMultiviewDrawBuffers = EXTMultiviewDrawBuffers.create(ext, provider)) != null;
-		GL_EXT_occlusion_query_boolean = (__EXTOcclusionQueryBoolean = EXTOcclusionQueryBoolean.create(ext, provider)) != null;
-		GL_EXT_polygon_offset_clamp = (__EXTPolygonOffsetClamp = EXTPolygonOffsetClamp.create(ext, provider)) != null;
+		GL_EXT_multisampled_render_to_texture = ext.contains("GL_EXT_multisampled_render_to_texture") && GLES.checkExtension("GL_EXT_multisampled_render_to_texture", EXTMultisampledRenderToTexture.isAvailable(this));
+		GL_EXT_multiview_draw_buffers = ext.contains("GL_EXT_multiview_draw_buffers") && GLES.checkExtension("GL_EXT_multiview_draw_buffers", EXTMultiviewDrawBuffers.isAvailable(this));
+		GL_EXT_occlusion_query_boolean = ext.contains("GL_EXT_occlusion_query_boolean") && GLES.checkExtension("GL_EXT_occlusion_query_boolean", EXTOcclusionQueryBoolean.isAvailable(this));
+		GL_EXT_polygon_offset_clamp = ext.contains("GL_EXT_polygon_offset_clamp") && GLES.checkExtension("GL_EXT_polygon_offset_clamp", EXTPolygonOffsetClamp.isAvailable(this));
 		GL_EXT_post_depth_coverage = ext.contains("GL_EXT_post_depth_coverage");
-		GL_EXT_primitive_bounding_box = (__EXTPrimitiveBoundingBox = EXTPrimitiveBoundingBox.create(ext, provider)) != null;
+		GL_EXT_primitive_bounding_box = ext.contains("GL_EXT_primitive_bounding_box") && GLES.checkExtension("GL_EXT_primitive_bounding_box", EXTPrimitiveBoundingBox.isAvailable(this));
 		GL_EXT_pvrtc_sRGB = ext.contains("GL_EXT_pvrtc_sRGB");
-		GL_EXT_raster_multisample = (__EXTRasterMultisample = EXTRasterMultisample.create(ext, provider)) != null;
+		GL_EXT_raster_multisample = ext.contains("GL_EXT_raster_multisample") && GLES.checkExtension("GL_EXT_raster_multisample", EXTRasterMultisample.isAvailable(this));
 		GL_EXT_read_format_bgra = ext.contains("GL_EXT_read_format_bgra");
 		GL_EXT_render_snorm = ext.contains("GL_EXT_render_snorm");
-		GL_EXT_robustness = (__EXTRobustness = EXTRobustness.create(ext, provider)) != null;
-		GL_EXT_separate_shader_objects = (__EXTSeparateShaderObjects = EXTSeparateShaderObjects.create(ext, provider)) != null;
+		GL_EXT_robustness = ext.contains("GL_EXT_robustness") && GLES.checkExtension("GL_EXT_robustness", EXTRobustness.isAvailable(this));
+		GL_EXT_separate_shader_objects = ext.contains("GL_EXT_separate_shader_objects") && GLES.checkExtension("GL_EXT_separate_shader_objects", EXTSeparateShaderObjects.isAvailable(this));
 		GL_EXT_shader_framebuffer_fetch = ext.contains("GL_EXT_shader_framebuffer_fetch");
 		GL_EXT_shader_group_vote = ext.contains("GL_EXT_shader_group_vote");
 		GL_EXT_shader_implicit_conversions = ext.contains("GL_EXT_shader_implicit_conversions");
 		GL_EXT_shader_integer_mix = ext.contains("GL_EXT_shader_integer_mix");
 		GL_EXT_shader_io_blocks = ext.contains("GL_EXT_shader_io_blocks");
 		GL_EXT_shader_pixel_local_storage = ext.contains("GL_EXT_shader_pixel_local_storage");
-		GL_EXT_shader_pixel_local_storage2 = (__EXTShaderPixelLocalStorage2 = EXTShaderPixelLocalStorage2.create(ext, provider)) != null;
+		GL_EXT_shader_pixel_local_storage2 = ext.contains("GL_EXT_shader_pixel_local_storage2") && GLES.checkExtension("GL_EXT_shader_pixel_local_storage2", EXTShaderPixelLocalStorage2.isAvailable(this));
 		GL_EXT_shader_texture_lod = ext.contains("GL_EXT_shader_texture_lod");
 		GL_EXT_shadow_samplers = ext.contains("GL_EXT_shadow_samplers");
-		GL_EXT_sparse_texture = (__EXTSparseTexture = EXTSparseTexture.create(ext, provider)) != null;
+		GL_EXT_sparse_texture = ext.contains("GL_EXT_sparse_texture") && GLES.checkExtension("GL_EXT_sparse_texture", EXTSparseTexture.isAvailable(this));
 		GL_EXT_sRGB = ext.contains("GL_EXT_sRGB");
 		GL_EXT_sRGB_write_control = ext.contains("GL_EXT_sRGB_write_control");
 		GL_EXT_tessellation_point_size = ext.contains("GL_EXT_tessellation_point_size");
-		GL_EXT_tessellation_shader = (__EXTTessellationShader = EXTTessellationShader.create(ext, provider)) != null;
-		GL_EXT_texture_border_clamp = (__EXTTextureBorderClamp = EXTTextureBorderClamp.create(ext, provider)) != null;
-		GL_EXT_texture_buffer = (__EXTTextureBuffer = EXTTextureBuffer.create(ext, provider)) != null;
+		GL_EXT_tessellation_shader = ext.contains("GL_EXT_tessellation_shader") && GLES.checkExtension("GL_EXT_tessellation_shader", EXTTessellationShader.isAvailable(this));
+		GL_EXT_texture_border_clamp = ext.contains("GL_EXT_texture_border_clamp") && GLES.checkExtension("GL_EXT_texture_border_clamp", EXTTextureBorderClamp.isAvailable(this));
+		GL_EXT_texture_buffer = ext.contains("GL_EXT_texture_buffer") && GLES.checkExtension("GL_EXT_texture_buffer", EXTTextureBuffer.isAvailable(this));
 		GL_EXT_texture_compression_dxt1 = ext.contains("GL_EXT_texture_compression_dxt1");
 		GL_EXT_texture_compression_s3tc = ext.contains("GL_EXT_texture_compression_s3tc");
 		GL_EXT_texture_cube_map_array = ext.contains("GL_EXT_texture_cube_map_array");
 		GL_EXT_texture_filter_anisotropic = ext.contains("GL_EXT_texture_filter_anisotropic");
-		GL_EXT_texture_filter_minmax = (__EXTTextureFilterMinmax = EXTTextureFilterMinmax.create(ext, provider)) != null;
+		GL_EXT_texture_filter_minmax = ext.contains("GL_EXT_texture_filter_minmax") && GLES.checkExtension("GL_EXT_texture_filter_minmax", EXTTextureFilterMinmax.isAvailable(this));
 		GL_EXT_texture_format_BGRA8888 = ext.contains("GL_EXT_texture_format_BGRA8888");
 		GL_EXT_texture_norm16 = ext.contains("GL_EXT_texture_norm16");
 		GL_EXT_texture_rg = ext.contains("GL_EXT_texture_rg");
 		GL_EXT_texture_sRGB_decode = ext.contains("GL_EXT_texture_sRGB_decode");
 		GL_EXT_texture_sRGB_R8 = ext.contains("GL_EXT_texture_sRGB_R8");
 		GL_EXT_texture_sRGB_RG8 = ext.contains("GL_EXT_texture_sRGB_RG8");
-		GL_EXT_texture_storage = (__EXTTextureStorage = EXTTextureStorage.create(ext, provider)) != null;
+		GL_EXT_texture_storage = ext.contains("GL_EXT_texture_storage") && GLES.checkExtension("GL_EXT_texture_storage", EXTTextureStorage.isAvailable(this));
 		GL_EXT_texture_type_2_10_10_10_REV = ext.contains("GL_EXT_texture_type_2_10_10_10_REV");
-		GL_EXT_texture_view = (__EXTTextureView = EXTTextureView.create(ext, provider)) != null;
+		GL_EXT_texture_view = ext.contains("GL_EXT_texture_view") && GLES.checkExtension("GL_EXT_texture_view", EXTTextureView.isAvailable(this));
 		GL_EXT_unpack_subimage = ext.contains("GL_EXT_unpack_subimage");
 		GL_EXT_YUV_target = ext.contains("GL_EXT_YUV_target");
 		GL_FJ_shader_binary_GCCSO = ext.contains("GL_FJ_shader_binary_GCCSO");
-		GL_IMG_framebuffer_downsample = (__IMGFramebufferDownsample = IMGFramebufferDownsample.create(ext, provider)) != null;
-		GL_IMG_multisampled_render_to_texture = (__IMGMultisampledRenderToTexture = IMGMultisampledRenderToTexture.create(ext, provider)) != null;
+		GL_IMG_framebuffer_downsample = ext.contains("GL_IMG_framebuffer_downsample") && GLES.checkExtension("GL_IMG_framebuffer_downsample", IMGFramebufferDownsample.isAvailable(this));
+		GL_IMG_multisampled_render_to_texture = ext.contains("GL_IMG_multisampled_render_to_texture") && GLES.checkExtension("GL_IMG_multisampled_render_to_texture", IMGMultisampledRenderToTexture.isAvailable(this));
 		GL_IMG_program_binary = ext.contains("GL_IMG_program_binary");
 		GL_IMG_read_format = ext.contains("GL_IMG_read_format");
 		GL_IMG_shader_binary = ext.contains("GL_IMG_shader_binary");
 		GL_IMG_texture_compression_pvrtc = ext.contains("GL_IMG_texture_compression_pvrtc");
 		GL_IMG_texture_compression_pvrtc2 = ext.contains("GL_IMG_texture_compression_pvrtc2");
 		GL_IMG_texture_filter_cubic = ext.contains("GL_IMG_texture_filter_cubic");
-		GL_INTEL_framebuffer_CMAA = (__INTELFramebufferCMAA = INTELFramebufferCMAA.create(ext, provider)) != null;
-		GL_INTEL_performance_query = (__INTELPerformanceQuery = INTELPerformanceQuery.create(ext, provider)) != null;
-		GL_KHR_blend_equation_advanced = (__KHRBlendEquationAdvanced = KHRBlendEquationAdvanced.create(ext, provider)) != null;
+		GL_INTEL_framebuffer_CMAA = ext.contains("GL_INTEL_framebuffer_CMAA") && GLES.checkExtension("GL_INTEL_framebuffer_CMAA", INTELFramebufferCMAA.isAvailable(this));
+		GL_INTEL_performance_query = ext.contains("GL_INTEL_performance_query") && GLES.checkExtension("GL_INTEL_performance_query", INTELPerformanceQuery.isAvailable(this));
+		GL_KHR_blend_equation_advanced = ext.contains("GL_KHR_blend_equation_advanced") && GLES.checkExtension("GL_KHR_blend_equation_advanced", KHRBlendEquationAdvanced.isAvailable(this));
 		GL_KHR_blend_equation_advanced_coherent = ext.contains("GL_KHR_blend_equation_advanced_coherent");
 		GL_KHR_context_flush_control = ext.contains("GL_KHR_context_flush_control");
-		GL_KHR_debug = (__KHRDebug = KHRDebug.create(ext, provider)) != null;
+		GL_KHR_debug = ext.contains("GL_KHR_debug") && GLES.checkExtension("GL_KHR_debug", KHRDebug.isAvailable(this));
 		GL_KHR_no_error = ext.contains("GL_KHR_no_error");
 		GL_KHR_robust_buffer_access_behavior = ext.contains("GL_KHR_robust_buffer_access_behavior");
-		GL_KHR_robustness = (__KHRRobustness = KHRRobustness.create(ext, provider)) != null;
+		GL_KHR_robustness = ext.contains("GL_KHR_robustness") && GLES.checkExtension("GL_KHR_robustness", KHRRobustness.isAvailable(this));
 		GL_KHR_texture_compression_astc_hdr = ext.contains("GL_KHR_texture_compression_astc_hdr");
 		GL_KHR_texture_compression_astc_ldr = ext.contains("GL_KHR_texture_compression_astc_ldr");
 		GL_KHR_texture_compression_astc_sliced_3d = ext.contains("GL_KHR_texture_compression_astc_sliced_3d");
-		GL_NV_bindless_texture = (__NVBindlessTexture = NVBindlessTexture.create(ext, provider)) != null;
-		GL_NV_blend_equation_advanced = (__NVBlendEquationAdvanced = NVBlendEquationAdvanced.create(ext, provider)) != null;
+		GL_NV_bindless_texture = ext.contains("GL_NV_bindless_texture") && GLES.checkExtension("GL_NV_bindless_texture", NVBindlessTexture.isAvailable(this));
+		GL_NV_blend_equation_advanced = ext.contains("GL_NV_blend_equation_advanced") && GLES.checkExtension("GL_NV_blend_equation_advanced", NVBlendEquationAdvanced.isAvailable(this));
 		GL_NV_blend_equation_advanced_coherent = ext.contains("GL_NV_blend_equation_advanced_coherent");
-		GL_NV_conditional_render = (__NVConditionalRender = NVConditionalRender.create(ext, provider)) != null;
-		GL_NV_conservative_raster = (__NVConservativeRaster = NVConservativeRaster.create(ext, provider)) != null;
-		GL_NV_copy_buffer = (__NVCopyBuffer = NVCopyBuffer.create(ext, provider)) != null;
-		GL_NV_coverage_sample = (__NVCoverageSample = NVCoverageSample.create(ext, provider)) != null;
+		GL_NV_conditional_render = ext.contains("GL_NV_conditional_render") && GLES.checkExtension("GL_NV_conditional_render", NVConditionalRender.isAvailable(this));
+		GL_NV_conservative_raster = ext.contains("GL_NV_conservative_raster") && GLES.checkExtension("GL_NV_conservative_raster", NVConservativeRaster.isAvailable(this));
+		GL_NV_copy_buffer = ext.contains("GL_NV_copy_buffer") && GLES.checkExtension("GL_NV_copy_buffer", NVCopyBuffer.isAvailable(this));
+		GL_NV_coverage_sample = ext.contains("GL_NV_coverage_sample") && GLES.checkExtension("GL_NV_coverage_sample", NVCoverageSample.isAvailable(this));
 		GL_NV_depth_nonlinear = ext.contains("GL_NV_depth_nonlinear");
-		GL_NV_draw_buffers = (__NVDrawBuffers = NVDrawBuffers.create(ext, provider)) != null;
-		GL_NV_draw_instanced = (__NVDrawInstanced = NVDrawInstanced.create(ext, provider)) != null;
+		GL_NV_draw_buffers = ext.contains("GL_NV_draw_buffers") && GLES.checkExtension("GL_NV_draw_buffers", NVDrawBuffers.isAvailable(this));
+		GL_NV_draw_instanced = ext.contains("GL_NV_draw_instanced") && GLES.checkExtension("GL_NV_draw_instanced", NVDrawInstanced.isAvailable(this));
 		GL_NV_explicit_attrib_location = ext.contains("GL_NV_explicit_attrib_location");
 		GL_NV_fbo_color_attachments = ext.contains("GL_NV_fbo_color_attachments");
-		GL_NV_fence = (__NVFence = NVFence.create(ext, provider)) != null;
+		GL_NV_fence = ext.contains("GL_NV_fence") && GLES.checkExtension("GL_NV_fence", NVFence.isAvailable(this));
 		GL_NV_fill_rectangle = ext.contains("GL_NV_fill_rectangle");
-		GL_NV_fragment_coverage_to_color = (__NVFragmentCoverageToColor = NVFragmentCoverageToColor.create(ext, provider)) != null;
+		GL_NV_fragment_coverage_to_color = ext.contains("GL_NV_fragment_coverage_to_color") && GLES.checkExtension("GL_NV_fragment_coverage_to_color", NVFragmentCoverageToColor.isAvailable(this));
 		GL_NV_fragment_shader_interlock = ext.contains("GL_NV_fragment_shader_interlock");
-		GL_NV_framebuffer_blit = (__NVFramebufferBlit = NVFramebufferBlit.create(ext, provider)) != null;
-		GL_NV_framebuffer_mixed_samples = (__NVFramebufferMixedSamples = NVFramebufferMixedSamples.create(ext, provider)) != null;
-		GL_NV_framebuffer_multisample = (__NVFramebufferMultisample = NVFramebufferMultisample.create(ext, provider)) != null;
+		GL_NV_framebuffer_blit = ext.contains("GL_NV_framebuffer_blit") && GLES.checkExtension("GL_NV_framebuffer_blit", NVFramebufferBlit.isAvailable(this));
+		GL_NV_framebuffer_mixed_samples = ext.contains("GL_NV_framebuffer_mixed_samples") && GLES.checkExtension("GL_NV_framebuffer_mixed_samples", NVFramebufferMixedSamples.isAvailable(this));
+		GL_NV_framebuffer_multisample = ext.contains("GL_NV_framebuffer_multisample") && GLES.checkExtension("GL_NV_framebuffer_multisample", NVFramebufferMultisample.isAvailable(this));
 		GL_NV_generate_mipmap_sRGB = ext.contains("GL_NV_generate_mipmap_sRGB");
 		GL_NV_geometry_shader_passthrough = ext.contains("GL_NV_geometry_shader_passthrough");
 		GL_NV_image_formats = ext.contains("GL_NV_image_formats");
-		GL_NV_instanced_arrays = (__NVInstancedArrays = NVInstancedArrays.create(ext, provider)) != null;
-		GL_NV_internalformat_sample_query = (__NVInternalformatSampleQuery = NVInternalformatSampleQuery.create(ext, provider)) != null;
-		GL_NV_non_square_matrices = (__NVNonSquareMatrices = NVNonSquareMatrices.create(ext, provider)) != null;
-		GL_NV_path_rendering = (__NVPathRendering = NVPathRendering.create(ext, provider)) != null;
+		GL_NV_instanced_arrays = ext.contains("GL_NV_instanced_arrays") && GLES.checkExtension("GL_NV_instanced_arrays", NVInstancedArrays.isAvailable(this));
+		GL_NV_internalformat_sample_query = ext.contains("GL_NV_internalformat_sample_query") && GLES.checkExtension("GL_NV_internalformat_sample_query", NVInternalformatSampleQuery.isAvailable(this));
+		GL_NV_non_square_matrices = ext.contains("GL_NV_non_square_matrices") && GLES.checkExtension("GL_NV_non_square_matrices", NVNonSquareMatrices.isAvailable(this));
+		GL_NV_path_rendering = ext.contains("GL_NV_path_rendering") && GLES.checkExtension("GL_NV_path_rendering", NVPathRendering.isAvailable(this));
 		GL_NV_path_rendering_shared_edge = ext.contains("GL_NV_path_rendering_shared_edge");
-		GL_NV_polygon_mode = (__NVPolygonMode = NVPolygonMode.create(ext, provider)) != null;
-		GL_NV_read_buffer = (__NVReadBuffer = NVReadBuffer.create(ext, provider)) != null;
+		GL_NV_polygon_mode = ext.contains("GL_NV_polygon_mode") && GLES.checkExtension("GL_NV_polygon_mode", NVPolygonMode.isAvailable(this));
+		GL_NV_read_buffer = ext.contains("GL_NV_read_buffer") && GLES.checkExtension("GL_NV_read_buffer", NVReadBuffer.isAvailable(this));
 		GL_NV_read_buffer_front = ext.contains("GL_NV_read_buffer_front");
 		GL_NV_read_depth = ext.contains("GL_NV_read_depth");
 		GL_NV_read_depth_stencil = ext.contains("GL_NV_read_depth_stencil");
 		GL_NV_read_stencil = ext.contains("GL_NV_read_stencil");
-		GL_NV_sample_locations = (__NVSampleLocations = NVSampleLocations.create(ext, provider)) != null;
+		GL_NV_sample_locations = ext.contains("GL_NV_sample_locations") && GLES.checkExtension("GL_NV_sample_locations", NVSampleLocations.isAvailable(this));
 		GL_NV_sample_mask_override_coverage = ext.contains("GL_NV_sample_mask_override_coverage");
 		GL_NV_shader_noperspective_interpolation = ext.contains("GL_NV_shader_noperspective_interpolation");
 		GL_NV_shadow_samplers_array = ext.contains("GL_NV_shadow_samplers_array");
 		GL_NV_shadow_samplers_cube = ext.contains("GL_NV_shadow_samplers_cube");
 		GL_NV_sRGB_formats = ext.contains("GL_NV_sRGB_formats");
-		GL_NV_texture_array = (__NVTextureArray = NVTextureArray.create(ext, provider)) != null;
+		GL_NV_texture_array = ext.contains("GL_NV_texture_array") && GLES.checkExtension("GL_NV_texture_array", NVTextureArray.isAvailable(this));
 		GL_NV_texture_border_clamp = ext.contains("GL_NV_texture_border_clamp");
 		GL_NV_texture_compression_s3tc = ext.contains("GL_NV_texture_compression_s3tc");
 		GL_NV_texture_compression_s3tc_update = ext.contains("GL_NV_texture_compression_s3tc_update");
 		GL_NV_texture_npot_2D_mipmap = ext.contains("GL_NV_texture_npot_2D_mipmap");
-		GL_NV_viewport_array = (__NVViewportArray = NVViewportArray.create(ext, provider)) != null;
+		GL_NV_viewport_array = ext.contains("GL_NV_viewport_array") && GLES.checkExtension("GL_NV_viewport_array", NVViewportArray.isAvailable(this));
 		GL_NV_viewport_array2 = ext.contains("GL_NV_viewport_array2");
 		GL_OES_compressed_ETC1_RGB8_sub_texture = ext.contains("GL_OES_compressed_ETC1_RGB8_sub_texture");
 		GL_OES_compressed_ETC1_RGB8_texture = ext.contains("GL_OES_compressed_ETC1_RGB8_texture");
 		GL_OES_compressed_paletted_texture = ext.contains("GL_OES_compressed_paletted_texture");
-		GL_OES_copy_image = (__OESCopyImage = OESCopyImage.create(ext, provider)) != null;
+		GL_OES_copy_image = ext.contains("GL_OES_copy_image") && GLES.checkExtension("GL_OES_copy_image", OESCopyImage.isAvailable(this));
 		GL_OES_depth24 = ext.contains("GL_OES_depth24");
 		GL_OES_depth32 = ext.contains("GL_OES_depth32");
 		GL_OES_depth_texture = ext.contains("GL_OES_depth_texture");
 		GL_OES_depth_texture_cube_map = ext.contains("GL_OES_depth_texture_cube_map");
-		GL_OES_draw_buffers_indexed = (__OESDrawBuffersIndexed = OESDrawBuffersIndexed.create(ext, provider)) != null;
-		GL_OES_draw_elements_base_vertex = (__OESDrawElementsBaseVertex = OESDrawElementsBaseVertex.create(ext, provider)) != null;
-		GL_OES_EGL_image = (__OESEGLImage = OESEGLImage.create(ext, provider)) != null;
+		GL_OES_draw_buffers_indexed = ext.contains("GL_OES_draw_buffers_indexed") && GLES.checkExtension("GL_OES_draw_buffers_indexed", OESDrawBuffersIndexed.isAvailable(this));
+		GL_OES_draw_elements_base_vertex = ext.contains("GL_OES_draw_elements_base_vertex") && GLES.checkExtension("GL_OES_draw_elements_base_vertex", OESDrawElementsBaseVertex.isAvailable(this, ext));
+		GL_OES_EGL_image = ext.contains("GL_OES_EGL_image") && GLES.checkExtension("GL_OES_EGL_image", OESEGLImage.isAvailable(this));
 		GL_OES_EGL_image_external = ext.contains("GL_OES_EGL_image_external");
 		GL_OES_EGL_image_external_essl3 = ext.contains("GL_OES_EGL_image_external_essl3");
 		GL_OES_element_index_uint = ext.contains("GL_OES_element_index_uint");
 		GL_OES_fbo_render_mipmap = ext.contains("GL_OES_fbo_render_mipmap");
 		GL_OES_geometry_point_size = ext.contains("GL_OES_geometry_point_size");
-		GL_OES_geometry_shader = (__OESGeometryShader = OESGeometryShader.create(ext, provider)) != null;
-		GL_OES_get_program_binary = (__OESGetProgramBinary = OESGetProgramBinary.create(ext, provider)) != null;
+		GL_OES_geometry_shader = ext.contains("GL_OES_geometry_shader") && GLES.checkExtension("GL_OES_geometry_shader", OESGeometryShader.isAvailable(this));
+		GL_OES_get_program_binary = ext.contains("GL_OES_get_program_binary") && GLES.checkExtension("GL_OES_get_program_binary", OESGetProgramBinary.isAvailable(this));
 		GL_OES_gpu_shader5 = ext.contains("GL_OES_gpu_shader5");
-		GL_OES_mapbuffer = (__OESMapbuffer = OESMapbuffer.create(ext, provider)) != null;
+		GL_OES_mapbuffer = ext.contains("GL_OES_mapbuffer") && GLES.checkExtension("GL_OES_mapbuffer", OESMapbuffer.isAvailable(this));
 		GL_OES_packed_depth_stencil = ext.contains("GL_OES_packed_depth_stencil");
-		GL_OES_primitive_bounding_box = (__OESPrimitiveBoundingBox = OESPrimitiveBoundingBox.create(ext, provider)) != null;
+		GL_OES_primitive_bounding_box = ext.contains("GL_OES_primitive_bounding_box") && GLES.checkExtension("GL_OES_primitive_bounding_box", OESPrimitiveBoundingBox.isAvailable(this));
 		GL_OES_required_internalformat = ext.contains("GL_OES_required_internalformat");
 		GL_OES_rgb8_rgba8 = ext.contains("GL_OES_rgb8_rgba8");
-		GL_OES_sample_shading = (__OESSampleShading = OESSampleShading.create(ext, provider)) != null;
+		GL_OES_sample_shading = ext.contains("GL_OES_sample_shading") && GLES.checkExtension("GL_OES_sample_shading", OESSampleShading.isAvailable(this));
 		GL_OES_sample_variables = ext.contains("GL_OES_sample_variables");
 		GL_OES_shader_image_atomic = ext.contains("GL_OES_shader_image_atomic");
 		GL_OES_shader_io_blocks = ext.contains("GL_OES_shader_io_blocks");
@@ -1396,10 +2775,10 @@ public final class GLESCapabilities {
 		GL_OES_stencil8 = ext.contains("GL_OES_stencil8");
 		GL_OES_surfaceless_context = ext.contains("GL_OES_surfaceless_context");
 		GL_OES_tessellation_point_size = ext.contains("GL_OES_tessellation_point_size");
-		GL_OES_tessellation_shader = (__OESTessellationShader = OESTessellationShader.create(ext, provider)) != null;
-		GL_OES_texture_3D = (__OESTexture3D = OESTexture3D.create(ext, provider)) != null;
-		GL_OES_texture_border_clamp = (__OESTextureBorderClamp = OESTextureBorderClamp.create(ext, provider)) != null;
-		GL_OES_texture_buffer = (__OESTextureBuffer = OESTextureBuffer.create(ext, provider)) != null;
+		GL_OES_tessellation_shader = ext.contains("GL_OES_tessellation_shader") && GLES.checkExtension("GL_OES_tessellation_shader", OESTessellationShader.isAvailable(this));
+		GL_OES_texture_3D = ext.contains("GL_OES_texture_3D") && GLES.checkExtension("GL_OES_texture_3D", OESTexture3D.isAvailable(this));
+		GL_OES_texture_border_clamp = ext.contains("GL_OES_texture_border_clamp") && GLES.checkExtension("GL_OES_texture_border_clamp", OESTextureBorderClamp.isAvailable(this));
+		GL_OES_texture_buffer = ext.contains("GL_OES_texture_buffer") && GLES.checkExtension("GL_OES_texture_buffer", OESTextureBuffer.isAvailable(this));
 		GL_OES_texture_compression_astc = ext.contains("GL_OES_texture_compression_astc");
 		GL_OES_texture_cube_map_array = ext.contains("GL_OES_texture_cube_map_array");
 		GL_OES_texture_float = ext.contains("GL_OES_texture_float");
@@ -1408,21 +2787,21 @@ public final class GLESCapabilities {
 		GL_OES_texture_half_float_linear = ext.contains("GL_OES_texture_half_float_linear");
 		GL_OES_texture_npot = ext.contains("GL_OES_texture_npot");
 		GL_OES_texture_stencil8 = ext.contains("GL_OES_texture_stencil8");
-		GL_OES_texture_storage_multisample_2d_array = (__OESTextureStorageMultisample2DArray = OESTextureStorageMultisample2DArray.create(ext, provider)) != null;
-		GL_OES_texture_view = (__OESTextureView = OESTextureView.create(ext, provider)) != null;
-		GL_OES_vertex_array_object = (__OESVertexArrayObject = OESVertexArrayObject.create(ext, provider)) != null;
+		GL_OES_texture_storage_multisample_2d_array = ext.contains("GL_OES_texture_storage_multisample_2d_array") && GLES.checkExtension("GL_OES_texture_storage_multisample_2d_array", OESTextureStorageMultisample2DArray.isAvailable(this));
+		GL_OES_texture_view = ext.contains("GL_OES_texture_view") && GLES.checkExtension("GL_OES_texture_view", OESTextureView.isAvailable(this));
+		GL_OES_vertex_array_object = ext.contains("GL_OES_vertex_array_object") && GLES.checkExtension("GL_OES_vertex_array_object", OESVertexArrayObject.isAvailable(this));
 		GL_OES_vertex_half_float = ext.contains("GL_OES_vertex_half_float");
 		GL_OES_vertex_type_10_10_10_2 = ext.contains("GL_OES_vertex_type_10_10_10_2");
-		GL_OVR_multiview = (__OVRMultiview = OVRMultiview.create(ext, provider)) != null;
+		GL_OVR_multiview = ext.contains("GL_OVR_multiview") && GLES.checkExtension("GL_OVR_multiview", OVRMultiview.isAvailable(this));
 		GL_OVR_multiview2 = ext.contains("GL_OVR_multiview2");
-		GL_OVR_multiview_multisampled_render_to_texture = (__OVRMultiviewMultisampledRenderToTexture = OVRMultiviewMultisampledRenderToTexture.create(ext, provider)) != null;
-		GL_QCOM_alpha_test = (__QCOMAlphaTest = QCOMAlphaTest.create(ext, provider)) != null;
+		GL_OVR_multiview_multisampled_render_to_texture = ext.contains("GL_OVR_multiview_multisampled_render_to_texture") && GLES.checkExtension("GL_OVR_multiview_multisampled_render_to_texture", OVRMultiviewMultisampledRenderToTexture.isAvailable(this));
+		GL_QCOM_alpha_test = ext.contains("GL_QCOM_alpha_test") && GLES.checkExtension("GL_QCOM_alpha_test", QCOMAlphaTest.isAvailable(this));
 		GL_QCOM_binning_control = ext.contains("GL_QCOM_binning_control");
-		GL_QCOM_driver_control = (__QCOMDriverControl = QCOMDriverControl.create(ext, provider)) != null;
-		GL_QCOM_extended_get = (__QCOMExtendedGet = QCOMExtendedGet.create(ext, provider)) != null;
-		GL_QCOM_extended_get2 = (__QCOMExtendedGet2 = QCOMExtendedGet2.create(ext, provider)) != null;
+		GL_QCOM_driver_control = ext.contains("GL_QCOM_driver_control") && GLES.checkExtension("GL_QCOM_driver_control", QCOMDriverControl.isAvailable(this));
+		GL_QCOM_extended_get = ext.contains("GL_QCOM_extended_get") && GLES.checkExtension("GL_QCOM_extended_get", QCOMExtendedGet.isAvailable(this));
+		GL_QCOM_extended_get2 = ext.contains("GL_QCOM_extended_get2") && GLES.checkExtension("GL_QCOM_extended_get2", QCOMExtendedGet2.isAvailable(this));
 		GL_QCOM_perfmon_global_mode = ext.contains("GL_QCOM_perfmon_global_mode");
-		GL_QCOM_tiled_rendering = (__QCOMTiledRendering = QCOMTiledRendering.create(ext, provider)) != null;
+		GL_QCOM_tiled_rendering = ext.contains("GL_QCOM_tiled_rendering") && GLES.checkExtension("GL_QCOM_tiled_rendering", QCOMTiledRendering.isAvailable(this));
 		GL_QCOM_writeonly_rendering = ext.contains("GL_QCOM_writeonly_rendering");
 		GL_VIV_shader_binary = ext.contains("GL_VIV_shader_binary");
 	}

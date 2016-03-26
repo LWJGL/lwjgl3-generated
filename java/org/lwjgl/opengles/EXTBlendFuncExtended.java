@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -51,52 +51,23 @@ public class EXTBlendFuncExtended {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
 	public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT = 0x88FC;
 
-	/** Function address. */
-	public final long
-		BindFragDataLocationIndexedEXT,
-		GetFragDataIndexEXT,
-		BindFragDataLocationEXT,
-		GetProgramResourceLocationIndexEXT;
-
 	protected EXTBlendFuncExtended() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTBlendFuncExtended(FunctionProvider provider) {
-		BindFragDataLocationIndexedEXT = provider.getFunctionAddress("glBindFragDataLocationIndexedEXT");
-		GetFragDataIndexEXT = provider.getFunctionAddress("glGetFragDataIndexEXT");
-		BindFragDataLocationEXT = provider.getFunctionAddress("glBindFragDataLocationEXT");
-		GetProgramResourceLocationIndexEXT = provider.getFunctionAddress("glGetProgramResourceLocationIndexEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTBlendFuncExtended} instance of the current context. */
-	public static EXTBlendFuncExtended getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTBlendFuncExtended} instance of the specified {@link GLESCapabilities}. */
-	public static EXTBlendFuncExtended getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTBlendFuncExtended);
-	}
-
-	static EXTBlendFuncExtended create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_blend_func_extended") ) return null;
-
-		EXTBlendFuncExtended funcs = new EXTBlendFuncExtended(provider);
-		boolean supported = checkFunctions(
-			funcs.BindFragDataLocationIndexedEXT, funcs.GetFragDataIndexEXT, funcs.BindFragDataLocationEXT, funcs.GetProgramResourceLocationIndexEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glBindFragDataLocationIndexedEXT, caps.glGetFragDataIndexEXT, caps.glBindFragDataLocationEXT, caps.glGetProgramResourceLocationIndexEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_blend_func_extended", funcs, supported);
 	}
 
 	// --- [ glBindFragDataLocationIndexedEXT ] ---
 
 	/** Unsafe version of {@link #glBindFragDataLocationIndexedEXT BindFragDataLocationIndexedEXT} */
 	public static void nglBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, long name) {
-		long __functionAddress = getInstance().BindFragDataLocationIndexedEXT;
+		long __functionAddress = GLES.getCapabilities().glBindFragDataLocationIndexedEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, colorNumber, index, name);
 	}
 
@@ -108,16 +79,22 @@ public class EXTBlendFuncExtended {
 
 	/** CharSequence version of: {@link #glBindFragDataLocationIndexedEXT BindFragDataLocationIndexedEXT} */
 	public static void glBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindFragDataLocationIndexedEXT(program, colorNumber, index, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			nglBindFragDataLocationIndexedEXT(program, colorNumber, index, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetFragDataIndexEXT ] ---
 
 	/** Unsafe version of {@link #glGetFragDataIndexEXT GetFragDataIndexEXT} */
 	public static int nglGetFragDataIndexEXT(int program, long name) {
-		long __functionAddress = getInstance().GetFragDataIndexEXT;
+		long __functionAddress = GLES.getCapabilities().glGetFragDataIndexEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPI(__functionAddress, program, name);
 	}
 
@@ -129,16 +106,22 @@ public class EXTBlendFuncExtended {
 
 	/** CharSequence version of: {@link #glGetFragDataIndexEXT GetFragDataIndexEXT} */
 	public static int glGetFragDataIndexEXT(int program, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetFragDataIndexEXT(program, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetFragDataIndexEXT(program, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glBindFragDataLocationEXT ] ---
 
 	/** Unsafe version of {@link #glBindFragDataLocationEXT BindFragDataLocationEXT} */
 	public static void nglBindFragDataLocationEXT(int program, int colorNumber, long name) {
-		long __functionAddress = getInstance().BindFragDataLocationEXT;
+		long __functionAddress = GLES.getCapabilities().glBindFragDataLocationEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, colorNumber, name);
 	}
 
@@ -150,16 +133,22 @@ public class EXTBlendFuncExtended {
 
 	/** CharSequence version of: {@link #glBindFragDataLocationEXT BindFragDataLocationEXT} */
 	public static void glBindFragDataLocationEXT(int program, int colorNumber, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindFragDataLocationEXT(program, colorNumber, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			nglBindFragDataLocationEXT(program, colorNumber, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramResourceLocationIndexEXT ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceLocationIndexEXT GetProgramResourceLocationIndexEXT} */
 	public static int nglGetProgramResourceLocationIndexEXT(int program, int programInterface, long name) {
-		long __functionAddress = getInstance().GetProgramResourceLocationIndexEXT;
+		long __functionAddress = GLES.getCapabilities().glGetProgramResourceLocationIndexEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
@@ -171,9 +160,13 @@ public class EXTBlendFuncExtended {
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocationIndexEXT GetProgramResourceLocationIndexEXT} */
 	public static int glGetProgramResourceLocationIndexEXT(int program, int programInterface, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetProgramResourceLocationIndexEXT(program, programInterface, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetProgramResourceLocationIndexEXT(program, programInterface, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

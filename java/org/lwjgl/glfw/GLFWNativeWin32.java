@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -16,41 +17,28 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to the GLFW library's Win32 native access functions. */
 public class GLFWNativeWin32 {
 
-	/** Function address. */
-	public final long
-		GetWin32Adapter,
-		GetWin32Monitor,
-		GetWin32Window;
-
 	protected GLFWNativeWin32() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLFWNativeWin32(FunctionProvider provider) {
-		GetWin32Adapter = checkFunctionAddress(provider.getFunctionAddress("glfwGetWin32Adapter"));
-		GetWin32Monitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetWin32Monitor"));
-		GetWin32Window = checkFunctionAddress(provider.getFunctionAddress("glfwGetWin32Window"));
-	}
+	/** Contains the function pointers loaded from {@code GLFW.getLibrary()}. */
+	public static final class Functions {
 
-	// --- [ Function Addresses ] ---
+		private Functions() {}
 
-	private static final GLFWNativeWin32 instance = new GLFWNativeWin32(getLibrary());
+		/** Function address. */
+		public static final long
+			GetWin32Adapter = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetWin32Adapter"),
+			GetWin32Monitor = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetWin32Monitor"),
+			GetWin32Window = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetWin32Window");
 
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return GLFW.getLibrary();
-	}
-
-	/** Returns the {@link GLFWNativeWin32} instance. */
-	public static GLFWNativeWin32 getInstance() {
-		return instance;
 	}
 
 	// --- [ glfwGetWin32Adapter ] ---
 
 	/** Unsafe version of {@link #glfwGetWin32Adapter GetWin32Adapter} */
 	public static long nglfwGetWin32Adapter(long monitor) {
-		long __functionAddress = getInstance().GetWin32Adapter;
+		long __functionAddress = Functions.GetWin32Adapter;
 		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
@@ -69,14 +57,14 @@ public class GLFWNativeWin32 {
 	 */
 	public static String glfwGetWin32Adapter(long monitor) {
 		long __result = nglfwGetWin32Adapter(monitor);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ glfwGetWin32Monitor ] ---
 
 	/** Unsafe version of {@link #glfwGetWin32Monitor GetWin32Monitor} */
 	public static long nglfwGetWin32Monitor(long monitor) {
-		long __functionAddress = getInstance().GetWin32Monitor;
+		long __functionAddress = Functions.GetWin32Monitor;
 		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
@@ -95,7 +83,7 @@ public class GLFWNativeWin32 {
 	 */
 	public static String glfwGetWin32Monitor(long monitor) {
 		long __result = nglfwGetWin32Monitor(monitor);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ glfwGetWin32Window ] ---
@@ -112,7 +100,7 @@ public class GLFWNativeWin32 {
 	 * @since version 3.0
 	 */
 	public static long glfwGetWin32Window(long window) {
-		long __functionAddress = getInstance().GetWin32Window;
+		long __functionAddress = Functions.GetWin32Window;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);

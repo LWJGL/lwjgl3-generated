@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -79,62 +79,26 @@ public class CL10GL {
 		CL_GL_TEXTURE_TARGET = 0x2004,
 		CL_GL_MIPMAP_LEVEL   = 0x2005;
 
-	/** Function address. */
-	public final long
-		CreateFromGLBuffer,
-		CreateFromGLTexture2D,
-		CreateFromGLTexture3D,
-		CreateFromGLRenderbuffer,
-		GetGLObjectInfo,
-		GetGLTextureInfo,
-		EnqueueAcquireGLObjects,
-		EnqueueReleaseGLObjects;
-
 	protected CL10GL() {
 		throw new UnsupportedOperationException();
 	}
 
-	public CL10GL(FunctionProvider provider) {
-		CreateFromGLBuffer = provider.getFunctionAddress("clCreateFromGLBuffer");
-		CreateFromGLTexture2D = provider.getFunctionAddress("clCreateFromGLTexture2D");
-		CreateFromGLTexture3D = provider.getFunctionAddress("clCreateFromGLTexture3D");
-		CreateFromGLRenderbuffer = provider.getFunctionAddress("clCreateFromGLRenderbuffer");
-		GetGLObjectInfo = provider.getFunctionAddress("clGetGLObjectInfo");
-		GetGLTextureInfo = provider.getFunctionAddress("clGetGLTextureInfo");
-		EnqueueAcquireGLObjects = provider.getFunctionAddress("clEnqueueAcquireGLObjects");
-		EnqueueReleaseGLObjects = provider.getFunctionAddress("clEnqueueReleaseGLObjects");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link CL10GL} instance of the currently loaded ICD. */
-	public static CL10GL getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link CL10GL} instance of the specified {@link CLCapabilities}. */
-	public static CL10GL getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__CL10GL);
-	}
-
-	static CL10GL create(FunctionProvider provider) {
-		CL10GL funcs = new CL10GL(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateFromGLBuffer, funcs.CreateFromGLTexture2D, funcs.CreateFromGLTexture3D, funcs.CreateFromGLRenderbuffer, funcs.GetGLObjectInfo, 
-			funcs.GetGLTextureInfo, funcs.EnqueueAcquireGLObjects, funcs.EnqueueReleaseGLObjects
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clCreateFromGLBuffer, caps.clCreateFromGLTexture2D, caps.clCreateFromGLTexture3D, caps.clCreateFromGLRenderbuffer, caps.clGetGLObjectInfo, 
+			caps.clGetGLTextureInfo, caps.clEnqueueAcquireGLObjects, caps.clEnqueueReleaseGLObjects
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateFromGLBuffer ] ---
 
 	/** Unsafe version of {@link #clCreateFromGLBuffer CreateFromGLBuffer} */
 	public static long nclCreateFromGLBuffer(long context, long flags, int bufobj, long errcode_ret) {
-		long __functionAddress = getInstance().CreateFromGLBuffer;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateFromGLBuffer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPJIPP(__functionAddress, context, flags, bufobj, errcode_ret);
 	}
 
@@ -182,9 +146,11 @@ public class CL10GL {
 
 	/** Unsafe version of {@link #clCreateFromGLTexture2D CreateFromGLTexture2D} */
 	public static long nclCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
-		long __functionAddress = getInstance().CreateFromGLTexture2D;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateFromGLTexture2D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
 
@@ -243,9 +209,11 @@ public class CL10GL {
 
 	/** Unsafe version of {@link #clCreateFromGLTexture3D CreateFromGLTexture3D} */
 	public static long nclCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
-		long __functionAddress = getInstance().CreateFromGLTexture3D;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateFromGLTexture3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
 
@@ -303,9 +271,11 @@ public class CL10GL {
 
 	/** Unsafe version of {@link #clCreateFromGLRenderbuffer CreateFromGLRenderbuffer} */
 	public static long nclCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, long errcode_ret) {
-		long __functionAddress = getInstance().CreateFromGLRenderbuffer;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateFromGLRenderbuffer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPJIPP(__functionAddress, context, flags, renderbuffer, errcode_ret);
 	}
 
@@ -355,9 +325,11 @@ public class CL10GL {
 
 	/** Unsafe version of {@link #clGetGLObjectInfo GetGLObjectInfo} */
 	public static int nclGetGLObjectInfo(long memobj, long gl_object_type, long gl_object_name) {
-		long __functionAddress = getInstance().GetGLObjectInfo;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clGetGLObjectInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(memobj);
+		}
 		return callPPPI(__functionAddress, memobj, gl_object_type, gl_object_name);
 	}
 
@@ -391,9 +363,11 @@ public class CL10GL {
 
 	/** Unsafe version of {@link #clGetGLTextureInfo GetGLTextureInfo} */
 	public static int nclGetGLTextureInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetGLTextureInfo;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clGetGLTextureInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(memobj);
+		}
 		return callPIPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -443,9 +417,11 @@ public class CL10GL {
 
 	/** Unsafe version of {@link #clEnqueueAcquireGLObjects EnqueueAcquireGLObjects} */
 	public static int nclEnqueueAcquireGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueAcquireGLObjects;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueAcquireGLObjects;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -510,18 +486,24 @@ public class CL10GL {
 	public static int clEnqueueAcquireGLObjects(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
-		APIBuffer __buffer = apiBuffer();
-		int mem_objects = __buffer.pointerParam(mem_object);
-		return nclEnqueueAcquireGLObjects(command_queue, 1, __buffer.address(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer mem_objects = stack.pointers(mem_object);
+			return nclEnqueueAcquireGLObjects(command_queue, 1, memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clEnqueueReleaseGLObjects ] ---
 
 	/** Unsafe version of {@link #clEnqueueReleaseGLObjects EnqueueReleaseGLObjects} */
 	public static int nclEnqueueReleaseGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueReleaseGLObjects;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueReleaseGLObjects;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -582,9 +564,13 @@ public class CL10GL {
 	public static int clEnqueueReleaseGLObjects(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
-		APIBuffer __buffer = apiBuffer();
-		int mem_objects = __buffer.pointerParam(mem_object);
-		return nclEnqueueReleaseGLObjects(command_queue, 1, __buffer.address(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer mem_objects = stack.pointers(mem_object);
+			return nclEnqueueReleaseGLObjects(command_queue, 1, memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

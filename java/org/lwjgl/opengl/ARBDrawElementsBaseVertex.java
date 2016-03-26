@@ -67,53 +67,23 @@ import static org.lwjgl.system.Pointer.*;
  */
 public class ARBDrawElementsBaseVertex {
 
-	/** Function address. */
-	public final long
-		DrawElementsBaseVertex,
-		DrawRangeElementsBaseVertex,
-		DrawElementsInstancedBaseVertex,
-		MultiDrawElementsBaseVertex;
-
 	protected ARBDrawElementsBaseVertex() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBDrawElementsBaseVertex(FunctionProvider provider) {
-		DrawElementsBaseVertex = provider.getFunctionAddress("glDrawElementsBaseVertex");
-		DrawRangeElementsBaseVertex = provider.getFunctionAddress("glDrawRangeElementsBaseVertex");
-		DrawElementsInstancedBaseVertex = provider.getFunctionAddress("glDrawElementsInstancedBaseVertex");
-		MultiDrawElementsBaseVertex = provider.getFunctionAddress("glMultiDrawElementsBaseVertex");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBDrawElementsBaseVertex} instance of the current context. */
-	public static ARBDrawElementsBaseVertex getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBDrawElementsBaseVertex} instance of the specified {@link GLCapabilities}. */
-	public static ARBDrawElementsBaseVertex getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBDrawElementsBaseVertex);
-	}
-
-	static ARBDrawElementsBaseVertex create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_draw_elements_base_vertex") ) return null;
-
-		ARBDrawElementsBaseVertex funcs = new ARBDrawElementsBaseVertex(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DrawElementsBaseVertex, funcs.DrawRangeElementsBaseVertex, funcs.DrawElementsInstancedBaseVertex, funcs.MultiDrawElementsBaseVertex
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawElementsBaseVertex, caps.glDrawRangeElementsBaseVertex, caps.glDrawElementsInstancedBaseVertex, caps.glMultiDrawElementsBaseVertex
 		);
-
-		return GL.checkExtension("GL_ARB_draw_elements_base_vertex", funcs, supported);
 	}
 
 	// --- [ glDrawElementsBaseVertex ] ---
 
 	/** Unsafe version of {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
-		long __functionAddress = getInstance().DrawElementsBaseVertex;
+		long __functionAddress = GL.getCapabilities().glDrawElementsBaseVertex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
@@ -173,7 +143,9 @@ public class ARBDrawElementsBaseVertex {
 
 	/** Unsafe version of {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
-		long __functionAddress = getInstance().DrawRangeElementsBaseVertex;
+		long __functionAddress = GL.getCapabilities().glDrawRangeElementsBaseVertex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
@@ -235,7 +207,9 @@ public class ARBDrawElementsBaseVertex {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
-		long __functionAddress = getInstance().DrawElementsInstancedBaseVertex;
+		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
@@ -296,7 +270,9 @@ public class ARBDrawElementsBaseVertex {
 
 	/** Unsafe version of {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex} */
 	public static void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex) {
-		long __functionAddress = getInstance().MultiDrawElementsBaseVertex;
+		long __functionAddress = GL.getCapabilities().glMultiDrawElementsBaseVertex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 

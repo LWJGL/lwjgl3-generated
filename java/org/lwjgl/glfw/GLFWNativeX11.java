@@ -7,42 +7,29 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to the GLFW library's X11 native access functions. */
 public class GLFWNativeX11 {
 
-	/** Function address. */
-	public final long
-		GetX11Display,
-		GetX11Adapter,
-		GetX11Monitor,
-		GetX11Window;
-
 	protected GLFWNativeX11() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLFWNativeX11(FunctionProvider provider) {
-		GetX11Display = checkFunctionAddress(provider.getFunctionAddress("glfwGetX11Display"));
-		GetX11Adapter = checkFunctionAddress(provider.getFunctionAddress("glfwGetX11Adapter"));
-		GetX11Monitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetX11Monitor"));
-		GetX11Window = checkFunctionAddress(provider.getFunctionAddress("glfwGetX11Window"));
-	}
+	/** Contains the function pointers loaded from {@code GLFW.getLibrary()}. */
+	public static final class Functions {
 
-	// --- [ Function Addresses ] ---
+		private Functions() {}
 
-	private static final GLFWNativeX11 instance = new GLFWNativeX11(getLibrary());
+		/** Function address. */
+		public static final long
+			GetX11Display = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetX11Display"),
+			GetX11Adapter = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetX11Adapter"),
+			GetX11Monitor = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetX11Monitor"),
+			GetX11Window = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetX11Window");
 
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return GLFW.getLibrary();
-	}
-
-	/** Returns the {@link GLFWNativeX11} instance. */
-	public static GLFWNativeX11 getInstance() {
-		return instance;
 	}
 
 	// --- [ glfwGetX11Display ] ---
@@ -57,7 +44,7 @@ public class GLFWNativeX11 {
 	 * @since version 3.0
 	 */
 	public static long glfwGetX11Display() {
-		long __functionAddress = getInstance().GetX11Display;
+		long __functionAddress = Functions.GetX11Display;
 		return invokeP(__functionAddress);
 	}
 
@@ -75,7 +62,7 @@ public class GLFWNativeX11 {
 	 * @since version 3.1
 	 */
 	public static long glfwGetX11Adapter(long monitor) {
-		long __functionAddress = getInstance().GetX11Adapter;
+		long __functionAddress = Functions.GetX11Adapter;
 		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
@@ -95,7 +82,7 @@ public class GLFWNativeX11 {
 	 * @since version 3.1
 	 */
 	public static long glfwGetX11Monitor(long monitor) {
-		long __functionAddress = getInstance().GetX11Monitor;
+		long __functionAddress = Functions.GetX11Monitor;
 		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
@@ -115,7 +102,7 @@ public class GLFWNativeX11 {
 	 * @since version 3.0
 	 */
 	public static long glfwGetX11Window(long window) {
-		long __functionAddress = getInstance().GetX11Window;
+		long __functionAddress = Functions.GetX11Window;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);

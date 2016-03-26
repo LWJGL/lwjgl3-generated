@@ -29,54 +29,21 @@ public class KHRXlibSurface {
 	/** VkStructureType */
 	public static final int VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR = 1000004000;
 
-	/** Function address. */
-	public final long
-		CreateXlibSurfaceKHR,
-		GetPhysicalDeviceXlibPresentationSupportKHR;
-
 	protected KHRXlibSurface() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRXlibSurface(FunctionProvider provider) {
-		CreateXlibSurfaceKHR = provider.getFunctionAddress("vkCreateXlibSurfaceKHR");
-		GetPhysicalDeviceXlibPresentationSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceXlibPresentationSupportKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRXlibSurface} instance from the specified dispatchable handle. */
-	public static KHRXlibSurface getInstance(DispatchableHandle handle) {
-		return getInstance(handle.getCapabilities());
-	}
-
-	/** Returns the {@link KHRXlibSurface} instance of the specified {@link VKCapabilities}. */
-	public static KHRXlibSurface getInstance(VKCapabilities caps) {
-		return checkFunctionality(caps.__KHRXlibSurface);
-	}
-
-	static KHRXlibSurface create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("VK_KHR_xlib_surface") )
-			return null;
-
-		return VK.checkExtension("VK_KHR_xlib_surface", create(provider));
-	}
-
-	static KHRXlibSurface create(FunctionProvider provider) {
-		KHRXlibSurface funcs = new KHRXlibSurface(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateXlibSurfaceKHR, funcs.GetPhysicalDeviceXlibPresentationSupportKHR
+	static boolean isAvailable(VKCapabilities caps) {
+		return checkFunctions(
+			caps.vkCreateXlibSurfaceKHR, caps.vkGetPhysicalDeviceXlibPresentationSupportKHR
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ vkCreateXlibSurfaceKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR} */
 	public static int nvkCreateXlibSurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
-		long __functionAddress = getInstance(instance).CreateXlibSurfaceKHR;
+		long __functionAddress = instance.getCapabilities().vkCreateXlibSurfaceKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			VkXlibSurfaceCreateInfoKHR.validate(pCreateInfo);
@@ -87,11 +54,35 @@ public class KHRXlibSurface {
 
 	/**
 	 * Creates a {@code VkSurfaceKHR} object for an X11 window, using the Xlib client-side library.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkXlibSurfaceCreateInfoKHR} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pSurface} <b>must</b> be a pointer to a {@code VkSurfaceKHR} handle</li>
+	 * </ul>
+	 * 
+	 * <p>With Xlib, {@code minImageExtent}, {@code maxImageExtent}, and {@code currentExtent} are the window size. Therefore, a swapchain’s {@code imageExtent}
+	 * <b>must</b> match the window’s size.</p>
+	 * 
+	 * <p>Some Vulkan functions <b>may</b> send protocol over the specified Xlib Display connection when using a swapchain or presentable images created from a
+	 * {@code VkSurface} referring to an Xlib window. Applications <b>must</b> therefore ensure the display connection is available to Vulkan for the duration of
+	 * any functions that manipulate such swapchains or their presentable images, and any functions that build or queue command buffers that operate on such
+	 * presentable images. Specifically, applications using Vulkan with Xlib-based swapchains <b>must</b></p>
+	 * 
+	 * <ul>
+	 * <li>Call {@code XInitThreads()} before calling any other Xlib functions if they intend to use Vulkan in multiple threads, or use Vulkan and Xlib in
+	 * separate threads.</li>
+	 * <li>Avoid holding a server grab on a display connection while waiting for Vulkan operations to complete using a swapchain derived from a different
+	 * display connection referring to the same X server instance. Failing to do so may result in deadlock.</li>
+	 * </ul>
 	 *
-	 * @param instance    the {@code VkInstance} to associate the surface.
+	 * @param instance    the instance to associate the surface with
 	 * @param pCreateInfo a pointer to an instance of the {@link VkXlibSurfaceCreateInfoKHR} structure containing the parameters affecting the creation of the surface object
-	 * @param pAllocator  the allocator used for host memory allocated for the surface object
-	 * @param pSurface    the resulting surface object handle is returned in {@code pSurface}
+	 * @param pAllocator  controls host memory allocation
+	 * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned
 	 */
 	public static int vkCreateXlibSurfaceKHR(VkInstance instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
 		if ( CHECKS )
@@ -109,15 +100,26 @@ public class KHRXlibSurface {
 	// --- [ vkGetPhysicalDeviceXlibPresentationSupportKHR ] ---
 
 	/**
-	 * Queries physical device for presentation to X11 server using Xlib.
+	 * Determines whether a queue family of a physical device supports presentation to an X11 server, using the Xlib client-side library.
+	 * 
+	 * <p>This platform-specific function <b>can</b> be called prior to creating a surface.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code dpy} <b>must</b> be a pointer to a {@code Display} value</li>
+	 * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} for the
+	 * given {@code physicalDevice}</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice   a physical device handle
-	 * @param queueFamilyIndex index to a queue family
-	 * @param dpy              pointer to an Xlib Display
-	 * @param visualID         an X11 VisualID
+	 * @param physicalDevice   the physical device
+	 * @param queueFamilyIndex the queue family index
+	 * @param dpy              a pointer to an Xlib {@code Display} connection to the server
+	 * @param visualID         an X11 visual (VisualID)
 	 */
 	public static int vkGetPhysicalDeviceXlibPresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long dpy, long visualID) {
-		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceXlibPresentationSupportKHR;
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceXlibPresentationSupportKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);

@@ -29,44 +29,22 @@ public class NVFragmentCoverageToColor {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int GL_FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;
 
-	/** Function address. */
-	public final long FragmentCoverageColorNV;
-
 	protected NVFragmentCoverageToColor() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVFragmentCoverageToColor(FunctionProvider provider) {
-		FragmentCoverageColorNV = provider.getFunctionAddress("glFragmentCoverageColorNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVFragmentCoverageToColor} instance of the current context. */
-	public static NVFragmentCoverageToColor getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVFragmentCoverageToColor} instance of the specified {@link GLESCapabilities}. */
-	public static NVFragmentCoverageToColor getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVFragmentCoverageToColor);
-	}
-
-	static NVFragmentCoverageToColor create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_fragment_coverage_to_color") ) return null;
-
-		NVFragmentCoverageToColor funcs = new NVFragmentCoverageToColor(provider);
-		boolean supported = checkFunctions(
-			funcs.FragmentCoverageColorNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glFragmentCoverageColorNV
 		);
-
-		return GLES.checkExtension("GL_NV_fragment_coverage_to_color", funcs, supported);
 	}
 
 	// --- [ glFragmentCoverageColorNV ] ---
 
 	public static void glFragmentCoverageColorNV(int color) {
-		long __functionAddress = getInstance().FragmentCoverageColorNV;
+		long __functionAddress = GLES.getCapabilities().glFragmentCoverageColorNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, color);
 	}
 

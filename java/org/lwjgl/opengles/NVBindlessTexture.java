@@ -43,120 +43,88 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVBindlessTexture {
 
-	/** Function address. */
-	public final long
-		GetTextureHandleNV,
-		GetTextureSamplerHandleNV,
-		MakeTextureHandleResidentNV,
-		MakeTextureHandleNonResidentNV,
-		GetImageHandleNV,
-		MakeImageHandleResidentNV,
-		MakeImageHandleNonResidentNV,
-		UniformHandleui64NV,
-		UniformHandleui64vNV,
-		ProgramUniformHandleui64NV,
-		ProgramUniformHandleui64vNV,
-		IsTextureHandleResidentNV,
-		IsImageHandleResidentNV;
-
 	protected NVBindlessTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVBindlessTexture(FunctionProvider provider) {
-		GetTextureHandleNV = provider.getFunctionAddress("glGetTextureHandleNV");
-		GetTextureSamplerHandleNV = provider.getFunctionAddress("glGetTextureSamplerHandleNV");
-		MakeTextureHandleResidentNV = provider.getFunctionAddress("glMakeTextureHandleResidentNV");
-		MakeTextureHandleNonResidentNV = provider.getFunctionAddress("glMakeTextureHandleNonResidentNV");
-		GetImageHandleNV = provider.getFunctionAddress("glGetImageHandleNV");
-		MakeImageHandleResidentNV = provider.getFunctionAddress("glMakeImageHandleResidentNV");
-		MakeImageHandleNonResidentNV = provider.getFunctionAddress("glMakeImageHandleNonResidentNV");
-		UniformHandleui64NV = provider.getFunctionAddress("glUniformHandleui64NV");
-		UniformHandleui64vNV = provider.getFunctionAddress("glUniformHandleui64vNV");
-		ProgramUniformHandleui64NV = provider.getFunctionAddress("glProgramUniformHandleui64NV");
-		ProgramUniformHandleui64vNV = provider.getFunctionAddress("glProgramUniformHandleui64vNV");
-		IsTextureHandleResidentNV = provider.getFunctionAddress("glIsTextureHandleResidentNV");
-		IsImageHandleResidentNV = provider.getFunctionAddress("glIsImageHandleResidentNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVBindlessTexture} instance of the current context. */
-	public static NVBindlessTexture getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVBindlessTexture} instance of the specified {@link GLESCapabilities}. */
-	public static NVBindlessTexture getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVBindlessTexture);
-	}
-
-	static NVBindlessTexture create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_bindless_texture") ) return null;
-
-		NVBindlessTexture funcs = new NVBindlessTexture(provider);
-		boolean supported = checkFunctions(
-			funcs.GetTextureHandleNV, funcs.GetTextureSamplerHandleNV, funcs.MakeTextureHandleResidentNV, funcs.MakeTextureHandleNonResidentNV, 
-			funcs.GetImageHandleNV, funcs.MakeImageHandleResidentNV, funcs.MakeImageHandleNonResidentNV, funcs.UniformHandleui64NV, funcs.UniformHandleui64vNV, 
-			funcs.ProgramUniformHandleui64NV, funcs.ProgramUniformHandleui64vNV, funcs.IsTextureHandleResidentNV, funcs.IsImageHandleResidentNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glGetTextureHandleNV, caps.glGetTextureSamplerHandleNV, caps.glMakeTextureHandleResidentNV, caps.glMakeTextureHandleNonResidentNV, 
+			caps.glGetImageHandleNV, caps.glMakeImageHandleResidentNV, caps.glMakeImageHandleNonResidentNV, caps.glUniformHandleui64NV, 
+			caps.glUniformHandleui64vNV, caps.glProgramUniformHandleui64NV, caps.glProgramUniformHandleui64vNV, caps.glIsTextureHandleResidentNV, 
+			caps.glIsImageHandleResidentNV
 		);
-
-		return GLES.checkExtension("GL_NV_bindless_texture", funcs, supported);
 	}
 
 	// --- [ glGetTextureHandleNV ] ---
 
 	public static long glGetTextureHandleNV(int texture) {
-		long __functionAddress = getInstance().GetTextureHandleNV;
+		long __functionAddress = GLES.getCapabilities().glGetTextureHandleNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIJ(__functionAddress, texture);
 	}
 
 	// --- [ glGetTextureSamplerHandleNV ] ---
 
 	public static long glGetTextureSamplerHandleNV(int texture, int sampler) {
-		long __functionAddress = getInstance().GetTextureSamplerHandleNV;
+		long __functionAddress = GLES.getCapabilities().glGetTextureSamplerHandleNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIJ(__functionAddress, texture, sampler);
 	}
 
 	// --- [ glMakeTextureHandleResidentNV ] ---
 
 	public static void glMakeTextureHandleResidentNV(long handle) {
-		long __functionAddress = getInstance().MakeTextureHandleResidentNV;
+		long __functionAddress = GLES.getCapabilities().glMakeTextureHandleResidentNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callJV(__functionAddress, handle);
 	}
 
 	// --- [ glMakeTextureHandleNonResidentNV ] ---
 
 	public static void glMakeTextureHandleNonResidentNV(long handle) {
-		long __functionAddress = getInstance().MakeTextureHandleNonResidentNV;
+		long __functionAddress = GLES.getCapabilities().glMakeTextureHandleNonResidentNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callJV(__functionAddress, handle);
 	}
 
 	// --- [ glGetImageHandleNV ] ---
 
 	public static long glGetImageHandleNV(int texture, int level, boolean layered, int layer, int format) {
-		long __functionAddress = getInstance().GetImageHandleNV;
+		long __functionAddress = GLES.getCapabilities().glGetImageHandleNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIZIIJ(__functionAddress, texture, level, layered, layer, format);
 	}
 
 	// --- [ glMakeImageHandleResidentNV ] ---
 
 	public static void glMakeImageHandleResidentNV(long handle, int access) {
-		long __functionAddress = getInstance().MakeImageHandleResidentNV;
+		long __functionAddress = GLES.getCapabilities().glMakeImageHandleResidentNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callJIV(__functionAddress, handle, access);
 	}
 
 	// --- [ glMakeImageHandleNonResidentNV ] ---
 
 	public static void glMakeImageHandleNonResidentNV(long handle) {
-		long __functionAddress = getInstance().MakeImageHandleNonResidentNV;
+		long __functionAddress = GLES.getCapabilities().glMakeImageHandleNonResidentNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callJV(__functionAddress, handle);
 	}
 
 	// --- [ glUniformHandleui64NV ] ---
 
 	public static void glUniformHandleui64NV(int location, long value) {
-		long __functionAddress = getInstance().UniformHandleui64NV;
+		long __functionAddress = GLES.getCapabilities().glUniformHandleui64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIJV(__functionAddress, location, value);
 	}
 
@@ -164,7 +132,9 @@ public class NVBindlessTexture {
 
 	/** Unsafe version of {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
 	public static void nglUniformHandleui64vNV(int location, int count, long values) {
-		long __functionAddress = getInstance().UniformHandleui64vNV;
+		long __functionAddress = GLES.getCapabilities().glUniformHandleui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, values);
 	}
 
@@ -182,7 +152,9 @@ public class NVBindlessTexture {
 	// --- [ glProgramUniformHandleui64NV ] ---
 
 	public static void glProgramUniformHandleui64NV(int program, int location, long value) {
-		long __functionAddress = getInstance().ProgramUniformHandleui64NV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniformHandleui64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIJV(__functionAddress, program, location, value);
 	}
 
@@ -190,7 +162,9 @@ public class NVBindlessTexture {
 
 	/** Unsafe version of {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
 	public static void nglProgramUniformHandleui64vNV(int program, int location, int count, long values) {
-		long __functionAddress = getInstance().ProgramUniformHandleui64vNV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniformHandleui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, values);
 	}
 
@@ -208,14 +182,18 @@ public class NVBindlessTexture {
 	// --- [ glIsTextureHandleResidentNV ] ---
 
 	public static boolean glIsTextureHandleResidentNV(long handle) {
-		long __functionAddress = getInstance().IsTextureHandleResidentNV;
+		long __functionAddress = GLES.getCapabilities().glIsTextureHandleResidentNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callJZ(__functionAddress, handle);
 	}
 
 	// --- [ glIsImageHandleResidentNV ] ---
 
 	public static boolean glIsImageHandleResidentNV(long handle) {
-		long __functionAddress = getInstance().IsImageHandleResidentNV;
+		long __functionAddress = GLES.getCapabilities().glIsImageHandleResidentNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callJZ(__functionAddress, handle);
 	}
 

@@ -10,8 +10,8 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -33,7 +33,7 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -50,18 +50,18 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct {
 	static {
 		Layout layout = __struct(
 			__member(4),
-			__member(VkOffset2D.SIZEOF, VkOffset2D.__ALIGNMENT),
-			__member(VkOffset2D.SIZEOF, VkOffset2D.__ALIGNMENT),
-			__member(VkExtent2D.SIZEOF, VkExtent2D.__ALIGNMENT),
-			__member(VkExtent2D.SIZEOF, VkExtent2D.__ALIGNMENT),
-			__member(VkOffset2D.SIZEOF, VkOffset2D.__ALIGNMENT),
-			__member(VkOffset2D.SIZEOF, VkOffset2D.__ALIGNMENT),
-			__member(VkExtent2D.SIZEOF, VkExtent2D.__ALIGNMENT),
-			__member(VkExtent2D.SIZEOF, VkExtent2D.__ALIGNMENT)
+			__member(VkOffset2D.SIZEOF, VkOffset2D.ALIGNOF),
+			__member(VkOffset2D.SIZEOF, VkOffset2D.ALIGNOF),
+			__member(VkExtent2D.SIZEOF, VkExtent2D.ALIGNOF),
+			__member(VkExtent2D.SIZEOF, VkExtent2D.ALIGNOF),
+			__member(VkOffset2D.SIZEOF, VkOffset2D.ALIGNOF),
+			__member(VkOffset2D.SIZEOF, VkOffset2D.ALIGNOF),
+			__member(VkExtent2D.SIZEOF, VkExtent2D.ALIGNOF),
+			__member(VkExtent2D.SIZEOF, VkExtent2D.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		SUPPORTEDALPHA = layout.offsetof(0);
 		MINSRCPOSITION = layout.offsetof(1);
@@ -109,67 +109,6 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct {
 	public VkExtent2D minDstExtent() { return nminDstExtent(address()); }
 	/** Returns a {@link VkExtent2D} view of the {@code maxDstExtent} field. */
 	public VkExtent2D maxDstExtent() { return nmaxDstExtent(address()); }
-
-	/** Sets the specified value to the {@code supportedAlpha} field. */
-	public VkDisplayPlaneCapabilitiesKHR supportedAlpha(int value) { nsupportedAlpha(address(), value); return this; }
-	/** Copies the specified {@link VkOffset2D} to the {@code minSrcPosition} field. */
-	public VkDisplayPlaneCapabilitiesKHR minSrcPosition(VkOffset2D value) { nminSrcPosition(address(), value); return this; }
-	/** Copies the specified {@link VkOffset2D} to the {@code maxSrcPosition} field. */
-	public VkDisplayPlaneCapabilitiesKHR maxSrcPosition(VkOffset2D value) { nmaxSrcPosition(address(), value); return this; }
-	/** Copies the specified {@link VkExtent2D} to the {@code minSrcExtent} field. */
-	public VkDisplayPlaneCapabilitiesKHR minSrcExtent(VkExtent2D value) { nminSrcExtent(address(), value); return this; }
-	/** Copies the specified {@link VkExtent2D} to the {@code maxSrcExtent} field. */
-	public VkDisplayPlaneCapabilitiesKHR maxSrcExtent(VkExtent2D value) { nmaxSrcExtent(address(), value); return this; }
-	/** Copies the specified {@link VkOffset2D} to the {@code minDstPosition} field. */
-	public VkDisplayPlaneCapabilitiesKHR minDstPosition(VkOffset2D value) { nminDstPosition(address(), value); return this; }
-	/** Copies the specified {@link VkOffset2D} to the {@code maxDstPosition} field. */
-	public VkDisplayPlaneCapabilitiesKHR maxDstPosition(VkOffset2D value) { nmaxDstPosition(address(), value); return this; }
-	/** Copies the specified {@link VkExtent2D} to the {@code minDstExtent} field. */
-	public VkDisplayPlaneCapabilitiesKHR minDstExtent(VkExtent2D value) { nminDstExtent(address(), value); return this; }
-	/** Copies the specified {@link VkExtent2D} to the {@code maxDstExtent} field. */
-	public VkDisplayPlaneCapabilitiesKHR maxDstExtent(VkExtent2D value) { nmaxDstExtent(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public VkDisplayPlaneCapabilitiesKHR set(
-		int supportedAlpha,
-		VkOffset2D minSrcPosition,
-		VkOffset2D maxSrcPosition,
-		VkExtent2D minSrcExtent,
-		VkExtent2D maxSrcExtent,
-		VkOffset2D minDstPosition,
-		VkOffset2D maxDstPosition,
-		VkExtent2D minDstExtent,
-		VkExtent2D maxDstExtent
-	) {
-		supportedAlpha(supportedAlpha);
-		minSrcPosition(minSrcPosition);
-		maxSrcPosition(maxSrcPosition);
-		minSrcExtent(minSrcExtent);
-		maxSrcExtent(maxSrcExtent);
-		minDstPosition(minDstPosition);
-		maxDstPosition(maxDstPosition);
-		minDstExtent(minDstExtent);
-		maxDstExtent(maxDstExtent);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(VkDisplayPlaneCapabilitiesKHR) set}. */
-	public VkDisplayPlaneCapabilitiesKHR nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public VkDisplayPlaneCapabilitiesKHR set(VkDisplayPlaneCapabilitiesKHR src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -230,6 +169,76 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkDisplayPlaneCapabilitiesKHR} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkDisplayPlaneCapabilitiesKHR mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkDisplayPlaneCapabilitiesKHR} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkDisplayPlaneCapabilitiesKHR callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlaneCapabilitiesKHR} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkDisplayPlaneCapabilitiesKHR mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlaneCapabilitiesKHR} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkDisplayPlaneCapabilitiesKHR callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlaneCapabilitiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlaneCapabilitiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlaneCapabilitiesKHR.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlaneCapabilitiesKHR.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #supportedAlpha}. */
 	public static int nsupportedAlpha(long struct) { return memGetInt(struct + VkDisplayPlaneCapabilitiesKHR.SUPPORTEDALPHA); }
 	/** Unsafe version of {@link #minSrcPosition}. */
@@ -248,25 +257,6 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct {
 	public static VkExtent2D nminDstExtent(long struct) { return VkExtent2D.create(struct + VkDisplayPlaneCapabilitiesKHR.MINDSTEXTENT); }
 	/** Unsafe version of {@link #maxDstExtent}. */
 	public static VkExtent2D nmaxDstExtent(long struct) { return VkExtent2D.create(struct + VkDisplayPlaneCapabilitiesKHR.MAXDSTEXTENT); }
-
-	/** Unsafe version of {@link #supportedAlpha(int) supportedAlpha}. */
-	public static void nsupportedAlpha(long struct, int value) { memPutInt(struct + VkDisplayPlaneCapabilitiesKHR.SUPPORTEDALPHA, value); }
-	/** Unsafe version of {@link #minSrcPosition(VkOffset2D) minSrcPosition}. */
-	public static void nminSrcPosition(long struct, VkOffset2D value) { memCopy(value.address(), struct + VkDisplayPlaneCapabilitiesKHR.MINSRCPOSITION, VkOffset2D.SIZEOF); }
-	/** Unsafe version of {@link #maxSrcPosition(VkOffset2D) maxSrcPosition}. */
-	public static void nmaxSrcPosition(long struct, VkOffset2D value) { memCopy(value.address(), struct + VkDisplayPlaneCapabilitiesKHR.MAXSRCPOSITION, VkOffset2D.SIZEOF); }
-	/** Unsafe version of {@link #minSrcExtent(VkExtent2D) minSrcExtent}. */
-	public static void nminSrcExtent(long struct, VkExtent2D value) { memCopy(value.address(), struct + VkDisplayPlaneCapabilitiesKHR.MINSRCEXTENT, VkExtent2D.SIZEOF); }
-	/** Unsafe version of {@link #maxSrcExtent(VkExtent2D) maxSrcExtent}. */
-	public static void nmaxSrcExtent(long struct, VkExtent2D value) { memCopy(value.address(), struct + VkDisplayPlaneCapabilitiesKHR.MAXSRCEXTENT, VkExtent2D.SIZEOF); }
-	/** Unsafe version of {@link #minDstPosition(VkOffset2D) minDstPosition}. */
-	public static void nminDstPosition(long struct, VkOffset2D value) { memCopy(value.address(), struct + VkDisplayPlaneCapabilitiesKHR.MINDSTPOSITION, VkOffset2D.SIZEOF); }
-	/** Unsafe version of {@link #maxDstPosition(VkOffset2D) maxDstPosition}. */
-	public static void nmaxDstPosition(long struct, VkOffset2D value) { memCopy(value.address(), struct + VkDisplayPlaneCapabilitiesKHR.MAXDSTPOSITION, VkOffset2D.SIZEOF); }
-	/** Unsafe version of {@link #minDstExtent(VkExtent2D) minDstExtent}. */
-	public static void nminDstExtent(long struct, VkExtent2D value) { memCopy(value.address(), struct + VkDisplayPlaneCapabilitiesKHR.MINDSTEXTENT, VkExtent2D.SIZEOF); }
-	/** Unsafe version of {@link #maxDstExtent(VkExtent2D) maxDstExtent}. */
-	public static void nmaxDstExtent(long struct, VkExtent2D value) { memCopy(value.address(), struct + VkDisplayPlaneCapabilitiesKHR.MAXDSTEXTENT, VkExtent2D.SIZEOF); }
 
 	// -----------------------------------
 
@@ -302,7 +292,7 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct {
 
 		@Override
 		protected VkDisplayPlaneCapabilitiesKHR newInstance(long address) {
-			return new VkDisplayPlaneCapabilitiesKHR(address, container);
+			return new VkDisplayPlaneCapabilitiesKHR(address, getContainer());
 		}
 
 		@Override
@@ -328,25 +318,6 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct {
 		public VkExtent2D minDstExtent() { return VkDisplayPlaneCapabilitiesKHR.nminDstExtent(address()); }
 		/** Returns a {@link VkExtent2D} view of the {@code maxDstExtent} field. */
 		public VkExtent2D maxDstExtent() { return VkDisplayPlaneCapabilitiesKHR.nmaxDstExtent(address()); }
-
-		/** Sets the specified value to the {@code supportedAlpha} field. */
-		public VkDisplayPlaneCapabilitiesKHR.Buffer supportedAlpha(int value) { VkDisplayPlaneCapabilitiesKHR.nsupportedAlpha(address(), value); return this; }
-		/** Copies the specified {@link VkOffset2D} to the {@code minSrcPosition} field. */
-		public VkDisplayPlaneCapabilitiesKHR.Buffer minSrcPosition(VkOffset2D value) { VkDisplayPlaneCapabilitiesKHR.nminSrcPosition(address(), value); return this; }
-		/** Copies the specified {@link VkOffset2D} to the {@code maxSrcPosition} field. */
-		public VkDisplayPlaneCapabilitiesKHR.Buffer maxSrcPosition(VkOffset2D value) { VkDisplayPlaneCapabilitiesKHR.nmaxSrcPosition(address(), value); return this; }
-		/** Copies the specified {@link VkExtent2D} to the {@code minSrcExtent} field. */
-		public VkDisplayPlaneCapabilitiesKHR.Buffer minSrcExtent(VkExtent2D value) { VkDisplayPlaneCapabilitiesKHR.nminSrcExtent(address(), value); return this; }
-		/** Copies the specified {@link VkExtent2D} to the {@code maxSrcExtent} field. */
-		public VkDisplayPlaneCapabilitiesKHR.Buffer maxSrcExtent(VkExtent2D value) { VkDisplayPlaneCapabilitiesKHR.nmaxSrcExtent(address(), value); return this; }
-		/** Copies the specified {@link VkOffset2D} to the {@code minDstPosition} field. */
-		public VkDisplayPlaneCapabilitiesKHR.Buffer minDstPosition(VkOffset2D value) { VkDisplayPlaneCapabilitiesKHR.nminDstPosition(address(), value); return this; }
-		/** Copies the specified {@link VkOffset2D} to the {@code maxDstPosition} field. */
-		public VkDisplayPlaneCapabilitiesKHR.Buffer maxDstPosition(VkOffset2D value) { VkDisplayPlaneCapabilitiesKHR.nmaxDstPosition(address(), value); return this; }
-		/** Copies the specified {@link VkExtent2D} to the {@code minDstExtent} field. */
-		public VkDisplayPlaneCapabilitiesKHR.Buffer minDstExtent(VkExtent2D value) { VkDisplayPlaneCapabilitiesKHR.nminDstExtent(address(), value); return this; }
-		/** Copies the specified {@link VkExtent2D} to the {@code maxDstExtent} field. */
-		public VkDisplayPlaneCapabilitiesKHR.Buffer maxDstExtent(VkExtent2D value) { VkDisplayPlaneCapabilitiesKHR.nmaxDstExtent(address(), value); return this; }
 
 	}
 

@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -40,7 +41,7 @@ public class VkImageMemoryBarrier extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -66,11 +67,11 @@ public class VkImageMemoryBarrier extends Struct {
 			__member(4),
 			__member(4),
 			__member(8),
-			__member(VkImageSubresourceRange.SIZEOF, VkImageSubresourceRange.__ALIGNMENT)
+			__member(VkImageSubresourceRange.SIZEOF, VkImageSubresourceRange.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		STYPE = layout.offsetof(0);
 		PNEXT = layout.offsetof(1);
@@ -246,6 +247,76 @@ public class VkImageMemoryBarrier extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkImageMemoryBarrier} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkImageMemoryBarrier mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkImageMemoryBarrier} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkImageMemoryBarrier callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkImageMemoryBarrier} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkImageMemoryBarrier mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkImageMemoryBarrier} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkImageMemoryBarrier callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkImageMemoryBarrier.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkImageMemoryBarrier.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkImageMemoryBarrier.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkImageMemoryBarrier.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #sType}. */
 	public static int nsType(long struct) { return memGetInt(struct + VkImageMemoryBarrier.STYPE); }
 	/** Unsafe version of {@link #pNext}. */
@@ -322,7 +393,7 @@ public class VkImageMemoryBarrier extends Struct {
 
 		@Override
 		protected VkImageMemoryBarrier newInstance(long address) {
-			return new VkImageMemoryBarrier(address, container);
+			return new VkImageMemoryBarrier(address, getContainer());
 		}
 
 		@Override

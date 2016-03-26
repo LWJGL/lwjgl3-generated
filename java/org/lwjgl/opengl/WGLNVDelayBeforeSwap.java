@@ -23,39 +23,14 @@ import org.lwjgl.system.windows.WinBase;
  */
 public class WGLNVDelayBeforeSwap {
 
-	/** Function address. */
-	public final long DelayBeforeSwapNV;
-
 	protected WGLNVDelayBeforeSwap() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLNVDelayBeforeSwap(FunctionProvider provider) {
-		DelayBeforeSwapNV = provider.getFunctionAddress("wglDelayBeforeSwapNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLNVDelayBeforeSwap} instance of the current context. */
-	public static WGLNVDelayBeforeSwap getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLNVDelayBeforeSwap} instance of the specified {@link GLCapabilities}. */
-	public static WGLNVDelayBeforeSwap getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLNVDelayBeforeSwap);
-	}
-
-	static WGLNVDelayBeforeSwap create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_NV_delay_before_swap") ) return null;
-
-		WGLNVDelayBeforeSwap funcs = new WGLNVDelayBeforeSwap(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DelayBeforeSwapNV
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglDelayBeforeSwapNV
 		);
-
-		return GL.checkExtension("WGL_NV_delay_before_swap", funcs, supported);
 	}
 
 	// --- [ wglDelayBeforeSwapNV ] ---
@@ -88,9 +63,11 @@ public class WGLNVDelayBeforeSwap {
 	 * @param seconds the delay, in seconds
 	 */
 	public static int wglDelayBeforeSwapNV(long hDC, float seconds) {
-		long __functionAddress = getInstance().DelayBeforeSwapNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglDelayBeforeSwapNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hDC);
+		}
 		return callPFI(__functionAddress, hDC, seconds);
 	}
 

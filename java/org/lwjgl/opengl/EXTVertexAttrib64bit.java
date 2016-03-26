@@ -58,89 +58,51 @@ public class EXTVertexAttrib64bit {
 		GL_DOUBLE_MAT4x2_EXT = 0x8F4D,
 		GL_DOUBLE_MAT4x3_EXT = 0x8F4E;
 
-	/** Function address. */
-	public final long
-		VertexAttribL1dEXT,
-		VertexAttribL2dEXT,
-		VertexAttribL3dEXT,
-		VertexAttribL4dEXT,
-		VertexAttribL1dvEXT,
-		VertexAttribL2dvEXT,
-		VertexAttribL3dvEXT,
-		VertexAttribL4dvEXT,
-		VertexAttribLPointerEXT,
-		GetVertexAttribLdvEXT,
-		VertexArrayVertexAttribLOffsetEXT;
-
 	protected EXTVertexAttrib64bit() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTVertexAttrib64bit(FunctionProvider provider) {
-		VertexAttribL1dEXT = provider.getFunctionAddress("glVertexAttribL1dEXT");
-		VertexAttribL2dEXT = provider.getFunctionAddress("glVertexAttribL2dEXT");
-		VertexAttribL3dEXT = provider.getFunctionAddress("glVertexAttribL3dEXT");
-		VertexAttribL4dEXT = provider.getFunctionAddress("glVertexAttribL4dEXT");
-		VertexAttribL1dvEXT = provider.getFunctionAddress("glVertexAttribL1dvEXT");
-		VertexAttribL2dvEXT = provider.getFunctionAddress("glVertexAttribL2dvEXT");
-		VertexAttribL3dvEXT = provider.getFunctionAddress("glVertexAttribL3dvEXT");
-		VertexAttribL4dvEXT = provider.getFunctionAddress("glVertexAttribL4dvEXT");
-		VertexAttribLPointerEXT = provider.getFunctionAddress("glVertexAttribLPointerEXT");
-		GetVertexAttribLdvEXT = provider.getFunctionAddress("glGetVertexAttribLdvEXT");
-		VertexArrayVertexAttribLOffsetEXT = provider.getFunctionAddress("glVertexArrayVertexAttribLOffsetEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTVertexAttrib64bit} instance of the current context. */
-	public static EXTVertexAttrib64bit getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTVertexAttrib64bit} instance of the specified {@link GLCapabilities}. */
-	public static EXTVertexAttrib64bit getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTVertexAttrib64bit);
-	}
-
-	static EXTVertexAttrib64bit create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_vertex_attrib_64bit") ) return null;
-
-		EXTVertexAttrib64bit funcs = new EXTVertexAttrib64bit(provider);
-
-		boolean supported = checkFunctions(
-			funcs.VertexAttribL1dEXT, funcs.VertexAttribL2dEXT, funcs.VertexAttribL3dEXT, funcs.VertexAttribL4dEXT, funcs.VertexAttribL1dvEXT, 
-			funcs.VertexAttribL2dvEXT, funcs.VertexAttribL3dvEXT, funcs.VertexAttribL4dvEXT, funcs.VertexAttribLPointerEXT, funcs.GetVertexAttribLdvEXT, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.VertexArrayVertexAttribLOffsetEXT : -1L
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glVertexAttribL1dEXT, caps.glVertexAttribL2dEXT, caps.glVertexAttribL3dEXT, caps.glVertexAttribL4dEXT, caps.glVertexAttribL1dvEXT, 
+			caps.glVertexAttribL2dvEXT, caps.glVertexAttribL3dvEXT, caps.glVertexAttribL4dvEXT, caps.glVertexAttribLPointerEXT, caps.glGetVertexAttribLdvEXT, 
+			ext.contains("GL_EXT_direct_state_access") ? caps.glVertexArrayVertexAttribLOffsetEXT : -1L
 		);
-
-		return GL.checkExtension("GL_EXT_vertex_attrib_64bit", funcs, supported);
 	}
 
 	// --- [ glVertexAttribL1dEXT ] ---
 
 	public static void glVertexAttribL1dEXT(int index, double x) {
-		long __functionAddress = getInstance().VertexAttribL1dEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribL1dEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribL2dEXT ] ---
 
 	public static void glVertexAttribL2dEXT(int index, double x, double y) {
-		long __functionAddress = getInstance().VertexAttribL2dEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribL2dEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDDV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribL3dEXT ] ---
 
 	public static void glVertexAttribL3dEXT(int index, double x, double y, double z) {
-		long __functionAddress = getInstance().VertexAttribL3dEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribL3dEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDDDV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribL4dEXT ] ---
 
 	public static void glVertexAttribL4dEXT(int index, double x, double y, double z, double w) {
-		long __functionAddress = getInstance().VertexAttribL4dEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribL4dEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDDDDV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -148,7 +110,9 @@ public class EXTVertexAttrib64bit {
 
 	/** Unsafe version of {@link #glVertexAttribL1dvEXT VertexAttribL1dvEXT} */
 	public static void nglVertexAttribL1dvEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribL1dvEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribL1dvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -165,7 +129,9 @@ public class EXTVertexAttrib64bit {
 
 	/** Unsafe version of {@link #glVertexAttribL2dvEXT VertexAttribL2dvEXT} */
 	public static void nglVertexAttribL2dvEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribL2dvEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribL2dvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -182,7 +148,9 @@ public class EXTVertexAttrib64bit {
 
 	/** Unsafe version of {@link #glVertexAttribL3dvEXT VertexAttribL3dvEXT} */
 	public static void nglVertexAttribL3dvEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribL3dvEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribL3dvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -199,7 +167,9 @@ public class EXTVertexAttrib64bit {
 
 	/** Unsafe version of {@link #glVertexAttribL4dvEXT VertexAttribL4dvEXT} */
 	public static void nglVertexAttribL4dvEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribL4dvEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribL4dvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -216,7 +186,9 @@ public class EXTVertexAttrib64bit {
 
 	/** Unsafe version of {@link #glVertexAttribLPointerEXT VertexAttribLPointerEXT} */
 	public static void nglVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointer) {
-		long __functionAddress = getInstance().VertexAttribLPointerEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribLPointerEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
@@ -244,7 +216,9 @@ public class EXTVertexAttrib64bit {
 
 	/** Unsafe version of {@link #glGetVertexAttribLdvEXT GetVertexAttribLdvEXT} */
 	public static void nglGetVertexAttribLdvEXT(int index, int pname, long params) {
-		long __functionAddress = getInstance().GetVertexAttribLdvEXT;
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribLdvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
@@ -260,7 +234,7 @@ public class EXTVertexAttrib64bit {
 	// --- [ glVertexArrayVertexAttribLOffsetEXT ] ---
 
 	public static void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset) {
-		long __functionAddress = getInstance().VertexArrayVertexAttribLOffsetEXT;
+		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribLOffsetEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);

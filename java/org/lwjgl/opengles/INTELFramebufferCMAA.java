@@ -27,38 +27,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class INTELFramebufferCMAA {
 
-	/** Function address. */
-	public final long ApplyFramebufferAttachmentCMAAINTEL;
-
 	protected INTELFramebufferCMAA() {
 		throw new UnsupportedOperationException();
 	}
 
-	public INTELFramebufferCMAA(FunctionProvider provider) {
-		ApplyFramebufferAttachmentCMAAINTEL = provider.getFunctionAddress("glApplyFramebufferAttachmentCMAAINTEL");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link INTELFramebufferCMAA} instance of the current context. */
-	public static INTELFramebufferCMAA getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link INTELFramebufferCMAA} instance of the specified {@link GLESCapabilities}. */
-	public static INTELFramebufferCMAA getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__INTELFramebufferCMAA);
-	}
-
-	static INTELFramebufferCMAA create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_INTEL_framebuffer_CMAA") ) return null;
-
-		INTELFramebufferCMAA funcs = new INTELFramebufferCMAA(provider);
-		boolean supported = checkFunctions(
-			funcs.ApplyFramebufferAttachmentCMAAINTEL
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glApplyFramebufferAttachmentCMAAINTEL
 		);
-
-		return GLES.checkExtension("GL_INTEL_framebuffer_CMAA", funcs, supported);
 	}
 
 	// --- [ glApplyFramebufferAttachmentCMAAINTEL ] ---
@@ -68,7 +44,9 @@ public class INTELFramebufferCMAA {
 	 * Conservative Morphological Anti-Aliasing algorithm.
 	 */
 	public static void glApplyFramebufferAttachmentCMAAINTEL() {
-		long __functionAddress = getInstance().ApplyFramebufferAttachmentCMAAINTEL;
+		long __functionAddress = GLES.getCapabilities().glApplyFramebufferAttachmentCMAAINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

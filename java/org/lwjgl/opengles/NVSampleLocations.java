@@ -53,50 +53,23 @@ public class NVSampleLocations {
 		GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV = 0x9342,
 		GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV    = 0x9343;
 
-	/** Function address. */
-	public final long
-		FramebufferSampleLocationsfvNV,
-		NamedFramebufferSampleLocationsfvNV,
-		ResolveDepthValuesNV;
-
 	protected NVSampleLocations() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVSampleLocations(FunctionProvider provider) {
-		FramebufferSampleLocationsfvNV = provider.getFunctionAddress("glFramebufferSampleLocationsfvNV");
-		NamedFramebufferSampleLocationsfvNV = provider.getFunctionAddress("glNamedFramebufferSampleLocationsfvNV");
-		ResolveDepthValuesNV = provider.getFunctionAddress("glResolveDepthValuesNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVSampleLocations} instance of the current context. */
-	public static NVSampleLocations getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVSampleLocations} instance of the specified {@link GLESCapabilities}. */
-	public static NVSampleLocations getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVSampleLocations);
-	}
-
-	static NVSampleLocations create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_sample_locations") ) return null;
-
-		NVSampleLocations funcs = new NVSampleLocations(provider);
-		boolean supported = checkFunctions(
-			funcs.FramebufferSampleLocationsfvNV, funcs.NamedFramebufferSampleLocationsfvNV, funcs.ResolveDepthValuesNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glFramebufferSampleLocationsfvNV, caps.glNamedFramebufferSampleLocationsfvNV, caps.glResolveDepthValuesNV
 		);
-
-		return GLES.checkExtension("GL_NV_sample_locations", funcs, supported);
 	}
 
 	// --- [ glFramebufferSampleLocationsfvNV ] ---
 
 	/** Unsafe version of {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
 	public static void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v) {
-		long __functionAddress = getInstance().FramebufferSampleLocationsfvNV;
+		long __functionAddress = GLES.getCapabilities().glFramebufferSampleLocationsfvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, start, count, v);
 	}
 
@@ -115,7 +88,9 @@ public class NVSampleLocations {
 
 	/** Unsafe version of {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
 	public static void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v) {
-		long __functionAddress = getInstance().NamedFramebufferSampleLocationsfvNV;
+		long __functionAddress = GLES.getCapabilities().glNamedFramebufferSampleLocationsfvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, framebuffer, start, count, v);
 	}
 
@@ -133,7 +108,9 @@ public class NVSampleLocations {
 	// --- [ glResolveDepthValuesNV ] ---
 
 	public static void glResolveDepthValuesNV() {
-		long __functionAddress = getInstance().ResolveDepthValuesNV;
+		long __functionAddress = GLES.getCapabilities().glResolveDepthValuesNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

@@ -25,39 +25,14 @@ public class EXTPolygonOffsetClamp {
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int GL_POLYGON_OFFSET_CLAMP_EXT = 0x8E1B;
 
-	/** Function address. */
-	public final long PolygonOffsetClampEXT;
-
 	protected EXTPolygonOffsetClamp() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTPolygonOffsetClamp(FunctionProvider provider) {
-		PolygonOffsetClampEXT = provider.getFunctionAddress("glPolygonOffsetClampEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTPolygonOffsetClamp} instance of the current context. */
-	public static EXTPolygonOffsetClamp getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTPolygonOffsetClamp} instance of the specified {@link GLCapabilities}. */
-	public static EXTPolygonOffsetClamp getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTPolygonOffsetClamp);
-	}
-
-	static EXTPolygonOffsetClamp create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_polygon_offset_clamp") ) return null;
-
-		EXTPolygonOffsetClamp funcs = new EXTPolygonOffsetClamp(provider);
-
-		boolean supported = checkFunctions(
-			funcs.PolygonOffsetClampEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glPolygonOffsetClampEXT
 		);
-
-		return GL.checkExtension("GL_EXT_polygon_offset_clamp", funcs, supported);
 	}
 
 	// --- [ glPolygonOffsetClampEXT ] ---
@@ -76,7 +51,9 @@ public class EXTPolygonOffsetClamp {
 	 * @param clamp  the minimum or maximum clamp value
 	 */
 	public static void glPolygonOffsetClampEXT(float factor, float units, float clamp) {
-		long __functionAddress = getInstance().PolygonOffsetClampEXT;
+		long __functionAddress = GL.getCapabilities().glPolygonOffsetClampEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, factor, units, clamp);
 	}
 

@@ -47,64 +47,40 @@ public class NVDepthBufferFloat {
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_DEPTH_BUFFER_FLOAT_MODE_NV = 0x8DAF;
 
-	/** Function address. */
-	public final long
-		DepthRangedNV,
-		ClearDepthdNV,
-		DepthBoundsdNV;
-
 	protected NVDepthBufferFloat() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVDepthBufferFloat(FunctionProvider provider) {
-		DepthRangedNV = provider.getFunctionAddress("glDepthRangedNV");
-		ClearDepthdNV = provider.getFunctionAddress("glClearDepthdNV");
-		DepthBoundsdNV = provider.getFunctionAddress("glDepthBoundsdNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVDepthBufferFloat} instance of the current context. */
-	public static NVDepthBufferFloat getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVDepthBufferFloat} instance of the specified {@link GLCapabilities}. */
-	public static NVDepthBufferFloat getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVDepthBufferFloat);
-	}
-
-	static NVDepthBufferFloat create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_depth_buffer_float") ) return null;
-
-		NVDepthBufferFloat funcs = new NVDepthBufferFloat(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DepthRangedNV, funcs.ClearDepthdNV, funcs.DepthBoundsdNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDepthRangedNV, caps.glClearDepthdNV, caps.glDepthBoundsdNV
 		);
-
-		return GL.checkExtension("GL_NV_depth_buffer_float", funcs, supported);
 	}
 
 	// --- [ glDepthRangedNV ] ---
 
 	public static void glDepthRangedNV(double zNear, double zFar) {
-		long __functionAddress = getInstance().DepthRangedNV;
+		long __functionAddress = GL.getCapabilities().glDepthRangedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, zNear, zFar);
 	}
 
 	// --- [ glClearDepthdNV ] ---
 
 	public static void glClearDepthdNV(double depth) {
-		long __functionAddress = getInstance().ClearDepthdNV;
+		long __functionAddress = GL.getCapabilities().glClearDepthdNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callDV(__functionAddress, depth);
 	}
 
 	// --- [ glDepthBoundsdNV ] ---
 
 	public static void glDepthBoundsdNV(double zmin, double zmax) {
-		long __functionAddress = getInstance().DepthBoundsdNV;
+		long __functionAddress = GL.getCapabilities().glDepthBoundsdNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, zmin, zmax);
 	}
 

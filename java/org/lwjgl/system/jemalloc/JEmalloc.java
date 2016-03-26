@@ -13,6 +13,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -28,80 +29,51 @@ import static org.lwjgl.system.Pointer.*;
  */
 public class JEmalloc {
 
-	/** Function address. */
-	public final long
-		malloc_message,
-		malloc,
-		calloc,
-		posix_memalign,
-		aligned_alloc,
-		realloc,
-		free,
-		mallocx,
-		rallocx,
-		xallocx,
-		sallocx,
-		dallocx,
-		sdallocx,
-		nallocx,
-		mallctl,
-		mallctlnametomib,
-		mallctlbymib,
-		malloc_stats_print,
-		malloc_usable_size;
-
 	protected JEmalloc() {
 		throw new UnsupportedOperationException();
 	}
 
-	public JEmalloc(FunctionProvider provider) {
-		malloc_message = checkFunctionAddress(provider.getFunctionAddress("je_malloc_message"));
-		malloc = checkFunctionAddress(provider.getFunctionAddress("je_malloc"));
-		calloc = checkFunctionAddress(provider.getFunctionAddress("je_calloc"));
-		posix_memalign = checkFunctionAddress(provider.getFunctionAddress("je_posix_memalign"));
-		aligned_alloc = checkFunctionAddress(provider.getFunctionAddress("je_aligned_alloc"));
-		realloc = checkFunctionAddress(provider.getFunctionAddress("je_realloc"));
-		free = checkFunctionAddress(provider.getFunctionAddress("je_free"));
-		mallocx = checkFunctionAddress(provider.getFunctionAddress("je_mallocx"));
-		rallocx = checkFunctionAddress(provider.getFunctionAddress("je_rallocx"));
-		xallocx = checkFunctionAddress(provider.getFunctionAddress("je_xallocx"));
-		sallocx = checkFunctionAddress(provider.getFunctionAddress("je_sallocx"));
-		dallocx = checkFunctionAddress(provider.getFunctionAddress("je_dallocx"));
-		sdallocx = checkFunctionAddress(provider.getFunctionAddress("je_sdallocx"));
-		nallocx = checkFunctionAddress(provider.getFunctionAddress("je_nallocx"));
-		mallctl = checkFunctionAddress(provider.getFunctionAddress("je_mallctl"));
-		mallctlnametomib = checkFunctionAddress(provider.getFunctionAddress("je_mallctlnametomib"));
-		mallctlbymib = checkFunctionAddress(provider.getFunctionAddress("je_mallctlbymib"));
-		malloc_stats_print = checkFunctionAddress(provider.getFunctionAddress("je_malloc_stats_print"));
-		malloc_usable_size = checkFunctionAddress(provider.getFunctionAddress("je_malloc_usable_size"));
+	private static final SharedLibrary JEMALLOC = Library.loadNative(Configuration.JEMALLOC_LIBRARY_NAME.get(System.getProperty("os.arch").contains("64") ? "jemalloc" : "jemalloc32"));
+
+	/** Contains the function pointers loaded from the jemalloc {@link SharedLibrary}. */
+	public static final class Functions {
+
+		private Functions() {}
+
+		/** Function address. */
+		public static final long
+			malloc_message = apiGetFunctionAddress(JEMALLOC, "je_malloc_message"),
+			malloc = apiGetFunctionAddress(JEMALLOC, "je_malloc"),
+			calloc = apiGetFunctionAddress(JEMALLOC, "je_calloc"),
+			posix_memalign = apiGetFunctionAddress(JEMALLOC, "je_posix_memalign"),
+			aligned_alloc = apiGetFunctionAddress(JEMALLOC, "je_aligned_alloc"),
+			realloc = apiGetFunctionAddress(JEMALLOC, "je_realloc"),
+			free = apiGetFunctionAddress(JEMALLOC, "je_free"),
+			mallocx = apiGetFunctionAddress(JEMALLOC, "je_mallocx"),
+			rallocx = apiGetFunctionAddress(JEMALLOC, "je_rallocx"),
+			xallocx = apiGetFunctionAddress(JEMALLOC, "je_xallocx"),
+			sallocx = apiGetFunctionAddress(JEMALLOC, "je_sallocx"),
+			dallocx = apiGetFunctionAddress(JEMALLOC, "je_dallocx"),
+			sdallocx = apiGetFunctionAddress(JEMALLOC, "je_sdallocx"),
+			nallocx = apiGetFunctionAddress(JEMALLOC, "je_nallocx"),
+			mallctl = apiGetFunctionAddress(JEMALLOC, "je_mallctl"),
+			mallctlnametomib = apiGetFunctionAddress(JEMALLOC, "je_mallctlnametomib"),
+			mallctlbymib = apiGetFunctionAddress(JEMALLOC, "je_mallctlbymib"),
+			malloc_stats_print = apiGetFunctionAddress(JEMALLOC, "je_malloc_stats_print"),
+			malloc_usable_size = apiGetFunctionAddress(JEMALLOC, "je_malloc_usable_size");
+
 	}
 
-	// --- [ Function Addresses ] ---
-
-	private static final SharedLibrary JEMALLOC;
-
-	private static final JEmalloc instance;
-
-	static {
-		JEMALLOC = Library.loadNative(Configuration.LIBRARY_NAME_JEMALLOC.get(System.getProperty("os.arch").contains("64") ? "jemalloc" : "jemalloc32"));
-		instance = new JEmalloc(JEMALLOC);
-	}
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	/** Returns the jemalloc {@link SharedLibrary}. */
 	public static SharedLibrary getLibrary() {
 		return JEMALLOC;
-	}
-
-	/** Returns the {@link JEmalloc} instance. */
-	public static JEmalloc getInstance() {
-		return instance;
 	}
 
 	// --- [ je_malloc_message ] ---
 
 	/** Returns the {@code je_malloc_message} variable. */
 	public static PointerBuffer je_malloc_message() {
-		long __result = getInstance().malloc_message;
+		long __result = Functions.malloc_message;
 		return memPointerBuffer(__result, 1);
 	}
 
@@ -109,7 +81,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_malloc malloc} */
 	public static long nje_malloc(long size) {
-		long __functionAddress = getInstance().malloc;
+		long __functionAddress = Functions.malloc;
 		return invokePP(__functionAddress, size);
 	}
 
@@ -128,7 +100,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_calloc calloc} */
 	public static long nje_calloc(long num, long size) {
-		long __functionAddress = getInstance().calloc;
+		long __functionAddress = Functions.calloc;
 		return invokePPP(__functionAddress, num, size);
 	}
 
@@ -148,7 +120,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_posix_memalign posix_memalign} */
 	public static int nje_posix_memalign(long memptr, long alignment, long size) {
-		long __functionAddress = getInstance().posix_memalign;
+		long __functionAddress = Functions.posix_memalign;
 		return invokePPPI(__functionAddress, memptr, alignment, size);
 	}
 
@@ -177,7 +149,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_aligned_alloc aligned_alloc} */
 	public static long nje_aligned_alloc(long alignment, long size) {
-		long __functionAddress = getInstance().aligned_alloc;
+		long __functionAddress = Functions.aligned_alloc;
 		return invokePPP(__functionAddress, alignment, size);
 	}
 
@@ -197,7 +169,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_realloc realloc} */
 	public static long nje_realloc(long ptr, long size) {
-		long __functionAddress = getInstance().realloc;
+		long __functionAddress = Functions.realloc;
 		return invokePPP(__functionAddress, ptr, size);
 	}
 
@@ -220,7 +192,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_free free} */
 	public static void nje_free(long ptr) {
-		long __functionAddress = getInstance().free;
+		long __functionAddress = Functions.free;
 		invokePV(__functionAddress, ptr);
 	}
 
@@ -267,7 +239,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_mallocx mallocx} */
 	public static long nje_mallocx(long size, int flags) {
-		long __functionAddress = getInstance().mallocx;
+		long __functionAddress = Functions.mallocx;
 		return invokePIP(__functionAddress, size, flags);
 	}
 
@@ -287,7 +259,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_rallocx rallocx} */
 	public static long nje_rallocx(long ptr, long size, int flags) {
-		long __functionAddress = getInstance().rallocx;
+		long __functionAddress = Functions.rallocx;
 		return invokePPIP(__functionAddress, ptr, size, flags);
 	}
 
@@ -309,7 +281,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_xallocx xallocx} */
 	public static long nje_xallocx(long ptr, long size, long extra, int flags) {
-		long __functionAddress = getInstance().xallocx;
+		long __functionAddress = Functions.xallocx;
 		return invokePPPIP(__functionAddress, ptr, size, extra, flags);
 	}
 
@@ -331,7 +303,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_sallocx sallocx} */
 	public static long nje_sallocx(long ptr, int flags) {
-		long __functionAddress = getInstance().sallocx;
+		long __functionAddress = Functions.sallocx;
 		return invokePIP(__functionAddress, ptr, flags);
 	}
 
@@ -349,7 +321,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_dallocx dallocx} */
 	public static void nje_dallocx(long ptr, int flags) {
-		long __functionAddress = getInstance().dallocx;
+		long __functionAddress = Functions.dallocx;
 		invokePIV(__functionAddress, ptr, flags);
 	}
 
@@ -397,7 +369,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_sdallocx sdallocx} */
 	public static void nje_sdallocx(long ptr, long size, int flags) {
-		long __functionAddress = getInstance().sdallocx;
+		long __functionAddress = Functions.sdallocx;
 		invokePPIV(__functionAddress, ptr, size, flags);
 	}
 
@@ -453,7 +425,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_nallocx nallocx} */
 	public static long nje_nallocx(long size, int flags) {
-		long __functionAddress = getInstance().nallocx;
+		long __functionAddress = Functions.nallocx;
 		return invokePIP(__functionAddress, size, flags);
 	}
 
@@ -474,7 +446,7 @@ public class JEmalloc {
 
 	/** Unsafe version of {@link #je_mallctl mallctl} */
 	public static int nje_mallctl(long name, long oldp, long oldlenp, long newp, long newlen) {
-		long __functionAddress = getInstance().mallctl;
+		long __functionAddress = Functions.mallctl;
 		return invokePPPPPI(__functionAddress, name, oldp, oldlenp, newp, newlen);
 	}
 
@@ -514,16 +486,20 @@ public class JEmalloc {
 	public static int je_mallctl(CharSequence name, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
 		if ( CHECKS )
 			if ( oldlenp != null ) checkBuffer(oldlenp, 1);
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nje_mallctl(__buffer.address(nameEncoded), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), newp == null ? 0 : newp.remaining());
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nje_mallctl(memAddress(nameEncoded), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), newp == null ? 0 : newp.remaining());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ je_mallctlnametomib ] ---
 
 	/** Unsafe version of {@link #je_mallctlnametomib mallctlnametomib} */
 	public static int nje_mallctlnametomib(long name, long mibp, long miblenp) {
-		long __functionAddress = getInstance().mallctlnametomib;
+		long __functionAddress = Functions.mallctlnametomib;
 		return invokePPPI(__functionAddress, name, mibp, miblenp);
 	}
 
@@ -582,16 +558,20 @@ for (i = 0; i < nbins; i++) {
 			checkBuffer(miblenp, 1);
 			checkBuffer(mibp, miblenp.get(miblenp.position()));
 		}
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nje_mallctlnametomib(__buffer.address(nameEncoded), memAddress(mibp), memAddress(miblenp));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nje_mallctlnametomib(memAddress(nameEncoded), memAddress(mibp), memAddress(miblenp));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ je_mallctlbymib ] ---
 
 	/** Unsafe version of {@link #je_mallctlbymib mallctlbymib} */
 	public static int nje_mallctlbymib(long mib, long miblen, long oldp, long oldlenp, long newp, long newlen) {
-		long __functionAddress = getInstance().mallctlbymib;
+		long __functionAddress = Functions.mallctlbymib;
 		return invokePPPPPPI(__functionAddress, mib, miblen, oldp, oldlenp, newp, newlen);
 	}
 
@@ -625,7 +605,7 @@ for (i = 0; i < nbins; i++) {
 
 	/** Unsafe version of {@link #je_malloc_stats_print malloc_stats_print} */
 	public static void nje_malloc_stats_print(long write_cb, long je_cbopaque, long opts) {
-		long __functionAddress = getInstance().malloc_stats_print;
+		long __functionAddress = Functions.malloc_stats_print;
 		invokePPPV(__functionAddress, write_cb, je_cbopaque, opts);
 	}
 
@@ -650,16 +630,20 @@ for (i = 0; i < nbins; i++) {
 
 	/** CharSequence version of: {@link #je_malloc_stats_print malloc_stats_print} */
 	public static void je_malloc_stats_print(MallocMessageCallback write_cb, ByteBuffer je_cbopaque, CharSequence opts) {
-		APIBuffer __buffer = apiBuffer();
-		int optsEncoded = opts == null ? 0 : __buffer.stringParamASCII(opts, true);
-		nje_malloc_stats_print(write_cb == null ? NULL : write_cb.address(), memAddressSafe(je_cbopaque), __buffer.addressSafe(opts, optsEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer optsEncoded = opts == null ? null : stack.ASCII(opts);
+			nje_malloc_stats_print(write_cb == null ? NULL : write_cb.address(), memAddressSafe(je_cbopaque), memAddressSafe(optsEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ je_malloc_usable_size ] ---
 
 	/** Unsafe version of {@link #je_malloc_usable_size malloc_usable_size} */
 	public static long nje_malloc_usable_size(long ptr) {
-		long __functionAddress = getInstance().malloc_usable_size;
+		long __functionAddress = Functions.malloc_usable_size;
 		return invokePP(__functionAddress, ptr);
 	}
 

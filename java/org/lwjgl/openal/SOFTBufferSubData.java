@@ -25,41 +25,23 @@ public class SOFTBufferSubData {
 		AL_BYTE_RW_OFFSETS_SOFT   = 0x1031,
 		AL_SAMPLE_RW_OFFSETS_SOFT = 0x1032;
 
-	/** Function address. */
-	public final long BufferSubDataSOFT;
-
 	protected SOFTBufferSubData() {
 		throw new UnsupportedOperationException();
 	}
 
-	public SOFTBufferSubData(FunctionProvider provider) {
-		BufferSubDataSOFT = provider.getFunctionAddress("alBufferSubDataSOFT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link SOFTBufferSubData} instance of the current context. */
-	public static SOFTBufferSubData getInstance() {
-		return checkFunctionality(AL.getCapabilities().__SOFTBufferSubData);
-	}
-
-	static SOFTBufferSubData create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("AL_SOFT_buffer_sub_data") ) return null;
-
-		SOFTBufferSubData funcs = new SOFTBufferSubData(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BufferSubDataSOFT
+	static boolean isAvailable(ALCapabilities caps) {
+		return checkFunctions(
+			caps.alBufferSubDataSOFT
 		);
-
-		return AL.checkExtension("AL_SOFT_buffer_sub_data", funcs, supported);
 	}
 
 	// --- [ alBufferSubDataSOFT ] ---
 
 	/** Unsafe version of {@link #alBufferSubDataSOFT BufferSubDataSOFT} */
 	public static void nalBufferSubDataSOFT(int buffer, int format, long data, int offset, int length) {
-		long __functionAddress = getInstance().BufferSubDataSOFT;
+		long __functionAddress = AL.getCapabilities().alBufferSubDataSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPIIV(__functionAddress, buffer, format, data, offset, length);
 	}
 

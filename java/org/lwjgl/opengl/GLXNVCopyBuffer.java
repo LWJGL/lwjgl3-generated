@@ -17,42 +17,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class GLXNVCopyBuffer {
 
-	/** Function address. */
-	public final long
-		CopyBufferSubDataNV,
-		NamedCopyBufferSubDataNV;
-
 	protected GLXNVCopyBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXNVCopyBuffer(FunctionProvider provider) {
-		CopyBufferSubDataNV = provider.getFunctionAddress("glXCopyBufferSubDataNV");
-		NamedCopyBufferSubDataNV = provider.getFunctionAddress("glXNamedCopyBufferSubDataNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXNVCopyBuffer} instance of the current context. */
-	public static GLXNVCopyBuffer getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXNVCopyBuffer} instance of the specified {@link GLCapabilities}. */
-	public static GLXNVCopyBuffer getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXNVCopyBuffer);
-	}
-
-	static GLXNVCopyBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_NV_copy_buffer") ) return null;
-
-		GLXNVCopyBuffer funcs = new GLXNVCopyBuffer(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CopyBufferSubDataNV, funcs.NamedCopyBufferSubDataNV
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXCopyBufferSubDataNV, caps.glXNamedCopyBufferSubDataNV
 		);
-
-		return GL.checkExtension("GLX_NV_copy_buffer", funcs, supported);
 	}
 
 	// --- [ glXCopyBufferSubDataNV ] ---
@@ -70,8 +42,9 @@ public class GLXNVCopyBuffer {
 	 * @param size        
 	 */
 	public static void glXCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		long __functionAddress = getInstance().CopyBufferSubDataNV;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCopyBufferSubDataNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(readCtx);
 			checkPointer(writeCtx);
@@ -94,8 +67,9 @@ public class GLXNVCopyBuffer {
 	 * @param size        
 	 */
 	public static void glXNamedCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
-		long __functionAddress = getInstance().NamedCopyBufferSubDataNV;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXNamedCopyBufferSubDataNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(readCtx);
 			checkPointer(writeCtx);

@@ -27,48 +27,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTMultiDrawIndirect {
 
-	/** Function address. */
-	public final long
-		MultiDrawArraysIndirectEXT,
-		MultiDrawElementsIndirectEXT;
-
 	protected EXTMultiDrawIndirect() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTMultiDrawIndirect(FunctionProvider provider) {
-		MultiDrawArraysIndirectEXT = provider.getFunctionAddress("glMultiDrawArraysIndirectEXT");
-		MultiDrawElementsIndirectEXT = provider.getFunctionAddress("glMultiDrawElementsIndirectEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTMultiDrawIndirect} instance of the current context. */
-	public static EXTMultiDrawIndirect getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTMultiDrawIndirect} instance of the specified {@link GLESCapabilities}. */
-	public static EXTMultiDrawIndirect getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTMultiDrawIndirect);
-	}
-
-	static EXTMultiDrawIndirect create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_multi_draw_indirect") ) return null;
-
-		EXTMultiDrawIndirect funcs = new EXTMultiDrawIndirect(provider);
-		boolean supported = checkFunctions(
-			funcs.MultiDrawArraysIndirectEXT, funcs.MultiDrawElementsIndirectEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glMultiDrawArraysIndirectEXT, caps.glMultiDrawElementsIndirectEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_multi_draw_indirect", funcs, supported);
 	}
 
 	// --- [ glMultiDrawArraysIndirectEXT ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
 	public static void nglMultiDrawArraysIndirectEXT(int mode, long indirect, int drawcount, int stride) {
-		long __functionAddress = getInstance().MultiDrawArraysIndirectEXT;
+		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysIndirectEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPIIV(__functionAddress, mode, indirect, drawcount, stride);
 	}
 
@@ -100,7 +75,9 @@ public class EXTMultiDrawIndirect {
 
 	/** Unsafe version of {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */
 	public static void nglMultiDrawElementsIndirectEXT(int mode, int type, long indirect, int drawcount, int stride) {
-		long __functionAddress = getInstance().MultiDrawElementsIndirectEXT;
+		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsIndirectEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIV(__functionAddress, mode, type, indirect, drawcount, stride);
 	}
 

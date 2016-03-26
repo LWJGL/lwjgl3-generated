@@ -37,36 +37,25 @@ public class KHRCLEvent2 {
 		EGL_SYNC_CL_EVENT_KHR          = 0x30FE,
 		EGL_SYNC_CL_EVENT_COMPLETE_KHR = 0x30FF;
 
-	/** Function address. */
-	public final long CreateSync64KHR;
-
 	protected KHRCLEvent2() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRCLEvent2(FunctionProvider provider) {
-		CreateSync64KHR = provider.getFunctionAddress("eglCreateSync64KHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRCLEvent2} instance. */
-	public static KHRCLEvent2 getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRCLEvent2} instance of the specified {@link EGLCapabilities}. */
-	public static KHRCLEvent2 getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRCLEvent2);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglCreateSync64KHR
+		);
 	}
 
 	// --- [ eglCreateSync64KHR ] ---
 
 	/** Unsafe version of {@link #eglCreateSync64KHR CreateSync64KHR} */
 	public static long neglCreateSync64KHR(long dpy, int type, long attrib_list) {
-		long __functionAddress = getInstance().CreateSync64KHR;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglCreateSync64KHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 

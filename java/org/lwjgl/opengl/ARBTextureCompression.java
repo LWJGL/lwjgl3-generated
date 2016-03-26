@@ -62,60 +62,24 @@ public class ARBTextureCompression {
 		GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB = 0x86A2,
 		GL_COMPRESSED_TEXTURE_FORMATS_ARB     = 0x86A3;
 
-	/** Function address. */
-	public final long
-		CompressedTexImage3DARB,
-		CompressedTexImage2DARB,
-		CompressedTexImage1DARB,
-		CompressedTexSubImage3DARB,
-		CompressedTexSubImage2DARB,
-		CompressedTexSubImage1DARB,
-		GetCompressedTexImageARB;
-
 	protected ARBTextureCompression() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTextureCompression(FunctionProvider provider) {
-		CompressedTexImage3DARB = provider.getFunctionAddress("glCompressedTexImage3DARB");
-		CompressedTexImage2DARB = provider.getFunctionAddress("glCompressedTexImage2DARB");
-		CompressedTexImage1DARB = provider.getFunctionAddress("glCompressedTexImage1DARB");
-		CompressedTexSubImage3DARB = provider.getFunctionAddress("glCompressedTexSubImage3DARB");
-		CompressedTexSubImage2DARB = provider.getFunctionAddress("glCompressedTexSubImage2DARB");
-		CompressedTexSubImage1DARB = provider.getFunctionAddress("glCompressedTexSubImage1DARB");
-		GetCompressedTexImageARB = provider.getFunctionAddress("glGetCompressedTexImageARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTextureCompression} instance of the current context. */
-	public static ARBTextureCompression getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTextureCompression} instance of the specified {@link GLCapabilities}. */
-	public static ARBTextureCompression getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTextureCompression);
-	}
-
-	static ARBTextureCompression create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_texture_compression") ) return null;
-
-		ARBTextureCompression funcs = new ARBTextureCompression(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CompressedTexImage3DARB, funcs.CompressedTexImage2DARB, funcs.CompressedTexImage1DARB, funcs.CompressedTexSubImage3DARB, 
-			funcs.CompressedTexSubImage2DARB, funcs.CompressedTexSubImage1DARB, funcs.GetCompressedTexImageARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glCompressedTexImage3DARB, caps.glCompressedTexImage2DARB, caps.glCompressedTexImage1DARB, caps.glCompressedTexSubImage3DARB, 
+			caps.glCompressedTexSubImage2DARB, caps.glCompressedTexSubImage1DARB, caps.glGetCompressedTexImageARB
 		);
-
-		return GL.checkExtension("GL_ARB_texture_compression", funcs, supported);
 	}
 
 	// --- [ glCompressedTexImage3DARB ] ---
 
 	/** Unsafe version of {@link #glCompressedTexImage3DARB CompressedTexImage3DARB} */
 	public static void nglCompressedTexImage3DARB(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexImage3DARB;
+		long __functionAddress = GL.getCapabilities().glCompressedTexImage3DARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
@@ -158,7 +122,9 @@ public class ARBTextureCompression {
 
 	/** Unsafe version of {@link #glCompressedTexImage2DARB CompressedTexImage2DARB} */
 	public static void nglCompressedTexImage2DARB(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexImage2DARB;
+		long __functionAddress = GL.getCapabilities().glCompressedTexImage2DARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
 	}
 
@@ -200,7 +166,9 @@ public class ARBTextureCompression {
 
 	/** Unsafe version of {@link #glCompressedTexImage1DARB CompressedTexImage1DARB} */
 	public static void nglCompressedTexImage1DARB(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexImage1DARB;
+		long __functionAddress = GL.getCapabilities().glCompressedTexImage1DARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIPV(__functionAddress, target, level, internalformat, width, border, imageSize, data);
 	}
 
@@ -241,7 +209,9 @@ public class ARBTextureCompression {
 
 	/** Unsafe version of {@link #glCompressedTexSubImage3DARB CompressedTexSubImage3DARB} */
 	public static void nglCompressedTexSubImage3DARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexSubImage3DARB;
+		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage3DARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
@@ -286,7 +256,9 @@ public class ARBTextureCompression {
 
 	/** Unsafe version of {@link #glCompressedTexSubImage2DARB CompressedTexSubImage2DARB} */
 	public static void nglCompressedTexSubImage2DARB(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexSubImage2DARB;
+		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage2DARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
@@ -329,7 +301,9 @@ public class ARBTextureCompression {
 
 	/** Unsafe version of {@link #glCompressedTexSubImage1DARB CompressedTexSubImage1DARB} */
 	public static void nglCompressedTexSubImage1DARB(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexSubImage1DARB;
+		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage1DARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIPV(__functionAddress, target, level, xoffset, width, format, imageSize, data);
 	}
 
@@ -370,7 +344,9 @@ public class ARBTextureCompression {
 
 	/** Unsafe version of {@link #glGetCompressedTexImageARB GetCompressedTexImageARB} */
 	public static void nglGetCompressedTexImageARB(int target, int level, long pixels) {
-		long __functionAddress = getInstance().GetCompressedTexImageARB;
+		long __functionAddress = GL.getCapabilities().glGetCompressedTexImageARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, level, pixels);
 	}
 

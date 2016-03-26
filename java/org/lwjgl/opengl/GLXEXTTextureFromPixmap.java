@@ -79,50 +79,23 @@ public class GLXEXTTextureFromPixmap {
 		GLX_AUX8_EXT        = 0x20EA,
 		GLX_AUX9_EXT        = 0x20EB;
 
-	/** Function address. */
-	public final long
-		BindTexImageEXT,
-		ReleaseTexImageEXT;
-
 	protected GLXEXTTextureFromPixmap() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXEXTTextureFromPixmap(FunctionProvider provider) {
-		BindTexImageEXT = provider.getFunctionAddress("glXBindTexImageEXT");
-		ReleaseTexImageEXT = provider.getFunctionAddress("glXReleaseTexImageEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXEXTTextureFromPixmap} instance of the current context. */
-	public static GLXEXTTextureFromPixmap getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXEXTTextureFromPixmap} instance of the specified {@link GLCapabilities}. */
-	public static GLXEXTTextureFromPixmap getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXEXTTextureFromPixmap);
-	}
-
-	static GLXEXTTextureFromPixmap create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_EXT_texture_from_pixmap") ) return null;
-
-		GLXEXTTextureFromPixmap funcs = new GLXEXTTextureFromPixmap(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindTexImageEXT, funcs.ReleaseTexImageEXT
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXBindTexImageEXT, caps.glXReleaseTexImageEXT
 		);
-
-		return GL.checkExtension("GLX_EXT_texture_from_pixmap", funcs, supported);
 	}
 
 	// --- [ glXBindTexImageEXT ] ---
 
 	/** Unsafe version of {@link #glXBindTexImageEXT BindTexImageEXT} */
 	public static void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list) {
-		long __functionAddress = getInstance().BindTexImageEXT;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXBindTexImageEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -161,8 +134,9 @@ public class GLXEXTTextureFromPixmap {
 	 * @param buffer   the buffer
 	 */
 	public static void glXReleaseTexImageEXT(long display, long drawable, int buffer) {
-		long __functionAddress = getInstance().ReleaseTexImageEXT;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXReleaseTexImageEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}

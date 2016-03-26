@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -42,49 +42,23 @@ public class ARBBlendFuncExtended {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and GetDoublev. */
 	public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS = 0x88FC;
 
-	/** Function address. */
-	public final long
-		BindFragDataLocationIndexed,
-		GetFragDataIndex;
-
 	protected ARBBlendFuncExtended() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBBlendFuncExtended(FunctionProvider provider) {
-		BindFragDataLocationIndexed = provider.getFunctionAddress("glBindFragDataLocationIndexed");
-		GetFragDataIndex = provider.getFunctionAddress("glGetFragDataIndex");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBBlendFuncExtended} instance of the current context. */
-	public static ARBBlendFuncExtended getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBBlendFuncExtended} instance of the specified {@link GLCapabilities}. */
-	public static ARBBlendFuncExtended getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBBlendFuncExtended);
-	}
-
-	static ARBBlendFuncExtended create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_blend_func_extended") ) return null;
-
-		ARBBlendFuncExtended funcs = new ARBBlendFuncExtended(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindFragDataLocationIndexed, funcs.GetFragDataIndex
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBindFragDataLocationIndexed, caps.glGetFragDataIndex
 		);
-
-		return GL.checkExtension("GL_ARB_blend_func_extended", funcs, supported);
 	}
 
 	// --- [ glBindFragDataLocationIndexed ] ---
 
 	/** Unsafe version of {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
-		long __functionAddress = getInstance().BindFragDataLocationIndexed;
+		long __functionAddress = GL.getCapabilities().glBindFragDataLocationIndexed;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, colorNumber, index, name);
 	}
 
@@ -104,16 +78,22 @@ public class ARBBlendFuncExtended {
 
 	/** CharSequence version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetFragDataIndex ] ---
 
 	/** Unsafe version of {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int nglGetFragDataIndex(int program, long name) {
-		long __functionAddress = getInstance().GetFragDataIndex;
+		long __functionAddress = GL.getCapabilities().glGetFragDataIndex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPI(__functionAddress, program, name);
 	}
 
@@ -131,9 +111,13 @@ public class ARBBlendFuncExtended {
 
 	/** CharSequence version of: {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int glGetFragDataIndex(int program, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetFragDataIndex(program, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetFragDataIndex(program, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

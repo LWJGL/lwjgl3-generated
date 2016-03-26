@@ -26,35 +26,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTSwapBuffersWithDamage {
 
-	/** Function address. */
-	public final long SwapBuffersWithDamageEXT;
-
 	protected EXTSwapBuffersWithDamage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTSwapBuffersWithDamage(FunctionProvider provider) {
-		SwapBuffersWithDamageEXT = provider.getFunctionAddress("eglSwapBuffersWithDamageEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTSwapBuffersWithDamage} instance. */
-	public static EXTSwapBuffersWithDamage getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTSwapBuffersWithDamage} instance of the specified {@link EGLCapabilities}. */
-	public static EXTSwapBuffersWithDamage getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__EXTSwapBuffersWithDamage);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglSwapBuffersWithDamageEXT
+		);
 	}
 
 	// --- [ eglSwapBuffersWithDamageEXT ] ---
 
 	/** Unsafe version of {@link #eglSwapBuffersWithDamageEXT SwapBuffersWithDamageEXT} */
 	public static int neglSwapBuffersWithDamageEXT(long dpy, long surface, long rects, int n_rects) {
-		long __functionAddress = getInstance().SwapBuffersWithDamageEXT;
+		long __functionAddress = EGL.getCapabilities().eglSwapBuffersWithDamageEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}

@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -38,61 +38,24 @@ public class QCOMExtendedGet {
 	/** Accepted by the {@code pname} parameter of ExtTexObjectStateOverrideiQCOM. */
 	public static final int GL_STATE_RESTORE = 0x8BDC;
 
-	/** Function address. */
-	public final long
-		ExtGetTexturesQCOM,
-		ExtGetBuffersQCOM,
-		ExtGetRenderbuffersQCOM,
-		ExtGetFramebuffersQCOM,
-		ExtGetTexLevelParameterivQCOM,
-		ExtTexObjectStateOverrideiQCOM,
-		ExtGetTexSubImageQCOM,
-		ExtGetBufferPointervQCOM;
-
 	protected QCOMExtendedGet() {
 		throw new UnsupportedOperationException();
 	}
 
-	public QCOMExtendedGet(FunctionProvider provider) {
-		ExtGetTexturesQCOM = provider.getFunctionAddress("glExtGetTexturesQCOM");
-		ExtGetBuffersQCOM = provider.getFunctionAddress("glExtGetBuffersQCOM");
-		ExtGetRenderbuffersQCOM = provider.getFunctionAddress("glExtGetRenderbuffersQCOM");
-		ExtGetFramebuffersQCOM = provider.getFunctionAddress("glExtGetFramebuffersQCOM");
-		ExtGetTexLevelParameterivQCOM = provider.getFunctionAddress("glExtGetTexLevelParameterivQCOM");
-		ExtTexObjectStateOverrideiQCOM = provider.getFunctionAddress("glExtTexObjectStateOverrideiQCOM");
-		ExtGetTexSubImageQCOM = provider.getFunctionAddress("glExtGetTexSubImageQCOM");
-		ExtGetBufferPointervQCOM = provider.getFunctionAddress("glExtGetBufferPointervQCOM");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link QCOMExtendedGet} instance of the current context. */
-	public static QCOMExtendedGet getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link QCOMExtendedGet} instance of the specified {@link GLESCapabilities}. */
-	public static QCOMExtendedGet getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__QCOMExtendedGet);
-	}
-
-	static QCOMExtendedGet create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_QCOM_extended_get") ) return null;
-
-		QCOMExtendedGet funcs = new QCOMExtendedGet(provider);
-		boolean supported = checkFunctions(
-			funcs.ExtGetTexturesQCOM, funcs.ExtGetBuffersQCOM, funcs.ExtGetRenderbuffersQCOM, funcs.ExtGetFramebuffersQCOM, funcs.ExtGetTexLevelParameterivQCOM, 
-			funcs.ExtTexObjectStateOverrideiQCOM, funcs.ExtGetTexSubImageQCOM, funcs.ExtGetBufferPointervQCOM
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glExtGetTexturesQCOM, caps.glExtGetBuffersQCOM, caps.glExtGetRenderbuffersQCOM, caps.glExtGetFramebuffersQCOM, 
+			caps.glExtGetTexLevelParameterivQCOM, caps.glExtTexObjectStateOverrideiQCOM, caps.glExtGetTexSubImageQCOM, caps.glExtGetBufferPointervQCOM
 		);
-
-		return GLES.checkExtension("GL_QCOM_extended_get", funcs, supported);
 	}
 
 	// --- [ glExtGetTexturesQCOM ] ---
 
 	/** Unsafe version of {@link #glExtGetTexturesQCOM ExtGetTexturesQCOM} */
 	public static void nglExtGetTexturesQCOM(long textures, int maxTextures, long numTextures) {
-		long __functionAddress = getInstance().ExtGetTexturesQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtGetTexturesQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPIPV(__functionAddress, textures, maxTextures, numTextures);
 	}
 
@@ -115,7 +78,9 @@ public class QCOMExtendedGet {
 
 	/** Unsafe version of {@link #glExtGetBuffersQCOM ExtGetBuffersQCOM} */
 	public static void nglExtGetBuffersQCOM(long buffers, int maxBuffers, long numBuffers) {
-		long __functionAddress = getInstance().ExtGetBuffersQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtGetBuffersQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPIPV(__functionAddress, buffers, maxBuffers, numBuffers);
 	}
 
@@ -138,7 +103,9 @@ public class QCOMExtendedGet {
 
 	/** Unsafe version of {@link #glExtGetRenderbuffersQCOM ExtGetRenderbuffersQCOM} */
 	public static void nglExtGetRenderbuffersQCOM(long renderbuffers, int maxRenderbuffers, long numRenderbuffers) {
-		long __functionAddress = getInstance().ExtGetRenderbuffersQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtGetRenderbuffersQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPIPV(__functionAddress, renderbuffers, maxRenderbuffers, numRenderbuffers);
 	}
 
@@ -161,7 +128,9 @@ public class QCOMExtendedGet {
 
 	/** Unsafe version of {@link #glExtGetFramebuffersQCOM ExtGetFramebuffersQCOM} */
 	public static void nglExtGetFramebuffersQCOM(long framebuffers, int maxFramebuffers, long numFramebuffers) {
-		long __functionAddress = getInstance().ExtGetFramebuffersQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtGetFramebuffersQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPIPV(__functionAddress, framebuffers, maxFramebuffers, numFramebuffers);
 	}
 
@@ -184,7 +153,9 @@ public class QCOMExtendedGet {
 
 	/** Unsafe version of {@link #glExtGetTexLevelParameterivQCOM ExtGetTexLevelParameterivQCOM} */
 	public static void nglExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, long params) {
-		long __functionAddress = getInstance().ExtGetTexLevelParameterivQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtGetTexLevelParameterivQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, texture, face, level, pname, params);
 	}
 
@@ -203,16 +174,22 @@ public class QCOMExtendedGet {
 
 	/** Single return value version of: {@link #glExtGetTexLevelParameterivQCOM ExtGetTexLevelParameterivQCOM} */
 	public static int glExtGetTexLevelParameteriQCOM(int texture, int face, int level, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglExtGetTexLevelParameterivQCOM(texture, face, level, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglExtGetTexLevelParameterivQCOM(texture, face, level, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glExtTexObjectStateOverrideiQCOM ] ---
 
 	public static void glExtTexObjectStateOverrideiQCOM(int target, int pname, int param) {
-		long __functionAddress = getInstance().ExtTexObjectStateOverrideiQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtTexObjectStateOverrideiQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, target, pname, param);
 	}
 
@@ -220,7 +197,9 @@ public class QCOMExtendedGet {
 
 	/** Unsafe version of {@link #glExtGetTexSubImageQCOM ExtGetTexSubImageQCOM} */
 	public static void nglExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long texels) {
-		long __functionAddress = getInstance().ExtGetTexSubImageQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtGetTexSubImageQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, texels);
 	}
 
@@ -232,7 +211,9 @@ public class QCOMExtendedGet {
 
 	/** Unsafe version of {@link #glExtGetBufferPointervQCOM ExtGetBufferPointervQCOM} */
 	public static void nglExtGetBufferPointervQCOM(int target, long params) {
-		long __functionAddress = getInstance().ExtGetBufferPointervQCOM;
+		long __functionAddress = GLES.getCapabilities().glExtGetBufferPointervQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, target, params);
 	}
 
@@ -251,10 +232,14 @@ public class QCOMExtendedGet {
 
 	/** Single return value version of: {@link #glExtGetBufferPointervQCOM ExtGetBufferPointervQCOM} */
 	public static long glExtGetBufferPointerQCOM(int target) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.pointerParam();
-		nglExtGetBufferPointervQCOM(target, __buffer.address(params));
-		return __buffer.pointerValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer params = stack.callocPointer(1);
+			nglExtGetBufferPointervQCOM(target, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

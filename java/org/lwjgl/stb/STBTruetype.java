@@ -10,8 +10,8 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -1039,10 +1039,14 @@ public class STBTruetype {
 
 	/** Buffer return version of: {@link #stbtt_GetCodepointShape GetCodepointShape} */
 	public static STBTTVertex.Buffer stbtt_GetCodepointShape(STBTTFontinfo info, int unicode_codepoint) {
-		APIBuffer __buffer = apiBuffer();
-		int vertices = __buffer.pointerParam();
-		int __result = nstbtt_GetCodepointShape(info.address(), unicode_codepoint, __buffer.address(vertices));
-		return STBTTVertex.create(__buffer.pointerValue(vertices), __result);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer vertices = stack.pointers(NULL);
+			int __result = nstbtt_GetCodepointShape(info.address(), unicode_codepoint, memAddress(vertices));
+			return STBTTVertex.create(vertices.get(0), __result);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbtt_GetGlyphShape ] ---
@@ -1072,10 +1076,14 @@ public class STBTruetype {
 
 	/** Buffer return version of: {@link #stbtt_GetGlyphShape GetGlyphShape} */
 	public static STBTTVertex.Buffer stbtt_GetGlyphShape(STBTTFontinfo info, int glyph_index) {
-		APIBuffer __buffer = apiBuffer();
-		int vertices = __buffer.pointerParam();
-		int __result = nstbtt_GetGlyphShape(info.address(), glyph_index, __buffer.address(vertices));
-		return STBTTVertex.create(__buffer.pointerValue(vertices), __result);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer vertices = stack.pointers(NULL);
+			int __result = nstbtt_GetGlyphShape(info.address(), glyph_index, memAddress(vertices));
+			return STBTTVertex.create(vertices.get(0), __result);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbtt_FreeShape ] ---
@@ -1557,9 +1565,13 @@ public class STBTruetype {
 
 	/** CharSequence version of: {@link #stbtt_FindMatchingFont FindMatchingFont} */
 	public static int stbtt_FindMatchingFont(ByteBuffer fontdata, CharSequence name, int flags) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nstbtt_FindMatchingFont(memAddress(fontdata), __buffer.address(nameEncoded), flags);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nstbtt_FindMatchingFont(memAddress(fontdata), memAddress(nameEncoded), flags);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbtt_CompareUTF8toUTF16_bigendian ] ---
@@ -1611,10 +1623,14 @@ public class STBTruetype {
 	 * @param nameID     the name ID
 	 */
 	public static ByteBuffer stbtt_GetFontNameString(STBTTFontinfo font, int platformID, int encodingID, int languageID, int nameID) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		long __result = nstbtt_GetFontNameString(font.address(), __buffer.address(length), platformID, encodingID, languageID, nameID);
-		return memByteBuffer(__result, __buffer.intValue(length));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer length = stack.callocInt(1);
+		try {
+			long __result = nstbtt_GetFontNameString(font.address(), memAddress(length), platformID, encodingID, languageID, nameID);
+			return memByteBuffer(__result, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

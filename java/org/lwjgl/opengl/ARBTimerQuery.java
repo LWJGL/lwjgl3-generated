@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -42,44 +42,14 @@ public class ARBTimerQuery {
 	 */
 	public static final int GL_TIMESTAMP = 0x8E28;
 
-	/** Function address. */
-	public final long
-		QueryCounter,
-		GetQueryObjecti64v,
-		GetQueryObjectui64v;
-
 	protected ARBTimerQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTimerQuery(FunctionProvider provider) {
-		QueryCounter = provider.getFunctionAddress("glQueryCounter");
-		GetQueryObjecti64v = provider.getFunctionAddress("glGetQueryObjecti64v");
-		GetQueryObjectui64v = provider.getFunctionAddress("glGetQueryObjectui64v");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTimerQuery} instance of the current context. */
-	public static ARBTimerQuery getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTimerQuery} instance of the specified {@link GLCapabilities}. */
-	public static ARBTimerQuery getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTimerQuery);
-	}
-
-	static ARBTimerQuery create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_timer_query") ) return null;
-
-		ARBTimerQuery funcs = new ARBTimerQuery(provider);
-
-		boolean supported = checkFunctions(
-			funcs.QueryCounter, funcs.GetQueryObjecti64v, funcs.GetQueryObjectui64v
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glQueryCounter, caps.glGetQueryObjecti64v, caps.glGetQueryObjectui64v
 		);
-
-		return GL.checkExtension("GL_ARB_timer_query", funcs, supported);
 	}
 
 	// --- [ glQueryCounter ] ---
@@ -91,7 +61,9 @@ public class ARBTimerQuery {
 	 * @param target the counter to query. Must be:<br>{@link #GL_TIMESTAMP TIMESTAMP}
 	 */
 	public static void glQueryCounter(int id, int target) {
-		long __functionAddress = getInstance().QueryCounter;
+		long __functionAddress = GL.getCapabilities().glQueryCounter;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, id, target);
 	}
 
@@ -99,7 +71,9 @@ public class ARBTimerQuery {
 
 	/** Unsafe version of {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjecti64v;
+		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -125,17 +99,23 @@ public class ARBTimerQuery {
 
 	/** Single return value version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	public static long glGetQueryObjecti64(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetQueryObjecti64v(id, pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetQueryObjecti64v(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetQueryObjectui64v ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjectui64v;
+		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -161,10 +141,14 @@ public class ARBTimerQuery {
 
 	/** Single return value version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	public static long glGetQueryObjectui64(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetQueryObjectui64v(id, pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetQueryObjectui64v(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

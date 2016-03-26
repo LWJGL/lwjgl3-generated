@@ -10,8 +10,8 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -326,7 +326,7 @@ ovr_SetInt(Hmd, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre>
 	 */
 	public static String ovr_GetVersionString() {
 		long __result = novr_GetVersionString();
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ ovr_TraceMessage ] ---
@@ -348,7 +348,7 @@ ovr_SetInt(Hmd, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre>
 		if ( CHECKS )
 			checkNT1(message);
 		long __result = novr_TraceMessage(level, memAddress(message));
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	/**
@@ -362,10 +362,14 @@ ovr_SetInt(Hmd, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre>
 	 * @return the {@code strlen} of the message or a negative value if the message is too large
 	 */
 	public static String ovr_TraceMessage(int level, CharSequence message) {
-		APIBuffer __buffer = apiBuffer();
-		int messageEncoded = __buffer.stringParamUTF8(message, true);
-		long __result = novr_TraceMessage(level, __buffer.address(messageEncoded));
-		return memDecodeUTF8(__result);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer messageEncoded = stack.UTF8(message);
+			long __result = novr_TraceMessage(level, memAddress(messageEncoded));
+			return memUTF8(__result);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ ovr_GetHmdDesc ] ---
@@ -865,9 +869,13 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	public static boolean ovr_GetBool(long session, CharSequence propertyName, boolean defaultVal) {
 		if ( CHECKS )
 			checkPointer(session);
-		APIBuffer __buffer = apiBuffer();
-		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		return novr_GetBool(session, __buffer.address(propertyNameEncoded), defaultVal);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			return novr_GetBool(session, memAddress(propertyNameEncoded), defaultVal);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ ovr_SetBool ] ---
@@ -898,9 +906,13 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	public static boolean ovr_SetBool(long session, CharSequence propertyName, boolean value) {
 		if ( CHECKS )
 			checkPointer(session);
-		APIBuffer __buffer = apiBuffer();
-		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		return novr_SetBool(session, __buffer.address(propertyNameEncoded), value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			return novr_SetBool(session, memAddress(propertyNameEncoded), value);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ ovr_GetInt ] ---
@@ -929,9 +941,13 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	public static int ovr_GetInt(long session, CharSequence propertyName, int defaultVal) {
 		if ( CHECKS )
 			checkPointer(session);
-		APIBuffer __buffer = apiBuffer();
-		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		return novr_GetInt(session, __buffer.address(propertyNameEncoded), defaultVal);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			return novr_GetInt(session, memAddress(propertyNameEncoded), defaultVal);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ ovr_SetInt ] ---
@@ -962,9 +978,13 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	public static boolean ovr_SetInt(long session, CharSequence propertyName, int value) {
 		if ( CHECKS )
 			checkPointer(session);
-		APIBuffer __buffer = apiBuffer();
-		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		return novr_SetInt(session, __buffer.address(propertyNameEncoded), value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			return novr_SetInt(session, memAddress(propertyNameEncoded), value);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ ovr_GetFloat ] ---
@@ -993,9 +1013,13 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	public static float ovr_GetFloat(long session, CharSequence propertyName, float defaultVal) {
 		if ( CHECKS )
 			checkPointer(session);
-		APIBuffer __buffer = apiBuffer();
-		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		return novr_GetFloat(session, __buffer.address(propertyNameEncoded), defaultVal);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			return novr_GetFloat(session, memAddress(propertyNameEncoded), defaultVal);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ ovr_SetFloat ] ---
@@ -1026,9 +1050,13 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	public static boolean ovr_SetFloat(long session, CharSequence propertyName, float value) {
 		if ( CHECKS )
 			checkPointer(session);
-		APIBuffer __buffer = apiBuffer();
-		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		return novr_SetFloat(session, __buffer.address(propertyNameEncoded), value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			return novr_SetFloat(session, memAddress(propertyNameEncoded), value);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ ovr_GetFloatArray ] ---
@@ -1068,9 +1096,13 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	public static int ovr_GetFloatArray(long session, CharSequence propertyName, FloatBuffer values) {
 		if ( CHECKS )
 			checkPointer(session);
-		APIBuffer __buffer = apiBuffer();
-		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		return novr_GetFloatArray(session, __buffer.address(propertyNameEncoded), memAddress(values), values.remaining());
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			return novr_GetFloatArray(session, memAddress(propertyNameEncoded), memAddress(values), values.remaining());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ ovr_SetFloatArray ] ---
@@ -1110,9 +1142,13 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	public static boolean ovr_SetFloatArray(long session, CharSequence propertyName, FloatBuffer values) {
 		if ( CHECKS )
 			checkPointer(session);
-		APIBuffer __buffer = apiBuffer();
-		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		return novr_SetFloatArray(session, __buffer.address(propertyNameEncoded), memAddress(values), values.remaining());
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			return novr_SetFloatArray(session, memAddress(propertyNameEncoded), memAddress(values), values.remaining());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ ovr_GetString ] ---
@@ -1139,7 +1175,7 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 			if ( defaultVal != null ) checkNT1(defaultVal);
 		}
 		long __result = novr_GetString(session, memAddress(propertyName), memAddressSafe(defaultVal));
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	/**
@@ -1157,11 +1193,15 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	public static String ovr_GetString(long session, CharSequence propertyName, CharSequence defaultVal) {
 		if ( CHECKS )
 			checkPointer(session);
-		APIBuffer __buffer = apiBuffer();
-		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		int defaultValEncoded = defaultVal == null ? 0 : __buffer.stringParamUTF8(defaultVal, true);
-		long __result = novr_GetString(session, __buffer.address(propertyNameEncoded), __buffer.addressSafe(defaultVal, defaultValEncoded));
-		return memDecodeUTF8(__result);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			ByteBuffer defaultValEncoded = defaultVal == null ? null : stack.UTF8(defaultVal);
+			long __result = novr_GetString(session, memAddress(propertyNameEncoded), memAddressSafe(defaultValEncoded));
+			return memUTF8(__result);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ ovr_SetString ] ---
@@ -1193,10 +1233,14 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	public static boolean ovr_SetString(long hmddesc, CharSequence propertyName, CharSequence value) {
 		if ( CHECKS )
 			checkPointer(hmddesc);
-		APIBuffer __buffer = apiBuffer();
-		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		int valueEncoded = __buffer.stringParamASCII(value, true);
-		return novr_SetString(hmddesc, __buffer.address(propertyNameEncoded), __buffer.address(valueEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			ByteBuffer valueEncoded = stack.ASCII(value);
+			return novr_SetString(hmddesc, memAddress(propertyNameEncoded), memAddress(valueEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

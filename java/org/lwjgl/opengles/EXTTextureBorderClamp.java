@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -45,61 +45,24 @@ public class EXTTextureBorderClamp {
 	 */
 	public static final int GL_CLAMP_TO_BORDER_EXT = 0x812D;
 
-	/** Function address. */
-	public final long
-		TexParameterIivEXT,
-		TexParameterIuivEXT,
-		GetTexParameterIivEXT,
-		GetTexParameterIuivEXT,
-		SamplerParameterIivEXT,
-		SamplerParameterIuivEXT,
-		GetSamplerParameterIivEXT,
-		GetSamplerParameterIuivEXT;
-
 	protected EXTTextureBorderClamp() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTTextureBorderClamp(FunctionProvider provider) {
-		TexParameterIivEXT = provider.getFunctionAddress("glTexParameterIivEXT");
-		TexParameterIuivEXT = provider.getFunctionAddress("glTexParameterIuivEXT");
-		GetTexParameterIivEXT = provider.getFunctionAddress("glGetTexParameterIivEXT");
-		GetTexParameterIuivEXT = provider.getFunctionAddress("glGetTexParameterIuivEXT");
-		SamplerParameterIivEXT = provider.getFunctionAddress("glSamplerParameterIivEXT");
-		SamplerParameterIuivEXT = provider.getFunctionAddress("glSamplerParameterIuivEXT");
-		GetSamplerParameterIivEXT = provider.getFunctionAddress("glGetSamplerParameterIivEXT");
-		GetSamplerParameterIuivEXT = provider.getFunctionAddress("glGetSamplerParameterIuivEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTTextureBorderClamp} instance of the current context. */
-	public static EXTTextureBorderClamp getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTTextureBorderClamp} instance of the specified {@link GLESCapabilities}. */
-	public static EXTTextureBorderClamp getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTTextureBorderClamp);
-	}
-
-	static EXTTextureBorderClamp create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_texture_border_clamp") ) return null;
-
-		EXTTextureBorderClamp funcs = new EXTTextureBorderClamp(provider);
-		boolean supported = checkFunctions(
-			funcs.TexParameterIivEXT, funcs.TexParameterIuivEXT, funcs.GetTexParameterIivEXT, funcs.GetTexParameterIuivEXT, funcs.SamplerParameterIivEXT, 
-			funcs.SamplerParameterIuivEXT, funcs.GetSamplerParameterIivEXT, funcs.GetSamplerParameterIuivEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glTexParameterIivEXT, caps.glTexParameterIuivEXT, caps.glGetTexParameterIivEXT, caps.glGetTexParameterIuivEXT, caps.glSamplerParameterIivEXT, 
+			caps.glSamplerParameterIuivEXT, caps.glGetSamplerParameterIivEXT, caps.glGetSamplerParameterIuivEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_texture_border_clamp", funcs, supported);
 	}
 
 	// --- [ glTexParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	public static void nglTexParameterIivEXT(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexParameterIivEXT;
+		long __functionAddress = GLES.getCapabilities().glTexParameterIivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -120,7 +83,9 @@ public class EXTTextureBorderClamp {
 
 	/** Unsafe version of {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	public static void nglTexParameterIuivEXT(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexParameterIuivEXT;
+		long __functionAddress = GLES.getCapabilities().glTexParameterIuivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -141,7 +106,9 @@ public class EXTTextureBorderClamp {
 
 	/** Unsafe version of {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static void nglGetTexParameterIivEXT(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetTexParameterIivEXT;
+		long __functionAddress = GLES.getCapabilities().glGetTexParameterIivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -160,17 +127,23 @@ public class EXTTextureBorderClamp {
 
 	/** Single return value version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static int glGetTexParameterIiEXT(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTexParameterIivEXT(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTexParameterIivEXT(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static void nglGetTexParameterIuivEXT(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetTexParameterIuivEXT;
+		long __functionAddress = GLES.getCapabilities().glGetTexParameterIuivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -189,17 +162,23 @@ public class EXTTextureBorderClamp {
 
 	/** Single return value version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static int glGetTexParameterIuiEXT(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTexParameterIuivEXT(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTexParameterIuivEXT(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glSamplerParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glSamplerParameterIivEXT SamplerParameterIivEXT} */
 	public static void nglSamplerParameterIivEXT(int sampler, int pname, long param) {
-		long __functionAddress = getInstance().SamplerParameterIivEXT;
+		long __functionAddress = GLES.getCapabilities().glSamplerParameterIivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, param);
 	}
 
@@ -220,7 +199,9 @@ public class EXTTextureBorderClamp {
 
 	/** Unsafe version of {@link #glSamplerParameterIuivEXT SamplerParameterIuivEXT} */
 	public static void nglSamplerParameterIuivEXT(int sampler, int pname, long param) {
-		long __functionAddress = getInstance().SamplerParameterIuivEXT;
+		long __functionAddress = GLES.getCapabilities().glSamplerParameterIuivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, param);
 	}
 
@@ -241,7 +222,9 @@ public class EXTTextureBorderClamp {
 
 	/** Unsafe version of {@link #glGetSamplerParameterIivEXT GetSamplerParameterIivEXT} */
 	public static void nglGetSamplerParameterIivEXT(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().GetSamplerParameterIivEXT;
+		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -260,17 +243,23 @@ public class EXTTextureBorderClamp {
 
 	/** Single return value version of: {@link #glGetSamplerParameterIivEXT GetSamplerParameterIivEXT} */
 	public static int glGetSamplerParameterIiEXT(int sampler, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetSamplerParameterIivEXT(sampler, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetSamplerParameterIivEXT(sampler, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetSamplerParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIuivEXT GetSamplerParameterIuivEXT} */
 	public static void nglGetSamplerParameterIuivEXT(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().GetSamplerParameterIuivEXT;
+		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIuivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -289,10 +278,14 @@ public class EXTTextureBorderClamp {
 
 	/** Single return value version of: {@link #glGetSamplerParameterIuivEXT GetSamplerParameterIuivEXT} */
 	public static int glGetSamplerParameterIuiEXT(int sampler, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetSamplerParameterIuivEXT(sampler, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetSamplerParameterIuivEXT(sampler, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

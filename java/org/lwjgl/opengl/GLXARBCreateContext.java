@@ -38,47 +38,23 @@ public class GLXARBCreateContext {
 		GLX_CONTEXT_DEBUG_BIT_ARB              = 0x1,
 		GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x2;
 
-	/** Function address. */
-	public final long CreateContextAttribsARB;
-
 	protected GLXARBCreateContext() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXARBCreateContext(FunctionProvider provider) {
-		CreateContextAttribsARB = provider.getFunctionAddress("glXCreateContextAttribsARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXARBCreateContext} instance of the current context. */
-	public static GLXARBCreateContext getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXARBCreateContext} instance of the specified {@link GLCapabilities}. */
-	public static GLXARBCreateContext getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXARBCreateContext);
-	}
-
-	static GLXARBCreateContext create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_ARB_create_context") ) return null;
-
-		GLXARBCreateContext funcs = new GLXARBCreateContext(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateContextAttribsARB
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXCreateContextAttribsARB
 		);
-
-		return GL.checkExtension("GLX_ARB_create_context", funcs, supported);
 	}
 
 	// --- [ glXCreateContextAttribsARB ] ---
 
 	/** Unsafe version of {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
 	public static long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list) {
-		long __functionAddress = getInstance().CreateContextAttribsARB;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}

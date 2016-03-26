@@ -37,39 +37,14 @@ public class EXTRasterMultisample {
 		GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT = 0x932B,
 		GL_EFFECTIVE_RASTER_SAMPLES_EXT          = 0x932C;
 
-	/** Function address. */
-	public final long RasterSamplesEXT;
-
 	protected EXTRasterMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTRasterMultisample(FunctionProvider provider) {
-		RasterSamplesEXT = provider.getFunctionAddress("glRasterSamplesEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTRasterMultisample} instance of the current context. */
-	public static EXTRasterMultisample getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTRasterMultisample} instance of the specified {@link GLCapabilities}. */
-	public static EXTRasterMultisample getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTRasterMultisample);
-	}
-
-	static EXTRasterMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_raster_multisample") ) return null;
-
-		EXTRasterMultisample funcs = new EXTRasterMultisample(provider);
-
-		boolean supported = checkFunctions(
-			funcs.RasterSamplesEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glRasterSamplesEXT
 		);
-
-		return GL.checkExtension("GL_EXT_raster_multisample", funcs, supported);
 	}
 
 	// --- [ glRasterSamplesEXT ] ---
@@ -106,7 +81,9 @@ public class EXTRasterMultisample {
 	 * @param fixedsamplelocations if {@link GL11#GL_TRUE TRUE}, identical sample locations will be used for all pixels
 	 */
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().RasterSamplesEXT;
+		long __functionAddress = GL.getCapabilities().glRasterSamplesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIZV(__functionAddress, samples, fixedsamplelocations);
 	}
 

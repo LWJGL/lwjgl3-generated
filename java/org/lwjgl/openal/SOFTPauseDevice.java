@@ -19,42 +19,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class SOFTPauseDevice {
 
-	/** Function address. */
-	public final long
-		DevicePauseSOFT,
-		DeviceResumeSOFT;
-
 	protected SOFTPauseDevice() {
 		throw new UnsupportedOperationException();
 	}
 
-	public SOFTPauseDevice(FunctionProviderLocal provider, long device) {
-		DevicePauseSOFT = provider.getFunctionAddress(device, "alcDevicePauseSOFT");
-		DeviceResumeSOFT = provider.getFunctionAddress(device, "alcDeviceResumeSOFT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link SOFTPauseDevice} instance of the current context. */
-	public static SOFTPauseDevice getInstance() {
-		return getInstance(ALC.getCapabilities());
-	}
-
-	/** Returns the {@link SOFTPauseDevice} instance of the specified {@link ALCCapabilities}. */
-	public static SOFTPauseDevice getInstance(ALCCapabilities caps) {
-		return checkFunctionality(caps.__SOFTPauseDevice);
-	}
-
-	static SOFTPauseDevice create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
-		if ( device != 0L && !ext.contains("ALC_SOFT_pause_device") ) return null;
-
-		SOFTPauseDevice funcs = new SOFTPauseDevice(provider, device);
-
-		boolean supported = checkFunctions(
-			funcs.DevicePauseSOFT, funcs.DeviceResumeSOFT
+	static boolean isAvailable(ALCCapabilities caps) {
+		return checkFunctions(
+			caps.alcDevicePauseSOFT, caps.alcDeviceResumeSOFT
 		);
-
-		return device == 0L && !supported ? null : ALC.checkExtension("ALC_SOFT_pause_device", funcs, supported);
 	}
 
 	// --- [ alcDevicePauseSOFT ] ---
@@ -68,9 +40,11 @@ public class SOFTPauseDevice {
 	 * @param device the device to pause
 	 */
 	public static void alcDevicePauseSOFT(long device) {
-		long __functionAddress = getInstance().DevicePauseSOFT;
-		if ( CHECKS )
+		long __functionAddress = ALC.getICD().alcDevicePauseSOFT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		invokePV(__functionAddress, device);
 	}
 
@@ -88,9 +62,11 @@ public class SOFTPauseDevice {
 	 * @param device the device to resume
 	 */
 	public static void alcDeviceResumeSOFT(long device) {
-		long __functionAddress = getInstance().DeviceResumeSOFT;
-		if ( CHECKS )
+		long __functionAddress = ALC.getICD().alcDeviceResumeSOFT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		invokePV(__functionAddress, device);
 	}
 

@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Encapsulates data for touch input.
@@ -58,7 +59,7 @@ public class TOUCHINPUT extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -88,7 +89,7 @@ public class TOUCHINPUT extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		X = layout.offsetof(0);
 		Y = layout.offsetof(1);
@@ -199,6 +200,76 @@ public class TOUCHINPUT extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link TOUCHINPUT} instance allocated on the thread-local {@link MemoryStack}. */
+	public static TOUCHINPUT mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link TOUCHINPUT} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static TOUCHINPUT callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link TOUCHINPUT} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static TOUCHINPUT mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link TOUCHINPUT} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static TOUCHINPUT callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link TOUCHINPUT.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link TOUCHINPUT.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link TOUCHINPUT.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link TOUCHINPUT.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #x}. */
 	public static int nx(long struct) { return memGetInt(struct + TOUCHINPUT.X); }
 	/** Unsafe version of {@link #y}. */
@@ -254,7 +325,7 @@ public class TOUCHINPUT extends Struct {
 
 		@Override
 		protected TOUCHINPUT newInstance(long address) {
-			return new TOUCHINPUT(address, container);
+			return new TOUCHINPUT(address, getContainer());
 		}
 
 		@Override

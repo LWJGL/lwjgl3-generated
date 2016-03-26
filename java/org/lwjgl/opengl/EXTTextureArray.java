@@ -78,45 +78,22 @@ public class EXTTextureArray {
 		GL_SAMPLER_1D_ARRAY_SHADOW_EXT = 0x8DC3,
 		GL_SAMPLER_2D_ARRAY_SHADOW_EXT = 0x8DC4;
 
-	/** Function address. */
-	public final long FramebufferTextureLayerEXT;
-
 	protected EXTTextureArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTTextureArray(FunctionProvider provider) {
-		FramebufferTextureLayerEXT = provider.getFunctionAddress("glFramebufferTextureLayerEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTTextureArray} instance of the current context. */
-	public static EXTTextureArray getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTTextureArray} instance of the specified {@link GLCapabilities}. */
-	public static EXTTextureArray getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTTextureArray);
-	}
-
-	static EXTTextureArray create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_texture_array") ) return null;
-
-		EXTTextureArray funcs = new EXTTextureArray(provider);
-
-		boolean supported = checkFunctions(
-			funcs.FramebufferTextureLayerEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glFramebufferTextureLayerEXT
 		);
-
-		return GL.checkExtension("GL_EXT_texture_array", funcs, supported);
 	}
 
 	// --- [ glFramebufferTextureLayerEXT ] ---
 
 	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
-		long __functionAddress = getInstance().FramebufferTextureLayerEXT;
+		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayerEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 

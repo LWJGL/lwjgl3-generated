@@ -37,39 +37,14 @@ public class ARBES32Compatibility {
 		GL_MULTISAMPLE_LINE_WIDTH_RANGE_ARB       = 0x9381,
 		GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB = 0x9382;
 
-	/** Function address. */
-	public final long PrimitiveBoundingBoxARB;
-
 	protected ARBES32Compatibility() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBES32Compatibility(FunctionProvider provider) {
-		PrimitiveBoundingBoxARB = provider.getFunctionAddress("glPrimitiveBoundingBoxARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBES32Compatibility} instance of the current context. */
-	public static ARBES32Compatibility getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBES32Compatibility} instance of the specified {@link GLCapabilities}. */
-	public static ARBES32Compatibility getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBES32Compatibility);
-	}
-
-	static ARBES32Compatibility create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_ES3_2_compatibility") ) return null;
-
-		ARBES32Compatibility funcs = new ARBES32Compatibility(provider);
-
-		boolean supported = checkFunctions(
-			funcs.PrimitiveBoundingBoxARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glPrimitiveBoundingBoxARB
 		);
-
-		return GL.checkExtension("GL_ARB_ES3_2_compatibility", funcs, supported);
 	}
 
 	// --- [ glPrimitiveBoundingBoxARB ] ---
@@ -91,7 +66,9 @@ public class ARBES32Compatibility {
 	 * @param maxW the maximum w clip space coordinate
 	 */
 	public static void glPrimitiveBoundingBoxARB(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
-		long __functionAddress = getInstance().PrimitiveBoundingBoxARB;
+		long __functionAddress = GL.getCapabilities().glPrimitiveBoundingBoxARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFFFFFFFFV(__functionAddress, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
 	}
 

@@ -26,34 +26,22 @@ import static org.lwjgl.system.JNI.*;
  */
 public class EXTStreamConsumerEGLOutput {
 
-	/** Function address. */
-	public final long StreamConsumerOutputEXT;
-
 	protected EXTStreamConsumerEGLOutput() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTStreamConsumerEGLOutput(FunctionProvider provider) {
-		StreamConsumerOutputEXT = provider.getFunctionAddress("eglStreamConsumerOutputEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTStreamConsumerEGLOutput} instance. */
-	public static EXTStreamConsumerEGLOutput getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTStreamConsumerEGLOutput} instance of the specified {@link EGLCapabilities}. */
-	public static EXTStreamConsumerEGLOutput getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__EXTStreamConsumerEGLOutput);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglStreamConsumerOutputEXT
+		);
 	}
 
 	// --- [ eglStreamConsumerOutputEXT ] ---
 
 	public static int eglStreamConsumerOutputEXT(long dpy, long stream, long layer) {
-		long __functionAddress = getInstance().StreamConsumerOutputEXT;
+		long __functionAddress = EGL.getCapabilities().eglStreamConsumerOutputEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 			checkPointer(layer);

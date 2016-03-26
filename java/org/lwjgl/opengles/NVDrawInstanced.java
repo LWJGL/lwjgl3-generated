@@ -33,47 +33,22 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVDrawInstanced {
 
-	/** Function address. */
-	public final long
-		DrawArraysInstancedNV,
-		DrawElementsInstancedNV;
-
 	protected NVDrawInstanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVDrawInstanced(FunctionProvider provider) {
-		DrawArraysInstancedNV = provider.getFunctionAddress("glDrawArraysInstancedNV");
-		DrawElementsInstancedNV = provider.getFunctionAddress("glDrawElementsInstancedNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVDrawInstanced} instance of the current context. */
-	public static NVDrawInstanced getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVDrawInstanced} instance of the specified {@link GLESCapabilities}. */
-	public static NVDrawInstanced getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVDrawInstanced);
-	}
-
-	static NVDrawInstanced create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_draw_instanced") ) return null;
-
-		NVDrawInstanced funcs = new NVDrawInstanced(provider);
-		boolean supported = checkFunctions(
-			funcs.DrawArraysInstancedNV, funcs.DrawElementsInstancedNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawArraysInstancedNV, caps.glDrawElementsInstancedNV
 		);
-
-		return GLES.checkExtension("GL_NV_draw_instanced", funcs, supported);
 	}
 
 	// --- [ glDrawArraysInstancedNV ] ---
 
 	public static void glDrawArraysInstancedNV(int mode, int first, int count, int primcount) {
-		long __functionAddress = getInstance().DrawArraysInstancedNV;
+		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, mode, first, count, primcount);
 	}
 
@@ -81,7 +56,9 @@ public class NVDrawInstanced {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
 	public static void nglDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = getInstance().DrawElementsInstancedNV;
+		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 

@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -29,52 +29,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class QCOMDriverControl {
 
-	/** Function address. */
-	public final long
-		GetDriverControlsQCOM,
-		GetDriverControlStringQCOM,
-		EnableDriverControlQCOM,
-		DisableDriverControlQCOM;
-
 	protected QCOMDriverControl() {
 		throw new UnsupportedOperationException();
 	}
 
-	public QCOMDriverControl(FunctionProvider provider) {
-		GetDriverControlsQCOM = provider.getFunctionAddress("glGetDriverControlsQCOM");
-		GetDriverControlStringQCOM = provider.getFunctionAddress("glGetDriverControlStringQCOM");
-		EnableDriverControlQCOM = provider.getFunctionAddress("glEnableDriverControlQCOM");
-		DisableDriverControlQCOM = provider.getFunctionAddress("glDisableDriverControlQCOM");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link QCOMDriverControl} instance of the current context. */
-	public static QCOMDriverControl getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link QCOMDriverControl} instance of the specified {@link GLESCapabilities}. */
-	public static QCOMDriverControl getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__QCOMDriverControl);
-	}
-
-	static QCOMDriverControl create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_QCOM_driver_control") ) return null;
-
-		QCOMDriverControl funcs = new QCOMDriverControl(provider);
-		boolean supported = checkFunctions(
-			funcs.GetDriverControlsQCOM, funcs.GetDriverControlStringQCOM, funcs.EnableDriverControlQCOM, funcs.DisableDriverControlQCOM
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glGetDriverControlsQCOM, caps.glGetDriverControlStringQCOM, caps.glEnableDriverControlQCOM, caps.glDisableDriverControlQCOM
 		);
-
-		return GLES.checkExtension("GL_QCOM_driver_control", funcs, supported);
 	}
 
 	// --- [ glGetDriverControlsQCOM ] ---
 
 	/** Unsafe version of {@link #glGetDriverControlsQCOM GetDriverControlsQCOM} */
 	public static void nglGetDriverControlsQCOM(long num, int size, long driverControls) {
-		long __functionAddress = getInstance().GetDriverControlsQCOM;
+		long __functionAddress = GLES.getCapabilities().glGetDriverControlsQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPIPV(__functionAddress, num, size, driverControls);
 	}
 
@@ -97,7 +68,9 @@ public class QCOMDriverControl {
 
 	/** Unsafe version of {@link #glGetDriverControlStringQCOM GetDriverControlStringQCOM} */
 	public static void nglGetDriverControlStringQCOM(int driverControl, int bufSize, long length, long driverControlString) {
-		long __functionAddress = getInstance().GetDriverControlStringQCOM;
+		long __functionAddress = GLES.getCapabilities().glGetDriverControlStringQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, driverControl, bufSize, length, driverControlString);
 	}
 
@@ -118,24 +91,32 @@ public class QCOMDriverControl {
 
 	/** String return version of: {@link #glGetDriverControlStringQCOM GetDriverControlStringQCOM} */
 	public static String glGetDriverControlStringQCOM(int driverControl, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int driverControlString = __buffer.bufferParam(bufSize);
-		nglGetDriverControlStringQCOM(driverControl, bufSize, __buffer.address(length), __buffer.address(driverControlString));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), driverControlString);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer driverControlString = stack.malloc(bufSize);
+			nglGetDriverControlStringQCOM(driverControl, bufSize, memAddress(length), memAddress(driverControlString));
+			return memASCII(driverControlString, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glEnableDriverControlQCOM ] ---
 
 	public static void glEnableDriverControlQCOM(int driverControl) {
-		long __functionAddress = getInstance().EnableDriverControlQCOM;
+		long __functionAddress = GLES.getCapabilities().glEnableDriverControlQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, driverControl);
 	}
 
 	// --- [ glDisableDriverControlQCOM ] ---
 
 	public static void glDisableDriverControlQCOM(int driverControl) {
-		long __functionAddress = getInstance().DisableDriverControlQCOM;
+		long __functionAddress = GLES.getCapabilities().glDisableDriverControlQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, driverControl);
 	}
 

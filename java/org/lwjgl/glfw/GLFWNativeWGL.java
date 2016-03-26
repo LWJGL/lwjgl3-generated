@@ -7,35 +7,26 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to the GLFW library's WGL native access functions. */
 public class GLFWNativeWGL {
 
-	/** Function address. */
-	public final long GetWGLContext;
-
 	protected GLFWNativeWGL() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLFWNativeWGL(FunctionProvider provider) {
-		GetWGLContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetWGLContext"));
-	}
+	/** Contains the function pointers loaded from {@code GLFW.getLibrary()}. */
+	public static final class Functions {
 
-	// --- [ Function Addresses ] ---
+		private Functions() {}
 
-	private static final GLFWNativeWGL instance = new GLFWNativeWGL(getLibrary());
+		/** Function address. */
+		public static final long
+			GetWGLContext = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetWGLContext");
 
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return GLFW.getLibrary();
-	}
-
-	/** Returns the {@link GLFWNativeWGL} instance. */
-	public static GLFWNativeWGL getInstance() {
-		return instance;
 	}
 
 	// --- [ glfwGetWGLContext ] ---
@@ -52,7 +43,7 @@ public class GLFWNativeWGL {
 	 * @since version 3.0
 	 */
 	public static long glfwGetWGLContext(long window) {
-		long __functionAddress = getInstance().GetWGLContext;
+		long __functionAddress = Functions.GetWGLContext;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);

@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -82,66 +82,24 @@ public class INTELPerformanceQuery {
 	/** Accepted by the {@code pname} parameter of GetBooleanv. */
 	public static final int GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL = 0x9500;
 
-	/** Function address. */
-	public final long
-		BeginPerfQueryINTEL,
-		CreatePerfQueryINTEL,
-		DeletePerfQueryINTEL,
-		EndPerfQueryINTEL,
-		GetFirstPerfQueryIdINTEL,
-		GetNextPerfQueryIdINTEL,
-		GetPerfCounterInfoINTEL,
-		GetPerfQueryDataINTEL,
-		GetPerfQueryIdByNameINTEL,
-		GetPerfQueryInfoINTEL;
-
 	protected INTELPerformanceQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	public INTELPerformanceQuery(FunctionProvider provider) {
-		BeginPerfQueryINTEL = provider.getFunctionAddress("glBeginPerfQueryINTEL");
-		CreatePerfQueryINTEL = provider.getFunctionAddress("glCreatePerfQueryINTEL");
-		DeletePerfQueryINTEL = provider.getFunctionAddress("glDeletePerfQueryINTEL");
-		EndPerfQueryINTEL = provider.getFunctionAddress("glEndPerfQueryINTEL");
-		GetFirstPerfQueryIdINTEL = provider.getFunctionAddress("glGetFirstPerfQueryIdINTEL");
-		GetNextPerfQueryIdINTEL = provider.getFunctionAddress("glGetNextPerfQueryIdINTEL");
-		GetPerfCounterInfoINTEL = provider.getFunctionAddress("glGetPerfCounterInfoINTEL");
-		GetPerfQueryDataINTEL = provider.getFunctionAddress("glGetPerfQueryDataINTEL");
-		GetPerfQueryIdByNameINTEL = provider.getFunctionAddress("glGetPerfQueryIdByNameINTEL");
-		GetPerfQueryInfoINTEL = provider.getFunctionAddress("glGetPerfQueryInfoINTEL");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link INTELPerformanceQuery} instance of the current context. */
-	public static INTELPerformanceQuery getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link INTELPerformanceQuery} instance of the specified {@link GLCapabilities}. */
-	public static INTELPerformanceQuery getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__INTELPerformanceQuery);
-	}
-
-	static INTELPerformanceQuery create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_INTEL_performance_query") ) return null;
-
-		INTELPerformanceQuery funcs = new INTELPerformanceQuery(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BeginPerfQueryINTEL, funcs.CreatePerfQueryINTEL, funcs.DeletePerfQueryINTEL, funcs.EndPerfQueryINTEL, funcs.GetFirstPerfQueryIdINTEL, 
-			funcs.GetNextPerfQueryIdINTEL, funcs.GetPerfCounterInfoINTEL, funcs.GetPerfQueryDataINTEL, funcs.GetPerfQueryIdByNameINTEL, 
-			funcs.GetPerfQueryInfoINTEL
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBeginPerfQueryINTEL, caps.glCreatePerfQueryINTEL, caps.glDeletePerfQueryINTEL, caps.glEndPerfQueryINTEL, caps.glGetFirstPerfQueryIdINTEL, 
+			caps.glGetNextPerfQueryIdINTEL, caps.glGetPerfCounterInfoINTEL, caps.glGetPerfQueryDataINTEL, caps.glGetPerfQueryIdByNameINTEL, 
+			caps.glGetPerfQueryInfoINTEL
 		);
-
-		return GL.checkExtension("GL_INTEL_performance_query", funcs, supported);
 	}
 
 	// --- [ glBeginPerfQueryINTEL ] ---
 
 	public static void glBeginPerfQueryINTEL(int queryHandle) {
-		long __functionAddress = getInstance().BeginPerfQueryINTEL;
+		long __functionAddress = GL.getCapabilities().glBeginPerfQueryINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, queryHandle);
 	}
 
@@ -149,7 +107,9 @@ public class INTELPerformanceQuery {
 
 	/** Unsafe version of {@link #glCreatePerfQueryINTEL CreatePerfQueryINTEL} */
 	public static void nglCreatePerfQueryINTEL(int queryId, long queryHandle) {
-		long __functionAddress = getInstance().CreatePerfQueryINTEL;
+		long __functionAddress = GL.getCapabilities().glCreatePerfQueryINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, queryId, queryHandle);
 	}
 
@@ -168,23 +128,31 @@ public class INTELPerformanceQuery {
 
 	/** Single return value version of: {@link #glCreatePerfQueryINTEL CreatePerfQueryINTEL} */
 	public static int glCreatePerfQueryINTEL(int queryId) {
-		APIBuffer __buffer = apiBuffer();
-		int queryHandle = __buffer.intParam();
-		nglCreatePerfQueryINTEL(queryId, __buffer.address(queryHandle));
-		return __buffer.intValue(queryHandle);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer queryHandle = stack.callocInt(1);
+			nglCreatePerfQueryINTEL(queryId, memAddress(queryHandle));
+			return queryHandle.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDeletePerfQueryINTEL ] ---
 
 	public static void glDeletePerfQueryINTEL(int queryHandle) {
-		long __functionAddress = getInstance().DeletePerfQueryINTEL;
+		long __functionAddress = GL.getCapabilities().glDeletePerfQueryINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, queryHandle);
 	}
 
 	// --- [ glEndPerfQueryINTEL ] ---
 
 	public static void glEndPerfQueryINTEL(int queryHandle) {
-		long __functionAddress = getInstance().EndPerfQueryINTEL;
+		long __functionAddress = GL.getCapabilities().glEndPerfQueryINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, queryHandle);
 	}
 
@@ -192,7 +160,9 @@ public class INTELPerformanceQuery {
 
 	/** Unsafe version of {@link #glGetFirstPerfQueryIdINTEL GetFirstPerfQueryIdINTEL} */
 	public static void nglGetFirstPerfQueryIdINTEL(long queryId) {
-		long __functionAddress = getInstance().GetFirstPerfQueryIdINTEL;
+		long __functionAddress = GL.getCapabilities().glGetFirstPerfQueryIdINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, queryId);
 	}
 
@@ -211,17 +181,23 @@ public class INTELPerformanceQuery {
 
 	/** Single return value version of: {@link #glGetFirstPerfQueryIdINTEL GetFirstPerfQueryIdINTEL} */
 	public static int glGetFirstPerfQueryIdINTEL() {
-		APIBuffer __buffer = apiBuffer();
-		int queryId = __buffer.intParam();
-		nglGetFirstPerfQueryIdINTEL(__buffer.address(queryId));
-		return __buffer.intValue(queryId);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer queryId = stack.callocInt(1);
+			nglGetFirstPerfQueryIdINTEL(memAddress(queryId));
+			return queryId.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetNextPerfQueryIdINTEL ] ---
 
 	/** Unsafe version of {@link #glGetNextPerfQueryIdINTEL GetNextPerfQueryIdINTEL} */
 	public static void nglGetNextPerfQueryIdINTEL(int queryId, long nextQueryId) {
-		long __functionAddress = getInstance().GetNextPerfQueryIdINTEL;
+		long __functionAddress = GL.getCapabilities().glGetNextPerfQueryIdINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, queryId, nextQueryId);
 	}
 
@@ -240,17 +216,23 @@ public class INTELPerformanceQuery {
 
 	/** Single return value version of: {@link #glGetNextPerfQueryIdINTEL GetNextPerfQueryIdINTEL} */
 	public static int glGetNextPerfQueryIdINTEL(int queryId) {
-		APIBuffer __buffer = apiBuffer();
-		int nextQueryId = __buffer.intParam();
-		nglGetNextPerfQueryIdINTEL(queryId, __buffer.address(nextQueryId));
-		return __buffer.intValue(nextQueryId);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer nextQueryId = stack.callocInt(1);
+			nglGetNextPerfQueryIdINTEL(queryId, memAddress(nextQueryId));
+			return nextQueryId.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetPerfCounterInfoINTEL ] ---
 
 	/** Unsafe version of {@link #glGetPerfCounterInfoINTEL GetPerfCounterInfoINTEL} */
 	public static void nglGetPerfCounterInfoINTEL(int queryId, int counterId, int counterNameLength, long counterName, int counterDescLength, long counterDesc, long counterOffset, long counterDataSize, long counterTypeEnum, long counterDataTypeEnum, long rawCounterMaxValue) {
-		long __functionAddress = getInstance().GetPerfCounterInfoINTEL;
+		long __functionAddress = GL.getCapabilities().glGetPerfCounterInfoINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIPPPPPPV(__functionAddress, queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue);
 	}
 
@@ -283,7 +265,9 @@ public class INTELPerformanceQuery {
 
 	/** Unsafe version of {@link #glGetPerfQueryDataINTEL GetPerfQueryDataINTEL} */
 	public static void nglGetPerfQueryDataINTEL(int queryHandle, int flags, int dataSize, long data, long bytesWritten) {
-		long __functionAddress = getInstance().GetPerfQueryDataINTEL;
+		long __functionAddress = GL.getCapabilities().glGetPerfQueryDataINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, queryHandle, flags, dataSize, data, bytesWritten);
 	}
 
@@ -306,7 +290,9 @@ public class INTELPerformanceQuery {
 
 	/** Unsafe version of {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
 	public static void nglGetPerfQueryIdByNameINTEL(long queryName, long queryId) {
-		long __functionAddress = getInstance().GetPerfQueryIdByNameINTEL;
+		long __functionAddress = GL.getCapabilities().glGetPerfQueryIdByNameINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, queryName, queryId);
 	}
 
@@ -331,25 +317,35 @@ public class INTELPerformanceQuery {
 	public static void glGetPerfQueryIdByNameINTEL(CharSequence queryName, IntBuffer queryId) {
 		if ( CHECKS )
 			checkBuffer(queryId, 1);
-		APIBuffer __buffer = apiBuffer();
-		int queryNameEncoded = __buffer.stringParamASCII(queryName, true);
-		nglGetPerfQueryIdByNameINTEL(__buffer.address(queryNameEncoded), memAddress(queryId));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer queryNameEncoded = stack.ASCII(queryName);
+			nglGetPerfQueryIdByNameINTEL(memAddress(queryNameEncoded), memAddress(queryId));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Single return value version of: {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
 	public static int glGetPerfQueryIdByNameINTEL(CharSequence queryName) {
-		APIBuffer __buffer = apiBuffer();
-		int queryNameEncoded = __buffer.stringParamASCII(queryName, true);
-		int queryId = __buffer.intParam();
-		nglGetPerfQueryIdByNameINTEL(__buffer.address(queryNameEncoded), __buffer.address(queryId));
-		return __buffer.intValue(queryId);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer queryNameEncoded = stack.ASCII(queryName);
+			IntBuffer queryId = stack.callocInt(1);
+			nglGetPerfQueryIdByNameINTEL(memAddress(queryNameEncoded), memAddress(queryId));
+			return queryId.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetPerfQueryInfoINTEL ] ---
 
 	/** Unsafe version of {@link #glGetPerfQueryInfoINTEL GetPerfQueryInfoINTEL} */
 	public static void nglGetPerfQueryInfoINTEL(int queryId, int queryNameLength, long queryName, long dataSize, long noCounters, long noInstances, long capsMask) {
-		long __functionAddress = getInstance().GetPerfQueryInfoINTEL;
+		long __functionAddress = GL.getCapabilities().glGetPerfQueryInfoINTEL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPPPPV(__functionAddress, queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask);
 	}
 

@@ -21,39 +21,14 @@ import org.lwjgl.system.linux.*;
  */
 public class GLXNVCopyImage {
 
-	/** Function address. */
-	public final long CopyImageSubDataNV;
-
 	protected GLXNVCopyImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXNVCopyImage(FunctionProvider provider) {
-		CopyImageSubDataNV = provider.getFunctionAddress("glXCopyImageSubDataNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXNVCopyImage} instance of the current context. */
-	public static GLXNVCopyImage getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXNVCopyImage} instance of the specified {@link GLCapabilities}. */
-	public static GLXNVCopyImage getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXNVCopyImage);
-	}
-
-	static GLXNVCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_NV_copy_image") ) return null;
-
-		GLXNVCopyImage funcs = new GLXNVCopyImage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CopyImageSubDataNV
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXCopyImageSubDataNV
 		);
-
-		return GL.checkExtension("GLX_NV_copy_image", funcs, supported);
 	}
 
 	// --- [ glXCopyImageSubDataNV ] ---
@@ -83,9 +58,11 @@ public class GLXNVCopyImage {
 	 * @param depth     
 	 */
 	public static void glXCopyImageSubDataNV(long display, long srcCtx, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstCtx, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
-		long __functionAddress = getInstance().CopyImageSubDataNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCopyImageSubDataNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		callPPIIIIIIPIIIIIIIIIV(__functionAddress, display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 	}
 

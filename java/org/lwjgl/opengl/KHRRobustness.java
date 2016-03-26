@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -73,48 +73,14 @@ public class KHRRobustness {
 	/** Returned by {@link GL11#glGetError GetError}. */
 	public static final int GL_CONTEXT_LOST = 0x507;
 
-	/** Function address. */
-	public final long
-		GetGraphicsResetStatus,
-		ReadnPixels,
-		GetnUniformfv,
-		GetnUniformiv,
-		GetnUniformuiv;
-
 	protected KHRRobustness() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRRobustness(FunctionProvider provider) {
-		GetGraphicsResetStatus = provider.getFunctionAddress("glGetGraphicsResetStatus");
-		ReadnPixels = provider.getFunctionAddress("glReadnPixels");
-		GetnUniformfv = provider.getFunctionAddress("glGetnUniformfv");
-		GetnUniformiv = provider.getFunctionAddress("glGetnUniformiv");
-		GetnUniformuiv = provider.getFunctionAddress("glGetnUniformuiv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRRobustness} instance of the current context. */
-	public static KHRRobustness getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRRobustness} instance of the specified {@link GLCapabilities}. */
-	public static KHRRobustness getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__KHRRobustness);
-	}
-
-	static KHRRobustness create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_KHR_robustness") ) return null;
-
-		KHRRobustness funcs = new KHRRobustness(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetGraphicsResetStatus, funcs.ReadnPixels, funcs.GetnUniformfv, funcs.GetnUniformiv, funcs.GetnUniformuiv
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetGraphicsResetStatus, caps.glReadnPixels, caps.glGetnUniformfv, caps.glGetnUniformiv, caps.glGetnUniformuiv
 		);
-
-		return GL.checkExtension("GL_KHR_robustness", funcs, supported);
 	}
 
 	// --- [ glGetGraphicsResetStatus ] ---
@@ -155,7 +121,9 @@ public class KHRRobustness {
 	 * </ul>
 	 */
 	public static int glGetGraphicsResetStatus() {
-		long __functionAddress = getInstance().GetGraphicsResetStatus;
+		long __functionAddress = GL.getCapabilities().glGetGraphicsResetStatus;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -163,7 +131,9 @@ public class KHRRobustness {
 
 	/** Unsafe version of {@link #glReadnPixels ReadnPixels} */
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
-		long __functionAddress = getInstance().ReadnPixels;
+		long __functionAddress = GL.getCapabilities().glReadnPixels;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
 	}
 
@@ -226,7 +196,9 @@ public class KHRRobustness {
 
 	/** Unsafe version of {@link #glGetnUniformfv GetnUniformfv} */
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformfv;
+		long __functionAddress = GL.getCapabilities().glGetnUniformfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -251,17 +223,23 @@ public class KHRRobustness {
 
 	/** Single return value version of: {@link #glGetnUniformfv GetnUniformfv} */
 	public static float glGetnUniformf(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetnUniformfv(program, location, 1, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetnUniformfv(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnUniformiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformiv GetnUniformiv} */
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformiv;
+		long __functionAddress = GL.getCapabilities().glGetnUniformiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -286,17 +264,23 @@ public class KHRRobustness {
 
 	/** Single return value version of: {@link #glGetnUniformiv GetnUniformiv} */
 	public static float glGetnUniformi(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetnUniformiv(program, location, 1, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetnUniformiv(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnUniformuiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformuiv GetnUniformuiv} */
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformuiv;
+		long __functionAddress = GL.getCapabilities().glGetnUniformuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -321,10 +305,14 @@ public class KHRRobustness {
 
 	/** Single return value version of: {@link #glGetnUniformuiv GetnUniformuiv} */
 	public static float glGetnUniformui(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetnUniformuiv(program, location, 1, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetnUniformuiv(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

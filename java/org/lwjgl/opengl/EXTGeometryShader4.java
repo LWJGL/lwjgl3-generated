@@ -74,73 +74,49 @@ public class EXTGeometryShader4 {
 	 */
 	public static final int GL_PROGRAM_POINT_SIZE_EXT = 0x8642;
 
-	/** Function address. */
-	public final long
-		ProgramParameteriEXT,
-		FramebufferTextureEXT,
-		FramebufferTextureLayerEXT,
-		FramebufferTextureFaceEXT;
-
 	protected EXTGeometryShader4() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTGeometryShader4(FunctionProvider provider) {
-		ProgramParameteriEXT = provider.getFunctionAddress("glProgramParameteriEXT");
-		FramebufferTextureEXT = provider.getFunctionAddress("glFramebufferTextureEXT");
-		FramebufferTextureLayerEXT = provider.getFunctionAddress("glFramebufferTextureLayerEXT");
-		FramebufferTextureFaceEXT = provider.getFunctionAddress("glFramebufferTextureFaceEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTGeometryShader4} instance of the current context. */
-	public static EXTGeometryShader4 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTGeometryShader4} instance of the specified {@link GLCapabilities}. */
-	public static EXTGeometryShader4 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTGeometryShader4);
-	}
-
-	static EXTGeometryShader4 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_geometry_shader4") ) return null;
-
-		EXTGeometryShader4 funcs = new EXTGeometryShader4(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ProgramParameteriEXT, funcs.FramebufferTextureEXT, funcs.FramebufferTextureLayerEXT, funcs.FramebufferTextureFaceEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glProgramParameteriEXT, caps.glFramebufferTextureEXT, caps.glFramebufferTextureLayerEXT, caps.glFramebufferTextureFaceEXT
 		);
-
-		return GL.checkExtension("GL_EXT_geometry_shader4", funcs, supported);
 	}
 
 	// --- [ glProgramParameteriEXT ] ---
 
 	public static void glProgramParameteriEXT(int program, int pname, int value) {
-		long __functionAddress = getInstance().ProgramParameteriEXT;
+		long __functionAddress = GL.getCapabilities().glProgramParameteriEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, program, pname, value);
 	}
 
 	// --- [ glFramebufferTextureEXT ] ---
 
 	public static void glFramebufferTextureEXT(int target, int attachment, int texture, int level) {
-		long __functionAddress = getInstance().FramebufferTextureEXT;
+		long __functionAddress = GL.getCapabilities().glFramebufferTextureEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 
 	// --- [ glFramebufferTextureLayerEXT ] ---
 
 	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
-		long __functionAddress = getInstance().FramebufferTextureLayerEXT;
+		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayerEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureFaceEXT ] ---
 
 	public static void glFramebufferTextureFaceEXT(int target, int attachment, int texture, int level, int face) {
-		long __functionAddress = getInstance().FramebufferTextureFaceEXT;
+		long __functionAddress = GL.getCapabilities().glFramebufferTextureFaceEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, texture, level, face);
 	}
 

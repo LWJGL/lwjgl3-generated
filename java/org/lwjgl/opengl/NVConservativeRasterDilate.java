@@ -30,45 +30,22 @@ public class NVConservativeRasterDilate {
 		GL_CONSERVATIVE_RASTER_DILATE_RANGE_NV       = 0x937A,
 		GL_CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV = 0x937B;
 
-	/** Function address. */
-	public final long ConservativeRasterParameterfNV;
-
 	protected NVConservativeRasterDilate() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVConservativeRasterDilate(FunctionProvider provider) {
-		ConservativeRasterParameterfNV = provider.getFunctionAddress("glConservativeRasterParameterfNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVConservativeRasterDilate} instance of the current context. */
-	public static NVConservativeRasterDilate getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVConservativeRasterDilate} instance of the specified {@link GLCapabilities}. */
-	public static NVConservativeRasterDilate getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVConservativeRasterDilate);
-	}
-
-	static NVConservativeRasterDilate create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_conservative_raster_dilate") ) return null;
-
-		NVConservativeRasterDilate funcs = new NVConservativeRasterDilate(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ConservativeRasterParameterfNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glConservativeRasterParameterfNV
 		);
-
-		return GL.checkExtension("GL_NV_conservative_raster_dilate", funcs, supported);
 	}
 
 	// --- [ glConservativeRasterParameterfNV ] ---
 
 	public static void glConservativeRasterParameterfNV(int pname, float value) {
-		long __functionAddress = getInstance().ConservativeRasterParameterfNV;
+		long __functionAddress = GL.getCapabilities().glConservativeRasterParameterfNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, pname, value);
 	}
 

@@ -9,8 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -92,9 +92,13 @@ public class STBImageWrite {
 	public static int stbi_write_png(CharSequence filename, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
 		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		return nstbi_write_png(__buffer.address(filenameEncoded), w, h, comp, memAddress(data), stride_in_bytes);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstbi_write_png(memAddress(filenameEncoded), w, h, comp, memAddress(data), stride_in_bytes);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_write_bmp ] ---
@@ -127,9 +131,13 @@ public class STBImageWrite {
 	public static int stbi_write_bmp(CharSequence filename, int w, int h, int comp, ByteBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		return nstbi_write_bmp(__buffer.address(filenameEncoded), w, h, comp, memAddress(data));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstbi_write_bmp(memAddress(filenameEncoded), w, h, comp, memAddress(data));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_write_tga ] ---
@@ -163,9 +171,13 @@ public class STBImageWrite {
 	public static int stbi_write_tga(CharSequence filename, int w, int h, int comp, ByteBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		return nstbi_write_tga(__buffer.address(filenameEncoded), w, h, comp, memAddress(data));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstbi_write_tga(memAddress(filenameEncoded), w, h, comp, memAddress(data));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_write_tga_with_rle ] ---
@@ -219,9 +231,13 @@ public class STBImageWrite {
 	public static int stbi_write_hdr(CharSequence filename, int w, int h, int comp, FloatBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		return nstbi_write_hdr(__buffer.address(filenameEncoded), w, h, comp, memAddress(data));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstbi_write_hdr(memAddress(filenameEncoded), w, h, comp, memAddress(data));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ stbi_write_png_to_func ] ---

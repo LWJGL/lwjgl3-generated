@@ -35,39 +35,14 @@ public class ARBClipControl {
 		GL_CLIP_ORIGIN     = 0x935C,
 		GL_CLIP_DEPTH_MODE = 0x935D;
 
-	/** Function address. */
-	public final long ClipControl;
-
 	protected ARBClipControl() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBClipControl(FunctionProvider provider) {
-		ClipControl = provider.getFunctionAddress("glClipControl");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBClipControl} instance of the current context. */
-	public static ARBClipControl getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBClipControl} instance of the specified {@link GLCapabilities}. */
-	public static ARBClipControl getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBClipControl);
-	}
-
-	static ARBClipControl create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_clip_control") ) return null;
-
-		ARBClipControl funcs = new ARBClipControl(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ClipControl
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glClipControl
 		);
-
-		return GL.checkExtension("GL_ARB_clip_control", funcs, supported);
 	}
 
 	// --- [ glClipControl ] ---
@@ -85,7 +60,9 @@ public class ARBClipControl {
 	 * @param depth  the clip depth mode. One of:<br>{@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}, {@link #GL_ZERO_TO_ONE ZERO_TO_ONE}
 	 */
 	public static void glClipControl(int origin, int depth) {
-		long __functionAddress = getInstance().ClipControl;
+		long __functionAddress = GL.getCapabilities().glClipControl;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, origin, depth);
 	}
 

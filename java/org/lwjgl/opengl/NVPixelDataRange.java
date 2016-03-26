@@ -68,49 +68,23 @@ public class NVPixelDataRange {
 		GL_WRITE_PIXEL_DATA_RANGE_POINTER_NV = 0x887C,
 		GL_READ_PIXEL_DATA_RANGE_POINTER_NV  = 0x887D;
 
-	/** Function address. */
-	public final long
-		PixelDataRangeNV,
-		FlushPixelDataRangeNV;
-
 	protected NVPixelDataRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVPixelDataRange(FunctionProvider provider) {
-		PixelDataRangeNV = provider.getFunctionAddress("glPixelDataRangeNV");
-		FlushPixelDataRangeNV = provider.getFunctionAddress("glFlushPixelDataRangeNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVPixelDataRange} instance of the current context. */
-	public static NVPixelDataRange getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVPixelDataRange} instance of the specified {@link GLCapabilities}. */
-	public static NVPixelDataRange getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVPixelDataRange);
-	}
-
-	static NVPixelDataRange create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_pixel_data_range") ) return null;
-
-		NVPixelDataRange funcs = new NVPixelDataRange(provider);
-
-		boolean supported = checkFunctions(
-			funcs.PixelDataRangeNV, funcs.FlushPixelDataRangeNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glPixelDataRangeNV, caps.glFlushPixelDataRangeNV
 		);
-
-		return GL.checkExtension("GL_NV_pixel_data_range", funcs, supported);
 	}
 
 	// --- [ glPixelDataRangeNV ] ---
 
 	/** Unsafe version of {@link #glPixelDataRangeNV PixelDataRangeNV} */
 	public static void nglPixelDataRangeNV(int target, int length, long pointer) {
-		long __functionAddress = getInstance().PixelDataRangeNV;
+		long __functionAddress = GL.getCapabilities().glPixelDataRangeNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, length, pointer);
 	}
 
@@ -128,7 +102,9 @@ public class NVPixelDataRange {
 	// --- [ glFlushPixelDataRangeNV ] ---
 
 	public static void glFlushPixelDataRangeNV(int target) {
-		long __functionAddress = getInstance().FlushPixelDataRangeNV;
+		long __functionAddress = GL.getCapabilities().glFlushPixelDataRangeNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, target);
 	}
 

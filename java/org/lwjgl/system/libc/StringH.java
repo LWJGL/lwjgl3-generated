@@ -33,7 +33,7 @@ public class StringH {
 	 */
 	public static String strerror(int errnum) {
 		long __result = nstrerror(errnum);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 }

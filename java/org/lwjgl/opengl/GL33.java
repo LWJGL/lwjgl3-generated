@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -86,171 +86,34 @@ public class GL33 {
 	 */
 	public static final int GL_INT_2_10_10_10_REV = 0x8D9F;
 
-	/** Function address. */
-	public final long
-		BindFragDataLocationIndexed,
-		GetFragDataIndex,
-		GenSamplers,
-		DeleteSamplers,
-		IsSampler,
-		BindSampler,
-		SamplerParameteri,
-		SamplerParameterf,
-		SamplerParameteriv,
-		SamplerParameterfv,
-		SamplerParameterIiv,
-		SamplerParameterIuiv,
-		GetSamplerParameteriv,
-		GetSamplerParameterfv,
-		GetSamplerParameterIiv,
-		GetSamplerParameterIuiv,
-		QueryCounter,
-		GetQueryObjecti64v,
-		GetQueryObjectui64v,
-		VertexAttribDivisor,
-		VertexP2ui,
-		VertexP3ui,
-		VertexP4ui,
-		VertexP2uiv,
-		VertexP3uiv,
-		VertexP4uiv,
-		TexCoordP1ui,
-		TexCoordP2ui,
-		TexCoordP3ui,
-		TexCoordP4ui,
-		TexCoordP1uiv,
-		TexCoordP2uiv,
-		TexCoordP3uiv,
-		TexCoordP4uiv,
-		MultiTexCoordP1ui,
-		MultiTexCoordP2ui,
-		MultiTexCoordP3ui,
-		MultiTexCoordP4ui,
-		MultiTexCoordP1uiv,
-		MultiTexCoordP2uiv,
-		MultiTexCoordP3uiv,
-		MultiTexCoordP4uiv,
-		NormalP3ui,
-		NormalP3uiv,
-		ColorP3ui,
-		ColorP4ui,
-		ColorP3uiv,
-		ColorP4uiv,
-		SecondaryColorP3ui,
-		SecondaryColorP3uiv,
-		VertexAttribP1ui,
-		VertexAttribP2ui,
-		VertexAttribP3ui,
-		VertexAttribP4ui,
-		VertexAttribP1uiv,
-		VertexAttribP2uiv,
-		VertexAttribP3uiv,
-		VertexAttribP4uiv;
-
 	protected GL33() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL33(FunctionProvider provider, boolean fc) {
-		BindFragDataLocationIndexed = provider.getFunctionAddress("glBindFragDataLocationIndexed");
-		GetFragDataIndex = provider.getFunctionAddress("glGetFragDataIndex");
-		GenSamplers = provider.getFunctionAddress("glGenSamplers");
-		DeleteSamplers = provider.getFunctionAddress("glDeleteSamplers");
-		IsSampler = provider.getFunctionAddress("glIsSampler");
-		BindSampler = provider.getFunctionAddress("glBindSampler");
-		SamplerParameteri = provider.getFunctionAddress("glSamplerParameteri");
-		SamplerParameterf = provider.getFunctionAddress("glSamplerParameterf");
-		SamplerParameteriv = provider.getFunctionAddress("glSamplerParameteriv");
-		SamplerParameterfv = provider.getFunctionAddress("glSamplerParameterfv");
-		SamplerParameterIiv = provider.getFunctionAddress("glSamplerParameterIiv");
-		SamplerParameterIuiv = provider.getFunctionAddress("glSamplerParameterIuiv");
-		GetSamplerParameteriv = provider.getFunctionAddress("glGetSamplerParameteriv");
-		GetSamplerParameterfv = provider.getFunctionAddress("glGetSamplerParameterfv");
-		GetSamplerParameterIiv = provider.getFunctionAddress("glGetSamplerParameterIiv");
-		GetSamplerParameterIuiv = provider.getFunctionAddress("glGetSamplerParameterIuiv");
-		QueryCounter = provider.getFunctionAddress("glQueryCounter");
-		GetQueryObjecti64v = provider.getFunctionAddress("glGetQueryObjecti64v");
-		GetQueryObjectui64v = provider.getFunctionAddress("glGetQueryObjectui64v");
-		VertexAttribDivisor = provider.getFunctionAddress("glVertexAttribDivisor");
-		VertexP2ui = GL.getFunctionAddress(provider, "glVertexP2ui", fc);
-		VertexP3ui = GL.getFunctionAddress(provider, "glVertexP3ui", fc);
-		VertexP4ui = GL.getFunctionAddress(provider, "glVertexP4ui", fc);
-		VertexP2uiv = GL.getFunctionAddress(provider, "glVertexP2uiv", fc);
-		VertexP3uiv = GL.getFunctionAddress(provider, "glVertexP3uiv", fc);
-		VertexP4uiv = GL.getFunctionAddress(provider, "glVertexP4uiv", fc);
-		TexCoordP1ui = GL.getFunctionAddress(provider, "glTexCoordP1ui", fc);
-		TexCoordP2ui = GL.getFunctionAddress(provider, "glTexCoordP2ui", fc);
-		TexCoordP3ui = GL.getFunctionAddress(provider, "glTexCoordP3ui", fc);
-		TexCoordP4ui = GL.getFunctionAddress(provider, "glTexCoordP4ui", fc);
-		TexCoordP1uiv = GL.getFunctionAddress(provider, "glTexCoordP1uiv", fc);
-		TexCoordP2uiv = GL.getFunctionAddress(provider, "glTexCoordP2uiv", fc);
-		TexCoordP3uiv = GL.getFunctionAddress(provider, "glTexCoordP3uiv", fc);
-		TexCoordP4uiv = GL.getFunctionAddress(provider, "glTexCoordP4uiv", fc);
-		MultiTexCoordP1ui = GL.getFunctionAddress(provider, "glMultiTexCoordP1ui", fc);
-		MultiTexCoordP2ui = GL.getFunctionAddress(provider, "glMultiTexCoordP2ui", fc);
-		MultiTexCoordP3ui = GL.getFunctionAddress(provider, "glMultiTexCoordP3ui", fc);
-		MultiTexCoordP4ui = GL.getFunctionAddress(provider, "glMultiTexCoordP4ui", fc);
-		MultiTexCoordP1uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP1uiv", fc);
-		MultiTexCoordP2uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP2uiv", fc);
-		MultiTexCoordP3uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP3uiv", fc);
-		MultiTexCoordP4uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP4uiv", fc);
-		NormalP3ui = GL.getFunctionAddress(provider, "glNormalP3ui", fc);
-		NormalP3uiv = GL.getFunctionAddress(provider, "glNormalP3uiv", fc);
-		ColorP3ui = GL.getFunctionAddress(provider, "glColorP3ui", fc);
-		ColorP4ui = GL.getFunctionAddress(provider, "glColorP4ui", fc);
-		ColorP3uiv = GL.getFunctionAddress(provider, "glColorP3uiv", fc);
-		ColorP4uiv = GL.getFunctionAddress(provider, "glColorP4uiv", fc);
-		SecondaryColorP3ui = GL.getFunctionAddress(provider, "glSecondaryColorP3ui", fc);
-		SecondaryColorP3uiv = GL.getFunctionAddress(provider, "glSecondaryColorP3uiv", fc);
-		VertexAttribP1ui = provider.getFunctionAddress("glVertexAttribP1ui");
-		VertexAttribP2ui = provider.getFunctionAddress("glVertexAttribP2ui");
-		VertexAttribP3ui = provider.getFunctionAddress("glVertexAttribP3ui");
-		VertexAttribP4ui = provider.getFunctionAddress("glVertexAttribP4ui");
-		VertexAttribP1uiv = provider.getFunctionAddress("glVertexAttribP1uiv");
-		VertexAttribP2uiv = provider.getFunctionAddress("glVertexAttribP2uiv");
-		VertexAttribP3uiv = provider.getFunctionAddress("glVertexAttribP3uiv");
-		VertexAttribP4uiv = provider.getFunctionAddress("glVertexAttribP4uiv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL33} instance of the current context. */
-	public static GL33 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL33} instance of the specified {@link GLCapabilities}. */
-	public static GL33 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL33);
-	}
-
-	static GL33 create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {
-		if ( !ext.contains("OpenGL33") ) return null;
-
-		GL33 funcs = new GL33(provider, fc);
-
-		boolean supported = (fc || checkFunctions(
-			funcs.VertexP2ui, funcs.VertexP3ui, funcs.VertexP4ui, funcs.VertexP2uiv, funcs.VertexP3uiv, funcs.VertexP4uiv, funcs.TexCoordP1ui, 
-			funcs.TexCoordP2ui, funcs.TexCoordP3ui, funcs.TexCoordP4ui, funcs.TexCoordP1uiv, funcs.TexCoordP2uiv, funcs.TexCoordP3uiv, funcs.TexCoordP4uiv, 
-			funcs.MultiTexCoordP1ui, funcs.MultiTexCoordP2ui, funcs.MultiTexCoordP3ui, funcs.MultiTexCoordP4ui, funcs.MultiTexCoordP1uiv, 
-			funcs.MultiTexCoordP2uiv, funcs.MultiTexCoordP3uiv, funcs.MultiTexCoordP4uiv, funcs.NormalP3ui, funcs.NormalP3uiv, funcs.ColorP3ui, funcs.ColorP4ui, 
-			funcs.ColorP3uiv, funcs.ColorP4uiv, funcs.SecondaryColorP3ui, funcs.SecondaryColorP3uiv
+	static boolean isAvailable(GLCapabilities caps, boolean fc) {
+		return (fc || checkFunctions(
+			caps.glVertexP2ui, caps.glVertexP3ui, caps.glVertexP4ui, caps.glVertexP2uiv, caps.glVertexP3uiv, caps.glVertexP4uiv, caps.glTexCoordP1ui, 
+			caps.glTexCoordP2ui, caps.glTexCoordP3ui, caps.glTexCoordP4ui, caps.glTexCoordP1uiv, caps.glTexCoordP2uiv, caps.glTexCoordP3uiv, 
+			caps.glTexCoordP4uiv, caps.glMultiTexCoordP1ui, caps.glMultiTexCoordP2ui, caps.glMultiTexCoordP3ui, caps.glMultiTexCoordP4ui, 
+			caps.glMultiTexCoordP1uiv, caps.glMultiTexCoordP2uiv, caps.glMultiTexCoordP3uiv, caps.glMultiTexCoordP4uiv, caps.glNormalP3ui, caps.glNormalP3uiv, 
+			caps.glColorP3ui, caps.glColorP4ui, caps.glColorP3uiv, caps.glColorP4uiv, caps.glSecondaryColorP3ui, caps.glSecondaryColorP3uiv
 		)) && checkFunctions(
-			funcs.BindFragDataLocationIndexed, funcs.GetFragDataIndex, funcs.GenSamplers, funcs.DeleteSamplers, funcs.IsSampler, funcs.BindSampler, 
-			funcs.SamplerParameteri, funcs.SamplerParameterf, funcs.SamplerParameteriv, funcs.SamplerParameterfv, funcs.SamplerParameterIiv, 
-			funcs.SamplerParameterIuiv, funcs.GetSamplerParameteriv, funcs.GetSamplerParameterfv, funcs.GetSamplerParameterIiv, funcs.GetSamplerParameterIuiv, 
-			funcs.QueryCounter, funcs.GetQueryObjecti64v, funcs.GetQueryObjectui64v, funcs.VertexAttribDivisor, funcs.VertexAttribP1ui, funcs.VertexAttribP2ui, 
-			funcs.VertexAttribP3ui, funcs.VertexAttribP4ui, funcs.VertexAttribP1uiv, funcs.VertexAttribP2uiv, funcs.VertexAttribP3uiv, funcs.VertexAttribP4uiv
+			caps.glBindFragDataLocationIndexed, caps.glGetFragDataIndex, caps.glGenSamplers, caps.glDeleteSamplers, caps.glIsSampler, caps.glBindSampler, 
+			caps.glSamplerParameteri, caps.glSamplerParameterf, caps.glSamplerParameteriv, caps.glSamplerParameterfv, caps.glSamplerParameterIiv, 
+			caps.glSamplerParameterIuiv, caps.glGetSamplerParameteriv, caps.glGetSamplerParameterfv, caps.glGetSamplerParameterIiv, 
+			caps.glGetSamplerParameterIuiv, caps.glQueryCounter, caps.glGetQueryObjecti64v, caps.glGetQueryObjectui64v, caps.glVertexAttribDivisor, 
+			caps.glVertexAttribP1ui, caps.glVertexAttribP2ui, caps.glVertexAttribP3ui, caps.glVertexAttribP4ui, caps.glVertexAttribP1uiv, 
+			caps.glVertexAttribP2uiv, caps.glVertexAttribP3uiv, caps.glVertexAttribP4uiv
 		);
-
-		return GL.checkExtension("OpenGL33", funcs, supported);
 	}
 
 	// --- [ glBindFragDataLocationIndexed ] ---
 
 	/** Unsafe version of {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
-		long __functionAddress = getInstance().BindFragDataLocationIndexed;
+		long __functionAddress = GL.getCapabilities().glBindFragDataLocationIndexed;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, colorNumber, index, name);
 	}
 
@@ -272,16 +135,22 @@ public class GL33 {
 
 	/** CharSequence version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetFragDataIndex ] ---
 
 	/** Unsafe version of {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int nglGetFragDataIndex(int program, long name) {
-		long __functionAddress = getInstance().GetFragDataIndex;
+		long __functionAddress = GL.getCapabilities().glGetFragDataIndex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPI(__functionAddress, program, name);
 	}
 
@@ -301,16 +170,22 @@ public class GL33 {
 
 	/** CharSequence version of: {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int glGetFragDataIndex(int program, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetFragDataIndex(program, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetFragDataIndex(program, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenSamplers ] ---
 
 	/** Unsafe version of {@link #glGenSamplers GenSamplers} */
 	public static void nglGenSamplers(int count, long samplers) {
-		long __functionAddress = getInstance().GenSamplers;
+		long __functionAddress = GL.getCapabilities().glGenSamplers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, count, samplers);
 	}
 
@@ -335,17 +210,23 @@ public class GL33 {
 
 	/** Single return value version of: {@link #glGenSamplers GenSamplers} */
 	public static int glGenSamplers() {
-		APIBuffer __buffer = apiBuffer();
-		int samplers = __buffer.intParam();
-		nglGenSamplers(1, __buffer.address(samplers));
-		return __buffer.intValue(samplers);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer samplers = stack.callocInt(1);
+			nglGenSamplers(1, memAddress(samplers));
+			return samplers.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDeleteSamplers ] ---
 
 	/** Unsafe version of {@link #glDeleteSamplers DeleteSamplers} */
 	public static void nglDeleteSamplers(int count, long samplers) {
-		long __functionAddress = getInstance().DeleteSamplers;
+		long __functionAddress = GL.getCapabilities().glDeleteSamplers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, count, samplers);
 	}
 
@@ -370,9 +251,13 @@ public class GL33 {
 
 	/** Single value version of: {@link #glDeleteSamplers DeleteSamplers} */
 	public static void glDeleteSamplers(int sampler) {
-		APIBuffer __buffer = apiBuffer();
-		int samplers = __buffer.intParam(sampler);
-		nglDeleteSamplers(1, __buffer.address(samplers));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer samplers = stack.ints(sampler);
+			nglDeleteSamplers(1, memAddress(samplers));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsSampler ] ---
@@ -385,7 +270,9 @@ public class GL33 {
 	 * @param sampler a value that may be the name of a sampler object
 	 */
 	public static boolean glIsSampler(int sampler) {
-		long __functionAddress = getInstance().IsSampler;
+		long __functionAddress = GL.getCapabilities().glIsSampler;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, sampler);
 	}
 
@@ -400,7 +287,9 @@ public class GL33 {
 	 * @param sampler the name of a sampler
 	 */
 	public static void glBindSampler(int unit, int sampler) {
-		long __functionAddress = getInstance().BindSampler;
+		long __functionAddress = GL.getCapabilities().glBindSampler;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, unit, sampler);
 	}
 
@@ -416,7 +305,9 @@ public class GL33 {
 	 * @param param   the value of {@code pname}
 	 */
 	public static void glSamplerParameteri(int sampler, int pname, int param) {
-		long __functionAddress = getInstance().SamplerParameteri;
+		long __functionAddress = GL.getCapabilities().glSamplerParameteri;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, sampler, pname, param);
 	}
 
@@ -432,7 +323,9 @@ public class GL33 {
 	 * @param param   the value of {@code pname}
 	 */
 	public static void glSamplerParameterf(int sampler, int pname, float param) {
-		long __functionAddress = getInstance().SamplerParameterf;
+		long __functionAddress = GL.getCapabilities().glSamplerParameterf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIFV(__functionAddress, sampler, pname, param);
 	}
 
@@ -440,7 +333,9 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glSamplerParameteriv SamplerParameteriv} */
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().SamplerParameteriv;
+		long __functionAddress = GL.getCapabilities().glSamplerParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -466,7 +361,9 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glSamplerParameterfv SamplerParameterfv} */
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().SamplerParameterfv;
+		long __functionAddress = GL.getCapabilities().glSamplerParameterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -492,7 +389,9 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glSamplerParameterIiv SamplerParameterIiv} */
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().SamplerParameterIiv;
+		long __functionAddress = GL.getCapabilities().glSamplerParameterIiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -518,7 +417,9 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().SamplerParameterIuiv;
+		long __functionAddress = GL.getCapabilities().glSamplerParameterIuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -544,7 +445,9 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().GetSamplerParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetSamplerParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -572,17 +475,23 @@ public class GL33 {
 
 	/** Single return value version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static int glGetSamplerParameteri(int sampler, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetSamplerParameteriv(sampler, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetSamplerParameteriv(sampler, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetSamplerParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().GetSamplerParameterfv;
+		long __functionAddress = GL.getCapabilities().glGetSamplerParameterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -610,17 +519,23 @@ public class GL33 {
 
 	/** Single return value version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static float glGetSamplerParameterf(int sampler, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetSamplerParameterfv(sampler, pname, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetSamplerParameterfv(sampler, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetSamplerParameterIiv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().GetSamplerParameterIiv;
+		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -648,17 +563,23 @@ public class GL33 {
 
 	/** Single return value version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static int glGetSamplerParameterIi(int sampler, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetSamplerParameterIiv(sampler, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetSamplerParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
-		long __functionAddress = getInstance().GetSamplerParameterIuiv;
+		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -686,10 +607,14 @@ public class GL33 {
 
 	/** Single return value version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static int glGetSamplerParameterIui(int sampler, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetSamplerParameterIuiv(sampler, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glQueryCounter ] ---
@@ -703,7 +628,9 @@ public class GL33 {
 	 * @param target the counter to query. Must be:<br>{@link #GL_TIMESTAMP TIMESTAMP}
 	 */
 	public static void glQueryCounter(int id, int target) {
-		long __functionAddress = getInstance().QueryCounter;
+		long __functionAddress = GL.getCapabilities().glQueryCounter;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, id, target);
 	}
 
@@ -711,7 +638,9 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjecti64v;
+		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -739,17 +668,23 @@ public class GL33 {
 
 	/** Single return value version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	public static long glGetQueryObjecti64(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetQueryObjecti64v(id, pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetQueryObjecti64v(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetQueryObjectui64v ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjectui64v;
+		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -777,10 +712,14 @@ public class GL33 {
 
 	/** Single return value version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	public static long glGetQueryObjectui64(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetQueryObjectui64v(id, pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetQueryObjectui64v(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glVertexAttribDivisor ] ---
@@ -794,7 +733,9 @@ public class GL33 {
 	 * @param divisor the number of instances that will pass between updates of the generic attribute at slot {@code index}
 	 */
 	public static void glVertexAttribDivisor(int index, int divisor) {
-		long __functionAddress = getInstance().VertexAttribDivisor;
+		long __functionAddress = GL.getCapabilities().glVertexAttribDivisor;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, divisor);
 	}
 
@@ -809,7 +750,7 @@ public class GL33 {
 	 * @param value the packed value
 	 */
 	public static void glVertexP2ui(int type, int value) {
-		long __functionAddress = getInstance().VertexP2ui;
+		long __functionAddress = GL.getCapabilities().glVertexP2ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, value);
@@ -826,7 +767,7 @@ public class GL33 {
 	 * @param value the packed value
 	 */
 	public static void glVertexP3ui(int type, int value) {
-		long __functionAddress = getInstance().VertexP3ui;
+		long __functionAddress = GL.getCapabilities().glVertexP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, value);
@@ -843,7 +784,7 @@ public class GL33 {
 	 * @param value the packed value
 	 */
 	public static void glVertexP4ui(int type, int value) {
-		long __functionAddress = getInstance().VertexP4ui;
+		long __functionAddress = GL.getCapabilities().glVertexP4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, value);
@@ -853,7 +794,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glVertexP2uiv VertexP2uiv} */
 	public static void nglVertexP2uiv(int type, long value) {
-		long __functionAddress = getInstance().VertexP2uiv;
+		long __functionAddress = GL.getCapabilities().glVertexP2uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, value);
@@ -884,7 +825,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glVertexP3uiv VertexP3uiv} */
 	public static void nglVertexP3uiv(int type, long value) {
-		long __functionAddress = getInstance().VertexP3uiv;
+		long __functionAddress = GL.getCapabilities().glVertexP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, value);
@@ -915,7 +856,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glVertexP4uiv VertexP4uiv} */
 	public static void nglVertexP4uiv(int type, long value) {
-		long __functionAddress = getInstance().VertexP4uiv;
+		long __functionAddress = GL.getCapabilities().glVertexP4uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, value);
@@ -953,7 +894,7 @@ public class GL33 {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP1ui(int type, int coords) {
-		long __functionAddress = getInstance().TexCoordP1ui;
+		long __functionAddress = GL.getCapabilities().glTexCoordP1ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
@@ -970,7 +911,7 @@ public class GL33 {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP2ui(int type, int coords) {
-		long __functionAddress = getInstance().TexCoordP2ui;
+		long __functionAddress = GL.getCapabilities().glTexCoordP2ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
@@ -987,7 +928,7 @@ public class GL33 {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP3ui(int type, int coords) {
-		long __functionAddress = getInstance().TexCoordP3ui;
+		long __functionAddress = GL.getCapabilities().glTexCoordP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
@@ -1004,7 +945,7 @@ public class GL33 {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP4ui(int type, int coords) {
-		long __functionAddress = getInstance().TexCoordP4ui;
+		long __functionAddress = GL.getCapabilities().glTexCoordP4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
@@ -1014,7 +955,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glTexCoordP1uiv TexCoordP1uiv} */
 	public static void nglTexCoordP1uiv(int type, long coords) {
-		long __functionAddress = getInstance().TexCoordP1uiv;
+		long __functionAddress = GL.getCapabilities().glTexCoordP1uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
@@ -1045,7 +986,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glTexCoordP2uiv TexCoordP2uiv} */
 	public static void nglTexCoordP2uiv(int type, long coords) {
-		long __functionAddress = getInstance().TexCoordP2uiv;
+		long __functionAddress = GL.getCapabilities().glTexCoordP2uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
@@ -1076,7 +1017,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glTexCoordP3uiv TexCoordP3uiv} */
 	public static void nglTexCoordP3uiv(int type, long coords) {
-		long __functionAddress = getInstance().TexCoordP3uiv;
+		long __functionAddress = GL.getCapabilities().glTexCoordP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
@@ -1107,7 +1048,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glTexCoordP4uiv TexCoordP4uiv} */
 	public static void nglTexCoordP4uiv(int type, long coords) {
-		long __functionAddress = getInstance().TexCoordP4uiv;
+		long __functionAddress = GL.getCapabilities().glTexCoordP4uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
@@ -1146,7 +1087,7 @@ public class GL33 {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP1ui(int texture, int type, int coords) {
-		long __functionAddress = getInstance().MultiTexCoordP1ui;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP1ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
@@ -1164,7 +1105,7 @@ public class GL33 {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP2ui(int texture, int type, int coords) {
-		long __functionAddress = getInstance().MultiTexCoordP2ui;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP2ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
@@ -1182,7 +1123,7 @@ public class GL33 {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP3ui(int texture, int type, int coords) {
-		long __functionAddress = getInstance().MultiTexCoordP3ui;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
@@ -1200,7 +1141,7 @@ public class GL33 {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP4ui(int texture, int type, int coords) {
-		long __functionAddress = getInstance().MultiTexCoordP4ui;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
@@ -1210,7 +1151,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv} */
 	public static void nglMultiTexCoordP1uiv(int texture, int type, long coords) {
-		long __functionAddress = getInstance().MultiTexCoordP1uiv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP1uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
@@ -1242,7 +1183,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv} */
 	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
-		long __functionAddress = getInstance().MultiTexCoordP2uiv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP2uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
@@ -1274,7 +1215,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv} */
 	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
-		long __functionAddress = getInstance().MultiTexCoordP3uiv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
@@ -1306,7 +1247,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv} */
 	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
-		long __functionAddress = getInstance().MultiTexCoordP4uiv;
+		long __functionAddress = GL.getCapabilities().glMultiTexCoordP4uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
@@ -1345,7 +1286,7 @@ public class GL33 {
 	 * @param coords the packed value
 	 */
 	public static void glNormalP3ui(int type, int coords) {
-		long __functionAddress = getInstance().NormalP3ui;
+		long __functionAddress = GL.getCapabilities().glNormalP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
@@ -1355,7 +1296,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glNormalP3uiv NormalP3uiv} */
 	public static void nglNormalP3uiv(int type, long coords) {
-		long __functionAddress = getInstance().NormalP3uiv;
+		long __functionAddress = GL.getCapabilities().glNormalP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
@@ -1393,7 +1334,7 @@ public class GL33 {
 	 * @param color the packed value
 	 */
 	public static void glColorP3ui(int type, int color) {
-		long __functionAddress = getInstance().ColorP3ui;
+		long __functionAddress = GL.getCapabilities().glColorP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, color);
@@ -1410,7 +1351,7 @@ public class GL33 {
 	 * @param color the packed value
 	 */
 	public static void glColorP4ui(int type, int color) {
-		long __functionAddress = getInstance().ColorP4ui;
+		long __functionAddress = GL.getCapabilities().glColorP4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, color);
@@ -1420,7 +1361,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glColorP3uiv ColorP3uiv} */
 	public static void nglColorP3uiv(int type, long color) {
-		long __functionAddress = getInstance().ColorP3uiv;
+		long __functionAddress = GL.getCapabilities().glColorP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, color);
@@ -1451,7 +1392,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glColorP4uiv ColorP4uiv} */
 	public static void nglColorP4uiv(int type, long color) {
-		long __functionAddress = getInstance().ColorP4uiv;
+		long __functionAddress = GL.getCapabilities().glColorP4uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, color);
@@ -1489,7 +1430,7 @@ public class GL33 {
 	 * @param color the packed value
 	 */
 	public static void glSecondaryColorP3ui(int type, int color) {
-		long __functionAddress = getInstance().SecondaryColorP3ui;
+		long __functionAddress = GL.getCapabilities().glSecondaryColorP3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, color);
@@ -1499,7 +1440,7 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glSecondaryColorP3uiv SecondaryColorP3uiv} */
 	public static void nglSecondaryColorP3uiv(int type, long color) {
-		long __functionAddress = getInstance().SecondaryColorP3uiv;
+		long __functionAddress = GL.getCapabilities().glSecondaryColorP3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, color);
@@ -1539,7 +1480,9 @@ public class GL33 {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP1ui(int index, int type, boolean normalized, int value) {
-		long __functionAddress = getInstance().VertexAttribP1ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP1ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1556,7 +1499,9 @@ public class GL33 {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP2ui(int index, int type, boolean normalized, int value) {
-		long __functionAddress = getInstance().VertexAttribP2ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP2ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1573,7 +1518,9 @@ public class GL33 {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP3ui(int index, int type, boolean normalized, int value) {
-		long __functionAddress = getInstance().VertexAttribP3ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP3ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1590,7 +1537,9 @@ public class GL33 {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP4ui(int index, int type, boolean normalized, int value) {
-		long __functionAddress = getInstance().VertexAttribP4ui;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP4ui;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1598,7 +1547,9 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glVertexAttribP1uiv VertexAttribP1uiv} */
 	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
-		long __functionAddress = getInstance().VertexAttribP1uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP1uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1629,7 +1580,9 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glVertexAttribP2uiv VertexAttribP2uiv} */
 	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
-		long __functionAddress = getInstance().VertexAttribP2uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP2uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1660,7 +1613,9 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glVertexAttribP3uiv VertexAttribP3uiv} */
 	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
-		long __functionAddress = getInstance().VertexAttribP3uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP3uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1691,7 +1646,9 @@ public class GL33 {
 
 	/** Unsafe version of {@link #glVertexAttribP4uiv VertexAttribP4uiv} */
 	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
-		long __functionAddress = getInstance().VertexAttribP4uiv;
+		long __functionAddress = GL.getCapabilities().glVertexAttribP4uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 

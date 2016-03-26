@@ -40,44 +40,22 @@ public class ANGLEFramebufferMultisample {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
 	public static final int GL_MAX_SAMPLES_ANGLE = 0x8D57;
 
-	/** Function address. */
-	public final long RenderbufferStorageMultisampleANGLE;
-
 	protected ANGLEFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ANGLEFramebufferMultisample(FunctionProvider provider) {
-		RenderbufferStorageMultisampleANGLE = provider.getFunctionAddress("glRenderbufferStorageMultisampleANGLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ANGLEFramebufferMultisample} instance of the current context. */
-	public static ANGLEFramebufferMultisample getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link ANGLEFramebufferMultisample} instance of the specified {@link GLESCapabilities}. */
-	public static ANGLEFramebufferMultisample getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__ANGLEFramebufferMultisample);
-	}
-
-	static ANGLEFramebufferMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ANGLE_framebuffer_multisample") ) return null;
-
-		ANGLEFramebufferMultisample funcs = new ANGLEFramebufferMultisample(provider);
-		boolean supported = checkFunctions(
-			funcs.RenderbufferStorageMultisampleANGLE
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glRenderbufferStorageMultisampleANGLE
 		);
-
-		return GLES.checkExtension("GL_ANGLE_framebuffer_multisample", funcs, supported);
 	}
 
 	// --- [ glRenderbufferStorageMultisampleANGLE ] ---
 
 	public static void glRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().RenderbufferStorageMultisampleANGLE;
+		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleANGLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 

@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /** An opaque data structure to be used with {@link NativeFileDialog#NFD_OpenDialogMultiple}. */
 public class NFDPathSet extends Struct {
@@ -18,11 +19,20 @@ public class NFDPathSet extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	public static final int ALIGNOF;
+
 	static {
-		SIZEOF = offsets();
+		MemoryStack stack = stackPush();
+		try {
+			IntBuffer offsets = stack.mallocInt(1);
+			SIZEOF = offsets(memAddress(offsets));
+			ALIGNOF = offsets.get(0);
+		} finally {
+			stack.pop();
+		}
 	}
 
-	private static native int offsets();
+	private static native int offsets(long buffer);
 
 	NFDPathSet(long address, ByteBuffer container) {
 		super(address, container);
@@ -102,6 +112,76 @@ public class NFDPathSet extends Struct {
 
 	// -----------------------------------
 
+	/** Returns a new {@link NFDPathSet} instance allocated on the thread-local {@link MemoryStack}. */
+	public static NFDPathSet mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link NFDPathSet} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static NFDPathSet callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link NFDPathSet} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static NFDPathSet mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link NFDPathSet} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static NFDPathSet callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link NFDPathSet.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link NFDPathSet.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link NFDPathSet.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link NFDPathSet.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
+	// -----------------------------------
+
 	/** An array of {@link NFDPathSet} structs. */
 	public static final class Buffer extends StructBuffer<NFDPathSet, Buffer> {
 
@@ -134,7 +214,7 @@ public class NFDPathSet extends Struct {
 
 		@Override
 		protected NFDPathSet newInstance(long address) {
-			return new NFDPathSet(address, container);
+			return new NFDPathSet(address, getContainer());
 		}
 
 		@Override

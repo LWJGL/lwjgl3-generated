@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -100,58 +100,24 @@ public class ARBProgramInterfaceQuery {
 		GL_LOCATION_INDEX                       = 0x930F,
 		GL_IS_PER_PATCH                         = 0x92E7;
 
-	/** Function address. */
-	public final long
-		GetProgramInterfaceiv,
-		GetProgramResourceIndex,
-		GetProgramResourceName,
-		GetProgramResourceiv,
-		GetProgramResourceLocation,
-		GetProgramResourceLocationIndex;
-
 	protected ARBProgramInterfaceQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBProgramInterfaceQuery(FunctionProvider provider) {
-		GetProgramInterfaceiv = provider.getFunctionAddress("glGetProgramInterfaceiv");
-		GetProgramResourceIndex = provider.getFunctionAddress("glGetProgramResourceIndex");
-		GetProgramResourceName = provider.getFunctionAddress("glGetProgramResourceName");
-		GetProgramResourceiv = provider.getFunctionAddress("glGetProgramResourceiv");
-		GetProgramResourceLocation = provider.getFunctionAddress("glGetProgramResourceLocation");
-		GetProgramResourceLocationIndex = provider.getFunctionAddress("glGetProgramResourceLocationIndex");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBProgramInterfaceQuery} instance of the current context. */
-	public static ARBProgramInterfaceQuery getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBProgramInterfaceQuery} instance of the specified {@link GLCapabilities}. */
-	public static ARBProgramInterfaceQuery getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBProgramInterfaceQuery);
-	}
-
-	static ARBProgramInterfaceQuery create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_program_interface_query") ) return null;
-
-		ARBProgramInterfaceQuery funcs = new ARBProgramInterfaceQuery(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetProgramInterfaceiv, funcs.GetProgramResourceIndex, funcs.GetProgramResourceName, funcs.GetProgramResourceiv, 
-			funcs.GetProgramResourceLocation, funcs.GetProgramResourceLocationIndex
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetProgramInterfaceiv, caps.glGetProgramResourceIndex, caps.glGetProgramResourceName, caps.glGetProgramResourceiv, 
+			caps.glGetProgramResourceLocation, caps.glGetProgramResourceLocationIndex
 		);
-
-		return GL.checkExtension("GL_ARB_program_interface_query", funcs, supported);
 	}
 
 	// --- [ glGetProgramInterfaceiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
-		long __functionAddress = getInstance().GetProgramInterfaceiv;
+		long __functionAddress = GL.getCapabilities().glGetProgramInterfaceiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, programInterface, pname, params);
 	}
 
@@ -178,17 +144,23 @@ public class ARBProgramInterfaceQuery {
 
 	/** Single return value version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static int glGetProgramInterfacei(int program, int programInterface, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetProgramInterfaceiv(program, programInterface, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramResourceIndex ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
 	public static int nglGetProgramResourceIndex(int program, int programInterface, long name) {
-		long __functionAddress = getInstance().GetProgramResourceIndex;
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceIndex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
@@ -207,16 +179,22 @@ public class ARBProgramInterfaceQuery {
 
 	/** CharSequence version of: {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nglGetProgramResourceIndex(program, programInterface, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			return nglGetProgramResourceIndex(program, programInterface, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramResourceName ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
-		long __functionAddress = getInstance().GetProgramResourceName;
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceName;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
 	}
 
@@ -247,28 +225,38 @@ public class ARBProgramInterfaceQuery {
 
 	/** String return version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static String glGetProgramResourceName(int program, int programInterface, int index, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufSize);
-		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufSize);
+			nglGetProgramResourceName(program, programInterface, index, bufSize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static String glGetProgramResourceName(int program, int programInterface, int index) {
 		int bufSize = glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufSize);
-		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufSize);
+			nglGetProgramResourceName(program, programInterface, index, bufSize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramResourceiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceiv GetProgramResourceiv} */
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
-		long __functionAddress = getInstance().GetProgramResourceiv;
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
 	}
 
@@ -300,21 +288,13 @@ public class ARBProgramInterfaceQuery {
 		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
 
-	/** Buffer return version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
-	public static IntBuffer glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		IntBuffer params = BufferUtils.createIntBuffer(bufSize);
-		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), memAddress(params));
-		params.limit(__buffer.intValue(length));
-		return params.slice();
-	}
-
 	// --- [ glGetProgramResourceLocation ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
 	public static int nglGetProgramResourceLocation(int program, int programInterface, long name) {
-		long __functionAddress = getInstance().GetProgramResourceLocation;
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceLocation;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
@@ -333,16 +313,22 @@ public class ARBProgramInterfaceQuery {
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
 	public static int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetProgramResourceLocation(program, programInterface, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetProgramResourceLocation(program, programInterface, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramResourceLocationIndex ] ---
 
 	/** Unsafe version of {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
 	public static int nglGetProgramResourceLocationIndex(int program, int programInterface, long name) {
-		long __functionAddress = getInstance().GetProgramResourceLocationIndex;
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceLocationIndex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
@@ -361,9 +347,13 @@ public class ARBProgramInterfaceQuery {
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetProgramResourceLocationIndex(program, programInterface, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

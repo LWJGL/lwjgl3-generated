@@ -35,37 +35,14 @@ public class KHRTerminateContext {
 	/** Specifies whether the context can be terminated. The default value is {@link CL10#CL_FALSE FALSE}. */
 	public static final int CL_CONTEXT_TERMINATE_KHR = 0x2010;
 
-	/** Function address. */
-	public final long TerminateContextKHR;
-
 	protected KHRTerminateContext() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRTerminateContext(FunctionProvider provider) {
-		TerminateContextKHR = provider.getFunctionAddress("clTerminateContextKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRTerminateContext} instance of the currently loaded ICD. */
-	public static KHRTerminateContext getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link KHRTerminateContext} instance of the specified {@link CLCapabilities}. */
-	public static KHRTerminateContext getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__KHRTerminateContext);
-	}
-
-	static KHRTerminateContext create(FunctionProvider provider) {
-		KHRTerminateContext funcs = new KHRTerminateContext(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TerminateContextKHR
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clTerminateContextKHR
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clTerminateContextKHR ] ---
@@ -101,9 +78,11 @@ public class KHRTerminateContext {
 	 *         OOHME
 	 */
 	public static int clTerminateContextKHR(long context) {
-		long __functionAddress = getInstance().TerminateContextKHR;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clTerminateContextKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPI(__functionAddress, context);
 	}
 

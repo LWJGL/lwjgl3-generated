@@ -38,55 +38,31 @@ public class NVPrimitiveRestart {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_PRIMITIVE_RESTART_INDEX_NV = 0x8559;
 
-	/** Function address. */
-	public final long
-		PrimitiveRestartNV,
-		PrimitiveRestartIndexNV;
-
 	protected NVPrimitiveRestart() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVPrimitiveRestart(FunctionProvider provider) {
-		PrimitiveRestartNV = provider.getFunctionAddress("glPrimitiveRestartNV");
-		PrimitiveRestartIndexNV = provider.getFunctionAddress("glPrimitiveRestartIndexNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVPrimitiveRestart} instance of the current context. */
-	public static NVPrimitiveRestart getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVPrimitiveRestart} instance of the specified {@link GLCapabilities}. */
-	public static NVPrimitiveRestart getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVPrimitiveRestart);
-	}
-
-	static NVPrimitiveRestart create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_primitive_restart") ) return null;
-
-		NVPrimitiveRestart funcs = new NVPrimitiveRestart(provider);
-
-		boolean supported = checkFunctions(
-			funcs.PrimitiveRestartNV, funcs.PrimitiveRestartIndexNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glPrimitiveRestartNV, caps.glPrimitiveRestartIndexNV
 		);
-
-		return GL.checkExtension("GL_NV_primitive_restart", funcs, supported);
 	}
 
 	// --- [ glPrimitiveRestartNV ] ---
 
 	public static void glPrimitiveRestartNV() {
-		long __functionAddress = getInstance().PrimitiveRestartNV;
+		long __functionAddress = GL.getCapabilities().glPrimitiveRestartNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
 	// --- [ glPrimitiveRestartIndexNV ] ---
 
 	public static void glPrimitiveRestartIndexNV(int index) {
-		long __functionAddress = getInstance().PrimitiveRestartIndexNV;
+		long __functionAddress = GL.getCapabilities().glPrimitiveRestartIndexNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, index);
 	}
 

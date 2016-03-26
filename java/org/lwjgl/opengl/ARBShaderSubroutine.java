@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -44,62 +44,24 @@ public class ARBShaderSubroutine {
 		GL_NUM_COMPATIBLE_SUBROUTINES = 0x8E4A,
 		GL_COMPATIBLE_SUBROUTINES     = 0x8E4B;
 
-	/** Function address. */
-	public final long
-		GetSubroutineUniformLocation,
-		GetSubroutineIndex,
-		GetActiveSubroutineUniformiv,
-		GetActiveSubroutineUniformName,
-		GetActiveSubroutineName,
-		UniformSubroutinesuiv,
-		GetUniformSubroutineuiv,
-		GetProgramStageiv;
-
 	protected ARBShaderSubroutine() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBShaderSubroutine(FunctionProvider provider) {
-		GetSubroutineUniformLocation = provider.getFunctionAddress("glGetSubroutineUniformLocation");
-		GetSubroutineIndex = provider.getFunctionAddress("glGetSubroutineIndex");
-		GetActiveSubroutineUniformiv = provider.getFunctionAddress("glGetActiveSubroutineUniformiv");
-		GetActiveSubroutineUniformName = provider.getFunctionAddress("glGetActiveSubroutineUniformName");
-		GetActiveSubroutineName = provider.getFunctionAddress("glGetActiveSubroutineName");
-		UniformSubroutinesuiv = provider.getFunctionAddress("glUniformSubroutinesuiv");
-		GetUniformSubroutineuiv = provider.getFunctionAddress("glGetUniformSubroutineuiv");
-		GetProgramStageiv = provider.getFunctionAddress("glGetProgramStageiv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBShaderSubroutine} instance of the current context. */
-	public static ARBShaderSubroutine getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBShaderSubroutine} instance of the specified {@link GLCapabilities}. */
-	public static ARBShaderSubroutine getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBShaderSubroutine);
-	}
-
-	static ARBShaderSubroutine create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_shader_subroutine") ) return null;
-
-		ARBShaderSubroutine funcs = new ARBShaderSubroutine(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetSubroutineUniformLocation, funcs.GetSubroutineIndex, funcs.GetActiveSubroutineUniformiv, funcs.GetActiveSubroutineUniformName, 
-			funcs.GetActiveSubroutineName, funcs.UniformSubroutinesuiv, funcs.GetUniformSubroutineuiv, funcs.GetProgramStageiv
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetSubroutineUniformLocation, caps.glGetSubroutineIndex, caps.glGetActiveSubroutineUniformiv, caps.glGetActiveSubroutineUniformName, 
+			caps.glGetActiveSubroutineName, caps.glUniformSubroutinesuiv, caps.glGetUniformSubroutineuiv, caps.glGetProgramStageiv
 		);
-
-		return GL.checkExtension("GL_ARB_shader_subroutine", funcs, supported);
 	}
 
 	// --- [ glGetSubroutineUniformLocation ] ---
 
 	/** Unsafe version of {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
-		long __functionAddress = getInstance().GetSubroutineUniformLocation;
+		long __functionAddress = GL.getCapabilities().glGetSubroutineUniformLocation;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, program, shadertype, name);
 	}
 
@@ -118,16 +80,22 @@ public class ARBShaderSubroutine {
 
 	/** CharSequence version of: {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
 	public static int glGetSubroutineUniformLocation(int program, int shadertype, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetSubroutineUniformLocation(program, shadertype, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetSubroutineUniformLocation(program, shadertype, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetSubroutineIndex ] ---
 
 	/** Unsafe version of {@link #glGetSubroutineIndex GetSubroutineIndex} */
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
-		long __functionAddress = getInstance().GetSubroutineIndex;
+		long __functionAddress = GL.getCapabilities().glGetSubroutineIndex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, program, shadertype, name);
 	}
 
@@ -146,16 +114,22 @@ public class ARBShaderSubroutine {
 
 	/** CharSequence version of: {@link #glGetSubroutineIndex GetSubroutineIndex} */
 	public static int glGetSubroutineIndex(int program, int shadertype, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetSubroutineIndex(program, shadertype, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetSubroutineIndex(program, shadertype, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetActiveSubroutineUniformiv ] ---
 
 	/** Unsafe version of {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
-		long __functionAddress = getInstance().GetActiveSubroutineUniformiv;
+		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, program, shadertype, index, pname, values);
 	}
 
@@ -183,17 +157,23 @@ public class ARBShaderSubroutine {
 
 	/** Single return value version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	public static int glGetActiveSubroutineUniformi(int program, int shadertype, int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int values = __buffer.intParam();
-		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, __buffer.address(values));
-		return __buffer.intValue(values);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer values = stack.callocInt(1);
+			nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
+			return values.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetActiveSubroutineUniformName ] ---
 
 	/** Unsafe version of {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
-		long __functionAddress = getInstance().GetActiveSubroutineUniformName;
+		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformName;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
@@ -224,28 +204,38 @@ public class ARBShaderSubroutine {
 
 	/** String return version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
 	public static String glGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufsize);
+			nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
 	public static String glGetActiveSubroutineUniformName(int program, int shadertype, int index) {
 		int bufsize = glGetActiveSubroutineUniformi(program, shadertype, index, GL31.GL_UNIFORM_NAME_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufsize);
+			nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetActiveSubroutineName ] ---
 
 	/** Unsafe version of {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
-		long __functionAddress = getInstance().GetActiveSubroutineName;
+		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineName;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
@@ -276,28 +266,38 @@ public class ARBShaderSubroutine {
 
 	/** String return version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
 	public static String glGetActiveSubroutineName(int program, int shadertype, int index, int bufsize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufsize);
+			nglGetActiveSubroutineName(program, shadertype, index, bufsize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
 	public static String glGetActiveSubroutineName(int program, int shadertype, int index) {
 		int bufsize = glGetProgramStagei(program, shadertype, GL_ACTIVE_SUBROUTINE_MAX_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufsize);
+			nglGetActiveSubroutineName(program, shadertype, index, bufsize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glUniformSubroutinesuiv ] ---
 
 	/** Unsafe version of {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
-		long __functionAddress = getInstance().UniformSubroutinesuiv;
+		long __functionAddress = GL.getCapabilities().glUniformSubroutinesuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, shadertype, count, indices);
 	}
 
@@ -321,16 +321,22 @@ public class ARBShaderSubroutine {
 
 	/** Single value version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
 	public static void glUniformSubroutinesui(int shadertype, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int indices = __buffer.intParam(index);
-		nglUniformSubroutinesuiv(shadertype, 1, __buffer.address(indices));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer indices = stack.ints(index);
+			nglUniformSubroutinesuiv(shadertype, 1, memAddress(indices));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetUniformSubroutineuiv ] ---
 
 	/** Unsafe version of {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
-		long __functionAddress = getInstance().GetUniformSubroutineuiv;
+		long __functionAddress = GL.getCapabilities().glGetUniformSubroutineuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, shadertype, location, params);
 	}
 
@@ -356,17 +362,23 @@ public class ARBShaderSubroutine {
 
 	/** Single return value version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	public static int glGetUniformSubroutineui(int shadertype, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetUniformSubroutineuiv(shadertype, location, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramStageiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramStageiv GetProgramStageiv} */
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
-		long __functionAddress = getInstance().GetProgramStageiv;
+		long __functionAddress = GL.getCapabilities().glGetProgramStageiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, shadertype, pname, values);
 	}
 
@@ -393,10 +405,14 @@ public class ARBShaderSubroutine {
 
 	/** Single return value version of: {@link #glGetProgramStageiv GetProgramStageiv} */
 	public static int glGetProgramStagei(int program, int shadertype, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int values = __buffer.intParam();
-		nglGetProgramStageiv(program, shadertype, pname, __buffer.address(values));
-		return __buffer.intValue(values);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer values = stack.callocInt(1);
+			nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
+			return values.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

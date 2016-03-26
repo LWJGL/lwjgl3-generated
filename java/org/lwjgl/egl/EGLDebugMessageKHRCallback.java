@@ -57,8 +57,8 @@ public abstract class EGLDebugMessageKHRCallback extends Closure.V {
 	 * @param error       will contain an EGL error code, or {@link EGL10#EGL_SUCCESS}, as applicable
 	 * @param command     will contain a pointer to a string. Example "eglBindApi".
 	 * @param messageType will contain one of the debug message types
-	 * @param threadLabel will contain the label attached to the current thread. The {@code threadLabel} will be {@code NULL} if not set by the application. If the message is from
-	 *                    an internal thread, the label will be {@code NULL}.
+	 * @param threadLabel will contain the label attached to the current thread. The {@code threadLabel} will be {@code NULL} if not set by the application. If the message is from an
+	 *                    internal thread, the label will be {@code NULL}.
 	 * @param objectLabel will contain the label attached to the primary object of the message; Labels will be {@code NULL} if not set by the application. The primary object should
 	 *                    be the object the function operates on, see table 13.2 which provides the recommended mapping between functions and their primary object. This
 	 *                    {@code objectLabel} may be {@code NULL} even though the application labeled the object. This is because it is possible an error was raised while executing
@@ -100,7 +100,7 @@ public abstract class EGLDebugMessageKHRCallback extends Closure.V {
 	 * @return the command as a String
 	 */
 	public static String getCommand(long command) {
-		return memDecodeASCII(command);
+		return memASCII(command);
 	}
 
 	/**
@@ -113,7 +113,7 @@ public abstract class EGLDebugMessageKHRCallback extends Closure.V {
 	 * @return the message as a String
 	 */
 	public static String getMessage(long message) {
-		return memDecodeUTF8(message);
+		return memUTF8(message);
 	}
 
 	/** A functional interface for {@link EGLDebugMessageKHRCallback}. */

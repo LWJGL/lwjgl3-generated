@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -105,112 +105,20 @@ public class EXTGPUShader4 {
 		GL_MIN_PROGRAM_TEXEL_OFFSET_EXT = 0x8904,
 		GL_MAX_PROGRAM_TEXEL_OFFSET_EXT = 0x8905;
 
-	/** Function address. */
-	public final long
-		VertexAttribI1iEXT,
-		VertexAttribI2iEXT,
-		VertexAttribI3iEXT,
-		VertexAttribI4iEXT,
-		VertexAttribI1uiEXT,
-		VertexAttribI2uiEXT,
-		VertexAttribI3uiEXT,
-		VertexAttribI4uiEXT,
-		VertexAttribI1ivEXT,
-		VertexAttribI2ivEXT,
-		VertexAttribI3ivEXT,
-		VertexAttribI4ivEXT,
-		VertexAttribI1uivEXT,
-		VertexAttribI2uivEXT,
-		VertexAttribI3uivEXT,
-		VertexAttribI4uivEXT,
-		VertexAttribI4bvEXT,
-		VertexAttribI4svEXT,
-		VertexAttribI4ubvEXT,
-		VertexAttribI4usvEXT,
-		VertexAttribIPointerEXT,
-		GetVertexAttribIivEXT,
-		GetVertexAttribIuivEXT,
-		GetUniformuivEXT,
-		BindFragDataLocationEXT,
-		GetFragDataLocationEXT,
-		Uniform1uiEXT,
-		Uniform2uiEXT,
-		Uniform3uiEXT,
-		Uniform4uiEXT,
-		Uniform1uivEXT,
-		Uniform2uivEXT,
-		Uniform3uivEXT,
-		Uniform4uivEXT;
-
 	protected EXTGPUShader4() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTGPUShader4(FunctionProvider provider) {
-		VertexAttribI1iEXT = provider.getFunctionAddress("glVertexAttribI1iEXT");
-		VertexAttribI2iEXT = provider.getFunctionAddress("glVertexAttribI2iEXT");
-		VertexAttribI3iEXT = provider.getFunctionAddress("glVertexAttribI3iEXT");
-		VertexAttribI4iEXT = provider.getFunctionAddress("glVertexAttribI4iEXT");
-		VertexAttribI1uiEXT = provider.getFunctionAddress("glVertexAttribI1uiEXT");
-		VertexAttribI2uiEXT = provider.getFunctionAddress("glVertexAttribI2uiEXT");
-		VertexAttribI3uiEXT = provider.getFunctionAddress("glVertexAttribI3uiEXT");
-		VertexAttribI4uiEXT = provider.getFunctionAddress("glVertexAttribI4uiEXT");
-		VertexAttribI1ivEXT = provider.getFunctionAddress("glVertexAttribI1ivEXT");
-		VertexAttribI2ivEXT = provider.getFunctionAddress("glVertexAttribI2ivEXT");
-		VertexAttribI3ivEXT = provider.getFunctionAddress("glVertexAttribI3ivEXT");
-		VertexAttribI4ivEXT = provider.getFunctionAddress("glVertexAttribI4ivEXT");
-		VertexAttribI1uivEXT = provider.getFunctionAddress("glVertexAttribI1uivEXT");
-		VertexAttribI2uivEXT = provider.getFunctionAddress("glVertexAttribI2uivEXT");
-		VertexAttribI3uivEXT = provider.getFunctionAddress("glVertexAttribI3uivEXT");
-		VertexAttribI4uivEXT = provider.getFunctionAddress("glVertexAttribI4uivEXT");
-		VertexAttribI4bvEXT = provider.getFunctionAddress("glVertexAttribI4bvEXT");
-		VertexAttribI4svEXT = provider.getFunctionAddress("glVertexAttribI4svEXT");
-		VertexAttribI4ubvEXT = provider.getFunctionAddress("glVertexAttribI4ubvEXT");
-		VertexAttribI4usvEXT = provider.getFunctionAddress("glVertexAttribI4usvEXT");
-		VertexAttribIPointerEXT = provider.getFunctionAddress("glVertexAttribIPointerEXT");
-		GetVertexAttribIivEXT = provider.getFunctionAddress("glGetVertexAttribIivEXT");
-		GetVertexAttribIuivEXT = provider.getFunctionAddress("glGetVertexAttribIuivEXT");
-		GetUniformuivEXT = provider.getFunctionAddress("glGetUniformuivEXT");
-		BindFragDataLocationEXT = provider.getFunctionAddress("glBindFragDataLocationEXT");
-		GetFragDataLocationEXT = provider.getFunctionAddress("glGetFragDataLocationEXT");
-		Uniform1uiEXT = provider.getFunctionAddress("glUniform1uiEXT");
-		Uniform2uiEXT = provider.getFunctionAddress("glUniform2uiEXT");
-		Uniform3uiEXT = provider.getFunctionAddress("glUniform3uiEXT");
-		Uniform4uiEXT = provider.getFunctionAddress("glUniform4uiEXT");
-		Uniform1uivEXT = provider.getFunctionAddress("glUniform1uivEXT");
-		Uniform2uivEXT = provider.getFunctionAddress("glUniform2uivEXT");
-		Uniform3uivEXT = provider.getFunctionAddress("glUniform3uivEXT");
-		Uniform4uivEXT = provider.getFunctionAddress("glUniform4uivEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTGPUShader4} instance of the current context. */
-	public static EXTGPUShader4 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTGPUShader4} instance of the specified {@link GLCapabilities}. */
-	public static EXTGPUShader4 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTGPUShader4);
-	}
-
-	static EXTGPUShader4 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_gpu_shader4") ) return null;
-
-		EXTGPUShader4 funcs = new EXTGPUShader4(provider);
-
-		boolean supported = checkFunctions(
-			funcs.VertexAttribI1iEXT, funcs.VertexAttribI2iEXT, funcs.VertexAttribI3iEXT, funcs.VertexAttribI4iEXT, funcs.VertexAttribI1uiEXT, 
-			funcs.VertexAttribI2uiEXT, funcs.VertexAttribI3uiEXT, funcs.VertexAttribI4uiEXT, funcs.VertexAttribI1ivEXT, funcs.VertexAttribI2ivEXT, 
-			funcs.VertexAttribI3ivEXT, funcs.VertexAttribI4ivEXT, funcs.VertexAttribI1uivEXT, funcs.VertexAttribI2uivEXT, funcs.VertexAttribI3uivEXT, 
-			funcs.VertexAttribI4uivEXT, funcs.VertexAttribI4bvEXT, funcs.VertexAttribI4svEXT, funcs.VertexAttribI4ubvEXT, funcs.VertexAttribI4usvEXT, 
-			funcs.VertexAttribIPointerEXT, funcs.GetVertexAttribIivEXT, funcs.GetVertexAttribIuivEXT, funcs.GetUniformuivEXT, funcs.BindFragDataLocationEXT, 
-			funcs.GetFragDataLocationEXT, funcs.Uniform1uiEXT, funcs.Uniform2uiEXT, funcs.Uniform3uiEXT, funcs.Uniform4uiEXT, funcs.Uniform1uivEXT, 
-			funcs.Uniform2uivEXT, funcs.Uniform3uivEXT, funcs.Uniform4uivEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glVertexAttribI1iEXT, caps.glVertexAttribI2iEXT, caps.glVertexAttribI3iEXT, caps.glVertexAttribI4iEXT, caps.glVertexAttribI1uiEXT, 
+			caps.glVertexAttribI2uiEXT, caps.glVertexAttribI3uiEXT, caps.glVertexAttribI4uiEXT, caps.glVertexAttribI1ivEXT, caps.glVertexAttribI2ivEXT, 
+			caps.glVertexAttribI3ivEXT, caps.glVertexAttribI4ivEXT, caps.glVertexAttribI1uivEXT, caps.glVertexAttribI2uivEXT, caps.glVertexAttribI3uivEXT, 
+			caps.glVertexAttribI4uivEXT, caps.glVertexAttribI4bvEXT, caps.glVertexAttribI4svEXT, caps.glVertexAttribI4ubvEXT, caps.glVertexAttribI4usvEXT, 
+			caps.glVertexAttribIPointerEXT, caps.glGetVertexAttribIivEXT, caps.glGetVertexAttribIuivEXT, caps.glGetUniformuivEXT, 
+			caps.glBindFragDataLocationEXT, caps.glGetFragDataLocationEXT, caps.glUniform1uiEXT, caps.glUniform2uiEXT, caps.glUniform3uiEXT, 
+			caps.glUniform4uiEXT, caps.glUniform1uivEXT, caps.glUniform2uivEXT, caps.glUniform3uivEXT, caps.glUniform4uivEXT
 		);
-
-		return GL.checkExtension("GL_EXT_gpu_shader4", funcs, supported);
 	}
 
 	// --- [ glVertexAttribI1iEXT ] ---
@@ -222,7 +130,9 @@ public class EXTGPUShader4 {
 	 * @param x     the vertex attribute x component
 	 */
 	public static void glVertexAttribI1iEXT(int index, int x) {
-		long __functionAddress = getInstance().VertexAttribI1iEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1iEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, x);
 	}
 
@@ -236,7 +146,9 @@ public class EXTGPUShader4 {
 	 * @param y     the vertex attribute y component
 	 */
 	public static void glVertexAttribI2iEXT(int index, int x, int y) {
-		long __functionAddress = getInstance().VertexAttribI2iEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2iEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, index, x, y);
 	}
 
@@ -251,7 +163,9 @@ public class EXTGPUShader4 {
 	 * @param z     the vertex attribute z component
 	 */
 	public static void glVertexAttribI3iEXT(int index, int x, int y, int z) {
-		long __functionAddress = getInstance().VertexAttribI3iEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3iEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, index, x, y, z);
 	}
 
@@ -267,7 +181,9 @@ public class EXTGPUShader4 {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttribI4iEXT(int index, int x, int y, int z, int w) {
-		long __functionAddress = getInstance().VertexAttribI4iEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4iEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -280,7 +196,9 @@ public class EXTGPUShader4 {
 	 * @param x     the vertex attribute x component
 	 */
 	public static void glVertexAttribI1uiEXT(int index, int x) {
-		long __functionAddress = getInstance().VertexAttribI1uiEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, x);
 	}
 
@@ -294,7 +212,9 @@ public class EXTGPUShader4 {
 	 * @param y     the vertex attribute y component
 	 */
 	public static void glVertexAttribI2uiEXT(int index, int x, int y) {
-		long __functionAddress = getInstance().VertexAttribI2uiEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, index, x, y);
 	}
 
@@ -309,7 +229,9 @@ public class EXTGPUShader4 {
 	 * @param z     the vertex attribute z component
 	 */
 	public static void glVertexAttribI3uiEXT(int index, int x, int y, int z) {
-		long __functionAddress = getInstance().VertexAttribI3uiEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, index, x, y, z);
 	}
 
@@ -325,7 +247,9 @@ public class EXTGPUShader4 {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttribI4uiEXT(int index, int x, int y, int z, int w) {
-		long __functionAddress = getInstance().VertexAttribI4uiEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -333,7 +257,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
 	public static void nglVertexAttribI1ivEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI1ivEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1ivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -360,7 +286,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
 	public static void nglVertexAttribI2ivEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI2ivEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2ivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -387,7 +315,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
 	public static void nglVertexAttribI3ivEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI3ivEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3ivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -414,7 +344,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
 	public static void nglVertexAttribI4ivEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4ivEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4ivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -441,7 +373,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
 	public static void nglVertexAttribI1uivEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI1uivEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -468,7 +402,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
 	public static void nglVertexAttribI2uivEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI2uivEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -495,7 +431,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
 	public static void nglVertexAttribI3uivEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI3uivEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -522,7 +460,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
 	public static void nglVertexAttribI4uivEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4uivEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -549,7 +489,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI4bvEXT VertexAttribI4bvEXT} */
 	public static void nglVertexAttribI4bvEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4bvEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4bvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -569,7 +511,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
 	public static void nglVertexAttribI4svEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4svEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4svEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -596,7 +540,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI4ubvEXT VertexAttribI4ubvEXT} */
 	public static void nglVertexAttribI4ubvEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4ubvEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4ubvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -616,7 +562,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
 	public static void nglVertexAttribI4usvEXT(int index, long v) {
-		long __functionAddress = getInstance().VertexAttribI4usvEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4usvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -643,7 +591,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
 	public static void nglVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer) {
-		long __functionAddress = getInstance().VertexAttribIPointerEXT;
+		long __functionAddress = GL.getCapabilities().glVertexAttribIPointerEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
@@ -689,7 +639,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
 	public static void nglGetVertexAttribIivEXT(int index, int pname, long params) {
-		long __functionAddress = getInstance().GetVertexAttribIivEXT;
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribIivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
@@ -715,17 +667,23 @@ public class EXTGPUShader4 {
 
 	/** Single return value version of: {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
 	public static int glGetVertexAttribIiEXT(int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetVertexAttribIivEXT(index, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetVertexAttribIivEXT(index, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetVertexAttribIuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
 	public static void nglGetVertexAttribIuivEXT(int index, int pname, long params) {
-		long __functionAddress = getInstance().GetVertexAttribIuivEXT;
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribIuivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
@@ -751,17 +709,23 @@ public class EXTGPUShader4 {
 
 	/** Single return value version of: {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
 	public static int glGetVertexAttribIuiEXT(int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetVertexAttribIuivEXT(index, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetVertexAttribIuivEXT(index, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetUniformuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetUniformuivEXT GetUniformuivEXT} */
 	public static void nglGetUniformuivEXT(int program, int location, long params) {
-		long __functionAddress = getInstance().GetUniformuivEXT;
+		long __functionAddress = GL.getCapabilities().glGetUniformuivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, location, params);
 	}
 
@@ -780,17 +744,23 @@ public class EXTGPUShader4 {
 
 	/** Single return value version of: {@link #glGetUniformuivEXT GetUniformuivEXT} */
 	public static int glGetUniformuiEXT(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetUniformuivEXT(program, location, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetUniformuivEXT(program, location, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glBindFragDataLocationEXT ] ---
 
 	/** Unsafe version of {@link #glBindFragDataLocationEXT BindFragDataLocationEXT} */
 	public static void nglBindFragDataLocationEXT(int program, int color, long name) {
-		long __functionAddress = getInstance().BindFragDataLocationEXT;
+		long __functionAddress = GL.getCapabilities().glBindFragDataLocationEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, color, name);
 	}
 
@@ -802,16 +772,22 @@ public class EXTGPUShader4 {
 
 	/** CharSequence version of: {@link #glBindFragDataLocationEXT BindFragDataLocationEXT} */
 	public static void glBindFragDataLocationEXT(int program, int color, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindFragDataLocationEXT(program, color, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			nglBindFragDataLocationEXT(program, color, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetFragDataLocationEXT ] ---
 
 	/** Unsafe version of {@link #glGetFragDataLocationEXT GetFragDataLocationEXT} */
 	public static int nglGetFragDataLocationEXT(int program, long name) {
-		long __functionAddress = getInstance().GetFragDataLocationEXT;
+		long __functionAddress = GL.getCapabilities().glGetFragDataLocationEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPI(__functionAddress, program, name);
 	}
 
@@ -823,36 +799,48 @@ public class EXTGPUShader4 {
 
 	/** CharSequence version of: {@link #glGetFragDataLocationEXT GetFragDataLocationEXT} */
 	public static int glGetFragDataLocationEXT(int program, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetFragDataLocationEXT(program, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetFragDataLocationEXT(program, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glUniform1uiEXT ] ---
 
 	public static void glUniform1uiEXT(int location, int v0) {
-		long __functionAddress = getInstance().Uniform1uiEXT;
+		long __functionAddress = GL.getCapabilities().glUniform1uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2uiEXT ] ---
 
 	public static void glUniform2uiEXT(int location, int v0, int v1) {
-		long __functionAddress = getInstance().Uniform2uiEXT;
+		long __functionAddress = GL.getCapabilities().glUniform2uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3uiEXT ] ---
 
 	public static void glUniform3uiEXT(int location, int v0, int v1, int v2) {
-		long __functionAddress = getInstance().Uniform3uiEXT;
+		long __functionAddress = GL.getCapabilities().glUniform3uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4uiEXT ] ---
 
 	public static void glUniform4uiEXT(int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = getInstance().Uniform4uiEXT;
+		long __functionAddress = GL.getCapabilities().glUniform4uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
@@ -860,7 +848,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glUniform1uivEXT Uniform1uivEXT} */
 	public static void nglUniform1uivEXT(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform1uivEXT;
+		long __functionAddress = GL.getCapabilities().glUniform1uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -879,7 +869,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glUniform2uivEXT Uniform2uivEXT} */
 	public static void nglUniform2uivEXT(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform2uivEXT;
+		long __functionAddress = GL.getCapabilities().glUniform2uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -898,7 +890,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glUniform3uivEXT Uniform3uivEXT} */
 	public static void nglUniform3uivEXT(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform3uivEXT;
+		long __functionAddress = GL.getCapabilities().glUniform3uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -917,7 +911,9 @@ public class EXTGPUShader4 {
 
 	/** Unsafe version of {@link #glUniform4uivEXT Uniform4uivEXT} */
 	public static void nglUniform4uivEXT(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform4uivEXT;
+		long __functionAddress = GL.getCapabilities().glUniform4uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 

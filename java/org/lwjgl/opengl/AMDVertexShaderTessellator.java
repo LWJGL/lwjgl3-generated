@@ -85,55 +85,31 @@ public class AMDVertexShaderTessellator {
 	/** Accepted by GetFloatv. */
 	public static final int GL_TESSELLATION_FACTOR_AMD = 0x9005;
 
-	/** Function address. */
-	public final long
-		TessellationFactorAMD,
-		TessellationModeAMD;
-
 	protected AMDVertexShaderTessellator() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AMDVertexShaderTessellator(FunctionProvider provider) {
-		TessellationFactorAMD = provider.getFunctionAddress("glTessellationFactorAMD");
-		TessellationModeAMD = provider.getFunctionAddress("glTessellationModeAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AMDVertexShaderTessellator} instance of the current context. */
-	public static AMDVertexShaderTessellator getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link AMDVertexShaderTessellator} instance of the specified {@link GLCapabilities}. */
-	public static AMDVertexShaderTessellator getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__AMDVertexShaderTessellator);
-	}
-
-	static AMDVertexShaderTessellator create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_AMD_vertex_shader_tessellator") ) return null;
-
-		AMDVertexShaderTessellator funcs = new AMDVertexShaderTessellator(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TessellationFactorAMD, funcs.TessellationModeAMD
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glTessellationFactorAMD, caps.glTessellationModeAMD
 		);
-
-		return GL.checkExtension("GL_AMD_vertex_shader_tessellator", funcs, supported);
 	}
 
 	// --- [ glTessellationFactorAMD ] ---
 
 	public static void glTessellationFactorAMD(float factor) {
-		long __functionAddress = getInstance().TessellationFactorAMD;
+		long __functionAddress = GL.getCapabilities().glTessellationFactorAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, factor);
 	}
 
 	// --- [ glTessellationModeAMD ] ---
 
 	public static void glTessellationModeAMD(int mode) {
-		long __functionAddress = getInstance().TessellationModeAMD;
+		long __functionAddress = GL.getCapabilities().glTessellationModeAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
 	}
 

@@ -48,49 +48,31 @@ public class EGL12 {
 		EGL_UNKNOWN               = -1,
 		EGL_VERTICAL_RESOLUTION   = 0x3091;
 
-	/** Function address. */
-	public final long
-		BindAPI,
-		QueryAPI,
-		CreatePbufferFromClientBuffer,
-		ReleaseThread,
-		WaitClient;
-
 	protected EGL12() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EGL12(FunctionProvider provider) {
-		BindAPI = provider.getFunctionAddress("eglBindAPI");
-		QueryAPI = provider.getFunctionAddress("eglQueryAPI");
-		CreatePbufferFromClientBuffer = provider.getFunctionAddress("eglCreatePbufferFromClientBuffer");
-		ReleaseThread = provider.getFunctionAddress("eglReleaseThread");
-		WaitClient = provider.getFunctionAddress("eglWaitClient");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EGL12} instance. */
-	public static EGL12 getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link EGL12} instance of the specified {@link EGLCapabilities}. */
-	public static EGL12 getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__EGL12);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglBindAPI, caps.eglQueryAPI, caps.eglCreatePbufferFromClientBuffer, caps.eglReleaseThread, caps.eglWaitClient
+		);
 	}
 
 	// --- [ eglBindAPI ] ---
 
 	public static int eglBindAPI(int api) {
-		long __functionAddress = getInstance().BindAPI;
+		long __functionAddress = EGL.getCapabilities().eglBindAPI;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, api);
 	}
 
 	// --- [ eglQueryAPI ] ---
 
 	public static int eglQueryAPI() {
-		long __functionAddress = getInstance().QueryAPI;
+		long __functionAddress = EGL.getCapabilities().eglQueryAPI;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -98,8 +80,9 @@ public class EGL12 {
 
 	/** Unsafe version of {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer} */
 	public static long neglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, long attrib_list) {
-		long __functionAddress = getInstance().CreatePbufferFromClientBuffer;
+		long __functionAddress = EGL.getCapabilities().eglCreatePbufferFromClientBuffer;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(buffer);
 			checkPointer(config);
@@ -123,14 +106,18 @@ public class EGL12 {
 	// --- [ eglReleaseThread ] ---
 
 	public static int eglReleaseThread() {
-		long __functionAddress = getInstance().ReleaseThread;
+		long __functionAddress = EGL.getCapabilities().eglReleaseThread;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callI(__functionAddress);
 	}
 
 	// --- [ eglWaitClient ] ---
 
 	public static int eglWaitClient() {
-		long __functionAddress = getInstance().WaitClient;
+		long __functionAddress = EGL.getCapabilities().eglWaitClient;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callI(__functionAddress);
 	}
 

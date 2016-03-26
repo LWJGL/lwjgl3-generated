@@ -108,55 +108,31 @@ public class EXTShaderImageLoadStore {
 		GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_EXT       = 0x906B,
 		GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY_EXT = 0x906C;
 
-	/** Function address. */
-	public final long
-		BindImageTextureEXT,
-		MemoryBarrierEXT;
-
 	protected EXTShaderImageLoadStore() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTShaderImageLoadStore(FunctionProvider provider) {
-		BindImageTextureEXT = provider.getFunctionAddress("glBindImageTextureEXT");
-		MemoryBarrierEXT = provider.getFunctionAddress("glMemoryBarrierEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTShaderImageLoadStore} instance of the current context. */
-	public static EXTShaderImageLoadStore getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTShaderImageLoadStore} instance of the specified {@link GLCapabilities}. */
-	public static EXTShaderImageLoadStore getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTShaderImageLoadStore);
-	}
-
-	static EXTShaderImageLoadStore create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_shader_image_load_store") ) return null;
-
-		EXTShaderImageLoadStore funcs = new EXTShaderImageLoadStore(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindImageTextureEXT, funcs.MemoryBarrierEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBindImageTextureEXT, caps.glMemoryBarrierEXT
 		);
-
-		return GL.checkExtension("GL_EXT_shader_image_load_store", funcs, supported);
 	}
 
 	// --- [ glBindImageTextureEXT ] ---
 
 	public static void glBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format) {
-		long __functionAddress = getInstance().BindImageTextureEXT;
+		long __functionAddress = GL.getCapabilities().glBindImageTextureEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZIIIV(__functionAddress, index, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrierEXT ] ---
 
 	public static void glMemoryBarrierEXT(int barriers) {
-		long __functionAddress = getInstance().MemoryBarrierEXT;
+		long __functionAddress = GL.getCapabilities().glMemoryBarrierEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, barriers);
 	}
 

@@ -19,46 +19,23 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBTextureBarrier {
 
-	/** Function address. */
-	public final long TextureBarrier;
-
 	protected ARBTextureBarrier() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTextureBarrier(FunctionProvider provider) {
-		TextureBarrier = provider.getFunctionAddress("glTextureBarrier");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTextureBarrier} instance of the current context. */
-	public static ARBTextureBarrier getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTextureBarrier} instance of the specified {@link GLCapabilities}. */
-	public static ARBTextureBarrier getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTextureBarrier);
-	}
-
-	static ARBTextureBarrier create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_texture_barrier") ) return null;
-
-		ARBTextureBarrier funcs = new ARBTextureBarrier(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TextureBarrier
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glTextureBarrier
 		);
-
-		return GL.checkExtension("GL_ARB_texture_barrier", funcs, supported);
 	}
 
 	// --- [ glTextureBarrier ] ---
 
 	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
 	public static void glTextureBarrier() {
-		long __functionAddress = getInstance().TextureBarrier;
+		long __functionAddress = GL.getCapabilities().glTextureBarrier;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

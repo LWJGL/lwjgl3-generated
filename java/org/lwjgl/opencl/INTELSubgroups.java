@@ -49,46 +49,25 @@ public class INTELSubgroups {
 		CL_KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE_KHR = 0x2033,
 		CL_KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR    = 0x2034;
 
-	/** Function address. */
-	public final long GetKernelSubGroupInfoKHR;
-
 	protected INTELSubgroups() {
 		throw new UnsupportedOperationException();
 	}
 
-	public INTELSubgroups(FunctionProvider provider) {
-		GetKernelSubGroupInfoKHR = provider.getFunctionAddress("clGetKernelSubGroupInfoKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link INTELSubgroups} instance of the currently loaded ICD. */
-	public static INTELSubgroups getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link INTELSubgroups} instance of the specified {@link CLCapabilities}. */
-	public static INTELSubgroups getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__INTELSubgroups);
-	}
-
-	static INTELSubgroups create(FunctionProvider provider) {
-		INTELSubgroups funcs = new INTELSubgroups(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetKernelSubGroupInfoKHR
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clGetKernelSubGroupInfoKHR
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clGetKernelSubGroupInfoKHR ] ---
 
 	/** Unsafe version of {@link #clGetKernelSubGroupInfoKHR GetKernelSubGroupInfoKHR} */
 	public static int nclGetKernelSubGroupInfoKHR(long kernel, long device, int param_name, long input_value_size, long input_value, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetKernelSubGroupInfoKHR;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clGetKernelSubGroupInfoKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(kernel);
+		}
 		return callPPIPPPPPI(__functionAddress, kernel, device, param_name, input_value_size, input_value, param_value_size, param_value, param_value_size_ret);
 	}
 

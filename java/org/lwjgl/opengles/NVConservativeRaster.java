@@ -36,44 +36,22 @@ public class NVConservativeRaster {
 		GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV   = 0x9348,
 		GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV = 0x9349;
 
-	/** Function address. */
-	public final long SubpixelPrecisionBiasNV;
-
 	protected NVConservativeRaster() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVConservativeRaster(FunctionProvider provider) {
-		SubpixelPrecisionBiasNV = provider.getFunctionAddress("glSubpixelPrecisionBiasNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVConservativeRaster} instance of the current context. */
-	public static NVConservativeRaster getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVConservativeRaster} instance of the specified {@link GLESCapabilities}. */
-	public static NVConservativeRaster getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVConservativeRaster);
-	}
-
-	static NVConservativeRaster create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_conservative_raster") ) return null;
-
-		NVConservativeRaster funcs = new NVConservativeRaster(provider);
-		boolean supported = checkFunctions(
-			funcs.SubpixelPrecisionBiasNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glSubpixelPrecisionBiasNV
 		);
-
-		return GLES.checkExtension("GL_NV_conservative_raster", funcs, supported);
 	}
 
 	// --- [ glSubpixelPrecisionBiasNV ] ---
 
 	public static void glSubpixelPrecisionBiasNV(int xbits, int ybits) {
-		long __functionAddress = getInstance().SubpixelPrecisionBiasNV;
+		long __functionAddress = GLES.getCapabilities().glSubpixelPrecisionBiasNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, xbits, ybits);
 	}
 

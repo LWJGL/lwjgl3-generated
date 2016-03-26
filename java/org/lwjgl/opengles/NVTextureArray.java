@@ -51,57 +51,24 @@ public class NVTextureArray {
 		GL_UNPACK_SKIP_IMAGES_NV  = 0x806D,
 		GL_UNPACK_IMAGE_HEIGHT_NV = 0x806E;
 
-	/** Function address. */
-	public final long
-		TexImage3DNV,
-		TexSubImage3DNV,
-		CopyTexSubImage3DNV,
-		CompressedTexImage3DNV,
-		CompressedTexSubImage3DNV,
-		FramebufferTextureLayerNV;
-
 	protected NVTextureArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVTextureArray(FunctionProvider provider) {
-		TexImage3DNV = provider.getFunctionAddress("glTexImage3DNV");
-		TexSubImage3DNV = provider.getFunctionAddress("glTexSubImage3DNV");
-		CopyTexSubImage3DNV = provider.getFunctionAddress("glCopyTexSubImage3DNV");
-		CompressedTexImage3DNV = provider.getFunctionAddress("glCompressedTexImage3DNV");
-		CompressedTexSubImage3DNV = provider.getFunctionAddress("glCompressedTexSubImage3DNV");
-		FramebufferTextureLayerNV = provider.getFunctionAddress("glFramebufferTextureLayerNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVTextureArray} instance of the current context. */
-	public static NVTextureArray getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVTextureArray} instance of the specified {@link GLESCapabilities}. */
-	public static NVTextureArray getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVTextureArray);
-	}
-
-	static NVTextureArray create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_texture_array") ) return null;
-
-		NVTextureArray funcs = new NVTextureArray(provider);
-		boolean supported = checkFunctions(
-			funcs.TexImage3DNV, funcs.TexSubImage3DNV, funcs.CopyTexSubImage3DNV, funcs.CompressedTexImage3DNV, funcs.CompressedTexSubImage3DNV, 
-			funcs.FramebufferTextureLayerNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glTexImage3DNV, caps.glTexSubImage3DNV, caps.glCopyTexSubImage3DNV, caps.glCompressedTexImage3DNV, caps.glCompressedTexSubImage3DNV, 
+			caps.glFramebufferTextureLayerNV
 		);
-
-		return GLES.checkExtension("GL_NV_texture_array", funcs, supported);
 	}
 
 	// --- [ glTexImage3DNV ] ---
 
 	/** Unsafe version of {@link #glTexImage3DNV TexImage3DNV} */
 	public static void nglTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, long pixels) {
-		long __functionAddress = getInstance().TexImage3DNV;
+		long __functionAddress = GLES.getCapabilities().glTexImage3DNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIPV(__functionAddress, target, level, internalFormat, width, height, depth, border, format, type, pixels);
 	}
 
@@ -143,7 +110,9 @@ public class NVTextureArray {
 
 	/** Unsafe version of {@link #glTexSubImage3DNV TexSubImage3DNV} */
 	public static void nglTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
-		long __functionAddress = getInstance().TexSubImage3DNV;
+		long __functionAddress = GLES.getCapabilities().glTexSubImage3DNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
@@ -184,7 +153,9 @@ public class NVTextureArray {
 	// --- [ glCopyTexSubImage3DNV ] ---
 
 	public static void glCopyTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().CopyTexSubImage3DNV;
+		long __functionAddress = GLES.getCapabilities().glCopyTexSubImage3DNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
@@ -192,7 +163,9 @@ public class NVTextureArray {
 
 	/** Unsafe version of {@link #glCompressedTexImage3DNV CompressedTexImage3DNV} */
 	public static void nglCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexImage3DNV;
+		long __functionAddress = GLES.getCapabilities().glCompressedTexImage3DNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
@@ -213,7 +186,9 @@ public class NVTextureArray {
 
 	/** Unsafe version of {@link #glCompressedTexSubImage3DNV CompressedTexSubImage3DNV} */
 	public static void nglCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTexSubImage3DNV;
+		long __functionAddress = GLES.getCapabilities().glCompressedTexSubImage3DNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
@@ -233,7 +208,9 @@ public class NVTextureArray {
 	// --- [ glFramebufferTextureLayerNV ] ---
 
 	public static void glFramebufferTextureLayerNV(int target, int attachment, int texture, int level, int layer) {
-		long __functionAddress = getInstance().FramebufferTextureLayerNV;
+		long __functionAddress = GLES.getCapabilities().glFramebufferTextureLayerNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 

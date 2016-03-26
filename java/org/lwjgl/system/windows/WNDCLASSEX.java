@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Contains the window class attributes that are registered by the {@link User32#RegisterClassEx User32.RegisterClassEx} function.
@@ -59,7 +60,7 @@ public class WNDCLASSEX extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -93,7 +94,7 @@ public class WNDCLASSEX extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		CBSIZE = layout.offsetof(0);
 		STYLE = layout.offsetof(1);
@@ -307,6 +308,76 @@ public class WNDCLASSEX extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link WNDCLASSEX} instance allocated on the thread-local {@link MemoryStack}. */
+	public static WNDCLASSEX mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link WNDCLASSEX} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static WNDCLASSEX callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link WNDCLASSEX} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static WNDCLASSEX mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link WNDCLASSEX} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static WNDCLASSEX callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link WNDCLASSEX.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link WNDCLASSEX.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link WNDCLASSEX.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link WNDCLASSEX.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #cbSize}. */
 	public static int ncbSize(long struct) { return memGetInt(struct + WNDCLASSEX.CBSIZE); }
 	/** Unsafe version of {@link #style}. */
@@ -330,11 +401,11 @@ public class WNDCLASSEX extends Struct {
 	/** Unsafe version of {@link #lpszMenuName}. */
 	public static ByteBuffer nlpszMenuName(long struct) { return memByteBufferNT2(memGetAddress(struct + WNDCLASSEX.LPSZMENUNAME)); }
 	/** Unsafe version of {@link #lpszMenuNameString}. */
-	public static String nlpszMenuNameString(long struct) { return memDecodeUTF16(memGetAddress(struct + WNDCLASSEX.LPSZMENUNAME)); }
+	public static String nlpszMenuNameString(long struct) { return memUTF16(memGetAddress(struct + WNDCLASSEX.LPSZMENUNAME)); }
 	/** Unsafe version of {@link #lpszClassName}. */
 	public static ByteBuffer nlpszClassName(long struct) { return memByteBufferNT2(memGetAddress(struct + WNDCLASSEX.LPSZCLASSNAME)); }
 	/** Unsafe version of {@link #lpszClassNameString}. */
-	public static String nlpszClassNameString(long struct) { return memDecodeUTF16(memGetAddress(struct + WNDCLASSEX.LPSZCLASSNAME)); }
+	public static String nlpszClassNameString(long struct) { return memUTF16(memGetAddress(struct + WNDCLASSEX.LPSZCLASSNAME)); }
 	/** Unsafe version of {@link #hIconSm}. */
 	public static long nhIconSm(long struct) { return memGetAddress(struct + WNDCLASSEX.HICONSM); }
 
@@ -362,7 +433,7 @@ public class WNDCLASSEX extends Struct {
 		memPutAddress(struct + WNDCLASSEX.LPSZMENUNAME, memAddressSafe(value));
 	}
 	/** Unsafe version of {@link #lpszMenuName(CharSequence) lpszMenuName}. */
-	public static void nlpszMenuName(long struct, CharSequence value) { nlpszMenuName(struct, memEncodeUTF16(value, BufferAllocator.MALLOC)); }
+	public static void nlpszMenuName(long struct, CharSequence value) { nlpszMenuName(struct, memUTF16(value)); }
 	/** Unsafe version of {@link #lpszMenuNameFree}. */
 	public static void nlpszMenuNameFree(long struct) { nmemFree(memGetAddress(struct + WNDCLASSEX.LPSZMENUNAME)); }
 	/** Unsafe version of {@link #lpszClassName(ByteBuffer) lpszClassName}. */
@@ -371,7 +442,7 @@ public class WNDCLASSEX extends Struct {
 		memPutAddress(struct + WNDCLASSEX.LPSZCLASSNAME, memAddress(value));
 	}
 	/** Unsafe version of {@link #lpszClassName(CharSequence) lpszClassName}. */
-	public static void nlpszClassName(long struct, CharSequence value) { nlpszClassName(struct, memEncodeUTF16(value, BufferAllocator.MALLOC)); }
+	public static void nlpszClassName(long struct, CharSequence value) { nlpszClassName(struct, memUTF16(value)); }
 	/** Unsafe version of {@link #lpszClassNameFree}. */
 	public static void nlpszClassNameFree(long struct) { nmemFree(memGetAddress(struct + WNDCLASSEX.LPSZCLASSNAME)); }
 	/** Unsafe version of {@link #hIconSm(long) hIconSm}. */
@@ -433,7 +504,7 @@ public class WNDCLASSEX extends Struct {
 
 		@Override
 		protected WNDCLASSEX newInstance(long address) {
-			return new WNDCLASSEX(address, container);
+			return new WNDCLASSEX(address, getContainer());
 		}
 
 		@Override

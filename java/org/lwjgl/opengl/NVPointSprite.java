@@ -51,48 +51,22 @@ public class NVPointSprite {
 	 */
 	public static final int GL_POINT_SPRITE_R_MODE_NV = 0x8863;
 
-	/** Function address. */
-	public final long
-		PointParameteriNV,
-		PointParameterivNV;
-
 	protected NVPointSprite() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVPointSprite(FunctionProvider provider) {
-		PointParameteriNV = provider.getFunctionAddress("glPointParameteriNV");
-		PointParameterivNV = provider.getFunctionAddress("glPointParameterivNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVPointSprite} instance of the current context. */
-	public static NVPointSprite getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVPointSprite} instance of the specified {@link GLCapabilities}. */
-	public static NVPointSprite getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVPointSprite);
-	}
-
-	static NVPointSprite create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_point_sprite") ) return null;
-
-		NVPointSprite funcs = new NVPointSprite(provider);
-
-		boolean supported = checkFunctions(
-			funcs.PointParameteriNV, funcs.PointParameterivNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glPointParameteriNV, caps.glPointParameterivNV
 		);
-
-		return GL.checkExtension("GL_NV_point_sprite", funcs, supported);
 	}
 
 	// --- [ glPointParameteriNV ] ---
 
 	public static void glPointParameteriNV(int pname, int param) {
-		long __functionAddress = getInstance().PointParameteriNV;
+		long __functionAddress = GL.getCapabilities().glPointParameteriNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, param);
 	}
 
@@ -100,7 +74,9 @@ public class NVPointSprite {
 
 	/** Unsafe version of {@link #glPointParameterivNV PointParameterivNV} */
 	public static void nglPointParameterivNV(int pname, long params) {
-		long __functionAddress = getInstance().PointParameterivNV;
+		long __functionAddress = GL.getCapabilities().glPointParameterivNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
 

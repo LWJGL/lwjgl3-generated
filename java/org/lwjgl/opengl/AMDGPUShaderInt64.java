@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -69,139 +69,55 @@ public class AMDGPUShaderInt64 {
 		GL_FLOAT16_VEC3_NV        = 0x8FFA,
 		GL_FLOAT16_VEC4_NV        = 0x8FFB;
 
-	/** Function address. */
-	public final long
-		Uniform1i64NV,
-		Uniform2i64NV,
-		Uniform3i64NV,
-		Uniform4i64NV,
-		Uniform1i64vNV,
-		Uniform2i64vNV,
-		Uniform3i64vNV,
-		Uniform4i64vNV,
-		Uniform1ui64NV,
-		Uniform2ui64NV,
-		Uniform3ui64NV,
-		Uniform4ui64NV,
-		Uniform1ui64vNV,
-		Uniform2ui64vNV,
-		Uniform3ui64vNV,
-		Uniform4ui64vNV,
-		GetUniformi64vNV,
-		GetUniformui64vNV,
-		ProgramUniform1i64NV,
-		ProgramUniform2i64NV,
-		ProgramUniform3i64NV,
-		ProgramUniform4i64NV,
-		ProgramUniform1i64vNV,
-		ProgramUniform2i64vNV,
-		ProgramUniform3i64vNV,
-		ProgramUniform4i64vNV,
-		ProgramUniform1ui64NV,
-		ProgramUniform2ui64NV,
-		ProgramUniform3ui64NV,
-		ProgramUniform4ui64NV,
-		ProgramUniform1ui64vNV,
-		ProgramUniform2ui64vNV,
-		ProgramUniform3ui64vNV,
-		ProgramUniform4ui64vNV;
-
 	protected AMDGPUShaderInt64() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AMDGPUShaderInt64(FunctionProvider provider) {
-		Uniform1i64NV = provider.getFunctionAddress("glUniform1i64NV");
-		Uniform2i64NV = provider.getFunctionAddress("glUniform2i64NV");
-		Uniform3i64NV = provider.getFunctionAddress("glUniform3i64NV");
-		Uniform4i64NV = provider.getFunctionAddress("glUniform4i64NV");
-		Uniform1i64vNV = provider.getFunctionAddress("glUniform1i64vNV");
-		Uniform2i64vNV = provider.getFunctionAddress("glUniform2i64vNV");
-		Uniform3i64vNV = provider.getFunctionAddress("glUniform3i64vNV");
-		Uniform4i64vNV = provider.getFunctionAddress("glUniform4i64vNV");
-		Uniform1ui64NV = provider.getFunctionAddress("glUniform1ui64NV");
-		Uniform2ui64NV = provider.getFunctionAddress("glUniform2ui64NV");
-		Uniform3ui64NV = provider.getFunctionAddress("glUniform3ui64NV");
-		Uniform4ui64NV = provider.getFunctionAddress("glUniform4ui64NV");
-		Uniform1ui64vNV = provider.getFunctionAddress("glUniform1ui64vNV");
-		Uniform2ui64vNV = provider.getFunctionAddress("glUniform2ui64vNV");
-		Uniform3ui64vNV = provider.getFunctionAddress("glUniform3ui64vNV");
-		Uniform4ui64vNV = provider.getFunctionAddress("glUniform4ui64vNV");
-		GetUniformi64vNV = provider.getFunctionAddress("glGetUniformi64vNV");
-		GetUniformui64vNV = provider.getFunctionAddress("glGetUniformui64vNV");
-		ProgramUniform1i64NV = provider.getFunctionAddress("glProgramUniform1i64NV");
-		ProgramUniform2i64NV = provider.getFunctionAddress("glProgramUniform2i64NV");
-		ProgramUniform3i64NV = provider.getFunctionAddress("glProgramUniform3i64NV");
-		ProgramUniform4i64NV = provider.getFunctionAddress("glProgramUniform4i64NV");
-		ProgramUniform1i64vNV = provider.getFunctionAddress("glProgramUniform1i64vNV");
-		ProgramUniform2i64vNV = provider.getFunctionAddress("glProgramUniform2i64vNV");
-		ProgramUniform3i64vNV = provider.getFunctionAddress("glProgramUniform3i64vNV");
-		ProgramUniform4i64vNV = provider.getFunctionAddress("glProgramUniform4i64vNV");
-		ProgramUniform1ui64NV = provider.getFunctionAddress("glProgramUniform1ui64NV");
-		ProgramUniform2ui64NV = provider.getFunctionAddress("glProgramUniform2ui64NV");
-		ProgramUniform3ui64NV = provider.getFunctionAddress("glProgramUniform3ui64NV");
-		ProgramUniform4ui64NV = provider.getFunctionAddress("glProgramUniform4ui64NV");
-		ProgramUniform1ui64vNV = provider.getFunctionAddress("glProgramUniform1ui64vNV");
-		ProgramUniform2ui64vNV = provider.getFunctionAddress("glProgramUniform2ui64vNV");
-		ProgramUniform3ui64vNV = provider.getFunctionAddress("glProgramUniform3ui64vNV");
-		ProgramUniform4ui64vNV = provider.getFunctionAddress("glProgramUniform4ui64vNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AMDGPUShaderInt64} instance of the current context. */
-	public static AMDGPUShaderInt64 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link AMDGPUShaderInt64} instance of the specified {@link GLCapabilities}. */
-	public static AMDGPUShaderInt64 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__AMDGPUShaderInt64);
-	}
-
-	static AMDGPUShaderInt64 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_AMD_gpu_shader_int64") ) return null;
-
-		AMDGPUShaderInt64 funcs = new AMDGPUShaderInt64(provider);
-
-		boolean supported = checkFunctions(
-			funcs.Uniform1i64NV, funcs.Uniform2i64NV, funcs.Uniform3i64NV, funcs.Uniform4i64NV, funcs.Uniform1i64vNV, funcs.Uniform2i64vNV, 
-			funcs.Uniform3i64vNV, funcs.Uniform4i64vNV, funcs.Uniform1ui64NV, funcs.Uniform2ui64NV, funcs.Uniform3ui64NV, funcs.Uniform4ui64NV, 
-			funcs.Uniform1ui64vNV, funcs.Uniform2ui64vNV, funcs.Uniform3ui64vNV, funcs.Uniform4ui64vNV, funcs.GetUniformi64vNV, funcs.GetUniformui64vNV, 
-			funcs.ProgramUniform1i64NV, funcs.ProgramUniform2i64NV, funcs.ProgramUniform3i64NV, funcs.ProgramUniform4i64NV, funcs.ProgramUniform1i64vNV, 
-			funcs.ProgramUniform2i64vNV, funcs.ProgramUniform3i64vNV, funcs.ProgramUniform4i64vNV, funcs.ProgramUniform1ui64NV, funcs.ProgramUniform2ui64NV, 
-			funcs.ProgramUniform3ui64NV, funcs.ProgramUniform4ui64NV, funcs.ProgramUniform1ui64vNV, funcs.ProgramUniform2ui64vNV, funcs.ProgramUniform3ui64vNV, 
-			funcs.ProgramUniform4ui64vNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glUniform1i64NV, caps.glUniform2i64NV, caps.glUniform3i64NV, caps.glUniform4i64NV, caps.glUniform1i64vNV, caps.glUniform2i64vNV, 
+			caps.glUniform3i64vNV, caps.glUniform4i64vNV, caps.glUniform1ui64NV, caps.glUniform2ui64NV, caps.glUniform3ui64NV, caps.glUniform4ui64NV, 
+			caps.glUniform1ui64vNV, caps.glUniform2ui64vNV, caps.glUniform3ui64vNV, caps.glUniform4ui64vNV, caps.glGetUniformi64vNV, caps.glGetUniformui64vNV, 
+			caps.glProgramUniform1i64NV, caps.glProgramUniform2i64NV, caps.glProgramUniform3i64NV, caps.glProgramUniform4i64NV, caps.glProgramUniform1i64vNV, 
+			caps.glProgramUniform2i64vNV, caps.glProgramUniform3i64vNV, caps.glProgramUniform4i64vNV, caps.glProgramUniform1ui64NV, 
+			caps.glProgramUniform2ui64NV, caps.glProgramUniform3ui64NV, caps.glProgramUniform4ui64NV, caps.glProgramUniform1ui64vNV, 
+			caps.glProgramUniform2ui64vNV, caps.glProgramUniform3ui64vNV, caps.glProgramUniform4ui64vNV
 		);
-
-		return GL.checkExtension("GL_AMD_gpu_shader_int64", funcs, supported);
 	}
 
 	// --- [ glUniform1i64NV ] ---
 
 	public static void glUniform1i64NV(int location, long x) {
-		long __functionAddress = getInstance().Uniform1i64NV;
+		long __functionAddress = GL.getCapabilities().glUniform1i64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform2i64NV ] ---
 
 	public static void glUniform2i64NV(int location, long x, long y) {
-		long __functionAddress = getInstance().Uniform2i64NV;
+		long __functionAddress = GL.getCapabilities().glUniform2i64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform3i64NV ] ---
 
 	public static void glUniform3i64NV(int location, long x, long y, long z) {
-		long __functionAddress = getInstance().Uniform3i64NV;
+		long __functionAddress = GL.getCapabilities().glUniform3i64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform4i64NV ] ---
 
 	public static void glUniform4i64NV(int location, long x, long y, long z, long w) {
-		long __functionAddress = getInstance().Uniform4i64NV;
+		long __functionAddress = GL.getCapabilities().glUniform4i64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
@@ -209,7 +125,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glUniform1i64vNV Uniform1i64vNV} */
 	public static void nglUniform1i64vNV(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform1i64vNV;
+		long __functionAddress = GL.getCapabilities().glUniform1i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -228,7 +146,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glUniform2i64vNV Uniform2i64vNV} */
 	public static void nglUniform2i64vNV(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform2i64vNV;
+		long __functionAddress = GL.getCapabilities().glUniform2i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -247,7 +167,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glUniform3i64vNV Uniform3i64vNV} */
 	public static void nglUniform3i64vNV(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform3i64vNV;
+		long __functionAddress = GL.getCapabilities().glUniform3i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -266,7 +188,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glUniform4i64vNV Uniform4i64vNV} */
 	public static void nglUniform4i64vNV(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform4i64vNV;
+		long __functionAddress = GL.getCapabilities().glUniform4i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -284,28 +208,36 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform1ui64NV ] ---
 
 	public static void glUniform1ui64NV(int location, long x) {
-		long __functionAddress = getInstance().Uniform1ui64NV;
+		long __functionAddress = GL.getCapabilities().glUniform1ui64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform2ui64NV ] ---
 
 	public static void glUniform2ui64NV(int location, long x, long y) {
-		long __functionAddress = getInstance().Uniform2ui64NV;
+		long __functionAddress = GL.getCapabilities().glUniform2ui64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform3ui64NV ] ---
 
 	public static void glUniform3ui64NV(int location, long x, long y, long z) {
-		long __functionAddress = getInstance().Uniform3ui64NV;
+		long __functionAddress = GL.getCapabilities().glUniform3ui64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform4ui64NV ] ---
 
 	public static void glUniform4ui64NV(int location, long x, long y, long z, long w) {
-		long __functionAddress = getInstance().Uniform4ui64NV;
+		long __functionAddress = GL.getCapabilities().glUniform4ui64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
@@ -313,7 +245,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glUniform1ui64vNV Uniform1ui64vNV} */
 	public static void nglUniform1ui64vNV(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform1ui64vNV;
+		long __functionAddress = GL.getCapabilities().glUniform1ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -332,7 +266,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glUniform2ui64vNV Uniform2ui64vNV} */
 	public static void nglUniform2ui64vNV(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform2ui64vNV;
+		long __functionAddress = GL.getCapabilities().glUniform2ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -351,7 +287,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glUniform3ui64vNV Uniform3ui64vNV} */
 	public static void nglUniform3ui64vNV(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform3ui64vNV;
+		long __functionAddress = GL.getCapabilities().glUniform3ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -370,7 +308,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glUniform4ui64vNV Uniform4ui64vNV} */
 	public static void nglUniform4ui64vNV(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform4ui64vNV;
+		long __functionAddress = GL.getCapabilities().glUniform4ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -389,7 +329,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glGetUniformi64vNV GetUniformi64vNV} */
 	public static void nglGetUniformi64vNV(int program, int location, long params) {
-		long __functionAddress = getInstance().GetUniformi64vNV;
+		long __functionAddress = GL.getCapabilities().glGetUniformi64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, location, params);
 	}
 
@@ -408,17 +350,23 @@ public class AMDGPUShaderInt64 {
 
 	/** Single return value version of: {@link #glGetUniformi64vNV GetUniformi64vNV} */
 	public static long glGetUniformi64NV(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetUniformi64vNV(program, location, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetUniformi64vNV(program, location, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetUniformui64vNV ] ---
 
 	/** Unsafe version of {@link #glGetUniformui64vNV GetUniformui64vNV} */
 	public static void nglGetUniformui64vNV(int program, int location, long params) {
-		long __functionAddress = getInstance().GetUniformui64vNV;
+		long __functionAddress = GL.getCapabilities().glGetUniformui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, location, params);
 	}
 
@@ -437,37 +385,49 @@ public class AMDGPUShaderInt64 {
 
 	/** Single return value version of: {@link #glGetUniformui64vNV GetUniformui64vNV} */
 	public static long glGetUniformui64NV(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetUniformui64vNV(program, location, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetUniformui64vNV(program, location, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glProgramUniform1i64NV ] ---
 
 	public static void glProgramUniform1i64NV(int program, int location, long x) {
-		long __functionAddress = getInstance().ProgramUniform1i64NV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform1i64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2i64NV ] ---
 
 	public static void glProgramUniform2i64NV(int program, int location, long x, long y) {
-		long __functionAddress = getInstance().ProgramUniform2i64NV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform2i64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3i64NV ] ---
 
 	public static void glProgramUniform3i64NV(int program, int location, long x, long y, long z) {
-		long __functionAddress = getInstance().ProgramUniform3i64NV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform3i64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4i64NV ] ---
 
 	public static void glProgramUniform4i64NV(int program, int location, long x, long y, long z, long w) {
-		long __functionAddress = getInstance().ProgramUniform4i64NV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform4i64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
@@ -475,7 +435,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glProgramUniform1i64vNV ProgramUniform1i64vNV} */
 	public static void nglProgramUniform1i64vNV(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform1i64vNV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform1i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -494,7 +456,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glProgramUniform2i64vNV ProgramUniform2i64vNV} */
 	public static void nglProgramUniform2i64vNV(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform2i64vNV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform2i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -513,7 +477,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glProgramUniform3i64vNV ProgramUniform3i64vNV} */
 	public static void nglProgramUniform3i64vNV(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform3i64vNV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform3i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -532,7 +498,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glProgramUniform4i64vNV ProgramUniform4i64vNV} */
 	public static void nglProgramUniform4i64vNV(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform4i64vNV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform4i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -550,28 +518,36 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform1ui64NV ] ---
 
 	public static void glProgramUniform1ui64NV(int program, int location, long x) {
-		long __functionAddress = getInstance().ProgramUniform1ui64NV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform1ui64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2ui64NV ] ---
 
 	public static void glProgramUniform2ui64NV(int program, int location, long x, long y) {
-		long __functionAddress = getInstance().ProgramUniform2ui64NV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform2ui64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3ui64NV ] ---
 
 	public static void glProgramUniform3ui64NV(int program, int location, long x, long y, long z) {
-		long __functionAddress = getInstance().ProgramUniform3ui64NV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform3ui64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4ui64NV ] ---
 
 	public static void glProgramUniform4ui64NV(int program, int location, long x, long y, long z, long w) {
-		long __functionAddress = getInstance().ProgramUniform4ui64NV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform4ui64NV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
@@ -579,7 +555,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glProgramUniform1ui64vNV ProgramUniform1ui64vNV} */
 	public static void nglProgramUniform1ui64vNV(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform1ui64vNV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform1ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -598,7 +576,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glProgramUniform2ui64vNV ProgramUniform2ui64vNV} */
 	public static void nglProgramUniform2ui64vNV(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform2ui64vNV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform2ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -617,7 +597,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glProgramUniform3ui64vNV ProgramUniform3ui64vNV} */
 	public static void nglProgramUniform3ui64vNV(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform3ui64vNV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform3ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -636,7 +618,9 @@ public class AMDGPUShaderInt64 {
 
 	/** Unsafe version of {@link #glProgramUniform4ui64vNV ProgramUniform4ui64vNV} */
 	public static void nglProgramUniform4ui64vNV(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform4ui64vNV;
+		long __functionAddress = GL.getCapabilities().glProgramUniform4ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 

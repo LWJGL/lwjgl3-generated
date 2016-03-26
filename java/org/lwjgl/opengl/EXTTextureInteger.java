@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -109,64 +109,32 @@ public class EXTTextureInteger {
 		GL_LUMINANCE_INTEGER_EXT       = 0x8D9C,
 		GL_LUMINANCE_ALPHA_INTEGER_EXT = 0x8D9D;
 
-	/** Function address. */
-	public final long
-		ClearColorIiEXT,
-		ClearColorIuiEXT,
-		TexParameterIivEXT,
-		TexParameterIuivEXT,
-		GetTexParameterIivEXT,
-		GetTexParameterIuivEXT;
-
 	protected EXTTextureInteger() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTTextureInteger(FunctionProvider provider) {
-		ClearColorIiEXT = provider.getFunctionAddress("glClearColorIiEXT");
-		ClearColorIuiEXT = provider.getFunctionAddress("glClearColorIuiEXT");
-		TexParameterIivEXT = provider.getFunctionAddress("glTexParameterIivEXT");
-		TexParameterIuivEXT = provider.getFunctionAddress("glTexParameterIuivEXT");
-		GetTexParameterIivEXT = provider.getFunctionAddress("glGetTexParameterIivEXT");
-		GetTexParameterIuivEXT = provider.getFunctionAddress("glGetTexParameterIuivEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTTextureInteger} instance of the current context. */
-	public static EXTTextureInteger getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTTextureInteger} instance of the specified {@link GLCapabilities}. */
-	public static EXTTextureInteger getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTTextureInteger);
-	}
-
-	static EXTTextureInteger create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_texture_integer") ) return null;
-
-		EXTTextureInteger funcs = new EXTTextureInteger(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ClearColorIiEXT, funcs.ClearColorIuiEXT, funcs.TexParameterIivEXT, funcs.TexParameterIuivEXT, funcs.GetTexParameterIivEXT, 
-			funcs.GetTexParameterIuivEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glClearColorIiEXT, caps.glClearColorIuiEXT, caps.glTexParameterIivEXT, caps.glTexParameterIuivEXT, caps.glGetTexParameterIivEXT, 
+			caps.glGetTexParameterIuivEXT
 		);
-
-		return GL.checkExtension("GL_EXT_texture_integer", funcs, supported);
 	}
 
 	// --- [ glClearColorIiEXT ] ---
 
 	public static void glClearColorIiEXT(int r, int g, int b, int a) {
-		long __functionAddress = getInstance().ClearColorIiEXT;
+		long __functionAddress = GL.getCapabilities().glClearColorIiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, r, g, b, a);
 	}
 
 	// --- [ glClearColorIuiEXT ] ---
 
 	public static void glClearColorIuiEXT(int r, int g, int b, int a) {
-		long __functionAddress = getInstance().ClearColorIuiEXT;
+		long __functionAddress = GL.getCapabilities().glClearColorIuiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, r, g, b, a);
 	}
 
@@ -174,7 +142,9 @@ public class EXTTextureInteger {
 
 	/** Unsafe version of {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	public static void nglTexParameterIivEXT(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexParameterIivEXT;
+		long __functionAddress = GL.getCapabilities().glTexParameterIivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -193,16 +163,22 @@ public class EXTTextureInteger {
 
 	/** Single value version of: {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	public static void glTexParameterIiEXT(int target, int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		nglTexParameterIivEXT(target, pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			nglTexParameterIivEXT(target, pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glTexParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	public static void nglTexParameterIuivEXT(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexParameterIuivEXT;
+		long __functionAddress = GL.getCapabilities().glTexParameterIuivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -221,16 +197,22 @@ public class EXTTextureInteger {
 
 	/** Single value version of: {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	public static void glTexParameterIuiEXT(int target, int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		nglTexParameterIuivEXT(target, pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			nglTexParameterIuivEXT(target, pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexParameterIivEXT ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static void nglGetTexParameterIivEXT(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetTexParameterIivEXT;
+		long __functionAddress = GL.getCapabilities().glGetTexParameterIivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -249,17 +231,23 @@ public class EXTTextureInteger {
 
 	/** Single return value version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static int glGetTexParameterIiEXT(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTexParameterIivEXT(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTexParameterIivEXT(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexParameterIuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static void nglGetTexParameterIuivEXT(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetTexParameterIuivEXT;
+		long __functionAddress = GL.getCapabilities().glGetTexParameterIuivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -278,10 +266,14 @@ public class EXTTextureInteger {
 
 	/** Single return value version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static int glGetTexParameterIuiEXT(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTexParameterIuivEXT(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTexParameterIuivEXT(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

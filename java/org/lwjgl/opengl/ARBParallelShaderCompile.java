@@ -27,39 +27,14 @@ public class ARBParallelShaderCompile {
 	/** Accepted as part of the {@code pname} parameter to GetShaderiv() and accepted as part of the {@code pname} parameter to GetProgramiv(). */
 	public static final int GL_COMPLETION_STATUS_ARB = 0x91B1;
 
-	/** Function address. */
-	public final long MaxShaderCompilerThreadsARB;
-
 	protected ARBParallelShaderCompile() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBParallelShaderCompile(FunctionProvider provider) {
-		MaxShaderCompilerThreadsARB = provider.getFunctionAddress("glMaxShaderCompilerThreadsARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBParallelShaderCompile} instance of the current context. */
-	public static ARBParallelShaderCompile getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBParallelShaderCompile} instance of the specified {@link GLCapabilities}. */
-	public static ARBParallelShaderCompile getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBParallelShaderCompile);
-	}
-
-	static ARBParallelShaderCompile create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_parallel_shader_compile") ) return null;
-
-		ARBParallelShaderCompile funcs = new ARBParallelShaderCompile(provider);
-
-		boolean supported = checkFunctions(
-			funcs.MaxShaderCompilerThreadsARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glMaxShaderCompilerThreadsARB
 		);
-
-		return GL.checkExtension("GL_ARB_parallel_shader_compile", funcs, supported);
 	}
 
 	// --- [ glMaxShaderCompilerThreadsARB ] ---
@@ -77,7 +52,9 @@ public class ARBParallelShaderCompile {
 	 *              {@code 0xFFFFFFFF} requests an implementation-specific maximum.
 	 */
 	public static void glMaxShaderCompilerThreadsARB(int count) {
-		long __functionAddress = getInstance().MaxShaderCompilerThreadsARB;
+		long __functionAddress = GL.getCapabilities().glMaxShaderCompilerThreadsARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, count);
 	}
 

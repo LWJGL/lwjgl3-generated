@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -71,147 +71,40 @@ public class EXTSeparateShaderObjects {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
 	public static final int GL_PROGRAM_PIPELINE_BINDING_EXT = 0x825A;
 
-	/** Function address. */
-	public final long
-		ActiveShaderProgramEXT,
-		BindProgramPipelineEXT,
-		CreateShaderProgramvEXT,
-		DeleteProgramPipelinesEXT,
-		GenProgramPipelinesEXT,
-		GetProgramPipelineInfoLogEXT,
-		GetProgramPipelineivEXT,
-		IsProgramPipelineEXT,
-		ProgramParameteriEXT,
-		ProgramUniform1fEXT,
-		ProgramUniform1fvEXT,
-		ProgramUniform1iEXT,
-		ProgramUniform1ivEXT,
-		ProgramUniform2fEXT,
-		ProgramUniform2fvEXT,
-		ProgramUniform2iEXT,
-		ProgramUniform2ivEXT,
-		ProgramUniform3fEXT,
-		ProgramUniform3fvEXT,
-		ProgramUniform3iEXT,
-		ProgramUniform3ivEXT,
-		ProgramUniform4fEXT,
-		ProgramUniform4fvEXT,
-		ProgramUniform4iEXT,
-		ProgramUniform4ivEXT,
-		ProgramUniformMatrix2fvEXT,
-		ProgramUniformMatrix3fvEXT,
-		ProgramUniformMatrix4fvEXT,
-		UseProgramStagesEXT,
-		ValidateProgramPipelineEXT,
-		ProgramUniform1uiEXT,
-		ProgramUniform2uiEXT,
-		ProgramUniform3uiEXT,
-		ProgramUniform4uiEXT,
-		ProgramUniform1uivEXT,
-		ProgramUniform2uivEXT,
-		ProgramUniform3uivEXT,
-		ProgramUniform4uivEXT,
-		ProgramUniformMatrix2x3fvEXT,
-		ProgramUniformMatrix3x2fvEXT,
-		ProgramUniformMatrix2x4fvEXT,
-		ProgramUniformMatrix4x2fvEXT,
-		ProgramUniformMatrix3x4fvEXT,
-		ProgramUniformMatrix4x3fvEXT;
-
 	protected EXTSeparateShaderObjects() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTSeparateShaderObjects(FunctionProvider provider) {
-		ActiveShaderProgramEXT = provider.getFunctionAddress("glActiveShaderProgramEXT");
-		BindProgramPipelineEXT = provider.getFunctionAddress("glBindProgramPipelineEXT");
-		CreateShaderProgramvEXT = provider.getFunctionAddress("glCreateShaderProgramvEXT");
-		DeleteProgramPipelinesEXT = provider.getFunctionAddress("glDeleteProgramPipelinesEXT");
-		GenProgramPipelinesEXT = provider.getFunctionAddress("glGenProgramPipelinesEXT");
-		GetProgramPipelineInfoLogEXT = provider.getFunctionAddress("glGetProgramPipelineInfoLogEXT");
-		GetProgramPipelineivEXT = provider.getFunctionAddress("glGetProgramPipelineivEXT");
-		IsProgramPipelineEXT = provider.getFunctionAddress("glIsProgramPipelineEXT");
-		ProgramParameteriEXT = provider.getFunctionAddress("glProgramParameteriEXT");
-		ProgramUniform1fEXT = provider.getFunctionAddress("glProgramUniform1fEXT");
-		ProgramUniform1fvEXT = provider.getFunctionAddress("glProgramUniform1fvEXT");
-		ProgramUniform1iEXT = provider.getFunctionAddress("glProgramUniform1iEXT");
-		ProgramUniform1ivEXT = provider.getFunctionAddress("glProgramUniform1ivEXT");
-		ProgramUniform2fEXT = provider.getFunctionAddress("glProgramUniform2fEXT");
-		ProgramUniform2fvEXT = provider.getFunctionAddress("glProgramUniform2fvEXT");
-		ProgramUniform2iEXT = provider.getFunctionAddress("glProgramUniform2iEXT");
-		ProgramUniform2ivEXT = provider.getFunctionAddress("glProgramUniform2ivEXT");
-		ProgramUniform3fEXT = provider.getFunctionAddress("glProgramUniform3fEXT");
-		ProgramUniform3fvEXT = provider.getFunctionAddress("glProgramUniform3fvEXT");
-		ProgramUniform3iEXT = provider.getFunctionAddress("glProgramUniform3iEXT");
-		ProgramUniform3ivEXT = provider.getFunctionAddress("glProgramUniform3ivEXT");
-		ProgramUniform4fEXT = provider.getFunctionAddress("glProgramUniform4fEXT");
-		ProgramUniform4fvEXT = provider.getFunctionAddress("glProgramUniform4fvEXT");
-		ProgramUniform4iEXT = provider.getFunctionAddress("glProgramUniform4iEXT");
-		ProgramUniform4ivEXT = provider.getFunctionAddress("glProgramUniform4ivEXT");
-		ProgramUniformMatrix2fvEXT = provider.getFunctionAddress("glProgramUniformMatrix2fvEXT");
-		ProgramUniformMatrix3fvEXT = provider.getFunctionAddress("glProgramUniformMatrix3fvEXT");
-		ProgramUniformMatrix4fvEXT = provider.getFunctionAddress("glProgramUniformMatrix4fvEXT");
-		UseProgramStagesEXT = provider.getFunctionAddress("glUseProgramStagesEXT");
-		ValidateProgramPipelineEXT = provider.getFunctionAddress("glValidateProgramPipelineEXT");
-		ProgramUniform1uiEXT = provider.getFunctionAddress("glProgramUniform1uiEXT");
-		ProgramUniform2uiEXT = provider.getFunctionAddress("glProgramUniform2uiEXT");
-		ProgramUniform3uiEXT = provider.getFunctionAddress("glProgramUniform3uiEXT");
-		ProgramUniform4uiEXT = provider.getFunctionAddress("glProgramUniform4uiEXT");
-		ProgramUniform1uivEXT = provider.getFunctionAddress("glProgramUniform1uivEXT");
-		ProgramUniform2uivEXT = provider.getFunctionAddress("glProgramUniform2uivEXT");
-		ProgramUniform3uivEXT = provider.getFunctionAddress("glProgramUniform3uivEXT");
-		ProgramUniform4uivEXT = provider.getFunctionAddress("glProgramUniform4uivEXT");
-		ProgramUniformMatrix2x3fvEXT = provider.getFunctionAddress("glProgramUniformMatrix2x3fvEXT");
-		ProgramUniformMatrix3x2fvEXT = provider.getFunctionAddress("glProgramUniformMatrix3x2fvEXT");
-		ProgramUniformMatrix2x4fvEXT = provider.getFunctionAddress("glProgramUniformMatrix2x4fvEXT");
-		ProgramUniformMatrix4x2fvEXT = provider.getFunctionAddress("glProgramUniformMatrix4x2fvEXT");
-		ProgramUniformMatrix3x4fvEXT = provider.getFunctionAddress("glProgramUniformMatrix3x4fvEXT");
-		ProgramUniformMatrix4x3fvEXT = provider.getFunctionAddress("glProgramUniformMatrix4x3fvEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTSeparateShaderObjects} instance of the current context. */
-	public static EXTSeparateShaderObjects getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTSeparateShaderObjects} instance of the specified {@link GLESCapabilities}. */
-	public static EXTSeparateShaderObjects getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTSeparateShaderObjects);
-	}
-
-	static EXTSeparateShaderObjects create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_separate_shader_objects") ) return null;
-
-		EXTSeparateShaderObjects funcs = new EXTSeparateShaderObjects(provider);
-		boolean supported = checkFunctions(
-			funcs.ActiveShaderProgramEXT, funcs.BindProgramPipelineEXT, funcs.CreateShaderProgramvEXT, funcs.DeleteProgramPipelinesEXT, 
-			funcs.GenProgramPipelinesEXT, funcs.GetProgramPipelineInfoLogEXT, funcs.GetProgramPipelineivEXT, funcs.IsProgramPipelineEXT, 
-			funcs.ProgramParameteriEXT, funcs.ProgramUniform1fEXT, funcs.ProgramUniform1fvEXT, funcs.ProgramUniform1iEXT, funcs.ProgramUniform1ivEXT, 
-			funcs.ProgramUniform2fEXT, funcs.ProgramUniform2fvEXT, funcs.ProgramUniform2iEXT, funcs.ProgramUniform2ivEXT, funcs.ProgramUniform3fEXT, 
-			funcs.ProgramUniform3fvEXT, funcs.ProgramUniform3iEXT, funcs.ProgramUniform3ivEXT, funcs.ProgramUniform4fEXT, funcs.ProgramUniform4fvEXT, 
-			funcs.ProgramUniform4iEXT, funcs.ProgramUniform4ivEXT, funcs.ProgramUniformMatrix2fvEXT, funcs.ProgramUniformMatrix3fvEXT, 
-			funcs.ProgramUniformMatrix4fvEXT, funcs.UseProgramStagesEXT, funcs.ValidateProgramPipelineEXT, funcs.ProgramUniform1uiEXT, 
-			funcs.ProgramUniform2uiEXT, funcs.ProgramUniform3uiEXT, funcs.ProgramUniform4uiEXT, funcs.ProgramUniform1uivEXT, funcs.ProgramUniform2uivEXT, 
-			funcs.ProgramUniform3uivEXT, funcs.ProgramUniform4uivEXT, funcs.ProgramUniformMatrix2x3fvEXT, funcs.ProgramUniformMatrix3x2fvEXT, 
-			funcs.ProgramUniformMatrix2x4fvEXT, funcs.ProgramUniformMatrix4x2fvEXT, funcs.ProgramUniformMatrix3x4fvEXT, funcs.ProgramUniformMatrix4x3fvEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glActiveShaderProgramEXT, caps.glBindProgramPipelineEXT, caps.glCreateShaderProgramvEXT, caps.glDeleteProgramPipelinesEXT, 
+			caps.glGenProgramPipelinesEXT, caps.glGetProgramPipelineInfoLogEXT, caps.glGetProgramPipelineivEXT, caps.glIsProgramPipelineEXT, 
+			caps.glProgramParameteriEXT, caps.glProgramUniform1fEXT, caps.glProgramUniform1fvEXT, caps.glProgramUniform1iEXT, caps.glProgramUniform1ivEXT, 
+			caps.glProgramUniform2fEXT, caps.glProgramUniform2fvEXT, caps.glProgramUniform2iEXT, caps.glProgramUniform2ivEXT, caps.glProgramUniform3fEXT, 
+			caps.glProgramUniform3fvEXT, caps.glProgramUniform3iEXT, caps.glProgramUniform3ivEXT, caps.glProgramUniform4fEXT, caps.glProgramUniform4fvEXT, 
+			caps.glProgramUniform4iEXT, caps.glProgramUniform4ivEXT, caps.glProgramUniformMatrix2fvEXT, caps.glProgramUniformMatrix3fvEXT, 
+			caps.glProgramUniformMatrix4fvEXT, caps.glUseProgramStagesEXT, caps.glValidateProgramPipelineEXT, caps.glProgramUniform1uiEXT, 
+			caps.glProgramUniform2uiEXT, caps.glProgramUniform3uiEXT, caps.glProgramUniform4uiEXT, caps.glProgramUniform1uivEXT, caps.glProgramUniform2uivEXT, 
+			caps.glProgramUniform3uivEXT, caps.glProgramUniform4uivEXT, caps.glProgramUniformMatrix2x3fvEXT, caps.glProgramUniformMatrix3x2fvEXT, 
+			caps.glProgramUniformMatrix2x4fvEXT, caps.glProgramUniformMatrix4x2fvEXT, caps.glProgramUniformMatrix3x4fvEXT, caps.glProgramUniformMatrix4x3fvEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_separate_shader_objects", funcs, supported);
 	}
 
 	// --- [ glActiveShaderProgramEXT ] ---
 
 	public static void glActiveShaderProgramEXT(int pipeline, int program) {
-		long __functionAddress = getInstance().ActiveShaderProgramEXT;
+		long __functionAddress = GLES.getCapabilities().glActiveShaderProgramEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pipeline, program);
 	}
 
 	// --- [ glBindProgramPipelineEXT ] ---
 
 	public static void glBindProgramPipelineEXT(int pipeline) {
-		long __functionAddress = getInstance().BindProgramPipelineEXT;
+		long __functionAddress = GLES.getCapabilities().glBindProgramPipelineEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, pipeline);
 	}
 
@@ -219,7 +112,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
 	public static int nglCreateShaderProgramvEXT(int type, int count, long strings) {
-		long __functionAddress = getInstance().CreateShaderProgramvEXT;
+		long __functionAddress = GLES.getCapabilities().glCreateShaderProgramvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, type, count, strings);
 	}
 
@@ -236,23 +131,27 @@ public class EXTSeparateShaderObjects {
 
 	/** Array version of: {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
 	public static int glCreateShaderProgramvEXT(int type, CharSequence... strings) {
-		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParamUTF8(strings);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			return nglCreateShaderProgramvEXT(type, strings.length, __buffer.address(stringsAddress));
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8(stack, strings);
+			int __result = nglCreateShaderProgramvEXT(type, strings.length, stringsAddress);
+			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, strings.length);
+			return __result;
 		} finally {
-			__buffer.pointerArrayFree(stringsAddress, strings.length);
+			stack.setPointer(stackPointer);
 		}
 	}
 
 	/** Single string version of: {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
 	public static int glCreateShaderProgramvEXT(int type, CharSequence string) {
-		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParamUTF8(string);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			return nglCreateShaderProgramvEXT(type, 1, __buffer.address(stringsAddress));
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8(stack, string);
+			int __result = nglCreateShaderProgramvEXT(type, 1, stringsAddress);
+			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, 1);
+			return __result;
 		} finally {
-			__buffer.pointerArrayFree(stringsAddress, 1);
+			stack.setPointer(stackPointer);
 		}
 	}
 
@@ -260,7 +159,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glDeleteProgramPipelinesEXT DeleteProgramPipelinesEXT} */
 	public static void nglDeleteProgramPipelinesEXT(int n, long pipelines) {
-		long __functionAddress = getInstance().DeleteProgramPipelinesEXT;
+		long __functionAddress = GLES.getCapabilities().glDeleteProgramPipelinesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, pipelines);
 	}
 
@@ -277,16 +178,22 @@ public class EXTSeparateShaderObjects {
 
 	/** Single value version of: {@link #glDeleteProgramPipelinesEXT DeleteProgramPipelinesEXT} */
 	public static void glDeleteProgramPipelinesEXT(int pipeline) {
-		APIBuffer __buffer = apiBuffer();
-		int pipelines = __buffer.intParam(pipeline);
-		nglDeleteProgramPipelinesEXT(1, __buffer.address(pipelines));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer pipelines = stack.ints(pipeline);
+			nglDeleteProgramPipelinesEXT(1, memAddress(pipelines));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenProgramPipelinesEXT ] ---
 
 	/** Unsafe version of {@link #glGenProgramPipelinesEXT GenProgramPipelinesEXT} */
 	public static void nglGenProgramPipelinesEXT(int n, long pipelines) {
-		long __functionAddress = getInstance().GenProgramPipelinesEXT;
+		long __functionAddress = GLES.getCapabilities().glGenProgramPipelinesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, pipelines);
 	}
 
@@ -303,17 +210,23 @@ public class EXTSeparateShaderObjects {
 
 	/** Single return value version of: {@link #glGenProgramPipelinesEXT GenProgramPipelinesEXT} */
 	public static int glGenProgramPipelinesEXT() {
-		APIBuffer __buffer = apiBuffer();
-		int pipelines = __buffer.intParam();
-		nglGenProgramPipelinesEXT(1, __buffer.address(pipelines));
-		return __buffer.intValue(pipelines);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer pipelines = stack.callocInt(1);
+			nglGenProgramPipelinesEXT(1, memAddress(pipelines));
+			return pipelines.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramPipelineInfoLogEXT ] ---
 
 	/** Unsafe version of {@link #glGetProgramPipelineInfoLogEXT GetProgramPipelineInfoLogEXT} */
 	public static void nglGetProgramPipelineInfoLogEXT(int pipeline, int bufSize, long length, long infoLog) {
-		long __functionAddress = getInstance().GetProgramPipelineInfoLogEXT;
+		long __functionAddress = GLES.getCapabilities().glGetProgramPipelineInfoLogEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, pipeline, bufSize, length, infoLog);
 	}
 
@@ -334,28 +247,40 @@ public class EXTSeparateShaderObjects {
 
 	/** String return version of: {@link #glGetProgramPipelineInfoLogEXT GetProgramPipelineInfoLogEXT} */
 	public static String glGetProgramPipelineInfoLogEXT(int pipeline, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int infoLog = __buffer.bufferParam(bufSize);
-		nglGetProgramPipelineInfoLogEXT(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		ByteBuffer infoLog = memAlloc(bufSize);
+		try {
+			IntBuffer length = stack.ints(0);
+			nglGetProgramPipelineInfoLogEXT(pipeline, bufSize, memAddress(length), memAddress(infoLog));
+			return memUTF8(infoLog, length.get(0));
+		} finally {
+			memFree(infoLog);
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramPipelineInfoLogEXT GetProgramPipelineInfoLogEXT} */
 	public static String glGetProgramPipelineInfoLogEXT(int pipeline) {
 		int bufSize = glGetProgramPipelineiEXT(pipeline, GLES20.GL_INFO_LOG_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int infoLog = __buffer.bufferParam(bufSize);
-		nglGetProgramPipelineInfoLogEXT(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		ByteBuffer infoLog = memAlloc(bufSize);
+		try {
+			IntBuffer length = stack.ints(0);
+			nglGetProgramPipelineInfoLogEXT(pipeline, bufSize, memAddress(length), memAddress(infoLog));
+			return memUTF8(infoLog, length.get(0));
+		} finally {
+			memFree(infoLog);
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramPipelineivEXT ] ---
 
 	/** Unsafe version of {@link #glGetProgramPipelineivEXT GetProgramPipelineivEXT} */
 	public static void nglGetProgramPipelineivEXT(int pipeline, int pname, long params) {
-		long __functionAddress = getInstance().GetProgramPipelineivEXT;
+		long __functionAddress = GLES.getCapabilities().glGetProgramPipelineivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, pipeline, pname, params);
 	}
 
@@ -374,30 +299,40 @@ public class EXTSeparateShaderObjects {
 
 	/** Single return value version of: {@link #glGetProgramPipelineivEXT GetProgramPipelineivEXT} */
 	public static int glGetProgramPipelineiEXT(int pipeline, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetProgramPipelineivEXT(pipeline, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetProgramPipelineivEXT(pipeline, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsProgramPipelineEXT ] ---
 
 	public static boolean glIsProgramPipelineEXT(int pipeline) {
-		long __functionAddress = getInstance().IsProgramPipelineEXT;
+		long __functionAddress = GLES.getCapabilities().glIsProgramPipelineEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, pipeline);
 	}
 
 	// --- [ glProgramParameteriEXT ] ---
 
 	public static void glProgramParameteriEXT(int program, int pname, int value) {
-		long __functionAddress = getInstance().ProgramParameteriEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramParameteriEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, program, pname, value);
 	}
 
 	// --- [ glProgramUniform1fEXT ] ---
 
 	public static void glProgramUniform1fEXT(int program, int location, float v0) {
-		long __functionAddress = getInstance().ProgramUniform1fEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1fEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIFV(__functionAddress, program, location, v0);
 	}
 
@@ -405,7 +340,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform1fvEXT ProgramUniform1fvEXT} */
 	public static void nglProgramUniform1fvEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform1fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -423,7 +360,9 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform1iEXT ] ---
 
 	public static void glProgramUniform1iEXT(int program, int location, int v0) {
-		long __functionAddress = getInstance().ProgramUniform1iEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1iEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, program, location, v0);
 	}
 
@@ -431,7 +370,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform1ivEXT ProgramUniform1ivEXT} */
 	public static void nglProgramUniform1ivEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform1ivEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1ivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -449,7 +390,9 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform2fEXT ] ---
 
 	public static void glProgramUniform2fEXT(int program, int location, float v0, float v1) {
-		long __functionAddress = getInstance().ProgramUniform2fEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2fEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIFFV(__functionAddress, program, location, v0, v1);
 	}
 
@@ -457,7 +400,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform2fvEXT ProgramUniform2fvEXT} */
 	public static void nglProgramUniform2fvEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform2fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -475,7 +420,9 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform2iEXT ] ---
 
 	public static void glProgramUniform2iEXT(int program, int location, int v0, int v1) {
-		long __functionAddress = getInstance().ProgramUniform2iEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2iEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, program, location, v0, v1);
 	}
 
@@ -483,7 +430,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform2ivEXT ProgramUniform2ivEXT} */
 	public static void nglProgramUniform2ivEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform2ivEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2ivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -501,7 +450,9 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform3fEXT ] ---
 
 	public static void glProgramUniform3fEXT(int program, int location, float v0, float v1, float v2) {
-		long __functionAddress = getInstance().ProgramUniform3fEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3fEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIFFFV(__functionAddress, program, location, v0, v1, v2);
 	}
 
@@ -509,7 +460,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform3fvEXT ProgramUniform3fvEXT} */
 	public static void nglProgramUniform3fvEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform3fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -527,7 +480,9 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform3iEXT ] ---
 
 	public static void glProgramUniform3iEXT(int program, int location, int v0, int v1, int v2) {
-		long __functionAddress = getInstance().ProgramUniform3iEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3iEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, program, location, v0, v1, v2);
 	}
 
@@ -535,7 +490,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform3ivEXT ProgramUniform3ivEXT} */
 	public static void nglProgramUniform3ivEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform3ivEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3ivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -553,7 +510,9 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform4fEXT ] ---
 
 	public static void glProgramUniform4fEXT(int program, int location, float v0, float v1, float v2, float v3) {
-		long __functionAddress = getInstance().ProgramUniform4fEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4fEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIFFFFV(__functionAddress, program, location, v0, v1, v2, v3);
 	}
 
@@ -561,7 +520,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform4fvEXT ProgramUniform4fvEXT} */
 	public static void nglProgramUniform4fvEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform4fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -579,7 +540,9 @@ public class EXTSeparateShaderObjects {
 	// --- [ glProgramUniform4iEXT ] ---
 
 	public static void glProgramUniform4iEXT(int program, int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = getInstance().ProgramUniform4iEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4iEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, program, location, v0, v1, v2, v3);
 	}
 
@@ -587,7 +550,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform4ivEXT ProgramUniform4ivEXT} */
 	public static void nglProgramUniform4ivEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform4ivEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4ivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -606,7 +571,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2fvEXT ProgramUniformMatrix2fvEXT} */
 	public static void nglProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().ProgramUniformMatrix2fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix2fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
@@ -625,7 +592,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3fvEXT ProgramUniformMatrix3fvEXT} */
 	public static void nglProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().ProgramUniformMatrix3fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix3fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
@@ -644,7 +613,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4fvEXT ProgramUniformMatrix4fvEXT} */
 	public static void nglProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().ProgramUniformMatrix4fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix4fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
@@ -662,42 +633,54 @@ public class EXTSeparateShaderObjects {
 	// --- [ glUseProgramStagesEXT ] ---
 
 	public static void glUseProgramStagesEXT(int pipeline, int stages, int program) {
-		long __functionAddress = getInstance().UseProgramStagesEXT;
+		long __functionAddress = GLES.getCapabilities().glUseProgramStagesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, pipeline, stages, program);
 	}
 
 	// --- [ glValidateProgramPipelineEXT ] ---
 
 	public static void glValidateProgramPipelineEXT(int pipeline) {
-		long __functionAddress = getInstance().ValidateProgramPipelineEXT;
+		long __functionAddress = GLES.getCapabilities().glValidateProgramPipelineEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, pipeline);
 	}
 
 	// --- [ glProgramUniform1uiEXT ] ---
 
 	public static void glProgramUniform1uiEXT(int program, int location, int v0) {
-		long __functionAddress = getInstance().ProgramUniform1uiEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, program, location, v0);
 	}
 
 	// --- [ glProgramUniform2uiEXT ] ---
 
 	public static void glProgramUniform2uiEXT(int program, int location, int v0, int v1) {
-		long __functionAddress = getInstance().ProgramUniform2uiEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, program, location, v0, v1);
 	}
 
 	// --- [ glProgramUniform3uiEXT ] ---
 
 	public static void glProgramUniform3uiEXT(int program, int location, int v0, int v1, int v2) {
-		long __functionAddress = getInstance().ProgramUniform3uiEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, program, location, v0, v1, v2);
 	}
 
 	// --- [ glProgramUniform4uiEXT ] ---
 
 	public static void glProgramUniform4uiEXT(int program, int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = getInstance().ProgramUniform4uiEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4uiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, program, location, v0, v1, v2, v3);
 	}
 
@@ -705,7 +688,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform1uivEXT ProgramUniform1uivEXT} */
 	public static void nglProgramUniform1uivEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform1uivEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -724,7 +709,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform2uivEXT ProgramUniform2uivEXT} */
 	public static void nglProgramUniform2uivEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform2uivEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -743,7 +730,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform3uivEXT ProgramUniform3uivEXT} */
 	public static void nglProgramUniform3uivEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform3uivEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -762,7 +751,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniform4uivEXT ProgramUniform4uivEXT} */
 	public static void nglProgramUniform4uivEXT(int program, int location, int count, long value) {
-		long __functionAddress = getInstance().ProgramUniform4uivEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
@@ -781,7 +772,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x3fvEXT ProgramUniformMatrix2x3fvEXT} */
 	public static void nglProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().ProgramUniformMatrix2x3fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix2x3fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
@@ -800,7 +793,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x2fvEXT ProgramUniformMatrix3x2fvEXT} */
 	public static void nglProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().ProgramUniformMatrix3x2fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix3x2fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
@@ -819,7 +814,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniformMatrix2x4fvEXT ProgramUniformMatrix2x4fvEXT} */
 	public static void nglProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().ProgramUniformMatrix2x4fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix2x4fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
@@ -838,7 +835,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x2fvEXT ProgramUniformMatrix4x2fvEXT} */
 	public static void nglProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().ProgramUniformMatrix4x2fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix4x2fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
@@ -857,7 +856,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniformMatrix3x4fvEXT ProgramUniformMatrix3x4fvEXT} */
 	public static void nglProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().ProgramUniformMatrix3x4fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix3x4fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
@@ -876,7 +877,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glProgramUniformMatrix4x3fvEXT ProgramUniformMatrix4x3fvEXT} */
 	public static void nglProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().ProgramUniformMatrix4x3fvEXT;
+		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix4x3fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 

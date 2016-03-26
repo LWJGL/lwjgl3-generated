@@ -25,92 +25,68 @@ public class NVTextureMultisample {
 		GL_TEXTURE_COVERAGE_SAMPLES_NV = 0x9045,
 		GL_TEXTURE_COLOR_SAMPLES_NV    = 0x9046;
 
-	/** Function address. */
-	public final long
-		TexImage2DMultisampleCoverageNV,
-		TexImage3DMultisampleCoverageNV,
-		TextureImage2DMultisampleNV,
-		TextureImage3DMultisampleNV,
-		TextureImage2DMultisampleCoverageNV,
-		TextureImage3DMultisampleCoverageNV;
-
 	protected NVTextureMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVTextureMultisample(FunctionProvider provider) {
-		TexImage2DMultisampleCoverageNV = provider.getFunctionAddress("glTexImage2DMultisampleCoverageNV");
-		TexImage3DMultisampleCoverageNV = provider.getFunctionAddress("glTexImage3DMultisampleCoverageNV");
-		TextureImage2DMultisampleNV = provider.getFunctionAddress("glTextureImage2DMultisampleNV");
-		TextureImage3DMultisampleNV = provider.getFunctionAddress("glTextureImage3DMultisampleNV");
-		TextureImage2DMultisampleCoverageNV = provider.getFunctionAddress("glTextureImage2DMultisampleCoverageNV");
-		TextureImage3DMultisampleCoverageNV = provider.getFunctionAddress("glTextureImage3DMultisampleCoverageNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVTextureMultisample} instance of the current context. */
-	public static NVTextureMultisample getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVTextureMultisample} instance of the specified {@link GLCapabilities}. */
-	public static NVTextureMultisample getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVTextureMultisample);
-	}
-
-	static NVTextureMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_texture_multisample") ) return null;
-
-		NVTextureMultisample funcs = new NVTextureMultisample(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TexImage2DMultisampleCoverageNV, funcs.TexImage3DMultisampleCoverageNV, funcs.TextureImage2DMultisampleNV, funcs.TextureImage3DMultisampleNV, 
-			funcs.TextureImage2DMultisampleCoverageNV, funcs.TextureImage3DMultisampleCoverageNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glTexImage2DMultisampleCoverageNV, caps.glTexImage3DMultisampleCoverageNV, caps.glTextureImage2DMultisampleNV, 
+			caps.glTextureImage3DMultisampleNV, caps.glTextureImage2DMultisampleCoverageNV, caps.glTextureImage3DMultisampleCoverageNV
 		);
-
-		return GL.checkExtension("GL_NV_texture_multisample", funcs, supported);
 	}
 
 	// --- [ glTexImage2DMultisampleCoverageNV ] ---
 
 	public static void glTexImage2DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations) {
-		long __functionAddress = getInstance().TexImage2DMultisampleCoverageNV;
+		long __functionAddress = GL.getCapabilities().glTexImage2DMultisampleCoverageNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIZV(__functionAddress, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 	}
 
 	// --- [ glTexImage3DMultisampleCoverageNV ] ---
 
 	public static void glTexImage3DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations) {
-		long __functionAddress = getInstance().TexImage3DMultisampleCoverageNV;
+		long __functionAddress = GL.getCapabilities().glTexImage3DMultisampleCoverageNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIZV(__functionAddress, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage2DMultisampleNV ] ---
 
 	public static void glTextureImage2DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, boolean fixedSampleLocations) {
-		long __functionAddress = getInstance().TextureImage2DMultisampleNV;
+		long __functionAddress = GL.getCapabilities().glTextureImage2DMultisampleNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIZV(__functionAddress, texture, target, samples, internalFormat, width, height, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage3DMultisampleNV ] ---
 
 	public static void glTextureImage3DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations) {
-		long __functionAddress = getInstance().TextureImage3DMultisampleNV;
+		long __functionAddress = GL.getCapabilities().glTextureImage3DMultisampleNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIZV(__functionAddress, texture, target, samples, internalFormat, width, height, depth, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage2DMultisampleCoverageNV ] ---
 
 	public static void glTextureImage2DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations) {
-		long __functionAddress = getInstance().TextureImage2DMultisampleCoverageNV;
+		long __functionAddress = GL.getCapabilities().glTextureImage2DMultisampleCoverageNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIZV(__functionAddress, texture, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage3DMultisampleCoverageNV ] ---
 
 	public static void glTextureImage3DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations) {
-		long __functionAddress = getInstance().TextureImage3DMultisampleCoverageNV;
+		long __functionAddress = GL.getCapabilities().glTextureImage3DMultisampleCoverageNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIZV(__functionAddress, texture, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 	}
 

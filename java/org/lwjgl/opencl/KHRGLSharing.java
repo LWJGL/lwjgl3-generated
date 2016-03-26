@@ -44,44 +44,23 @@ public class KHRGLSharing {
 		CL_WGL_HDC_KHR        = 0x200B,
 		CL_CGL_SHAREGROUP_KHR = 0x200C;
 
-	/** Function address. */
-	public final long GetGLContextInfoKHR;
-
 	protected KHRGLSharing() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRGLSharing(FunctionProvider provider) {
-		GetGLContextInfoKHR = provider.getFunctionAddress("clGetGLContextInfoKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRGLSharing} instance of the currently loaded ICD. */
-	public static KHRGLSharing getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link KHRGLSharing} instance of the specified {@link CLCapabilities}. */
-	public static KHRGLSharing getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__KHRGLSharing);
-	}
-
-	static KHRGLSharing create(FunctionProvider provider) {
-		KHRGLSharing funcs = new KHRGLSharing(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetGLContextInfoKHR
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clGetGLContextInfoKHR
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clGetGLContextInfoKHR ] ---
 
 	/** Unsafe version of {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
 	public static int nclGetGLContextInfoKHR(long properties, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetGLContextInfoKHR;
+		long __functionAddress = CL.getICD().clGetGLContextInfoKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callPIPPPI(__functionAddress, properties, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 

@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -27,51 +27,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDebugMarker {
 
-	/** Function address. */
-	public final long
-		InsertEventMarkerEXT,
-		PushGroupMarkerEXT,
-		PopGroupMarkerEXT;
-
 	protected EXTDebugMarker() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDebugMarker(FunctionProvider provider) {
-		InsertEventMarkerEXT = provider.getFunctionAddress("glInsertEventMarkerEXT");
-		PushGroupMarkerEXT = provider.getFunctionAddress("glPushGroupMarkerEXT");
-		PopGroupMarkerEXT = provider.getFunctionAddress("glPopGroupMarkerEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDebugMarker} instance of the current context. */
-	public static EXTDebugMarker getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDebugMarker} instance of the specified {@link GLCapabilities}. */
-	public static EXTDebugMarker getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTDebugMarker);
-	}
-
-	static EXTDebugMarker create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_debug_marker") ) return null;
-
-		EXTDebugMarker funcs = new EXTDebugMarker(provider);
-
-		boolean supported = checkFunctions(
-			funcs.InsertEventMarkerEXT, funcs.PushGroupMarkerEXT, funcs.PopGroupMarkerEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glInsertEventMarkerEXT, caps.glPushGroupMarkerEXT, caps.glPopGroupMarkerEXT
 		);
-
-		return GL.checkExtension("GL_EXT_debug_marker", funcs, supported);
 	}
 
 	// --- [ glInsertEventMarkerEXT ] ---
 
 	/** Unsafe version of {@link #glInsertEventMarkerEXT InsertEventMarkerEXT} */
 	public static void nglInsertEventMarkerEXT(int length, long marker) {
-		long __functionAddress = getInstance().InsertEventMarkerEXT;
+		long __functionAddress = GL.getCapabilities().glInsertEventMarkerEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, length, marker);
 	}
 
@@ -88,17 +60,23 @@ public class EXTDebugMarker {
 
 	/** CharSequence version of: {@link #glInsertEventMarkerEXT InsertEventMarkerEXT} */
 	public static void glInsertEventMarkerEXT(CharSequence marker) {
-		APIBuffer __buffer = apiBuffer();
-		int markerEncoded = __buffer.stringParamUTF8(marker, false);
-		int markerEncodedLen = __buffer.getOffset() - markerEncoded;
-		nglInsertEventMarkerEXT(markerEncodedLen, __buffer.address(markerEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer markerEncoded = stack.UTF8(marker, false);
+			int markerEncodedLen = markerEncoded.capacity();
+			nglInsertEventMarkerEXT(markerEncodedLen, memAddress(markerEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glPushGroupMarkerEXT ] ---
 
 	/** Unsafe version of {@link #glPushGroupMarkerEXT PushGroupMarkerEXT} */
 	public static void nglPushGroupMarkerEXT(int length, long marker) {
-		long __functionAddress = getInstance().PushGroupMarkerEXT;
+		long __functionAddress = GL.getCapabilities().glPushGroupMarkerEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, length, marker);
 	}
 
@@ -115,16 +93,22 @@ public class EXTDebugMarker {
 
 	/** CharSequence version of: {@link #glPushGroupMarkerEXT PushGroupMarkerEXT} */
 	public static void glPushGroupMarkerEXT(CharSequence marker) {
-		APIBuffer __buffer = apiBuffer();
-		int markerEncoded = __buffer.stringParamUTF8(marker, false);
-		int markerEncodedLen = __buffer.getOffset() - markerEncoded;
-		nglPushGroupMarkerEXT(markerEncodedLen, __buffer.address(markerEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer markerEncoded = stack.UTF8(marker, false);
+			int markerEncodedLen = markerEncoded.capacity();
+			nglPushGroupMarkerEXT(markerEncodedLen, memAddress(markerEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glPopGroupMarkerEXT ] ---
 
 	public static void glPopGroupMarkerEXT() {
-		long __functionAddress = getInstance().PopGroupMarkerEXT;
+		long __functionAddress = GL.getCapabilities().glPopGroupMarkerEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

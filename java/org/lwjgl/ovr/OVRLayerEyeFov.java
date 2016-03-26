@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Describes a layer that specifies a monoscopic or stereoscopic view. This is the kind of layer that's typically used as layer 0 to
@@ -47,7 +48,7 @@ public class OVRLayerEyeFov extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -60,16 +61,16 @@ public class OVRLayerEyeFov extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.__ALIGNMENT),
+			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.ALIGNOF),
 			__array(POINTER_SIZE, 2),
-			__array(OVRRecti.SIZEOF, OVRRecti.__ALIGNMENT, 2),
-			__array(OVRFovPort.SIZEOF, OVRFovPort.__ALIGNMENT, 2),
-			__array(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT, 2),
+			__array(OVRRecti.SIZEOF, OVRRecti.ALIGNOF, 2),
+			__array(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF, 2),
+			__array(OVRPosef.SIZEOF, OVRPosef.ALIGNOF, 2),
 			__member(8)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		HEADER = layout.offsetof(0);
 		COLORTEXTURE = layout.offsetof(1);
@@ -233,6 +234,76 @@ public class OVRLayerEyeFov extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link OVRLayerEyeFov} instance allocated on the thread-local {@link MemoryStack}. */
+	public static OVRLayerEyeFov mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link OVRLayerEyeFov} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static OVRLayerEyeFov callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerEyeFov} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRLayerEyeFov mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerEyeFov} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRLayerEyeFov callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerEyeFov.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerEyeFov.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerEyeFov.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerEyeFov.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #Header}. */
 	public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerEyeFov.HEADER); }
 	/** Unsafe version of {@link #ColorTexture}. */
@@ -365,7 +436,7 @@ public class OVRLayerEyeFov extends Struct {
 
 		@Override
 		protected OVRLayerEyeFov newInstance(long address) {
-			return new OVRLayerEyeFov(address, container);
+			return new OVRLayerEyeFov(address, getContainer());
 		}
 
 		@Override

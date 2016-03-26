@@ -33,42 +33,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBDrawInstanced {
 
-	/** Function address. */
-	public final long
-		DrawArraysInstancedARB,
-		DrawElementsInstancedARB;
-
 	protected ARBDrawInstanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBDrawInstanced(FunctionProvider provider) {
-		DrawArraysInstancedARB = provider.getFunctionAddress("glDrawArraysInstancedARB");
-		DrawElementsInstancedARB = provider.getFunctionAddress("glDrawElementsInstancedARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBDrawInstanced} instance of the current context. */
-	public static ARBDrawInstanced getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBDrawInstanced} instance of the specified {@link GLCapabilities}. */
-	public static ARBDrawInstanced getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBDrawInstanced);
-	}
-
-	static ARBDrawInstanced create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_draw_instanced") ) return null;
-
-		ARBDrawInstanced funcs = new ARBDrawInstanced(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DrawArraysInstancedARB, funcs.DrawElementsInstancedARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawArraysInstancedARB, caps.glDrawElementsInstancedARB
 		);
-
-		return GL.checkExtension("GL_ARB_draw_instanced", funcs, supported);
 	}
 
 	// --- [ glDrawArraysInstancedARB ] ---
@@ -82,7 +54,9 @@ public class ARBDrawInstanced {
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
 	public static void glDrawArraysInstancedARB(int mode, int first, int count, int primcount) {
-		long __functionAddress = getInstance().DrawArraysInstancedARB;
+		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, mode, first, count, primcount);
 	}
 
@@ -90,7 +64,9 @@ public class ARBDrawInstanced {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
 	public static void nglDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = getInstance().DrawElementsInstancedARB;
+		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 

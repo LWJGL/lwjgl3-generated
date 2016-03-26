@@ -35,44 +35,22 @@ public class EXTPrimitiveBoundingBox {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetFloatv, GetIntegerv, and GetInteger64v. */
 	public static final int GL_PRIMITIVE_BOUNDING_BOX_EXT = 0x92BE;
 
-	/** Function address. */
-	public final long PrimitiveBoundingBoxEXT;
-
 	protected EXTPrimitiveBoundingBox() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTPrimitiveBoundingBox(FunctionProvider provider) {
-		PrimitiveBoundingBoxEXT = provider.getFunctionAddress("glPrimitiveBoundingBoxEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTPrimitiveBoundingBox} instance of the current context. */
-	public static EXTPrimitiveBoundingBox getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTPrimitiveBoundingBox} instance of the specified {@link GLESCapabilities}. */
-	public static EXTPrimitiveBoundingBox getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTPrimitiveBoundingBox);
-	}
-
-	static EXTPrimitiveBoundingBox create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_primitive_bounding_box") ) return null;
-
-		EXTPrimitiveBoundingBox funcs = new EXTPrimitiveBoundingBox(provider);
-		boolean supported = checkFunctions(
-			funcs.PrimitiveBoundingBoxEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glPrimitiveBoundingBoxEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_primitive_bounding_box", funcs, supported);
 	}
 
 	// --- [ glPrimitiveBoundingBoxEXT ] ---
 
 	public static void glPrimitiveBoundingBoxEXT(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
-		long __functionAddress = getInstance().PrimitiveBoundingBoxEXT;
+		long __functionAddress = GLES.getCapabilities().glPrimitiveBoundingBoxEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFFFFFFFFV(__functionAddress, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
 	}
 

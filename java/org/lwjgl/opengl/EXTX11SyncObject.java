@@ -35,39 +35,14 @@ public class EXTX11SyncObject {
 	/** Accepted by the {@code external_sync_type} parameter of ImportSyncEXT. */
 	public static final int GL_SYNC_X11_FENCE_EXT = 0x90E1;
 
-	/** Function address. */
-	public final long ImportSyncEXT;
-
 	protected EXTX11SyncObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTX11SyncObject(FunctionProvider provider) {
-		ImportSyncEXT = provider.getFunctionAddress("glImportSyncEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTX11SyncObject} instance of the current context. */
-	public static EXTX11SyncObject getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTX11SyncObject} instance of the specified {@link GLCapabilities}. */
-	public static EXTX11SyncObject getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTX11SyncObject);
-	}
-
-	static EXTX11SyncObject create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_x11_sync_object") ) return null;
-
-		EXTX11SyncObject funcs = new EXTX11SyncObject(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ImportSyncEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glImportSyncEXT
 		);
-
-		return GL.checkExtension("GL_EXT_x11_sync_object", funcs, supported);
 	}
 
 	// --- [ glImportSyncEXT ] ---
@@ -80,7 +55,9 @@ public class EXTX11SyncObject {
 	 * @param flags              Must be 0.
 	 */
 	public static long glImportSyncEXT(int external_sync_type, long external_sync, int flags) {
-		long __functionAddress = getInstance().ImportSyncEXT;
+		long __functionAddress = GL.getCapabilities().glImportSyncEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPIP(__functionAddress, external_sync_type, external_sync, flags);
 	}
 

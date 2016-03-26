@@ -24,46 +24,23 @@ import org.lwjgl.system.linux.*;
  */
 public class GLXARBGetProcAddress {
 
-	/** Function address. */
-	public final long GetProcAddressARB;
-
 	protected GLXARBGetProcAddress() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXARBGetProcAddress(FunctionProvider provider) {
-		GetProcAddressARB = provider.getFunctionAddress("glXGetProcAddressARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXARBGetProcAddress} instance of the current context. */
-	public static GLXARBGetProcAddress getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXARBGetProcAddress} instance of the specified {@link GLCapabilities}. */
-	public static GLXARBGetProcAddress getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXARBGetProcAddress);
-	}
-
-	static GLXARBGetProcAddress create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_ARB_get_proc_address") ) return null;
-
-		GLXARBGetProcAddress funcs = new GLXARBGetProcAddress(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetProcAddressARB
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXGetProcAddressARB
 		);
-
-		return GL.checkExtension("GLX_ARB_get_proc_address", funcs, supported);
 	}
 
 	// --- [ glXGetProcAddressARB ] ---
 
 	/** Unsafe version of {@link #glXGetProcAddressARB GetProcAddressARB} */
 	public static long nglXGetProcAddressARB(long procName) {
-		long __functionAddress = getInstance().GetProcAddressARB;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetProcAddressARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callPP(__functionAddress, procName);
 	}
 

@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Specifies a reading we can query from the sensor.
@@ -40,7 +41,7 @@ public class OVRSensorData extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -52,15 +53,15 @@ public class OVRSensorData extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
-			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
-			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF),
 			__member(4),
 			__member(4)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		ACCELEROMETER = layout.offsetof(0);
 		GYRO = layout.offsetof(1);
@@ -156,6 +157,76 @@ public class OVRSensorData extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link OVRSensorData} instance allocated on the thread-local {@link MemoryStack}. */
+	public static OVRSensorData mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link OVRSensorData} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static OVRSensorData callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRSensorData} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRSensorData mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRSensorData} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRSensorData callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRSensorData.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRSensorData.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRSensorData.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link OVRSensorData.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #Accelerometer}. */
 	public static OVRVector3f nAccelerometer(long struct) { return OVRVector3f.create(struct + OVRSensorData.ACCELEROMETER); }
 	/** Unsafe version of {@link #Gyro}. */
@@ -201,7 +272,7 @@ public class OVRSensorData extends Struct {
 
 		@Override
 		protected OVRSensorData newInstance(long address) {
-			return new OVRSensorData(address, container);
+			return new OVRSensorData(address, getContainer());
 		}
 
 		@Override

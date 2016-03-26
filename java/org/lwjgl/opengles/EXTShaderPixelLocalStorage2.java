@@ -40,56 +40,31 @@ public class EXTShaderPixelLocalStorage2 {
 	/** Returned by CheckFramebufferStatus. */
 	public static final int GL_FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT = 0x9652;
 
-	/** Function address. */
-	public final long
-		FramebufferPixelLocalStorageSizeEXT,
-		GetFramebufferPixelLocalStorageSizeEXT,
-		ClearPixelLocalStorageuiEXT;
-
 	protected EXTShaderPixelLocalStorage2() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTShaderPixelLocalStorage2(FunctionProvider provider) {
-		FramebufferPixelLocalStorageSizeEXT = provider.getFunctionAddress("glFramebufferPixelLocalStorageSizeEXT");
-		GetFramebufferPixelLocalStorageSizeEXT = provider.getFunctionAddress("glGetFramebufferPixelLocalStorageSizeEXT");
-		ClearPixelLocalStorageuiEXT = provider.getFunctionAddress("glClearPixelLocalStorageuiEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTShaderPixelLocalStorage2} instance of the current context. */
-	public static EXTShaderPixelLocalStorage2 getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTShaderPixelLocalStorage2} instance of the specified {@link GLESCapabilities}. */
-	public static EXTShaderPixelLocalStorage2 getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTShaderPixelLocalStorage2);
-	}
-
-	static EXTShaderPixelLocalStorage2 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_shader_pixel_local_storage2") ) return null;
-
-		EXTShaderPixelLocalStorage2 funcs = new EXTShaderPixelLocalStorage2(provider);
-		boolean supported = checkFunctions(
-			funcs.FramebufferPixelLocalStorageSizeEXT, funcs.GetFramebufferPixelLocalStorageSizeEXT, funcs.ClearPixelLocalStorageuiEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glFramebufferPixelLocalStorageSizeEXT, caps.glGetFramebufferPixelLocalStorageSizeEXT, caps.glClearPixelLocalStorageuiEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_shader_pixel_local_storage2", funcs, supported);
 	}
 
 	// --- [ glFramebufferPixelLocalStorageSizeEXT ] ---
 
 	public static void glFramebufferPixelLocalStorageSizeEXT(int target, int size) {
-		long __functionAddress = getInstance().FramebufferPixelLocalStorageSizeEXT;
+		long __functionAddress = GLES.getCapabilities().glFramebufferPixelLocalStorageSizeEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, size);
 	}
 
 	// --- [ glGetFramebufferPixelLocalStorageSizeEXT ] ---
 
 	public static int glGetFramebufferPixelLocalStorageSizeEXT(int target) {
-		long __functionAddress = getInstance().GetFramebufferPixelLocalStorageSizeEXT;
+		long __functionAddress = GLES.getCapabilities().glGetFramebufferPixelLocalStorageSizeEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, target);
 	}
 
@@ -97,7 +72,9 @@ public class EXTShaderPixelLocalStorage2 {
 
 	/** Unsafe version of {@link #glClearPixelLocalStorageuiEXT ClearPixelLocalStorageuiEXT} */
 	public static void nglClearPixelLocalStorageuiEXT(int offset, int n, long values) {
-		long __functionAddress = getInstance().ClearPixelLocalStorageuiEXT;
+		long __functionAddress = GLES.getCapabilities().glClearPixelLocalStorageuiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, offset, n, values);
 	}
 

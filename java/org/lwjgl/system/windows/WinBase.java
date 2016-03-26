@@ -9,8 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to WinBase.h. */
@@ -72,9 +72,13 @@ public class WinBase {
 
 	/** CharSequence version of: {@link #GetModuleHandle} */
 	public static long GetModuleHandle(CharSequence moduleName) {
-		APIBuffer __buffer = apiBuffer();
-		int moduleNameEncoded = moduleName == null ? 0 : __buffer.stringParamUTF16(moduleName, true);
-		return nGetModuleHandle(__buffer.addressSafe(moduleName, moduleNameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer moduleNameEncoded = moduleName == null ? null : stack.UTF16(moduleName);
+			return nGetModuleHandle(memAddressSafe(moduleNameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ LoadLibrary ] ---
@@ -106,9 +110,13 @@ public class WinBase {
 
 	/** CharSequence version of: {@link #LoadLibrary} */
 	public static long LoadLibrary(CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamUTF16(name, true);
-		return nLoadLibrary(__buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF16(name);
+			return nLoadLibrary(memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ GetProcAddress ] ---
@@ -135,9 +143,13 @@ public class WinBase {
 	public static long GetProcAddress(long handle, CharSequence name) {
 		if ( CHECKS )
 			checkPointer(handle);
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nGetProcAddress(handle, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nGetProcAddress(handle, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ FreeLibrary ] ---

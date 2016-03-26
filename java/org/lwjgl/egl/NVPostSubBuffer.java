@@ -25,34 +25,22 @@ public class NVPostSubBuffer {
 	/**  */
 	public static final int EGL_POST_SUB_BUFFER_SUPPORTED_NV = 0x30BE;
 
-	/** Function address. */
-	public final long PostSubBufferNV;
-
 	protected NVPostSubBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVPostSubBuffer(FunctionProvider provider) {
-		PostSubBufferNV = provider.getFunctionAddress("eglPostSubBufferNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVPostSubBuffer} instance. */
-	public static NVPostSubBuffer getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link NVPostSubBuffer} instance of the specified {@link EGLCapabilities}. */
-	public static NVPostSubBuffer getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__NVPostSubBuffer);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglPostSubBufferNV
+		);
 	}
 
 	// --- [ eglPostSubBufferNV ] ---
 
 	public static int eglPostSubBufferNV(long dpy, long surface, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().PostSubBufferNV;
+		long __functionAddress = EGL.getCapabilities().eglPostSubBufferNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}

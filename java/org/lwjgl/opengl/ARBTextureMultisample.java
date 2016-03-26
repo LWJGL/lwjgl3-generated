@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -78,46 +78,14 @@ public class ARBTextureMultisample {
 		GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY          = 0x910C,
 		GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY = 0x910D;
 
-	/** Function address. */
-	public final long
-		TexImage2DMultisample,
-		TexImage3DMultisample,
-		GetMultisamplefv,
-		SampleMaski;
-
 	protected ARBTextureMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTextureMultisample(FunctionProvider provider) {
-		TexImage2DMultisample = provider.getFunctionAddress("glTexImage2DMultisample");
-		TexImage3DMultisample = provider.getFunctionAddress("glTexImage3DMultisample");
-		GetMultisamplefv = provider.getFunctionAddress("glGetMultisamplefv");
-		SampleMaski = provider.getFunctionAddress("glSampleMaski");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTextureMultisample} instance of the current context. */
-	public static ARBTextureMultisample getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTextureMultisample} instance of the specified {@link GLCapabilities}. */
-	public static ARBTextureMultisample getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTextureMultisample);
-	}
-
-	static ARBTextureMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_texture_multisample") ) return null;
-
-		ARBTextureMultisample funcs = new ARBTextureMultisample(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TexImage2DMultisample, funcs.TexImage3DMultisample, funcs.GetMultisamplefv, funcs.SampleMaski
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glTexImage2DMultisample, caps.glTexImage3DMultisample, caps.glGetMultisamplefv, caps.glSampleMaski
 		);
-
-		return GL.checkExtension("GL_ARB_texture_multisample", funcs, supported);
 	}
 
 	// --- [ glTexImage2DMultisample ] ---
@@ -135,7 +103,9 @@ public class ARBTextureMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TexImage2DMultisample;
+		long __functionAddress = GL.getCapabilities().glTexImage2DMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
@@ -155,7 +125,9 @@ public class ARBTextureMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TexImage3DMultisample;
+		long __functionAddress = GL.getCapabilities().glTexImage3DMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
@@ -163,7 +135,9 @@ public class ARBTextureMultisample {
 
 	/** Unsafe version of {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
-		long __functionAddress = getInstance().GetMultisamplefv;
+		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, pname, index, val);
 	}
 
@@ -189,10 +163,14 @@ public class ARBTextureMultisample {
 
 	/** Single return value version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static float glGetMultisamplef(int pname, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int val = __buffer.floatParam();
-		nglGetMultisamplefv(pname, index, __buffer.address(val));
-		return __buffer.floatValue(val);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer val = stack.callocFloat(1);
+			nglGetMultisamplefv(pname, index, memAddress(val));
+			return val.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glSampleMaski ] ---
@@ -204,7 +182,9 @@ public class ARBTextureMultisample {
 	 * @param mask  the new value of the mask sub-word
 	 */
 	public static void glSampleMaski(int index, int mask) {
-		long __functionAddress = getInstance().SampleMaski;
+		long __functionAddress = GL.getCapabilities().glSampleMaski;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, mask);
 	}
 

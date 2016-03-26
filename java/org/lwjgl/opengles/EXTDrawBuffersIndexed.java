@@ -32,109 +32,86 @@ import static org.lwjgl.system.JNI.*;
  */
 public class EXTDrawBuffersIndexed {
 
-	/** Function address. */
-	public final long
-		EnableiEXT,
-		DisableiEXT,
-		BlendEquationiEXT,
-		BlendEquationSeparateiEXT,
-		BlendFunciEXT,
-		BlendFuncSeparateiEXT,
-		ColorMaskiEXT,
-		IsEnablediEXT;
-
 	protected EXTDrawBuffersIndexed() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDrawBuffersIndexed(FunctionProvider provider) {
-		EnableiEXT = provider.getFunctionAddress("glEnableiEXT");
-		DisableiEXT = provider.getFunctionAddress("glDisableiEXT");
-		BlendEquationiEXT = provider.getFunctionAddress("glBlendEquationiEXT");
-		BlendEquationSeparateiEXT = provider.getFunctionAddress("glBlendEquationSeparateiEXT");
-		BlendFunciEXT = provider.getFunctionAddress("glBlendFunciEXT");
-		BlendFuncSeparateiEXT = provider.getFunctionAddress("glBlendFuncSeparateiEXT");
-		ColorMaskiEXT = provider.getFunctionAddress("glColorMaskiEXT");
-		IsEnablediEXT = provider.getFunctionAddress("glIsEnablediEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDrawBuffersIndexed} instance of the current context. */
-	public static EXTDrawBuffersIndexed getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDrawBuffersIndexed} instance of the specified {@link GLESCapabilities}. */
-	public static EXTDrawBuffersIndexed getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTDrawBuffersIndexed);
-	}
-
-	static EXTDrawBuffersIndexed create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_draw_buffers_indexed") ) return null;
-
-		EXTDrawBuffersIndexed funcs = new EXTDrawBuffersIndexed(provider);
-		boolean supported = checkFunctions(
-			funcs.EnableiEXT, funcs.DisableiEXT, funcs.BlendEquationiEXT, funcs.BlendEquationSeparateiEXT, funcs.BlendFunciEXT, funcs.BlendFuncSeparateiEXT, 
-			funcs.ColorMaskiEXT, funcs.IsEnablediEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glEnableiEXT, caps.glDisableiEXT, caps.glBlendEquationiEXT, caps.glBlendEquationSeparateiEXT, caps.glBlendFunciEXT, 
+			caps.glBlendFuncSeparateiEXT, caps.glColorMaskiEXT, caps.glIsEnablediEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_draw_buffers_indexed", funcs, supported);
 	}
 
 	// --- [ glEnableiEXT ] ---
 
 	public static void glEnableiEXT(int target, int index) {
-		long __functionAddress = getInstance().EnableiEXT;
+		long __functionAddress = GLES.getCapabilities().glEnableiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableiEXT ] ---
 
 	public static void glDisableiEXT(int target, int index) {
-		long __functionAddress = getInstance().DisableiEXT;
+		long __functionAddress = GLES.getCapabilities().glDisableiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glBlendEquationiEXT ] ---
 
 	public static void glBlendEquationiEXT(int buf, int mode) {
-		long __functionAddress = getInstance().BlendEquationiEXT;
+		long __functionAddress = GLES.getCapabilities().glBlendEquationiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateiEXT ] ---
 
 	public static void glBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha) {
-		long __functionAddress = getInstance().BlendEquationSeparateiEXT;
+		long __functionAddress = GLES.getCapabilities().glBlendEquationSeparateiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunciEXT ] ---
 
 	public static void glBlendFunciEXT(int buf, int src, int dst) {
-		long __functionAddress = getInstance().BlendFunciEXT;
+		long __functionAddress = GLES.getCapabilities().glBlendFunciEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateiEXT ] ---
 
 	public static void glBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		long __functionAddress = getInstance().BlendFuncSeparateiEXT;
+		long __functionAddress = GLES.getCapabilities().glBlendFuncSeparateiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glColorMaskiEXT ] ---
 
 	public static void glColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a) {
-		long __functionAddress = getInstance().ColorMaskiEXT;
+		long __functionAddress = GLES.getCapabilities().glColorMaskiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIZZZZV(__functionAddress, index, r, g, b, a);
 	}
 
 	// --- [ glIsEnablediEXT ] ---
 
 	public static boolean glIsEnablediEXT(int target, int index) {
-		long __functionAddress = getInstance().IsEnablediEXT;
+		long __functionAddress = GLES.getCapabilities().glIsEnablediEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIZ(__functionAddress, target, index);
 	}
 

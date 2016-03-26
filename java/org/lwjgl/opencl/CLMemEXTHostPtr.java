@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Accepted by the {@code host_ptr} argument of {@link CL10#clCreateBuffer CL10.clCreateBuffer}, {@link CL10#clCreateImage2D CL10.clCreateImage2D} and {@link CL10#clCreateImage3D CL10.clCreateImage3D}.
@@ -35,7 +36,7 @@ public class CLMemEXTHostPtr extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -49,7 +50,7 @@ public class CLMemEXTHostPtr extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		ALLOCATION_TYPE = layout.offsetof(0);
 		HOST_CACHE_POLICY = layout.offsetof(1);
@@ -169,6 +170,76 @@ public class CLMemEXTHostPtr extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link CLMemEXTHostPtr} instance allocated on the thread-local {@link MemoryStack}. */
+	public static CLMemEXTHostPtr mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link CLMemEXTHostPtr} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static CLMemEXTHostPtr callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link CLMemEXTHostPtr} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static CLMemEXTHostPtr mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link CLMemEXTHostPtr} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static CLMemEXTHostPtr callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link CLMemEXTHostPtr.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link CLMemEXTHostPtr.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link CLMemEXTHostPtr.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link CLMemEXTHostPtr.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #allocation_type}. */
 	public static int nallocation_type(long struct) { return memGetInt(struct + CLMemEXTHostPtr.ALLOCATION_TYPE); }
 	/** Unsafe version of {@link #host_cache_policy}. */
@@ -213,7 +284,7 @@ public class CLMemEXTHostPtr extends Struct {
 
 		@Override
 		protected CLMemEXTHostPtr newInstance(long address) {
-			return new CLMemEXTHostPtr(address, container);
+			return new CLMemEXTHostPtr(address, getContainer());
 		}
 
 		@Override

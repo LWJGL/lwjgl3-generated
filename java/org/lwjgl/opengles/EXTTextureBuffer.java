@@ -68,54 +68,31 @@ public class EXTTextureBuffer {
 		GL_TEXTURE_BUFFER_OFFSET_EXT             = 0x919D,
 		GL_TEXTURE_BUFFER_SIZE_EXT               = 0x919E;
 
-	/** Function address. */
-	public final long
-		TexBufferEXT,
-		TexBufferRangeEXT;
-
 	protected EXTTextureBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTTextureBuffer(FunctionProvider provider) {
-		TexBufferEXT = provider.getFunctionAddress("glTexBufferEXT");
-		TexBufferRangeEXT = provider.getFunctionAddress("glTexBufferRangeEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTTextureBuffer} instance of the current context. */
-	public static EXTTextureBuffer getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTTextureBuffer} instance of the specified {@link GLESCapabilities}. */
-	public static EXTTextureBuffer getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTTextureBuffer);
-	}
-
-	static EXTTextureBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_texture_buffer") ) return null;
-
-		EXTTextureBuffer funcs = new EXTTextureBuffer(provider);
-		boolean supported = checkFunctions(
-			funcs.TexBufferEXT, funcs.TexBufferRangeEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glTexBufferEXT, caps.glTexBufferRangeEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_texture_buffer", funcs, supported);
 	}
 
 	// --- [ glTexBufferEXT ] ---
 
 	public static void glTexBufferEXT(int target, int internalformat, int buffer) {
-		long __functionAddress = getInstance().TexBufferEXT;
+		long __functionAddress = GLES.getCapabilities().glTexBufferEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, target, internalformat, buffer);
 	}
 
 	// --- [ glTexBufferRangeEXT ] ---
 
 	public static void glTexBufferRangeEXT(int target, int internalformat, int buffer, long offset, long size) {
-		long __functionAddress = getInstance().TexBufferRangeEXT;
+		long __functionAddress = GLES.getCapabilities().glTexBufferRangeEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 

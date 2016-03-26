@@ -29,44 +29,22 @@ public class QCOMAlphaTest {
 		GL_ALPHA_TEST_FUNC_QCOM = 0xBC1,
 		GL_ALPHA_TEST_REF_QCOM  = 0xBC2;
 
-	/** Function address. */
-	public final long AlphaFuncQCOM;
-
 	protected QCOMAlphaTest() {
 		throw new UnsupportedOperationException();
 	}
 
-	public QCOMAlphaTest(FunctionProvider provider) {
-		AlphaFuncQCOM = provider.getFunctionAddress("glAlphaFuncQCOM");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link QCOMAlphaTest} instance of the current context. */
-	public static QCOMAlphaTest getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link QCOMAlphaTest} instance of the specified {@link GLESCapabilities}. */
-	public static QCOMAlphaTest getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__QCOMAlphaTest);
-	}
-
-	static QCOMAlphaTest create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_QCOM_alpha_test") ) return null;
-
-		QCOMAlphaTest funcs = new QCOMAlphaTest(provider);
-		boolean supported = checkFunctions(
-			funcs.AlphaFuncQCOM
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glAlphaFuncQCOM
 		);
-
-		return GLES.checkExtension("GL_QCOM_alpha_test", funcs, supported);
 	}
 
 	// --- [ glAlphaFuncQCOM ] ---
 
 	public static void glAlphaFuncQCOM(int func, float ref) {
-		long __functionAddress = getInstance().AlphaFuncQCOM;
+		long __functionAddress = GLES.getCapabilities().glAlphaFuncQCOM;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, func, ref);
 	}
 

@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -206,71 +206,25 @@ public class GL42 {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int GL_MIN_MAP_BUFFER_ALIGNMENT = 0x90BC;
 
-	/** Function address. */
-	public final long
-		GetActiveAtomicCounterBufferiv,
-		TexStorage1D,
-		TexStorage2D,
-		TexStorage3D,
-		DrawTransformFeedbackInstanced,
-		DrawTransformFeedbackStreamInstanced,
-		DrawArraysInstancedBaseInstance,
-		DrawElementsInstancedBaseInstance,
-		DrawElementsInstancedBaseVertexBaseInstance,
-		BindImageTexture,
-		MemoryBarrier,
-		GetInternalformativ;
-
 	protected GL42() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL42(FunctionProvider provider) {
-		GetActiveAtomicCounterBufferiv = provider.getFunctionAddress("glGetActiveAtomicCounterBufferiv");
-		TexStorage1D = provider.getFunctionAddress("glTexStorage1D");
-		TexStorage2D = provider.getFunctionAddress("glTexStorage2D");
-		TexStorage3D = provider.getFunctionAddress("glTexStorage3D");
-		DrawTransformFeedbackInstanced = provider.getFunctionAddress("glDrawTransformFeedbackInstanced");
-		DrawTransformFeedbackStreamInstanced = provider.getFunctionAddress("glDrawTransformFeedbackStreamInstanced");
-		DrawArraysInstancedBaseInstance = provider.getFunctionAddress("glDrawArraysInstancedBaseInstance");
-		DrawElementsInstancedBaseInstance = provider.getFunctionAddress("glDrawElementsInstancedBaseInstance");
-		DrawElementsInstancedBaseVertexBaseInstance = provider.getFunctionAddress("glDrawElementsInstancedBaseVertexBaseInstance");
-		BindImageTexture = provider.getFunctionAddress("glBindImageTexture");
-		MemoryBarrier = provider.getFunctionAddress("glMemoryBarrier");
-		GetInternalformativ = provider.getFunctionAddress("glGetInternalformativ");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL42} instance of the current context. */
-	public static GL42 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL42} instance of the specified {@link GLCapabilities}. */
-	public static GL42 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL42);
-	}
-
-	static GL42 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL42") ) return null;
-
-		GL42 funcs = new GL42(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetActiveAtomicCounterBufferiv, funcs.TexStorage1D, funcs.TexStorage2D, funcs.TexStorage3D, funcs.DrawTransformFeedbackInstanced, 
-			funcs.DrawTransformFeedbackStreamInstanced, funcs.DrawArraysInstancedBaseInstance, funcs.DrawElementsInstancedBaseInstance, 
-			funcs.DrawElementsInstancedBaseVertexBaseInstance, funcs.BindImageTexture, funcs.MemoryBarrier, funcs.GetInternalformativ
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetActiveAtomicCounterBufferiv, caps.glTexStorage1D, caps.glTexStorage2D, caps.glTexStorage3D, caps.glDrawTransformFeedbackInstanced, 
+			caps.glDrawTransformFeedbackStreamInstanced, caps.glDrawArraysInstancedBaseInstance, caps.glDrawElementsInstancedBaseInstance, 
+			caps.glDrawElementsInstancedBaseVertexBaseInstance, caps.glBindImageTexture, caps.glMemoryBarrier, caps.glGetInternalformativ
 		);
-
-		return GL.checkExtension("OpenGL42", funcs, supported);
 	}
 
 	// --- [ glGetActiveAtomicCounterBufferiv ] ---
 
 	/** Unsafe version of {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
-		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
+		long __functionAddress = GL.getCapabilities().glGetActiveAtomicCounterBufferiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, bufferIndex, pname, params);
 	}
 
@@ -299,10 +253,14 @@ public class GL42 {
 
 	/** Single return value version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	public static int glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glTexStorage1D ] ---
@@ -318,7 +276,9 @@ public class GL42 {
 	 * @param width          the width of the texture, in texels
 	 */
 	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
-		long __functionAddress = getInstance().TexStorage1D;
+		long __functionAddress = GL.getCapabilities().glTexStorage1D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, levels, internalformat, width);
 	}
 
@@ -336,7 +296,9 @@ public class GL42 {
 	 * @param height         the height of the texture, in texels
 	 */
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().TexStorage2D;
+		long __functionAddress = GL.getCapabilities().glTexStorage2D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
@@ -355,7 +317,9 @@ public class GL42 {
 	 * @param depth          the depth of the texture, in texels
 	 */
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = getInstance().TexStorage3D;
+		long __functionAddress = GL.getCapabilities().glTexStorage3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
@@ -371,7 +335,9 @@ public class GL42 {
 	 * @param primcount the number of instances of the geometry to render
 	 */
 	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
-		long __functionAddress = getInstance().DrawTransformFeedbackInstanced;
+		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackInstanced;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, mode, id, primcount);
 	}
 
@@ -388,7 +354,9 @@ public class GL42 {
 	 * @param primcount the number of instances of the geometry to render
 	 */
 	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
-		long __functionAddress = getInstance().DrawTransformFeedbackStreamInstanced;
+		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStreamInstanced;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, mode, id, stream, primcount);
 	}
 
@@ -406,7 +374,9 @@ public class GL42 {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
-		long __functionAddress = getInstance().DrawArraysInstancedBaseInstance;
+		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedBaseInstance;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, mode, first, count, primcount, baseinstance);
 	}
 
@@ -414,7 +384,9 @@ public class GL42 {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseInstance DrawElementsInstancedBaseInstance} */
 	public static void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
-		long __functionAddress = getInstance().DrawElementsInstancedBaseInstance;
+		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseInstance;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
 	}
 
@@ -477,7 +449,9 @@ public class GL42 {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance} */
 	public static void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
-		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstance;
+		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertexBaseInstance;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIIIV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
 	}
 
@@ -553,7 +527,9 @@ public class GL42 {
 	 * @param format  the format that the elements of the image will be treated as for the purposes of formatted stores
 	 */
 	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
-		long __functionAddress = getInstance().BindImageTexture;
+		long __functionAddress = GL.getCapabilities().glBindImageTexture;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZIIIV(__functionAddress, unit, texture, level, layered, layer, access, format);
 	}
 
@@ -567,7 +543,9 @@ public class GL42 {
 	 * @param barriers the barriers to insert (bitwise combination). One or more of:<br>{@link #GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT VERTEX_ATTRIB_ARRAY_BARRIER_BIT}, {@link #GL_ELEMENT_ARRAY_BARRIER_BIT ELEMENT_ARRAY_BARRIER_BIT}, {@link #GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}, {@link #GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}, {@link #GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}, {@link #GL_COMMAND_BARRIER_BIT COMMAND_BARRIER_BIT}, {@link #GL_PIXEL_BUFFER_BARRIER_BIT PIXEL_BUFFER_BARRIER_BIT}, {@link #GL_TEXTURE_UPDATE_BARRIER_BIT TEXTURE_UPDATE_BARRIER_BIT}, {@link #GL_BUFFER_UPDATE_BARRIER_BIT BUFFER_UPDATE_BARRIER_BIT}, {@link #GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}, {@link #GL_TRANSFORM_FEEDBACK_BARRIER_BIT TRANSFORM_FEEDBACK_BARRIER_BIT}, {@link #GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}, {@link #GL_ALL_BARRIER_BITS ALL_BARRIER_BITS}, {@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}
 	 */
 	public static void glMemoryBarrier(int barriers) {
-		long __functionAddress = getInstance().MemoryBarrier;
+		long __functionAddress = GL.getCapabilities().glMemoryBarrier;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, barriers);
 	}
 
@@ -575,7 +553,9 @@ public class GL42 {
 
 	/** Unsafe version of {@link #glGetInternalformativ GetInternalformativ} */
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
-		long __functionAddress = getInstance().GetInternalformativ;
+		long __functionAddress = GL.getCapabilities().glGetInternalformativ;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
@@ -603,10 +583,14 @@ public class GL42 {
 
 	/** Single return value version of: {@link #glGetInternalformativ GetInternalformativ} */
 	public static int glGetInternalformati(int target, int internalformat, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetInternalformativ(target, internalformat, pname, 1, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetInternalformativ(target, internalformat, pname, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

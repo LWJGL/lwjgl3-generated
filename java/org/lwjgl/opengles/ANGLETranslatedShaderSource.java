@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -31,45 +31,23 @@ public class ANGLETranslatedShaderSource {
 	/** Accepted by the {@code pname} parameter of GetShaderiv. */
 	public static final int GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE = 0x93A0;
 
-	/** Function address. */
-	public final long GetTranslatedShaderSourceANGLE;
-
 	protected ANGLETranslatedShaderSource() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ANGLETranslatedShaderSource(FunctionProvider provider) {
-		GetTranslatedShaderSourceANGLE = provider.getFunctionAddress("glGetTranslatedShaderSourceANGLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ANGLETranslatedShaderSource} instance of the current context. */
-	public static ANGLETranslatedShaderSource getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link ANGLETranslatedShaderSource} instance of the specified {@link GLESCapabilities}. */
-	public static ANGLETranslatedShaderSource getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__ANGLETranslatedShaderSource);
-	}
-
-	static ANGLETranslatedShaderSource create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ANGLE_translated_shader_source") ) return null;
-
-		ANGLETranslatedShaderSource funcs = new ANGLETranslatedShaderSource(provider);
-		boolean supported = checkFunctions(
-			funcs.GetTranslatedShaderSourceANGLE
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glGetTranslatedShaderSourceANGLE
 		);
-
-		return GLES.checkExtension("GL_ANGLE_translated_shader_source", funcs, supported);
 	}
 
 	// --- [ glGetTranslatedShaderSourceANGLE ] ---
 
 	/** Unsafe version of {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
 	public static void nglGetTranslatedShaderSourceANGLE(int shader, int bufsize, long length, long source) {
-		long __functionAddress = getInstance().GetTranslatedShaderSourceANGLE;
+		long __functionAddress = GLES.getCapabilities().glGetTranslatedShaderSourceANGLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, shader, bufsize, length, source);
 	}
 
@@ -90,21 +68,31 @@ public class ANGLETranslatedShaderSource {
 
 	/** String return version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
 	public static String glGetTranslatedShaderSourceANGLE(int shader, int bufsize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int source = __buffer.bufferParam(bufsize);
-		nglGetTranslatedShaderSourceANGLE(shader, bufsize, __buffer.address(length), __buffer.address(source));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), source);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		ByteBuffer source = memAlloc(bufsize);
+		try {
+			IntBuffer length = stack.ints(0);
+			nglGetTranslatedShaderSourceANGLE(shader, bufsize, memAddress(length), memAddress(source));
+			return memUTF8(source, length.get(0));
+		} finally {
+			memFree(source);
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
 	public static String glGetTranslatedShaderSourceANGLE(int shader) {
 		int bufsize = GLES20.glGetShaderi(shader, GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int source = __buffer.bufferParam(bufsize);
-		nglGetTranslatedShaderSourceANGLE(shader, bufsize, __buffer.address(length), __buffer.address(source));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), source);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		ByteBuffer source = memAlloc(bufsize);
+		try {
+			IntBuffer length = stack.ints(0);
+			nglGetTranslatedShaderSourceANGLE(shader, bufsize, memAddress(length), memAddress(source));
+			return memUTF8(source, length.get(0));
+		} finally {
+			memFree(source);
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

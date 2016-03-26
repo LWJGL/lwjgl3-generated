@@ -13,7 +13,7 @@ package org.lwjgl.opengl;
 public final class GLXEXTFramebufferSRGB {
 
 	/** Accepted by the {@code attribList} parameter of glXChooseVisual, and by the {@code attrib} parameter of glXGetConfig. */
-	public static final int WGL_FRAMEBUFFER_SRGB_CAPABLE_EXT = 0x20B2;
+	public static final int GLX_FRAMEBUFFER_SRGB_CAPABLE_EXT = 0x20B2;
 
 	private GLXEXTFramebufferSRGB() {}
 

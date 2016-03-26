@@ -24,42 +24,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBTransformFeedbackInstanced {
 
-	/** Function address. */
-	public final long
-		DrawTransformFeedbackInstanced,
-		DrawTransformFeedbackStreamInstanced;
-
 	protected ARBTransformFeedbackInstanced() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTransformFeedbackInstanced(FunctionProvider provider) {
-		DrawTransformFeedbackInstanced = provider.getFunctionAddress("glDrawTransformFeedbackInstanced");
-		DrawTransformFeedbackStreamInstanced = provider.getFunctionAddress("glDrawTransformFeedbackStreamInstanced");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTransformFeedbackInstanced} instance of the current context. */
-	public static ARBTransformFeedbackInstanced getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTransformFeedbackInstanced} instance of the specified {@link GLCapabilities}. */
-	public static ARBTransformFeedbackInstanced getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTransformFeedbackInstanced);
-	}
-
-	static ARBTransformFeedbackInstanced create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_transform_feedback_instanced") ) return null;
-
-		ARBTransformFeedbackInstanced funcs = new ARBTransformFeedbackInstanced(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DrawTransformFeedbackInstanced, funcs.DrawTransformFeedbackStreamInstanced
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawTransformFeedbackInstanced, caps.glDrawTransformFeedbackStreamInstanced
 		);
-
-		return GL.checkExtension("GL_ARB_transform_feedback_instanced", funcs, supported);
 	}
 
 	// --- [ glDrawTransformFeedbackInstanced ] ---
@@ -72,7 +44,9 @@ public class ARBTransformFeedbackInstanced {
 	 * @param primcount the number of instances of the geometry to render
 	 */
 	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
-		long __functionAddress = getInstance().DrawTransformFeedbackInstanced;
+		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackInstanced;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, mode, id, primcount);
 	}
 
@@ -87,7 +61,9 @@ public class ARBTransformFeedbackInstanced {
 	 * @param primcount the number of instances of the geometry to render
 	 */
 	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
-		long __functionAddress = getInstance().DrawTransformFeedbackStreamInstanced;
+		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStreamInstanced;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, mode, id, stream, primcount);
 	}
 

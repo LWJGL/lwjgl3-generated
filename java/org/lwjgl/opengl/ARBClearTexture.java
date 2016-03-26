@@ -38,49 +38,23 @@ public class ARBClearTexture {
 	/** Accepted by the {@code pname} parameter for {@link GL42#glGetInternalformati GetInternalformati} and {@link GL43#glGetInternalformati64 GetInternalformati64}. */
 	public static final int GL_CLEAR_TEXTURE = 0x9365;
 
-	/** Function address. */
-	public final long
-		ClearTexSubImage,
-		ClearTexImage;
-
 	protected ARBClearTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBClearTexture(FunctionProvider provider) {
-		ClearTexSubImage = provider.getFunctionAddress("glClearTexSubImage");
-		ClearTexImage = provider.getFunctionAddress("glClearTexImage");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBClearTexture} instance of the current context. */
-	public static ARBClearTexture getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBClearTexture} instance of the specified {@link GLCapabilities}. */
-	public static ARBClearTexture getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBClearTexture);
-	}
-
-	static ARBClearTexture create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_clear_texture") ) return null;
-
-		ARBClearTexture funcs = new ARBClearTexture(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ClearTexSubImage, funcs.ClearTexImage
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glClearTexSubImage, caps.glClearTexImage
 		);
-
-		return GL.checkExtension("GL_ARB_clear_texture", funcs, supported);
 	}
 
 	// --- [ glClearTexSubImage ] ---
 
 	/** Unsafe version of {@link #glClearTexSubImage ClearTexSubImage} */
 	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearTexSubImage;
+		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
@@ -140,7 +114,9 @@ public class ARBClearTexture {
 
 	/** Unsafe version of {@link #glClearTexImage ClearTexImage} */
 	public static void nglClearTexImage(int texture, int level, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearTexImage;
+		long __functionAddress = GL.getCapabilities().glClearTexImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, texture, level, format, type, data);
 	}
 

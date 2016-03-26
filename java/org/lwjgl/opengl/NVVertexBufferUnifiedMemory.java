@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -62,140 +62,114 @@ public class NVVertexBufferUnifiedMemory {
 		GL_FOG_COORD_ARRAY_LENGTH_NV       = 0x8F32,
 		GL_ELEMENT_ARRAY_LENGTH_NV         = 0x8F33;
 
-	/** Function address. */
-	public final long
-		BufferAddressRangeNV,
-		VertexFormatNV,
-		NormalFormatNV,
-		ColorFormatNV,
-		IndexFormatNV,
-		TexCoordFormatNV,
-		EdgeFlagFormatNV,
-		SecondaryColorFormatNV,
-		FogCoordFormatNV,
-		VertexAttribFormatNV,
-		VertexAttribIFormatNV,
-		GetIntegerui64i_vNV;
-
 	protected NVVertexBufferUnifiedMemory() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVVertexBufferUnifiedMemory(FunctionProvider provider) {
-		BufferAddressRangeNV = provider.getFunctionAddress("glBufferAddressRangeNV");
-		VertexFormatNV = provider.getFunctionAddress("glVertexFormatNV");
-		NormalFormatNV = provider.getFunctionAddress("glNormalFormatNV");
-		ColorFormatNV = provider.getFunctionAddress("glColorFormatNV");
-		IndexFormatNV = provider.getFunctionAddress("glIndexFormatNV");
-		TexCoordFormatNV = provider.getFunctionAddress("glTexCoordFormatNV");
-		EdgeFlagFormatNV = provider.getFunctionAddress("glEdgeFlagFormatNV");
-		SecondaryColorFormatNV = provider.getFunctionAddress("glSecondaryColorFormatNV");
-		FogCoordFormatNV = provider.getFunctionAddress("glFogCoordFormatNV");
-		VertexAttribFormatNV = provider.getFunctionAddress("glVertexAttribFormatNV");
-		VertexAttribIFormatNV = provider.getFunctionAddress("glVertexAttribIFormatNV");
-		GetIntegerui64i_vNV = provider.getFunctionAddress("glGetIntegerui64i_vNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVVertexBufferUnifiedMemory} instance of the current context. */
-	public static NVVertexBufferUnifiedMemory getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVVertexBufferUnifiedMemory} instance of the specified {@link GLCapabilities}. */
-	public static NVVertexBufferUnifiedMemory getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVVertexBufferUnifiedMemory);
-	}
-
-	static NVVertexBufferUnifiedMemory create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_vertex_buffer_unified_memory") ) return null;
-
-		NVVertexBufferUnifiedMemory funcs = new NVVertexBufferUnifiedMemory(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BufferAddressRangeNV, funcs.VertexFormatNV, funcs.NormalFormatNV, funcs.ColorFormatNV, funcs.IndexFormatNV, funcs.TexCoordFormatNV, 
-			funcs.EdgeFlagFormatNV, funcs.SecondaryColorFormatNV, funcs.FogCoordFormatNV, funcs.VertexAttribFormatNV, funcs.VertexAttribIFormatNV, 
-			funcs.GetIntegerui64i_vNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBufferAddressRangeNV, caps.glVertexFormatNV, caps.glNormalFormatNV, caps.glColorFormatNV, caps.glIndexFormatNV, caps.glTexCoordFormatNV, 
+			caps.glEdgeFlagFormatNV, caps.glSecondaryColorFormatNV, caps.glFogCoordFormatNV, caps.glVertexAttribFormatNV, caps.glVertexAttribIFormatNV, 
+			caps.glGetIntegerui64i_vNV
 		);
-
-		return GL.checkExtension("GL_NV_vertex_buffer_unified_memory", funcs, supported);
 	}
 
 	// --- [ glBufferAddressRangeNV ] ---
 
 	public static void glBufferAddressRangeNV(int pname, int index, long address, long length) {
-		long __functionAddress = getInstance().BufferAddressRangeNV;
+		long __functionAddress = GL.getCapabilities().glBufferAddressRangeNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIJPV(__functionAddress, pname, index, address, length);
 	}
 
 	// --- [ glVertexFormatNV ] ---
 
 	public static void glVertexFormatNV(int size, int type, int stride) {
-		long __functionAddress = getInstance().VertexFormatNV;
+		long __functionAddress = GL.getCapabilities().glVertexFormatNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glNormalFormatNV ] ---
 
 	public static void glNormalFormatNV(int type, int stride) {
-		long __functionAddress = getInstance().NormalFormatNV;
+		long __functionAddress = GL.getCapabilities().glNormalFormatNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, stride);
 	}
 
 	// --- [ glColorFormatNV ] ---
 
 	public static void glColorFormatNV(int size, int type, int stride) {
-		long __functionAddress = getInstance().ColorFormatNV;
+		long __functionAddress = GL.getCapabilities().glColorFormatNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glIndexFormatNV ] ---
 
 	public static void glIndexFormatNV(int type, int stride) {
-		long __functionAddress = getInstance().IndexFormatNV;
+		long __functionAddress = GL.getCapabilities().glIndexFormatNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, stride);
 	}
 
 	// --- [ glTexCoordFormatNV ] ---
 
 	public static void glTexCoordFormatNV(int size, int type, int stride) {
-		long __functionAddress = getInstance().TexCoordFormatNV;
+		long __functionAddress = GL.getCapabilities().glTexCoordFormatNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glEdgeFlagFormatNV ] ---
 
 	public static void glEdgeFlagFormatNV(int stride) {
-		long __functionAddress = getInstance().EdgeFlagFormatNV;
+		long __functionAddress = GL.getCapabilities().glEdgeFlagFormatNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, stride);
 	}
 
 	// --- [ glSecondaryColorFormatNV ] ---
 
 	public static void glSecondaryColorFormatNV(int size, int type, int stride) {
-		long __functionAddress = getInstance().SecondaryColorFormatNV;
+		long __functionAddress = GL.getCapabilities().glSecondaryColorFormatNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glFogCoordFormatNV ] ---
 
 	public static void glFogCoordFormatNV(int type, int stride) {
-		long __functionAddress = getInstance().FogCoordFormatNV;
+		long __functionAddress = GL.getCapabilities().glFogCoordFormatNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, stride);
 	}
 
 	// --- [ glVertexAttribFormatNV ] ---
 
 	public static void glVertexAttribFormatNV(int index, int size, int type, boolean normalized, int stride) {
-		long __functionAddress = getInstance().VertexAttribFormatNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttribFormatNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZIV(__functionAddress, index, size, type, normalized, stride);
 	}
 
 	// --- [ glVertexAttribIFormatNV ] ---
 
 	public static void glVertexAttribIFormatNV(int index, int size, int type, int stride) {
-		long __functionAddress = getInstance().VertexAttribIFormatNV;
+		long __functionAddress = GL.getCapabilities().glVertexAttribIFormatNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, index, size, type, stride);
 	}
 
@@ -203,7 +177,9 @@ public class NVVertexBufferUnifiedMemory {
 
 	/** Unsafe version of {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
 	public static void nglGetIntegerui64i_vNV(int value, int index, long result) {
-		long __functionAddress = getInstance().GetIntegerui64i_vNV;
+		long __functionAddress = GL.getCapabilities().glGetIntegerui64i_vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, value, index, result);
 	}
 
@@ -222,10 +198,14 @@ public class NVVertexBufferUnifiedMemory {
 
 	/** Single return value version of: {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
 	public static long glGetIntegerui64iNV(int value, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int result = __buffer.longParam();
-		nglGetIntegerui64i_vNV(value, index, __buffer.address(result));
-		return __buffer.longValue(result);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer result = stack.callocLong(1);
+			nglGetIntegerui64i_vNV(value, index, memAddress(result));
+			return result.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

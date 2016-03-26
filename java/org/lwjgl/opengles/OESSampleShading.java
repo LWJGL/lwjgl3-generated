@@ -37,44 +37,22 @@ public class OESSampleShading {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, and GetFloatv. */
 	public static final int GL_MIN_SAMPLE_SHADING_VALUE_OES = 0x8C37;
 
-	/** Function address. */
-	public final long MinSampleShadingOES;
-
 	protected OESSampleShading() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OESSampleShading(FunctionProvider provider) {
-		MinSampleShadingOES = provider.getFunctionAddress("glMinSampleShadingOES");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OESSampleShading} instance of the current context. */
-	public static OESSampleShading getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OESSampleShading} instance of the specified {@link GLESCapabilities}. */
-	public static OESSampleShading getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OESSampleShading);
-	}
-
-	static OESSampleShading create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OES_sample_shading") ) return null;
-
-		OESSampleShading funcs = new OESSampleShading(provider);
-		boolean supported = checkFunctions(
-			funcs.MinSampleShadingOES
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glMinSampleShadingOES
 		);
-
-		return GLES.checkExtension("GL_OES_sample_shading", funcs, supported);
 	}
 
 	// --- [ glMinSampleShadingOES ] ---
 
 	public static void glMinSampleShadingOES(float value) {
-		long __functionAddress = getInstance().MinSampleShadingOES;
+		long __functionAddress = GLES.getCapabilities().glMinSampleShadingOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, value);
 	}
 

@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -175,46 +175,23 @@ public class ARBInternalformatQuery2 {
 		GL_VIEW_CLASS_BPTC_UNORM     = 0x82D2,
 		GL_VIEW_CLASS_BPTC_FLOAT     = 0x82D3;
 
-	/** Function address. */
-	public final long GetInternalformati64v;
-
 	protected ARBInternalformatQuery2() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBInternalformatQuery2(FunctionProvider provider) {
-		GetInternalformati64v = provider.getFunctionAddress("glGetInternalformati64v");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBInternalformatQuery2} instance of the current context. */
-	public static ARBInternalformatQuery2 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBInternalformatQuery2} instance of the specified {@link GLCapabilities}. */
-	public static ARBInternalformatQuery2 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBInternalformatQuery2);
-	}
-
-	static ARBInternalformatQuery2 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_internalformat_query2") ) return null;
-
-		ARBInternalformatQuery2 funcs = new ARBInternalformatQuery2(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetInternalformati64v
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetInternalformati64v
 		);
-
-		return GL.checkExtension("GL_ARB_internalformat_query2", funcs, supported);
 	}
 
 	// --- [ glGetInternalformati64v ] ---
 
 	/** Unsafe version of {@link #glGetInternalformati64v GetInternalformati64v} */
 	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
-		long __functionAddress = getInstance().GetInternalformati64v;
+		long __functionAddress = GL.getCapabilities().glGetInternalformati64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
@@ -240,10 +217,14 @@ public class ARBInternalformatQuery2 {
 
 	/** Single return value version of: {@link #glGetInternalformati64v GetInternalformati64v} */
 	public static long glGetInternalformati64(int target, int internalformat, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetInternalformati64v(target, internalformat, pname, 1, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetInternalformati64v(target, internalformat, pname, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

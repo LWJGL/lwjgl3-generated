@@ -35,44 +35,22 @@ public class NVInstancedArrays {
 	/** Accepted by the {@code pname} parameters of GetVertexAttribfv, and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV = 0x88FE;
 
-	/** Function address. */
-	public final long VertexAttribDivisorNV;
-
 	protected NVInstancedArrays() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVInstancedArrays(FunctionProvider provider) {
-		VertexAttribDivisorNV = provider.getFunctionAddress("glVertexAttribDivisorNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVInstancedArrays} instance of the current context. */
-	public static NVInstancedArrays getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVInstancedArrays} instance of the specified {@link GLESCapabilities}. */
-	public static NVInstancedArrays getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVInstancedArrays);
-	}
-
-	static NVInstancedArrays create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_instanced_arrays") ) return null;
-
-		NVInstancedArrays funcs = new NVInstancedArrays(provider);
-		boolean supported = checkFunctions(
-			funcs.VertexAttribDivisorNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glVertexAttribDivisorNV
 		);
-
-		return GLES.checkExtension("GL_NV_instanced_arrays", funcs, supported);
 	}
 
 	// --- [ glVertexAttribDivisorNV ] ---
 
 	public static void glVertexAttribDivisorNV(int index, int divisor) {
-		long __functionAddress = getInstance().VertexAttribDivisorNV;
+		long __functionAddress = GLES.getCapabilities().glVertexAttribDivisorNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, divisor);
 	}
 

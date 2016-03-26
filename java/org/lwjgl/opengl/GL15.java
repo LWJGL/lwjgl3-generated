@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -112,78 +112,16 @@ public class GL15 {
 		GL_QUERY_RESULT           = 0x8866,
 		GL_QUERY_RESULT_AVAILABLE = 0x8867;
 
-	/** Function address. */
-	public final long
-		BindBuffer,
-		DeleteBuffers,
-		GenBuffers,
-		IsBuffer,
-		BufferData,
-		BufferSubData,
-		GetBufferSubData,
-		MapBuffer,
-		UnmapBuffer,
-		GetBufferParameteriv,
-		GetBufferPointerv,
-		GenQueries,
-		DeleteQueries,
-		IsQuery,
-		BeginQuery,
-		EndQuery,
-		GetQueryiv,
-		GetQueryObjectiv,
-		GetQueryObjectuiv;
-
 	protected GL15() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL15(FunctionProvider provider) {
-		BindBuffer = provider.getFunctionAddress("glBindBuffer");
-		DeleteBuffers = provider.getFunctionAddress("glDeleteBuffers");
-		GenBuffers = provider.getFunctionAddress("glGenBuffers");
-		IsBuffer = provider.getFunctionAddress("glIsBuffer");
-		BufferData = provider.getFunctionAddress("glBufferData");
-		BufferSubData = provider.getFunctionAddress("glBufferSubData");
-		GetBufferSubData = provider.getFunctionAddress("glGetBufferSubData");
-		MapBuffer = provider.getFunctionAddress("glMapBuffer");
-		UnmapBuffer = provider.getFunctionAddress("glUnmapBuffer");
-		GetBufferParameteriv = provider.getFunctionAddress("glGetBufferParameteriv");
-		GetBufferPointerv = provider.getFunctionAddress("glGetBufferPointerv");
-		GenQueries = provider.getFunctionAddress("glGenQueries");
-		DeleteQueries = provider.getFunctionAddress("glDeleteQueries");
-		IsQuery = provider.getFunctionAddress("glIsQuery");
-		BeginQuery = provider.getFunctionAddress("glBeginQuery");
-		EndQuery = provider.getFunctionAddress("glEndQuery");
-		GetQueryiv = provider.getFunctionAddress("glGetQueryiv");
-		GetQueryObjectiv = provider.getFunctionAddress("glGetQueryObjectiv");
-		GetQueryObjectuiv = provider.getFunctionAddress("glGetQueryObjectuiv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL15} instance of the current context. */
-	public static GL15 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL15} instance of the specified {@link GLCapabilities}. */
-	public static GL15 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL15);
-	}
-
-	static GL15 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL15") ) return null;
-
-		GL15 funcs = new GL15(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindBuffer, funcs.DeleteBuffers, funcs.GenBuffers, funcs.IsBuffer, funcs.BufferData, funcs.BufferSubData, funcs.GetBufferSubData, 
-			funcs.MapBuffer, funcs.UnmapBuffer, funcs.GetBufferParameteriv, funcs.GetBufferPointerv, funcs.GenQueries, funcs.DeleteQueries, funcs.IsQuery, 
-			funcs.BeginQuery, funcs.EndQuery, funcs.GetQueryiv, funcs.GetQueryObjectiv, funcs.GetQueryObjectuiv
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBindBuffer, caps.glDeleteBuffers, caps.glGenBuffers, caps.glIsBuffer, caps.glBufferData, caps.glBufferSubData, caps.glGetBufferSubData, 
+			caps.glMapBuffer, caps.glUnmapBuffer, caps.glGetBufferParameteriv, caps.glGetBufferPointerv, caps.glGenQueries, caps.glDeleteQueries, 
+			caps.glIsQuery, caps.glBeginQuery, caps.glEndQuery, caps.glGetQueryiv, caps.glGetQueryObjectiv, caps.glGetQueryObjectuiv
 		);
-
-		return GL.checkExtension("OpenGL15", funcs, supported);
 	}
 
 	// --- [ glBindBuffer ] ---
@@ -197,7 +135,9 @@ public class GL15 {
 	 * @param buffer the name of a buffer object
 	 */
 	public static void glBindBuffer(int target, int buffer) {
-		long __functionAddress = getInstance().BindBuffer;
+		long __functionAddress = GL.getCapabilities().glBindBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, buffer);
 	}
 
@@ -205,7 +145,9 @@ public class GL15 {
 
 	/** Unsafe version of {@link #glDeleteBuffers DeleteBuffers} */
 	public static void nglDeleteBuffers(int n, long buffers) {
-		long __functionAddress = getInstance().DeleteBuffers;
+		long __functionAddress = GL.getCapabilities().glDeleteBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, buffers);
 	}
 
@@ -230,16 +172,22 @@ public class GL15 {
 
 	/** Single value version of: {@link #glDeleteBuffers DeleteBuffers} */
 	public static void glDeleteBuffers(int buffer) {
-		APIBuffer __buffer = apiBuffer();
-		int buffers = __buffer.intParam(buffer);
-		nglDeleteBuffers(1, __buffer.address(buffers));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer buffers = stack.ints(buffer);
+			nglDeleteBuffers(1, memAddress(buffers));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenBuffers ] ---
 
 	/** Unsafe version of {@link #glGenBuffers GenBuffers} */
 	public static void nglGenBuffers(int n, long buffers) {
-		long __functionAddress = getInstance().GenBuffers;
+		long __functionAddress = GL.getCapabilities().glGenBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, buffers);
 	}
 
@@ -264,10 +212,14 @@ public class GL15 {
 
 	/** Single return value version of: {@link #glGenBuffers GenBuffers} */
 	public static int glGenBuffers() {
-		APIBuffer __buffer = apiBuffer();
-		int buffers = __buffer.intParam();
-		nglGenBuffers(1, __buffer.address(buffers));
-		return __buffer.intValue(buffers);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer buffers = stack.callocInt(1);
+			nglGenBuffers(1, memAddress(buffers));
+			return buffers.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsBuffer ] ---
@@ -280,7 +232,9 @@ public class GL15 {
 	 * @param buffer a value that may be the name of a buffer object
 	 */
 	public static boolean glIsBuffer(int buffer) {
-		long __functionAddress = getInstance().IsBuffer;
+		long __functionAddress = GL.getCapabilities().glIsBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, buffer);
 	}
 
@@ -288,7 +242,9 @@ public class GL15 {
 
 	/** Unsafe version of {@link #glBufferData BufferData} */
 	public static void nglBufferData(int target, long size, long data, int usage) {
-		long __functionAddress = getInstance().BufferData;
+		long __functionAddress = GL.getCapabilities().glBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPIV(__functionAddress, target, size, data, usage);
 	}
 
@@ -318,7 +274,7 @@ public class GL15 {
 	 *
 	 * @param target the target buffer object. One of:<br>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
 	 * @param size   the size in bytes of the buffer object's new data store
-	 * @param data   a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be copied
+	 * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
 	 * @param usage  the expected usage pattern of the data store. One of:<br>{@link #GL_STREAM_DRAW STREAM_DRAW}, {@link #GL_STREAM_READ STREAM_READ}, {@link #GL_STREAM_COPY STREAM_COPY}, {@link #GL_STATIC_DRAW STATIC_DRAW}, {@link #GL_STATIC_READ STATIC_READ}, {@link #GL_STATIC_COPY STATIC_COPY}, {@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}, {@link #GL_DYNAMIC_READ DYNAMIC_READ}, {@link #GL_DYNAMIC_COPY DYNAMIC_COPY}
 	 */
 	public static void glBufferData(int target, long size, ByteBuffer data, int usage) {
@@ -361,7 +317,9 @@ public class GL15 {
 
 	/** Unsafe version of {@link #glBufferSubData BufferSubData} */
 	public static void nglBufferSubData(int target, long offset, long size, long data) {
-		long __functionAddress = getInstance().BufferSubData;
+		long __functionAddress = GL.getCapabilities().glBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPPV(__functionAddress, target, offset, size, data);
 	}
 
@@ -410,7 +368,9 @@ public class GL15 {
 
 	/** Unsafe version of {@link #glGetBufferSubData GetBufferSubData} */
 	public static void nglGetBufferSubData(int target, long offset, long size, long data) {
-		long __functionAddress = getInstance().GetBufferSubData;
+		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPPV(__functionAddress, target, offset, size, data);
 	}
 
@@ -459,7 +419,9 @@ public class GL15 {
 
 	/** Unsafe version of {@link #glMapBuffer MapBuffer} */
 	public static long nglMapBuffer(int target, int access) {
-		long __functionAddress = getInstance().MapBuffer;
+		long __functionAddress = GL.getCapabilities().glMapBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIP(__functionAddress, target, access);
 	}
 
@@ -512,7 +474,9 @@ public class GL15 {
 	 * @param target the target buffer object being unmapped. One of:<br>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
 	 */
 	public static boolean glUnmapBuffer(int target) {
-		long __functionAddress = getInstance().UnmapBuffer;
+		long __functionAddress = GL.getCapabilities().glUnmapBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, target);
 	}
 
@@ -520,7 +484,9 @@ public class GL15 {
 
 	/** Unsafe version of {@link #glGetBufferParameteriv GetBufferParameteriv} */
 	public static void nglGetBufferParameteriv(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetBufferParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetBufferParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -548,17 +514,23 @@ public class GL15 {
 
 	/** Single return value version of: {@link #glGetBufferParameteriv GetBufferParameteriv} */
 	public static int glGetBufferParameteri(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetBufferParameteriv(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetBufferParameteriv(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetBufferPointerv ] ---
 
 	/** Unsafe version of {@link #glGetBufferPointerv GetBufferPointerv} */
 	public static void nglGetBufferPointerv(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetBufferPointerv;
+		long __functionAddress = GL.getCapabilities().glGetBufferPointerv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -586,17 +558,23 @@ public class GL15 {
 
 	/** Single return value version of: {@link #glGetBufferPointerv GetBufferPointerv} */
 	public static long glGetBufferPointer(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.pointerParam();
-		nglGetBufferPointerv(target, pname, __buffer.address(params));
-		return __buffer.pointerValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer params = stack.callocPointer(1);
+			nglGetBufferPointerv(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenQueries ] ---
 
 	/** Unsafe version of {@link #glGenQueries GenQueries} */
 	public static void nglGenQueries(int n, long ids) {
-		long __functionAddress = getInstance().GenQueries;
+		long __functionAddress = GL.getCapabilities().glGenQueries;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -621,17 +599,23 @@ public class GL15 {
 
 	/** Single return value version of: {@link #glGenQueries GenQueries} */
 	public static int glGenQueries() {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam();
-		nglGenQueries(1, __buffer.address(ids));
-		return __buffer.intValue(ids);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.callocInt(1);
+			nglGenQueries(1, memAddress(ids));
+			return ids.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDeleteQueries ] ---
 
 	/** Unsafe version of {@link #glDeleteQueries DeleteQueries} */
 	public static void nglDeleteQueries(int n, long ids) {
-		long __functionAddress = getInstance().DeleteQueries;
+		long __functionAddress = GL.getCapabilities().glDeleteQueries;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -656,9 +640,13 @@ public class GL15 {
 
 	/** Single value version of: {@link #glDeleteQueries DeleteQueries} */
 	public static void glDeleteQueries(int id) {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam(id);
-		nglDeleteQueries(1, __buffer.address(ids));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.ints(id);
+			nglDeleteQueries(1, memAddress(ids));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsQuery ] ---
@@ -671,7 +659,9 @@ public class GL15 {
 	 * @param id a value that may be the name of a query object
 	 */
 	public static boolean glIsQuery(int id) {
-		long __functionAddress = getInstance().IsQuery;
+		long __functionAddress = GL.getCapabilities().glIsQuery;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, id);
 	}
 
@@ -686,7 +676,9 @@ public class GL15 {
 	 * @param id     the name of a query object
 	 */
 	public static void glBeginQuery(int target, int id) {
-		long __functionAddress = getInstance().BeginQuery;
+		long __functionAddress = GL.getCapabilities().glBeginQuery;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, id);
 	}
 
@@ -700,7 +692,9 @@ public class GL15 {
 	 * @param target the query object target. One of:<br>{@link #GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
 	 */
 	public static void glEndQuery(int target) {
-		long __functionAddress = getInstance().EndQuery;
+		long __functionAddress = GL.getCapabilities().glEndQuery;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, target);
 	}
 
@@ -708,7 +702,9 @@ public class GL15 {
 
 	/** Unsafe version of {@link #glGetQueryiv GetQueryiv} */
 	public static void nglGetQueryiv(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryiv;
+		long __functionAddress = GL.getCapabilities().glGetQueryiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -736,17 +732,23 @@ public class GL15 {
 
 	/** Single return value version of: {@link #glGetQueryiv GetQueryiv} */
 	public static int glGetQueryi(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetQueryiv(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetQueryiv(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetQueryObjectiv ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectiv GetQueryObjectiv} */
 	public static void nglGetQueryObjectiv(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjectiv;
+		long __functionAddress = GL.getCapabilities().glGetQueryObjectiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -774,17 +776,23 @@ public class GL15 {
 
 	/** Single return value version of: {@link #glGetQueryObjectiv GetQueryObjectiv} */
 	public static int glGetQueryObjecti(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetQueryObjectiv(id, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetQueryObjectiv(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetQueryObjectuiv ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
 	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjectuiv;
+		long __functionAddress = GL.getCapabilities().glGetQueryObjectuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -812,10 +820,14 @@ public class GL15 {
 
 	/** Single return value version of: {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
 	public static int glGetQueryObjectui(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetQueryObjectuiv(id, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetQueryObjectuiv(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

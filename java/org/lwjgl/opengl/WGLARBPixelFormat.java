@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -87,53 +87,25 @@ public class WGLARBPixelFormat {
 		WGL_TYPE_RGBA_ARB            = 0x202B,
 		WGL_TYPE_COLORINDEX_ARB      = 0x202C;
 
-	/** Function address. */
-	public final long
-		GetPixelFormatAttribivARB,
-		GetPixelFormatAttribfvARB,
-		ChoosePixelFormatARB;
-
 	protected WGLARBPixelFormat() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLARBPixelFormat(FunctionProvider provider) {
-		GetPixelFormatAttribivARB = provider.getFunctionAddress("wglGetPixelFormatAttribivARB");
-		GetPixelFormatAttribfvARB = provider.getFunctionAddress("wglGetPixelFormatAttribfvARB");
-		ChoosePixelFormatARB = provider.getFunctionAddress("wglChoosePixelFormatARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLARBPixelFormat} instance of the current context. */
-	public static WGLARBPixelFormat getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLARBPixelFormat} instance of the specified {@link GLCapabilities}. */
-	public static WGLARBPixelFormat getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLARBPixelFormat);
-	}
-
-	static WGLARBPixelFormat create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_pixel_format") ) return null;
-
-		WGLARBPixelFormat funcs = new WGLARBPixelFormat(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetPixelFormatAttribivARB, funcs.GetPixelFormatAttribfvARB, funcs.ChoosePixelFormatARB
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglGetPixelFormatAttribivARB, caps.wglGetPixelFormatAttribfvARB, caps.wglChoosePixelFormatARB
 		);
-
-		return GL.checkExtension("WGL_ARB_pixel_format", funcs, supported);
 	}
 
 	// --- [ wglGetPixelFormatAttribivARB ] ---
 
 	/** Unsafe version of {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} */
 	public static int nwglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
-		long __functionAddress = getInstance().GetPixelFormatAttribivARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
+		}
 		return callPIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
 
@@ -166,18 +138,24 @@ public class WGLARBPixelFormat {
 	public static int wglGetPixelFormatAttribiARB(long hdc, int pixelFormat, int layerPlane, int attribute, IntBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
-		APIBuffer __buffer = apiBuffer();
-		int attributes = __buffer.intParam(attribute);
-		return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, 1, __buffer.address(attributes), memAddress(values));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer attributes = stack.ints(attribute);
+			return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, 1, memAddress(attributes), memAddress(values));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ wglGetPixelFormatAttribfvARB ] ---
 
 	/** Unsafe version of {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB} */
 	public static int nwglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
-		long __functionAddress = getInstance().GetPixelFormatAttribfvARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribfvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
+		}
 		return callPIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
 
@@ -210,18 +188,24 @@ public class WGLARBPixelFormat {
 	public static int wglGetPixelFormatAttribfARB(long hdc, int pixelFormat, int layerPlane, int attribute, FloatBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
-		APIBuffer __buffer = apiBuffer();
-		int attributes = __buffer.intParam(attribute);
-		return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, 1, __buffer.address(attributes), memAddress(values));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer attributes = stack.ints(attribute);
+			return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, 1, memAddress(attributes), memAddress(values));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ wglChoosePixelFormatARB ] ---
 
 	/** Unsafe version of {@link #wglChoosePixelFormatARB ChoosePixelFormatARB} */
 	public static int nwglChoosePixelFormatARB(long hdc, long attribIList, long attribFList, int maxFormats, long formats, long numFormats) {
-		long __functionAddress = getInstance().ChoosePixelFormatARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglChoosePixelFormatARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
+		}
 		return callPPPIPPI(__functionAddress, hdc, attribIList, attribFList, maxFormats, formats, numFormats);
 	}
 

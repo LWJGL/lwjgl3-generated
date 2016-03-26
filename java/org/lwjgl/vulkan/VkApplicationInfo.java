@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Contains information about the application.
@@ -57,7 +58,7 @@ public class VkApplicationInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -81,7 +82,7 @@ public class VkApplicationInfo extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		STYPE = layout.offsetof(0);
 		PNEXT = layout.offsetof(1);
@@ -256,6 +257,76 @@ public class VkApplicationInfo extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkApplicationInfo} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkApplicationInfo mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkApplicationInfo} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkApplicationInfo callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkApplicationInfo} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkApplicationInfo mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkApplicationInfo} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkApplicationInfo callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkApplicationInfo.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkApplicationInfo.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkApplicationInfo.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkApplicationInfo.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #sType}. */
 	public static int nsType(long struct) { return memGetInt(struct + VkApplicationInfo.STYPE); }
 	/** Unsafe version of {@link #pNext}. */
@@ -263,13 +334,13 @@ public class VkApplicationInfo extends Struct {
 	/** Unsafe version of {@link #pApplicationName}. */
 	public static ByteBuffer npApplicationName(long struct) { return memByteBufferNT1(memGetAddress(struct + VkApplicationInfo.PAPPLICATIONNAME)); }
 	/** Unsafe version of {@link #pApplicationNameString}. */
-	public static String npApplicationNameString(long struct) { return memDecodeUTF8(memGetAddress(struct + VkApplicationInfo.PAPPLICATIONNAME)); }
+	public static String npApplicationNameString(long struct) { return memUTF8(memGetAddress(struct + VkApplicationInfo.PAPPLICATIONNAME)); }
 	/** Unsafe version of {@link #applicationVersion}. */
 	public static int napplicationVersion(long struct) { return memGetInt(struct + VkApplicationInfo.APPLICATIONVERSION); }
 	/** Unsafe version of {@link #pEngineName}. */
 	public static ByteBuffer npEngineName(long struct) { return memByteBufferNT1(memGetAddress(struct + VkApplicationInfo.PENGINENAME)); }
 	/** Unsafe version of {@link #pEngineNameString}. */
-	public static String npEngineNameString(long struct) { return memDecodeUTF8(memGetAddress(struct + VkApplicationInfo.PENGINENAME)); }
+	public static String npEngineNameString(long struct) { return memUTF8(memGetAddress(struct + VkApplicationInfo.PENGINENAME)); }
 	/** Unsafe version of {@link #engineVersion}. */
 	public static int nengineVersion(long struct) { return memGetInt(struct + VkApplicationInfo.ENGINEVERSION); }
 	/** Unsafe version of {@link #apiVersion}. */
@@ -285,7 +356,7 @@ public class VkApplicationInfo extends Struct {
 		memPutAddress(struct + VkApplicationInfo.PAPPLICATIONNAME, memAddressSafe(value));
 	}
 	/** Unsafe version of {@link #pApplicationName(CharSequence) pApplicationName}. */
-	public static void npApplicationName(long struct, CharSequence value) { npApplicationName(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
+	public static void npApplicationName(long struct, CharSequence value) { npApplicationName(struct, memUTF8(value)); }
 	/** Unsafe version of {@link #pApplicationNameFree}. */
 	public static void npApplicationNameFree(long struct) { nmemFree(memGetAddress(struct + VkApplicationInfo.PAPPLICATIONNAME)); }
 	/** Unsafe version of {@link #applicationVersion(int) applicationVersion}. */
@@ -296,7 +367,7 @@ public class VkApplicationInfo extends Struct {
 		memPutAddress(struct + VkApplicationInfo.PENGINENAME, memAddressSafe(value));
 	}
 	/** Unsafe version of {@link #pEngineName(CharSequence) pEngineName}. */
-	public static void npEngineName(long struct, CharSequence value) { npEngineName(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
+	public static void npEngineName(long struct, CharSequence value) { npEngineName(struct, memUTF8(value)); }
 	/** Unsafe version of {@link #pEngineNameFree}. */
 	public static void npEngineNameFree(long struct) { nmemFree(memGetAddress(struct + VkApplicationInfo.PENGINENAME)); }
 	/** Unsafe version of {@link #engineVersion(int) engineVersion}. */
@@ -338,7 +409,7 @@ public class VkApplicationInfo extends Struct {
 
 		@Override
 		protected VkApplicationInfo newInstance(long address) {
-			return new VkApplicationInfo(address, container);
+			return new VkApplicationInfo(address, getContainer());
 		}
 
 		@Override

@@ -53,45 +53,22 @@ public class EXTStencilClearTag {
 		GL_STENCIL_TAG_BITS_EXT        = 0x88F2,
 		GL_STENCIL_CLEAR_TAG_VALUE_EXT = 0x88F3;
 
-	/** Function address. */
-	public final long StencilClearTagEXT;
-
 	protected EXTStencilClearTag() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTStencilClearTag(FunctionProvider provider) {
-		StencilClearTagEXT = provider.getFunctionAddress("glStencilClearTagEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTStencilClearTag} instance of the current context. */
-	public static EXTStencilClearTag getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTStencilClearTag} instance of the specified {@link GLCapabilities}. */
-	public static EXTStencilClearTag getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTStencilClearTag);
-	}
-
-	static EXTStencilClearTag create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_stencil_clear_tag") ) return null;
-
-		EXTStencilClearTag funcs = new EXTStencilClearTag(provider);
-
-		boolean supported = checkFunctions(
-			funcs.StencilClearTagEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glStencilClearTagEXT
 		);
-
-		return GL.checkExtension("GL_EXT_stencil_clear_tag", funcs, supported);
 	}
 
 	// --- [ glStencilClearTagEXT ] ---
 
 	public static void glStencilClearTagEXT(int stencilTagBits, int stencilClearTag) {
-		long __functionAddress = getInstance().StencilClearTagEXT;
+		long __functionAddress = GL.getCapabilities().glStencilClearTagEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, stencilTagBits, stencilClearTag);
 	}
 

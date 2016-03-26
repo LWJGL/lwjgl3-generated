@@ -43,46 +43,23 @@ public class ARBDrawBuffers {
 		GL_DRAW_BUFFER14_ARB    = 0x8833,
 		GL_DRAW_BUFFER15_ARB    = 0x8834;
 
-	/** Function address. */
-	public final long DrawBuffersARB;
-
 	protected ARBDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBDrawBuffers(FunctionProvider provider) {
-		DrawBuffersARB = provider.getFunctionAddress("glDrawBuffersARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBDrawBuffers} instance of the current context. */
-	public static ARBDrawBuffers getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBDrawBuffers} instance of the specified {@link GLCapabilities}. */
-	public static ARBDrawBuffers getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBDrawBuffers);
-	}
-
-	static ARBDrawBuffers create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_draw_buffers") ) return null;
-
-		ARBDrawBuffers funcs = new ARBDrawBuffers(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DrawBuffersARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawBuffersARB
 		);
-
-		return GL.checkExtension("GL_ARB_draw_buffers", funcs, supported);
 	}
 
 	// --- [ glDrawBuffersARB ] ---
 
 	/** Unsafe version of {@link #glDrawBuffersARB DrawBuffersARB} */
 	public static void nglDrawBuffersARB(int n, long bufs) {
-		long __functionAddress = getInstance().DrawBuffersARB;
+		long __functionAddress = GL.getCapabilities().glDrawBuffersARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, bufs);
 	}
 

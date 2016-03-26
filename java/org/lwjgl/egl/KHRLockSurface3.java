@@ -50,40 +50,23 @@ public class KHRLockSurface3 {
 		EGL_LOWER_LEFT_KHR                    = 0x30CE,
 		EGL_UPPER_LEFT_KHR                    = 0x30CF;
 
-	/** Function address. */
-	public final long
-		LockSurfaceKHR,
-		UnlockSurfaceKHR,
-		QuerySurface64KHR;
-
 	protected KHRLockSurface3() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRLockSurface3(FunctionProvider provider) {
-		LockSurfaceKHR = provider.getFunctionAddress("eglLockSurfaceKHR");
-		UnlockSurfaceKHR = provider.getFunctionAddress("eglUnlockSurfaceKHR");
-		QuerySurface64KHR = provider.getFunctionAddress("eglQuerySurface64KHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRLockSurface3} instance. */
-	public static KHRLockSurface3 getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRLockSurface3} instance of the specified {@link EGLCapabilities}. */
-	public static KHRLockSurface3 getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRLockSurface3);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglLockSurfaceKHR, caps.eglUnlockSurfaceKHR, caps.eglQuerySurface64KHR
+		);
 	}
 
 	// --- [ eglLockSurfaceKHR ] ---
 
 	/** Unsafe version of {@link #eglLockSurfaceKHR LockSurfaceKHR} */
 	public static int neglLockSurfaceKHR(long dpy, long surface, long attrib_list) {
-		long __functionAddress = getInstance().LockSurfaceKHR;
+		long __functionAddress = EGL.getCapabilities().eglLockSurfaceKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -106,8 +89,9 @@ public class KHRLockSurface3 {
 	// --- [ eglUnlockSurfaceKHR ] ---
 
 	public static int eglUnlockSurfaceKHR(long dpy, long surface) {
-		long __functionAddress = getInstance().UnlockSurfaceKHR;
+		long __functionAddress = EGL.getCapabilities().eglUnlockSurfaceKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -118,8 +102,9 @@ public class KHRLockSurface3 {
 
 	/** Unsafe version of {@link #eglQuerySurface64KHR QuerySurface64KHR} */
 	public static int neglQuerySurface64KHR(long dpy, long surface, int attribute, long value) {
-		long __functionAddress = getInstance().QuerySurface64KHR;
+		long __functionAddress = EGL.getCapabilities().eglQuerySurface64KHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}

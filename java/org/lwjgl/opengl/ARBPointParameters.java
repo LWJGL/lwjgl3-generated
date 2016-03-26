@@ -41,42 +41,14 @@ public class ARBPointParameters {
 		GL_POINT_FADE_THRESHOLD_SIZE_ARB  = 0x8128,
 		GL_POINT_DISTANCE_ATTENUATION_ARB = 0x8129;
 
-	/** Function address. */
-	public final long
-		PointParameterfARB,
-		PointParameterfvARB;
-
 	protected ARBPointParameters() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBPointParameters(FunctionProvider provider) {
-		PointParameterfARB = provider.getFunctionAddress("glPointParameterfARB");
-		PointParameterfvARB = provider.getFunctionAddress("glPointParameterfvARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBPointParameters} instance of the current context. */
-	public static ARBPointParameters getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBPointParameters} instance of the specified {@link GLCapabilities}. */
-	public static ARBPointParameters getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBPointParameters);
-	}
-
-	static ARBPointParameters create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_point_parameters") ) return null;
-
-		ARBPointParameters funcs = new ARBPointParameters(provider);
-
-		boolean supported = checkFunctions(
-			funcs.PointParameterfARB, funcs.PointParameterfvARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glPointParameterfARB, caps.glPointParameterfvARB
 		);
-
-		return GL.checkExtension("GL_ARB_point_parameters", funcs, supported);
 	}
 
 	// --- [ glPointParameterfARB ] ---
@@ -88,7 +60,9 @@ public class ARBPointParameters {
 	 * @param param the parameter value
 	 */
 	public static void glPointParameterfARB(int pname, float param) {
-		long __functionAddress = getInstance().PointParameterfARB;
+		long __functionAddress = GL.getCapabilities().glPointParameterfARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, pname, param);
 	}
 
@@ -96,7 +70,9 @@ public class ARBPointParameters {
 
 	/** Unsafe version of {@link #glPointParameterfvARB PointParameterfvARB} */
 	public static void nglPointParameterfvARB(int pname, long params) {
-		long __functionAddress = getInstance().PointParameterfvARB;
+		long __functionAddress = GL.getCapabilities().glPointParameterfvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
 

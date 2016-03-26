@@ -42,49 +42,23 @@ public class ARBMapBufferRange {
 		GL_MAP_FLUSH_EXPLICIT_BIT    = 0x10,
 		GL_MAP_UNSYNCHRONIZED_BIT    = 0x20;
 
-	/** Function address. */
-	public final long
-		MapBufferRange,
-		FlushMappedBufferRange;
-
 	protected ARBMapBufferRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBMapBufferRange(FunctionProvider provider) {
-		MapBufferRange = provider.getFunctionAddress("glMapBufferRange");
-		FlushMappedBufferRange = provider.getFunctionAddress("glFlushMappedBufferRange");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBMapBufferRange} instance of the current context. */
-	public static ARBMapBufferRange getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBMapBufferRange} instance of the specified {@link GLCapabilities}. */
-	public static ARBMapBufferRange getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBMapBufferRange);
-	}
-
-	static ARBMapBufferRange create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_map_buffer_range") ) return null;
-
-		ARBMapBufferRange funcs = new ARBMapBufferRange(provider);
-
-		boolean supported = checkFunctions(
-			funcs.MapBufferRange, funcs.FlushMappedBufferRange
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glMapBufferRange, caps.glFlushMappedBufferRange
 		);
-
-		return GL.checkExtension("GL_ARB_map_buffer_range", funcs, supported);
 	}
 
 	// --- [ glMapBufferRange ] ---
 
 	/** Unsafe version of {@link #glMapBufferRange MapBufferRange} */
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
-		long __functionAddress = getInstance().MapBufferRange;
+		long __functionAddress = GL.getCapabilities().glMapBufferRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPPIP(__functionAddress, target, offset, length, access);
 	}
 
@@ -124,7 +98,9 @@ public class ARBMapBufferRange {
 	 * @param length the length of the buffer subrange, in basic machine units
 	 */
 	public static void glFlushMappedBufferRange(int target, long offset, long length) {
-		long __functionAddress = getInstance().FlushMappedBufferRange;
+		long __functionAddress = GL.getCapabilities().glFlushMappedBufferRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPV(__functionAddress, target, offset, length);
 	}
 

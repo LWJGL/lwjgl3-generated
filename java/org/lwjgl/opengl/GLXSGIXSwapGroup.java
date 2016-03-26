@@ -20,39 +20,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class GLXSGIXSwapGroup {
 
-	/** Function address. */
-	public final long JoinSwapGroupSGIX;
-
 	protected GLXSGIXSwapGroup() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXSGIXSwapGroup(FunctionProvider provider) {
-		JoinSwapGroupSGIX = provider.getFunctionAddress("glXJoinSwapGroupSGIX");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXSGIXSwapGroup} instance of the current context. */
-	public static GLXSGIXSwapGroup getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXSGIXSwapGroup} instance of the specified {@link GLCapabilities}. */
-	public static GLXSGIXSwapGroup getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXSGIXSwapGroup);
-	}
-
-	static GLXSGIXSwapGroup create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGIX_swap_group") ) return null;
-
-		GLXSGIXSwapGroup funcs = new GLXSGIXSwapGroup(provider);
-
-		boolean supported = checkFunctions(
-			funcs.JoinSwapGroupSGIX
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXJoinSwapGroupSGIX
 		);
-
-		return GL.checkExtension("GLX_SGIX_swap_group", funcs, supported);
 	}
 
 	// --- [ glXJoinSwapGroupSGIX ] ---
@@ -67,8 +42,9 @@ public class GLXSGIXSwapGroup {
 	 * @param member   a member of the swap group or {@code None}
 	 */
 	public static void glXJoinSwapGroupSGIX(long display, long drawable, long member) {
-		long __functionAddress = getInstance().JoinSwapGroupSGIX;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXJoinSwapGroupSGIX;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}

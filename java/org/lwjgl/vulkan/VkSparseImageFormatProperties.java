@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -26,7 +27,7 @@ public class VkSparseImageFormatProperties extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -37,12 +38,12 @@ public class VkSparseImageFormatProperties extends Struct {
 	static {
 		Layout layout = __struct(
 			__member(4),
-			__member(VkExtent3D.SIZEOF, VkExtent3D.__ALIGNMENT),
+			__member(VkExtent3D.SIZEOF, VkExtent3D.ALIGNOF),
 			__member(4)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		ASPECTMASK = layout.offsetof(0);
 		IMAGEGRANULARITY = layout.offsetof(1);
@@ -132,6 +133,76 @@ public class VkSparseImageFormatProperties extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkSparseImageFormatProperties} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkSparseImageFormatProperties mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkSparseImageFormatProperties} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkSparseImageFormatProperties callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkSparseImageFormatProperties} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkSparseImageFormatProperties mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkSparseImageFormatProperties} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkSparseImageFormatProperties callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkSparseImageFormatProperties.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkSparseImageFormatProperties.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkSparseImageFormatProperties.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkSparseImageFormatProperties.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #aspectMask}. */
 	public static int naspectMask(long struct) { return memGetInt(struct + VkSparseImageFormatProperties.ASPECTMASK); }
 	/** Unsafe version of {@link #imageGranularity}. */
@@ -173,7 +244,7 @@ public class VkSparseImageFormatProperties extends Struct {
 
 		@Override
 		protected VkSparseImageFormatProperties newInstance(long address) {
-			return new VkSparseImageFormatProperties(address, container);
+			return new VkSparseImageFormatProperties(address, getContainer());
 		}
 
 		@Override

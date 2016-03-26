@@ -46,54 +46,31 @@ public class EXTMultisampledRenderToTexture {
 	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
 	public static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT = 0x8D6C;
 
-	/** Function address. */
-	public final long
-		RenderbufferStorageMultisampleEXT,
-		FramebufferTexture2DMultisampleEXT;
-
 	protected EXTMultisampledRenderToTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTMultisampledRenderToTexture(FunctionProvider provider) {
-		RenderbufferStorageMultisampleEXT = provider.getFunctionAddress("glRenderbufferStorageMultisampleEXT");
-		FramebufferTexture2DMultisampleEXT = provider.getFunctionAddress("glFramebufferTexture2DMultisampleEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTMultisampledRenderToTexture} instance of the current context. */
-	public static EXTMultisampledRenderToTexture getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTMultisampledRenderToTexture} instance of the specified {@link GLESCapabilities}. */
-	public static EXTMultisampledRenderToTexture getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTMultisampledRenderToTexture);
-	}
-
-	static EXTMultisampledRenderToTexture create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_multisampled_render_to_texture") ) return null;
-
-		EXTMultisampledRenderToTexture funcs = new EXTMultisampledRenderToTexture(provider);
-		boolean supported = checkFunctions(
-			funcs.RenderbufferStorageMultisampleEXT, funcs.FramebufferTexture2DMultisampleEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glRenderbufferStorageMultisampleEXT, caps.glFramebufferTexture2DMultisampleEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_multisampled_render_to_texture", funcs, supported);
 	}
 
 	// --- [ glRenderbufferStorageMultisampleEXT ] ---
 
 	public static void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().RenderbufferStorageMultisampleEXT;
+		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glFramebufferTexture2DMultisampleEXT ] ---
 
 	public static void glFramebufferTexture2DMultisampleEXT(int target, int attachment, int textarget, int texture, int level, int samples) {
-		long __functionAddress = getInstance().FramebufferTexture2DMultisampleEXT;
+		long __functionAddress = GLES.getCapabilities().glFramebufferTexture2DMultisampleEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, samples);
 	}
 

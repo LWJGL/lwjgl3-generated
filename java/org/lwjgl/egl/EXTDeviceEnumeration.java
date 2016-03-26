@@ -32,34 +32,23 @@ import static org.lwjgl.system.Pointer.*;
  */
 public class EXTDeviceEnumeration {
 
-	/** Function address. */
-	public final long QueryDevicesEXT;
-
 	protected EXTDeviceEnumeration() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDeviceEnumeration(FunctionProvider provider) {
-		QueryDevicesEXT = provider.getFunctionAddress("eglQueryDevicesEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDeviceEnumeration} instance. */
-	public static EXTDeviceEnumeration getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDeviceEnumeration} instance of the specified {@link EGLCapabilities}. */
-	public static EXTDeviceEnumeration getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__EXTDeviceEnumeration);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglQueryDevicesEXT
+		);
 	}
 
 	// --- [ eglQueryDevicesEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDevicesEXT QueryDevicesEXT} */
 	public static int neglQueryDevicesEXT(int max_devices, long devices, long num_devices) {
-		long __functionAddress = getInstance().QueryDevicesEXT;
+		long __functionAddress = EGL.getCapabilities().eglQueryDevicesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPPI(__functionAddress, max_devices, devices, num_devices);
 	}
 

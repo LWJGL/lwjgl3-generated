@@ -36,43 +36,25 @@ public class EXTDeviceBase {
 	/**  */
 	public static final long EGL_NO_DEVICE_EXT = 0x0L;
 
-	/** Function address. */
-	public final long
-		QueryDeviceAttribEXT,
-		QueryDeviceStringEXT,
-		QueryDisplayAttribEXT,
-		QueryDevicesEXT;
-
 	protected EXTDeviceBase() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDeviceBase(FunctionProvider provider) {
-		QueryDeviceAttribEXT = provider.getFunctionAddress("eglQueryDeviceAttribEXT");
-		QueryDeviceStringEXT = provider.getFunctionAddress("eglQueryDeviceStringEXT");
-		QueryDisplayAttribEXT = provider.getFunctionAddress("eglQueryDisplayAttribEXT");
-		QueryDevicesEXT = provider.getFunctionAddress("eglQueryDevicesEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDeviceBase} instance. */
-	public static EXTDeviceBase getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDeviceBase} instance of the specified {@link EGLCapabilities}. */
-	public static EXTDeviceBase getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__EXTDeviceBase);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglQueryDeviceAttribEXT, caps.eglQueryDeviceStringEXT, caps.eglQueryDisplayAttribEXT, caps.eglQueryDevicesEXT
+		);
 	}
 
 	// --- [ eglQueryDeviceAttribEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDeviceAttribEXT QueryDeviceAttribEXT} */
 	public static int neglQueryDeviceAttribEXT(long device, int attribute, long value) {
-		long __functionAddress = getInstance().QueryDeviceAttribEXT;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglQueryDeviceAttribEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPIPI(__functionAddress, device, attribute, value);
 	}
 
@@ -93,24 +75,28 @@ public class EXTDeviceBase {
 
 	/** Unsafe version of {@link #eglQueryDeviceStringEXT QueryDeviceStringEXT} */
 	public static long neglQueryDeviceStringEXT(long device, int name) {
-		long __functionAddress = getInstance().QueryDeviceStringEXT;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglQueryDeviceStringEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPIP(__functionAddress, device, name);
 	}
 
 	public static String eglQueryDeviceStringEXT(long device, int name) {
 		long __result = neglQueryDeviceStringEXT(device, name);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ eglQueryDisplayAttribEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDisplayAttribEXT QueryDisplayAttribEXT} */
 	public static int neglQueryDisplayAttribEXT(long dpy, int attribute, long value) {
-		long __functionAddress = getInstance().QueryDisplayAttribEXT;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglQueryDisplayAttribEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPIPI(__functionAddress, dpy, attribute, value);
 	}
 
@@ -131,7 +117,9 @@ public class EXTDeviceBase {
 
 	/** Unsafe version of {@link #eglQueryDevicesEXT QueryDevicesEXT} */
 	public static int neglQueryDevicesEXT(int max_devices, long devices, long num_devices) {
-		long __functionAddress = getInstance().QueryDevicesEXT;
+		long __functionAddress = EGL.getCapabilities().eglQueryDevicesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPPI(__functionAddress, max_devices, devices, num_devices);
 	}
 

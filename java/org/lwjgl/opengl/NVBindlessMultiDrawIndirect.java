@@ -31,49 +31,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVBindlessMultiDrawIndirect {
 
-	/** Function address. */
-	public final long
-		MultiDrawArraysIndirectBindlessNV,
-		MultiDrawElementsIndirectBindlessNV;
-
 	protected NVBindlessMultiDrawIndirect() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVBindlessMultiDrawIndirect(FunctionProvider provider) {
-		MultiDrawArraysIndirectBindlessNV = provider.getFunctionAddress("glMultiDrawArraysIndirectBindlessNV");
-		MultiDrawElementsIndirectBindlessNV = provider.getFunctionAddress("glMultiDrawElementsIndirectBindlessNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVBindlessMultiDrawIndirect} instance of the current context. */
-	public static NVBindlessMultiDrawIndirect getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVBindlessMultiDrawIndirect} instance of the specified {@link GLCapabilities}. */
-	public static NVBindlessMultiDrawIndirect getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVBindlessMultiDrawIndirect);
-	}
-
-	static NVBindlessMultiDrawIndirect create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_bindless_multi_draw_indirect") ) return null;
-
-		NVBindlessMultiDrawIndirect funcs = new NVBindlessMultiDrawIndirect(provider);
-
-		boolean supported = checkFunctions(
-			funcs.MultiDrawArraysIndirectBindlessNV, funcs.MultiDrawElementsIndirectBindlessNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glMultiDrawArraysIndirectBindlessNV, caps.glMultiDrawElementsIndirectBindlessNV
 		);
-
-		return GL.checkExtension("GL_NV_bindless_multi_draw_indirect", funcs, supported);
 	}
 
 	// --- [ glMultiDrawArraysIndirectBindlessNV ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysIndirectBindlessNV MultiDrawArraysIndirectBindlessNV} */
 	public static void nglMultiDrawArraysIndirectBindlessNV(int mode, long indirect, int drawCount, int stride, int vertexBufferCount) {
-		long __functionAddress = getInstance().MultiDrawArraysIndirectBindlessNV;
+		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectBindlessNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPIIIV(__functionAddress, mode, indirect, drawCount, stride, vertexBufferCount);
 	}
 
@@ -107,7 +81,9 @@ typedef struct {
 
 	/** Unsafe version of {@link #glMultiDrawElementsIndirectBindlessNV MultiDrawElementsIndirectBindlessNV} */
 	public static void nglMultiDrawElementsIndirectBindlessNV(int mode, int type, long indirect, int drawCount, int stride, int vertexBufferCount) {
-		long __functionAddress = getInstance().MultiDrawElementsIndirectBindlessNV;
+		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectBindlessNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIIV(__functionAddress, mode, type, indirect, drawCount, stride, vertexBufferCount);
 	}
 

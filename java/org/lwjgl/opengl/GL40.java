@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -190,138 +190,22 @@ public class GL40 {
 		GL_MAX_TRANSFORM_FEEDBACK_BUFFERS = 0x8E70,
 		GL_MAX_VERTEX_STREAMS             = 0x8E71;
 
-	/** Function address. */
-	public final long
-		BlendEquationi,
-		BlendEquationSeparatei,
-		BlendFunci,
-		BlendFuncSeparatei,
-		DrawArraysIndirect,
-		DrawElementsIndirect,
-		Uniform1d,
-		Uniform2d,
-		Uniform3d,
-		Uniform4d,
-		Uniform1dv,
-		Uniform2dv,
-		Uniform3dv,
-		Uniform4dv,
-		UniformMatrix2dv,
-		UniformMatrix3dv,
-		UniformMatrix4dv,
-		UniformMatrix2x3dv,
-		UniformMatrix2x4dv,
-		UniformMatrix3x2dv,
-		UniformMatrix3x4dv,
-		UniformMatrix4x2dv,
-		UniformMatrix4x3dv,
-		GetUniformdv,
-		MinSampleShading,
-		GetSubroutineUniformLocation,
-		GetSubroutineIndex,
-		GetActiveSubroutineUniformiv,
-		GetActiveSubroutineUniformName,
-		GetActiveSubroutineName,
-		UniformSubroutinesuiv,
-		GetUniformSubroutineuiv,
-		GetProgramStageiv,
-		PatchParameteri,
-		PatchParameterfv,
-		BindTransformFeedback,
-		DeleteTransformFeedbacks,
-		GenTransformFeedbacks,
-		IsTransformFeedback,
-		PauseTransformFeedback,
-		ResumeTransformFeedback,
-		DrawTransformFeedback,
-		DrawTransformFeedbackStream,
-		BeginQueryIndexed,
-		EndQueryIndexed,
-		GetQueryIndexediv;
-
 	protected GL40() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL40(FunctionProvider provider) {
-		BlendEquationi = provider.getFunctionAddress("glBlendEquationi");
-		BlendEquationSeparatei = provider.getFunctionAddress("glBlendEquationSeparatei");
-		BlendFunci = provider.getFunctionAddress("glBlendFunci");
-		BlendFuncSeparatei = provider.getFunctionAddress("glBlendFuncSeparatei");
-		DrawArraysIndirect = provider.getFunctionAddress("glDrawArraysIndirect");
-		DrawElementsIndirect = provider.getFunctionAddress("glDrawElementsIndirect");
-		Uniform1d = provider.getFunctionAddress("glUniform1d");
-		Uniform2d = provider.getFunctionAddress("glUniform2d");
-		Uniform3d = provider.getFunctionAddress("glUniform3d");
-		Uniform4d = provider.getFunctionAddress("glUniform4d");
-		Uniform1dv = provider.getFunctionAddress("glUniform1dv");
-		Uniform2dv = provider.getFunctionAddress("glUniform2dv");
-		Uniform3dv = provider.getFunctionAddress("glUniform3dv");
-		Uniform4dv = provider.getFunctionAddress("glUniform4dv");
-		UniformMatrix2dv = provider.getFunctionAddress("glUniformMatrix2dv");
-		UniformMatrix3dv = provider.getFunctionAddress("glUniformMatrix3dv");
-		UniformMatrix4dv = provider.getFunctionAddress("glUniformMatrix4dv");
-		UniformMatrix2x3dv = provider.getFunctionAddress("glUniformMatrix2x3dv");
-		UniformMatrix2x4dv = provider.getFunctionAddress("glUniformMatrix2x4dv");
-		UniformMatrix3x2dv = provider.getFunctionAddress("glUniformMatrix3x2dv");
-		UniformMatrix3x4dv = provider.getFunctionAddress("glUniformMatrix3x4dv");
-		UniformMatrix4x2dv = provider.getFunctionAddress("glUniformMatrix4x2dv");
-		UniformMatrix4x3dv = provider.getFunctionAddress("glUniformMatrix4x3dv");
-		GetUniformdv = provider.getFunctionAddress("glGetUniformdv");
-		MinSampleShading = provider.getFunctionAddress("glMinSampleShading");
-		GetSubroutineUniformLocation = provider.getFunctionAddress("glGetSubroutineUniformLocation");
-		GetSubroutineIndex = provider.getFunctionAddress("glGetSubroutineIndex");
-		GetActiveSubroutineUniformiv = provider.getFunctionAddress("glGetActiveSubroutineUniformiv");
-		GetActiveSubroutineUniformName = provider.getFunctionAddress("glGetActiveSubroutineUniformName");
-		GetActiveSubroutineName = provider.getFunctionAddress("glGetActiveSubroutineName");
-		UniformSubroutinesuiv = provider.getFunctionAddress("glUniformSubroutinesuiv");
-		GetUniformSubroutineuiv = provider.getFunctionAddress("glGetUniformSubroutineuiv");
-		GetProgramStageiv = provider.getFunctionAddress("glGetProgramStageiv");
-		PatchParameteri = provider.getFunctionAddress("glPatchParameteri");
-		PatchParameterfv = provider.getFunctionAddress("glPatchParameterfv");
-		BindTransformFeedback = provider.getFunctionAddress("glBindTransformFeedback");
-		DeleteTransformFeedbacks = provider.getFunctionAddress("glDeleteTransformFeedbacks");
-		GenTransformFeedbacks = provider.getFunctionAddress("glGenTransformFeedbacks");
-		IsTransformFeedback = provider.getFunctionAddress("glIsTransformFeedback");
-		PauseTransformFeedback = provider.getFunctionAddress("glPauseTransformFeedback");
-		ResumeTransformFeedback = provider.getFunctionAddress("glResumeTransformFeedback");
-		DrawTransformFeedback = provider.getFunctionAddress("glDrawTransformFeedback");
-		DrawTransformFeedbackStream = provider.getFunctionAddress("glDrawTransformFeedbackStream");
-		BeginQueryIndexed = provider.getFunctionAddress("glBeginQueryIndexed");
-		EndQueryIndexed = provider.getFunctionAddress("glEndQueryIndexed");
-		GetQueryIndexediv = provider.getFunctionAddress("glGetQueryIndexediv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL40} instance of the current context. */
-	public static GL40 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL40} instance of the specified {@link GLCapabilities}. */
-	public static GL40 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL40);
-	}
-
-	static GL40 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL40") ) return null;
-
-		GL40 funcs = new GL40(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BlendEquationi, funcs.BlendEquationSeparatei, funcs.BlendFunci, funcs.BlendFuncSeparatei, funcs.DrawArraysIndirect, 
-			funcs.DrawElementsIndirect, funcs.Uniform1d, funcs.Uniform2d, funcs.Uniform3d, funcs.Uniform4d, funcs.Uniform1dv, funcs.Uniform2dv, 
-			funcs.Uniform3dv, funcs.Uniform4dv, funcs.UniformMatrix2dv, funcs.UniformMatrix3dv, funcs.UniformMatrix4dv, funcs.UniformMatrix2x3dv, 
-			funcs.UniformMatrix2x4dv, funcs.UniformMatrix3x2dv, funcs.UniformMatrix3x4dv, funcs.UniformMatrix4x2dv, funcs.UniformMatrix4x3dv, 
-			funcs.GetUniformdv, funcs.MinSampleShading, funcs.GetSubroutineUniformLocation, funcs.GetSubroutineIndex, funcs.GetActiveSubroutineUniformiv, 
-			funcs.GetActiveSubroutineUniformName, funcs.GetActiveSubroutineName, funcs.UniformSubroutinesuiv, funcs.GetUniformSubroutineuiv, 
-			funcs.GetProgramStageiv, funcs.PatchParameteri, funcs.PatchParameterfv, funcs.BindTransformFeedback, funcs.DeleteTransformFeedbacks, 
-			funcs.GenTransformFeedbacks, funcs.IsTransformFeedback, funcs.PauseTransformFeedback, funcs.ResumeTransformFeedback, funcs.DrawTransformFeedback, 
-			funcs.DrawTransformFeedbackStream, funcs.BeginQueryIndexed, funcs.EndQueryIndexed, funcs.GetQueryIndexediv
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBlendEquationi, caps.glBlendEquationSeparatei, caps.glBlendFunci, caps.glBlendFuncSeparatei, caps.glDrawArraysIndirect, 
+			caps.glDrawElementsIndirect, caps.glUniform1d, caps.glUniform2d, caps.glUniform3d, caps.glUniform4d, caps.glUniform1dv, caps.glUniform2dv, 
+			caps.glUniform3dv, caps.glUniform4dv, caps.glUniformMatrix2dv, caps.glUniformMatrix3dv, caps.glUniformMatrix4dv, caps.glUniformMatrix2x3dv, 
+			caps.glUniformMatrix2x4dv, caps.glUniformMatrix3x2dv, caps.glUniformMatrix3x4dv, caps.glUniformMatrix4x2dv, caps.glUniformMatrix4x3dv, 
+			caps.glGetUniformdv, caps.glMinSampleShading, caps.glGetSubroutineUniformLocation, caps.glGetSubroutineIndex, caps.glGetActiveSubroutineUniformiv, 
+			caps.glGetActiveSubroutineUniformName, caps.glGetActiveSubroutineName, caps.glUniformSubroutinesuiv, caps.glGetUniformSubroutineuiv, 
+			caps.glGetProgramStageiv, caps.glPatchParameteri, caps.glPatchParameterfv, caps.glBindTransformFeedback, caps.glDeleteTransformFeedbacks, 
+			caps.glGenTransformFeedbacks, caps.glIsTransformFeedback, caps.glPauseTransformFeedback, caps.glResumeTransformFeedback, 
+			caps.glDrawTransformFeedback, caps.glDrawTransformFeedbackStream, caps.glBeginQueryIndexed, caps.glEndQueryIndexed, caps.glGetQueryIndexediv
 		);
-
-		return GL.checkExtension("OpenGL40", funcs, supported);
 	}
 
 	// --- [ glBlendEquationi ] ---
@@ -335,7 +219,9 @@ public class GL40 {
 	 * @param mode how source and destination colors are combined. One of:<br>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
 	 */
 	public static void glBlendEquationi(int buf, int mode) {
-		long __functionAddress = getInstance().BlendEquationi;
+		long __functionAddress = GL.getCapabilities().glBlendEquationi;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, buf, mode);
 	}
 
@@ -351,7 +237,9 @@ public class GL40 {
 	 * @param modeAlpha the alpha blend equation, how the alpha component of the source and destination colors are combined. One of:<br>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
 	 */
 	public static void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha) {
-		long __functionAddress = getInstance().BlendEquationSeparatei;
+		long __functionAddress = GL.getCapabilities().glBlendEquationSeparatei;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
@@ -367,7 +255,9 @@ public class GL40 {
 	 * @param dfactor how the red, green, blue, and alpha destination blending factors are computed
 	 */
 	public static void glBlendFunci(int buf, int sfactor, int dfactor) {
-		long __functionAddress = getInstance().BlendFunci;
+		long __functionAddress = GL.getCapabilities().glBlendFunci;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, buf, sfactor, dfactor);
 	}
 
@@ -385,7 +275,9 @@ public class GL40 {
 	 * @param dstAlpha how the alpha destination blending factor is computed
 	 */
 	public static void glBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		long __functionAddress = getInstance().BlendFuncSeparatei;
+		long __functionAddress = GL.getCapabilities().glBlendFuncSeparatei;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
@@ -393,7 +285,9 @@ public class GL40 {
 
 	/** Unsafe version of {@link #glDrawArraysIndirect DrawArraysIndirect} */
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
-		long __functionAddress = getInstance().DrawArraysIndirect;
+		long __functionAddress = GL.getCapabilities().glDrawArraysIndirect;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, mode, indirect);
 	}
 
@@ -448,7 +342,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glDrawElementsIndirect DrawElementsIndirect} */
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
-		long __functionAddress = getInstance().DrawElementsIndirect;
+		long __functionAddress = GL.getCapabilities().glDrawElementsIndirect;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, mode, type, indirect);
 	}
 
@@ -524,7 +420,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param x        the uniform x value
 	 */
 	public static void glUniform1d(int location, double x) {
-		long __functionAddress = getInstance().Uniform1d;
+		long __functionAddress = GL.getCapabilities().glUniform1d;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDV(__functionAddress, location, x);
 	}
 
@@ -540,7 +438,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param y        the uniform y value
 	 */
 	public static void glUniform2d(int location, double x, double y) {
-		long __functionAddress = getInstance().Uniform2d;
+		long __functionAddress = GL.getCapabilities().glUniform2d;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDDV(__functionAddress, location, x, y);
 	}
 
@@ -557,7 +457,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param z        the uniform z value
 	 */
 	public static void glUniform3d(int location, double x, double y, double z) {
-		long __functionAddress = getInstance().Uniform3d;
+		long __functionAddress = GL.getCapabilities().glUniform3d;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDDDV(__functionAddress, location, x, y, z);
 	}
 
@@ -575,7 +477,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param w        the uniform w value
 	 */
 	public static void glUniform4d(int location, double x, double y, double z, double w) {
-		long __functionAddress = getInstance().Uniform4d;
+		long __functionAddress = GL.getCapabilities().glUniform4d;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDDDDV(__functionAddress, location, x, y, z, w);
 	}
 
@@ -583,7 +487,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniform1dv Uniform1dv} */
 	public static void nglUniform1dv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform1dv;
+		long __functionAddress = GL.getCapabilities().glUniform1dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -611,7 +517,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniform2dv Uniform2dv} */
 	public static void nglUniform2dv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform2dv;
+		long __functionAddress = GL.getCapabilities().glUniform2dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -639,7 +547,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniform3dv Uniform3dv} */
 	public static void nglUniform3dv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform3dv;
+		long __functionAddress = GL.getCapabilities().glUniform3dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -667,7 +577,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniform4dv Uniform4dv} */
 	public static void nglUniform4dv(int location, int count, long value) {
-		long __functionAddress = getInstance().Uniform4dv;
+		long __functionAddress = GL.getCapabilities().glUniform4dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
 	}
 
@@ -695,7 +607,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniformMatrix2dv UniformMatrix2dv} */
 	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix2dv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix2dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -724,7 +638,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniformMatrix3dv UniformMatrix3dv} */
 	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix3dv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix3dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -753,7 +669,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniformMatrix4dv UniformMatrix4dv} */
 	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix4dv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix4dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -782,7 +700,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
 	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix2x3dv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -811,7 +731,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
 	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix2x4dv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -840,7 +762,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
 	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix3x2dv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -869,7 +793,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
 	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix3x4dv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -898,7 +824,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
 	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix4x2dv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -927,7 +855,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
 	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = getInstance().UniformMatrix4x3dv;
+		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -956,7 +886,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glGetUniformdv GetUniformdv} */
 	public static void nglGetUniformdv(int program, int location, long params) {
-		long __functionAddress = getInstance().GetUniformdv;
+		long __functionAddress = GL.getCapabilities().glGetUniformdv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, location, params);
 	}
 
@@ -984,10 +916,14 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Single return value version of: {@link #glGetUniformdv GetUniformdv} */
 	public static double glGetUniformd(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.doubleParam();
-		nglGetUniformdv(program, location, __buffer.address(params));
-		return __buffer.doubleValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer params = stack.callocDouble(1);
+			nglGetUniformdv(program, location, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glMinSampleShading ] ---
@@ -1000,7 +936,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param value the rate at which samples are shaded within each covered pixel
 	 */
 	public static void glMinSampleShading(float value) {
-		long __functionAddress = getInstance().MinSampleShading;
+		long __functionAddress = GL.getCapabilities().glMinSampleShading;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, value);
 	}
 
@@ -1008,7 +946,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
-		long __functionAddress = getInstance().GetSubroutineUniformLocation;
+		long __functionAddress = GL.getCapabilities().glGetSubroutineUniformLocation;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, program, shadertype, name);
 	}
 
@@ -1029,16 +969,22 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** CharSequence version of: {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
 	public static int glGetSubroutineUniformLocation(int program, int shadertype, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetSubroutineUniformLocation(program, shadertype, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetSubroutineUniformLocation(program, shadertype, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetSubroutineIndex ] ---
 
 	/** Unsafe version of {@link #glGetSubroutineIndex GetSubroutineIndex} */
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
-		long __functionAddress = getInstance().GetSubroutineIndex;
+		long __functionAddress = GL.getCapabilities().glGetSubroutineIndex;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPI(__functionAddress, program, shadertype, name);
 	}
 
@@ -1059,16 +1005,22 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** CharSequence version of: {@link #glGetSubroutineIndex GetSubroutineIndex} */
 	public static int glGetSubroutineIndex(int program, int shadertype, CharSequence name) {
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetSubroutineIndex(program, shadertype, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nglGetSubroutineIndex(program, shadertype, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetActiveSubroutineUniformiv ] ---
 
 	/** Unsafe version of {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
-		long __functionAddress = getInstance().GetActiveSubroutineUniformiv;
+		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, program, shadertype, index, pname, values);
 	}
 
@@ -1098,17 +1050,23 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Single return value version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	public static int glGetActiveSubroutineUniformi(int program, int shadertype, int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int values = __buffer.intParam();
-		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, __buffer.address(values));
-		return __buffer.intValue(values);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer values = stack.callocInt(1);
+			nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
+			return values.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetActiveSubroutineUniformName ] ---
 
 	/** Unsafe version of {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
-		long __functionAddress = getInstance().GetActiveSubroutineUniformName;
+		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformName;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
@@ -1141,28 +1099,38 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** String return version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
 	public static String glGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufsize);
+			nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
 	public static String glGetActiveSubroutineUniformName(int program, int shadertype, int index) {
 		int bufsize = glGetActiveSubroutineUniformi(program, shadertype, index, GL31.GL_UNIFORM_NAME_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufsize);
+			nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetActiveSubroutineName ] ---
 
 	/** Unsafe version of {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
-		long __functionAddress = getInstance().GetActiveSubroutineName;
+		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineName;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
@@ -1195,28 +1163,38 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** String return version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
 	public static String glGetActiveSubroutineName(int program, int shadertype, int index, int bufsize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufsize);
+			nglGetActiveSubroutineName(program, shadertype, index, bufsize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
 	public static String glGetActiveSubroutineName(int program, int shadertype, int index) {
 		int bufsize = glGetProgramStagei(program, shadertype, GL_ACTIVE_SUBROUTINE_MAX_LENGTH);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer name = stack.malloc(bufsize);
+			nglGetActiveSubroutineName(program, shadertype, index, bufsize, memAddress(length), memAddress(name));
+			return memASCII(name, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glUniformSubroutinesuiv ] ---
 
 	/** Unsafe version of {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
-		long __functionAddress = getInstance().UniformSubroutinesuiv;
+		long __functionAddress = GL.getCapabilities().glUniformSubroutinesuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, shadertype, count, indices);
 	}
 
@@ -1242,16 +1220,22 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Single value version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
 	public static void glUniformSubroutinesui(int shadertype, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int indices = __buffer.intParam(index);
-		nglUniformSubroutinesuiv(shadertype, 1, __buffer.address(indices));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer indices = stack.ints(index);
+			nglUniformSubroutinesuiv(shadertype, 1, memAddress(indices));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetUniformSubroutineuiv ] ---
 
 	/** Unsafe version of {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
-		long __functionAddress = getInstance().GetUniformSubroutineuiv;
+		long __functionAddress = GL.getCapabilities().glGetUniformSubroutineuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, shadertype, location, params);
 	}
 
@@ -1279,17 +1263,23 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Single return value version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	public static int glGetUniformSubroutineui(int shadertype, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetUniformSubroutineuiv(shadertype, location, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetProgramStageiv ] ---
 
 	/** Unsafe version of {@link #glGetProgramStageiv GetProgramStageiv} */
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
-		long __functionAddress = getInstance().GetProgramStageiv;
+		long __functionAddress = GL.getCapabilities().glGetProgramStageiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, shadertype, pname, values);
 	}
 
@@ -1318,10 +1308,14 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Single return value version of: {@link #glGetProgramStageiv GetProgramStageiv} */
 	public static int glGetProgramStagei(int program, int shadertype, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int values = __buffer.intParam();
-		nglGetProgramStageiv(program, shadertype, pname, __buffer.address(values));
-		return __buffer.intValue(values);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer values = stack.callocInt(1);
+			nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
+			return values.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glPatchParameteri ] ---
@@ -1335,7 +1329,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param value the new value for the parameter given by {@code pname}
 	 */
 	public static void glPatchParameteri(int pname, int value) {
-		long __functionAddress = getInstance().PatchParameteri;
+		long __functionAddress = GL.getCapabilities().glPatchParameteri;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, value);
 	}
 
@@ -1343,7 +1339,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glPatchParameterfv PatchParameterfv} */
 	public static void nglPatchParameterfv(int pname, long values) {
-		long __functionAddress = getInstance().PatchParameterfv;
+		long __functionAddress = GL.getCapabilities().glPatchParameterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, values);
 	}
 
@@ -1381,7 +1379,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param id     the name of a transform feedback object
 	 */
 	public static void glBindTransformFeedback(int target, int id) {
-		long __functionAddress = getInstance().BindTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glBindTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, id);
 	}
 
@@ -1389,7 +1389,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
-		long __functionAddress = getInstance().DeleteTransformFeedbacks;
+		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacks;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -1414,16 +1416,22 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Single value version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(int id) {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam(id);
-		nglDeleteTransformFeedbacks(1, __buffer.address(ids));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.ints(id);
+			nglDeleteTransformFeedbacks(1, memAddress(ids));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenTransformFeedbacks ] ---
 
 	/** Unsafe version of {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static void nglGenTransformFeedbacks(int n, long ids) {
-		long __functionAddress = getInstance().GenTransformFeedbacks;
+		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacks;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -1448,10 +1456,14 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Single return value version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static int glGenTransformFeedbacks() {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam();
-		nglGenTransformFeedbacks(1, __buffer.address(ids));
-		return __buffer.intValue(ids);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.callocInt(1);
+			nglGenTransformFeedbacks(1, memAddress(ids));
+			return ids.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsTransformFeedback ] ---
@@ -1464,7 +1476,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param id a value that may be the name of a transform feedback object
 	 */
 	public static boolean glIsTransformFeedback(int id) {
-		long __functionAddress = getInstance().IsTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glIsTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, id);
 	}
 
@@ -1486,7 +1500,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * paused.</p>
 	 */
 	public static void glPauseTransformFeedback() {
-		long __functionAddress = getInstance().PauseTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glPauseTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -1500,7 +1516,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated by {@link #glResumeTransformFeedback ResumeTransformFeedback} if the currently bound transform feedback is not active or is not paused.</p>
 	 */
 	public static void glResumeTransformFeedback() {
-		long __functionAddress = getInstance().ResumeTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glResumeTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -1515,7 +1533,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param id   the name of a transform feedback object from which to retrieve a primitive count
 	 */
 	public static void glDrawTransformFeedback(int mode, int id) {
-		long __functionAddress = getInstance().DrawTransformFeedback;
+		long __functionAddress = GL.getCapabilities().glDrawTransformFeedback;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, mode, id);
 	}
 
@@ -1531,7 +1551,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param stream the index of the transform feedback stream from which to retrieve a primitive count
 	 */
 	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
-		long __functionAddress = getInstance().DrawTransformFeedbackStream;
+		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStream;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, mode, id, stream);
 	}
 
@@ -1547,7 +1569,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param id     the name of a query object
 	 */
 	public static void glBeginQueryIndexed(int target, int index, int id) {
-		long __functionAddress = getInstance().BeginQueryIndexed;
+		long __functionAddress = GL.getCapabilities().glBeginQueryIndexed;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, target, index, id);
 	}
 
@@ -1562,7 +1586,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param index  the index of the query target upon which to end the query
 	 */
 	public static void glEndQueryIndexed(int target, int index) {
-		long __functionAddress = getInstance().EndQueryIndexed;
+		long __functionAddress = GL.getCapabilities().glEndQueryIndexed;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, index);
 	}
 
@@ -1570,7 +1596,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Unsafe version of {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryIndexediv;
+		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, index, pname, params);
 	}
 
@@ -1599,10 +1627,14 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Single return value version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static int glGetQueryIndexedi(int target, int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetQueryIndexediv(target, index, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetQueryIndexediv(target, index, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

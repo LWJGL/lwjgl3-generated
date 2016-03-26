@@ -25,49 +25,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTGPUProgramParameters {
 
-	/** Function address. */
-	public final long
-		ProgramEnvParameters4fvEXT,
-		ProgramLocalParameters4fvEXT;
-
 	protected EXTGPUProgramParameters() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTGPUProgramParameters(FunctionProvider provider) {
-		ProgramEnvParameters4fvEXT = provider.getFunctionAddress("glProgramEnvParameters4fvEXT");
-		ProgramLocalParameters4fvEXT = provider.getFunctionAddress("glProgramLocalParameters4fvEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTGPUProgramParameters} instance of the current context. */
-	public static EXTGPUProgramParameters getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTGPUProgramParameters} instance of the specified {@link GLCapabilities}. */
-	public static EXTGPUProgramParameters getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTGPUProgramParameters);
-	}
-
-	static EXTGPUProgramParameters create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_gpu_program_parameters") ) return null;
-
-		EXTGPUProgramParameters funcs = new EXTGPUProgramParameters(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ProgramEnvParameters4fvEXT, funcs.ProgramLocalParameters4fvEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glProgramEnvParameters4fvEXT, caps.glProgramLocalParameters4fvEXT
 		);
-
-		return GL.checkExtension("GL_EXT_gpu_program_parameters", funcs, supported);
 	}
 
 	// --- [ glProgramEnvParameters4fvEXT ] ---
 
 	/** Unsafe version of {@link #glProgramEnvParameters4fvEXT ProgramEnvParameters4fvEXT} */
 	public static void nglProgramEnvParameters4fvEXT(int target, int index, int count, long params) {
-		long __functionAddress = getInstance().ProgramEnvParameters4fvEXT;
+		long __functionAddress = GL.getCapabilities().glProgramEnvParameters4fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, index, count, params);
 	}
 
@@ -86,7 +60,9 @@ public class EXTGPUProgramParameters {
 
 	/** Unsafe version of {@link #glProgramLocalParameters4fvEXT ProgramLocalParameters4fvEXT} */
 	public static void nglProgramLocalParameters4fvEXT(int target, int index, int count, long params) {
-		long __functionAddress = getInstance().ProgramLocalParameters4fvEXT;
+		long __functionAddress = GL.getCapabilities().glProgramLocalParameters4fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, index, count, params);
 	}
 

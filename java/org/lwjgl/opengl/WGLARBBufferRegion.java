@@ -28,46 +28,14 @@ public class WGLARBBufferRegion {
 		WGL_DEPTH_BUFFER_BIT_ARB       = 0x4,
 		WGL_STENCIL_BUFFER_BIT_ARB     = 0x8;
 
-	/** Function address. */
-	public final long
-		CreateBufferRegionARB,
-		DeleteBufferRegionARB,
-		SaveBufferRegionARB,
-		RestoreBufferRegionARB;
-
 	protected WGLARBBufferRegion() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLARBBufferRegion(FunctionProvider provider) {
-		CreateBufferRegionARB = provider.getFunctionAddress("wglCreateBufferRegionARB");
-		DeleteBufferRegionARB = provider.getFunctionAddress("wglDeleteBufferRegionARB");
-		SaveBufferRegionARB = provider.getFunctionAddress("wglSaveBufferRegionARB");
-		RestoreBufferRegionARB = provider.getFunctionAddress("wglRestoreBufferRegionARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLARBBufferRegion} instance of the current context. */
-	public static WGLARBBufferRegion getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLARBBufferRegion} instance of the specified {@link GLCapabilities}. */
-	public static WGLARBBufferRegion getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLARBBufferRegion);
-	}
-
-	static WGLARBBufferRegion create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_buffer_region") ) return null;
-
-		WGLARBBufferRegion funcs = new WGLARBBufferRegion(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateBufferRegionARB, funcs.DeleteBufferRegionARB, funcs.SaveBufferRegionARB, funcs.RestoreBufferRegionARB
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglCreateBufferRegionARB, caps.wglDeleteBufferRegionARB, caps.wglSaveBufferRegionARB, caps.wglRestoreBufferRegionARB
 		);
-
-		return GL.checkExtension("WGL_ARB_buffer_region", funcs, supported);
 	}
 
 	// --- [ wglCreateBufferRegionARB ] ---
@@ -81,9 +49,11 @@ public class WGLARBBufferRegion {
 	 *                   performance if multiple buffers are saved or restored. One of:<br>{@link #WGL_FRONT_COLOR_BUFFER_BIT_ARB FRONT_COLOR_BUFFER_BIT_ARB}, {@link #WGL_BACK_COLOR_BUFFER_BIT_ARB BACK_COLOR_BUFFER_BIT_ARB}, {@link #WGL_DEPTH_BUFFER_BIT_ARB DEPTH_BUFFER_BIT_ARB}, {@link #WGL_STENCIL_BUFFER_BIT_ARB STENCIL_BUFFER_BIT_ARB}
 	 */
 	public static long wglCreateBufferRegionARB(long hdc, int layerPlane, int type) {
-		long __functionAddress = getInstance().CreateBufferRegionARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglCreateBufferRegionARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
+		}
 		return callPIIP(__functionAddress, hdc, layerPlane, type);
 	}
 
@@ -95,9 +65,11 @@ public class WGLARBBufferRegion {
 	 * @param region a handle to a buffer region previously created with {@link #wglCreateBufferRegionARB CreateBufferRegionARB}.
 	 */
 	public static void wglDeleteBufferRegionARB(long region) {
-		long __functionAddress = getInstance().DeleteBufferRegionARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglDeleteBufferRegionARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(region);
+		}
 		callPV(__functionAddress, region);
 	}
 
@@ -120,9 +92,11 @@ public class WGLARBBufferRegion {
 	 * @param height the source rectangle height
 	 */
 	public static int wglSaveBufferRegionARB(long region, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().SaveBufferRegionARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglSaveBufferRegionARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(region);
+		}
 		return callPIIIII(__functionAddress, region, x, y, width, height);
 	}
 
@@ -140,9 +114,11 @@ public class WGLARBBufferRegion {
 	 * @param ySrc   the buffer region y-coordinate for the source of the data
 	 */
 	public static int wglRestoreBufferRegionARB(long region, int x, int y, int width, int height, int xSrc, int ySrc) {
-		long __functionAddress = getInstance().RestoreBufferRegionARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglRestoreBufferRegionARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(region);
+		}
 		return callPIIIIIII(__functionAddress, region, x, y, width, height, xSrc, ySrc);
 	}
 

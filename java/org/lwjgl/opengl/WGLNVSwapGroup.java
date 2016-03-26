@@ -26,66 +26,34 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class WGLNVSwapGroup {
 
-	/** Function address. */
-	public final long
-		JoinSwapGroupNV,
-		BindSwapBarrierNV,
-		QuerySwapGroupNV,
-		QueryMaxSwapGroupsNV,
-		QueryFrameCountNV,
-		ResetFrameCountNV;
-
 	protected WGLNVSwapGroup() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLNVSwapGroup(FunctionProvider provider) {
-		JoinSwapGroupNV = provider.getFunctionAddress("wglJoinSwapGroupNV");
-		BindSwapBarrierNV = provider.getFunctionAddress("wglBindSwapBarrierNV");
-		QuerySwapGroupNV = provider.getFunctionAddress("wglQuerySwapGroupNV");
-		QueryMaxSwapGroupsNV = provider.getFunctionAddress("wglQueryMaxSwapGroupsNV");
-		QueryFrameCountNV = provider.getFunctionAddress("wglQueryFrameCountNV");
-		ResetFrameCountNV = provider.getFunctionAddress("wglResetFrameCountNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLNVSwapGroup} instance of the current context. */
-	public static WGLNVSwapGroup getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLNVSwapGroup} instance of the specified {@link GLCapabilities}. */
-	public static WGLNVSwapGroup getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLNVSwapGroup);
-	}
-
-	static WGLNVSwapGroup create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_NV_swap_group") ) return null;
-
-		WGLNVSwapGroup funcs = new WGLNVSwapGroup(provider);
-
-		boolean supported = checkFunctions(
-			funcs.JoinSwapGroupNV, funcs.BindSwapBarrierNV, funcs.QuerySwapGroupNV, funcs.QueryMaxSwapGroupsNV, funcs.QueryFrameCountNV, 
-			funcs.ResetFrameCountNV
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglJoinSwapGroupNV, caps.wglBindSwapBarrierNV, caps.wglQuerySwapGroupNV, caps.wglQueryMaxSwapGroupsNV, caps.wglQueryFrameCountNV, 
+			caps.wglResetFrameCountNV
 		);
-
-		return GL.checkExtension("WGL_NV_swap_group", funcs, supported);
 	}
 
 	// --- [ wglJoinSwapGroupNV ] ---
 
 	public static int wglJoinSwapGroupNV(long hDC, int group) {
-		long __functionAddress = getInstance().JoinSwapGroupNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglJoinSwapGroupNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hDC);
+		}
 		return callPII(__functionAddress, hDC, group);
 	}
 
 	// --- [ wglBindSwapBarrierNV ] ---
 
 	public static int wglBindSwapBarrierNV(int group, int barrier) {
-		long __functionAddress = getInstance().BindSwapBarrierNV;
+		long __functionAddress = GL.getCapabilitiesWGL().wglBindSwapBarrierNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIII(__functionAddress, group, barrier);
 	}
 
@@ -93,9 +61,11 @@ public class WGLNVSwapGroup {
 
 	/** Unsafe version of {@link #wglQuerySwapGroupNV QuerySwapGroupNV} */
 	public static int nwglQuerySwapGroupNV(long hDC, long group, long barrier) {
-		long __functionAddress = getInstance().QuerySwapGroupNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglQuerySwapGroupNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hDC);
+		}
 		return callPPPI(__functionAddress, hDC, group, barrier);
 	}
 
@@ -120,9 +90,11 @@ public class WGLNVSwapGroup {
 
 	/** Unsafe version of {@link #wglQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
 	public static int nwglQueryMaxSwapGroupsNV(long hDC, long maxGroups, long maxBarriers) {
-		long __functionAddress = getInstance().QueryMaxSwapGroupsNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglQueryMaxSwapGroupsNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hDC);
+		}
 		return callPPPI(__functionAddress, hDC, maxGroups, maxBarriers);
 	}
 
@@ -147,9 +119,11 @@ public class WGLNVSwapGroup {
 
 	/** Unsafe version of {@link #wglQueryFrameCountNV QueryFrameCountNV} */
 	public static int nwglQueryFrameCountNV(long hDC, long count) {
-		long __functionAddress = getInstance().QueryFrameCountNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglQueryFrameCountNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hDC);
+		}
 		return callPPI(__functionAddress, hDC, count);
 	}
 
@@ -169,9 +143,11 @@ public class WGLNVSwapGroup {
 	// --- [ wglResetFrameCountNV ] ---
 
 	public static int wglResetFrameCountNV(long hDC) {
-		long __functionAddress = getInstance().ResetFrameCountNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglResetFrameCountNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hDC);
+		}
 		return callPI(__functionAddress, hDC);
 	}
 

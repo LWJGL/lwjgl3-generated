@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -50,55 +50,23 @@ public class ARBES2Compatibility {
 	/** Accepted by the {@code format} parameter of most commands taking sized internal formats. */
 	public static final int GL_RGB565 = 0x8D62;
 
-	/** Function address. */
-	public final long
-		ReleaseShaderCompiler,
-		ShaderBinary,
-		GetShaderPrecisionFormat,
-		DepthRangef,
-		ClearDepthf;
-
 	protected ARBES2Compatibility() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBES2Compatibility(FunctionProvider provider) {
-		ReleaseShaderCompiler = provider.getFunctionAddress("glReleaseShaderCompiler");
-		ShaderBinary = provider.getFunctionAddress("glShaderBinary");
-		GetShaderPrecisionFormat = provider.getFunctionAddress("glGetShaderPrecisionFormat");
-		DepthRangef = provider.getFunctionAddress("glDepthRangef");
-		ClearDepthf = provider.getFunctionAddress("glClearDepthf");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBES2Compatibility} instance of the current context. */
-	public static ARBES2Compatibility getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBES2Compatibility} instance of the specified {@link GLCapabilities}. */
-	public static ARBES2Compatibility getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBES2Compatibility);
-	}
-
-	static ARBES2Compatibility create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_ES2_compatibility") ) return null;
-
-		ARBES2Compatibility funcs = new ARBES2Compatibility(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ReleaseShaderCompiler, funcs.ShaderBinary, funcs.GetShaderPrecisionFormat, funcs.DepthRangef, funcs.ClearDepthf
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glReleaseShaderCompiler, caps.glShaderBinary, caps.glGetShaderPrecisionFormat, caps.glDepthRangef, caps.glClearDepthf
 		);
-
-		return GL.checkExtension("GL_ARB_ES2_compatibility", funcs, supported);
 	}
 
 	// --- [ glReleaseShaderCompiler ] ---
 
 	/** Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler. */
 	public static void glReleaseShaderCompiler() {
-		long __functionAddress = getInstance().ReleaseShaderCompiler;
+		long __functionAddress = GL.getCapabilities().glReleaseShaderCompiler;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -106,7 +74,9 @@ public class ARBES2Compatibility {
 
 	/** Unsafe version of {@link #glShaderBinary ShaderBinary} */
 	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
-		long __functionAddress = getInstance().ShaderBinary;
+		long __functionAddress = GL.getCapabilities().glShaderBinary;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPIPIV(__functionAddress, count, shaders, binaryformat, binary, length);
 	}
 
@@ -136,7 +106,9 @@ public class ARBES2Compatibility {
 
 	/** Unsafe version of {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
 	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
-		long __functionAddress = getInstance().GetShaderPrecisionFormat;
+		long __functionAddress = GL.getCapabilities().glGetShaderPrecisionFormat;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPV(__functionAddress, shadertype, precisiontype, range, precision);
 	}
 
@@ -169,10 +141,14 @@ public class ARBES2Compatibility {
 	public static int glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range) {
 		if ( CHECKS )
 			checkBuffer(range, 2);
-		APIBuffer __buffer = apiBuffer();
-		int precision = __buffer.intParam();
-		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), __buffer.address(precision));
-		return __buffer.intValue(precision);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer precision = stack.callocInt(1);
+			nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
+			return precision.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDepthRangef ] ---
@@ -184,7 +160,9 @@ public class ARBES2Compatibility {
 	 * @param zFar  the mapping of the far clipping plane to window coordinates. The initial value is 1.0f.
 	 */
 	public static void glDepthRangef(float zNear, float zFar) {
-		long __functionAddress = getInstance().DepthRangef;
+		long __functionAddress = GL.getCapabilities().glDepthRangef;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, zNear, zFar);
 	}
 
@@ -196,7 +174,9 @@ public class ARBES2Compatibility {
 	 * @param depth the depth value used when the depth buffer is cleared. The initial value is 1.0f.
 	 */
 	public static void glClearDepthf(float depth) {
-		long __functionAddress = getInstance().ClearDepthf;
+		long __functionAddress = GL.getCapabilities().glClearDepthf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, depth);
 	}
 

@@ -39,48 +39,25 @@ public class WGLARBCreateContext {
 	/** New errors returned by {@link org.lwjgl.system.windows.WinBase#GetLastError}. */
 	public static final int ERROR_INVALID_VERSION_ARB = 0x2095;
 
-	/** Function address. */
-	public final long CreateContextAttribsARB;
-
 	protected WGLARBCreateContext() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLARBCreateContext(FunctionProvider provider) {
-		CreateContextAttribsARB = provider.getFunctionAddress("wglCreateContextAttribsARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLARBCreateContext} instance of the current context. */
-	public static WGLARBCreateContext getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLARBCreateContext} instance of the specified {@link GLCapabilities}. */
-	public static WGLARBCreateContext getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLARBCreateContext);
-	}
-
-	static WGLARBCreateContext create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_create_context") ) return null;
-
-		WGLARBCreateContext funcs = new WGLARBCreateContext(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateContextAttribsARB
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglCreateContextAttribsARB
 		);
-
-		return GL.checkExtension("WGL_ARB_create_context", funcs, supported);
 	}
 
 	// --- [ wglCreateContextAttribsARB ] ---
 
 	/** Unsafe version of {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
 	public static long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList) {
-		long __functionAddress = getInstance().CreateContextAttribsARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglCreateContextAttribsARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
+		}
 		return callPPPP(__functionAddress, hdc, shareContext, attribList);
 	}
 

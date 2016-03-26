@@ -37,55 +37,31 @@ public class NVConditionalRender {
 		GL_QUERY_BY_REGION_WAIT_NV    = 0x8E15,
 		GL_QUERY_BY_REGION_NO_WAIT_NV = 0x8E16;
 
-	/** Function address. */
-	public final long
-		BeginConditionalRenderNV,
-		EndConditionalRenderNV;
-
 	protected NVConditionalRender() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVConditionalRender(FunctionProvider provider) {
-		BeginConditionalRenderNV = provider.getFunctionAddress("glBeginConditionalRenderNV");
-		EndConditionalRenderNV = provider.getFunctionAddress("glEndConditionalRenderNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVConditionalRender} instance of the current context. */
-	public static NVConditionalRender getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVConditionalRender} instance of the specified {@link GLCapabilities}. */
-	public static NVConditionalRender getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVConditionalRender);
-	}
-
-	static NVConditionalRender create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_conditional_render") ) return null;
-
-		NVConditionalRender funcs = new NVConditionalRender(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BeginConditionalRenderNV, funcs.EndConditionalRenderNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBeginConditionalRenderNV, caps.glEndConditionalRenderNV
 		);
-
-		return GL.checkExtension("GL_NV_conditional_render", funcs, supported);
 	}
 
 	// --- [ glBeginConditionalRenderNV ] ---
 
 	public static void glBeginConditionalRenderNV(int id, int mode) {
-		long __functionAddress = getInstance().BeginConditionalRenderNV;
+		long __functionAddress = GL.getCapabilities().glBeginConditionalRenderNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, id, mode);
 	}
 
 	// --- [ glEndConditionalRenderNV ] ---
 
 	public static void glEndConditionalRenderNV() {
-		long __functionAddress = getInstance().EndConditionalRenderNV;
+		long __functionAddress = GL.getCapabilities().glEndConditionalRenderNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

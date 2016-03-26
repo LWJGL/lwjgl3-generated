@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -55,46 +55,14 @@ public class ARBTransformFeedback3 {
 		GL_MAX_TRANSFORM_FEEDBACK_BUFFERS = 0x8E70,
 		GL_MAX_VERTEX_STREAMS             = 0x8E71;
 
-	/** Function address. */
-	public final long
-		DrawTransformFeedbackStream,
-		BeginQueryIndexed,
-		EndQueryIndexed,
-		GetQueryIndexediv;
-
 	protected ARBTransformFeedback3() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTransformFeedback3(FunctionProvider provider) {
-		DrawTransformFeedbackStream = provider.getFunctionAddress("glDrawTransformFeedbackStream");
-		BeginQueryIndexed = provider.getFunctionAddress("glBeginQueryIndexed");
-		EndQueryIndexed = provider.getFunctionAddress("glEndQueryIndexed");
-		GetQueryIndexediv = provider.getFunctionAddress("glGetQueryIndexediv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTransformFeedback3} instance of the current context. */
-	public static ARBTransformFeedback3 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTransformFeedback3} instance of the specified {@link GLCapabilities}. */
-	public static ARBTransformFeedback3 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTransformFeedback3);
-	}
-
-	static ARBTransformFeedback3 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_transform_feedback3") ) return null;
-
-		ARBTransformFeedback3 funcs = new ARBTransformFeedback3(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DrawTransformFeedbackStream, funcs.BeginQueryIndexed, funcs.EndQueryIndexed, funcs.GetQueryIndexediv
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawTransformFeedbackStream, caps.glBeginQueryIndexed, caps.glEndQueryIndexed, caps.glGetQueryIndexediv
 		);
-
-		return GL.checkExtension("GL_ARB_transform_feedback3", funcs, supported);
 	}
 
 	// --- [ glDrawTransformFeedbackStream ] ---
@@ -107,7 +75,9 @@ public class ARBTransformFeedback3 {
 	 * @param stream the index of the transform feedback stream from which to retrieve a primitive count
 	 */
 	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
-		long __functionAddress = getInstance().DrawTransformFeedbackStream;
+		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStream;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, mode, id, stream);
 	}
 
@@ -121,7 +91,9 @@ public class ARBTransformFeedback3 {
 	 * @param id     the name of a query object
 	 */
 	public static void glBeginQueryIndexed(int target, int index, int id) {
-		long __functionAddress = getInstance().BeginQueryIndexed;
+		long __functionAddress = GL.getCapabilities().glBeginQueryIndexed;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, target, index, id);
 	}
 
@@ -134,7 +106,9 @@ public class ARBTransformFeedback3 {
 	 * @param index  the index of the query target upon which to end the query
 	 */
 	public static void glEndQueryIndexed(int target, int index) {
-		long __functionAddress = getInstance().EndQueryIndexed;
+		long __functionAddress = GL.getCapabilities().glEndQueryIndexed;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, index);
 	}
 
@@ -142,7 +116,9 @@ public class ARBTransformFeedback3 {
 
 	/** Unsafe version of {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryIndexediv;
+		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, index, pname, params);
 	}
 
@@ -169,10 +145,14 @@ public class ARBTransformFeedback3 {
 
 	/** Single return value version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static int glGetQueryIndexedi(int target, int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetQueryIndexediv(target, index, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetQueryIndexediv(target, index, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

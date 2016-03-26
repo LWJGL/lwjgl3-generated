@@ -35,49 +35,22 @@ public class EXTInstancedArrays {
 	/** Accepted by the {@code pname} parameters of GetVertexAttribfv and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT = 0x88FE;
 
-	/** Function address. */
-	public final long
-		DrawArraysInstancedEXT,
-		DrawElementsInstancedEXT,
-		VertexAttribDivisorEXT;
-
 	protected EXTInstancedArrays() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTInstancedArrays(FunctionProvider provider) {
-		DrawArraysInstancedEXT = provider.getFunctionAddress("glDrawArraysInstancedEXT");
-		DrawElementsInstancedEXT = provider.getFunctionAddress("glDrawElementsInstancedEXT");
-		VertexAttribDivisorEXT = provider.getFunctionAddress("glVertexAttribDivisorEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTInstancedArrays} instance of the current context. */
-	public static EXTInstancedArrays getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTInstancedArrays} instance of the specified {@link GLESCapabilities}. */
-	public static EXTInstancedArrays getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTInstancedArrays);
-	}
-
-	static EXTInstancedArrays create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_instanced_arrays") ) return null;
-
-		EXTInstancedArrays funcs = new EXTInstancedArrays(provider);
-		boolean supported = checkFunctions(
-			funcs.DrawArraysInstancedEXT, funcs.DrawElementsInstancedEXT, funcs.VertexAttribDivisorEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawArraysInstancedEXT, caps.glDrawElementsInstancedEXT, caps.glVertexAttribDivisorEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_instanced_arrays", funcs, supported);
 	}
 
 	// --- [ glDrawArraysInstancedEXT ] ---
 
 	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
-		long __functionAddress = getInstance().DrawArraysInstancedEXT;
+		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, mode, start, count, primcount);
 	}
 
@@ -85,7 +58,9 @@ public class EXTInstancedArrays {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedEXT DrawElementsInstancedEXT} */
 	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = getInstance().DrawElementsInstancedEXT;
+		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
@@ -135,7 +110,9 @@ public class EXTInstancedArrays {
 	// --- [ glVertexAttribDivisorEXT ] ---
 
 	public static void glVertexAttribDivisorEXT(int index, int divisor) {
-		long __functionAddress = getInstance().VertexAttribDivisorEXT;
+		long __functionAddress = GLES.getCapabilities().glVertexAttribDivisorEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, divisor);
 	}
 

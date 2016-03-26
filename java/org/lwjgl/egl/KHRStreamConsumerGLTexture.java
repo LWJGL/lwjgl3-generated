@@ -24,39 +24,22 @@ public class KHRStreamConsumerGLTexture {
 	/**  */
 	public static final int EGL_CONSUMER_ACQUIRE_TIMEOUT_USEC_KHR = 0x321E;
 
-	/** Function address. */
-	public final long
-		StreamConsumerGLTextureExternalKHR,
-		StreamConsumerAcquireKHR,
-		StreamConsumerReleaseKHR;
-
 	protected KHRStreamConsumerGLTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRStreamConsumerGLTexture(FunctionProvider provider) {
-		StreamConsumerGLTextureExternalKHR = provider.getFunctionAddress("eglStreamConsumerGLTextureExternalKHR");
-		StreamConsumerAcquireKHR = provider.getFunctionAddress("eglStreamConsumerAcquireKHR");
-		StreamConsumerReleaseKHR = provider.getFunctionAddress("eglStreamConsumerReleaseKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRStreamConsumerGLTexture} instance. */
-	public static KHRStreamConsumerGLTexture getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRStreamConsumerGLTexture} instance of the specified {@link EGLCapabilities}. */
-	public static KHRStreamConsumerGLTexture getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRStreamConsumerGLTexture);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglStreamConsumerGLTextureExternalKHR, caps.eglStreamConsumerAcquireKHR, caps.eglStreamConsumerReleaseKHR
+		);
 	}
 
 	// --- [ eglStreamConsumerGLTextureExternalKHR ] ---
 
 	public static int eglStreamConsumerGLTextureExternalKHR(long dpy, long stream) {
-		long __functionAddress = getInstance().StreamConsumerGLTextureExternalKHR;
+		long __functionAddress = EGL.getCapabilities().eglStreamConsumerGLTextureExternalKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -66,8 +49,9 @@ public class KHRStreamConsumerGLTexture {
 	// --- [ eglStreamConsumerAcquireKHR ] ---
 
 	public static int eglStreamConsumerAcquireKHR(long dpy, long stream) {
-		long __functionAddress = getInstance().StreamConsumerAcquireKHR;
+		long __functionAddress = EGL.getCapabilities().eglStreamConsumerAcquireKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -77,8 +61,9 @@ public class KHRStreamConsumerGLTexture {
 	// --- [ eglStreamConsumerReleaseKHR ] ---
 
 	public static int eglStreamConsumerReleaseKHR(long dpy, long stream) {
-		long __functionAddress = getInstance().StreamConsumerReleaseKHR;
+		long __functionAddress = EGL.getCapabilities().eglStreamConsumerReleaseKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}

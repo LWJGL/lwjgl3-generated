@@ -130,44 +130,22 @@ public class OESTessellationShader {
 		GL_TESS_CONTROL_SHADER_BIT_OES    = 0x8,
 		GL_TESS_EVALUATION_SHADER_BIT_OES = 0x10;
 
-	/** Function address. */
-	public final long PatchParameteriOES;
-
 	protected OESTessellationShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OESTessellationShader(FunctionProvider provider) {
-		PatchParameteriOES = provider.getFunctionAddress("glPatchParameteriOES");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OESTessellationShader} instance of the current context. */
-	public static OESTessellationShader getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OESTessellationShader} instance of the specified {@link GLESCapabilities}. */
-	public static OESTessellationShader getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OESTessellationShader);
-	}
-
-	static OESTessellationShader create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OES_tessellation_shader") ) return null;
-
-		OESTessellationShader funcs = new OESTessellationShader(provider);
-		boolean supported = checkFunctions(
-			funcs.PatchParameteriOES
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glPatchParameteriOES
 		);
-
-		return GLES.checkExtension("GL_OES_tessellation_shader", funcs, supported);
 	}
 
 	// --- [ glPatchParameteriOES ] ---
 
 	public static void glPatchParameteriOES(int pname, int value) {
-		long __functionAddress = getInstance().PatchParameteriOES;
+		long __functionAddress = GLES.getCapabilities().glPatchParameteriOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, value);
 	}
 

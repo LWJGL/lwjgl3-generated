@@ -47,42 +47,14 @@ public class ARBSparseTexture {
 		GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB        = 0x919A,
 		GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB = 0x91A9;
 
-	/** Function address. */
-	public final long
-		TexPageCommitmentARB,
-		TexturePageCommitmentEXT;
-
 	protected ARBSparseTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBSparseTexture(FunctionProvider provider) {
-		TexPageCommitmentARB = provider.getFunctionAddress("glTexPageCommitmentARB");
-		TexturePageCommitmentEXT = provider.getFunctionAddress("glTexturePageCommitmentEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBSparseTexture} instance of the current context. */
-	public static ARBSparseTexture getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBSparseTexture} instance of the specified {@link GLCapabilities}. */
-	public static ARBSparseTexture getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBSparseTexture);
-	}
-
-	static ARBSparseTexture create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_sparse_texture") ) return null;
-
-		ARBSparseTexture funcs = new ARBSparseTexture(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TexPageCommitmentARB, ext.contains("GL_EXT_direct_state_access") ? funcs.TexturePageCommitmentEXT : -1L
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glTexPageCommitmentARB, ext.contains("GL_EXT_direct_state_access") ? caps.glTexturePageCommitmentEXT : -1L
 		);
-
-		return GL.checkExtension("GL_ARB_sparse_texture", funcs, supported);
 	}
 
 	// --- [ glTexPageCommitmentARB ] ---
@@ -162,7 +134,9 @@ public class ARBSparseTexture {
 	 * @param commit  the commit flag
 	 */
 	public static void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
-		long __functionAddress = getInstance().TexPageCommitmentARB;
+		long __functionAddress = GL.getCapabilities().glTexPageCommitmentARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIZV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
@@ -182,7 +156,7 @@ public class ARBSparseTexture {
 	 * @param commit  the commit flag
 	 */
 	public static void glTexturePageCommitmentEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
-		long __functionAddress = getInstance().TexturePageCommitmentEXT;
+		long __functionAddress = GL.getCapabilities().glTexturePageCommitmentEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIZV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);

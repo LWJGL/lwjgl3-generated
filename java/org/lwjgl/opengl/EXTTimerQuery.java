@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -36,49 +36,23 @@ public class EXTTimerQuery {
 	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
 	public static final int GL_TIME_ELAPSED_EXT = 0x88BF;
 
-	/** Function address. */
-	public final long
-		GetQueryObjecti64vEXT,
-		GetQueryObjectui64vEXT;
-
 	protected EXTTimerQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTTimerQuery(FunctionProvider provider) {
-		GetQueryObjecti64vEXT = provider.getFunctionAddress("glGetQueryObjecti64vEXT");
-		GetQueryObjectui64vEXT = provider.getFunctionAddress("glGetQueryObjectui64vEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTTimerQuery} instance of the current context. */
-	public static EXTTimerQuery getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTTimerQuery} instance of the specified {@link GLCapabilities}. */
-	public static EXTTimerQuery getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTTimerQuery);
-	}
-
-	static EXTTimerQuery create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_timer_query") ) return null;
-
-		EXTTimerQuery funcs = new EXTTimerQuery(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetQueryObjecti64vEXT, funcs.GetQueryObjectui64vEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetQueryObjecti64vEXT, caps.glGetQueryObjectui64vEXT
 		);
-
-		return GL.checkExtension("GL_EXT_timer_query", funcs, supported);
 	}
 
 	// --- [ glGetQueryObjecti64vEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	public static void nglGetQueryObjecti64vEXT(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjecti64vEXT;
+		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64vEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -97,17 +71,23 @@ public class EXTTimerQuery {
 
 	/** Single return value version of: {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	public static long glGetQueryObjecti64EXT(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetQueryObjecti64vEXT(id, pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetQueryObjectui64vEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	public static void nglGetQueryObjectui64vEXT(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjectui64vEXT;
+		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64vEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -126,10 +106,14 @@ public class EXTTimerQuery {
 
 	/** Single return value version of: {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	public static long glGetQueryObjectui64EXT(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetQueryObjectui64vEXT(id, pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

@@ -18,42 +18,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class EXTThreadLocalContext {
 
-	/** Function address. */
-	public final long
-		SetThreadContext,
-		GetThreadContext;
-
 	protected EXTThreadLocalContext() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTThreadLocalContext(FunctionProviderLocal provider, long device) {
-		SetThreadContext = provider.getFunctionAddress(device, "alcSetThreadContext");
-		GetThreadContext = provider.getFunctionAddress(device, "alcGetThreadContext");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTThreadLocalContext} instance of the current context. */
-	public static EXTThreadLocalContext getInstance() {
-		return getInstance(ALC.getCapabilities());
-	}
-
-	/** Returns the {@link EXTThreadLocalContext} instance of the specified {@link ALCCapabilities}. */
-	public static EXTThreadLocalContext getInstance(ALCCapabilities caps) {
-		return checkFunctionality(caps.__EXTThreadLocalContext);
-	}
-
-	static EXTThreadLocalContext create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
-		if ( device != 0L && !ext.contains("ALC_EXT_thread_local_context") ) return null;
-
-		EXTThreadLocalContext funcs = new EXTThreadLocalContext(provider, device);
-
-		boolean supported = checkFunctions(
-			funcs.SetThreadContext, funcs.GetThreadContext
+	static boolean isAvailable(ALCCapabilities caps) {
+		return checkFunctions(
+			caps.alcSetThreadContext, caps.alcGetThreadContext
 		);
-
-		return device == 0L && !supported ? null : ALC.checkExtension("ALC_EXT_thread_local_context", funcs, supported);
 	}
 
 	// --- [ alcSetThreadContext ] ---
@@ -65,9 +37,9 @@ public class EXTThreadLocalContext {
 	 * @param context the context to make current
 	 */
 	public static boolean alcSetThreadContext(long context) {
-		long __functionAddress = getInstance().SetThreadContext;
+		long __functionAddress = ALC.getICD().alcSetThreadContext;
 		if ( CHECKS )
-			checkPointer(context);
+			checkFunctionAddress(__functionAddress);
 		return invokePZ(__functionAddress, context);
 	}
 
@@ -75,7 +47,9 @@ public class EXTThreadLocalContext {
 
 	/** Retrieves a handle to the thread-specific context of the calling thread. This function will return {@code NULL} if no thread-specific context is set. */
 	public static long alcGetThreadContext() {
-		long __functionAddress = getInstance().GetThreadContext;
+		long __functionAddress = ALC.getICD().alcGetThreadContext;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return invokeP(__functionAddress);
 	}
 

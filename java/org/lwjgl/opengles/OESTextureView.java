@@ -45,44 +45,22 @@ public class OESTextureView {
 		GL_TEXTURE_VIEW_NUM_LAYERS_OES = 0x82DE,
 		GL_TEXTURE_IMMUTABLE_LEVELS    = 0x82DF;
 
-	/** Function address. */
-	public final long TextureViewOES;
-
 	protected OESTextureView() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OESTextureView(FunctionProvider provider) {
-		TextureViewOES = provider.getFunctionAddress("glTextureViewOES");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OESTextureView} instance of the current context. */
-	public static OESTextureView getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OESTextureView} instance of the specified {@link GLESCapabilities}. */
-	public static OESTextureView getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OESTextureView);
-	}
-
-	static OESTextureView create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OES_texture_view") ) return null;
-
-		OESTextureView funcs = new OESTextureView(provider);
-		boolean supported = checkFunctions(
-			funcs.TextureViewOES
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glTextureViewOES
 		);
-
-		return GLES.checkExtension("GL_OES_texture_view", funcs, supported);
 	}
 
 	// --- [ glTextureViewOES ] ---
 
 	public static void glTextureViewOES(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
-		long __functionAddress = getInstance().TextureViewOES;
+		long __functionAddress = GLES.getCapabilities().glTextureViewOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 	}
 

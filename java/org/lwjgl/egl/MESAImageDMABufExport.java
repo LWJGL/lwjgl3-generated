@@ -26,38 +26,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class MESAImageDMABufExport {
 
-	/** Function address. */
-	public final long
-		ExportDMABUFImageQueryMESA,
-		ExportDMABUFImageMESA;
-
 	protected MESAImageDMABufExport() {
 		throw new UnsupportedOperationException();
 	}
 
-	public MESAImageDMABufExport(FunctionProvider provider) {
-		ExportDMABUFImageQueryMESA = provider.getFunctionAddress("eglExportDMABUFImageQueryMESA");
-		ExportDMABUFImageMESA = provider.getFunctionAddress("eglExportDMABUFImageMESA");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link MESAImageDMABufExport} instance. */
-	public static MESAImageDMABufExport getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link MESAImageDMABufExport} instance of the specified {@link EGLCapabilities}. */
-	public static MESAImageDMABufExport getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__MESAImageDMABufExport);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglExportDMABUFImageQueryMESA, caps.eglExportDMABUFImageMESA
+		);
 	}
 
 	// --- [ eglExportDMABUFImageQueryMESA ] ---
 
 	/** Unsafe version of {@link #eglExportDMABUFImageQueryMESA ExportDMABUFImageQueryMESA} */
 	public static int neglExportDMABUFImageQueryMESA(long dpy, long image, long fourcc, long num_planes, long modifiers) {
-		long __functionAddress = getInstance().ExportDMABUFImageQueryMESA;
+		long __functionAddress = EGL.getCapabilities().eglExportDMABUFImageQueryMESA;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(image);
 		}
@@ -87,8 +72,9 @@ public class MESAImageDMABufExport {
 
 	/** Unsafe version of {@link #eglExportDMABUFImageMESA ExportDMABUFImageMESA} */
 	public static int neglExportDMABUFImageMESA(long dpy, long image, long fds, long strides, long offsets) {
-		long __functionAddress = getInstance().ExportDMABUFImageMESA;
+		long __functionAddress = EGL.getCapabilities().eglExportDMABUFImageMESA;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(image);
 		}

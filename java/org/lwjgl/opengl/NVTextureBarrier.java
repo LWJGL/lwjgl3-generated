@@ -18,45 +18,22 @@ import static org.lwjgl.system.JNI.*;
  */
 public class NVTextureBarrier {
 
-	/** Function address. */
-	public final long TextureBarrierNV;
-
 	protected NVTextureBarrier() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVTextureBarrier(FunctionProvider provider) {
-		TextureBarrierNV = provider.getFunctionAddress("glTextureBarrierNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVTextureBarrier} instance of the current context. */
-	public static NVTextureBarrier getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVTextureBarrier} instance of the specified {@link GLCapabilities}. */
-	public static NVTextureBarrier getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVTextureBarrier);
-	}
-
-	static NVTextureBarrier create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_texture_barrier") ) return null;
-
-		NVTextureBarrier funcs = new NVTextureBarrier(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TextureBarrierNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glTextureBarrierNV
 		);
-
-		return GL.checkExtension("GL_NV_texture_barrier", funcs, supported);
 	}
 
 	// --- [ glTextureBarrierNV ] ---
 
 	public static void glTextureBarrierNV() {
-		long __functionAddress = getInstance().TextureBarrierNV;
+		long __functionAddress = GL.getCapabilities().glTextureBarrierNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

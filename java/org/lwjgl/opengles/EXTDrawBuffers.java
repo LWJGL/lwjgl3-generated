@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -72,45 +72,23 @@ public class EXTDrawBuffers {
 		GL_COLOR_ATTACHMENT14_EXT = 0x8CEE,
 		GL_COLOR_ATTACHMENT15_EXT = 0x8CEF;
 
-	/** Function address. */
-	public final long DrawBuffersEXT;
-
 	protected EXTDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDrawBuffers(FunctionProvider provider) {
-		DrawBuffersEXT = provider.getFunctionAddress("glDrawBuffersEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDrawBuffers} instance of the current context. */
-	public static EXTDrawBuffers getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDrawBuffers} instance of the specified {@link GLESCapabilities}. */
-	public static EXTDrawBuffers getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTDrawBuffers);
-	}
-
-	static EXTDrawBuffers create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_draw_buffers") ) return null;
-
-		EXTDrawBuffers funcs = new EXTDrawBuffers(provider);
-		boolean supported = checkFunctions(
-			funcs.DrawBuffersEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawBuffersEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_draw_buffers", funcs, supported);
 	}
 
 	// --- [ glDrawBuffersEXT ] ---
 
 	/** Unsafe version of {@link #glDrawBuffersEXT DrawBuffersEXT} */
 	public static void nglDrawBuffersEXT(int n, long bufs) {
-		long __functionAddress = getInstance().DrawBuffersEXT;
+		long __functionAddress = GLES.getCapabilities().glDrawBuffersEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, bufs);
 	}
 
@@ -127,9 +105,13 @@ public class EXTDrawBuffers {
 
 	/** Single value version of: {@link #glDrawBuffersEXT DrawBuffersEXT} */
 	public static void glDrawBuffersEXT(int buf) {
-		APIBuffer __buffer = apiBuffer();
-		int bufs = __buffer.intParam(buf);
-		nglDrawBuffersEXT(1, __buffer.address(bufs));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer bufs = stack.ints(buf);
+			nglDrawBuffersEXT(1, memAddress(bufs));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

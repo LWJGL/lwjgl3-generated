@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Describes the gamma ramp for a monitor.
@@ -39,7 +40,7 @@ public class GLFWGammaRamp extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -57,7 +58,7 @@ public class GLFWGammaRamp extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		RED = layout.offsetof(0);
 		GREEN = layout.offsetof(1);
@@ -191,6 +192,76 @@ public class GLFWGammaRamp extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link GLFWGammaRamp} instance allocated on the thread-local {@link MemoryStack}. */
+	public static GLFWGammaRamp mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link GLFWGammaRamp} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static GLFWGammaRamp callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link GLFWGammaRamp} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static GLFWGammaRamp mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link GLFWGammaRamp} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static GLFWGammaRamp callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link GLFWGammaRamp.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link GLFWGammaRamp.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link GLFWGammaRamp.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link GLFWGammaRamp.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #red() red}. */
 	public static ShortBuffer nred(long struct) { return memShortBuffer(memGetAddress(struct + GLFWGammaRamp.RED), nsize(struct)); }
 	/** Unsafe version of {@link #green() green}. */
@@ -265,7 +336,7 @@ public class GLFWGammaRamp extends Struct {
 
 		@Override
 		protected GLFWGammaRamp newInstance(long address) {
-			return new GLFWGammaRamp(address, container);
+			return new GLFWGammaRamp(address, getContainer());
 		}
 
 		@Override

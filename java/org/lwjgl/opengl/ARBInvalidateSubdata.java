@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -49,51 +49,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBInvalidateSubdata {
 
-	/** Function address. */
-	public final long
-		InvalidateTexSubImage,
-		InvalidateTexImage,
-		InvalidateBufferSubData,
-		InvalidateBufferData,
-		InvalidateFramebuffer,
-		InvalidateSubFramebuffer;
-
 	protected ARBInvalidateSubdata() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBInvalidateSubdata(FunctionProvider provider) {
-		InvalidateTexSubImage = provider.getFunctionAddress("glInvalidateTexSubImage");
-		InvalidateTexImage = provider.getFunctionAddress("glInvalidateTexImage");
-		InvalidateBufferSubData = provider.getFunctionAddress("glInvalidateBufferSubData");
-		InvalidateBufferData = provider.getFunctionAddress("glInvalidateBufferData");
-		InvalidateFramebuffer = provider.getFunctionAddress("glInvalidateFramebuffer");
-		InvalidateSubFramebuffer = provider.getFunctionAddress("glInvalidateSubFramebuffer");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBInvalidateSubdata} instance of the current context. */
-	public static ARBInvalidateSubdata getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBInvalidateSubdata} instance of the specified {@link GLCapabilities}. */
-	public static ARBInvalidateSubdata getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBInvalidateSubdata);
-	}
-
-	static ARBInvalidateSubdata create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_invalidate_subdata") ) return null;
-
-		ARBInvalidateSubdata funcs = new ARBInvalidateSubdata(provider);
-
-		boolean supported = checkFunctions(
-			funcs.InvalidateTexSubImage, funcs.InvalidateTexImage, funcs.InvalidateBufferSubData, funcs.InvalidateBufferData, funcs.InvalidateFramebuffer, 
-			funcs.InvalidateSubFramebuffer
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glInvalidateTexSubImage, caps.glInvalidateTexImage, caps.glInvalidateBufferSubData, caps.glInvalidateBufferData, caps.glInvalidateFramebuffer, 
+			caps.glInvalidateSubFramebuffer
 		);
-
-		return GL.checkExtension("GL_ARB_invalidate_subdata", funcs, supported);
 	}
 
 	// --- [ glInvalidateTexSubImage ] ---
@@ -111,7 +75,9 @@ public class ARBInvalidateSubdata {
 	 * @param depth   the depth of the region to be invalidated
 	 */
 	public static void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) {
-		long __functionAddress = getInstance().InvalidateTexSubImage;
+		long __functionAddress = GL.getCapabilities().glInvalidateTexSubImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth);
 	}
 
@@ -124,7 +90,9 @@ public class ARBInvalidateSubdata {
 	 * @param level   the level of detail of the texture object to invalidate
 	 */
 	public static void glInvalidateTexImage(int texture, int level) {
-		long __functionAddress = getInstance().InvalidateTexImage;
+		long __functionAddress = GL.getCapabilities().glInvalidateTexImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, texture, level);
 	}
 
@@ -138,7 +106,9 @@ public class ARBInvalidateSubdata {
 	 * @param length the length of the range within the buffer's data store to be invalidated
 	 */
 	public static void glInvalidateBufferSubData(int buffer, long offset, long length) {
-		long __functionAddress = getInstance().InvalidateBufferSubData;
+		long __functionAddress = GL.getCapabilities().glInvalidateBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPV(__functionAddress, buffer, offset, length);
 	}
 
@@ -150,7 +120,9 @@ public class ARBInvalidateSubdata {
 	 * @param buffer the name of a buffer object whose data store to invalidate
 	 */
 	public static void glInvalidateBufferData(int buffer) {
-		long __functionAddress = getInstance().InvalidateBufferData;
+		long __functionAddress = GL.getCapabilities().glInvalidateBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, buffer);
 	}
 
@@ -158,7 +130,9 @@ public class ARBInvalidateSubdata {
 
 	/** Unsafe version of {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
-		long __functionAddress = getInstance().InvalidateFramebuffer;
+		long __functionAddress = GL.getCapabilities().glInvalidateFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, numAttachments, attachments);
 	}
 
@@ -182,16 +156,22 @@ public class ARBInvalidateSubdata {
 
 	/** Single value version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, int attachment) {
-		APIBuffer __buffer = apiBuffer();
-		int attachments = __buffer.intParam(attachment);
-		nglInvalidateFramebuffer(target, 1, __buffer.address(attachments));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer attachments = stack.ints(attachment);
+			nglInvalidateFramebuffer(target, 1, memAddress(attachments));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glInvalidateSubFramebuffer ] ---
 
 	/** Unsafe version of {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().InvalidateSubFramebuffer;
+		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
 	}
 
@@ -219,9 +199,13 @@ public class ARBInvalidateSubdata {
 
 	/** Single value version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
-		APIBuffer __buffer = apiBuffer();
-		int attachments = __buffer.intParam(attachment);
-		nglInvalidateSubFramebuffer(target, 1, __buffer.address(attachments), x, y, width, height);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer attachments = stack.ints(attachment);
+			nglInvalidateSubFramebuffer(target, 1, memAddress(attachments), x, y, width, height);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

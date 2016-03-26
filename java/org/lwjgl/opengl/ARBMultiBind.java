@@ -35,57 +35,23 @@ import static org.lwjgl.system.Pointer.*;
  */
 public class ARBMultiBind {
 
-	/** Function address. */
-	public final long
-		BindBuffersBase,
-		BindBuffersRange,
-		BindTextures,
-		BindSamplers,
-		BindImageTextures,
-		BindVertexBuffers;
-
 	protected ARBMultiBind() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBMultiBind(FunctionProvider provider) {
-		BindBuffersBase = provider.getFunctionAddress("glBindBuffersBase");
-		BindBuffersRange = provider.getFunctionAddress("glBindBuffersRange");
-		BindTextures = provider.getFunctionAddress("glBindTextures");
-		BindSamplers = provider.getFunctionAddress("glBindSamplers");
-		BindImageTextures = provider.getFunctionAddress("glBindImageTextures");
-		BindVertexBuffers = provider.getFunctionAddress("glBindVertexBuffers");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBMultiBind} instance of the current context. */
-	public static ARBMultiBind getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBMultiBind} instance of the specified {@link GLCapabilities}. */
-	public static ARBMultiBind getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBMultiBind);
-	}
-
-	static ARBMultiBind create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_multi_bind") ) return null;
-
-		ARBMultiBind funcs = new ARBMultiBind(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindBuffersBase, funcs.BindBuffersRange, funcs.BindTextures, funcs.BindSamplers, funcs.BindImageTextures, funcs.BindVertexBuffers
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBindBuffersBase, caps.glBindBuffersRange, caps.glBindTextures, caps.glBindSamplers, caps.glBindImageTextures, caps.glBindVertexBuffers
 		);
-
-		return GL.checkExtension("GL_ARB_multi_bind", funcs, supported);
 	}
 
 	// --- [ glBindBuffersBase ] ---
 
 	/** Unsafe version of {@link #glBindBuffersBase BindBuffersBase} */
 	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
-		long __functionAddress = getInstance().BindBuffersBase;
+		long __functionAddress = GL.getCapabilities().glBindBuffersBase;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, first, count, buffers);
 	}
 
@@ -124,7 +90,9 @@ public class ARBMultiBind {
 
 	/** Unsafe version of {@link #glBindBuffersRange BindBuffersRange} */
 	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
-		long __functionAddress = getInstance().BindBuffersRange;
+		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
 	}
 
@@ -178,7 +146,9 @@ public class ARBMultiBind {
 
 	/** Unsafe version of {@link #glBindTextures BindTextures} */
 	public static void nglBindTextures(int first, int count, long textures) {
-		long __functionAddress = getInstance().BindTextures;
+		long __functionAddress = GL.getCapabilities().glBindTextures;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, textures);
 	}
 
@@ -236,7 +206,9 @@ public class ARBMultiBind {
 
 	/** Unsafe version of {@link #glBindSamplers BindSamplers} */
 	public static void nglBindSamplers(int first, int count, long samplers) {
-		long __functionAddress = getInstance().BindSamplers;
+		long __functionAddress = GL.getCapabilities().glBindSamplers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, samplers);
 	}
 
@@ -278,7 +250,9 @@ public class ARBMultiBind {
 
 	/** Unsafe version of {@link #glBindImageTextures BindImageTextures} */
 	public static void nglBindImageTextures(int first, int count, long textures) {
-		long __functionAddress = getInstance().BindImageTextures;
+		long __functionAddress = GL.getCapabilities().glBindImageTextures;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, textures);
 	}
 
@@ -331,7 +305,9 @@ public class ARBMultiBind {
 
 	/** Unsafe version of {@link #glBindVertexBuffers BindVertexBuffers} */
 	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
-		long __functionAddress = getInstance().BindVertexBuffers;
+		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPPV(__functionAddress, first, count, buffers, offsets, strides);
 	}
 

@@ -45,78 +45,47 @@ public class KHRDisplay {
 	 */
 	public static final int VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR = 0x8;
 
-	/** Function address. */
-	public final long
-		GetPhysicalDeviceDisplayPropertiesKHR,
-		GetPhysicalDeviceDisplayPlanePropertiesKHR,
-		GetDisplayPlaneSupportedDisplaysKHR,
-		GetDisplayModePropertiesKHR,
-		CreateDisplayModeKHR,
-		GetDisplayPlaneCapabilitiesKHR,
-		CreateDisplayPlaneSurfaceKHR;
-
 	protected KHRDisplay() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRDisplay(FunctionProvider provider) {
-		GetPhysicalDeviceDisplayPropertiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPropertiesKHR");
-		GetPhysicalDeviceDisplayPlanePropertiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
-		GetDisplayPlaneSupportedDisplaysKHR = provider.getFunctionAddress("vkGetDisplayPlaneSupportedDisplaysKHR");
-		GetDisplayModePropertiesKHR = provider.getFunctionAddress("vkGetDisplayModePropertiesKHR");
-		CreateDisplayModeKHR = provider.getFunctionAddress("vkCreateDisplayModeKHR");
-		GetDisplayPlaneCapabilitiesKHR = provider.getFunctionAddress("vkGetDisplayPlaneCapabilitiesKHR");
-		CreateDisplayPlaneSurfaceKHR = provider.getFunctionAddress("vkCreateDisplayPlaneSurfaceKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRDisplay} instance from the specified dispatchable handle. */
-	public static KHRDisplay getInstance(DispatchableHandle handle) {
-		return getInstance(handle.getCapabilities());
-	}
-
-	/** Returns the {@link KHRDisplay} instance of the specified {@link VKCapabilities}. */
-	public static KHRDisplay getInstance(VKCapabilities caps) {
-		return checkFunctionality(caps.__KHRDisplay);
-	}
-
-	static KHRDisplay create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("VK_KHR_display") )
-			return null;
-
-		return VK.checkExtension("VK_KHR_display", create(provider));
-	}
-
-	static KHRDisplay create(FunctionProvider provider) {
-		KHRDisplay funcs = new KHRDisplay(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetPhysicalDeviceDisplayPropertiesKHR, funcs.GetPhysicalDeviceDisplayPlanePropertiesKHR, funcs.GetDisplayPlaneSupportedDisplaysKHR, 
-			funcs.GetDisplayModePropertiesKHR, funcs.CreateDisplayModeKHR, funcs.GetDisplayPlaneCapabilitiesKHR, funcs.CreateDisplayPlaneSurfaceKHR
+	static boolean isAvailable(VKCapabilities caps) {
+		return checkFunctions(
+			caps.vkGetPhysicalDeviceDisplayPropertiesKHR, caps.vkGetPhysicalDeviceDisplayPlanePropertiesKHR, caps.vkGetDisplayPlaneSupportedDisplaysKHR, 
+			caps.vkGetDisplayModePropertiesKHR, caps.vkCreateDisplayModeKHR, caps.vkGetDisplayPlaneCapabilitiesKHR, caps.vkCreateDisplayPlaneSurfaceKHR
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ vkGetPhysicalDeviceDisplayPropertiesKHR ] ---
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceDisplayPropertiesKHR GetPhysicalDeviceDisplayPropertiesKHR} */
 	public static int nvkGetPhysicalDeviceDisplayPropertiesKHR(VkPhysicalDevice physicalDevice, long pPropertyCount, long pProperties) {
-		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceDisplayPropertiesKHR;
-		if ( CHECKS ) {
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceDisplayPropertiesKHR;
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			if ( pProperties != NULL ) VkDisplayPropertiesKHR.validate(pProperties, (int)pPropertyCount);
-		}
 		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties);
 	}
 
 	/**
 	 * Queries information about the available displays.
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of display devices available for {@code physicalDevice} is returned in {@code pPropertyCount}.
+	 * Otherwise, {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return
+	 * the variable is overwritten with the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than
+	 * the number of display devices for {@code physicalDevice}, at most {@code pPropertyCount} structures will be written.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkDisplayPropertiesKHR} structures</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice a valid physical device
-	 * @param pPropertyCount the number of entries in the array pointed to by {@code pProperties}
-	 * @param pProperties    a pointer to an array of {@code pPropertyCount} {@link VkDisplayPropertiesKHR} structures
+	 * @param physicalDevice a physical device
+	 * @param pPropertyCount a pointer to an integer related to the number of display devices available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkDisplayPropertiesKHR} structures
 	 */
 	public static int vkGetPhysicalDeviceDisplayPropertiesKHR(VkPhysicalDevice physicalDevice, ByteBuffer pPropertyCount, VkDisplayPropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {
@@ -139,7 +108,7 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceDisplayPlanePropertiesKHR GetPhysicalDeviceDisplayPlanePropertiesKHR} */
 	public static int nvkGetPhysicalDeviceDisplayPlanePropertiesKHR(VkPhysicalDevice physicalDevice, long pPropertyCount, long pProperties) {
-		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceDisplayPlanePropertiesKHR;
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceDisplayPlanePropertiesKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties);
@@ -147,10 +116,28 @@ public class KHRDisplay {
 
 	/**
 	 * Queries the plane properties.
+	 * 
+	 * <p>Images are presented to individual planes on a display. Devices <b>must</b> support at least one plane on each display. Planes <b>can</b> be stacked and blended to
+	 * composite multiple images on one display. Devices <b>may</b> support only a fixed stacking order and fixed mapping between planes and displays, or they <b>may</b>
+	 * allow arbitrary application specified stacking orders and mappings between planes and displays.</p>
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of display planes available for {@code physicalDevice} is returned in {@code pPropertyCount}.
+	 * Otherwise, {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return
+	 * the variable is overwritten with the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than
+	 * the number of display planes for {@code physicalDevice}, at most {@code pPropertyCount} structures will be written.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkDisplayPlanePropertiesKHR} structures</li>
+	 * </ul>
 	 *
 	 * @param physicalDevice a valid physical device
-	 * @param pPropertyCount the number of entries in the array pointed to by {@code pProperties}
-	 * @param pProperties    a pointer to an array of {@code pPropertyCount} {@link VkDisplayPlanePropertiesKHR} structures.
+	 * @param pPropertyCount a pointer to an integer related to the number of display planes available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkDisplayPlanePropertiesKHR} structures
 	 */
 	public static int vkGetPhysicalDeviceDisplayPlanePropertiesKHR(VkPhysicalDevice physicalDevice, ByteBuffer pPropertyCount, VkDisplayPlanePropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {
@@ -173,19 +160,35 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkGetDisplayPlaneSupportedDisplaysKHR GetDisplayPlaneSupportedDisplaysKHR} */
 	public static int nvkGetDisplayPlaneSupportedDisplaysKHR(VkPhysicalDevice physicalDevice, int planeIndex, long pDisplayCount, long pDisplays) {
-		long __functionAddress = getInstance(physicalDevice).GetDisplayPlaneSupportedDisplaysKHR;
+		long __functionAddress = physicalDevice.getCapabilities().vkGetDisplayPlaneSupportedDisplaysKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPIPPI(__functionAddress, physicalDevice.address(), planeIndex, pDisplayCount, pDisplays);
 	}
 
 	/**
-	 * Gets list of displays a plane supports.
+	 * Determines which displays a plane is usable with.
+	 * 
+	 * <p>If {@code pDisplays} is {@code NULL}, then the number of displays usable with the specified {@code planeIndex} for {@code physicalDevice} is returned in
+	 * {@code pDisplayCount}. Otherwise, {@code pDisplayCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pDisplays}
+	 * array, and on return the variable is overwritten with the number of structures actually written to {@code pDisplays}. If the value of
+	 * {@code pDisplayCount} is less than the number of display planes for {@code physicalDevice}, at most {@code pDisplayCount} structures will be written.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pDisplayCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pDisplayCount} is not 0, and {@code pDisplays} is not {@code NULL}, {@code pDisplays} <b>must</b> be a pointer to an array of
+	 * {@code pDisplayCount} {@code VkDisplayKHR} handles</li>
+	 * <li>{@code planeIndex} <b>must</b> be less than the number of display planes supported by the device as determined by calling
+	 * {@link #vkGetPhysicalDeviceDisplayPlanePropertiesKHR GetPhysicalDeviceDisplayPlanePropertiesKHR}</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice a valid physical device
-	 * @param planeIndex     the plane which the application wishes to use
-	 * @param pDisplayCount  the number of entries in the array pointed to by {@code pDisplays}
-	 * @param pDisplays      a pointer to an array of {@code pDisplayCount} {@code VkDisplayKHR} handles.
+	 * @param physicalDevice a physical device
+	 * @param planeIndex     the plane which the application wishes to use, and must be in the range {@code [0, physicaldeviceplanecount − 1]
+	 * @param pDisplayCount  a pointer to an integer related to the number of display planes available or queried
+	 * @param pDisplays      either {@code NULL} or a pointer to an array of {@code VkDisplayKHR} structures
 	 */
 	public static int vkGetDisplayPlaneSupportedDisplaysKHR(VkPhysicalDevice physicalDevice, int planeIndex, ByteBuffer pDisplayCount, ByteBuffer pDisplays) {
 		if ( CHECKS ) {
@@ -208,7 +211,7 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkGetDisplayModePropertiesKHR GetDisplayModePropertiesKHR} */
 	public static int nvkGetDisplayModePropertiesKHR(VkPhysicalDevice physicalDevice, long display, long pPropertyCount, long pProperties) {
-		long __functionAddress = getInstance(physicalDevice).GetDisplayModePropertiesKHR;
+		long __functionAddress = physicalDevice.getCapabilities().vkGetDisplayModePropertiesKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPJPPI(__functionAddress, physicalDevice.address(), display, pPropertyCount, pProperties);
@@ -216,6 +219,22 @@ public class KHRDisplay {
 
 	/**
 	 * Gets the set of mode properties supported by the display.
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of display modes available on the specified display for {@code physicalDevice} is returned in
+	 * {@code pPropertyCount}. Otherwise, {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the
+	 * {@code pProperties} array, and on return the variable is overwritten with the number of structures actually written to {@code pProperties}. If the
+	 * value of {@code pPropertyCount} is less than the number of display modes for {@code physicalDevice}, at most {@code pPropertyCount} structures will be
+	 * written.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code display} <b>must</b> be a valid {@code VkDisplayKHR} handle</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkDisplayModePropertiesKHR} structures</li>
+	 * </ul>
 	 *
 	 * @param physicalDevice the physical device associated with the display
 	 * @param display        a display present on the physical device
@@ -243,7 +262,7 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkCreateDisplayModeKHR CreateDisplayModeKHR} */
 	public static int nvkCreateDisplayModeKHR(VkPhysicalDevice physicalDevice, long display, long pCreateInfo, long pAllocator, long pMode) {
-		long __functionAddress = getInstance(physicalDevice).CreateDisplayModeKHR;
+		long __functionAddress = physicalDevice.getCapabilities().vkCreateDisplayModeKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
@@ -253,11 +272,27 @@ public class KHRDisplay {
 
 	/**
 	 * Creates a display mode.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code display} <b>must</b> be a valid {@code VkDisplayKHR} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkDisplayModeCreateInfoKHR} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pMode} <b>must</b> be a pointer to a {@code VkDisplayModeKHR} handle</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code display} <b>must</b> be externally synchronized</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice the physical device associated with display
+	 * @param physicalDevice the physical device associated with {@code display}
 	 * @param display        the display to create an additional mode
 	 * @param pCreateInfo    a {@link VkDisplayModeCreateInfoKHR} structure describing the new mode to create
-	 * @param pAllocator     the allocator used for host memory allocated for the mode object
+	 * @param pAllocator     controls host memory allocation
 	 * @param pMode          returns the handle of the mode created
 	 */
 	public static int vkCreateDisplayModeKHR(VkPhysicalDevice physicalDevice, long display, VkDisplayModeCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pMode) {
@@ -277,7 +312,7 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkGetDisplayPlaneCapabilitiesKHR GetDisplayPlaneCapabilitiesKHR} */
 	public static int nvkGetDisplayPlaneCapabilitiesKHR(VkPhysicalDevice physicalDevice, long mode, int planeIndex, long pCapabilities) {
-		long __functionAddress = getInstance(physicalDevice).GetDisplayPlaneCapabilitiesKHR;
+		long __functionAddress = physicalDevice.getCapabilities().vkGetDisplayPlaneCapabilitiesKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPJIPI(__functionAddress, physicalDevice.address(), mode, planeIndex, pCapabilities);
@@ -285,10 +320,27 @@ public class KHRDisplay {
 
 	/**
 	 * Gets the capabilities of a mode and plane combination.
+	 * 
+	 * <p>Applications that wish to present directly to a display must select which layer, or "plane" of the display they wish to target, and a mode to use with
+	 * the display. Each display supports at least one plane. The capabilities of a given mode and plane combination are determined by calling this command.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code mode} <b>must</b> be a valid {@code VkDisplayModeKHR} handle</li>
+	 * <li>{@code pCapabilities} <b>must</b> be a pointer to a {@link VkDisplayPlaneCapabilitiesKHR} structure</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code mode} <b>must</b> be externally synchronized</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice the physical device associated with the display
-	 * @param mode           the display mode the application intends to program when using the specified plane
-	 * @param planeIndex     the plane which the application intends to use with the display
+	 * @param physicalDevice the physical device associated with the {@code display}
+	 * @param mode           the display mode the application intends to program when using the specified plane.  Note this parameter also implicitly specifies a display.
+	 * @param planeIndex     the plane which the application intends to use with the display, and is less than the number of display planes supported by the device
 	 * @param pCapabilities  a pointer to a {@link VkDisplayPlaneCapabilitiesKHR} struct
 	 */
 	public static int vkGetDisplayPlaneCapabilitiesKHR(VkPhysicalDevice physicalDevice, long mode, int planeIndex, VkDisplayPlaneCapabilitiesKHR pCapabilities) {
@@ -299,7 +351,7 @@ public class KHRDisplay {
 
 	/** Unsafe version of {@link #vkCreateDisplayPlaneSurfaceKHR CreateDisplayPlaneSurfaceKHR} */
 	public static int nvkCreateDisplayPlaneSurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
-		long __functionAddress = getInstance(instance).CreateDisplayPlaneSurfaceKHR;
+		long __functionAddress = instance.getCapabilities().vkCreateDisplayPlaneSurfaceKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
@@ -309,11 +361,20 @@ public class KHRDisplay {
 
 	/**
 	 * Creates a {@code VkSurfaceKHR} structure representing a display plane and mode.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkDisplaySurfaceCreateInfoKHR} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pSurface} <b>must</b> be a pointer to a {@code VkSurfaceKHR} handle</li>
+	 * </ul>
 	 *
-	 * @param instance    the {@code VkInstance} to associate the surface
+	 * @param instance    the instance corresponding to the physical device the targeted display is on
 	 * @param pCreateInfo a pointer to an instance of the {@link VkDisplaySurfaceCreateInfoKHR} structure containing the parameters affecting the creation of the surface object
-	 * @param pAllocator  the allocator used for host memory allocated for the surface object
-	 * @param pSurface    the resulting surface object handle is returned in {@code pSurface}
+	 * @param pAllocator  controls host memory allocation
+	 * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface is returned
 	 */
 	public static int vkCreateDisplayPlaneSurfaceKHR(VkInstance instance, VkDisplaySurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
 		if ( CHECKS )

@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -43,59 +43,23 @@ public class NVFence {
 		GL_FENCE_STATUS_NV    = 0x84F3,
 		GL_FENCE_CONDITION_NV = 0x84F4;
 
-	/** Function address. */
-	public final long
-		DeleteFencesNV,
-		GenFencesNV,
-		IsFenceNV,
-		TestFenceNV,
-		GetFenceivNV,
-		FinishFenceNV,
-		SetFenceNV;
-
 	protected NVFence() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVFence(FunctionProvider provider) {
-		DeleteFencesNV = provider.getFunctionAddress("glDeleteFencesNV");
-		GenFencesNV = provider.getFunctionAddress("glGenFencesNV");
-		IsFenceNV = provider.getFunctionAddress("glIsFenceNV");
-		TestFenceNV = provider.getFunctionAddress("glTestFenceNV");
-		GetFenceivNV = provider.getFunctionAddress("glGetFenceivNV");
-		FinishFenceNV = provider.getFunctionAddress("glFinishFenceNV");
-		SetFenceNV = provider.getFunctionAddress("glSetFenceNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVFence} instance of the current context. */
-	public static NVFence getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVFence} instance of the specified {@link GLCapabilities}. */
-	public static NVFence getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVFence);
-	}
-
-	static NVFence create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_fence") ) return null;
-
-		NVFence funcs = new NVFence(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DeleteFencesNV, funcs.GenFencesNV, funcs.IsFenceNV, funcs.TestFenceNV, funcs.GetFenceivNV, funcs.FinishFenceNV, funcs.SetFenceNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDeleteFencesNV, caps.glGenFencesNV, caps.glIsFenceNV, caps.glTestFenceNV, caps.glGetFenceivNV, caps.glFinishFenceNV, caps.glSetFenceNV
 		);
-
-		return GL.checkExtension("GL_NV_fence", funcs, supported);
 	}
 
 	// --- [ glDeleteFencesNV ] ---
 
 	/** Unsafe version of {@link #glDeleteFencesNV DeleteFencesNV} */
 	public static void nglDeleteFencesNV(int n, long fences) {
-		long __functionAddress = getInstance().DeleteFencesNV;
+		long __functionAddress = GL.getCapabilities().glDeleteFencesNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, fences);
 	}
 
@@ -112,16 +76,22 @@ public class NVFence {
 
 	/** Single value version of: {@link #glDeleteFencesNV DeleteFencesNV} */
 	public static void glDeleteFencesNV(int fence) {
-		APIBuffer __buffer = apiBuffer();
-		int fences = __buffer.intParam(fence);
-		nglDeleteFencesNV(1, __buffer.address(fences));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer fences = stack.ints(fence);
+			nglDeleteFencesNV(1, memAddress(fences));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenFencesNV ] ---
 
 	/** Unsafe version of {@link #glGenFencesNV GenFencesNV} */
 	public static void nglGenFencesNV(int n, long fences) {
-		long __functionAddress = getInstance().GenFencesNV;
+		long __functionAddress = GL.getCapabilities().glGenFencesNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, fences);
 	}
 
@@ -138,23 +108,31 @@ public class NVFence {
 
 	/** Single return value version of: {@link #glGenFencesNV GenFencesNV} */
 	public static int glGenFencesNV() {
-		APIBuffer __buffer = apiBuffer();
-		int fences = __buffer.intParam();
-		nglGenFencesNV(1, __buffer.address(fences));
-		return __buffer.intValue(fences);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer fences = stack.callocInt(1);
+			nglGenFencesNV(1, memAddress(fences));
+			return fences.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsFenceNV ] ---
 
 	public static boolean glIsFenceNV(int fence) {
-		long __functionAddress = getInstance().IsFenceNV;
+		long __functionAddress = GL.getCapabilities().glIsFenceNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, fence);
 	}
 
 	// --- [ glTestFenceNV ] ---
 
 	public static boolean glTestFenceNV(int fence) {
-		long __functionAddress = getInstance().TestFenceNV;
+		long __functionAddress = GL.getCapabilities().glTestFenceNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, fence);
 	}
 
@@ -162,7 +140,9 @@ public class NVFence {
 
 	/** Unsafe version of {@link #glGetFenceivNV GetFenceivNV} */
 	public static void nglGetFenceivNV(int fence, int pname, long params) {
-		long __functionAddress = getInstance().GetFenceivNV;
+		long __functionAddress = GL.getCapabilities().glGetFenceivNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, fence, pname, params);
 	}
 
@@ -181,23 +161,31 @@ public class NVFence {
 
 	/** Single return value version of: {@link #glGetFenceivNV GetFenceivNV} */
 	public static int glGetFenceiNV(int fence, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetFenceivNV(fence, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetFenceivNV(fence, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glFinishFenceNV ] ---
 
 	public static void glFinishFenceNV(int fence) {
-		long __functionAddress = getInstance().FinishFenceNV;
+		long __functionAddress = GL.getCapabilities().glFinishFenceNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, fence);
 	}
 
 	// --- [ glSetFenceNV ] ---
 
 	public static void glSetFenceNV(int fence, int condition) {
-		long __functionAddress = getInstance().SetFenceNV;
+		long __functionAddress = GL.getCapabilities().glSetFenceNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, fence, condition);
 	}
 

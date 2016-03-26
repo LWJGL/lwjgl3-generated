@@ -68,13 +68,22 @@ public class KHRSurface {
 	 */
 	public static final int VK_PRESENT_MODE_FIFO_KHR = 2;
 
+	/**
+	 * The presentation engine waits for the next vertical blanking period to update the current image. If a vertical blanking period has already passed
+	 * since the last update of the current image then the presentation engine does not wait for another vertical blanking period for the update, meaning
+	 * this mode <b>may</b> result in visible tearing in this case. An internal queue containing {@code numSwapchainImages − 1} entries, where
+	 * {@code numSwapchainImages} is the number of presentable images in the swapchain, is used to hold pending presentation requests. New requests are
+	 * appended to the end of the queue, and one request is removed from the beginning of the queue and processed during or after each vertical blanking
+	 * period in which the queue is non-empty.
+	 */
+	public static final int VK_PRESENT_MODE_FIFO_RELAXED_KHR = 3;
+
 	/** VkPresentModeKHR */
 	public static final int
-		VK_PRESENT_MODE_FIFO_RELAXED_KHR = 3,
-		VK_PRESENT_MODE_BEGIN_RANGE      = VK_PRESENT_MODE_IMMEDIATE_KHR,
-		VK_PRESENT_MODE_END_RANGE        = VK_PRESENT_MODE_FIFO_RELAXED_KHR,
-		VK_PRESENT_MODE_RANGE_SIZE       = (VK_PRESENT_MODE_FIFO_RELAXED_KHR - VK_PRESENT_MODE_IMMEDIATE_KHR + 1),
-		VK_PRESENT_MODE_MAX_ENUM         = 0x7FFFFFFF;
+		VK_PRESENT_MODE_BEGIN_RANGE = VK_PRESENT_MODE_IMMEDIATE_KHR,
+		VK_PRESENT_MODE_END_RANGE   = VK_PRESENT_MODE_FIFO_RELAXED_KHR,
+		VK_PRESENT_MODE_RANGE_SIZE  = (VK_PRESENT_MODE_FIFO_RELAXED_KHR - VK_PRESENT_MODE_IMMEDIATE_KHR + 1),
+		VK_PRESENT_MODE_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** The image content is presented without being transformed. */
 	public static final int VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR = 0x1;
@@ -129,61 +138,22 @@ public class KHRSurface {
 	 */
 	public static final int VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR = 0x8;
 
-	/** Function address. */
-	public final long
-		DestroySurfaceKHR,
-		GetPhysicalDeviceSurfaceSupportKHR,
-		GetPhysicalDeviceSurfaceCapabilitiesKHR,
-		GetPhysicalDeviceSurfaceFormatsKHR,
-		GetPhysicalDeviceSurfacePresentModesKHR;
-
 	protected KHRSurface() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRSurface(FunctionProvider provider) {
-		DestroySurfaceKHR = provider.getFunctionAddress("vkDestroySurfaceKHR");
-		GetPhysicalDeviceSurfaceSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceSupportKHR");
-		GetPhysicalDeviceSurfaceCapabilitiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceCapabilitiesKHR");
-		GetPhysicalDeviceSurfaceFormatsKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceFormatsKHR");
-		GetPhysicalDeviceSurfacePresentModesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfacePresentModesKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRSurface} instance from the specified dispatchable handle. */
-	public static KHRSurface getInstance(DispatchableHandle handle) {
-		return getInstance(handle.getCapabilities());
-	}
-
-	/** Returns the {@link KHRSurface} instance of the specified {@link VKCapabilities}. */
-	public static KHRSurface getInstance(VKCapabilities caps) {
-		return checkFunctionality(caps.__KHRSurface);
-	}
-
-	static KHRSurface create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("VK_KHR_surface") )
-			return null;
-
-		return VK.checkExtension("VK_KHR_surface", create(provider));
-	}
-
-	static KHRSurface create(FunctionProvider provider) {
-		KHRSurface funcs = new KHRSurface(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DestroySurfaceKHR, funcs.GetPhysicalDeviceSurfaceSupportKHR, funcs.GetPhysicalDeviceSurfaceCapabilitiesKHR, 
-			funcs.GetPhysicalDeviceSurfaceFormatsKHR, funcs.GetPhysicalDeviceSurfacePresentModesKHR
+	static boolean isAvailable(VKCapabilities caps) {
+		return checkFunctions(
+			caps.vkDestroySurfaceKHR, caps.vkGetPhysicalDeviceSurfaceSupportKHR, caps.vkGetPhysicalDeviceSurfaceCapabilitiesKHR, 
+			caps.vkGetPhysicalDeviceSurfaceFormatsKHR, caps.vkGetPhysicalDeviceSurfacePresentModesKHR
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ vkDestroySurfaceKHR ] ---
 
 	/** Unsafe version of {@link #vkDestroySurfaceKHR DestroySurfaceKHR} */
 	public static void nvkDestroySurfaceKHR(VkInstance instance, long surface, long pAllocator) {
-		long __functionAddress = getInstance(instance).DestroySurfaceKHR;
+		long __functionAddress = instance.getCapabilities().vkDestroySurfaceKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
@@ -193,10 +163,36 @@ public class KHRSurface {
 
 	/**
 	 * Destroys a {@code VkSurfaceKHR} object.
+	 * 
+	 * <p>Several WSI functions return {@link #VK_ERROR_SURFACE_LOST_KHR ERROR_SURFACE_LOST_KHR} if the surface becomes no longer available. After such an error, the surface (and any child
+	 * swapchain, if one exists) <b>should</b> be destroyed, as there is no way to restore them to a not-lost state. Applications <b>may</b> attempt to create a new
+	 * {@code VkSurfaceKHR} using the same native platform window object, but whether such re-creation will succeed is platform-dependent and <b>may</b> depend on
+	 * the reason the surface became unavailable. A lost surface does not otherwise cause devices to be lost.</p>
+	 * 
+	 * <p>Destroying a {@code VkSurfaceKHR} merely severs the connection between Vulkan and the native surface, and doesn’t imply destroying the native surface,
+	 * closing a window, or similar behavior.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>If {@code surface} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code surface} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code instance}</li>
+	 * <li>All {@code VkSwapchainKHR} objects created for {@code surface} <b>must</b> have been destroyed prior to destroying {@code surface}</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code surface} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code surface} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code surface} <b>must</b> be externally synchronized</li>
+	 * </ul>
 	 *
 	 * @param instance   the instance used to create the surface
-	 * @param surface    the handle of the surface to destroy
-	 * @param pAllocator the allocator used for host memory allocated for the surface object
+	 * @param surface    the surface to destroy
+	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroySurfaceKHR(VkInstance instance, long surface, VkAllocationCallbacks pAllocator) {
 		nvkDestroySurfaceKHR(instance, surface, pAllocator == null ? NULL : pAllocator.address());
@@ -206,19 +202,30 @@ public class KHRSurface {
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR} */
 	public static int nvkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long surface, long pSupported) {
-		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfaceSupportKHR;
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfaceSupportKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPIJPI(__functionAddress, physicalDevice.address(), queueFamilyIndex, surface, pSupported);
 	}
 
 	/**
-	 * Queries if presentation is supported.
+	 * Determines whether a queue family of a physical device supports presentation to a given surface.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
+	 * <li>{@code pSupported} <b>must</b> be a pointer to a {@code VkBool32} value</li>
+	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
+	 * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} for the given
+	 * {@code physicalDevice}</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice   a valid physical device
-	 * @param queueFamilyIndex a queue family
-	 * @param surface          the surface to query
-	 * @param pSupported       indicates is presentation is supported
+	 * @param physicalDevice   the physical device
+	 * @param queueFamilyIndex the queue family
+	 * @param surface          the surface
+	 * @param pSupported       a pointer to a {@code VkBool32}, which is set to {@link VK10#VK_TRUE TRUE} to indicate support, and {@link VK10#VK_FALSE FALSE} otherwise
 	 */
 	public static int vkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long surface, ByteBuffer pSupported) {
 		if ( CHECKS )
@@ -237,18 +244,27 @@ public class KHRSurface {
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} */
 	public static int nvkGetPhysicalDeviceSurfaceCapabilitiesKHR(VkPhysicalDevice physicalDevice, long surface, long pSurfaceCapabilities) {
-		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfaceCapabilitiesKHR;
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfaceCapabilitiesKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPJPI(__functionAddress, physicalDevice.address(), surface, pSurfaceCapabilities);
 	}
 
 	/**
-	 * Gets surface capabilities.
+	 * Queries the basic capabilities of a surface, needed in order to create a swapchain.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
+	 * <li>{@code pSurfaceCapabilities} <b>must</b> be a pointer to a {@link VkSurfaceCapabilitiesKHR} structure</li>
+	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice       a valid physical device
-	 * @param surface              the surface to query
-	 * @param pSurfaceCapabilities a pointer to an instance of {@link VkSurfaceCapabilitiesKHR} that will be filled
+	 * @param physicalDevice       the physical device that will be associated with the swapchain to be created
+	 * @param surface              the surface that will be associated with the swapchain
+	 * @param pSurfaceCapabilities a pointer to an instance of the {@link VkSurfaceCapabilitiesKHR} structure that will be filled with information
 	 */
 	public static int vkGetPhysicalDeviceSurfaceCapabilitiesKHR(VkPhysicalDevice physicalDevice, long surface, VkSurfaceCapabilitiesKHR pSurfaceCapabilities) {
 		return nvkGetPhysicalDeviceSurfaceCapabilitiesKHR(physicalDevice, surface, pSurfaceCapabilities.address());
@@ -258,19 +274,35 @@ public class KHRSurface {
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfaceFormatsKHR GetPhysicalDeviceSurfaceFormatsKHR} */
 	public static int nvkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, long surface, long pSurfaceFormatCount, long pSurfaceFormats) {
-		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfaceFormatsKHR;
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfaceFormatsKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPJPPI(__functionAddress, physicalDevice.address(), surface, pSurfaceFormatCount, pSurfaceFormats);
 	}
 
 	/**
-	 * Gets color formats supported by surface.
+	 * Queries the supported swapchain format-colorspace pairs for a surface.
+	 * 
+	 * <p>If {@code pSurfaceFormats} is {@code NULL}, then the number of format pairs supported for the given surface is returned in {@code pSurfaceFormatCount}.
+	 * Otherwise, {@code pSurfaceFormatCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pSurfaceFormats} array, and on
+	 * return the variable is overwritten with the number of structures actually written to {@code pSurfaceFormats}. If the value of
+	 * {@code pSurfaceFormatCount} is less than the number of queue families supported, at most {@code pSurfaceFormatCount} structures will be written.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
+	 * <li>{@code pSurfaceFormatCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pSurfaceFormatCount} is not 0, and {@code pSurfaceFormats} is not {@code NULL}, {@code pSurfaceFormats} <b>must</b> be a
+	 * pointer to an array of {@code pSurfaceFormatCount} {@link VkSurfaceFormatKHR} structures</li>
+	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice      a valid physical device
-	 * @param surface             the surface to query
-	 * @param pSurfaceFormatCount the number of elements in the array pointed by {@code pSurfaceFormats}
-	 * @param pSurfaceFormats     a pointer to an array of {@link VkSurfaceFormatKHR}
+	 * @param physicalDevice      the physical device that will be associated with the swapchain to be created
+	 * @param surface             the surface that will be associated with the swapchain
+	 * @param pSurfaceFormatCount a pointer to an integer related to the number of format pairs available or queried
+	 * @param pSurfaceFormats     either {@code NULL} or a pointer to an array of {@link VkSurfaceFormatKHR} structures
 	 */
 	public static int vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, long surface, ByteBuffer pSurfaceFormatCount, VkSurfaceFormatKHR.Buffer pSurfaceFormats) {
 		if ( CHECKS )
@@ -289,19 +321,35 @@ public class KHRSurface {
 
 	/** Unsafe version of {@link #vkGetPhysicalDeviceSurfacePresentModesKHR GetPhysicalDeviceSurfacePresentModesKHR} */
 	public static int nvkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, long surface, long pPresentModeCount, long pPresentModes) {
-		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceSurfacePresentModesKHR;
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfacePresentModesKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPJPPI(__functionAddress, physicalDevice.address(), surface, pPresentModeCount, pPresentModes);
 	}
 
 	/**
-	 * Gets supported presentation modes.
+	 * Queries the supported presentation modes for a surface.
+	 * 
+	 * <p>If {@code pPresentModes} is {@code NULL}, then the number of presentation modes supported for the given surface is returned in {@code pPresentModeCount}.
+	 * Otherwise, {@code pPresentModeCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pPresentModes} array, and on
+	 * return the variable is overwritten with the number of structures actually written to {@code pPresentModes}. If the value of {@code pPresentModeCount}
+	 * is less than the number of presentation modes supported, at most {@code pPresentModeCount} structures will be written.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
+	 * <li>{@code pPresentModeCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPresentModeCount} is not 0, and {@code pPresentModes} is not {@code NULL}, {@code pPresentModes} <b>must</b> be a pointer to
+	 * an array of {@code pPresentModeCount} {@code VkPresentModeKHR} values</li>
+	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice    a valid physical device
-	 * @param surface           the surface to query
-	 * @param pPresentModeCount the number of elements in the array pointed by {@code pPresentModes}
-	 * @param pPresentModes     a pointer to an array of {@code VkPresentModeKHR}
+	 * @param physicalDevice    the physical device that will be associated with the swapchain to be created
+	 * @param surface           the surface that will be associated with the swapchain
+	 * @param pPresentModeCount a pointer to an integer related to the number of format pairs available or queried
+	 * @param pPresentModes     either {@code NULL} or a pointer to an array of {@code VkPresentModeKHR} values
 	 */
 	public static int vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, long surface, ByteBuffer pPresentModeCount, ByteBuffer pPresentModes) {
 		if ( CHECKS )

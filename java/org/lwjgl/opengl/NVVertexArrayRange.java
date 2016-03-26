@@ -35,49 +35,23 @@ public class NVVertexArrayRange {
 	/** Accepted by the {@code pname} parameter of GetPointerv. */
 	public static final int GL_VERTEX_ARRAY_RANGE_POINTER_NV = 0x8521;
 
-	/** Function address. */
-	public final long
-		VertexArrayRangeNV,
-		FlushVertexArrayRangeNV;
-
 	protected NVVertexArrayRange() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVVertexArrayRange(FunctionProvider provider) {
-		VertexArrayRangeNV = provider.getFunctionAddress("glVertexArrayRangeNV");
-		FlushVertexArrayRangeNV = provider.getFunctionAddress("glFlushVertexArrayRangeNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVVertexArrayRange} instance of the current context. */
-	public static NVVertexArrayRange getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVVertexArrayRange} instance of the specified {@link GLCapabilities}. */
-	public static NVVertexArrayRange getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVVertexArrayRange);
-	}
-
-	static NVVertexArrayRange create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_vertex_array_range") ) return null;
-
-		NVVertexArrayRange funcs = new NVVertexArrayRange(provider);
-
-		boolean supported = checkFunctions(
-			funcs.VertexArrayRangeNV, funcs.FlushVertexArrayRangeNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glVertexArrayRangeNV, caps.glFlushVertexArrayRangeNV
 		);
-
-		return GL.checkExtension("GL_NV_vertex_array_range", funcs, supported);
 	}
 
 	// --- [ glVertexArrayRangeNV ] ---
 
 	/** Unsafe version of {@link #glVertexArrayRangeNV VertexArrayRangeNV} */
 	public static void nglVertexArrayRangeNV(int length, long pointer) {
-		long __functionAddress = getInstance().VertexArrayRangeNV;
+		long __functionAddress = GL.getCapabilities().glVertexArrayRangeNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, length, pointer);
 	}
 
@@ -88,7 +62,9 @@ public class NVVertexArrayRange {
 	// --- [ glFlushVertexArrayRangeNV ] ---
 
 	public static void glFlushVertexArrayRangeNV() {
-		long __functionAddress = getInstance().FlushVertexArrayRangeNV;
+		long __functionAddress = GL.getCapabilities().glFlushVertexArrayRangeNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

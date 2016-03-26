@@ -7,10 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -45,51 +43,23 @@ public class ARBGetProgramBinary {
 		GL_NUM_PROGRAM_BINARY_FORMATS = 0x87FE,
 		GL_PROGRAM_BINARY_FORMATS     = 0x87FF;
 
-	/** Function address. */
-	public final long
-		GetProgramBinary,
-		ProgramBinary,
-		ProgramParameteri;
-
 	protected ARBGetProgramBinary() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBGetProgramBinary(FunctionProvider provider) {
-		GetProgramBinary = provider.getFunctionAddress("glGetProgramBinary");
-		ProgramBinary = provider.getFunctionAddress("glProgramBinary");
-		ProgramParameteri = provider.getFunctionAddress("glProgramParameteri");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBGetProgramBinary} instance of the current context. */
-	public static ARBGetProgramBinary getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBGetProgramBinary} instance of the specified {@link GLCapabilities}. */
-	public static ARBGetProgramBinary getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBGetProgramBinary);
-	}
-
-	static ARBGetProgramBinary create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_get_program_binary") ) return null;
-
-		ARBGetProgramBinary funcs = new ARBGetProgramBinary(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetProgramBinary, funcs.ProgramBinary, funcs.ProgramParameteri
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetProgramBinary, caps.glProgramBinary, caps.glProgramParameteri
 		);
-
-		return GL.checkExtension("GL_ARB_get_program_binary", funcs, supported);
 	}
 
 	// --- [ glGetProgramBinary ] ---
 
 	/** Unsafe version of {@link #glGetProgramBinary GetProgramBinary} */
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
-		long __functionAddress = getInstance().GetProgramBinary;
+		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
@@ -120,36 +90,13 @@ public class ARBGetProgramBinary {
 		nglGetProgramBinary(program, binary.remaining(), memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
 	}
 
-	/** Buffer return version of: {@link #glGetProgramBinary GetProgramBinary} */
-	public static ByteBuffer glGetProgramBinary(int program, int bufSize, IntBuffer binaryFormat) {
-		if ( CHECKS )
-			checkBuffer(binaryFormat, 1);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
-		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
-		binary.limit(__buffer.intValue(length));
-		return binary.slice();
-	}
-
-	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary GetProgramBinary} */
-	public static ByteBuffer glGetProgramBinary(int program, IntBuffer binaryFormat) {
-		int bufSize = GL20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH);
-		if ( CHECKS )
-			checkBuffer(binaryFormat, 1);
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
-		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
-		binary.limit(__buffer.intValue(length));
-		return binary.slice();
-	}
-
 	// --- [ glProgramBinary ] ---
 
 	/** Unsafe version of {@link #glProgramBinary ProgramBinary} */
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
-		long __functionAddress = getInstance().ProgramBinary;
+		long __functionAddress = GL.getCapabilities().glProgramBinary;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIV(__functionAddress, program, binaryFormat, binary, length);
 	}
 
@@ -182,7 +129,9 @@ public class ARBGetProgramBinary {
 	 * @param value   the new value of the parameter specified by {@code pname} for {@code program}
 	 */
 	public static void glProgramParameteri(int program, int pname, int value) {
-		long __functionAddress = getInstance().ProgramParameteri;
+		long __functionAddress = GL.getCapabilities().glProgramParameteri;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, program, pname, value);
 	}
 

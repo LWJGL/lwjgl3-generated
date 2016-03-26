@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Defines a property attribute.
@@ -35,7 +36,7 @@ public class ObjCPropertyAttribute extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -49,7 +50,7 @@ public class ObjCPropertyAttribute extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		NAME = layout.offsetof(0);
 		VALUE = layout.offsetof(1);
@@ -189,14 +190,84 @@ public class ObjCPropertyAttribute extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link ObjCPropertyAttribute} instance allocated on the thread-local {@link MemoryStack}. */
+	public static ObjCPropertyAttribute mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link ObjCPropertyAttribute} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static ObjCPropertyAttribute callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link ObjCPropertyAttribute} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static ObjCPropertyAttribute mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link ObjCPropertyAttribute} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static ObjCPropertyAttribute callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link ObjCPropertyAttribute.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link ObjCPropertyAttribute.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link ObjCPropertyAttribute.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link ObjCPropertyAttribute.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #name}. */
 	public static ByteBuffer nname(long struct) { return memByteBufferNT1(memGetAddress(struct + ObjCPropertyAttribute.NAME)); }
 	/** Unsafe version of {@link #nameString}. */
-	public static String nnameString(long struct) { return memDecodeUTF8(memGetAddress(struct + ObjCPropertyAttribute.NAME)); }
+	public static String nnameString(long struct) { return memUTF8(memGetAddress(struct + ObjCPropertyAttribute.NAME)); }
 	/** Unsafe version of {@link #value}. */
 	public static ByteBuffer nvalue(long struct) { return memByteBufferNT1(memGetAddress(struct + ObjCPropertyAttribute.VALUE)); }
 	/** Unsafe version of {@link #valueString}. */
-	public static String nvalueString(long struct) { return memDecodeUTF8(memGetAddress(struct + ObjCPropertyAttribute.VALUE)); }
+	public static String nvalueString(long struct) { return memUTF8(memGetAddress(struct + ObjCPropertyAttribute.VALUE)); }
 
 	/** Unsafe version of {@link #name(ByteBuffer) name}. */
 	public static void nname(long struct, ByteBuffer value) { 
@@ -204,7 +275,7 @@ public class ObjCPropertyAttribute extends Struct {
 		memPutAddress(struct + ObjCPropertyAttribute.NAME, memAddress(value));
 	}
 	/** Unsafe version of {@link #name(CharSequence) name}. */
-	public static void nname(long struct, CharSequence value) { nname(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
+	public static void nname(long struct, CharSequence value) { nname(struct, memUTF8(value)); }
 	/** Unsafe version of {@link #nameFree}. */
 	public static void nnameFree(long struct) { nmemFree(memGetAddress(struct + ObjCPropertyAttribute.NAME)); }
 	/** Unsafe version of {@link #value(ByteBuffer) value}. */
@@ -213,7 +284,7 @@ public class ObjCPropertyAttribute extends Struct {
 		memPutAddress(struct + ObjCPropertyAttribute.VALUE, memAddress(value));
 	}
 	/** Unsafe version of {@link #value(CharSequence) value}. */
-	public static void nvalue(long struct, CharSequence value) { nvalue(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
+	public static void nvalue(long struct, CharSequence value) { nvalue(struct, memUTF8(value)); }
 	/** Unsafe version of {@link #valueFree}. */
 	public static void nvalueFree(long struct) { nmemFree(memGetAddress(struct + ObjCPropertyAttribute.VALUE)); }
 
@@ -272,7 +343,7 @@ public class ObjCPropertyAttribute extends Struct {
 
 		@Override
 		protected ObjCPropertyAttribute newInstance(long address) {
-			return new ObjCPropertyAttribute(address, container);
+			return new ObjCPropertyAttribute(address, getContainer());
 		}
 
 		@Override

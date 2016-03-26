@@ -29,39 +29,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBCopyImage {
 
-	/** Function address. */
-	public final long CopyImageSubData;
-
 	protected ARBCopyImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBCopyImage(FunctionProvider provider) {
-		CopyImageSubData = provider.getFunctionAddress("glCopyImageSubData");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBCopyImage} instance of the current context. */
-	public static ARBCopyImage getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBCopyImage} instance of the specified {@link GLCapabilities}. */
-	public static ARBCopyImage getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBCopyImage);
-	}
-
-	static ARBCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_copy_image") ) return null;
-
-		ARBCopyImage funcs = new ARBCopyImage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CopyImageSubData
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glCopyImageSubData
 		);
-
-		return GL.checkExtension("GL_ARB_copy_image", funcs, supported);
 	}
 
 	// --- [ glCopyImageSubData ] ---
@@ -86,7 +61,9 @@ public class ARBCopyImage {
 	 * @param srcDepth  the depth of the region to be copied
 	 */
 	public static void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
-		long __functionAddress = getInstance().CopyImageSubData;
+		long __functionAddress = GL.getCapabilities().glCopyImageSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIIIIIIV(__functionAddress, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 	}
 

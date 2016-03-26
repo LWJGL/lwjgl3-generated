@@ -34,45 +34,22 @@ public class EXTFramebufferBlit {
 		GL_DRAW_FRAMEBUFFER_BINDING_EXT = 0x8CA6,
 		GL_READ_FRAMEBUFFER_BINDING_EXT = 0x8CAA;
 
-	/** Function address. */
-	public final long BlitFramebufferEXT;
-
 	protected EXTFramebufferBlit() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTFramebufferBlit(FunctionProvider provider) {
-		BlitFramebufferEXT = provider.getFunctionAddress("glBlitFramebufferEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTFramebufferBlit} instance of the current context. */
-	public static EXTFramebufferBlit getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTFramebufferBlit} instance of the specified {@link GLCapabilities}. */
-	public static EXTFramebufferBlit getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTFramebufferBlit);
-	}
-
-	static EXTFramebufferBlit create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_framebuffer_blit") ) return null;
-
-		EXTFramebufferBlit funcs = new EXTFramebufferBlit(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BlitFramebufferEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBlitFramebufferEXT
 		);
-
-		return GL.checkExtension("GL_EXT_framebuffer_blit", funcs, supported);
 	}
 
 	// --- [ glBlitFramebufferEXT ] ---
 
 	public static void glBlitFramebufferEXT(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = getInstance().BlitFramebufferEXT;
+		long __functionAddress = GL.getCapabilities().glBlitFramebufferEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 

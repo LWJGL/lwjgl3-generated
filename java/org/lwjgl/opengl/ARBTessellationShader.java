@@ -112,42 +112,14 @@ public class ARBTessellationShader {
 		GL_TESS_EVALUATION_SHADER = 0x8E87,
 		GL_TESS_CONTROL_SHADER    = 0x8E88;
 
-	/** Function address. */
-	public final long
-		PatchParameteri,
-		PatchParameterfv;
-
 	protected ARBTessellationShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTessellationShader(FunctionProvider provider) {
-		PatchParameteri = provider.getFunctionAddress("glPatchParameteri");
-		PatchParameterfv = provider.getFunctionAddress("glPatchParameterfv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTessellationShader} instance of the current context. */
-	public static ARBTessellationShader getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTessellationShader} instance of the specified {@link GLCapabilities}. */
-	public static ARBTessellationShader getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTessellationShader);
-	}
-
-	static ARBTessellationShader create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_tessellation_shader") ) return null;
-
-		ARBTessellationShader funcs = new ARBTessellationShader(provider);
-
-		boolean supported = checkFunctions(
-			funcs.PatchParameteri, funcs.PatchParameterfv
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glPatchParameteri, caps.glPatchParameterfv
 		);
-
-		return GL.checkExtension("GL_ARB_tessellation_shader", funcs, supported);
 	}
 
 	// --- [ glPatchParameteri ] ---
@@ -159,7 +131,9 @@ public class ARBTessellationShader {
 	 * @param value the new value for the parameter given by {@code pname}
 	 */
 	public static void glPatchParameteri(int pname, int value) {
-		long __functionAddress = getInstance().PatchParameteri;
+		long __functionAddress = GL.getCapabilities().glPatchParameteri;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, value);
 	}
 
@@ -167,7 +141,9 @@ public class ARBTessellationShader {
 
 	/** Unsafe version of {@link #glPatchParameterfv PatchParameterfv} */
 	public static void nglPatchParameterfv(int pname, long values) {
-		long __functionAddress = getInstance().PatchParameterfv;
+		long __functionAddress = GL.getCapabilities().glPatchParameterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, values);
 	}
 

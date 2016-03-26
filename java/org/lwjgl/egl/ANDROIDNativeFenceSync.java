@@ -32,34 +32,22 @@ public class ANDROIDNativeFenceSync {
 		EGL_SYNC_NATIVE_FENCE_SIGNALED_ANDROID = 0x3146,
 		EGL_NO_NATIVE_FENCE_FD_ANDROID         = 0xFFFFFFFF;
 
-	/** Function address. */
-	public final long DupNativeFenceFDANDROID;
-
 	protected ANDROIDNativeFenceSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ANDROIDNativeFenceSync(FunctionProvider provider) {
-		DupNativeFenceFDANDROID = provider.getFunctionAddress("eglDupNativeFenceFDANDROID");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ANDROIDNativeFenceSync} instance. */
-	public static ANDROIDNativeFenceSync getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link ANDROIDNativeFenceSync} instance of the specified {@link EGLCapabilities}. */
-	public static ANDROIDNativeFenceSync getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__ANDROIDNativeFenceSync);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglDupNativeFenceFDANDROID
+		);
 	}
 
 	// --- [ eglDupNativeFenceFDANDROID ] ---
 
 	public static int eglDupNativeFenceFDANDROID(long dpy, long sync) {
-		long __functionAddress = getInstance().DupNativeFenceFDANDROID;
+		long __functionAddress = EGL.getCapabilities().eglDupNativeFenceFDANDROID;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}

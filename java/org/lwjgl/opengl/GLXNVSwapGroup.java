@@ -26,51 +26,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class GLXNVSwapGroup {
 
-	/** Function address. */
-	public final long
-		JoinSwapGroupNV,
-		BindSwapBarrierNV,
-		QuerySwapGroupNV,
-		QueryMaxSwapGroupsNV,
-		QueryFrameCountNV,
-		ResetFrameCountNV;
-
 	protected GLXNVSwapGroup() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXNVSwapGroup(FunctionProvider provider) {
-		JoinSwapGroupNV = provider.getFunctionAddress("glXJoinSwapGroupNV");
-		BindSwapBarrierNV = provider.getFunctionAddress("glXBindSwapBarrierNV");
-		QuerySwapGroupNV = provider.getFunctionAddress("glXQuerySwapGroupNV");
-		QueryMaxSwapGroupsNV = provider.getFunctionAddress("glXQueryMaxSwapGroupsNV");
-		QueryFrameCountNV = provider.getFunctionAddress("glXQueryFrameCountNV");
-		ResetFrameCountNV = provider.getFunctionAddress("glXResetFrameCountNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXNVSwapGroup} instance of the current context. */
-	public static GLXNVSwapGroup getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXNVSwapGroup} instance of the specified {@link GLCapabilities}. */
-	public static GLXNVSwapGroup getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXNVSwapGroup);
-	}
-
-	static GLXNVSwapGroup create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_NV_swap_group") ) return null;
-
-		GLXNVSwapGroup funcs = new GLXNVSwapGroup(provider);
-
-		boolean supported = checkFunctions(
-			funcs.JoinSwapGroupNV, funcs.BindSwapBarrierNV, funcs.QuerySwapGroupNV, funcs.QueryMaxSwapGroupsNV, funcs.QueryFrameCountNV, 
-			funcs.ResetFrameCountNV
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXJoinSwapGroupNV, caps.glXBindSwapBarrierNV, caps.glXQuerySwapGroupNV, caps.glXQueryMaxSwapGroupsNV, caps.glXQueryFrameCountNV, 
+			caps.glXResetFrameCountNV
 		);
-
-		return GL.checkExtension("GLX_NV_swap_group", funcs, supported);
 	}
 
 	// --- [ glXJoinSwapGroupNV ] ---
@@ -83,8 +47,9 @@ public class GLXNVSwapGroup {
 	 * @param group    
 	 */
 	public static int glXJoinSwapGroupNV(long display, long drawable, int group) {
-		long __functionAddress = getInstance().JoinSwapGroupNV;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXJoinSwapGroupNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -101,9 +66,11 @@ public class GLXNVSwapGroup {
 	 * @param barrier 
 	 */
 	public static int glXBindSwapBarrierNV(long display, int group, int barrier) {
-		long __functionAddress = getInstance().BindSwapBarrierNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXBindSwapBarrierNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPIII(__functionAddress, display, group, barrier);
 	}
 
@@ -111,8 +78,9 @@ public class GLXNVSwapGroup {
 
 	/** Unsafe version of {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
 	public static int nglXQuerySwapGroupNV(long display, long drawable, long group, long barrier) {
-		long __functionAddress = getInstance().QuerySwapGroupNV;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQuerySwapGroupNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -148,9 +116,11 @@ public class GLXNVSwapGroup {
 
 	/** Unsafe version of {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
 	public static int nglXQueryMaxSwapGroupsNV(long display, int screen, long maxGroups, long maxBarriers) {
-		long __functionAddress = getInstance().QueryMaxSwapGroupsNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapGroupsNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPIPPI(__functionAddress, display, screen, maxGroups, maxBarriers);
 	}
 
@@ -183,9 +153,11 @@ public class GLXNVSwapGroup {
 
 	/** Unsafe version of {@link #glXQueryFrameCountNV QueryFrameCountNV} */
 	public static int nglXQueryFrameCountNV(long display, int screen, long count) {
-		long __functionAddress = getInstance().QueryFrameCountNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryFrameCountNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPIPI(__functionAddress, display, screen, count);
 	}
 
@@ -218,9 +190,11 @@ public class GLXNVSwapGroup {
 	 * @param screen  
 	 */
 	public static int glXResetFrameCountNV(long display, int screen) {
-		long __functionAddress = getInstance().ResetFrameCountNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXResetFrameCountNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPII(__functionAddress, display, screen);
 	}
 

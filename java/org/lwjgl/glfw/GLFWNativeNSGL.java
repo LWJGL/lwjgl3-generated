@@ -7,35 +7,26 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to the GLFW library's NSGL native access functions. */
 public class GLFWNativeNSGL {
 
-	/** Function address. */
-	public final long GetNSGLContext;
-
 	protected GLFWNativeNSGL() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLFWNativeNSGL(FunctionProvider provider) {
-		GetNSGLContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetNSGLContext"));
-	}
+	/** Contains the function pointers loaded from {@code GLFW.getLibrary()}. */
+	public static final class Functions {
 
-	// --- [ Function Addresses ] ---
+		private Functions() {}
 
-	private static final GLFWNativeNSGL instance = new GLFWNativeNSGL(getLibrary());
+		/** Function address. */
+		public static final long
+			GetNSGLContext = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetNSGLContext");
 
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return GLFW.getLibrary();
-	}
-
-	/** Returns the {@link GLFWNativeNSGL} instance. */
-	public static GLFWNativeNSGL getInstance() {
-		return instance;
 	}
 
 	// --- [ glfwGetNSGLContext ] ---
@@ -52,7 +43,7 @@ public class GLFWNativeNSGL {
 	 * @since version 3.0
 	 */
 	public static long glfwGetNSGLContext(long window) {
-		long __functionAddress = getInstance().GetNSGLContext;
+		long __functionAddress = Functions.GetNSGLContext;
 		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);

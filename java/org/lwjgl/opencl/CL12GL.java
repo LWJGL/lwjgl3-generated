@@ -29,46 +29,25 @@ public class CL12GL {
 		CL_GL_OBJECT_TEXTURE1D_ARRAY  = 0x2010,
 		CL_GL_OBJECT_TEXTURE_BUFFER   = 0x2011;
 
-	/** Function address. */
-	public final long CreateFromGLTexture;
-
 	protected CL12GL() {
 		throw new UnsupportedOperationException();
 	}
 
-	public CL12GL(FunctionProvider provider) {
-		CreateFromGLTexture = provider.getFunctionAddress("clCreateFromGLTexture");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link CL12GL} instance of the currently loaded ICD. */
-	public static CL12GL getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link CL12GL} instance of the specified {@link CLCapabilities}. */
-	public static CL12GL getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__CL12GL);
-	}
-
-	static CL12GL create(FunctionProvider provider) {
-		CL12GL funcs = new CL12GL(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateFromGLTexture
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clCreateFromGLTexture
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateFromGLTexture ] ---
 
 	/** Unsafe version of {@link #clCreateFromGLTexture CreateFromGLTexture} */
 	public static long nclCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
-		long __functionAddress = getInstance().CreateFromGLTexture;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateFromGLTexture;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
 

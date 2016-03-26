@@ -30,45 +30,22 @@ public class EXTBlendColor {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_BLEND_COLOR_EXT = 0x8005;
 
-	/** Function address. */
-	public final long BlendColorEXT;
-
 	protected EXTBlendColor() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTBlendColor(FunctionProvider provider) {
-		BlendColorEXT = provider.getFunctionAddress("glBlendColorEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTBlendColor} instance of the current context. */
-	public static EXTBlendColor getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTBlendColor} instance of the specified {@link GLCapabilities}. */
-	public static EXTBlendColor getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTBlendColor);
-	}
-
-	static EXTBlendColor create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_blend_color") ) return null;
-
-		EXTBlendColor funcs = new EXTBlendColor(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BlendColorEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBlendColorEXT
 		);
-
-		return GL.checkExtension("GL_EXT_blend_color", funcs, supported);
 	}
 
 	// --- [ glBlendColorEXT ] ---
 
 	public static void glBlendColorEXT(float red, float green, float blue, float alpha) {
-		long __functionAddress = getInstance().BlendColorEXT;
+		long __functionAddress = GL.getCapabilities().glBlendColorEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 

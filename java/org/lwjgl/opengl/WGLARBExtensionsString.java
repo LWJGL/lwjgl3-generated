@@ -21,53 +21,30 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class WGLARBExtensionsString {
 
-	/** Function address. */
-	public final long GetExtensionsStringARB;
-
 	protected WGLARBExtensionsString() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLARBExtensionsString(FunctionProvider provider) {
-		GetExtensionsStringARB = provider.getFunctionAddress("wglGetExtensionsStringARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLARBExtensionsString} instance of the current context. */
-	public static WGLARBExtensionsString getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLARBExtensionsString} instance of the specified {@link GLCapabilities}. */
-	public static WGLARBExtensionsString getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLARBExtensionsString);
-	}
-
-	static WGLARBExtensionsString create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_extensions_string") ) return null;
-
-		WGLARBExtensionsString funcs = new WGLARBExtensionsString(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetExtensionsStringARB
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglGetExtensionsStringARB
 		);
-
-		return GL.checkExtension("WGL_ARB_extensions_string", funcs, supported);
 	}
 
 	// --- [ wglGetExtensionsStringARB ] ---
 
 	/** Unsafe version of {@link #wglGetExtensionsStringARB GetExtensionsStringARB} */
 	public static long nwglGetExtensionsStringARB(long hdc) {
-		long __functionAddress = getInstance().GetExtensionsStringARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglGetExtensionsStringARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
+		}
 		return callPP(__functionAddress, hdc);
 	}
 
 	/**
-	 * Returns a list of supported extensions to WGL. Although the contents of the string is implementation specific, the string will be NULL terminated and
+	 * Returns a list of supported extensions to WGL. Although the contents of the string is implementation specific, the string will be {@code NULL} terminated and
 	 * will contain a space-separated list of extension names. (The extension names themselves do not contain spaces.) If there are no extensions then the
 	 * empty string is returned.
 	 *
@@ -75,7 +52,7 @@ public class WGLARBExtensionsString {
 	 */
 	public static String wglGetExtensionsStringARB(long hdc) {
 		long __result = nwglGetExtensionsStringARB(hdc);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 }

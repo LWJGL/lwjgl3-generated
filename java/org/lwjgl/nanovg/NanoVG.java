@@ -9,8 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -1053,9 +1053,13 @@ public class NanoVG {
 	public static int nvgCreateImage(long ctx, CharSequence filename, int imageFlags) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		APIBuffer __buffer = apiBuffer();
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		return nnvgCreateImage(ctx, __buffer.address(filenameEncoded), imageFlags);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nnvgCreateImage(ctx, memAddress(filenameEncoded), imageFlags);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nvgCreateImageMem ] ---
@@ -1648,10 +1652,14 @@ public class NanoVG {
 	public static int nvgCreateFont(long ctx, CharSequence name, CharSequence filename) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		return nnvgCreateFont(ctx, __buffer.address(nameEncoded), __buffer.address(filenameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nnvgCreateFont(ctx, memAddress(nameEncoded), memAddress(filenameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nvgCreateFontMem ] ---
@@ -1692,9 +1700,13 @@ public class NanoVG {
 	public static int nvgCreateFontMem(long ctx, CharSequence name, ByteBuffer data, int freeData) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nnvgCreateFontMem(ctx, __buffer.address(nameEncoded), memAddress(data), data.remaining(), freeData);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nnvgCreateFontMem(ctx, memAddress(nameEncoded), memAddress(data), data.remaining(), freeData);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nvgFindFont ] ---
@@ -1720,9 +1732,13 @@ public class NanoVG {
 	public static int nvgFindFont(long ctx, CharSequence name) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nnvgFindFont(ctx, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return nnvgFindFont(ctx, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nvgFontSize ] ---
@@ -1850,9 +1866,13 @@ public class NanoVG {
 	public static void nvgFontFace(long ctx, CharSequence font) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		APIBuffer __buffer = apiBuffer();
-		int fontEncoded = __buffer.stringParamASCII(font, true);
-		nnvgFontFace(ctx, __buffer.address(fontEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer fontEncoded = stack.ASCII(font);
+			nnvgFontFace(ctx, memAddress(fontEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nvgText ] ---
@@ -1881,9 +1901,13 @@ public class NanoVG {
 	public static float nvgText(long ctx, float x, float y, CharSequence string, long end) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		APIBuffer __buffer = apiBuffer();
-		int stringEncoded = __buffer.stringParamUTF8(string, true);
-		return nnvgText(ctx, x, y, __buffer.address(stringEncoded), end);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer stringEncoded = stack.UTF8(string);
+			return nnvgText(ctx, x, y, memAddress(stringEncoded), end);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nvgTextBox ] ---
@@ -1917,9 +1941,13 @@ public class NanoVG {
 	public static void nvgTextBox(long ctx, float x, float y, float breakRowWidth, CharSequence string, long end) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		APIBuffer __buffer = apiBuffer();
-		int stringEncoded = __buffer.stringParamUTF8(string, true);
-		nnvgTextBox(ctx, x, y, breakRowWidth, __buffer.address(stringEncoded), end);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer stringEncoded = stack.UTF8(string);
+			nnvgTextBox(ctx, x, y, breakRowWidth, memAddress(stringEncoded), end);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nvgTextBounds ] ---
@@ -1969,9 +1997,13 @@ public class NanoVG {
 			checkPointer(ctx);
 			if ( bounds != null ) checkBuffer(bounds, 4);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int stringEncoded = __buffer.stringParamUTF8(string, true);
-		return nnvgTextBounds(ctx, x, y, __buffer.address(stringEncoded), end, memAddressSafe(bounds));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer stringEncoded = stack.UTF8(string);
+			return nnvgTextBounds(ctx, x, y, memAddress(stringEncoded), end, memAddressSafe(bounds));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nvgTextBoxBounds ] ---
@@ -2020,9 +2052,13 @@ public class NanoVG {
 			checkPointer(ctx);
 			if ( bounds != null ) checkBuffer(bounds, 4);
 		}
-		APIBuffer __buffer = apiBuffer();
-		int stringEncoded = __buffer.stringParamUTF8(string, true);
-		nnvgTextBoxBounds(ctx, x, y, breakRowWidth, __buffer.address(stringEncoded), end, memAddressSafe(bounds));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer stringEncoded = stack.UTF8(string);
+			nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(stringEncoded), end, memAddressSafe(bounds));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nvgTextGlyphPositions ] ---
@@ -2069,9 +2105,13 @@ public class NanoVG {
 			checkPointer(ctx);
 			NVGGlyphPosition.validate(positions.address(), positions.remaining());
 		}
-		APIBuffer __buffer = apiBuffer();
-		int stringEncoded = __buffer.stringParamUTF8(string, true);
-		return nnvgTextGlyphPositions(ctx, x, y, __buffer.address(stringEncoded), end, positions.address(), positions.remaining());
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer stringEncoded = stack.UTF8(string);
+			return nnvgTextGlyphPositions(ctx, x, y, memAddress(stringEncoded), end, positions.address(), positions.remaining());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nvgTextMetrics ] ---
@@ -2154,9 +2194,13 @@ public class NanoVG {
 			checkPointer(ctx);
 			NVGTextRow.validate(rows.address(), rows.remaining());
 		}
-		APIBuffer __buffer = apiBuffer();
-		int stringEncoded = __buffer.stringParamUTF8(string, true);
-		return nnvgTextBreakLines(ctx, __buffer.address(stringEncoded), end, breakRowWidth, rows.address(), rows.remaining());
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer stringEncoded = stack.UTF8(string);
+			return nnvgTextBreakLines(ctx, memAddress(stringEncoded), end, breakRowWidth, rows.address(), rows.remaining());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

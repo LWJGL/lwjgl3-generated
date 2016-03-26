@@ -26,33 +26,22 @@ public class EGL14 {
 	/**  */
 	public static final long EGL_DEFAULT_DISPLAY = 0x0L;
 
-	/** Function address. */
-	public final long GetCurrentContext;
-
 	protected EGL14() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EGL14(FunctionProvider provider) {
-		GetCurrentContext = provider.getFunctionAddress("eglGetCurrentContext");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EGL14} instance. */
-	public static EGL14 getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link EGL14} instance of the specified {@link EGLCapabilities}. */
-	public static EGL14 getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__EGL14);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglGetCurrentContext
+		);
 	}
 
 	// --- [ eglGetCurrentContext ] ---
 
 	public static long eglGetCurrentContext() {
-		long __functionAddress = getInstance().GetCurrentContext;
+		long __functionAddress = EGL.getCapabilities().eglGetCurrentContext;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callP(__functionAddress);
 	}
 

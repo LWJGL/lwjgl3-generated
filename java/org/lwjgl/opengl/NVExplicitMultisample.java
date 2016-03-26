@@ -58,51 +58,23 @@ public class NVExplicitMultisample {
 		GL_INT_SAMPLER_RENDERBUFFER_NV          = 0x8E57,
 		GL_UNSIGNED_INT_SAMPLER_RENDERBUFFER_NV = 0x8E58;
 
-	/** Function address. */
-	public final long
-		GetMultisamplefvNV,
-		SampleMaskIndexedNV,
-		TexRenderbufferNV;
-
 	protected NVExplicitMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVExplicitMultisample(FunctionProvider provider) {
-		GetMultisamplefvNV = provider.getFunctionAddress("glGetMultisamplefvNV");
-		SampleMaskIndexedNV = provider.getFunctionAddress("glSampleMaskIndexedNV");
-		TexRenderbufferNV = provider.getFunctionAddress("glTexRenderbufferNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVExplicitMultisample} instance of the current context. */
-	public static NVExplicitMultisample getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVExplicitMultisample} instance of the specified {@link GLCapabilities}. */
-	public static NVExplicitMultisample getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVExplicitMultisample);
-	}
-
-	static NVExplicitMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_explicit_multisample") ) return null;
-
-		NVExplicitMultisample funcs = new NVExplicitMultisample(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetMultisamplefvNV, funcs.SampleMaskIndexedNV, funcs.TexRenderbufferNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetMultisamplefvNV, caps.glSampleMaskIndexedNV, caps.glTexRenderbufferNV
 		);
-
-		return GL.checkExtension("GL_NV_explicit_multisample", funcs, supported);
 	}
 
 	// --- [ glGetMultisamplefvNV ] ---
 
 	/** Unsafe version of {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
 	public static void nglGetMultisamplefvNV(int pname, int index, long val) {
-		long __functionAddress = getInstance().GetMultisamplefvNV;
+		long __functionAddress = GL.getCapabilities().glGetMultisamplefvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, pname, index, val);
 	}
 
@@ -122,14 +94,18 @@ public class NVExplicitMultisample {
 	// --- [ glSampleMaskIndexedNV ] ---
 
 	public static void glSampleMaskIndexedNV(int index, int mask) {
-		long __functionAddress = getInstance().SampleMaskIndexedNV;
+		long __functionAddress = GL.getCapabilities().glSampleMaskIndexedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, mask);
 	}
 
 	// --- [ glTexRenderbufferNV ] ---
 
 	public static void glTexRenderbufferNV(int target, int renderbuffer) {
-		long __functionAddress = getInstance().TexRenderbufferNV;
+		long __functionAddress = GL.getCapabilities().glTexRenderbufferNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, renderbuffer);
 	}
 

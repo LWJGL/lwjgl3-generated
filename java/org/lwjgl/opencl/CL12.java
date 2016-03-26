@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -197,77 +197,28 @@ public class CL12 {
 		CL_COMMAND_FILL_BUFFER         = 0x1207,
 		CL_COMMAND_FILL_IMAGE          = 0x1208;
 
-	/** Function address. */
-	public final long
-		GetExtensionFunctionAddressForPlatform,
-		RetainDevice,
-		ReleaseDevice,
-		CreateSubDevices,
-		CreateImage,
-		CreateProgramWithBuiltInKernels,
-		CompileProgram,
-		LinkProgram,
-		UnloadPlatformCompiler,
-		GetKernelArgInfo,
-		EnqueueFillBuffer,
-		EnqueueFillImage,
-		EnqueueMigrateMemObjects,
-		EnqueueMarkerWithWaitList,
-		EnqueueBarrierWithWaitList;
-
 	protected CL12() {
 		throw new UnsupportedOperationException();
 	}
 
-	public CL12(FunctionProvider provider) {
-		GetExtensionFunctionAddressForPlatform = provider.getFunctionAddress("clGetExtensionFunctionAddressForPlatform");
-		RetainDevice = provider.getFunctionAddress("clRetainDevice");
-		ReleaseDevice = provider.getFunctionAddress("clReleaseDevice");
-		CreateSubDevices = provider.getFunctionAddress("clCreateSubDevices");
-		CreateImage = provider.getFunctionAddress("clCreateImage");
-		CreateProgramWithBuiltInKernels = provider.getFunctionAddress("clCreateProgramWithBuiltInKernels");
-		CompileProgram = provider.getFunctionAddress("clCompileProgram");
-		LinkProgram = provider.getFunctionAddress("clLinkProgram");
-		UnloadPlatformCompiler = provider.getFunctionAddress("clUnloadPlatformCompiler");
-		GetKernelArgInfo = provider.getFunctionAddress("clGetKernelArgInfo");
-		EnqueueFillBuffer = provider.getFunctionAddress("clEnqueueFillBuffer");
-		EnqueueFillImage = provider.getFunctionAddress("clEnqueueFillImage");
-		EnqueueMigrateMemObjects = provider.getFunctionAddress("clEnqueueMigrateMemObjects");
-		EnqueueMarkerWithWaitList = provider.getFunctionAddress("clEnqueueMarkerWithWaitList");
-		EnqueueBarrierWithWaitList = provider.getFunctionAddress("clEnqueueBarrierWithWaitList");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link CL12} instance of the currently loaded ICD. */
-	public static CL12 getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link CL12} instance of the specified {@link CLCapabilities}. */
-	public static CL12 getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__CL12);
-	}
-
-	static CL12 create(FunctionProvider provider) {
-		CL12 funcs = new CL12(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetExtensionFunctionAddressForPlatform, funcs.RetainDevice, funcs.ReleaseDevice, funcs.CreateSubDevices, funcs.CreateImage, 
-			funcs.CreateProgramWithBuiltInKernels, funcs.CompileProgram, funcs.LinkProgram, funcs.UnloadPlatformCompiler, funcs.GetKernelArgInfo, 
-			funcs.EnqueueFillBuffer, funcs.EnqueueFillImage, funcs.EnqueueMigrateMemObjects, funcs.EnqueueMarkerWithWaitList, funcs.EnqueueBarrierWithWaitList
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clGetExtensionFunctionAddressForPlatform, caps.clRetainDevice, caps.clReleaseDevice, caps.clCreateSubDevices, caps.clCreateImage, 
+			caps.clCreateProgramWithBuiltInKernels, caps.clCompileProgram, caps.clLinkProgram, caps.clUnloadPlatformCompiler, caps.clGetKernelArgInfo, 
+			caps.clEnqueueFillBuffer, caps.clEnqueueFillImage, caps.clEnqueueMigrateMemObjects, caps.clEnqueueMarkerWithWaitList, 
+			caps.clEnqueueBarrierWithWaitList
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clGetExtensionFunctionAddressForPlatform ] ---
 
 	/** Unsafe version of {@link #clGetExtensionFunctionAddressForPlatform GetExtensionFunctionAddressForPlatform} */
 	public static long nclGetExtensionFunctionAddressForPlatform(long platform, long funcname) {
-		long __functionAddress = getInstance().GetExtensionFunctionAddressForPlatform;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clGetExtensionFunctionAddressForPlatform;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(platform);
+		}
 		return callPPP(__functionAddress, platform, funcname);
 	}
 
@@ -294,9 +245,13 @@ public class CL12 {
 
 	/** CharSequence version of: {@link #clGetExtensionFunctionAddressForPlatform GetExtensionFunctionAddressForPlatform} */
 	public static long clGetExtensionFunctionAddressForPlatform(long platform, CharSequence funcname) {
-		APIBuffer __buffer = apiBuffer();
-		int funcnameEncoded = __buffer.stringParamASCII(funcname, true);
-		return nclGetExtensionFunctionAddressForPlatform(platform, __buffer.address(funcnameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer funcnameEncoded = stack.ASCII(funcname);
+			return nclGetExtensionFunctionAddressForPlatform(platform, memAddress(funcnameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clRetainDevice ] ---
@@ -316,9 +271,11 @@ public class CL12 {
 	 *         </ul>
 	 */
 	public static int clRetainDevice(long device) {
-		long __functionAddress = getInstance().RetainDevice;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clRetainDevice;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPI(__functionAddress, device);
 	}
 
@@ -342,9 +299,11 @@ public class CL12 {
 	 *         </ul>
 	 */
 	public static int clReleaseDevice(long device) {
-		long __functionAddress = getInstance().ReleaseDevice;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clReleaseDevice;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPI(__functionAddress, device);
 	}
 
@@ -352,9 +311,11 @@ public class CL12 {
 
 	/** Unsafe version of {@link #clCreateSubDevices CreateSubDevices} */
 	public static int nclCreateSubDevices(long in_device, long properties, int num_devices, long out_devices, long num_devices_ret) {
-		long __functionAddress = getInstance().CreateSubDevices;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateSubDevices;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(in_device);
+		}
 		return callPPIPPI(__functionAddress, in_device, properties, num_devices, out_devices, num_devices_ret);
 	}
 
@@ -425,9 +386,11 @@ public class CL12 {
 
 	/** Unsafe version of {@link #clCreateImage CreateImage} */
 	public static long nclCreateImage(long context, long flags, long image_format, long image_desc, long host_ptr, long errcode_ret) {
-		long __functionAddress = getInstance().CreateImage;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPJPPPPP(__functionAddress, context, flags, image_format, image_desc, host_ptr, errcode_ret);
 	}
 
@@ -538,9 +501,11 @@ public class CL12 {
 
 	/** Unsafe version of {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
 	public static long nclCreateProgramWithBuiltInKernels(long context, int num_devices, long device_list, long kernel_names, long errcode_ret) {
-		long __functionAddress = getInstance().CreateProgramWithBuiltInKernels;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateProgramWithBuiltInKernels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPIPPPP(__functionAddress, context, num_devices, device_list, kernel_names, errcode_ret);
 	}
 
@@ -591,28 +556,38 @@ public class CL12 {
 	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, PointerBuffer device_list, CharSequence kernel_names, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		APIBuffer __buffer = apiBuffer();
-		int kernel_namesEncoded = __buffer.stringParamASCII(kernel_names, true);
-		return nclCreateProgramWithBuiltInKernels(context, num_devices, memAddress(device_list), __buffer.address(kernel_namesEncoded), memAddressSafe(errcode_ret));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer kernel_namesEncoded = stack.ASCII(kernel_names);
+			return nclCreateProgramWithBuiltInKernels(context, num_devices, memAddress(device_list), memAddress(kernel_namesEncoded), memAddressSafe(errcode_ret));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Single value version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
 	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, long device, CharSequence kernel_names, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		APIBuffer __buffer = apiBuffer();
-		int kernel_namesEncoded = __buffer.stringParamASCII(kernel_names, true);
-		int device_list = __buffer.pointerParam(device);
-		return nclCreateProgramWithBuiltInKernels(context, num_devices, __buffer.address(device_list), __buffer.address(kernel_namesEncoded), memAddressSafe(errcode_ret));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer kernel_namesEncoded = stack.ASCII(kernel_names);
+			PointerBuffer device_list = stack.pointers(device);
+			return nclCreateProgramWithBuiltInKernels(context, num_devices, memAddress(device_list), memAddress(kernel_namesEncoded), memAddressSafe(errcode_ret));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clCompileProgram ] ---
 
 	/** Unsafe version of {@link #clCompileProgram CompileProgram} */
 	public static int nclCompileProgram(long program, int num_devices, long device_list, long options, int num_input_headers, long input_headers, long header_include_names, long pfn_notify, long user_data) {
-		long __functionAddress = getInstance().CompileProgram;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCompileProgram;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(program);
+		}
 		return callPIPPIPPPPI(__functionAddress, program, num_devices, device_list, options, num_input_headers, input_headers, header_include_names, pfn_notify, user_data);
 	}
 
@@ -643,7 +618,7 @@ public class CL12 {
 	 *                             
 	 *                             <p>If {@code pfn_notify} is {@code NULL}, {@code clCompileProgram} does not return until the compiler has completed. This callback function may be called
 	 *                             asynchronously by the OpenCL implementation. It is the application's responsibility to ensure that the callback function is thread-safe.</p>
-	 * @param user_data            will be passed as an argument when {@code pfn_notify} is called. {@code user_data} can be NULL.
+	 * @param user_data            will be passed as an argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         
@@ -690,36 +665,44 @@ public class CL12 {
 	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallback pfn_notify, long user_data) {
 		if ( CHECKS )
 			if ( header_include_names != null ) checkBuffer(header_include_names, input_headers.remaining());
-		APIBuffer __buffer = apiBuffer();
-		int optionsEncoded = __buffer.stringParamASCII(options, true);
-		return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer optionsEncoded = stack.ASCII(options);
+			return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Array version of: {@link #clCompileProgram CompileProgram} */
 	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, long[] input_headers, CharSequence[] header_include_names, CLProgramCallback pfn_notify, long user_data) {
 		if ( CHECKS )
 			checkArray(header_include_names, input_headers.length);
-		APIBuffer __buffer = apiBuffer();
-		int optionsEncoded = __buffer.stringParamASCII(options, true);
-		int input_headersAddress = __buffer.pointerArrayParam(input_headers);
-		int header_include_namesAddress = __buffer.pointerArrayParamASCII(header_include_names);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), input_headers.length, __buffer.address(input_headersAddress), __buffer.address(header_include_namesAddress), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+			ByteBuffer optionsEncoded = stack.ASCII(options);
+			long input_headersAddress = org.lwjgl.system.APIUtil.apiArray(stack, input_headers);
+			long header_include_namesAddress = org.lwjgl.system.APIUtil.apiArrayASCII(stack, header_include_names);
+			int __result = nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_headers.length, input_headersAddress, header_include_namesAddress, pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+			org.lwjgl.system.APIUtil.apiArrayFree(header_include_namesAddress, header_include_names.length);
+			return __result;
 		} finally {
-			__buffer.pointerArrayFree(header_include_namesAddress, header_include_names.length);
+			stack.setPointer(stackPointer);
 		}
 	}
 
 	/** Single input_header &amp; header_include_name version of: {@link #clCompileProgram CompileProgram} */
 	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, long input_header, CharSequence header_include_name, CLProgramCallback pfn_notify, long user_data) {
-		APIBuffer __buffer = apiBuffer();
-		int optionsEncoded = __buffer.stringParamASCII(options, true);
-		int input_headersAddress = __buffer.pointerArrayParam(input_header);
-		int header_include_namesAddress = __buffer.pointerArrayParamASCII(header_include_name);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), 1, __buffer.address(input_headersAddress), __buffer.address(header_include_namesAddress), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+			ByteBuffer optionsEncoded = stack.ASCII(options);
+			long input_headersAddress = org.lwjgl.system.APIUtil.apiArray(stack, input_header);
+			long header_include_namesAddress = org.lwjgl.system.APIUtil.apiArrayASCII(stack, header_include_name);
+			int __result = nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), 1, input_headersAddress, header_include_namesAddress, pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+			org.lwjgl.system.APIUtil.apiArrayFree(header_include_namesAddress, 1);
+			return __result;
 		} finally {
-			__buffer.pointerArrayFree(header_include_namesAddress, 1);
+			stack.setPointer(stackPointer);
 		}
 	}
 
@@ -727,9 +710,11 @@ public class CL12 {
 
 	/** Unsafe version of {@link #clLinkProgram LinkProgram} */
 	public static long nclLinkProgram(long context, int num_devices, long device_list, long options, int num_input_programs, long input_programs, long pfn_notify, long user_data) {
-		long __functionAddress = getInstance().LinkProgram;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clLinkProgram;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPIPPIPPPP(__functionAddress, context, num_devices, device_list, options, num_input_programs, input_programs, pfn_notify, user_data);
 	}
 
@@ -768,15 +753,15 @@ public class CL12 {
 	 *                           asynchronously by the OpenCL implementation. It is the application's responsibility to ensure that the callback function is thread-safe.</p>
 	 *                           
 	 *                           <p>If {@code pfn_notify} is {@code NULL}, {@code clLinkProgram} does not return until the linker has completed.</p>
-	 * @param user_data          will be passed as an argument when {@code pfn_notify} is called. {@code user_data} can be NULL.
+	 * @param user_data          will be passed as an argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
 	 *
 	 * @return a valid non-zero program object, if the linking operation can begin. The linking operation can begin if the context, list of devices, input programs and
 	 *         linker options specified are all valid and appropriate host and device resources needed to perform the link are available.
 	 *         
-	 *         <p>If {@code pfn_notify} is NULL, the {@code errcode_ret} will be set to {@link CL10#CL_SUCCESS SUCCESS} if the link operation was successful and {@link #CL_LINK_PROGRAM_FAILURE LINK_PROGRAM_FAILURE} if
+	 *         <p>If {@code pfn_notify} is {@code NULL}, the {@code errcode_ret} will be set to {@link CL10#CL_SUCCESS SUCCESS} if the link operation was successful and {@link #CL_LINK_PROGRAM_FAILURE LINK_PROGRAM_FAILURE} if
 	 *         there is a failure to link the compiled binaries and/or libraries.</p>
 	 *         
-	 *         <p>If {@code pfn_notify} is not NULL, {@code clLinkProgram} does not have to wait until the linker to complete and can return {@link CL10#CL_SUCCESS SUCCESS} in {@code errcode_ret}
+	 *         <p>If {@code pfn_notify} is not {@code NULL}, {@code clLinkProgram} does not have to wait until the linker to complete and can return {@link CL10#CL_SUCCESS SUCCESS} in {@code errcode_ret}
 	 *         if the linking operation can begin. The {@code pfn_notify} callback function will return a {@link CL10#CL_SUCCESS SUCCESS} or {@link #CL_LINK_PROGRAM_FAILURE LINK_PROGRAM_FAILURE} if the
 	 *         linking operation was successful or not.</p>
 	 *         
@@ -821,17 +806,25 @@ public class CL12 {
 
 	/** CharSequence version of: {@link #clLinkProgram LinkProgram} */
 	public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, PointerBuffer input_programs, CLProgramCallback pfn_notify, long user_data) {
-		APIBuffer __buffer = apiBuffer();
-		int optionsEncoded = __buffer.stringParamASCII(options, true);
-		return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer optionsEncoded = stack.ASCII(options);
+			return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Single value version of: {@link #clLinkProgram LinkProgram} */
 	public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, long input_program, CLProgramCallback pfn_notify, long user_data) {
-		APIBuffer __buffer = apiBuffer();
-		int optionsEncoded = __buffer.stringParamASCII(options, true);
-		int input_programs = __buffer.pointerParam(input_program);
-		return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), 1, __buffer.address(input_programs), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer optionsEncoded = stack.ASCII(options);
+			PointerBuffer input_programs = stack.pointers(input_program);
+			return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), 1, memAddress(input_programs), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ clUnloadPlatformCompiler ] ---
@@ -851,9 +844,11 @@ public class CL12 {
 	 *         </ul>
 	 */
 	public static int clUnloadPlatformCompiler(long platform) {
-		long __functionAddress = getInstance().UnloadPlatformCompiler;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clUnloadPlatformCompiler;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(platform);
+		}
 		return callPI(__functionAddress, platform);
 	}
 
@@ -861,9 +856,11 @@ public class CL12 {
 
 	/** Unsafe version of {@link #clGetKernelArgInfo GetKernelArgInfo} */
 	public static int nclGetKernelArgInfo(long kernel, int arg_indx, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = getInstance().GetKernelArgInfo;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clGetKernelArgInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(kernel);
+		}
 		return callPIIPPPI(__functionAddress, kernel, arg_indx, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -923,8 +920,9 @@ public class CL12 {
 
 	/** Unsafe version of {@link #clEnqueueFillBuffer EnqueueFillBuffer} */
 	public static int nclEnqueueFillBuffer(long command_queue, long buffer, long pattern, long pattern_size, long offset, long size, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueFillBuffer;
+		long __functionAddress = CL.getICD().clEnqueueFillBuffer;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
@@ -995,8 +993,9 @@ public class CL12 {
 
 	/** Unsafe version of {@link #clEnqueueFillImage EnqueueFillImage} */
 	public static int nclEnqueueFillImage(long command_queue, long image, long fill_color, long origin, long region, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueFillImage;
+		long __functionAddress = CL.getICD().clEnqueueFillImage;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(image);
 		}
@@ -1070,9 +1069,11 @@ public class CL12 {
 
 	/** Unsafe version of {@link #clEnqueueMigrateMemObjects EnqueueMigrateMemObjects} */
 	public static int nclEnqueueMigrateMemObjects(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueMigrateMemObjects;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueMigrateMemObjects;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPJIPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -1142,9 +1143,11 @@ public class CL12 {
 
 	/** Unsafe version of {@link #clEnqueueMarkerWithWaitList EnqueueMarkerWithWaitList} */
 	public static int nclEnqueueMarkerWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueMarkerWithWaitList;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueMarkerWithWaitList;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPPI(__functionAddress, command_queue, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -1194,9 +1197,11 @@ public class CL12 {
 
 	/** Unsafe version of {@link #clEnqueueBarrierWithWaitList EnqueueBarrierWithWaitList} */
 	public static int nclEnqueueBarrierWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueBarrierWithWaitList;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueBarrierWithWaitList;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPPI(__functionAddress, command_queue, num_events_in_wait_list, event_wait_list, event);
 	}
 

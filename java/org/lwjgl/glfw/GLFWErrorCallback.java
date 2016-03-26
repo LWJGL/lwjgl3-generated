@@ -93,7 +93,7 @@ public abstract class GLFWErrorCallback extends Closure.V {
 	 * @return the description as a String
 	 */
 	public static String getDescription(long description) {
-		return memDecodeUTF8(description);
+		return memUTF8(description);
 	}
 
 	/** A functional interface for {@link GLFWErrorCallback}. */
@@ -144,7 +144,7 @@ public abstract class GLFWErrorCallback extends Closure.V {
 
 			@Override
 			public void invoke(int error, long description) {
-				String msg = memDecodeUTF8(description);
+				String msg = memUTF8(description);
 
 				stream.printf("[LWJGL] %s error\n", ERROR_CODES.get(error));
 				stream.println("\tDescription : " + msg);
@@ -167,7 +167,7 @@ public abstract class GLFWErrorCallback extends Closure.V {
 		return new GLFWErrorCallback() {
 			@Override
 			public void invoke(int error, long description) {
-				throw new IllegalStateException(String.format("GLFW error [0x%X]: %s", error, memDecodeUTF8(description)));
+				throw new IllegalStateException(String.format("GLFW error [0x%X]: %s", error, memUTF8(description)));
 			}
 		};
 	}

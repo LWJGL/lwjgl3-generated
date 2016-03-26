@@ -42,65 +42,26 @@ public class GLXAMDGPUAssociation {
 		GLX_GPU_NUM_RB_AMD                = 0x21A7,
 		GLX_GPU_NUM_SPI_AMD               = 0x21A8;
 
-	/** Function address. */
-	public final long
-		BlitContextFramebufferAMD,
-		CreateAssociatedContextAMD,
-		CreateAssociatedContextAttribsAMD,
-		DeleteAssociatedContextAMD,
-		GetContextGPUIDAMD,
-		GetCurrentAssociatedContextAMD,
-		GetGPUIDsAMD,
-		GetGPUInfoAMD,
-		MakeAssociatedContextCurrentAMD;
-
 	protected GLXAMDGPUAssociation() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXAMDGPUAssociation(FunctionProvider provider) {
-		BlitContextFramebufferAMD = provider.getFunctionAddress("glXBlitContextFramebufferAMD");
-		CreateAssociatedContextAMD = provider.getFunctionAddress("glXCreateAssociatedContextAMD");
-		CreateAssociatedContextAttribsAMD = provider.getFunctionAddress("glXCreateAssociatedContextAttribsAMD");
-		DeleteAssociatedContextAMD = provider.getFunctionAddress("glXDeleteAssociatedContextAMD");
-		GetContextGPUIDAMD = provider.getFunctionAddress("glXGetContextGPUIDAMD");
-		GetCurrentAssociatedContextAMD = provider.getFunctionAddress("glXGetCurrentAssociatedContextAMD");
-		GetGPUIDsAMD = provider.getFunctionAddress("glXGetGPUIDsAMD");
-		GetGPUInfoAMD = provider.getFunctionAddress("glXGetGPUInfoAMD");
-		MakeAssociatedContextCurrentAMD = provider.getFunctionAddress("glXMakeAssociatedContextCurrentAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXAMDGPUAssociation} instance of the current context. */
-	public static GLXAMDGPUAssociation getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXAMDGPUAssociation} instance of the specified {@link GLCapabilities}. */
-	public static GLXAMDGPUAssociation getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXAMDGPUAssociation);
-	}
-
-	static GLXAMDGPUAssociation create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_AMD_gpu_association") ) return null;
-
-		GLXAMDGPUAssociation funcs = new GLXAMDGPUAssociation(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BlitContextFramebufferAMD, funcs.CreateAssociatedContextAMD, funcs.CreateAssociatedContextAttribsAMD, funcs.DeleteAssociatedContextAMD, 
-			funcs.GetContextGPUIDAMD, funcs.GetCurrentAssociatedContextAMD, funcs.GetGPUIDsAMD, funcs.GetGPUInfoAMD, funcs.MakeAssociatedContextCurrentAMD
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXBlitContextFramebufferAMD, caps.glXCreateAssociatedContextAMD, caps.glXCreateAssociatedContextAttribsAMD, 
+			caps.glXDeleteAssociatedContextAMD, caps.glXGetContextGPUIDAMD, caps.glXGetCurrentAssociatedContextAMD, caps.glXGetGPUIDsAMD, caps.glXGetGPUInfoAMD, 
+			caps.glXMakeAssociatedContextCurrentAMD
 		);
-
-		return GL.checkExtension("GLX_AMD_gpu_association", funcs, supported);
 	}
 
 	// --- [ glXBlitContextFramebufferAMD ] ---
 
 	public static void glXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = getInstance().BlitContextFramebufferAMD;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXBlitContextFramebufferAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dstCtx);
+		}
 		callPIIIIIIIIIIV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
@@ -113,9 +74,11 @@ public class GLXAMDGPUAssociation {
 	 * @param share_list 
 	 */
 	public static long glXCreateAssociatedContextAMD(int id, long share_list) {
-		long __functionAddress = getInstance().CreateAssociatedContextAMD;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateAssociatedContextAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(share_list);
+		}
 		return callIPP(__functionAddress, id, share_list);
 	}
 
@@ -123,9 +86,11 @@ public class GLXAMDGPUAssociation {
 
 	/** Unsafe version of {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	public static long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList) {
-		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateAssociatedContextAttribsAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(share_context);
+		}
 		return callIPPP(__functionAddress, id, share_context, attribList);
 	}
 
@@ -153,9 +118,11 @@ public class GLXAMDGPUAssociation {
 	 * @param ctx the GLXContext
 	 */
 	public static int glXDeleteAssociatedContextAMD(long ctx) {
-		long __functionAddress = getInstance().DeleteAssociatedContextAMD;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXDeleteAssociatedContextAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(ctx);
+		}
 		return callPI(__functionAddress, ctx);
 	}
 
@@ -167,9 +134,11 @@ public class GLXAMDGPUAssociation {
 	 * @param ctx the GLXContext
 	 */
 	public static int glXGetContextGPUIDAMD(long ctx) {
-		long __functionAddress = getInstance().GetContextGPUIDAMD;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetContextGPUIDAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(ctx);
+		}
 		return callPI(__functionAddress, ctx);
 	}
 
@@ -177,7 +146,9 @@ public class GLXAMDGPUAssociation {
 
 	/** Queries the crrent associated context. */
 	public static long glXGetCurrentAssociatedContextAMD() {
-		long __functionAddress = getInstance().GetCurrentAssociatedContextAMD;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentAssociatedContextAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callP(__functionAddress);
 	}
 
@@ -190,7 +161,9 @@ public class GLXAMDGPUAssociation {
 	 * @param ids      
 	 */
 	public static int glXGetGPUIDsAMD(int maxCount, int ids) {
-		long __functionAddress = getInstance().GetGPUIDsAMD;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetGPUIDsAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIII(__functionAddress, maxCount, ids);
 	}
 
@@ -198,7 +171,9 @@ public class GLXAMDGPUAssociation {
 
 	/** Unsafe version of {@link #glXGetGPUInfoAMD GetGPUInfoAMD} */
 	public static int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
-		long __functionAddress = getInstance().GetGPUInfoAMD;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetGPUInfoAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIIIPI(__functionAddress, id, property, dataType, size, data);
 	}
 
@@ -223,9 +198,11 @@ public class GLXAMDGPUAssociation {
 	 * @param ctx the GLXContext
 	 */
 	public static int glXMakeAssociatedContextCurrentAMD(long ctx) {
-		long __functionAddress = getInstance().MakeAssociatedContextCurrentAMD;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeAssociatedContextCurrentAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(ctx);
+		}
 		return callPI(__functionAddress, ctx);
 	}
 

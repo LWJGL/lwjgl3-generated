@@ -35,49 +35,22 @@ public class ANGLEInstancedArrays {
 	/** Accepted by the {@code pname} parameters of GetVertexAttribfv and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE = 0x88FE;
 
-	/** Function address. */
-	public final long
-		DrawArraysInstancedANGLE,
-		DrawElementsInstancedANGLE,
-		VertexAttribDivisorANGLE;
-
 	protected ANGLEInstancedArrays() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ANGLEInstancedArrays(FunctionProvider provider) {
-		DrawArraysInstancedANGLE = provider.getFunctionAddress("glDrawArraysInstancedANGLE");
-		DrawElementsInstancedANGLE = provider.getFunctionAddress("glDrawElementsInstancedANGLE");
-		VertexAttribDivisorANGLE = provider.getFunctionAddress("glVertexAttribDivisorANGLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ANGLEInstancedArrays} instance of the current context. */
-	public static ANGLEInstancedArrays getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link ANGLEInstancedArrays} instance of the specified {@link GLESCapabilities}. */
-	public static ANGLEInstancedArrays getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__ANGLEInstancedArrays);
-	}
-
-	static ANGLEInstancedArrays create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ANGLE_instanced_arrays") ) return null;
-
-		ANGLEInstancedArrays funcs = new ANGLEInstancedArrays(provider);
-		boolean supported = checkFunctions(
-			funcs.DrawArraysInstancedANGLE, funcs.DrawElementsInstancedANGLE, funcs.VertexAttribDivisorANGLE
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawArraysInstancedANGLE, caps.glDrawElementsInstancedANGLE, caps.glVertexAttribDivisorANGLE
 		);
-
-		return GLES.checkExtension("GL_ANGLE_instanced_arrays", funcs, supported);
 	}
 
 	// --- [ glDrawArraysInstancedANGLE ] ---
 
 	public static void glDrawArraysInstancedANGLE(int mode, int first, int count, int primcount) {
-		long __functionAddress = getInstance().DrawArraysInstancedANGLE;
+		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedANGLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, mode, first, count, primcount);
 	}
 
@@ -85,7 +58,9 @@ public class ANGLEInstancedArrays {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedANGLE DrawElementsInstancedANGLE} */
 	public static void nglDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = getInstance().DrawElementsInstancedANGLE;
+		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedANGLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
@@ -135,7 +110,9 @@ public class ANGLEInstancedArrays {
 	// --- [ glVertexAttribDivisorANGLE ] ---
 
 	public static void glVertexAttribDivisorANGLE(int index, int divisor) {
-		long __functionAddress = getInstance().VertexAttribDivisorANGLE;
+		long __functionAddress = GLES.getCapabilities().glVertexAttribDivisorANGLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, divisor);
 	}
 

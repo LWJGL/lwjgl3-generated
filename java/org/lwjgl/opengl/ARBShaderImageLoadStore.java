@@ -124,42 +124,14 @@ public class ARBShaderImageLoadStore {
 		GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE  = 0x90C8,
 		GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS = 0x90C9;
 
-	/** Function address. */
-	public final long
-		BindImageTexture,
-		MemoryBarrier;
-
 	protected ARBShaderImageLoadStore() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBShaderImageLoadStore(FunctionProvider provider) {
-		BindImageTexture = provider.getFunctionAddress("glBindImageTexture");
-		MemoryBarrier = provider.getFunctionAddress("glMemoryBarrier");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBShaderImageLoadStore} instance of the current context. */
-	public static ARBShaderImageLoadStore getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBShaderImageLoadStore} instance of the specified {@link GLCapabilities}. */
-	public static ARBShaderImageLoadStore getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBShaderImageLoadStore);
-	}
-
-	static ARBShaderImageLoadStore create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_shader_image_load_store") ) return null;
-
-		ARBShaderImageLoadStore funcs = new ARBShaderImageLoadStore(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindImageTexture, funcs.MemoryBarrier
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBindImageTexture, caps.glMemoryBarrier
 		);
-
-		return GL.checkExtension("GL_ARB_shader_image_load_store", funcs, supported);
 	}
 
 	// --- [ glBindImageTexture ] ---
@@ -176,7 +148,9 @@ public class ARBShaderImageLoadStore {
 	 * @param format  the format that the elements of the image will be treated as for the purposes of formatted stores
 	 */
 	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
-		long __functionAddress = getInstance().BindImageTexture;
+		long __functionAddress = GL.getCapabilities().glBindImageTexture;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIZIIIV(__functionAddress, unit, texture, level, layered, layer, access, format);
 	}
 
@@ -188,7 +162,9 @@ public class ARBShaderImageLoadStore {
 	 * @param barriers the barriers to insert (bitwise combination). One or more of:<br>{@link #GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT VERTEX_ATTRIB_ARRAY_BARRIER_BIT}, {@link #GL_ELEMENT_ARRAY_BARRIER_BIT ELEMENT_ARRAY_BARRIER_BIT}, {@link #GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}, {@link #GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}, {@link #GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}, {@link #GL_COMMAND_BARRIER_BIT COMMAND_BARRIER_BIT}, {@link #GL_PIXEL_BUFFER_BARRIER_BIT PIXEL_BUFFER_BARRIER_BIT}, {@link #GL_TEXTURE_UPDATE_BARRIER_BIT TEXTURE_UPDATE_BARRIER_BIT}, {@link #GL_BUFFER_UPDATE_BARRIER_BIT BUFFER_UPDATE_BARRIER_BIT}, {@link #GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}, {@link #GL_TRANSFORM_FEEDBACK_BARRIER_BIT TRANSFORM_FEEDBACK_BARRIER_BIT}, {@link #GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}, {@link #GL_ALL_BARRIER_BITS ALL_BARRIER_BITS}, {@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}
 	 */
 	public static void glMemoryBarrier(int barriers) {
-		long __functionAddress = getInstance().MemoryBarrier;
+		long __functionAddress = GL.getCapabilities().glMemoryBarrier;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, barriers);
 	}
 

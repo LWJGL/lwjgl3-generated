@@ -32,50 +32,23 @@ public class KHREGLImage {
 		CL_COMMAND_ACQUIRE_EGL_OBJECTS_KHR = 0x202D,
 		CL_COMMAND_RELEASE_EGL_OBJECTS_KHR = 0x202E;
 
-	/** Function address. */
-	public final long
-		CreateFromEGLImageKHR,
-		EnqueueAcquireEGLObjectsKHR,
-		EnqueueReleaseEGLObjectsKHR;
-
 	protected KHREGLImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHREGLImage(FunctionProvider provider) {
-		CreateFromEGLImageKHR = provider.getFunctionAddress("clCreateFromEGLImageKHR");
-		EnqueueAcquireEGLObjectsKHR = provider.getFunctionAddress("clEnqueueAcquireEGLObjectsKHR");
-		EnqueueReleaseEGLObjectsKHR = provider.getFunctionAddress("clEnqueueReleaseEGLObjectsKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHREGLImage} instance of the currently loaded ICD. */
-	public static KHREGLImage getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link KHREGLImage} instance of the specified {@link CLCapabilities}. */
-	public static KHREGLImage getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__KHREGLImage);
-	}
-
-	static KHREGLImage create(FunctionProvider provider) {
-		KHREGLImage funcs = new KHREGLImage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateFromEGLImageKHR, funcs.EnqueueAcquireEGLObjectsKHR, funcs.EnqueueReleaseEGLObjectsKHR
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clCreateFromEGLImageKHR, caps.clEnqueueAcquireEGLObjectsKHR, caps.clEnqueueReleaseEGLObjectsKHR
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateFromEGLImageKHR ] ---
 
 	/** Unsafe version of {@link #clCreateFromEGLImageKHR CreateFromEGLImageKHR} */
 	public static long nclCreateFromEGLImageKHR(long context, long display, long image, long flags, long properties, long errcode_ret) {
-		long __functionAddress = getInstance().CreateFromEGLImageKHR;
+		long __functionAddress = CL.getICD().clCreateFromEGLImageKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(display);
 			checkPointer(image);
@@ -114,9 +87,11 @@ public class KHREGLImage {
 
 	/** Unsafe version of {@link #clEnqueueAcquireEGLObjectsKHR EnqueueAcquireEGLObjectsKHR} */
 	public static int nclEnqueueAcquireEGLObjectsKHR(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueAcquireEGLObjectsKHR;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueAcquireEGLObjectsKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -156,9 +131,11 @@ public class KHREGLImage {
 
 	/** Unsafe version of {@link #clEnqueueReleaseEGLObjectsKHR EnqueueReleaseEGLObjectsKHR} */
 	public static int nclEnqueueReleaseEGLObjectsKHR(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueReleaseEGLObjectsKHR;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueReleaseEGLObjectsKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 

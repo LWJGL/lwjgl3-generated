@@ -33,39 +33,25 @@ public class MESADRMImage {
 		EGL_DRM_BUFFER_USE_SCANOUT_MESA   = 0x1,
 		EGL_DRM_BUFFER_USE_SHARE_MESA     = 0x2;
 
-	/** Function address. */
-	public final long
-		CreateDRMImageMESA,
-		ExportDRMImageMESA;
-
 	protected MESADRMImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public MESADRMImage(FunctionProvider provider) {
-		CreateDRMImageMESA = provider.getFunctionAddress("eglCreateDRMImageMESA");
-		ExportDRMImageMESA = provider.getFunctionAddress("eglExportDRMImageMESA");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link MESADRMImage} instance. */
-	public static MESADRMImage getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link MESADRMImage} instance of the specified {@link EGLCapabilities}. */
-	public static MESADRMImage getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__MESADRMImage);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglCreateDRMImageMESA, caps.eglExportDRMImageMESA
+		);
 	}
 
 	// --- [ eglCreateDRMImageMESA ] ---
 
 	/** Unsafe version of {@link #eglCreateDRMImageMESA CreateDRMImageMESA} */
 	public static long neglCreateDRMImageMESA(long dpy, long attrib_list) {
-		long __functionAddress = getInstance().CreateDRMImageMESA;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglCreateDRMImageMESA;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPPP(__functionAddress, dpy, attrib_list);
 	}
 
@@ -86,8 +72,9 @@ public class MESADRMImage {
 
 	/** Unsafe version of {@link #eglExportDRMImageMESA ExportDRMImageMESA} */
 	public static int neglExportDRMImageMESA(long dpy, long image, long name, long handle, long stride) {
-		long __functionAddress = getInstance().ExportDRMImageMESA;
+		long __functionAddress = EGL.getCapabilities().eglExportDRMImageMESA;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(image);
 		}

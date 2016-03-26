@@ -13,6 +13,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import org.lwjgl.vulkan.*;
@@ -20,38 +21,23 @@ import org.lwjgl.vulkan.*;
 /** Native bindings to the GLFW library's Vulkan functions. */
 public class GLFWVulkan {
 
-	/** Function address. */
-	public final long
-		VulkanSupported,
-		GetRequiredInstanceExtensions,
-		GetInstanceProcAddress,
-		GetPhysicalDevicePresentationSupport,
-		CreateWindowSurface;
-
 	protected GLFWVulkan() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLFWVulkan(FunctionProvider provider) {
-		VulkanSupported = checkFunctionAddress(provider.getFunctionAddress("glfwVulkanSupported"));
-		GetRequiredInstanceExtensions = checkFunctionAddress(provider.getFunctionAddress("glfwGetRequiredInstanceExtensions"));
-		GetInstanceProcAddress = checkFunctionAddress(provider.getFunctionAddress("glfwGetInstanceProcAddress"));
-		GetPhysicalDevicePresentationSupport = checkFunctionAddress(provider.getFunctionAddress("glfwGetPhysicalDevicePresentationSupport"));
-		CreateWindowSurface = checkFunctionAddress(provider.getFunctionAddress("glfwCreateWindowSurface"));
-	}
+	/** Contains the function pointers loaded from {@code GLFW.getLibrary()}. */
+	public static final class Functions {
 
-	// --- [ Function Addresses ] ---
+		private Functions() {}
 
-	private static final GLFWVulkan instance = new GLFWVulkan(getLibrary());
+		/** Function address. */
+		public static final long
+			VulkanSupported = apiGetFunctionAddress(GLFW.getLibrary(), "glfwVulkanSupported"),
+			GetRequiredInstanceExtensions = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetRequiredInstanceExtensions"),
+			GetInstanceProcAddress = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetInstanceProcAddress"),
+			GetPhysicalDevicePresentationSupport = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetPhysicalDevicePresentationSupport"),
+			CreateWindowSurface = apiGetFunctionAddress(GLFW.getLibrary(), "glfwCreateWindowSurface");
 
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
-	public static SharedLibrary getLibrary() {
-		return GLFW.getLibrary();
-	}
-
-	/** Returns the {@link GLFWVulkan} instance. */
-	public static GLFWVulkan getInstance() {
-		return instance;
 	}
 
 	// --- [ glfwVulkanSupported ] ---
@@ -72,7 +58,7 @@ public class GLFWVulkan {
 	 * @since version 3.2
 	 */
 	public static int glfwVulkanSupported() {
-		long __functionAddress = getInstance().VulkanSupported;
+		long __functionAddress = Functions.VulkanSupported;
 		return invokeI(__functionAddress);
 	}
 
@@ -80,7 +66,7 @@ public class GLFWVulkan {
 
 	/** Unsafe version of {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} */
 	public static long nglfwGetRequiredInstanceExtensions(long count) {
-		long __functionAddress = getInstance().GetRequiredInstanceExtensions;
+		long __functionAddress = Functions.GetRequiredInstanceExtensions;
 		return invokePP(__functionAddress, count);
 	}
 
@@ -110,17 +96,21 @@ public class GLFWVulkan {
 	 * @since version 3.2
 	 */
 	public static PointerBuffer glfwGetRequiredInstanceExtensions() {
-		APIBuffer __buffer = apiBuffer();
-		int count = __buffer.intParam();
-		long __result = nglfwGetRequiredInstanceExtensions(__buffer.address(count));
-		return memPointerBuffer(__result, __buffer.intValue(count));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer count = stack.callocInt(1);
+		try {
+			long __result = nglfwGetRequiredInstanceExtensions(memAddress(count));
+			return memPointerBuffer(__result, count.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glfwGetInstanceProcAddress ] ---
 
 	/** Unsafe version of {@link #glfwGetInstanceProcAddress GetInstanceProcAddress} */
 	public static long nglfwGetInstanceProcAddress(long instance, long procname) {
-		long __functionAddress = getInstance().GetInstanceProcAddress;
+		long __functionAddress = Functions.GetInstanceProcAddress;
 		return invokePPP(__functionAddress, instance, procname);
 	}
 
@@ -161,9 +151,13 @@ public class GLFWVulkan {
 
 	/** CharSequence version of: {@link #glfwGetInstanceProcAddress GetInstanceProcAddress} */
 	public static long glfwGetInstanceProcAddress(VkInstance instance, CharSequence procname) {
-		APIBuffer __buffer = apiBuffer();
-		int procnameEncoded = __buffer.stringParamASCII(procname, true);
-		return nglfwGetInstanceProcAddress(instance == null ? NULL : instance.address(), __buffer.address(procnameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer procnameEncoded = stack.ASCII(procname);
+			return nglfwGetInstanceProcAddress(instance == null ? NULL : instance.address(), memAddress(procnameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glfwGetPhysicalDevicePresentationSupport ] ---
@@ -188,7 +182,7 @@ public class GLFWVulkan {
 	 * @since version 3.2
 	 */
 	public static int glfwGetPhysicalDevicePresentationSupport(VkInstance instance, VkPhysicalDevice device, int queuefamily) {
-		long __functionAddress = getInstance().GetPhysicalDevicePresentationSupport;
+		long __functionAddress = Functions.GetPhysicalDevicePresentationSupport;
 		return invokePPII(__functionAddress, instance.address(), device.address(), queuefamily);
 	}
 
@@ -196,7 +190,7 @@ public class GLFWVulkan {
 
 	/** Unsafe version of {@link #glfwCreateWindowSurface CreateWindowSurface} */
 	public static int nglfwCreateWindowSurface(long instance, long window, long allocator, long surface) {
-		long __functionAddress = getInstance().CreateWindowSurface;
+		long __functionAddress = Functions.CreateWindowSurface;
 		if ( CHECKS ) {
 			checkPointer(window);
 			if ( allocator != NULL ) VkAllocationCallbacks.validate(allocator);

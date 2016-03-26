@@ -13,7 +13,7 @@ package org.lwjgl.opengl;
 public final class GLXNVFloatBuffer {
 
 	/** Accepted in the {@code value} array of glXGetFBConfigAttrib (and glXGetFBConfigAttribSGIX). */
-	public static final int WGL_FLOAT_COMPONENTS_NV = 0x20B0;
+	public static final int GLX_FLOAT_COMPONENTS_NV = 0x20B0;
 
 	private GLXNVFloatBuffer() {}
 

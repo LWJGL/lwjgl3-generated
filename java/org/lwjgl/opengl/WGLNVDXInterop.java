@@ -31,55 +31,15 @@ public class WGLNVDXInterop {
 		WGL_ACCESS_READ_WRITE_NV    = 0x1,
 		WGL_ACCESS_WRITE_DISCARD_NV = 0x2;
 
-	/** Function address. */
-	public final long
-		DXSetResourceShareHandleNV,
-		DXOpenDeviceNV,
-		DXCloseDeviceNV,
-		DXRegisterObjectNV,
-		DXUnregisterObjectNV,
-		DXObjectAccessNV,
-		DXLockObjectsNV,
-		DXUnlockObjectsNV;
-
 	protected WGLNVDXInterop() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLNVDXInterop(FunctionProvider provider) {
-		DXSetResourceShareHandleNV = provider.getFunctionAddress("wglDXSetResourceShareHandleNV");
-		DXOpenDeviceNV = provider.getFunctionAddress("wglDXOpenDeviceNV");
-		DXCloseDeviceNV = provider.getFunctionAddress("wglDXCloseDeviceNV");
-		DXRegisterObjectNV = provider.getFunctionAddress("wglDXRegisterObjectNV");
-		DXUnregisterObjectNV = provider.getFunctionAddress("wglDXUnregisterObjectNV");
-		DXObjectAccessNV = provider.getFunctionAddress("wglDXObjectAccessNV");
-		DXLockObjectsNV = provider.getFunctionAddress("wglDXLockObjectsNV");
-		DXUnlockObjectsNV = provider.getFunctionAddress("wglDXUnlockObjectsNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLNVDXInterop} instance of the current context. */
-	public static WGLNVDXInterop getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLNVDXInterop} instance of the specified {@link GLCapabilities}. */
-	public static WGLNVDXInterop getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLNVDXInterop);
-	}
-
-	static WGLNVDXInterop create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_NV_DX_interop") ) return null;
-
-		WGLNVDXInterop funcs = new WGLNVDXInterop(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DXSetResourceShareHandleNV, funcs.DXOpenDeviceNV, funcs.DXCloseDeviceNV, funcs.DXRegisterObjectNV, funcs.DXUnregisterObjectNV, 
-			funcs.DXObjectAccessNV, funcs.DXLockObjectsNV, funcs.DXUnlockObjectsNV
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglDXSetResourceShareHandleNV, caps.wglDXOpenDeviceNV, caps.wglDXCloseDeviceNV, caps.wglDXRegisterObjectNV, caps.wglDXUnregisterObjectNV, 
+			caps.wglDXObjectAccessNV, caps.wglDXLockObjectsNV, caps.wglDXUnlockObjectsNV
 		);
-
-		return GL.checkExtension("WGL_NV_DX_interop", funcs, supported);
 	}
 
 	// --- [ wglDXSetResourceShareHandleNV ] ---
@@ -91,8 +51,9 @@ public class WGLNVDXInterop {
 	 * @param shareHandle the share handle that the OS generated for the resource
 	 */
 	public static int wglDXSetResourceShareHandleNV(long dxObject, long shareHandle) {
-		long __functionAddress = getInstance().DXSetResourceShareHandleNV;
+		long __functionAddress = GL.getCapabilitiesWGL().wglDXSetResourceShareHandleNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dxObject);
 			checkPointer(shareHandle);
 		}
@@ -107,18 +68,22 @@ public class WGLNVDXInterop {
 	 * @param dxDevice a pointer to a supported Direct3D device object
 	 */
 	public static long wglDXOpenDeviceNV(long dxDevice) {
-		long __functionAddress = getInstance().DXOpenDeviceNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglDXOpenDeviceNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dxDevice);
+		}
 		return callPP(__functionAddress, dxDevice);
 	}
 
 	// --- [ wglDXCloseDeviceNV ] ---
 
 	public static int wglDXCloseDeviceNV(long device) {
-		long __functionAddress = getInstance().DXCloseDeviceNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglDXCloseDeviceNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPI(__functionAddress, device);
 	}
 
@@ -134,8 +99,9 @@ public class WGLNVDXInterop {
 	 * @param access     indicates the intended usage of the resource in GL. One of:<br>{@link #WGL_ACCESS_READ_ONLY_NV ACCESS_READ_ONLY_NV}, {@link #WGL_ACCESS_READ_WRITE_NV ACCESS_READ_WRITE_NV}, {@link #WGL_ACCESS_WRITE_DISCARD_NV ACCESS_WRITE_DISCARD_NV}
 	 */
 	public static long wglDXRegisterObjectNV(long device, long dxResource, int name, int type, int access) {
-		long __functionAddress = getInstance().DXRegisterObjectNV;
+		long __functionAddress = GL.getCapabilitiesWGL().wglDXRegisterObjectNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 			checkPointer(dxResource);
 		}
@@ -145,8 +111,9 @@ public class WGLNVDXInterop {
 	// --- [ wglDXUnregisterObjectNV ] ---
 
 	public static int wglDXUnregisterObjectNV(long device, long object) {
-		long __functionAddress = getInstance().DXUnregisterObjectNV;
+		long __functionAddress = GL.getCapabilitiesWGL().wglDXUnregisterObjectNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 			checkPointer(object);
 		}
@@ -162,9 +129,11 @@ public class WGLNVDXInterop {
 	 * @param access the new access mode. One of:<br>{@link #WGL_ACCESS_READ_ONLY_NV ACCESS_READ_ONLY_NV}, {@link #WGL_ACCESS_READ_WRITE_NV ACCESS_READ_WRITE_NV}, {@link #WGL_ACCESS_WRITE_DISCARD_NV ACCESS_WRITE_DISCARD_NV}
 	 */
 	public static int wglDXObjectAccessNV(long object, int access) {
-		long __functionAddress = getInstance().DXObjectAccessNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglDXObjectAccessNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(object);
+		}
 		return callPII(__functionAddress, object, access);
 	}
 
@@ -172,9 +141,11 @@ public class WGLNVDXInterop {
 
 	/** Unsafe version of {@link #wglDXLockObjectsNV DXLockObjectsNV} */
 	public static int nwglDXLockObjectsNV(long device, int count, long objects) {
-		long __functionAddress = getInstance().DXLockObjectsNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglDXLockObjectsNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPIPI(__functionAddress, device, count, objects);
 	}
 
@@ -207,9 +178,11 @@ public class WGLNVDXInterop {
 
 	/** Unsafe version of {@link #wglDXUnlockObjectsNV DXUnlockObjectsNV} */
 	public static int nwglDXUnlockObjectsNV(long device, int count, long objects) {
-		long __functionAddress = getInstance().DXUnlockObjectsNV;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglDXUnlockObjectsNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
+		}
 		return callPIPI(__functionAddress, device, count, objects);
 	}
 

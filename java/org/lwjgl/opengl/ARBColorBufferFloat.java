@@ -46,39 +46,14 @@ public class ARBColorBufferFloat {
 	/** Accepted by the {@code clamp} parameter of ClampColorARB. */
 	public static final int GL_FIXED_ONLY_ARB = 0x891D;
 
-	/** Function address. */
-	public final long ClampColorARB;
-
 	protected ARBColorBufferFloat() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBColorBufferFloat(FunctionProvider provider) {
-		ClampColorARB = provider.getFunctionAddress("glClampColorARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBColorBufferFloat} instance of the current context. */
-	public static ARBColorBufferFloat getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBColorBufferFloat} instance of the specified {@link GLCapabilities}. */
-	public static ARBColorBufferFloat getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBColorBufferFloat);
-	}
-
-	static ARBColorBufferFloat create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_color_buffer_float") ) return null;
-
-		ARBColorBufferFloat funcs = new ARBColorBufferFloat(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ClampColorARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glClampColorARB
 		);
-
-		return GL.checkExtension("GL_ARB_color_buffer_float", funcs, supported);
 	}
 
 	// --- [ glClampColorARB ] ---
@@ -90,7 +65,9 @@ public class ARBColorBufferFloat {
 	 * @param clamp  the new clamping state. One of:<br>{@link GL11#GL_TRUE TRUE}, {@link GL11#GL_FALSE FALSE}, {@link #GL_FIXED_ONLY_ARB FIXED_ONLY_ARB}
 	 */
 	public static void glClampColorARB(int target, int clamp) {
-		long __functionAddress = getInstance().ClampColorARB;
+		long __functionAddress = GL.getCapabilities().glClampColorARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, clamp);
 	}
 

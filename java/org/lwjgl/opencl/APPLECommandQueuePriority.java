@@ -24,45 +24,23 @@ public class APPLECommandQueuePriority {
 		CL_QUEUE_PRIORITY_BACKGROUND_APPLE = 0x10000015,
 		CL_QUEUE_PRIORITY_DEFAULT_APPLE    = 0x10000017;
 
-	/** Function address. */
-	public final long CreateCommandQueueWithPropertiesAPPLE;
-
 	protected APPLECommandQueuePriority() {
 		throw new UnsupportedOperationException();
 	}
 
-	public APPLECommandQueuePriority(FunctionProvider provider) {
-		CreateCommandQueueWithPropertiesAPPLE = provider.getFunctionAddress("clCreateCommandQueueWithPropertiesAPPLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link APPLECommandQueuePriority} instance of the currently loaded ICD. */
-	public static APPLECommandQueuePriority getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link APPLECommandQueuePriority} instance of the specified {@link CLCapabilities}. */
-	public static APPLECommandQueuePriority getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__APPLECommandQueuePriority);
-	}
-
-	static APPLECommandQueuePriority create(FunctionProvider provider) {
-		APPLECommandQueuePriority funcs = new APPLECommandQueuePriority(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateCommandQueueWithPropertiesAPPLE
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clCreateCommandQueueWithPropertiesAPPLE
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateCommandQueueWithPropertiesAPPLE ] ---
 
 	/** Unsafe version of {@link #clCreateCommandQueueWithPropertiesAPPLE CreateCommandQueueWithPropertiesAPPLE} */
 	public static long nclCreateCommandQueueWithPropertiesAPPLE(long context, long device, long properties, long errcode_ret) {
-		long __functionAddress = getInstance().CreateCommandQueueWithPropertiesAPPLE;
+		long __functionAddress = CL.getICD().clCreateCommandQueueWithPropertiesAPPLE;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(device);
 		}

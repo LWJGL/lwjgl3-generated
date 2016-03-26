@@ -34,44 +34,22 @@ public class NVFramebufferBlit {
 		GL_DRAW_FRAMEBUFFER_BINDING_NV = 0x8CA6,
 		GL_READ_FRAMEBUFFER_BINDING_NV = 0x8CAA;
 
-	/** Function address. */
-	public final long BlitFramebufferNV;
-
 	protected NVFramebufferBlit() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVFramebufferBlit(FunctionProvider provider) {
-		BlitFramebufferNV = provider.getFunctionAddress("glBlitFramebufferNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVFramebufferBlit} instance of the current context. */
-	public static NVFramebufferBlit getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVFramebufferBlit} instance of the specified {@link GLESCapabilities}. */
-	public static NVFramebufferBlit getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVFramebufferBlit);
-	}
-
-	static NVFramebufferBlit create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_framebuffer_blit") ) return null;
-
-		NVFramebufferBlit funcs = new NVFramebufferBlit(provider);
-		boolean supported = checkFunctions(
-			funcs.BlitFramebufferNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glBlitFramebufferNV
 		);
-
-		return GLES.checkExtension("GL_NV_framebuffer_blit", funcs, supported);
 	}
 
 	// --- [ glBlitFramebufferNV ] ---
 
 	public static void glBlitFramebufferNV(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = getInstance().BlitFramebufferNV;
+		long __functionAddress = GLES.getCapabilities().glBlitFramebufferNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 

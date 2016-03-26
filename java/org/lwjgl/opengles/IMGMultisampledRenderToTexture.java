@@ -44,54 +44,31 @@ public class IMGMultisampledRenderToTexture {
 	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
 	public static final int GL_TEXTURE_SAMPLES_IMG = 0x9136;
 
-	/** Function address. */
-	public final long
-		RenderbufferStorageMultisampleIMG,
-		FramebufferTexture2DMultisampleIMG;
-
 	protected IMGMultisampledRenderToTexture() {
 		throw new UnsupportedOperationException();
 	}
 
-	public IMGMultisampledRenderToTexture(FunctionProvider provider) {
-		RenderbufferStorageMultisampleIMG = provider.getFunctionAddress("glRenderbufferStorageMultisampleIMG");
-		FramebufferTexture2DMultisampleIMG = provider.getFunctionAddress("glFramebufferTexture2DMultisampleIMG");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link IMGMultisampledRenderToTexture} instance of the current context. */
-	public static IMGMultisampledRenderToTexture getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link IMGMultisampledRenderToTexture} instance of the specified {@link GLESCapabilities}. */
-	public static IMGMultisampledRenderToTexture getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__IMGMultisampledRenderToTexture);
-	}
-
-	static IMGMultisampledRenderToTexture create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_IMG_multisampled_render_to_texture") ) return null;
-
-		IMGMultisampledRenderToTexture funcs = new IMGMultisampledRenderToTexture(provider);
-		boolean supported = checkFunctions(
-			funcs.RenderbufferStorageMultisampleIMG, funcs.FramebufferTexture2DMultisampleIMG
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glRenderbufferStorageMultisampleIMG, caps.glFramebufferTexture2DMultisampleIMG
 		);
-
-		return GLES.checkExtension("GL_IMG_multisampled_render_to_texture", funcs, supported);
 	}
 
 	// --- [ glRenderbufferStorageMultisampleIMG ] ---
 
 	public static void glRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().RenderbufferStorageMultisampleIMG;
+		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleIMG;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glFramebufferTexture2DMultisampleIMG ] ---
 
 	public static void glFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples) {
-		long __functionAddress = getInstance().FramebufferTexture2DMultisampleIMG;
+		long __functionAddress = GLES.getCapabilities().glFramebufferTexture2DMultisampleIMG;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, samples);
 	}
 

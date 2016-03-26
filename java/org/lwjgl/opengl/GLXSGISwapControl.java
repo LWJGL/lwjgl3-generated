@@ -19,39 +19,14 @@ import org.lwjgl.system.linux.*;
  */
 public class GLXSGISwapControl {
 
-	/** Function address. */
-	public final long SwapIntervalSGI;
-
 	protected GLXSGISwapControl() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXSGISwapControl(FunctionProvider provider) {
-		SwapIntervalSGI = provider.getFunctionAddress("glXSwapIntervalSGI");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXSGISwapControl} instance of the current context. */
-	public static GLXSGISwapControl getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXSGISwapControl} instance of the specified {@link GLCapabilities}. */
-	public static GLXSGISwapControl getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXSGISwapControl);
-	}
-
-	static GLXSGISwapControl create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGI_swap_control") ) return null;
-
-		GLXSGISwapControl funcs = new GLXSGISwapControl(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SwapIntervalSGI
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXSwapIntervalSGI
 		);
-
-		return GL.checkExtension("GLX_SGI_swap_control", funcs, supported);
 	}
 
 	// --- [ glXSwapIntervalSGI ] ---
@@ -67,7 +42,9 @@ public class GLXSGISwapControl {
 	 * @param interval the swap interval
 	 */
 	public static int glXSwapIntervalSGI(int interval) {
-		long __functionAddress = getInstance().SwapIntervalSGI;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXSwapIntervalSGI;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, interval);
 	}
 

@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -703,753 +703,60 @@ public class GL11 {
 		GL_T2F_C4F_N3F_V3F             = 0x2A2C,
 		GL_T4F_C4F_N3F_V4F             = 0x2A2D;
 
-	/** Function address. */
-	public final long
-		Enable,
-		Disable,
-		Accum,
-		AlphaFunc,
-		AreTexturesResident,
-		ArrayElement,
-		Begin,
-		BindTexture,
-		Bitmap,
-		BlendFunc,
-		CallList,
-		CallLists,
-		Clear,
-		ClearAccum,
-		ClearColor,
-		ClearDepth,
-		ClearIndex,
-		ClearStencil,
-		ClipPlane,
-		Color3b,
-		Color3s,
-		Color3i,
-		Color3f,
-		Color3d,
-		Color3ub,
-		Color3us,
-		Color3ui,
-		Color3bv,
-		Color3sv,
-		Color3iv,
-		Color3fv,
-		Color3dv,
-		Color3ubv,
-		Color3usv,
-		Color3uiv,
-		Color4b,
-		Color4s,
-		Color4i,
-		Color4f,
-		Color4d,
-		Color4ub,
-		Color4us,
-		Color4ui,
-		Color4bv,
-		Color4sv,
-		Color4iv,
-		Color4fv,
-		Color4dv,
-		Color4ubv,
-		Color4usv,
-		Color4uiv,
-		ColorMask,
-		ColorMaterial,
-		ColorPointer,
-		CopyPixels,
-		CullFace,
-		DeleteLists,
-		DepthFunc,
-		DepthMask,
-		DepthRange,
-		DisableClientState,
-		DrawArrays,
-		DrawBuffer,
-		DrawElements,
-		DrawPixels,
-		EdgeFlag,
-		EdgeFlagv,
-		EdgeFlagPointer,
-		EnableClientState,
-		End,
-		EvalCoord1f,
-		EvalCoord1fv,
-		EvalCoord1d,
-		EvalCoord1dv,
-		EvalCoord2f,
-		EvalCoord2fv,
-		EvalCoord2d,
-		EvalCoord2dv,
-		EvalMesh1,
-		EvalMesh2,
-		EvalPoint1,
-		EvalPoint2,
-		FeedbackBuffer,
-		Finish,
-		Flush,
-		Fogi,
-		Fogiv,
-		Fogf,
-		Fogfv,
-		FrontFace,
-		GenLists,
-		GenTextures,
-		DeleteTextures,
-		GetClipPlane,
-		GetBooleanv,
-		GetFloatv,
-		GetIntegerv,
-		GetDoublev,
-		GetError,
-		GetLightiv,
-		GetLightfv,
-		GetMapiv,
-		GetMapfv,
-		GetMapdv,
-		GetMaterialiv,
-		GetMaterialfv,
-		GetPixelMapfv,
-		GetPixelMapusv,
-		GetPixelMapuiv,
-		GetPointerv,
-		GetPolygonStipple,
-		GetString,
-		GetTexEnviv,
-		GetTexEnvfv,
-		GetTexGeniv,
-		GetTexGenfv,
-		GetTexGendv,
-		GetTexImage,
-		GetTexLevelParameteriv,
-		GetTexLevelParameterfv,
-		GetTexParameteriv,
-		GetTexParameterfv,
-		Hint,
-		Indexi,
-		Indexub,
-		Indexs,
-		Indexf,
-		Indexd,
-		Indexiv,
-		Indexubv,
-		Indexsv,
-		Indexfv,
-		Indexdv,
-		IndexMask,
-		IndexPointer,
-		InitNames,
-		InterleavedArrays,
-		IsEnabled,
-		IsList,
-		IsTexture,
-		LightModeli,
-		LightModelf,
-		LightModeliv,
-		LightModelfv,
-		Lighti,
-		Lightf,
-		Lightiv,
-		Lightfv,
-		LineStipple,
-		LineWidth,
-		ListBase,
-		LoadMatrixf,
-		LoadMatrixd,
-		LoadIdentity,
-		LoadName,
-		LogicOp,
-		Map1f,
-		Map1d,
-		Map2f,
-		Map2d,
-		MapGrid1f,
-		MapGrid1d,
-		MapGrid2f,
-		MapGrid2d,
-		Materiali,
-		Materialf,
-		Materialiv,
-		Materialfv,
-		MatrixMode,
-		MultMatrixf,
-		MultMatrixd,
-		Frustum,
-		NewList,
-		EndList,
-		Normal3f,
-		Normal3b,
-		Normal3s,
-		Normal3i,
-		Normal3d,
-		Normal3fv,
-		Normal3bv,
-		Normal3sv,
-		Normal3iv,
-		Normal3dv,
-		NormalPointer,
-		Ortho,
-		PassThrough,
-		PixelMapfv,
-		PixelMapusv,
-		PixelMapuiv,
-		PixelStorei,
-		PixelStoref,
-		PixelTransferi,
-		PixelTransferf,
-		PixelZoom,
-		PointSize,
-		PolygonMode,
-		PolygonOffset,
-		PolygonStipple,
-		PushAttrib,
-		PushClientAttrib,
-		PopAttrib,
-		PopClientAttrib,
-		PopMatrix,
-		PopName,
-		PrioritizeTextures,
-		PushMatrix,
-		PushName,
-		RasterPos2i,
-		RasterPos2s,
-		RasterPos2f,
-		RasterPos2d,
-		RasterPos2iv,
-		RasterPos2sv,
-		RasterPos2fv,
-		RasterPos2dv,
-		RasterPos3i,
-		RasterPos3s,
-		RasterPos3f,
-		RasterPos3d,
-		RasterPos3iv,
-		RasterPos3sv,
-		RasterPos3fv,
-		RasterPos3dv,
-		RasterPos4i,
-		RasterPos4s,
-		RasterPos4f,
-		RasterPos4d,
-		RasterPos4iv,
-		RasterPos4sv,
-		RasterPos4fv,
-		RasterPos4dv,
-		ReadBuffer,
-		ReadPixels,
-		Recti,
-		Rects,
-		Rectf,
-		Rectd,
-		Rectiv,
-		Rectsv,
-		Rectfv,
-		Rectdv,
-		RenderMode,
-		Rotatef,
-		Rotated,
-		Scalef,
-		Scaled,
-		Scissor,
-		SelectBuffer,
-		ShadeModel,
-		StencilFunc,
-		StencilMask,
-		StencilOp,
-		TexCoord1f,
-		TexCoord1s,
-		TexCoord1i,
-		TexCoord1d,
-		TexCoord1fv,
-		TexCoord1sv,
-		TexCoord1iv,
-		TexCoord1dv,
-		TexCoord2f,
-		TexCoord2s,
-		TexCoord2i,
-		TexCoord2d,
-		TexCoord2fv,
-		TexCoord2sv,
-		TexCoord2iv,
-		TexCoord2dv,
-		TexCoord3f,
-		TexCoord3s,
-		TexCoord3i,
-		TexCoord3d,
-		TexCoord3fv,
-		TexCoord3sv,
-		TexCoord3iv,
-		TexCoord3dv,
-		TexCoord4f,
-		TexCoord4s,
-		TexCoord4i,
-		TexCoord4d,
-		TexCoord4fv,
-		TexCoord4sv,
-		TexCoord4iv,
-		TexCoord4dv,
-		TexCoordPointer,
-		TexEnvi,
-		TexEnviv,
-		TexEnvf,
-		TexEnvfv,
-		TexGeni,
-		TexGeniv,
-		TexGenf,
-		TexGenfv,
-		TexGend,
-		TexGendv,
-		TexImage2D,
-		TexImage1D,
-		CopyTexImage2D,
-		CopyTexImage1D,
-		CopyTexSubImage1D,
-		CopyTexSubImage2D,
-		TexParameteri,
-		TexParameteriv,
-		TexParameterf,
-		TexParameterfv,
-		TexSubImage1D,
-		TexSubImage2D,
-		Translatef,
-		Translated,
-		Vertex2f,
-		Vertex2s,
-		Vertex2i,
-		Vertex2d,
-		Vertex2fv,
-		Vertex2sv,
-		Vertex2iv,
-		Vertex2dv,
-		Vertex3f,
-		Vertex3s,
-		Vertex3i,
-		Vertex3d,
-		Vertex3fv,
-		Vertex3sv,
-		Vertex3iv,
-		Vertex3dv,
-		Vertex4f,
-		Vertex4s,
-		Vertex4i,
-		Vertex4d,
-		Vertex4fv,
-		Vertex4sv,
-		Vertex4iv,
-		Vertex4dv,
-		VertexPointer,
-		Viewport;
-
 	protected GL11() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL11(FunctionProvider provider, boolean fc) {
-		Enable = provider.getFunctionAddress("glEnable");
-		Disable = provider.getFunctionAddress("glDisable");
-		Accum = GL.getFunctionAddress(provider, "glAccum", fc);
-		AlphaFunc = GL.getFunctionAddress(provider, "glAlphaFunc", fc);
-		AreTexturesResident = GL.getFunctionAddress(provider, "glAreTexturesResident", fc);
-		ArrayElement = provider.getFunctionAddress("glArrayElement");
-		Begin = GL.getFunctionAddress(provider, "glBegin", fc);
-		BindTexture = provider.getFunctionAddress("glBindTexture");
-		Bitmap = GL.getFunctionAddress(provider, "glBitmap", fc);
-		BlendFunc = provider.getFunctionAddress("glBlendFunc");
-		CallList = GL.getFunctionAddress(provider, "glCallList", fc);
-		CallLists = GL.getFunctionAddress(provider, "glCallLists", fc);
-		Clear = provider.getFunctionAddress("glClear");
-		ClearAccum = GL.getFunctionAddress(provider, "glClearAccum", fc);
-		ClearColor = provider.getFunctionAddress("glClearColor");
-		ClearDepth = provider.getFunctionAddress("glClearDepth");
-		ClearIndex = GL.getFunctionAddress(provider, "glClearIndex", fc);
-		ClearStencil = provider.getFunctionAddress("glClearStencil");
-		ClipPlane = provider.getFunctionAddress("glClipPlane");
-		Color3b = GL.getFunctionAddress(provider, "glColor3b", fc);
-		Color3s = GL.getFunctionAddress(provider, "glColor3s", fc);
-		Color3i = GL.getFunctionAddress(provider, "glColor3i", fc);
-		Color3f = GL.getFunctionAddress(provider, "glColor3f", fc);
-		Color3d = GL.getFunctionAddress(provider, "glColor3d", fc);
-		Color3ub = GL.getFunctionAddress(provider, "glColor3ub", fc);
-		Color3us = GL.getFunctionAddress(provider, "glColor3us", fc);
-		Color3ui = GL.getFunctionAddress(provider, "glColor3ui", fc);
-		Color3bv = GL.getFunctionAddress(provider, "glColor3bv", fc);
-		Color3sv = GL.getFunctionAddress(provider, "glColor3sv", fc);
-		Color3iv = GL.getFunctionAddress(provider, "glColor3iv", fc);
-		Color3fv = GL.getFunctionAddress(provider, "glColor3fv", fc);
-		Color3dv = GL.getFunctionAddress(provider, "glColor3dv", fc);
-		Color3ubv = GL.getFunctionAddress(provider, "glColor3ubv", fc);
-		Color3usv = GL.getFunctionAddress(provider, "glColor3usv", fc);
-		Color3uiv = GL.getFunctionAddress(provider, "glColor3uiv", fc);
-		Color4b = GL.getFunctionAddress(provider, "glColor4b", fc);
-		Color4s = GL.getFunctionAddress(provider, "glColor4s", fc);
-		Color4i = GL.getFunctionAddress(provider, "glColor4i", fc);
-		Color4f = GL.getFunctionAddress(provider, "glColor4f", fc);
-		Color4d = GL.getFunctionAddress(provider, "glColor4d", fc);
-		Color4ub = GL.getFunctionAddress(provider, "glColor4ub", fc);
-		Color4us = GL.getFunctionAddress(provider, "glColor4us", fc);
-		Color4ui = GL.getFunctionAddress(provider, "glColor4ui", fc);
-		Color4bv = GL.getFunctionAddress(provider, "glColor4bv", fc);
-		Color4sv = GL.getFunctionAddress(provider, "glColor4sv", fc);
-		Color4iv = GL.getFunctionAddress(provider, "glColor4iv", fc);
-		Color4fv = GL.getFunctionAddress(provider, "glColor4fv", fc);
-		Color4dv = GL.getFunctionAddress(provider, "glColor4dv", fc);
-		Color4ubv = GL.getFunctionAddress(provider, "glColor4ubv", fc);
-		Color4usv = GL.getFunctionAddress(provider, "glColor4usv", fc);
-		Color4uiv = GL.getFunctionAddress(provider, "glColor4uiv", fc);
-		ColorMask = provider.getFunctionAddress("glColorMask");
-		ColorMaterial = GL.getFunctionAddress(provider, "glColorMaterial", fc);
-		ColorPointer = GL.getFunctionAddress(provider, "glColorPointer", fc);
-		CopyPixels = provider.getFunctionAddress("glCopyPixels");
-		CullFace = provider.getFunctionAddress("glCullFace");
-		DeleteLists = GL.getFunctionAddress(provider, "glDeleteLists", fc);
-		DepthFunc = provider.getFunctionAddress("glDepthFunc");
-		DepthMask = provider.getFunctionAddress("glDepthMask");
-		DepthRange = provider.getFunctionAddress("glDepthRange");
-		DisableClientState = GL.getFunctionAddress(provider, "glDisableClientState", fc);
-		DrawArrays = provider.getFunctionAddress("glDrawArrays");
-		DrawBuffer = provider.getFunctionAddress("glDrawBuffer");
-		DrawElements = provider.getFunctionAddress("glDrawElements");
-		DrawPixels = GL.getFunctionAddress(provider, "glDrawPixels", fc);
-		EdgeFlag = GL.getFunctionAddress(provider, "glEdgeFlag", fc);
-		EdgeFlagv = GL.getFunctionAddress(provider, "glEdgeFlagv", fc);
-		EdgeFlagPointer = GL.getFunctionAddress(provider, "glEdgeFlagPointer", fc);
-		EnableClientState = GL.getFunctionAddress(provider, "glEnableClientState", fc);
-		End = GL.getFunctionAddress(provider, "glEnd", fc);
-		EvalCoord1f = GL.getFunctionAddress(provider, "glEvalCoord1f", fc);
-		EvalCoord1fv = GL.getFunctionAddress(provider, "glEvalCoord1fv", fc);
-		EvalCoord1d = GL.getFunctionAddress(provider, "glEvalCoord1d", fc);
-		EvalCoord1dv = GL.getFunctionAddress(provider, "glEvalCoord1dv", fc);
-		EvalCoord2f = GL.getFunctionAddress(provider, "glEvalCoord2f", fc);
-		EvalCoord2fv = GL.getFunctionAddress(provider, "glEvalCoord2fv", fc);
-		EvalCoord2d = GL.getFunctionAddress(provider, "glEvalCoord2d", fc);
-		EvalCoord2dv = GL.getFunctionAddress(provider, "glEvalCoord2dv", fc);
-		EvalMesh1 = GL.getFunctionAddress(provider, "glEvalMesh1", fc);
-		EvalMesh2 = GL.getFunctionAddress(provider, "glEvalMesh2", fc);
-		EvalPoint1 = GL.getFunctionAddress(provider, "glEvalPoint1", fc);
-		EvalPoint2 = GL.getFunctionAddress(provider, "glEvalPoint2", fc);
-		FeedbackBuffer = GL.getFunctionAddress(provider, "glFeedbackBuffer", fc);
-		Finish = provider.getFunctionAddress("glFinish");
-		Flush = provider.getFunctionAddress("glFlush");
-		Fogi = GL.getFunctionAddress(provider, "glFogi", fc);
-		Fogiv = GL.getFunctionAddress(provider, "glFogiv", fc);
-		Fogf = GL.getFunctionAddress(provider, "glFogf", fc);
-		Fogfv = GL.getFunctionAddress(provider, "glFogfv", fc);
-		FrontFace = provider.getFunctionAddress("glFrontFace");
-		GenLists = GL.getFunctionAddress(provider, "glGenLists", fc);
-		GenTextures = provider.getFunctionAddress("glGenTextures");
-		DeleteTextures = provider.getFunctionAddress("glDeleteTextures");
-		GetClipPlane = provider.getFunctionAddress("glGetClipPlane");
-		GetBooleanv = provider.getFunctionAddress("glGetBooleanv");
-		GetFloatv = provider.getFunctionAddress("glGetFloatv");
-		GetIntegerv = provider.getFunctionAddress("glGetIntegerv");
-		GetDoublev = provider.getFunctionAddress("glGetDoublev");
-		GetError = provider.getFunctionAddress("glGetError");
-		GetLightiv = GL.getFunctionAddress(provider, "glGetLightiv", fc);
-		GetLightfv = GL.getFunctionAddress(provider, "glGetLightfv", fc);
-		GetMapiv = GL.getFunctionAddress(provider, "glGetMapiv", fc);
-		GetMapfv = GL.getFunctionAddress(provider, "glGetMapfv", fc);
-		GetMapdv = GL.getFunctionAddress(provider, "glGetMapdv", fc);
-		GetMaterialiv = GL.getFunctionAddress(provider, "glGetMaterialiv", fc);
-		GetMaterialfv = GL.getFunctionAddress(provider, "glGetMaterialfv", fc);
-		GetPixelMapfv = GL.getFunctionAddress(provider, "glGetPixelMapfv", fc);
-		GetPixelMapusv = GL.getFunctionAddress(provider, "glGetPixelMapusv", fc);
-		GetPixelMapuiv = GL.getFunctionAddress(provider, "glGetPixelMapuiv", fc);
-		GetPointerv = provider.getFunctionAddress("glGetPointerv");
-		GetPolygonStipple = GL.getFunctionAddress(provider, "glGetPolygonStipple", fc);
-		GetString = provider.getFunctionAddress("glGetString");
-		GetTexEnviv = provider.getFunctionAddress("glGetTexEnviv");
-		GetTexEnvfv = provider.getFunctionAddress("glGetTexEnvfv");
-		GetTexGeniv = GL.getFunctionAddress(provider, "glGetTexGeniv", fc);
-		GetTexGenfv = GL.getFunctionAddress(provider, "glGetTexGenfv", fc);
-		GetTexGendv = GL.getFunctionAddress(provider, "glGetTexGendv", fc);
-		GetTexImage = provider.getFunctionAddress("glGetTexImage");
-		GetTexLevelParameteriv = provider.getFunctionAddress("glGetTexLevelParameteriv");
-		GetTexLevelParameterfv = provider.getFunctionAddress("glGetTexLevelParameterfv");
-		GetTexParameteriv = provider.getFunctionAddress("glGetTexParameteriv");
-		GetTexParameterfv = provider.getFunctionAddress("glGetTexParameterfv");
-		Hint = provider.getFunctionAddress("glHint");
-		Indexi = GL.getFunctionAddress(provider, "glIndexi", fc);
-		Indexub = GL.getFunctionAddress(provider, "glIndexub", fc);
-		Indexs = GL.getFunctionAddress(provider, "glIndexs", fc);
-		Indexf = GL.getFunctionAddress(provider, "glIndexf", fc);
-		Indexd = GL.getFunctionAddress(provider, "glIndexd", fc);
-		Indexiv = GL.getFunctionAddress(provider, "glIndexiv", fc);
-		Indexubv = GL.getFunctionAddress(provider, "glIndexubv", fc);
-		Indexsv = GL.getFunctionAddress(provider, "glIndexsv", fc);
-		Indexfv = GL.getFunctionAddress(provider, "glIndexfv", fc);
-		Indexdv = GL.getFunctionAddress(provider, "glIndexdv", fc);
-		IndexMask = GL.getFunctionAddress(provider, "glIndexMask", fc);
-		IndexPointer = GL.getFunctionAddress(provider, "glIndexPointer", fc);
-		InitNames = GL.getFunctionAddress(provider, "glInitNames", fc);
-		InterleavedArrays = provider.getFunctionAddress("glInterleavedArrays");
-		IsEnabled = provider.getFunctionAddress("glIsEnabled");
-		IsList = GL.getFunctionAddress(provider, "glIsList", fc);
-		IsTexture = provider.getFunctionAddress("glIsTexture");
-		LightModeli = GL.getFunctionAddress(provider, "glLightModeli", fc);
-		LightModelf = GL.getFunctionAddress(provider, "glLightModelf", fc);
-		LightModeliv = GL.getFunctionAddress(provider, "glLightModeliv", fc);
-		LightModelfv = GL.getFunctionAddress(provider, "glLightModelfv", fc);
-		Lighti = GL.getFunctionAddress(provider, "glLighti", fc);
-		Lightf = GL.getFunctionAddress(provider, "glLightf", fc);
-		Lightiv = GL.getFunctionAddress(provider, "glLightiv", fc);
-		Lightfv = GL.getFunctionAddress(provider, "glLightfv", fc);
-		LineStipple = GL.getFunctionAddress(provider, "glLineStipple", fc);
-		LineWidth = provider.getFunctionAddress("glLineWidth");
-		ListBase = GL.getFunctionAddress(provider, "glListBase", fc);
-		LoadMatrixf = GL.getFunctionAddress(provider, "glLoadMatrixf", fc);
-		LoadMatrixd = GL.getFunctionAddress(provider, "glLoadMatrixd", fc);
-		LoadIdentity = GL.getFunctionAddress(provider, "glLoadIdentity", fc);
-		LoadName = GL.getFunctionAddress(provider, "glLoadName", fc);
-		LogicOp = provider.getFunctionAddress("glLogicOp");
-		Map1f = GL.getFunctionAddress(provider, "glMap1f", fc);
-		Map1d = GL.getFunctionAddress(provider, "glMap1d", fc);
-		Map2f = GL.getFunctionAddress(provider, "glMap2f", fc);
-		Map2d = GL.getFunctionAddress(provider, "glMap2d", fc);
-		MapGrid1f = GL.getFunctionAddress(provider, "glMapGrid1f", fc);
-		MapGrid1d = GL.getFunctionAddress(provider, "glMapGrid1d", fc);
-		MapGrid2f = GL.getFunctionAddress(provider, "glMapGrid2f", fc);
-		MapGrid2d = GL.getFunctionAddress(provider, "glMapGrid2d", fc);
-		Materiali = GL.getFunctionAddress(provider, "glMateriali", fc);
-		Materialf = GL.getFunctionAddress(provider, "glMaterialf", fc);
-		Materialiv = GL.getFunctionAddress(provider, "glMaterialiv", fc);
-		Materialfv = GL.getFunctionAddress(provider, "glMaterialfv", fc);
-		MatrixMode = GL.getFunctionAddress(provider, "glMatrixMode", fc);
-		MultMatrixf = GL.getFunctionAddress(provider, "glMultMatrixf", fc);
-		MultMatrixd = GL.getFunctionAddress(provider, "glMultMatrixd", fc);
-		Frustum = GL.getFunctionAddress(provider, "glFrustum", fc);
-		NewList = GL.getFunctionAddress(provider, "glNewList", fc);
-		EndList = GL.getFunctionAddress(provider, "glEndList", fc);
-		Normal3f = GL.getFunctionAddress(provider, "glNormal3f", fc);
-		Normal3b = GL.getFunctionAddress(provider, "glNormal3b", fc);
-		Normal3s = GL.getFunctionAddress(provider, "glNormal3s", fc);
-		Normal3i = GL.getFunctionAddress(provider, "glNormal3i", fc);
-		Normal3d = GL.getFunctionAddress(provider, "glNormal3d", fc);
-		Normal3fv = GL.getFunctionAddress(provider, "glNormal3fv", fc);
-		Normal3bv = GL.getFunctionAddress(provider, "glNormal3bv", fc);
-		Normal3sv = GL.getFunctionAddress(provider, "glNormal3sv", fc);
-		Normal3iv = GL.getFunctionAddress(provider, "glNormal3iv", fc);
-		Normal3dv = GL.getFunctionAddress(provider, "glNormal3dv", fc);
-		NormalPointer = GL.getFunctionAddress(provider, "glNormalPointer", fc);
-		Ortho = GL.getFunctionAddress(provider, "glOrtho", fc);
-		PassThrough = GL.getFunctionAddress(provider, "glPassThrough", fc);
-		PixelMapfv = GL.getFunctionAddress(provider, "glPixelMapfv", fc);
-		PixelMapusv = GL.getFunctionAddress(provider, "glPixelMapusv", fc);
-		PixelMapuiv = GL.getFunctionAddress(provider, "glPixelMapuiv", fc);
-		PixelStorei = provider.getFunctionAddress("glPixelStorei");
-		PixelStoref = provider.getFunctionAddress("glPixelStoref");
-		PixelTransferi = GL.getFunctionAddress(provider, "glPixelTransferi", fc);
-		PixelTransferf = GL.getFunctionAddress(provider, "glPixelTransferf", fc);
-		PixelZoom = GL.getFunctionAddress(provider, "glPixelZoom", fc);
-		PointSize = provider.getFunctionAddress("glPointSize");
-		PolygonMode = provider.getFunctionAddress("glPolygonMode");
-		PolygonOffset = provider.getFunctionAddress("glPolygonOffset");
-		PolygonStipple = GL.getFunctionAddress(provider, "glPolygonStipple", fc);
-		PushAttrib = GL.getFunctionAddress(provider, "glPushAttrib", fc);
-		PushClientAttrib = GL.getFunctionAddress(provider, "glPushClientAttrib", fc);
-		PopAttrib = GL.getFunctionAddress(provider, "glPopAttrib", fc);
-		PopClientAttrib = GL.getFunctionAddress(provider, "glPopClientAttrib", fc);
-		PopMatrix = GL.getFunctionAddress(provider, "glPopMatrix", fc);
-		PopName = GL.getFunctionAddress(provider, "glPopName", fc);
-		PrioritizeTextures = GL.getFunctionAddress(provider, "glPrioritizeTextures", fc);
-		PushMatrix = GL.getFunctionAddress(provider, "glPushMatrix", fc);
-		PushName = GL.getFunctionAddress(provider, "glPushName", fc);
-		RasterPos2i = GL.getFunctionAddress(provider, "glRasterPos2i", fc);
-		RasterPos2s = GL.getFunctionAddress(provider, "glRasterPos2s", fc);
-		RasterPos2f = GL.getFunctionAddress(provider, "glRasterPos2f", fc);
-		RasterPos2d = GL.getFunctionAddress(provider, "glRasterPos2d", fc);
-		RasterPos2iv = GL.getFunctionAddress(provider, "glRasterPos2iv", fc);
-		RasterPos2sv = GL.getFunctionAddress(provider, "glRasterPos2sv", fc);
-		RasterPos2fv = GL.getFunctionAddress(provider, "glRasterPos2fv", fc);
-		RasterPos2dv = GL.getFunctionAddress(provider, "glRasterPos2dv", fc);
-		RasterPos3i = GL.getFunctionAddress(provider, "glRasterPos3i", fc);
-		RasterPos3s = GL.getFunctionAddress(provider, "glRasterPos3s", fc);
-		RasterPos3f = GL.getFunctionAddress(provider, "glRasterPos3f", fc);
-		RasterPos3d = GL.getFunctionAddress(provider, "glRasterPos3d", fc);
-		RasterPos3iv = GL.getFunctionAddress(provider, "glRasterPos3iv", fc);
-		RasterPos3sv = GL.getFunctionAddress(provider, "glRasterPos3sv", fc);
-		RasterPos3fv = GL.getFunctionAddress(provider, "glRasterPos3fv", fc);
-		RasterPos3dv = GL.getFunctionAddress(provider, "glRasterPos3dv", fc);
-		RasterPos4i = GL.getFunctionAddress(provider, "glRasterPos4i", fc);
-		RasterPos4s = GL.getFunctionAddress(provider, "glRasterPos4s", fc);
-		RasterPos4f = GL.getFunctionAddress(provider, "glRasterPos4f", fc);
-		RasterPos4d = GL.getFunctionAddress(provider, "glRasterPos4d", fc);
-		RasterPos4iv = GL.getFunctionAddress(provider, "glRasterPos4iv", fc);
-		RasterPos4sv = GL.getFunctionAddress(provider, "glRasterPos4sv", fc);
-		RasterPos4fv = GL.getFunctionAddress(provider, "glRasterPos4fv", fc);
-		RasterPos4dv = GL.getFunctionAddress(provider, "glRasterPos4dv", fc);
-		ReadBuffer = provider.getFunctionAddress("glReadBuffer");
-		ReadPixels = provider.getFunctionAddress("glReadPixels");
-		Recti = GL.getFunctionAddress(provider, "glRecti", fc);
-		Rects = GL.getFunctionAddress(provider, "glRects", fc);
-		Rectf = GL.getFunctionAddress(provider, "glRectf", fc);
-		Rectd = GL.getFunctionAddress(provider, "glRectd", fc);
-		Rectiv = GL.getFunctionAddress(provider, "glRectiv", fc);
-		Rectsv = GL.getFunctionAddress(provider, "glRectsv", fc);
-		Rectfv = GL.getFunctionAddress(provider, "glRectfv", fc);
-		Rectdv = GL.getFunctionAddress(provider, "glRectdv", fc);
-		RenderMode = GL.getFunctionAddress(provider, "glRenderMode", fc);
-		Rotatef = GL.getFunctionAddress(provider, "glRotatef", fc);
-		Rotated = GL.getFunctionAddress(provider, "glRotated", fc);
-		Scalef = GL.getFunctionAddress(provider, "glScalef", fc);
-		Scaled = GL.getFunctionAddress(provider, "glScaled", fc);
-		Scissor = provider.getFunctionAddress("glScissor");
-		SelectBuffer = GL.getFunctionAddress(provider, "glSelectBuffer", fc);
-		ShadeModel = GL.getFunctionAddress(provider, "glShadeModel", fc);
-		StencilFunc = provider.getFunctionAddress("glStencilFunc");
-		StencilMask = provider.getFunctionAddress("glStencilMask");
-		StencilOp = provider.getFunctionAddress("glStencilOp");
-		TexCoord1f = GL.getFunctionAddress(provider, "glTexCoord1f", fc);
-		TexCoord1s = GL.getFunctionAddress(provider, "glTexCoord1s", fc);
-		TexCoord1i = GL.getFunctionAddress(provider, "glTexCoord1i", fc);
-		TexCoord1d = GL.getFunctionAddress(provider, "glTexCoord1d", fc);
-		TexCoord1fv = GL.getFunctionAddress(provider, "glTexCoord1fv", fc);
-		TexCoord1sv = GL.getFunctionAddress(provider, "glTexCoord1sv", fc);
-		TexCoord1iv = GL.getFunctionAddress(provider, "glTexCoord1iv", fc);
-		TexCoord1dv = GL.getFunctionAddress(provider, "glTexCoord1dv", fc);
-		TexCoord2f = GL.getFunctionAddress(provider, "glTexCoord2f", fc);
-		TexCoord2s = GL.getFunctionAddress(provider, "glTexCoord2s", fc);
-		TexCoord2i = GL.getFunctionAddress(provider, "glTexCoord2i", fc);
-		TexCoord2d = GL.getFunctionAddress(provider, "glTexCoord2d", fc);
-		TexCoord2fv = GL.getFunctionAddress(provider, "glTexCoord2fv", fc);
-		TexCoord2sv = GL.getFunctionAddress(provider, "glTexCoord2sv", fc);
-		TexCoord2iv = GL.getFunctionAddress(provider, "glTexCoord2iv", fc);
-		TexCoord2dv = GL.getFunctionAddress(provider, "glTexCoord2dv", fc);
-		TexCoord3f = GL.getFunctionAddress(provider, "glTexCoord3f", fc);
-		TexCoord3s = GL.getFunctionAddress(provider, "glTexCoord3s", fc);
-		TexCoord3i = GL.getFunctionAddress(provider, "glTexCoord3i", fc);
-		TexCoord3d = GL.getFunctionAddress(provider, "glTexCoord3d", fc);
-		TexCoord3fv = GL.getFunctionAddress(provider, "glTexCoord3fv", fc);
-		TexCoord3sv = GL.getFunctionAddress(provider, "glTexCoord3sv", fc);
-		TexCoord3iv = GL.getFunctionAddress(provider, "glTexCoord3iv", fc);
-		TexCoord3dv = GL.getFunctionAddress(provider, "glTexCoord3dv", fc);
-		TexCoord4f = GL.getFunctionAddress(provider, "glTexCoord4f", fc);
-		TexCoord4s = GL.getFunctionAddress(provider, "glTexCoord4s", fc);
-		TexCoord4i = GL.getFunctionAddress(provider, "glTexCoord4i", fc);
-		TexCoord4d = GL.getFunctionAddress(provider, "glTexCoord4d", fc);
-		TexCoord4fv = GL.getFunctionAddress(provider, "glTexCoord4fv", fc);
-		TexCoord4sv = GL.getFunctionAddress(provider, "glTexCoord4sv", fc);
-		TexCoord4iv = GL.getFunctionAddress(provider, "glTexCoord4iv", fc);
-		TexCoord4dv = GL.getFunctionAddress(provider, "glTexCoord4dv", fc);
-		TexCoordPointer = GL.getFunctionAddress(provider, "glTexCoordPointer", fc);
-		TexEnvi = provider.getFunctionAddress("glTexEnvi");
-		TexEnviv = provider.getFunctionAddress("glTexEnviv");
-		TexEnvf = provider.getFunctionAddress("glTexEnvf");
-		TexEnvfv = provider.getFunctionAddress("glTexEnvfv");
-		TexGeni = GL.getFunctionAddress(provider, "glTexGeni", fc);
-		TexGeniv = GL.getFunctionAddress(provider, "glTexGeniv", fc);
-		TexGenf = GL.getFunctionAddress(provider, "glTexGenf", fc);
-		TexGenfv = GL.getFunctionAddress(provider, "glTexGenfv", fc);
-		TexGend = GL.getFunctionAddress(provider, "glTexGend", fc);
-		TexGendv = GL.getFunctionAddress(provider, "glTexGendv", fc);
-		TexImage2D = provider.getFunctionAddress("glTexImage2D");
-		TexImage1D = provider.getFunctionAddress("glTexImage1D");
-		CopyTexImage2D = provider.getFunctionAddress("glCopyTexImage2D");
-		CopyTexImage1D = provider.getFunctionAddress("glCopyTexImage1D");
-		CopyTexSubImage1D = provider.getFunctionAddress("glCopyTexSubImage1D");
-		CopyTexSubImage2D = provider.getFunctionAddress("glCopyTexSubImage2D");
-		TexParameteri = provider.getFunctionAddress("glTexParameteri");
-		TexParameteriv = provider.getFunctionAddress("glTexParameteriv");
-		TexParameterf = provider.getFunctionAddress("glTexParameterf");
-		TexParameterfv = provider.getFunctionAddress("glTexParameterfv");
-		TexSubImage1D = provider.getFunctionAddress("glTexSubImage1D");
-		TexSubImage2D = provider.getFunctionAddress("glTexSubImage2D");
-		Translatef = GL.getFunctionAddress(provider, "glTranslatef", fc);
-		Translated = GL.getFunctionAddress(provider, "glTranslated", fc);
-		Vertex2f = GL.getFunctionAddress(provider, "glVertex2f", fc);
-		Vertex2s = GL.getFunctionAddress(provider, "glVertex2s", fc);
-		Vertex2i = GL.getFunctionAddress(provider, "glVertex2i", fc);
-		Vertex2d = GL.getFunctionAddress(provider, "glVertex2d", fc);
-		Vertex2fv = GL.getFunctionAddress(provider, "glVertex2fv", fc);
-		Vertex2sv = GL.getFunctionAddress(provider, "glVertex2sv", fc);
-		Vertex2iv = GL.getFunctionAddress(provider, "glVertex2iv", fc);
-		Vertex2dv = GL.getFunctionAddress(provider, "glVertex2dv", fc);
-		Vertex3f = GL.getFunctionAddress(provider, "glVertex3f", fc);
-		Vertex3s = GL.getFunctionAddress(provider, "glVertex3s", fc);
-		Vertex3i = GL.getFunctionAddress(provider, "glVertex3i", fc);
-		Vertex3d = GL.getFunctionAddress(provider, "glVertex3d", fc);
-		Vertex3fv = GL.getFunctionAddress(provider, "glVertex3fv", fc);
-		Vertex3sv = GL.getFunctionAddress(provider, "glVertex3sv", fc);
-		Vertex3iv = GL.getFunctionAddress(provider, "glVertex3iv", fc);
-		Vertex3dv = GL.getFunctionAddress(provider, "glVertex3dv", fc);
-		Vertex4f = GL.getFunctionAddress(provider, "glVertex4f", fc);
-		Vertex4s = GL.getFunctionAddress(provider, "glVertex4s", fc);
-		Vertex4i = GL.getFunctionAddress(provider, "glVertex4i", fc);
-		Vertex4d = GL.getFunctionAddress(provider, "glVertex4d", fc);
-		Vertex4fv = GL.getFunctionAddress(provider, "glVertex4fv", fc);
-		Vertex4sv = GL.getFunctionAddress(provider, "glVertex4sv", fc);
-		Vertex4iv = GL.getFunctionAddress(provider, "glVertex4iv", fc);
-		Vertex4dv = GL.getFunctionAddress(provider, "glVertex4dv", fc);
-		VertexPointer = GL.getFunctionAddress(provider, "glVertexPointer", fc);
-		Viewport = provider.getFunctionAddress("glViewport");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL11} instance of the current context. */
-	public static GL11 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL11} instance of the specified {@link GLCapabilities}. */
-	public static GL11 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL11);
-	}
-
-	static GL11 create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {
-		if ( !ext.contains("OpenGL11") ) return null;
-
-		GL11 funcs = new GL11(provider, fc);
-
-		boolean supported = (fc || checkFunctions(
-			funcs.Accum, funcs.AlphaFunc, funcs.AreTexturesResident, funcs.Begin, funcs.Bitmap, funcs.CallList, funcs.CallLists, funcs.ClearAccum, 
-			funcs.ClearIndex, funcs.Color3b, funcs.Color3s, funcs.Color3i, funcs.Color3f, funcs.Color3d, funcs.Color3ub, funcs.Color3us, funcs.Color3ui, 
-			funcs.Color3bv, funcs.Color3sv, funcs.Color3iv, funcs.Color3fv, funcs.Color3dv, funcs.Color3ubv, funcs.Color3usv, funcs.Color3uiv, funcs.Color4b, 
-			funcs.Color4s, funcs.Color4i, funcs.Color4f, funcs.Color4d, funcs.Color4ub, funcs.Color4us, funcs.Color4ui, funcs.Color4bv, funcs.Color4sv, 
-			funcs.Color4iv, funcs.Color4fv, funcs.Color4dv, funcs.Color4ubv, funcs.Color4usv, funcs.Color4uiv, funcs.ColorMaterial, funcs.ColorPointer, 
-			funcs.DeleteLists, funcs.DisableClientState, funcs.DrawPixels, funcs.EdgeFlag, funcs.EdgeFlagv, funcs.EdgeFlagPointer, funcs.EnableClientState, 
-			funcs.End, funcs.EvalCoord1f, funcs.EvalCoord1fv, funcs.EvalCoord1d, funcs.EvalCoord1dv, funcs.EvalCoord2f, funcs.EvalCoord2fv, funcs.EvalCoord2d, 
-			funcs.EvalCoord2dv, funcs.EvalMesh1, funcs.EvalMesh2, funcs.EvalPoint1, funcs.EvalPoint2, funcs.FeedbackBuffer, funcs.Fogi, funcs.Fogiv, funcs.Fogf, 
-			funcs.Fogfv, funcs.GenLists, funcs.GetLightiv, funcs.GetLightfv, funcs.GetMapiv, funcs.GetMapfv, funcs.GetMapdv, funcs.GetMaterialiv, 
-			funcs.GetMaterialfv, funcs.GetPixelMapfv, funcs.GetPixelMapusv, funcs.GetPixelMapuiv, funcs.GetPolygonStipple, funcs.GetTexGeniv, funcs.GetTexGenfv, 
-			funcs.GetTexGendv, funcs.Indexi, funcs.Indexub, funcs.Indexs, funcs.Indexf, funcs.Indexd, funcs.Indexiv, funcs.Indexubv, funcs.Indexsv, 
-			funcs.Indexfv, funcs.Indexdv, funcs.IndexMask, funcs.IndexPointer, funcs.InitNames, funcs.IsList, funcs.LightModeli, funcs.LightModelf, 
-			funcs.LightModeliv, funcs.LightModelfv, funcs.Lighti, funcs.Lightf, funcs.Lightiv, funcs.Lightfv, funcs.LineStipple, funcs.ListBase, 
-			funcs.LoadMatrixf, funcs.LoadMatrixd, funcs.LoadIdentity, funcs.LoadName, funcs.Map1f, funcs.Map1d, funcs.Map2f, funcs.Map2d, funcs.MapGrid1f, 
-			funcs.MapGrid1d, funcs.MapGrid2f, funcs.MapGrid2d, funcs.Materiali, funcs.Materialf, funcs.Materialiv, funcs.Materialfv, funcs.MatrixMode, 
-			funcs.MultMatrixf, funcs.MultMatrixd, funcs.Frustum, funcs.NewList, funcs.EndList, funcs.Normal3f, funcs.Normal3b, funcs.Normal3s, funcs.Normal3i, 
-			funcs.Normal3d, funcs.Normal3fv, funcs.Normal3bv, funcs.Normal3sv, funcs.Normal3iv, funcs.Normal3dv, funcs.NormalPointer, funcs.Ortho, 
-			funcs.PassThrough, funcs.PixelMapfv, funcs.PixelMapusv, funcs.PixelMapuiv, funcs.PixelTransferi, funcs.PixelTransferf, funcs.PixelZoom, 
-			funcs.PolygonStipple, funcs.PushAttrib, funcs.PushClientAttrib, funcs.PopAttrib, funcs.PopClientAttrib, funcs.PopMatrix, funcs.PopName, 
-			funcs.PrioritizeTextures, funcs.PushMatrix, funcs.PushName, funcs.RasterPos2i, funcs.RasterPos2s, funcs.RasterPos2f, funcs.RasterPos2d, 
-			funcs.RasterPos2iv, funcs.RasterPos2sv, funcs.RasterPos2fv, funcs.RasterPos2dv, funcs.RasterPos3i, funcs.RasterPos3s, funcs.RasterPos3f, 
-			funcs.RasterPos3d, funcs.RasterPos3iv, funcs.RasterPos3sv, funcs.RasterPos3fv, funcs.RasterPos3dv, funcs.RasterPos4i, funcs.RasterPos4s, 
-			funcs.RasterPos4f, funcs.RasterPos4d, funcs.RasterPos4iv, funcs.RasterPos4sv, funcs.RasterPos4fv, funcs.RasterPos4dv, funcs.Recti, funcs.Rects, 
-			funcs.Rectf, funcs.Rectd, funcs.Rectiv, funcs.Rectsv, funcs.Rectfv, funcs.Rectdv, funcs.RenderMode, funcs.Rotatef, funcs.Rotated, funcs.Scalef, 
-			funcs.Scaled, funcs.SelectBuffer, funcs.ShadeModel, funcs.TexCoord1f, funcs.TexCoord1s, funcs.TexCoord1i, funcs.TexCoord1d, funcs.TexCoord1fv, 
-			funcs.TexCoord1sv, funcs.TexCoord1iv, funcs.TexCoord1dv, funcs.TexCoord2f, funcs.TexCoord2s, funcs.TexCoord2i, funcs.TexCoord2d, funcs.TexCoord2fv, 
-			funcs.TexCoord2sv, funcs.TexCoord2iv, funcs.TexCoord2dv, funcs.TexCoord3f, funcs.TexCoord3s, funcs.TexCoord3i, funcs.TexCoord3d, funcs.TexCoord3fv, 
-			funcs.TexCoord3sv, funcs.TexCoord3iv, funcs.TexCoord3dv, funcs.TexCoord4f, funcs.TexCoord4s, funcs.TexCoord4i, funcs.TexCoord4d, funcs.TexCoord4fv, 
-			funcs.TexCoord4sv, funcs.TexCoord4iv, funcs.TexCoord4dv, funcs.TexCoordPointer, funcs.TexGeni, funcs.TexGeniv, funcs.TexGenf, funcs.TexGenfv, 
-			funcs.TexGend, funcs.TexGendv, funcs.Translatef, funcs.Translated, funcs.Vertex2f, funcs.Vertex2s, funcs.Vertex2i, funcs.Vertex2d, funcs.Vertex2fv, 
-			funcs.Vertex2sv, funcs.Vertex2iv, funcs.Vertex2dv, funcs.Vertex3f, funcs.Vertex3s, funcs.Vertex3i, funcs.Vertex3d, funcs.Vertex3fv, funcs.Vertex3sv, 
-			funcs.Vertex3iv, funcs.Vertex3dv, funcs.Vertex4f, funcs.Vertex4s, funcs.Vertex4i, funcs.Vertex4d, funcs.Vertex4fv, funcs.Vertex4sv, funcs.Vertex4iv, 
-			funcs.Vertex4dv, funcs.VertexPointer
+	static boolean isAvailable(GLCapabilities caps, boolean fc) {
+		return (fc || checkFunctions(
+			caps.glAccum, caps.glAlphaFunc, caps.glAreTexturesResident, caps.glBegin, caps.glBitmap, caps.glCallList, caps.glCallLists, caps.glClearAccum, 
+			caps.glClearIndex, caps.glColor3b, caps.glColor3s, caps.glColor3i, caps.glColor3f, caps.glColor3d, caps.glColor3ub, caps.glColor3us, 
+			caps.glColor3ui, caps.glColor3bv, caps.glColor3sv, caps.glColor3iv, caps.glColor3fv, caps.glColor3dv, caps.glColor3ubv, caps.glColor3usv, 
+			caps.glColor3uiv, caps.glColor4b, caps.glColor4s, caps.glColor4i, caps.glColor4f, caps.glColor4d, caps.glColor4ub, caps.glColor4us, caps.glColor4ui, 
+			caps.glColor4bv, caps.glColor4sv, caps.glColor4iv, caps.glColor4fv, caps.glColor4dv, caps.glColor4ubv, caps.glColor4usv, caps.glColor4uiv, 
+			caps.glColorMaterial, caps.glColorPointer, caps.glDeleteLists, caps.glDisableClientState, caps.glDrawPixels, caps.glEdgeFlag, caps.glEdgeFlagv, 
+			caps.glEdgeFlagPointer, caps.glEnableClientState, caps.glEnd, caps.glEvalCoord1f, caps.glEvalCoord1fv, caps.glEvalCoord1d, caps.glEvalCoord1dv, 
+			caps.glEvalCoord2f, caps.glEvalCoord2fv, caps.glEvalCoord2d, caps.glEvalCoord2dv, caps.glEvalMesh1, caps.glEvalMesh2, caps.glEvalPoint1, 
+			caps.glEvalPoint2, caps.glFeedbackBuffer, caps.glFogi, caps.glFogiv, caps.glFogf, caps.glFogfv, caps.glGenLists, caps.glGetLightiv, 
+			caps.glGetLightfv, caps.glGetMapiv, caps.glGetMapfv, caps.glGetMapdv, caps.glGetMaterialiv, caps.glGetMaterialfv, caps.glGetPixelMapfv, 
+			caps.glGetPixelMapusv, caps.glGetPixelMapuiv, caps.glGetPolygonStipple, caps.glGetTexGeniv, caps.glGetTexGenfv, caps.glGetTexGendv, caps.glIndexi, 
+			caps.glIndexub, caps.glIndexs, caps.glIndexf, caps.glIndexd, caps.glIndexiv, caps.glIndexubv, caps.glIndexsv, caps.glIndexfv, caps.glIndexdv, 
+			caps.glIndexMask, caps.glIndexPointer, caps.glInitNames, caps.glIsList, caps.glLightModeli, caps.glLightModelf, caps.glLightModeliv, 
+			caps.glLightModelfv, caps.glLighti, caps.glLightf, caps.glLightiv, caps.glLightfv, caps.glLineStipple, caps.glListBase, caps.glLoadMatrixf, 
+			caps.glLoadMatrixd, caps.glLoadIdentity, caps.glLoadName, caps.glMap1f, caps.glMap1d, caps.glMap2f, caps.glMap2d, caps.glMapGrid1f, 
+			caps.glMapGrid1d, caps.glMapGrid2f, caps.glMapGrid2d, caps.glMateriali, caps.glMaterialf, caps.glMaterialiv, caps.glMaterialfv, caps.glMatrixMode, 
+			caps.glMultMatrixf, caps.glMultMatrixd, caps.glFrustum, caps.glNewList, caps.glEndList, caps.glNormal3f, caps.glNormal3b, caps.glNormal3s, 
+			caps.glNormal3i, caps.glNormal3d, caps.glNormal3fv, caps.glNormal3bv, caps.glNormal3sv, caps.glNormal3iv, caps.glNormal3dv, caps.glNormalPointer, 
+			caps.glOrtho, caps.glPassThrough, caps.glPixelMapfv, caps.glPixelMapusv, caps.glPixelMapuiv, caps.glPixelTransferi, caps.glPixelTransferf, 
+			caps.glPixelZoom, caps.glPolygonStipple, caps.glPushAttrib, caps.glPushClientAttrib, caps.glPopAttrib, caps.glPopClientAttrib, caps.glPopMatrix, 
+			caps.glPopName, caps.glPrioritizeTextures, caps.glPushMatrix, caps.glPushName, caps.glRasterPos2i, caps.glRasterPos2s, caps.glRasterPos2f, 
+			caps.glRasterPos2d, caps.glRasterPos2iv, caps.glRasterPos2sv, caps.glRasterPos2fv, caps.glRasterPos2dv, caps.glRasterPos3i, caps.glRasterPos3s, 
+			caps.glRasterPos3f, caps.glRasterPos3d, caps.glRasterPos3iv, caps.glRasterPos3sv, caps.glRasterPos3fv, caps.glRasterPos3dv, caps.glRasterPos4i, 
+			caps.glRasterPos4s, caps.glRasterPos4f, caps.glRasterPos4d, caps.glRasterPos4iv, caps.glRasterPos4sv, caps.glRasterPos4fv, caps.glRasterPos4dv, 
+			caps.glRecti, caps.glRects, caps.glRectf, caps.glRectd, caps.glRectiv, caps.glRectsv, caps.glRectfv, caps.glRectdv, caps.glRenderMode, 
+			caps.glRotatef, caps.glRotated, caps.glScalef, caps.glScaled, caps.glSelectBuffer, caps.glShadeModel, caps.glTexCoord1f, caps.glTexCoord1s, 
+			caps.glTexCoord1i, caps.glTexCoord1d, caps.glTexCoord1fv, caps.glTexCoord1sv, caps.glTexCoord1iv, caps.glTexCoord1dv, caps.glTexCoord2f, 
+			caps.glTexCoord2s, caps.glTexCoord2i, caps.glTexCoord2d, caps.glTexCoord2fv, caps.glTexCoord2sv, caps.glTexCoord2iv, caps.glTexCoord2dv, 
+			caps.glTexCoord3f, caps.glTexCoord3s, caps.glTexCoord3i, caps.glTexCoord3d, caps.glTexCoord3fv, caps.glTexCoord3sv, caps.glTexCoord3iv, 
+			caps.glTexCoord3dv, caps.glTexCoord4f, caps.glTexCoord4s, caps.glTexCoord4i, caps.glTexCoord4d, caps.glTexCoord4fv, caps.glTexCoord4sv, 
+			caps.glTexCoord4iv, caps.glTexCoord4dv, caps.glTexCoordPointer, caps.glTexGeni, caps.glTexGeniv, caps.glTexGenf, caps.glTexGenfv, caps.glTexGend, 
+			caps.glTexGendv, caps.glTranslatef, caps.glTranslated, caps.glVertex2f, caps.glVertex2s, caps.glVertex2i, caps.glVertex2d, caps.glVertex2fv, 
+			caps.glVertex2sv, caps.glVertex2iv, caps.glVertex2dv, caps.glVertex3f, caps.glVertex3s, caps.glVertex3i, caps.glVertex3d, caps.glVertex3fv, 
+			caps.glVertex3sv, caps.glVertex3iv, caps.glVertex3dv, caps.glVertex4f, caps.glVertex4s, caps.glVertex4i, caps.glVertex4d, caps.glVertex4fv, 
+			caps.glVertex4sv, caps.glVertex4iv, caps.glVertex4dv, caps.glVertexPointer
 		)) && checkFunctions(
-			funcs.Enable, funcs.Disable, funcs.ArrayElement, funcs.BindTexture, funcs.BlendFunc, funcs.Clear, funcs.ClearColor, funcs.ClearDepth, 
-			funcs.ClearStencil, funcs.ClipPlane, funcs.ColorMask, funcs.CopyPixels, funcs.CullFace, funcs.DepthFunc, funcs.DepthMask, funcs.DepthRange, 
-			funcs.DrawArrays, funcs.DrawBuffer, funcs.DrawElements, funcs.Finish, funcs.Flush, funcs.FrontFace, funcs.GenTextures, funcs.DeleteTextures, 
-			funcs.GetClipPlane, funcs.GetBooleanv, funcs.GetFloatv, funcs.GetIntegerv, funcs.GetDoublev, funcs.GetError, funcs.GetPointerv, funcs.GetString, 
-			funcs.GetTexEnviv, funcs.GetTexEnvfv, funcs.GetTexImage, funcs.GetTexLevelParameteriv, funcs.GetTexLevelParameterfv, funcs.GetTexParameteriv, 
-			funcs.GetTexParameterfv, funcs.Hint, funcs.InterleavedArrays, funcs.IsEnabled, funcs.IsTexture, funcs.LineWidth, funcs.LogicOp, funcs.PixelStorei, 
-			funcs.PixelStoref, funcs.PointSize, funcs.PolygonMode, funcs.PolygonOffset, funcs.ReadBuffer, funcs.ReadPixels, funcs.Scissor, funcs.StencilFunc, 
-			funcs.StencilMask, funcs.StencilOp, funcs.TexEnvi, funcs.TexEnviv, funcs.TexEnvf, funcs.TexEnvfv, funcs.TexImage2D, funcs.TexImage1D, 
-			funcs.CopyTexImage2D, funcs.CopyTexImage1D, funcs.CopyTexSubImage1D, funcs.CopyTexSubImage2D, funcs.TexParameteri, funcs.TexParameteriv, 
-			funcs.TexParameterf, funcs.TexParameterfv, funcs.TexSubImage1D, funcs.TexSubImage2D, funcs.Viewport
+			caps.glEnable, caps.glDisable, caps.glArrayElement, caps.glBindTexture, caps.glBlendFunc, caps.glClear, caps.glClearColor, caps.glClearDepth, 
+			caps.glClearStencil, caps.glClipPlane, caps.glColorMask, caps.glCopyPixels, caps.glCullFace, caps.glDepthFunc, caps.glDepthMask, caps.glDepthRange, 
+			caps.glDrawArrays, caps.glDrawBuffer, caps.glDrawElements, caps.glFinish, caps.glFlush, caps.glFrontFace, caps.glGenTextures, caps.glDeleteTextures, 
+			caps.glGetClipPlane, caps.glGetBooleanv, caps.glGetFloatv, caps.glGetIntegerv, caps.glGetDoublev, caps.glGetError, caps.glGetPointerv, 
+			caps.glGetString, caps.glGetTexEnviv, caps.glGetTexEnvfv, caps.glGetTexImage, caps.glGetTexLevelParameteriv, caps.glGetTexLevelParameterfv, 
+			caps.glGetTexParameteriv, caps.glGetTexParameterfv, caps.glHint, caps.glInterleavedArrays, caps.glIsEnabled, caps.glIsTexture, caps.glLineWidth, 
+			caps.glLogicOp, caps.glPixelStorei, caps.glPixelStoref, caps.glPointSize, caps.glPolygonMode, caps.glPolygonOffset, caps.glReadBuffer, 
+			caps.glReadPixels, caps.glScissor, caps.glStencilFunc, caps.glStencilMask, caps.glStencilOp, caps.glTexEnvi, caps.glTexEnviv, caps.glTexEnvf, 
+			caps.glTexEnvfv, caps.glTexImage2D, caps.glTexImage1D, caps.glCopyTexImage2D, caps.glCopyTexImage1D, caps.glCopyTexSubImage1D, 
+			caps.glCopyTexSubImage2D, caps.glTexParameteri, caps.glTexParameteriv, caps.glTexParameterf, caps.glTexParameterfv, caps.glTexSubImage1D, 
+			caps.glTexSubImage2D, caps.glViewport
 		);
-
-		return GL.checkExtension("OpenGL11", funcs, supported);
 	}
 
 	// --- [ glEnable ] ---
@@ -1462,7 +769,7 @@ public class GL11 {
 	 * @param target the OpenGL state to enable
 	 */
 	public static void glEnable(int target) {
-		long __functionAddress = getInstance().Enable;
+		long __functionAddress = GL.getCapabilities().glEnable;
 		callIV(__functionAddress, target);
 	}
 
@@ -1476,7 +783,7 @@ public class GL11 {
 	 * @param target the OpenGL state to disable
 	 */
 	public static void glDisable(int target) {
-		long __functionAddress = getInstance().Disable;
+		long __functionAddress = GL.getCapabilities().glDisable;
 		callIV(__functionAddress, target);
 	}
 
@@ -1492,7 +799,7 @@ public class GL11 {
 	 * @param value a floating-point value to be used in that operation. One of:<br>{@link #GL_ACCUM ACCUM}, {@link #GL_LOAD LOAD}, {@link #GL_RETURN RETURN}, {@link #GL_MULT MULT}, {@link #GL_ADD ADD}
 	 */
 	public static void glAccum(int op, float value) {
-		long __functionAddress = getInstance().Accum;
+		long __functionAddress = GL.getCapabilities().glAccum;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, op, value);
@@ -1511,7 +818,7 @@ public class GL11 {
 	 * @param ref  a reference value clamped to the range [0, 1]. When performing the alpha test, the GL will convert the reference value to the same representation as the fragment's alpha value (floating-point or fixed-point).
 	 */
 	public static void glAlphaFunc(int func, float ref) {
-		long __functionAddress = getInstance().AlphaFunc;
+		long __functionAddress = GL.getCapabilities().glAlphaFunc;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, func, ref);
@@ -1521,7 +828,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glAreTexturesResident AreTexturesResident} */
 	public static boolean nglAreTexturesResident(int n, long textures, long residences) {
-		long __functionAddress = getInstance().AreTexturesResident;
+		long __functionAddress = GL.getCapabilities().glAreTexturesResident;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callIPPZ(__functionAddress, n, textures, residences);
@@ -1557,9 +864,13 @@ public class GL11 {
 	public static boolean glAreTexturesResident(int texture, ByteBuffer residences) {
 		if ( CHECKS )
 			checkBuffer(residences, 1);
-		APIBuffer __buffer = apiBuffer();
-		int textures = __buffer.intParam(texture);
-		return nglAreTexturesResident(1, __buffer.address(textures), memAddress(residences));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer textures = stack.ints(texture);
+			return nglAreTexturesResident(1, memAddress(textures), memAddress(residences));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glArrayElement ] ---
@@ -1572,7 +883,7 @@ public class GL11 {
 	 * @param i the element to transfer
 	 */
 	public static void glArrayElement(int i) {
-		long __functionAddress = getInstance().ArrayElement;
+		long __functionAddress = GL.getCapabilities().glArrayElement;
 		callIV(__functionAddress, i);
 	}
 
@@ -1586,7 +897,7 @@ public class GL11 {
 	 * @param mode the primitive type being defined. One of:<br>{@link #GL_POINTS POINTS}, {@link #GL_LINE_STRIP LINE_STRIP}, {@link #GL_LINE_LOOP LINE_LOOP}, {@link #GL_LINES LINES}, {@link #GL_POLYGON POLYGON}, {@link #GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link #GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link #GL_TRIANGLES TRIANGLES}, {@link #GL_QUAD_STRIP QUAD_STRIP}, {@link #GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 */
 	public static void glBegin(int mode) {
-		long __functionAddress = getInstance().Begin;
+		long __functionAddress = GL.getCapabilities().glBegin;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
@@ -1607,7 +918,7 @@ public class GL11 {
 	 * @param texture the texture object to bind
 	 */
 	public static void glBindTexture(int target, int texture) {
-		long __functionAddress = getInstance().BindTexture;
+		long __functionAddress = GL.getCapabilities().glBindTexture;
 		callIIV(__functionAddress, target, texture);
 	}
 
@@ -1615,7 +926,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glBitmap Bitmap} */
 	public static void nglBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long data) {
-		long __functionAddress = getInstance().Bitmap;
+		long __functionAddress = GL.getCapabilities().glBitmap;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIFFFFPV(__functionAddress, w, h, xOrig, yOrig, xInc, yInc, data);
@@ -1659,7 +970,7 @@ public class GL11 {
 	 * @param dfactor the destination weighting factor
 	 */
 	public static void glBlendFunc(int sfactor, int dfactor) {
-		long __functionAddress = getInstance().BlendFunc;
+		long __functionAddress = GL.getCapabilities().glBlendFunc;
 		callIIV(__functionAddress, sfactor, dfactor);
 	}
 
@@ -1673,7 +984,7 @@ public class GL11 {
 	 * @param list the index of the display list to be called
 	 */
 	public static void glCallList(int list) {
-		long __functionAddress = getInstance().CallList;
+		long __functionAddress = GL.getCapabilities().glCallList;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, list);
@@ -1683,7 +994,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glCallLists CallLists} */
 	public static void nglCallLists(int n, int type, long lists) {
-		long __functionAddress = getInstance().CallLists;
+		long __functionAddress = GL.getCapabilities().glCallLists;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, n, type, lists);
@@ -1735,7 +1046,7 @@ public class GL11 {
 	 * @param mask Zero or the bitwise OR of one or more values indicating which buffers are to be cleared. One or more of:<br>{@link #GL_ACCUM_BUFFER_BIT ACCUM_BUFFER_BIT}, {@link #GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}, {@link #GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}, {@link #GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}
 	 */
 	public static void glClear(int mask) {
-		long __functionAddress = getInstance().Clear;
+		long __functionAddress = GL.getCapabilities().glClear;
 		callIV(__functionAddress, mask);
 	}
 
@@ -1752,7 +1063,7 @@ public class GL11 {
 	 * @param alpha the value to which to clear the A values of the accumulation buffer
 	 */
 	public static void glClearAccum(float red, float green, float blue, float alpha) {
-		long __functionAddress = getInstance().ClearAccum;
+		long __functionAddress = GL.getCapabilities().glClearAccum;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, red, green, blue, alpha);
@@ -1771,7 +1082,7 @@ public class GL11 {
 	 * @param alpha the value to which to clear the A channel of the color buffer
 	 */
 	public static void glClearColor(float red, float green, float blue, float alpha) {
-		long __functionAddress = getInstance().ClearColor;
+		long __functionAddress = GL.getCapabilities().glClearColor;
 		callFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -1786,7 +1097,7 @@ public class GL11 {
 	 * @param depth the value to which to clear the depth buffer
 	 */
 	public static void glClearDepth(double depth) {
-		long __functionAddress = getInstance().ClearDepth;
+		long __functionAddress = GL.getCapabilities().glClearDepth;
 		callDV(__functionAddress, depth);
 	}
 
@@ -1802,7 +1113,7 @@ public class GL11 {
 	 * @param index the value to which to clear the color buffer in color index mode
 	 */
 	public static void glClearIndex(float index) {
-		long __functionAddress = getInstance().ClearIndex;
+		long __functionAddress = GL.getCapabilities().glClearIndex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, index);
@@ -1818,7 +1129,7 @@ public class GL11 {
 	 * @param s the value to which to clear the stencil buffer
 	 */
 	public static void glClearStencil(int s) {
-		long __functionAddress = getInstance().ClearStencil;
+		long __functionAddress = GL.getCapabilities().glClearStencil;
 		callIV(__functionAddress, s);
 	}
 
@@ -1826,7 +1137,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glClipPlane ClipPlane} */
 	public static void nglClipPlane(int plane, long equation) {
-		long __functionAddress = getInstance().ClipPlane;
+		long __functionAddress = GL.getCapabilities().glClipPlane;
 		callIPV(__functionAddress, plane, equation);
 	}
 
@@ -1863,7 +1174,7 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3b(byte red, byte green, byte blue) {
-		long __functionAddress = getInstance().Color3b;
+		long __functionAddress = GL.getCapabilities().glColor3b;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBV(__functionAddress, red, green, blue);
@@ -1881,7 +1192,7 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3s(short red, short green, short blue) {
-		long __functionAddress = getInstance().Color3s;
+		long __functionAddress = GL.getCapabilities().glColor3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, red, green, blue);
@@ -1899,7 +1210,7 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3i(int red, int green, int blue) {
-		long __functionAddress = getInstance().Color3i;
+		long __functionAddress = GL.getCapabilities().glColor3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, red, green, blue);
@@ -1917,7 +1228,7 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3f(float red, float green, float blue) {
-		long __functionAddress = getInstance().Color3f;
+		long __functionAddress = GL.getCapabilities().glColor3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, red, green, blue);
@@ -1935,7 +1246,7 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3d(double red, double green, double blue) {
-		long __functionAddress = getInstance().Color3d;
+		long __functionAddress = GL.getCapabilities().glColor3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, red, green, blue);
@@ -1953,7 +1264,7 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3ub(byte red, byte green, byte blue) {
-		long __functionAddress = getInstance().Color3ub;
+		long __functionAddress = GL.getCapabilities().glColor3ub;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBV(__functionAddress, red, green, blue);
@@ -1971,7 +1282,7 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3us(short red, short green, short blue) {
-		long __functionAddress = getInstance().Color3us;
+		long __functionAddress = GL.getCapabilities().glColor3us;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, red, green, blue);
@@ -1989,7 +1300,7 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3ui(int red, int green, int blue) {
-		long __functionAddress = getInstance().Color3ui;
+		long __functionAddress = GL.getCapabilities().glColor3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, red, green, blue);
@@ -1999,7 +1310,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor3bv Color3bv} */
 	public static void nglColor3bv(long v) {
-		long __functionAddress = getInstance().Color3bv;
+		long __functionAddress = GL.getCapabilities().glColor3bv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2022,7 +1333,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor3sv Color3sv} */
 	public static void nglColor3sv(long v) {
-		long __functionAddress = getInstance().Color3sv;
+		long __functionAddress = GL.getCapabilities().glColor3sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2052,7 +1363,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor3iv Color3iv} */
 	public static void nglColor3iv(long v) {
-		long __functionAddress = getInstance().Color3iv;
+		long __functionAddress = GL.getCapabilities().glColor3iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2082,7 +1393,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor3fv Color3fv} */
 	public static void nglColor3fv(long v) {
-		long __functionAddress = getInstance().Color3fv;
+		long __functionAddress = GL.getCapabilities().glColor3fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2112,7 +1423,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor3dv Color3dv} */
 	public static void nglColor3dv(long v) {
-		long __functionAddress = getInstance().Color3dv;
+		long __functionAddress = GL.getCapabilities().glColor3dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2142,7 +1453,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor3ubv Color3ubv} */
 	public static void nglColor3ubv(long v) {
-		long __functionAddress = getInstance().Color3ubv;
+		long __functionAddress = GL.getCapabilities().glColor3ubv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2165,7 +1476,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor3usv Color3usv} */
 	public static void nglColor3usv(long v) {
-		long __functionAddress = getInstance().Color3usv;
+		long __functionAddress = GL.getCapabilities().glColor3usv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2195,7 +1506,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor3uiv Color3uiv} */
 	public static void nglColor3uiv(long v) {
-		long __functionAddress = getInstance().Color3uiv;
+		long __functionAddress = GL.getCapabilities().glColor3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2234,7 +1545,7 @@ public class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4b(byte red, byte green, byte blue, byte alpha) {
-		long __functionAddress = getInstance().Color4b;
+		long __functionAddress = GL.getCapabilities().glColor4b;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBBV(__functionAddress, red, green, blue, alpha);
@@ -2253,7 +1564,7 @@ public class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4s(short red, short green, short blue, short alpha) {
-		long __functionAddress = getInstance().Color4s;
+		long __functionAddress = GL.getCapabilities().glColor4s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, red, green, blue, alpha);
@@ -2272,7 +1583,7 @@ public class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4i(int red, int green, int blue, int alpha) {
-		long __functionAddress = getInstance().Color4i;
+		long __functionAddress = GL.getCapabilities().glColor4i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, red, green, blue, alpha);
@@ -2291,7 +1602,7 @@ public class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4f(float red, float green, float blue, float alpha) {
-		long __functionAddress = getInstance().Color4f;
+		long __functionAddress = GL.getCapabilities().glColor4f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, red, green, blue, alpha);
@@ -2310,7 +1621,7 @@ public class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4d(double red, double green, double blue, double alpha) {
-		long __functionAddress = getInstance().Color4d;
+		long __functionAddress = GL.getCapabilities().glColor4d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, red, green, blue, alpha);
@@ -2329,7 +1640,7 @@ public class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4ub(byte red, byte green, byte blue, byte alpha) {
-		long __functionAddress = getInstance().Color4ub;
+		long __functionAddress = GL.getCapabilities().glColor4ub;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBBV(__functionAddress, red, green, blue, alpha);
@@ -2348,7 +1659,7 @@ public class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4us(short red, short green, short blue, short alpha) {
-		long __functionAddress = getInstance().Color4us;
+		long __functionAddress = GL.getCapabilities().glColor4us;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, red, green, blue, alpha);
@@ -2367,7 +1678,7 @@ public class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4ui(int red, int green, int blue, int alpha) {
-		long __functionAddress = getInstance().Color4ui;
+		long __functionAddress = GL.getCapabilities().glColor4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, red, green, blue, alpha);
@@ -2377,7 +1688,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor4bv Color4bv} */
 	public static void nglColor4bv(long v) {
-		long __functionAddress = getInstance().Color4bv;
+		long __functionAddress = GL.getCapabilities().glColor4bv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2400,7 +1711,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor4sv Color4sv} */
 	public static void nglColor4sv(long v) {
-		long __functionAddress = getInstance().Color4sv;
+		long __functionAddress = GL.getCapabilities().glColor4sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2430,7 +1741,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor4iv Color4iv} */
 	public static void nglColor4iv(long v) {
-		long __functionAddress = getInstance().Color4iv;
+		long __functionAddress = GL.getCapabilities().glColor4iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2460,7 +1771,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor4fv Color4fv} */
 	public static void nglColor4fv(long v) {
-		long __functionAddress = getInstance().Color4fv;
+		long __functionAddress = GL.getCapabilities().glColor4fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2490,7 +1801,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor4dv Color4dv} */
 	public static void nglColor4dv(long v) {
-		long __functionAddress = getInstance().Color4dv;
+		long __functionAddress = GL.getCapabilities().glColor4dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2520,7 +1831,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor4ubv Color4ubv} */
 	public static void nglColor4ubv(long v) {
-		long __functionAddress = getInstance().Color4ubv;
+		long __functionAddress = GL.getCapabilities().glColor4ubv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2543,7 +1854,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor4usv Color4usv} */
 	public static void nglColor4usv(long v) {
-		long __functionAddress = getInstance().Color4usv;
+		long __functionAddress = GL.getCapabilities().glColor4usv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2573,7 +1884,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColor4uiv Color4uiv} */
 	public static void nglColor4uiv(long v) {
-		long __functionAddress = getInstance().Color4uiv;
+		long __functionAddress = GL.getCapabilities().glColor4uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -2612,7 +1923,7 @@ public class GL11 {
 	 * @param alpha whether A values are written or not
 	 */
 	public static void glColorMask(boolean red, boolean green, boolean blue, boolean alpha) {
-		long __functionAddress = getInstance().ColorMask;
+		long __functionAddress = GL.getCapabilities().glColorMask;
 		callZZZZV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -2629,7 +1940,7 @@ public class GL11 {
 	 * @param mode specifies which material property or properties track the current color. One of:<br>{@link #GL_EMISSION EMISSION}, {@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_AMBIENT_AND_DIFFUSE AMBIENT_AND_DIFFUSE}
 	 */
 	public static void glColorMaterial(int face, int mode) {
-		long __functionAddress = getInstance().ColorMaterial;
+		long __functionAddress = GL.getCapabilities().glColorMaterial;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, face, mode);
@@ -2639,7 +1950,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glColorPointer ColorPointer} */
 	public static void nglColorPointer(int size, int type, int stride, long pointer) {
-		long __functionAddress = getInstance().ColorPointer;
+		long __functionAddress = GL.getCapabilities().glColorPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, size, type, stride, pointer);
@@ -2703,7 +2014,7 @@ public class GL11 {
 	 * @param type   Indicates the type of values to be transfered. One of:<br>{@link #GL_COLOR COLOR}, {@link #GL_STENCIL STENCIL}, {@link #GL_DEPTH DEPTH}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}
 	 */
 	public static void glCopyPixels(int x, int y, int width, int height, int type) {
-		long __functionAddress = getInstance().CopyPixels;
+		long __functionAddress = GL.getCapabilities().glCopyPixels;
 		callIIIIIV(__functionAddress, x, y, width, height, type);
 	}
 
@@ -2719,7 +2030,7 @@ public class GL11 {
 	 * @param mode the CullFace mode. One of:<br>{@link #GL_FRONT FRONT}, {@link #GL_BACK BACK}, {@link #GL_FRONT_AND_BACK FRONT_AND_BACK}
 	 */
 	public static void glCullFace(int mode) {
-		long __functionAddress = getInstance().CullFace;
+		long __functionAddress = GL.getCapabilities().glCullFace;
 		callIV(__functionAddress, mode);
 	}
 
@@ -2735,7 +2046,7 @@ public class GL11 {
 	 * @param range the number of display lists to be deleted
 	 */
 	public static void glDeleteLists(int list, int range) {
-		long __functionAddress = getInstance().DeleteLists;
+		long __functionAddress = GL.getCapabilities().glDeleteLists;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, list, range);
@@ -2751,7 +2062,7 @@ public class GL11 {
 	 * @param func the depth test comparison. One of:<br>{@link #GL_NEVER NEVER}, {@link #GL_ALWAYS ALWAYS}, {@link #GL_LESS LESS}, {@link #GL_LEQUAL LEQUAL}, {@link #GL_EQUAL EQUAL}, {@link #GL_GREATER GREATER}, {@link #GL_GEQUAL GEQUAL}, {@link #GL_NOTEQUAL NOTEQUAL}
 	 */
 	public static void glDepthFunc(int func) {
-		long __functionAddress = getInstance().DepthFunc;
+		long __functionAddress = GL.getCapabilities().glDepthFunc;
 		callIV(__functionAddress, func);
 	}
 
@@ -2765,7 +2076,7 @@ public class GL11 {
 	 * @param flag whether depth values are written or not.
 	 */
 	public static void glDepthMask(boolean flag) {
-		long __functionAddress = getInstance().DepthMask;
+		long __functionAddress = GL.getCapabilities().glDepthMask;
 		callZV(__functionAddress, flag);
 	}
 
@@ -2780,7 +2091,7 @@ public class GL11 {
 	 * @param zFar  the far depth range
 	 */
 	public static void glDepthRange(double zNear, double zFar) {
-		long __functionAddress = getInstance().DepthRange;
+		long __functionAddress = GL.getCapabilities().glDepthRange;
 		callDDV(__functionAddress, zNear, zFar);
 	}
 
@@ -2794,7 +2105,7 @@ public class GL11 {
 	 * @param array the attribute array to disable. One of:<br>{@link #GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link #GL_NORMAL_ARRAY NORMAL_ARRAY}, {@link #GL_COLOR_ARRAY COLOR_ARRAY}, {@link GL14#GL_SECONDARY_COLOR_ARRAY SECONDARY_COLOR_ARRAY}, {@link #GL_EDGE_FLAG_ARRAY EDGE_FLAG_ARRAY}, {@link GL15#GL_FOG_COORD_ARRAY FOG_COORD_ARRAY}, {@link #GL_TEXTURE_COORD_ARRAY TEXTURE_COORD_ARRAY}
 	 */
 	public static void glDisableClientState(int array) {
-		long __functionAddress = getInstance().DisableClientState;
+		long __functionAddress = GL.getCapabilities().glDisableClientState;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, array);
@@ -2816,7 +2127,7 @@ public class GL11 {
 	 * @param count the number of vertices after {@code first} to transfer to the GL
 	 */
 	public static void glDrawArrays(int mode, int first, int count) {
-		long __functionAddress = getInstance().DrawArrays;
+		long __functionAddress = GL.getCapabilities().glDrawArrays;
 		callIIIV(__functionAddress, mode, first, count);
 	}
 
@@ -2833,7 +2144,7 @@ public class GL11 {
 	 * @param buf the color buffer to draw to. One of:<br>{@link #GL_NONE NONE}, {@link #GL_FRONT_LEFT FRONT_LEFT}, {@link #GL_FRONT_RIGHT FRONT_RIGHT}, {@link #GL_BACK_LEFT BACK_LEFT}, {@link #GL_BACK_RIGHT BACK_RIGHT}, {@link #GL_FRONT FRONT}, {@link #GL_BACK BACK}, {@link #GL_LEFT LEFT}, {@link #GL_RIGHT RIGHT}, {@link #GL_FRONT_AND_BACK FRONT_AND_BACK}, {@link #GL_AUX0 AUX0}, {@link #GL_AUX1 AUX1}, {@link #GL_AUX2 AUX2}, {@link #GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
 	public static void glDrawBuffer(int buf) {
-		long __functionAddress = getInstance().DrawBuffer;
+		long __functionAddress = GL.getCapabilities().glDrawBuffer;
 		callIV(__functionAddress, buf);
 	}
 
@@ -2841,7 +2152,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glDrawElements DrawElements} */
 	public static void nglDrawElements(int mode, int count, int type, long indices) {
-		long __functionAddress = getInstance().DrawElements;
+		long __functionAddress = GL.getCapabilities().glDrawElements;
 		callIIIPV(__functionAddress, mode, count, type, indices);
 	}
 
@@ -2904,7 +2215,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glDrawPixels DrawPixels} */
 	public static void nglDrawPixels(int width, int height, int format, int type, long pixels) {
-		long __functionAddress = getInstance().DrawPixels;
+		long __functionAddress = GL.getCapabilities().glDrawPixels;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, width, height, format, type, pixels);
@@ -2971,7 +2282,7 @@ public class GL11 {
 	 * @param flag the edge flag bit
 	 */
 	public static void glEdgeFlag(boolean flag) {
-		long __functionAddress = getInstance().EdgeFlag;
+		long __functionAddress = GL.getCapabilities().glEdgeFlag;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callZV(__functionAddress, flag);
@@ -2981,7 +2292,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glEdgeFlagv EdgeFlagv} */
 	public static void nglEdgeFlagv(long flag) {
-		long __functionAddress = getInstance().EdgeFlagv;
+		long __functionAddress = GL.getCapabilities().glEdgeFlagv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, flag);
@@ -3004,7 +2315,7 @@ public class GL11 {
 
 	/** Unsafe version of {@link #glEdgeFlagPointer EdgeFlagPointer} */
 	public static void nglEdgeFlagPointer(int stride, long pointer) {
-		long __functionAddress = getInstance().EdgeFlagPointer;
+		long __functionAddress = GL.getCapabilities().glEdgeFlagPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, stride, pointer);
@@ -3041,7 +2352,7 @@ public class GL11 {
 	 * @param array the attribute array to enable. One of:<br>{@link #GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link #GL_NORMAL_ARRAY NORMAL_ARRAY}, {@link #GL_COLOR_ARRAY COLOR_ARRAY}, {@link GL14#GL_SECONDARY_COLOR_ARRAY SECONDARY_COLOR_ARRAY}, {@link #GL_EDGE_FLAG_ARRAY EDGE_FLAG_ARRAY}, {@link GL15#GL_FOG_COORD_ARRAY FOG_COORD_ARRAY}, {@link #GL_TEXTURE_COORD_ARRAY TEXTURE_COORD_ARRAY}
 	 */
 	public static void glEnableClientState(int array) {
-		long __functionAddress = getInstance().EnableClientState;
+		long __functionAddress = GL.getCapabilities().glEnableClientState;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, array);
@@ -3055,7 +2366,7 @@ public class GL11 {
 Ends the definition of vertex attributes of a sequence of primitives to be transferred to the GL.
 	 */
 	public static void glEnd() {
-		long __functionAddress = getInstance().End;
+		long __functionAddress = GL.getCapabilities().glEnd;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
@@ -3071,7 +2382,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 * @param u the domain coordinate u
 	 */
 	public static void glEvalCoord1f(float u) {
-		long __functionAddress = getInstance().EvalCoord1f;
+		long __functionAddress = GL.getCapabilities().glEvalCoord1f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, u);
@@ -3081,7 +2392,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	/** Unsafe version of {@link #glEvalCoord1fv EvalCoord1fv} */
 	public static void nglEvalCoord1fv(long u) {
-		long __functionAddress = getInstance().EvalCoord1fv;
+		long __functionAddress = GL.getCapabilities().glEvalCoord1fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, u);
@@ -3113,7 +2424,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 * @param u the domain coordinate u
 	 */
 	public static void glEvalCoord1d(double u) {
-		long __functionAddress = getInstance().EvalCoord1d;
+		long __functionAddress = GL.getCapabilities().glEvalCoord1d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDV(__functionAddress, u);
@@ -3123,7 +2434,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	/** Unsafe version of {@link #glEvalCoord1dv EvalCoord1dv} */
 	public static void nglEvalCoord1dv(long u) {
-		long __functionAddress = getInstance().EvalCoord1dv;
+		long __functionAddress = GL.getCapabilities().glEvalCoord1dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, u);
@@ -3156,7 +2467,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 * @param v the domain coordinate v
 	 */
 	public static void glEvalCoord2f(float u, float v) {
-		long __functionAddress = getInstance().EvalCoord2f;
+		long __functionAddress = GL.getCapabilities().glEvalCoord2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, u, v);
@@ -3166,7 +2477,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	/** Unsafe version of {@link #glEvalCoord2fv EvalCoord2fv} */
 	public static void nglEvalCoord2fv(long u) {
-		long __functionAddress = getInstance().EvalCoord2fv;
+		long __functionAddress = GL.getCapabilities().glEvalCoord2fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, u);
@@ -3199,7 +2510,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 * @param v the domain coordinate v
 	 */
 	public static void glEvalCoord2d(double u, double v) {
-		long __functionAddress = getInstance().EvalCoord2d;
+		long __functionAddress = GL.getCapabilities().glEvalCoord2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, u, v);
@@ -3209,7 +2520,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	/** Unsafe version of {@link #glEvalCoord2dv EvalCoord2dv} */
 	public static void nglEvalCoord2dv(long u) {
-		long __functionAddress = getInstance().EvalCoord2dv;
+		long __functionAddress = GL.getCapabilities().glEvalCoord2dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, u);
@@ -3243,7 +2554,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 * @param i2   the end index
 	 */
 	public static void glEvalMesh1(int mode, int i1, int i2) {
-		long __functionAddress = getInstance().EvalMesh1;
+		long __functionAddress = GL.getCapabilities().glEvalMesh1;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, mode, i1, i2);
@@ -3263,7 +2574,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 * @param j2   the v-dimension end index
 	 */
 	public static void glEvalMesh2(int mode, int i1, int i2, int j1, int j2) {
-		long __functionAddress = getInstance().EvalMesh2;
+		long __functionAddress = GL.getCapabilities().glEvalMesh2;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, mode, i1, i2, j1, j2);
@@ -3279,7 +2590,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 * @param i the grid index
 	 */
 	public static void glEvalPoint1(int i) {
-		long __functionAddress = getInstance().EvalPoint1;
+		long __functionAddress = GL.getCapabilities().glEvalPoint1;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, i);
@@ -3296,7 +2607,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 * @param j the v-dimension grid index
 	 */
 	public static void glEvalPoint2(int i, int j) {
-		long __functionAddress = getInstance().EvalPoint2;
+		long __functionAddress = GL.getCapabilities().glEvalPoint2;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, i, j);
@@ -3306,7 +2617,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	/** Unsafe version of {@link #glFeedbackBuffer FeedbackBuffer} */
 	public static void nglFeedbackBuffer(int size, int type, long buffer) {
-		long __functionAddress = getInstance().FeedbackBuffer;
+		long __functionAddress = GL.getCapabilities().glFeedbackBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, size, type, buffer);
@@ -3341,7 +2652,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 * state and the framebuffer are fully realized.
 	 */
 	public static void glFinish() {
-		long __functionAddress = getInstance().Finish;
+		long __functionAddress = GL.getCapabilities().glFinish;
 		callV(__functionAddress);
 	}
 
@@ -3353,7 +2664,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 Causes all previously issued GL commands to complete in finite time (although such commands may still be executing when {@code Flush} returns).
 	 */
 	public static void glFlush() {
-		long __functionAddress = getInstance().Flush;
+		long __functionAddress = GL.getCapabilities().glFlush;
 		callV(__functionAddress);
 	}
 
@@ -3368,7 +2679,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param param the fog parameter value. One of:<br>{@link #GL_EXP EXP}, {@link #GL_EXP2 EXP2}, {@link #GL_LINEAR LINEAR}, {@link GL14#GL_FRAGMENT_DEPTH FRAGMENT_DEPTH}, {@link GL15#GL_FOG_COORD FOG_COORD}
 	 */
 	public static void glFogi(int pname, int param) {
-		long __functionAddress = getInstance().Fogi;
+		long __functionAddress = GL.getCapabilities().glFogi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, param);
@@ -3378,7 +2689,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glFogiv Fogiv} */
 	public static void nglFogiv(int pname, long params) {
-		long __functionAddress = getInstance().Fogiv;
+		long __functionAddress = GL.getCapabilities().glFogiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
@@ -3416,7 +2727,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param param the fog parameter value
 	 */
 	public static void glFogf(int pname, float param) {
-		long __functionAddress = getInstance().Fogf;
+		long __functionAddress = GL.getCapabilities().glFogf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, pname, param);
@@ -3426,7 +2737,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glFogfv Fogfv} */
 	public static void nglFogfv(int pname, long params) {
-		long __functionAddress = getInstance().Fogfv;
+		long __functionAddress = GL.getCapabilities().glFogfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
@@ -3465,7 +2776,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param dir the front face direction. One of:<br>{@link #GL_CCW CCW}, {@link #GL_CW CW}
 	 */
 	public static void glFrontFace(int dir) {
-		long __functionAddress = getInstance().FrontFace;
+		long __functionAddress = GL.getCapabilities().glFrontFace;
 		callIV(__functionAddress, dir);
 	}
 
@@ -3482,7 +2793,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param s the number of display lists to create
 	 */
 	public static int glGenLists(int s) {
-		long __functionAddress = getInstance().GenLists;
+		long __functionAddress = GL.getCapabilities().glGenLists;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, s);
@@ -3492,7 +2803,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glGenTextures GenTextures} */
 	public static void nglGenTextures(int n, long textures) {
-		long __functionAddress = getInstance().GenTextures;
+		long __functionAddress = GL.getCapabilities().glGenTextures;
 		callIPV(__functionAddress, n, textures);
 	}
 
@@ -3518,17 +2829,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGenTextures GenTextures} */
 	public static int glGenTextures() {
-		APIBuffer __buffer = apiBuffer();
-		int textures = __buffer.intParam();
-		nglGenTextures(1, __buffer.address(textures));
-		return __buffer.intValue(textures);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer textures = stack.callocInt(1);
+			nglGenTextures(1, memAddress(textures));
+			return textures.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDeleteTextures ] ---
 
 	/** Unsafe version of {@link #glDeleteTextures DeleteTextures} */
 	public static void nglDeleteTextures(int n, long textures) {
-		long __functionAddress = getInstance().DeleteTextures;
+		long __functionAddress = GL.getCapabilities().glDeleteTextures;
 		callIPV(__functionAddress, n, textures);
 	}
 
@@ -3559,16 +2874,20 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single value version of: {@link #glDeleteTextures DeleteTextures} */
 	public static void glDeleteTextures(int texture) {
-		APIBuffer __buffer = apiBuffer();
-		int textures = __buffer.intParam(texture);
-		nglDeleteTextures(1, __buffer.address(textures));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer textures = stack.ints(texture);
+			nglDeleteTextures(1, memAddress(textures));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetClipPlane ] ---
 
 	/** Unsafe version of {@link #glGetClipPlane GetClipPlane} */
 	public static void nglGetClipPlane(int plane, long equation) {
-		long __functionAddress = getInstance().GetClipPlane;
+		long __functionAddress = GL.getCapabilities().glGetClipPlane;
 		callIPV(__functionAddress, plane, equation);
 	}
 
@@ -3598,7 +2917,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glGetBooleanv GetBooleanv} */
 	public static void nglGetBooleanv(int pname, long params) {
-		long __functionAddress = getInstance().GetBooleanv;
+		long __functionAddress = GL.getCapabilities().glGetBooleanv;
 		callIPV(__functionAddress, pname, params);
 	}
 
@@ -3621,18 +2940,22 @@ Causes all previously issued GL commands to complete in finite time (although su
 	}
 
 	/** Single return value version of: {@link #glGetBooleanv GetBooleanv} */
-	public static boolean glGetBoolean(int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.booleanParam();
-		nglGetBooleanv(pname, __buffer.address(params));
-		return __buffer.booleanValue(params);
+	public static byte glGetBoolean(int pname) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer params = stack.calloc(1);
+			nglGetBooleanv(pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetFloatv ] ---
 
 	/** Unsafe version of {@link #glGetFloatv GetFloatv} */
 	public static void nglGetFloatv(int pname, long params) {
-		long __functionAddress = getInstance().GetFloatv;
+		long __functionAddress = GL.getCapabilities().glGetFloatv;
 		callIPV(__functionAddress, pname, params);
 	}
 
@@ -3663,17 +2986,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetFloatv GetFloatv} */
 	public static float glGetFloat(int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetFloatv(pname, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetFloatv(pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetIntegerv ] ---
 
 	/** Unsafe version of {@link #glGetIntegerv GetIntegerv} */
 	public static void nglGetIntegerv(int pname, long params) {
-		long __functionAddress = getInstance().GetIntegerv;
+		long __functionAddress = GL.getCapabilities().glGetIntegerv;
 		callIPV(__functionAddress, pname, params);
 	}
 
@@ -3704,17 +3031,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetIntegerv GetIntegerv} */
 	public static int glGetInteger(int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetIntegerv(pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetIntegerv(pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetDoublev ] ---
 
 	/** Unsafe version of {@link #glGetDoublev GetDoublev} */
 	public static void nglGetDoublev(int pname, long params) {
-		long __functionAddress = getInstance().GetDoublev;
+		long __functionAddress = GL.getCapabilities().glGetDoublev;
 		callIPV(__functionAddress, pname, params);
 	}
 
@@ -3745,10 +3076,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetDoublev GetDoublev} */
 	public static double glGetDouble(int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.doubleParam();
-		nglGetDoublev(pname, __buffer.address(params));
-		return __buffer.doubleValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer params = stack.callocDouble(1);
+			nglGetDoublev(pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetError ] ---
@@ -3762,7 +3097,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * the last call to {@code GetError} (or since the GL was initialized).
 	 */
 	public static int glGetError() {
-		long __functionAddress = getInstance().GetError;
+		long __functionAddress = GL.getCapabilities().glGetError;
 		return callI(__functionAddress);
 	}
 
@@ -3770,7 +3105,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glGetLightiv GetLightiv} */
 	public static void nglGetLightiv(int light, int pname, long data) {
-		long __functionAddress = getInstance().GetLightiv;
+		long __functionAddress = GL.getCapabilities().glGetLightiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, light, pname, data);
@@ -3800,17 +3135,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetLightiv GetLightiv} */
 	public static int glGetLighti(int light, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.intParam();
-		nglGetLightiv(light, pname, __buffer.address(data));
-		return __buffer.intValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer data = stack.callocInt(1);
+			nglGetLightiv(light, pname, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetLightfv ] ---
 
 	/** Unsafe version of {@link #glGetLightfv GetLightfv} */
 	public static void nglGetLightfv(int light, int pname, long data) {
-		long __functionAddress = getInstance().GetLightfv;
+		long __functionAddress = GL.getCapabilities().glGetLightfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, light, pname, data);
@@ -3840,17 +3179,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetLightfv GetLightfv} */
 	public static float glGetLightf(int light, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.floatParam();
-		nglGetLightfv(light, pname, __buffer.address(data));
-		return __buffer.floatValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer data = stack.callocFloat(1);
+			nglGetLightfv(light, pname, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetMapiv ] ---
 
 	/** Unsafe version of {@link #glGetMapiv GetMapiv} */
 	public static void nglGetMapiv(int target, int query, long data) {
-		long __functionAddress = getInstance().GetMapiv;
+		long __functionAddress = GL.getCapabilities().glGetMapiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, query, data);
@@ -3880,17 +3223,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetMapiv GetMapiv} */
 	public static int glGetMapi(int target, int query) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.intParam();
-		nglGetMapiv(target, query, __buffer.address(data));
-		return __buffer.intValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer data = stack.callocInt(1);
+			nglGetMapiv(target, query, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetMapfv ] ---
 
 	/** Unsafe version of {@link #glGetMapfv GetMapfv} */
 	public static void nglGetMapfv(int target, int query, long data) {
-		long __functionAddress = getInstance().GetMapfv;
+		long __functionAddress = GL.getCapabilities().glGetMapfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, query, data);
@@ -3920,17 +3267,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetMapfv GetMapfv} */
 	public static float glGetMapf(int target, int query) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.floatParam();
-		nglGetMapfv(target, query, __buffer.address(data));
-		return __buffer.floatValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer data = stack.callocFloat(1);
+			nglGetMapfv(target, query, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetMapdv ] ---
 
 	/** Unsafe version of {@link #glGetMapdv GetMapdv} */
 	public static void nglGetMapdv(int target, int query, long data) {
-		long __functionAddress = getInstance().GetMapdv;
+		long __functionAddress = GL.getCapabilities().glGetMapdv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, query, data);
@@ -3960,17 +3311,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetMapdv GetMapdv} */
 	public static double glGetMapd(int target, int query) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.doubleParam();
-		nglGetMapdv(target, query, __buffer.address(data));
-		return __buffer.doubleValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer data = stack.callocDouble(1);
+			nglGetMapdv(target, query, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetMaterialiv ] ---
 
 	/** Unsafe version of {@link #glGetMaterialiv GetMaterialiv} */
 	public static void nglGetMaterialiv(int face, int pname, long data) {
-		long __functionAddress = getInstance().GetMaterialiv;
+		long __functionAddress = GL.getCapabilities().glGetMaterialiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, face, pname, data);
@@ -3998,7 +3353,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glGetMaterialfv GetMaterialfv} */
 	public static void nglGetMaterialfv(int face, int pname, long data) {
-		long __functionAddress = getInstance().GetMaterialfv;
+		long __functionAddress = GL.getCapabilities().glGetMaterialfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, face, pname, data);
@@ -4026,7 +3381,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glGetPixelMapfv GetPixelMapfv} */
 	public static void nglGetPixelMapfv(int map, long data) {
-		long __functionAddress = getInstance().GetPixelMapfv;
+		long __functionAddress = GL.getCapabilities().glGetPixelMapfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, map, data);
@@ -4068,7 +3423,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glGetPixelMapusv GetPixelMapusv} */
 	public static void nglGetPixelMapusv(int map, long data) {
-		long __functionAddress = getInstance().GetPixelMapusv;
+		long __functionAddress = GL.getCapabilities().glGetPixelMapusv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, map, data);
@@ -4110,7 +3465,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glGetPixelMapuiv GetPixelMapuiv} */
 	public static void nglGetPixelMapuiv(int map, long data) {
-		long __functionAddress = getInstance().GetPixelMapuiv;
+		long __functionAddress = GL.getCapabilities().glGetPixelMapuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, map, data);
@@ -4152,7 +3507,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glGetPointerv GetPointerv} */
 	public static void nglGetPointerv(int pname, long params) {
-		long __functionAddress = getInstance().GetPointerv;
+		long __functionAddress = GL.getCapabilities().glGetPointerv;
 		callIPV(__functionAddress, pname, params);
 	}
 
@@ -4179,17 +3534,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetPointerv GetPointerv} */
 	public static long glGetPointer(int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.pointerParam();
-		nglGetPointerv(pname, __buffer.address(params));
-		return __buffer.pointerValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer params = stack.callocPointer(1);
+			nglGetPointerv(pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetPolygonStipple ] ---
 
 	/** Unsafe version of {@link #glGetPolygonStipple GetPolygonStipple} */
 	public static void nglGetPolygonStipple(long pattern) {
-		long __functionAddress = getInstance().GetPolygonStipple;
+		long __functionAddress = GL.getCapabilities().glGetPolygonStipple;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, pattern);
@@ -4221,7 +3580,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glGetString GetString} */
 	public static long nglGetString(int name) {
-		long __functionAddress = getInstance().GetString;
+		long __functionAddress = GL.getCapabilities().glGetString;
 		return callIP(__functionAddress, name);
 	}
 
@@ -4234,14 +3593,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static String glGetString(int name) {
 		long __result = nglGetString(name);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ glGetTexEnviv ] ---
 
 	/** Unsafe version of {@link #glGetTexEnviv GetTexEnviv} */
 	public static void nglGetTexEnviv(int env, int pname, long data) {
-		long __functionAddress = getInstance().GetTexEnviv;
+		long __functionAddress = GL.getCapabilities().glGetTexEnviv;
 		callIIPV(__functionAddress, env, pname, data);
 	}
 
@@ -4269,17 +3628,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetTexEnviv GetTexEnviv} */
 	public static int glGetTexEnvi(int env, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.intParam();
-		nglGetTexEnviv(env, pname, __buffer.address(data));
-		return __buffer.intValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer data = stack.callocInt(1);
+			nglGetTexEnviv(env, pname, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexEnvfv ] ---
 
 	/** Unsafe version of {@link #glGetTexEnvfv GetTexEnvfv} */
 	public static void nglGetTexEnvfv(int env, int pname, long data) {
-		long __functionAddress = getInstance().GetTexEnvfv;
+		long __functionAddress = GL.getCapabilities().glGetTexEnvfv;
 		callIIPV(__functionAddress, env, pname, data);
 	}
 
@@ -4307,17 +3670,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetTexEnvfv GetTexEnvfv} */
 	public static float glGetTexEnvf(int env, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.floatParam();
-		nglGetTexEnvfv(env, pname, __buffer.address(data));
-		return __buffer.floatValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer data = stack.callocFloat(1);
+			nglGetTexEnvfv(env, pname, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexGeniv ] ---
 
 	/** Unsafe version of {@link #glGetTexGeniv GetTexGeniv} */
 	public static void nglGetTexGeniv(int coord, int pname, long data) {
-		long __functionAddress = getInstance().GetTexGeniv;
+		long __functionAddress = GL.getCapabilities().glGetTexGeniv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, data);
@@ -4347,17 +3714,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetTexGeniv GetTexGeniv} */
 	public static int glGetTexGeni(int coord, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.intParam();
-		nglGetTexGeniv(coord, pname, __buffer.address(data));
-		return __buffer.intValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer data = stack.callocInt(1);
+			nglGetTexGeniv(coord, pname, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexGenfv ] ---
 
 	/** Unsafe version of {@link #glGetTexGenfv GetTexGenfv} */
 	public static void nglGetTexGenfv(int coord, int pname, long data) {
-		long __functionAddress = getInstance().GetTexGenfv;
+		long __functionAddress = GL.getCapabilities().glGetTexGenfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, data);
@@ -4387,17 +3758,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetTexGenfv GetTexGenfv} */
 	public static float glGetTexGenf(int coord, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.floatParam();
-		nglGetTexGenfv(coord, pname, __buffer.address(data));
-		return __buffer.floatValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer data = stack.callocFloat(1);
+			nglGetTexGenfv(coord, pname, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexGendv ] ---
 
 	/** Unsafe version of {@link #glGetTexGendv GetTexGendv} */
 	public static void nglGetTexGendv(int coord, int pname, long data) {
-		long __functionAddress = getInstance().GetTexGendv;
+		long __functionAddress = GL.getCapabilities().glGetTexGendv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, data);
@@ -4427,17 +3802,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetTexGendv GetTexGendv} */
 	public static double glGetTexGend(int coord, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.doubleParam();
-		nglGetTexGendv(coord, pname, __buffer.address(data));
-		return __buffer.doubleValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer data = stack.callocDouble(1);
+			nglGetTexGendv(coord, pname, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexImage ] ---
 
 	/** Unsafe version of {@link #glGetTexImage GetTexImage} */
 	public static void nglGetTexImage(int tex, int level, int format, int type, long pixels) {
-		long __functionAddress = getInstance().GetTexImage;
+		long __functionAddress = GL.getCapabilities().glGetTexImage;
 		callIIIIPV(__functionAddress, tex, level, format, type, pixels);
 	}
 
@@ -4497,7 +3876,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
 	public static void nglGetTexLevelParameteriv(int target, int level, int pname, long params) {
-		long __functionAddress = getInstance().GetTexLevelParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetTexLevelParameteriv;
 		callIIIPV(__functionAddress, target, level, pname, params);
 	}
 
@@ -4526,17 +3905,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
 	public static int glGetTexLevelParameteri(int target, int level, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTexLevelParameteriv(target, level, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTexLevelParameteriv(target, level, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexLevelParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
 	public static void nglGetTexLevelParameterfv(int target, int level, int pname, long params) {
-		long __functionAddress = getInstance().GetTexLevelParameterfv;
+		long __functionAddress = GL.getCapabilities().glGetTexLevelParameterfv;
 		callIIIPV(__functionAddress, target, level, pname, params);
 	}
 
@@ -4565,17 +3948,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
 	public static float glGetTexLevelParameterf(int target, int level, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetTexLevelParameterfv(target, level, pname, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetTexLevelParameterfv(target, level, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetTexParameteriv GetTexParameteriv} */
 	public static void nglGetTexParameteriv(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetTexParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetTexParameteriv;
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -4603,17 +3990,21 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetTexParameteriv GetTexParameteriv} */
 	public static int glGetTexParameteri(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTexParameteriv(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTexParameteriv(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTexParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetTexParameterfv GetTexParameterfv} */
 	public static void nglGetTexParameterfv(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetTexParameterfv;
+		long __functionAddress = GL.getCapabilities().glGetTexParameterfv;
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -4641,10 +4032,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Single return value version of: {@link #glGetTexParameterfv GetTexParameterfv} */
 	public static float glGetTexParameterf(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetTexParameterfv(target, pname, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetTexParameterfv(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glHint ] ---
@@ -4659,7 +4054,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param hint   the behavior hint. One of:<br>{@link #GL_FASTEST FASTEST}, {@link #GL_NICEST NICEST}, {@link #GL_DONT_CARE DONT_CARE}
 	 */
 	public static void glHint(int target, int hint) {
-		long __functionAddress = getInstance().Hint;
+		long __functionAddress = GL.getCapabilities().glHint;
 		callIIV(__functionAddress, target, hint);
 	}
 
@@ -4673,7 +4068,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param index the value to which the current color index should be set
 	 */
 	public static void glIndexi(int index) {
-		long __functionAddress = getInstance().Indexi;
+		long __functionAddress = GL.getCapabilities().glIndexi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, index);
@@ -4689,7 +4084,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param index the value to which the current color index should be set
 	 */
 	public static void glIndexub(byte index) {
-		long __functionAddress = getInstance().Indexub;
+		long __functionAddress = GL.getCapabilities().glIndexub;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBV(__functionAddress, index);
@@ -4705,7 +4100,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param index the value to which the current color index should be set
 	 */
 	public static void glIndexs(short index) {
-		long __functionAddress = getInstance().Indexs;
+		long __functionAddress = GL.getCapabilities().glIndexs;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSV(__functionAddress, index);
@@ -4721,7 +4116,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param index the value to which the current color index should be set
 	 */
 	public static void glIndexf(float index) {
-		long __functionAddress = getInstance().Indexf;
+		long __functionAddress = GL.getCapabilities().glIndexf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, index);
@@ -4737,7 +4132,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param index the value to which the current color index should be set
 	 */
 	public static void glIndexd(double index) {
-		long __functionAddress = getInstance().Indexd;
+		long __functionAddress = GL.getCapabilities().glIndexd;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDV(__functionAddress, index);
@@ -4747,7 +4142,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glIndexiv Indexiv} */
 	public static void nglIndexiv(long index) {
-		long __functionAddress = getInstance().Indexiv;
+		long __functionAddress = GL.getCapabilities().glIndexiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, index);
@@ -4777,7 +4172,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glIndexubv Indexubv} */
 	public static void nglIndexubv(long index) {
-		long __functionAddress = getInstance().Indexubv;
+		long __functionAddress = GL.getCapabilities().glIndexubv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, index);
@@ -4800,7 +4195,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glIndexsv Indexsv} */
 	public static void nglIndexsv(long index) {
-		long __functionAddress = getInstance().Indexsv;
+		long __functionAddress = GL.getCapabilities().glIndexsv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, index);
@@ -4830,7 +4225,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glIndexfv Indexfv} */
 	public static void nglIndexfv(long index) {
-		long __functionAddress = getInstance().Indexfv;
+		long __functionAddress = GL.getCapabilities().glIndexfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, index);
@@ -4860,7 +4255,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glIndexdv Indexdv} */
 	public static void nglIndexdv(long index) {
-		long __functionAddress = getInstance().Indexdv;
+		long __functionAddress = GL.getCapabilities().glIndexdv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, index);
@@ -4898,7 +4293,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param mask the color index mask value
 	 */
 	public static void glIndexMask(int mask) {
-		long __functionAddress = getInstance().IndexMask;
+		long __functionAddress = GL.getCapabilities().glIndexMask;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mask);
@@ -4908,7 +4303,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Unsafe version of {@link #glIndexPointer IndexPointer} */
 	public static void nglIndexPointer(int type, int stride, long pointer) {
-		long __functionAddress = getInstance().IndexPointer;
+		long __functionAddress = GL.getCapabilities().glIndexPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, type, stride, pointer);
@@ -4965,7 +4360,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 Clears the selection name stack.
 	 */
 	public static void glInitNames() {
-		long __functionAddress = getInstance().InitNames;
+		long __functionAddress = GL.getCapabilities().glInitNames;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
@@ -4975,7 +4370,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glInterleavedArrays InterleavedArrays} */
 	public static void nglInterleavedArrays(int format, int stride, long pointer) {
-		long __functionAddress = getInstance().InterleavedArrays;
+		long __functionAddress = GL.getCapabilities().glInterleavedArrays;
 		callIIPV(__functionAddress, format, stride, pointer);
 	}
 
@@ -5039,7 +4434,7 @@ Clears the selection name stack.
 	 * @param cap the enable state to query
 	 */
 	public static boolean glIsEnabled(int cap) {
-		long __functionAddress = getInstance().IsEnabled;
+		long __functionAddress = GL.getCapabilities().glIsEnabled;
 		return callIZ(__functionAddress, cap);
 	}
 
@@ -5053,7 +4448,7 @@ Clears the selection name stack.
 	 * @param list the list index to query
 	 */
 	public static boolean glIsList(int list) {
-		long __functionAddress = getInstance().IsList;
+		long __functionAddress = GL.getCapabilities().glIsList;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, list);
@@ -5069,7 +4464,7 @@ Clears the selection name stack.
 	 * @param texture the texture name to query
 	 */
 	public static boolean glIsTexture(int texture) {
-		long __functionAddress = getInstance().IsTexture;
+		long __functionAddress = GL.getCapabilities().glIsTexture;
 		return callIZ(__functionAddress, texture);
 	}
 
@@ -5084,7 +4479,7 @@ Clears the selection name stack.
 	 * @param param the parameter value
 	 */
 	public static void glLightModeli(int pname, int param) {
-		long __functionAddress = getInstance().LightModeli;
+		long __functionAddress = GL.getCapabilities().glLightModeli;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, param);
@@ -5101,7 +4496,7 @@ Clears the selection name stack.
 	 * @param param the parameter value
 	 */
 	public static void glLightModelf(int pname, float param) {
-		long __functionAddress = getInstance().LightModelf;
+		long __functionAddress = GL.getCapabilities().glLightModelf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, pname, param);
@@ -5111,7 +4506,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glLightModeliv LightModeliv} */
 	public static void nglLightModeliv(int pname, long params) {
-		long __functionAddress = getInstance().LightModeliv;
+		long __functionAddress = GL.getCapabilities().glLightModeliv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
@@ -5142,7 +4537,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glLightModelfv LightModelfv} */
 	public static void nglLightModelfv(int pname, long params) {
-		long __functionAddress = getInstance().LightModelfv;
+		long __functionAddress = GL.getCapabilities().glLightModelfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
@@ -5181,7 +4576,7 @@ Clears the selection name stack.
 	 * @param param the parameter value
 	 */
 	public static void glLighti(int light, int pname, int param) {
-		long __functionAddress = getInstance().Lighti;
+		long __functionAddress = GL.getCapabilities().glLighti;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, light, pname, param);
@@ -5199,7 +4594,7 @@ Clears the selection name stack.
 	 * @param param the parameter value
 	 */
 	public static void glLightf(int light, int pname, float param) {
-		long __functionAddress = getInstance().Lightf;
+		long __functionAddress = GL.getCapabilities().glLightf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIFV(__functionAddress, light, pname, param);
@@ -5209,7 +4604,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glLightiv Lightiv} */
 	public static void nglLightiv(int light, int pname, long params) {
-		long __functionAddress = getInstance().Lightiv;
+		long __functionAddress = GL.getCapabilities().glLightiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, light, pname, params);
@@ -5241,7 +4636,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glLightfv Lightfv} */
 	public static void nglLightfv(int light, int pname, long params) {
-		long __functionAddress = getInstance().Lightfv;
+		long __functionAddress = GL.getCapabilities().glLightfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, light, pname, params);
@@ -5282,7 +4677,7 @@ Clears the selection name stack.
 	 * @param pattern an unsigned short integer whose 16 bits define the stipple pattern
 	 */
 	public static void glLineStipple(int factor, short pattern) {
-		long __functionAddress = getInstance().LineStipple;
+		long __functionAddress = GL.getCapabilities().glLineStipple;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISV(__functionAddress, factor, pattern);
@@ -5298,7 +4693,7 @@ Clears the selection name stack.
 	 * @param width the line width
 	 */
 	public static void glLineWidth(float width) {
-		long __functionAddress = getInstance().LineWidth;
+		long __functionAddress = GL.getCapabilities().glLineWidth;
 		callFV(__functionAddress, width);
 	}
 
@@ -5312,7 +4707,7 @@ Clears the selection name stack.
 	 * @param base the display list base offset
 	 */
 	public static void glListBase(int base) {
-		long __functionAddress = getInstance().ListBase;
+		long __functionAddress = GL.getCapabilities().glListBase;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, base);
@@ -5322,7 +4717,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glLoadMatrixf LoadMatrixf} */
 	public static void nglLoadMatrixf(long m) {
-		long __functionAddress = getInstance().LoadMatrixf;
+		long __functionAddress = GL.getCapabilities().glLoadMatrixf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
@@ -5364,7 +4759,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glLoadMatrixd LoadMatrixd} */
 	public static void nglLoadMatrixd(long m) {
-		long __functionAddress = getInstance().LoadMatrixd;
+		long __functionAddress = GL.getCapabilities().glLoadMatrixd;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
@@ -5407,7 +4802,7 @@ Clears the selection name stack.
 	 * </table>
 	 */
 	public static void glLoadIdentity() {
-		long __functionAddress = getInstance().LoadIdentity;
+		long __functionAddress = GL.getCapabilities().glLoadIdentity;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
@@ -5423,7 +4818,7 @@ Clears the selection name stack.
 	 * @param name the name to load
 	 */
 	public static void glLoadName(int name) {
-		long __functionAddress = getInstance().LoadName;
+		long __functionAddress = GL.getCapabilities().glLoadName;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, name);
@@ -5439,7 +4834,7 @@ Clears the selection name stack.
 	 * @param op the operation to set. One of:<br>{@link #GL_CLEAR CLEAR}, {@link #GL_AND AND}, {@link #GL_AND_REVERSE AND_REVERSE}, {@link #GL_COPY COPY}, {@link #GL_AND_INVERTED AND_INVERTED}, {@link #GL_NOOP NOOP}, {@link #GL_XOR XOR}, {@link #GL_OR OR}, {@link #GL_NOR NOR}, {@link #GL_EQUIV EQUIV}, {@link #GL_INVERT INVERT}, {@link #GL_OR_REVERSE OR_REVERSE}, {@link #GL_COPY_INVERTED COPY_INVERTED}, {@link #GL_OR_INVERTED OR_INVERTED}, {@link #GL_NAND NAND}, {@link #GL_SET SET}
 	 */
 	public static void glLogicOp(int op) {
-		long __functionAddress = getInstance().LogicOp;
+		long __functionAddress = GL.getCapabilities().glLogicOp;
 		callIV(__functionAddress, op);
 	}
 
@@ -5447,7 +4842,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glMap1f Map1f} */
 	public static void nglMap1f(int target, float u1, float u2, int stride, int order, long points) {
-		long __functionAddress = getInstance().Map1f;
+		long __functionAddress = GL.getCapabilities().glMap1f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFIIPV(__functionAddress, target, u1, u2, stride, order, points);
@@ -5483,7 +4878,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glMap1d Map1d} */
 	public static void nglMap1d(int target, double u1, double u2, int stride, int order, long points) {
-		long __functionAddress = getInstance().Map1d;
+		long __functionAddress = GL.getCapabilities().glMap1d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDIIPV(__functionAddress, target, u1, u2, stride, order, points);
@@ -5518,7 +4913,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glMap2f Map2f} */
 	public static void nglMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, long points) {
-		long __functionAddress = getInstance().Map2f;
+		long __functionAddress = GL.getCapabilities().glMap2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFIIFFIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
@@ -5557,7 +4952,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glMap2d Map2d} */
 	public static void nglMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, long points) {
-		long __functionAddress = getInstance().Map2d;
+		long __functionAddress = GL.getCapabilities().glMap2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDIIDDIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
@@ -5604,7 +4999,7 @@ Clears the selection name stack.
 	 * @param u2 the second interval endpoint
 	 */
 	public static void glMapGrid1f(int n, float u1, float u2) {
-		long __functionAddress = getInstance().MapGrid1f;
+		long __functionAddress = GL.getCapabilities().glMapGrid1f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFV(__functionAddress, n, u1, u2);
@@ -5622,7 +5017,7 @@ Clears the selection name stack.
 	 * @param u2 the second interval endpoint
 	 */
 	public static void glMapGrid1d(int n, double u1, double u2) {
-		long __functionAddress = getInstance().MapGrid1d;
+		long __functionAddress = GL.getCapabilities().glMapGrid1d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDV(__functionAddress, n, u1, u2);
@@ -5643,7 +5038,7 @@ Clears the selection name stack.
 	 * @param v2 the second v-dimension interval endpoint
 	 */
 	public static void glMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2) {
-		long __functionAddress = getInstance().MapGrid2f;
+		long __functionAddress = GL.getCapabilities().glMapGrid2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFIFFV(__functionAddress, un, u1, u2, vn, v1, v2);
@@ -5664,7 +5059,7 @@ Clears the selection name stack.
 	 * @param v2 the second v-dimension interval endpoint
 	 */
 	public static void glMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2) {
-		long __functionAddress = getInstance().MapGrid2d;
+		long __functionAddress = GL.getCapabilities().glMapGrid2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDIDDV(__functionAddress, un, u1, u2, vn, v1, v2);
@@ -5682,7 +5077,7 @@ Clears the selection name stack.
 	 * @param param the parameter value
 	 */
 	public static void glMateriali(int face, int pname, int param) {
-		long __functionAddress = getInstance().Materiali;
+		long __functionAddress = GL.getCapabilities().glMateriali;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, face, pname, param);
@@ -5700,7 +5095,7 @@ Clears the selection name stack.
 	 * @param param the parameter value
 	 */
 	public static void glMaterialf(int face, int pname, float param) {
-		long __functionAddress = getInstance().Materialf;
+		long __functionAddress = GL.getCapabilities().glMaterialf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIFV(__functionAddress, face, pname, param);
@@ -5710,7 +5105,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glMaterialiv Materialiv} */
 	public static void nglMaterialiv(int face, int pname, long params) {
-		long __functionAddress = getInstance().Materialiv;
+		long __functionAddress = GL.getCapabilities().glMaterialiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, face, pname, params);
@@ -5742,7 +5137,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glMaterialfv Materialfv} */
 	public static void nglMaterialfv(int face, int pname, long params) {
-		long __functionAddress = getInstance().Materialfv;
+		long __functionAddress = GL.getCapabilities().glMaterialfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, face, pname, params);
@@ -5780,7 +5175,7 @@ Clears the selection name stack.
 	 * @param mode the matrix mode. One of:<br>{@link #GL_MODELVIEW MODELVIEW}, {@link #GL_PROJECTION PROJECTION}, {@link #GL_TEXTURE TEXTURE}, {@link #GL_COLOR COLOR}
 	 */
 	public static void glMatrixMode(int mode) {
-		long __functionAddress = getInstance().MatrixMode;
+		long __functionAddress = GL.getCapabilities().glMatrixMode;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
@@ -5790,7 +5185,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glMultMatrixf MultMatrixf} */
 	public static void nglMultMatrixf(long m) {
-		long __functionAddress = getInstance().MultMatrixf;
+		long __functionAddress = GL.getCapabilities().glMultMatrixf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
@@ -5820,7 +5215,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glMultMatrixd MultMatrixd} */
 	public static void nglMultMatrixd(long m) {
-		long __functionAddress = getInstance().MultMatrixd;
+		long __functionAddress = GL.getCapabilities().glMultMatrixd;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
@@ -5873,7 +5268,7 @@ Clears the selection name stack.
 	 * @param f the far frustum plane
 	 */
 	public static void glFrustum(double l, double r, double b, double t, double n, double f) {
-		long __functionAddress = getInstance().Frustum;
+		long __functionAddress = GL.getCapabilities().glFrustum;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDDDV(__functionAddress, l, r, b, t, n, f);
@@ -5890,7 +5285,7 @@ Clears the selection name stack.
 	 * @param mode a symbolic constant that controls the behavior of the GL during display list creation. One of:<br>{@link #GL_COMPILE COMPILE}, {@link #GL_COMPILE_AND_EXECUTE COMPILE_AND_EXECUTE}
 	 */
 	public static void glNewList(int n, int mode) {
-		long __functionAddress = getInstance().NewList;
+		long __functionAddress = GL.getCapabilities().glNewList;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, n, mode);
@@ -5905,7 +5300,7 @@ Clears the selection name stack.
 	 * associated with the index indicated with {@link #glNewList NewList}.
 	 */
 	public static void glEndList() {
-		long __functionAddress = getInstance().EndList;
+		long __functionAddress = GL.getCapabilities().glEndList;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
@@ -5923,7 +5318,7 @@ Clears the selection name stack.
 	 * @param nz the z coordinate of the current normal
 	 */
 	public static void glNormal3f(float nx, float ny, float nz) {
-		long __functionAddress = getInstance().Normal3f;
+		long __functionAddress = GL.getCapabilities().glNormal3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, nx, ny, nz);
@@ -5941,7 +5336,7 @@ Clears the selection name stack.
 	 * @param nz the z coordinate of the current normal
 	 */
 	public static void glNormal3b(byte nx, byte ny, byte nz) {
-		long __functionAddress = getInstance().Normal3b;
+		long __functionAddress = GL.getCapabilities().glNormal3b;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBV(__functionAddress, nx, ny, nz);
@@ -5959,7 +5354,7 @@ Clears the selection name stack.
 	 * @param nz the z coordinate of the current normal
 	 */
 	public static void glNormal3s(short nx, short ny, short nz) {
-		long __functionAddress = getInstance().Normal3s;
+		long __functionAddress = GL.getCapabilities().glNormal3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, nx, ny, nz);
@@ -5977,7 +5372,7 @@ Clears the selection name stack.
 	 * @param nz the z coordinate of the current normal
 	 */
 	public static void glNormal3i(int nx, int ny, int nz) {
-		long __functionAddress = getInstance().Normal3i;
+		long __functionAddress = GL.getCapabilities().glNormal3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, nx, ny, nz);
@@ -5995,7 +5390,7 @@ Clears the selection name stack.
 	 * @param nz the z coordinate of the current normal
 	 */
 	public static void glNormal3d(double nx, double ny, double nz) {
-		long __functionAddress = getInstance().Normal3d;
+		long __functionAddress = GL.getCapabilities().glNormal3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, nx, ny, nz);
@@ -6005,7 +5400,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glNormal3fv Normal3fv} */
 	public static void nglNormal3fv(long v) {
-		long __functionAddress = getInstance().Normal3fv;
+		long __functionAddress = GL.getCapabilities().glNormal3fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -6035,7 +5430,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glNormal3bv Normal3bv} */
 	public static void nglNormal3bv(long v) {
-		long __functionAddress = getInstance().Normal3bv;
+		long __functionAddress = GL.getCapabilities().glNormal3bv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -6058,7 +5453,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glNormal3sv Normal3sv} */
 	public static void nglNormal3sv(long v) {
-		long __functionAddress = getInstance().Normal3sv;
+		long __functionAddress = GL.getCapabilities().glNormal3sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -6088,7 +5483,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glNormal3iv Normal3iv} */
 	public static void nglNormal3iv(long v) {
-		long __functionAddress = getInstance().Normal3iv;
+		long __functionAddress = GL.getCapabilities().glNormal3iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -6118,7 +5513,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glNormal3dv Normal3dv} */
 	public static void nglNormal3dv(long v) {
-		long __functionAddress = getInstance().Normal3dv;
+		long __functionAddress = GL.getCapabilities().glNormal3dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -6148,7 +5543,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glNormalPointer NormalPointer} */
 	public static void nglNormalPointer(int type, int stride, long pointer) {
-		long __functionAddress = getInstance().NormalPointer;
+		long __functionAddress = GL.getCapabilities().glNormalPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, type, stride, pointer);
@@ -6224,7 +5619,7 @@ Clears the selection name stack.
 	 * @param f the far frustum plane
 	 */
 	public static void glOrtho(double l, double r, double b, double t, double n, double f) {
-		long __functionAddress = getInstance().Ortho;
+		long __functionAddress = GL.getCapabilities().glOrtho;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDDDV(__functionAddress, l, r, b, t, n, f);
@@ -6242,7 +5637,7 @@ Clears the selection name stack.
 	 * @param token the marker value to insert
 	 */
 	public static void glPassThrough(float token) {
-		long __functionAddress = getInstance().PassThrough;
+		long __functionAddress = GL.getCapabilities().glPassThrough;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, token);
@@ -6252,7 +5647,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glPixelMapfv PixelMapfv} */
 	public static void nglPixelMapfv(int map, int size, long values) {
-		long __functionAddress = getInstance().PixelMapfv;
+		long __functionAddress = GL.getCapabilities().glPixelMapfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, size, values);
@@ -6293,7 +5688,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glPixelMapusv PixelMapusv} */
 	public static void nglPixelMapusv(int map, int size, long values) {
-		long __functionAddress = getInstance().PixelMapusv;
+		long __functionAddress = GL.getCapabilities().glPixelMapusv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, size, values);
@@ -6334,7 +5729,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glPixelMapuiv PixelMapuiv} */
 	public static void nglPixelMapuiv(int map, int size, long values) {
-		long __functionAddress = getInstance().PixelMapuiv;
+		long __functionAddress = GL.getCapabilities().glPixelMapuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, size, values);
@@ -6382,7 +5777,7 @@ Clears the selection name stack.
 	 * @param param the parameter value
 	 */
 	public static void glPixelStorei(int pname, int param) {
-		long __functionAddress = getInstance().PixelStorei;
+		long __functionAddress = GL.getCapabilities().glPixelStorei;
 		callIIV(__functionAddress, pname, param);
 	}
 
@@ -6397,7 +5792,7 @@ Clears the selection name stack.
 	 * @param param the parameter value
 	 */
 	public static void glPixelStoref(int pname, int param) {
-		long __functionAddress = getInstance().PixelStoref;
+		long __functionAddress = GL.getCapabilities().glPixelStoref;
 		callIIV(__functionAddress, pname, param);
 	}
 
@@ -6412,7 +5807,7 @@ Clears the selection name stack.
 	 * @param param the parameter value
 	 */
 	public static void glPixelTransferi(int pname, int param) {
-		long __functionAddress = getInstance().PixelTransferi;
+		long __functionAddress = GL.getCapabilities().glPixelTransferi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, param);
@@ -6429,7 +5824,7 @@ Clears the selection name stack.
 	 * @param param the parameter value
 	 */
 	public static void glPixelTransferf(int pname, float param) {
-		long __functionAddress = getInstance().PixelTransferf;
+		long __functionAddress = GL.getCapabilities().glPixelTransferf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, pname, param);
@@ -6454,7 +5849,7 @@ Clears the selection name stack.
 	 * @param yfactor the z<sub>y</sub> factor
 	 */
 	public static void glPixelZoom(float xfactor, float yfactor) {
-		long __functionAddress = getInstance().PixelZoom;
+		long __functionAddress = GL.getCapabilities().glPixelZoom;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, xfactor, yfactor);
@@ -6470,7 +5865,7 @@ Clears the selection name stack.
 	 * @param size the request size of a point
 	 */
 	public static void glPointSize(float size) {
-		long __functionAddress = getInstance().PointSize;
+		long __functionAddress = GL.getCapabilities().glPointSize;
 		callFV(__functionAddress, size);
 	}
 
@@ -6489,7 +5884,7 @@ Clears the selection name stack.
 	 * @param mode the rasterization mode. One of:<br>{@link #GL_POINT POINT}, {@link #GL_LINE LINE}, {@link #GL_FILL FILL}
 	 */
 	public static void glPolygonMode(int face, int mode) {
-		long __functionAddress = getInstance().PolygonMode;
+		long __functionAddress = GL.getCapabilities().glPolygonMode;
 		callIIV(__functionAddress, face, mode);
 	}
 
@@ -6508,7 +5903,7 @@ Clears the selection name stack.
 	 * @param units  the constant scale
 	 */
 	public static void glPolygonOffset(float factor, float units) {
-		long __functionAddress = getInstance().PolygonOffset;
+		long __functionAddress = GL.getCapabilities().glPolygonOffset;
 		callFFV(__functionAddress, factor, units);
 	}
 
@@ -6516,7 +5911,7 @@ Clears the selection name stack.
 
 	/** Unsafe version of {@link #glPolygonStipple PolygonStipple} */
 	public static void nglPolygonStipple(long pattern) {
-		long __functionAddress = getInstance().PolygonStipple;
+		long __functionAddress = GL.getCapabilities().glPolygonStipple;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, pattern);
@@ -6566,7 +5961,7 @@ Clears the selection name stack.
 	 * @param mask the state variables to push. One or more of:<br>{@link #GL_ACCUM_BUFFER_BIT ACCUM_BUFFER_BIT}, {@link #GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}, {@link #GL_CURRENT_BIT CURRENT_BIT}, {@link #GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}, {@link #GL_ENABLE_BIT ENABLE_BIT}, {@link #GL_EVAL_BIT EVAL_BIT}, {@link #GL_FOG_BIT FOG_BIT}, {@link #GL_HINT_BIT HINT_BIT}, {@link #GL_LIGHTING_BIT LIGHTING_BIT}, {@link #GL_LINE_BIT LINE_BIT}, {@link #GL_LIST_BIT LIST_BIT}, {@link GL13#GL_MULTISAMPLE_BIT MULTISAMPLE_BIT}, {@link #GL_PIXEL_MODE_BIT PIXEL_MODE_BIT}, {@link #GL_POINT_BIT POINT_BIT}, {@link #GL_POLYGON_BIT POLYGON_BIT}, {@link #GL_POLYGON_STIPPLE_BIT POLYGON_STIPPLE_BIT}, {@link #GL_SCISSOR_BIT SCISSOR_BIT}, {@link #GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}, {@link #GL_TEXTURE_BIT TEXTURE_BIT}, {@link #GL_TRANSFORM_BIT TRANSFORM_BIT}, {@link #GL_VIEWPORT_BIT VIEWPORT_BIT}, {@link #GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS}
 	 */
 	public static void glPushAttrib(int mask) {
-		long __functionAddress = getInstance().PushAttrib;
+		long __functionAddress = GL.getCapabilities().glPushAttrib;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mask);
@@ -6589,7 +5984,7 @@ Clears the selection name stack.
 	 * @param mask the state variables to push. One or more of:<br>{@link #GL_CLIENT_VERTEX_ARRAY_BIT CLIENT_VERTEX_ARRAY_BIT}, {@link #GL_CLIENT_PIXEL_STORE_BIT CLIENT_PIXEL_STORE_BIT}, {@link #GL_CLIENT_ALL_ATTRIB_BITS CLIENT_ALL_ATTRIB_BITS}
 	 */
 	public static void glPushClientAttrib(int mask) {
-		long __functionAddress = getInstance().PushClientAttrib;
+		long __functionAddress = GL.getCapabilities().glPushClientAttrib;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mask);
@@ -6603,7 +5998,7 @@ Clears the selection name stack.
 Resets the values of those state variables that were saved with the last {@link #glPushAttrib PushAttrib}. Those not saved remain unchanged.
 	 */
 	public static void glPopAttrib() {
-		long __functionAddress = getInstance().PopAttrib;
+		long __functionAddress = GL.getCapabilities().glPopAttrib;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
@@ -6617,7 +6012,7 @@ Resets the values of those state variables that were saved with the last {@link 
 Resets the values of those state variables that were saved with the last {@link #glPushClientAttrib PushClientAttrib}. Those not saved remain unchanged.
 	 */
 	public static void glPopClientAttrib() {
-		long __functionAddress = getInstance().PopClientAttrib;
+		long __functionAddress = GL.getCapabilities().glPopClientAttrib;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
@@ -6631,7 +6026,7 @@ Resets the values of those state variables that were saved with the last {@link 
 Pops the top entry off the current matrix stack, replacing the current matrix with the matrix that was the second entry in the stack.
 	 */
 	public static void glPopMatrix() {
-		long __functionAddress = getInstance().PopMatrix;
+		long __functionAddress = GL.getCapabilities().glPopMatrix;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
@@ -6645,7 +6040,7 @@ Pops the top entry off the current matrix stack, replacing the current matrix wi
 Pops one name off the top of the selection name stack.
 	 */
 	public static void glPopName() {
-		long __functionAddress = getInstance().PopName;
+		long __functionAddress = GL.getCapabilities().glPopName;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
@@ -6655,7 +6050,7 @@ Pops one name off the top of the selection name stack.
 
 	/** Unsafe version of {@link #glPrioritizeTextures PrioritizeTextures} */
 	public static void nglPrioritizeTextures(int n, long textures, long priorities) {
-		long __functionAddress = getInstance().PrioritizeTextures;
+		long __functionAddress = GL.getCapabilities().glPrioritizeTextures;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPPV(__functionAddress, n, textures, priorities);
@@ -6694,7 +6089,7 @@ Pops one name off the top of the selection name stack.
 Pushes the current matrix stack down by one, duplicating the current matrix in both the top of the stack and the entry below it.
 	 */
 	public static void glPushMatrix() {
-		long __functionAddress = getInstance().PushMatrix;
+		long __functionAddress = GL.getCapabilities().glPushMatrix;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
@@ -6710,7 +6105,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param name the name to push
 	 */
 	public static void glPushName(int name) {
-		long __functionAddress = getInstance().PushName;
+		long __functionAddress = GL.getCapabilities().glPushName;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, name);
@@ -6733,7 +6128,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y the {@code y} raster coordinate
 	 */
 	public static void glRasterPos2i(int x, int y) {
-		long __functionAddress = getInstance().RasterPos2i;
+		long __functionAddress = GL.getCapabilities().glRasterPos2i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, x, y);
@@ -6750,7 +6145,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y the {@code y} raster coordinate
 	 */
 	public static void glRasterPos2s(short x, short y) {
-		long __functionAddress = getInstance().RasterPos2s;
+		long __functionAddress = GL.getCapabilities().glRasterPos2s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSV(__functionAddress, x, y);
@@ -6767,7 +6162,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y the {@code y} raster coordinate
 	 */
 	public static void glRasterPos2f(float x, float y) {
-		long __functionAddress = getInstance().RasterPos2f;
+		long __functionAddress = GL.getCapabilities().glRasterPos2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, x, y);
@@ -6784,7 +6179,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y the {@code y} raster coordinate
 	 */
 	public static void glRasterPos2d(double x, double y) {
-		long __functionAddress = getInstance().RasterPos2d;
+		long __functionAddress = GL.getCapabilities().glRasterPos2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, x, y);
@@ -6794,7 +6189,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos2iv RasterPos2iv} */
 	public static void nglRasterPos2iv(long coords) {
-		long __functionAddress = getInstance().RasterPos2iv;
+		long __functionAddress = GL.getCapabilities().glRasterPos2iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -6824,7 +6219,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos2sv RasterPos2sv} */
 	public static void nglRasterPos2sv(long coords) {
-		long __functionAddress = getInstance().RasterPos2sv;
+		long __functionAddress = GL.getCapabilities().glRasterPos2sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -6854,7 +6249,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos2fv RasterPos2fv} */
 	public static void nglRasterPos2fv(long coords) {
-		long __functionAddress = getInstance().RasterPos2fv;
+		long __functionAddress = GL.getCapabilities().glRasterPos2fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -6884,7 +6279,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos2dv RasterPos2dv} */
 	public static void nglRasterPos2dv(long coords) {
-		long __functionAddress = getInstance().RasterPos2dv;
+		long __functionAddress = GL.getCapabilities().glRasterPos2dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -6922,7 +6317,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the {@code z} raster coordinate
 	 */
 	public static void glRasterPos3i(int x, int y, int z) {
-		long __functionAddress = getInstance().RasterPos3i;
+		long __functionAddress = GL.getCapabilities().glRasterPos3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, x, y, z);
@@ -6940,7 +6335,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the {@code z} raster coordinate
 	 */
 	public static void glRasterPos3s(short x, short y, short z) {
-		long __functionAddress = getInstance().RasterPos3s;
+		long __functionAddress = GL.getCapabilities().glRasterPos3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, x, y, z);
@@ -6958,7 +6353,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the {@code z} raster coordinate
 	 */
 	public static void glRasterPos3f(float x, float y, float z) {
-		long __functionAddress = getInstance().RasterPos3f;
+		long __functionAddress = GL.getCapabilities().glRasterPos3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, x, y, z);
@@ -6976,7 +6371,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the {@code z} raster coordinate
 	 */
 	public static void glRasterPos3d(double x, double y, double z) {
-		long __functionAddress = getInstance().RasterPos3d;
+		long __functionAddress = GL.getCapabilities().glRasterPos3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, x, y, z);
@@ -6986,7 +6381,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos3iv RasterPos3iv} */
 	public static void nglRasterPos3iv(long coords) {
-		long __functionAddress = getInstance().RasterPos3iv;
+		long __functionAddress = GL.getCapabilities().glRasterPos3iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -7016,7 +6411,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos3sv RasterPos3sv} */
 	public static void nglRasterPos3sv(long coords) {
-		long __functionAddress = getInstance().RasterPos3sv;
+		long __functionAddress = GL.getCapabilities().glRasterPos3sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -7046,7 +6441,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos3fv RasterPos3fv} */
 	public static void nglRasterPos3fv(long coords) {
-		long __functionAddress = getInstance().RasterPos3fv;
+		long __functionAddress = GL.getCapabilities().glRasterPos3fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -7076,7 +6471,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos3dv RasterPos3dv} */
 	public static void nglRasterPos3dv(long coords) {
-		long __functionAddress = getInstance().RasterPos3dv;
+		long __functionAddress = GL.getCapabilities().glRasterPos3dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -7115,7 +6510,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param w the {@code w} raster coordinate
 	 */
 	public static void glRasterPos4i(int x, int y, int z, int w) {
-		long __functionAddress = getInstance().RasterPos4i;
+		long __functionAddress = GL.getCapabilities().glRasterPos4i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, x, y, z, w);
@@ -7134,7 +6529,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param w the {@code w} raster coordinate
 	 */
 	public static void glRasterPos4s(short x, short y, short z, short w) {
-		long __functionAddress = getInstance().RasterPos4s;
+		long __functionAddress = GL.getCapabilities().glRasterPos4s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, x, y, z, w);
@@ -7153,7 +6548,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param w the {@code w} raster coordinate
 	 */
 	public static void glRasterPos4f(float x, float y, float z, float w) {
-		long __functionAddress = getInstance().RasterPos4f;
+		long __functionAddress = GL.getCapabilities().glRasterPos4f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, x, y, z, w);
@@ -7172,7 +6567,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param w the {@code w} raster coordinate
 	 */
 	public static void glRasterPos4d(double x, double y, double z, double w) {
-		long __functionAddress = getInstance().RasterPos4d;
+		long __functionAddress = GL.getCapabilities().glRasterPos4d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, x, y, z, w);
@@ -7182,7 +6577,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos4iv RasterPos4iv} */
 	public static void nglRasterPos4iv(long coords) {
-		long __functionAddress = getInstance().RasterPos4iv;
+		long __functionAddress = GL.getCapabilities().glRasterPos4iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -7212,7 +6607,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos4sv RasterPos4sv} */
 	public static void nglRasterPos4sv(long coords) {
-		long __functionAddress = getInstance().RasterPos4sv;
+		long __functionAddress = GL.getCapabilities().glRasterPos4sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -7242,7 +6637,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos4fv RasterPos4fv} */
 	public static void nglRasterPos4fv(long coords) {
-		long __functionAddress = getInstance().RasterPos4fv;
+		long __functionAddress = GL.getCapabilities().glRasterPos4fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -7272,7 +6667,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRasterPos4dv RasterPos4dv} */
 	public static void nglRasterPos4dv(long coords) {
-		long __functionAddress = getInstance().RasterPos4dv;
+		long __functionAddress = GL.getCapabilities().glRasterPos4dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -7311,7 +6706,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param src the color buffer to read from. One of:<br>{@link #GL_NONE NONE}, {@link #GL_FRONT_LEFT FRONT_LEFT}, {@link #GL_FRONT_RIGHT FRONT_RIGHT}, {@link #GL_BACK_LEFT BACK_LEFT}, {@link #GL_BACK_RIGHT BACK_RIGHT}, {@link #GL_FRONT FRONT}, {@link #GL_BACK BACK}, {@link #GL_LEFT LEFT}, {@link #GL_RIGHT RIGHT}, {@link #GL_FRONT_AND_BACK FRONT_AND_BACK}, {@link #GL_AUX0 AUX0}, {@link #GL_AUX1 AUX1}, {@link #GL_AUX2 AUX2}, {@link #GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
 	public static void glReadBuffer(int src) {
-		long __functionAddress = getInstance().ReadBuffer;
+		long __functionAddress = GL.getCapabilities().glReadBuffer;
 		callIV(__functionAddress, src);
 	}
 
@@ -7319,7 +6714,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glReadPixels ReadPixels} */
 	public static void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
-		long __functionAddress = getInstance().ReadPixels;
+		long __functionAddress = GL.getCapabilities().glReadPixels;
 		callIIIIIIPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
@@ -7400,7 +6795,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
 	public static void glRecti(int x1, int y1, int x2, int y2) {
-		long __functionAddress = getInstance().Recti;
+		long __functionAddress = GL.getCapabilities().glRecti;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, x1, y1, x2, y2);
@@ -7419,7 +6814,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
 	public static void glRects(short x1, short y1, short x2, short y2) {
-		long __functionAddress = getInstance().Rects;
+		long __functionAddress = GL.getCapabilities().glRects;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, x1, y1, x2, y2);
@@ -7438,7 +6833,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
 	public static void glRectf(float x1, float y1, float x2, float y2) {
-		long __functionAddress = getInstance().Rectf;
+		long __functionAddress = GL.getCapabilities().glRectf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, x1, y1, x2, y2);
@@ -7457,7 +6852,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
 	public static void glRectd(double x1, double y1, double x2, double y2) {
-		long __functionAddress = getInstance().Rectd;
+		long __functionAddress = GL.getCapabilities().glRectd;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, x1, y1, x2, y2);
@@ -7467,7 +6862,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRectiv Rectiv} */
 	public static void nglRectiv(long v1, long v2) {
-		long __functionAddress = getInstance().Rectiv;
+		long __functionAddress = GL.getCapabilities().glRectiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
@@ -7502,7 +6897,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRectsv Rectsv} */
 	public static void nglRectsv(long v1, long v2) {
-		long __functionAddress = getInstance().Rectsv;
+		long __functionAddress = GL.getCapabilities().glRectsv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
@@ -7537,7 +6932,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRectfv Rectfv} */
 	public static void nglRectfv(long v1, long v2) {
-		long __functionAddress = getInstance().Rectfv;
+		long __functionAddress = GL.getCapabilities().glRectfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
@@ -7572,7 +6967,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glRectdv Rectdv} */
 	public static void nglRectdv(long v1, long v2) {
-		long __functionAddress = getInstance().Rectdv;
+		long __functionAddress = GL.getCapabilities().glRectdv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
@@ -7613,7 +7008,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param mode the render mode. One of:<br>{@link #GL_RENDER RENDER}, {@link #GL_SELECT SELECT}, {@link #GL_FEEDBACK FEEDBACK}
 	 */
 	public static int glRenderMode(int mode) {
-		long __functionAddress = getInstance().RenderMode;
+		long __functionAddress = GL.getCapabilities().glRenderMode;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, mode);
@@ -7653,7 +7048,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z     the z coordinate of the rotation vector
 	 */
 	public static void glRotatef(float angle, float x, float y, float z) {
-		long __functionAddress = getInstance().Rotatef;
+		long __functionAddress = GL.getCapabilities().glRotatef;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, angle, x, y, z);
@@ -7672,7 +7067,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z     the z coordinate of the rotation vector
 	 */
 	public static void glRotated(double angle, double x, double y, double z) {
-		long __functionAddress = getInstance().Rotated;
+		long __functionAddress = GL.getCapabilities().glRotated;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, angle, x, y, z);
@@ -7699,7 +7094,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the z-axis scaling factor
 	 */
 	public static void glScalef(float x, float y, float z) {
-		long __functionAddress = getInstance().Scalef;
+		long __functionAddress = GL.getCapabilities().glScalef;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, x, y, z);
@@ -7717,7 +7112,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the z-axis scaling factor
 	 */
 	public static void glScaled(double x, double y, double z) {
-		long __functionAddress = getInstance().Scaled;
+		long __functionAddress = GL.getCapabilities().glScaled;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, x, y, z);
@@ -7739,7 +7134,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param height the scissor rectangle height
 	 */
 	public static void glScissor(int x, int y, int width, int height) {
-		long __functionAddress = getInstance().Scissor;
+		long __functionAddress = GL.getCapabilities().glScissor;
 		callIIIIV(__functionAddress, x, y, width, height);
 	}
 
@@ -7747,7 +7142,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glSelectBuffer SelectBuffer} */
 	public static void nglSelectBuffer(int size, long buffer) {
-		long __functionAddress = getInstance().SelectBuffer;
+		long __functionAddress = GL.getCapabilities().glSelectBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, buffer);
@@ -7786,7 +7181,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param mode the shade mode. One of:<br>{@link #GL_SMOOTH SMOOTH}, {@link #GL_FLAT FLAT}
 	 */
 	public static void glShadeModel(int mode) {
-		long __functionAddress = getInstance().ShadeModel;
+		long __functionAddress = GL.getCapabilities().glShadeModel;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
@@ -7809,7 +7204,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param mask the stencil comparison mask
 	 */
 	public static void glStencilFunc(int func, int ref, int mask) {
-		long __functionAddress = getInstance().StencilFunc;
+		long __functionAddress = GL.getCapabilities().glStencilFunc;
 		callIIIV(__functionAddress, func, ref, mask);
 	}
 
@@ -7826,7 +7221,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param mask the stencil mask
 	 */
 	public static void glStencilMask(int mask) {
-		long __functionAddress = getInstance().StencilMask;
+		long __functionAddress = GL.getCapabilities().glStencilMask;
 		callIV(__functionAddress, mask);
 	}
 
@@ -7850,7 +7245,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param dppass the action to take if the depth buffer test passes
 	 */
 	public static void glStencilOp(int sfail, int dpfail, int dppass) {
-		long __functionAddress = getInstance().StencilOp;
+		long __functionAddress = GL.getCapabilities().glStencilOp;
 		callIIIV(__functionAddress, sfail, dpfail, dppass);
 	}
 
@@ -7864,7 +7259,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param s the s component of the current texture coordinates
 	 */
 	public static void glTexCoord1f(float s) {
-		long __functionAddress = getInstance().TexCoord1f;
+		long __functionAddress = GL.getCapabilities().glTexCoord1f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, s);
@@ -7880,7 +7275,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param s the s component of the current texture coordinates
 	 */
 	public static void glTexCoord1s(short s) {
-		long __functionAddress = getInstance().TexCoord1s;
+		long __functionAddress = GL.getCapabilities().glTexCoord1s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSV(__functionAddress, s);
@@ -7896,7 +7291,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param s the s component of the current texture coordinates
 	 */
 	public static void glTexCoord1i(int s) {
-		long __functionAddress = getInstance().TexCoord1i;
+		long __functionAddress = GL.getCapabilities().glTexCoord1i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, s);
@@ -7912,7 +7307,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param s the s component of the current texture coordinates
 	 */
 	public static void glTexCoord1d(double s) {
-		long __functionAddress = getInstance().TexCoord1d;
+		long __functionAddress = GL.getCapabilities().glTexCoord1d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDV(__functionAddress, s);
@@ -7922,7 +7317,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord1fv TexCoord1fv} */
 	public static void nglTexCoord1fv(long v) {
-		long __functionAddress = getInstance().TexCoord1fv;
+		long __functionAddress = GL.getCapabilities().glTexCoord1fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -7952,7 +7347,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord1sv TexCoord1sv} */
 	public static void nglTexCoord1sv(long v) {
-		long __functionAddress = getInstance().TexCoord1sv;
+		long __functionAddress = GL.getCapabilities().glTexCoord1sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -7982,7 +7377,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord1iv TexCoord1iv} */
 	public static void nglTexCoord1iv(long v) {
-		long __functionAddress = getInstance().TexCoord1iv;
+		long __functionAddress = GL.getCapabilities().glTexCoord1iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8012,7 +7407,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord1dv TexCoord1dv} */
 	public static void nglTexCoord1dv(long v) {
-		long __functionAddress = getInstance().TexCoord1dv;
+		long __functionAddress = GL.getCapabilities().glTexCoord1dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8049,7 +7444,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param t the t component of the current texture coordinates
 	 */
 	public static void glTexCoord2f(float s, float t) {
-		long __functionAddress = getInstance().TexCoord2f;
+		long __functionAddress = GL.getCapabilities().glTexCoord2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, s, t);
@@ -8066,7 +7461,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param t the t component of the current texture coordinates
 	 */
 	public static void glTexCoord2s(short s, short t) {
-		long __functionAddress = getInstance().TexCoord2s;
+		long __functionAddress = GL.getCapabilities().glTexCoord2s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSV(__functionAddress, s, t);
@@ -8083,7 +7478,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param t the t component of the current texture coordinates
 	 */
 	public static void glTexCoord2i(int s, int t) {
-		long __functionAddress = getInstance().TexCoord2i;
+		long __functionAddress = GL.getCapabilities().glTexCoord2i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, s, t);
@@ -8100,7 +7495,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param t the t component of the current texture coordinates
 	 */
 	public static void glTexCoord2d(double s, double t) {
-		long __functionAddress = getInstance().TexCoord2d;
+		long __functionAddress = GL.getCapabilities().glTexCoord2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, s, t);
@@ -8110,7 +7505,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord2fv TexCoord2fv} */
 	public static void nglTexCoord2fv(long v) {
-		long __functionAddress = getInstance().TexCoord2fv;
+		long __functionAddress = GL.getCapabilities().glTexCoord2fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8140,7 +7535,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord2sv TexCoord2sv} */
 	public static void nglTexCoord2sv(long v) {
-		long __functionAddress = getInstance().TexCoord2sv;
+		long __functionAddress = GL.getCapabilities().glTexCoord2sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8170,7 +7565,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord2iv TexCoord2iv} */
 	public static void nglTexCoord2iv(long v) {
-		long __functionAddress = getInstance().TexCoord2iv;
+		long __functionAddress = GL.getCapabilities().glTexCoord2iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8200,7 +7595,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord2dv TexCoord2dv} */
 	public static void nglTexCoord2dv(long v) {
-		long __functionAddress = getInstance().TexCoord2dv;
+		long __functionAddress = GL.getCapabilities().glTexCoord2dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8238,7 +7633,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param r the r component of the current texture coordinates
 	 */
 	public static void glTexCoord3f(float s, float t, float r) {
-		long __functionAddress = getInstance().TexCoord3f;
+		long __functionAddress = GL.getCapabilities().glTexCoord3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, s, t, r);
@@ -8256,7 +7651,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param r the r component of the current texture coordinates
 	 */
 	public static void glTexCoord3s(short s, short t, short r) {
-		long __functionAddress = getInstance().TexCoord3s;
+		long __functionAddress = GL.getCapabilities().glTexCoord3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, s, t, r);
@@ -8274,7 +7669,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param r the r component of the current texture coordinates
 	 */
 	public static void glTexCoord3i(int s, int t, int r) {
-		long __functionAddress = getInstance().TexCoord3i;
+		long __functionAddress = GL.getCapabilities().glTexCoord3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, s, t, r);
@@ -8292,7 +7687,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param r the r component of the current texture coordinates
 	 */
 	public static void glTexCoord3d(double s, double t, double r) {
-		long __functionAddress = getInstance().TexCoord3d;
+		long __functionAddress = GL.getCapabilities().glTexCoord3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, s, t, r);
@@ -8302,7 +7697,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord3fv TexCoord3fv} */
 	public static void nglTexCoord3fv(long v) {
-		long __functionAddress = getInstance().TexCoord3fv;
+		long __functionAddress = GL.getCapabilities().glTexCoord3fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8332,7 +7727,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord3sv TexCoord3sv} */
 	public static void nglTexCoord3sv(long v) {
-		long __functionAddress = getInstance().TexCoord3sv;
+		long __functionAddress = GL.getCapabilities().glTexCoord3sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8362,7 +7757,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord3iv TexCoord3iv} */
 	public static void nglTexCoord3iv(long v) {
-		long __functionAddress = getInstance().TexCoord3iv;
+		long __functionAddress = GL.getCapabilities().glTexCoord3iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8392,7 +7787,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord3dv TexCoord3dv} */
 	public static void nglTexCoord3dv(long v) {
-		long __functionAddress = getInstance().TexCoord3dv;
+		long __functionAddress = GL.getCapabilities().glTexCoord3dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8431,7 +7826,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param q the q component of the current texture coordinates
 	 */
 	public static void glTexCoord4f(float s, float t, float r, float q) {
-		long __functionAddress = getInstance().TexCoord4f;
+		long __functionAddress = GL.getCapabilities().glTexCoord4f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, s, t, r, q);
@@ -8450,7 +7845,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param q the q component of the current texture coordinates
 	 */
 	public static void glTexCoord4s(short s, short t, short r, short q) {
-		long __functionAddress = getInstance().TexCoord4s;
+		long __functionAddress = GL.getCapabilities().glTexCoord4s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, s, t, r, q);
@@ -8469,7 +7864,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param q the q component of the current texture coordinates
 	 */
 	public static void glTexCoord4i(int s, int t, int r, int q) {
-		long __functionAddress = getInstance().TexCoord4i;
+		long __functionAddress = GL.getCapabilities().glTexCoord4i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, s, t, r, q);
@@ -8488,7 +7883,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param q the q component of the current texture coordinates
 	 */
 	public static void glTexCoord4d(double s, double t, double r, double q) {
-		long __functionAddress = getInstance().TexCoord4d;
+		long __functionAddress = GL.getCapabilities().glTexCoord4d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, s, t, r, q);
@@ -8498,7 +7893,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord4fv TexCoord4fv} */
 	public static void nglTexCoord4fv(long v) {
-		long __functionAddress = getInstance().TexCoord4fv;
+		long __functionAddress = GL.getCapabilities().glTexCoord4fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8528,7 +7923,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord4sv TexCoord4sv} */
 	public static void nglTexCoord4sv(long v) {
-		long __functionAddress = getInstance().TexCoord4sv;
+		long __functionAddress = GL.getCapabilities().glTexCoord4sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8558,7 +7953,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord4iv TexCoord4iv} */
 	public static void nglTexCoord4iv(long v) {
-		long __functionAddress = getInstance().TexCoord4iv;
+		long __functionAddress = GL.getCapabilities().glTexCoord4iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8588,7 +7983,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoord4dv TexCoord4dv} */
 	public static void nglTexCoord4dv(long v) {
-		long __functionAddress = getInstance().TexCoord4dv;
+		long __functionAddress = GL.getCapabilities().glTexCoord4dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
@@ -8618,7 +8013,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexCoordPointer TexCoordPointer} */
 	public static void nglTexCoordPointer(int size, int type, int stride, long pointer) {
-		long __functionAddress = getInstance().TexCoordPointer;
+		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, size, type, stride, pointer);
@@ -8681,7 +8076,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param param  the parameter value. Scalar value or one of:<br>{@link #GL_REPLACE REPLACE}, {@link #GL_MODULATE MODULATE}, {@link #GL_DECAL DECAL}, {@link #GL_BLEND BLEND}, {@link #GL_ADD ADD}, {@link GL13#GL_COMBINE COMBINE}, {@link GL13#GL_ADD_SIGNED ADD_SIGNED}, {@link GL13#GL_INTERPOLATE INTERPOLATE}, {@link GL13#GL_SUBTRACT SUBTRACT}, {@link GL13#GL_DOT3_RGB DOT3_RGB}, {@link GL13#GL_DOT3_RGBA DOT3_RGBA}, {@link #GL_TEXTURE TEXTURE}, {@link GL13#GL_TEXTURE0 TEXTURE0}, GL13.GL_TEXTURE[1-31], {@link GL13#GL_CONSTANT CONSTANT}, {@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link GL13#GL_PREVIOUS PREVIOUS}
 	 */
 	public static void glTexEnvi(int target, int pname, int param) {
-		long __functionAddress = getInstance().TexEnvi;
+		long __functionAddress = GL.getCapabilities().glTexEnvi;
 		callIIIV(__functionAddress, target, pname, param);
 	}
 
@@ -8689,7 +8084,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexEnviv TexEnviv} */
 	public static void nglTexEnviv(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexEnviv;
+		long __functionAddress = GL.getCapabilities().glTexEnviv;
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -8727,7 +8122,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param param  the parameter value
 	 */
 	public static void glTexEnvf(int target, int pname, float param) {
-		long __functionAddress = getInstance().TexEnvf;
+		long __functionAddress = GL.getCapabilities().glTexEnvf;
 		callIIFV(__functionAddress, target, pname, param);
 	}
 
@@ -8735,7 +8130,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexEnvfv TexEnvfv} */
 	public static void nglTexEnvfv(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexEnvfv;
+		long __functionAddress = GL.getCapabilities().glTexEnvfv;
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -8781,7 +8176,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param param the parameter value. One of:<br>{@link #GL_OBJECT_LINEAR OBJECT_LINEAR}, {@link #GL_EYE_LINEAR EYE_LINEAR}, {@link #GL_SPHERE_MAP SPHERE_MAP}, {@link GL13#GL_REFLECTION_MAP REFLECTION_MAP}, {@link GL13#GL_NORMAL_MAP NORMAL_MAP}
 	 */
 	public static void glTexGeni(int coord, int pname, int param) {
-		long __functionAddress = getInstance().TexGeni;
+		long __functionAddress = GL.getCapabilities().glTexGeni;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, coord, pname, param);
@@ -8791,7 +8186,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexGeniv TexGeniv} */
 	public static void nglTexGeniv(int coord, int pname, long params) {
-		long __functionAddress = getInstance().TexGeniv;
+		long __functionAddress = GL.getCapabilities().glTexGeniv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, params);
@@ -8831,7 +8226,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param param the parameter value
 	 */
 	public static void glTexGenf(int coord, int pname, float param) {
-		long __functionAddress = getInstance().TexGenf;
+		long __functionAddress = GL.getCapabilities().glTexGenf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIFV(__functionAddress, coord, pname, param);
@@ -8841,7 +8236,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexGenfv TexGenfv} */
 	public static void nglTexGenfv(int coord, int pname, long params) {
-		long __functionAddress = getInstance().TexGenfv;
+		long __functionAddress = GL.getCapabilities().glTexGenfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, params);
@@ -8881,7 +8276,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param param the parameter value
 	 */
 	public static void glTexGend(int coord, int pname, double param) {
-		long __functionAddress = getInstance().TexGend;
+		long __functionAddress = GL.getCapabilities().glTexGend;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIDV(__functionAddress, coord, pname, param);
@@ -8891,7 +8286,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexGendv TexGendv} */
 	public static void nglTexGendv(int coord, int pname, long params) {
-		long __functionAddress = getInstance().TexGendv;
+		long __functionAddress = GL.getCapabilities().glTexGendv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, params);
@@ -8923,7 +8318,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexImage2D TexImage2D} */
 	public static void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
-		long __functionAddress = getInstance().TexImage2D;
+		long __functionAddress = GL.getCapabilities().glTexImage2D;
 		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
@@ -8987,7 +8382,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexImage1D TexImage1D} */
 	public static void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
-		long __functionAddress = getInstance().TexImage1D;
+		long __functionAddress = GL.getCapabilities().glTexImage1D;
 		callIIIIIIIPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
 	}
 
@@ -9077,7 +8472,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param border         the texture border width
 	 */
 	public static void glCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border) {
-		long __functionAddress = getInstance().CopyTexImage2D;
+		long __functionAddress = GL.getCapabilities().glCopyTexImage2D;
 		callIIIIIIIIV(__functionAddress, target, level, internalFormat, x, y, width, height, border);
 	}
 
@@ -9101,7 +8496,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param border         the texture border width
 	 */
 	public static void glCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border) {
-		long __functionAddress = getInstance().CopyTexImage1D;
+		long __functionAddress = GL.getCapabilities().glCopyTexImage1D;
 		callIIIIIIIV(__functionAddress, target, level, internalFormat, x, y, width, border);
 	}
 
@@ -9122,7 +8517,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param width   the texture subregion width
 	 */
 	public static void glCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width) {
-		long __functionAddress = getInstance().CopyTexSubImage1D;
+		long __functionAddress = GL.getCapabilities().glCopyTexSubImage1D;
 		callIIIIIIV(__functionAddress, target, level, xoffset, x, y, width);
 	}
 
@@ -9145,7 +8540,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param height  the texture subregion height
 	 */
 	public static void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().CopyTexSubImage2D;
+		long __functionAddress = GL.getCapabilities().glCopyTexSubImage2D;
 		callIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, x, y, width, height);
 	}
 
@@ -9161,7 +8556,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param param  the parameter value
 	 */
 	public static void glTexParameteri(int target, int pname, int param) {
-		long __functionAddress = getInstance().TexParameteri;
+		long __functionAddress = GL.getCapabilities().glTexParameteri;
 		callIIIV(__functionAddress, target, pname, param);
 	}
 
@@ -9169,7 +8564,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexParameteriv TexParameteriv} */
 	public static void nglTexParameteriv(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexParameteriv;
+		long __functionAddress = GL.getCapabilities().glTexParameteriv;
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -9207,7 +8602,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param param  the parameter value
 	 */
 	public static void glTexParameterf(int target, int pname, float param) {
-		long __functionAddress = getInstance().TexParameterf;
+		long __functionAddress = GL.getCapabilities().glTexParameterf;
 		callIIFV(__functionAddress, target, pname, param);
 	}
 
@@ -9215,7 +8610,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexParameterfv TexParameterfv} */
 	public static void nglTexParameterfv(int target, int pname, long params) {
-		long __functionAddress = getInstance().TexParameterfv;
+		long __functionAddress = GL.getCapabilities().glTexParameterfv;
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -9245,7 +8640,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexSubImage1D TexSubImage1D} */
 	public static void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels) {
-		long __functionAddress = getInstance().TexSubImage1D;
+		long __functionAddress = GL.getCapabilities().glTexSubImage1D;
 		callIIIIIIPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
 	}
 
@@ -9307,7 +8702,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glTexSubImage2D TexSubImage2D} */
 	public static void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
-		long __functionAddress = getInstance().TexSubImage2D;
+		long __functionAddress = GL.getCapabilities().glTexSubImage2D;
 		callIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
@@ -9389,7 +8784,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the z-axis translation
 	 */
 	public static void glTranslatef(float x, float y, float z) {
-		long __functionAddress = getInstance().Translatef;
+		long __functionAddress = GL.getCapabilities().glTranslatef;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, x, y, z);
@@ -9407,7 +8802,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the z-axis translation
 	 */
 	public static void glTranslated(double x, double y, double z) {
-		long __functionAddress = getInstance().Translated;
+		long __functionAddress = GL.getCapabilities().glTranslated;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, x, y, z);
@@ -9425,7 +8820,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y the vertex y coordinate
 	 */
 	public static void glVertex2f(float x, float y) {
-		long __functionAddress = getInstance().Vertex2f;
+		long __functionAddress = GL.getCapabilities().glVertex2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, x, y);
@@ -9442,7 +8837,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y the vertex y coordinate
 	 */
 	public static void glVertex2s(short x, short y) {
-		long __functionAddress = getInstance().Vertex2s;
+		long __functionAddress = GL.getCapabilities().glVertex2s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSV(__functionAddress, x, y);
@@ -9459,7 +8854,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y the vertex y coordinate
 	 */
 	public static void glVertex2i(int x, int y) {
-		long __functionAddress = getInstance().Vertex2i;
+		long __functionAddress = GL.getCapabilities().glVertex2i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, x, y);
@@ -9476,7 +8871,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param y the vertex y coordinate
 	 */
 	public static void glVertex2d(double x, double y) {
-		long __functionAddress = getInstance().Vertex2d;
+		long __functionAddress = GL.getCapabilities().glVertex2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, x, y);
@@ -9486,7 +8881,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex2fv Vertex2fv} */
 	public static void nglVertex2fv(long coords) {
-		long __functionAddress = getInstance().Vertex2fv;
+		long __functionAddress = GL.getCapabilities().glVertex2fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9516,7 +8911,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex2sv Vertex2sv} */
 	public static void nglVertex2sv(long coords) {
-		long __functionAddress = getInstance().Vertex2sv;
+		long __functionAddress = GL.getCapabilities().glVertex2sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9546,7 +8941,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex2iv Vertex2iv} */
 	public static void nglVertex2iv(long coords) {
-		long __functionAddress = getInstance().Vertex2iv;
+		long __functionAddress = GL.getCapabilities().glVertex2iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9576,7 +8971,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex2dv Vertex2dv} */
 	public static void nglVertex2dv(long coords) {
-		long __functionAddress = getInstance().Vertex2dv;
+		long __functionAddress = GL.getCapabilities().glVertex2dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9615,7 +9010,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the vertex z coordinate
 	 */
 	public static void glVertex3f(float x, float y, float z) {
-		long __functionAddress = getInstance().Vertex3f;
+		long __functionAddress = GL.getCapabilities().glVertex3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, x, y, z);
@@ -9633,7 +9028,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the vertex z coordinate
 	 */
 	public static void glVertex3s(short x, short y, short z) {
-		long __functionAddress = getInstance().Vertex3s;
+		long __functionAddress = GL.getCapabilities().glVertex3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, x, y, z);
@@ -9651,7 +9046,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the vertex z coordinate
 	 */
 	public static void glVertex3i(int x, int y, int z) {
-		long __functionAddress = getInstance().Vertex3i;
+		long __functionAddress = GL.getCapabilities().glVertex3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, x, y, z);
@@ -9669,7 +9064,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param z the vertex z coordinate
 	 */
 	public static void glVertex3d(double x, double y, double z) {
-		long __functionAddress = getInstance().Vertex3d;
+		long __functionAddress = GL.getCapabilities().glVertex3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, x, y, z);
@@ -9679,7 +9074,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex3fv Vertex3fv} */
 	public static void nglVertex3fv(long coords) {
-		long __functionAddress = getInstance().Vertex3fv;
+		long __functionAddress = GL.getCapabilities().glVertex3fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9709,7 +9104,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex3sv Vertex3sv} */
 	public static void nglVertex3sv(long coords) {
-		long __functionAddress = getInstance().Vertex3sv;
+		long __functionAddress = GL.getCapabilities().glVertex3sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9739,7 +9134,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex3iv Vertex3iv} */
 	public static void nglVertex3iv(long coords) {
-		long __functionAddress = getInstance().Vertex3iv;
+		long __functionAddress = GL.getCapabilities().glVertex3iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9769,7 +9164,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex3dv Vertex3dv} */
 	public static void nglVertex3dv(long coords) {
-		long __functionAddress = getInstance().Vertex3dv;
+		long __functionAddress = GL.getCapabilities().glVertex3dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9808,7 +9203,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param w the vertex w coordinate
 	 */
 	public static void glVertex4f(float x, float y, float z, float w) {
-		long __functionAddress = getInstance().Vertex4f;
+		long __functionAddress = GL.getCapabilities().glVertex4f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, x, y, z, w);
@@ -9827,7 +9222,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param w the vertex w coordinate
 	 */
 	public static void glVertex4s(short x, short y, short z, short w) {
-		long __functionAddress = getInstance().Vertex4s;
+		long __functionAddress = GL.getCapabilities().glVertex4s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, x, y, z, w);
@@ -9846,7 +9241,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param w the vertex w coordinate
 	 */
 	public static void glVertex4i(int x, int y, int z, int w) {
-		long __functionAddress = getInstance().Vertex4i;
+		long __functionAddress = GL.getCapabilities().glVertex4i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, x, y, z, w);
@@ -9865,7 +9260,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param w the vertex w coordinate
 	 */
 	public static void glVertex4d(double x, double y, double z, double w) {
-		long __functionAddress = getInstance().Vertex4d;
+		long __functionAddress = GL.getCapabilities().glVertex4d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, x, y, z, w);
@@ -9875,7 +9270,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex4fv Vertex4fv} */
 	public static void nglVertex4fv(long coords) {
-		long __functionAddress = getInstance().Vertex4fv;
+		long __functionAddress = GL.getCapabilities().glVertex4fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9905,7 +9300,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex4sv Vertex4sv} */
 	public static void nglVertex4sv(long coords) {
-		long __functionAddress = getInstance().Vertex4sv;
+		long __functionAddress = GL.getCapabilities().glVertex4sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9935,7 +9330,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex4iv Vertex4iv} */
 	public static void nglVertex4iv(long coords) {
-		long __functionAddress = getInstance().Vertex4iv;
+		long __functionAddress = GL.getCapabilities().glVertex4iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9965,7 +9360,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertex4dv Vertex4dv} */
 	public static void nglVertex4dv(long coords) {
-		long __functionAddress = getInstance().Vertex4dv;
+		long __functionAddress = GL.getCapabilities().glVertex4dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
@@ -9995,7 +9390,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Unsafe version of {@link #glVertexPointer VertexPointer} */
 	public static void nglVertexPointer(int size, int type, int stride, long pointer) {
-		long __functionAddress = getInstance().VertexPointer;
+		long __functionAddress = GL.getCapabilities().glVertexPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, size, type, stride, pointer);
@@ -10069,7 +9464,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param h the viewport height
 	 */
 	public static void glViewport(int x, int y, int w, int h) {
-		long __functionAddress = getInstance().Viewport;
+		long __functionAddress = GL.getCapabilities().glViewport;
 		callIIIIV(__functionAddress, x, y, w, h);
 	}
 

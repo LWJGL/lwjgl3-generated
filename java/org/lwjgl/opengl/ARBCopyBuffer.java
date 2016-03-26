@@ -28,39 +28,14 @@ public class ARBCopyBuffer {
 		GL_COPY_READ_BUFFER  = 0x8F36,
 		GL_COPY_WRITE_BUFFER = 0x8F37;
 
-	/** Function address. */
-	public final long CopyBufferSubData;
-
 	protected ARBCopyBuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBCopyBuffer(FunctionProvider provider) {
-		CopyBufferSubData = provider.getFunctionAddress("glCopyBufferSubData");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBCopyBuffer} instance of the current context. */
-	public static ARBCopyBuffer getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBCopyBuffer} instance of the specified {@link GLCapabilities}. */
-	public static ARBCopyBuffer getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBCopyBuffer);
-	}
-
-	static ARBCopyBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_copy_buffer") ) return null;
-
-		ARBCopyBuffer funcs = new ARBCopyBuffer(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CopyBufferSubData
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glCopyBufferSubData
 		);
-
-		return GL.checkExtension("GL_ARB_copy_buffer", funcs, supported);
 	}
 
 	// --- [ glCopyBufferSubData ] ---
@@ -85,7 +60,9 @@ public class ARBCopyBuffer {
 	 * @param size        the number of bytes to copy
 	 */
 	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		long __functionAddress = getInstance().CopyBufferSubData;
+		long __functionAddress = GL.getCapabilities().glCopyBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 

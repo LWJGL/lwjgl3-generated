@@ -47,47 +47,25 @@ public class NVSync {
 		EGL_FOREVER_NV = 0xFFFFFFFFFFFFFFFFL,
 		EGL_NO_SYNC_NV = 0x0L;
 
-	/** Function address. */
-	public final long
-		CreateFenceSyncNV,
-		DestroySyncNV,
-		FenceNV,
-		ClientWaitSyncNV,
-		SignalSyncNV,
-		GetSyncAttribNV;
-
 	protected NVSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVSync(FunctionProvider provider) {
-		CreateFenceSyncNV = provider.getFunctionAddress("eglCreateFenceSyncNV");
-		DestroySyncNV = provider.getFunctionAddress("eglDestroySyncNV");
-		FenceNV = provider.getFunctionAddress("eglFenceNV");
-		ClientWaitSyncNV = provider.getFunctionAddress("eglClientWaitSyncNV");
-		SignalSyncNV = provider.getFunctionAddress("eglSignalSyncNV");
-		GetSyncAttribNV = provider.getFunctionAddress("eglGetSyncAttribNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVSync} instance. */
-	public static NVSync getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link NVSync} instance of the specified {@link EGLCapabilities}. */
-	public static NVSync getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__NVSync);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglCreateFenceSyncNV, caps.eglDestroySyncNV, caps.eglFenceNV, caps.eglClientWaitSyncNV, caps.eglSignalSyncNV, caps.eglGetSyncAttribNV
+		);
 	}
 
 	// --- [ eglCreateFenceSyncNV ] ---
 
 	/** Unsafe version of {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
 	public static long neglCreateFenceSyncNV(long dpy, int condition, long attrib_list) {
-		long __functionAddress = getInstance().CreateFenceSyncNV;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglCreateFenceSyncNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPIPP(__functionAddress, dpy, condition, attrib_list);
 	}
 
@@ -107,36 +85,44 @@ public class NVSync {
 	// --- [ eglDestroySyncNV ] ---
 
 	public static int eglDestroySyncNV(long sync) {
-		long __functionAddress = getInstance().DestroySyncNV;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglDestroySyncNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		return callPI(__functionAddress, sync);
 	}
 
 	// --- [ eglFenceNV ] ---
 
 	public static int eglFenceNV(long sync) {
-		long __functionAddress = getInstance().FenceNV;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglFenceNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		return callPI(__functionAddress, sync);
 	}
 
 	// --- [ eglClientWaitSyncNV ] ---
 
 	public static int eglClientWaitSyncNV(long sync, int flags, long timeout) {
-		long __functionAddress = getInstance().ClientWaitSyncNV;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglClientWaitSyncNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ eglSignalSyncNV ] ---
 
 	public static int eglSignalSyncNV(long sync, int mode) {
-		long __functionAddress = getInstance().SignalSyncNV;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglSignalSyncNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		return callPII(__functionAddress, sync, mode);
 	}
 
@@ -144,9 +130,11 @@ public class NVSync {
 
 	/** Unsafe version of {@link #eglGetSyncAttribNV GetSyncAttribNV} */
 	public static int neglGetSyncAttribNV(long sync, int attribute, long value) {
-		long __functionAddress = getInstance().GetSyncAttribNV;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		return callPIPI(__functionAddress, sync, attribute, value);
 	}
 

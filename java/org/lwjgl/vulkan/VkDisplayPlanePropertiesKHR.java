@@ -10,8 +10,8 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -26,7 +26,7 @@ public class VkDisplayPlanePropertiesKHR extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -40,7 +40,7 @@ public class VkDisplayPlanePropertiesKHR extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		CURRENTDISPLAY = layout.offsetof(0);
 		CURRENTSTACKINDEX = layout.offsetof(1);
@@ -67,39 +67,6 @@ public class VkDisplayPlanePropertiesKHR extends Struct {
 	public long currentDisplay() { return ncurrentDisplay(address()); }
 	/** Returns the value of the {@code currentStackIndex} field. */
 	public int currentStackIndex() { return ncurrentStackIndex(address()); }
-
-	/** Sets the specified value to the {@code currentDisplay} field. */
-	public VkDisplayPlanePropertiesKHR currentDisplay(long value) { ncurrentDisplay(address(), value); return this; }
-	/** Sets the specified value to the {@code currentStackIndex} field. */
-	public VkDisplayPlanePropertiesKHR currentStackIndex(int value) { ncurrentStackIndex(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public VkDisplayPlanePropertiesKHR set(
-		long currentDisplay,
-		int currentStackIndex
-	) {
-		currentDisplay(currentDisplay);
-		currentStackIndex(currentStackIndex);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(VkDisplayPlanePropertiesKHR) set}. */
-	public VkDisplayPlanePropertiesKHR nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public VkDisplayPlanePropertiesKHR set(VkDisplayPlanePropertiesKHR src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -160,15 +127,80 @@ public class VkDisplayPlanePropertiesKHR extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkDisplayPlanePropertiesKHR} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkDisplayPlanePropertiesKHR mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkDisplayPlanePropertiesKHR} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkDisplayPlanePropertiesKHR callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlanePropertiesKHR} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkDisplayPlanePropertiesKHR mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlanePropertiesKHR} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkDisplayPlanePropertiesKHR callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlanePropertiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlanePropertiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlanePropertiesKHR.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkDisplayPlanePropertiesKHR.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #currentDisplay}. */
 	public static long ncurrentDisplay(long struct) { return memGetLong(struct + VkDisplayPlanePropertiesKHR.CURRENTDISPLAY); }
 	/** Unsafe version of {@link #currentStackIndex}. */
 	public static int ncurrentStackIndex(long struct) { return memGetInt(struct + VkDisplayPlanePropertiesKHR.CURRENTSTACKINDEX); }
-
-	/** Unsafe version of {@link #currentDisplay(long) currentDisplay}. */
-	public static void ncurrentDisplay(long struct, long value) { memPutLong(struct + VkDisplayPlanePropertiesKHR.CURRENTDISPLAY, value); }
-	/** Unsafe version of {@link #currentStackIndex(int) currentStackIndex}. */
-	public static void ncurrentStackIndex(long struct, int value) { memPutInt(struct + VkDisplayPlanePropertiesKHR.CURRENTSTACKINDEX, value); }
 
 	// -----------------------------------
 
@@ -204,7 +236,7 @@ public class VkDisplayPlanePropertiesKHR extends Struct {
 
 		@Override
 		protected VkDisplayPlanePropertiesKHR newInstance(long address) {
-			return new VkDisplayPlanePropertiesKHR(address, container);
+			return new VkDisplayPlanePropertiesKHR(address, getContainer());
 		}
 
 		@Override
@@ -216,11 +248,6 @@ public class VkDisplayPlanePropertiesKHR extends Struct {
 		public long currentDisplay() { return VkDisplayPlanePropertiesKHR.ncurrentDisplay(address()); }
 		/** Returns the value of the {@code currentStackIndex} field. */
 		public int currentStackIndex() { return VkDisplayPlanePropertiesKHR.ncurrentStackIndex(address()); }
-
-		/** Sets the specified value to the {@code currentDisplay} field. */
-		public VkDisplayPlanePropertiesKHR.Buffer currentDisplay(long value) { VkDisplayPlanePropertiesKHR.ncurrentDisplay(address(), value); return this; }
-		/** Sets the specified value to the {@code currentStackIndex} field. */
-		public VkDisplayPlanePropertiesKHR.Buffer currentStackIndex(int value) { VkDisplayPlanePropertiesKHR.ncurrentStackIndex(address(), value); return this; }
 
 	}
 

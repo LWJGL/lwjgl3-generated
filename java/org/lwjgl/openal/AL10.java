@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to AL 1.0 functionality. */
@@ -119,150 +119,21 @@ public class AL10 {
 		AL_PENDING   = 0x2011,
 		AL_PROCESSED = 0x2012;
 
-	/** Function address. */
-	public final long
-		GetError,
-		Enable,
-		Disable,
-		IsEnabled,
-		GetBoolean,
-		GetInteger,
-		GetFloat,
-		GetDouble,
-		GetBooleanv,
-		GetIntegerv,
-		GetFloatv,
-		GetDoublev,
-		GetString,
-		DistanceModel,
-		DopplerFactor,
-		DopplerVelocity,
-		Listenerf,
-		Listeneri,
-		Listener3f,
-		Listenerfv,
-		GetListenerf,
-		GetListeneri,
-		GetListener3f,
-		GetListenerfv,
-		GenSources,
-		DeleteSources,
-		IsSource,
-		Sourcef,
-		Source3f,
-		Sourcefv,
-		Sourcei,
-		GetSourcef,
-		GetSource3f,
-		GetSourcefv,
-		GetSourcei,
-		GetSourceiv,
-		SourceQueueBuffers,
-		SourceUnqueueBuffers,
-		SourcePlay,
-		SourcePause,
-		SourceStop,
-		SourceRewind,
-		SourcePlayv,
-		SourcePausev,
-		SourceStopv,
-		SourceRewindv,
-		GenBuffers,
-		DeleteBuffers,
-		IsBuffer,
-		GetBufferf,
-		GetBufferi,
-		BufferData,
-		GetEnumValue,
-		GetProcAddress,
-		IsExtensionPresent;
-
 	protected AL10() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AL10(FunctionProvider provider) {
-		GetError = provider.getFunctionAddress("alGetError");
-		Enable = provider.getFunctionAddress("alEnable");
-		Disable = provider.getFunctionAddress("alDisable");
-		IsEnabled = provider.getFunctionAddress("alIsEnabled");
-		GetBoolean = provider.getFunctionAddress("alGetBoolean");
-		GetInteger = provider.getFunctionAddress("alGetInteger");
-		GetFloat = provider.getFunctionAddress("alGetFloat");
-		GetDouble = provider.getFunctionAddress("alGetDouble");
-		GetBooleanv = provider.getFunctionAddress("alGetBooleanv");
-		GetIntegerv = provider.getFunctionAddress("alGetIntegerv");
-		GetFloatv = provider.getFunctionAddress("alGetFloatv");
-		GetDoublev = provider.getFunctionAddress("alGetDoublev");
-		GetString = provider.getFunctionAddress("alGetString");
-		DistanceModel = provider.getFunctionAddress("alDistanceModel");
-		DopplerFactor = provider.getFunctionAddress("alDopplerFactor");
-		DopplerVelocity = provider.getFunctionAddress("alDopplerVelocity");
-		Listenerf = provider.getFunctionAddress("alListenerf");
-		Listeneri = provider.getFunctionAddress("alListeneri");
-		Listener3f = provider.getFunctionAddress("alListener3f");
-		Listenerfv = provider.getFunctionAddress("alListenerfv");
-		GetListenerf = provider.getFunctionAddress("alGetListenerf");
-		GetListeneri = provider.getFunctionAddress("alGetListeneri");
-		GetListener3f = provider.getFunctionAddress("alGetListener3f");
-		GetListenerfv = provider.getFunctionAddress("alGetListenerfv");
-		GenSources = provider.getFunctionAddress("alGenSources");
-		DeleteSources = provider.getFunctionAddress("alDeleteSources");
-		IsSource = provider.getFunctionAddress("alIsSource");
-		Sourcef = provider.getFunctionAddress("alSourcef");
-		Source3f = provider.getFunctionAddress("alSource3f");
-		Sourcefv = provider.getFunctionAddress("alSourcefv");
-		Sourcei = provider.getFunctionAddress("alSourcei");
-		GetSourcef = provider.getFunctionAddress("alGetSourcef");
-		GetSource3f = provider.getFunctionAddress("alGetSource3f");
-		GetSourcefv = provider.getFunctionAddress("alGetSourcefv");
-		GetSourcei = provider.getFunctionAddress("alGetSourcei");
-		GetSourceiv = provider.getFunctionAddress("alGetSourceiv");
-		SourceQueueBuffers = provider.getFunctionAddress("alSourceQueueBuffers");
-		SourceUnqueueBuffers = provider.getFunctionAddress("alSourceUnqueueBuffers");
-		SourcePlay = provider.getFunctionAddress("alSourcePlay");
-		SourcePause = provider.getFunctionAddress("alSourcePause");
-		SourceStop = provider.getFunctionAddress("alSourceStop");
-		SourceRewind = provider.getFunctionAddress("alSourceRewind");
-		SourcePlayv = provider.getFunctionAddress("alSourcePlayv");
-		SourcePausev = provider.getFunctionAddress("alSourcePausev");
-		SourceStopv = provider.getFunctionAddress("alSourceStopv");
-		SourceRewindv = provider.getFunctionAddress("alSourceRewindv");
-		GenBuffers = provider.getFunctionAddress("alGenBuffers");
-		DeleteBuffers = provider.getFunctionAddress("alDeleteBuffers");
-		IsBuffer = provider.getFunctionAddress("alIsBuffer");
-		GetBufferf = provider.getFunctionAddress("alGetBufferf");
-		GetBufferi = provider.getFunctionAddress("alGetBufferi");
-		BufferData = provider.getFunctionAddress("alBufferData");
-		GetEnumValue = provider.getFunctionAddress("alGetEnumValue");
-		GetProcAddress = provider.getFunctionAddress("alGetProcAddress");
-		IsExtensionPresent = provider.getFunctionAddress("alIsExtensionPresent");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AL10} instance of the current context. */
-	public static AL10 getInstance() {
-		return checkFunctionality(AL.getCapabilities().__AL10);
-	}
-
-	static AL10 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenAL10") ) return null;
-
-		AL10 funcs = new AL10(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetError, funcs.Enable, funcs.Disable, funcs.IsEnabled, funcs.GetBoolean, funcs.GetInteger, funcs.GetFloat, funcs.GetDouble, 
-			funcs.GetBooleanv, funcs.GetIntegerv, funcs.GetFloatv, funcs.GetDoublev, funcs.GetString, funcs.DistanceModel, funcs.DopplerFactor, 
-			funcs.DopplerVelocity, funcs.Listenerf, funcs.Listeneri, funcs.Listener3f, funcs.Listenerfv, funcs.GetListenerf, funcs.GetListeneri, 
-			funcs.GetListener3f, funcs.GetListenerfv, funcs.GenSources, funcs.DeleteSources, funcs.IsSource, funcs.Sourcef, funcs.Source3f, funcs.Sourcefv, 
-			funcs.Sourcei, funcs.GetSourcef, funcs.GetSource3f, funcs.GetSourcefv, funcs.GetSourcei, funcs.GetSourceiv, funcs.SourceQueueBuffers, 
-			funcs.SourceUnqueueBuffers, funcs.SourcePlay, funcs.SourcePause, funcs.SourceStop, funcs.SourceRewind, funcs.SourcePlayv, funcs.SourcePausev, 
-			funcs.SourceStopv, funcs.SourceRewindv, funcs.GenBuffers, funcs.DeleteBuffers, funcs.IsBuffer, funcs.GetBufferf, funcs.GetBufferi, funcs.BufferData, 
-			funcs.GetEnumValue, funcs.GetProcAddress, funcs.IsExtensionPresent
+	static boolean isAvailable(ALCapabilities caps) {
+		return checkFunctions(
+			caps.alGetError, caps.alEnable, caps.alDisable, caps.alIsEnabled, caps.alGetBoolean, caps.alGetInteger, caps.alGetFloat, caps.alGetDouble, 
+			caps.alGetBooleanv, caps.alGetIntegerv, caps.alGetFloatv, caps.alGetDoublev, caps.alGetString, caps.alDistanceModel, caps.alDopplerFactor, 
+			caps.alDopplerVelocity, caps.alListenerf, caps.alListeneri, caps.alListener3f, caps.alListenerfv, caps.alGetListenerf, caps.alGetListeneri, 
+			caps.alGetListener3f, caps.alGetListenerfv, caps.alGenSources, caps.alDeleteSources, caps.alIsSource, caps.alSourcef, caps.alSource3f, 
+			caps.alSourcefv, caps.alSourcei, caps.alGetSourcef, caps.alGetSource3f, caps.alGetSourcefv, caps.alGetSourcei, caps.alGetSourceiv, 
+			caps.alSourceQueueBuffers, caps.alSourceUnqueueBuffers, caps.alSourcePlay, caps.alSourcePause, caps.alSourceStop, caps.alSourceRewind, 
+			caps.alSourcePlayv, caps.alSourcePausev, caps.alSourceStopv, caps.alSourceRewindv, caps.alGenBuffers, caps.alDeleteBuffers, caps.alIsBuffer, 
+			caps.alGetBufferf, caps.alGetBufferi, caps.alBufferData, caps.alGetEnumValue, caps.alGetProcAddress, caps.alIsExtensionPresent
 		);
-
-		return AL.checkExtension("OpenAL10", funcs, supported);
 	}
 
 	// --- [ alGetError ] ---
@@ -279,7 +150,7 @@ public class AL10 {
 	 * for the enumeration value, as defined in the specification.</p>
 	 */
 	public static int alGetError() {
-		long __functionAddress = getInstance().GetError;
+		long __functionAddress = AL.getCapabilities().alGetError;
 		return invokeI(__functionAddress);
 	}
 
@@ -291,7 +162,7 @@ public class AL10 {
 	 * @param target the capability to enable
 	 */
 	public static void alEnable(int target) {
-		long __functionAddress = getInstance().Enable;
+		long __functionAddress = AL.getCapabilities().alEnable;
 		invokeIV(__functionAddress, target);
 	}
 
@@ -303,7 +174,7 @@ public class AL10 {
 	 * @param target the capability to disable
 	 */
 	public static void alDisable(int target) {
-		long __functionAddress = getInstance().Disable;
+		long __functionAddress = AL.getCapabilities().alDisable;
 		invokeIV(__functionAddress, target);
 	}
 
@@ -315,7 +186,7 @@ public class AL10 {
 	 * @param target the capability to query
 	 */
 	public static boolean alIsEnabled(int target) {
-		long __functionAddress = getInstance().IsEnabled;
+		long __functionAddress = AL.getCapabilities().alIsEnabled;
 		return invokeIZ(__functionAddress, target);
 	}
 
@@ -327,7 +198,7 @@ public class AL10 {
 	 * @param paramName the parameter to query
 	 */
 	public static boolean alGetBoolean(int paramName) {
-		long __functionAddress = getInstance().GetBoolean;
+		long __functionAddress = AL.getCapabilities().alGetBoolean;
 		return invokeIZ(__functionAddress, paramName);
 	}
 
@@ -339,7 +210,7 @@ public class AL10 {
 	 * @param paramName the parameter to query. One of:<br>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static int alGetInteger(int paramName) {
-		long __functionAddress = getInstance().GetInteger;
+		long __functionAddress = AL.getCapabilities().alGetInteger;
 		return invokeII(__functionAddress, paramName);
 	}
 
@@ -351,7 +222,7 @@ public class AL10 {
 	 * @param paramName the parameter to query. One of:<br>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static float alGetFloat(int paramName) {
-		long __functionAddress = getInstance().GetFloat;
+		long __functionAddress = AL.getCapabilities().alGetFloat;
 		return invokeIF(__functionAddress, paramName);
 	}
 
@@ -363,7 +234,7 @@ public class AL10 {
 	 * @param paramName the parameter to query. One of:<br>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static double alGetDouble(int paramName) {
-		long __functionAddress = getInstance().GetDouble;
+		long __functionAddress = AL.getCapabilities().alGetDouble;
 		return invokeID(__functionAddress, paramName);
 	}
 
@@ -371,7 +242,7 @@ public class AL10 {
 
 	/** Unsafe version of {@link #alGetBooleanv GetBooleanv} */
 	public static void nalGetBooleanv(int paramName, long dest) {
-		long __functionAddress = getInstance().GetBooleanv;
+		long __functionAddress = AL.getCapabilities().alGetBooleanv;
 		invokeIPV(__functionAddress, paramName, dest);
 	}
 
@@ -391,7 +262,7 @@ public class AL10 {
 
 	/** Unsafe version of {@link #alGetIntegerv GetIntegerv} */
 	public static void nalGetIntegerv(int paramName, long dest) {
-		long __functionAddress = getInstance().GetIntegerv;
+		long __functionAddress = AL.getCapabilities().alGetIntegerv;
 		invokeIPV(__functionAddress, paramName, dest);
 	}
 
@@ -418,7 +289,7 @@ public class AL10 {
 
 	/** Unsafe version of {@link #alGetFloatv GetFloatv} */
 	public static void nalGetFloatv(int paramName, long dest) {
-		long __functionAddress = getInstance().GetFloatv;
+		long __functionAddress = AL.getCapabilities().alGetFloatv;
 		invokeIPV(__functionAddress, paramName, dest);
 	}
 
@@ -445,7 +316,7 @@ public class AL10 {
 
 	/** Unsafe version of {@link #alGetDoublev GetDoublev} */
 	public static void nalGetDoublev(int paramName, long dest) {
-		long __functionAddress = getInstance().GetDoublev;
+		long __functionAddress = AL.getCapabilities().alGetDoublev;
 		invokeIPV(__functionAddress, paramName, dest);
 	}
 
@@ -472,7 +343,7 @@ public class AL10 {
 
 	/** Unsafe version of {@link #alGetString GetString} */
 	public static long nalGetString(int paramName) {
-		long __functionAddress = getInstance().GetString;
+		long __functionAddress = AL.getCapabilities().alGetString;
 		return invokeIP(__functionAddress, paramName);
 	}
 
@@ -483,7 +354,7 @@ public class AL10 {
 	 */
 	public static String alGetString(int paramName) {
 		long __result = nalGetString(paramName);
-		return memDecodeUTF8(__result);
+		return memUTF8(__result);
 	}
 
 	// --- [ alDistanceModel ] ---
@@ -504,7 +375,7 @@ public class AL10 {
 	 * @param modelName the distance attenuation model to set. One of:<br>{@link #AL_INVERSE_DISTANCE INVERSE_DISTANCE}, {@link #AL_INVERSE_DISTANCE_CLAMPED INVERSE_DISTANCE_CLAMPED}, {@link AL11#AL_LINEAR_DISTANCE LINEAR_DISTANCE}, {@link AL11#AL_LINEAR_DISTANCE_CLAMPED LINEAR_DISTANCE_CLAMPED}, {@link AL11#AL_EXPONENT_DISTANCE EXPONENT_DISTANCE}, {@link AL11#AL_EXPONENT_DISTANCE_CLAMPED EXPONENT_DISTANCE_CLAMPED}, {@link #AL_NONE NONE}
 	 */
 	public static void alDistanceModel(int modelName) {
-		long __functionAddress = getInstance().DistanceModel;
+		long __functionAddress = AL.getCapabilities().alDistanceModel;
 		invokeIV(__functionAddress, modelName);
 	}
 
@@ -550,7 +421,7 @@ f' = f * (SS - DF * vls) / (SS - DF * vss)</code></pre>
 	 * @param dopplerFactor the doppler factor
 	 */
 	public static void alDopplerFactor(float dopplerFactor) {
-		long __functionAddress = getInstance().DopplerFactor;
+		long __functionAddress = AL.getCapabilities().alDopplerFactor;
 		invokeFV(__functionAddress, dopplerFactor);
 	}
 
@@ -574,7 +445,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param dopplerVelocity the doppler velocity
 	 */
 	public static void alDopplerVelocity(float dopplerVelocity) {
-		long __functionAddress = getInstance().DopplerVelocity;
+		long __functionAddress = AL.getCapabilities().alDopplerVelocity;
 		invokeFV(__functionAddress, dopplerVelocity);
 	}
 
@@ -587,7 +458,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param value     the parameter value
 	 */
 	public static void alListenerf(int paramName, float value) {
-		long __functionAddress = getInstance().Listenerf;
+		long __functionAddress = AL.getCapabilities().alListenerf;
 		invokeIFV(__functionAddress, paramName, value);
 	}
 
@@ -600,7 +471,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param values    the parameter value
 	 */
 	public static void alListeneri(int paramName, int values) {
-		long __functionAddress = getInstance().Listeneri;
+		long __functionAddress = AL.getCapabilities().alListeneri;
 		invokeIIV(__functionAddress, paramName, values);
 	}
 
@@ -615,7 +486,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param value3    the third value
 	 */
 	public static void alListener3f(int paramName, float value1, float value2, float value3) {
-		long __functionAddress = getInstance().Listener3f;
+		long __functionAddress = AL.getCapabilities().alListener3f;
 		invokeIFFFV(__functionAddress, paramName, value1, value2, value3);
 	}
 
@@ -623,7 +494,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alListenerfv Listenerfv} */
 	public static void nalListenerfv(int paramName, long values) {
-		long __functionAddress = getInstance().Listenerfv;
+		long __functionAddress = AL.getCapabilities().alListenerfv;
 		invokeIPV(__functionAddress, paramName, values);
 	}
 
@@ -650,7 +521,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alGetListenerf GetListenerf} */
 	public static void nalGetListenerf(int paramName, long value) {
-		long __functionAddress = getInstance().GetListenerf;
+		long __functionAddress = AL.getCapabilities().alGetListenerf;
 		invokeIPV(__functionAddress, paramName, value);
 	}
 
@@ -675,17 +546,21 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single return value version of: {@link #alGetListenerf GetListenerf} */
 	public static float alGetListenerf(int paramName) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.floatParam();
-		nalGetListenerf(paramName, __buffer.address(value));
-		return __buffer.floatValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer value = stack.callocFloat(1);
+			nalGetListenerf(paramName, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetListeneri ] ---
 
 	/** Unsafe version of {@link #alGetListeneri GetListeneri} */
 	public static void nalGetListeneri(int paramName, long value) {
-		long __functionAddress = getInstance().GetListeneri;
+		long __functionAddress = AL.getCapabilities().alGetListeneri;
 		invokeIPV(__functionAddress, paramName, value);
 	}
 
@@ -710,17 +585,21 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single return value version of: {@link #alGetListeneri GetListeneri} */
 	public static int alGetListeneri(int paramName) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.intParam();
-		nalGetListeneri(paramName, __buffer.address(value));
-		return __buffer.intValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer value = stack.callocInt(1);
+			nalGetListeneri(paramName, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetListener3f ] ---
 
 	/** Unsafe version of {@link #alGetListener3f GetListener3f} */
 	public static void nalGetListener3f(int paramName, long value1, long value2, long value3) {
-		long __functionAddress = getInstance().GetListener3f;
+		long __functionAddress = AL.getCapabilities().alGetListener3f;
 		invokeIPPPV(__functionAddress, paramName, value1, value2, value3);
 	}
 
@@ -755,7 +634,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alGetListenerfv GetListenerfv} */
 	public static void nalGetListenerfv(int paramName, long values) {
-		long __functionAddress = getInstance().GetListenerfv;
+		long __functionAddress = AL.getCapabilities().alGetListenerfv;
 		invokeIPV(__functionAddress, paramName, values);
 	}
 
@@ -782,7 +661,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alGenSources GenSources} */
 	public static void nalGenSources(int n, long srcNames) {
-		long __functionAddress = getInstance().GenSources;
+		long __functionAddress = AL.getCapabilities().alGenSources;
 		invokeIPV(__functionAddress, n, srcNames);
 	}
 
@@ -805,17 +684,21 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single return value version of: {@link #alGenSources GenSources} */
 	public static int alGenSources() {
-		APIBuffer __buffer = apiBuffer();
-		int srcNames = __buffer.intParam();
-		nalGenSources(1, __buffer.address(srcNames));
-		return __buffer.intValue(srcNames);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer srcNames = stack.callocInt(1);
+			nalGenSources(1, memAddress(srcNames));
+			return srcNames.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alDeleteSources ] ---
 
 	/** Unsafe version of {@link #alDeleteSources DeleteSources} */
 	public static void nalDeleteSources(int n, long sources) {
-		long __functionAddress = getInstance().DeleteSources;
+		long __functionAddress = AL.getCapabilities().alDeleteSources;
 		invokeIPV(__functionAddress, n, sources);
 	}
 
@@ -838,9 +721,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single value version of: {@link #alDeleteSources DeleteSources} */
 	public static void alDeleteSources(int source) {
-		APIBuffer __buffer = apiBuffer();
-		int sources = __buffer.intParam(source);
-		nalDeleteSources(1, __buffer.address(sources));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer sources = stack.ints(source);
+			nalDeleteSources(1, memAddress(sources));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alIsSource ] ---
@@ -851,7 +738,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param sourceName a value that may be a source name
 	 */
 	public static boolean alIsSource(int sourceName) {
-		long __functionAddress = getInstance().IsSource;
+		long __functionAddress = AL.getCapabilities().alIsSource;
 		return invokeIZ(__functionAddress, sourceName);
 	}
 
@@ -865,7 +752,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param value  the parameter value
 	 */
 	public static void alSourcef(int source, int param, float value) {
-		long __functionAddress = getInstance().Sourcef;
+		long __functionAddress = AL.getCapabilities().alSourcef;
 		invokeIIFV(__functionAddress, source, param, value);
 	}
 
@@ -881,7 +768,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param v3     the third parameter value
 	 */
 	public static void alSource3f(int source, int param, float v1, float v2, float v3) {
-		long __functionAddress = getInstance().Source3f;
+		long __functionAddress = AL.getCapabilities().alSource3f;
 		invokeIIFFFV(__functionAddress, source, param, v1, v2, v3);
 	}
 
@@ -889,7 +776,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alSourcefv Sourcefv} */
 	public static void nalSourcefv(int source, int param, long values) {
-		long __functionAddress = getInstance().Sourcefv;
+		long __functionAddress = AL.getCapabilities().alSourcefv;
 		invokeIIPV(__functionAddress, source, param, values);
 	}
 
@@ -923,7 +810,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param value  the parameter value
 	 */
 	public static void alSourcei(int source, int param, int value) {
-		long __functionAddress = getInstance().Sourcei;
+		long __functionAddress = AL.getCapabilities().alSourcei;
 		invokeIIIV(__functionAddress, source, param, value);
 	}
 
@@ -931,7 +818,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alGetSourcef GetSourcef} */
 	public static void nalGetSourcef(int source, int param, long value) {
-		long __functionAddress = getInstance().GetSourcef;
+		long __functionAddress = AL.getCapabilities().alGetSourcef;
 		invokeIIPV(__functionAddress, source, param, value);
 	}
 
@@ -957,17 +844,21 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single return value version of: {@link #alGetSourcef GetSourcef} */
 	public static float alGetSourcef(int source, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.floatParam();
-		nalGetSourcef(source, param, __buffer.address(value));
-		return __buffer.floatValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer value = stack.callocFloat(1);
+			nalGetSourcef(source, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetSource3f ] ---
 
 	/** Unsafe version of {@link #alGetSource3f GetSource3f} */
 	public static void nalGetSource3f(int source, int param, long v1, long v2, long v3) {
-		long __functionAddress = getInstance().GetSource3f;
+		long __functionAddress = AL.getCapabilities().alGetSource3f;
 		invokeIIPPPV(__functionAddress, source, param, v1, v2, v3);
 	}
 
@@ -1003,7 +894,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alGetSourcefv GetSourcefv} */
 	public static void nalGetSourcefv(int source, int param, long values) {
-		long __functionAddress = getInstance().GetSourcefv;
+		long __functionAddress = AL.getCapabilities().alGetSourcefv;
 		invokeIIPV(__functionAddress, source, param, values);
 	}
 
@@ -1031,7 +922,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alGetSourcei GetSourcei} */
 	public static void nalGetSourcei(int source, int param, long value) {
-		long __functionAddress = getInstance().GetSourcei;
+		long __functionAddress = AL.getCapabilities().alGetSourcei;
 		invokeIIPV(__functionAddress, source, param, value);
 	}
 
@@ -1057,17 +948,21 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single return value version of: {@link #alGetSourcei GetSourcei} */
 	public static int alGetSourcei(int source, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.intParam();
-		nalGetSourcei(source, param, __buffer.address(value));
-		return __buffer.intValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer value = stack.callocInt(1);
+			nalGetSourcei(source, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetSourceiv ] ---
 
 	/** Unsafe version of {@link #alGetSourceiv GetSourceiv} */
 	public static void nalGetSourceiv(int source, int param, long values) {
-		long __functionAddress = getInstance().GetSourceiv;
+		long __functionAddress = AL.getCapabilities().alGetSourceiv;
 		invokeIIPV(__functionAddress, source, param, values);
 	}
 
@@ -1095,7 +990,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alSourceQueueBuffers SourceQueueBuffers} */
 	public static void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames) {
-		long __functionAddress = getInstance().SourceQueueBuffers;
+		long __functionAddress = AL.getCapabilities().alSourceQueueBuffers;
 		invokeIIPV(__functionAddress, sourceName, numBuffers, bufferNames);
 	}
 
@@ -1104,7 +999,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * 
 	 * <p>The buffers will be queued in the sequence in which they appear in the array. This command is legal on a source in any playback state (to allow for
 	 * streaming, queuing has to be possible on a AL_PLAYING source). All buffers in a queue must have the same format and attributes, with the exception of
-	 * the NULL buffer (i.e., 0) which can always be queued.</p>
+	 * the {@code NULL} buffer (i.e., 0) which can always be queued.</p>
 	 *
 	 * @param sourceName  the target source
 	 * @param numBuffers  the number of buffers to queue
@@ -1123,16 +1018,20 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single value version of: {@link #alSourceQueueBuffers SourceQueueBuffers} */
 	public static void alSourceQueueBuffers(int sourceName, int bufferName) {
-		APIBuffer __buffer = apiBuffer();
-		int bufferNames = __buffer.intParam(bufferName);
-		nalSourceQueueBuffers(sourceName, 1, __buffer.address(bufferNames));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer bufferNames = stack.ints(bufferName);
+			nalSourceQueueBuffers(sourceName, 1, memAddress(bufferNames));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alSourceUnqueueBuffers ] ---
 
 	/** Unsafe version of {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
 	public static void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames) {
-		long __functionAddress = getInstance().SourceUnqueueBuffers;
+		long __functionAddress = AL.getCapabilities().alSourceUnqueueBuffers;
 		invokeIIPV(__functionAddress, sourceName, numEntries, bufferNames);
 	}
 
@@ -1161,10 +1060,14 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single return value version of: {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
 	public static int alSourceUnqueueBuffers(int sourceName) {
-		APIBuffer __buffer = apiBuffer();
-		int bufferNames = __buffer.intParam();
-		nalSourceUnqueueBuffers(sourceName, 1, __buffer.address(bufferNames));
-		return __buffer.intValue(bufferNames);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer bufferNames = stack.callocInt(1);
+			nalSourceUnqueueBuffers(sourceName, 1, memAddress(bufferNames));
+			return bufferNames.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alSourcePlay ] ---
@@ -1181,7 +1084,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param source the source to play
 	 */
 	public static void alSourcePlay(int source) {
-		long __functionAddress = getInstance().SourcePlay;
+		long __functionAddress = AL.getCapabilities().alSourcePlay;
 		invokeIV(__functionAddress, source);
 	}
 
@@ -1197,7 +1100,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param source the source to pause
 	 */
 	public static void alSourcePause(int source) {
-		long __functionAddress = getInstance().SourcePause;
+		long __functionAddress = AL.getCapabilities().alSourcePause;
 		invokeIV(__functionAddress, source);
 	}
 
@@ -1213,7 +1116,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param source the source to stop
 	 */
 	public static void alSourceStop(int source) {
-		long __functionAddress = getInstance().SourceStop;
+		long __functionAddress = AL.getCapabilities().alSourceStop;
 		invokeIV(__functionAddress, source);
 	}
 
@@ -1230,7 +1133,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param source the source to rewind
 	 */
 	public static void alSourceRewind(int source) {
-		long __functionAddress = getInstance().SourceRewind;
+		long __functionAddress = AL.getCapabilities().alSourceRewind;
 		invokeIV(__functionAddress, source);
 	}
 
@@ -1238,7 +1141,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alSourcePlayv SourcePlayv} */
 	public static void nalSourcePlayv(int n, long sources) {
-		long __functionAddress = getInstance().SourcePlayv;
+		long __functionAddress = AL.getCapabilities().alSourcePlayv;
 		invokeIPV(__functionAddress, n, sources);
 	}
 
@@ -1263,7 +1166,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alSourcePausev SourcePausev} */
 	public static void nalSourcePausev(int n, long sources) {
-		long __functionAddress = getInstance().SourcePausev;
+		long __functionAddress = AL.getCapabilities().alSourcePausev;
 		invokeIPV(__functionAddress, n, sources);
 	}
 
@@ -1288,7 +1191,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alSourceStopv SourceStopv} */
 	public static void nalSourceStopv(int n, long sources) {
-		long __functionAddress = getInstance().SourceStopv;
+		long __functionAddress = AL.getCapabilities().alSourceStopv;
 		invokeIPV(__functionAddress, n, sources);
 	}
 
@@ -1313,7 +1216,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alSourceRewindv SourceRewindv} */
 	public static void nalSourceRewindv(int n, long sources) {
-		long __functionAddress = getInstance().SourceRewindv;
+		long __functionAddress = AL.getCapabilities().alSourceRewindv;
 		invokeIPV(__functionAddress, n, sources);
 	}
 
@@ -1338,7 +1241,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alGenBuffers GenBuffers} */
 	public static void nalGenBuffers(int n, long bufferNames) {
-		long __functionAddress = getInstance().GenBuffers;
+		long __functionAddress = AL.getCapabilities().alGenBuffers;
 		invokeIPV(__functionAddress, n, bufferNames);
 	}
 
@@ -1361,17 +1264,21 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single return value version of: {@link #alGenBuffers GenBuffers} */
 	public static int alGenBuffers() {
-		APIBuffer __buffer = apiBuffer();
-		int bufferNames = __buffer.intParam();
-		nalGenBuffers(1, __buffer.address(bufferNames));
-		return __buffer.intValue(bufferNames);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer bufferNames = stack.callocInt(1);
+			nalGenBuffers(1, memAddress(bufferNames));
+			return bufferNames.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alDeleteBuffers ] ---
 
 	/** Unsafe version of {@link #alDeleteBuffers DeleteBuffers} */
 	public static void nalDeleteBuffers(int n, long bufferNames) {
-		long __functionAddress = getInstance().DeleteBuffers;
+		long __functionAddress = AL.getCapabilities().alDeleteBuffers;
 		invokeIPV(__functionAddress, n, bufferNames);
 	}
 
@@ -1394,9 +1301,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single value version of: {@link #alDeleteBuffers DeleteBuffers} */
 	public static void alDeleteBuffers(int bufferName) {
-		APIBuffer __buffer = apiBuffer();
-		int bufferNames = __buffer.intParam(bufferName);
-		nalDeleteBuffers(1, __buffer.address(bufferNames));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer bufferNames = stack.ints(bufferName);
+			nalDeleteBuffers(1, memAddress(bufferNames));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alIsBuffer ] ---
@@ -1407,7 +1318,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param bufferName a value that may be a buffer name
 	 */
 	public static boolean alIsBuffer(int bufferName) {
-		long __functionAddress = getInstance().IsBuffer;
+		long __functionAddress = AL.getCapabilities().alIsBuffer;
 		return invokeIZ(__functionAddress, bufferName);
 	}
 
@@ -1415,7 +1326,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alGetBufferf GetBufferf} */
 	public static void nalGetBufferf(int bufferName, int paramName, long value) {
-		long __functionAddress = getInstance().GetBufferf;
+		long __functionAddress = AL.getCapabilities().alGetBufferf;
 		invokeIIPV(__functionAddress, bufferName, paramName, value);
 	}
 
@@ -1441,17 +1352,21 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single return value version of: {@link #alGetBufferf GetBufferf} */
 	public static float alGetBufferf(int bufferName, int paramName) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.floatParam();
-		nalGetBufferf(bufferName, paramName, __buffer.address(value));
-		return __buffer.floatValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer value = stack.callocFloat(1);
+			nalGetBufferf(bufferName, paramName, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetBufferi ] ---
 
 	/** Unsafe version of {@link #alGetBufferi GetBufferi} */
 	public static void nalGetBufferi(int bufferName, int paramName, long value) {
-		long __functionAddress = getInstance().GetBufferi;
+		long __functionAddress = AL.getCapabilities().alGetBufferi;
 		invokeIIPV(__functionAddress, bufferName, paramName, value);
 	}
 
@@ -1477,17 +1392,21 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Single return value version of: {@link #alGetBufferi GetBufferi} */
 	public static int alGetBufferi(int bufferName, int paramName) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.intParam();
-		nalGetBufferi(bufferName, paramName, __buffer.address(value));
-		return __buffer.intValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer value = stack.callocInt(1);
+			nalGetBufferi(bufferName, paramName, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alBufferData ] ---
 
 	/** Unsafe version of {@link #alBufferData BufferData} */
 	public static void nalBufferData(int bufferName, int format, long data, int size, int frequency) {
-		long __functionAddress = getInstance().BufferData;
+		long __functionAddress = AL.getCapabilities().alBufferData;
 		invokeIIPIIV(__functionAddress, bufferName, format, data, size, frequency);
 	}
 
@@ -1543,7 +1462,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** Unsafe version of {@link #alGetEnumValue GetEnumValue} */
 	public static int nalGetEnumValue(long enumName) {
-		long __functionAddress = getInstance().GetEnumValue;
+		long __functionAddress = AL.getCapabilities().alGetEnumValue;
 		return invokePI(__functionAddress, enumName);
 	}
 
@@ -1560,23 +1479,27 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** CharSequence version of: {@link #alGetEnumValue GetEnumValue} */
 	public static int alGetEnumValue(CharSequence enumName) {
-		APIBuffer __buffer = apiBuffer();
-		int enumNameEncoded = __buffer.stringParamASCII(enumName, true);
-		return nalGetEnumValue(__buffer.address(enumNameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer enumNameEncoded = stack.ASCII(enumName);
+			return nalGetEnumValue(memAddress(enumNameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetProcAddress ] ---
 
 	/** Unsafe version of {@link #alGetProcAddress GetProcAddress} */
 	public static long nalGetProcAddress(long funcName) {
-		long __functionAddress = getInstance().GetProcAddress;
+		long __functionAddress = AL.getCapabilities().alGetProcAddress;
 		return invokePP(__functionAddress, funcName);
 	}
 
 	/**
 	 * Retrieves extension entry points.
 	 * 
-	 * <p>Returns NULL if no entry point with the name funcName can be found. Implementations are free to return NULL if an entry point is present, but not
+	 * <p>Returns {@code NULL} if no entry point with the name funcName can be found. Implementations are free to return {@code NULL} if an entry point is present, but not
 	 * applicable for the current context. However the specification does not guarantee this behavior.</p>
 	 * 
 	 * <p>Applications can use alGetProcAddress to obtain core API entry points, not just extensions. This is the recommended way to dynamically load and unload
@@ -1592,16 +1515,20 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** CharSequence version of: {@link #alGetProcAddress GetProcAddress} */
 	public static long alGetProcAddress(CharSequence funcName) {
-		APIBuffer __buffer = apiBuffer();
-		int funcNameEncoded = __buffer.stringParamASCII(funcName, true);
-		return nalGetProcAddress(__buffer.address(funcNameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer funcNameEncoded = stack.ASCII(funcName);
+			return nalGetProcAddress(memAddress(funcNameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alIsExtensionPresent ] ---
 
 	/** Unsafe version of {@link #alIsExtensionPresent IsExtensionPresent} */
 	public static boolean nalIsExtensionPresent(long extName) {
-		long __functionAddress = getInstance().IsExtensionPresent;
+		long __functionAddress = AL.getCapabilities().alIsExtensionPresent;
 		return invokePZ(__functionAddress, extName);
 	}
 
@@ -1621,9 +1548,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	/** CharSequence version of: {@link #alIsExtensionPresent IsExtensionPresent} */
 	public static boolean alIsExtensionPresent(CharSequence extName) {
-		APIBuffer __buffer = apiBuffer();
-		int extNameEncoded = __buffer.stringParamASCII(extName, true);
-		return nalIsExtensionPresent(__buffer.address(extNameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer extNameEncoded = stack.ASCII(extName);
+			return nalIsExtensionPresent(memAddress(extNameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

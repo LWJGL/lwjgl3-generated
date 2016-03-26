@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -31,46 +31,14 @@ public class ARBVertexArrayObject {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_VERTEX_ARRAY_BINDING = 0x85B5;
 
-	/** Function address. */
-	public final long
-		BindVertexArray,
-		DeleteVertexArrays,
-		GenVertexArrays,
-		IsVertexArray;
-
 	protected ARBVertexArrayObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBVertexArrayObject(FunctionProvider provider) {
-		BindVertexArray = provider.getFunctionAddress("glBindVertexArray");
-		DeleteVertexArrays = provider.getFunctionAddress("glDeleteVertexArrays");
-		GenVertexArrays = provider.getFunctionAddress("glGenVertexArrays");
-		IsVertexArray = provider.getFunctionAddress("glIsVertexArray");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBVertexArrayObject} instance of the current context. */
-	public static ARBVertexArrayObject getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBVertexArrayObject} instance of the specified {@link GLCapabilities}. */
-	public static ARBVertexArrayObject getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBVertexArrayObject);
-	}
-
-	static ARBVertexArrayObject create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_vertex_array_object") ) return null;
-
-		ARBVertexArrayObject funcs = new ARBVertexArrayObject(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindVertexArray, funcs.DeleteVertexArrays, funcs.GenVertexArrays, funcs.IsVertexArray
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBindVertexArray, caps.glDeleteVertexArrays, caps.glGenVertexArrays, caps.glIsVertexArray
 		);
-
-		return GL.checkExtension("GL_ARB_vertex_array_object", funcs, supported);
 	}
 
 	// --- [ glBindVertexArray ] ---
@@ -81,7 +49,9 @@ public class ARBVertexArrayObject {
 	 * @param array the name of the vertex array to bind
 	 */
 	public static void glBindVertexArray(int array) {
-		long __functionAddress = getInstance().BindVertexArray;
+		long __functionAddress = GL.getCapabilities().glBindVertexArray;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, array);
 	}
 
@@ -89,7 +59,9 @@ public class ARBVertexArrayObject {
 
 	/** Unsafe version of {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void nglDeleteVertexArrays(int n, long arrays) {
-		long __functionAddress = getInstance().DeleteVertexArrays;
+		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, arrays);
 	}
 
@@ -112,16 +84,22 @@ public class ARBVertexArrayObject {
 
 	/** Single value version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(int array) {
-		APIBuffer __buffer = apiBuffer();
-		int arrays = __buffer.intParam(array);
-		nglDeleteVertexArrays(1, __buffer.address(arrays));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer arrays = stack.ints(array);
+			nglDeleteVertexArrays(1, memAddress(arrays));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenVertexArrays ] ---
 
 	/** Unsafe version of {@link #glGenVertexArrays GenVertexArrays} */
 	public static void nglGenVertexArrays(int n, long arrays) {
-		long __functionAddress = getInstance().GenVertexArrays;
+		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, arrays);
 	}
 
@@ -144,10 +122,14 @@ public class ARBVertexArrayObject {
 
 	/** Single return value version of: {@link #glGenVertexArrays GenVertexArrays} */
 	public static int glGenVertexArrays() {
-		APIBuffer __buffer = apiBuffer();
-		int arrays = __buffer.intParam();
-		nglGenVertexArrays(1, __buffer.address(arrays));
-		return __buffer.intValue(arrays);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer arrays = stack.callocInt(1);
+			nglGenVertexArrays(1, memAddress(arrays));
+			return arrays.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsVertexArray ] ---
@@ -158,7 +140,9 @@ public class ARBVertexArrayObject {
 	 * @param array a value that may be the name of a vertex array object
 	 */
 	public static boolean glIsVertexArray(int array) {
-		long __functionAddress = getInstance().IsVertexArray;
+		long __functionAddress = GL.getCapabilities().glIsVertexArray;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, array);
 	}
 

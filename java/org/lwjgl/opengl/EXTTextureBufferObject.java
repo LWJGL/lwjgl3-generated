@@ -49,45 +49,22 @@ public class EXTTextureBufferObject {
 		GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT = 0x8C2D,
 		GL_TEXTURE_BUFFER_FORMAT_EXT             = 0x8C2E;
 
-	/** Function address. */
-	public final long TexBufferEXT;
-
 	protected EXTTextureBufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTTextureBufferObject(FunctionProvider provider) {
-		TexBufferEXT = provider.getFunctionAddress("glTexBufferEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTTextureBufferObject} instance of the current context. */
-	public static EXTTextureBufferObject getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTTextureBufferObject} instance of the specified {@link GLCapabilities}. */
-	public static EXTTextureBufferObject getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTTextureBufferObject);
-	}
-
-	static EXTTextureBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_texture_buffer_object") ) return null;
-
-		EXTTextureBufferObject funcs = new EXTTextureBufferObject(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TexBufferEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glTexBufferEXT
 		);
-
-		return GL.checkExtension("GL_EXT_texture_buffer_object", funcs, supported);
 	}
 
 	// --- [ glTexBufferEXT ] ---
 
 	public static void glTexBufferEXT(int target, int internalformat, int buffer) {
-		long __functionAddress = getInstance().TexBufferEXT;
+		long __functionAddress = GL.getCapabilities().glTexBufferEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, target, internalformat, buffer);
 	}
 

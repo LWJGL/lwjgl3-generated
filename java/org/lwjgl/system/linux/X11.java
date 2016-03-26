@@ -13,6 +13,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to libX11. */
@@ -393,58 +394,41 @@ public class X11 {
 		GCArcMode           = 1<<22,
 		GCLastBit           = 0x16;
 
-	/** Function address. */
-	public final long
-		__XOpenDisplay,
-		__XDefaultScreen,
-		__XRootWindow,
-		__XCreateColormap,
-		__XFreeColormap,
-		__XCreateWindow,
-		__XDestroyWindow,
-		__XFree;
-
 	protected X11() {
 		throw new UnsupportedOperationException();
 	}
 
-	public X11(FunctionProvider provider) {
-		__XOpenDisplay = checkFunctionAddress(provider.getFunctionAddress("XOpenDisplay"));
-		__XDefaultScreen = checkFunctionAddress(provider.getFunctionAddress("XDefaultScreen"));
-		__XRootWindow = checkFunctionAddress(provider.getFunctionAddress("XRootWindow"));
-		__XCreateColormap = checkFunctionAddress(provider.getFunctionAddress("XCreateColormap"));
-		__XFreeColormap = checkFunctionAddress(provider.getFunctionAddress("XFreeColormap"));
-		__XCreateWindow = checkFunctionAddress(provider.getFunctionAddress("XCreateWindow"));
-		__XDestroyWindow = checkFunctionAddress(provider.getFunctionAddress("XDestroyWindow"));
-		__XFree = checkFunctionAddress(provider.getFunctionAddress("XFree"));
+	private static final SharedLibrary X11 = Library.loadNative("X11");
+
+	/** Contains the function pointers loaded from the X11 {@link SharedLibrary}. */
+	public static final class Functions {
+
+		private Functions() {}
+
+		/** Function address. */
+		public static final long
+			XOpenDisplay = apiGetFunctionAddress(X11, "XOpenDisplay"),
+			XCloseDisplay = apiGetFunctionAddress(X11, "XCloseDisplay"),
+			XDefaultScreen = apiGetFunctionAddress(X11, "XDefaultScreen"),
+			XRootWindow = apiGetFunctionAddress(X11, "XRootWindow"),
+			XCreateColormap = apiGetFunctionAddress(X11, "XCreateColormap"),
+			XFreeColormap = apiGetFunctionAddress(X11, "XFreeColormap"),
+			XCreateWindow = apiGetFunctionAddress(X11, "XCreateWindow"),
+			XDestroyWindow = apiGetFunctionAddress(X11, "XDestroyWindow"),
+			XFree = apiGetFunctionAddress(X11, "XFree");
+
 	}
 
-	// --- [ Function Addresses ] ---
-
-	private static final SharedLibrary X11;
-
-	private static final X11 instance;
-
-	static {
-		X11 = Library.loadNative("X11");
-		instance = new X11(X11);
-	}
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	/** Returns the X11 {@link SharedLibrary}. */
 	public static SharedLibrary getLibrary() {
 		return X11;
-	}
-
-	/** Returns the {@link X11} instance. */
-	public static X11 getInstance() {
-		return instance;
 	}
 
 	// --- [ XOpenDisplay ] ---
 
 	/** Unsafe version of {@link #XOpenDisplay} */
 	public static long nXOpenDisplay(long display_name) {
-		long __functionAddress = getInstance().__XOpenDisplay;
+		long __functionAddress = Functions.XOpenDisplay;
 		return invokePP(__functionAddress, display_name);
 	}
 
@@ -467,9 +451,31 @@ public class X11 {
 
 	/** CharSequence version of: {@link #XOpenDisplay} */
 	public static long XOpenDisplay(CharSequence display_name) {
-		APIBuffer __buffer = apiBuffer();
-		int display_nameEncoded = display_name == null ? 0 : __buffer.stringParamASCII(display_name, true);
-		return nXOpenDisplay(__buffer.addressSafe(display_name, display_nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer display_nameEncoded = display_name == null ? null : stack.ASCII(display_name);
+			return nXOpenDisplay(memAddressSafe(display_nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	// --- [ XCloseDisplay ] ---
+
+	/**
+	 * Closes the connection to the X server for the display specified in the {@code Display} structure and destroys all windows, resource IDs (Window, Font,
+	 * Pixmap, Colormap, Cursor, and GContext), or other resources that the client has created on this display, unless the close-down mode of the resource has
+	 * been changed (see {@code XSetCloseDownMode()}). Therefore, these windows, resource IDs, and other resources should never be referenced again or an error will
+	 * be generated. Before exiting, you should call {@code XCloseDisplay()} explicitly so that any pending errors are reported as {@code XCloseDisplay()}
+	 * performs a final {@code XSync()} operation.
+	 *
+	 * @param display the connection to the X server
+	 */
+	public static void XCloseDisplay(long display) {
+		long __functionAddress = Functions.XCloseDisplay;
+		if ( CHECKS )
+			checkPointer(display);
+		invokePV(__functionAddress, display);
 	}
 
 	// --- [ XDefaultScreen ] ---
@@ -480,7 +486,7 @@ public class X11 {
 	 * @param display the connection to the X server
 	 */
 	public static int XDefaultScreen(long display) {
-		long __functionAddress = getInstance().__XDefaultScreen;
+		long __functionAddress = Functions.XDefaultScreen;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePI(__functionAddress, display);
@@ -495,7 +501,7 @@ public class X11 {
 	 * @param screen_number the appropriate screen number on the host server
 	 */
 	public static long XRootWindow(long display, int screen_number) {
-		long __functionAddress = getInstance().__XRootWindow;
+		long __functionAddress = Functions.XRootWindow;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePIP(__functionAddress, display, screen_number);
@@ -505,7 +511,7 @@ public class X11 {
 
 	/** Unsafe version of {@link #XCreateColormap} */
 	public static long nXCreateColormap(long display, long w, long visual, int alloc) {
-		long __functionAddress = getInstance().__XCreateColormap;
+		long __functionAddress = Functions.XCreateColormap;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePPPIP(__functionAddress, display, w, visual, alloc);
@@ -536,7 +542,7 @@ public class X11 {
 	 * @param colormap the colormap to destroy
 	 */
 	public static int XFreeColormap(long display, long colormap) {
-		long __functionAddress = getInstance().__XFreeColormap;
+		long __functionAddress = Functions.XFreeColormap;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePPI(__functionAddress, display, colormap);
@@ -546,7 +552,7 @@ public class X11 {
 
 	/** Unsafe version of {@link #XCreateWindow} */
 	public static long nXCreateWindow(long display, long parent, int x, int y, int width, int height, int border_width, int depth, int windowClass, long visual, long valuemask, long attributes) {
-		long __functionAddress = getInstance().__XCreateWindow;
+		long __functionAddress = Functions.XCreateWindow;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePPIIIIIIIPPPP(__functionAddress, display, parent, x, y, width, height, border_width, depth, windowClass, visual, valuemask, attributes);
@@ -596,7 +602,7 @@ public class X11 {
 	 * @param w       the window
 	 */
 	public static int XDestroyWindow(long display, long w) {
-		long __functionAddress = getInstance().__XDestroyWindow;
+		long __functionAddress = Functions.XDestroyWindow;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePPI(__functionAddress, display, w);
@@ -606,7 +612,7 @@ public class X11 {
 
 	/** Unsafe version of {@link #XFree} */
 	public static int nXFree(long data) {
-		long __functionAddress = getInstance().__XFree;
+		long __functionAddress = Functions.XFree;
 		return invokePI(__functionAddress, data);
 	}
 

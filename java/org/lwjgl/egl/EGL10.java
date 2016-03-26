@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -84,83 +84,28 @@ public class EGL10 {
 		EGL_NO_DISPLAY = 0x0L,
 		EGL_NO_SURFACE = 0x0L;
 
-	/** Function address. */
-	public final long
-		ChooseConfig,
-		CopyBuffers,
-		CreateContext,
-		CreatePbufferSurface,
-		CreatePixmapSurface,
-		CreateWindowSurface,
-		DestroyContext,
-		DestroySurface,
-		GetConfigAttrib,
-		GetConfigs,
-		GetCurrentDisplay,
-		GetCurrentSurface,
-		GetDisplay,
-		GetError,
-		GetProcAddress,
-		Initialize,
-		MakeCurrent,
-		QueryContext,
-		QueryString,
-		QuerySurface,
-		SwapBuffers,
-		Terminate,
-		WaitGL,
-		WaitNative;
-
 	protected EGL10() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EGL10(FunctionProvider provider) {
-		ChooseConfig = provider.getFunctionAddress("eglChooseConfig");
-		CopyBuffers = provider.getFunctionAddress("eglCopyBuffers");
-		CreateContext = provider.getFunctionAddress("eglCreateContext");
-		CreatePbufferSurface = provider.getFunctionAddress("eglCreatePbufferSurface");
-		CreatePixmapSurface = provider.getFunctionAddress("eglCreatePixmapSurface");
-		CreateWindowSurface = provider.getFunctionAddress("eglCreateWindowSurface");
-		DestroyContext = provider.getFunctionAddress("eglDestroyContext");
-		DestroySurface = provider.getFunctionAddress("eglDestroySurface");
-		GetConfigAttrib = provider.getFunctionAddress("eglGetConfigAttrib");
-		GetConfigs = provider.getFunctionAddress("eglGetConfigs");
-		GetCurrentDisplay = provider.getFunctionAddress("eglGetCurrentDisplay");
-		GetCurrentSurface = provider.getFunctionAddress("eglGetCurrentSurface");
-		GetDisplay = provider.getFunctionAddress("eglGetDisplay");
-		GetError = provider.getFunctionAddress("eglGetError");
-		GetProcAddress = provider.getFunctionAddress("eglGetProcAddress");
-		Initialize = provider.getFunctionAddress("eglInitialize");
-		MakeCurrent = provider.getFunctionAddress("eglMakeCurrent");
-		QueryContext = provider.getFunctionAddress("eglQueryContext");
-		QueryString = provider.getFunctionAddress("eglQueryString");
-		QuerySurface = provider.getFunctionAddress("eglQuerySurface");
-		SwapBuffers = provider.getFunctionAddress("eglSwapBuffers");
-		Terminate = provider.getFunctionAddress("eglTerminate");
-		WaitGL = provider.getFunctionAddress("eglWaitGL");
-		WaitNative = provider.getFunctionAddress("eglWaitNative");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EGL10} instance. */
-	public static EGL10 getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link EGL10} instance of the specified {@link EGLCapabilities}. */
-	public static EGL10 getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__EGL10);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglChooseConfig, caps.eglCopyBuffers, caps.eglCreateContext, caps.eglCreatePbufferSurface, caps.eglCreatePixmapSurface, 
+			caps.eglCreateWindowSurface, caps.eglDestroyContext, caps.eglDestroySurface, caps.eglGetConfigAttrib, caps.eglGetConfigs, caps.eglGetCurrentDisplay, 
+			caps.eglGetCurrentSurface, caps.eglGetDisplay, caps.eglGetError, caps.eglGetProcAddress, caps.eglInitialize, caps.eglMakeCurrent, 
+			caps.eglQueryContext, caps.eglQueryString, caps.eglQuerySurface, caps.eglSwapBuffers, caps.eglTerminate, caps.eglWaitGL, caps.eglWaitNative
+		);
 	}
 
 	// --- [ eglChooseConfig ] ---
 
 	/** Unsafe version of {@link #eglChooseConfig ChooseConfig} */
 	public static int neglChooseConfig(long dpy, long attrib_list, long configs, int config_size, long num_config) {
-		long __functionAddress = getInstance().ChooseConfig;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglChooseConfig;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPPPIPI(__functionAddress, dpy, attrib_list, configs, config_size, num_config);
 	}
 
@@ -185,8 +130,9 @@ public class EGL10 {
 	// --- [ eglCopyBuffers ] ---
 
 	public static int eglCopyBuffers(long dpy, long surface, long target) {
-		long __functionAddress = getInstance().CopyBuffers;
+		long __functionAddress = EGL.getCapabilities().eglCopyBuffers;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 			checkPointer(target);
@@ -198,8 +144,9 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglCreateContext CreateContext} */
 	public static long neglCreateContext(long dpy, long config, long share_context, long attrib_list) {
-		long __functionAddress = getInstance().CreateContext;
+		long __functionAddress = EGL.getCapabilities().eglCreateContext;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
 		}
@@ -223,8 +170,9 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglCreatePbufferSurface CreatePbufferSurface} */
 	public static long neglCreatePbufferSurface(long dpy, long config, long attrib_list) {
-		long __functionAddress = getInstance().CreatePbufferSurface;
+		long __functionAddress = EGL.getCapabilities().eglCreatePbufferSurface;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
 		}
@@ -248,8 +196,9 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglCreatePixmapSurface CreatePixmapSurface} */
 	public static long neglCreatePixmapSurface(long dpy, long config, long pixmap, long attrib_list) {
-		long __functionAddress = getInstance().CreatePixmapSurface;
+		long __functionAddress = EGL.getCapabilities().eglCreatePixmapSurface;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(pixmap);
@@ -274,8 +223,9 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglCreateWindowSurface CreateWindowSurface} */
 	public static long neglCreateWindowSurface(long dpy, long config, long win, long attrib_list) {
-		long __functionAddress = getInstance().CreateWindowSurface;
+		long __functionAddress = EGL.getCapabilities().eglCreateWindowSurface;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(win);
@@ -299,8 +249,9 @@ public class EGL10 {
 	// --- [ eglDestroyContext ] ---
 
 	public static int eglDestroyContext(long dpy, long ctx) {
-		long __functionAddress = getInstance().DestroyContext;
+		long __functionAddress = EGL.getCapabilities().eglDestroyContext;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(ctx);
 		}
@@ -310,8 +261,9 @@ public class EGL10 {
 	// --- [ eglDestroySurface ] ---
 
 	public static int eglDestroySurface(long dpy, long surface) {
-		long __functionAddress = getInstance().DestroySurface;
+		long __functionAddress = EGL.getCapabilities().eglDestroySurface;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -322,8 +274,9 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglGetConfigAttrib GetConfigAttrib} */
 	public static int neglGetConfigAttrib(long dpy, long config, int attribute, long value) {
-		long __functionAddress = getInstance().GetConfigAttrib;
+		long __functionAddress = EGL.getCapabilities().eglGetConfigAttrib;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
 		}
@@ -347,9 +300,11 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglGetConfigs GetConfigs} */
 	public static int neglGetConfigs(long dpy, long configs, int config_size, long num_config) {
-		long __functionAddress = getInstance().GetConfigs;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglGetConfigs;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPPIPI(__functionAddress, dpy, configs, config_size, num_config);
 	}
 
@@ -371,28 +326,36 @@ public class EGL10 {
 	// --- [ eglGetCurrentDisplay ] ---
 
 	public static long eglGetCurrentDisplay() {
-		long __functionAddress = getInstance().GetCurrentDisplay;
+		long __functionAddress = EGL.getCapabilities().eglGetCurrentDisplay;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callP(__functionAddress);
 	}
 
 	// --- [ eglGetCurrentSurface ] ---
 
 	public static long eglGetCurrentSurface(int readdraw) {
-		long __functionAddress = getInstance().GetCurrentSurface;
+		long __functionAddress = EGL.getCapabilities().eglGetCurrentSurface;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIP(__functionAddress, readdraw);
 	}
 
 	// --- [ eglGetDisplay ] ---
 
 	public static long eglGetDisplay(long display_id) {
-		long __functionAddress = getInstance().GetDisplay;
+		long __functionAddress = EGL.getCapabilities().eglGetDisplay;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callPP(__functionAddress, display_id);
 	}
 
 	// --- [ eglGetError ] ---
 
 	public static int eglGetError() {
-		long __functionAddress = getInstance().GetError;
+		long __functionAddress = EGL.getCapabilities().eglGetError;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -400,7 +363,9 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglGetProcAddress GetProcAddress} */
 	public static long neglGetProcAddress(long procname) {
-		long __functionAddress = getInstance().GetProcAddress;
+		long __functionAddress = EGL.getCapabilities().eglGetProcAddress;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callPP(__functionAddress, procname);
 	}
 
@@ -412,18 +377,24 @@ public class EGL10 {
 
 	/** CharSequence version of: {@link #eglGetProcAddress GetProcAddress} */
 	public static long eglGetProcAddress(CharSequence procname) {
-		APIBuffer __buffer = apiBuffer();
-		int procnameEncoded = __buffer.stringParamASCII(procname, true);
-		return neglGetProcAddress(__buffer.address(procnameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer procnameEncoded = stack.ASCII(procname);
+			return neglGetProcAddress(memAddress(procnameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ eglInitialize ] ---
 
 	/** Unsafe version of {@link #eglInitialize Initialize} */
 	public static int neglInitialize(long dpy, long major, long minor) {
-		long __functionAddress = getInstance().Initialize;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglInitialize;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPPPI(__functionAddress, dpy, major, minor);
 	}
 
@@ -447,8 +418,9 @@ public class EGL10 {
 	// --- [ eglMakeCurrent ] ---
 
 	public static int eglMakeCurrent(long dpy, long draw, long read, long ctx) {
-		long __functionAddress = getInstance().MakeCurrent;
+		long __functionAddress = EGL.getCapabilities().eglMakeCurrent;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(draw);
 			checkPointer(read);
@@ -461,8 +433,9 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglQueryContext QueryContext} */
 	public static int neglQueryContext(long dpy, long ctx, int attribute, long value) {
-		long __functionAddress = getInstance().QueryContext;
+		long __functionAddress = EGL.getCapabilities().eglQueryContext;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(ctx);
 		}
@@ -486,21 +459,24 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglQueryString QueryString} */
 	public static long neglQueryString(long dpy, int name) {
-		long __functionAddress = getInstance().QueryString;
+		long __functionAddress = EGL.getCapabilities().eglQueryString;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callPIP(__functionAddress, dpy, name);
 	}
 
 	public static String eglQueryString(long dpy, int name) {
 		long __result = neglQueryString(dpy, name);
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ eglQuerySurface ] ---
 
 	/** Unsafe version of {@link #eglQuerySurface QuerySurface} */
 	public static int neglQuerySurface(long dpy, long surface, int attribute, long value) {
-		long __functionAddress = getInstance().QuerySurface;
+		long __functionAddress = EGL.getCapabilities().eglQuerySurface;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -523,8 +499,9 @@ public class EGL10 {
 	// --- [ eglSwapBuffers ] ---
 
 	public static int eglSwapBuffers(long dpy, long surface) {
-		long __functionAddress = getInstance().SwapBuffers;
+		long __functionAddress = EGL.getCapabilities().eglSwapBuffers;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -534,23 +511,29 @@ public class EGL10 {
 	// --- [ eglTerminate ] ---
 
 	public static int eglTerminate(long dpy) {
-		long __functionAddress = getInstance().Terminate;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglTerminate;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPI(__functionAddress, dpy);
 	}
 
 	// --- [ eglWaitGL ] ---
 
 	public static int eglWaitGL() {
-		long __functionAddress = getInstance().WaitGL;
+		long __functionAddress = EGL.getCapabilities().eglWaitGL;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callI(__functionAddress);
 	}
 
 	// --- [ eglWaitNative ] ---
 
 	public static int eglWaitNative(int engine) {
-		long __functionAddress = getInstance().WaitNative;
+		long __functionAddress = EGL.getCapabilities().eglWaitNative;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, engine);
 	}
 

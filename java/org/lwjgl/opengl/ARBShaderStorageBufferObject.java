@@ -69,39 +69,14 @@ public class ARBShaderStorageBufferObject {
 	/** Also, add a new alias for the existing token MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS. */
 	public static final int GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES = 0x8F39;
 
-	/** Function address. */
-	public final long ShaderStorageBlockBinding;
-
 	protected ARBShaderStorageBufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBShaderStorageBufferObject(FunctionProvider provider) {
-		ShaderStorageBlockBinding = provider.getFunctionAddress("glShaderStorageBlockBinding");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBShaderStorageBufferObject} instance of the current context. */
-	public static ARBShaderStorageBufferObject getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBShaderStorageBufferObject} instance of the specified {@link GLCapabilities}. */
-	public static ARBShaderStorageBufferObject getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBShaderStorageBufferObject);
-	}
-
-	static ARBShaderStorageBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_shader_storage_buffer_object") ) return null;
-
-		ARBShaderStorageBufferObject funcs = new ARBShaderStorageBufferObject(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ShaderStorageBlockBinding
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glShaderStorageBlockBinding
 		);
-
-		return GL.checkExtension("GL_ARB_shader_storage_buffer_object", funcs, supported);
 	}
 
 	// --- [ glShaderStorageBlockBinding ] ---
@@ -114,7 +89,9 @@ public class ARBShaderStorageBufferObject {
 	 * @param storageBlockBinding the index storage block binding to associate with the specified storage block
 	 */
 	public static void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding) {
-		long __functionAddress = getInstance().ShaderStorageBlockBinding;
+		long __functionAddress = GL.getCapabilities().glShaderStorageBlockBinding;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, program, storageBlockIndex, storageBlockBinding);
 	}
 

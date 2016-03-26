@@ -47,45 +47,22 @@ public class EXTDepthBoundsTest {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_DEPTH_BOUNDS_EXT = 0x8891;
 
-	/** Function address. */
-	public final long DepthBoundsEXT;
-
 	protected EXTDepthBoundsTest() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDepthBoundsTest(FunctionProvider provider) {
-		DepthBoundsEXT = provider.getFunctionAddress("glDepthBoundsEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDepthBoundsTest} instance of the current context. */
-	public static EXTDepthBoundsTest getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDepthBoundsTest} instance of the specified {@link GLCapabilities}. */
-	public static EXTDepthBoundsTest getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTDepthBoundsTest);
-	}
-
-	static EXTDepthBoundsTest create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_depth_bounds_test") ) return null;
-
-		EXTDepthBoundsTest funcs = new EXTDepthBoundsTest(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DepthBoundsEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDepthBoundsEXT
 		);
-
-		return GL.checkExtension("GL_EXT_depth_bounds_test", funcs, supported);
 	}
 
 	// --- [ glDepthBoundsEXT ] ---
 
 	public static void glDepthBoundsEXT(double zmin, double zmax) {
-		long __functionAddress = getInstance().DepthBoundsEXT;
+		long __functionAddress = GL.getCapabilities().glDepthBoundsEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, zmin, zmax);
 	}
 

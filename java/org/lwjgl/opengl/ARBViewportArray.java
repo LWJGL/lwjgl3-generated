@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -45,66 +45,24 @@ public class ARBViewportArray {
 	/** Returned in the {@code data} parameter from a Get query with a {@code pname} of LAYER_PROVOKING_VERTEX or VIEWPORT_INDEX_PROVOKING_VERTEX. */
 	public static final int GL_UNDEFINED_VERTEX = 0x8260;
 
-	/** Function address. */
-	public final long
-		ViewportArrayv,
-		ViewportIndexedf,
-		ViewportIndexedfv,
-		ScissorArrayv,
-		ScissorIndexed,
-		ScissorIndexedv,
-		DepthRangeArrayv,
-		DepthRangeIndexed,
-		GetFloati_v,
-		GetDoublei_v;
-
 	protected ARBViewportArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBViewportArray(FunctionProvider provider) {
-		ViewportArrayv = provider.getFunctionAddress("glViewportArrayv");
-		ViewportIndexedf = provider.getFunctionAddress("glViewportIndexedf");
-		ViewportIndexedfv = provider.getFunctionAddress("glViewportIndexedfv");
-		ScissorArrayv = provider.getFunctionAddress("glScissorArrayv");
-		ScissorIndexed = provider.getFunctionAddress("glScissorIndexed");
-		ScissorIndexedv = provider.getFunctionAddress("glScissorIndexedv");
-		DepthRangeArrayv = provider.getFunctionAddress("glDepthRangeArrayv");
-		DepthRangeIndexed = provider.getFunctionAddress("glDepthRangeIndexed");
-		GetFloati_v = provider.getFunctionAddress("glGetFloati_v");
-		GetDoublei_v = provider.getFunctionAddress("glGetDoublei_v");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBViewportArray} instance of the current context. */
-	public static ARBViewportArray getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBViewportArray} instance of the specified {@link GLCapabilities}. */
-	public static ARBViewportArray getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBViewportArray);
-	}
-
-	static ARBViewportArray create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_viewport_array") ) return null;
-
-		ARBViewportArray funcs = new ARBViewportArray(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ViewportArrayv, funcs.ViewportIndexedf, funcs.ViewportIndexedfv, funcs.ScissorArrayv, funcs.ScissorIndexed, funcs.ScissorIndexedv, 
-			funcs.DepthRangeArrayv, funcs.DepthRangeIndexed, funcs.GetFloati_v, funcs.GetDoublei_v
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glViewportArrayv, caps.glViewportIndexedf, caps.glViewportIndexedfv, caps.glScissorArrayv, caps.glScissorIndexed, caps.glScissorIndexedv, 
+			caps.glDepthRangeArrayv, caps.glDepthRangeIndexed, caps.glGetFloati_v, caps.glGetDoublei_v
 		);
-
-		return GL.checkExtension("GL_ARB_viewport_array", funcs, supported);
 	}
 
 	// --- [ glViewportArrayv ] ---
 
 	/** Unsafe version of {@link #glViewportArrayv ViewportArrayv} */
 	public static void nglViewportArrayv(int first, int count, long v) {
-		long __functionAddress = getInstance().ViewportArrayv;
+		long __functionAddress = GL.getCapabilities().glViewportArrayv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, v);
 	}
 
@@ -138,7 +96,9 @@ public class ARBViewportArray {
 	 * @param h     the viewport height
 	 */
 	public static void glViewportIndexedf(int index, float x, float y, float w, float h) {
-		long __functionAddress = getInstance().ViewportIndexedf;
+		long __functionAddress = GL.getCapabilities().glViewportIndexedf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFFFFV(__functionAddress, index, x, y, w, h);
 	}
 
@@ -146,7 +106,9 @@ public class ARBViewportArray {
 
 	/** Unsafe version of {@link #glViewportIndexedfv ViewportIndexedfv} */
 	public static void nglViewportIndexedfv(int index, long v) {
-		long __functionAddress = getInstance().ViewportIndexedfv;
+		long __functionAddress = GL.getCapabilities().glViewportIndexedfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -173,7 +135,9 @@ public class ARBViewportArray {
 
 	/** Unsafe version of {@link #glScissorArrayv ScissorArrayv} */
 	public static void nglScissorArrayv(int first, int count, long v) {
-		long __functionAddress = getInstance().ScissorArrayv;
+		long __functionAddress = GL.getCapabilities().glScissorArrayv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, v);
 	}
 
@@ -207,7 +171,9 @@ public class ARBViewportArray {
 	 * @param height the scissor box height
 	 */
 	public static void glScissorIndexed(int index, int left, int bottom, int width, int height) {
-		long __functionAddress = getInstance().ScissorIndexed;
+		long __functionAddress = GL.getCapabilities().glScissorIndexed;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, index, left, bottom, width, height);
 	}
 
@@ -215,7 +181,9 @@ public class ARBViewportArray {
 
 	/** Unsafe version of {@link #glScissorIndexedv ScissorIndexedv} */
 	public static void nglScissorIndexedv(int index, long v) {
-		long __functionAddress = getInstance().ScissorIndexedv;
+		long __functionAddress = GL.getCapabilities().glScissorIndexedv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, index, v);
 	}
 
@@ -242,7 +210,9 @@ public class ARBViewportArray {
 
 	/** Unsafe version of {@link #glDepthRangeArrayv DepthRangeArrayv} */
 	public static void nglDepthRangeArrayv(int first, int count, long v) {
-		long __functionAddress = getInstance().DepthRangeArrayv;
+		long __functionAddress = GL.getCapabilities().glDepthRangeArrayv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, v);
 	}
 
@@ -274,7 +244,9 @@ public class ARBViewportArray {
 	 * @param zFar  the mapping of the far clipping plane to window coordinates. The initial value is 1.
 	 */
 	public static void glDepthRangeIndexed(int index, double zNear, double zFar) {
-		long __functionAddress = getInstance().DepthRangeIndexed;
+		long __functionAddress = GL.getCapabilities().glDepthRangeIndexed;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIDDV(__functionAddress, index, zNear, zFar);
 	}
 
@@ -282,7 +254,9 @@ public class ARBViewportArray {
 
 	/** Unsafe version of {@link #glGetFloati_v GetFloati_v} */
 	public static void nglGetFloati_v(int target, int index, long data) {
-		long __functionAddress = getInstance().GetFloati_v;
+		long __functionAddress = GL.getCapabilities().glGetFloati_v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, index, data);
 	}
 
@@ -308,17 +282,23 @@ public class ARBViewportArray {
 
 	/** Single return value version of: {@link #glGetFloati_v GetFloati_v} */
 	public static float glGetFloati(int target, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.floatParam();
-		nglGetFloati_v(target, index, __buffer.address(data));
-		return __buffer.floatValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer data = stack.callocFloat(1);
+			nglGetFloati_v(target, index, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetDoublei_v ] ---
 
 	/** Unsafe version of {@link #glGetDoublei_v GetDoublei_v} */
 	public static void nglGetDoublei_v(int target, int index, long data) {
-		long __functionAddress = getInstance().GetDoublei_v;
+		long __functionAddress = GL.getCapabilities().glGetDoublei_v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, index, data);
 	}
 
@@ -344,10 +324,14 @@ public class ARBViewportArray {
 
 	/** Single return value version of: {@link #glGetDoublei_v GetDoublei_v} */
 	public static double glGetDoublei(int target, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.doubleParam();
-		nglGetDoublei_v(target, index, __buffer.address(data));
-		return __buffer.doubleValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer data = stack.callocDouble(1);
+			nglGetDoublei_v(target, index, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

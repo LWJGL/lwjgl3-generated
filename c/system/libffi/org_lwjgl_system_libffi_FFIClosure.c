@@ -3,9 +3,14 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <stddef.h>
 #include "common_tools.h"
 #include "ffi.h"
+#include <stddef.h>
+#ifdef LWJGL_WINDOWS
+	#define alignof __alignof
+#else
+	#include <stdalign.h>
+#endif
 
 EXTERN_C_EXIT
 
@@ -17,6 +22,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_libffi_FFIClosure_offsets(JNIEnv *_
 	buffer[0] = (jint)offsetof(ffi_closure, cif);
 	buffer[1] = (jint)offsetof(ffi_closure, fun);
 	buffer[2] = (jint)offsetof(ffi_closure, user_data);
+
+	buffer[3] = alignof(ffi_closure);
 
 	return sizeof(ffi_closure);
 }

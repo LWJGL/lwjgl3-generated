@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Union that combines {@code ovrLayer} types in a way that allows them to be used in a polymorphic way.
@@ -37,7 +38,7 @@ public class OVRLayerUnion extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -49,15 +50,15 @@ public class OVRLayerUnion extends Struct {
 
 	static {
 		Layout layout = __union(
-			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.__ALIGNMENT),
-			__member(OVRLayerEyeFov.SIZEOF, OVRLayerEyeFov.__ALIGNMENT),
-			__member(OVRLayerEyeFovDepth.SIZEOF, OVRLayerEyeFovDepth.__ALIGNMENT),
-			__member(OVRLayerQuad.SIZEOF, OVRLayerQuad.__ALIGNMENT),
-			__member(OVRLayerDirect.SIZEOF, OVRLayerDirect.__ALIGNMENT)
+			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.ALIGNOF),
+			__member(OVRLayerEyeFov.SIZEOF, OVRLayerEyeFov.ALIGNOF),
+			__member(OVRLayerEyeFovDepth.SIZEOF, OVRLayerEyeFovDepth.ALIGNOF),
+			__member(OVRLayerQuad.SIZEOF, OVRLayerQuad.ALIGNOF),
+			__member(OVRLayerDirect.SIZEOF, OVRLayerDirect.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		HEADER = layout.offsetof(0);
 		EYEFOV = layout.offsetof(1);
@@ -181,6 +182,76 @@ public class OVRLayerUnion extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link OVRLayerUnion} instance allocated on the thread-local {@link MemoryStack}. */
+	public static OVRLayerUnion mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link OVRLayerUnion} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static OVRLayerUnion callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerUnion} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRLayerUnion mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerUnion} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static OVRLayerUnion callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerUnion.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerUnion.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerUnion.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerUnion.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #Header}. */
 	public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerUnion.HEADER); }
 	/** Unsafe version of {@link #EyeFov}. */
@@ -237,7 +308,7 @@ public class OVRLayerUnion extends Struct {
 
 		@Override
 		protected OVRLayerUnion newInstance(long address) {
-			return new OVRLayerUnion(address, container);
+			return new OVRLayerUnion(address, getContainer());
 		}
 
 		@Override

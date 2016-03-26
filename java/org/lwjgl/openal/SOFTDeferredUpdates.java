@@ -23,37 +23,14 @@ public class SOFTDeferredUpdates {
 	/** Accepted by the {@code paramName} parameter of {@link AL10#alGetBoolean GetBoolean}, {@link AL10#alGetBooleanv GetBooleanv} (as well as the Integer, Float, and Double variants). */
 	public static final int AL_DEFERRED_UPDATES_SOFT = 0xC002;
 
-	/** Function address. */
-	public final long
-		DeferUpdatesSOFT,
-		ProcessUpdatesSOFT;
-
 	protected SOFTDeferredUpdates() {
 		throw new UnsupportedOperationException();
 	}
 
-	public SOFTDeferredUpdates(FunctionProvider provider) {
-		DeferUpdatesSOFT = provider.getFunctionAddress("alDeferUpdatesSOFT");
-		ProcessUpdatesSOFT = provider.getFunctionAddress("alProcessUpdatesSOFT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link SOFTDeferredUpdates} instance of the current context. */
-	public static SOFTDeferredUpdates getInstance() {
-		return checkFunctionality(AL.getCapabilities().__SOFTDeferredUpdates);
-	}
-
-	static SOFTDeferredUpdates create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("AL_SOFT_deferred_updates") ) return null;
-
-		SOFTDeferredUpdates funcs = new SOFTDeferredUpdates(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DeferUpdatesSOFT, funcs.ProcessUpdatesSOFT
+	static boolean isAvailable(ALCapabilities caps) {
+		return checkFunctions(
+			caps.alDeferUpdatesSOFT, caps.alProcessUpdatesSOFT
 		);
-
-		return AL.checkExtension("AL_SOFT_deferred_updates", funcs, supported);
 	}
 
 	// --- [ alDeferUpdatesSOFT ] ---
@@ -68,7 +45,9 @@ public class SOFTDeferredUpdates {
 	 * apply at once at a later time.</p>
 	 */
 	public static void alDeferUpdatesSOFT() {
-		long __functionAddress = getInstance().DeferUpdatesSOFT;
+		long __functionAddress = AL.getCapabilities().alDeferUpdatesSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeV(__functionAddress);
 	}
 
@@ -80,7 +59,9 @@ public class SOFTDeferredUpdates {
 	 * <p>Once called, all pending deferred updates will be processed. Any following state changes will also apply as normal.</p>
 	 */
 	public static void alProcessUpdatesSOFT() {
-		long __functionAddress = getInstance().ProcessUpdatesSOFT;
+		long __functionAddress = AL.getCapabilities().alProcessUpdatesSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeV(__functionAddress);
 	}
 

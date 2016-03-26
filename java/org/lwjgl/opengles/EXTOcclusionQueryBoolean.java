@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -39,59 +39,24 @@ public class EXTOcclusionQueryBoolean {
 		GL_QUERY_RESULT_EXT           = 0x8866,
 		GL_QUERY_RESULT_AVAILABLE_EXT = 0x8867;
 
-	/** Function address. */
-	public final long
-		GenQueriesEXT,
-		DeleteQueriesEXT,
-		IsQueryEXT,
-		BeginQueryEXT,
-		EndQueryEXT,
-		GetQueryivEXT,
-		GetQueryObjectuivEXT;
-
 	protected EXTOcclusionQueryBoolean() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTOcclusionQueryBoolean(FunctionProvider provider) {
-		GenQueriesEXT = provider.getFunctionAddress("glGenQueriesEXT");
-		DeleteQueriesEXT = provider.getFunctionAddress("glDeleteQueriesEXT");
-		IsQueryEXT = provider.getFunctionAddress("glIsQueryEXT");
-		BeginQueryEXT = provider.getFunctionAddress("glBeginQueryEXT");
-		EndQueryEXT = provider.getFunctionAddress("glEndQueryEXT");
-		GetQueryivEXT = provider.getFunctionAddress("glGetQueryivEXT");
-		GetQueryObjectuivEXT = provider.getFunctionAddress("glGetQueryObjectuivEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTOcclusionQueryBoolean} instance of the current context. */
-	public static EXTOcclusionQueryBoolean getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTOcclusionQueryBoolean} instance of the specified {@link GLESCapabilities}. */
-	public static EXTOcclusionQueryBoolean getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTOcclusionQueryBoolean);
-	}
-
-	static EXTOcclusionQueryBoolean create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_occlusion_query_boolean") ) return null;
-
-		EXTOcclusionQueryBoolean funcs = new EXTOcclusionQueryBoolean(provider);
-		boolean supported = checkFunctions(
-			funcs.GenQueriesEXT, funcs.DeleteQueriesEXT, funcs.IsQueryEXT, funcs.BeginQueryEXT, funcs.EndQueryEXT, funcs.GetQueryivEXT, 
-			funcs.GetQueryObjectuivEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glGenQueriesEXT, caps.glDeleteQueriesEXT, caps.glIsQueryEXT, caps.glBeginQueryEXT, caps.glEndQueryEXT, caps.glGetQueryivEXT, 
+			caps.glGetQueryObjectuivEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_occlusion_query_boolean", funcs, supported);
 	}
 
 	// --- [ glGenQueriesEXT ] ---
 
 	/** Unsafe version of {@link #glGenQueriesEXT GenQueriesEXT} */
 	public static void nglGenQueriesEXT(int n, long ids) {
-		long __functionAddress = getInstance().GenQueriesEXT;
+		long __functionAddress = GLES.getCapabilities().glGenQueriesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -108,17 +73,23 @@ public class EXTOcclusionQueryBoolean {
 
 	/** Single return value version of: {@link #glGenQueriesEXT GenQueriesEXT} */
 	public static int glGenQueriesEXT() {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam();
-		nglGenQueriesEXT(1, __buffer.address(ids));
-		return __buffer.intValue(ids);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.callocInt(1);
+			nglGenQueriesEXT(1, memAddress(ids));
+			return ids.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDeleteQueriesEXT ] ---
 
 	/** Unsafe version of {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
 	public static void nglDeleteQueriesEXT(int n, long ids) {
-		long __functionAddress = getInstance().DeleteQueriesEXT;
+		long __functionAddress = GLES.getCapabilities().glDeleteQueriesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -135,29 +106,39 @@ public class EXTOcclusionQueryBoolean {
 
 	/** Single value version of: {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
 	public static void glDeleteQueriesEXT(int id) {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam(id);
-		nglDeleteQueriesEXT(1, __buffer.address(ids));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.ints(id);
+			nglDeleteQueriesEXT(1, memAddress(ids));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsQueryEXT ] ---
 
 	public static boolean glIsQueryEXT(int id) {
-		long __functionAddress = getInstance().IsQueryEXT;
+		long __functionAddress = GLES.getCapabilities().glIsQueryEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQueryEXT ] ---
 
 	public static void glBeginQueryEXT(int target, int id) {
-		long __functionAddress = getInstance().BeginQueryEXT;
+		long __functionAddress = GLES.getCapabilities().glBeginQueryEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQueryEXT ] ---
 
 	public static void glEndQueryEXT(int target) {
-		long __functionAddress = getInstance().EndQueryEXT;
+		long __functionAddress = GLES.getCapabilities().glEndQueryEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, target);
 	}
 
@@ -165,7 +146,9 @@ public class EXTOcclusionQueryBoolean {
 
 	/** Unsafe version of {@link #glGetQueryivEXT GetQueryivEXT} */
 	public static void nglGetQueryivEXT(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryivEXT;
+		long __functionAddress = GLES.getCapabilities().glGetQueryivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -184,17 +167,23 @@ public class EXTOcclusionQueryBoolean {
 
 	/** Single return value version of: {@link #glGetQueryivEXT GetQueryivEXT} */
 	public static int glGetQueryiEXT(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetQueryivEXT(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetQueryivEXT(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetQueryObjectuivEXT ] ---
 
 	/** Unsafe version of {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	public static void nglGetQueryObjectuivEXT(int id, int pname, long params) {
-		long __functionAddress = getInstance().GetQueryObjectuivEXT;
+		long __functionAddress = GLES.getCapabilities().glGetQueryObjectuivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
@@ -213,10 +202,14 @@ public class EXTOcclusionQueryBoolean {
 
 	/** Single return value version of: {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	public static int glGetQueryObjectuiEXT(int id, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetQueryObjectuivEXT(id, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetQueryObjectuivEXT(id, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

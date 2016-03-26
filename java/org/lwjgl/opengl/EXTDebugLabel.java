@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -38,49 +38,23 @@ public class EXTDebugLabel {
 		GL_QUERY_OBJECT_EXT            = 0x9153,
 		GL_PROGRAM_PIPELINE_OBJECT_EXT = 0x8A4F;
 
-	/** Function address. */
-	public final long
-		LabelObjectEXT,
-		GetObjectLabelEXT;
-
 	protected EXTDebugLabel() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDebugLabel(FunctionProvider provider) {
-		LabelObjectEXT = provider.getFunctionAddress("glLabelObjectEXT");
-		GetObjectLabelEXT = provider.getFunctionAddress("glGetObjectLabelEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDebugLabel} instance of the current context. */
-	public static EXTDebugLabel getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDebugLabel} instance of the specified {@link GLCapabilities}. */
-	public static EXTDebugLabel getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTDebugLabel);
-	}
-
-	static EXTDebugLabel create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_debug_label") ) return null;
-
-		EXTDebugLabel funcs = new EXTDebugLabel(provider);
-
-		boolean supported = checkFunctions(
-			funcs.LabelObjectEXT, funcs.GetObjectLabelEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glLabelObjectEXT, caps.glGetObjectLabelEXT
 		);
-
-		return GL.checkExtension("GL_EXT_debug_label", funcs, supported);
 	}
 
 	// --- [ glLabelObjectEXT ] ---
 
 	/** Unsafe version of {@link #glLabelObjectEXT LabelObjectEXT} */
 	public static void nglLabelObjectEXT(int type, int object, int length, long label) {
-		long __functionAddress = getInstance().LabelObjectEXT;
+		long __functionAddress = GL.getCapabilities().glLabelObjectEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, type, object, length, label);
 	}
 
@@ -97,17 +71,23 @@ public class EXTDebugLabel {
 
 	/** CharSequence version of: {@link #glLabelObjectEXT LabelObjectEXT} */
 	public static void glLabelObjectEXT(int type, int object, CharSequence label) {
-		APIBuffer __buffer = apiBuffer();
-		int labelEncoded = __buffer.stringParamUTF8(label, false);
-		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
-		nglLabelObjectEXT(type, object, labelEncodedLen, __buffer.address(labelEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer labelEncoded = stack.UTF8(label, false);
+			int labelEncodedLen = labelEncoded.capacity();
+			nglLabelObjectEXT(type, object, labelEncodedLen, memAddress(labelEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetObjectLabelEXT ] ---
 
 	/** Unsafe version of {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
 	public static void nglGetObjectLabelEXT(int type, int object, int bufSize, long length, long label) {
-		long __functionAddress = getInstance().GetObjectLabelEXT;
+		long __functionAddress = GL.getCapabilities().glGetObjectLabelEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, type, object, bufSize, length, label);
 	}
 
@@ -128,11 +108,15 @@ public class EXTDebugLabel {
 
 	/** String return version of: {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
 	public static String glGetObjectLabelEXT(int type, int object, int bufSize) {
-		APIBuffer __buffer = apiBuffer();
-		int length = __buffer.intParam();
-		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectLabelEXT(type, object, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer length = stack.ints(0);
+			ByteBuffer label = stack.malloc(bufSize);
+			nglGetObjectLabelEXT(type, object, bufSize, memAddress(length), memAddress(label));
+			return memUTF8(label, length.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

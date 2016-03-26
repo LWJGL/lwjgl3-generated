@@ -21,45 +21,23 @@ public class APPLECommandQueueSelectComputeUnits {
 	/**  */
 	public static final int CL_QUEUE_NUM_COMPUTE_UNITS_APPLE = 0x10000014;
 
-	/** Function address. */
-	public final long CreateCommandQueueWithPropertiesAPPLE;
-
 	protected APPLECommandQueueSelectComputeUnits() {
 		throw new UnsupportedOperationException();
 	}
 
-	public APPLECommandQueueSelectComputeUnits(FunctionProvider provider) {
-		CreateCommandQueueWithPropertiesAPPLE = provider.getFunctionAddress("clCreateCommandQueueWithPropertiesAPPLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link APPLECommandQueueSelectComputeUnits} instance of the currently loaded ICD. */
-	public static APPLECommandQueueSelectComputeUnits getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link APPLECommandQueueSelectComputeUnits} instance of the specified {@link CLCapabilities}. */
-	public static APPLECommandQueueSelectComputeUnits getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__APPLECommandQueueSelectComputeUnits);
-	}
-
-	static APPLECommandQueueSelectComputeUnits create(FunctionProvider provider) {
-		APPLECommandQueueSelectComputeUnits funcs = new APPLECommandQueueSelectComputeUnits(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateCommandQueueWithPropertiesAPPLE
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clCreateCommandQueueWithPropertiesAPPLE
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateCommandQueueWithPropertiesAPPLE ] ---
 
 	/** Unsafe version of {@link #clCreateCommandQueueWithPropertiesAPPLE CreateCommandQueueWithPropertiesAPPLE} */
 	public static long nclCreateCommandQueueWithPropertiesAPPLE(long context, long device, long properties, long errcode_ret) {
-		long __functionAddress = getInstance().CreateCommandQueueWithPropertiesAPPLE;
+		long __functionAddress = CL.getICD().clCreateCommandQueueWithPropertiesAPPLE;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(device);
 		}

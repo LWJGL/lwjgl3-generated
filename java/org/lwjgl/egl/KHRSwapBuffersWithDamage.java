@@ -26,35 +26,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRSwapBuffersWithDamage {
 
-	/** Function address. */
-	public final long SwapBuffersWithDamageKHR;
-
 	protected KHRSwapBuffersWithDamage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRSwapBuffersWithDamage(FunctionProvider provider) {
-		SwapBuffersWithDamageKHR = provider.getFunctionAddress("eglSwapBuffersWithDamageKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRSwapBuffersWithDamage} instance. */
-	public static KHRSwapBuffersWithDamage getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRSwapBuffersWithDamage} instance of the specified {@link EGLCapabilities}. */
-	public static KHRSwapBuffersWithDamage getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRSwapBuffersWithDamage);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglSwapBuffersWithDamageKHR
+		);
 	}
 
 	// --- [ eglSwapBuffersWithDamageKHR ] ---
 
 	/** Unsafe version of {@link #eglSwapBuffersWithDamageKHR SwapBuffersWithDamageKHR} */
 	public static int neglSwapBuffersWithDamageKHR(long dpy, long surface, long rects, int n_rects) {
-		long __functionAddress = getInstance().SwapBuffersWithDamageKHR;
+		long __functionAddress = EGL.getCapabilities().eglSwapBuffersWithDamageKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}

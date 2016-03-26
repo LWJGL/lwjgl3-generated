@@ -35,42 +35,14 @@ public class ARBInstancedArrays {
 	/** Accepted by the {@code pname} parameters of GetVertexAttribdv, GetVertexAttribfv, and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB = 0x88FE;
 
-	/** Function address. */
-	public final long
-		VertexAttribDivisorARB,
-		VertexArrayVertexAttribDivisorEXT;
-
 	protected ARBInstancedArrays() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBInstancedArrays(FunctionProvider provider) {
-		VertexAttribDivisorARB = provider.getFunctionAddress("glVertexAttribDivisorARB");
-		VertexArrayVertexAttribDivisorEXT = provider.getFunctionAddress("glVertexArrayVertexAttribDivisorEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBInstancedArrays} instance of the current context. */
-	public static ARBInstancedArrays getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBInstancedArrays} instance of the specified {@link GLCapabilities}. */
-	public static ARBInstancedArrays getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBInstancedArrays);
-	}
-
-	static ARBInstancedArrays create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_instanced_arrays") ) return null;
-
-		ARBInstancedArrays funcs = new ARBInstancedArrays(provider);
-
-		boolean supported = checkFunctions(
-			funcs.VertexAttribDivisorARB
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glVertexAttribDivisorARB
 		);
-
-		return GL.checkExtension("GL_ARB_instanced_arrays", funcs, supported);
 	}
 
 	// --- [ glVertexAttribDivisorARB ] ---
@@ -84,7 +56,9 @@ public class ARBInstancedArrays {
 	 * @param divisor the divisor value
 	 */
 	public static void glVertexAttribDivisorARB(int index, int divisor) {
-		long __functionAddress = getInstance().VertexAttribDivisorARB;
+		long __functionAddress = GL.getCapabilities().glVertexAttribDivisorARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, index, divisor);
 	}
 
@@ -105,7 +79,7 @@ if ( caps.GL_ARB_instanced_arrays && ARBInstancedArrays.getInstance().VertexArra
 	 * @param divisor the divisor value
 	 */
 	public static void glVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor) {
-		long __functionAddress = getInstance().VertexArrayVertexAttribDivisorEXT;
+		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribDivisorEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, vaobj, index, divisor);

@@ -42,37 +42,22 @@ public class KHRStreamCrossProcessFD {
 	/**  */
 	public static final int EGL_NO_FILE_DESCRIPTOR_KHR = -1;
 
-	/** Function address. */
-	public final long
-		GetStreamFileDescriptorKHR,
-		CreateStreamFromFileDescriptorKHR;
-
 	protected KHRStreamCrossProcessFD() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRStreamCrossProcessFD(FunctionProvider provider) {
-		GetStreamFileDescriptorKHR = provider.getFunctionAddress("eglGetStreamFileDescriptorKHR");
-		CreateStreamFromFileDescriptorKHR = provider.getFunctionAddress("eglCreateStreamFromFileDescriptorKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRStreamCrossProcessFD} instance. */
-	public static KHRStreamCrossProcessFD getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRStreamCrossProcessFD} instance of the specified {@link EGLCapabilities}. */
-	public static KHRStreamCrossProcessFD getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRStreamCrossProcessFD);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglGetStreamFileDescriptorKHR, caps.eglCreateStreamFromFileDescriptorKHR
+		);
 	}
 
 	// --- [ eglGetStreamFileDescriptorKHR ] ---
 
 	public static int eglGetStreamFileDescriptorKHR(long dpy, long stream) {
-		long __functionAddress = getInstance().GetStreamFileDescriptorKHR;
+		long __functionAddress = EGL.getCapabilities().eglGetStreamFileDescriptorKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -82,9 +67,11 @@ public class KHRStreamCrossProcessFD {
 	// --- [ eglCreateStreamFromFileDescriptorKHR ] ---
 
 	public static long eglCreateStreamFromFileDescriptorKHR(long dpy, int file_descriptor) {
-		long __functionAddress = getInstance().CreateStreamFromFileDescriptorKHR;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglCreateStreamFromFileDescriptorKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPIP(__functionAddress, dpy, file_descriptor);
 	}
 

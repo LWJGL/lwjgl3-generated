@@ -22,34 +22,22 @@ import static org.lwjgl.system.JNI.*;
  */
 public class KHRWaitSync {
 
-	/** Function address. */
-	public final long WaitSyncKHR;
-
 	protected KHRWaitSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRWaitSync(FunctionProvider provider) {
-		WaitSyncKHR = provider.getFunctionAddress("eglWaitSyncKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRWaitSync} instance. */
-	public static KHRWaitSync getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRWaitSync} instance of the specified {@link EGLCapabilities}. */
-	public static KHRWaitSync getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRWaitSync);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglWaitSyncKHR
+		);
 	}
 
 	// --- [ eglWaitSyncKHR ] ---
 
 	public static int eglWaitSyncKHR(long dpy, long sync, int flags) {
-		long __functionAddress = getInstance().WaitSyncKHR;
+		long __functionAddress = EGL.getCapabilities().eglWaitSyncKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}

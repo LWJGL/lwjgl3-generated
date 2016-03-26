@@ -32,45 +32,22 @@ public class EXTBlendEquationSeparate {
 		GL_BLEND_EQUATION_RGB_EXT   = 0x8009,
 		GL_BLEND_EQUATION_ALPHA_EXT = 0x883D;
 
-	/** Function address. */
-	public final long BlendEquationSeparateEXT;
-
 	protected EXTBlendEquationSeparate() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTBlendEquationSeparate(FunctionProvider provider) {
-		BlendEquationSeparateEXT = provider.getFunctionAddress("glBlendEquationSeparateEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTBlendEquationSeparate} instance of the current context. */
-	public static EXTBlendEquationSeparate getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTBlendEquationSeparate} instance of the specified {@link GLCapabilities}. */
-	public static EXTBlendEquationSeparate getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTBlendEquationSeparate);
-	}
-
-	static EXTBlendEquationSeparate create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_blend_equation_separate") ) return null;
-
-		EXTBlendEquationSeparate funcs = new EXTBlendEquationSeparate(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BlendEquationSeparateEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBlendEquationSeparateEXT
 		);
-
-		return GL.checkExtension("GL_EXT_blend_equation_separate", funcs, supported);
 	}
 
 	// --- [ glBlendEquationSeparateEXT ] ---
 
 	public static void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha) {
-		long __functionAddress = getInstance().BlendEquationSeparateEXT;
+		long __functionAddress = GL.getCapabilities().glBlendEquationSeparateEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, modeRGB, modeAlpha);
 	}
 

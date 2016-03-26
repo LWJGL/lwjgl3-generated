@@ -24,55 +24,31 @@ import static org.lwjgl.system.JNI.*;
  */
 public class NVXConditionalRender {
 
-	/** Function address. */
-	public final long
-		BeginConditionalRenderNVX,
-		EndConditionalRenderNVX;
-
 	protected NVXConditionalRender() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVXConditionalRender(FunctionProvider provider) {
-		BeginConditionalRenderNVX = provider.getFunctionAddress("glBeginConditionalRenderNVX");
-		EndConditionalRenderNVX = provider.getFunctionAddress("glEndConditionalRenderNVX");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVXConditionalRender} instance of the current context. */
-	public static NVXConditionalRender getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVXConditionalRender} instance of the specified {@link GLCapabilities}. */
-	public static NVXConditionalRender getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVXConditionalRender);
-	}
-
-	static NVXConditionalRender create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NVX_conditional_render") ) return null;
-
-		NVXConditionalRender funcs = new NVXConditionalRender(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BeginConditionalRenderNVX, funcs.EndConditionalRenderNVX
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBeginConditionalRenderNVX, caps.glEndConditionalRenderNVX
 		);
-
-		return GL.checkExtension("GL_NVX_conditional_render", funcs, supported);
 	}
 
 	// --- [ glBeginConditionalRenderNVX ] ---
 
 	public static void glBeginConditionalRenderNVX(int id) {
-		long __functionAddress = getInstance().BeginConditionalRenderNVX;
+		long __functionAddress = GL.getCapabilities().glBeginConditionalRenderNVX;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, id);
 	}
 
 	// --- [ glEndConditionalRenderNVX ] ---
 
 	public static void glEndConditionalRenderNVX() {
-		long __functionAddress = getInstance().EndConditionalRenderNVX;
+		long __functionAddress = GL.getCapabilities().glEndConditionalRenderNVX;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

@@ -64,48 +64,22 @@ public class EXTPointParameters {
 		GL_POINT_FADE_THRESHOLD_SIZE_EXT = 0x8128,
 		GL_DISTANCE_ATTENUATION_EXT      = 0x8129;
 
-	/** Function address. */
-	public final long
-		PointParameterfEXT,
-		PointParameterfvEXT;
-
 	protected EXTPointParameters() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTPointParameters(FunctionProvider provider) {
-		PointParameterfEXT = provider.getFunctionAddress("glPointParameterfEXT");
-		PointParameterfvEXT = provider.getFunctionAddress("glPointParameterfvEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTPointParameters} instance of the current context. */
-	public static EXTPointParameters getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTPointParameters} instance of the specified {@link GLCapabilities}. */
-	public static EXTPointParameters getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTPointParameters);
-	}
-
-	static EXTPointParameters create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_point_parameters") ) return null;
-
-		EXTPointParameters funcs = new EXTPointParameters(provider);
-
-		boolean supported = checkFunctions(
-			funcs.PointParameterfEXT, funcs.PointParameterfvEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glPointParameterfEXT, caps.glPointParameterfvEXT
 		);
-
-		return GL.checkExtension("GL_EXT_point_parameters", funcs, supported);
 	}
 
 	// --- [ glPointParameterfEXT ] ---
 
 	public static void glPointParameterfEXT(int pname, float param) {
-		long __functionAddress = getInstance().PointParameterfEXT;
+		long __functionAddress = GL.getCapabilities().glPointParameterfEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, pname, param);
 	}
 
@@ -113,7 +87,9 @@ public class EXTPointParameters {
 
 	/** Unsafe version of {@link #glPointParameterfvEXT PointParameterfvEXT} */
 	public static void nglPointParameterfvEXT(int pname, long params) {
-		long __functionAddress = getInstance().PointParameterfvEXT;
+		long __functionAddress = GL.getCapabilities().glPointParameterfvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
 

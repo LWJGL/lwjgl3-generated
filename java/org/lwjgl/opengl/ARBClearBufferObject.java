@@ -28,54 +28,24 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBClearBufferObject {
 
-	/** Function address. */
-	public final long
-		ClearBufferData,
-		ClearBufferSubData,
-		ClearNamedBufferDataEXT,
-		ClearNamedBufferSubDataEXT;
-
 	protected ARBClearBufferObject() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBClearBufferObject(FunctionProvider provider) {
-		ClearBufferData = provider.getFunctionAddress("glClearBufferData");
-		ClearBufferSubData = provider.getFunctionAddress("glClearBufferSubData");
-		ClearNamedBufferDataEXT = provider.getFunctionAddress("glClearNamedBufferDataEXT");
-		ClearNamedBufferSubDataEXT = provider.getFunctionAddress("glClearNamedBufferSubDataEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBClearBufferObject} instance of the current context. */
-	public static ARBClearBufferObject getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBClearBufferObject} instance of the specified {@link GLCapabilities}. */
-	public static ARBClearBufferObject getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBClearBufferObject);
-	}
-
-	static ARBClearBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_clear_buffer_object") ) return null;
-
-		ARBClearBufferObject funcs = new ARBClearBufferObject(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ClearBufferData, funcs.ClearBufferSubData, ext.contains("GL_EXT_direct_state_access") ? funcs.ClearNamedBufferDataEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ClearNamedBufferSubDataEXT : -1L
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glClearBufferData, caps.glClearBufferSubData, ext.contains("GL_EXT_direct_state_access") ? caps.glClearNamedBufferDataEXT : -1L, 
+			ext.contains("GL_EXT_direct_state_access") ? caps.glClearNamedBufferSubDataEXT : -1L
 		);
-
-		return GL.checkExtension("GL_ARB_clear_buffer_object", funcs, supported);
 	}
 
 	// --- [ glClearBufferData ] ---
 
 	/** Unsafe version of {@link #glClearBufferData ClearBufferData} */
 	public static void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearBufferData;
+		long __functionAddress = GL.getCapabilities().glClearBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, internalformat, format, type, data);
 	}
 
@@ -113,7 +83,9 @@ public class ARBClearBufferObject {
 
 	/** Unsafe version of {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearBufferSubData;
+		long __functionAddress = GL.getCapabilities().glClearBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPIIPV(__functionAddress, target, internalformat, offset, size, format, type, data);
 	}
 
@@ -153,7 +125,7 @@ public class ARBClearBufferObject {
 
 	/** Unsafe version of {@link #glClearNamedBufferDataEXT ClearNamedBufferDataEXT} */
 	public static void nglClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearNamedBufferDataEXT;
+		long __functionAddress = GL.getCapabilities().glClearNamedBufferDataEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, buffer, internalformat, format, type, data);
@@ -193,7 +165,7 @@ public class ARBClearBufferObject {
 
 	/** Unsafe version of {@link #glClearNamedBufferSubDataEXT ClearNamedBufferSubDataEXT} */
 	public static void nglClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearNamedBufferSubDataEXT;
+		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubDataEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPPIIPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);

@@ -9,8 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to <dlfcn.h>. */
@@ -107,9 +107,13 @@ public class DynamicLinkLoader {
 
 	/** CharSequence version of: {@link #dlopen} */
 	public static long dlopen(CharSequence path, int mode) {
-		APIBuffer __buffer = apiBuffer();
-		int pathEncoded = path == null ? 0 : __buffer.stringParamASCII(path, true);
-		return ndlopen(__buffer.addressSafe(path, pathEncoded), mode);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer pathEncoded = path == null ? null : stack.ASCII(path);
+			return ndlopen(memAddressSafe(pathEncoded), mode);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ dlerror ] ---
@@ -128,7 +132,7 @@ public class DynamicLinkLoader {
 	 */
 	public static String dlerror() {
 		long __result = ndlerror();
-		return memDecodeASCII(__result);
+		return memASCII(__result);
 	}
 
 	// --- [ dlsym ] ---
@@ -167,9 +171,13 @@ public class DynamicLinkLoader {
 	public static long dlsym(long handle, CharSequence name) {
 		if ( CHECKS )
 			checkPointer(handle);
-		APIBuffer __buffer = apiBuffer();
-		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return ndlsym(handle, __buffer.address(nameEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name);
+			return ndlsym(handle, memAddress(nameEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ dlclose ] ---

@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -135,53 +135,23 @@ public class ARBDebugOutput {
 		GL_DEBUG_SEVERITY_MEDIUM_ARB = 0x9147,
 		GL_DEBUG_SEVERITY_LOW_ARB    = 0x9148;
 
-	/** Function address. */
-	public final long
-		DebugMessageControlARB,
-		DebugMessageInsertARB,
-		DebugMessageCallbackARB,
-		GetDebugMessageLogARB;
-
 	protected ARBDebugOutput() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBDebugOutput(FunctionProvider provider) {
-		DebugMessageControlARB = provider.getFunctionAddress("glDebugMessageControlARB");
-		DebugMessageInsertARB = provider.getFunctionAddress("glDebugMessageInsertARB");
-		DebugMessageCallbackARB = provider.getFunctionAddress("glDebugMessageCallbackARB");
-		GetDebugMessageLogARB = provider.getFunctionAddress("glGetDebugMessageLogARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBDebugOutput} instance of the current context. */
-	public static ARBDebugOutput getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBDebugOutput} instance of the specified {@link GLCapabilities}. */
-	public static ARBDebugOutput getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBDebugOutput);
-	}
-
-	static ARBDebugOutput create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_debug_output") ) return null;
-
-		ARBDebugOutput funcs = new ARBDebugOutput(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DebugMessageControlARB, funcs.DebugMessageInsertARB, funcs.DebugMessageCallbackARB, funcs.GetDebugMessageLogARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDebugMessageControlARB, caps.glDebugMessageInsertARB, caps.glDebugMessageCallbackARB, caps.glGetDebugMessageLogARB
 		);
-
-		return GL.checkExtension("GL_ARB_debug_output", funcs, supported);
 	}
 
 	// --- [ glDebugMessageControlARB ] ---
 
 	/** Unsafe version of {@link #glDebugMessageControlARB DebugMessageControlARB} */
 	public static void nglDebugMessageControlARB(int source, int type, int severity, int count, long ids, boolean enabled) {
-		long __functionAddress = getInstance().DebugMessageControlARB;
+		long __functionAddress = GL.getCapabilities().glDebugMessageControlARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
@@ -226,16 +196,22 @@ public class ARBDebugOutput {
 
 	/** Single value version of: {@link #glDebugMessageControlARB DebugMessageControlARB} */
 	public static void glDebugMessageControlARB(int source, int type, int severity, int id, boolean enabled) {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam(id);
-		nglDebugMessageControlARB(source, type, severity, 1, __buffer.address(ids), enabled);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.ints(id);
+			nglDebugMessageControlARB(source, type, severity, 1, memAddress(ids), enabled);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDebugMessageInsertARB ] ---
 
 	/** Unsafe version of {@link #glDebugMessageInsertARB DebugMessageInsertARB} */
 	public static void nglDebugMessageInsertARB(int source, int type, int id, int severity, int length, long buf) {
-		long __functionAddress = getInstance().DebugMessageInsertARB;
+		long __functionAddress = GL.getCapabilities().glDebugMessageInsertARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIPV(__functionAddress, source, type, id, severity, length, buf);
 	}
 
@@ -266,10 +242,14 @@ public class ARBDebugOutput {
 
 	/** CharSequence version of: {@link #glDebugMessageInsertARB DebugMessageInsertARB} */
 	public static void glDebugMessageInsertARB(int source, int type, int id, int severity, CharSequence buf) {
-		APIBuffer __buffer = apiBuffer();
-		int bufEncoded = __buffer.stringParamUTF8(buf, false);
-		int bufEncodedLen = __buffer.getOffset() - bufEncoded;
-		nglDebugMessageInsertARB(source, type, id, severity, bufEncodedLen, __buffer.address(bufEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer bufEncoded = stack.UTF8(buf, false);
+			int bufEncodedLen = bufEncoded.capacity();
+			nglDebugMessageInsertARB(source, type, id, severity, bufEncodedLen, memAddress(bufEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDebugMessageCallbackARB ] ---
@@ -313,7 +293,9 @@ public class ARBDebugOutput {
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
 	public static void glDebugMessageCallbackARB(GLDebugMessageARBCallback callback, long userParam) {
-		long __functionAddress = getInstance().DebugMessageCallbackARB;
+		long __functionAddress = GL.getCapabilities().glDebugMessageCallbackARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, callback == null ? NULL : callback.address(), userParam);
 	}
 
@@ -321,7 +303,9 @@ public class ARBDebugOutput {
 
 	/** Unsafe version of {@link #glGetDebugMessageLogARB GetDebugMessageLogARB} */
 	public static int nglGetDebugMessageLogARB(int count, int bufSize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
-		long __functionAddress = getInstance().GetDebugMessageLogARB;
+		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIPPPPPPI(__functionAddress, count, bufSize, sources, types, ids, severities, lengths, messageLog);
 	}
 

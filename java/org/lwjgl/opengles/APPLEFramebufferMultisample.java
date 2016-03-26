@@ -55,54 +55,31 @@ public class APPLEFramebufferMultisample {
 		GL_DRAW_FRAMEBUFFER_BINDING_APPLE = 0x8CA6,
 		GL_READ_FRAMEBUFFER_BINDING_APPLE = 0x8CAA;
 
-	/** Function address. */
-	public final long
-		RenderbufferStorageMultisampleAPPLE,
-		ResolveMultisampleFramebufferAPPLE;
-
 	protected APPLEFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
 
-	public APPLEFramebufferMultisample(FunctionProvider provider) {
-		RenderbufferStorageMultisampleAPPLE = provider.getFunctionAddress("glRenderbufferStorageMultisampleAPPLE");
-		ResolveMultisampleFramebufferAPPLE = provider.getFunctionAddress("glResolveMultisampleFramebufferAPPLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link APPLEFramebufferMultisample} instance of the current context. */
-	public static APPLEFramebufferMultisample getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link APPLEFramebufferMultisample} instance of the specified {@link GLESCapabilities}. */
-	public static APPLEFramebufferMultisample getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__APPLEFramebufferMultisample);
-	}
-
-	static APPLEFramebufferMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_APPLE_framebuffer_multisample") ) return null;
-
-		APPLEFramebufferMultisample funcs = new APPLEFramebufferMultisample(provider);
-		boolean supported = checkFunctions(
-			funcs.RenderbufferStorageMultisampleAPPLE, funcs.ResolveMultisampleFramebufferAPPLE
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glRenderbufferStorageMultisampleAPPLE, caps.glResolveMultisampleFramebufferAPPLE
 		);
-
-		return GLES.checkExtension("GL_APPLE_framebuffer_multisample", funcs, supported);
 	}
 
 	// --- [ glRenderbufferStorageMultisampleAPPLE ] ---
 
 	public static void glRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().RenderbufferStorageMultisampleAPPLE;
+		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleAPPLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glResolveMultisampleFramebufferAPPLE ] ---
 
 	public static void glResolveMultisampleFramebufferAPPLE() {
-		long __functionAddress = getInstance().ResolveMultisampleFramebufferAPPLE;
+		long __functionAddress = GLES.getCapabilities().glResolveMultisampleFramebufferAPPLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 

@@ -130,44 +130,22 @@ public class EXTTessellationShader {
 		GL_TESS_CONTROL_SHADER_BIT_EXT    = 0x8,
 		GL_TESS_EVALUATION_SHADER_BIT_EXT = 0x10;
 
-	/** Function address. */
-	public final long PatchParameteriEXT;
-
 	protected EXTTessellationShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTTessellationShader(FunctionProvider provider) {
-		PatchParameteriEXT = provider.getFunctionAddress("glPatchParameteriEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTTessellationShader} instance of the current context. */
-	public static EXTTessellationShader getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTTessellationShader} instance of the specified {@link GLESCapabilities}. */
-	public static EXTTessellationShader getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTTessellationShader);
-	}
-
-	static EXTTessellationShader create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_tessellation_shader") ) return null;
-
-		EXTTessellationShader funcs = new EXTTessellationShader(provider);
-		boolean supported = checkFunctions(
-			funcs.PatchParameteriEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glPatchParameteriEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_tessellation_shader", funcs, supported);
 	}
 
 	// --- [ glPatchParameteriEXT ] ---
 
 	public static void glPatchParameteriEXT(int pname, int value) {
-		long __functionAddress = getInstance().PatchParameteriEXT;
+		long __functionAddress = GLES.getCapabilities().glPatchParameteriEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, value);
 	}
 

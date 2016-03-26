@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -64,45 +64,23 @@ public class NVDrawBuffers {
 		GL_COLOR_ATTACHMENT14_NV = 0x8CEE,
 		GL_COLOR_ATTACHMENT15_NV = 0x8CEF;
 
-	/** Function address. */
-	public final long DrawBuffersNV;
-
 	protected NVDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVDrawBuffers(FunctionProvider provider) {
-		DrawBuffersNV = provider.getFunctionAddress("glDrawBuffersNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVDrawBuffers} instance of the current context. */
-	public static NVDrawBuffers getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link NVDrawBuffers} instance of the specified {@link GLESCapabilities}. */
-	public static NVDrawBuffers getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__NVDrawBuffers);
-	}
-
-	static NVDrawBuffers create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_draw_buffers") ) return null;
-
-		NVDrawBuffers funcs = new NVDrawBuffers(provider);
-		boolean supported = checkFunctions(
-			funcs.DrawBuffersNV
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawBuffersNV
 		);
-
-		return GLES.checkExtension("GL_NV_draw_buffers", funcs, supported);
 	}
 
 	// --- [ glDrawBuffersNV ] ---
 
 	/** Unsafe version of {@link #glDrawBuffersNV DrawBuffersNV} */
 	public static void nglDrawBuffersNV(int n, long bufs) {
-		long __functionAddress = getInstance().DrawBuffersNV;
+		long __functionAddress = GLES.getCapabilities().glDrawBuffersNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, bufs);
 	}
 
@@ -119,9 +97,13 @@ public class NVDrawBuffers {
 
 	/** Single value version of: {@link #glDrawBuffersNV DrawBuffersNV} */
 	public static void glDrawBuffersNV(int buf) {
-		APIBuffer __buffer = apiBuffer();
-		int bufs = __buffer.intParam(buf);
-		nglDrawBuffersNV(1, __buffer.address(bufs));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer bufs = stack.ints(buf);
+			nglDrawBuffersNV(1, memAddress(bufs));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

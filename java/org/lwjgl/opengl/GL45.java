@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -91,305 +91,38 @@ public class GL45 {
 	/** Returned by {@link GL11#glGetError GetError}. */
 	public static final int GL_CONTEXT_LOST = 0x507;
 
-	/** Function address. */
-	public final long
-		ClipControl,
-		CreateTransformFeedbacks,
-		TransformFeedbackBufferBase,
-		TransformFeedbackBufferRange,
-		GetTransformFeedbackiv,
-		GetTransformFeedbacki_v,
-		GetTransformFeedbacki64_v,
-		CreateBuffers,
-		NamedBufferStorage,
-		NamedBufferData,
-		NamedBufferSubData,
-		CopyNamedBufferSubData,
-		ClearNamedBufferData,
-		ClearNamedBufferSubData,
-		MapNamedBuffer,
-		MapNamedBufferRange,
-		UnmapNamedBuffer,
-		FlushMappedNamedBufferRange,
-		GetNamedBufferParameteriv,
-		GetNamedBufferParameteri64v,
-		GetNamedBufferPointerv,
-		GetNamedBufferSubData,
-		CreateFramebuffers,
-		NamedFramebufferRenderbuffer,
-		NamedFramebufferParameteri,
-		NamedFramebufferTexture,
-		NamedFramebufferTextureLayer,
-		NamedFramebufferDrawBuffer,
-		NamedFramebufferDrawBuffers,
-		NamedFramebufferReadBuffer,
-		InvalidateNamedFramebufferData,
-		InvalidateNamedFramebufferSubData,
-		ClearNamedFramebufferiv,
-		ClearNamedFramebufferuiv,
-		ClearNamedFramebufferfv,
-		ClearNamedFramebufferfi,
-		BlitNamedFramebuffer,
-		CheckNamedFramebufferStatus,
-		GetNamedFramebufferParameteriv,
-		GetNamedFramebufferAttachmentParameteriv,
-		CreateRenderbuffers,
-		NamedRenderbufferStorage,
-		NamedRenderbufferStorageMultisample,
-		GetNamedRenderbufferParameteriv,
-		CreateTextures,
-		TextureBuffer,
-		TextureBufferRange,
-		TextureStorage1D,
-		TextureStorage2D,
-		TextureStorage3D,
-		TextureStorage2DMultisample,
-		TextureStorage3DMultisample,
-		TextureSubImage1D,
-		TextureSubImage2D,
-		TextureSubImage3D,
-		CompressedTextureSubImage1D,
-		CompressedTextureSubImage2D,
-		CompressedTextureSubImage3D,
-		CopyTextureSubImage1D,
-		CopyTextureSubImage2D,
-		CopyTextureSubImage3D,
-		TextureParameterf,
-		TextureParameterfv,
-		TextureParameteri,
-		TextureParameterIiv,
-		TextureParameterIuiv,
-		TextureParameteriv,
-		GenerateTextureMipmap,
-		BindTextureUnit,
-		GetTextureImage,
-		GetCompressedTextureImage,
-		GetTextureLevelParameterfv,
-		GetTextureLevelParameteriv,
-		GetTextureParameterfv,
-		GetTextureParameterIiv,
-		GetTextureParameterIuiv,
-		GetTextureParameteriv,
-		CreateVertexArrays,
-		DisableVertexArrayAttrib,
-		EnableVertexArrayAttrib,
-		VertexArrayElementBuffer,
-		VertexArrayVertexBuffer,
-		VertexArrayVertexBuffers,
-		VertexArrayAttribFormat,
-		VertexArrayAttribIFormat,
-		VertexArrayAttribLFormat,
-		VertexArrayAttribBinding,
-		VertexArrayBindingDivisor,
-		GetVertexArrayiv,
-		GetVertexArrayIndexediv,
-		GetVertexArrayIndexed64iv,
-		CreateSamplers,
-		CreateProgramPipelines,
-		CreateQueries,
-		GetQueryBufferObjectiv,
-		GetQueryBufferObjectuiv,
-		GetQueryBufferObjecti64v,
-		GetQueryBufferObjectui64v,
-		MemoryBarrierByRegion,
-		GetTextureSubImage,
-		GetCompressedTextureSubImage,
-		TextureBarrier,
-		GetGraphicsResetStatus,
-		GetnMapdv,
-		GetnMapfv,
-		GetnMapiv,
-		GetnPixelMapfv,
-		GetnPixelMapuiv,
-		GetnPixelMapusv,
-		GetnPolygonStipple,
-		GetnTexImage,
-		ReadnPixels,
-		GetnColorTable,
-		GetnConvolutionFilter,
-		GetnSeparableFilter,
-		GetnHistogram,
-		GetnMinmax,
-		GetnCompressedTexImage,
-		GetnUniformfv,
-		GetnUniformdv,
-		GetnUniformiv,
-		GetnUniformuiv;
-
 	protected GL45() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL45(FunctionProvider provider) {
-		ClipControl = provider.getFunctionAddress("glClipControl");
-		CreateTransformFeedbacks = provider.getFunctionAddress("glCreateTransformFeedbacks");
-		TransformFeedbackBufferBase = provider.getFunctionAddress("glTransformFeedbackBufferBase");
-		TransformFeedbackBufferRange = provider.getFunctionAddress("glTransformFeedbackBufferRange");
-		GetTransformFeedbackiv = provider.getFunctionAddress("glGetTransformFeedbackiv");
-		GetTransformFeedbacki_v = provider.getFunctionAddress("glGetTransformFeedbacki_v");
-		GetTransformFeedbacki64_v = provider.getFunctionAddress("glGetTransformFeedbacki64_v");
-		CreateBuffers = provider.getFunctionAddress("glCreateBuffers");
-		NamedBufferStorage = provider.getFunctionAddress("glNamedBufferStorage");
-		NamedBufferData = provider.getFunctionAddress("glNamedBufferData");
-		NamedBufferSubData = provider.getFunctionAddress("glNamedBufferSubData");
-		CopyNamedBufferSubData = provider.getFunctionAddress("glCopyNamedBufferSubData");
-		ClearNamedBufferData = provider.getFunctionAddress("glClearNamedBufferData");
-		ClearNamedBufferSubData = provider.getFunctionAddress("glClearNamedBufferSubData");
-		MapNamedBuffer = provider.getFunctionAddress("glMapNamedBuffer");
-		MapNamedBufferRange = provider.getFunctionAddress("glMapNamedBufferRange");
-		UnmapNamedBuffer = provider.getFunctionAddress("glUnmapNamedBuffer");
-		FlushMappedNamedBufferRange = provider.getFunctionAddress("glFlushMappedNamedBufferRange");
-		GetNamedBufferParameteriv = provider.getFunctionAddress("glGetNamedBufferParameteriv");
-		GetNamedBufferParameteri64v = provider.getFunctionAddress("glGetNamedBufferParameteri64v");
-		GetNamedBufferPointerv = provider.getFunctionAddress("glGetNamedBufferPointerv");
-		GetNamedBufferSubData = provider.getFunctionAddress("glGetNamedBufferSubData");
-		CreateFramebuffers = provider.getFunctionAddress("glCreateFramebuffers");
-		NamedFramebufferRenderbuffer = provider.getFunctionAddress("glNamedFramebufferRenderbuffer");
-		NamedFramebufferParameteri = provider.getFunctionAddress("glNamedFramebufferParameteri");
-		NamedFramebufferTexture = provider.getFunctionAddress("glNamedFramebufferTexture");
-		NamedFramebufferTextureLayer = provider.getFunctionAddress("glNamedFramebufferTextureLayer");
-		NamedFramebufferDrawBuffer = provider.getFunctionAddress("glNamedFramebufferDrawBuffer");
-		NamedFramebufferDrawBuffers = provider.getFunctionAddress("glNamedFramebufferDrawBuffers");
-		NamedFramebufferReadBuffer = provider.getFunctionAddress("glNamedFramebufferReadBuffer");
-		InvalidateNamedFramebufferData = provider.getFunctionAddress("glInvalidateNamedFramebufferData");
-		InvalidateNamedFramebufferSubData = provider.getFunctionAddress("glInvalidateNamedFramebufferSubData");
-		ClearNamedFramebufferiv = provider.getFunctionAddress("glClearNamedFramebufferiv");
-		ClearNamedFramebufferuiv = provider.getFunctionAddress("glClearNamedFramebufferuiv");
-		ClearNamedFramebufferfv = provider.getFunctionAddress("glClearNamedFramebufferfv");
-		ClearNamedFramebufferfi = provider.getFunctionAddress("glClearNamedFramebufferfi");
-		BlitNamedFramebuffer = provider.getFunctionAddress("glBlitNamedFramebuffer");
-		CheckNamedFramebufferStatus = provider.getFunctionAddress("glCheckNamedFramebufferStatus");
-		GetNamedFramebufferParameteriv = provider.getFunctionAddress("glGetNamedFramebufferParameteriv");
-		GetNamedFramebufferAttachmentParameteriv = provider.getFunctionAddress("glGetNamedFramebufferAttachmentParameteriv");
-		CreateRenderbuffers = provider.getFunctionAddress("glCreateRenderbuffers");
-		NamedRenderbufferStorage = provider.getFunctionAddress("glNamedRenderbufferStorage");
-		NamedRenderbufferStorageMultisample = provider.getFunctionAddress("glNamedRenderbufferStorageMultisample");
-		GetNamedRenderbufferParameteriv = provider.getFunctionAddress("glGetNamedRenderbufferParameteriv");
-		CreateTextures = provider.getFunctionAddress("glCreateTextures");
-		TextureBuffer = provider.getFunctionAddress("glTextureBuffer");
-		TextureBufferRange = provider.getFunctionAddress("glTextureBufferRange");
-		TextureStorage1D = provider.getFunctionAddress("glTextureStorage1D");
-		TextureStorage2D = provider.getFunctionAddress("glTextureStorage2D");
-		TextureStorage3D = provider.getFunctionAddress("glTextureStorage3D");
-		TextureStorage2DMultisample = provider.getFunctionAddress("glTextureStorage2DMultisample");
-		TextureStorage3DMultisample = provider.getFunctionAddress("glTextureStorage3DMultisample");
-		TextureSubImage1D = provider.getFunctionAddress("glTextureSubImage1D");
-		TextureSubImage2D = provider.getFunctionAddress("glTextureSubImage2D");
-		TextureSubImage3D = provider.getFunctionAddress("glTextureSubImage3D");
-		CompressedTextureSubImage1D = provider.getFunctionAddress("glCompressedTextureSubImage1D");
-		CompressedTextureSubImage2D = provider.getFunctionAddress("glCompressedTextureSubImage2D");
-		CompressedTextureSubImage3D = provider.getFunctionAddress("glCompressedTextureSubImage3D");
-		CopyTextureSubImage1D = provider.getFunctionAddress("glCopyTextureSubImage1D");
-		CopyTextureSubImage2D = provider.getFunctionAddress("glCopyTextureSubImage2D");
-		CopyTextureSubImage3D = provider.getFunctionAddress("glCopyTextureSubImage3D");
-		TextureParameterf = provider.getFunctionAddress("glTextureParameterf");
-		TextureParameterfv = provider.getFunctionAddress("glTextureParameterfv");
-		TextureParameteri = provider.getFunctionAddress("glTextureParameteri");
-		TextureParameterIiv = provider.getFunctionAddress("glTextureParameterIiv");
-		TextureParameterIuiv = provider.getFunctionAddress("glTextureParameterIuiv");
-		TextureParameteriv = provider.getFunctionAddress("glTextureParameteriv");
-		GenerateTextureMipmap = provider.getFunctionAddress("glGenerateTextureMipmap");
-		BindTextureUnit = provider.getFunctionAddress("glBindTextureUnit");
-		GetTextureImage = provider.getFunctionAddress("glGetTextureImage");
-		GetCompressedTextureImage = provider.getFunctionAddress("glGetCompressedTextureImage");
-		GetTextureLevelParameterfv = provider.getFunctionAddress("glGetTextureLevelParameterfv");
-		GetTextureLevelParameteriv = provider.getFunctionAddress("glGetTextureLevelParameteriv");
-		GetTextureParameterfv = provider.getFunctionAddress("glGetTextureParameterfv");
-		GetTextureParameterIiv = provider.getFunctionAddress("glGetTextureParameterIiv");
-		GetTextureParameterIuiv = provider.getFunctionAddress("glGetTextureParameterIuiv");
-		GetTextureParameteriv = provider.getFunctionAddress("glGetTextureParameteriv");
-		CreateVertexArrays = provider.getFunctionAddress("glCreateVertexArrays");
-		DisableVertexArrayAttrib = provider.getFunctionAddress("glDisableVertexArrayAttrib");
-		EnableVertexArrayAttrib = provider.getFunctionAddress("glEnableVertexArrayAttrib");
-		VertexArrayElementBuffer = provider.getFunctionAddress("glVertexArrayElementBuffer");
-		VertexArrayVertexBuffer = provider.getFunctionAddress("glVertexArrayVertexBuffer");
-		VertexArrayVertexBuffers = provider.getFunctionAddress("glVertexArrayVertexBuffers");
-		VertexArrayAttribFormat = provider.getFunctionAddress("glVertexArrayAttribFormat");
-		VertexArrayAttribIFormat = provider.getFunctionAddress("glVertexArrayAttribIFormat");
-		VertexArrayAttribLFormat = provider.getFunctionAddress("glVertexArrayAttribLFormat");
-		VertexArrayAttribBinding = provider.getFunctionAddress("glVertexArrayAttribBinding");
-		VertexArrayBindingDivisor = provider.getFunctionAddress("glVertexArrayBindingDivisor");
-		GetVertexArrayiv = provider.getFunctionAddress("glGetVertexArrayiv");
-		GetVertexArrayIndexediv = provider.getFunctionAddress("glGetVertexArrayIndexediv");
-		GetVertexArrayIndexed64iv = provider.getFunctionAddress("glGetVertexArrayIndexed64iv");
-		CreateSamplers = provider.getFunctionAddress("glCreateSamplers");
-		CreateProgramPipelines = provider.getFunctionAddress("glCreateProgramPipelines");
-		CreateQueries = provider.getFunctionAddress("glCreateQueries");
-		GetQueryBufferObjectiv = provider.getFunctionAddress("glGetQueryBufferObjectiv");
-		GetQueryBufferObjectuiv = provider.getFunctionAddress("glGetQueryBufferObjectuiv");
-		GetQueryBufferObjecti64v = provider.getFunctionAddress("glGetQueryBufferObjecti64v");
-		GetQueryBufferObjectui64v = provider.getFunctionAddress("glGetQueryBufferObjectui64v");
-		MemoryBarrierByRegion = provider.getFunctionAddress("glMemoryBarrierByRegion");
-		GetTextureSubImage = provider.getFunctionAddress("glGetTextureSubImage");
-		GetCompressedTextureSubImage = provider.getFunctionAddress("glGetCompressedTextureSubImage");
-		TextureBarrier = provider.getFunctionAddress("glTextureBarrier");
-		GetGraphicsResetStatus = provider.getFunctionAddress("glGetGraphicsResetStatus");
-		GetnMapdv = provider.getFunctionAddress("glGetnMapdv");
-		GetnMapfv = provider.getFunctionAddress("glGetnMapfv");
-		GetnMapiv = provider.getFunctionAddress("glGetnMapiv");
-		GetnPixelMapfv = provider.getFunctionAddress("glGetnPixelMapfv");
-		GetnPixelMapuiv = provider.getFunctionAddress("glGetnPixelMapuiv");
-		GetnPixelMapusv = provider.getFunctionAddress("glGetnPixelMapusv");
-		GetnPolygonStipple = provider.getFunctionAddress("glGetnPolygonStipple");
-		GetnTexImage = provider.getFunctionAddress("glGetnTexImage");
-		ReadnPixels = provider.getFunctionAddress("glReadnPixels");
-		GetnColorTable = provider.getFunctionAddress("glGetnColorTable");
-		GetnConvolutionFilter = provider.getFunctionAddress("glGetnConvolutionFilter");
-		GetnSeparableFilter = provider.getFunctionAddress("glGetnSeparableFilter");
-		GetnHistogram = provider.getFunctionAddress("glGetnHistogram");
-		GetnMinmax = provider.getFunctionAddress("glGetnMinmax");
-		GetnCompressedTexImage = provider.getFunctionAddress("glGetnCompressedTexImage");
-		GetnUniformfv = provider.getFunctionAddress("glGetnUniformfv");
-		GetnUniformdv = provider.getFunctionAddress("glGetnUniformdv");
-		GetnUniformiv = provider.getFunctionAddress("glGetnUniformiv");
-		GetnUniformuiv = provider.getFunctionAddress("glGetnUniformuiv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL45} instance of the current context. */
-	public static GL45 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL45} instance of the specified {@link GLCapabilities}. */
-	public static GL45 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL45);
-	}
-
-	static GL45 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL45") ) return null;
-
-		GL45 funcs = new GL45(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ClipControl, funcs.CreateTransformFeedbacks, funcs.TransformFeedbackBufferBase, funcs.TransformFeedbackBufferRange, 
-			funcs.GetTransformFeedbackiv, funcs.GetTransformFeedbacki_v, funcs.GetTransformFeedbacki64_v, funcs.CreateBuffers, funcs.NamedBufferStorage, 
-			funcs.NamedBufferData, funcs.NamedBufferSubData, funcs.CopyNamedBufferSubData, funcs.ClearNamedBufferData, funcs.ClearNamedBufferSubData, 
-			funcs.MapNamedBuffer, funcs.MapNamedBufferRange, funcs.UnmapNamedBuffer, funcs.FlushMappedNamedBufferRange, funcs.GetNamedBufferParameteriv, 
-			funcs.GetNamedBufferParameteri64v, funcs.GetNamedBufferPointerv, funcs.GetNamedBufferSubData, funcs.CreateFramebuffers, 
-			funcs.NamedFramebufferRenderbuffer, funcs.NamedFramebufferParameteri, funcs.NamedFramebufferTexture, funcs.NamedFramebufferTextureLayer, 
-			funcs.NamedFramebufferDrawBuffer, funcs.NamedFramebufferDrawBuffers, funcs.NamedFramebufferReadBuffer, funcs.InvalidateNamedFramebufferData, 
-			funcs.InvalidateNamedFramebufferSubData, funcs.ClearNamedFramebufferiv, funcs.ClearNamedFramebufferuiv, funcs.ClearNamedFramebufferfv, 
-			funcs.ClearNamedFramebufferfi, funcs.BlitNamedFramebuffer, funcs.CheckNamedFramebufferStatus, funcs.GetNamedFramebufferParameteriv, 
-			funcs.GetNamedFramebufferAttachmentParameteriv, funcs.CreateRenderbuffers, funcs.NamedRenderbufferStorage, 
-			funcs.NamedRenderbufferStorageMultisample, funcs.GetNamedRenderbufferParameteriv, funcs.CreateTextures, funcs.TextureBuffer, 
-			funcs.TextureBufferRange, funcs.TextureStorage1D, funcs.TextureStorage2D, funcs.TextureStorage3D, funcs.TextureStorage2DMultisample, 
-			funcs.TextureStorage3DMultisample, funcs.TextureSubImage1D, funcs.TextureSubImage2D, funcs.TextureSubImage3D, funcs.CompressedTextureSubImage1D, 
-			funcs.CompressedTextureSubImage2D, funcs.CompressedTextureSubImage3D, funcs.CopyTextureSubImage1D, funcs.CopyTextureSubImage2D, 
-			funcs.CopyTextureSubImage3D, funcs.TextureParameterf, funcs.TextureParameterfv, funcs.TextureParameteri, funcs.TextureParameterIiv, 
-			funcs.TextureParameterIuiv, funcs.TextureParameteriv, funcs.GenerateTextureMipmap, funcs.BindTextureUnit, funcs.GetTextureImage, 
-			funcs.GetCompressedTextureImage, funcs.GetTextureLevelParameterfv, funcs.GetTextureLevelParameteriv, funcs.GetTextureParameterfv, 
-			funcs.GetTextureParameterIiv, funcs.GetTextureParameterIuiv, funcs.GetTextureParameteriv, funcs.CreateVertexArrays, funcs.DisableVertexArrayAttrib, 
-			funcs.EnableVertexArrayAttrib, funcs.VertexArrayElementBuffer, funcs.VertexArrayVertexBuffer, funcs.VertexArrayVertexBuffers, 
-			funcs.VertexArrayAttribFormat, funcs.VertexArrayAttribIFormat, funcs.VertexArrayAttribLFormat, funcs.VertexArrayAttribBinding, 
-			funcs.VertexArrayBindingDivisor, funcs.GetVertexArrayiv, funcs.GetVertexArrayIndexediv, funcs.GetVertexArrayIndexed64iv, funcs.CreateSamplers, 
-			funcs.CreateProgramPipelines, funcs.CreateQueries, funcs.GetQueryBufferObjectiv, funcs.GetQueryBufferObjectuiv, funcs.GetQueryBufferObjecti64v, 
-			funcs.GetQueryBufferObjectui64v, funcs.MemoryBarrierByRegion, funcs.GetTextureSubImage, funcs.GetCompressedTextureSubImage, funcs.TextureBarrier, 
-			funcs.GetGraphicsResetStatus, funcs.ReadnPixels, funcs.GetnUniformfv, funcs.GetnUniformiv, funcs.GetnUniformuiv
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glClipControl, caps.glCreateTransformFeedbacks, caps.glTransformFeedbackBufferBase, caps.glTransformFeedbackBufferRange, 
+			caps.glGetTransformFeedbackiv, caps.glGetTransformFeedbacki_v, caps.glGetTransformFeedbacki64_v, caps.glCreateBuffers, caps.glNamedBufferStorage, 
+			caps.glNamedBufferData, caps.glNamedBufferSubData, caps.glCopyNamedBufferSubData, caps.glClearNamedBufferData, caps.glClearNamedBufferSubData, 
+			caps.glMapNamedBuffer, caps.glMapNamedBufferRange, caps.glUnmapNamedBuffer, caps.glFlushMappedNamedBufferRange, caps.glGetNamedBufferParameteriv, 
+			caps.glGetNamedBufferParameteri64v, caps.glGetNamedBufferPointerv, caps.glGetNamedBufferSubData, caps.glCreateFramebuffers, 
+			caps.glNamedFramebufferRenderbuffer, caps.glNamedFramebufferParameteri, caps.glNamedFramebufferTexture, caps.glNamedFramebufferTextureLayer, 
+			caps.glNamedFramebufferDrawBuffer, caps.glNamedFramebufferDrawBuffers, caps.glNamedFramebufferReadBuffer, caps.glInvalidateNamedFramebufferData, 
+			caps.glInvalidateNamedFramebufferSubData, caps.glClearNamedFramebufferiv, caps.glClearNamedFramebufferuiv, caps.glClearNamedFramebufferfv, 
+			caps.glClearNamedFramebufferfi, caps.glBlitNamedFramebuffer, caps.glCheckNamedFramebufferStatus, caps.glGetNamedFramebufferParameteriv, 
+			caps.glGetNamedFramebufferAttachmentParameteriv, caps.glCreateRenderbuffers, caps.glNamedRenderbufferStorage, 
+			caps.glNamedRenderbufferStorageMultisample, caps.glGetNamedRenderbufferParameteriv, caps.glCreateTextures, caps.glTextureBuffer, 
+			caps.glTextureBufferRange, caps.glTextureStorage1D, caps.glTextureStorage2D, caps.glTextureStorage3D, caps.glTextureStorage2DMultisample, 
+			caps.glTextureStorage3DMultisample, caps.glTextureSubImage1D, caps.glTextureSubImage2D, caps.glTextureSubImage3D, 
+			caps.glCompressedTextureSubImage1D, caps.glCompressedTextureSubImage2D, caps.glCompressedTextureSubImage3D, caps.glCopyTextureSubImage1D, 
+			caps.glCopyTextureSubImage2D, caps.glCopyTextureSubImage3D, caps.glTextureParameterf, caps.glTextureParameterfv, caps.glTextureParameteri, 
+			caps.glTextureParameterIiv, caps.glTextureParameterIuiv, caps.glTextureParameteriv, caps.glGenerateTextureMipmap, caps.glBindTextureUnit, 
+			caps.glGetTextureImage, caps.glGetCompressedTextureImage, caps.glGetTextureLevelParameterfv, caps.glGetTextureLevelParameteriv, 
+			caps.glGetTextureParameterfv, caps.glGetTextureParameterIiv, caps.glGetTextureParameterIuiv, caps.glGetTextureParameteriv, 
+			caps.glCreateVertexArrays, caps.glDisableVertexArrayAttrib, caps.glEnableVertexArrayAttrib, caps.glVertexArrayElementBuffer, 
+			caps.glVertexArrayVertexBuffer, caps.glVertexArrayVertexBuffers, caps.glVertexArrayAttribFormat, caps.glVertexArrayAttribIFormat, 
+			caps.glVertexArrayAttribLFormat, caps.glVertexArrayAttribBinding, caps.glVertexArrayBindingDivisor, caps.glGetVertexArrayiv, 
+			caps.glGetVertexArrayIndexediv, caps.glGetVertexArrayIndexed64iv, caps.glCreateSamplers, caps.glCreateProgramPipelines, caps.glCreateQueries, 
+			caps.glGetQueryBufferObjectiv, caps.glGetQueryBufferObjectuiv, caps.glGetQueryBufferObjecti64v, caps.glGetQueryBufferObjectui64v, 
+			caps.glMemoryBarrierByRegion, caps.glGetTextureSubImage, caps.glGetCompressedTextureSubImage, caps.glTextureBarrier, caps.glGetGraphicsResetStatus, 
+			caps.glReadnPixels, caps.glGetnUniformfv, caps.glGetnUniformiv, caps.glGetnUniformuiv
 		);
-
-		return GL.checkExtension("OpenGL45", funcs, supported);
 	}
 
 	// --- [ glClipControl ] ---
@@ -409,7 +142,9 @@ public class GL45 {
 	 * @param depth  the clip depth mode. One of:<br>{@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}, {@link #GL_ZERO_TO_ONE ZERO_TO_ONE}
 	 */
 	public static void glClipControl(int origin, int depth) {
-		long __functionAddress = getInstance().ClipControl;
+		long __functionAddress = GL.getCapabilities().glClipControl;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, origin, depth);
 	}
 
@@ -417,7 +152,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glCreateTransformFeedbacks CreateTransformFeedbacks} */
 	public static void nglCreateTransformFeedbacks(int n, long ids) {
-		long __functionAddress = getInstance().CreateTransformFeedbacks;
+		long __functionAddress = GL.getCapabilities().glCreateTransformFeedbacks;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -442,10 +179,14 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glCreateTransformFeedbacks CreateTransformFeedbacks} */
 	public static int glCreateTransformFeedbacks() {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam();
-		nglCreateTransformFeedbacks(1, __buffer.address(ids));
-		return __buffer.intValue(ids);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.callocInt(1);
+			nglCreateTransformFeedbacks(1, memAddress(ids));
+			return ids.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glTransformFeedbackBufferBase ] ---
@@ -460,7 +201,9 @@ public class GL45 {
 	 * @param buffer the name of an existing buffer object
 	 */
 	public static void glTransformFeedbackBufferBase(int xfb, int index, int buffer) {
-		long __functionAddress = getInstance().TransformFeedbackBufferBase;
+		long __functionAddress = GL.getCapabilities().glTransformFeedbackBufferBase;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, xfb, index, buffer);
 	}
 
@@ -478,7 +221,9 @@ public class GL45 {
 	 * @param size   the amount of data in machine units
 	 */
 	public static void glTransformFeedbackBufferRange(int xfb, int index, int buffer, long offset, long size) {
-		long __functionAddress = getInstance().TransformFeedbackBufferRange;
+		long __functionAddress = GL.getCapabilities().glTransformFeedbackBufferRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, xfb, index, buffer, offset, size);
 	}
 
@@ -486,7 +231,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
 	public static void nglGetTransformFeedbackiv(int xfb, int pname, long param) {
-		long __functionAddress = getInstance().GetTransformFeedbackiv;
+		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, xfb, pname, param);
 	}
 
@@ -514,17 +261,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
 	public static int glGetTransformFeedbacki(int xfb, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int param = __buffer.intParam();
-		nglGetTransformFeedbackiv(xfb, pname, __buffer.address(param));
-		return __buffer.intValue(param);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer param = stack.callocInt(1);
+			nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
+			return param.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTransformFeedbacki_v ] ---
 
 	/** Unsafe version of {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
 	public static void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param) {
-		long __functionAddress = getInstance().GetTransformFeedbacki_v;
+		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki_v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, xfb, pname, index, param);
 	}
 
@@ -553,17 +306,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
 	public static int glGetTransformFeedbacki(int xfb, int pname, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int param = __buffer.intParam();
-		nglGetTransformFeedbacki_v(xfb, pname, index, __buffer.address(param));
-		return __buffer.intValue(param);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer param = stack.callocInt(1);
+			nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
+			return param.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTransformFeedbacki64_v ] ---
 
 	/** Unsafe version of {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
 	public static void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param) {
-		long __functionAddress = getInstance().GetTransformFeedbacki64_v;
+		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki64_v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, xfb, pname, index, param);
 	}
 
@@ -592,17 +351,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
 	public static long glGetTransformFeedbacki64(int xfb, int pname, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int param = __buffer.longParam();
-		nglGetTransformFeedbacki64_v(xfb, pname, index, __buffer.address(param));
-		return __buffer.longValue(param);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer param = stack.callocLong(1);
+			nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
+			return param.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glCreateBuffers ] ---
 
 	/** Unsafe version of {@link #glCreateBuffers CreateBuffers} */
 	public static void nglCreateBuffers(int n, long buffers) {
-		long __functionAddress = getInstance().CreateBuffers;
+		long __functionAddress = GL.getCapabilities().glCreateBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, buffers);
 	}
 
@@ -628,17 +393,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glCreateBuffers CreateBuffers} */
 	public static int glCreateBuffers() {
-		APIBuffer __buffer = apiBuffer();
-		int buffers = __buffer.intParam();
-		nglCreateBuffers(1, __buffer.address(buffers));
-		return __buffer.intValue(buffers);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer buffers = stack.callocInt(1);
+			nglCreateBuffers(1, memAddress(buffers));
+			return buffers.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glNamedBufferStorage ] ---
 
 	/** Unsafe version of {@link #glNamedBufferStorage NamedBufferStorage} */
 	public static void nglNamedBufferStorage(int buffer, long size, long data, int flags) {
-		long __functionAddress = getInstance().NamedBufferStorage;
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPIV(__functionAddress, buffer, size, data, flags);
 	}
 
@@ -728,7 +499,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glNamedBufferData NamedBufferData} */
 	public static void nglNamedBufferData(int buffer, long size, long data, int usage) {
-		long __functionAddress = getInstance().NamedBufferData;
+		long __functionAddress = GL.getCapabilities().glNamedBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPIV(__functionAddress, buffer, size, data, usage);
 	}
 
@@ -739,7 +512,7 @@ public class GL45 {
 	 *
 	 * @param buffer 
 	 * @param size   the size in bytes of the buffer object's new data store
-	 * @param data   a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be copied
+	 * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
 	 * @param usage  the expected usage pattern of the data store. One of:<br>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}, {@link GL15#GL_STREAM_READ STREAM_READ}, {@link GL15#GL_STREAM_COPY STREAM_COPY}, {@link GL15#GL_STATIC_DRAW STATIC_DRAW}, {@link GL15#GL_STATIC_READ STATIC_READ}, {@link GL15#GL_STATIC_COPY STATIC_COPY}, {@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}, {@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}, {@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}
 	 */
 	public static void glNamedBufferData(int buffer, long size, ByteBuffer data, int usage) {
@@ -782,7 +555,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glNamedBufferSubData NamedBufferSubData} */
 	public static void nglNamedBufferSubData(int buffer, long offset, long size, long data) {
-		long __functionAddress = getInstance().NamedBufferSubData;
+		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPPV(__functionAddress, buffer, offset, size, data);
 	}
 
@@ -841,7 +616,9 @@ public class GL45 {
 	 * @param size        the number of bytes to copy
 	 */
 	public static void glCopyNamedBufferSubData(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
-		long __functionAddress = getInstance().CopyNamedBufferSubData;
+		long __functionAddress = GL.getCapabilities().glCopyNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPPV(__functionAddress, readBuffer, writeBuffer, readOffset, writeOffset, size);
 	}
 
@@ -849,7 +626,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glClearNamedBufferData ClearNamedBufferData} */
 	public static void nglClearNamedBufferData(int buffer, int internalformat, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearNamedBufferData;
+		long __functionAddress = GL.getCapabilities().glClearNamedBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, buffer, internalformat, format, type, data);
 	}
 
@@ -889,7 +668,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glClearNamedBufferSubData ClearNamedBufferSubData} */
 	public static void nglClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearNamedBufferSubData;
+		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPIIPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
 	}
 
@@ -931,7 +712,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glMapNamedBuffer MapNamedBuffer} */
 	public static long nglMapNamedBuffer(int buffer, int access) {
-		long __functionAddress = getInstance().MapNamedBuffer;
+		long __functionAddress = GL.getCapabilities().glMapNamedBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIP(__functionAddress, buffer, access);
 	}
 
@@ -965,7 +748,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glMapNamedBufferRange MapNamedBufferRange} */
 	public static long nglMapNamedBufferRange(int buffer, long offset, long length, int access) {
-		long __functionAddress = getInstance().MapNamedBufferRange;
+		long __functionAddress = GL.getCapabilities().glMapNamedBufferRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPPIP(__functionAddress, buffer, offset, length, access);
 	}
 
@@ -1000,7 +785,9 @@ public class GL45 {
 	 * @param buffer the buffer object name
 	 */
 	public static boolean glUnmapNamedBuffer(int buffer) {
-		long __functionAddress = getInstance().UnmapNamedBuffer;
+		long __functionAddress = GL.getCapabilities().glUnmapNamedBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, buffer);
 	}
 
@@ -1016,7 +803,9 @@ public class GL45 {
 	 * @param length the length of the buffer subrange, in basic machine units
 	 */
 	public static void glFlushMappedNamedBufferRange(int buffer, long offset, long length) {
-		long __functionAddress = getInstance().FlushMappedNamedBufferRange;
+		long __functionAddress = GL.getCapabilities().glFlushMappedNamedBufferRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPV(__functionAddress, buffer, offset, length);
 	}
 
@@ -1024,7 +813,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
 	public static void nglGetNamedBufferParameteriv(int buffer, int pname, long params) {
-		long __functionAddress = getInstance().GetNamedBufferParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, buffer, pname, params);
 	}
 
@@ -1052,17 +843,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
 	public static int glGetNamedBufferParameteri(int buffer, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetNamedBufferParameteriv(buffer, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetNamedBufferParameteriv(buffer, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetNamedBufferParameteri64v ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
 	public static void nglGetNamedBufferParameteri64v(int buffer, int pname, long params) {
-		long __functionAddress = getInstance().GetNamedBufferParameteri64v;
+		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteri64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, buffer, pname, params);
 	}
 
@@ -1090,17 +887,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
 	public static long glGetNamedBufferParameteri64(int buffer, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetNamedBufferParameteri64v(buffer, pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetNamedBufferParameteri64v(buffer, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetNamedBufferPointerv ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
 	public static void nglGetNamedBufferPointerv(int buffer, int pname, long params) {
-		long __functionAddress = getInstance().GetNamedBufferPointerv;
+		long __functionAddress = GL.getCapabilities().glGetNamedBufferPointerv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, buffer, pname, params);
 	}
 
@@ -1128,17 +931,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
 	public static long glGetNamedBufferPointer(int buffer, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.pointerParam();
-		nglGetNamedBufferPointerv(buffer, pname, __buffer.address(params));
-		return __buffer.pointerValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer params = stack.callocPointer(1);
+			nglGetNamedBufferPointerv(buffer, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetNamedBufferSubData ] ---
 
 	/** Unsafe version of {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
 	public static void nglGetNamedBufferSubData(int buffer, long offset, long size, long data) {
-		long __functionAddress = getInstance().GetNamedBufferSubData;
+		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPPV(__functionAddress, buffer, offset, size, data);
 	}
 
@@ -1187,7 +996,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glCreateFramebuffers CreateFramebuffers} */
 	public static void nglCreateFramebuffers(int n, long framebuffers) {
-		long __functionAddress = getInstance().CreateFramebuffers;
+		long __functionAddress = GL.getCapabilities().glCreateFramebuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, framebuffers);
 	}
 
@@ -1212,10 +1023,14 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glCreateFramebuffers CreateFramebuffers} */
 	public static int glCreateFramebuffers() {
-		APIBuffer __buffer = apiBuffer();
-		int framebuffers = __buffer.intParam();
-		nglCreateFramebuffers(1, __buffer.address(framebuffers));
-		return __buffer.intValue(framebuffers);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer framebuffers = stack.callocInt(1);
+			nglCreateFramebuffers(1, memAddress(framebuffers));
+			return framebuffers.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glNamedFramebufferRenderbuffer ] ---
@@ -1231,7 +1046,9 @@ public class GL45 {
 	 * @param renderbuffer       the name of an existing renderbuffer object of type {@code renderbuffertarget} to attach
 	 */
 	public static void glNamedFramebufferRenderbuffer(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer) {
-		long __functionAddress = getInstance().NamedFramebufferRenderbuffer;
+		long __functionAddress = GL.getCapabilities().glNamedFramebufferRenderbuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, framebuffer, attachment, renderbuffertarget, renderbuffer);
 	}
 
@@ -1247,7 +1064,9 @@ public class GL45 {
 	 * @param param       the new value for the parameter named {@code pname}
 	 */
 	public static void glNamedFramebufferParameteri(int framebuffer, int pname, int param) {
-		long __functionAddress = getInstance().NamedFramebufferParameteri;
+		long __functionAddress = GL.getCapabilities().glNamedFramebufferParameteri;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, framebuffer, pname, param);
 	}
 
@@ -1264,7 +1083,9 @@ public class GL45 {
 	 * @param level       the mipmap level of {@code texture} to attach
 	 */
 	public static void glNamedFramebufferTexture(int framebuffer, int attachment, int texture, int level) {
-		long __functionAddress = getInstance().NamedFramebufferTexture;
+		long __functionAddress = GL.getCapabilities().glNamedFramebufferTexture;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, framebuffer, attachment, texture, level);
 	}
 
@@ -1282,7 +1103,9 @@ public class GL45 {
 	 * @param layer       the layer of {@code texture} to attach.
 	 */
 	public static void glNamedFramebufferTextureLayer(int framebuffer, int attachment, int texture, int level, int layer) {
-		long __functionAddress = getInstance().NamedFramebufferTextureLayer;
+		long __functionAddress = GL.getCapabilities().glNamedFramebufferTextureLayer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, framebuffer, attachment, texture, level, layer);
 	}
 
@@ -1297,7 +1120,9 @@ public class GL45 {
 	 * @param buf         the color buffer to draw to. One of:<br>{@link GL11#GL_NONE NONE}, {@link GL11#GL_FRONT_LEFT FRONT_LEFT}, {@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}, {@link GL11#GL_BACK_LEFT BACK_LEFT}, {@link GL11#GL_BACK_RIGHT BACK_RIGHT}, {@link GL11#GL_FRONT FRONT}, {@link GL11#GL_BACK BACK}, {@link GL11#GL_LEFT LEFT}, {@link GL11#GL_RIGHT RIGHT}, {@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}, {@link GL11#GL_AUX0 AUX0}, {@link GL11#GL_AUX1 AUX1}, {@link GL11#GL_AUX2 AUX2}, {@link GL11#GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
 	public static void glNamedFramebufferDrawBuffer(int framebuffer, int buf) {
-		long __functionAddress = getInstance().NamedFramebufferDrawBuffer;
+		long __functionAddress = GL.getCapabilities().glNamedFramebufferDrawBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, framebuffer, buf);
 	}
 
@@ -1305,7 +1130,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glNamedFramebufferDrawBuffers NamedFramebufferDrawBuffers} */
 	public static void nglNamedFramebufferDrawBuffers(int framebuffer, int n, long bufs) {
-		long __functionAddress = getInstance().NamedFramebufferDrawBuffers;
+		long __functionAddress = GL.getCapabilities().glNamedFramebufferDrawBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, framebuffer, n, bufs);
 	}
 
@@ -1331,9 +1158,13 @@ public class GL45 {
 
 	/** Single value version of: {@link #glNamedFramebufferDrawBuffers NamedFramebufferDrawBuffers} */
 	public static void glNamedFramebufferDrawBuffers(int framebuffer, int buf) {
-		APIBuffer __buffer = apiBuffer();
-		int bufs = __buffer.intParam(buf);
-		nglNamedFramebufferDrawBuffers(framebuffer, 1, __buffer.address(bufs));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer bufs = stack.ints(buf);
+			nglNamedFramebufferDrawBuffers(framebuffer, 1, memAddress(bufs));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glNamedFramebufferReadBuffer ] ---
@@ -1347,7 +1178,9 @@ public class GL45 {
 	 * @param src         the color buffer to read from. One of:<br>{@link GL11#GL_NONE NONE}, {@link GL11#GL_FRONT_LEFT FRONT_LEFT}, {@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}, {@link GL11#GL_BACK_LEFT BACK_LEFT}, {@link GL11#GL_BACK_RIGHT BACK_RIGHT}, {@link GL11#GL_FRONT FRONT}, {@link GL11#GL_BACK BACK}, {@link GL11#GL_LEFT LEFT}, {@link GL11#GL_RIGHT RIGHT}, {@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}, {@link GL11#GL_AUX0 AUX0}, {@link GL11#GL_AUX1 AUX1}, {@link GL11#GL_AUX2 AUX2}, {@link GL11#GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
 	public static void glNamedFramebufferReadBuffer(int framebuffer, int src) {
-		long __functionAddress = getInstance().NamedFramebufferReadBuffer;
+		long __functionAddress = GL.getCapabilities().glNamedFramebufferReadBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, framebuffer, src);
 	}
 
@@ -1355,7 +1188,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glInvalidateNamedFramebufferData InvalidateNamedFramebufferData} */
 	public static void nglInvalidateNamedFramebufferData(int framebuffer, int numAttachments, long attachments) {
-		long __functionAddress = getInstance().InvalidateNamedFramebufferData;
+		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, framebuffer, numAttachments, attachments);
 	}
 
@@ -1381,16 +1216,22 @@ public class GL45 {
 
 	/** Single value version of: {@link #glInvalidateNamedFramebufferData InvalidateNamedFramebufferData} */
 	public static void glInvalidateNamedFramebufferData(int framebuffer, int attachment) {
-		APIBuffer __buffer = apiBuffer();
-		int attachments = __buffer.intParam(attachment);
-		nglInvalidateNamedFramebufferData(framebuffer, 1, __buffer.address(attachments));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer attachments = stack.ints(attachment);
+			nglInvalidateNamedFramebufferData(framebuffer, 1, memAddress(attachments));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glInvalidateNamedFramebufferSubData ] ---
 
 	/** Unsafe version of {@link #glInvalidateNamedFramebufferSubData InvalidateNamedFramebufferSubData} */
 	public static void nglInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, long attachments, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().InvalidateNamedFramebufferSubData;
+		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPIIIIV(__functionAddress, framebuffer, numAttachments, attachments, x, y, width, height);
 	}
 
@@ -1420,16 +1261,22 @@ public class GL45 {
 
 	/** Single value version of: {@link #glInvalidateNamedFramebufferSubData InvalidateNamedFramebufferSubData} */
 	public static void glInvalidateNamedFramebufferSubData(int framebuffer, int attachment, int x, int y, int width, int height) {
-		APIBuffer __buffer = apiBuffer();
-		int attachments = __buffer.intParam(attachment);
-		nglInvalidateNamedFramebufferSubData(framebuffer, 1, __buffer.address(attachments), x, y, width, height);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer attachments = stack.ints(attachment);
+			nglInvalidateNamedFramebufferSubData(framebuffer, 1, memAddress(attachments), x, y, width, height);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glClearNamedFramebufferiv ] ---
 
 	/** Unsafe version of {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
 	public static void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value) {
-		long __functionAddress = getInstance().ClearNamedFramebufferiv;
+		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
 	}
 
@@ -1461,7 +1308,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
 	public static void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value) {
-		long __functionAddress = getInstance().ClearNamedFramebufferuiv;
+		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
 	}
 
@@ -1492,7 +1341,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
 	public static void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value) {
-		long __functionAddress = getInstance().ClearNamedFramebufferfv;
+		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
 	}
 
@@ -1534,7 +1385,9 @@ public class GL45 {
 	 * @param stencil     the stencil value to clear the buffer to
 	 */
 	public static void glClearNamedFramebufferfi(int framebuffer, int buffer, int drawbuffer, float depth, int stencil) {
-		long __functionAddress = getInstance().ClearNamedFramebufferfi;
+		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferfi;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIFIV(__functionAddress, framebuffer, buffer, drawbuffer, depth, stencil);
 	}
 
@@ -1559,7 +1412,9 @@ public class GL45 {
 	 * @param filter          the interpolation to be applied if the image is stretched. One of:<br>{@link GL11#GL_NEAREST NEAREST}, {@link GL11#GL_LINEAR LINEAR}
 	 */
 	public static void glBlitNamedFramebuffer(int readFramebuffer, int drawFramebuffer, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = getInstance().BlitNamedFramebuffer;
+		long __functionAddress = GL.getCapabilities().glBlitNamedFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIIIV(__functionAddress, readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
@@ -1574,7 +1429,9 @@ public class GL45 {
 	 * @param target      the target of the framebuffer completeness check. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}
 	 */
 	public static int glCheckNamedFramebufferStatus(int framebuffer, int target) {
-		long __functionAddress = getInstance().CheckNamedFramebufferStatus;
+		long __functionAddress = GL.getCapabilities().glCheckNamedFramebufferStatus;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIII(__functionAddress, framebuffer, target);
 	}
 
@@ -1582,7 +1439,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
 	public static void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params) {
-		long __functionAddress = getInstance().GetNamedFramebufferParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, framebuffer, pname, params);
 	}
 
@@ -1610,17 +1469,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
 	public static int glGetNamedFramebufferParameteri(int framebuffer, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetNamedFramebufferParameteriv(framebuffer, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetNamedFramebufferParameteriv(framebuffer, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetNamedFramebufferAttachmentParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
 	public static void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params) {
-		long __functionAddress = getInstance().GetNamedFramebufferAttachmentParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferAttachmentParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, framebuffer, attachment, pname, params);
 	}
 
@@ -1649,17 +1514,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
 	public static int glGetNamedFramebufferAttachmentParameteri(int framebuffer, int attachment, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glCreateRenderbuffers ] ---
 
 	/** Unsafe version of {@link #glCreateRenderbuffers CreateRenderbuffers} */
 	public static void nglCreateRenderbuffers(int n, long renderbuffers) {
-		long __functionAddress = getInstance().CreateRenderbuffers;
+		long __functionAddress = GL.getCapabilities().glCreateRenderbuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, renderbuffers);
 	}
 
@@ -1684,10 +1555,14 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glCreateRenderbuffers CreateRenderbuffers} */
 	public static int glCreateRenderbuffers() {
-		APIBuffer __buffer = apiBuffer();
-		int renderbuffers = __buffer.intParam();
-		nglCreateRenderbuffers(1, __buffer.address(renderbuffers));
-		return __buffer.intValue(renderbuffers);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer renderbuffers = stack.callocInt(1);
+			nglCreateRenderbuffers(1, memAddress(renderbuffers));
+			return renderbuffers.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glNamedRenderbufferStorage ] ---
@@ -1703,7 +1578,9 @@ public class GL45 {
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glNamedRenderbufferStorage(int renderbuffer, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().NamedRenderbufferStorage;
+		long __functionAddress = GL.getCapabilities().glNamedRenderbufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, renderbuffer, internalformat, width, height);
 	}
 
@@ -1721,7 +1598,9 @@ public class GL45 {
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glNamedRenderbufferStorageMultisample(int renderbuffer, int samples, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().NamedRenderbufferStorageMultisample;
+		long __functionAddress = GL.getCapabilities().glNamedRenderbufferStorageMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, renderbuffer, samples, internalformat, width, height);
 	}
 
@@ -1729,7 +1608,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
 	public static void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params) {
-		long __functionAddress = getInstance().GetNamedRenderbufferParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetNamedRenderbufferParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, renderbuffer, pname, params);
 	}
 
@@ -1757,17 +1638,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
 	public static int glGetNamedRenderbufferParameteri(int renderbuffer, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetNamedRenderbufferParameteriv(renderbuffer, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glCreateTextures ] ---
 
 	/** Unsafe version of {@link #glCreateTextures CreateTextures} */
 	public static void nglCreateTextures(int target, int n, long textures) {
-		long __functionAddress = getInstance().CreateTextures;
+		long __functionAddress = GL.getCapabilities().glCreateTextures;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, n, textures);
 	}
 
@@ -1793,10 +1680,14 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glCreateTextures CreateTextures} */
 	public static int glCreateTextures(int target) {
-		APIBuffer __buffer = apiBuffer();
-		int textures = __buffer.intParam();
-		nglCreateTextures(target, 1, __buffer.address(textures));
-		return __buffer.intValue(textures);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer textures = stack.callocInt(1);
+			nglCreateTextures(target, 1, memAddress(textures));
+			return textures.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glTextureBuffer ] ---
@@ -1811,7 +1702,9 @@ public class GL45 {
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */
 	public static void glTextureBuffer(int texture, int internalformat, int buffer) {
-		long __functionAddress = getInstance().TextureBuffer;
+		long __functionAddress = GL.getCapabilities().glTextureBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, internalformat, buffer);
 	}
 
@@ -1829,7 +1722,9 @@ public class GL45 {
 	 * @param size           the size of the range of the buffer's data store to attach
 	 */
 	public static void glTextureBufferRange(int texture, int internalformat, int buffer, long offset, long size) {
-		long __functionAddress = getInstance().TextureBufferRange;
+		long __functionAddress = GL.getCapabilities().glTextureBufferRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPV(__functionAddress, texture, internalformat, buffer, offset, size);
 	}
 
@@ -1846,7 +1741,9 @@ public class GL45 {
 	 * @param width          the width of the texture, in texels
 	 */
 	public static void glTextureStorage1D(int texture, int levels, int internalformat, int width) {
-		long __functionAddress = getInstance().TextureStorage1D;
+		long __functionAddress = GL.getCapabilities().glTextureStorage1D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, texture, levels, internalformat, width);
 	}
 
@@ -1864,7 +1761,9 @@ public class GL45 {
 	 * @param height         the height of the texture, in texels
 	 */
 	public static void glTextureStorage2D(int texture, int levels, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().TextureStorage2D;
+		long __functionAddress = GL.getCapabilities().glTextureStorage2D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, texture, levels, internalformat, width, height);
 	}
 
@@ -1883,7 +1782,9 @@ public class GL45 {
 	 * @param depth          the depth of the texture, in texels
 	 */
 	public static void glTextureStorage3D(int texture, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = getInstance().TextureStorage3D;
+		long __functionAddress = GL.getCapabilities().glTextureStorage3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, texture, levels, internalformat, width, height, depth);
 	}
 
@@ -1903,7 +1804,9 @@ public class GL45 {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTextureStorage2DMultisample(int texture, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TextureStorage2DMultisample;
+		long __functionAddress = GL.getCapabilities().glTextureStorage2DMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIZV(__functionAddress, texture, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
@@ -1924,7 +1827,9 @@ public class GL45 {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTextureStorage3DMultisample(int texture, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TextureStorage3DMultisample;
+		long __functionAddress = GL.getCapabilities().glTextureStorage3DMultisample;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIZV(__functionAddress, texture, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
@@ -1932,7 +1837,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void nglTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels) {
-		long __functionAddress = getInstance().TextureSubImage1D;
+		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
 	}
 
@@ -1994,7 +1901,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void nglTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
-		long __functionAddress = getInstance().TextureSubImage2D;
+		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
@@ -2058,7 +1967,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void nglTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
-		long __functionAddress = getInstance().TextureSubImage3D;
+		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
@@ -2124,7 +2035,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage1D CompressedTextureSubImage1D} */
 	public static void nglCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTextureSubImage1D;
+		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage1D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, imageSize, data);
 	}
 
@@ -2167,7 +2080,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage2D CompressedTextureSubImage2D} */
 	public static void nglCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTextureSubImage2D;
+		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage2D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
@@ -2212,7 +2127,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glCompressedTextureSubImage3D CompressedTextureSubImage3D} */
 	public static void nglCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		long __functionAddress = getInstance().CompressedTextureSubImage3D;
+		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
@@ -2270,7 +2187,9 @@ public class GL45 {
 	 * @param width   the texture subregion width
 	 */
 	public static void glCopyTextureSubImage1D(int texture, int level, int xoffset, int x, int y, int width) {
-		long __functionAddress = getInstance().CopyTextureSubImage1D;
+		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage1D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, texture, level, xoffset, x, y, width);
 	}
 
@@ -2291,7 +2210,9 @@ public class GL45 {
 	 * @param height  the texture subregion height
 	 */
 	public static void glCopyTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().CopyTextureSubImage2D;
+		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage2D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, x, y, width, height);
 	}
 
@@ -2313,7 +2234,9 @@ public class GL45 {
 	 * @param height  the texture subregion height
 	 */
 	public static void glCopyTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().CopyTextureSubImage3D;
+		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
@@ -2329,7 +2252,9 @@ public class GL45 {
 	 * @param param   the parameter value
 	 */
 	public static void glTextureParameterf(int texture, int pname, float param) {
-		long __functionAddress = getInstance().TextureParameterf;
+		long __functionAddress = GL.getCapabilities().glTextureParameterf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIFV(__functionAddress, texture, pname, param);
 	}
 
@@ -2337,7 +2262,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glTextureParameterfv TextureParameterfv} */
 	public static void nglTextureParameterfv(int texture, int pname, long params) {
-		long __functionAddress = getInstance().TextureParameterfv;
+		long __functionAddress = GL.getCapabilities().glTextureParameterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, pname, params);
 	}
 
@@ -2375,7 +2302,9 @@ public class GL45 {
 	 * @param param   the parameter value
 	 */
 	public static void glTextureParameteri(int texture, int pname, int param) {
-		long __functionAddress = getInstance().TextureParameteri;
+		long __functionAddress = GL.getCapabilities().glTextureParameteri;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, pname, param);
 	}
 
@@ -2383,7 +2312,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glTextureParameterIiv TextureParameterIiv} */
 	public static void nglTextureParameterIiv(int texture, int pname, long params) {
-		long __functionAddress = getInstance().TextureParameterIiv;
+		long __functionAddress = GL.getCapabilities().glTextureParameterIiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, pname, params);
 	}
 
@@ -2411,16 +2342,22 @@ public class GL45 {
 
 	/** Single value version of: {@link #glTextureParameterIiv TextureParameterIiv} */
 	public static void glTextureParameterIi(int texture, int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		nglTextureParameterIiv(texture, pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			nglTextureParameterIiv(texture, pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glTextureParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glTextureParameterIuiv TextureParameterIuiv} */
 	public static void nglTextureParameterIuiv(int texture, int pname, long params) {
-		long __functionAddress = getInstance().TextureParameterIuiv;
+		long __functionAddress = GL.getCapabilities().glTextureParameterIuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, pname, params);
 	}
 
@@ -2448,16 +2385,22 @@ public class GL45 {
 
 	/** Single value version of: {@link #glTextureParameterIuiv TextureParameterIuiv} */
 	public static void glTextureParameterIui(int texture, int pname, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam(param);
-		nglTextureParameterIuiv(texture, pname, __buffer.address(params));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.ints(param);
+			nglTextureParameterIuiv(texture, pname, memAddress(params));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glTextureParameteriv ] ---
 
 	/** Unsafe version of {@link #glTextureParameteriv TextureParameteriv} */
 	public static void nglTextureParameteriv(int texture, int pname, long params) {
-		long __functionAddress = getInstance().TextureParameteriv;
+		long __functionAddress = GL.getCapabilities().glTextureParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, pname, params);
 	}
 
@@ -2493,7 +2436,9 @@ public class GL45 {
 	 * @param texture the texture name
 	 */
 	public static void glGenerateTextureMipmap(int texture) {
-		long __functionAddress = getInstance().GenerateTextureMipmap;
+		long __functionAddress = GL.getCapabilities().glGenerateTextureMipmap;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, texture);
 	}
 
@@ -2512,7 +2457,9 @@ public class GL45 {
 	 * @param texture the texture name
 	 */
 	public static void glBindTextureUnit(int unit, int texture) {
-		long __functionAddress = getInstance().BindTextureUnit;
+		long __functionAddress = GL.getCapabilities().glBindTextureUnit;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, unit, texture);
 	}
 
@@ -2520,7 +2467,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glGetTextureImage GetTextureImage} */
 	public static void nglGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels) {
-		long __functionAddress = getInstance().GetTextureImage;
+		long __functionAddress = GL.getCapabilities().glGetTextureImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIPV(__functionAddress, texture, level, format, type, bufSize, pixels);
 	}
 
@@ -2590,7 +2539,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glGetCompressedTextureImage GetCompressedTextureImage} */
 	public static void nglGetCompressedTextureImage(int texture, int level, int bufSize, long pixels) {
-		long __functionAddress = getInstance().GetCompressedTextureImage;
+		long __functionAddress = GL.getCapabilities().glGetCompressedTextureImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, texture, level, bufSize, pixels);
 	}
 
@@ -2635,7 +2586,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
 	public static void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params) {
-		long __functionAddress = getInstance().GetTextureLevelParameterfv;
+		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, texture, level, pname, params);
 	}
 
@@ -2664,17 +2617,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
 	public static float glGetTextureLevelParameterf(int texture, int level, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetTextureLevelParameterfv(texture, level, pname, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTextureLevelParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
 	public static void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params) {
-		long __functionAddress = getInstance().GetTextureLevelParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, texture, level, pname, params);
 	}
 
@@ -2703,17 +2662,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
 	public static int glGetTextureLevelParameteri(int texture, int level, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTextureLevelParameteriv(texture, level, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTextureParameterfv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterfv GetTextureParameterfv} */
 	public static void nglGetTextureParameterfv(int texture, int pname, long params) {
-		long __functionAddress = getInstance().GetTextureParameterfv;
+		long __functionAddress = GL.getCapabilities().glGetTextureParameterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, pname, params);
 	}
 
@@ -2741,17 +2706,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetTextureParameterfv GetTextureParameterfv} */
 	public static float glGetTextureParameterf(int texture, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetTextureParameterfv(texture, pname, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetTextureParameterfv(texture, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTextureParameterIiv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
 	public static void nglGetTextureParameterIiv(int texture, int pname, long params) {
-		long __functionAddress = getInstance().GetTextureParameterIiv;
+		long __functionAddress = GL.getCapabilities().glGetTextureParameterIiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, pname, params);
 	}
 
@@ -2779,17 +2750,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
 	public static int glGetTextureParameterIi(int texture, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTextureParameterIiv(texture, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTextureParameterIiv(texture, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTextureParameterIuiv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
 	public static void nglGetTextureParameterIuiv(int texture, int pname, long params) {
-		long __functionAddress = getInstance().GetTextureParameterIuiv;
+		long __functionAddress = GL.getCapabilities().glGetTextureParameterIuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, pname, params);
 	}
 
@@ -2817,17 +2794,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
 	public static int glGetTextureParameterIui(int texture, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTextureParameterIuiv(texture, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTextureParameterIuiv(texture, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetTextureParameteriv ] ---
 
 	/** Unsafe version of {@link #glGetTextureParameteriv GetTextureParameteriv} */
 	public static void nglGetTextureParameteriv(int texture, int pname, long params) {
-		long __functionAddress = getInstance().GetTextureParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetTextureParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, pname, params);
 	}
 
@@ -2855,17 +2838,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetTextureParameteriv GetTextureParameteriv} */
 	public static int glGetTextureParameteri(int texture, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetTextureParameteriv(texture, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetTextureParameteriv(texture, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glCreateVertexArrays ] ---
 
 	/** Unsafe version of {@link #glCreateVertexArrays CreateVertexArrays} */
 	public static void nglCreateVertexArrays(int n, long arrays) {
-		long __functionAddress = getInstance().CreateVertexArrays;
+		long __functionAddress = GL.getCapabilities().glCreateVertexArrays;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, arrays);
 	}
 
@@ -2890,10 +2879,14 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glCreateVertexArrays CreateVertexArrays} */
 	public static int glCreateVertexArrays() {
-		APIBuffer __buffer = apiBuffer();
-		int arrays = __buffer.intParam();
-		nglCreateVertexArrays(1, __buffer.address(arrays));
-		return __buffer.intValue(arrays);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer arrays = stack.callocInt(1);
+			nglCreateVertexArrays(1, memAddress(arrays));
+			return arrays.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glDisableVertexArrayAttrib ] ---
@@ -2907,7 +2900,9 @@ public class GL45 {
 	 * @param index the index of the generic vertex attribute to be disabled
 	 */
 	public static void glDisableVertexArrayAttrib(int vaobj, int index) {
-		long __functionAddress = getInstance().DisableVertexArrayAttrib;
+		long __functionAddress = GL.getCapabilities().glDisableVertexArrayAttrib;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, vaobj, index);
 	}
 
@@ -2922,7 +2917,9 @@ public class GL45 {
 	 * @param index the index of the generic vertex attribute to be enabled
 	 */
 	public static void glEnableVertexArrayAttrib(int vaobj, int index) {
-		long __functionAddress = getInstance().EnableVertexArrayAttrib;
+		long __functionAddress = GL.getCapabilities().glEnableVertexArrayAttrib;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, vaobj, index);
 	}
 
@@ -2937,7 +2934,9 @@ public class GL45 {
 	 * @param buffer the buffer object name. If {@code buffer} is zero, any existing element array buffer binding to {@code vaobj} is removed.
 	 */
 	public static void glVertexArrayElementBuffer(int vaobj, int buffer) {
-		long __functionAddress = getInstance().VertexArrayElementBuffer;
+		long __functionAddress = GL.getCapabilities().glVertexArrayElementBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, vaobj, buffer);
 	}
 
@@ -2955,7 +2954,9 @@ public class GL45 {
 	 * @param stride       the distance between elements within the buffer
 	 */
 	public static void glVertexArrayVertexBuffer(int vaobj, int bindingindex, int buffer, long offset, int stride) {
-		long __functionAddress = getInstance().VertexArrayVertexBuffer;
+		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIV(__functionAddress, vaobj, bindingindex, buffer, offset, stride);
 	}
 
@@ -2963,7 +2964,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glVertexArrayVertexBuffers VertexArrayVertexBuffers} */
 	public static void nglVertexArrayVertexBuffers(int vaobj, int first, int count, long buffers, long offsets, long strides) {
-		long __functionAddress = getInstance().VertexArrayVertexBuffers;
+		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPPV(__functionAddress, vaobj, first, count, buffers, offsets, strides);
 	}
 
@@ -3013,7 +3016,9 @@ public class GL45 {
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
 	public static void glVertexArrayAttribFormat(int vaobj, int attribindex, int size, int type, boolean normalized, int relativeoffset) {
-		long __functionAddress = getInstance().VertexArrayAttribFormat;
+		long __functionAddress = GL.getCapabilities().glVertexArrayAttribFormat;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIZIV(__functionAddress, vaobj, attribindex, size, type, normalized, relativeoffset);
 	}
 
@@ -3031,7 +3036,9 @@ public class GL45 {
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
 	public static void glVertexArrayAttribIFormat(int vaobj, int attribindex, int size, int type, int relativeoffset) {
-		long __functionAddress = getInstance().VertexArrayAttribIFormat;
+		long __functionAddress = GL.getCapabilities().glVertexArrayAttribIFormat;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
 
@@ -3049,7 +3056,9 @@ public class GL45 {
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
 	public static void glVertexArrayAttribLFormat(int vaobj, int attribindex, int size, int type, int relativeoffset) {
-		long __functionAddress = getInstance().VertexArrayAttribLFormat;
+		long __functionAddress = GL.getCapabilities().glVertexArrayAttribLFormat;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
 
@@ -3065,7 +3074,9 @@ public class GL45 {
 	 * @param bindingindex the index of the vertex buffer binding with which to associate the generic vertex attribute
 	 */
 	public static void glVertexArrayAttribBinding(int vaobj, int attribindex, int bindingindex) {
-		long __functionAddress = getInstance().VertexArrayAttribBinding;
+		long __functionAddress = GL.getCapabilities().glVertexArrayAttribBinding;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, vaobj, attribindex, bindingindex);
 	}
 
@@ -3081,7 +3092,9 @@ public class GL45 {
 	 * @param divisor      the number of instances that will pass between updates of the generic attribute at slot {@code index}
 	 */
 	public static void glVertexArrayBindingDivisor(int vaobj, int bindingindex, int divisor) {
-		long __functionAddress = getInstance().VertexArrayBindingDivisor;
+		long __functionAddress = GL.getCapabilities().glVertexArrayBindingDivisor;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, vaobj, bindingindex, divisor);
 	}
 
@@ -3089,7 +3102,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glGetVertexArrayiv GetVertexArrayiv} */
 	public static void nglGetVertexArrayiv(int vaobj, int pname, long param) {
-		long __functionAddress = getInstance().GetVertexArrayiv;
+		long __functionAddress = GL.getCapabilities().glGetVertexArrayiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, vaobj, pname, param);
 	}
 
@@ -3117,17 +3132,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetVertexArrayiv GetVertexArrayiv} */
 	public static int glGetVertexArrayi(int vaobj, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int param = __buffer.intParam();
-		nglGetVertexArrayiv(vaobj, pname, __buffer.address(param));
-		return __buffer.intValue(param);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer param = stack.callocInt(1);
+			nglGetVertexArrayiv(vaobj, pname, memAddress(param));
+			return param.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetVertexArrayIndexediv ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
 	public static void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param) {
-		long __functionAddress = getInstance().GetVertexArrayIndexediv;
+		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexediv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, vaobj, index, pname, param);
 	}
 
@@ -3156,17 +3177,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
 	public static int glGetVertexArrayIndexedi(int vaobj, int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int param = __buffer.intParam();
-		nglGetVertexArrayIndexediv(vaobj, index, pname, __buffer.address(param));
-		return __buffer.intValue(param);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer param = stack.callocInt(1);
+			nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
+			return param.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetVertexArrayIndexed64iv ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
 	public static void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param) {
-		long __functionAddress = getInstance().GetVertexArrayIndexed64iv;
+		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexed64iv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, vaobj, index, pname, param);
 	}
 
@@ -3195,17 +3222,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
 	public static long glGetVertexArrayIndexed64i(int vaobj, int index, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int param = __buffer.longParam();
-		nglGetVertexArrayIndexed64iv(vaobj, index, pname, __buffer.address(param));
-		return __buffer.longValue(param);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer param = stack.callocLong(1);
+			nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
+			return param.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glCreateSamplers ] ---
 
 	/** Unsafe version of {@link #glCreateSamplers CreateSamplers} */
 	public static void nglCreateSamplers(int n, long samplers) {
-		long __functionAddress = getInstance().CreateSamplers;
+		long __functionAddress = GL.getCapabilities().glCreateSamplers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, samplers);
 	}
 
@@ -3230,17 +3263,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glCreateSamplers CreateSamplers} */
 	public static int glCreateSamplers() {
-		APIBuffer __buffer = apiBuffer();
-		int samplers = __buffer.intParam();
-		nglCreateSamplers(1, __buffer.address(samplers));
-		return __buffer.intValue(samplers);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer samplers = stack.callocInt(1);
+			nglCreateSamplers(1, memAddress(samplers));
+			return samplers.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glCreateProgramPipelines ] ---
 
 	/** Unsafe version of {@link #glCreateProgramPipelines CreateProgramPipelines} */
 	public static void nglCreateProgramPipelines(int n, long pipelines) {
-		long __functionAddress = getInstance().CreateProgramPipelines;
+		long __functionAddress = GL.getCapabilities().glCreateProgramPipelines;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, pipelines);
 	}
 
@@ -3265,17 +3304,23 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glCreateProgramPipelines CreateProgramPipelines} */
 	public static int glCreateProgramPipelines() {
-		APIBuffer __buffer = apiBuffer();
-		int pipelines = __buffer.intParam();
-		nglCreateProgramPipelines(1, __buffer.address(pipelines));
-		return __buffer.intValue(pipelines);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer pipelines = stack.callocInt(1);
+			nglCreateProgramPipelines(1, memAddress(pipelines));
+			return pipelines.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glCreateQueries ] ---
 
 	/** Unsafe version of {@link #glCreateQueries CreateQueries} */
 	public static void nglCreateQueries(int target, int n, long ids) {
-		long __functionAddress = getInstance().CreateQueries;
+		long __functionAddress = GL.getCapabilities().glCreateQueries;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, n, ids);
 	}
 
@@ -3301,10 +3346,14 @@ public class GL45 {
 
 	/** Single return value version of: {@link #glCreateQueries CreateQueries} */
 	public static int glCreateQueries(int target) {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam();
-		nglCreateQueries(target, 1, __buffer.address(ids));
-		return __buffer.intValue(ids);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.callocInt(1);
+			nglCreateQueries(target, 1, memAddress(ids));
+			return ids.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetQueryBufferObjectiv ] ---
@@ -3320,7 +3369,9 @@ public class GL45 {
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
 	public static void glGetQueryBufferObjectiv(int id, int buffer, int pname, long offset) {
-		long __functionAddress = getInstance().GetQueryBufferObjectiv;
+		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjectiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, id, buffer, pname, offset);
 	}
 
@@ -3337,7 +3388,9 @@ public class GL45 {
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
 	public static void glGetQueryBufferObjectuiv(int id, int buffer, int pname, long offset) {
-		long __functionAddress = getInstance().GetQueryBufferObjectuiv;
+		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjectuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, id, buffer, pname, offset);
 	}
 
@@ -3354,7 +3407,9 @@ public class GL45 {
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
 	public static void glGetQueryBufferObjecti64v(int id, int buffer, int pname, long offset) {
-		long __functionAddress = getInstance().GetQueryBufferObjecti64v;
+		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjecti64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, id, buffer, pname, offset);
 	}
 
@@ -3371,7 +3426,9 @@ public class GL45 {
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
 	public static void glGetQueryBufferObjectui64v(int id, int buffer, int pname, long offset) {
-		long __functionAddress = getInstance().GetQueryBufferObjectui64v;
+		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjectui64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, id, buffer, pname, offset);
 	}
 
@@ -3397,7 +3454,9 @@ public class GL45 {
 	 * @param barriers the barriers to insert. One or more of:<br>{@link GL42#GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}, {@link GL42#GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}, {@link GL42#GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}, {@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}, {@link GL42#GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}, {@link GL42#GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}
 	 */
 	public static void glMemoryBarrierByRegion(int barriers) {
-		long __functionAddress = getInstance().MemoryBarrierByRegion;
+		long __functionAddress = GL.getCapabilities().glMemoryBarrierByRegion;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, barriers);
 	}
 
@@ -3405,7 +3464,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void nglGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixels) {
-		long __functionAddress = getInstance().GetTextureSubImage;
+		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
 	}
 
@@ -3481,7 +3542,9 @@ public class GL45 {
 
 	/** Unsafe version of {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void nglGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, long pixels) {
-		long __functionAddress = getInstance().GetCompressedTextureSubImage;
+		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
 	}
 
@@ -3559,7 +3622,9 @@ public class GL45 {
 Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed.
 	 */
 	public static void glTextureBarrier() {
-		long __functionAddress = getInstance().TextureBarrier;
+		long __functionAddress = GL.getCapabilities().glTextureBarrier;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -3603,7 +3668,9 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * </ul>
 	 */
 	public static int glGetGraphicsResetStatus() {
-		long __functionAddress = getInstance().GetGraphicsResetStatus;
+		long __functionAddress = GL.getCapabilities().glGetGraphicsResetStatus;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -3611,7 +3678,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnMapdv GetnMapdv} */
 	public static void nglGetnMapdv(int target, int query, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnMapdv;
+		long __functionAddress = GL.getCapabilities().glGetnMapdv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
@@ -3640,17 +3707,21 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Single return value version of: {@link #glGetnMapdv GetnMapdv} */
 	public static double glGetnMapd(int target, int query) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.doubleParam();
-		nglGetnMapdv(target, query, 1, __buffer.address(data));
-		return __buffer.doubleValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer data = stack.callocDouble(1);
+			nglGetnMapdv(target, query, 1, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnMapfv ] ---
 
 	/** Unsafe version of {@link #glGetnMapfv GetnMapfv} */
 	public static void nglGetnMapfv(int target, int query, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnMapfv;
+		long __functionAddress = GL.getCapabilities().glGetnMapfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
@@ -3679,17 +3750,21 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Single return value version of: {@link #glGetnMapfv GetnMapfv} */
 	public static float glGetnMapf(int target, int query) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.floatParam();
-		nglGetnMapfv(target, query, 1, __buffer.address(data));
-		return __buffer.floatValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer data = stack.callocFloat(1);
+			nglGetnMapfv(target, query, 1, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnMapiv ] ---
 
 	/** Unsafe version of {@link #glGetnMapiv GetnMapiv} */
 	public static void nglGetnMapiv(int target, int query, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnMapiv;
+		long __functionAddress = GL.getCapabilities().glGetnMapiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
@@ -3718,17 +3793,21 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Single return value version of: {@link #glGetnMapiv GetnMapiv} */
 	public static int glGetnMapi(int target, int query) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.intParam();
-		nglGetnMapiv(target, query, 1, __buffer.address(data));
-		return __buffer.intValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer data = stack.callocInt(1);
+			nglGetnMapiv(target, query, 1, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnPixelMapfv ] ---
 
 	/** Unsafe version of {@link #glGetnPixelMapfv GetnPixelMapfv} */
 	public static void nglGetnPixelMapfv(int map, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnPixelMapfv;
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
@@ -3758,7 +3837,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnPixelMapuiv GetnPixelMapuiv} */
 	public static void nglGetnPixelMapuiv(int map, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnPixelMapuiv;
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
@@ -3788,7 +3867,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnPixelMapusv GetnPixelMapusv} */
 	public static void nglGetnPixelMapusv(int map, int bufSize, long data) {
-		long __functionAddress = getInstance().GetnPixelMapusv;
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapusv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
@@ -3818,7 +3897,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnPolygonStipple GetnPolygonStipple} */
 	public static void nglGetnPolygonStipple(int bufSize, long pattern) {
-		long __functionAddress = getInstance().GetnPolygonStipple;
+		long __functionAddress = GL.getCapabilities().glGetnPolygonStipple;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, bufSize, pattern);
@@ -3858,7 +3937,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnTexImage GetnTexImage} */
 	public static void nglGetnTexImage(int tex, int level, int format, int type, int bufSize, long img) {
-		long __functionAddress = getInstance().GetnTexImage;
+		long __functionAddress = GL.getCapabilities().glGetnTexImage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIPV(__functionAddress, tex, level, format, type, bufSize, img);
@@ -3930,7 +4009,9 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glReadnPixels ReadnPixels} */
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
-		long __functionAddress = getInstance().ReadnPixels;
+		long __functionAddress = GL.getCapabilities().glReadnPixels;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
 	}
 
@@ -3995,7 +4076,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnColorTable GetnColorTable} */
 	public static void nglGetnColorTable(int target, int format, int type, int bufSize, long table) {
-		long __functionAddress = getInstance().GetnColorTable;
+		long __functionAddress = GL.getCapabilities().glGetnColorTable;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, format, type, bufSize, table);
@@ -4059,7 +4140,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnConvolutionFilter GetnConvolutionFilter} */
 	public static void nglGetnConvolutionFilter(int target, int format, int type, int bufSize, long image) {
-		long __functionAddress = getInstance().GetnConvolutionFilter;
+		long __functionAddress = GL.getCapabilities().glGetnConvolutionFilter;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, format, type, bufSize, image);
@@ -4102,7 +4183,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnSeparableFilter GetnSeparableFilter} */
 	public static void nglGetnSeparableFilter(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span) {
-		long __functionAddress = getInstance().GetnSeparableFilter;
+		long __functionAddress = GL.getCapabilities().glGetnSeparableFilter;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPIPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
@@ -4149,7 +4230,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnHistogram GetnHistogram} */
 	public static void nglGetnHistogram(int target, boolean reset, int format, int type, int bufSize, long values) {
-		long __functionAddress = getInstance().GetnHistogram;
+		long __functionAddress = GL.getCapabilities().glGetnHistogram;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
@@ -4193,7 +4274,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnMinmax GetnMinmax} */
 	public static void nglGetnMinmax(int target, boolean reset, int format, int type, int bufSize, long values) {
-		long __functionAddress = getInstance().GetnMinmax;
+		long __functionAddress = GL.getCapabilities().glGetnMinmax;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
@@ -4238,7 +4319,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnCompressedTexImage GetnCompressedTexImage} */
 	public static void nglGetnCompressedTexImage(int target, int level, int bufSize, long img) {
-		long __functionAddress = getInstance().GetnCompressedTexImage;
+		long __functionAddress = GL.getCapabilities().glGetnCompressedTexImage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, level, bufSize, img);
@@ -4285,7 +4366,9 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Unsafe version of {@link #glGetnUniformfv GetnUniformfv} */
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformfv;
+		long __functionAddress = GL.getCapabilities().glGetnUniformfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -4312,17 +4395,21 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Single return value version of: {@link #glGetnUniformfv GetnUniformfv} */
 	public static float glGetnUniformf(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetnUniformfv(program, location, 1, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetnUniformfv(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnUniformdv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformdv GetnUniformdv} */
 	public static void nglGetnUniformdv(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformdv;
+		long __functionAddress = GL.getCapabilities().glGetnUniformdv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
@@ -4351,17 +4438,23 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Single return value version of: {@link #glGetnUniformdv GetnUniformdv} */
 	public static double glGetnUniformd(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.doubleParam();
-		nglGetnUniformdv(program, location, 1, __buffer.address(params));
-		return __buffer.doubleValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer params = stack.callocDouble(1);
+			nglGetnUniformdv(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnUniformiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformiv GetnUniformiv} */
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformiv;
+		long __functionAddress = GL.getCapabilities().glGetnUniformiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -4388,17 +4481,23 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Single return value version of: {@link #glGetnUniformiv GetnUniformiv} */
 	public static float glGetnUniformi(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetnUniformiv(program, location, 1, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetnUniformiv(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetnUniformuiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformuiv GetnUniformuiv} */
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
-		long __functionAddress = getInstance().GetnUniformuiv;
+		long __functionAddress = GL.getCapabilities().glGetnUniformuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -4425,10 +4524,14 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Single return value version of: {@link #glGetnUniformuiv GetnUniformuiv} */
 	public static float glGetnUniformui(int program, int location) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.floatParam();
-		nglGetnUniformuiv(program, location, 1, __buffer.address(params));
-		return __buffer.floatValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer params = stack.callocFloat(1);
+			nglGetnUniformuiv(program, location, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

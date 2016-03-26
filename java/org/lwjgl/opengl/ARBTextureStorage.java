@@ -33,52 +33,16 @@ public class ARBTextureStorage {
 	/** Accepted by the {@code value} parameter of GetTexParameter{if}v. */
 	public static final int GL_TEXTURE_IMMUTABLE_FORMAT = 0x912F;
 
-	/** Function address. */
-	public final long
-		TexStorage1D,
-		TexStorage2D,
-		TexStorage3D,
-		TextureStorage1DEXT,
-		TextureStorage2DEXT,
-		TextureStorage3DEXT;
-
 	protected ARBTextureStorage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBTextureStorage(FunctionProvider provider) {
-		TexStorage1D = provider.getFunctionAddress("glTexStorage1D");
-		TexStorage2D = provider.getFunctionAddress("glTexStorage2D");
-		TexStorage3D = provider.getFunctionAddress("glTexStorage3D");
-		TextureStorage1DEXT = provider.getFunctionAddress("glTextureStorage1DEXT");
-		TextureStorage2DEXT = provider.getFunctionAddress("glTextureStorage2DEXT");
-		TextureStorage3DEXT = provider.getFunctionAddress("glTextureStorage3DEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBTextureStorage} instance of the current context. */
-	public static ARBTextureStorage getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBTextureStorage} instance of the specified {@link GLCapabilities}. */
-	public static ARBTextureStorage getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBTextureStorage);
-	}
-
-	static ARBTextureStorage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_texture_storage") ) return null;
-
-		ARBTextureStorage funcs = new ARBTextureStorage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.TexStorage1D, funcs.TexStorage2D, funcs.TexStorage3D, ext.contains("GL_EXT_direct_state_access") ? funcs.TextureStorage1DEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.TextureStorage2DEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.TextureStorage3DEXT : -1L
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glTexStorage1D, caps.glTexStorage2D, caps.glTexStorage3D, ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage1DEXT : -1L, 
+			ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage2DEXT : -1L, 
+			ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage3DEXT : -1L
 		);
-
-		return GL.checkExtension("GL_ARB_texture_storage", funcs, supported);
 	}
 
 	// --- [ glTexStorage1D ] ---
@@ -92,7 +56,9 @@ public class ARBTextureStorage {
 	 * @param width          the width of the texture, in texels
 	 */
 	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
-		long __functionAddress = getInstance().TexStorage1D;
+		long __functionAddress = GL.getCapabilities().glTexStorage1D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, levels, internalformat, width);
 	}
 
@@ -108,7 +74,9 @@ public class ARBTextureStorage {
 	 * @param height         the height of the texture, in texels
 	 */
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().TexStorage2D;
+		long __functionAddress = GL.getCapabilities().glTexStorage2D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
@@ -125,7 +93,9 @@ public class ARBTextureStorage {
 	 * @param depth          the depth of the texture, in texels
 	 */
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = getInstance().TexStorage3D;
+		long __functionAddress = GL.getCapabilities().glTexStorage3D;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
@@ -141,7 +111,7 @@ public class ARBTextureStorage {
 	 * @param width          the width of the texture, in texels
 	 */
 	public static void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width) {
-		long __functionAddress = getInstance().TextureStorage1DEXT;
+		long __functionAddress = GL.getCapabilities().glTextureStorage1DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, texture, target, levels, internalformat, width);
@@ -160,7 +130,7 @@ public class ARBTextureStorage {
 	 * @param height         the height of the texture, in texels
 	 */
 	public static void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().TextureStorage2DEXT;
+		long __functionAddress = GL.getCapabilities().glTextureStorage2DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height);
@@ -180,7 +150,7 @@ public class ARBTextureStorage {
 	 * @param depth          the depth of the texture, in texels
 	 */
 	public static void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = getInstance().TextureStorage3DEXT;
+		long __functionAddress = GL.getCapabilities().glTextureStorage3DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height, depth);

@@ -22,41 +22,25 @@ import static org.lwjgl.system.Pointer.*;
  */
 public class NVNativeQuery {
 
-	/** Function address. */
-	public final long
-		QueryNativeDisplayNV,
-		QueryNativeWindowNV,
-		QueryNativePixmapNV;
-
 	protected NVNativeQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVNativeQuery(FunctionProvider provider) {
-		QueryNativeDisplayNV = provider.getFunctionAddress("eglQueryNativeDisplayNV");
-		QueryNativeWindowNV = provider.getFunctionAddress("eglQueryNativeWindowNV");
-		QueryNativePixmapNV = provider.getFunctionAddress("eglQueryNativePixmapNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVNativeQuery} instance. */
-	public static NVNativeQuery getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link NVNativeQuery} instance of the specified {@link EGLCapabilities}. */
-	public static NVNativeQuery getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__NVNativeQuery);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglQueryNativeDisplayNV, caps.eglQueryNativeWindowNV, caps.eglQueryNativePixmapNV
+		);
 	}
 
 	// --- [ eglQueryNativeDisplayNV ] ---
 
 	/** Unsafe version of {@link #eglQueryNativeDisplayNV QueryNativeDisplayNV} */
 	public static int neglQueryNativeDisplayNV(long dpy, long display_id) {
-		long __functionAddress = getInstance().QueryNativeDisplayNV;
-		if ( CHECKS )
+		long __functionAddress = EGL.getCapabilities().eglQueryNativeDisplayNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
+		}
 		return callPPI(__functionAddress, dpy, display_id);
 	}
 
@@ -77,8 +61,9 @@ public class NVNativeQuery {
 
 	/** Unsafe version of {@link #eglQueryNativeWindowNV QueryNativeWindowNV} */
 	public static int neglQueryNativeWindowNV(long dpy, long surf, long window) {
-		long __functionAddress = getInstance().QueryNativeWindowNV;
+		long __functionAddress = EGL.getCapabilities().eglQueryNativeWindowNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surf);
 		}
@@ -102,8 +87,9 @@ public class NVNativeQuery {
 
 	/** Unsafe version of {@link #eglQueryNativePixmapNV QueryNativePixmapNV} */
 	public static int neglQueryNativePixmapNV(long dpy, long surf, long pixmap) {
-		long __functionAddress = getInstance().QueryNativePixmapNV;
+		long __functionAddress = EGL.getCapabilities().eglQueryNativePixmapNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surf);
 		}

@@ -29,44 +29,22 @@ import static org.lwjgl.system.JNI.*;
  */
 public class OESCopyImage {
 
-	/** Function address. */
-	public final long CopyImageSubDataOES;
-
 	protected OESCopyImage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OESCopyImage(FunctionProvider provider) {
-		CopyImageSubDataOES = provider.getFunctionAddress("glCopyImageSubDataOES");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OESCopyImage} instance of the current context. */
-	public static OESCopyImage getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OESCopyImage} instance of the specified {@link GLESCapabilities}. */
-	public static OESCopyImage getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OESCopyImage);
-	}
-
-	static OESCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OES_copy_image") ) return null;
-
-		OESCopyImage funcs = new OESCopyImage(provider);
-		boolean supported = checkFunctions(
-			funcs.CopyImageSubDataOES
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glCopyImageSubDataOES
 		);
-
-		return GLES.checkExtension("GL_OES_copy_image", funcs, supported);
 	}
 
 	// --- [ glCopyImageSubDataOES ] ---
 
 	public static void glCopyImageSubDataOES(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
-		long __functionAddress = getInstance().CopyImageSubDataOES;
+		long __functionAddress = GLES.getCapabilities().glCopyImageSubDataOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIIIIIIV(__functionAddress, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 	}
 

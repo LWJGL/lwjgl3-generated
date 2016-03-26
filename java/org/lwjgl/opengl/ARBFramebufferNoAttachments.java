@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -63,48 +63,16 @@ public class ARBFramebufferNoAttachments {
 		GL_MAX_FRAMEBUFFER_LAYERS  = 0x9317,
 		GL_MAX_FRAMEBUFFER_SAMPLES = 0x9318;
 
-	/** Function address. */
-	public final long
-		FramebufferParameteri,
-		GetFramebufferParameteriv,
-		NamedFramebufferParameteriEXT,
-		GetNamedFramebufferParameterivEXT;
-
 	protected ARBFramebufferNoAttachments() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBFramebufferNoAttachments(FunctionProvider provider) {
-		FramebufferParameteri = provider.getFunctionAddress("glFramebufferParameteri");
-		GetFramebufferParameteriv = provider.getFunctionAddress("glGetFramebufferParameteriv");
-		NamedFramebufferParameteriEXT = provider.getFunctionAddress("glNamedFramebufferParameteriEXT");
-		GetNamedFramebufferParameterivEXT = provider.getFunctionAddress("glGetNamedFramebufferParameterivEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBFramebufferNoAttachments} instance of the current context. */
-	public static ARBFramebufferNoAttachments getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBFramebufferNoAttachments} instance of the specified {@link GLCapabilities}. */
-	public static ARBFramebufferNoAttachments getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBFramebufferNoAttachments);
-	}
-
-	static ARBFramebufferNoAttachments create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_framebuffer_no_attachments") ) return null;
-
-		ARBFramebufferNoAttachments funcs = new ARBFramebufferNoAttachments(provider);
-
-		boolean supported = checkFunctions(
-			funcs.FramebufferParameteri, funcs.GetFramebufferParameteriv, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.NamedFramebufferParameteriEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.GetNamedFramebufferParameterivEXT : -1L
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glFramebufferParameteri, caps.glGetFramebufferParameteriv, 
+			ext.contains("GL_EXT_direct_state_access") ? caps.glNamedFramebufferParameteriEXT : -1L, 
+			ext.contains("GL_EXT_direct_state_access") ? caps.glGetNamedFramebufferParameterivEXT : -1L
 		);
-
-		return GL.checkExtension("GL_ARB_framebuffer_no_attachments", funcs, supported);
 	}
 
 	// --- [ glFramebufferParameteri ] ---
@@ -117,7 +85,9 @@ public class ARBFramebufferNoAttachments {
 	 * @param param  the new value for the parameter named {@code pname}
 	 */
 	public static void glFramebufferParameteri(int target, int pname, int param) {
-		long __functionAddress = getInstance().FramebufferParameteri;
+		long __functionAddress = GL.getCapabilities().glFramebufferParameteri;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, target, pname, param);
 	}
 
@@ -125,7 +95,9 @@ public class ARBFramebufferNoAttachments {
 
 	/** Unsafe version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
-		long __functionAddress = getInstance().GetFramebufferParameteriv;
+		long __functionAddress = GL.getCapabilities().glGetFramebufferParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
@@ -151,10 +123,14 @@ public class ARBFramebufferNoAttachments {
 
 	/** Single return value version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static int glGetFramebufferParameteri(int target, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetFramebufferParameteriv(target, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetFramebufferParameteriv(target, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glNamedFramebufferParameteriEXT ] ---
@@ -167,7 +143,7 @@ public class ARBFramebufferNoAttachments {
 	 * @param param       the new value for the parameter named {@code pname}
 	 */
 	public static void glNamedFramebufferParameteriEXT(int framebuffer, int pname, int param) {
-		long __functionAddress = getInstance().NamedFramebufferParameteriEXT;
+		long __functionAddress = GL.getCapabilities().glNamedFramebufferParameteriEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, framebuffer, pname, param);
@@ -177,7 +153,7 @@ public class ARBFramebufferNoAttachments {
 
 	/** Unsafe version of {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
 	public static void nglGetNamedFramebufferParameterivEXT(int framebuffer, int pname, long params) {
-		long __functionAddress = getInstance().GetNamedFramebufferParameterivEXT;
+		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameterivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, framebuffer, pname, params);
@@ -205,10 +181,14 @@ public class ARBFramebufferNoAttachments {
 
 	/** Single return value version of: {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
 	public static int glGetNamedFramebufferParameteriEXT(int framebuffer, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetNamedFramebufferParameterivEXT(framebuffer, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetNamedFramebufferParameterivEXT(framebuffer, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

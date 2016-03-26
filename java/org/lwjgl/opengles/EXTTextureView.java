@@ -45,44 +45,22 @@ public class EXTTextureView {
 		GL_TEXTURE_VIEW_NUM_LAYERS_EXT = 0x82DE,
 		GL_TEXTURE_IMMUTABLE_LEVELS    = 0x82DF;
 
-	/** Function address. */
-	public final long TextureViewEXT;
-
 	protected EXTTextureView() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTTextureView(FunctionProvider provider) {
-		TextureViewEXT = provider.getFunctionAddress("glTextureViewEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTTextureView} instance of the current context. */
-	public static EXTTextureView getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTTextureView} instance of the specified {@link GLESCapabilities}. */
-	public static EXTTextureView getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTTextureView);
-	}
-
-	static EXTTextureView create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_texture_view") ) return null;
-
-		EXTTextureView funcs = new EXTTextureView(provider);
-		boolean supported = checkFunctions(
-			funcs.TextureViewEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glTextureViewEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_texture_view", funcs, supported);
 	}
 
 	// --- [ glTextureViewEXT ] ---
 
 	public static void glTextureViewEXT(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
-		long __functionAddress = getInstance().TextureViewEXT;
+		long __functionAddress = GLES.getCapabilities().glTextureViewEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 	}
 

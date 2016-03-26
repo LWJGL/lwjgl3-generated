@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -30,46 +30,23 @@ public class ARBInternalformatQuery {
 	/** Accepted by the {@code pname} parameter of GetInternalformativ. */
 	public static final int GL_NUM_SAMPLE_COUNTS = 0x9380;
 
-	/** Function address. */
-	public final long GetInternalformativ;
-
 	protected ARBInternalformatQuery() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBInternalformatQuery(FunctionProvider provider) {
-		GetInternalformativ = provider.getFunctionAddress("glGetInternalformativ");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBInternalformatQuery} instance of the current context. */
-	public static ARBInternalformatQuery getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBInternalformatQuery} instance of the specified {@link GLCapabilities}. */
-	public static ARBInternalformatQuery getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBInternalformatQuery);
-	}
-
-	static ARBInternalformatQuery create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_internalformat_query") ) return null;
-
-		ARBInternalformatQuery funcs = new ARBInternalformatQuery(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetInternalformativ
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetInternalformativ
 		);
-
-		return GL.checkExtension("GL_ARB_internalformat_query", funcs, supported);
 	}
 
 	// --- [ glGetInternalformativ ] ---
 
 	/** Unsafe version of {@link #glGetInternalformativ GetInternalformativ} */
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
-		long __functionAddress = getInstance().GetInternalformativ;
+		long __functionAddress = GL.getCapabilities().glGetInternalformativ;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
@@ -95,10 +72,14 @@ public class ARBInternalformatQuery {
 
 	/** Single return value version of: {@link #glGetInternalformativ GetInternalformativ} */
 	public static int glGetInternalformati(int target, int internalformat, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetInternalformativ(target, internalformat, pname, 1, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetInternalformativ(target, internalformat, pname, 1, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

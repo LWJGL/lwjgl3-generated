@@ -34,44 +34,22 @@ public class OESTextureStorageMultisample2DArray {
 		GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES          = 0x910C,
 		GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES = 0x910D;
 
-	/** Function address. */
-	public final long TexStorage3DMultisampleOES;
-
 	protected OESTextureStorageMultisample2DArray() {
 		throw new UnsupportedOperationException();
 	}
 
-	public OESTextureStorageMultisample2DArray(FunctionProvider provider) {
-		TexStorage3DMultisampleOES = provider.getFunctionAddress("glTexStorage3DMultisampleOES");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link OESTextureStorageMultisample2DArray} instance of the current context. */
-	public static OESTextureStorageMultisample2DArray getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link OESTextureStorageMultisample2DArray} instance of the specified {@link GLESCapabilities}. */
-	public static OESTextureStorageMultisample2DArray getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__OESTextureStorageMultisample2DArray);
-	}
-
-	static OESTextureStorageMultisample2DArray create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_OES_texture_storage_multisample_2d_array") ) return null;
-
-		OESTextureStorageMultisample2DArray funcs = new OESTextureStorageMultisample2DArray(provider);
-		boolean supported = checkFunctions(
-			funcs.TexStorage3DMultisampleOES
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glTexStorage3DMultisampleOES
 		);
-
-		return GLES.checkExtension("GL_OES_texture_storage_multisample_2d_array", funcs, supported);
 	}
 
 	// --- [ glTexStorage3DMultisampleOES ] ---
 
 	public static void glTexStorage3DMultisampleOES(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = getInstance().TexStorage3DMultisampleOES;
+		long __functionAddress = GLES.getCapabilities().glTexStorage3DMultisampleOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 

@@ -108,44 +108,22 @@ public class EXTGeometryShader {
 	/** Accepted by the {@code props} parameter of GetProgramResourceiv. */
 	public static final int GL_REFERENCED_BY_GEOMETRY_SHADER_EXT = 0x9309;
 
-	/** Function address. */
-	public final long FramebufferTextureEXT;
-
 	protected EXTGeometryShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTGeometryShader(FunctionProvider provider) {
-		FramebufferTextureEXT = provider.getFunctionAddress("glFramebufferTextureEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTGeometryShader} instance of the current context. */
-	public static EXTGeometryShader getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTGeometryShader} instance of the specified {@link GLESCapabilities}. */
-	public static EXTGeometryShader getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTGeometryShader);
-	}
-
-	static EXTGeometryShader create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_geometry_shader") ) return null;
-
-		EXTGeometryShader funcs = new EXTGeometryShader(provider);
-		boolean supported = checkFunctions(
-			funcs.FramebufferTextureEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glFramebufferTextureEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_geometry_shader", funcs, supported);
 	}
 
 	// --- [ glFramebufferTextureEXT ] ---
 
 	public static void glFramebufferTextureEXT(int target, int attachment, int texture, int level) {
-		long __functionAddress = getInstance().FramebufferTextureEXT;
+		long __functionAddress = GLES.getCapabilities().glFramebufferTextureEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 

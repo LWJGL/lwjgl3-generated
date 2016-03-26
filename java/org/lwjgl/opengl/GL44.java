@@ -97,64 +97,24 @@ public class GL44 {
 	 */
 	public static final int GL_MIRROR_CLAMP_TO_EDGE = 0x8743;
 
-	/** Function address. */
-	public final long
-		BufferStorage,
-		ClearTexSubImage,
-		ClearTexImage,
-		BindBuffersBase,
-		BindBuffersRange,
-		BindTextures,
-		BindSamplers,
-		BindImageTextures,
-		BindVertexBuffers;
-
 	protected GL44() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GL44(FunctionProvider provider) {
-		BufferStorage = provider.getFunctionAddress("glBufferStorage");
-		ClearTexSubImage = provider.getFunctionAddress("glClearTexSubImage");
-		ClearTexImage = provider.getFunctionAddress("glClearTexImage");
-		BindBuffersBase = provider.getFunctionAddress("glBindBuffersBase");
-		BindBuffersRange = provider.getFunctionAddress("glBindBuffersRange");
-		BindTextures = provider.getFunctionAddress("glBindTextures");
-		BindSamplers = provider.getFunctionAddress("glBindSamplers");
-		BindImageTextures = provider.getFunctionAddress("glBindImageTextures");
-		BindVertexBuffers = provider.getFunctionAddress("glBindVertexBuffers");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GL44} instance of the current context. */
-	public static GL44 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GL44} instance of the specified {@link GLCapabilities}. */
-	public static GL44 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GL44);
-	}
-
-	static GL44 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL44") ) return null;
-
-		GL44 funcs = new GL44(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BufferStorage, funcs.ClearTexSubImage, funcs.ClearTexImage, funcs.BindBuffersBase, funcs.BindBuffersRange, funcs.BindTextures, 
-			funcs.BindSamplers, funcs.BindImageTextures, funcs.BindVertexBuffers
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBufferStorage, caps.glClearTexSubImage, caps.glClearTexImage, caps.glBindBuffersBase, caps.glBindBuffersRange, caps.glBindTextures, 
+			caps.glBindSamplers, caps.glBindImageTextures, caps.glBindVertexBuffers
 		);
-
-		return GL.checkExtension("OpenGL44", funcs, supported);
 	}
 
 	// --- [ glBufferStorage ] ---
 
 	/** Unsafe version of {@link #glBufferStorage BufferStorage} */
 	public static void nglBufferStorage(int target, long size, long data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
+		long __functionAddress = GL.getCapabilities().glBufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPIV(__functionAddress, target, size, data, flags);
 	}
 
@@ -251,7 +211,9 @@ public class GL44 {
 
 	/** Unsafe version of {@link #glClearTexSubImage ClearTexSubImage} */
 	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearTexSubImage;
+		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
@@ -313,7 +275,9 @@ public class GL44 {
 
 	/** Unsafe version of {@link #glClearTexImage ClearTexImage} */
 	public static void nglClearTexImage(int texture, int level, int format, int type, long data) {
-		long __functionAddress = getInstance().ClearTexImage;
+		long __functionAddress = GL.getCapabilities().glClearTexImage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, texture, level, format, type, data);
 	}
 
@@ -360,7 +324,9 @@ public class GL44 {
 
 	/** Unsafe version of {@link #glBindBuffersBase BindBuffersBase} */
 	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
-		long __functionAddress = getInstance().BindBuffersBase;
+		long __functionAddress = GL.getCapabilities().glBindBuffersBase;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, first, count, buffers);
 	}
 
@@ -401,7 +367,9 @@ public class GL44 {
 
 	/** Unsafe version of {@link #glBindBuffersRange BindBuffersRange} */
 	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
-		long __functionAddress = getInstance().BindBuffersRange;
+		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
 	}
 
@@ -457,7 +425,9 @@ public class GL44 {
 
 	/** Unsafe version of {@link #glBindTextures BindTextures} */
 	public static void nglBindTextures(int first, int count, long textures) {
-		long __functionAddress = getInstance().BindTextures;
+		long __functionAddress = GL.getCapabilities().glBindTextures;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, textures);
 	}
 
@@ -517,7 +487,9 @@ public class GL44 {
 
 	/** Unsafe version of {@link #glBindSamplers BindSamplers} */
 	public static void nglBindSamplers(int first, int count, long samplers) {
-		long __functionAddress = getInstance().BindSamplers;
+		long __functionAddress = GL.getCapabilities().glBindSamplers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, samplers);
 	}
 
@@ -561,7 +533,9 @@ public class GL44 {
 
 	/** Unsafe version of {@link #glBindImageTextures BindImageTextures} */
 	public static void nglBindImageTextures(int first, int count, long textures) {
-		long __functionAddress = getInstance().BindImageTextures;
+		long __functionAddress = GL.getCapabilities().glBindImageTextures;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, first, count, textures);
 	}
 
@@ -616,7 +590,9 @@ public class GL44 {
 
 	/** Unsafe version of {@link #glBindVertexBuffers BindVertexBuffers} */
 	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
-		long __functionAddress = getInstance().BindVertexBuffers;
+		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPPPV(__functionAddress, first, count, buffers, offsets, strides);
 	}
 

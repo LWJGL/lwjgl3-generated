@@ -33,44 +33,22 @@ import static org.lwjgl.system.JNI.*;
  */
 public class APPLECopyTextureLevels {
 
-	/** Function address. */
-	public final long CopyTextureLevelsAPPLE;
-
 	protected APPLECopyTextureLevels() {
 		throw new UnsupportedOperationException();
 	}
 
-	public APPLECopyTextureLevels(FunctionProvider provider) {
-		CopyTextureLevelsAPPLE = provider.getFunctionAddress("glCopyTextureLevelsAPPLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link APPLECopyTextureLevels} instance of the current context. */
-	public static APPLECopyTextureLevels getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link APPLECopyTextureLevels} instance of the specified {@link GLESCapabilities}. */
-	public static APPLECopyTextureLevels getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__APPLECopyTextureLevels);
-	}
-
-	static APPLECopyTextureLevels create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_APPLE_copy_texture_levels") ) return null;
-
-		APPLECopyTextureLevels funcs = new APPLECopyTextureLevels(provider);
-		boolean supported = checkFunctions(
-			funcs.CopyTextureLevelsAPPLE
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glCopyTextureLevelsAPPLE
 		);
-
-		return GLES.checkExtension("GL_APPLE_copy_texture_levels", funcs, supported);
 	}
 
 	// --- [ glCopyTextureLevelsAPPLE ] ---
 
 	public static void glCopyTextureLevelsAPPLE(int destinationTexture, int sourceTexture, int sourceBaseLevel, int sourceLevelCount) {
-		long __functionAddress = getInstance().CopyTextureLevelsAPPLE;
+		long __functionAddress = GLES.getCapabilities().glCopyTextureLevelsAPPLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
 	}
 

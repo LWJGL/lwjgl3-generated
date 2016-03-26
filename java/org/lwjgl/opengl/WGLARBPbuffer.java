@@ -59,57 +59,25 @@ public class WGLARBPbuffer {
 		WGL_PBUFFER_HEIGHT_ARB = 0x2035,
 		WGL_PBUFFER_LOST_ARB   = 0x2036;
 
-	/** Function address. */
-	public final long
-		CreatePbufferARB,
-		GetPbufferDCARB,
-		ReleasePbufferDCARB,
-		DestroyPbufferARB,
-		QueryPbufferARB;
-
 	protected WGLARBPbuffer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGLARBPbuffer(FunctionProvider provider) {
-		CreatePbufferARB = provider.getFunctionAddress("wglCreatePbufferARB");
-		GetPbufferDCARB = provider.getFunctionAddress("wglGetPbufferDCARB");
-		ReleasePbufferDCARB = provider.getFunctionAddress("wglReleasePbufferDCARB");
-		DestroyPbufferARB = provider.getFunctionAddress("wglDestroyPbufferARB");
-		QueryPbufferARB = provider.getFunctionAddress("wglQueryPbufferARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link WGLARBPbuffer} instance of the current context. */
-	public static WGLARBPbuffer getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link WGLARBPbuffer} instance of the specified {@link GLCapabilities}. */
-	public static WGLARBPbuffer getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGLARBPbuffer);
-	}
-
-	static WGLARBPbuffer create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_pbuffer") ) return null;
-
-		WGLARBPbuffer funcs = new WGLARBPbuffer(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreatePbufferARB, funcs.GetPbufferDCARB, funcs.ReleasePbufferDCARB, funcs.DestroyPbufferARB, funcs.QueryPbufferARB
+	static boolean isAvailable(WGLCapabilities caps) {
+		return checkFunctions(
+			caps.wglCreatePbufferARB, caps.wglGetPbufferDCARB, caps.wglReleasePbufferDCARB, caps.wglDestroyPbufferARB, caps.wglQueryPbufferARB
 		);
-
-		return GL.checkExtension("WGL_ARB_pbuffer", funcs, supported);
 	}
 
 	// --- [ wglCreatePbufferARB ] ---
 
 	/** Unsafe version of {@link #wglCreatePbufferARB CreatePbufferARB} */
 	public static long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList) {
-		long __functionAddress = getInstance().CreatePbufferARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglCreatePbufferARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
+		}
 		return callPIIIPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
 	}
 
@@ -146,9 +114,11 @@ public class WGLARBPbuffer {
 	 * @param pbuffer a pbuffer handle returned from a previous call to {@link #wglCreatePbufferARB CreatePbufferARB}
 	 */
 	public static long wglGetPbufferDCARB(long pbuffer) {
-		long __functionAddress = getInstance().GetPbufferDCARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglGetPbufferDCARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
+		}
 		return callPP(__functionAddress, pbuffer);
 	}
 
@@ -161,8 +131,9 @@ public class WGLARBPbuffer {
 	 * @param hdc     a device context handle
 	 */
 	public static int wglReleasePbufferDCARB(long pbuffer, long hdc) {
-		long __functionAddress = getInstance().ReleasePbufferDCARB;
+		long __functionAddress = GL.getCapabilitiesWGL().wglReleasePbufferDCARB;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
 			checkPointer(hdc);
 		}
@@ -180,9 +151,11 @@ public class WGLARBPbuffer {
 	 * @param pbuffer a pbuffer handle
 	 */
 	public static int wglDestroyPbufferARB(long pbuffer) {
-		long __functionAddress = getInstance().DestroyPbufferARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglDestroyPbufferARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
+		}
 		return callPI(__functionAddress, pbuffer);
 	}
 
@@ -190,9 +163,11 @@ public class WGLARBPbuffer {
 
 	/** Unsafe version of {@link #wglQueryPbufferARB QueryPbufferARB} */
 	public static int nwglQueryPbufferARB(long pbuffer, int attribute, long value) {
-		long __functionAddress = getInstance().QueryPbufferARB;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesWGL().wglQueryPbufferARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
+		}
 		return callPIPI(__functionAddress, pbuffer, attribute, value);
 	}
 

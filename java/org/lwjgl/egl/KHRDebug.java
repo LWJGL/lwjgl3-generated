@@ -67,39 +67,23 @@ public class KHRDebug {
 	/** Tokens provided by the input attribute to eglQueryDebugKHR. */
 	public static final int EGL_DEBUG_CALLBACK_KHR = 0x33B8;
 
-	/** Function address. */
-	public final long
-		DebugMessageControlKHR,
-		QueryDebugKHR,
-		LabelObjectKHR;
-
 	protected KHRDebug() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRDebug(FunctionProvider provider) {
-		DebugMessageControlKHR = provider.getFunctionAddress("eglDebugMessageControlKHR");
-		QueryDebugKHR = provider.getFunctionAddress("eglQueryDebugKHR");
-		LabelObjectKHR = provider.getFunctionAddress("eglLabelObjectKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRDebug} instance. */
-	public static KHRDebug getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link KHRDebug} instance of the specified {@link EGLCapabilities}. */
-	public static KHRDebug getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__KHRDebug);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglDebugMessageControlKHR, caps.eglQueryDebugKHR, caps.eglLabelObjectKHR
+		);
 	}
 
 	// --- [ eglDebugMessageControlKHR ] ---
 
 	/** Unsafe version of {@link #eglDebugMessageControlKHR DebugMessageControlKHR} */
 	public static int neglDebugMessageControlKHR(long callback, long attrib_list) {
-		long __functionAddress = getInstance().DebugMessageControlKHR;
+		long __functionAddress = EGL.getCapabilities().eglDebugMessageControlKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callPPI(__functionAddress, callback, attrib_list);
 	}
 
@@ -116,7 +100,9 @@ public class KHRDebug {
 
 	/** Unsafe version of {@link #eglQueryDebugKHR QueryDebugKHR} */
 	public static int neglQueryDebugKHR(int attribute, long value) {
-		long __functionAddress = getInstance().QueryDebugKHR;
+		long __functionAddress = EGL.getCapabilities().eglQueryDebugKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPI(__functionAddress, attribute, value);
 	}
 
@@ -136,8 +122,9 @@ public class KHRDebug {
 	// --- [ eglLabelObjectKHR ] ---
 
 	public static int eglLabelObjectKHR(long display, int objectType, long object, long label) {
-		long __functionAddress = getInstance().LabelObjectKHR;
+		long __functionAddress = EGL.getCapabilities().eglLabelObjectKHR;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(object);
 			checkPointer(label);

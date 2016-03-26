@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -112,57 +113,42 @@ public class GDI32 {
 		PFD_STEREO_DONTCARE       = 0x80000000;
 
 	/** {@link PIXELFORMATDESCRIPTOR} pixel types. */
-	public static final int
-		PFD_TYPE_RGBA       = 0x0,
-		PFD_TYPE_COLORINDEX = 0x1;
+	public static final byte
+		PFD_TYPE_RGBA       = 0,
+		PFD_TYPE_COLORINDEX = 1;
 
 	/** {@link PIXELFORMATDESCRIPTOR} layer types. */
-	public static final int
-		PFD_MAIN_PLANE     = 0x0,
-		PFD_OVERLAY_PLANE  = 0x1,
-		PFD_UNDERLAY_PLANE = 0xFFFFFFFF;
+	public static final byte
+		PFD_MAIN_PLANE     = 0,
+		PFD_OVERLAY_PLANE  = 1,
+		PFD_UNDERLAY_PLANE = (byte)-1;
 
 	static { Library.initialize(); }
-
-	/** Function address. */
-	public final long
-		__ChoosePixelFormat,
-		__DescribePixelFormat,
-		__GetPixelFormat,
-		__SetPixelFormat,
-		__SwapBuffers;
 
 	protected GDI32() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GDI32(FunctionProvider provider) {
-		__ChoosePixelFormat = checkFunctionAddress(provider.getFunctionAddress("ChoosePixelFormat"));
-		__DescribePixelFormat = checkFunctionAddress(provider.getFunctionAddress("DescribePixelFormat"));
-		__GetPixelFormat = checkFunctionAddress(provider.getFunctionAddress("GetPixelFormat"));
-		__SetPixelFormat = checkFunctionAddress(provider.getFunctionAddress("SetPixelFormat"));
-		__SwapBuffers = checkFunctionAddress(provider.getFunctionAddress("SwapBuffers"));
+	private static final SharedLibrary GDI32 = Library.loadNative("gdi32");
+
+	/** Contains the function pointers loaded from the gdi32 {@link SharedLibrary}. */
+	public static final class Functions {
+
+		private Functions() {}
+
+		/** Function address. */
+		public static final long
+			ChoosePixelFormat = apiGetFunctionAddress(GDI32, "ChoosePixelFormat"),
+			DescribePixelFormat = apiGetFunctionAddress(GDI32, "DescribePixelFormat"),
+			GetPixelFormat = apiGetFunctionAddress(GDI32, "GetPixelFormat"),
+			SetPixelFormat = apiGetFunctionAddress(GDI32, "SetPixelFormat"),
+			SwapBuffers = apiGetFunctionAddress(GDI32, "SwapBuffers");
+
 	}
 
-	// --- [ Function Addresses ] ---
-
-	private static final SharedLibrary GDI32;
-
-	private static final GDI32 instance;
-
-	static {
-		GDI32 = Library.loadNative("gdi32");
-		instance = new GDI32(GDI32);
-	}
-
-	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	/** Returns the gdi32 {@link SharedLibrary}. */
 	public static SharedLibrary getLibrary() {
 		return GDI32;
-	}
-
-	/** Returns the {@link GDI32} instance. */
-	public static GDI32 getInstance() {
-		return instance;
 	}
 
 	// --- [ ChoosePixelFormat ] ---
@@ -172,7 +158,7 @@ public class GDI32 {
 
 	/** Unsafe version of {@link #ChoosePixelFormat} */
 	public static int nChoosePixelFormat(long hdc, long pixelFormatDescriptor) {
-		long __functionAddress = getInstance().__ChoosePixelFormat;
+		long __functionAddress = Functions.ChoosePixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return nChoosePixelFormat(__functionAddress, hdc, pixelFormatDescriptor);
@@ -195,7 +181,7 @@ public class GDI32 {
 
 	/** Unsafe version of {@link #DescribePixelFormat} */
 	public static int nDescribePixelFormat(long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor) {
-		long __functionAddress = getInstance().__DescribePixelFormat;
+		long __functionAddress = Functions.DescribePixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return nDescribePixelFormat(__functionAddress, hdc, pixelFormat, bytes, pixelFormatDescriptor);
@@ -234,7 +220,7 @@ public class GDI32 {
 	 * @param hdc the device context of the currently selected pixel format index returned by the function
 	 */
 	public static int GetPixelFormat(long hdc) {
-		long __functionAddress = getInstance().__GetPixelFormat;
+		long __functionAddress = Functions.GetPixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return nGetPixelFormat(__functionAddress, hdc);
@@ -247,7 +233,7 @@ public class GDI32 {
 
 	/** Unsafe version of {@link #SetPixelFormat} */
 	public static int nSetPixelFormat(long hdc, int pixelFormat, long pixelFormatDescriptor) {
-		long __functionAddress = getInstance().__SetPixelFormat;
+		long __functionAddress = Functions.SetPixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return nSetPixelFormat(__functionAddress, hdc, pixelFormat, pixelFormatDescriptor);
@@ -277,7 +263,7 @@ public class GDI32 {
 	 *           front and back buffers.
 	 */
 	public static int SwapBuffers(long dc) {
-		long __functionAddress = getInstance().__SwapBuffers;
+		long __functionAddress = Functions.SwapBuffers;
 		if ( CHECKS )
 			checkPointer(dc);
 		return nSwapBuffers(__functionAddress, dc);

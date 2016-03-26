@@ -23,48 +23,23 @@ import static org.lwjgl.system.Pointer.*;
  */
 public class EXTMultiDrawArrays {
 
-	/** Function address. */
-	public final long
-		MultiDrawArraysEXT,
-		MultiDrawElementsEXT;
-
 	protected EXTMultiDrawArrays() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTMultiDrawArrays(FunctionProvider provider) {
-		MultiDrawArraysEXT = provider.getFunctionAddress("glMultiDrawArraysEXT");
-		MultiDrawElementsEXT = provider.getFunctionAddress("glMultiDrawElementsEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTMultiDrawArrays} instance of the current context. */
-	public static EXTMultiDrawArrays getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTMultiDrawArrays} instance of the specified {@link GLESCapabilities}. */
-	public static EXTMultiDrawArrays getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTMultiDrawArrays);
-	}
-
-	static EXTMultiDrawArrays create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_multi_draw_arrays") ) return null;
-
-		EXTMultiDrawArrays funcs = new EXTMultiDrawArrays(provider);
-		boolean supported = checkFunctions(
-			funcs.MultiDrawArraysEXT, funcs.MultiDrawElementsEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glMultiDrawArraysEXT, caps.glMultiDrawElementsEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_multi_draw_arrays", funcs, supported);
 	}
 
 	// --- [ glMultiDrawArraysEXT ] ---
 
 	/** Unsafe version of {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
 	public static void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount) {
-		long __functionAddress = getInstance().MultiDrawArraysEXT;
+		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPIV(__functionAddress, mode, first, count, primcount);
 	}
 
@@ -87,7 +62,9 @@ public class EXTMultiDrawArrays {
 
 	/** Unsafe version of {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
 	public static void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount) {
-		long __functionAddress = getInstance().MultiDrawElementsEXT;
+		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 

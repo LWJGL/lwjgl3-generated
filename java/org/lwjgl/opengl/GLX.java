@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -64,81 +65,42 @@ public class GLX {
 		GLX_BAD_VALUE     = 0x6,
 		GLX_BAD_ENUM      = 0x7;
 
-	/** Function address. */
-	public final long
-		QueryExtension,
-		QueryVersion,
-		GetConfig,
-		ChooseVisual,
-		CreateContext,
-		MakeCurrent,
-		CopyContext,
-		IsDirect,
-		DestroyContext,
-		GetCurrentContext,
-		GetCurrentDrawable,
-		WaitGL,
-		WaitX,
-		SwapBuffers,
-		UseXFont,
-		CreateGLXPixmap,
-		DestroyGLXPixmap;
-
 	protected GLX() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLX(FunctionProvider provider) {
-		QueryExtension = provider.getFunctionAddress("glXQueryExtension");
-		QueryVersion = provider.getFunctionAddress("glXQueryVersion");
-		GetConfig = provider.getFunctionAddress("glXGetConfig");
-		ChooseVisual = provider.getFunctionAddress("glXChooseVisual");
-		CreateContext = provider.getFunctionAddress("glXCreateContext");
-		MakeCurrent = provider.getFunctionAddress("glXMakeCurrent");
-		CopyContext = provider.getFunctionAddress("glXCopyContext");
-		IsDirect = provider.getFunctionAddress("glXIsDirect");
-		DestroyContext = provider.getFunctionAddress("glXDestroyContext");
-		GetCurrentContext = provider.getFunctionAddress("glXGetCurrentContext");
-		GetCurrentDrawable = provider.getFunctionAddress("glXGetCurrentDrawable");
-		WaitGL = provider.getFunctionAddress("glXWaitGL");
-		WaitX = provider.getFunctionAddress("glXWaitX");
-		SwapBuffers = provider.getFunctionAddress("glXSwapBuffers");
-		UseXFont = provider.getFunctionAddress("glXUseXFont");
-		CreateGLXPixmap = provider.getFunctionAddress("glXCreateGLXPixmap");
-		DestroyGLXPixmap = provider.getFunctionAddress("glXDestroyGLXPixmap");
-	}
+	/** Contains the function pointers loaded from {@code GL.getFunctionProvider()}. */
+	public static final class Functions {
 
-	// --- [ Function Addresses ] ---
+		private Functions() {}
 
-	/** Returns the {@link GLX} instance of the current context. */
-	public static GLX getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
+		/** Function address. */
+		public static final long
+			QueryExtension = apiGetFunctionAddress(GL.getFunctionProvider(), "glXQueryExtension"),
+			QueryVersion = apiGetFunctionAddress(GL.getFunctionProvider(), "glXQueryVersion"),
+			GetConfig = apiGetFunctionAddress(GL.getFunctionProvider(), "glXGetConfig"),
+			ChooseVisual = apiGetFunctionAddress(GL.getFunctionProvider(), "glXChooseVisual"),
+			CreateContext = apiGetFunctionAddress(GL.getFunctionProvider(), "glXCreateContext"),
+			MakeCurrent = apiGetFunctionAddress(GL.getFunctionProvider(), "glXMakeCurrent"),
+			CopyContext = apiGetFunctionAddress(GL.getFunctionProvider(), "glXCopyContext"),
+			IsDirect = apiGetFunctionAddress(GL.getFunctionProvider(), "glXIsDirect"),
+			DestroyContext = apiGetFunctionAddress(GL.getFunctionProvider(), "glXDestroyContext"),
+			GetCurrentContext = apiGetFunctionAddress(GL.getFunctionProvider(), "glXGetCurrentContext"),
+			GetCurrentDrawable = apiGetFunctionAddress(GL.getFunctionProvider(), "glXGetCurrentDrawable"),
+			WaitGL = apiGetFunctionAddress(GL.getFunctionProvider(), "glXWaitGL"),
+			WaitX = apiGetFunctionAddress(GL.getFunctionProvider(), "glXWaitX"),
+			SwapBuffers = apiGetFunctionAddress(GL.getFunctionProvider(), "glXSwapBuffers"),
+			UseXFont = apiGetFunctionAddress(GL.getFunctionProvider(), "glXUseXFont"),
+			CreateGLXPixmap = apiGetFunctionAddress(GL.getFunctionProvider(), "glXCreateGLXPixmap"),
+			DestroyGLXPixmap = apiGetFunctionAddress(GL.getFunctionProvider(), "glXDestroyGLXPixmap");
 
-	/** Returns the {@link GLX} instance of the specified {@link GLCapabilities}. */
-	public static GLX getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLX);
-	}
-
-	static GLX create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX") ) return null;
-
-		GLX funcs = new GLX(provider);
-
-		boolean supported = checkFunctions(
-			funcs.QueryExtension, funcs.QueryVersion, funcs.GetConfig, funcs.ChooseVisual, funcs.CreateContext, funcs.MakeCurrent, funcs.CopyContext, 
-			funcs.IsDirect, funcs.DestroyContext, funcs.GetCurrentContext, funcs.GetCurrentDrawable, funcs.WaitGL, funcs.WaitX, funcs.SwapBuffers, 
-			funcs.UseXFont, funcs.CreateGLXPixmap, funcs.DestroyGLXPixmap
-		);
-
-		return GL.checkExtension("GLX", funcs, supported);
 	}
 
 	// --- [ glXQueryExtension ] ---
 
 	/** Unsafe version of {@link #glXQueryExtension QueryExtension} */
 	public static int nglXQueryExtension(long display, long error_base, long event_base) {
-		long __functionAddress = getInstance().QueryExtension;
+		long __functionAddress = Functions.QueryExtension;
 		if ( CHECKS )
 			checkPointer(display);
 		return callPPPI(__functionAddress, display, error_base, event_base);
@@ -172,7 +134,7 @@ public class GLX {
 
 	/** Unsafe version of {@link #glXQueryVersion QueryVersion} */
 	public static int nglXQueryVersion(long display, long major, long minor) {
-		long __functionAddress = getInstance().QueryVersion;
+		long __functionAddress = Functions.QueryVersion;
 		if ( CHECKS )
 			checkPointer(display);
 		return callPPPI(__functionAddress, display, major, minor);
@@ -206,7 +168,7 @@ public class GLX {
 
 	/** Unsafe version of {@link #glXGetConfig GetConfig} */
 	public static int nglXGetConfig(long display, long visual, int attribute, long value) {
-		long __functionAddress = getInstance().GetConfig;
+		long __functionAddress = Functions.GetConfig;
 		if ( CHECKS ) {
 			checkPointer(display);
 			XVisualInfo.validate(visual);
@@ -239,7 +201,7 @@ public class GLX {
 
 	/** Unsafe version of {@link #glXChooseVisual ChooseVisual} */
 	public static long nglXChooseVisual(long display, int screen, long attrib_list) {
-		long __functionAddress = getInstance().ChooseVisual;
+		long __functionAddress = Functions.ChooseVisual;
 		if ( CHECKS )
 			checkPointer(display);
 		return callPIPP(__functionAddress, display, screen, attrib_list);
@@ -274,7 +236,7 @@ public class GLX {
 
 	/** Unsafe version of {@link #glXCreateContext CreateContext} */
 	public static long nglXCreateContext(long display, long visual, long share_list, int direct) {
-		long __functionAddress = getInstance().CreateContext;
+		long __functionAddress = Functions.CreateContext;
 		if ( CHECKS ) {
 			checkPointer(display);
 			XVisualInfo.validate(visual);
@@ -304,7 +266,7 @@ public class GLX {
 	 * @param ctx     the GLXContext to make current
 	 */
 	public static int glXMakeCurrent(long display, long draw, long ctx) {
-		long __functionAddress = getInstance().MakeCurrent;
+		long __functionAddress = Functions.MakeCurrent;
 		if ( CHECKS )
 			checkPointer(display);
 		return callPPPI(__functionAddress, display, draw, ctx);
@@ -321,7 +283,7 @@ public class GLX {
 	 * @param mask    indicates which groups of state variables are to be copied; it contains the bitwise OR of the symbolic names for the attribute groups
 	 */
 	public static void glXCopyContext(long display, long source, long dest, long mask) {
-		long __functionAddress = getInstance().CopyContext;
+		long __functionAddress = Functions.CopyContext;
 		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(source);
@@ -339,7 +301,7 @@ public class GLX {
 	 * @param ctx     the GLXContext to query
 	 */
 	public static int glXIsDirect(long display, long ctx) {
-		long __functionAddress = getInstance().IsDirect;
+		long __functionAddress = Functions.IsDirect;
 		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(ctx);
@@ -359,7 +321,7 @@ public class GLX {
 	 * @param ctx     the GLXContext to destroy
 	 */
 	public static void glXDestroyContext(long display, long ctx) {
-		long __functionAddress = getInstance().DestroyContext;
+		long __functionAddress = Functions.DestroyContext;
 		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(ctx);
@@ -371,7 +333,7 @@ public class GLX {
 
 	/** Returns the GLXContext that is current in the current thread. */
 	public static long glXGetCurrentContext() {
-		long __functionAddress = getInstance().GetCurrentContext;
+		long __functionAddress = Functions.GetCurrentContext;
 		return callP(__functionAddress);
 	}
 
@@ -379,7 +341,7 @@ public class GLX {
 
 	/** Returns the XID of the current drawable used for rendering. */
 	public static long glXGetCurrentDrawable() {
-		long __functionAddress = getInstance().GetCurrentDrawable;
+		long __functionAddress = Functions.GetCurrentDrawable;
 		return callP(__functionAddress);
 	}
 
@@ -393,7 +355,7 @@ public class GLX {
 	 * where the client and server are on separate machines.</p>
 	 */
 	public static void glXWaitGL() {
-		long __functionAddress = getInstance().WaitGL;
+		long __functionAddress = Functions.WaitGL;
 		callV(__functionAddress);
 	}
 
@@ -406,7 +368,7 @@ public class GLX {
 	 * result can be achieved using {@code XSync()}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.</p>
 	 */
 	public static void glXWaitX() {
-		long __functionAddress = getInstance().WaitX;
+		long __functionAddress = Functions.WaitX;
 		callV(__functionAddress);
 	}
 
@@ -422,7 +384,7 @@ public class GLX {
 	 * @param draw    a double buffered GLXDrawable
 	 */
 	public static void glXSwapBuffers(long display, long draw) {
-		long __functionAddress = getInstance().SwapBuffers;
+		long __functionAddress = Functions.SwapBuffers;
 		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(draw);
@@ -441,7 +403,7 @@ public class GLX {
 	 * @param list_base the base list number
 	 */
 	public static void glXUseXFont(long font, int first, int count, int list_base) {
-		long __functionAddress = getInstance().UseXFont;
+		long __functionAddress = Functions.UseXFont;
 		callPIIIV(__functionAddress, font, first, count, list_base);
 	}
 
@@ -449,7 +411,7 @@ public class GLX {
 
 	/** Unsafe version of {@link #glXCreateGLXPixmap CreateGLXPixmap} */
 	public static long nglXCreateGLXPixmap(long display, long visual, long pixmap) {
-		long __functionAddress = getInstance().CreateGLXPixmap;
+		long __functionAddress = Functions.CreateGLXPixmap;
 		if ( CHECKS ) {
 			checkPointer(display);
 			XVisualInfo.validate(visual);
@@ -477,7 +439,7 @@ public class GLX {
 	 * @param pixmap  the GLXPixmap to destroy.
 	 */
 	public static void glXDestroyGLXPixmap(long display, long pixmap) {
-		long __functionAddress = getInstance().DestroyGLXPixmap;
+		long __functionAddress = Functions.DestroyGLXPixmap;
 		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(pixmap);

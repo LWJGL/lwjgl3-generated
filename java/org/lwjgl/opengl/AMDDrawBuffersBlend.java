@@ -23,73 +23,49 @@ import static org.lwjgl.system.JNI.*;
  */
 public class AMDDrawBuffersBlend {
 
-	/** Function address. */
-	public final long
-		BlendFuncIndexedAMD,
-		BlendFuncSeparateIndexedAMD,
-		BlendEquationIndexedAMD,
-		BlendEquationSeparateIndexedAMD;
-
 	protected AMDDrawBuffersBlend() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AMDDrawBuffersBlend(FunctionProvider provider) {
-		BlendFuncIndexedAMD = provider.getFunctionAddress("glBlendFuncIndexedAMD");
-		BlendFuncSeparateIndexedAMD = provider.getFunctionAddress("glBlendFuncSeparateIndexedAMD");
-		BlendEquationIndexedAMD = provider.getFunctionAddress("glBlendEquationIndexedAMD");
-		BlendEquationSeparateIndexedAMD = provider.getFunctionAddress("glBlendEquationSeparateIndexedAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AMDDrawBuffersBlend} instance of the current context. */
-	public static AMDDrawBuffersBlend getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link AMDDrawBuffersBlend} instance of the specified {@link GLCapabilities}. */
-	public static AMDDrawBuffersBlend getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__AMDDrawBuffersBlend);
-	}
-
-	static AMDDrawBuffersBlend create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_AMD_draw_buffers_blend") ) return null;
-
-		AMDDrawBuffersBlend funcs = new AMDDrawBuffersBlend(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BlendFuncIndexedAMD, funcs.BlendFuncSeparateIndexedAMD, funcs.BlendEquationIndexedAMD, funcs.BlendEquationSeparateIndexedAMD
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBlendFuncIndexedAMD, caps.glBlendFuncSeparateIndexedAMD, caps.glBlendEquationIndexedAMD, caps.glBlendEquationSeparateIndexedAMD
 		);
-
-		return GL.checkExtension("GL_AMD_draw_buffers_blend", funcs, supported);
 	}
 
 	// --- [ glBlendFuncIndexedAMD ] ---
 
 	public static void glBlendFuncIndexedAMD(int buf, int src, int dst) {
-		long __functionAddress = getInstance().BlendFuncIndexedAMD;
+		long __functionAddress = GL.getCapabilities().glBlendFuncIndexedAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateIndexedAMD ] ---
 
 	public static void glBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		long __functionAddress = getInstance().BlendFuncSeparateIndexedAMD;
+		long __functionAddress = GL.getCapabilities().glBlendFuncSeparateIndexedAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glBlendEquationIndexedAMD ] ---
 
 	public static void glBlendEquationIndexedAMD(int buf, int mode) {
-		long __functionAddress = getInstance().BlendEquationIndexedAMD;
+		long __functionAddress = GL.getCapabilities().glBlendEquationIndexedAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateIndexedAMD ] ---
 
 	public static void glBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha) {
-		long __functionAddress = getInstance().BlendEquationSeparateIndexedAMD;
+		long __functionAddress = GL.getCapabilities().glBlendEquationSeparateIndexedAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 

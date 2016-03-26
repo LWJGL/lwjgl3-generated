@@ -37,64 +37,40 @@ public class EXTBindableUniform {
 	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
 	public static final int GL_UNIFORM_BUFFER_EXT = 0x8DEE;
 
-	/** Function address. */
-	public final long
-		UniformBufferEXT,
-		GetUniformBufferSizeEXT,
-		GetUniformOffsetEXT;
-
 	protected EXTBindableUniform() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTBindableUniform(FunctionProvider provider) {
-		UniformBufferEXT = provider.getFunctionAddress("glUniformBufferEXT");
-		GetUniformBufferSizeEXT = provider.getFunctionAddress("glGetUniformBufferSizeEXT");
-		GetUniformOffsetEXT = provider.getFunctionAddress("glGetUniformOffsetEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTBindableUniform} instance of the current context. */
-	public static EXTBindableUniform getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTBindableUniform} instance of the specified {@link GLCapabilities}. */
-	public static EXTBindableUniform getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTBindableUniform);
-	}
-
-	static EXTBindableUniform create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_bindable_uniform") ) return null;
-
-		EXTBindableUniform funcs = new EXTBindableUniform(provider);
-
-		boolean supported = checkFunctions(
-			funcs.UniformBufferEXT, funcs.GetUniformBufferSizeEXT, funcs.GetUniformOffsetEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glUniformBufferEXT, caps.glGetUniformBufferSizeEXT, caps.glGetUniformOffsetEXT
 		);
-
-		return GL.checkExtension("GL_EXT_bindable_uniform", funcs, supported);
 	}
 
 	// --- [ glUniformBufferEXT ] ---
 
 	public static void glUniformBufferEXT(int program, int location, int buffer) {
-		long __functionAddress = getInstance().UniformBufferEXT;
+		long __functionAddress = GL.getCapabilities().glUniformBufferEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, program, location, buffer);
 	}
 
 	// --- [ glGetUniformBufferSizeEXT ] ---
 
 	public static int glGetUniformBufferSizeEXT(int program, int location) {
-		long __functionAddress = getInstance().GetUniformBufferSizeEXT;
+		long __functionAddress = GL.getCapabilities().glGetUniformBufferSizeEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIII(__functionAddress, program, location);
 	}
 
 	// --- [ glGetUniformOffsetEXT ] ---
 
 	public static long glGetUniformOffsetEXT(int program, int location) {
-		long __functionAddress = getInstance().GetUniformOffsetEXT;
+		long __functionAddress = GL.getCapabilities().glGetUniformOffsetEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIP(__functionAddress, program, location);
 	}
 

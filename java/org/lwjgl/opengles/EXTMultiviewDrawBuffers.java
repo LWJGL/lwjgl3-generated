@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -49,49 +49,22 @@ public class EXTMultiviewDrawBuffers {
 	/** Accepted by the {@code target} parameter of GetInteger. */
 	public static final int GL_MAX_MULTIVIEW_BUFFERS_EXT = 0x90F2;
 
-	/** Function address. */
-	public final long
-		ReadBufferIndexedEXT,
-		DrawBuffersIndexedEXT,
-		GetIntegeri_vEXT;
-
 	protected EXTMultiviewDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTMultiviewDrawBuffers(FunctionProvider provider) {
-		ReadBufferIndexedEXT = provider.getFunctionAddress("glReadBufferIndexedEXT");
-		DrawBuffersIndexedEXT = provider.getFunctionAddress("glDrawBuffersIndexedEXT");
-		GetIntegeri_vEXT = provider.getFunctionAddress("glGetIntegeri_vEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTMultiviewDrawBuffers} instance of the current context. */
-	public static EXTMultiviewDrawBuffers getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTMultiviewDrawBuffers} instance of the specified {@link GLESCapabilities}. */
-	public static EXTMultiviewDrawBuffers getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTMultiviewDrawBuffers);
-	}
-
-	static EXTMultiviewDrawBuffers create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_multiview_draw_buffers") ) return null;
-
-		EXTMultiviewDrawBuffers funcs = new EXTMultiviewDrawBuffers(provider);
-		boolean supported = checkFunctions(
-			funcs.ReadBufferIndexedEXT, funcs.DrawBuffersIndexedEXT, funcs.GetIntegeri_vEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glReadBufferIndexedEXT, caps.glDrawBuffersIndexedEXT, caps.glGetIntegeri_vEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_multiview_draw_buffers", funcs, supported);
 	}
 
 	// --- [ glReadBufferIndexedEXT ] ---
 
 	public static void glReadBufferIndexedEXT(int src, int index) {
-		long __functionAddress = getInstance().ReadBufferIndexedEXT;
+		long __functionAddress = GLES.getCapabilities().glReadBufferIndexedEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, src, index);
 	}
 
@@ -99,7 +72,9 @@ public class EXTMultiviewDrawBuffers {
 
 	/** Unsafe version of {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
 	public static void nglDrawBuffersIndexedEXT(int n, long location, long indices) {
-		long __functionAddress = getInstance().DrawBuffersIndexedEXT;
+		long __functionAddress = GLES.getCapabilities().glDrawBuffersIndexedEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPV(__functionAddress, n, location, indices);
 	}
 
@@ -122,7 +97,9 @@ public class EXTMultiviewDrawBuffers {
 
 	/** Unsafe version of {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
 	public static void nglGetIntegeri_vEXT(int target, int index, long data) {
-		long __functionAddress = getInstance().GetIntegeri_vEXT;
+		long __functionAddress = GLES.getCapabilities().glGetIntegeri_vEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, index, data);
 	}
 
@@ -141,10 +118,14 @@ public class EXTMultiviewDrawBuffers {
 
 	/** Single return value version of: {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
 	public static int glGetIntegeriEXT(int target, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.intParam();
-		nglGetIntegeri_vEXT(target, index, __buffer.address(data));
-		return __buffer.intValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer data = stack.callocInt(1);
+			nglGetIntegeri_vEXT(target, index, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

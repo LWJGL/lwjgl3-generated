@@ -10,9 +10,9 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
@@ -80,81 +80,27 @@ public class GLX13 {
 		GLX_PBUFFER_HEIGHT          = 0x8040,
 		GLX_PBUFFER_WIDTH           = 0x8041;
 
-	/** Function address. */
-	public final long
-		GetFBConfigs,
-		ChooseFBConfig,
-		GetFBConfigAttrib,
-		GetVisualFromFBConfig,
-		CreateWindow,
-		CreatePixmap,
-		DestroyPixmap,
-		CreatePbuffer,
-		DestroyPbuffer,
-		QueryDrawable,
-		CreateNewContext,
-		MakeContextCurrent,
-		GetCurrentReadDrawable,
-		QueryContext,
-		SelectEvent,
-		GetSelectedEvent;
-
 	protected GLX13() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLX13(FunctionProvider provider) {
-		GetFBConfigs = provider.getFunctionAddress("glXGetFBConfigs");
-		ChooseFBConfig = provider.getFunctionAddress("glXChooseFBConfig");
-		GetFBConfigAttrib = provider.getFunctionAddress("glXGetFBConfigAttrib");
-		GetVisualFromFBConfig = provider.getFunctionAddress("glXGetVisualFromFBConfig");
-		CreateWindow = provider.getFunctionAddress("glXCreateWindow");
-		CreatePixmap = provider.getFunctionAddress("glXCreatePixmap");
-		DestroyPixmap = provider.getFunctionAddress("glXDestroyPixmap");
-		CreatePbuffer = provider.getFunctionAddress("glXCreatePbuffer");
-		DestroyPbuffer = provider.getFunctionAddress("glXDestroyPbuffer");
-		QueryDrawable = provider.getFunctionAddress("glXQueryDrawable");
-		CreateNewContext = provider.getFunctionAddress("glXCreateNewContext");
-		MakeContextCurrent = provider.getFunctionAddress("glXMakeContextCurrent");
-		GetCurrentReadDrawable = provider.getFunctionAddress("glXGetCurrentReadDrawable");
-		QueryContext = provider.getFunctionAddress("glXQueryContext");
-		SelectEvent = provider.getFunctionAddress("glXSelectEvent");
-		GetSelectedEvent = provider.getFunctionAddress("glXGetSelectedEvent");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLX13} instance of the current context. */
-	public static GLX13 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLX13} instance of the specified {@link GLCapabilities}. */
-	public static GLX13 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLX13);
-	}
-
-	static GLX13 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX13") ) return null;
-
-		GLX13 funcs = new GLX13(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetFBConfigs, funcs.ChooseFBConfig, funcs.GetFBConfigAttrib, funcs.GetVisualFromFBConfig, funcs.CreateWindow, funcs.CreatePixmap, 
-			funcs.DestroyPixmap, funcs.CreatePbuffer, funcs.DestroyPbuffer, funcs.QueryDrawable, funcs.CreateNewContext, funcs.MakeContextCurrent, 
-			funcs.GetCurrentReadDrawable, funcs.QueryContext, funcs.SelectEvent, funcs.GetSelectedEvent
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXGetFBConfigs, caps.glXChooseFBConfig, caps.glXGetFBConfigAttrib, caps.glXGetVisualFromFBConfig, caps.glXCreateWindow, caps.glXCreatePixmap, 
+			caps.glXDestroyPixmap, caps.glXCreatePbuffer, caps.glXDestroyPbuffer, caps.glXQueryDrawable, caps.glXCreateNewContext, caps.glXMakeContextCurrent, 
+			caps.glXGetCurrentReadDrawable, caps.glXQueryContext, caps.glXSelectEvent, caps.glXGetSelectedEvent
 		);
-
-		return GL.checkExtension("GLX13", funcs, supported);
 	}
 
 	// --- [ glXGetFBConfigs ] ---
 
 	/** Unsafe version of {@link #glXGetFBConfigs GetFBConfigs} */
 	public static long nglXGetFBConfigs(long display, int screen, long nelements) {
-		long __functionAddress = getInstance().GetFBConfigs;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigs;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPIPP(__functionAddress, display, screen, nelements);
 	}
 
@@ -165,19 +111,25 @@ public class GLX13 {
 	 * @param screen  the screen number
 	 */
 	public static PointerBuffer glXGetFBConfigs(long display, int screen) {
-		APIBuffer __buffer = apiBuffer();
-		int nelements = __buffer.intParam();
-		long __result = nglXGetFBConfigs(display, screen, __buffer.address(nelements));
-		return memPointerBuffer(__result, __buffer.intValue(nelements));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer nelements = stack.callocInt(1);
+		try {
+			long __result = nglXGetFBConfigs(display, screen, memAddress(nelements));
+			return memPointerBuffer(__result, nelements.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glXChooseFBConfig ] ---
 
 	/** Unsafe version of {@link #glXChooseFBConfig ChooseFBConfig} */
 	public static long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements) {
-		long __functionAddress = getInstance().ChooseFBConfig;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfig;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPIPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
 
@@ -191,28 +143,37 @@ public class GLX13 {
 	public static PointerBuffer glXChooseFBConfig(long display, int screen, ByteBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
-		APIBuffer __buffer = apiBuffer();
-		int nelements = __buffer.intParam();
-		long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), __buffer.address(nelements));
-		return memPointerBuffer(__result, __buffer.intValue(nelements));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer nelements = stack.callocInt(1);
+		try {
+			long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), memAddress(nelements));
+			return memPointerBuffer(__result, nelements.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Alternative version of: {@link #glXChooseFBConfig ChooseFBConfig} */
 	public static PointerBuffer glXChooseFBConfig(long display, int screen, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
-		APIBuffer __buffer = apiBuffer();
-		int nelements = __buffer.intParam();
-		long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), __buffer.address(nelements));
-		return memPointerBuffer(__result, __buffer.intValue(nelements));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+		IntBuffer nelements = stack.callocInt(1);
+			long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), memAddress(nelements));
+			return memPointerBuffer(__result, nelements.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glXGetFBConfigAttrib ] ---
 
 	/** Unsafe version of {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
 	public static int nglXGetFBConfigAttrib(long display, long config, int attribute, long value) {
-		long __functionAddress = getInstance().GetFBConfigAttrib;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttrib;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -244,8 +205,9 @@ public class GLX13 {
 
 	/** Unsafe version of {@link #glXGetVisualFromFBConfig GetVisualFromFBConfig} */
 	public static long nglXGetVisualFromFBConfig(long display, long config) {
-		long __functionAddress = getInstance().GetVisualFromFBConfig;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetVisualFromFBConfig;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -267,8 +229,9 @@ public class GLX13 {
 
 	/** Unsafe version of {@link #glXCreateWindow CreateWindow} */
 	public static long nglXCreateWindow(long display, long config, long win, long attrib_list) {
-		long __functionAddress = getInstance().CreateWindow;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateWindow;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -300,8 +263,9 @@ public class GLX13 {
 
 	/** Unsafe version of {@link #glXCreatePixmap CreatePixmap} */
 	public static long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list) {
-		long __functionAddress = getInstance().CreatePixmap;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePixmap;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -338,8 +302,9 @@ public class GLX13 {
 	 * @param pixmap  the GLXPixmap to destroy
 	 */
 	public static void glXDestroyPixmap(long display, long pixmap) {
-		long __functionAddress = getInstance().DestroyPixmap;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXDestroyPixmap;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(pixmap);
 		}
@@ -350,8 +315,9 @@ public class GLX13 {
 
 	/** Unsafe version of {@link #glXCreatePbuffer CreatePbuffer} */
 	public static long nglXCreatePbuffer(long display, long config, long attrib_list) {
-		long __functionAddress = getInstance().CreatePbuffer;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePbuffer;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -387,8 +353,9 @@ public class GLX13 {
 	 * @param pbuf    the GLXPbuffer to destroy
 	 */
 	public static void glXDestroyPbuffer(long display, long pbuf) {
-		long __functionAddress = getInstance().DestroyPbuffer;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXDestroyPbuffer;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
@@ -399,8 +366,9 @@ public class GLX13 {
 
 	/** Unsafe version of {@link #glXQueryDrawable QueryDrawable} */
 	public static void nglXQueryDrawable(long display, long draw, int attribute, long value) {
-		long __functionAddress = getInstance().QueryDrawable;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryDrawable;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(draw);
 		}
@@ -440,8 +408,9 @@ public class GLX13 {
 	 * @param direct      whether direct rendering is requested
 	 */
 	public static long glXCreateNewContext(long display, long config, int render_type, long share_list, int direct) {
-		long __functionAddress = getInstance().CreateNewContext;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateNewContext;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -459,9 +428,11 @@ public class GLX13 {
 	 * @param ctx     the GLXContext
 	 */
 	public static int glXMakeContextCurrent(long display, long draw, long read, long ctx) {
-		long __functionAddress = getInstance().MakeContextCurrent;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeContextCurrent;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPPPPI(__functionAddress, display, draw, read, ctx);
 	}
 
@@ -469,7 +440,9 @@ public class GLX13 {
 
 	/** Returns the current GLXDrawable used for reading in the current thread. */
 	public static long glXGetCurrentReadDrawable() {
-		long __functionAddress = getInstance().GetCurrentReadDrawable;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentReadDrawable;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callP(__functionAddress);
 	}
 
@@ -477,8 +450,9 @@ public class GLX13 {
 
 	/** Unsafe version of {@link #glXQueryContext QueryContext} */
 	public static int nglXQueryContext(long display, long ctx, int attribute, long value) {
-		long __functionAddress = getInstance().QueryContext;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContext;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(ctx);
 		}
@@ -516,8 +490,9 @@ public class GLX13 {
 	 * @param event_mask the selection mask
 	 */
 	public static void glXSelectEvent(long display, long draw, long event_mask) {
-		long __functionAddress = getInstance().SelectEvent;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXSelectEvent;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(draw);
 		}
@@ -528,8 +503,9 @@ public class GLX13 {
 
 	/** Unsafe version of {@link #glXGetSelectedEvent GetSelectedEvent} */
 	public static void nglXGetSelectedEvent(long display, long draw, long event_mask) {
-		long __functionAddress = getInstance().GetSelectedEvent;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetSelectedEvent;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(draw);
 		}

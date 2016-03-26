@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -96,46 +96,23 @@ public class ARBShaderAtomicCounters {
 	/** Returned in {@code params} by GetActiveUniform and GetActiveUniformsiv. */
 	public static final int GL_UNSIGNED_INT_ATOMIC_COUNTER = 0x92DB;
 
-	/** Function address. */
-	public final long GetActiveAtomicCounterBufferiv;
-
 	protected ARBShaderAtomicCounters() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBShaderAtomicCounters(FunctionProvider provider) {
-		GetActiveAtomicCounterBufferiv = provider.getFunctionAddress("glGetActiveAtomicCounterBufferiv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBShaderAtomicCounters} instance of the current context. */
-	public static ARBShaderAtomicCounters getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBShaderAtomicCounters} instance of the specified {@link GLCapabilities}. */
-	public static ARBShaderAtomicCounters getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBShaderAtomicCounters);
-	}
-
-	static ARBShaderAtomicCounters create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_shader_atomic_counters") ) return null;
-
-		ARBShaderAtomicCounters funcs = new ARBShaderAtomicCounters(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetActiveAtomicCounterBufferiv
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glGetActiveAtomicCounterBufferiv
 		);
-
-		return GL.checkExtension("GL_ARB_shader_atomic_counters", funcs, supported);
 	}
 
 	// --- [ glGetActiveAtomicCounterBufferiv ] ---
 
 	/** Unsafe version of {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
-		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
+		long __functionAddress = GL.getCapabilities().glGetActiveAtomicCounterBufferiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, bufferIndex, pname, params);
 	}
 
@@ -162,10 +139,14 @@ public class ARBShaderAtomicCounters {
 
 	/** Single return value version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	public static int glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, __buffer.address(params));
-		return __buffer.intValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer params = stack.callocInt(1);
+			nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

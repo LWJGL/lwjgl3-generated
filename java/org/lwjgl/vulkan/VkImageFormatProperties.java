@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -28,7 +29,7 @@ public class VkImageFormatProperties extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -40,7 +41,7 @@ public class VkImageFormatProperties extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(VkExtent3D.SIZEOF, VkExtent3D.__ALIGNMENT),
+			__member(VkExtent3D.SIZEOF, VkExtent3D.ALIGNOF),
 			__member(4),
 			__member(4),
 			__member(4),
@@ -48,7 +49,7 @@ public class VkImageFormatProperties extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		MAXEXTENT = layout.offsetof(0);
 		MAXMIPLEVELS = layout.offsetof(1);
@@ -144,6 +145,76 @@ public class VkImageFormatProperties extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link VkImageFormatProperties} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkImageFormatProperties mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkImageFormatProperties} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkImageFormatProperties callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkImageFormatProperties} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkImageFormatProperties mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkImageFormatProperties} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkImageFormatProperties callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkImageFormatProperties.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkImageFormatProperties.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkImageFormatProperties.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkImageFormatProperties.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #maxExtent}. */
 	public static VkExtent3D nmaxExtent(long struct) { return VkExtent3D.create(struct + VkImageFormatProperties.MAXEXTENT); }
 	/** Unsafe version of {@link #maxMipLevels}. */
@@ -189,7 +260,7 @@ public class VkImageFormatProperties extends Struct {
 
 		@Override
 		protected VkImageFormatProperties newInstance(long address) {
-			return new VkImageFormatProperties(address, container);
+			return new VkImageFormatProperties(address, getContainer());
 		}
 
 		@Override

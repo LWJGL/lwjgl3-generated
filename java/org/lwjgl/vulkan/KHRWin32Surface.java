@@ -28,54 +28,21 @@ public class KHRWin32Surface {
 	/** VkStructureType */
 	public static final int VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR = 1000009000;
 
-	/** Function address. */
-	public final long
-		CreateWin32SurfaceKHR,
-		GetPhysicalDeviceWin32PresentationSupportKHR;
-
 	protected KHRWin32Surface() {
 		throw new UnsupportedOperationException();
 	}
 
-	public KHRWin32Surface(FunctionProvider provider) {
-		CreateWin32SurfaceKHR = provider.getFunctionAddress("vkCreateWin32SurfaceKHR");
-		GetPhysicalDeviceWin32PresentationSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceWin32PresentationSupportKHR");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link KHRWin32Surface} instance from the specified dispatchable handle. */
-	public static KHRWin32Surface getInstance(DispatchableHandle handle) {
-		return getInstance(handle.getCapabilities());
-	}
-
-	/** Returns the {@link KHRWin32Surface} instance of the specified {@link VKCapabilities}. */
-	public static KHRWin32Surface getInstance(VKCapabilities caps) {
-		return checkFunctionality(caps.__KHRWin32Surface);
-	}
-
-	static KHRWin32Surface create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("VK_KHR_win32_surface") )
-			return null;
-
-		return VK.checkExtension("VK_KHR_win32_surface", create(provider));
-	}
-
-	static KHRWin32Surface create(FunctionProvider provider) {
-		KHRWin32Surface funcs = new KHRWin32Surface(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateWin32SurfaceKHR, funcs.GetPhysicalDeviceWin32PresentationSupportKHR
+	static boolean isAvailable(VKCapabilities caps) {
+		return checkFunctions(
+			caps.vkCreateWin32SurfaceKHR, caps.vkGetPhysicalDeviceWin32PresentationSupportKHR
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ vkCreateWin32SurfaceKHR ] ---
 
 	/** Unsafe version of {@link #vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR} */
 	public static int nvkCreateWin32SurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
-		long __functionAddress = getInstance(instance).CreateWin32SurfaceKHR;
+		long __functionAddress = instance.getCapabilities().vkCreateWin32SurfaceKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			VkWin32SurfaceCreateInfoKHR.validate(pCreateInfo);
@@ -86,11 +53,23 @@ public class KHRWin32Surface {
 
 	/**
 	 * Creates a {@code VkSurfaceKHR} object for a Win32 window.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkWin32SurfaceCreateInfoKHR} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pSurface} <b>must</b> be a pointer to a {@code VkSurfaceKHR} handle</li>
+	 * </ul>
+	 * 
+	 * <p>With Win32, {@code minImageExtent}, {@code maxImageExtent}, and {@code currentExtent} are the window size. Therefore, a swapchain’s {@code imageExtent}
+	 * <b>must</b> match the window’s size.</p>
 	 *
-	 * @param instance    the {@code VkInstance} to associate the surface
-	 * @param pCreateInfo a pointer to an instance of the {@link VkWin32SurfaceCreateInfoKHR} structure containing the parameters affecting the creation of the surface object
-	 * @param pAllocator  the allocator used for host memory allocated for the surface object
-	 * @param pSurface    the resulting surface object handle is returned in {@code pSurface}
+	 * @param instance    the instance to associate the surface with
+	 * @param pCreateInfo a pointer to an instance of the {@link VkWin32SurfaceCreateInfoKHR} structure containing parameters affecting the creation of the surface object
+	 * @param pAllocator  controls host memory allocation
+	 * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned
 	 */
 	public static int vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
 		if ( CHECKS )
@@ -108,13 +87,23 @@ public class KHRWin32Surface {
 	// --- [ vkGetPhysicalDeviceWin32PresentationSupportKHR ] ---
 
 	/**
-	 * Queries physical device for presentation to Windows desktop.
+	 * Determines whether a queue family of a physical device supports presentation to the Microsoft Windows desktop.
+	 * 
+	 * <p>This platform-specific function <b>can</b> be called prior to creating a surface.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} for the
+	 * given {@code physicalDevice}</li>
+	 * </ul>
 	 *
-	 * @param physicalDevice   a physical device handle
-	 * @param queueFamilyIndex index to a queue family
+	 * @param physicalDevice   the physical device
+	 * @param queueFamilyIndex the queue family index
 	 */
 	public static int vkGetPhysicalDeviceWin32PresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex) {
-		long __functionAddress = getInstance(physicalDevice).GetPhysicalDeviceWin32PresentationSupportKHR;
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceWin32PresentationSupportKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callPII(__functionAddress, physicalDevice.address(), queueFamilyIndex);

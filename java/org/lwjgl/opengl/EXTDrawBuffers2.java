@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -27,57 +27,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDrawBuffers2 {
 
-	/** Function address. */
-	public final long
-		ColorMaskIndexedEXT,
-		GetBooleanIndexedvEXT,
-		GetIntegerIndexedvEXT,
-		EnableIndexedEXT,
-		DisableIndexedEXT,
-		IsEnabledIndexedEXT;
-
 	protected EXTDrawBuffers2() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTDrawBuffers2(FunctionProvider provider) {
-		ColorMaskIndexedEXT = provider.getFunctionAddress("glColorMaskIndexedEXT");
-		GetBooleanIndexedvEXT = provider.getFunctionAddress("glGetBooleanIndexedvEXT");
-		GetIntegerIndexedvEXT = provider.getFunctionAddress("glGetIntegerIndexedvEXT");
-		EnableIndexedEXT = provider.getFunctionAddress("glEnableIndexedEXT");
-		DisableIndexedEXT = provider.getFunctionAddress("glDisableIndexedEXT");
-		IsEnabledIndexedEXT = provider.getFunctionAddress("glIsEnabledIndexedEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTDrawBuffers2} instance of the current context. */
-	public static EXTDrawBuffers2 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTDrawBuffers2} instance of the specified {@link GLCapabilities}. */
-	public static EXTDrawBuffers2 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTDrawBuffers2);
-	}
-
-	static EXTDrawBuffers2 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_draw_buffers2") ) return null;
-
-		EXTDrawBuffers2 funcs = new EXTDrawBuffers2(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ColorMaskIndexedEXT, funcs.GetBooleanIndexedvEXT, funcs.GetIntegerIndexedvEXT, funcs.EnableIndexedEXT, funcs.DisableIndexedEXT, 
-			funcs.IsEnabledIndexedEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glColorMaskIndexedEXT, caps.glGetBooleanIndexedvEXT, caps.glGetIntegerIndexedvEXT, caps.glEnableIndexedEXT, caps.glDisableIndexedEXT, 
+			caps.glIsEnabledIndexedEXT
 		);
-
-		return GL.checkExtension("GL_EXT_draw_buffers2", funcs, supported);
 	}
 
 	// --- [ glColorMaskIndexedEXT ] ---
 
 	public static void glColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a) {
-		long __functionAddress = getInstance().ColorMaskIndexedEXT;
+		long __functionAddress = GL.getCapabilities().glColorMaskIndexedEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIZZZZV(__functionAddress, index, r, g, b, a);
 	}
 
@@ -85,7 +51,9 @@ public class EXTDrawBuffers2 {
 
 	/** Unsafe version of {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	public static void nglGetBooleanIndexedvEXT(int target, int index, long data) {
-		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
+		long __functionAddress = GL.getCapabilities().glGetBooleanIndexedvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, index, data);
 	}
 
@@ -96,18 +64,24 @@ public class EXTDrawBuffers2 {
 	}
 
 	/** Single return value version of: {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
-	public static boolean glGetBooleanIndexedEXT(int target, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.booleanParam();
-		nglGetBooleanIndexedvEXT(target, index, __buffer.address(data));
-		return __buffer.booleanValue(data);
+	public static byte glGetBooleanIndexedEXT(int target, int index) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer data = stack.calloc(1);
+			nglGetBooleanIndexedvEXT(target, index, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
 	/** Unsafe version of {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static void nglGetIntegerIndexedvEXT(int target, int index, long data) {
-		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
+		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, index, data);
 	}
 
@@ -126,30 +100,40 @@ public class EXTDrawBuffers2 {
 
 	/** Single return value version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static int glGetIntegerIndexedEXT(int target, int index) {
-		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.intParam();
-		nglGetIntegerIndexedvEXT(target, index, __buffer.address(data));
-		return __buffer.intValue(data);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer data = stack.callocInt(1);
+			nglGetIntegerIndexedvEXT(target, index, memAddress(data));
+			return data.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glEnableIndexedEXT ] ---
 
 	public static void glEnableIndexedEXT(int target, int index) {
-		long __functionAddress = getInstance().EnableIndexedEXT;
+		long __functionAddress = GL.getCapabilities().glEnableIndexedEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableIndexedEXT ] ---
 
 	public static void glDisableIndexedEXT(int target, int index) {
-		long __functionAddress = getInstance().DisableIndexedEXT;
+		long __functionAddress = GL.getCapabilities().glDisableIndexedEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glIsEnabledIndexedEXT ] ---
 
 	public static boolean glIsEnabledIndexedEXT(int target, int index) {
-		long __functionAddress = getInstance().IsEnabledIndexedEXT;
+		long __functionAddress = GL.getCapabilities().glIsEnabledIndexedEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIZ(__functionAddress, target, index);
 	}
 

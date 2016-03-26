@@ -47,49 +47,23 @@ public class ARBBufferStorage {
 	/** Accepted by the {@code barriers} parameter of {@link GL42#glMemoryBarrier MemoryBarrier}. */
 	public static final int GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT = 0x4000;
 
-	/** Function address. */
-	public final long
-		BufferStorage,
-		NamedBufferStorageEXT;
-
 	protected ARBBufferStorage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBBufferStorage(FunctionProvider provider) {
-		BufferStorage = provider.getFunctionAddress("glBufferStorage");
-		NamedBufferStorageEXT = provider.getFunctionAddress("glNamedBufferStorageEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBBufferStorage} instance of the current context. */
-	public static ARBBufferStorage getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBBufferStorage} instance of the specified {@link GLCapabilities}. */
-	public static ARBBufferStorage getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBBufferStorage);
-	}
-
-	static ARBBufferStorage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_buffer_storage") ) return null;
-
-		ARBBufferStorage funcs = new ARBBufferStorage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BufferStorage, ext.contains("GL_EXT_direct_state_access") ? funcs.NamedBufferStorageEXT : -1L
+	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+		return checkFunctions(
+			caps.glBufferStorage, ext.contains("GL_EXT_direct_state_access") ? caps.glNamedBufferStorageEXT : -1L
 		);
-
-		return GL.checkExtension("GL_ARB_buffer_storage", funcs, supported);
 	}
 
 	// --- [ glBufferStorage ] ---
 
 	/** Unsafe version of {@link #glBufferStorage BufferStorage} */
 	public static void nglBufferStorage(int target, long size, long data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
+		long __functionAddress = GL.getCapabilities().glBufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPPIV(__functionAddress, target, size, data, flags);
 	}
 
@@ -184,7 +158,7 @@ public class ARBBufferStorage {
 
 	/** Unsafe version of {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
 	public static void nglNamedBufferStorageEXT(int buffer, long size, long data, int flags) {
-		long __functionAddress = getInstance().NamedBufferStorageEXT;
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPPIV(__functionAddress, buffer, size, data, flags);

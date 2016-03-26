@@ -38,45 +38,22 @@ public class NVFramebufferMultisampleCoverage {
 		GL_MAX_MULTISAMPLE_COVERAGE_MODES_NV = 0x8E11,
 		GL_MULTISAMPLE_COVERAGE_MODES_NV     = 0x8E12;
 
-	/** Function address. */
-	public final long RenderbufferStorageMultisampleCoverageNV;
-
 	protected NVFramebufferMultisampleCoverage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVFramebufferMultisampleCoverage(FunctionProvider provider) {
-		RenderbufferStorageMultisampleCoverageNV = provider.getFunctionAddress("glRenderbufferStorageMultisampleCoverageNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVFramebufferMultisampleCoverage} instance of the current context. */
-	public static NVFramebufferMultisampleCoverage getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVFramebufferMultisampleCoverage} instance of the specified {@link GLCapabilities}. */
-	public static NVFramebufferMultisampleCoverage getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVFramebufferMultisampleCoverage);
-	}
-
-	static NVFramebufferMultisampleCoverage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_framebuffer_multisample_coverage") ) return null;
-
-		NVFramebufferMultisampleCoverage funcs = new NVFramebufferMultisampleCoverage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.RenderbufferStorageMultisampleCoverageNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glRenderbufferStorageMultisampleCoverageNV
 		);
-
-		return GL.checkExtension("GL_NV_framebuffer_multisample_coverage", funcs, supported);
 	}
 
 	// --- [ glRenderbufferStorageMultisampleCoverageNV ] ---
 
 	public static void glRenderbufferStorageMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().RenderbufferStorageMultisampleCoverageNV;
+		long __functionAddress = GL.getCapabilities().glRenderbufferStorageMultisampleCoverageNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, target, coverageSamples, colorSamples, internalformat, width, height);
 	}
 

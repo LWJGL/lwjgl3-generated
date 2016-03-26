@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * The libffi closure structure.
@@ -28,6 +29,8 @@ public class FFIClosure extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	public static final int ALIGNOF;
+
 	/** The struct member offsets. */
 	public static final int
 		CIF,
@@ -35,15 +38,19 @@ public class FFIClosure extends Struct {
 		USER_DATA;
 
 	static {
-		IntBuffer offsets = memAllocInt(3);
+		MemoryStack stack = stackPush();
+		try {
+			IntBuffer offsets = stack.mallocInt(4);
+			SIZEOF = offsets(memAddress(offsets));
 
-		SIZEOF = offsets(memAddress(offsets));
+			CIF = offsets.get(0);
+			FUN = offsets.get(1);
+			USER_DATA = offsets.get(2);
 
-		CIF = offsets.get(0);
-		FUN = offsets.get(1);
-		USER_DATA = offsets.get(2);
-
-		memFree(offsets);
+			ALIGNOF = offsets.get(3);
+		} finally {
+			stack.pop();
+		}
 	}
 
 	private static native int offsets(long buffer);
@@ -131,6 +138,76 @@ public class FFIClosure extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link FFIClosure} instance allocated on the thread-local {@link MemoryStack}. */
+	public static FFIClosure mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link FFIClosure} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static FFIClosure callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link FFIClosure} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static FFIClosure mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link FFIClosure} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static FFIClosure callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link FFIClosure.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link FFIClosure.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link FFIClosure.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link FFIClosure.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #cif}. */
 	public static FFICIF ncif(long struct) { return FFICIF.create(memGetAddress(struct + FFIClosure.CIF)); }
 	/** Unsafe version of {@link #fun}. */
@@ -172,7 +249,7 @@ public class FFIClosure extends Struct {
 
 		@Override
 		protected FFIClosure newInstance(long address) {
-			return new FFIClosure(address, container);
+			return new FFIClosure(address, getContainer());
 		}
 
 		@Override

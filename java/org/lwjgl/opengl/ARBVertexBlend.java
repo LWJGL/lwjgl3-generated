@@ -90,66 +90,24 @@ public class ARBVertexBlend {
 	 */
 	public static final int GL_WEIGHT_ARRAY_ARB = 0x86AD;
 
-	/** Function address. */
-	public final long
-		WeightfvARB,
-		WeightbvARB,
-		WeightubvARB,
-		WeightsvARB,
-		WeightusvARB,
-		WeightivARB,
-		WeightuivARB,
-		WeightdvARB,
-		WeightPointerARB,
-		VertexBlendARB;
-
 	protected ARBVertexBlend() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBVertexBlend(FunctionProvider provider) {
-		WeightfvARB = provider.getFunctionAddress("glWeightfvARB");
-		WeightbvARB = provider.getFunctionAddress("glWeightbvARB");
-		WeightubvARB = provider.getFunctionAddress("glWeightubvARB");
-		WeightsvARB = provider.getFunctionAddress("glWeightsvARB");
-		WeightusvARB = provider.getFunctionAddress("glWeightusvARB");
-		WeightivARB = provider.getFunctionAddress("glWeightivARB");
-		WeightuivARB = provider.getFunctionAddress("glWeightuivARB");
-		WeightdvARB = provider.getFunctionAddress("glWeightdvARB");
-		WeightPointerARB = provider.getFunctionAddress("glWeightPointerARB");
-		VertexBlendARB = provider.getFunctionAddress("glVertexBlendARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBVertexBlend} instance of the current context. */
-	public static ARBVertexBlend getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBVertexBlend} instance of the specified {@link GLCapabilities}. */
-	public static ARBVertexBlend getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBVertexBlend);
-	}
-
-	static ARBVertexBlend create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_vertex_blend") ) return null;
-
-		ARBVertexBlend funcs = new ARBVertexBlend(provider);
-
-		boolean supported = checkFunctions(
-			funcs.WeightfvARB, funcs.WeightbvARB, funcs.WeightubvARB, funcs.WeightsvARB, funcs.WeightusvARB, funcs.WeightivARB, funcs.WeightuivARB, 
-			funcs.WeightdvARB, funcs.WeightPointerARB, funcs.VertexBlendARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glWeightfvARB, caps.glWeightbvARB, caps.glWeightubvARB, caps.glWeightsvARB, caps.glWeightusvARB, caps.glWeightivARB, caps.glWeightuivARB, 
+			caps.glWeightdvARB, caps.glWeightPointerARB, caps.glVertexBlendARB
 		);
-
-		return GL.checkExtension("GL_ARB_vertex_blend", funcs, supported);
 	}
 
 	// --- [ glWeightfvARB ] ---
 
 	/** Unsafe version of {@link #glWeightfvARB WeightfvARB} */
 	public static void nglWeightfvARB(int size, long weights) {
-		long __functionAddress = getInstance().WeightfvARB;
+		long __functionAddress = GL.getCapabilities().glWeightfvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, weights);
 	}
 
@@ -174,7 +132,9 @@ public class ARBVertexBlend {
 
 	/** Unsafe version of {@link #glWeightbvARB WeightbvARB} */
 	public static void nglWeightbvARB(int size, long weights) {
-		long __functionAddress = getInstance().WeightbvARB;
+		long __functionAddress = GL.getCapabilities().glWeightbvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, weights);
 	}
 
@@ -199,7 +159,9 @@ public class ARBVertexBlend {
 
 	/** Unsafe version of {@link #glWeightubvARB WeightubvARB} */
 	public static void nglWeightubvARB(int size, long weights) {
-		long __functionAddress = getInstance().WeightubvARB;
+		long __functionAddress = GL.getCapabilities().glWeightubvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, weights);
 	}
 
@@ -224,7 +186,9 @@ public class ARBVertexBlend {
 
 	/** Unsafe version of {@link #glWeightsvARB WeightsvARB} */
 	public static void nglWeightsvARB(int size, long weights) {
-		long __functionAddress = getInstance().WeightsvARB;
+		long __functionAddress = GL.getCapabilities().glWeightsvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, weights);
 	}
 
@@ -249,7 +213,9 @@ public class ARBVertexBlend {
 
 	/** Unsafe version of {@link #glWeightusvARB WeightusvARB} */
 	public static void nglWeightusvARB(int size, long weights) {
-		long __functionAddress = getInstance().WeightusvARB;
+		long __functionAddress = GL.getCapabilities().glWeightusvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, weights);
 	}
 
@@ -274,7 +240,9 @@ public class ARBVertexBlend {
 
 	/** Unsafe version of {@link #glWeightivARB WeightivARB} */
 	public static void nglWeightivARB(int size, long weights) {
-		long __functionAddress = getInstance().WeightivARB;
+		long __functionAddress = GL.getCapabilities().glWeightivARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, weights);
 	}
 
@@ -299,7 +267,9 @@ public class ARBVertexBlend {
 
 	/** Unsafe version of {@link #glWeightuivARB WeightuivARB} */
 	public static void nglWeightuivARB(int size, long weights) {
-		long __functionAddress = getInstance().WeightuivARB;
+		long __functionAddress = GL.getCapabilities().glWeightuivARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, weights);
 	}
 
@@ -324,7 +294,9 @@ public class ARBVertexBlend {
 
 	/** Unsafe version of {@link #glWeightdvARB WeightdvARB} */
 	public static void nglWeightdvARB(int size, long weights) {
-		long __functionAddress = getInstance().WeightdvARB;
+		long __functionAddress = GL.getCapabilities().glWeightdvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, weights);
 	}
 
@@ -349,7 +321,9 @@ public class ARBVertexBlend {
 
 	/** Unsafe version of {@link #glWeightPointerARB WeightPointerARB} */
 	public static void nglWeightPointerARB(int size, int type, int stride, long pointer) {
-		long __functionAddress = getInstance().WeightPointerARB;
+		long __functionAddress = GL.getCapabilities().glWeightPointerARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -403,7 +377,9 @@ public class ARBVertexBlend {
 	 * @param count the number of transformations to blend
 	 */
 	public static void glVertexBlendARB(int count) {
-		long __functionAddress = getInstance().VertexBlendARB;
+		long __functionAddress = GL.getCapabilities().glVertexBlendARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, count);
 	}
 

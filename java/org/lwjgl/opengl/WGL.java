@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import org.lwjgl.system.windows.*;
@@ -58,61 +59,29 @@ public class WGL {
 		WGL_SWAP_UNDERLAY14 = 0x20000000,
 		WGL_SWAP_UNDERLAY15 = 0x40000000;
 
-	/** Function address. */
-	public final long
-		CreateContext,
-		CreateLayerContext,
-		CopyContext,
-		DeleteContext,
-		GetCurrentContext,
-		GetCurrentDC,
-		GetProcAddress,
-		MakeCurrent,
-		ShareLists,
-		UseFontBitmaps,
-		UseFontOutlines;
-
 	protected WGL() {
 		throw new UnsupportedOperationException();
 	}
 
-	public WGL(FunctionProvider provider) {
-		CreateContext = provider.getFunctionAddress("wglCreateContext");
-		CreateLayerContext = provider.getFunctionAddress("wglCreateLayerContext");
-		CopyContext = provider.getFunctionAddress("wglCopyContext");
-		DeleteContext = provider.getFunctionAddress("wglDeleteContext");
-		GetCurrentContext = provider.getFunctionAddress("wglGetCurrentContext");
-		GetCurrentDC = provider.getFunctionAddress("wglGetCurrentDC");
-		GetProcAddress = provider.getFunctionAddress("wglGetProcAddress");
-		MakeCurrent = provider.getFunctionAddress("wglMakeCurrent");
-		ShareLists = provider.getFunctionAddress("wglShareLists");
-		UseFontBitmaps = provider.getFunctionAddress("wglUseFontBitmapsW");
-		UseFontOutlines = provider.getFunctionAddress("wglUseFontOutlinesW");
-	}
+	/** Contains the function pointers loaded from {@code GL.getFunctionProvider()}. */
+	public static final class Functions {
 
-	// --- [ Function Addresses ] ---
+		private Functions() {}
 
-	/** Returns the {@link WGL} instance of the current context. */
-	public static WGL getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
+		/** Function address. */
+		public static final long
+			CreateContext = apiGetFunctionAddress(GL.getFunctionProvider(), "wglCreateContext"),
+			CreateLayerContext = apiGetFunctionAddress(GL.getFunctionProvider(), "wglCreateLayerContext"),
+			CopyContext = apiGetFunctionAddress(GL.getFunctionProvider(), "wglCopyContext"),
+			DeleteContext = apiGetFunctionAddress(GL.getFunctionProvider(), "wglDeleteContext"),
+			GetCurrentContext = apiGetFunctionAddress(GL.getFunctionProvider(), "wglGetCurrentContext"),
+			GetCurrentDC = apiGetFunctionAddress(GL.getFunctionProvider(), "wglGetCurrentDC"),
+			GetProcAddress = apiGetFunctionAddress(GL.getFunctionProvider(), "wglGetProcAddress"),
+			MakeCurrent = apiGetFunctionAddress(GL.getFunctionProvider(), "wglMakeCurrent"),
+			ShareLists = apiGetFunctionAddress(GL.getFunctionProvider(), "wglShareLists"),
+			UseFontBitmaps = apiGetFunctionAddress(GL.getFunctionProvider(), "wglUseFontBitmapsW"),
+			UseFontOutlines = apiGetFunctionAddress(GL.getFunctionProvider(), "wglUseFontOutlinesW");
 
-	/** Returns the {@link WGL} instance of the specified {@link GLCapabilities}. */
-	public static WGL getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__WGL);
-	}
-
-	static WGL create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL") ) return null;
-
-		WGL funcs = new WGL(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateContext, funcs.CreateLayerContext, funcs.CopyContext, funcs.DeleteContext, funcs.GetCurrentContext, funcs.GetCurrentDC, 
-			funcs.GetProcAddress, funcs.MakeCurrent, funcs.ShareLists, funcs.UseFontBitmaps, funcs.UseFontOutlines
-		);
-
-		return GL.checkExtension("WGL", funcs, supported);
 	}
 
 	// --- [ wglCreateContext ] ---
@@ -124,7 +93,7 @@ public class WGL {
 	 * @param hdc handle to a device context for which the function creates a suitable OpenGL rendering context
 	 */
 	public static long wglCreateContext(long hdc) {
-		long __functionAddress = getInstance().CreateContext;
+		long __functionAddress = Functions.CreateContext;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return callPP(__functionAddress, hdc);
@@ -143,7 +112,7 @@ public class WGL {
 	 *                   structure.
 	 */
 	public static long wglCreateLayerContext(long hdc, int layerPlane) {
-		long __functionAddress = getInstance().CreateLayerContext;
+		long __functionAddress = Functions.CreateLayerContext;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIP(__functionAddress, hdc, layerPlane);
@@ -161,7 +130,7 @@ public class WGL {
 	 *             rendering state information.
 	 */
 	public static int wglCopyContext(long src, long dst, int mask) {
-		long __functionAddress = getInstance().CopyContext;
+		long __functionAddress = Functions.CopyContext;
 		if ( CHECKS ) {
 			checkPointer(src);
 			checkPointer(dst);
@@ -177,7 +146,7 @@ public class WGL {
 	 * @param context handle to an OpenGL rendering context that the function will delete
 	 */
 	public static int wglDeleteContext(long context) {
-		long __functionAddress = getInstance().DeleteContext;
+		long __functionAddress = Functions.DeleteContext;
 		if ( CHECKS )
 			checkPointer(context);
 		return callPI(__functionAddress, context);
@@ -187,7 +156,7 @@ public class WGL {
 
 	/** Obtains a handle to the current OpenGL rendering context of the calling thread. */
 	public static long wglGetCurrentContext() {
-		long __functionAddress = getInstance().GetCurrentContext;
+		long __functionAddress = Functions.GetCurrentContext;
 		return callP(__functionAddress);
 	}
 
@@ -195,7 +164,7 @@ public class WGL {
 
 	/** Obtains a handle to the device context that is associated with the current OpenGL rendering context of the calling thread. */
 	public static long wglGetCurrentDC() {
-		long __functionAddress = getInstance().GetCurrentDC;
+		long __functionAddress = Functions.GetCurrentDC;
 		return callP(__functionAddress);
 	}
 
@@ -203,7 +172,7 @@ public class WGL {
 
 	/** Unsafe version of {@link #wglGetProcAddress GetProcAddress} */
 	public static long nwglGetProcAddress(long proc) {
-		long __functionAddress = getInstance().GetProcAddress;
+		long __functionAddress = Functions.GetProcAddress;
 		return callPP(__functionAddress, proc);
 	}
 
@@ -221,9 +190,13 @@ public class WGL {
 
 	/** CharSequence version of: {@link #wglGetProcAddress GetProcAddress} */
 	public static long wglGetProcAddress(CharSequence proc) {
-		APIBuffer __buffer = apiBuffer();
-		int procEncoded = __buffer.stringParamASCII(proc, true);
-		return nwglGetProcAddress(__buffer.address(procEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer procEncoded = stack.ASCII(proc);
+			return nwglGetProcAddress(memAddress(procEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ wglMakeCurrent ] ---
@@ -232,14 +205,14 @@ public class WGL {
 	 * Makes a specified OpenGL rendering context the calling thread's current rendering context. All subsequent OpenGL calls made by the thread are drawn on
 	 * the device identified by device. You can also use MakeCurrent to change the calling thread's current rendering context so it's no longer current.
 	 *
-	 * @param hdc     handle to a device context. Subsequent OpenGL calls made by the calling thread are drawn on the device identified by {@code dc}.
-	 * @param context handle to an OpenGL rendering context that the function sets as the calling thread's rendering context. If {@code context} is {@code NULL}, the function
-	 *                makes the calling thread's current rendering context no longer current, and releases the device context that is used by the rendering context. In
-	 *                this case, {@code hdc} is ignored.
+	 * @param hdc   handle to a device context. Subsequent OpenGL calls made by the calling thread are drawn on the device identified by {@code dc}.
+	 * @param hglrc handle to an OpenGL rendering context that the function sets as the calling thread's rendering context. If {@code context} is {@code NULL}, the function
+	 *              makes the calling thread's current rendering context no longer current, and releases the device context that is used by the rendering context. In
+	 *              this case, {@code hdc} is ignored.
 	 */
-	public static int wglMakeCurrent(long hdc, long context) {
-		long __functionAddress = getInstance().MakeCurrent;
-		return callPPI(__functionAddress, hdc, context);
+	public static int wglMakeCurrent(long hdc, long hglrc) {
+		long __functionAddress = Functions.MakeCurrent;
+		return callPPI(__functionAddress, hdc, hglrc);
 	}
 
 	// --- [ wglShareLists ] ---
@@ -247,17 +220,17 @@ public class WGL {
 	/**
 	 * Enables multiple OpenGL rendering contexts to share a single display-list space.
 	 *
-	 * @param context1 the OpenGL rendering context with which to share display lists.
-	 * @param context2 the OpenGL rendering context to share display lists with {@code context1}. The {@code context2} parameter should not contain any existing display
-	 *                 lists when {@code wglShareLists} is called.
+	 * @param hglrc1 the OpenGL rendering context with which to share display lists.
+	 * @param hglrc2 the OpenGL rendering context to share display lists with {@code hglrc1}. The {@code hglrc2} parameter should not contain any existing display lists
+	 *               when {@code wglShareLists} is called.
 	 */
-	public static int wglShareLists(long context1, long context2) {
-		long __functionAddress = getInstance().ShareLists;
+	public static int wglShareLists(long hglrc1, long hglrc2) {
+		long __functionAddress = Functions.ShareLists;
 		if ( CHECKS ) {
-			checkPointer(context1);
-			checkPointer(context2);
+			checkPointer(hglrc1);
+			checkPointer(hglrc2);
 		}
-		return callPPI(__functionAddress, context1, context2);
+		return callPPI(__functionAddress, hglrc1, hglrc2);
 	}
 
 	// --- [ wglUseFontBitmaps ] ---
@@ -274,7 +247,7 @@ public class WGL {
 	 * @param listBase the starting display list
 	 */
 	public static int wglUseFontBitmaps(long hdc, int first, int count, int listBase) {
-		long __functionAddress = getInstance().UseFontBitmaps;
+		long __functionAddress = Functions.UseFontBitmaps;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIIII(__functionAddress, hdc, first, count, listBase);
@@ -284,7 +257,7 @@ public class WGL {
 
 	/** Unsafe version of {@link #wglUseFontOutlines UseFontOutlines} */
 	public static int nwglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, long glyphMetrics) {
-		long __functionAddress = getInstance().UseFontOutlines;
+		long __functionAddress = Functions.UseFontOutlines;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIIIFFIPI(__functionAddress, hdc, first, count, listBase, deviation, extrusion, format, glyphMetrics);

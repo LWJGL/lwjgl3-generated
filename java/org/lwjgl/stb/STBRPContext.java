@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /** The opaque {@code stbrp_context} struct. */
 public class STBRPContext extends Struct {
@@ -18,11 +19,20 @@ public class STBRPContext extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	public static final int ALIGNOF;
+
 	static {
-		SIZEOF = offsets();
+		MemoryStack stack = stackPush();
+		try {
+			IntBuffer offsets = stack.mallocInt(1);
+			SIZEOF = offsets(memAddress(offsets));
+			ALIGNOF = offsets.get(0);
+		} finally {
+			stack.pop();
+		}
 	}
 
-	private static native int offsets();
+	private static native int offsets(long buffer);
 
 	STBRPContext(long address, ByteBuffer container) {
 		super(address, container);
@@ -102,6 +112,76 @@ public class STBRPContext extends Struct {
 
 	// -----------------------------------
 
+	/** Returns a new {@link STBRPContext} instance allocated on the thread-local {@link MemoryStack}. */
+	public static STBRPContext mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link STBRPContext} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static STBRPContext callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link STBRPContext} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static STBRPContext mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBRPContext} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static STBRPContext callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBRPContext.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link STBRPContext.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link STBRPContext.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link STBRPContext.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
+	// -----------------------------------
+
 	/** An array of {@link STBRPContext} structs. */
 	public static final class Buffer extends StructBuffer<STBRPContext, Buffer> {
 
@@ -134,7 +214,7 @@ public class STBRPContext extends Struct {
 
 		@Override
 		protected STBRPContext newInstance(long address) {
-			return new STBRPContext(address, container);
+			return new STBRPContext(address, getContainer());
 		}
 
 		@Override

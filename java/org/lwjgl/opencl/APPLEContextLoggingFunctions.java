@@ -24,49 +24,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class APPLEContextLoggingFunctions {
 
-	/** Function address. */
-	public final long
-		LogMessagesToSystemLogAPPLE,
-		LogMessagesToStdoutAPPLE,
-		LogMessagesToStderrAPPLE;
-
 	protected APPLEContextLoggingFunctions() {
 		throw new UnsupportedOperationException();
 	}
 
-	public APPLEContextLoggingFunctions(FunctionProvider provider) {
-		LogMessagesToSystemLogAPPLE = provider.getFunctionAddress("clLogMessagesToSystemLogAPPLE");
-		LogMessagesToStdoutAPPLE = provider.getFunctionAddress("clLogMessagesToStdoutAPPLE");
-		LogMessagesToStderrAPPLE = provider.getFunctionAddress("clLogMessagesToStderrAPPLE");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link APPLEContextLoggingFunctions} instance of the currently loaded ICD. */
-	public static APPLEContextLoggingFunctions getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link APPLEContextLoggingFunctions} instance of the specified {@link CLCapabilities}. */
-	public static APPLEContextLoggingFunctions getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__APPLEContextLoggingFunctions);
-	}
-
-	static APPLEContextLoggingFunctions create(FunctionProvider provider) {
-		APPLEContextLoggingFunctions funcs = new APPLEContextLoggingFunctions(provider);
-
-		boolean supported = checkFunctions(
-			funcs.LogMessagesToSystemLogAPPLE, funcs.LogMessagesToStdoutAPPLE, funcs.LogMessagesToStderrAPPLE
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clLogMessagesToSystemLogAPPLE, caps.clLogMessagesToStdoutAPPLE, caps.clLogMessagesToStderrAPPLE
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clLogMessagesToSystemLogAPPLE ] ---
 
 	/** Unsafe version of {@link #clLogMessagesToSystemLogAPPLE LogMessagesToSystemLogAPPLE} */
 	public static void nclLogMessagesToSystemLogAPPLE(long errstr, long private_info, long cb, long user_data) {
-		long __functionAddress = getInstance().LogMessagesToSystemLogAPPLE;
+		long __functionAddress = CL.getICD().clLogMessagesToSystemLogAPPLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 
@@ -86,7 +60,9 @@ public class APPLEContextLoggingFunctions {
 
 	/** Unsafe version of {@link #clLogMessagesToStdoutAPPLE LogMessagesToStdoutAPPLE} */
 	public static void nclLogMessagesToStdoutAPPLE(long errstr, long private_info, long cb, long user_data) {
-		long __functionAddress = getInstance().LogMessagesToStdoutAPPLE;
+		long __functionAddress = CL.getICD().clLogMessagesToStdoutAPPLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 
@@ -106,7 +82,9 @@ public class APPLEContextLoggingFunctions {
 
 	/** Unsafe version of {@link #clLogMessagesToStderrAPPLE LogMessagesToStderrAPPLE} */
 	public static void nclLogMessagesToStderrAPPLE(long errstr, long private_info, long cb, long user_data) {
-		long __functionAddress = getInstance().LogMessagesToStderrAPPLE;
+		long __functionAddress = CL.getICD().clLogMessagesToStderrAPPLE;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 

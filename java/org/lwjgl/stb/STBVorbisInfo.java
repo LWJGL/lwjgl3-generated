@@ -11,6 +11,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Information about a Vorbis stream.
@@ -31,7 +32,7 @@ public class STBVorbisInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -53,7 +54,7 @@ public class STBVorbisInfo extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		SAMPLE_RATE = layout.offsetof(0);
 		CHANNELS = layout.offsetof(1);
@@ -152,6 +153,76 @@ public class STBVorbisInfo extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link STBVorbisInfo} instance allocated on the thread-local {@link MemoryStack}. */
+	public static STBVorbisInfo mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link STBVorbisInfo} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static STBVorbisInfo callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link STBVorbisInfo} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static STBVorbisInfo mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBVorbisInfo} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static STBVorbisInfo callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBVorbisInfo.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link STBVorbisInfo.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link STBVorbisInfo.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link STBVorbisInfo.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #sample_rate}. */
 	public static int nsample_rate(long struct) { return memGetInt(struct + STBVorbisInfo.SAMPLE_RATE); }
 	/** Unsafe version of {@link #channels}. */
@@ -199,7 +270,7 @@ public class STBVorbisInfo extends Struct {
 
 		@Override
 		protected STBVorbisInfo newInstance(long address) {
-			return new STBVorbisInfo(address, container);
+			return new STBVorbisInfo(address, getContainer());
 		}
 
 		@Override

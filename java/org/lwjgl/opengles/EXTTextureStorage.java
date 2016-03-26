@@ -59,91 +59,68 @@ public class EXTTextureStorage {
 		GL_RG16F_EXT              = 0x822F,
 		GL_RGB_RAW_422_APPLE      = 0x8A51;
 
-	/** Function address. */
-	public final long
-		TexStorage1DEXT,
-		TexStorage2DEXT,
-		TexStorage3DEXT,
-		TextureStorage1DEXT,
-		TextureStorage2DEXT,
-		TextureStorage3DEXT;
-
 	protected EXTTextureStorage() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTTextureStorage(FunctionProvider provider) {
-		TexStorage1DEXT = provider.getFunctionAddress("glTexStorage1DEXT");
-		TexStorage2DEXT = provider.getFunctionAddress("glTexStorage2DEXT");
-		TexStorage3DEXT = provider.getFunctionAddress("glTexStorage3DEXT");
-		TextureStorage1DEXT = provider.getFunctionAddress("glTextureStorage1DEXT");
-		TextureStorage2DEXT = provider.getFunctionAddress("glTextureStorage2DEXT");
-		TextureStorage3DEXT = provider.getFunctionAddress("glTextureStorage3DEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTTextureStorage} instance of the current context. */
-	public static EXTTextureStorage getInstance() {
-		return getInstance(GLES.getCapabilities());
-	}
-
-	/** Returns the {@link EXTTextureStorage} instance of the specified {@link GLESCapabilities}. */
-	public static EXTTextureStorage getInstance(GLESCapabilities caps) {
-		return checkFunctionality(caps.__EXTTextureStorage);
-	}
-
-	static EXTTextureStorage create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_texture_storage") ) return null;
-
-		EXTTextureStorage funcs = new EXTTextureStorage(provider);
-		boolean supported = checkFunctions(
-			funcs.TexStorage1DEXT, funcs.TexStorage2DEXT, funcs.TexStorage3DEXT, funcs.TextureStorage1DEXT, funcs.TextureStorage2DEXT, 
-			funcs.TextureStorage3DEXT
+	static boolean isAvailable(GLESCapabilities caps) {
+		return checkFunctions(
+			caps.glTexStorage1DEXT, caps.glTexStorage2DEXT, caps.glTexStorage3DEXT, caps.glTextureStorage1DEXT, caps.glTextureStorage2DEXT, 
+			caps.glTextureStorage3DEXT
 		);
-
-		return GLES.checkExtension("GL_EXT_texture_storage", funcs, supported);
 	}
 
 	// --- [ glTexStorage1DEXT ] ---
 
 	public static void glTexStorage1DEXT(int target, int levels, int internalformat, int width) {
-		long __functionAddress = getInstance().TexStorage1DEXT;
+		long __functionAddress = GLES.getCapabilities().glTexStorage1DEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2DEXT ] ---
 
 	public static void glTexStorage2DEXT(int target, int levels, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().TexStorage2DEXT;
+		long __functionAddress = GLES.getCapabilities().glTexStorage2DEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3DEXT ] ---
 
 	public static void glTexStorage3DEXT(int target, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = getInstance().TexStorage3DEXT;
+		long __functionAddress = GLES.getCapabilities().glTexStorage3DEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage1DEXT ] ---
 
 	public static void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width) {
-		long __functionAddress = getInstance().TextureStorage1DEXT;
+		long __functionAddress = GLES.getCapabilities().glTextureStorage1DEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, texture, target, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2DEXT ] ---
 
 	public static void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().TextureStorage2DEXT;
+		long __functionAddress = GLES.getCapabilities().glTextureStorage2DEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3DEXT ] ---
 
 	public static void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = getInstance().TextureStorage3DEXT;
+		long __functionAddress = GLES.getCapabilities().glTextureStorage3DEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
 	}
 

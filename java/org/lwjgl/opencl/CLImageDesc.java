@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Describes the type and dimensions of the image or image array.
@@ -66,7 +67,7 @@ public class CLImageDesc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -96,7 +97,7 @@ public class CLImageDesc extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		IMAGE_TYPE = layout.offsetof(0);
 		IMAGE_WIDTH = layout.offsetof(1);
@@ -272,6 +273,76 @@ public class CLImageDesc extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link CLImageDesc} instance allocated on the thread-local {@link MemoryStack}. */
+	public static CLImageDesc mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link CLImageDesc} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static CLImageDesc callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link CLImageDesc} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static CLImageDesc mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link CLImageDesc} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static CLImageDesc callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link CLImageDesc.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link CLImageDesc.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link CLImageDesc.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link CLImageDesc.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #image_type}. */
 	public static int nimage_type(long struct) { return memGetInt(struct + CLImageDesc.IMAGE_TYPE); }
 	/** Unsafe version of {@link #image_width}. */
@@ -348,7 +419,7 @@ public class CLImageDesc extends Struct {
 
 		@Override
 		protected CLImageDesc newInstance(long address) {
-			return new CLImageDesc(address, container);
+			return new CLImageDesc(address, getContainer());
 		}
 
 		@Override

@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -43,59 +43,23 @@ public class NVTransformFeedback2 {
 		GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE_NV = 0x8E24,
 		GL_TRANSFORM_FEEDBACK_BINDING_NV       = 0x8E25;
 
-	/** Function address. */
-	public final long
-		BindTransformFeedbackNV,
-		DeleteTransformFeedbacksNV,
-		GenTransformFeedbacksNV,
-		IsTransformFeedbackNV,
-		PauseTransformFeedbackNV,
-		ResumeTransformFeedbackNV,
-		DrawTransformFeedbackNV;
-
 	protected NVTransformFeedback2() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVTransformFeedback2(FunctionProvider provider) {
-		BindTransformFeedbackNV = provider.getFunctionAddress("glBindTransformFeedbackNV");
-		DeleteTransformFeedbacksNV = provider.getFunctionAddress("glDeleteTransformFeedbacksNV");
-		GenTransformFeedbacksNV = provider.getFunctionAddress("glGenTransformFeedbacksNV");
-		IsTransformFeedbackNV = provider.getFunctionAddress("glIsTransformFeedbackNV");
-		PauseTransformFeedbackNV = provider.getFunctionAddress("glPauseTransformFeedbackNV");
-		ResumeTransformFeedbackNV = provider.getFunctionAddress("glResumeTransformFeedbackNV");
-		DrawTransformFeedbackNV = provider.getFunctionAddress("glDrawTransformFeedbackNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVTransformFeedback2} instance of the current context. */
-	public static NVTransformFeedback2 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link NVTransformFeedback2} instance of the specified {@link GLCapabilities}. */
-	public static NVTransformFeedback2 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__NVTransformFeedback2);
-	}
-
-	static NVTransformFeedback2 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_NV_transform_feedback2") ) return null;
-
-		NVTransformFeedback2 funcs = new NVTransformFeedback2(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindTransformFeedbackNV, funcs.DeleteTransformFeedbacksNV, funcs.GenTransformFeedbacksNV, funcs.IsTransformFeedbackNV, 
-			funcs.PauseTransformFeedbackNV, funcs.ResumeTransformFeedbackNV, funcs.DrawTransformFeedbackNV
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glBindTransformFeedbackNV, caps.glDeleteTransformFeedbacksNV, caps.glGenTransformFeedbacksNV, caps.glIsTransformFeedbackNV, 
+			caps.glPauseTransformFeedbackNV, caps.glResumeTransformFeedbackNV, caps.glDrawTransformFeedbackNV
 		);
-
-		return GL.checkExtension("GL_NV_transform_feedback2", funcs, supported);
 	}
 
 	// --- [ glBindTransformFeedbackNV ] ---
 
 	public static void glBindTransformFeedbackNV(int target, int id) {
-		long __functionAddress = getInstance().BindTransformFeedbackNV;
+		long __functionAddress = GL.getCapabilities().glBindTransformFeedbackNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, target, id);
 	}
 
@@ -103,7 +67,9 @@ public class NVTransformFeedback2 {
 
 	/** Unsafe version of {@link #glDeleteTransformFeedbacksNV DeleteTransformFeedbacksNV} */
 	public static void nglDeleteTransformFeedbacksNV(int n, long ids) {
-		long __functionAddress = getInstance().DeleteTransformFeedbacksNV;
+		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacksNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -120,16 +86,22 @@ public class NVTransformFeedback2 {
 
 	/** Single value version of: {@link #glDeleteTransformFeedbacksNV DeleteTransformFeedbacksNV} */
 	public static void glDeleteTransformFeedbacksNV(int id) {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam(id);
-		nglDeleteTransformFeedbacksNV(1, __buffer.address(ids));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.ints(id);
+			nglDeleteTransformFeedbacksNV(1, memAddress(ids));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGenTransformFeedbacksNV ] ---
 
 	/** Unsafe version of {@link #glGenTransformFeedbacksNV GenTransformFeedbacksNV} */
 	public static void nglGenTransformFeedbacksNV(int n, long ids) {
-		long __functionAddress = getInstance().GenTransformFeedbacksNV;
+		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacksNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, n, ids);
 	}
 
@@ -150,37 +122,49 @@ public class NVTransformFeedback2 {
 
 	/** Single return value version of: {@link #glGenTransformFeedbacksNV GenTransformFeedbacksNV} */
 	public static int glGenTransformFeedbacksNV() {
-		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam();
-		nglGenTransformFeedbacksNV(1, __buffer.address(ids));
-		return __buffer.intValue(ids);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer ids = stack.callocInt(1);
+			nglGenTransformFeedbacksNV(1, memAddress(ids));
+			return ids.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glIsTransformFeedbackNV ] ---
 
 	public static boolean glIsTransformFeedbackNV(int id) {
-		long __functionAddress = getInstance().IsTransformFeedbackNV;
+		long __functionAddress = GL.getCapabilities().glIsTransformFeedbackNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, id);
 	}
 
 	// --- [ glPauseTransformFeedbackNV ] ---
 
 	public static void glPauseTransformFeedbackNV() {
-		long __functionAddress = getInstance().PauseTransformFeedbackNV;
+		long __functionAddress = GL.getCapabilities().glPauseTransformFeedbackNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
 	// --- [ glResumeTransformFeedbackNV ] ---
 
 	public static void glResumeTransformFeedbackNV() {
-		long __functionAddress = getInstance().ResumeTransformFeedbackNV;
+		long __functionAddress = GL.getCapabilities().glResumeTransformFeedbackNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
 
 	// --- [ glDrawTransformFeedbackNV ] ---
 
 	public static void glDrawTransformFeedbackNV(int mode, int id) {
-		long __functionAddress = getInstance().DrawTransformFeedbackNV;
+		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, mode, id);
 	}
 

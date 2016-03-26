@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -67,52 +67,14 @@ public class ARBSync {
 		GL_CONDITION_SATISFIED = 0x911C,
 		GL_WAIT_FAILED         = 0x911D;
 
-	/** Function address. */
-	public final long
-		FenceSync,
-		IsSync,
-		DeleteSync,
-		ClientWaitSync,
-		WaitSync,
-		GetInteger64v,
-		GetSynciv;
-
 	protected ARBSync() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBSync(FunctionProvider provider) {
-		FenceSync = provider.getFunctionAddress("glFenceSync");
-		IsSync = provider.getFunctionAddress("glIsSync");
-		DeleteSync = provider.getFunctionAddress("glDeleteSync");
-		ClientWaitSync = provider.getFunctionAddress("glClientWaitSync");
-		WaitSync = provider.getFunctionAddress("glWaitSync");
-		GetInteger64v = provider.getFunctionAddress("glGetInteger64v");
-		GetSynciv = provider.getFunctionAddress("glGetSynciv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBSync} instance of the current context. */
-	public static ARBSync getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBSync} instance of the specified {@link GLCapabilities}. */
-	public static ARBSync getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBSync);
-	}
-
-	static ARBSync create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_sync") ) return null;
-
-		ARBSync funcs = new ARBSync(provider);
-
-		boolean supported = checkFunctions(
-			funcs.FenceSync, funcs.IsSync, funcs.DeleteSync, funcs.ClientWaitSync, funcs.WaitSync, funcs.GetInteger64v, funcs.GetSynciv
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glFenceSync, caps.glIsSync, caps.glDeleteSync, caps.glClientWaitSync, caps.glWaitSync, caps.glGetInteger64v, caps.glGetSynciv
 		);
-
-		return GL.checkExtension("GL_ARB_sync", funcs, supported);
 	}
 
 	// --- [ glFenceSync ] ---
@@ -125,7 +87,9 @@ public class ARBSync {
 	 *                  be zero.
 	 */
 	public static long glFenceSync(int condition, int flags) {
-		long __functionAddress = getInstance().FenceSync;
+		long __functionAddress = GL.getCapabilities().glFenceSync;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIIP(__functionAddress, condition, flags);
 	}
 
@@ -137,9 +101,11 @@ public class ARBSync {
 	 * @param sync a value that may be the name of a sync object
 	 */
 	public static boolean glIsSync(long sync) {
-		long __functionAddress = getInstance().IsSync;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glIsSync;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		return callPZ(__functionAddress, sync);
 	}
 
@@ -151,9 +117,11 @@ public class ARBSync {
 	 * @param sync the sync object to be deleted
 	 */
 	public static void glDeleteSync(long sync) {
-		long __functionAddress = getInstance().DeleteSync;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glDeleteSync;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		callPV(__functionAddress, sync);
 	}
 
@@ -177,9 +145,11 @@ public class ARBSync {
 	 * @param timeout the timeout, specified in nanoseconds, for which the implementation should wait for {@code sync} to become signaled
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
-		long __functionAddress = getInstance().ClientWaitSync;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glClientWaitSync;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
 
@@ -199,9 +169,11 @@ public class ARBSync {
 	 * @param timeout the timeout that the server should wait before continuing. Must be:<br>{@link #GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
-		long __functionAddress = getInstance().WaitSync;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glWaitSync;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		callPIJV(__functionAddress, sync, flags, timeout);
 	}
 
@@ -209,7 +181,9 @@ public class ARBSync {
 
 	/** Unsafe version of {@link #glGetInteger64v GetInteger64v} */
 	public static void nglGetInteger64v(int pname, long params) {
-		long __functionAddress = getInstance().GetInteger64v;
+		long __functionAddress = GL.getCapabilities().glGetInteger64v;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
 
@@ -234,19 +208,25 @@ public class ARBSync {
 
 	/** Single return value version of: {@link #glGetInteger64v GetInteger64v} */
 	public static long glGetInteger64(int pname) {
-		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.longParam();
-		nglGetInteger64v(pname, __buffer.address(params));
-		return __buffer.longValue(params);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer params = stack.callocLong(1);
+			nglGetInteger64v(pname, memAddress(params));
+			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ glGetSynciv ] ---
 
 	/** Unsafe version of {@link #glGetSynciv GetSynciv} */
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
-		long __functionAddress = getInstance().GetSynciv;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glGetSynciv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
+		}
 		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
@@ -278,10 +258,14 @@ public class ARBSync {
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		APIBuffer __buffer = apiBuffer();
-		int values = __buffer.intParam();
-		nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address(values));
-		return __buffer.intValue(values);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer values = stack.callocInt(1);
+			nglGetSynciv(sync, pname, 1, memAddressSafe(length), memAddress(values));
+			return values.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

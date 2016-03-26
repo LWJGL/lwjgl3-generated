@@ -30,44 +30,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBBaseInstance {
 
-	/** Function address. */
-	public final long
-		DrawArraysInstancedBaseInstance,
-		DrawElementsInstancedBaseInstance,
-		DrawElementsInstancedBaseVertexBaseInstance;
-
 	protected ARBBaseInstance() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBBaseInstance(FunctionProvider provider) {
-		DrawArraysInstancedBaseInstance = provider.getFunctionAddress("glDrawArraysInstancedBaseInstance");
-		DrawElementsInstancedBaseInstance = provider.getFunctionAddress("glDrawElementsInstancedBaseInstance");
-		DrawElementsInstancedBaseVertexBaseInstance = provider.getFunctionAddress("glDrawElementsInstancedBaseVertexBaseInstance");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBBaseInstance} instance of the current context. */
-	public static ARBBaseInstance getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBBaseInstance} instance of the specified {@link GLCapabilities}. */
-	public static ARBBaseInstance getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBBaseInstance);
-	}
-
-	static ARBBaseInstance create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_base_instance") ) return null;
-
-		ARBBaseInstance funcs = new ARBBaseInstance(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DrawArraysInstancedBaseInstance, funcs.DrawElementsInstancedBaseInstance, funcs.DrawElementsInstancedBaseVertexBaseInstance
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDrawArraysInstancedBaseInstance, caps.glDrawElementsInstancedBaseInstance, caps.glDrawElementsInstancedBaseVertexBaseInstance
 		);
-
-		return GL.checkExtension("GL_ARB_base_instance", funcs, supported);
 	}
 
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
@@ -82,7 +52,9 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
-		long __functionAddress = getInstance().DrawArraysInstancedBaseInstance;
+		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedBaseInstance;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, mode, first, count, primcount, baseinstance);
 	}
 
@@ -90,7 +62,9 @@ public class ARBBaseInstance {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseInstance DrawElementsInstancedBaseInstance} */
 	public static void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
-		long __functionAddress = getInstance().DrawElementsInstancedBaseInstance;
+		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseInstance;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
 	}
 
@@ -151,7 +125,9 @@ public class ARBBaseInstance {
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance} */
 	public static void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
-		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstance;
+		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertexBaseInstance;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIPIIIV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
 	}
 

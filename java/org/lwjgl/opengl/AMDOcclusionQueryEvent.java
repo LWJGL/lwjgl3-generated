@@ -35,39 +35,14 @@ public class AMDOcclusionQueryEvent {
 		GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD = 0x8,
 		GL_QUERY_ALL_EVENT_BITS_AMD              = 0xFFFFFFFF;
 
-	/** Function address. */
-	public final long QueryObjectParameteruiAMD;
-
 	protected AMDOcclusionQueryEvent() {
 		throw new UnsupportedOperationException();
 	}
 
-	public AMDOcclusionQueryEvent(FunctionProvider provider) {
-		QueryObjectParameteruiAMD = provider.getFunctionAddress("glQueryObjectParameteruiAMD");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link AMDOcclusionQueryEvent} instance of the current context. */
-	public static AMDOcclusionQueryEvent getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link AMDOcclusionQueryEvent} instance of the specified {@link GLCapabilities}. */
-	public static AMDOcclusionQueryEvent getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__AMDOcclusionQueryEvent);
-	}
-
-	static AMDOcclusionQueryEvent create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_AMD_occlusion_query_event") ) return null;
-
-		AMDOcclusionQueryEvent funcs = new AMDOcclusionQueryEvent(provider);
-
-		boolean supported = checkFunctions(
-			funcs.QueryObjectParameteruiAMD
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glQueryObjectParameteruiAMD
 		);
-
-		return GL.checkExtension("GL_AMD_occlusion_query_event", funcs, supported);
 	}
 
 	// --- [ glQueryObjectParameteruiAMD ] ---
@@ -81,7 +56,9 @@ public class AMDOcclusionQueryEvent {
 	 * @param param  the new value. One of:<br>{@link #GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD QUERY_DEPTH_PASS_EVENT_BIT_AMD}, {@link #GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD QUERY_DEPTH_FAIL_EVENT_BIT_AMD}, {@link #GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD QUERY_STENCIL_FAIL_EVENT_BIT_AMD}, {@link #GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD}, {@link #GL_QUERY_ALL_EVENT_BITS_AMD QUERY_ALL_EVENT_BITS_AMD}
 	 */
 	public static void glQueryObjectParameteruiAMD(int target, int id, int pname, int param) {
-		long __functionAddress = getInstance().QueryObjectParameteruiAMD;
+		long __functionAddress = GL.getCapabilities().glQueryObjectParameteruiAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, id, pname, param);
 	}
 

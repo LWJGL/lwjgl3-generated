@@ -31,35 +31,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NOKSwapRegion2 {
 
-	/** Function address. */
-	public final long SwapBuffersRegion2NOK;
-
 	protected NOKSwapRegion2() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NOKSwapRegion2(FunctionProvider provider) {
-		SwapBuffersRegion2NOK = provider.getFunctionAddress("eglSwapBuffersRegion2NOK");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NOKSwapRegion2} instance. */
-	public static NOKSwapRegion2 getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link NOKSwapRegion2} instance of the specified {@link EGLCapabilities}. */
-	public static NOKSwapRegion2 getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__NOKSwapRegion2);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglSwapBuffersRegion2NOK
+		);
 	}
 
 	// --- [ eglSwapBuffersRegion2NOK ] ---
 
 	/** Unsafe version of {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */
 	public static int neglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, long rects) {
-		long __functionAddress = getInstance().SwapBuffersRegion2NOK;
+		long __functionAddress = EGL.getCapabilities().eglSwapBuffersRegion2NOK;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}

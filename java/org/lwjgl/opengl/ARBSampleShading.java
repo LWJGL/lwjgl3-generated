@@ -40,39 +40,14 @@ public class ARBSampleShading {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int GL_MIN_SAMPLE_SHADING_VALUE_ARB = 0x8C37;
 
-	/** Function address. */
-	public final long MinSampleShadingARB;
-
 	protected ARBSampleShading() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBSampleShading(FunctionProvider provider) {
-		MinSampleShadingARB = provider.getFunctionAddress("glMinSampleShadingARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBSampleShading} instance of the current context. */
-	public static ARBSampleShading getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBSampleShading} instance of the specified {@link GLCapabilities}. */
-	public static ARBSampleShading getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBSampleShading);
-	}
-
-	static ARBSampleShading create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_sample_shading") ) return null;
-
-		ARBSampleShading funcs = new ARBSampleShading(provider);
-
-		boolean supported = checkFunctions(
-			funcs.MinSampleShadingARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glMinSampleShadingARB
 		);
-
-		return GL.checkExtension("GL_ARB_sample_shading", funcs, supported);
 	}
 
 	// --- [ glMinSampleShadingARB ] ---
@@ -83,7 +58,9 @@ public class ARBSampleShading {
 	 * @param value the minimum sample shading fraction
 	 */
 	public static void glMinSampleShadingARB(float value) {
-		long __functionAddress = getInstance().MinSampleShadingARB;
+		long __functionAddress = GL.getCapabilities().glMinSampleShadingARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, value);
 	}
 

@@ -28,55 +28,23 @@ public class GLXEXTImportContext {
 		GLX_VISUAL_ID_EXT     = 0x800B,
 		GLX_SCREEN_EXT        = 0x800C;
 
-	/** Function address. */
-	public final long
-		GetCurrentDisplayEXT,
-		QueryContextInfoEXT,
-		GetContextIDEXT,
-		ImportContextEXT,
-		FreeContextEXT;
-
 	protected GLXEXTImportContext() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXEXTImportContext(FunctionProvider provider) {
-		GetCurrentDisplayEXT = provider.getFunctionAddress("glXGetCurrentDisplayEXT");
-		QueryContextInfoEXT = provider.getFunctionAddress("glXQueryContextInfoEXT");
-		GetContextIDEXT = provider.getFunctionAddress("glXGetContextIDEXT");
-		ImportContextEXT = provider.getFunctionAddress("glXImportContextEXT");
-		FreeContextEXT = provider.getFunctionAddress("glXFreeContextEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXEXTImportContext} instance of the current context. */
-	public static GLXEXTImportContext getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXEXTImportContext} instance of the specified {@link GLCapabilities}. */
-	public static GLXEXTImportContext getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXEXTImportContext);
-	}
-
-	static GLXEXTImportContext create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_EXT_import_context") ) return null;
-
-		GLXEXTImportContext funcs = new GLXEXTImportContext(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetCurrentDisplayEXT, funcs.QueryContextInfoEXT, funcs.GetContextIDEXT, funcs.ImportContextEXT, funcs.FreeContextEXT
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXGetCurrentDisplayEXT, caps.glXQueryContextInfoEXT, caps.glXGetContextIDEXT, caps.glXImportContextEXT, caps.glXFreeContextEXT
 		);
-
-		return GL.checkExtension("GLX_EXT_import_context", funcs, supported);
 	}
 
 	// --- [ glXGetCurrentDisplayEXT ] ---
 
 	/** Returns the display associated with the current context. */
 	public static long glXGetCurrentDisplayEXT() {
-		long __functionAddress = getInstance().GetCurrentDisplayEXT;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentDisplayEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callP(__functionAddress);
 	}
 
@@ -84,8 +52,9 @@ public class GLXEXTImportContext {
 
 	/** Unsafe version of {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
 	public static int nglXQueryContextInfoEXT(long display, long context, int attribute, long value) {
-		long __functionAddress = getInstance().QueryContextInfoEXT;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContextInfoEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(context);
 		}
@@ -121,9 +90,11 @@ public class GLXEXTImportContext {
 	 * @param context the context
 	 */
 	public static long glXGetContextIDEXT(long context) {
-		long __functionAddress = getInstance().GetContextIDEXT;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetContextIDEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPP(__functionAddress, context);
 	}
 
@@ -136,9 +107,11 @@ public class GLXEXTImportContext {
 	 * @param contextID the context XID
 	 */
 	public static long glXImportContextEXT(long display, long contextID) {
-		long __functionAddress = getInstance().ImportContextEXT;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXImportContextEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPPP(__functionAddress, display, contextID);
 	}
 
@@ -151,8 +124,9 @@ public class GLXEXTImportContext {
 	 * @param context the context to free
 	 */
 	public static void glXFreeContextEXT(long display, long context) {
-		long __functionAddress = getInstance().FreeContextEXT;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXFreeContextEXT;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(context);
 		}

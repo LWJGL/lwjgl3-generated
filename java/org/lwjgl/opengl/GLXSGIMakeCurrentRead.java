@@ -19,42 +19,14 @@ import static org.lwjgl.system.JNI.*;
  */
 public class GLXSGIMakeCurrentRead {
 
-	/** Function address. */
-	public final long
-		MakeCurrentReadSGI,
-		GetCurrentReadDrawableSGI;
-
 	protected GLXSGIMakeCurrentRead() {
 		throw new UnsupportedOperationException();
 	}
 
-	public GLXSGIMakeCurrentRead(FunctionProvider provider) {
-		MakeCurrentReadSGI = provider.getFunctionAddress("glXMakeCurrentReadSGI");
-		GetCurrentReadDrawableSGI = provider.getFunctionAddress("glXGetCurrentReadDrawableSGI");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link GLXSGIMakeCurrentRead} instance of the current context. */
-	public static GLXSGIMakeCurrentRead getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link GLXSGIMakeCurrentRead} instance of the specified {@link GLCapabilities}. */
-	public static GLXSGIMakeCurrentRead getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__GLXSGIMakeCurrentRead);
-	}
-
-	static GLXSGIMakeCurrentRead create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGI_make_current_read") ) return null;
-
-		GLXSGIMakeCurrentRead funcs = new GLXSGIMakeCurrentRead(provider);
-
-		boolean supported = checkFunctions(
-			funcs.MakeCurrentReadSGI, funcs.GetCurrentReadDrawableSGI
+	static boolean isAvailable(GLXCapabilities caps) {
+		return checkFunctions(
+			caps.glXMakeCurrentReadSGI, caps.glXGetCurrentReadDrawableSGI
 		);
-
-		return GL.checkExtension("GLX_SGI_make_current_read", funcs, supported);
 	}
 
 	// --- [ glXMakeCurrentReadSGI ] ---
@@ -68,9 +40,11 @@ public class GLXSGIMakeCurrentRead {
 	 * @param ctx     the current context
 	 */
 	public static int glXMakeCurrentReadSGI(long display, long draw, long read, long ctx) {
-		long __functionAddress = getInstance().MakeCurrentReadSGI;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeCurrentReadSGI;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
+		}
 		return callPPPPI(__functionAddress, display, draw, read, ctx);
 	}
 
@@ -78,7 +52,9 @@ public class GLXSGIMakeCurrentRead {
 
 	/** Returns the name of the {@code GLXDrawable} currently being used as a pixel query source. */
 	public static long glXGetCurrentReadDrawableSGI() {
-		long __functionAddress = getInstance().GetCurrentReadDrawableSGI;
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentReadDrawableSGI;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callP(__functionAddress);
 	}
 

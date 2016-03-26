@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -280,7 +280,7 @@ public class EXTEfx {
 		AL_REVERB_DEFAULT_REFLECTIONS_GAIN      = 0.05f,
 		AL_REVERB_MIN_REFLECTIONS_DELAY         = 0.0f,
 		AL_REVERB_MAX_REFLECTIONS_DELAY         = 0.3f,
-		AL_REVERB_DEFAULT_REFLECTIONS_DELAY     = 0.0070f,
+		AL_REVERB_DEFAULT_REFLECTIONS_DELAY     = 0.007f,
 		AL_REVERB_MIN_LATE_REVERB_GAIN          = 0.0f,
 		AL_REVERB_MAX_LATE_REVERB_GAIN          = 10.0f,
 		AL_REVERB_DEFAULT_LATE_REVERB_GAIN      = 1.26f,
@@ -331,7 +331,7 @@ public class EXTEfx {
 		AL_EAXREVERB_DEFAULT_REFLECTIONS_GAIN      = 0.05f,
 		AL_EAXREVERB_MIN_REFLECTIONS_DELAY         = 0.0f,
 		AL_EAXREVERB_MAX_REFLECTIONS_DELAY         = 0.3f,
-		AL_EAXREVERB_DEFAULT_REFLECTIONS_DELAY     = 0.0070f,
+		AL_EAXREVERB_DEFAULT_REFLECTIONS_DELAY     = 0.007f,
 		AL_EAXREVERB_DEFAULT_REFLECTIONS_PAN_XYZ   = 0.0f,
 		AL_EAXREVERB_MIN_LATE_REVERB_GAIN          = 0.0f,
 		AL_EAXREVERB_MAX_LATE_REVERB_GAIN          = 10.0f,
@@ -456,8 +456,8 @@ public class EXTEfx {
 		AL_FLANGER_MAX_FEEDBACK     = 1.0f,
 		AL_FLANGER_DEFAULT_FEEDBACK = -0.5f,
 		AL_FLANGER_MIN_DELAY        = 0.0f,
-		AL_FLANGER_MAX_DELAY        = 0.0040f,
-		AL_FLANGER_DEFAULT_DELAY    = 0.0020f;
+		AL_FLANGER_MAX_DELAY        = 0.004f,
+		AL_FLANGER_DEFAULT_DELAY    = 0.002f;
 
 	/** Frequency shifter effect parameter ranges and defaults */
 	public static final float
@@ -645,111 +645,28 @@ public class EXTEfx {
 		AL_BANDPASS_MAX_GAINLF     = 1.0f,
 		AL_BANDPASS_DEFAULT_GAINLF = 1.0f;
 
-	/** Function address. */
-	public final long
-		GenEffects,
-		DeleteEffects,
-		IsEffect,
-		Effecti,
-		Effectiv,
-		Effectf,
-		Effectfv,
-		GetEffecti,
-		GetEffectiv,
-		GetEffectf,
-		GetEffectfv,
-		GenFilters,
-		DeleteFilters,
-		IsFilter,
-		Filteri,
-		Filteriv,
-		Filterf,
-		Filterfv,
-		GetFilteri,
-		GetFilteriv,
-		GetFilterf,
-		GetFilterfv,
-		GenAuxiliaryEffectSlots,
-		DeleteAuxiliaryEffectSlots,
-		IsAuxiliaryEffectSlot,
-		AuxiliaryEffectSloti,
-		AuxiliaryEffectSlotiv,
-		AuxiliaryEffectSlotf,
-		AuxiliaryEffectSlotfv,
-		GetAuxiliaryEffectSloti,
-		GetAuxiliaryEffectSlotiv,
-		GetAuxiliaryEffectSlotf,
-		GetAuxiliaryEffectSlotfv;
-
 	protected EXTEfx() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTEfx(FunctionProvider provider) {
-		GenEffects = provider.getFunctionAddress("alGenEffects");
-		DeleteEffects = provider.getFunctionAddress("alDeleteEffects");
-		IsEffect = provider.getFunctionAddress("alIsEffect");
-		Effecti = provider.getFunctionAddress("alEffecti");
-		Effectiv = provider.getFunctionAddress("alEffectiv");
-		Effectf = provider.getFunctionAddress("alEffectf");
-		Effectfv = provider.getFunctionAddress("alEffectfv");
-		GetEffecti = provider.getFunctionAddress("alGetEffecti");
-		GetEffectiv = provider.getFunctionAddress("alGetEffectiv");
-		GetEffectf = provider.getFunctionAddress("alGetEffectf");
-		GetEffectfv = provider.getFunctionAddress("alGetEffectfv");
-		GenFilters = provider.getFunctionAddress("alGenFilters");
-		DeleteFilters = provider.getFunctionAddress("alDeleteFilters");
-		IsFilter = provider.getFunctionAddress("alIsFilter");
-		Filteri = provider.getFunctionAddress("alFilteri");
-		Filteriv = provider.getFunctionAddress("alFilteriv");
-		Filterf = provider.getFunctionAddress("alFilterf");
-		Filterfv = provider.getFunctionAddress("alFilterfv");
-		GetFilteri = provider.getFunctionAddress("alGetFilteri");
-		GetFilteriv = provider.getFunctionAddress("alGetFilteriv");
-		GetFilterf = provider.getFunctionAddress("alGetFilterf");
-		GetFilterfv = provider.getFunctionAddress("alGetFilterfv");
-		GenAuxiliaryEffectSlots = provider.getFunctionAddress("alGenAuxiliaryEffectSlots");
-		DeleteAuxiliaryEffectSlots = provider.getFunctionAddress("alDeleteAuxiliaryEffectSlots");
-		IsAuxiliaryEffectSlot = provider.getFunctionAddress("alIsAuxiliaryEffectSlot");
-		AuxiliaryEffectSloti = provider.getFunctionAddress("alAuxiliaryEffectSloti");
-		AuxiliaryEffectSlotiv = provider.getFunctionAddress("alAuxiliaryEffectSlotiv");
-		AuxiliaryEffectSlotf = provider.getFunctionAddress("alAuxiliaryEffectSlotf");
-		AuxiliaryEffectSlotfv = provider.getFunctionAddress("alAuxiliaryEffectSlotfv");
-		GetAuxiliaryEffectSloti = provider.getFunctionAddress("alGetAuxiliaryEffectSloti");
-		GetAuxiliaryEffectSlotiv = provider.getFunctionAddress("alGetAuxiliaryEffectSlotiv");
-		GetAuxiliaryEffectSlotf = provider.getFunctionAddress("alGetAuxiliaryEffectSlotf");
-		GetAuxiliaryEffectSlotfv = provider.getFunctionAddress("alGetAuxiliaryEffectSlotfv");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTEfx} instance of the current context. */
-	public static EXTEfx getInstance() {
-		return checkFunctionality(AL.getCapabilities().__EXTEfx);
-	}
-
-	static EXTEfx create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("ALC_EXT_EFX") ) return null;
-
-		EXTEfx funcs = new EXTEfx(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GenEffects, funcs.DeleteEffects, funcs.IsEffect, funcs.Effecti, funcs.Effectiv, funcs.Effectf, funcs.Effectfv, funcs.GetEffecti, 
-			funcs.GetEffectiv, funcs.GetEffectf, funcs.GetEffectfv, funcs.GenFilters, funcs.DeleteFilters, funcs.IsFilter, funcs.Filteri, funcs.Filteriv, 
-			funcs.Filterf, funcs.Filterfv, funcs.GetFilteri, funcs.GetFilteriv, funcs.GetFilterf, funcs.GetFilterfv, funcs.GenAuxiliaryEffectSlots, 
-			funcs.DeleteAuxiliaryEffectSlots, funcs.IsAuxiliaryEffectSlot, funcs.AuxiliaryEffectSloti, funcs.AuxiliaryEffectSlotiv, funcs.AuxiliaryEffectSlotf, 
-			funcs.AuxiliaryEffectSlotfv, funcs.GetAuxiliaryEffectSloti, funcs.GetAuxiliaryEffectSlotiv, funcs.GetAuxiliaryEffectSlotf, 
-			funcs.GetAuxiliaryEffectSlotfv
+	static boolean isAvailable(ALCapabilities caps) {
+		return checkFunctions(
+			caps.alGenEffects, caps.alDeleteEffects, caps.alIsEffect, caps.alEffecti, caps.alEffectiv, caps.alEffectf, caps.alEffectfv, caps.alGetEffecti, 
+			caps.alGetEffectiv, caps.alGetEffectf, caps.alGetEffectfv, caps.alGenFilters, caps.alDeleteFilters, caps.alIsFilter, caps.alFilteri, 
+			caps.alFilteriv, caps.alFilterf, caps.alFilterfv, caps.alGetFilteri, caps.alGetFilteriv, caps.alGetFilterf, caps.alGetFilterfv, 
+			caps.alGenAuxiliaryEffectSlots, caps.alDeleteAuxiliaryEffectSlots, caps.alIsAuxiliaryEffectSlot, caps.alAuxiliaryEffectSloti, 
+			caps.alAuxiliaryEffectSlotiv, caps.alAuxiliaryEffectSlotf, caps.alAuxiliaryEffectSlotfv, caps.alGetAuxiliaryEffectSloti, 
+			caps.alGetAuxiliaryEffectSlotiv, caps.alGetAuxiliaryEffectSlotf, caps.alGetAuxiliaryEffectSlotfv
 		);
-
-		return AL.checkExtension("ALC_EXT_EFX", funcs, supported);
 	}
 
 	// --- [ alGenEffects ] ---
 
 	/** Unsafe version of {@link #alGenEffects GenEffects} */
 	public static void nalGenEffects(int n, long effects) {
-		long __functionAddress = getInstance().GenEffects;
+		long __functionAddress = AL.getCapabilities().alGenEffects;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIPV(__functionAddress, n, effects);
 	}
 
@@ -772,17 +689,23 @@ public class EXTEfx {
 
 	/** Single return value version of: {@link #alGenEffects GenEffects} */
 	public static int alGenEffects() {
-		APIBuffer __buffer = apiBuffer();
-		int effects = __buffer.intParam();
-		nalGenEffects(1, __buffer.address(effects));
-		return __buffer.intValue(effects);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer effects = stack.callocInt(1);
+			nalGenEffects(1, memAddress(effects));
+			return effects.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alDeleteEffects ] ---
 
 	/** Unsafe version of {@link #alDeleteEffects DeleteEffects} */
 	public static void nalDeleteEffects(int n, long effects) {
-		long __functionAddress = getInstance().DeleteEffects;
+		long __functionAddress = AL.getCapabilities().alDeleteEffects;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIPV(__functionAddress, n, effects);
 	}
 
@@ -805,9 +728,13 @@ public class EXTEfx {
 
 	/** Single value version of: {@link #alDeleteEffects DeleteEffects} */
 	public static void alDeleteEffects(int effect) {
-		APIBuffer __buffer = apiBuffer();
-		int effects = __buffer.intParam(effect);
-		nalDeleteEffects(1, __buffer.address(effects));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer effects = stack.ints(effect);
+			nalDeleteEffects(1, memAddress(effects));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alIsEffect ] ---
@@ -818,7 +745,9 @@ public class EXTEfx {
 	 * @param effect a value that may be a effect name
 	 */
 	public static boolean alIsEffect(int effect) {
-		long __functionAddress = getInstance().IsEffect;
+		long __functionAddress = AL.getCapabilities().alIsEffect;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return invokeIZ(__functionAddress, effect);
 	}
 
@@ -832,7 +761,9 @@ public class EXTEfx {
 	 * @param value  the parameter value
 	 */
 	public static void alEffecti(int effect, int param, int value) {
-		long __functionAddress = getInstance().Effecti;
+		long __functionAddress = AL.getCapabilities().alEffecti;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIIV(__functionAddress, effect, param, value);
 	}
 
@@ -840,7 +771,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alEffectiv Effectiv} */
 	public static void nalEffectiv(int effect, int param, long values) {
-		long __functionAddress = getInstance().Effectiv;
+		long __functionAddress = AL.getCapabilities().alEffectiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effect, param, values);
 	}
 
@@ -870,7 +803,9 @@ public class EXTEfx {
 	 * @param value  the parameter value
 	 */
 	public static void alEffectf(int effect, int param, float value) {
-		long __functionAddress = getInstance().Effectf;
+		long __functionAddress = AL.getCapabilities().alEffectf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIFV(__functionAddress, effect, param, value);
 	}
 
@@ -878,7 +813,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alEffectfv Effectfv} */
 	public static void nalEffectfv(int effect, int param, long values) {
-		long __functionAddress = getInstance().Effectfv;
+		long __functionAddress = AL.getCapabilities().alEffectfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effect, param, values);
 	}
 
@@ -902,7 +839,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alGetEffecti GetEffecti} */
 	public static void nalGetEffecti(int effect, int param, long value) {
-		long __functionAddress = getInstance().GetEffecti;
+		long __functionAddress = AL.getCapabilities().alGetEffecti;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effect, param, value);
 	}
 
@@ -928,17 +867,23 @@ public class EXTEfx {
 
 	/** Single return value version of: {@link #alGetEffecti GetEffecti} */
 	public static int alGetEffecti(int effect, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.intParam();
-		nalGetEffecti(effect, param, __buffer.address(value));
-		return __buffer.intValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer value = stack.callocInt(1);
+			nalGetEffecti(effect, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetEffectiv ] ---
 
 	/** Unsafe version of {@link #alGetEffectiv GetEffectiv} */
 	public static void nalGetEffectiv(int effect, int param, long values) {
-		long __functionAddress = getInstance().GetEffectiv;
+		long __functionAddress = AL.getCapabilities().alGetEffectiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effect, param, values);
 	}
 
@@ -966,7 +911,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alGetEffectf GetEffectf} */
 	public static void nalGetEffectf(int effect, int param, long value) {
-		long __functionAddress = getInstance().GetEffectf;
+		long __functionAddress = AL.getCapabilities().alGetEffectf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effect, param, value);
 	}
 
@@ -992,17 +939,23 @@ public class EXTEfx {
 
 	/** Single return value version of: {@link #alGetEffectf GetEffectf} */
 	public static float alGetEffectf(int effect, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.floatParam();
-		nalGetEffectf(effect, param, __buffer.address(value));
-		return __buffer.floatValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer value = stack.callocFloat(1);
+			nalGetEffectf(effect, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetEffectfv ] ---
 
 	/** Unsafe version of {@link #alGetEffectfv GetEffectfv} */
 	public static void nalGetEffectfv(int effect, int param, long values) {
-		long __functionAddress = getInstance().GetEffectfv;
+		long __functionAddress = AL.getCapabilities().alGetEffectfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effect, param, values);
 	}
 
@@ -1030,7 +983,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alGenFilters GenFilters} */
 	public static void nalGenFilters(int n, long filters) {
-		long __functionAddress = getInstance().GenFilters;
+		long __functionAddress = AL.getCapabilities().alGenFilters;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIPV(__functionAddress, n, filters);
 	}
 
@@ -1053,17 +1008,23 @@ public class EXTEfx {
 
 	/** Single return value version of: {@link #alGenFilters GenFilters} */
 	public static int alGenFilters() {
-		APIBuffer __buffer = apiBuffer();
-		int filters = __buffer.intParam();
-		nalGenFilters(1, __buffer.address(filters));
-		return __buffer.intValue(filters);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer filters = stack.callocInt(1);
+			nalGenFilters(1, memAddress(filters));
+			return filters.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alDeleteFilters ] ---
 
 	/** Unsafe version of {@link #alDeleteFilters DeleteFilters} */
 	public static void nalDeleteFilters(int n, long filters) {
-		long __functionAddress = getInstance().DeleteFilters;
+		long __functionAddress = AL.getCapabilities().alDeleteFilters;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIPV(__functionAddress, n, filters);
 	}
 
@@ -1086,9 +1047,13 @@ public class EXTEfx {
 
 	/** Single value version of: {@link #alDeleteFilters DeleteFilters} */
 	public static void alDeleteFilters(int filter) {
-		APIBuffer __buffer = apiBuffer();
-		int filters = __buffer.intParam(filter);
-		nalDeleteFilters(1, __buffer.address(filters));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer filters = stack.ints(filter);
+			nalDeleteFilters(1, memAddress(filters));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alIsFilter ] ---
@@ -1099,7 +1064,9 @@ public class EXTEfx {
 	 * @param filter a value that may be a filter name
 	 */
 	public static boolean alIsFilter(int filter) {
-		long __functionAddress = getInstance().IsFilter;
+		long __functionAddress = AL.getCapabilities().alIsFilter;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return invokeIZ(__functionAddress, filter);
 	}
 
@@ -1113,7 +1080,9 @@ public class EXTEfx {
 	 * @param value  the parameter value
 	 */
 	public static void alFilteri(int filter, int param, int value) {
-		long __functionAddress = getInstance().Filteri;
+		long __functionAddress = AL.getCapabilities().alFilteri;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIIV(__functionAddress, filter, param, value);
 	}
 
@@ -1121,7 +1090,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alFilteriv Filteriv} */
 	public static void nalFilteriv(int filter, int param, long values) {
-		long __functionAddress = getInstance().Filteriv;
+		long __functionAddress = AL.getCapabilities().alFilteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, filter, param, values);
 	}
 
@@ -1151,7 +1122,9 @@ public class EXTEfx {
 	 * @param value  the parameter value
 	 */
 	public static void alFilterf(int filter, int param, float value) {
-		long __functionAddress = getInstance().Filterf;
+		long __functionAddress = AL.getCapabilities().alFilterf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIFV(__functionAddress, filter, param, value);
 	}
 
@@ -1159,7 +1132,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alFilterfv Filterfv} */
 	public static void nalFilterfv(int filter, int param, long values) {
-		long __functionAddress = getInstance().Filterfv;
+		long __functionAddress = AL.getCapabilities().alFilterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, filter, param, values);
 	}
 
@@ -1183,7 +1158,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alGetFilteri GetFilteri} */
 	public static void nalGetFilteri(int filter, int param, long value) {
-		long __functionAddress = getInstance().GetFilteri;
+		long __functionAddress = AL.getCapabilities().alGetFilteri;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, filter, param, value);
 	}
 
@@ -1209,17 +1186,23 @@ public class EXTEfx {
 
 	/** Single return value version of: {@link #alGetFilteri GetFilteri} */
 	public static int alGetFilteri(int filter, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.intParam();
-		nalGetFilteri(filter, param, __buffer.address(value));
-		return __buffer.intValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer value = stack.callocInt(1);
+			nalGetFilteri(filter, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetFilteriv ] ---
 
 	/** Unsafe version of {@link #alGetFilteriv GetFilteriv} */
 	public static void nalGetFilteriv(int filter, int param, long values) {
-		long __functionAddress = getInstance().GetFilteriv;
+		long __functionAddress = AL.getCapabilities().alGetFilteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, filter, param, values);
 	}
 
@@ -1247,7 +1230,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alGetFilterf GetFilterf} */
 	public static void nalGetFilterf(int filter, int param, long value) {
-		long __functionAddress = getInstance().GetFilterf;
+		long __functionAddress = AL.getCapabilities().alGetFilterf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, filter, param, value);
 	}
 
@@ -1273,17 +1258,23 @@ public class EXTEfx {
 
 	/** Single return value version of: {@link #alGetFilterf GetFilterf} */
 	public static float alGetFilterf(int filter, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.floatParam();
-		nalGetFilterf(filter, param, __buffer.address(value));
-		return __buffer.floatValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer value = stack.callocFloat(1);
+			nalGetFilterf(filter, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetFilterfv ] ---
 
 	/** Unsafe version of {@link #alGetFilterfv GetFilterfv} */
 	public static void nalGetFilterfv(int filter, int param, long values) {
-		long __functionAddress = getInstance().GetFilterfv;
+		long __functionAddress = AL.getCapabilities().alGetFilterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, filter, param, values);
 	}
 
@@ -1311,7 +1302,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alGenAuxiliaryEffectSlots GenAuxiliaryEffectSlots} */
 	public static void nalGenAuxiliaryEffectSlots(int n, long effectSlots) {
-		long __functionAddress = getInstance().GenAuxiliaryEffectSlots;
+		long __functionAddress = AL.getCapabilities().alGenAuxiliaryEffectSlots;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIPV(__functionAddress, n, effectSlots);
 	}
 
@@ -1334,17 +1327,23 @@ public class EXTEfx {
 
 	/** Single return value version of: {@link #alGenAuxiliaryEffectSlots GenAuxiliaryEffectSlots} */
 	public static int alGenAuxiliaryEffectSlots() {
-		APIBuffer __buffer = apiBuffer();
-		int effectSlots = __buffer.intParam();
-		nalGenAuxiliaryEffectSlots(1, __buffer.address(effectSlots));
-		return __buffer.intValue(effectSlots);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer effectSlots = stack.callocInt(1);
+			nalGenAuxiliaryEffectSlots(1, memAddress(effectSlots));
+			return effectSlots.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alDeleteAuxiliaryEffectSlots ] ---
 
 	/** Unsafe version of {@link #alDeleteAuxiliaryEffectSlots DeleteAuxiliaryEffectSlots} */
 	public static void nalDeleteAuxiliaryEffectSlots(int n, long effectSlots) {
-		long __functionAddress = getInstance().DeleteAuxiliaryEffectSlots;
+		long __functionAddress = AL.getCapabilities().alDeleteAuxiliaryEffectSlots;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIPV(__functionAddress, n, effectSlots);
 	}
 
@@ -1367,9 +1366,13 @@ public class EXTEfx {
 
 	/** Single value version of: {@link #alDeleteAuxiliaryEffectSlots DeleteAuxiliaryEffectSlots} */
 	public static void alDeleteAuxiliaryEffectSlots(int effectSlot) {
-		APIBuffer __buffer = apiBuffer();
-		int effectSlots = __buffer.intParam(effectSlot);
-		nalDeleteAuxiliaryEffectSlots(1, __buffer.address(effectSlots));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer effectSlots = stack.ints(effectSlot);
+			nalDeleteAuxiliaryEffectSlots(1, memAddress(effectSlots));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alIsAuxiliaryEffectSlot ] ---
@@ -1380,7 +1383,9 @@ public class EXTEfx {
 	 * @param effectSlot a value that may be an effect slot name
 	 */
 	public static boolean alIsAuxiliaryEffectSlot(int effectSlot) {
-		long __functionAddress = getInstance().IsAuxiliaryEffectSlot;
+		long __functionAddress = AL.getCapabilities().alIsAuxiliaryEffectSlot;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return invokeIZ(__functionAddress, effectSlot);
 	}
 
@@ -1394,7 +1399,9 @@ public class EXTEfx {
 	 * @param value      the parameter value
 	 */
 	public static void alAuxiliaryEffectSloti(int effectSlot, int param, int value) {
-		long __functionAddress = getInstance().AuxiliaryEffectSloti;
+		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSloti;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIIV(__functionAddress, effectSlot, param, value);
 	}
 
@@ -1402,7 +1409,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alAuxiliaryEffectSlotiv AuxiliaryEffectSlotiv} */
 	public static void nalAuxiliaryEffectSlotiv(int effectSlot, int param, long values) {
-		long __functionAddress = getInstance().AuxiliaryEffectSlotiv;
+		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effectSlot, param, values);
 	}
 
@@ -1432,7 +1441,9 @@ public class EXTEfx {
 	 * @param value      the parameter value
 	 */
 	public static void alAuxiliaryEffectSlotf(int effectSlot, int param, float value) {
-		long __functionAddress = getInstance().AuxiliaryEffectSlotf;
+		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIFV(__functionAddress, effectSlot, param, value);
 	}
 
@@ -1440,7 +1451,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alAuxiliaryEffectSlotfv AuxiliaryEffectSlotfv} */
 	public static void nalAuxiliaryEffectSlotfv(int effectSlot, int param, long values) {
-		long __functionAddress = getInstance().AuxiliaryEffectSlotfv;
+		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effectSlot, param, values);
 	}
 
@@ -1464,7 +1477,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alGetAuxiliaryEffectSloti GetAuxiliaryEffectSloti} */
 	public static void nalGetAuxiliaryEffectSloti(int effectSlot, int param, long value) {
-		long __functionAddress = getInstance().GetAuxiliaryEffectSloti;
+		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSloti;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effectSlot, param, value);
 	}
 
@@ -1490,17 +1505,23 @@ public class EXTEfx {
 
 	/** Single return value version of: {@link #alGetAuxiliaryEffectSloti GetAuxiliaryEffectSloti} */
 	public static int alGetAuxiliaryEffectSloti(int effectSlot, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.intParam();
-		nalGetAuxiliaryEffectSloti(effectSlot, param, __buffer.address(value));
-		return __buffer.intValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer value = stack.callocInt(1);
+			nalGetAuxiliaryEffectSloti(effectSlot, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetAuxiliaryEffectSlotiv ] ---
 
 	/** Unsafe version of {@link #alGetAuxiliaryEffectSlotiv GetAuxiliaryEffectSlotiv} */
 	public static void nalGetAuxiliaryEffectSlotiv(int effectSlot, int param, long values) {
-		long __functionAddress = getInstance().GetAuxiliaryEffectSlotiv;
+		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effectSlot, param, values);
 	}
 
@@ -1528,7 +1549,9 @@ public class EXTEfx {
 
 	/** Unsafe version of {@link #alGetAuxiliaryEffectSlotf GetAuxiliaryEffectSlotf} */
 	public static void nalGetAuxiliaryEffectSlotf(int effectSlot, int param, long value) {
-		long __functionAddress = getInstance().GetAuxiliaryEffectSlotf;
+		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotf;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effectSlot, param, value);
 	}
 
@@ -1554,17 +1577,23 @@ public class EXTEfx {
 
 	/** Single return value version of: {@link #alGetAuxiliaryEffectSlotf GetAuxiliaryEffectSlotf} */
 	public static float alGetAuxiliaryEffectSlotf(int effectSlot, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.floatParam();
-		nalGetAuxiliaryEffectSlotf(effectSlot, param, __buffer.address(value));
-		return __buffer.floatValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			FloatBuffer value = stack.callocFloat(1);
+			nalGetAuxiliaryEffectSlotf(effectSlot, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetAuxiliaryEffectSlotfv ] ---
 
 	/** Unsafe version of {@link #alGetAuxiliaryEffectSlotfv GetAuxiliaryEffectSlotfv} */
 	public static void nalGetAuxiliaryEffectSlotfv(int effectSlot, int param, long values) {
-		long __functionAddress = getInstance().GetAuxiliaryEffectSlotfv;
+		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, effectSlot, param, values);
 	}
 

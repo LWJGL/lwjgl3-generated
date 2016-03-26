@@ -75,46 +75,14 @@ public class ARBGeometryShader4 {
 	 */
 	public static final int GL_PROGRAM_POINT_SIZE_ARB = 0x8642;
 
-	/** Function address. */
-	public final long
-		ProgramParameteriARB,
-		FramebufferTextureARB,
-		FramebufferTextureLayerARB,
-		FramebufferTextureFaceARB;
-
 	protected ARBGeometryShader4() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBGeometryShader4(FunctionProvider provider) {
-		ProgramParameteriARB = provider.getFunctionAddress("glProgramParameteriARB");
-		FramebufferTextureARB = provider.getFunctionAddress("glFramebufferTextureARB");
-		FramebufferTextureLayerARB = provider.getFunctionAddress("glFramebufferTextureLayerARB");
-		FramebufferTextureFaceARB = provider.getFunctionAddress("glFramebufferTextureFaceARB");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBGeometryShader4} instance of the current context. */
-	public static ARBGeometryShader4 getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBGeometryShader4} instance of the specified {@link GLCapabilities}. */
-	public static ARBGeometryShader4 getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBGeometryShader4);
-	}
-
-	static ARBGeometryShader4 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_geometry_shader4") ) return null;
-
-		ARBGeometryShader4 funcs = new ARBGeometryShader4(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ProgramParameteriARB, funcs.FramebufferTextureARB, funcs.FramebufferTextureLayerARB, funcs.FramebufferTextureFaceARB
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glProgramParameteriARB, caps.glFramebufferTextureARB, caps.glFramebufferTextureLayerARB, caps.glFramebufferTextureFaceARB
 		);
-
-		return GL.checkExtension("GL_ARB_geometry_shader4", funcs, supported);
 	}
 
 	// --- [ glProgramParameteriARB ] ---
@@ -140,7 +108,9 @@ public class ARBGeometryShader4 {
 	 * @param value   the value being set
 	 */
 	public static void glProgramParameteriARB(int program, int pname, int value) {
-		long __functionAddress = getInstance().ProgramParameteriARB;
+		long __functionAddress = GL.getCapabilities().glProgramParameteriARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, program, pname, value);
 	}
 
@@ -167,7 +137,9 @@ public class ARBGeometryShader4 {
 	 * @param level      the texture level
 	 */
 	public static void glFramebufferTextureARB(int target, int attachment, int texture, int level) {
-		long __functionAddress = getInstance().FramebufferTextureARB;
+		long __functionAddress = GL.getCapabilities().glFramebufferTextureARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 
@@ -188,7 +160,9 @@ public class ARBGeometryShader4 {
 	 * @param layer      the texture layer
 	 */
 	public static void glFramebufferTextureLayerARB(int target, int attachment, int texture, int level, int layer) {
-		long __functionAddress = getInstance().FramebufferTextureLayerARB;
+		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayerARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
@@ -208,7 +182,9 @@ public class ARBGeometryShader4 {
 	 * @param face       the cube map face. One of:<br>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}
 	 */
 	public static void glFramebufferTextureFaceARB(int target, int attachment, int texture, int level, int face) {
-		long __functionAddress = getInstance().FramebufferTextureFaceARB;
+		long __functionAddress = GL.getCapabilities().glFramebufferTextureFaceARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, target, attachment, texture, level, face);
 	}
 

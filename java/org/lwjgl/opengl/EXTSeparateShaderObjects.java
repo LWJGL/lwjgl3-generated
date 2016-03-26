@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -55,57 +55,31 @@ public class EXTSeparateShaderObjects {
 	/** Accepted by {@code type} parameter to GetIntegerv and GetFloatv. */
 	public static final int GL_ACTIVE_PROGRAM_EXT = 0x8B8D;
 
-	/** Function address. */
-	public final long
-		UseShaderProgramEXT,
-		ActiveProgramEXT,
-		CreateShaderProgramEXT;
-
 	protected EXTSeparateShaderObjects() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EXTSeparateShaderObjects(FunctionProvider provider) {
-		UseShaderProgramEXT = provider.getFunctionAddress("glUseShaderProgramEXT");
-		ActiveProgramEXT = provider.getFunctionAddress("glActiveProgramEXT");
-		CreateShaderProgramEXT = provider.getFunctionAddress("glCreateShaderProgramEXT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link EXTSeparateShaderObjects} instance of the current context. */
-	public static EXTSeparateShaderObjects getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link EXTSeparateShaderObjects} instance of the specified {@link GLCapabilities}. */
-	public static EXTSeparateShaderObjects getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__EXTSeparateShaderObjects);
-	}
-
-	static EXTSeparateShaderObjects create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_EXT_separate_shader_objects") ) return null;
-
-		EXTSeparateShaderObjects funcs = new EXTSeparateShaderObjects(provider);
-
-		boolean supported = checkFunctions(
-			funcs.UseShaderProgramEXT, funcs.ActiveProgramEXT, funcs.CreateShaderProgramEXT
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glUseShaderProgramEXT, caps.glActiveProgramEXT, caps.glCreateShaderProgramEXT
 		);
-
-		return GL.checkExtension("GL_EXT_separate_shader_objects", funcs, supported);
 	}
 
 	// --- [ glUseShaderProgramEXT ] ---
 
 	public static void glUseShaderProgramEXT(int type, int program) {
-		long __functionAddress = getInstance().UseShaderProgramEXT;
+		long __functionAddress = GL.getCapabilities().glUseShaderProgramEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, program);
 	}
 
 	// --- [ glActiveProgramEXT ] ---
 
 	public static void glActiveProgramEXT(int program) {
-		long __functionAddress = getInstance().ActiveProgramEXT;
+		long __functionAddress = GL.getCapabilities().glActiveProgramEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, program);
 	}
 
@@ -113,7 +87,9 @@ public class EXTSeparateShaderObjects {
 
 	/** Unsafe version of {@link #glCreateShaderProgramEXT CreateShaderProgramEXT} */
 	public static int nglCreateShaderProgramEXT(int type, long string) {
-		long __functionAddress = getInstance().CreateShaderProgramEXT;
+		long __functionAddress = GL.getCapabilities().glCreateShaderProgramEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		return callIPI(__functionAddress, type, string);
 	}
 
@@ -125,9 +101,13 @@ public class EXTSeparateShaderObjects {
 
 	/** CharSequence version of: {@link #glCreateShaderProgramEXT CreateShaderProgramEXT} */
 	public static int glCreateShaderProgramEXT(int type, CharSequence string) {
-		APIBuffer __buffer = apiBuffer();
-		int stringEncoded = __buffer.stringParamUTF8(string, true);
-		return nglCreateShaderProgramEXT(type, __buffer.address(stringEncoded));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer stringEncoded = stack.UTF8(string);
+			return nglCreateShaderProgramEXT(type, memAddress(stringEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

@@ -42,35 +42,23 @@ public class NVStreamConsumerGLTextureYUV {
 	/** Accepted as value for {@link EGL12#EGL_COLOR_BUFFER_TYPE COLOR_BUFFER_TYPE} attribute in {@code attrib_list} by {@link #eglStreamConsumerGLTextureExternalAttribsNV StreamConsumerGLTextureExternalAttribsNV}. */
 	public static final int EGL_YUV_BUFFER_EXT = 0x3300;
 
-	/** Function address. */
-	public final long StreamConsumerGLTextureExternalAttribsNV;
-
 	protected NVStreamConsumerGLTextureYUV() {
 		throw new UnsupportedOperationException();
 	}
 
-	public NVStreamConsumerGLTextureYUV(FunctionProvider provider) {
-		StreamConsumerGLTextureExternalAttribsNV = provider.getFunctionAddress("eglStreamConsumerGLTextureExternalAttribsNV");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link NVStreamConsumerGLTextureYUV} instance. */
-	public static NVStreamConsumerGLTextureYUV getInstance() {
-		return getInstance(EGL.getCapabilities());
-	}
-
-	/** Returns the {@link NVStreamConsumerGLTextureYUV} instance of the specified {@link EGLCapabilities}. */
-	public static NVStreamConsumerGLTextureYUV getInstance(EGLCapabilities caps) {
-		return checkFunctionality(caps.__NVStreamConsumerGLTextureYUV);
+	static boolean isAvailable(EGLCapabilities caps) {
+		return checkFunctions(
+			caps.eglStreamConsumerGLTextureExternalAttribsNV
+		);
 	}
 
 	// --- [ eglStreamConsumerGLTextureExternalAttribsNV ] ---
 
 	/** Unsafe version of {@link #eglStreamConsumerGLTextureExternalAttribsNV StreamConsumerGLTextureExternalAttribsNV} */
 	public static int neglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, long attrib_list) {
-		long __functionAddress = getInstance().StreamConsumerGLTextureExternalAttribsNV;
+		long __functionAddress = EGL.getCapabilities().eglStreamConsumerGLTextureExternalAttribsNV;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}

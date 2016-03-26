@@ -9,9 +9,9 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -63,58 +63,15 @@ public class SOFTSourceLatency {
 	 */
 	public static final int AL_SEC_OFFSET_LATENCY_SOFT = 0x1201;
 
-	/** Function address. */
-	public final long
-		SourcedSOFT,
-		Source3dSOFT,
-		SourcedvSOFT,
-		GetSourcedSOFT,
-		GetSource3dSOFT,
-		GetSourcedvSOFT,
-		Sourcei64SOFT,
-		Source3i64SOFT,
-		Sourcei64vSOFT,
-		GetSourcei64SOFT,
-		GetSource3i64SOFT,
-		GetSourcei64vSOFT;
-
 	protected SOFTSourceLatency() {
 		throw new UnsupportedOperationException();
 	}
 
-	public SOFTSourceLatency(FunctionProvider provider) {
-		SourcedSOFT = provider.getFunctionAddress("alSourcedSOFT");
-		Source3dSOFT = provider.getFunctionAddress("alSource3dSOFT");
-		SourcedvSOFT = provider.getFunctionAddress("alSourcedvSOFT");
-		GetSourcedSOFT = provider.getFunctionAddress("alGetSourcedSOFT");
-		GetSource3dSOFT = provider.getFunctionAddress("alGetSource3dSOFT");
-		GetSourcedvSOFT = provider.getFunctionAddress("alGetSourcedvSOFT");
-		Sourcei64SOFT = provider.getFunctionAddress("alSourcei64SOFT");
-		Source3i64SOFT = provider.getFunctionAddress("alSource3i64SOFT");
-		Sourcei64vSOFT = provider.getFunctionAddress("alSourcei64vSOFT");
-		GetSourcei64SOFT = provider.getFunctionAddress("alGetSourcei64SOFT");
-		GetSource3i64SOFT = provider.getFunctionAddress("alGetSource3i64SOFT");
-		GetSourcei64vSOFT = provider.getFunctionAddress("alGetSourcei64vSOFT");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link SOFTSourceLatency} instance of the current context. */
-	public static SOFTSourceLatency getInstance() {
-		return checkFunctionality(AL.getCapabilities().__SOFTSourceLatency);
-	}
-
-	static SOFTSourceLatency create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("AL_SOFT_source_latency") ) return null;
-
-		SOFTSourceLatency funcs = new SOFTSourceLatency(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SourcedSOFT, funcs.Source3dSOFT, funcs.SourcedvSOFT, funcs.GetSourcedSOFT, funcs.GetSource3dSOFT, funcs.GetSourcedvSOFT, funcs.Sourcei64SOFT, 
-			funcs.Source3i64SOFT, funcs.Sourcei64vSOFT, funcs.GetSourcei64SOFT, funcs.GetSource3i64SOFT, funcs.GetSourcei64vSOFT
+	static boolean isAvailable(ALCapabilities caps) {
+		return checkFunctions(
+			caps.alSourcedSOFT, caps.alSource3dSOFT, caps.alSourcedvSOFT, caps.alGetSourcedSOFT, caps.alGetSource3dSOFT, caps.alGetSourcedvSOFT, 
+			caps.alSourcei64SOFT, caps.alSource3i64SOFT, caps.alSourcei64vSOFT, caps.alGetSourcei64SOFT, caps.alGetSource3i64SOFT, caps.alGetSourcei64vSOFT
 		);
-
-		return AL.checkExtension("AL_SOFT_source_latency", funcs, supported);
 	}
 
 	// --- [ alSourcedSOFT ] ---
@@ -127,7 +84,9 @@ public class SOFTSourceLatency {
 	 * @param value  the parameter value
 	 */
 	public static void alSourcedSOFT(int source, int param, double value) {
-		long __functionAddress = getInstance().SourcedSOFT;
+		long __functionAddress = AL.getCapabilities().alSourcedSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIDV(__functionAddress, source, param, value);
 	}
 
@@ -143,7 +102,9 @@ public class SOFTSourceLatency {
 	 * @param value3 the third value
 	 */
 	public static void alSource3dSOFT(int source, int param, double value1, double value2, double value3) {
-		long __functionAddress = getInstance().Source3dSOFT;
+		long __functionAddress = AL.getCapabilities().alSource3dSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIDDDV(__functionAddress, source, param, value1, value2, value3);
 	}
 
@@ -151,7 +112,9 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of {@link #alSourcedvSOFT SourcedvSOFT} */
 	public static void nalSourcedvSOFT(int source, int param, long value) {
-		long __functionAddress = getInstance().SourcedvSOFT;
+		long __functionAddress = AL.getCapabilities().alSourcedvSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, source, param, value);
 	}
 
@@ -175,7 +138,9 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of {@link #alGetSourcedSOFT GetSourcedSOFT} */
 	public static void nalGetSourcedSOFT(int source, int param, long value) {
-		long __functionAddress = getInstance().GetSourcedSOFT;
+		long __functionAddress = AL.getCapabilities().alGetSourcedSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, source, param, value);
 	}
 
@@ -201,17 +166,23 @@ public class SOFTSourceLatency {
 
 	/** Single return value version of: {@link #alGetSourcedSOFT GetSourcedSOFT} */
 	public static double alGetSourcedSOFT(int source, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.doubleParam();
-		nalGetSourcedSOFT(source, param, __buffer.address(value));
-		return __buffer.doubleValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			DoubleBuffer value = stack.callocDouble(1);
+			nalGetSourcedSOFT(source, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetSource3dSOFT ] ---
 
 	/** Unsafe version of {@link #alGetSource3dSOFT GetSource3dSOFT} */
 	public static void nalGetSource3dSOFT(int source, int param, long value1, long value2, long value3) {
-		long __functionAddress = getInstance().GetSource3dSOFT;
+		long __functionAddress = AL.getCapabilities().alGetSource3dSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPPPV(__functionAddress, source, param, value1, value2, value3);
 	}
 
@@ -247,7 +218,9 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
 	public static void nalGetSourcedvSOFT(int source, int param, long values) {
-		long __functionAddress = getInstance().GetSourcedvSOFT;
+		long __functionAddress = AL.getCapabilities().alGetSourcedvSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, source, param, values);
 	}
 
@@ -277,7 +250,9 @@ public class SOFTSourceLatency {
 	 * @param value  the parameter values
 	 */
 	public static void alSourcei64SOFT(int source, int param, long value) {
-		long __functionAddress = getInstance().Sourcei64SOFT;
+		long __functionAddress = AL.getCapabilities().alSourcei64SOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIJV(__functionAddress, source, param, value);
 	}
 
@@ -293,7 +268,9 @@ public class SOFTSourceLatency {
 	 * @param value3 the third value
 	 */
 	public static void alSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
-		long __functionAddress = getInstance().Source3i64SOFT;
+		long __functionAddress = AL.getCapabilities().alSource3i64SOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIJJJV(__functionAddress, source, param, value1, value2, value3);
 	}
 
@@ -301,7 +278,9 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of {@link #alSourcei64vSOFT Sourcei64vSOFT} */
 	public static void nalSourcei64vSOFT(int source, int param, long values) {
-		long __functionAddress = getInstance().Sourcei64vSOFT;
+		long __functionAddress = AL.getCapabilities().alSourcei64vSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, source, param, values);
 	}
 
@@ -325,7 +304,9 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
 	public static void nalGetSourcei64SOFT(int source, int param, long value) {
-		long __functionAddress = getInstance().GetSourcei64SOFT;
+		long __functionAddress = AL.getCapabilities().alGetSourcei64SOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, source, param, value);
 	}
 
@@ -351,17 +332,23 @@ public class SOFTSourceLatency {
 
 	/** Single return value version of: {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
 	public static long alGetSourcei64SOFT(int source, int param) {
-		APIBuffer __buffer = apiBuffer();
-		int value = __buffer.longParam();
-		nalGetSourcei64SOFT(source, param, __buffer.address(value));
-		return __buffer.longValue(value);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			LongBuffer value = stack.callocLong(1);
+			nalGetSourcei64SOFT(source, param, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ alGetSource3i64SOFT ] ---
 
 	/** Unsafe version of {@link #alGetSource3i64SOFT GetSource3i64SOFT} */
 	public static void nalGetSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
-		long __functionAddress = getInstance().GetSource3i64SOFT;
+		long __functionAddress = AL.getCapabilities().alGetSource3i64SOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPPPV(__functionAddress, source, param, value1, value2, value3);
 	}
 
@@ -397,7 +384,9 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
 	public static void nalGetSourcei64vSOFT(int source, int param, long values) {
-		long __functionAddress = getInstance().GetSourcei64vSOFT;
+		long __functionAddress = AL.getCapabilities().alGetSourcei64vSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		invokeIIPV(__functionAddress, source, param, values);
 	}
 

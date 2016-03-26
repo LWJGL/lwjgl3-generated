@@ -75,42 +75,14 @@ public class ARBComputeShader {
 	/** Accepted by the {@code stages} parameter of UseProgramStages. */
 	public static final int GL_COMPUTE_SHADER_BIT = 0x20;
 
-	/** Function address. */
-	public final long
-		DispatchCompute,
-		DispatchComputeIndirect;
-
 	protected ARBComputeShader() {
 		throw new UnsupportedOperationException();
 	}
 
-	public ARBComputeShader(FunctionProvider provider) {
-		DispatchCompute = provider.getFunctionAddress("glDispatchCompute");
-		DispatchComputeIndirect = provider.getFunctionAddress("glDispatchComputeIndirect");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link ARBComputeShader} instance of the current context. */
-	public static ARBComputeShader getInstance() {
-		return getInstance(GL.getCapabilities());
-	}
-
-	/** Returns the {@link ARBComputeShader} instance of the specified {@link GLCapabilities}. */
-	public static ARBComputeShader getInstance(GLCapabilities caps) {
-		return checkFunctionality(caps.__ARBComputeShader);
-	}
-
-	static ARBComputeShader create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_compute_shader") ) return null;
-
-		ARBComputeShader funcs = new ARBComputeShader(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DispatchCompute, funcs.DispatchComputeIndirect
+	static boolean isAvailable(GLCapabilities caps) {
+		return checkFunctions(
+			caps.glDispatchCompute, caps.glDispatchComputeIndirect
 		);
-
-		return GL.checkExtension("GL_ARB_compute_shader", funcs, supported);
 	}
 
 	// --- [ glDispatchCompute ] ---
@@ -123,7 +95,9 @@ public class ARBComputeShader {
 	 * @param num_groups_z the number of work groups to be launched in the Z dimension
 	 */
 	public static void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z) {
-		long __functionAddress = getInstance().DispatchCompute;
+		long __functionAddress = GL.getCapabilities().glDispatchCompute;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, num_groups_x, num_groups_y, num_groups_z);
 	}
 
@@ -149,9 +123,11 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 *                 stored.
 	 */
 	public static void glDispatchComputeIndirect(long indirect) {
-		long __functionAddress = getInstance().DispatchComputeIndirect;
-		if ( CHECKS )
+		long __functionAddress = GL.getCapabilities().glDispatchComputeIndirect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL43.GL_DISPATCH_INDIRECT_BUFFER_BINDING, true);
+		}
 		callPV(__functionAddress, indirect);
 	}
 

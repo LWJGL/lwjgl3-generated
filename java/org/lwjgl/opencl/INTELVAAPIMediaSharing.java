@@ -67,53 +67,24 @@ public class INTELVAAPIMediaSharing {
 	/** Returned by {@link #clEnqueueReleaseVA_APIMediaSurfacesINTEL EnqueueReleaseVA_APIMediaSurfacesINTEL} when any of {@code mem_objects} are not currently acquired by OpenCL. */
 	public static final int CL_VA_API_MEDIA_SURFACE_NOT_ACQUIRED_INTEL = -1101;
 
-	/** Function address. */
-	public final long
-		GetDeviceIDsFromVA_APIMediaAdapterINTEL,
-		CreateFromVA_APIMediaSurfaceINTEL,
-		EnqueueAcquireVA_APIMediaSurfacesINTEL,
-		EnqueueReleaseVA_APIMediaSurfacesINTEL;
-
 	protected INTELVAAPIMediaSharing() {
 		throw new UnsupportedOperationException();
 	}
 
-	public INTELVAAPIMediaSharing(FunctionProvider provider) {
-		GetDeviceIDsFromVA_APIMediaAdapterINTEL = provider.getFunctionAddress("clGetDeviceIDsFromVA_APIMediaAdapterINTEL");
-		CreateFromVA_APIMediaSurfaceINTEL = provider.getFunctionAddress("clCreateFromVA_APIMediaSurfaceINTEL");
-		EnqueueAcquireVA_APIMediaSurfacesINTEL = provider.getFunctionAddress("clEnqueueAcquireVA_APIMediaSurfacesINTEL");
-		EnqueueReleaseVA_APIMediaSurfacesINTEL = provider.getFunctionAddress("clEnqueueReleaseVA_APIMediaSurfacesINTEL");
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link INTELVAAPIMediaSharing} instance of the currently loaded ICD. */
-	public static INTELVAAPIMediaSharing getInstance() {
-		return getInstance(CL.getICD());
-	}
-
-	/** Returns the {@link INTELVAAPIMediaSharing} instance of the specified {@link CLCapabilities}. */
-	public static INTELVAAPIMediaSharing getInstance(CLCapabilities caps) {
-		return checkFunctionality(caps.__INTELVAAPIMediaSharing);
-	}
-
-	static INTELVAAPIMediaSharing create(FunctionProvider provider) {
-		INTELVAAPIMediaSharing funcs = new INTELVAAPIMediaSharing(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetDeviceIDsFromVA_APIMediaAdapterINTEL, funcs.CreateFromVA_APIMediaSurfaceINTEL, funcs.EnqueueAcquireVA_APIMediaSurfacesINTEL, 
-			funcs.EnqueueReleaseVA_APIMediaSurfacesINTEL
+	static boolean isAvailable(CLCapabilities caps) {
+		return checkFunctions(
+			caps.clGetDeviceIDsFromVA_APIMediaAdapterINTEL, caps.clCreateFromVA_APIMediaSurfaceINTEL, caps.clEnqueueAcquireVA_APIMediaSurfacesINTEL, 
+			caps.clEnqueueReleaseVA_APIMediaSurfacesINTEL
 		);
-
-		return supported ? funcs : null;
 	}
 
 	// --- [ clGetDeviceIDsFromVA_APIMediaAdapterINTEL ] ---
 
 	/** Unsafe version of {@link #clGetDeviceIDsFromVA_APIMediaAdapterINTEL GetDeviceIDsFromVA_APIMediaAdapterINTEL} */
 	public static int nclGetDeviceIDsFromVA_APIMediaAdapterINTEL(long platform, int media_adapter_type, long media_adapter, int media_adapter_set, int num_entries, long devices, long num_devices) {
-		long __functionAddress = getInstance().GetDeviceIDsFromVA_APIMediaAdapterINTEL;
+		long __functionAddress = CL.getICD().clGetDeviceIDsFromVA_APIMediaAdapterINTEL;
 		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(platform);
 			checkPointer(media_adapter);
 		}
@@ -153,9 +124,11 @@ public class INTELVAAPIMediaSharing {
 
 	/** Unsafe version of {@link #clCreateFromVA_APIMediaSurfaceINTEL CreateFromVA_APIMediaSurfaceINTEL} */
 	public static long nclCreateFromVA_APIMediaSurfaceINTEL(long context, long flags, long surface, int plane, long errcode_ret) {
-		long __functionAddress = getInstance().CreateFromVA_APIMediaSurfaceINTEL;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clCreateFromVA_APIMediaSurfaceINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
+		}
 		return callPJPIPP(__functionAddress, context, flags, surface, plane, errcode_ret);
 	}
 
@@ -185,9 +158,11 @@ public class INTELVAAPIMediaSharing {
 
 	/** Unsafe version of {@link #clEnqueueAcquireVA_APIMediaSurfacesINTEL EnqueueAcquireVA_APIMediaSurfacesINTEL} */
 	public static int nclEnqueueAcquireVA_APIMediaSurfacesINTEL(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueAcquireVA_APIMediaSurfacesINTEL;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueAcquireVA_APIMediaSurfacesINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -238,9 +213,11 @@ public class INTELVAAPIMediaSharing {
 
 	/** Unsafe version of {@link #clEnqueueReleaseVA_APIMediaSurfacesINTEL EnqueueReleaseVA_APIMediaSurfacesINTEL} */
 	public static int nclEnqueueReleaseVA_APIMediaSurfacesINTEL(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = getInstance().EnqueueReleaseVA_APIMediaSurfacesINTEL;
-		if ( CHECKS )
+		long __functionAddress = CL.getICD().clEnqueueReleaseVA_APIMediaSurfacesINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
+		}
 		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 

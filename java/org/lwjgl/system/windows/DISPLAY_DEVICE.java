@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Receives information about the display device specified by the {@code iDevNum} parameter of the {@link User32#EnumDisplayDevices User32.EnumDisplayDevices} function.
@@ -47,7 +48,7 @@ public class DISPLAY_DEVICE extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	public static final int __ALIGNMENT;
+	public static final int ALIGNOF;
 
 	/** The struct member offsets. */
 	public static final int
@@ -69,7 +70,7 @@ public class DISPLAY_DEVICE extends Struct {
 		);
 
 		SIZEOF = layout.getSize();
-		__ALIGNMENT = layout.getAlignment();
+		ALIGNOF = layout.getAlignment();
 
 		CB = layout.offsetof(0);
 		DEVICENAME = layout.offsetof(1);
@@ -196,26 +197,96 @@ public class DISPLAY_DEVICE extends Struct {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
+	// -----------------------------------
+
+	/** Returns a new {@link DISPLAY_DEVICE} instance allocated on the thread-local {@link MemoryStack}. */
+	public static DISPLAY_DEVICE mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link DISPLAY_DEVICE} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static DISPLAY_DEVICE callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link DISPLAY_DEVICE} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static DISPLAY_DEVICE mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link DISPLAY_DEVICE} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static DISPLAY_DEVICE callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link DISPLAY_DEVICE.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link DISPLAY_DEVICE.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link DISPLAY_DEVICE.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link DISPLAY_DEVICE.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+	}
+
+	// -----------------------------------
+
 	/** Unsafe version of {@link #cb}. */
 	public static int ncb(long struct) { return memGetInt(struct + DISPLAY_DEVICE.CB); }
 	/** Unsafe version of {@link #DeviceName}. */
 	public static ByteBuffer nDeviceName(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICENAME, 64); }
 	/** Unsafe version of {@link #DeviceNameString}. */
-	public static String nDeviceNameString(long struct) { return memDecodeUTF16(struct + DISPLAY_DEVICE.DEVICENAME); }
+	public static String nDeviceNameString(long struct) { return memUTF16(struct + DISPLAY_DEVICE.DEVICENAME); }
 	/** Unsafe version of {@link #DeviceString}. */
 	public static ByteBuffer nDeviceString(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICESTRING, 256); }
 	/** Unsafe version of {@link #DeviceStringString}. */
-	public static String nDeviceStringString(long struct) { return memDecodeUTF16(struct + DISPLAY_DEVICE.DEVICESTRING); }
+	public static String nDeviceStringString(long struct) { return memUTF16(struct + DISPLAY_DEVICE.DEVICESTRING); }
 	/** Unsafe version of {@link #StateFlags}. */
 	public static int nStateFlags(long struct) { return memGetInt(struct + DISPLAY_DEVICE.STATEFLAGS); }
 	/** Unsafe version of {@link #DeviceID}. */
 	public static ByteBuffer nDeviceID(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICEID, 256); }
 	/** Unsafe version of {@link #DeviceIDString}. */
-	public static String nDeviceIDString(long struct) { return memDecodeUTF16(struct + DISPLAY_DEVICE.DEVICEID); }
+	public static String nDeviceIDString(long struct) { return memUTF16(struct + DISPLAY_DEVICE.DEVICEID); }
 	/** Unsafe version of {@link #DeviceKey}. */
 	public static ByteBuffer nDeviceKey(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICEKEY, 256); }
 	/** Unsafe version of {@link #DeviceKeyString}. */
-	public static String nDeviceKeyString(long struct) { return memDecodeUTF16(struct + DISPLAY_DEVICE.DEVICEKEY); }
+	public static String nDeviceKeyString(long struct) { return memUTF16(struct + DISPLAY_DEVICE.DEVICEKEY); }
 
 	/** Unsafe version of {@link #cb(int) cb}. */
 	public static void ncb(long struct, int value) { memPutInt(struct + DISPLAY_DEVICE.CB, value); }
@@ -254,7 +325,7 @@ public class DISPLAY_DEVICE extends Struct {
 
 		@Override
 		protected DISPLAY_DEVICE newInstance(long address) {
-			return new DISPLAY_DEVICE(address, container);
+			return new DISPLAY_DEVICE(address, getContainer());
 		}
 
 		@Override
