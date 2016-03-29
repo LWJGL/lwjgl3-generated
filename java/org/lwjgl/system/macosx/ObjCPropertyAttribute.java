@@ -84,24 +84,8 @@ public class ObjCPropertyAttribute extends Struct {
 
 	/** Sets the address of the specified encoded string to the {@code name} field. */
 	public ObjCPropertyAttribute name(ByteBuffer value) { nname(address(), value); return this; }
-	/**
-	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code name} field.
-	 *
-	 * <p>The encoded string must be explicitly freed with {@link #nameFree}.</p>
-	 */
-	public ObjCPropertyAttribute name(CharSequence value) { nname(address(), value); return this; }
-	/** Frees the string encoded by {@link #name(CharSequence)} and stored in the {@code name} field. */
-	public ObjCPropertyAttribute nameFree() { nnameFree(address()); return this; }
 	/** Sets the address of the specified encoded string to the {@code value} field. */
 	public ObjCPropertyAttribute value(ByteBuffer value) { nvalue(address(), value); return this; }
-	/**
-	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code value} field.
-	 *
-	 * <p>The encoded string must be explicitly freed with {@link #valueFree}.</p>
-	 */
-	public ObjCPropertyAttribute value(CharSequence value) { nvalue(address(), value); return this; }
-	/** Frees the string encoded by {@link #value(CharSequence)} and stored in the {@code value} field. */
-	public ObjCPropertyAttribute valueFree() { nvalueFree(address()); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public ObjCPropertyAttribute set(
@@ -274,19 +258,11 @@ public class ObjCPropertyAttribute extends Struct {
 		if ( CHECKS && value != null ) checkNT1(value); 
 		memPutAddress(struct + ObjCPropertyAttribute.NAME, memAddress(value));
 	}
-	/** Unsafe version of {@link #name(CharSequence) name}. */
-	public static void nname(long struct, CharSequence value) { nname(struct, memUTF8(value)); }
-	/** Unsafe version of {@link #nameFree}. */
-	public static void nnameFree(long struct) { nmemFree(memGetAddress(struct + ObjCPropertyAttribute.NAME)); }
 	/** Unsafe version of {@link #value(ByteBuffer) value}. */
 	public static void nvalue(long struct, ByteBuffer value) { 
 		if ( CHECKS && value != null ) checkNT1(value); 
 		memPutAddress(struct + ObjCPropertyAttribute.VALUE, memAddress(value));
 	}
-	/** Unsafe version of {@link #value(CharSequence) value}. */
-	public static void nvalue(long struct, CharSequence value) { nvalue(struct, memUTF8(value)); }
-	/** Unsafe version of {@link #valueFree}. */
-	public static void nvalueFree(long struct) { nmemFree(memGetAddress(struct + ObjCPropertyAttribute.VALUE)); }
 
 	/**
 	 * Validates pointer members that should not be {@code NULL}.
@@ -362,24 +338,8 @@ public class ObjCPropertyAttribute extends Struct {
 
 		/** Sets the address of the specified encoded string to the {@code name} field. */
 		public ObjCPropertyAttribute.Buffer name(ByteBuffer value) { ObjCPropertyAttribute.nname(address(), value); return this; }
-		/**
-		 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code name} field.
-		 *
-		 * <p>The encoded string must be explicitly freed with {@link #nameFree}.</p>
-		 */
-		public ObjCPropertyAttribute.Buffer name(CharSequence value) { ObjCPropertyAttribute.nname(address(), value); return this; }
-		/** Frees the string encoded by {@link #name(CharSequence)} and stored in the {@code name} field. */
-		public ObjCPropertyAttribute.Buffer nameFree() { ObjCPropertyAttribute.nnameFree(address()); return this; }
 		/** Sets the address of the specified encoded string to the {@code value} field. */
 		public ObjCPropertyAttribute.Buffer value(ByteBuffer value) { ObjCPropertyAttribute.nvalue(address(), value); return this; }
-		/**
-		 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code value} field.
-		 *
-		 * <p>The encoded string must be explicitly freed with {@link #valueFree}.</p>
-		 */
-		public ObjCPropertyAttribute.Buffer value(CharSequence value) { ObjCPropertyAttribute.nvalue(address(), value); return this; }
-		/** Frees the string encoded by {@link #value(CharSequence)} and stored in the {@code value} field. */
-		public ObjCPropertyAttribute.Buffer valueFree() { ObjCPropertyAttribute.nvalueFree(address()); return this; }
 
 	}
 

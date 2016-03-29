@@ -135,26 +135,10 @@ public class VkApplicationInfo extends Struct {
 	public VkApplicationInfo pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the address of the specified encoded string to the {@code pApplicationName} field. */
 	public VkApplicationInfo pApplicationName(ByteBuffer value) { npApplicationName(address(), value); return this; }
-	/**
-	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code pApplicationName} field.
-	 *
-	 * <p>The encoded string must be explicitly freed with {@link #pApplicationNameFree}.</p>
-	 */
-	public VkApplicationInfo pApplicationName(CharSequence value) { npApplicationName(address(), value); return this; }
-	/** Frees the string encoded by {@link #pApplicationName(CharSequence)} and stored in the {@code pApplicationName} field. */
-	public VkApplicationInfo pApplicationNameFree() { npApplicationNameFree(address()); return this; }
 	/** Sets the specified value to the {@code applicationVersion} field. */
 	public VkApplicationInfo applicationVersion(int value) { napplicationVersion(address(), value); return this; }
 	/** Sets the address of the specified encoded string to the {@code pEngineName} field. */
 	public VkApplicationInfo pEngineName(ByteBuffer value) { npEngineName(address(), value); return this; }
-	/**
-	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code pEngineName} field.
-	 *
-	 * <p>The encoded string must be explicitly freed with {@link #pEngineNameFree}.</p>
-	 */
-	public VkApplicationInfo pEngineName(CharSequence value) { npEngineName(address(), value); return this; }
-	/** Frees the string encoded by {@link #pEngineName(CharSequence)} and stored in the {@code pEngineName} field. */
-	public VkApplicationInfo pEngineNameFree() { npEngineNameFree(address()); return this; }
 	/** Sets the specified value to the {@code engineVersion} field. */
 	public VkApplicationInfo engineVersion(int value) { nengineVersion(address(), value); return this; }
 	/** Sets the specified value to the {@code apiVersion} field. */
@@ -355,10 +339,6 @@ public class VkApplicationInfo extends Struct {
 		if ( CHECKS && value != null ) checkNT1(value); 
 		memPutAddress(struct + VkApplicationInfo.PAPPLICATIONNAME, memAddressSafe(value));
 	}
-	/** Unsafe version of {@link #pApplicationName(CharSequence) pApplicationName}. */
-	public static void npApplicationName(long struct, CharSequence value) { npApplicationName(struct, memUTF8(value)); }
-	/** Unsafe version of {@link #pApplicationNameFree}. */
-	public static void npApplicationNameFree(long struct) { nmemFree(memGetAddress(struct + VkApplicationInfo.PAPPLICATIONNAME)); }
 	/** Unsafe version of {@link #applicationVersion(int) applicationVersion}. */
 	public static void napplicationVersion(long struct, int value) { memPutInt(struct + VkApplicationInfo.APPLICATIONVERSION, value); }
 	/** Unsafe version of {@link #pEngineName(ByteBuffer) pEngineName}. */
@@ -366,10 +346,6 @@ public class VkApplicationInfo extends Struct {
 		if ( CHECKS && value != null ) checkNT1(value); 
 		memPutAddress(struct + VkApplicationInfo.PENGINENAME, memAddressSafe(value));
 	}
-	/** Unsafe version of {@link #pEngineName(CharSequence) pEngineName}. */
-	public static void npEngineName(long struct, CharSequence value) { npEngineName(struct, memUTF8(value)); }
-	/** Unsafe version of {@link #pEngineNameFree}. */
-	public static void npEngineNameFree(long struct) { nmemFree(memGetAddress(struct + VkApplicationInfo.PENGINENAME)); }
 	/** Unsafe version of {@link #engineVersion(int) engineVersion}. */
 	public static void nengineVersion(long struct, int value) { memPutInt(struct + VkApplicationInfo.ENGINEVERSION, value); }
 	/** Unsafe version of {@link #apiVersion(int) apiVersion}. */
@@ -442,26 +418,10 @@ public class VkApplicationInfo extends Struct {
 		public VkApplicationInfo.Buffer pNext(long value) { VkApplicationInfo.npNext(address(), value); return this; }
 		/** Sets the address of the specified encoded string to the {@code pApplicationName} field. */
 		public VkApplicationInfo.Buffer pApplicationName(ByteBuffer value) { VkApplicationInfo.npApplicationName(address(), value); return this; }
-		/**
-		 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code pApplicationName} field.
-		 *
-		 * <p>The encoded string must be explicitly freed with {@link #pApplicationNameFree}.</p>
-		 */
-		public VkApplicationInfo.Buffer pApplicationName(CharSequence value) { VkApplicationInfo.npApplicationName(address(), value); return this; }
-		/** Frees the string encoded by {@link #pApplicationName(CharSequence)} and stored in the {@code pApplicationName} field. */
-		public VkApplicationInfo.Buffer pApplicationNameFree() { VkApplicationInfo.npApplicationNameFree(address()); return this; }
 		/** Sets the specified value to the {@code applicationVersion} field. */
 		public VkApplicationInfo.Buffer applicationVersion(int value) { VkApplicationInfo.napplicationVersion(address(), value); return this; }
 		/** Sets the address of the specified encoded string to the {@code pEngineName} field. */
 		public VkApplicationInfo.Buffer pEngineName(ByteBuffer value) { VkApplicationInfo.npEngineName(address(), value); return this; }
-		/**
-		 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code pEngineName} field.
-		 *
-		 * <p>The encoded string must be explicitly freed with {@link #pEngineNameFree}.</p>
-		 */
-		public VkApplicationInfo.Buffer pEngineName(CharSequence value) { VkApplicationInfo.npEngineName(address(), value); return this; }
-		/** Frees the string encoded by {@link #pEngineName(CharSequence)} and stored in the {@code pEngineName} field. */
-		public VkApplicationInfo.Buffer pEngineNameFree() { VkApplicationInfo.npEngineNameFree(address()); return this; }
 		/** Sets the specified value to the {@code engineVersion} field. */
 		public VkApplicationInfo.Buffer engineVersion(int value) { VkApplicationInfo.nengineVersion(address(), value); return this; }
 		/** Sets the specified value to the {@code apiVersion} field. */

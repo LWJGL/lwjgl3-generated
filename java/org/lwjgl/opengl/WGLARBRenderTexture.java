@@ -25,12 +25,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <ul>
  * <li>Only color buffers of a pbuffer can be bound as a texture. It is not possible to use the color buffer of a window as a texture.</li>
- * <li>The texture internal format is determined when the color buffer is associated with the texture, guaranteeing that the color buffer format is equivalent
- * to the texture internal format.</li>
+ * <li>The texture internal format is determined when the color buffer is associated with the texture, guaranteeing that the color buffer format is
+ * equivalent to the texture internal format.</li>
  * <li>When a color buffer of a pbuffer is being used as a texture, the pbuffer can not be used for rendering; this makes it easier for implementations to
  * avoid a copy of the image since the semantics of the pointer swap are clear.</li>
- * <li>The application must release the color buffer from the texture before it can render to the pbuffer again. When the color buffer is bound as a texture,
- * draw and read operations on the pbuffer are undefined.</li>
+ * <li>The application must release the color buffer from the texture before it can render to the pbuffer again. When the color buffer is bound as a
+ * texture, draw and read operations on the pbuffer are undefined.</li>
  * <li>A mipmap attribute can be set, in which case memory will be allocated up front for mipmaps. The application can render the mipmap images or, if
  * <a href="http://www.opengl.org/registry/specs/SGIS/generate_mipmap.txt">SGIS_generate_mipmap</a> is supported, they can be automatically generated when the color buffer is bound as a texture.</li>
  * <li>A texture target is associated with the pbuffer, so that cubemap images can be rendered into a single color buffer.</li>

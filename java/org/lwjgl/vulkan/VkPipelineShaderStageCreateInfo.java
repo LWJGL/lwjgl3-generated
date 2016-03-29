@@ -119,14 +119,6 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 	public VkPipelineShaderStageCreateInfo module(long value) { nmodule(address(), value); return this; }
 	/** Sets the address of the specified encoded string to the {@code pName} field. */
 	public VkPipelineShaderStageCreateInfo pName(ByteBuffer value) { npName(address(), value); return this; }
-	/**
-	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code pName} field.
-	 *
-	 * <p>The encoded string must be explicitly freed with {@link #pNameFree}.</p>
-	 */
-	public VkPipelineShaderStageCreateInfo pName(CharSequence value) { npName(address(), value); return this; }
-	/** Frees the string encoded by {@link #pName(CharSequence)} and stored in the {@code pName} field. */
-	public VkPipelineShaderStageCreateInfo pNameFree() { npNameFree(address()); return this; }
 	/** Sets the address of the specified {@link VkSpecializationInfo} to the {@code pSpecializationInfo} field. */
 	public VkPipelineShaderStageCreateInfo pSpecializationInfo(VkSpecializationInfo value) { npSpecializationInfo(address(), value); return this; }
 
@@ -329,10 +321,6 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 		if ( CHECKS && value != null ) checkNT1(value); 
 		memPutAddress(struct + VkPipelineShaderStageCreateInfo.PNAME, memAddress(value));
 	}
-	/** Unsafe version of {@link #pName(CharSequence) pName}. */
-	public static void npName(long struct, CharSequence value) { npName(struct, memUTF8(value)); }
-	/** Unsafe version of {@link #pNameFree}. */
-	public static void npNameFree(long struct) { nmemFree(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME)); }
 	/** Unsafe version of {@link #pSpecializationInfo(VkSpecializationInfo) pSpecializationInfo}. */
 	public static void npSpecializationInfo(long struct, VkSpecializationInfo value) { memPutAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO, addressSafe(value)); }
 
@@ -430,14 +418,6 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 		public VkPipelineShaderStageCreateInfo.Buffer module(long value) { VkPipelineShaderStageCreateInfo.nmodule(address(), value); return this; }
 		/** Sets the address of the specified encoded string to the {@code pName} field. */
 		public VkPipelineShaderStageCreateInfo.Buffer pName(ByteBuffer value) { VkPipelineShaderStageCreateInfo.npName(address(), value); return this; }
-		/**
-		 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code pName} field.
-		 *
-		 * <p>The encoded string must be explicitly freed with {@link #pNameFree}.</p>
-		 */
-		public VkPipelineShaderStageCreateInfo.Buffer pName(CharSequence value) { VkPipelineShaderStageCreateInfo.npName(address(), value); return this; }
-		/** Frees the string encoded by {@link #pName(CharSequence)} and stored in the {@code pName} field. */
-		public VkPipelineShaderStageCreateInfo.Buffer pNameFree() { VkPipelineShaderStageCreateInfo.npNameFree(address()); return this; }
 		/** Sets the address of the specified {@link VkSpecializationInfo} to the {@code pSpecializationInfo} field. */
 		public VkPipelineShaderStageCreateInfo.Buffer pSpecializationInfo(VkSpecializationInfo value) { VkPipelineShaderStageCreateInfo.npSpecializationInfo(address(), value); return this; }
 
