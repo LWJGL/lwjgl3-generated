@@ -113,6 +113,8 @@ public class STBImageResize {
 
 	static { Library.initialize(); }
 
+	static { MemoryUtil.getAllocator(); }
+
 	protected STBImageResize() {
 		throw new UnsupportedOperationException();
 	}

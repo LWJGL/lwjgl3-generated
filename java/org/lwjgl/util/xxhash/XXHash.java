@@ -38,6 +38,8 @@ public class XXHash {
 
 	static { Library.initialize(); }
 
+	static { MemoryUtil.getAllocator(); }
+
 	protected XXHash() {
 		throw new UnsupportedOperationException();
 	}

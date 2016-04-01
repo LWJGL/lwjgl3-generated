@@ -110,6 +110,8 @@ public class STBImage {
 
 	static { Library.initialize(); }
 
+	static { MemoryUtil.getAllocator(); }
+
 	protected STBImage() {
 		throw new UnsupportedOperationException();
 	}

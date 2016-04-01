@@ -303,6 +303,8 @@ public class STBTruetype {
 
 	static { Library.initialize(); }
 
+	static { MemoryUtil.getAllocator(); }
+
 	protected STBTruetype() {
 		throw new UnsupportedOperationException();
 	}
