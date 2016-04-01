@@ -38,13 +38,6 @@ public class KHRSurface {
 	/** The presentation engine supports the sRGB colorspace. */
 	public static final int VK_COLORSPACE_SRGB_NONLINEAR_KHR = 0;
 
-	/** VkColorSpaceKHR */
-	public static final int
-		VK_COLORSPACE_BEGIN_RANGE = VK_COLORSPACE_SRGB_NONLINEAR_KHR,
-		VK_COLORSPACE_END_RANGE   = VK_COLORSPACE_SRGB_NONLINEAR_KHR,
-		VK_COLORSPACE_RANGE_SIZE  = (VK_COLORSPACE_SRGB_NONLINEAR_KHR - VK_COLORSPACE_SRGB_NONLINEAR_KHR + 1),
-		VK_COLORSPACE_MAX_ENUM    = 0x7FFFFFFF;
-
 	/**
 	 * The presentation engine does not wait for a vertical blanking period to update the current image, meaning this mode <b>may</b> result in visible tearing.
 	 * No internal queuing of presentation requests is needed, as the requests are applied immediately.
@@ -77,13 +70,6 @@ public class KHRSurface {
 	 * period in which the queue is non-empty.
 	 */
 	public static final int VK_PRESENT_MODE_FIFO_RELAXED_KHR = 3;
-
-	/** VkPresentModeKHR */
-	public static final int
-		VK_PRESENT_MODE_BEGIN_RANGE = VK_PRESENT_MODE_IMMEDIATE_KHR,
-		VK_PRESENT_MODE_END_RANGE   = VK_PRESENT_MODE_FIFO_RELAXED_KHR,
-		VK_PRESENT_MODE_RANGE_SIZE  = (VK_PRESENT_MODE_FIFO_RELAXED_KHR - VK_PRESENT_MODE_IMMEDIATE_KHR + 1),
-		VK_PRESENT_MODE_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** The image content is presented without being transformed. */
 	public static final int VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR = 0x1;

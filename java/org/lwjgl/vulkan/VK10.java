@@ -66,10 +66,13 @@ public class VK10 {
 	/**  */
 	public static final float VK_LOD_CLAMP_NONE = 1000.0f;
 
-	/**  */
+	/** Boolean constants. */
 	public static final int
-		VK_TRUE                          = 1,
-		VK_FALSE                         = 0,
+		VK_TRUE  = 1,
+		VK_FALSE = 0;
+
+	/** Struct member limits. */
+	public static final int
 		VK_MAX_PHYSICAL_DEVICE_NAME_SIZE = 256,
 		VK_UUID_SIZE                     = 16,
 		VK_MAX_MEMORY_TYPES              = 32,
@@ -77,7 +80,7 @@ public class VK10 {
 		VK_MAX_EXTENSION_NAME_SIZE       = 256,
 		VK_MAX_DESCRIPTION_SIZE          = 256;
 
-	/**  */
+	/** Special values. */
 	public static final int
 		VK_REMAINING_MIP_LEVELS   = (~0),
 		VK_REMAINING_ARRAY_LAYERS = (~0),
@@ -85,16 +88,11 @@ public class VK10 {
 		VK_QUEUE_FAMILY_IGNORED   = (~0),
 		VK_SUBPASS_EXTERNAL       = (~0);
 
-	/**  */
+	/** Special size value. */
 	public static final long VK_WHOLE_SIZE = (~0L);
 
 	/** VkPipelineCacheHeaderVersion */
-	public static final int
-		VK_PIPELINE_CACHE_HEADER_VERSION_ONE         = 1,
-		VK_PIPELINE_CACHE_HEADER_VERSION_BEGIN_RANGE = VK_PIPELINE_CACHE_HEADER_VERSION_ONE,
-		VK_PIPELINE_CACHE_HEADER_VERSION_END_RANGE   = VK_PIPELINE_CACHE_HEADER_VERSION_ONE,
-		VK_PIPELINE_CACHE_HEADER_VERSION_RANGE_SIZE  = VK_PIPELINE_CACHE_HEADER_VERSION_ONE - VK_PIPELINE_CACHE_HEADER_VERSION_ONE + 1,
-		VK_PIPELINE_CACHE_HEADER_VERSION_MAX_ENUM    = 0x7FFFFFFF;
+	public static final int VK_PIPELINE_CACHE_HEADER_VERSION_ONE = 1;
 
 	/** Command successfully completed. */
 	public static final int VK_SUCCESS = 0;
@@ -147,13 +145,6 @@ public class VK10 {
 	/** A requested format is not supported on this device. */
 	public static final int VK_ERROR_FORMAT_NOT_SUPPORTED = -11;
 
-	/** VkResult */
-	public static final int
-		VK_RESULT_BEGIN_RANGE = VK_ERROR_FORMAT_NOT_SUPPORTED,
-		VK_RESULT_END_RANGE   = VK_INCOMPLETE,
-		VK_RESULT_RANGE_SIZE  = VK_INCOMPLETE - VK_ERROR_FORMAT_NOT_SUPPORTED + 1,
-		VK_RESULT_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** VkStructureType */
 	public static final int
 		VK_STRUCTURE_TYPE_APPLICATION_INFO                          = 0,
@@ -204,11 +195,7 @@ public class VK10 {
 		VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER                      = 45,
 		VK_STRUCTURE_TYPE_MEMORY_BARRIER                            = 46,
 		VK_STRUCTURE_TYPE_LOADER_INSTANCE_CREATE_INFO               = 47,
-		VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO                 = 48,
-		VK_STRUCTURE_TYPE_BEGIN_RANGE                               = VK_STRUCTURE_TYPE_APPLICATION_INFO,
-		VK_STRUCTURE_TYPE_END_RANGE                                 = VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO,
-		VK_STRUCTURE_TYPE_RANGE_SIZE                                = VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO - VK_STRUCTURE_TYPE_APPLICATION_INFO + 1,
-		VK_STRUCTURE_TYPE_MAX_ENUM                                  = 0x7FFFFFFF;
+		VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO                 = 48;
 
 	/** The allocation is scoped to the lifetime of the Vulkan command. */
 	public static final int VK_SYSTEM_ALLOCATION_SCOPE_COMMAND = 0;
@@ -225,22 +212,8 @@ public class VK10 {
 	/** The allocation is scoped to the lifetime of the Vulkan instance. */
 	public static final int VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE = 4;
 
-	/** VkSystemAllocationScope */
-	public static final int
-		VK_SYSTEM_ALLOCATION_SCOPE_BEGIN_RANGE = VK_SYSTEM_ALLOCATION_SCOPE_COMMAND,
-		VK_SYSTEM_ALLOCATION_SCOPE_END_RANGE   = VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE,
-		VK_SYSTEM_ALLOCATION_SCOPE_RANGE_SIZE  = VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE - VK_SYSTEM_ALLOCATION_SCOPE_COMMAND + 1,
-		VK_SYSTEM_ALLOCATION_SCOPE_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** The allocation is intended for execution by the host. */
 	public static final int VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE = 0;
-
-	/** VkInternalAllocationType */
-	public static final int
-		VK_INTERNAL_ALLOCATION_TYPE_BEGIN_RANGE = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE,
-		VK_INTERNAL_ALLOCATION_TYPE_END_RANGE   = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE,
-		VK_INTERNAL_ALLOCATION_TYPE_RANGE_SIZE  = VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE - VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE + 1,
-		VK_INTERNAL_ALLOCATION_TYPE_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** The format is not specified. */
 	public static final int VK_FORMAT_UNDEFINED = 0;
@@ -797,13 +770,6 @@ public class VK10 {
 	/** A four-component, ASTC compressed format where each 12x12 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
 	public static final int VK_FORMAT_ASTC_12x12_SRGB_BLOCK = 184;
 
-	/** VkFormat */
-	public static final int
-		VK_FORMAT_BEGIN_RANGE = VK_FORMAT_UNDEFINED,
-		VK_FORMAT_END_RANGE   = VK_FORMAT_ASTC_12x12_SRGB_BLOCK,
-		VK_FORMAT_RANGE_SIZE  = VK_FORMAT_ASTC_12x12_SRGB_BLOCK - VK_FORMAT_UNDEFINED + 1,
-		VK_FORMAT_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** One-dimensional image */
 	public static final int VK_IMAGE_TYPE_1D = 0;
 
@@ -813,25 +779,11 @@ public class VK10 {
 	/** Three-dimensional image */
 	public static final int VK_IMAGE_TYPE_3D = 2;
 
-	/** VkImageType */
-	public static final int
-		VK_IMAGE_TYPE_BEGIN_RANGE = VK_IMAGE_TYPE_1D,
-		VK_IMAGE_TYPE_END_RANGE   = VK_IMAGE_TYPE_3D,
-		VK_IMAGE_TYPE_RANGE_SIZE  = VK_IMAGE_TYPE_3D - VK_IMAGE_TYPE_1D + 1,
-		VK_IMAGE_TYPE_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** Specifies optimal tiling (texels are laid out in an implementation-dependent arrangement, for more optimal memory access). */
 	public static final int VK_IMAGE_TILING_OPTIMAL = 0;
 
 	/** Specifies linear tiling (texels are laid out in memory in row-major order, possibly with some padding on each row). */
 	public static final int VK_IMAGE_TILING_LINEAR = 1;
-
-	/** VkImageTiling */
-	public static final int
-		VK_IMAGE_TILING_BEGIN_RANGE = VK_IMAGE_TILING_OPTIMAL,
-		VK_IMAGE_TILING_END_RANGE   = VK_IMAGE_TILING_LINEAR,
-		VK_IMAGE_TILING_RANGE_SIZE  = VK_IMAGE_TILING_LINEAR - VK_IMAGE_TILING_OPTIMAL + 1,
-		VK_IMAGE_TILING_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** The device does not match any other available types. */
 	public static final int VK_PHYSICAL_DEVICE_TYPE_OTHER = 0;
@@ -848,13 +800,6 @@ public class VK10 {
 	/** The device is typically running on the same processors as the host. */
 	public static final int VK_PHYSICAL_DEVICE_TYPE_CPU = 4;
 
-	/** VkPhysicalDeviceType */
-	public static final int
-		VK_PHYSICAL_DEVICE_TYPE_BEGIN_RANGE = VK_PHYSICAL_DEVICE_TYPE_OTHER,
-		VK_PHYSICAL_DEVICE_TYPE_END_RANGE   = VK_PHYSICAL_DEVICE_TYPE_CPU,
-		VK_PHYSICAL_DEVICE_TYPE_RANGE_SIZE  = VK_PHYSICAL_DEVICE_TYPE_CPU - VK_PHYSICAL_DEVICE_TYPE_OTHER + 1,
-		VK_PHYSICAL_DEVICE_TYPE_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** Occlusion query. */
 	public static final int VK_QUERY_TYPE_OCCLUSION = 0;
 
@@ -864,25 +809,11 @@ public class VK10 {
 	/** Timestamp query. */
 	public static final int VK_QUERY_TYPE_TIMESTAMP = 2;
 
-	/** VkQueryType */
-	public static final int
-		VK_QUERY_TYPE_BEGIN_RANGE = VK_QUERY_TYPE_OCCLUSION,
-		VK_QUERY_TYPE_END_RANGE   = VK_QUERY_TYPE_TIMESTAMP,
-		VK_QUERY_TYPE_RANGE_SIZE  = VK_QUERY_TYPE_TIMESTAMP - VK_QUERY_TYPE_OCCLUSION + 1,
-		VK_QUERY_TYPE_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** Specifies that access to any range or subresource of the object will be exclusive to a single queue family at a time. */
 	public static final int VK_SHARING_MODE_EXCLUSIVE = 0;
 
 	/** Specifies that concurrent access to any range or subresource of the object from multiple queue families is supported. */
 	public static final int VK_SHARING_MODE_CONCURRENT = 1;
-
-	/** VkSharingMode */
-	public static final int
-		VK_SHARING_MODE_BEGIN_RANGE = VK_SHARING_MODE_EXCLUSIVE,
-		VK_SHARING_MODE_END_RANGE   = VK_SHARING_MODE_CONCURRENT,
-		VK_SHARING_MODE_RANGE_SIZE  = VK_SHARING_MODE_CONCURRENT - VK_SHARING_MODE_EXCLUSIVE + 1,
-		VK_SHARING_MODE_MAX_ENUM    = 0x7FFFFFFF;
 
 	/**
 	 * Supports no device access. This layout <b>must</b> only be used as an {@code initialLayout} or as the {@code oldLayout} in an image transition. When
@@ -939,13 +870,6 @@ public class VK10 {
 	 */
 	public static final int VK_IMAGE_LAYOUT_PREINITIALIZED = 8;
 
-	/** VkImageLayout */
-	public static final int
-		VK_IMAGE_LAYOUT_BEGIN_RANGE = VK_IMAGE_LAYOUT_UNDEFINED,
-		VK_IMAGE_LAYOUT_END_RANGE   = VK_IMAGE_LAYOUT_PREINITIALIZED,
-		VK_IMAGE_LAYOUT_RANGE_SIZE  = VK_IMAGE_LAYOUT_PREINITIALIZED - VK_IMAGE_LAYOUT_UNDEFINED + 1,
-		VK_IMAGE_LAYOUT_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** One-dimensional image view. */
 	public static final int VK_IMAGE_VIEW_TYPE_1D = 0;
 
@@ -966,13 +890,6 @@ public class VK10 {
 
 	/** Cube map array image view. */
 	public static final int VK_IMAGE_VIEW_TYPE_CUBE_ARRAY = 6;
-
-	/** VkImageViewType */
-	public static final int
-		VK_IMAGE_VIEW_TYPE_BEGIN_RANGE = VK_IMAGE_VIEW_TYPE_1D,
-		VK_IMAGE_VIEW_TYPE_END_RANGE   = VK_IMAGE_VIEW_TYPE_CUBE_ARRAY,
-		VK_IMAGE_VIEW_TYPE_RANGE_SIZE  = VK_IMAGE_VIEW_TYPE_CUBE_ARRAY - VK_IMAGE_VIEW_TYPE_1D + 1,
-		VK_IMAGE_VIEW_TYPE_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** The component is set to the identity swizzle. */
 	public static final int VK_COMPONENT_SWIZZLE_IDENTITY = 0;
@@ -998,25 +915,11 @@ public class VK10 {
 	/** The component is set to the value of the A component of the image. */
 	public static final int VK_COMPONENT_SWIZZLE_A = 6;
 
-	/** VkComponentSwizzle */
-	public static final int
-		VK_COMPONENT_SWIZZLE_BEGIN_RANGE = VK_COMPONENT_SWIZZLE_IDENTITY,
-		VK_COMPONENT_SWIZZLE_END_RANGE   = VK_COMPONENT_SWIZZLE_A,
-		VK_COMPONENT_SWIZZLE_RANGE_SIZE  = VK_COMPONENT_SWIZZLE_A - VK_COMPONENT_SWIZZLE_IDENTITY + 1,
-		VK_COMPONENT_SWIZZLE_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** Indicates that vertex attribute addressing is a function of the vertex index. */
 	public static final int VK_VERTEX_INPUT_RATE_VERTEX = 0;
 
 	/** Indicates that vertex attribute addressing is a function of the instance index. */
 	public static final int VK_VERTEX_INPUT_RATE_INSTANCE = 1;
-
-	/** VkVertexInputRate */
-	public static final int
-		VK_VERTEX_INPUT_RATE_BEGIN_RANGE = VK_VERTEX_INPUT_RATE_VERTEX,
-		VK_VERTEX_INPUT_RATE_END_RANGE   = VK_VERTEX_INPUT_RATE_INSTANCE,
-		VK_VERTEX_INPUT_RATE_RANGE_SIZE  = VK_VERTEX_INPUT_RATE_INSTANCE - VK_VERTEX_INPUT_RATE_VERTEX + 1,
-		VK_VERTEX_INPUT_RATE_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** A series of individual points. Each vertex defines a separate point. */
 	public static final int VK_PRIMITIVE_TOPOLOGY_POINT_LIST = 0;
@@ -1126,13 +1029,6 @@ public class VK10 {
 	 */
 	public static final int VK_PRIMITIVE_TOPOLOGY_PATCH_LIST = 10;
 
-	/** VkPrimitiveTopology */
-	public static final int
-		VK_PRIMITIVE_TOPOLOGY_BEGIN_RANGE = VK_PRIMITIVE_TOPOLOGY_POINT_LIST,
-		VK_PRIMITIVE_TOPOLOGY_END_RANGE   = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST,
-		VK_PRIMITIVE_TOPOLOGY_RANGE_SIZE  = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST - VK_PRIMITIVE_TOPOLOGY_POINT_LIST + 1,
-		VK_PRIMITIVE_TOPOLOGY_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** Causes polygons to render using the polygon rasterization rules. */
 	public static final int VK_POLYGON_MODE_FILL = 0;
 
@@ -1142,25 +1038,11 @@ public class VK10 {
 	/** The vertices of polygons are treated, for rasterization purposes, as if they had been drawn as points. */
 	public static final int VK_POLYGON_MODE_POINT = 2;
 
-	/** VkPolygonMode */
-	public static final int
-		VK_POLYGON_MODE_BEGIN_RANGE = VK_POLYGON_MODE_FILL,
-		VK_POLYGON_MODE_END_RANGE   = VK_POLYGON_MODE_POINT,
-		VK_POLYGON_MODE_RANGE_SIZE  = VK_POLYGON_MODE_POINT - VK_POLYGON_MODE_FILL + 1,
-		VK_POLYGON_MODE_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** A triangle with positive area is considered front-facing. */
 	public static final int VK_FRONT_FACE_COUNTER_CLOCKWISE = 0;
 
 	/** A triangle with negative area is considered front-facing. */
 	public static final int VK_FRONT_FACE_CLOCKWISE = 1;
-
-	/** VkFrontFace */
-	public static final int
-		VK_FRONT_FACE_BEGIN_RANGE = VK_FRONT_FACE_COUNTER_CLOCKWISE,
-		VK_FRONT_FACE_END_RANGE   = VK_FRONT_FACE_CLOCKWISE,
-		VK_FRONT_FACE_RANGE_SIZE  = VK_FRONT_FACE_CLOCKWISE - VK_FRONT_FACE_COUNTER_CLOCKWISE + 1,
-		VK_FRONT_FACE_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** The test never passes. */
 	public static final int VK_COMPARE_OP_NEVER = 0;
@@ -1186,13 +1068,6 @@ public class VK10 {
 	/** The test always passes. */
 	public static final int VK_COMPARE_OP_ALWAYS = 7;
 
-	/** VkCompareOp */
-	public static final int
-		VK_COMPARE_OP_BEGIN_RANGE = VK_COMPARE_OP_NEVER,
-		VK_COMPARE_OP_END_RANGE   = VK_COMPARE_OP_ALWAYS,
-		VK_COMPARE_OP_RANGE_SIZE  = VK_COMPARE_OP_ALWAYS - VK_COMPARE_OP_NEVER + 1,
-		VK_COMPARE_OP_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** Keeps the current value. */
 	public static final int VK_STENCIL_OP_KEEP = 0;
 
@@ -1216,13 +1091,6 @@ public class VK10 {
 
 	/** Decrements the current value and wraps to the maximum possible value when the value would go below 0. */
 	public static final int VK_STENCIL_OP_DECREMENT_AND_WRAP = 7;
-
-	/** VkStencilOp */
-	public static final int
-		VK_STENCIL_OP_BEGIN_RANGE = VK_STENCIL_OP_KEEP,
-		VK_STENCIL_OP_END_RANGE   = VK_STENCIL_OP_DECREMENT_AND_WRAP,
-		VK_STENCIL_OP_RANGE_SIZE  = VK_STENCIL_OP_DECREMENT_AND_WRAP - VK_STENCIL_OP_KEEP + 1,
-		VK_STENCIL_OP_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** {@code 0} */
 	public static final int VK_LOGIC_OP_CLEAR = 0;
@@ -1271,13 +1139,6 @@ public class VK10 {
 
 	/** {@code all 1s} */
 	public static final int VK_LOGIC_OP_SET = 15;
-
-	/** VkLogicOp */
-	public static final int
-		VK_LOGIC_OP_BEGIN_RANGE = VK_LOGIC_OP_CLEAR,
-		VK_LOGIC_OP_END_RANGE   = VK_LOGIC_OP_SET,
-		VK_LOGIC_OP_RANGE_SIZE  = VK_LOGIC_OP_SET - VK_LOGIC_OP_CLEAR + 1,
-		VK_LOGIC_OP_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** <code>(0, 0, 0, 0)</code> */
 	public static final int VK_BLEND_FACTOR_ZERO = 0;
@@ -1336,13 +1197,6 @@ public class VK10 {
 	/** <code>(1 − A<sub>s1</sub>, 1 − A<sub>s1</sub>, 1 − A<sub>s1</sub>, 1 − A<sub>s1</sub>)</code> */
 	public static final int VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA = 18;
 
-	/** VkBlendFactor */
-	public static final int
-		VK_BLEND_FACTOR_BEGIN_RANGE = VK_BLEND_FACTOR_ZERO,
-		VK_BLEND_FACTOR_END_RANGE   = VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA,
-		VK_BLEND_FACTOR_RANGE_SIZE  = VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA - VK_BLEND_FACTOR_ZERO + 1,
-		VK_BLEND_FACTOR_MAX_ENUM    = 0x7FFFFFFF;
-
 	/**
 	 * <pre><code>R = R<sub>s0</sub> × S<sub>r</sub> + R<sub>d</sub> × D<sub>r</sub>
 G = G<sub>s0</sub> × S<sub>g</sub> + G<sub>d</sub> × D<sub>g</sub>
@@ -1382,13 +1236,6 @@ B = max(B<sub>s0</sub>, B<sub>d</sub>)
 A = max(A<sub>s0</sub>, A<sub>d</sub>)</code></pre>
 	 */
 	public static final int VK_BLEND_OP_MAX = 4;
-
-	/** VkBlendOp */
-	public static final int
-		VK_BLEND_OP_BEGIN_RANGE = VK_BLEND_OP_ADD,
-		VK_BLEND_OP_END_RANGE   = VK_BLEND_OP_MAX,
-		VK_BLEND_OP_RANGE_SIZE  = VK_BLEND_OP_MAX - VK_BLEND_OP_ADD + 1,
-		VK_BLEND_OP_MAX_ENUM    = 0x7FFFFFFF;
 
 	/**
 	 * Indicates that the {@code pViewports} state in {@link VkPipelineViewportStateCreateInfo} will be ignored and <b>must</b> be set dynamically with
@@ -1452,13 +1299,6 @@ A = max(A<sub>s0</sub>, A<sub>d</sub>)</code></pre>
 	 */
 	public static final int VK_DYNAMIC_STATE_STENCIL_REFERENCE = 8;
 
-	/** VkDynamicState */
-	public static final int
-		VK_DYNAMIC_STATE_BEGIN_RANGE = VK_DYNAMIC_STATE_VIEWPORT,
-		VK_DYNAMIC_STATE_END_RANGE   = VK_DYNAMIC_STATE_STENCIL_REFERENCE,
-		VK_DYNAMIC_STATE_RANGE_SIZE  = VK_DYNAMIC_STATE_STENCIL_REFERENCE - VK_DYNAMIC_STATE_VIEWPORT + 1,
-		VK_DYNAMIC_STATE_MAX_ENUM    = 0x7FFFFFFF;
-
 	/**
 	 * Nearest filtering.
 	 * 
@@ -1486,13 +1326,6 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 γ = frac(w - 0.5)</code></pre>
 	 */
 	public static final int VK_FILTER_LINEAR = 1;
-
-	/** VkFilter */
-	public static final int
-		VK_FILTER_BEGIN_RANGE = VK_FILTER_NEAREST,
-		VK_FILTER_END_RANGE   = VK_FILTER_LINEAR,
-		VK_FILTER_RANGE_SIZE  = VK_FILTER_LINEAR - VK_FILTER_NEAREST + 1,
-		VK_FILTER_MAX_ENUM    = 0x7FFFFFFF;
 
 	/**
 	 * Texels are read from the image level {@code d}, where:
@@ -1533,13 +1366,6 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 */
 	public static final int VK_SAMPLER_MIPMAP_MODE_LINEAR = 1;
 
-	/** VkSamplerMipmapMode */
-	public static final int
-		VK_SAMPLER_MIPMAP_MODE_BEGIN_RANGE = VK_SAMPLER_MIPMAP_MODE_NEAREST,
-		VK_SAMPLER_MIPMAP_MODE_END_RANGE   = VK_SAMPLER_MIPMAP_MODE_LINEAR,
-		VK_SAMPLER_MIPMAP_MODE_RANGE_SIZE  = VK_SAMPLER_MIPMAP_MODE_LINEAR - VK_SAMPLER_MIPMAP_MODE_NEAREST + 1,
-		VK_SAMPLER_MIPMAP_MODE_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** Indicates that the repeat wrap mode will be used. */
 	public static final int VK_SAMPLER_ADDRESS_MODE_REPEAT = 0;
 
@@ -1551,13 +1377,6 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/** Indicates that the clamp to border wrap mode will be used. */
 	public static final int VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER = 3;
-
-	/** VkSamplerAddressMode */
-	public static final int
-		VK_SAMPLER_ADDRESS_MODE_BEGIN_RANGE = VK_SAMPLER_ADDRESS_MODE_REPEAT,
-		VK_SAMPLER_ADDRESS_MODE_END_RANGE   = VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER,
-		VK_SAMPLER_ADDRESS_MODE_RANGE_SIZE  = VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER - VK_SAMPLER_ADDRESS_MODE_REPEAT + 1,
-		VK_SAMPLER_ADDRESS_MODE_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** <code>(0.0, 0.0, 0.0, 0.0)</code> */
 	public static final int VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0;
@@ -1577,13 +1396,6 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	/** <code>(1, 1, 1, 1)</code> */
 	public static final int VK_BORDER_COLOR_INT_OPAQUE_WHITE = 5;
 
-	/** VkBorderColor */
-	public static final int
-		VK_BORDER_COLOR_BEGIN_RANGE = VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK,
-		VK_BORDER_COLOR_END_RANGE   = VK_BORDER_COLOR_INT_OPAQUE_WHITE,
-		VK_BORDER_COLOR_RANGE_SIZE  = VK_BORDER_COLOR_INT_OPAQUE_WHITE - VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK + 1,
-		VK_BORDER_COLOR_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** VkDescriptorType */
 	public static final int
 		VK_DESCRIPTOR_TYPE_SAMPLER                = 0,
@@ -1596,11 +1408,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 		VK_DESCRIPTOR_TYPE_STORAGE_BUFFER         = 7,
 		VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC = 8,
 		VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC = 9,
-		VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT       = 10,
-		VK_DESCRIPTOR_TYPE_BEGIN_RANGE            = VK_DESCRIPTOR_TYPE_SAMPLER,
-		VK_DESCRIPTOR_TYPE_END_RANGE              = VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT,
-		VK_DESCRIPTOR_TYPE_RANGE_SIZE             = VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT - VK_DESCRIPTOR_TYPE_SAMPLER + 1,
-		VK_DESCRIPTOR_TYPE_MAX_ENUM               = 0x7FFFFFFF;
+		VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT       = 10;
 
 	/** Means the contents within the render area will be preserved. */
 	public static final int VK_ATTACHMENT_LOAD_OP_LOAD = 0;
@@ -1610,13 +1418,6 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/** Means the contents within the area need not be preserved; the contents of the attachment will be undefined inside the render area. */
 	public static final int VK_ATTACHMENT_LOAD_OP_DONT_CARE = 2;
-
-	/** VkAttachmentLoadOp */
-	public static final int
-		VK_ATTACHMENT_LOAD_OP_BEGIN_RANGE = VK_ATTACHMENT_LOAD_OP_LOAD,
-		VK_ATTACHMENT_LOAD_OP_END_RANGE   = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
-		VK_ATTACHMENT_LOAD_OP_RANGE_SIZE  = VK_ATTACHMENT_LOAD_OP_DONT_CARE - VK_ATTACHMENT_LOAD_OP_LOAD + 1,
-		VK_ATTACHMENT_LOAD_OP_MAX_ENUM    = 0x7FFFFFFF;
 
 	/**
 	 * Means the contents within the render area are written to memory and will be available for reading after the render pass instance completes once the
@@ -1631,39 +1432,20 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 */
 	public static final int VK_ATTACHMENT_STORE_OP_DONT_CARE = 1;
 
-	/** VkAttachmentStoreOp */
-	public static final int
-		VK_ATTACHMENT_STORE_OP_BEGIN_RANGE = VK_ATTACHMENT_STORE_OP_STORE,
-		VK_ATTACHMENT_STORE_OP_END_RANGE   = VK_ATTACHMENT_STORE_OP_DONT_CARE,
-		VK_ATTACHMENT_STORE_OP_RANGE_SIZE  = VK_ATTACHMENT_STORE_OP_DONT_CARE - VK_ATTACHMENT_STORE_OP_STORE + 1,
-		VK_ATTACHMENT_STORE_OP_MAX_ENUM    = 0x7FFFFFFF;
-
 	/** VkPipelineBindPoint */
 	public static final int
-		VK_PIPELINE_BIND_POINT_GRAPHICS    = 0,
-		VK_PIPELINE_BIND_POINT_COMPUTE     = 1,
-		VK_PIPELINE_BIND_POINT_BEGIN_RANGE = VK_PIPELINE_BIND_POINT_GRAPHICS,
-		VK_PIPELINE_BIND_POINT_END_RANGE   = VK_PIPELINE_BIND_POINT_COMPUTE,
-		VK_PIPELINE_BIND_POINT_RANGE_SIZE  = VK_PIPELINE_BIND_POINT_COMPUTE - VK_PIPELINE_BIND_POINT_GRAPHICS + 1,
-		VK_PIPELINE_BIND_POINT_MAX_ENUM    = 0x7FFFFFFF;
+		VK_PIPELINE_BIND_POINT_GRAPHICS = 0,
+		VK_PIPELINE_BIND_POINT_COMPUTE  = 1;
 
 	/** VkCommandBufferLevel */
 	public static final int
-		VK_COMMAND_BUFFER_LEVEL_PRIMARY     = 0,
-		VK_COMMAND_BUFFER_LEVEL_SECONDARY   = 1,
-		VK_COMMAND_BUFFER_LEVEL_BEGIN_RANGE = VK_COMMAND_BUFFER_LEVEL_PRIMARY,
-		VK_COMMAND_BUFFER_LEVEL_END_RANGE   = VK_COMMAND_BUFFER_LEVEL_SECONDARY,
-		VK_COMMAND_BUFFER_LEVEL_RANGE_SIZE  = VK_COMMAND_BUFFER_LEVEL_SECONDARY - VK_COMMAND_BUFFER_LEVEL_PRIMARY + 1,
-		VK_COMMAND_BUFFER_LEVEL_MAX_ENUM    = 0x7FFFFFFF;
+		VK_COMMAND_BUFFER_LEVEL_PRIMARY   = 0,
+		VK_COMMAND_BUFFER_LEVEL_SECONDARY = 1;
 
 	/** VkIndexType */
 	public static final int
-		VK_INDEX_TYPE_UINT16      = 0,
-		VK_INDEX_TYPE_UINT32      = 1,
-		VK_INDEX_TYPE_BEGIN_RANGE = VK_INDEX_TYPE_UINT16,
-		VK_INDEX_TYPE_END_RANGE   = VK_INDEX_TYPE_UINT32,
-		VK_INDEX_TYPE_RANGE_SIZE  = VK_INDEX_TYPE_UINT32 - VK_INDEX_TYPE_UINT16 + 1,
-		VK_INDEX_TYPE_MAX_ENUM    = 0x7FFFFFFF;
+		VK_INDEX_TYPE_UINT16 = 0,
+		VK_INDEX_TYPE_UINT32 = 1;
 
 	/**
 	 * The contents of the subpass will be recorded inline in the primary command buffer, and secondary command buffers <b>must not</b> be executed within the
@@ -1676,13 +1458,6 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * valid command on the command buffer until {@link #vkCmdNextSubpass CmdNextSubpass} or {@link #vkCmdEndRenderPass CmdEndRenderPass}.
 	 */
 	public static final int VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS = 1;
-
-	/** VkSubpassContents */
-	public static final int
-		VK_SUBPASS_CONTENTS_BEGIN_RANGE = VK_SUBPASS_CONTENTS_INLINE,
-		VK_SUBPASS_CONTENTS_END_RANGE   = VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS,
-		VK_SUBPASS_CONTENTS_RANGE_SIZE  = VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS - VK_SUBPASS_CONTENTS_INLINE + 1,
-		VK_SUBPASS_CONTENTS_MAX_ENUM    = 0x7FFFFFFF;
 
 	/** {@code VkImageView} <b>can</b> be sampled from. */
 	public static final int VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT = 0x1;
