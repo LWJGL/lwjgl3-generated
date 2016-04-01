@@ -70,17 +70,17 @@ public class WGL {
 
 		/** Function address. */
 		public static final long
-			CreateContext = apiGetFunctionAddress(GL.getFunctionProvider(), "wglCreateContext"),
+			CreateContext      = apiGetFunctionAddress(GL.getFunctionProvider(), "wglCreateContext"),
 			CreateLayerContext = apiGetFunctionAddress(GL.getFunctionProvider(), "wglCreateLayerContext"),
-			CopyContext = apiGetFunctionAddress(GL.getFunctionProvider(), "wglCopyContext"),
-			DeleteContext = apiGetFunctionAddress(GL.getFunctionProvider(), "wglDeleteContext"),
-			GetCurrentContext = apiGetFunctionAddress(GL.getFunctionProvider(), "wglGetCurrentContext"),
-			GetCurrentDC = apiGetFunctionAddress(GL.getFunctionProvider(), "wglGetCurrentDC"),
-			GetProcAddress = apiGetFunctionAddress(GL.getFunctionProvider(), "wglGetProcAddress"),
-			MakeCurrent = apiGetFunctionAddress(GL.getFunctionProvider(), "wglMakeCurrent"),
-			ShareLists = apiGetFunctionAddress(GL.getFunctionProvider(), "wglShareLists"),
-			UseFontBitmaps = apiGetFunctionAddress(GL.getFunctionProvider(), "wglUseFontBitmapsW"),
-			UseFontOutlines = apiGetFunctionAddress(GL.getFunctionProvider(), "wglUseFontOutlinesW");
+			CopyContext        = apiGetFunctionAddress(GL.getFunctionProvider(), "wglCopyContext"),
+			DeleteContext      = apiGetFunctionAddress(GL.getFunctionProvider(), "wglDeleteContext"),
+			GetCurrentContext  = apiGetFunctionAddress(GL.getFunctionProvider(), "wglGetCurrentContext"),
+			GetCurrentDC       = apiGetFunctionAddress(GL.getFunctionProvider(), "wglGetCurrentDC"),
+			GetProcAddress     = apiGetFunctionAddress(GL.getFunctionProvider(), "wglGetProcAddress"),
+			MakeCurrent        = apiGetFunctionAddress(GL.getFunctionProvider(), "wglMakeCurrent"),
+			ShareLists         = apiGetFunctionAddress(GL.getFunctionProvider(), "wglShareLists"),
+			UseFontBitmaps     = apiGetFunctionAddress(GL.getFunctionProvider(), "wglUseFontBitmapsW"),
+			UseFontOutlines    = apiGetFunctionAddress(GL.getFunctionProvider(), "wglUseFontOutlinesW");
 
 	}
 

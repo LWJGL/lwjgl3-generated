@@ -30,7 +30,7 @@ public class GLFWNativeWin32 {
 		public static final long
 			GetWin32Adapter = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetWin32Adapter"),
 			GetWin32Monitor = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetWin32Monitor"),
-			GetWin32Window = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetWin32Window");
+			GetWin32Window  = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetWin32Window");
 
 	}
 

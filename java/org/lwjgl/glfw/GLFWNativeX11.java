@@ -28,7 +28,7 @@ public class GLFWNativeX11 {
 			GetX11Display = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetX11Display"),
 			GetX11Adapter = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetX11Adapter"),
 			GetX11Monitor = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetX11Monitor"),
-			GetX11Window = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetX11Window");
+			GetX11Window  = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetX11Window");
 
 	}
 

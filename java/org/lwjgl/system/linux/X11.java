@@ -407,15 +407,15 @@ public class X11 {
 
 		/** Function address. */
 		public static final long
-			XOpenDisplay = apiGetFunctionAddress(X11, "XOpenDisplay"),
-			XCloseDisplay = apiGetFunctionAddress(X11, "XCloseDisplay"),
-			XDefaultScreen = apiGetFunctionAddress(X11, "XDefaultScreen"),
-			XRootWindow = apiGetFunctionAddress(X11, "XRootWindow"),
+			XOpenDisplay    = apiGetFunctionAddress(X11, "XOpenDisplay"),
+			XCloseDisplay   = apiGetFunctionAddress(X11, "XCloseDisplay"),
+			XDefaultScreen  = apiGetFunctionAddress(X11, "XDefaultScreen"),
+			XRootWindow     = apiGetFunctionAddress(X11, "XRootWindow"),
 			XCreateColormap = apiGetFunctionAddress(X11, "XCreateColormap"),
-			XFreeColormap = apiGetFunctionAddress(X11, "XFreeColormap"),
-			XCreateWindow = apiGetFunctionAddress(X11, "XCreateWindow"),
-			XDestroyWindow = apiGetFunctionAddress(X11, "XDestroyWindow"),
-			XFree = apiGetFunctionAddress(X11, "XFree");
+			XFreeColormap   = apiGetFunctionAddress(X11, "XFreeColormap"),
+			XCreateWindow   = apiGetFunctionAddress(X11, "XCreateWindow"),
+			XDestroyWindow  = apiGetFunctionAddress(X11, "XDestroyWindow"),
+			XFree           = apiGetFunctionAddress(X11, "XFree");
 
 	}
 

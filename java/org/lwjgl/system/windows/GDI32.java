@@ -138,11 +138,11 @@ public class GDI32 {
 
 		/** Function address. */
 		public static final long
-			ChoosePixelFormat = apiGetFunctionAddress(GDI32, "ChoosePixelFormat"),
+			ChoosePixelFormat   = apiGetFunctionAddress(GDI32, "ChoosePixelFormat"),
 			DescribePixelFormat = apiGetFunctionAddress(GDI32, "DescribePixelFormat"),
-			GetPixelFormat = apiGetFunctionAddress(GDI32, "GetPixelFormat"),
-			SetPixelFormat = apiGetFunctionAddress(GDI32, "SetPixelFormat"),
-			SwapBuffers = apiGetFunctionAddress(GDI32, "SwapBuffers");
+			GetPixelFormat      = apiGetFunctionAddress(GDI32, "GetPixelFormat"),
+			SetPixelFormat      = apiGetFunctionAddress(GDI32, "SetPixelFormat"),
+			SwapBuffers         = apiGetFunctionAddress(GDI32, "SwapBuffers");
 
 	}
 

@@ -26,7 +26,7 @@ public class GLFWNativeGLX {
 		/** Function address. */
 		public static final long
 			GetGLXContext = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetGLXContext"),
-			GetGLXWindow = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetGLXWindow");
+			GetGLXWindow  = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetGLXWindow");
 
 	}
 

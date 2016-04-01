@@ -26,7 +26,7 @@ public class GLFWNativeCocoa {
 		/** Function address. */
 		public static final long
 			GetCocoaMonitor = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetCocoaMonitor"),
-			GetCocoaWindow = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetCocoaWindow");
+			GetCocoaWindow  = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetCocoaWindow");
 
 	}
 

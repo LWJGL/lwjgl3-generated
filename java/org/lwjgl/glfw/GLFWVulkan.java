@@ -32,11 +32,11 @@ public class GLFWVulkan {
 
 		/** Function address. */
 		public static final long
-			VulkanSupported = apiGetFunctionAddress(GLFW.getLibrary(), "glfwVulkanSupported"),
-			GetRequiredInstanceExtensions = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetRequiredInstanceExtensions"),
-			GetInstanceProcAddress = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetInstanceProcAddress"),
+			VulkanSupported                      = apiGetFunctionAddress(GLFW.getLibrary(), "glfwVulkanSupported"),
+			GetRequiredInstanceExtensions        = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetRequiredInstanceExtensions"),
+			GetInstanceProcAddress               = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetInstanceProcAddress"),
 			GetPhysicalDevicePresentationSupport = apiGetFunctionAddress(GLFW.getLibrary(), "glfwGetPhysicalDevicePresentationSupport"),
-			CreateWindowSurface = apiGetFunctionAddress(GLFW.getLibrary(), "glfwCreateWindowSurface");
+			CreateWindowSurface                  = apiGetFunctionAddress(GLFW.getLibrary(), "glfwCreateWindowSurface");
 
 	}
 

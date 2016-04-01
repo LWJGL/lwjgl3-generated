@@ -76,23 +76,23 @@ public class GLX {
 
 		/** Function address. */
 		public static final long
-			QueryExtension = apiGetFunctionAddress(GL.getFunctionProvider(), "glXQueryExtension"),
-			QueryVersion = apiGetFunctionAddress(GL.getFunctionProvider(), "glXQueryVersion"),
-			GetConfig = apiGetFunctionAddress(GL.getFunctionProvider(), "glXGetConfig"),
-			ChooseVisual = apiGetFunctionAddress(GL.getFunctionProvider(), "glXChooseVisual"),
-			CreateContext = apiGetFunctionAddress(GL.getFunctionProvider(), "glXCreateContext"),
-			MakeCurrent = apiGetFunctionAddress(GL.getFunctionProvider(), "glXMakeCurrent"),
-			CopyContext = apiGetFunctionAddress(GL.getFunctionProvider(), "glXCopyContext"),
-			IsDirect = apiGetFunctionAddress(GL.getFunctionProvider(), "glXIsDirect"),
-			DestroyContext = apiGetFunctionAddress(GL.getFunctionProvider(), "glXDestroyContext"),
-			GetCurrentContext = apiGetFunctionAddress(GL.getFunctionProvider(), "glXGetCurrentContext"),
+			QueryExtension     = apiGetFunctionAddress(GL.getFunctionProvider(), "glXQueryExtension"),
+			QueryVersion       = apiGetFunctionAddress(GL.getFunctionProvider(), "glXQueryVersion"),
+			GetConfig          = apiGetFunctionAddress(GL.getFunctionProvider(), "glXGetConfig"),
+			ChooseVisual       = apiGetFunctionAddress(GL.getFunctionProvider(), "glXChooseVisual"),
+			CreateContext      = apiGetFunctionAddress(GL.getFunctionProvider(), "glXCreateContext"),
+			MakeCurrent        = apiGetFunctionAddress(GL.getFunctionProvider(), "glXMakeCurrent"),
+			CopyContext        = apiGetFunctionAddress(GL.getFunctionProvider(), "glXCopyContext"),
+			IsDirect           = apiGetFunctionAddress(GL.getFunctionProvider(), "glXIsDirect"),
+			DestroyContext     = apiGetFunctionAddress(GL.getFunctionProvider(), "glXDestroyContext"),
+			GetCurrentContext  = apiGetFunctionAddress(GL.getFunctionProvider(), "glXGetCurrentContext"),
 			GetCurrentDrawable = apiGetFunctionAddress(GL.getFunctionProvider(), "glXGetCurrentDrawable"),
-			WaitGL = apiGetFunctionAddress(GL.getFunctionProvider(), "glXWaitGL"),
-			WaitX = apiGetFunctionAddress(GL.getFunctionProvider(), "glXWaitX"),
-			SwapBuffers = apiGetFunctionAddress(GL.getFunctionProvider(), "glXSwapBuffers"),
-			UseXFont = apiGetFunctionAddress(GL.getFunctionProvider(), "glXUseXFont"),
-			CreateGLXPixmap = apiGetFunctionAddress(GL.getFunctionProvider(), "glXCreateGLXPixmap"),
-			DestroyGLXPixmap = apiGetFunctionAddress(GL.getFunctionProvider(), "glXDestroyGLXPixmap");
+			WaitGL             = apiGetFunctionAddress(GL.getFunctionProvider(), "glXWaitGL"),
+			WaitX              = apiGetFunctionAddress(GL.getFunctionProvider(), "glXWaitX"),
+			SwapBuffers        = apiGetFunctionAddress(GL.getFunctionProvider(), "glXSwapBuffers"),
+			UseXFont           = apiGetFunctionAddress(GL.getFunctionProvider(), "glXUseXFont"),
+			CreateGLXPixmap    = apiGetFunctionAddress(GL.getFunctionProvider(), "glXCreateGLXPixmap"),
+			DestroyGLXPixmap   = apiGetFunctionAddress(GL.getFunctionProvider(), "glXDestroyGLXPixmap");
 
 	}
 
