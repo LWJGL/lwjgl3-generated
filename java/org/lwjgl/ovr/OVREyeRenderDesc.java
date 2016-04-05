@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRFovPort ovrFovPort} Fov;
     {@link OVRRecti ovrRecti} DistortedViewport;
     {@link OVRVector2f ovrVector2f} PixelsPerTanAngleAtCenter;
-    {@link OVRVector3f ovrVector3f} HmdToEyeViewOffset;
+    {@link OVRVector3f ovrVector3f} HmdToEyeOffset;
 }</code></pre>
  * 
  * <h3>Member documentation</h3>
@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>Fov</td><td>the field of view</td></tr>
  * <tr><td>DistortedViewport</td><td>distortion viewport</td></tr>
  * <tr><td>PixelsPerTanAngleAtCenter</td><td>wow many display pixels will fit in tan(angle) = 1</td></tr>
- * <tr><td>HmdToEyeViewOffset</td><td>translation to be applied to view matrix for each eye offset</td></tr>
+ * <tr><td>HmdToEyeOffset</td><td>translation of each eye, in meters.</td></tr>
  * </table>
  */
 public class OVREyeRenderDesc extends Struct {
@@ -50,7 +50,7 @@ public class OVREyeRenderDesc extends Struct {
 		FOV,
 		DISTORTEDVIEWPORT,
 		PIXELSPERTANANGLEATCENTER,
-		HMDTOEYEVIEWOFFSET;
+		HMDTOEYEOFFSET;
 
 	static {
 		Layout layout = __struct(
@@ -68,7 +68,7 @@ public class OVREyeRenderDesc extends Struct {
 		FOV = layout.offsetof(1);
 		DISTORTEDVIEWPORT = layout.offsetof(2);
 		PIXELSPERTANANGLEATCENTER = layout.offsetof(3);
-		HMDTOEYEVIEWOFFSET = layout.offsetof(4);
+		HMDTOEYEOFFSET = layout.offsetof(4);
 	}
 
 	OVREyeRenderDesc(long address, ByteBuffer container) {
@@ -96,8 +96,8 @@ public class OVREyeRenderDesc extends Struct {
 	public OVRRecti DistortedViewport() { return nDistortedViewport(address()); }
 	/** Returns a {@link OVRVector2f} view of the {@code PixelsPerTanAngleAtCenter} field. */
 	public OVRVector2f PixelsPerTanAngleAtCenter() { return nPixelsPerTanAngleAtCenter(address()); }
-	/** Returns a {@link OVRVector3f} view of the {@code HmdToEyeViewOffset} field. */
-	public OVRVector3f HmdToEyeViewOffset() { return nHmdToEyeViewOffset(address()); }
+	/** Returns a {@link OVRVector3f} view of the {@code HmdToEyeOffset} field. */
+	public OVRVector3f HmdToEyeOffset() { return nHmdToEyeOffset(address()); }
 
 	// -----------------------------------
 
@@ -236,8 +236,8 @@ public class OVREyeRenderDesc extends Struct {
 	public static OVRRecti nDistortedViewport(long struct) { return OVRRecti.create(struct + OVREyeRenderDesc.DISTORTEDVIEWPORT); }
 	/** Unsafe version of {@link #PixelsPerTanAngleAtCenter}. */
 	public static OVRVector2f nPixelsPerTanAngleAtCenter(long struct) { return OVRVector2f.create(struct + OVREyeRenderDesc.PIXELSPERTANANGLEATCENTER); }
-	/** Unsafe version of {@link #HmdToEyeViewOffset}. */
-	public static OVRVector3f nHmdToEyeViewOffset(long struct) { return OVRVector3f.create(struct + OVREyeRenderDesc.HMDTOEYEVIEWOFFSET); }
+	/** Unsafe version of {@link #HmdToEyeOffset}. */
+	public static OVRVector3f nHmdToEyeOffset(long struct) { return OVRVector3f.create(struct + OVREyeRenderDesc.HMDTOEYEOFFSET); }
 
 	// -----------------------------------
 
@@ -289,8 +289,8 @@ public class OVREyeRenderDesc extends Struct {
 		public OVRRecti DistortedViewport() { return OVREyeRenderDesc.nDistortedViewport(address()); }
 		/** Returns a {@link OVRVector2f} view of the {@code PixelsPerTanAngleAtCenter} field. */
 		public OVRVector2f PixelsPerTanAngleAtCenter() { return OVREyeRenderDesc.nPixelsPerTanAngleAtCenter(address()); }
-		/** Returns a {@link OVRVector3f} view of the {@code HmdToEyeViewOffset} field. */
-		public OVRVector3f HmdToEyeViewOffset() { return OVREyeRenderDesc.nHmdToEyeViewOffset(address()); }
+		/** Returns a {@link OVRVector3f} view of the {@code HmdToEyeOffset} field. */
+		public OVRVector3f HmdToEyeOffset() { return OVREyeRenderDesc.nHmdToEyeOffset(address()); }
 
 	}
 

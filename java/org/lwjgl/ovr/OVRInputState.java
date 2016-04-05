@@ -28,6 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float[2] IndexTrigger;
     float[2] HandTrigger;
     {@link OVRVector2f ovrVector2f}[2] Thumbstick;
+    ovrControllerType ControllerType;
 }</code></pre>
  * 
  * <h3>Member documentation</h3>
@@ -40,6 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>IndexTrigger</td><td>left and right finger trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
  * <tr><td>HandTrigger</td><td>left and right hand trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
  * <tr><td>Thumbstick</td><td>horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range -1.0f to 1.0f.</td></tr>
+ * <tr><td>ControllerType</td><td>The type of the controller this state is for.</td></tr>
  * </table>
  */
 public class OVRInputState extends Struct {
@@ -57,7 +59,8 @@ public class OVRInputState extends Struct {
 		TOUCHES,
 		INDEXTRIGGER,
 		HANDTRIGGER,
-		THUMBSTICK;
+		THUMBSTICK,
+		CONTROLLERTYPE;
 
 	static {
 		Layout layout = __struct(
@@ -67,7 +70,8 @@ public class OVRInputState extends Struct {
 			__member(4),
 			__array(4, 2),
 			__array(4, 2),
-			__array(OVRVector2f.SIZEOF, OVRVector2f.ALIGNOF, 2)
+			__array(OVRVector2f.SIZEOF, OVRVector2f.ALIGNOF, 2),
+			__member(4)
 		);
 
 		SIZEOF = layout.getSize();
@@ -80,6 +84,7 @@ public class OVRInputState extends Struct {
 		INDEXTRIGGER = layout.offsetof(4);
 		HANDTRIGGER = layout.offsetof(5);
 		THUMBSTICK = layout.offsetof(6);
+		CONTROLLERTYPE = layout.offsetof(7);
 	}
 
 	OVRInputState(long address, ByteBuffer container) {
@@ -119,6 +124,8 @@ public class OVRInputState extends Struct {
 	public OVRVector2f.Buffer Thumbstick() { return nThumbstick(address()); }
 	/** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code Thumbstick} field. */
 	public OVRVector2f Thumbstick(int index) { return nThumbstick(address(), index); }
+	/** Returns the value of the {@code ControllerType} field. */
+	public int ControllerType() { return nControllerType(address()); }
 
 	/** Sets the specified value to the {@code TimeInSeconds} field. */
 	public OVRInputState TimeInSeconds(double value) { nTimeInSeconds(address(), value); return this; }
@@ -140,6 +147,8 @@ public class OVRInputState extends Struct {
 	public OVRInputState Thumbstick(OVRVector2f.Buffer value) { nThumbstick(address(), value); return this; }
 	/** Copies the specified {@link OVRVector2f} at the specified index of the {@code Thumbstick} field. */
 	public OVRInputState Thumbstick(int index, OVRVector2f value) { nThumbstick(address(), index, value); return this; }
+	/** Sets the specified value to the {@code ControllerType} field. */
+	public OVRInputState ControllerType(int value) { nControllerType(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRInputState set(
@@ -149,7 +158,8 @@ public class OVRInputState extends Struct {
 		int Touches,
 		FloatBuffer IndexTrigger,
 		FloatBuffer HandTrigger,
-		OVRVector2f.Buffer Thumbstick
+		OVRVector2f.Buffer Thumbstick,
+		int ControllerType
 	) {
 		TimeInSeconds(TimeInSeconds);
 		ConnectedControllerTypes(ConnectedControllerTypes);
@@ -158,6 +168,7 @@ public class OVRInputState extends Struct {
 		IndexTrigger(IndexTrigger);
 		HandTrigger(HandTrigger);
 		Thumbstick(Thumbstick);
+		ControllerType(ControllerType);
 
 		return this;
 	}
@@ -336,6 +347,8 @@ public class OVRInputState extends Struct {
 	public static OVRVector2f nThumbstick(long struct, int index) {
 		return OVRVector2f.create(struct + OVRInputState.THUMBSTICK + index * OVRVector2f.SIZEOF);
 	}
+	/** Unsafe version of {@link #ControllerType}. */
+	public static int nControllerType(long struct) { return memGetInt(struct + OVRInputState.CONTROLLERTYPE); }
 
 	/** Unsafe version of {@link #TimeInSeconds(double) TimeInSeconds}. */
 	public static void nTimeInSeconds(long struct, double value) { memPutDouble(struct + OVRInputState.TIMEINSECONDS, value); }
@@ -366,6 +379,8 @@ public class OVRInputState extends Struct {
 	}
 	/** Unsafe version of {@link #Thumbstick(int, OVRVector2f) Thumbstick}. */
 	public static void nThumbstick(long struct, int index, OVRVector2f value) { memCopy(value.address(), struct + OVRInputState.THUMBSTICK + index * OVRVector2f.SIZEOF, OVRVector2f.SIZEOF); }
+	/** Unsafe version of {@link #ControllerType(int) ControllerType}. */
+	public static void nControllerType(long struct, int value) { memPutInt(struct + OVRInputState.CONTROLLERTYPE, value); }
 
 	// -----------------------------------
 
@@ -429,6 +444,8 @@ public class OVRInputState extends Struct {
 		public OVRVector2f.Buffer Thumbstick() { return OVRInputState.nThumbstick(address()); }
 		/** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code Thumbstick} field. */
 		public OVRVector2f Thumbstick(int index) { return OVRInputState.nThumbstick(address(), index); }
+		/** Returns the value of the {@code ControllerType} field. */
+		public int ControllerType() { return OVRInputState.nControllerType(address()); }
 
 		/** Sets the specified value to the {@code TimeInSeconds} field. */
 		public OVRInputState.Buffer TimeInSeconds(double value) { OVRInputState.nTimeInSeconds(address(), value); return this; }
@@ -450,6 +467,8 @@ public class OVRInputState extends Struct {
 		public OVRInputState.Buffer Thumbstick(OVRVector2f.Buffer value) { OVRInputState.nThumbstick(address(), value); return this; }
 		/** Copies the specified {@link OVRVector2f} at the specified index of the {@code Thumbstick} field. */
 		public OVRInputState.Buffer Thumbstick(int index, OVRVector2f value) { OVRInputState.nThumbstick(address(), index, value); return this; }
+		/** Sets the specified value to the {@code ControllerType} field. */
+		public OVRInputState.Buffer ControllerType(int value) { OVRInputState.nControllerType(address(), value); return this; }
 
 	}
 

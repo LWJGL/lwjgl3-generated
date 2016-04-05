@@ -10,9 +10,9 @@ ENABLE_WARNINGS()
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1Detect(JNIEnv *__env, jclass clazz, jint timeoutMsec, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1Detect(JNIEnv *__env, jclass clazz, jint timeoutMilliseconds, jlong __result) {
 	UNUSED_PARAMS(__env, clazz)
-	*((ovrDetectResult*)(intptr_t)__result) = ovr_Detect(timeoutMsec);
+	*((ovrDetectResult*)(intptr_t)__result) = ovr_Detect(timeoutMilliseconds);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrMatrix4f_1Projection(JNIEnv *__env, jclass clazz, jlong fovAddress, jfloat znear, jfloat zfar, jint projectionModFlags, jlong __result) {
@@ -27,28 +27,35 @@ JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrTimewarpProjectionDesc_1Fr
 	*((ovrTimewarpProjectionDesc*)(intptr_t)__result) = ovrTimewarpProjectionDesc_FromProjection(*projection, projectionModFlags);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrMatrix4f_1OrthoSubProjection(JNIEnv *__env, jclass clazz, jlong projectionAddress, jlong orthoScaleAddress, jfloat orthoDistance, jfloat hmdToEyeViewOffsetX, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrMatrix4f_1OrthoSubProjection(JNIEnv *__env, jclass clazz, jlong projectionAddress, jlong orthoScaleAddress, jfloat orthoDistance, jfloat HmdToEyeOffsetX, jlong __result) {
 	ovrMatrix4f *projection = (ovrMatrix4f *)(intptr_t)projectionAddress;
 	ovrVector2f *orthoScale = (ovrVector2f *)(intptr_t)orthoScaleAddress;
 	UNUSED_PARAMS(__env, clazz)
-	*((ovrMatrix4f*)(intptr_t)__result) = ovrMatrix4f_OrthoSubProjection(*projection, *orthoScale, orthoDistance, hmdToEyeViewOffsetX);
+	*((ovrMatrix4f*)(intptr_t)__result) = ovrMatrix4f_OrthoSubProjection(*projection, *orthoScale, orthoDistance, HmdToEyeOffsetX);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1CalcEyePoses(JNIEnv *__env, jclass clazz, jlong headPoseAddress, jlong hmdToEyeViewOffsetAddress, jlong outEyePosesAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1CalcEyePoses(JNIEnv *__env, jclass clazz, jlong headPoseAddress, jlong HmdToEyeOffsetAddress, jlong outEyePosesAddress) {
 	ovrPosef *headPose = (ovrPosef *)(intptr_t)headPoseAddress;
-	const ovrVector3f *hmdToEyeViewOffset = (const ovrVector3f *)(intptr_t)hmdToEyeViewOffsetAddress;
+	const ovrVector3f *HmdToEyeOffset = (const ovrVector3f *)(intptr_t)HmdToEyeOffsetAddress;
 	ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
 	UNUSED_PARAMS(__env, clazz)
-	ovr_CalcEyePoses(*headPose, hmdToEyeViewOffset, outEyePoses);
+	ovr_CalcEyePoses(*headPose, HmdToEyeOffset, outEyePoses);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex, jboolean latencyMarker, jlong hmdToEyeViewOffsetAddress, jlong outEyePosesAddress, jlong outHmdTrackingStateAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex, jboolean latencyMarker, jlong HmdToEyeOffsetAddress, jlong outEyePosesAddress, jlong outSensorSampleTimeAddress) {
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-	const ovrVector3f *hmdToEyeViewOffset = (const ovrVector3f *)(intptr_t)hmdToEyeViewOffsetAddress;
+	const ovrVector3f *HmdToEyeOffset = (const ovrVector3f *)(intptr_t)HmdToEyeOffsetAddress;
 	ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
-	ovrTrackingState *outHmdTrackingState = (ovrTrackingState *)(intptr_t)outHmdTrackingStateAddress;
+	double *outSensorSampleTime = (double *)(intptr_t)outSensorSampleTimeAddress;
 	UNUSED_PARAMS(__env, clazz)
-	ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeViewOffset, outEyePoses, outHmdTrackingState);
+	ovr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyeOffset, outEyePoses, outSensorSampleTime);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrPosef_1FlipHandedness(JNIEnv *__env, jclass clazz, jlong inPoseAddress, jlong outPoseAddress) {
+	const ovrPosef *inPose = (const ovrPosef *)(intptr_t)inPoseAddress;
+	ovrPosef *outPose = (ovrPosef *)(intptr_t)outPoseAddress;
+	UNUSED_PARAMS(__env, clazz)
+	ovrPosef_FlipHandedness(inPose, outPose);
 }
 
 EXTERN_C_EXIT

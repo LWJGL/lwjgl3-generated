@@ -15,9 +15,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Describes a layer that specifies a monoscopic or stereoscopic view. This uses a direct 3x4 matrix to map from view space to the UV coordinates. It is
- * essentially the same thing as {@link OVRLayerEyeFov} but using a much lower level. This is mainly to provide compatibility with specific apps. Unless the
- * application really requires this flexibility, it is usually better to use {@link OVRLayerEyeFov}.
+ * Describes a layer that specifies a monoscopic or stereoscopic view. This uses a direct 3x4 matrix to map from view space to the UV coordinates. It
+ * is essentially the same thing as {@link OVRLayerEyeFov} but using a much lower level. This is mainly to provide compatibility with specific apps. Unless
+ * the application really requires this flexibility, it is usually better to use {@link OVRLayerEyeFov}.
  * 
  * <p>Three options exist with respect to mono/stereo texture usage:</p>
  * 
@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct ovrLayerEyeMatrix {
     {@link OVRLayerHeader ovrLayerHeader} Header;
-    ovrSwapTextureSet *[2] ColorTexture;
+    ovrTextureSwapChain[2] ColorTexture;
     {@link OVRRecti ovrRecti}[2] Viewport;
     {@link OVRPosef ovrPosef}[2] RenderPose;
     {@link OVRMatrix4f ovrMatrix4f}[2] Matrix;
@@ -44,18 +44,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <table class=lwjgl>
  * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeMatrix}</td></tr>
- * <tr><td>ColorTexture</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}</td></tr>
+ * <tr><td>ColorTexture</td><td>{@code ovrTextureSwapChains} for the left and right eye respectively. The second one of which can be {@code NULL}</td></tr>
  * <tr><td>Viewport</td><td>specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
- * <tr><td>RenderPose</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned from
- * {@link OVRUtil#ovr_CalcEyePoses OVRUtil.ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
+ * <tr><td>RenderPose</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned
+ * from {@link OVRUtil#ovr_CalcEyePoses OVRUtil.ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
  * <tr><td>Matrix</td><td>specifies the mapping from a view-space vector to a UV coordinate on the textures given above.
  * 
  * <pre><code>P = (x,y,z,1)*Matrix
 TexU  = P.x/P.z
 TexV  = P.y/P.z</code></pre></td></tr>
  * <tr><td>SensorSampleTime</td><td>specifies the timestamp when the source {@link OVRPosef} (used in calculating RenderPose) was sampled from the SDK. Typically retrieved by calling
- * {@link OVR#ovr_GetTimeInSeconds OVR.ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState OVR.ovr_GetTrackingState}. The main purpose for this is to accurately track app
- * tracking latency.</td></tr>
+ * {@link OVR#ovr_GetTimeInSeconds OVR.ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState OVR.ovr_GetTrackingState}. The main purpose for this is to accurately track
+ * app tracking latency.</td></tr>
  * </table>
  */
 public class OVRLayerEyeMatrix extends Struct {
@@ -116,8 +116,8 @@ public class OVRLayerEyeMatrix extends Struct {
 	public OVRLayerHeader Header() { return nHeader(address()); }
 	/** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
 	public PointerBuffer ColorTexture() { return nColorTexture(address()); }
-	/** Returns a {@link OVRSwapTextureSet} view of the pointer at the specified index of the {@code ColorTexture}. */
-	public OVRSwapTextureSet ColorTexture(int index) { return nColorTexture(address(), index); }
+	/** Returns the value at the specified index of the {@code ColorTexture} field. */
+	public long ColorTexture(int index) { return nColorTexture(address(), index); }
 	/** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
 	public OVRRecti.Buffer Viewport() { return nViewport(address()); }
 	/** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
@@ -137,8 +137,8 @@ public class OVRLayerEyeMatrix extends Struct {
 	public OVRLayerEyeMatrix Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
 	/** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
 	public OVRLayerEyeMatrix ColorTexture(PointerBuffer value) { nColorTexture(address(), value); return this; }
-	/** Copies the address of the specified {@link OVRSwapTextureSet} at the specified index of the {@code ColorTexture} field. */
-	public OVRLayerEyeMatrix ColorTexture(int index, OVRSwapTextureSet value) { nColorTexture(address(), index, value); return this; }
+	/** Sets the specified value at the specified index of the {@code ColorTexture} field. */
+	public OVRLayerEyeMatrix ColorTexture(int index, long value) { nColorTexture(address(), index, value); return this; }
 	/** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
 	public OVRLayerEyeMatrix Viewport(OVRRecti.Buffer value) { nViewport(address(), value); return this; }
 	/** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */
@@ -326,9 +326,7 @@ public class OVRLayerEyeMatrix extends Struct {
 		return memPointerBuffer(struct + OVRLayerEyeMatrix.COLORTEXTURE, 2);
 	}
 	/** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
-	public static OVRSwapTextureSet nColorTexture(long struct, int index) {
-		return OVRSwapTextureSet.create(memGetAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + index * POINTER_SIZE));
-	}
+	public static long nColorTexture(long struct, int index) { return memGetAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + index * 2147483647); }
 	/** Unsafe version of {@link #Viewport}. */
 	public static OVRRecti.Buffer nViewport(long struct) {
 		return OVRRecti.create(struct + OVRLayerEyeMatrix.VIEWPORT, 2);
@@ -363,8 +361,8 @@ public class OVRLayerEyeMatrix extends Struct {
 		if ( CHECKS ) checkBufferGT(value, 2);
 		memCopy(memAddress(value), struct + OVRLayerEyeMatrix.COLORTEXTURE, value.remaining() * POINTER_SIZE);
 	}
-	/** Unsafe version of {@link #ColorTexture(int, OVRSwapTextureSet) ColorTexture}. */
-	public static void nColorTexture(long struct, int index, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + index * POINTER_SIZE, addressSafe(value)); }
+	/** Unsafe version of {@link #ColorTexture(int, long) ColorTexture}. */
+	public static void nColorTexture(long struct, int index, long value) { memPutAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + index * POINTER_SIZE, value); }
 	/** Unsafe version of {@link #Viewport(OVRRecti.Buffer) Viewport}. */
 	public static void nViewport(long struct, OVRRecti.Buffer value) {
 		if ( CHECKS ) checkBufferGT(value, 2);
@@ -395,15 +393,7 @@ public class OVRLayerEyeMatrix extends Struct {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		long ColorTexture = struct + OVRLayerEyeMatrix.COLORTEXTURE;
-		for ( int i = 0; i < 2; i++ ) {
-		   if ( i < 1 )
-		       checkPointer(memGetAddress(ColorTexture));
-		   else if ( memGetAddress(ColorTexture) == NULL )
-		       break;
-		   OVRSwapTextureSet.validate(ColorTexture);
-		   ColorTexture += POINTER_SIZE;
-		}
+		checkPointer(memGetAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE));
 	}
 
 	/**
@@ -463,8 +453,8 @@ public class OVRLayerEyeMatrix extends Struct {
 		public OVRLayerHeader Header() { return OVRLayerEyeMatrix.nHeader(address()); }
 		/** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
 		public PointerBuffer ColorTexture() { return OVRLayerEyeMatrix.nColorTexture(address()); }
-		/** Returns a {@link OVRSwapTextureSet} view of the pointer at the specified index of the {@code ColorTexture}. */
-		public OVRSwapTextureSet ColorTexture(int index) { return OVRLayerEyeMatrix.nColorTexture(address(), index); }
+		/** Returns the value at the specified index of the {@code ColorTexture} field. */
+		public long ColorTexture(int index) { return OVRLayerEyeMatrix.nColorTexture(address(), index); }
 		/** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
 		public OVRRecti.Buffer Viewport() { return OVRLayerEyeMatrix.nViewport(address()); }
 		/** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
@@ -484,8 +474,8 @@ public class OVRLayerEyeMatrix extends Struct {
 		public OVRLayerEyeMatrix.Buffer Header(OVRLayerHeader value) { OVRLayerEyeMatrix.nHeader(address(), value); return this; }
 		/** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
 		public OVRLayerEyeMatrix.Buffer ColorTexture(PointerBuffer value) { OVRLayerEyeMatrix.nColorTexture(address(), value); return this; }
-		/** Copies the address of the specified {@link OVRSwapTextureSet} at the specified index of the {@code ColorTexture} field. */
-		public OVRLayerEyeMatrix.Buffer ColorTexture(int index, OVRSwapTextureSet value) { OVRLayerEyeMatrix.nColorTexture(address(), index, value); return this; }
+		/** Sets the specified value at the specified index of the {@code ColorTexture} field. */
+		public OVRLayerEyeMatrix.Buffer ColorTexture(int index, long value) { OVRLayerEyeMatrix.nColorTexture(address(), index, value); return this; }
 		/** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
 		public OVRLayerEyeMatrix.Buffer Viewport(OVRRecti.Buffer value) { OVRLayerEyeMatrix.nViewport(address(), value); return this; }
 		/** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */

@@ -19,7 +19,7 @@ public class OVRUtil {
 	 * Use for generating a default projection matrix that is:
 	 * 
 	 * <ul>
-	 * <li>Left-handed.</li>
+	 * <li>Right-handed.</li>
 	 * <li>Near depth values stored in the depth buffer are smaller than far depth values.</li>
 	 * <li>Both near and far are explicitly defined.</li>
 	 * <li>With a clipping range that is (0 to w).</li>
@@ -27,8 +27,8 @@ public class OVRUtil {
 	 */
 	public static final int ovrProjection_None = 0x0;
 
-	/** Enable if using right-handed transformations in your application. */
-	public static final int ovrProjection_RightHanded = 0x1;
+	/** Enable if using left-handed transformations in your application. */
+	public static final int ovrProjection_LeftHanded = 0x1;
 
 	/**
 	 * After the projection transform is applied, far values stored in the depth buffer will be less than closer depth values. NOTE: Enable only if the
@@ -57,7 +57,7 @@ public class OVRUtil {
 	// --- [ ovr_Detect ] ---
 
 	/** JNI method for {@link #ovr_Detect _Detect} */
-	public static native void novr_Detect(int timeoutMsec, long __result);
+	public static native void novr_Detect(int timeoutMilliseconds, long __result);
 
 	/**
 	 * Detects Oculus Runtime and Device Status.
@@ -65,10 +65,10 @@ public class OVRUtil {
 	 * <p>Checks for Oculus Runtime and Oculus HMD device status without loading the LibOVRRT shared library. This may be called before {@link OVR#ovr_Initialize _Initialize} to help
 	 * decide whether or not to initialize LibOVR.</p>
 	 *
-	 * @param timeoutMsec a timeout to wait for HMD to be attached or 0 to poll
+	 * @param timeoutMilliseconds a timeout to wait for HMD to be attached or 0 to poll
 	 */
-	public static void ovr_Detect(int timeoutMsec, OVRDetectResult __result) {
-		novr_Detect(timeoutMsec, __result.address());
+	public static void ovr_Detect(int timeoutMilliseconds, OVRDetectResult __result) {
+		novr_Detect(timeoutMilliseconds, __result.address());
 	}
 
 	// --- [ ovrMatrix4f_Projection ] ---
@@ -108,73 +108,102 @@ public class OVRUtil {
 	// --- [ ovrMatrix4f_OrthoSubProjection ] ---
 
 	/** JNI method for {@link #ovrMatrix4f_OrthoSubProjection Matrix4f_OrthoSubProjection} */
-	public static native void novrMatrix4f_OrthoSubProjection(long projection, long orthoScale, float orthoDistance, float hmdToEyeViewOffsetX, long __result);
+	public static native void novrMatrix4f_OrthoSubProjection(long projection, long orthoScale, float orthoDistance, float HmdToEyeOffsetX, long __result);
 
 	/**
 	 * Generates an orthographic sub-projection.
 	 * 
 	 * <p>Used for 2D rendering, Y is down.</p>
 	 *
-	 * @param projection          the perspective matrix that the orthographic matrix is derived from
-	 * @param orthoScale          equal to {@code 1.0f / pixelsPerTanAngleAtCenter}
-	 * @param orthoDistance       equal to the distance from the camera in meters, such as 0.8m
-	 * @param hmdToEyeViewOffsetX the offset of the eye from the center
-	 * @param __result            the calculated projection matrix
+	 * @param projection      the perspective matrix that the orthographic matrix is derived from
+	 * @param orthoScale      equal to {@code 1.0f / pixelsPerTanAngleAtCenter}
+	 * @param orthoDistance   equal to the distance from the camera in meters, such as 0.8m
+	 * @param HmdToEyeOffsetX the offset of the eye from the center
+	 * @param __result        the calculated projection matrix
 	 */
-	public static void ovrMatrix4f_OrthoSubProjection(OVRMatrix4f projection, OVRVector2f orthoScale, float orthoDistance, float hmdToEyeViewOffsetX, OVRMatrix4f __result) {
-		novrMatrix4f_OrthoSubProjection(projection.address(), orthoScale.address(), orthoDistance, hmdToEyeViewOffsetX, __result.address());
+	public static void ovrMatrix4f_OrthoSubProjection(OVRMatrix4f projection, OVRVector2f orthoScale, float orthoDistance, float HmdToEyeOffsetX, OVRMatrix4f __result) {
+		novrMatrix4f_OrthoSubProjection(projection.address(), orthoScale.address(), orthoDistance, HmdToEyeOffsetX, __result.address());
 	}
 
 	// --- [ ovr_CalcEyePoses ] ---
 
 	/** JNI method for {@link #ovr_CalcEyePoses _CalcEyePoses} */
-	public static native void novr_CalcEyePoses(long headPose, long hmdToEyeViewOffset, long outEyePoses);
+	public static native void novr_CalcEyePoses(long headPose, long HmdToEyeOffset, long outEyePoses);
 
 	/**
 	 * Computes offset eye poses based on {@code headPose} returned by {@link OVRTrackingState}.
 	 *
-	 * @param headPose           indicates the HMD position and orientation to use for the calculation
-	 * @param hmdToEyeViewOffset can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
-	 *                           average of the two vectors for both eyes.
-	 * @param outEyePoses        if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovr_SubmitFrame _SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
-	 *                           {@link OVRLayerEyeFovDepth}{@code ::RenderPose}
+	 * @param headPose       indicates the HMD position and orientation to use for the calculation
+	 * @param HmdToEyeOffset can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
+	 *                       average of the two vectors for both eyes.
+	 * @param outEyePoses    if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovr_SubmitFrame _SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
+	 *                       {@link OVRLayerEyeFovDepth}{@code ::RenderPose}
 	 */
-	public static void ovr_CalcEyePoses(OVRPosef headPose, OVRVector3f.Buffer hmdToEyeViewOffset, OVRPosef.Buffer outEyePoses) {
+	public static void ovr_CalcEyePoses(OVRPosef headPose, OVRVector3f.Buffer HmdToEyeOffset, OVRPosef.Buffer outEyePoses) {
 		if ( CHECKS ) {
-			checkBuffer(hmdToEyeViewOffset, 2);
+			checkBuffer(HmdToEyeOffset, 2);
 			checkBuffer(outEyePoses, 2);
 		}
-		novr_CalcEyePoses(headPose.address(), hmdToEyeViewOffset.address(), outEyePoses.address());
+		novr_CalcEyePoses(headPose.address(), HmdToEyeOffset.address(), outEyePoses.address());
 	}
 
 	// --- [ ovr_GetEyePoses ] ---
 
 	/** JNI method for {@link #ovr_GetEyePoses _GetEyePoses} */
-	public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long hmdToEyeViewOffset, long outEyePoses, long outHmdTrackingState);
+	public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long HmdToEyeOffset, long outEyePoses, long outSensorSampleTime);
 
 	/**
 	 * Returns the predicted head pose in {@code outHmdTrackingState} and offset eye poses in {@code outEyePoses}.
 	 * 
 	 * <p>This is a thread-safe function where caller should increment {@code frameIndex} with every frame and pass that index where applicable to functions
 	 * called on the rendering thread. Assuming {@code outEyePoses} are used for rendering, it should be passed as a part of {@link OVRLayerEyeFov}. The caller does
-	 * not need to worry about applying {@code hmdToEyeViewOffset} to the returned {@code outEyePoses} variables.</p>
+	 * not need to worry about applying {@code HmdToEyeOffset} to the returned {@code outEyePoses} variables.</p>
 	 *
 	 * @param session             an {@code ovrSession} previously returned by {@link OVR#ovr_Create _Create}
 	 * @param frameIndex          the targeted frame index, or 0 to refer to one frame after the last time {@link OVR#ovr_SubmitFrame _SubmitFrame} was called
 	 * @param latencyMarker       Specifies that this call is the point in time where the "App-to-Mid-Photon" latency timer starts from. If a given {@code ovrLayer} provides
 	 *                            "SensorSampleTimestamp", that will override the value stored here.
-	 * @param hmdToEyeViewOffset  can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
+	 * @param HmdToEyeOffset      can be {@link OVREyeRenderDesc}{@code .HmdToEyeOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
 	 *                            average of the two vectors for both eyes.
 	 * @param outEyePoses         the predicted eye poses
-	 * @param outHmdTrackingState the predicted {@link OVRTrackingState}. May be {@code NULL}, in which case it is ignored.
+	 * @param outSensorSampleTime the time when this function was called. May be NULL, in which case it is ignored.
 	 */
-	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer hmdToEyeViewOffset, OVRPosef.Buffer outEyePoses, OVRTrackingState outHmdTrackingState) {
+	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer HmdToEyeOffset, OVRPosef.Buffer outEyePoses, ByteBuffer outSensorSampleTime) {
 		if ( CHECKS ) {
 			checkPointer(session);
-			checkBuffer(hmdToEyeViewOffset, 2);
+			checkBuffer(HmdToEyeOffset, 2);
 			checkBuffer(outEyePoses, 2);
 		}
-		novr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeViewOffset.address(), outEyePoses.address(), outHmdTrackingState == null ? NULL : outHmdTrackingState.address());
+		novr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyeOffset.address(), outEyePoses.address(), memAddressSafe(outSensorSampleTime));
+	}
+
+	/** Alternative version of: {@link #ovr_GetEyePoses _GetEyePoses} */
+	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer HmdToEyeOffset, OVRPosef.Buffer outEyePoses, DoubleBuffer outSensorSampleTime) {
+		if ( CHECKS ) {
+			checkPointer(session);
+			checkBuffer(HmdToEyeOffset, 2);
+			checkBuffer(outEyePoses, 2);
+		}
+		novr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyeOffset.address(), outEyePoses.address(), memAddressSafe(outSensorSampleTime));
+	}
+
+	// --- [ ovrPosef_FlipHandedness ] ---
+
+	/** JNI method for {@link #ovrPosef_FlipHandedness Posef_FlipHandedness} */
+	public static native void novrPosef_FlipHandedness(long inPose, long outPose);
+
+	/**
+	 * Tracking poses provided by the SDK come in a right-handed coordinate system. If an application is passing in {@link #ovrProjection_LeftHanded Projection_LeftHanded} into
+	 * {@link #ovrMatrix4f_Projection Matrix4f_Projection}, then it should also use this function to flip the HMD tracking poses to be left-handed.
+	 * 
+	 * <p>While this utility function is intended to convert a left-handed OVRPosef into a right-handed coordinate system, it will also work for converting
+	 * right-handed to left-handed since the flip operation is the same for both cases.</p>
+	 *
+	 * @param inPose  a pose that is right-handed
+	 * @param outPose the pose that is requested to be left-handed (can be the same pointer to {@code inPose})
+	 */
+	public static void ovrPosef_FlipHandedness(OVRPosef inPose, OVRPosef outPose) {
+		novrPosef_FlipHandedness(inPose.address(), outPose.address());
 	}
 
 }

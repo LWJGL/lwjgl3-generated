@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct ovrLayerQuad {
     {@link OVRLayerHeader ovrLayerHeader} Header;
-    ovrSwapTextureSet * ColorTexture;
+    ovrTextureSwapChain ColorTexture;
     {@link OVRRecti ovrRecti} Viewport;
     {@link OVRPosef ovrPosef} QuadPoseCenter;
     {@link OVRVector2f ovrVector2f} QuadSize;
@@ -40,7 +40,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_Quad}</td></tr>
  * <tr><td>ColorTexture</td><td>contains a single image, never with any stereo view</td></tr>
  * <tr><td>Viewport</td><td>specifies the ColorTexture sub-rect UV coordinates</td></tr>
- * <tr><td>QuadPoseCenter</td><td>position and orientation of the center of the quad. Position is specified in meters.</td></tr>
+ * <tr><td>QuadPoseCenter</td><td>specifies the orientation and position of the center point of a Quad layer type.
+ * 
+ * <p>The supplied direction is the vector perpendicular to the quad. The position is in real-world meters (not the application's virtual world, the physical
+ * world the user is in) and is relative to the "zero" position set by {@link OVR#ovr_RecenterTrackingOrigin OVR.ovr_RecenterTrackingOrigin} unless the {@link OVR#ovrLayerFlag_HeadLocked} flag is
+ * used.</p></td></tr>
  * <tr><td>QuadSize</td><td>width and height (respectively) of the quad in meters</td></tr>
  * </table>
  */
@@ -97,8 +101,8 @@ public class OVRLayerQuad extends Struct {
 
 	/** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
 	public OVRLayerHeader Header() { return nHeader(address()); }
-	/** Returns a {@link OVRSwapTextureSet} view of the struct pointed to by the {@code ColorTexture} field. */
-	public OVRSwapTextureSet ColorTexture() { return nColorTexture(address()); }
+	/** Returns the value of the {@code ColorTexture} field. */
+	public long ColorTexture() { return nColorTexture(address()); }
 	/** Returns a {@link OVRRecti} view of the {@code Viewport} field. */
 	public OVRRecti Viewport() { return nViewport(address()); }
 	/** Returns a {@link OVRPosef} view of the {@code QuadPoseCenter} field. */
@@ -108,8 +112,8 @@ public class OVRLayerQuad extends Struct {
 
 	/** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
 	public OVRLayerQuad Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
-	/** Sets the address of the specified {@link OVRSwapTextureSet} to the {@code ColorTexture} field. */
-	public OVRLayerQuad ColorTexture(OVRSwapTextureSet value) { nColorTexture(address(), value); return this; }
+	/** Sets the specified value to the {@code ColorTexture} field. */
+	public OVRLayerQuad ColorTexture(long value) { nColorTexture(address(), value); return this; }
 	/** Copies the specified {@link OVRRecti} to the {@code Viewport} field. */
 	public OVRLayerQuad Viewport(OVRRecti value) { nViewport(address(), value); return this; }
 	/** Copies the specified {@link OVRPosef} to the {@code QuadPoseCenter} field. */
@@ -120,7 +124,7 @@ public class OVRLayerQuad extends Struct {
 	/** Initializes this struct with the specified values. */
 	public OVRLayerQuad set(
 		OVRLayerHeader Header,
-		OVRSwapTextureSet ColorTexture,
+		long ColorTexture,
 		OVRRecti Viewport,
 		OVRPosef QuadPoseCenter,
 		OVRVector2f QuadSize
@@ -283,7 +287,7 @@ public class OVRLayerQuad extends Struct {
 	/** Unsafe version of {@link #Header}. */
 	public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerQuad.HEADER); }
 	/** Unsafe version of {@link #ColorTexture}. */
-	public static OVRSwapTextureSet nColorTexture(long struct) { return OVRSwapTextureSet.create(memGetAddress(struct + OVRLayerQuad.COLORTEXTURE)); }
+	public static long nColorTexture(long struct) { return memGetAddress(struct + OVRLayerQuad.COLORTEXTURE); }
 	/** Unsafe version of {@link #Viewport}. */
 	public static OVRRecti nViewport(long struct) { return OVRRecti.create(struct + OVRLayerQuad.VIEWPORT); }
 	/** Unsafe version of {@link #QuadPoseCenter}. */
@@ -293,8 +297,8 @@ public class OVRLayerQuad extends Struct {
 
 	/** Unsafe version of {@link #Header(OVRLayerHeader) Header}. */
 	public static void nHeader(long struct, OVRLayerHeader value) { memCopy(value.address(), struct + OVRLayerQuad.HEADER, OVRLayerHeader.SIZEOF); }
-	/** Unsafe version of {@link #ColorTexture(OVRSwapTextureSet) ColorTexture}. */
-	public static void nColorTexture(long struct, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerQuad.COLORTEXTURE, value.address()); }
+	/** Unsafe version of {@link #ColorTexture(long) ColorTexture}. */
+	public static void nColorTexture(long struct, long value) { memPutAddress(struct + OVRLayerQuad.COLORTEXTURE, checkPointer(value)); }
 	/** Unsafe version of {@link #Viewport(OVRRecti) Viewport}. */
 	public static void nViewport(long struct, OVRRecti value) { memCopy(value.address(), struct + OVRLayerQuad.VIEWPORT, OVRRecti.SIZEOF); }
 	/** Unsafe version of {@link #QuadPoseCenter(OVRPosef) QuadPoseCenter}. */
@@ -308,9 +312,7 @@ public class OVRLayerQuad extends Struct {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		long ColorTexture = memGetAddress(struct + OVRLayerQuad.COLORTEXTURE);
-		checkPointer(ColorTexture);
-		OVRSwapTextureSet.validate(ColorTexture);
+		checkPointer(memGetAddress(struct + OVRLayerQuad.COLORTEXTURE));
 	}
 
 	/**
@@ -368,8 +370,8 @@ public class OVRLayerQuad extends Struct {
 
 		/** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
 		public OVRLayerHeader Header() { return OVRLayerQuad.nHeader(address()); }
-		/** Returns a {@link OVRSwapTextureSet} view of the struct pointed to by the {@code ColorTexture} field. */
-		public OVRSwapTextureSet ColorTexture() { return OVRLayerQuad.nColorTexture(address()); }
+		/** Returns the value of the {@code ColorTexture} field. */
+		public long ColorTexture() { return OVRLayerQuad.nColorTexture(address()); }
 		/** Returns a {@link OVRRecti} view of the {@code Viewport} field. */
 		public OVRRecti Viewport() { return OVRLayerQuad.nViewport(address()); }
 		/** Returns a {@link OVRPosef} view of the {@code QuadPoseCenter} field. */
@@ -379,8 +381,8 @@ public class OVRLayerQuad extends Struct {
 
 		/** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
 		public OVRLayerQuad.Buffer Header(OVRLayerHeader value) { OVRLayerQuad.nHeader(address(), value); return this; }
-		/** Sets the address of the specified {@link OVRSwapTextureSet} to the {@code ColorTexture} field. */
-		public OVRLayerQuad.Buffer ColorTexture(OVRSwapTextureSet value) { OVRLayerQuad.nColorTexture(address(), value); return this; }
+		/** Sets the specified value to the {@code ColorTexture} field. */
+		public OVRLayerQuad.Buffer ColorTexture(long value) { OVRLayerQuad.nColorTexture(address(), value); return this; }
 		/** Copies the specified {@link OVRRecti} to the {@code Viewport} field. */
 		public OVRLayerQuad.Buffer Viewport(OVRRecti value) { OVRLayerQuad.nViewport(address(), value); return this; }
 		/** Copies the specified {@link OVRPosef} to the {@code QuadPoseCenter} field. */

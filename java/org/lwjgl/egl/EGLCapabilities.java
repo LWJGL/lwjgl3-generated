@@ -315,6 +315,8 @@ public class EGLCapabilities {
 	public final boolean EGL_KHR_image_pixmap;
 	/** When true, {@link KHRLockSurface3} is supported. */
 	public final boolean EGL_KHR_lock_surface3;
+	/** When true, {@link KHRMutableRenderBuffer} is supported. */
+	public final boolean EGL_KHR_mutable_render_buffer;
 	/** When true, {@link KHRPartialUpdate} is supported. */
 	public final boolean EGL_KHR_partial_update;
 	/** When true, {@link KHRPlatformAndroid} is supported. */
@@ -837,6 +839,7 @@ public class EGLCapabilities {
 		EGL_KHR_image_base = ext.contains("EGL_KHR_image_base") && EGL.checkExtension("EGL_KHR_image_base", KHRImageBase.isAvailable(this));
 		EGL_KHR_image_pixmap = ext.contains("EGL_KHR_image_pixmap");
 		EGL_KHR_lock_surface3 = ext.contains("EGL_KHR_lock_surface3") && EGL.checkExtension("EGL_KHR_lock_surface3", KHRLockSurface3.isAvailable(this));
+		EGL_KHR_mutable_render_buffer = ext.contains("EGL_KHR_mutable_render_buffer");
 		EGL_KHR_partial_update = ext.contains("EGL_KHR_partial_update") && EGL.checkExtension("EGL_KHR_partial_update", KHRPartialUpdate.isAvailable(this));
 		EGL_KHR_platform_android = ext.contains("EGL_KHR_platform_android");
 		EGL_KHR_platform_gbm = ext.contains("EGL_KHR_platform_gbm");

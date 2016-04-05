@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>Result</td><td>the result from the last API call that generated an error ovrResult</td></tr>
+ * <tr><td>Result</td><td>the result from the last API call that generated an error {@code ovrResult}</td></tr>
  * <tr><td>ErrorString</td><td>a UTF8-encoded null-terminated English string describing the problem. The format of this string is subject to change in future versions</td></tr>
  * </table>
  */

@@ -31,13 +31,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>Flags</td><td>combination of ovrInitFlags or 0</td></tr>
- * <tr><td>RequestedMinorVersion</td><td>request a specific minimum minor version of the LibOVR runtime. Flags must include ovrInit_RequestVersion or this will be ignored.</td></tr>
- * <tr><td>LogCallback</td><td>log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown OVR.ovr_Shutdown} completes. Pass {@code NULL} for no log
- * callback.</td></tr>
- * <tr><td>UserData</td><td>user-supplied data which is passed as-is to LogCallback. Typically this is used to store an application-specific pointer which is read in the callback
- * function.</td></tr>
- * <tr><td>ConnectionTimeoutMS</td><td>number of milliseconds to wait for a connection to the server. Pass 0 for the default timeout</td></tr>
+ * <tr><td>Flags</td><td>flags from {@code ovrInitFlags} to override default behavior. Use 0 for the defaults.</td></tr>
+ * <tr><td>RequestedMinorVersion</td><td>requests a specific minimum minor version of the LibOVR runtime. Flags must include {@link OVR#ovrInit_RequestVersion} or this will be ignored and
+ * {@link OVRVersion#OVR_MINOR_VERSION} will be used.</td></tr>
+ * <tr><td>LogCallback</td><td>user-supplied log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown OVR.ovr_Shutdown} completes. Use {@code NULL}
+ * to specify no log callback.</td></tr>
+ * <tr><td>UserData</td><td>user-supplied data which is passed as-is to {@code LogCallback}. Typically this is used to store an application-specific pointer which is read in the
+ * callback function.</td></tr>
+ * <tr><td>ConnectionTimeoutMS</td><td>relative number of milliseconds to wait for a connection to the server before failing. Use 0 for the default timeout.</td></tr>
  * </table>
  */
 public class OVRInitParams extends Struct {
@@ -62,7 +63,7 @@ public class OVRInitParams extends Struct {
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
 			__member(4),
-			__padding(4, true)
+			__padding(4, Pointer.BITS64)
 		);
 
 		SIZEOF = layout.getSize();

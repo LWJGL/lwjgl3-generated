@@ -22,9 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <pre><code>union ovrLayer_Union {
     {@link OVRLayerHeader ovrLayerHeader} Header;
     {@link OVRLayerEyeFov ovrLayerEyeFov} EyeFov;
-    {@link OVRLayerEyeFovDepth ovrLayerEyeFovDepth} EyeFovDepth;
     {@link OVRLayerQuad ovrLayerQuad} Quad;
-    {@link OVRLayerDirect ovrLayerDirect} Direct;
 }</code></pre>
  * 
  * <h3>Member documentation</h3>
@@ -44,17 +42,13 @@ public class OVRLayerUnion extends Struct {
 	public static final int
 		HEADER,
 		EYEFOV,
-		EYEFOVDEPTH,
-		QUAD,
-		DIRECT;
+		QUAD;
 
 	static {
 		Layout layout = __union(
 			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.ALIGNOF),
 			__member(OVRLayerEyeFov.SIZEOF, OVRLayerEyeFov.ALIGNOF),
-			__member(OVRLayerEyeFovDepth.SIZEOF, OVRLayerEyeFovDepth.ALIGNOF),
-			__member(OVRLayerQuad.SIZEOF, OVRLayerQuad.ALIGNOF),
-			__member(OVRLayerDirect.SIZEOF, OVRLayerDirect.ALIGNOF)
+			__member(OVRLayerQuad.SIZEOF, OVRLayerQuad.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
@@ -62,9 +56,7 @@ public class OVRLayerUnion extends Struct {
 
 		HEADER = layout.offsetof(0);
 		EYEFOV = layout.offsetof(1);
-		EYEFOVDEPTH = layout.offsetof(2);
-		QUAD = layout.offsetof(3);
-		DIRECT = layout.offsetof(4);
+		QUAD = layout.offsetof(2);
 	}
 
 	OVRLayerUnion(long address, ByteBuffer container) {
@@ -88,23 +80,15 @@ public class OVRLayerUnion extends Struct {
 	public OVRLayerHeader Header() { return nHeader(address()); }
 	/** Returns a {@link OVRLayerEyeFov} view of the {@code EyeFov} field. */
 	public OVRLayerEyeFov EyeFov() { return nEyeFov(address()); }
-	/** Returns a {@link OVRLayerEyeFovDepth} view of the {@code EyeFovDepth} field. */
-	public OVRLayerEyeFovDepth EyeFovDepth() { return nEyeFovDepth(address()); }
 	/** Returns a {@link OVRLayerQuad} view of the {@code Quad} field. */
 	public OVRLayerQuad Quad() { return nQuad(address()); }
-	/** Returns a {@link OVRLayerDirect} view of the {@code Direct} field. */
-	public OVRLayerDirect Direct() { return nDirect(address()); }
 
 	/** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
 	public OVRLayerUnion Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
 	/** Copies the specified {@link OVRLayerEyeFov} to the {@code EyeFov} field. */
 	public OVRLayerUnion EyeFov(OVRLayerEyeFov value) { nEyeFov(address(), value); return this; }
-	/** Copies the specified {@link OVRLayerEyeFovDepth} to the {@code EyeFovDepth} field. */
-	public OVRLayerUnion EyeFovDepth(OVRLayerEyeFovDepth value) { nEyeFovDepth(address(), value); return this; }
 	/** Copies the specified {@link OVRLayerQuad} to the {@code Quad} field. */
 	public OVRLayerUnion Quad(OVRLayerQuad value) { nQuad(address(), value); return this; }
-	/** Copies the specified {@link OVRLayerDirect} to the {@code Direct} field. */
-	public OVRLayerUnion Direct(OVRLayerDirect value) { nDirect(address(), value); return this; }
 
 	/** Unsafe version of {@link #set(OVRLayerUnion) set}. */
 	public OVRLayerUnion nset(long struct) {
@@ -256,23 +240,15 @@ public class OVRLayerUnion extends Struct {
 	public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerUnion.HEADER); }
 	/** Unsafe version of {@link #EyeFov}. */
 	public static OVRLayerEyeFov nEyeFov(long struct) { return OVRLayerEyeFov.create(struct + OVRLayerUnion.EYEFOV); }
-	/** Unsafe version of {@link #EyeFovDepth}. */
-	public static OVRLayerEyeFovDepth nEyeFovDepth(long struct) { return OVRLayerEyeFovDepth.create(struct + OVRLayerUnion.EYEFOVDEPTH); }
 	/** Unsafe version of {@link #Quad}. */
 	public static OVRLayerQuad nQuad(long struct) { return OVRLayerQuad.create(struct + OVRLayerUnion.QUAD); }
-	/** Unsafe version of {@link #Direct}. */
-	public static OVRLayerDirect nDirect(long struct) { return OVRLayerDirect.create(struct + OVRLayerUnion.DIRECT); }
 
 	/** Unsafe version of {@link #Header(OVRLayerHeader) Header}. */
 	public static void nHeader(long struct, OVRLayerHeader value) { memCopy(value.address(), struct + OVRLayerUnion.HEADER, OVRLayerHeader.SIZEOF); }
 	/** Unsafe version of {@link #EyeFov(OVRLayerEyeFov) EyeFov}. */
 	public static void nEyeFov(long struct, OVRLayerEyeFov value) { memCopy(value.address(), struct + OVRLayerUnion.EYEFOV, OVRLayerEyeFov.SIZEOF); }
-	/** Unsafe version of {@link #EyeFovDepth(OVRLayerEyeFovDepth) EyeFovDepth}. */
-	public static void nEyeFovDepth(long struct, OVRLayerEyeFovDepth value) { memCopy(value.address(), struct + OVRLayerUnion.EYEFOVDEPTH, OVRLayerEyeFovDepth.SIZEOF); }
 	/** Unsafe version of {@link #Quad(OVRLayerQuad) Quad}. */
 	public static void nQuad(long struct, OVRLayerQuad value) { memCopy(value.address(), struct + OVRLayerUnion.QUAD, OVRLayerQuad.SIZEOF); }
-	/** Unsafe version of {@link #Direct(OVRLayerDirect) Direct}. */
-	public static void nDirect(long struct, OVRLayerDirect value) { memCopy(value.address(), struct + OVRLayerUnion.DIRECT, OVRLayerDirect.SIZEOF); }
 
 	// -----------------------------------
 
@@ -320,23 +296,15 @@ public class OVRLayerUnion extends Struct {
 		public OVRLayerHeader Header() { return OVRLayerUnion.nHeader(address()); }
 		/** Returns a {@link OVRLayerEyeFov} view of the {@code EyeFov} field. */
 		public OVRLayerEyeFov EyeFov() { return OVRLayerUnion.nEyeFov(address()); }
-		/** Returns a {@link OVRLayerEyeFovDepth} view of the {@code EyeFovDepth} field. */
-		public OVRLayerEyeFovDepth EyeFovDepth() { return OVRLayerUnion.nEyeFovDepth(address()); }
 		/** Returns a {@link OVRLayerQuad} view of the {@code Quad} field. */
 		public OVRLayerQuad Quad() { return OVRLayerUnion.nQuad(address()); }
-		/** Returns a {@link OVRLayerDirect} view of the {@code Direct} field. */
-		public OVRLayerDirect Direct() { return OVRLayerUnion.nDirect(address()); }
 
 		/** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
 		public OVRLayerUnion.Buffer Header(OVRLayerHeader value) { OVRLayerUnion.nHeader(address(), value); return this; }
 		/** Copies the specified {@link OVRLayerEyeFov} to the {@code EyeFov} field. */
 		public OVRLayerUnion.Buffer EyeFov(OVRLayerEyeFov value) { OVRLayerUnion.nEyeFov(address(), value); return this; }
-		/** Copies the specified {@link OVRLayerEyeFovDepth} to the {@code EyeFovDepth} field. */
-		public OVRLayerUnion.Buffer EyeFovDepth(OVRLayerEyeFovDepth value) { OVRLayerUnion.nEyeFovDepth(address(), value); return this; }
 		/** Copies the specified {@link OVRLayerQuad} to the {@code Quad} field. */
 		public OVRLayerUnion.Buffer Quad(OVRLayerQuad value) { OVRLayerUnion.nQuad(address(), value); return this; }
-		/** Copies the specified {@link OVRLayerDirect} to the {@code Direct} field. */
-		public OVRLayerUnion.Buffer Direct(OVRLayerDirect value) { OVRLayerUnion.nDirect(address(), value); return this; }
 
 	}
 

@@ -13,7 +13,23 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
-/** A system specific graphics adapter identifier. */
+/**
+ * Identifies a graphics device in a platform-specific way.
+ * 
+ * <p>For Windows this is a LUID type.</p>
+ * 
+ * <h3>Layout</h3>
+ * 
+ * <pre><code>struct ovrGraphicsLuid {
+    char[8] Reserved;
+}</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>Reserved</td><td>public definition reserves space for graphics API-specific implementation.</td></tr>
+ * </table>
+ */
 public class OVRGraphicsLuid extends Struct {
 
 	/** The struct size in bytes. */
@@ -21,18 +37,20 @@ public class OVRGraphicsLuid extends Struct {
 
 	public static final int ALIGNOF;
 
-	static {
-		MemoryStack stack = stackPush();
-		try {
-			IntBuffer offsets = stack.mallocInt(1);
-			SIZEOF = offsets(memAddress(offsets));
-			ALIGNOF = offsets.get(0);
-		} finally {
-			stack.pop();
-		}
-	}
+	/** The struct member offsets. */
+	public static final int
+		RESERVED;
 
-	private static native int offsets(long buffer);
+	static {
+		Layout layout = __struct(
+			__array(1, 8)
+		);
+
+		SIZEOF = layout.getSize();
+		ALIGNOF = layout.getAlignment();
+
+		RESERVED = layout.offsetof(0);
+	}
 
 	OVRGraphicsLuid(long address, ByteBuffer container) {
 		super(address, container);
@@ -50,6 +68,11 @@ public class OVRGraphicsLuid extends Struct {
 
 	@Override
 	public int sizeof() { return SIZEOF; }
+
+	/** Returns a {@link ByteBuffer} view of the {@code Reserved} field. */
+	public ByteBuffer Reserved() { return nReserved(address()); }
+	/** Returns the value at the specified index of the {@code Reserved} field. */
+	public byte Reserved(int index) { return nReserved(address(), index); }
 
 	// -----------------------------------
 
@@ -180,6 +203,13 @@ public class OVRGraphicsLuid extends Struct {
 
 	// -----------------------------------
 
+	/** Unsafe version of {@link #Reserved}. */
+	public static ByteBuffer nReserved(long struct) {
+		return memByteBuffer(struct + OVRGraphicsLuid.RESERVED, 8);
+	}
+	/** Unsafe version of {@link #Reserved(int) Reserved}. */
+	public static byte nReserved(long struct, int index) { return memGetByte(struct + OVRGraphicsLuid.RESERVED + index * 1); }
+
 	// -----------------------------------
 
 	/** An array of {@link OVRGraphicsLuid} structs. */
@@ -221,6 +251,11 @@ public class OVRGraphicsLuid extends Struct {
 		protected int sizeof() {
 			return SIZEOF;
 		}
+
+		/** Returns a {@link ByteBuffer} view of the {@code Reserved} field. */
+		public ByteBuffer Reserved() { return OVRGraphicsLuid.nReserved(address()); }
+		/** Returns the value at the specified index of the {@code Reserved} field. */
+		public byte Reserved(int index) { return OVRGraphicsLuid.nReserved(address(), index); }
 
 	}
 

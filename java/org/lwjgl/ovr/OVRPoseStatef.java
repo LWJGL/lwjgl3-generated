@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A full pose (rigid body) configuration with first and second derivatives.
  * 
- * <p>Body refers to any object for which ovrPoseStatef is providing data.  It can be the HMD, Touch controller, camera or something else. The context
+ * <p>Body refers to any object for which ovrPoseStatef is providing data.  It can be the HMD, Touch controller, sensor or something else. The context
  * depends on the usage of the struct.</p>
  * 
  * <h3>Layout</h3>
@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>LinearVelocity</td><td>velocity in meters per second</td></tr>
  * <tr><td>AngularAcceleration</td><td>angular acceleration in radians per second per second</td></tr>
  * <tr><td>LinearAcceleration</td><td>acceleration in meters per second per second</td></tr>
- * <tr><td>TimeInSeconds</td><td>absolute time of this state sample</td></tr>
+ * <tr><td>TimeInSeconds</td><td>absolute time that this pose refers to. See {@link OVR#ovr_GetTimeInSeconds OVR.ovr_GetTimeInSeconds}</td></tr>
  * </table>
  */
 public class OVRPoseStatef extends Struct {

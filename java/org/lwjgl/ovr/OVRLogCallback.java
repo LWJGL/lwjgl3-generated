@@ -52,7 +52,7 @@ public abstract class OVRLogCallback extends Closure.V {
 	 * The logging callback.
 	 *
 	 * @param userData an arbitrary value specified by the user of ovrInitParams
-	 * @param level    one of the ovrLogLevel constants
+	 * @param level    one of the {@code ovrLogLevel} constants
 	 * @param message  a UTF8-encoded null-terminated string
 	 */
 	public abstract void invoke(long userData, int level, long message);

@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * Contains the data necessary to properly calculate position info for various layer types.
  * 
  * <ul>
- * <li>{@code HmdToEyeViewOffset} is the same value pair provided in {@link OVREyeRenderDesc}.</li>
+ * <li>{@code HmdToEyeOffset} is the same value pair provided in {@link OVREyeRenderDesc}.</li>
  * <li>{@code HmdSpaceToWorldScaleInMeters} is used to scale player motion into in-application units.</li>
  * </ul>
  * 
@@ -29,14 +29,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrViewScaleDesc {
-    {@link OVRVector3f ovrVector3f}[2] HmdToEyeViewOffset;
+    {@link OVRVector3f ovrVector3f}[2] HmdToEyeOffset;
     float HmdSpaceToWorldScaleInMeters;
 }</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>HmdToEyeViewOffset</td><td>translation of each eye</td></tr>
+ * <tr><td>HmdToEyeOffset</td><td>translation of each eye</td></tr>
  * <tr><td>HmdSpaceToWorldScaleInMeters</td><td>ratio of viewer units to meter units</td></tr>
  * </table>
  */
@@ -49,7 +49,7 @@ public class OVRViewScaleDesc extends Struct {
 
 	/** The struct member offsets. */
 	public static final int
-		HMDTOEYEVIEWOFFSET,
+		HMDTOEYEOFFSET,
 		HMDSPACETOWORLDSCALEINMETERS;
 
 	static {
@@ -61,7 +61,7 @@ public class OVRViewScaleDesc extends Struct {
 		SIZEOF = layout.getSize();
 		ALIGNOF = layout.getAlignment();
 
-		HMDTOEYEVIEWOFFSET = layout.offsetof(0);
+		HMDTOEYEOFFSET = layout.offsetof(0);
 		HMDSPACETOWORLDSCALEINMETERS = layout.offsetof(1);
 	}
 
@@ -82,26 +82,26 @@ public class OVRViewScaleDesc extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/** Returns a {@link OVRVector3f}.Buffer view of the {@code HmdToEyeViewOffset} field. */
-	public OVRVector3f.Buffer HmdToEyeViewOffset() { return nHmdToEyeViewOffset(address()); }
-	/** Returns a {@link OVRVector3f} view of the struct at the specified index of the {@code HmdToEyeViewOffset} field. */
-	public OVRVector3f HmdToEyeViewOffset(int index) { return nHmdToEyeViewOffset(address(), index); }
+	/** Returns a {@link OVRVector3f}.Buffer view of the {@code HmdToEyeOffset} field. */
+	public OVRVector3f.Buffer HmdToEyeOffset() { return nHmdToEyeOffset(address()); }
+	/** Returns a {@link OVRVector3f} view of the struct at the specified index of the {@code HmdToEyeOffset} field. */
+	public OVRVector3f HmdToEyeOffset(int index) { return nHmdToEyeOffset(address(), index); }
 	/** Returns the value of the {@code HmdSpaceToWorldScaleInMeters} field. */
 	public float HmdSpaceToWorldScaleInMeters() { return nHmdSpaceToWorldScaleInMeters(address()); }
 
-	/** Copies the specified {@link OVRVector3f.Buffer} to the {@code HmdToEyeViewOffset} field. */
-	public OVRViewScaleDesc HmdToEyeViewOffset(OVRVector3f.Buffer value) { nHmdToEyeViewOffset(address(), value); return this; }
-	/** Copies the specified {@link OVRVector3f} at the specified index of the {@code HmdToEyeViewOffset} field. */
-	public OVRViewScaleDesc HmdToEyeViewOffset(int index, OVRVector3f value) { nHmdToEyeViewOffset(address(), index, value); return this; }
+	/** Copies the specified {@link OVRVector3f.Buffer} to the {@code HmdToEyeOffset} field. */
+	public OVRViewScaleDesc HmdToEyeOffset(OVRVector3f.Buffer value) { nHmdToEyeOffset(address(), value); return this; }
+	/** Copies the specified {@link OVRVector3f} at the specified index of the {@code HmdToEyeOffset} field. */
+	public OVRViewScaleDesc HmdToEyeOffset(int index, OVRVector3f value) { nHmdToEyeOffset(address(), index, value); return this; }
 	/** Sets the specified value to the {@code HmdSpaceToWorldScaleInMeters} field. */
 	public OVRViewScaleDesc HmdSpaceToWorldScaleInMeters(float value) { nHmdSpaceToWorldScaleInMeters(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRViewScaleDesc set(
-		OVRVector3f.Buffer HmdToEyeViewOffset,
+		OVRVector3f.Buffer HmdToEyeOffset,
 		float HmdSpaceToWorldScaleInMeters
 	) {
-		HmdToEyeViewOffset(HmdToEyeViewOffset);
+		HmdToEyeOffset(HmdToEyeOffset);
 		HmdSpaceToWorldScaleInMeters(HmdSpaceToWorldScaleInMeters);
 
 		return this;
@@ -253,24 +253,24 @@ public class OVRViewScaleDesc extends Struct {
 
 	// -----------------------------------
 
-	/** Unsafe version of {@link #HmdToEyeViewOffset}. */
-	public static OVRVector3f.Buffer nHmdToEyeViewOffset(long struct) {
-		return OVRVector3f.create(struct + OVRViewScaleDesc.HMDTOEYEVIEWOFFSET, 2);
+	/** Unsafe version of {@link #HmdToEyeOffset}. */
+	public static OVRVector3f.Buffer nHmdToEyeOffset(long struct) {
+		return OVRVector3f.create(struct + OVRViewScaleDesc.HMDTOEYEOFFSET, 2);
 	}
-	/** Unsafe version of {@link #HmdToEyeViewOffset(int) HmdToEyeViewOffset}. */
-	public static OVRVector3f nHmdToEyeViewOffset(long struct, int index) {
-		return OVRVector3f.create(struct + OVRViewScaleDesc.HMDTOEYEVIEWOFFSET + index * OVRVector3f.SIZEOF);
+	/** Unsafe version of {@link #HmdToEyeOffset(int) HmdToEyeOffset}. */
+	public static OVRVector3f nHmdToEyeOffset(long struct, int index) {
+		return OVRVector3f.create(struct + OVRViewScaleDesc.HMDTOEYEOFFSET + index * OVRVector3f.SIZEOF);
 	}
 	/** Unsafe version of {@link #HmdSpaceToWorldScaleInMeters}. */
 	public static float nHmdSpaceToWorldScaleInMeters(long struct) { return memGetFloat(struct + OVRViewScaleDesc.HMDSPACETOWORLDSCALEINMETERS); }
 
-	/** Unsafe version of {@link #HmdToEyeViewOffset(OVRVector3f.Buffer) HmdToEyeViewOffset}. */
-	public static void nHmdToEyeViewOffset(long struct, OVRVector3f.Buffer value) {
+	/** Unsafe version of {@link #HmdToEyeOffset(OVRVector3f.Buffer) HmdToEyeOffset}. */
+	public static void nHmdToEyeOffset(long struct, OVRVector3f.Buffer value) {
 		if ( CHECKS ) checkBufferGT(value, 2);
-		memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEVIEWOFFSET, value.remaining() * OVRVector3f.SIZEOF);
+		memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEOFFSET, value.remaining() * OVRVector3f.SIZEOF);
 	}
-	/** Unsafe version of {@link #HmdToEyeViewOffset(int, OVRVector3f) HmdToEyeViewOffset}. */
-	public static void nHmdToEyeViewOffset(long struct, int index, OVRVector3f value) { memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEVIEWOFFSET + index * OVRVector3f.SIZEOF, OVRVector3f.SIZEOF); }
+	/** Unsafe version of {@link #HmdToEyeOffset(int, OVRVector3f) HmdToEyeOffset}. */
+	public static void nHmdToEyeOffset(long struct, int index, OVRVector3f value) { memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEOFFSET + index * OVRVector3f.SIZEOF, OVRVector3f.SIZEOF); }
 	/** Unsafe version of {@link #HmdSpaceToWorldScaleInMeters(float) HmdSpaceToWorldScaleInMeters}. */
 	public static void nHmdSpaceToWorldScaleInMeters(long struct, float value) { memPutFloat(struct + OVRViewScaleDesc.HMDSPACETOWORLDSCALEINMETERS, value); }
 
@@ -316,17 +316,17 @@ public class OVRViewScaleDesc extends Struct {
 			return SIZEOF;
 		}
 
-		/** Returns a {@link OVRVector3f}.Buffer view of the {@code HmdToEyeViewOffset} field. */
-		public OVRVector3f.Buffer HmdToEyeViewOffset() { return OVRViewScaleDesc.nHmdToEyeViewOffset(address()); }
-		/** Returns a {@link OVRVector3f} view of the struct at the specified index of the {@code HmdToEyeViewOffset} field. */
-		public OVRVector3f HmdToEyeViewOffset(int index) { return OVRViewScaleDesc.nHmdToEyeViewOffset(address(), index); }
+		/** Returns a {@link OVRVector3f}.Buffer view of the {@code HmdToEyeOffset} field. */
+		public OVRVector3f.Buffer HmdToEyeOffset() { return OVRViewScaleDesc.nHmdToEyeOffset(address()); }
+		/** Returns a {@link OVRVector3f} view of the struct at the specified index of the {@code HmdToEyeOffset} field. */
+		public OVRVector3f HmdToEyeOffset(int index) { return OVRViewScaleDesc.nHmdToEyeOffset(address(), index); }
 		/** Returns the value of the {@code HmdSpaceToWorldScaleInMeters} field. */
 		public float HmdSpaceToWorldScaleInMeters() { return OVRViewScaleDesc.nHmdSpaceToWorldScaleInMeters(address()); }
 
-		/** Copies the specified {@link OVRVector3f.Buffer} to the {@code HmdToEyeViewOffset} field. */
-		public OVRViewScaleDesc.Buffer HmdToEyeViewOffset(OVRVector3f.Buffer value) { OVRViewScaleDesc.nHmdToEyeViewOffset(address(), value); return this; }
-		/** Copies the specified {@link OVRVector3f} at the specified index of the {@code HmdToEyeViewOffset} field. */
-		public OVRViewScaleDesc.Buffer HmdToEyeViewOffset(int index, OVRVector3f value) { OVRViewScaleDesc.nHmdToEyeViewOffset(address(), index, value); return this; }
+		/** Copies the specified {@link OVRVector3f.Buffer} to the {@code HmdToEyeOffset} field. */
+		public OVRViewScaleDesc.Buffer HmdToEyeOffset(OVRVector3f.Buffer value) { OVRViewScaleDesc.nHmdToEyeOffset(address(), value); return this; }
+		/** Copies the specified {@link OVRVector3f} at the specified index of the {@code HmdToEyeOffset} field. */
+		public OVRViewScaleDesc.Buffer HmdToEyeOffset(int index, OVRVector3f value) { OVRViewScaleDesc.nHmdToEyeOffset(address(), index, value); return this; }
 		/** Sets the specified value to the {@code HmdSpaceToWorldScaleInMeters} field. */
 		public OVRViewScaleDesc.Buffer HmdSpaceToWorldScaleInMeters(float value) { OVRViewScaleDesc.nHmdSpaceToWorldScaleInMeters(address(), value); return this; }
 

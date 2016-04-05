@@ -17,6 +17,9 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Defines properties shared by all ovrLayer structs, such as {@link OVRLayerEyeFov}.
  * 
+ * <p>{@code ovrLayerHeader} is used as a base member in these larger structs. This struct cannot be used by itself except for the case that {@code Type} is
+ * {@link OVR#ovrLayerType_Disabled}.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrLayerHeader {

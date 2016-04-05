@@ -10,18 +10,36 @@ ENABLE_WARNINGS()
 
 EXTERN_C_ENTER
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1CreateSwapTextureSetGL(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint format, jint width, jint height, jlong outTextureSetAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1CreateTextureSwapChainGL(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong descAddress, jlong out_TextureSwapChainAddress) {
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-	ovrSwapTextureSet **outTextureSet = (ovrSwapTextureSet **)(intptr_t)outTextureSetAddress;
+	const ovrTextureSwapChainDesc *desc = (const ovrTextureSwapChainDesc *)(intptr_t)descAddress;
+	ovrTextureSwapChain *out_TextureSwapChain = (ovrTextureSwapChain *)(intptr_t)out_TextureSwapChainAddress;
 	UNUSED_PARAMS(__env, clazz)
-	return (jint)ovr_CreateSwapTextureSetGL(session, format, width, height, outTextureSet);
+	return (jint)ovr_CreateTextureSwapChainGL(session, desc, out_TextureSwapChain);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1CreateMirrorTextureGL(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint format, jint width, jint height, jlong outMirrorTextureAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1GetTextureSwapChainBufferGL(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jint index, jlong out_TexIdAddress) {
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-	ovrTexture **outMirrorTexture = (ovrTexture **)(intptr_t)outMirrorTextureAddress;
+	ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
+	unsigned int *out_TexId = (unsigned int *)(intptr_t)out_TexIdAddress;
 	UNUSED_PARAMS(__env, clazz)
-	return (jint)ovr_CreateMirrorTextureGL(session, format, width, height, outMirrorTexture);
+	return (jint)ovr_GetTextureSwapChainBufferGL(session, chain, index, out_TexId);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1CreateMirrorTextureGL(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong descAddress, jlong out_MirrorTextureAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	const ovrMirrorTextureDesc *desc = (const ovrMirrorTextureDesc *)(intptr_t)descAddress;
+	ovrMirrorTexture *out_MirrorTexture = (ovrMirrorTexture *)(intptr_t)out_MirrorTextureAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_CreateMirrorTextureGL(session, desc, out_MirrorTexture);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1GetMirrorTextureBufferGL(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong mirrorTextureAddress, jlong out_TexIdAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrMirrorTexture mirrorTexture = (ovrMirrorTexture)(intptr_t)mirrorTextureAddress;
+	unsigned int *out_TexId = (unsigned int *)(intptr_t)out_TexIdAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_GetMirrorTextureBufferGL(session, mirrorTexture, out_TexId);
 }
 
 EXTERN_C_EXIT

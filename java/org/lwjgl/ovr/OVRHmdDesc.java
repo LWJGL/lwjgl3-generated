@@ -28,10 +28,6 @@ import static org.lwjgl.system.MemoryStack.*;
     char[24] SerialNumber;
     short FirmwareMajor;
     short FirmwareMinor;
-    float CameraFrustumHFovInRadians;
-    float CameraFrustumVFovInRadians;
-    float CameraFrustumNearZInMeters;
-    float CameraFrustumFarZInMeters;
     unsigned int AvailableHmdCaps;
     unsigned int DefaultHmdCaps;
     unsigned int AvailableTrackingCaps;
@@ -51,13 +47,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>Manufacturer</td><td>string describing the manufacturer. Usually "Oculus".</td></tr>
  * <tr><td>VendorId</td><td>HID Vendor ID of the device</td></tr>
  * <tr><td>ProductId</td><td>HID Product ID of the device</td></tr>
- * <tr><td>SerialNumber</td><td>sensor (and display) serial number</td></tr>
- * <tr><td>FirmwareMajor</td><td>sensor firmware major version number</td></tr>
- * <tr><td>FirmwareMinor</td><td>sensor firmware minor version number</td></tr>
- * <tr><td>CameraFrustumHFovInRadians</td><td>horizontal field-of-view</td></tr>
- * <tr><td>CameraFrustumVFovInRadians</td><td>vertical field-of-view</td></tr>
- * <tr><td>CameraFrustumNearZInMeters</td><td>near clip distance</td></tr>
- * <tr><td>CameraFrustumFarZInMeters</td><td>far clip distance</td></tr>
+ * <tr><td>SerialNumber</td><td>HMD serial number</td></tr>
+ * <tr><td>FirmwareMajor</td><td>HMD firmware major version number</td></tr>
+ * <tr><td>FirmwareMinor</td><td>HMD firmware minor version number</td></tr>
  * <tr><td>AvailableHmdCaps</td><td>capability bits described by {@code ovrHmdCaps} which the HMD currently supports</td></tr>
  * <tr><td>DefaultHmdCaps</td><td>capability bits described by {@code ovrHmdCaps} which are default for the current {@code Hmd}</td></tr>
  * <tr><td>AvailableTrackingCaps</td><td>capability bits described by {@code ovrTrackingCaps} which the system currently supports</td></tr>
@@ -85,10 +77,6 @@ public class OVRHmdDesc extends Struct {
 		SERIALNUMBER,
 		FIRMWAREMAJOR,
 		FIRMWAREMINOR,
-		CAMERAFRUSTUMHFOVINRADIANS,
-		CAMERAFRUSTUMVFOVINRADIANS,
-		CAMERAFRUSTUMNEARZINMETERS,
-		CAMERAFRUSTUMFARZINMETERS,
 		AVAILABLEHMDCAPS,
 		DEFAULTHMDCAPS,
 		AVAILABLETRACKINGCAPS,
@@ -113,10 +101,6 @@ public class OVRHmdDesc extends Struct {
 			__member(4),
 			__member(4),
 			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
 			__array(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF, 2),
 			__array(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF, 2),
 			__member(OVRSizei.SIZEOF, OVRSizei.ALIGNOF),
@@ -135,18 +119,14 @@ public class OVRHmdDesc extends Struct {
 		SERIALNUMBER = layout.offsetof(6);
 		FIRMWAREMAJOR = layout.offsetof(7);
 		FIRMWAREMINOR = layout.offsetof(8);
-		CAMERAFRUSTUMHFOVINRADIANS = layout.offsetof(9);
-		CAMERAFRUSTUMVFOVINRADIANS = layout.offsetof(10);
-		CAMERAFRUSTUMNEARZINMETERS = layout.offsetof(11);
-		CAMERAFRUSTUMFARZINMETERS = layout.offsetof(12);
-		AVAILABLEHMDCAPS = layout.offsetof(13);
-		DEFAULTHMDCAPS = layout.offsetof(14);
-		AVAILABLETRACKINGCAPS = layout.offsetof(15);
-		DEFAULTTRACKINGCAPS = layout.offsetof(16);
-		DEFAULTEYEFOV = layout.offsetof(17);
-		MAXEYEFOV = layout.offsetof(18);
-		RESOLUTION = layout.offsetof(19);
-		DISPLAYREFRESHRATE = layout.offsetof(20);
+		AVAILABLEHMDCAPS = layout.offsetof(9);
+		DEFAULTHMDCAPS = layout.offsetof(10);
+		AVAILABLETRACKINGCAPS = layout.offsetof(11);
+		DEFAULTTRACKINGCAPS = layout.offsetof(12);
+		DEFAULTEYEFOV = layout.offsetof(13);
+		MAXEYEFOV = layout.offsetof(14);
+		RESOLUTION = layout.offsetof(15);
+		DISPLAYREFRESHRATE = layout.offsetof(16);
 	}
 
 	OVRHmdDesc(long address, ByteBuffer container) {
@@ -188,14 +168,6 @@ public class OVRHmdDesc extends Struct {
 	public short FirmwareMajor() { return nFirmwareMajor(address()); }
 	/** Returns the value of the {@code FirmwareMinor} field. */
 	public short FirmwareMinor() { return nFirmwareMinor(address()); }
-	/** Returns the value of the {@code CameraFrustumHFovInRadians} field. */
-	public float CameraFrustumHFovInRadians() { return nCameraFrustumHFovInRadians(address()); }
-	/** Returns the value of the {@code CameraFrustumVFovInRadians} field. */
-	public float CameraFrustumVFovInRadians() { return nCameraFrustumVFovInRadians(address()); }
-	/** Returns the value of the {@code CameraFrustumNearZInMeters} field. */
-	public float CameraFrustumNearZInMeters() { return nCameraFrustumNearZInMeters(address()); }
-	/** Returns the value of the {@code CameraFrustumFarZInMeters} field. */
-	public float CameraFrustumFarZInMeters() { return nCameraFrustumFarZInMeters(address()); }
 	/** Returns the value of the {@code AvailableHmdCaps} field. */
 	public int AvailableHmdCaps() { return nAvailableHmdCaps(address()); }
 	/** Returns the value of the {@code DefaultHmdCaps} field. */
@@ -368,14 +340,6 @@ public class OVRHmdDesc extends Struct {
 	public static short nFirmwareMajor(long struct) { return memGetShort(struct + OVRHmdDesc.FIRMWAREMAJOR); }
 	/** Unsafe version of {@link #FirmwareMinor}. */
 	public static short nFirmwareMinor(long struct) { return memGetShort(struct + OVRHmdDesc.FIRMWAREMINOR); }
-	/** Unsafe version of {@link #CameraFrustumHFovInRadians}. */
-	public static float nCameraFrustumHFovInRadians(long struct) { return memGetFloat(struct + OVRHmdDesc.CAMERAFRUSTUMHFOVINRADIANS); }
-	/** Unsafe version of {@link #CameraFrustumVFovInRadians}. */
-	public static float nCameraFrustumVFovInRadians(long struct) { return memGetFloat(struct + OVRHmdDesc.CAMERAFRUSTUMVFOVINRADIANS); }
-	/** Unsafe version of {@link #CameraFrustumNearZInMeters}. */
-	public static float nCameraFrustumNearZInMeters(long struct) { return memGetFloat(struct + OVRHmdDesc.CAMERAFRUSTUMNEARZINMETERS); }
-	/** Unsafe version of {@link #CameraFrustumFarZInMeters}. */
-	public static float nCameraFrustumFarZInMeters(long struct) { return memGetFloat(struct + OVRHmdDesc.CAMERAFRUSTUMFARZINMETERS); }
 	/** Unsafe version of {@link #AvailableHmdCaps}. */
 	public static int nAvailableHmdCaps(long struct) { return memGetInt(struct + OVRHmdDesc.AVAILABLEHMDCAPS); }
 	/** Unsafe version of {@link #DefaultHmdCaps}. */
@@ -469,14 +433,6 @@ public class OVRHmdDesc extends Struct {
 		public short FirmwareMajor() { return OVRHmdDesc.nFirmwareMajor(address()); }
 		/** Returns the value of the {@code FirmwareMinor} field. */
 		public short FirmwareMinor() { return OVRHmdDesc.nFirmwareMinor(address()); }
-		/** Returns the value of the {@code CameraFrustumHFovInRadians} field. */
-		public float CameraFrustumHFovInRadians() { return OVRHmdDesc.nCameraFrustumHFovInRadians(address()); }
-		/** Returns the value of the {@code CameraFrustumVFovInRadians} field. */
-		public float CameraFrustumVFovInRadians() { return OVRHmdDesc.nCameraFrustumVFovInRadians(address()); }
-		/** Returns the value of the {@code CameraFrustumNearZInMeters} field. */
-		public float CameraFrustumNearZInMeters() { return OVRHmdDesc.nCameraFrustumNearZInMeters(address()); }
-		/** Returns the value of the {@code CameraFrustumFarZInMeters} field. */
-		public float CameraFrustumFarZInMeters() { return OVRHmdDesc.nCameraFrustumFarZInMeters(address()); }
 		/** Returns the value of the {@code AvailableHmdCaps} field. */
 		public int AvailableHmdCaps() { return OVRHmdDesc.nAvailableHmdCaps(address()); }
 		/** Returns the value of the {@code DefaultHmdCaps} field. */

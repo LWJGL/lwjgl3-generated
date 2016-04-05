@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct ovrLayerEyeFov {
     {@link OVRLayerHeader ovrLayerHeader} Header;
-    ovrSwapTextureSet *[2] ColorTexture;
+    ovrTextureSwapChain[2] ColorTexture;
     {@link OVRRecti ovrRecti}[2] Viewport;
     {@link OVRFovPort ovrFovPort}[2] Fov;
     {@link OVRPosef ovrPosef}[2] RenderPose;
@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <table class=lwjgl>
  * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeFov}.</td></tr>
- * <tr><td>ColorTexture</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}.</td></tr>
+ * <tr><td>ColorTexture</td><td>{@code ovrTextureSwapChains} for the left and right eye respectively. The second one of which can be {@code NULL}.</td></tr>
  * <tr><td>Viewport</td><td>specifies the ColorTexture sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
  * <tr><td>Fov</td><td>the viewport field of view</td></tr>
  * <tr><td>RenderPose</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned from
@@ -101,8 +101,8 @@ public class OVRLayerEyeFov extends Struct {
 	public OVRLayerHeader Header() { return nHeader(address()); }
 	/** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
 	public PointerBuffer ColorTexture() { return nColorTexture(address()); }
-	/** Returns a {@link OVRSwapTextureSet} view of the pointer at the specified index of the {@code ColorTexture}. */
-	public OVRSwapTextureSet ColorTexture(int index) { return nColorTexture(address(), index); }
+	/** Returns the value at the specified index of the {@code ColorTexture} field. */
+	public long ColorTexture(int index) { return nColorTexture(address(), index); }
 	/** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
 	public OVRRecti.Buffer Viewport() { return nViewport(address()); }
 	/** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
@@ -122,8 +122,8 @@ public class OVRLayerEyeFov extends Struct {
 	public OVRLayerEyeFov Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
 	/** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
 	public OVRLayerEyeFov ColorTexture(PointerBuffer value) { nColorTexture(address(), value); return this; }
-	/** Copies the address of the specified {@link OVRSwapTextureSet} at the specified index of the {@code ColorTexture} field. */
-	public OVRLayerEyeFov ColorTexture(int index, OVRSwapTextureSet value) { nColorTexture(address(), index, value); return this; }
+	/** Sets the specified value at the specified index of the {@code ColorTexture} field. */
+	public OVRLayerEyeFov ColorTexture(int index, long value) { nColorTexture(address(), index, value); return this; }
 	/** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
 	public OVRLayerEyeFov Viewport(OVRRecti.Buffer value) { nViewport(address(), value); return this; }
 	/** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */
@@ -311,9 +311,7 @@ public class OVRLayerEyeFov extends Struct {
 		return memPointerBuffer(struct + OVRLayerEyeFov.COLORTEXTURE, 2);
 	}
 	/** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
-	public static OVRSwapTextureSet nColorTexture(long struct, int index) {
-		return OVRSwapTextureSet.create(memGetAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE));
-	}
+	public static long nColorTexture(long struct, int index) { return memGetAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * 2147483647); }
 	/** Unsafe version of {@link #Viewport}. */
 	public static OVRRecti.Buffer nViewport(long struct) {
 		return OVRRecti.create(struct + OVRLayerEyeFov.VIEWPORT, 2);
@@ -348,8 +346,8 @@ public class OVRLayerEyeFov extends Struct {
 		if ( CHECKS ) checkBufferGT(value, 2);
 		memCopy(memAddress(value), struct + OVRLayerEyeFov.COLORTEXTURE, value.remaining() * POINTER_SIZE);
 	}
-	/** Unsafe version of {@link #ColorTexture(int, OVRSwapTextureSet) ColorTexture}. */
-	public static void nColorTexture(long struct, int index, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE, addressSafe(value)); }
+	/** Unsafe version of {@link #ColorTexture(int, long) ColorTexture}. */
+	public static void nColorTexture(long struct, int index, long value) { memPutAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE, value); }
 	/** Unsafe version of {@link #Viewport(OVRRecti.Buffer) Viewport}. */
 	public static void nViewport(long struct, OVRRecti.Buffer value) {
 		if ( CHECKS ) checkBufferGT(value, 2);
@@ -380,15 +378,7 @@ public class OVRLayerEyeFov extends Struct {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		long ColorTexture = struct + OVRLayerEyeFov.COLORTEXTURE;
-		for ( int i = 0; i < 2; i++ ) {
-		   if ( i < 1 )
-		       checkPointer(memGetAddress(ColorTexture));
-		   else if ( memGetAddress(ColorTexture) == NULL )
-		       break;
-		   OVRSwapTextureSet.validate(ColorTexture);
-		   ColorTexture += POINTER_SIZE;
-		}
+		checkPointer(memGetAddress(struct + OVRLayerEyeFov.COLORTEXTURE));
 	}
 
 	/**
@@ -448,8 +438,8 @@ public class OVRLayerEyeFov extends Struct {
 		public OVRLayerHeader Header() { return OVRLayerEyeFov.nHeader(address()); }
 		/** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
 		public PointerBuffer ColorTexture() { return OVRLayerEyeFov.nColorTexture(address()); }
-		/** Returns a {@link OVRSwapTextureSet} view of the pointer at the specified index of the {@code ColorTexture}. */
-		public OVRSwapTextureSet ColorTexture(int index) { return OVRLayerEyeFov.nColorTexture(address(), index); }
+		/** Returns the value at the specified index of the {@code ColorTexture} field. */
+		public long ColorTexture(int index) { return OVRLayerEyeFov.nColorTexture(address(), index); }
 		/** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
 		public OVRRecti.Buffer Viewport() { return OVRLayerEyeFov.nViewport(address()); }
 		/** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
@@ -469,8 +459,8 @@ public class OVRLayerEyeFov extends Struct {
 		public OVRLayerEyeFov.Buffer Header(OVRLayerHeader value) { OVRLayerEyeFov.nHeader(address(), value); return this; }
 		/** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
 		public OVRLayerEyeFov.Buffer ColorTexture(PointerBuffer value) { OVRLayerEyeFov.nColorTexture(address(), value); return this; }
-		/** Copies the address of the specified {@link OVRSwapTextureSet} at the specified index of the {@code ColorTexture} field. */
-		public OVRLayerEyeFov.Buffer ColorTexture(int index, OVRSwapTextureSet value) { OVRLayerEyeFov.nColorTexture(address(), index, value); return this; }
+		/** Sets the specified value at the specified index of the {@code ColorTexture} field. */
+		public OVRLayerEyeFov.Buffer ColorTexture(int index, long value) { OVRLayerEyeFov.nColorTexture(address(), index, value); return this; }
 		/** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
 		public OVRLayerEyeFov.Buffer Viewport(OVRRecti.Buffer value) { OVRLayerEyeFov.nViewport(address(), value); return this; }
 		/** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */

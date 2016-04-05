@@ -545,6 +545,7 @@ public class GLFW {
 			GetJoystickAxes            = apiGetFunctionAddress(GLFW, "glfwGetJoystickAxes"),
 			GetJoystickButtons         = apiGetFunctionAddress(GLFW, "glfwGetJoystickButtons"),
 			GetJoystickName            = apiGetFunctionAddress(GLFW, "glfwGetJoystickName"),
+			SetJoystickCallback        = apiGetFunctionAddress(GLFW, "glfwSetJoystickCallback"),
 			SetClipboardString         = apiGetFunctionAddress(GLFW, "glfwSetClipboardString"),
 			GetClipboardString         = apiGetFunctionAddress(GLFW, "glfwGetClipboardString"),
 			GetTime                    = apiGetFunctionAddress(GLFW, "glfwGetTime"),
@@ -2880,6 +2881,26 @@ public class GLFW {
 	public static String glfwGetJoystickName(int joy) {
 		long __result = nglfwGetJoystickName(joy);
 		return memUTF8(__result);
+	}
+
+	// --- [ glfwSetJoystickCallback ] ---
+
+	/**
+	 * Sets the joystick configuration callback, or removes the currently set callback.
+	 * 
+	 * <p>This is called when a joystick is connected to or disconnected from the system.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param cbfun the new callback, or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been initialized
+	 *
+	 * @since version 3.2
+	 */
+	public static GLFWJoystickCallback glfwSetJoystickCallback(GLFWJoystickCallback cbfun) {
+		long __functionAddress = Functions.SetJoystickCallback;
+		return GLFWJoystickCallback.create(invokePP(__functionAddress, cbfun.address()));
 	}
 
 	// --- [ glfwSetClipboardString ] ---

@@ -20,13 +20,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct ovrTrackingState {
     {@link OVRPoseStatef ovrPoseStatef} HeadPose;
-    {@link OVRPosef ovrPosef} CameraPose;
-    {@link OVRPosef ovrPosef} LeveledCameraPose;
-    {@link OVRPoseStatef ovrPoseStatef}[2] HandPoses;
-    {@link OVRSensorData ovrSensorData} RawSensorData;
     unsigned int StatusFlags;
+    {@link OVRPoseStatef ovrPoseStatef}[2] HandPoses;
     unsigned int[2] HandStatusFlags;
-    uint32_t LastCameraFrameCounter;
+    {@link OVRPosef ovrPosef} CalibratedOrigin;
 }</code></pre>
  * 
  * <h3>Member documentation</h3>
@@ -34,16 +31,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <table class=lwjgl>
  * <tr><td>HeadPose</td><td>Predicted head pose (and derivatives) at the requested absolute time. The look-ahead interval is equal to
  * {@code (HeadPose.TimeInSeconds - RawSensorData.TimeInSeconds)}.</td></tr>
- * <tr><td>CameraPose</td><td>Current pose of the external camera (if present). This pose includes camera tilt (roll and pitch). For a leveled coordinate system use
- * {@code LeveledCameraPose}.</td></tr>
- * <tr><td>LeveledCameraPose</td><td>Camera frame aligned with gravity. This value includes position and yaw of the camera, but not roll and pitch. It can be used as a reference point to
- * render real-world objects in the correct location.</td></tr>
+ * <tr><td>StatusFlags</td><td>{@code HeadPose} tracking status described by {@code ovrStatusBits}.</td></tr>
  * <tr><td>HandPoses</td><td>The most recent calculated pose for each hand when hand controller tracking is present. {@code HandPoses[ovrHand_Left]} refers to the left hand and
  * {@code HandPoses[ovrHand_Right]} to the right hand. These values can be combined with {@code ovrInputState} for complete hand controller information.</td></tr>
- * <tr><td>RawSensorData</td><td>the most recent sensor data received from the HMD</td></tr>
- * <tr><td>StatusFlags</td><td>tracking status described by {@code ovrStatusBits}</td></tr>
- * <tr><td>HandStatusFlags</td><td>hand status flags described by {@code ovrStatusBits}. Only {@link OVR#ovrStatus_OrientationTracked} and {@link OVR#ovrStatus_PositionTracked} are reported.</td></tr>
- * <tr><td>LastCameraFrameCounter</td><td>tag the vision processing results to a certain frame counter number</td></tr>
+ * <tr><td>HandStatusFlags</td><td>{@code HandPoses} status flags described by {@code ovrStatusBits}. Only {@link OVR#ovrStatus_OrientationTracked} and {@link OVR#ovrStatus_PositionTracked} are reported.</td></tr>
+ * <tr><td>CalibratedOrigin</td><td>the pose of the origin captured during calibration.
+ * 
+ * <p>Like all other poses here, this is expressed in the space set by {@link OVR#ovr_RecenterTrackingOrigin OVR.ovr_RecenterTrackingOrigin}, and so will change every time that is called. This
+ * pose can be used to calculate where the calibrated origin lands in the new recentered space. If an application never calls
+ * {@link #ovr_RecenterTrackingOrigin}, expect this value to be the identity pose and as such will point respective origin based on {@code ovrTrackingOrigin}
+ * requested when calling {@link OVR#ovr_GetTrackingState OVR.ovr_GetTrackingState}.</p></td></tr>
  * </table>
  */
 public class OVRTrackingState extends Struct {
@@ -56,37 +53,28 @@ public class OVRTrackingState extends Struct {
 	/** The struct member offsets. */
 	public static final int
 		HEADPOSE,
-		CAMERAPOSE,
-		LEVELEDCAMERAPOSE,
-		HANDPOSES,
-		RAWSENSORDATA,
 		STATUSFLAGS,
+		HANDPOSES,
 		HANDSTATUSFLAGS,
-		LASTCAMERAFRAMECOUNTER;
+		CALIBRATEDORIGIN;
 
 	static {
 		Layout layout = __struct(
 			__member(OVRPoseStatef.SIZEOF, OVRPoseStatef.ALIGNOF),
-			__member(OVRPosef.SIZEOF, OVRPosef.ALIGNOF),
-			__member(OVRPosef.SIZEOF, OVRPosef.ALIGNOF),
-			__array(OVRPoseStatef.SIZEOF, OVRPoseStatef.ALIGNOF, 2),
-			__member(OVRSensorData.SIZEOF, OVRSensorData.ALIGNOF),
 			__member(4),
+			__array(OVRPoseStatef.SIZEOF, OVRPoseStatef.ALIGNOF, 2),
 			__array(4, 2),
-			__member(4)
+			__member(OVRPosef.SIZEOF, OVRPosef.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
 		ALIGNOF = layout.getAlignment();
 
 		HEADPOSE = layout.offsetof(0);
-		CAMERAPOSE = layout.offsetof(1);
-		LEVELEDCAMERAPOSE = layout.offsetof(2);
-		HANDPOSES = layout.offsetof(3);
-		RAWSENSORDATA = layout.offsetof(4);
-		STATUSFLAGS = layout.offsetof(5);
-		HANDSTATUSFLAGS = layout.offsetof(6);
-		LASTCAMERAFRAMECOUNTER = layout.offsetof(7);
+		STATUSFLAGS = layout.offsetof(1);
+		HANDPOSES = layout.offsetof(2);
+		HANDSTATUSFLAGS = layout.offsetof(3);
+		CALIBRATEDORIGIN = layout.offsetof(4);
 	}
 
 	OVRTrackingState(long address, ByteBuffer container) {
@@ -108,24 +96,18 @@ public class OVRTrackingState extends Struct {
 
 	/** Returns a {@link OVRPoseStatef} view of the {@code HeadPose} field. */
 	public OVRPoseStatef HeadPose() { return nHeadPose(address()); }
-	/** Returns a {@link OVRPosef} view of the {@code CameraPose} field. */
-	public OVRPosef CameraPose() { return nCameraPose(address()); }
-	/** Returns a {@link OVRPosef} view of the {@code LeveledCameraPose} field. */
-	public OVRPosef LeveledCameraPose() { return nLeveledCameraPose(address()); }
+	/** Returns the value of the {@code StatusFlags} field. */
+	public int StatusFlags() { return nStatusFlags(address()); }
 	/** Returns a {@link OVRPoseStatef}.Buffer view of the {@code HandPoses} field. */
 	public OVRPoseStatef.Buffer HandPoses() { return nHandPoses(address()); }
 	/** Returns a {@link OVRPoseStatef} view of the struct at the specified index of the {@code HandPoses} field. */
 	public OVRPoseStatef HandPoses(int index) { return nHandPoses(address(), index); }
-	/** Returns a {@link OVRSensorData} view of the {@code RawSensorData} field. */
-	public OVRSensorData RawSensorData() { return nRawSensorData(address()); }
-	/** Returns the value of the {@code StatusFlags} field. */
-	public int StatusFlags() { return nStatusFlags(address()); }
 	/** Returns a {@link IntBuffer} view of the {@code HandStatusFlags} field. */
 	public IntBuffer HandStatusFlags() { return nHandStatusFlags(address()); }
 	/** Returns the value at the specified index of the {@code HandStatusFlags} field. */
 	public int HandStatusFlags(int index) { return nHandStatusFlags(address(), index); }
-	/** Returns the value of the {@code LastCameraFrameCounter} field. */
-	public int LastCameraFrameCounter() { return nLastCameraFrameCounter(address()); }
+	/** Returns a {@link OVRPosef} view of the {@code CalibratedOrigin} field. */
+	public OVRPosef CalibratedOrigin() { return nCalibratedOrigin(address()); }
 
 	// -----------------------------------
 
@@ -258,10 +240,8 @@ public class OVRTrackingState extends Struct {
 
 	/** Unsafe version of {@link #HeadPose}. */
 	public static OVRPoseStatef nHeadPose(long struct) { return OVRPoseStatef.create(struct + OVRTrackingState.HEADPOSE); }
-	/** Unsafe version of {@link #CameraPose}. */
-	public static OVRPosef nCameraPose(long struct) { return OVRPosef.create(struct + OVRTrackingState.CAMERAPOSE); }
-	/** Unsafe version of {@link #LeveledCameraPose}. */
-	public static OVRPosef nLeveledCameraPose(long struct) { return OVRPosef.create(struct + OVRTrackingState.LEVELEDCAMERAPOSE); }
+	/** Unsafe version of {@link #StatusFlags}. */
+	public static int nStatusFlags(long struct) { return memGetInt(struct + OVRTrackingState.STATUSFLAGS); }
 	/** Unsafe version of {@link #HandPoses}. */
 	public static OVRPoseStatef.Buffer nHandPoses(long struct) {
 		return OVRPoseStatef.create(struct + OVRTrackingState.HANDPOSES, 2);
@@ -270,18 +250,14 @@ public class OVRTrackingState extends Struct {
 	public static OVRPoseStatef nHandPoses(long struct, int index) {
 		return OVRPoseStatef.create(struct + OVRTrackingState.HANDPOSES + index * OVRPoseStatef.SIZEOF);
 	}
-	/** Unsafe version of {@link #RawSensorData}. */
-	public static OVRSensorData nRawSensorData(long struct) { return OVRSensorData.create(struct + OVRTrackingState.RAWSENSORDATA); }
-	/** Unsafe version of {@link #StatusFlags}. */
-	public static int nStatusFlags(long struct) { return memGetInt(struct + OVRTrackingState.STATUSFLAGS); }
 	/** Unsafe version of {@link #HandStatusFlags}. */
 	public static IntBuffer nHandStatusFlags(long struct) {
 		return memIntBuffer(struct + OVRTrackingState.HANDSTATUSFLAGS, 2);
 	}
 	/** Unsafe version of {@link #HandStatusFlags(int) HandStatusFlags}. */
 	public static int nHandStatusFlags(long struct, int index) { return memGetInt(struct + OVRTrackingState.HANDSTATUSFLAGS + index * 4); }
-	/** Unsafe version of {@link #LastCameraFrameCounter}. */
-	public static int nLastCameraFrameCounter(long struct) { return memGetInt(struct + OVRTrackingState.LASTCAMERAFRAMECOUNTER); }
+	/** Unsafe version of {@link #CalibratedOrigin}. */
+	public static OVRPosef nCalibratedOrigin(long struct) { return OVRPosef.create(struct + OVRTrackingState.CALIBRATEDORIGIN); }
 
 	// -----------------------------------
 
@@ -327,24 +303,18 @@ public class OVRTrackingState extends Struct {
 
 		/** Returns a {@link OVRPoseStatef} view of the {@code HeadPose} field. */
 		public OVRPoseStatef HeadPose() { return OVRTrackingState.nHeadPose(address()); }
-		/** Returns a {@link OVRPosef} view of the {@code CameraPose} field. */
-		public OVRPosef CameraPose() { return OVRTrackingState.nCameraPose(address()); }
-		/** Returns a {@link OVRPosef} view of the {@code LeveledCameraPose} field. */
-		public OVRPosef LeveledCameraPose() { return OVRTrackingState.nLeveledCameraPose(address()); }
+		/** Returns the value of the {@code StatusFlags} field. */
+		public int StatusFlags() { return OVRTrackingState.nStatusFlags(address()); }
 		/** Returns a {@link OVRPoseStatef}.Buffer view of the {@code HandPoses} field. */
 		public OVRPoseStatef.Buffer HandPoses() { return OVRTrackingState.nHandPoses(address()); }
 		/** Returns a {@link OVRPoseStatef} view of the struct at the specified index of the {@code HandPoses} field. */
 		public OVRPoseStatef HandPoses(int index) { return OVRTrackingState.nHandPoses(address(), index); }
-		/** Returns a {@link OVRSensorData} view of the {@code RawSensorData} field. */
-		public OVRSensorData RawSensorData() { return OVRTrackingState.nRawSensorData(address()); }
-		/** Returns the value of the {@code StatusFlags} field. */
-		public int StatusFlags() { return OVRTrackingState.nStatusFlags(address()); }
 		/** Returns a {@link IntBuffer} view of the {@code HandStatusFlags} field. */
 		public IntBuffer HandStatusFlags() { return OVRTrackingState.nHandStatusFlags(address()); }
 		/** Returns the value at the specified index of the {@code HandStatusFlags} field. */
 		public int HandStatusFlags(int index) { return OVRTrackingState.nHandStatusFlags(address(), index); }
-		/** Returns the value of the {@code LastCameraFrameCounter} field. */
-		public int LastCameraFrameCounter() { return OVRTrackingState.nLastCameraFrameCounter(address()); }
+		/** Returns a {@link OVRPosef} view of the {@code CalibratedOrigin} field. */
+		public OVRPosef CalibratedOrigin() { return OVRTrackingState.nCalibratedOrigin(address()); }
 
 	}
 

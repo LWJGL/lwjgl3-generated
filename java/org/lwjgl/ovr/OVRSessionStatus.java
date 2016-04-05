@@ -19,15 +19,23 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrSessionStatus {
-    ovrBool HasVrFocus;
+    ovrBool IsVisible;
     ovrBool HmdPresent;
+    ovrBool HmdMounted;
+    ovrBool DisplayLost;
+    ovrBool ShouldQuit;
+    ovrBool ShouldRecenter;
 }</code></pre>
  * 
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>HasVrFocus</td><td>true if the process has VR focus and thus is visible in the HMD</td></tr>
- * <tr><td>HmdPresent</td><td>true if an HMD is present</td></tr>
+ * <tr><td>IsVisible</td><td>True if the process has VR focus and thus is visible in the HMD.</td></tr>
+ * <tr><td>HmdPresent</td><td>True if an HMD is present.</td></tr>
+ * <tr><td>HmdMounted</td><td>True if the HMD is on the user's head.</td></tr>
+ * <tr><td>DisplayLost</td><td>True if the session is in a display-lost state. See {@link OVR#ovr_SubmitFrame OVR.ovr_SubmitFrame}.</td></tr>
+ * <tr><td>ShouldQuit</td><td>True if the application should initiate shutdown.</td></tr>
+ * <tr><td>ShouldRecenter</td><td>True if UX has requested re-centering. Must call {@link OVR#ovr_ClearShouldRecenterFlag OVR.ovr_ClearShouldRecenterFlag} or {@link OVR#ovr_RecenterTrackingOrigin OVR.ovr_RecenterTrackingOrigin}.</td></tr>
  * </table>
  */
 public class OVRSessionStatus extends Struct {
@@ -39,11 +47,19 @@ public class OVRSessionStatus extends Struct {
 
 	/** The struct member offsets. */
 	public static final int
-		HASVRFOCUS,
-		HMDPRESENT;
+		ISVISIBLE,
+		HMDPRESENT,
+		HMDMOUNTED,
+		DISPLAYLOST,
+		SHOULDQUIT,
+		SHOULDRECENTER;
 
 	static {
 		Layout layout = __struct(
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
 			__member(1),
 			__member(1)
 		);
@@ -51,8 +67,12 @@ public class OVRSessionStatus extends Struct {
 		SIZEOF = layout.getSize();
 		ALIGNOF = layout.getAlignment();
 
-		HASVRFOCUS = layout.offsetof(0);
+		ISVISIBLE = layout.offsetof(0);
 		HMDPRESENT = layout.offsetof(1);
+		HMDMOUNTED = layout.offsetof(2);
+		DISPLAYLOST = layout.offsetof(3);
+		SHOULDQUIT = layout.offsetof(4);
+		SHOULDRECENTER = layout.offsetof(5);
 	}
 
 	OVRSessionStatus(long address, ByteBuffer container) {
@@ -72,10 +92,18 @@ public class OVRSessionStatus extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code HasVrFocus} field. */
-	public boolean HasVrFocus() { return nHasVrFocus(address()); }
+	/** Returns the value of the {@code IsVisible} field. */
+	public boolean IsVisible() { return nIsVisible(address()); }
 	/** Returns the value of the {@code HmdPresent} field. */
 	public boolean HmdPresent() { return nHmdPresent(address()); }
+	/** Returns the value of the {@code HmdMounted} field. */
+	public boolean HmdMounted() { return nHmdMounted(address()); }
+	/** Returns the value of the {@code DisplayLost} field. */
+	public boolean DisplayLost() { return nDisplayLost(address()); }
+	/** Returns the value of the {@code ShouldQuit} field. */
+	public boolean ShouldQuit() { return nShouldQuit(address()); }
+	/** Returns the value of the {@code ShouldRecenter} field. */
+	public boolean ShouldRecenter() { return nShouldRecenter(address()); }
 
 	// -----------------------------------
 
@@ -206,10 +234,18 @@ public class OVRSessionStatus extends Struct {
 
 	// -----------------------------------
 
-	/** Unsafe version of {@link #HasVrFocus}. */
-	public static boolean nHasVrFocus(long struct) { return memGetByte(struct + OVRSessionStatus.HASVRFOCUS) != 0; }
+	/** Unsafe version of {@link #IsVisible}. */
+	public static boolean nIsVisible(long struct) { return memGetByte(struct + OVRSessionStatus.ISVISIBLE) != 0; }
 	/** Unsafe version of {@link #HmdPresent}. */
 	public static boolean nHmdPresent(long struct) { return memGetByte(struct + OVRSessionStatus.HMDPRESENT) != 0; }
+	/** Unsafe version of {@link #HmdMounted}. */
+	public static boolean nHmdMounted(long struct) { return memGetByte(struct + OVRSessionStatus.HMDMOUNTED) != 0; }
+	/** Unsafe version of {@link #DisplayLost}. */
+	public static boolean nDisplayLost(long struct) { return memGetByte(struct + OVRSessionStatus.DISPLAYLOST) != 0; }
+	/** Unsafe version of {@link #ShouldQuit}. */
+	public static boolean nShouldQuit(long struct) { return memGetByte(struct + OVRSessionStatus.SHOULDQUIT) != 0; }
+	/** Unsafe version of {@link #ShouldRecenter}. */
+	public static boolean nShouldRecenter(long struct) { return memGetByte(struct + OVRSessionStatus.SHOULDRECENTER) != 0; }
 
 	// -----------------------------------
 
@@ -253,10 +289,18 @@ public class OVRSessionStatus extends Struct {
 			return SIZEOF;
 		}
 
-		/** Returns the value of the {@code HasVrFocus} field. */
-		public boolean HasVrFocus() { return OVRSessionStatus.nHasVrFocus(address()); }
+		/** Returns the value of the {@code IsVisible} field. */
+		public boolean IsVisible() { return OVRSessionStatus.nIsVisible(address()); }
 		/** Returns the value of the {@code HmdPresent} field. */
 		public boolean HmdPresent() { return OVRSessionStatus.nHmdPresent(address()); }
+		/** Returns the value of the {@code HmdMounted} field. */
+		public boolean HmdMounted() { return OVRSessionStatus.nHmdMounted(address()); }
+		/** Returns the value of the {@code DisplayLost} field. */
+		public boolean DisplayLost() { return OVRSessionStatus.nDisplayLost(address()); }
+		/** Returns the value of the {@code ShouldQuit} field. */
+		public boolean ShouldQuit() { return OVRSessionStatus.nShouldQuit(address()); }
+		/** Returns the value of the {@code ShouldRecenter} field. */
+		public boolean ShouldRecenter() { return OVRSessionStatus.nShouldRecenter(address()); }
 
 	}
 
