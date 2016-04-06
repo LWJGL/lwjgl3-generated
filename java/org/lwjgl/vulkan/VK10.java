@@ -19,15 +19,6 @@ import static org.lwjgl.system.Pointer.*;
 /** The core Vulkan 1.0 functionality. */
 public class VK10 {
 
-	/** The Vulkan major version number. */
-	public static final int VK_VERSION_MAJOR = 1;
-
-	/** The Vulkan minor version number. */
-	public static final int VK_VERSION_MINOR = 0;
-
-	/** The Vulkan patch version number. */
-	public static final int VK_VERSION_PATCH = 6;
-
 	/**
 	 * The Vulkan version number is used in several places in the API. In each such use, the API major version number, minor version number, and patch version
 	 * number are packed into a 32-bit integer as follows:
@@ -54,7 +45,7 @@ public class VK10 {
 	 * behavioral changes, removal of deprecated features, modification or outright replacement of any feature, and is thus very likely to break any and all
 	 * compatibility. Differences in this version will typically require significant modification to an application in order for it to function.</p>
 	 */
-	public static final int VK_API_VERSION = (VK_VERSION_MAJOR << 22) | (VK_VERSION_MINOR << 12) | VK_VERSION_PATCH;
+	public static final int VK_API_VERSION_1_0 = VKUtil.VK_MAKE_VERSION(1, 0, 0);
 
 	/**
 	 * The reserved handle {@code VK_NULL_HANDLE} <b>can</b> be passed in place of valid object handles when explicitly called out in the specification. Any command
@@ -197,7 +188,7 @@ public class VK10 {
 		VK_STRUCTURE_TYPE_LOADER_INSTANCE_CREATE_INFO               = 47,
 		VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO                 = 48;
 
-	/** The allocation is scoped to the lifetime of the Vulkan command. */
+	/** The allocation is scoped to the duration of the Vulkan command. */
 	public static final int VK_SYSTEM_ALLOCATION_SCOPE_COMMAND = 0;
 
 	/** The allocation is scoped to the lifetime of the Vulkan object that is being created or used. */
@@ -653,7 +644,7 @@ public class VK10 {
 	/** A four-component, block compressed format where each 4x4 block consists of 128-bits of encoded unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_BC7_UNORM_BLOCK = 145;
 
-	/** A four-component, block compressed format where each 4x4 block consists of 128-bits of encoded unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, block compressed format where each 4x4 block consists of 128-bits of encoded unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_BC7_SRGB_BLOCK = 146;
 
 	/** A three-component, ETC2 compressed format where each 4x4 block consists of 64-bits of encoded unsigned normalized RGB image data. */
@@ -689,85 +680,85 @@ public class VK10 {
 	/** A four-component, ASTC compressed format where each 4x4 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_4x4_UNORM_BLOCK = 157;
 
-	/** A four-component, ASTC compressed format where each 4x4 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 4x4 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_4x4_SRGB_BLOCK = 158;
 
 	/** A four-component, ASTC compressed format where each 5x4 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_5x4_UNORM_BLOCK = 159;
 
-	/** A four-component, ASTC compressed format where each 5x4 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 5x4 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_5x4_SRGB_BLOCK = 160;
 
 	/** A four-component, ASTC compressed format where each 5x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_5x5_UNORM_BLOCK = 161;
 
-	/** A four-component, ASTC compressed format where each 5x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 5x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_5x5_SRGB_BLOCK = 162;
 
 	/** A four-component, ASTC compressed format where each 6x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_6x5_UNORM_BLOCK = 163;
 
-	/** A four-component, ASTC compressed format where each 6x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 6x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_6x5_SRGB_BLOCK = 164;
 
 	/** A four-component, ASTC compressed format where each 6x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_6x6_UNORM_BLOCK = 165;
 
-	/** A four-component, ASTC compressed format where each 6x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 6x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_6x6_SRGB_BLOCK = 166;
 
 	/** A four-component, ASTC compressed format where each 8x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_8x5_UNORM_BLOCK = 167;
 
-	/** A four-component, ASTC compressed format where each 8x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 8x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_8x5_SRGB_BLOCK = 168;
 
 	/** A four-component, ASTC compressed format where each 8x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_8x6_UNORM_BLOCK = 169;
 
-	/** A four-component, ASTC compressed format where each 8x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 8x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_8x6_SRGB_BLOCK = 170;
 
 	/** A four-component, ASTC compressed format where each 8x8 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_8x8_UNORM_BLOCK = 171;
 
-	/** A four-component, ASTC compressed format where each 8x8 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 8x8 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_8x8_SRGB_BLOCK = 172;
 
 	/** A four-component, ASTC compressed format where each 10x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_10x5_UNORM_BLOCK = 173;
 
-	/** A four-component, ASTC compressed format where each 10x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 10x5 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_10x5_SRGB_BLOCK = 174;
 
 	/** A four-component, ASTC compressed format where each 10x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_10x6_UNORM_BLOCK = 175;
 
-	/** A four-component, ASTC compressed format where each 10x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 10x6 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_10x6_SRGB_BLOCK = 176;
 
 	/** A four-component, ASTC compressed format where each 10x8 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_10x8_UNORM_BLOCK = 177;
 
-	/** A four-component, ASTC compressed format where each 10x8 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 10x8 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_10x8_SRGB_BLOCK = 178;
 
 	/** A four-component, ASTC compressed format where each 10x10 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_10x10_UNORM_BLOCK = 179;
 
-	/** A four-component, ASTC compressed format where each 10x10 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 10x10 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_10x10_SRGB_BLOCK = 180;
 
 	/** A four-component, ASTC compressed format where each 12x10 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_12x10_UNORM_BLOCK = 181;
 
-	/** A four-component, ASTC compressed format where each 12x10 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 12x10 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_12x10_SRGB_BLOCK = 182;
 
 	/** A four-component, ASTC compressed format where each 12x12 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data. */
 	public static final int VK_FORMAT_ASTC_12x12_UNORM_BLOCK = 183;
 
-	/** A four-component, ASTC compressed format where each 12x12 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding. */
+	/** A four-component, ASTC compressed format where each 12x12 block consists of 128-bits of encoded image data which is decoded as unsigned normalized RGBA image data with sRGB nonlinear encoding applied to the RGB components. */
 	public static final int VK_FORMAT_ASTC_12x12_SRGB_BLOCK = 184;
 
 	/** One-dimensional image */
@@ -2258,10 +2249,10 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * 
 	 * <p>If {@code pPhysicalDevices} is {@code NULL}, then the number of physical devices available is returned in {@code pPhysicalDeviceCount}. Otherwise,
 	 * {@code pPhysicalDeviceCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pPhysicalDevices} array, and on return
-	 * the variable is overwritten with the number of structures actually written to {@code pPhysicalDevices}. If the value of {@code pPhysicalDeviceCount} is
-	 * less than the number of physical devices available, at most {@code pPhysicalDeviceCount} structures will be written. If {@code pPhysicalDeviceCount} is
-	 * smaller than the number of physical devices available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available
-	 * physical devices were returned.</p>
+	 * the variable is overwritten with the number of structures actually written to {@code pPhysicalDevices}. If {@code pPhysicalDeviceCount} is less than
+	 * the number of physical devices available, at most {@code pPhysicalDeviceCount} structures will be written. If {@code pPhysicalDeviceCount} is smaller
+	 * than the number of physical devices available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available physical
+	 * devices were returned.</p>
 	 * 
 	 * <p>Once enumerated, general properties of the physical devices are queried by calling {@link #vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}.</p>
 	 * 
@@ -2738,13 +2729,13 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of an instance layer returned by flink:vkEnumerateInstanceLayerProperties</li>
 	 * </ul>
 	 * 
-	 * <p>Any instance extensions provided by the Vulkan implementation or by implicitly enabled layers, but not by explicitly enabled layers, are returned when
-	 * {@code pLayerName} parameter is {@code NULL}. When {@code pLayerName} is the name of a layer, the instance extensions provided by that layer are returned.</p>
+	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
+	 * {@code pLayerName} is the name of a layer, the instance extensions provided by that layer are returned.</p>
 	 * 
 	 * <p>To enable an instance extension, the name of the extension <b>should</b> be added to the {@code ppEnabledExtensionNames} member of {@link VkInstanceCreateInfo} when
 	 * creating a {@code VkInstance}.</p>
 	 *
-	 * @param pLayerName     either {@code NULL} or the name of a instance layer to retrieve extensions from
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the instance layer to retrieve extensions from
 	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
@@ -2797,9 +2788,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * <p>If {@code pProperties} is {@code NULL}, then the number of extensions properties available is returned in {@code pPropertyCount}. Otherwise,
 	 * {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable
-	 * is overwritten with the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than the number of
-	 * extension properties available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of
-	 * extensions available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available properties were returned.</p>
+	 * is overwritten with the number of structures actually written to {@code pProperties}. If {@code pPropertyCount} is less than the number of extension
+	 * properties available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of extensions
+	 * available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available properties were returned.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -2812,14 +2803,14 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a device layer returned by flink:vkEnumerateDeviceLayerProperties</li>
 	 * </ul>
 	 * 
-	 * <p>Any device extensions provided by the Vulkan implementation or by implicitly enabled layers, but not by explicitly enabled layers, are returned when
-	 * {@code pLayerName} parameter is {@code NULL}. When {@code pLayerName} is the name of a layer, the device extensions provided by that layer are returned.</p>
+	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
+	 * {@code pLayerName} is the name of a layer, the device extensions provided by that layer are returned.</p>
 	 * 
 	 * <p>To enable a device layer, the name of the layer <b>should</b> be added to the {@code ppEnabledExtensionNames} member of {@link VkDeviceCreateInfo} when creating a
 	 * {@code VkDevice}.</p>
 	 *
 	 * @param physicalDevice the physical device that will be queried
-	 * @param pLayerName     either {@code NULL} or the name of a device layer to retrieve extensions from
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the device layer to retrieve extensions from
 	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
@@ -2872,9 +2863,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * <p>If {@code pProperties} is {@code NULL}, then the number of layer properties available is returned in {@code pPropertyCount}. Otherwise, {@code pPropertyCount}
 	 * <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable is overwritten with
-	 * the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than the number of layer properties
-	 * available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of layers available,
-	 * {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available layer properties were returned.</p>
+	 * the number of structures actually written to {@code pProperties}. If {@code pPropertyCount} is less than the number of layer properties available, at
+	 * most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of layers available, {@link #VK_INCOMPLETE INCOMPLETE} will be
+	 * returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available layer properties were returned.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -3205,10 +3196,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * </ul>
 	 *
 	 * @param device        the logical device that owns the memory
-	 * @param pAllocateInfo a pointer to a structure of type {@link VkMemoryAllocateInfo}, which contains parameters of the allocation. A successful returned allocation <b>must</b> use the
-	 *                      requested parameters — no substitution is permitted by the implementation.
+	 * @param pAllocateInfo a pointer to an instance of the {@link VkMemoryAllocateInfo} structure describing parameters of the allocation. A successful returned allocation <b>must</b>
+	 *                      use the requested parameters -- no substitution is permitted by the implementation.
 	 * @param pAllocator    controls host memory allocation
-	 * @param pMemory       a pointer to a {@code VkDeviceMemory} structure in which information about the allocated memory is returned
+	 * @param pMemory       a pointer to a {@code VkDeviceMemory} handle in which information about the allocated memory is returned
 	 */
 	public static int vkAllocateMemory(VkDevice device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pMemory) {
 		if ( CHECKS )
@@ -3700,8 +3691,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * {@code pSparseMemoryRequirementCount}. Otherwise, {@code pSparseMemoryRequirementCount} <b>must</b> point to a variable set by the user to the number of
 	 * elements in the {@code pSparseMemoryRequirements} array, and on return the variable is overwritten with the number of structures actually written to
 	 * {@code pSparseMemoryRequirements}. If the value of {@code pSparseMemoryRequirementCount} is less than the number of sparse memory requirements
-	 * available, at most {@code pSparseMemoryRequirementCount} structures will be written, and {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS} to indicate
-	 * that not all the available values were returned.</p>
+	 * available, at most {@code pSparseMemoryRequirementCount} structures will be written.</p>
 	 * 
 	 * <p>If the image was not created with {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} then {@code pSparseMemoryRequirementCount} will be set to zero and
 	 * {@code pSparseMemoryRequirements} will not be written to.</p>
@@ -3724,7 +3714,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * structures</li>
 	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
 	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
-	 * <li>{@code image} <b>must</b> have been created with the {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} flag</li>
 	 * </ul>
 	 *
 	 * @param device                        the logical device that owns the image
@@ -3772,9 +3761,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * <p>If {@code pProperties} is {@code NULL}, then the number of sparse format properties available is returned in {@code pPropertyCount}. Otherwise,
 	 * {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable
-	 * is overwritten with the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than the number of
-	 * sparse format properties available, at most {@code pPropertyCount} structures will be written, and {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS} to
-	 * indicate that not all the available values were returned.</p>
+	 * is overwritten with the number of structures actually written to {@code pProperties}. If {@code pPropertyCount} is less than the number of sparse
+	 * format properties available, at most {@code pPropertyCount} structures will be written.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -4103,8 +4091,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * satisfied at the time {@code vkWaitForFences} is called, then {@code vkWaitForFences} will block and wait up to timeout nanoseconds for the condition
 	 * to become satisfied.</p>
 	 * 
-	 * <p>If the value of {@code timeout} is zero, then {@code vkWaitForFences} does not wait, but simply returns the current state of the fences. {@link #VK_TIMEOUT TIMEOUT} will
-	 * be returned in this case if the condition is not satisfied, even though no actual wait was performed.</p>
+	 * <p>If {@code timeout} is zero, then {@code vkWaitForFences} does not wait, but simply returns the current state of the fences. {@link #VK_TIMEOUT TIMEOUT} will be returned
+	 * in this case if the condition is not satisfied, even though no actual wait was performed.</p>
 	 * 
 	 * <p>If the specified {@code timeout} period expires before the condition is satisfied, {@code vkWaitForFences} returns {@link #VK_TIMEOUT TIMEOUT}. If the condition is
 	 * satisfied before timeout nanoseconds has expired, {@code vkWaitForFences} returns {@link #VK_SUCCESS SUCCESS}.</p>
@@ -4131,7 +4119,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pFences    a pointer to an array of {@code fenceCount} fence handles
 	 * @param waitAll    the condition that <b>must</b> be satisfied to successfully unblock the wait. If {@code waitAll} is {@link #VK_TRUE TRUE}, then the condition is that all fences in
 	 *                   {@code pFences} are signaled. Otherwise, the condition is that at least one fence in {@code pFences} is signaled.
-	 * @param timeout    the timeout period in units of nanoseconds. The value of {@code timeout} is adjusted to the closest value allowed by the implementation-dependent
+	 * @param timeout    the timeout period in units of nanoseconds. {@code timeout} is adjusted to the closest value allowed by the implementation-dependent
 	 *                   timeout accuracy, which <b>may</b> be substantially longer than one nanosecond, and <b>may</b> be longer than the requested period.
 	 */
 	public static int vkWaitForFences(VkDevice device, int fenceCount, ByteBuffer pFences, int waitAll, long timeout) {
@@ -5286,9 +5274,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * Otherwise, {@code pDataSize} <b>must</b> point to a variable set by the user to the size of the buffer, in bytes, pointed to by {@code pData}, and on return
 	 * the variable is overwritten with the amount of data actually written to {@code pData}.</p>
 	 * 
-	 * <p>If the value of {@code dataSize} is less than the maximum size that <b>can</b> be retrieved by the pipeline cache, at most {@code pDataSize} bytes will be
-	 * written to {@code pData}, and {@code vkGetPipelineCacheData} will return {@link #VK_INCOMPLETE INCOMPLETE}. Any data written to {@code pData} is valid and <b>can</b> be provided as
-	 * the {@code pInitialData} member of the {@link VkPipelineCacheCreateInfo} structure passed to {@link #vkCreatePipelineCache CreatePipelineCache}.</p>
+	 * <p>If {@code dataSize} is less than the maximum size that <b>can</b> be retrieved by the pipeline cache, at most {@code pDataSize} bytes will be written to
+	 * {@code pData}, and {@code vkGetPipelineCacheData} will return {@link #VK_INCOMPLETE INCOMPLETE}. Any data written to {@code pData} is valid and <b>can</b> be provided as the
+	 * {@code pInitialData} member of the {@link VkPipelineCacheCreateInfo} structure passed to {@link #vkCreatePipelineCache CreatePipelineCache}.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -5328,8 +5316,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * <p>A consumer of the pipeline cache <b>should</b> use the cache version to interpret the remainder of the cache header.</p>
 	 * 
-	 * <p>If the value of {@code dataSize} is less than what is necessary to store this header, nothing will be written to {@code pData} and zero will be written
-	 * to {@code dataSize}.</p>
+	 * <p>If {@code dataSize} is less than what is necessary to store this header, nothing will be written to {@code pData} and zero will be written to
+	 * {@code dataSize}.</p>
 	 *
 	 * @param device        the logical device that owns the pipeline cache
 	 * @param pipelineCache the pipeline cache to retrieve data from
@@ -6686,6 +6674,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pBeginInfo} <b>must</b> be a pointer to a valid {@link VkCommandBufferBeginInfo} structure</li>
 	 * <li>{@code commandBuffer} <b>must not</b> be in the recording state</li>
+	 * <li>{@code commandBuffer} <b>must not</b> currently be pending execution</li>
 	 * <li>If {@code commandBuffer} was allocated from a {@code VkCommandPool} which did not have the {@link #VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT} flag set,
 	 * {@code commandBuffer} <b>must</b> be in the initial state.</li>
 	 * <li>If {@code commandBuffer} is a secondary command buffer, the {@code pInheritanceInfo} member of {@code pBeginInfo} <b>must</b> be a valid
@@ -6950,8 +6939,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code firstScissor} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
 	 * <li>The sum of {@code firstScissor} and {@code scissorCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
 	 * <li>The {@code x} and {@code y} members of {@code offset} <b>must</b> be greater than or equal to 0</li>
-	 * <li>Evaluation of ({@code offset}.x + {@code extent}.width) <b>must not</b> cause a signed integer addition overflow</li>
-	 * <li>Evaluation of ({@code offset}.y + {@code extent}.height) <b>must not</b> cause a signed integer addition overflow</li>
+	 * <li>Evaluation of ({@code offset.x} + {@code extent.width}) <b>must not</b> cause a signed integer addition overflow</li>
+	 * <li>Evaluation of ({@code offset.y} + {@code extent.height}) <b>must not</b> cause a signed integer addition overflow</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -7350,9 +7339,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
 	 * <li>Each of {@code commandBuffer}, {@code layout} and the elements of {@code pDescriptorSets} <b>must</b> have been created, allocated or retrieved from the
 	 * same {@code VkDevice}</li>
-	 * <li>Any given element of {@code pDescriptorSets} <b>must</b> have been created with a {@code VkDescriptorSetLayout} that matches the
-	 * {@code VkDescriptorSetLayout} at set {@code n} in {@code layout}, where {@code n} is the sum of the index into {@code pDescriptorSets} and
-	 * {@code firstSet}</li>
+	 * <li>Any given element of {@code pDescriptorSets} <b>must</b> have been created with a {@code VkDescriptorSetLayout} that matches (is the same as, or defined
+	 * identically to) the {@code VkDescriptorSetLayout} at set {@code n} in {@code layout}, where {@code n} is the sum of {@code firstSet} and the index
+	 * into {@code pDescriptorSets}</li>
 	 * <li>{@code dynamicOffsetCount} <b>must</b> be equal to the total number of dynamic descriptors in {@code pDescriptorSets}</li>
 	 * <li>{@code pipelineBindPoint} <b>must</b> be supported by the {@code commandBuffer}'s parent {@code VkCommandPool}'s queue family</li>
 	 * <li>Any given element of {@code pDynamicOffsets} <b>must</b> satisfy the required alignment for the corresponding descriptor binding's descriptor type</li>
@@ -7840,6 +7829,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * and when executed by a queue, will produce work which executes according to the currently bound compute pipeline. A compute pipeline <b>must</b> be bound to
 	 * a command buffer before any dispatch commands are recorded in that command buffer.</p>
 	 * 
+	 * <p>When the command is executed, a global workgroup consisting of <code>x &times; y &times; z</code> local workgroups is assembled.</p>
+	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
@@ -7886,9 +7877,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * </ul>
 	 *
 	 * @param commandBuffer the command buffer into which the command will be recorded
-	 * @param x             the number of workgroups to dispatch in the X dimension
-	 * @param y             the number of workgroups to dispatch in the Y dimension
-	 * @param z             the number of workgroups to dispatch in the Z dimension
+	 * @param x             the number of local workgroups to dispatch in the X dimension
+	 * @param y             the number of local workgroups to dispatch in the Y dimension
+	 * @param z             the number of local workgroups to dispatch in the Z dimension
 	 */
 	public static void vkCmdDispatch(VkCommandBuffer commandBuffer, int x, int y, int z) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdDispatch;
@@ -9271,6 +9262,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code dstOffset} and {@code stride} must be multiples of 4</li>
 	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code dstOffset} and {@code stride} must be multiples of 8</li>
 	 * <li>{@code dstBuffer} <b>must</b> have enough storage, from {@code dstOffset}, to contain the result of each query, as described here</li>
+	 * <li>{@code dstBuffer} <b>must</b> have been created with {@code VK_BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must not</b> contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
 	 * </ul>
 	 * 
@@ -9429,11 +9421,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} set</li>
 	 * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the
 	 * {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin}
-	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
+	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_BIT IMAGE_LAYOUT_TRANSFER_SRC_BIT} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
 	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} set</li>
 	 * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the
 	 * {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin}
-	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
+	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_BIT IMAGE_LAYOUT_TRANSFER_DST_BIT} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
 	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} set</li>
 	 * </ul>
 	 * 

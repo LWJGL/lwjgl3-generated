@@ -272,7 +272,9 @@ public class KHRSurface {
 	 * <p>If {@code pSurfaceFormats} is {@code NULL}, then the number of format pairs supported for the given surface is returned in {@code pSurfaceFormatCount}.
 	 * Otherwise, {@code pSurfaceFormatCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pSurfaceFormats} array, and on
 	 * return the variable is overwritten with the number of structures actually written to {@code pSurfaceFormats}. If the value of
-	 * {@code pSurfaceFormatCount} is less than the number of queue families supported, at most {@code pSurfaceFormatCount} structures will be written.</p>
+	 * {@code pSurfaceFormatCount} is less than the number of queue families supported, at most {@code pSurfaceFormatCount} structures will be written. If
+	 * {@code pSurfaceFormatCount} is smaller than the number of format pairs supported for the given {@code surface}, {@link VK10#VK_INCOMPLETE INCOMPLETE} will be returned
+	 * instead of {@link VK10#VK_SUCCESS SUCCESS} to indicate that not all the available values were returned.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -319,7 +321,9 @@ public class KHRSurface {
 	 * <p>If {@code pPresentModes} is {@code NULL}, then the number of presentation modes supported for the given surface is returned in {@code pPresentModeCount}.
 	 * Otherwise, {@code pPresentModeCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pPresentModes} array, and on
 	 * return the variable is overwritten with the number of structures actually written to {@code pPresentModes}. If the value of {@code pPresentModeCount}
-	 * is less than the number of presentation modes supported, at most {@code pPresentModeCount} structures will be written.</p>
+	 * is less than the number of presentation modes supported, at most {@code pPresentModeCount} structures will be written. If {@code pPresentModeCount} is
+	 * smaller than the number of presentation modes supported for the given {@code surfac}e, {@link VK10#VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link VK10#VK_SUCCESS SUCCESS} to
+	 * indicate that not all the available values were returned.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 

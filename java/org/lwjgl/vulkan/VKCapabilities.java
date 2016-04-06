@@ -183,6 +183,8 @@ public class VKCapabilities {
 	public final boolean Vulkan10;
 	/** When true, {@link EXTDebugReport} is supported. */
 	public final boolean VK_EXT_debug_report;
+	/** When true, {@link IMGFilterCubic} is supported. */
+	public final boolean VK_IMG_filter_cubic;
 	/** When true, {@link KHRDisplay} is supported. */
 	public final boolean VK_KHR_display;
 	/** When true, {@link KHRDisplaySwapchain} is supported. */
@@ -368,6 +370,7 @@ public class VKCapabilities {
 
 		Vulkan10 = ext.contains("Vulkan10") && VK.checkExtension("Vulkan10", VK10.isAvailable(this));
 		VK_EXT_debug_report = ext.contains("VK_EXT_debug_report") && VK.checkExtension("VK_EXT_debug_report", EXTDebugReport.isAvailable(this));
+		VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
 		VK_KHR_display = ext.contains("VK_KHR_display") && VK.checkExtension("VK_KHR_display", KHRDisplay.isAvailable(this));
 		VK_KHR_display_swapchain = ext.contains("VK_KHR_display_swapchain") && VK.checkExtension("VK_KHR_display_swapchain", KHRDisplaySwapchain.isAvailable(this));
 		VK_KHR_sampler_mirror_clamp_to_edge = ext.contains("VK_KHR_sampler_mirror_clamp_to_edge");

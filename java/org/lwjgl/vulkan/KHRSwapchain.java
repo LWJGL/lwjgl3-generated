@@ -100,8 +100,8 @@ public class KHRSwapchain {
 	 * <h5>Host Synchronization</h5>
 	 * 
 	 * <ul>
-	 * <li>Host access to {@code pCreateInfo}.surface <b>must</b> be externally synchronized</li>
-	 * <li>Host access to {@code pCreateInfo}.oldSwapchain <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pCreateInfo.surface} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pCreateInfo.oldSwapchain} <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <p>If {@code vkCreateSwapchainKHR} succeeds, it will return a handle to a swapchain that contains an array of at least {@code minImageCount} presentable
@@ -212,7 +212,9 @@ public class KHRSwapchain {
 	 * <p>If {@code pSwapchainImages} is {@code NULL}, then the number of presentable images for swapchain is returned in {@code pSwapchainImageCount}. Otherwise,
 	 * {@code pSwapchainImageCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pSwapchainImages} array, and on return
 	 * the variable is overwritten with the number of structures actually written to {@code pSwapchainImages}. If the value of {@code pSwapchainImageCount} is
-	 * less than the number of presentable images for swapchain, at most {@code pSwapchainImageCount} structures will be written.</p>
+	 * less than the number of presentable images for {@code swapchain}, at most {@code pSwapchainImageCount} structures will be written. If
+	 * {@code pSwapchainImageCount} is smaller than the number of presentable images for {@code swapchain}, {@link VK10#VK_INCOMPLETE INCOMPLETE} will be returned instead of
+	 * {@link VK10#VK_SUCCESS SUCCESS} to indicate that not all the available values were returned.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -274,6 +276,10 @@ public class KHRSwapchain {
 	/**
 	 * Retrieves the index of the next available presentable image.
 	 * 
+	 * <p>When successful, {@code vkAcquireNextImageKHR} retrieves the index of a presentable image that the application will be able to use. The presentation
+	 * engine may still own the image, as the presentation engine may be in the process of releasing the image when {@code vkAcquireNextImageKHR} returns. The
+	 * application will own the image when {@code semaphore} and/or {@code fence} is signaled by the presentation engine. Additional details follow.</p>
+	 * 
 	 * <p>If {@code timeout} is 0, {@code vkAcquireNextImageKHR} will not block, but will either succeed or return an error. If {@code timeout} is
 	 * {@code UINT64_MAX}, the function will not return until the presentation engine will be able to release ownership of the image within finite time. For
 	 * example, if the presentation engine owns only the image currently being displayed and no other images are presented, {@code vkAcquireNextImageKHR} <b>may</b>
@@ -318,6 +324,9 @@ public class KHRSwapchain {
 	 * <p>If {@code fence} is not equal to {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, the fence <b>must</b> be unsignaled and not have any uncompleted signal operations pending. It will become
 	 * signaled when the presentation engine has released ownership of the image. Applications <b>can</b> use this to meter their frame generation work to match the
 	 * presentation rate.</p>
+	 * 
+	 * <p>{@code semaphore} and {@code fence} <b>must</b> not both be equal to {@link VK10#VK_NULL_HANDLE NULL_HANDLE}. An application <b>must</b> wait until either the {@code semaphore} or
+	 * {@code fence} is signaled before using the presentable image.</p>
 	 * 
 	 * <p>{@code semaphore} and {@code fence} <b>may</b> already be signaled when {@code vkAcquireNextImageKHR} returns, if the image is being acquired for the first
 	 * time, or if the presentation engine has already released its ownership.</p>
@@ -457,8 +466,8 @@ public class KHRSwapchain {
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code queue} <b>must</b> be externally synchronized</li>
-	 * <li>Host access to {@code pPresentInfo}.pWaitSemaphores[] <b>must</b> be externally synchronized</li>
-	 * <li>Host access to {@code pPresentInfo}.pSwapchains[] <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pPresentInfo.pWaitSemaphores}[] <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pPresentInfo.pSwapchains}[] <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <p>When the application calls {@code vkQueuePresentKHR}, it releases ownership of the images referenced by {@code imageIndices} to the presentation
