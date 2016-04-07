@@ -118,7 +118,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>dmDisplayFrequency</td><td>specifies the frequency, in hertz (cycles per second), of the display device in a particular mode. This value is also known as the display device's
  * vertical refresh rate.
  * 
- * <p>When you call the {@link User32#EnumDisplaySettingsEx User32.EnumDisplaySettingsEx} function, the {@code dmDisplayFrequency} member may return with the value 0 or 1. These values
+ * <p>When you call the {@link User32#EnumDisplaySettingsEx} function, the {@code dmDisplayFrequency} member may return with the value 0 or 1. These values
  * represent the display hardware's default refresh rate. This default rate is typically set by switches on a display card or computer motherboard, or by
  * a configuration program that does not use display functions such as {@code ChangeDisplaySettingsEx}.</p></td></tr>
  * <tr><td>dmICMMethod</td><td>for printer devices only</td></tr>

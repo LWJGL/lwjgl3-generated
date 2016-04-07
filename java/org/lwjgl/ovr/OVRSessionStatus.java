@@ -33,9 +33,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>IsVisible</td><td>True if the process has VR focus and thus is visible in the HMD.</td></tr>
  * <tr><td>HmdPresent</td><td>True if an HMD is present.</td></tr>
  * <tr><td>HmdMounted</td><td>True if the HMD is on the user's head.</td></tr>
- * <tr><td>DisplayLost</td><td>True if the session is in a display-lost state. See {@link OVR#ovr_SubmitFrame OVR.ovr_SubmitFrame}.</td></tr>
+ * <tr><td>DisplayLost</td><td>True if the session is in a display-lost state. See {@link OVR#ovr_SubmitFrame}.</td></tr>
  * <tr><td>ShouldQuit</td><td>True if the application should initiate shutdown.</td></tr>
- * <tr><td>ShouldRecenter</td><td>True if UX has requested re-centering. Must call {@link OVR#ovr_ClearShouldRecenterFlag OVR.ovr_ClearShouldRecenterFlag} or {@link OVR#ovr_RecenterTrackingOrigin OVR.ovr_RecenterTrackingOrigin}.</td></tr>
+ * <tr><td>ShouldRecenter</td><td>True if UX has requested re-centering. Must call {@link OVR#ovr_ClearShouldRecenterFlag} or {@link OVR#ovr_RecenterTrackingOrigin}.</td></tr>
  * </table>
  */
 public class OVRSessionStatus extends Struct {

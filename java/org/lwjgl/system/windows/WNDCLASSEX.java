@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Contains the window class attributes that are registered by the {@link User32#RegisterClassEx User32.RegisterClassEx} function.
+ * Contains the window class attributes that are registered by the {@link User32#RegisterClassEx} function.
  * 
  * <h3>Layout</h3>
  * 

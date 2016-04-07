@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Describes a layer that specifies a monoscopic or stereoscopic view. This is the kind of layer that's typically used as layer 0 to
- * {@link OVR#ovr_SubmitFrame OVR.ovr_SubmitFrame}, as it is the kind of layer used to render a 3D stereoscopic view.
+ * {@link OVR#ovr_SubmitFrame}, as it is the kind of layer used to render a 3D stereoscopic view.
  * 
  * <h3>Layout</h3>
  * 
@@ -37,9 +37,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>Viewport</td><td>specifies the ColorTexture sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
  * <tr><td>Fov</td><td>the viewport field of view</td></tr>
  * <tr><td>RenderPose</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned from
- * {@link OVRUtil#ovr_CalcEyePoses OVRUtil.ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
+ * {@link OVRUtil#ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
  * <tr><td>SensorSampleTime</td><td>specifies the timestamp when the source {@link OVRPosef} (used in calculating RenderPose) was sampled from the SDK. Typically retrieved by calling
- * {@link OVR#ovr_GetTimeInSeconds OVR.ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState OVR.ovr_GetTrackingState}. The main purpose for this is to accurately track app
+ * {@link OVR#ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState}. The main purpose for this is to accurately track app
  * tracking latency.</td></tr>
  * </table>
  */

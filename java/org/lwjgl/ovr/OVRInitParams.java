@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Parameters for {@link OVR#ovr_Initialize OVR.ovr_Initialize}.
+ * Parameters for {@link OVR#ovr_Initialize}.
  * 
  * <h3>Layout</h3>
  * 
@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>Flags</td><td>flags from {@code ovrInitFlags} to override default behavior. Use 0 for the defaults.</td></tr>
  * <tr><td>RequestedMinorVersion</td><td>requests a specific minimum minor version of the LibOVR runtime. Flags must include {@link OVR#ovrInit_RequestVersion} or this will be ignored and
  * {@link OVRVersion#OVR_MINOR_VERSION} will be used.</td></tr>
- * <tr><td>LogCallback</td><td>user-supplied log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown OVR.ovr_Shutdown} completes. Use {@code NULL}
+ * <tr><td>LogCallback</td><td>user-supplied log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown} completes. Use {@code NULL}
  * to specify no log callback.</td></tr>
  * <tr><td>UserData</td><td>user-supplied data which is passed as-is to {@code LogCallback}. Typically this is used to store an application-specific pointer which is read in the
  * callback function.</td></tr>

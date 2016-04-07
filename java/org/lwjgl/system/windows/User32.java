@@ -1616,7 +1616,7 @@ public class User32 {
 	 *
 	 * @return if the function succeeds, the return value is the previous value of the specified offset. If this was not previously set, the return value is zero.
 	 *         
-	 *         <p>If the function fails, the return value is zero. To get extended error information, call {@link WinBase#getLastError WinBase.getLastError}.</p>
+	 *         <p>If the function fails, the return value is zero. To get extended error information, call {@link WinBase#getLastError}.</p>
 	 */
 	public static long SetClassLongPtr(long hWnd, int nIndex, long dwNewLong) {
 		long __functionAddress = Functions.SetClassLongPtr;
@@ -2018,7 +2018,7 @@ public class User32 {
 	 *
 	 * @param lpszDeviceName a pointer to a null-terminated string that specifies the display device about which graphics mode the function will obtain information.
 	 *                       
-	 *                       <p>This parameter is either {@code NULL} or a {@link DISPLAY_DEVICE#DeviceName DISPLAY_DEVICE.DeviceName} returned from {@link #EnumDisplayDevices}. A {@code NULL} value specifies the current display
+	 *                       <p>This parameter is either {@code NULL} or a {@link DISPLAY_DEVICE#DeviceName} returned from {@link #EnumDisplayDevices}. A {@code NULL} value specifies the current display
 	 *                       device on the computer that the calling thread is running on.</p>
 	 * @param iModeNum       indicates the type of information to be retrieved.
 	 *                       

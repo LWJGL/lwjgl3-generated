@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * rendering information for each eye. Computed by either {@link OVR#ovr_GetRenderDesc OVR.ovr_GetRenderDesc} based on the specified FOV. Note that the rendering viewport is not
+ * rendering information for each eye. Computed by either {@link OVR#ovr_GetRenderDesc} based on the specified FOV. Note that the rendering viewport is not
  * included here as it can be specified separately and modified per frame by passing different viewport values in the layer structure.
  * 
  * <h3>Layout</h3>

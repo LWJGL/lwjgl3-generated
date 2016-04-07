@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>QuadPoseCenter</td><td>specifies the orientation and position of the center point of a Quad layer type.
  * 
  * <p>The supplied direction is the vector perpendicular to the quad. The position is in real-world meters (not the application's virtual world, the physical
- * world the user is in) and is relative to the "zero" position set by {@link OVR#ovr_RecenterTrackingOrigin OVR.ovr_RecenterTrackingOrigin} unless the {@link OVR#ovrLayerFlag_HeadLocked} flag is
+ * world the user is in) and is relative to the "zero" position set by {@link OVR#ovr_RecenterTrackingOrigin} unless the {@link OVR#ovrLayerFlag_HeadLocked} flag is
  * used.</p></td></tr>
  * <tr><td>QuadSize</td><td>width and height (respectively) of the quad in meters</td></tr>
  * </table>

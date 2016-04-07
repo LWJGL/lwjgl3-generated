@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Receives information about the display device specified by the {@code iDevNum} parameter of the {@link User32#EnumDisplayDevices User32.EnumDisplayDevices} function.
+ * Receives information about the display device specified by the {@code iDevNum} parameter of the {@link User32#EnumDisplayDevices} function.
  * 
  * <p>The four string members are set based on the parameters passed to {@code EnumDisplayDevices}. If the {@code lpDevice} param is {@code NULL}, then
  * {@code DISPLAY_DEVICE} is filled in with information about the display adapter(s). If it is a valid device name, then it is filled in with information
@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>cb</td><td>size, in bytes, of the {@code DISPLAY_DEVICE} structure. This must be initialized prior to calling {@link User32#EnumDisplayDevices User32.EnumDisplayDevices}.</td></tr>
+ * <tr><td>cb</td><td>size, in bytes, of the {@code DISPLAY_DEVICE} structure. This must be initialized prior to calling {@link User32#EnumDisplayDevices}.</td></tr>
  * <tr><td>DeviceName</td><td>an array of characters identifying the device name. This is either the adapter device or the monitor device.</td></tr>
  * <tr><td>DeviceString</td><td>an array of characters containing the device context string. This is either a description of the display adapter or of the display monitor.</td></tr>
  * <tr><td>StateFlags</td><td>device state flags</td></tr>

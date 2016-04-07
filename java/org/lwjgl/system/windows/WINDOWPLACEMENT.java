@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>length</td><td>the length of the structure, in bytes. Before calling the {@link User32#GetWindowPlacement User32.GetWindowPlacement} or {@link User32#SetWindowPlacement User32.SetWindowPlacement} functions, set this member to
+ * <tr><td>length</td><td>the length of the structure, in bytes. Before calling the {@link User32#GetWindowPlacement} or {@link User32#SetWindowPlacement} functions, set this member to
  * {@link #SIZEOF}.</td></tr>
  * <tr><td>flags</td><td>the flags that control the position of the minimized window and the method by which the window is restored. This member can be one or more of thefollowing values:<br>{@link User32#WPF_SETMINPOSITION} {@link User32#WPF_RESTORETOMAXIMIZED} {@link User32#WPF_ASYNCWINDOWPLACEMENT}</td></tr>
  * <tr><td>showCmd</td><td>the current show state of the window</td></tr>

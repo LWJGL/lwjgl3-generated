@@ -36,7 +36,7 @@ import org.lwjgl.system.windows.User32;
  * <tr><td>hwnd</td><td>the native window handle</td></tr>
  * <tr><td>hbitmap</td><td>the DDB handle</td></tr>
  * <tr><td>pbits</td><td>the DIB handle</td></tr>
- * <tr><td>hdc</td><td>the device context handle. This HDC should always be used instead of the HDC returned from {@code BeginPaint()} or any calls to {@link User32#GetDC User32.GetDC}.</td></tr>
+ * <tr><td>hdc</td><td>the device context handle. This HDC should always be used instead of the HDC returned from {@code BeginPaint()} or any calls to {@link User32#GetDC}.</td></tr>
  * <tr><td>hpalette</td><td>the palette handle</td></tr>
  * </table>
  */

@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>LinearVelocity</td><td>velocity in meters per second</td></tr>
  * <tr><td>AngularAcceleration</td><td>angular acceleration in radians per second per second</td></tr>
  * <tr><td>LinearAcceleration</td><td>acceleration in meters per second per second</td></tr>
- * <tr><td>TimeInSeconds</td><td>absolute time that this pose refers to. See {@link OVR#ovr_GetTimeInSeconds OVR.ovr_GetTimeInSeconds}</td></tr>
+ * <tr><td>TimeInSeconds</td><td>absolute time that this pose refers to. See {@link OVR#ovr_GetTimeInSeconds}</td></tr>
  * </table>
  */
 public class OVRPoseStatef extends Struct {
