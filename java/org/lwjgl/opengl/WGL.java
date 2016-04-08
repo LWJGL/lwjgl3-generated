@@ -126,8 +126,7 @@ public class WGL {
 	 * @param src  the source OpenGL rendering context whose state information is to be copied
 	 * @param dst  the destination OpenGL rendering context to which state information is to be copied
 	 * @param mask which groups of the {@code src} rendering state are to be copied to {@code dst}. It contains the bitwise-OR of the same symbolic names that are
-	 *             passed to the {@link org.lwjgl.opengl.GL11#glPushAttrib} function. You can use {@link org.lwjgl.opengl.GL11#GL_ALL_ATTRIB_BITS} to copy all the
-	 *             rendering state information.
+	 *             passed to the {@link GL11#glPushAttrib PushAttrib} function. You can use {@link GL11#GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS} to copy all the rendering state information.
 	 */
 	public static int wglCopyContext(long src, long dst, int mask) {
 		long __functionAddress = Functions.CopyContext;

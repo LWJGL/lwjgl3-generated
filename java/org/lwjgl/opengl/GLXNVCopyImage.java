@@ -32,7 +32,7 @@ public class GLXNVCopyImage {
 	// --- [ glXCopyImageSubDataNV ] ---
 
 	/**
-	 * Behaves identically to the core function {@link NVCopyImage#glCopyImageSubDataNV}, except that the {@code srcCtx} and {@code dstCtx} parameters specify
+	 * Behaves identically to the core function {@link #glXCopyImageSubDataNV CopyImageSubDataNV}, except that the {@code srcCtx} and {@code dstCtx} parameters specify
 	 * the contexts in which to look up the source and destination objects, respectively. A value of {@code NULL} for either context indicates that the value which is
 	 * returned by {@link GLX#glXGetCurrentContext GetCurrentContext} should be used instead. Both contexts must share the same address space.
 	 *

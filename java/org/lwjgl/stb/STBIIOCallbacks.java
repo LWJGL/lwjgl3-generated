@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Image IO callbacks, used by {@link STBImage#stbi_load_from_callbacks}.
+ * Image IO callbacks, used by {@link STBImage#stbi_load_from_callbacks load_from_callbacks}.
  * 
  * <h3>Layout</h3>
  * 

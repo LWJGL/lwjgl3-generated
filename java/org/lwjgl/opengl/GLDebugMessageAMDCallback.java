@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD} method. */
+/** Instances of this interface may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD} method. */
 public abstract class GLDebugMessageAMDCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -59,7 +59,7 @@ public abstract class GLDebugMessageAMDCallback extends Closure.V {
 	 * @param severity  the message severity
 	 * @param length    the message length, excluding the null-terminator
 	 * @param message   a pointer to the message string representation
-	 * @param userParam the user-specified value that was passed when calling {@link AMDDebugOutput#glDebugMessageCallbackAMD}
+	 * @param userParam the user-specified value that was passed when calling {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD}
 	 */
 	public abstract void invoke(int id, int category, int severity, int length, long message, long userParam);
 

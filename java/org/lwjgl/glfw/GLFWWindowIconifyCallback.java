@@ -18,7 +18,7 @@ import org.lwjgl.opengl.GL11;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowIconifyCallback} method. */
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowIconifyCallback SetWindowIconifyCallback} method. */
 public abstract class GLFWWindowIconifyCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();

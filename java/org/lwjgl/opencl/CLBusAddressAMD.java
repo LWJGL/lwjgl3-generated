@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Bus address information used in {@link AMDBusAddressableMemory#clEnqueueMakeBuffersResidentAMD}.
+ * Bus address information used in {@link AMDBusAddressableMemory#clEnqueueMakeBuffersResidentAMD EnqueueMakeBuffersResidentAMD}.
  * 
  * <h3>Layout</h3>
  * 

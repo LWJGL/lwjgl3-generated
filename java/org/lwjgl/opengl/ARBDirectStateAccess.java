@@ -3096,7 +3096,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetQueryBufferObjecti64v ] ---
 
 	/**
-	 * 64bit version of {@link GL45#glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
+	 * 64bit version of {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
 	 *
 	 * @param id     the name of a query object
 	 * @param buffer the name of a buffer object
@@ -3130,7 +3130,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetQueryBufferObjectui64v ] ---
 
 	/**
-	 * 64bit version of {@link GL45#glGetQueryBufferObjectuiv GetQueryBufferObjectuiv}.
+	 * 64bit version of {@link #glGetQueryBufferObjectuiv GetQueryBufferObjectuiv}.
 	 *
 	 * @param id     the name of a query object
 	 * @param buffer the name of a buffer object

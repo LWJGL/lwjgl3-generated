@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetMonitorCallback} method. */
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetMonitorCallback SetMonitorCallback} method. */
 public abstract class GLFWMonitorCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -53,7 +53,7 @@ public abstract class GLFWMonitorCallback extends Closure.V {
 	 * Will be called when a monitor is connected to or disconnected from the system.
 	 *
 	 * @param monitor the monitor that was connected or disconnected
-	 * @param event   one of {@link GLFW#GLFW_CONNECTED} or {@link GLFW#GLFW_DISCONNECTED}
+	 * @param event   one of {@link GLFW#GLFW_CONNECTED CONNECTED} or {@link GLFW#GLFW_DISCONNECTED DISCONNECTED}
 	 */
 	public abstract void invoke(long monitor, int event);
 

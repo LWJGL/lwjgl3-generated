@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowPosCallback} method. */
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowPosCallback SetWindowPosCallback} method. */
 public abstract class GLFWWindowPosCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();

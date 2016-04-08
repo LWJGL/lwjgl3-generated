@@ -18,7 +18,7 @@ import org.lwjgl.opengl.GL11;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback} method. */
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback} method. */
 public abstract class GLFWCursorEnterCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();

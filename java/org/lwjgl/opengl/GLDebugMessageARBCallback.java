@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link ARBDebugOutput#glDebugMessageCallbackARB} method. */
+/** Instances of this interface may be passed to the {@link ARBDebugOutput#glDebugMessageCallbackARB DebugMessageCallbackARB} method. */
 public abstract class GLDebugMessageARBCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -61,7 +61,7 @@ public abstract class GLDebugMessageARBCallback extends Closure.V {
 	 * @param severity  the message severity
 	 * @param length    the message length, excluding the null-terminator
 	 * @param message   a pointer to the message string representation
-	 * @param userParam the user-specified value that was passed when calling {@link ARBDebugOutput#glDebugMessageCallbackARB}
+	 * @param userParam the user-specified value that was passed when calling {@link ARBDebugOutput#glDebugMessageCallbackARB DebugMessageCallbackARB}
 	 */
 	public abstract void invoke(int source, int type, int id, int severity, int length, long message, long userParam);
 

@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * The struct returned by {@link CL10#clGetDeviceInfo} with {@code param_name} set to {@link AMDDeviceTopology#CL_DEVICE_TOPOLOGY_AMD}.
+ * The struct returned by {@link CL10#clGetDeviceInfo GetDeviceInfo} with {@code param_name} set to {@link AMDDeviceTopology#CL_DEVICE_TOPOLOGY_AMD DEVICE_TOPOLOGY_AMD}.
  * 
  * <h3>Layout</h3>
  * 

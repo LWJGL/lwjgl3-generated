@@ -155,8 +155,8 @@ import org.lwjgl.system.linux.*;
  * <p>{@link GL11#glCopyPixels CopyPixels} of {@link #GL_DEPTH_STENCIL DEPTH_STENCIL} data copies a rectangle from both the depth and stencil buffers. Like glDrawPixels, it applies both the stencil and
  * depth masks but skips the remainder of the OpenGL fragment pipeline.</p>
  * 
- * <p>glTex[Sub]Image[1,2,3]D of {@link #GL_DEPTH_STENCIL DEPTH_STENCIL} data loads depth and stencil data into a depth_stencil texture. {@link GL11#GetTexImage} of {@link #GL_DEPTH_STENCIL DEPTH_STENCIL} data can
- * be used to retrieve depth and stencil data from a depth/stencil texture.</p>
+ * <p>glTex[Sub]Image[1,2,3]D of {@link #GL_DEPTH_STENCIL DEPTH_STENCIL} data loads depth and stencil data into a depth_stencil texture. {@link GL11#glGetTexImage GetTexImage} of {@link #GL_DEPTH_STENCIL DEPTH_STENCIL} data can be
+ * used to retrieve depth and stencil data from a depth/stencil texture.</p>
  * 
  * <p>In addition, a new base internal format, {@link #GL_DEPTH_STENCIL DEPTH_STENCIL}, can be used by both texture images and renderbuffer storage. When an image with a
  * {@link #GL_DEPTH_STENCIL DEPTH_STENCIL} internal format is attached to both the depth and stencil attachment points of a framebuffer object, then it becomes both the depth and

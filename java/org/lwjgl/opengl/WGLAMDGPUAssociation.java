@@ -104,7 +104,7 @@ public class WGLAMDGPUAssociation {
 	 *
 	 * @param id       a GPU id obtained from calling {@link #wglGetGPUIDsAMD GetGPUIDsAMD}
 	 * @param property the information being queried. One of:<br>{@link #WGL_GPU_VENDOR_AMD GPU_VENDOR_AMD}, {@link #WGL_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}, {@link #WGL_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}, {@link #WGL_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}, {@link #WGL_GPU_RAM_AMD GPU_RAM_AMD}, {@link #WGL_GPU_CLOCK_AMD GPU_CLOCK_AMD}, {@link #WGL_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}, {@link #WGL_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}, {@link #WGL_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}, {@link #WGL_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}
-	 * @param dataType the data type to be returned. One of:<br>{@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL11#GL_FLOAT}, {@link GL11#GL_UNSIGNED_BYTE}
+	 * @param dataType the data type to be returned. One of:<br>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}
 	 * @param size     the size of the {@code data} buffer
 	 * @param data     the buffer which will be filled with the requested information
 	 */
@@ -251,8 +251,8 @@ public class WGLAMDGPUAssociation {
 	 * @param dstY0  the destination Y<sub>0</sub> coordinate
 	 * @param dstX1  the destination X<sub>1</sub> coordinate
 	 * @param dstY1  the destination Y<sub>1</sub> coordinate
-	 * @param mask   the bitwise OR of a number of values indicating which buffers are to be copied. One or more of:<br>{@link GL11#GL_COLOR_BUFFER_BIT}, {@link GL11#GL_DEPTH_BUFFER_BIT}, {@link GL11#GL_STENCIL_BUFFER_BIT}
-	 * @param filter the interpolation method to apply if the image is stretched. One of:<br>{@link GL11#GL_LINEAR}, {@link GL11#GL_NEAREST}
+	 * @param mask   the bitwise OR of a number of values indicating which buffers are to be copied. One or more of:<br>{@link GL11#GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}, {@link GL11#GL_DEPTH_BUFFER_BIT}, {@link GL11#GL_STENCIL_BUFFER_BIT}
+	 * @param filter the interpolation method to apply if the image is stretched. One of:<br>{@link GL11#GL_LINEAR LINEAR}, {@link GL11#GL_NEAREST NEAREST}
 	 */
 	public static void wglBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglBlitContextFramebufferAMD;

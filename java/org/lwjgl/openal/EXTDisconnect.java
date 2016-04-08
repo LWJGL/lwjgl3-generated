@@ -30,10 +30,10 @@ package org.lwjgl.openal;
  * <p>When a device is disconnected, the implementation will, in most respects, keep processing as normal. For example, even though there is no longer any
  * output when a USB audio device is removed, setting and querying state on the Listener should keep functioning as expected.</p>
  * 
- * <p>All sources in the {@link AL10#AL_PLAYING} state will immediately progress to {@link AL10#AL_STOPPED} upon disconnect of their containing device. Any source started
- * after the disconnect will immediately progress to {@link AL10#AL_STOPPED}. As in any stopped source, this also means that queued buffers all go to
- * {@link AL10#AL_PROCESSED} as well. Sources that are in the {@link AL10#AL_PAUSED} or {@link AL10#AL_INITIAL} state do not change on disconnect, but will follow this
- * behaviour if the application later tries to promote them to the {@link AL10#AL_PLAYING} state.</p>
+ * <p>All sources in the {@link AL10#AL_PLAYING PLAYING} state will immediately progress to {@link AL10#AL_STOPPED STOPPED} upon disconnect of their containing device. Any source started after the
+ * disconnect will immediately progress to {@link AL10#AL_STOPPED STOPPED}. As in any stopped source, this also means that queued buffers all go to {@link AL10#AL_PROCESSED PROCESSED} as well. Sources
+ * that are in the {@link AL10#AL_PAUSED PAUSED} or {@link AL10#AL_INITIAL INITIAL} state do not change on disconnect, but will follow this behaviour if the application later tries to promote them to
+ * the {@link AL10#AL_PLAYING PLAYING} state.</p>
  * 
  * <p>Zombie devices may not have new contexts created on them; {@link ALC10#alcCreateContext CreateContext} will fail, returning a {@code NULL} pointer, if the specified device has been
  * disconnected.</p>

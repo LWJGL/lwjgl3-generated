@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link CL10#clCreateContext} and {@link CL10#clCreateContextFromType} methods. */
+/** Instances of this interface may be passed to the {@link CL10#clCreateContext CreateContext} and {@link CL10#clCreateContextFromType CreateContextFromType} methods. */
 public abstract class CLContextCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -55,7 +55,7 @@ public abstract class CLContextCallback extends Closure.V {
 	 * @param errinfo      a pointer to the message string representation
 	 * @param private_info a pointer to binary data that is returned by the OpenCL implementation that can be used to log additional information helpful in debugging the error
 	 * @param cb           the number of bytes in the {@code private_info} pointer
-	 * @param user_data    the user-specified value that was passed when calling {@link CL10#clCreateContext} or {@link CL10#clCreateContextFromType}
+	 * @param user_data    the user-specified value that was passed when calling {@link CL10#clCreateContext CreateContext} or {@link CL10#clCreateContextFromType CreateContextFromType}
 	 */
 	public abstract void invoke(long errinfo, long private_info, long cb, long user_data);
 

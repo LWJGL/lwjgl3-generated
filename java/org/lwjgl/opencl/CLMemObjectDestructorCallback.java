@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link CL11#clSetMemObjectDestructorCallback} method. */
+/** Instances of this interface may be passed to the {@link CL11#clSetMemObjectDestructorCallback SetMemObjectDestructorCallback} method. */
 public abstract class CLMemObjectDestructorCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -51,7 +51,7 @@ public abstract class CLMemObjectDestructorCallback extends Closure.V {
 	 * Will be called when a memory object is deleted.
 	 *
 	 * @param memobj    the memory object that was deleted
-	 * @param user_data the user-specified value that was passed when calling {@link CL11#clSetMemObjectDestructorCallback}
+	 * @param user_data the user-specified value that was passed when calling {@link CL11#clSetMemObjectDestructorCallback SetMemObjectDestructorCallback}
 	 */
 	public abstract void invoke(long memobj, long user_data);
 

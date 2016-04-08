@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import org.lwjgl.system.windows.*;
 
 /**
- * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV} function.
+ * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV EnumGpuDevicesNV} function.
  * 
  * <h3>Layout</h3>
  * 
@@ -31,8 +31,7 @@ import org.lwjgl.system.windows.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>cb</td><td>the size of the {@code GPU_DEVICE} structure. Before calling {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}, set {@code cb} to the size, in bytes, of
- * {@code GPU_DEVICE}.</td></tr>
+ * <tr><td>cb</td><td>the size of the {@code GPU_DEVICE} structure. Before calling {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV EnumGpuDevicesNV}, set {@code cb} to the size, in bytes, of {@code GPU_DEVICE}.</td></tr>
  * <tr><td>DeviceName</td><td>a string identifying the display device name. This will be the same string as stored in the {@code DeviceName} field of the {@code DISPLAY_DEVICE}
  * structure, which is filled in by {@code EnumDisplayDevices}.</td></tr>
  * <tr><td>DeviceString</td><td>a string describing the GPU for this display device. It is the same string as stored in the {@code DeviceString} field in the {@code DISPLAY_DEVICE}

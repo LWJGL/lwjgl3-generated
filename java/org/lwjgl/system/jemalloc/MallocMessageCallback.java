@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link JEmalloc#je_malloc_usable_size} method. */
+/** Instances of this interface may be passed to the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method. */
 public abstract class MallocMessageCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -48,9 +48,9 @@ public abstract class MallocMessageCallback extends Closure.V {
 	}
 
 	/**
-	 * Will be called by the JEmalloc##je_malloc_usable_size() method.
+	 * Will be called by the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method.
 	 *
-	 * @param cbopaque the opaque pointer passed to {@link JEmalloc#je_malloc_usable_size}
+	 * @param cbopaque the opaque pointer passed to {@link JEmalloc#je_malloc_usable_size malloc_usable_size}
 	 * @param s        the message
 	 */
 	public abstract void invoke(long cbopaque, long s);

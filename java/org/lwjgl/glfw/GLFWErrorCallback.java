@@ -21,7 +21,7 @@ import org.lwjgl.system.APIUtil;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetErrorCallback} method. */
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetErrorCallback SetErrorCallback} method. */
 public abstract class GLFWErrorCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();

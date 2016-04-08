@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link KHRDebug#eglDebugMessageControlKHR} method. */
+/** Instances of this interface may be passed to the {@link KHRDebug#eglDebugMessageControlKHR DebugMessageControlKHR} method. */
 public abstract class EGLDebugMessageKHRCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -54,7 +54,7 @@ public abstract class EGLDebugMessageKHRCallback extends Closure.V {
 	/**
 	 * Will be called when a debug message is generated.
 	 *
-	 * @param error       will contain an EGL error code, or {@link EGL10#EGL_SUCCESS}, as applicable
+	 * @param error       will contain an EGL error code, or {@link EGL10#EGL_SUCCESS SUCCESS}, as applicable
 	 * @param command     will contain a pointer to a string. Example "eglBindApi".
 	 * @param messageType will contain one of the debug message types
 	 * @param threadLabel will contain the label attached to the current thread. The {@code threadLabel} will be {@code NULL} if not set by the application. If the message is from an

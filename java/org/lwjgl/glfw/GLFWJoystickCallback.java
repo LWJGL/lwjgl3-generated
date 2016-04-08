@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetJoystickCallback} method. */
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetJoystickCallback SetJoystickCallback} method. */
 public abstract class GLFWJoystickCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -53,7 +53,7 @@ public abstract class GLFWJoystickCallback extends Closure.V {
 	 * Will be called when a joystick is connected to or disconnected from the system.
 	 *
 	 * @param joy   the joystick that was connected or disconnected
-	 * @param event one of {@link GLFW#GLFW_CONNECTED} or {@link GLFW#GLFW_DISCONNECTED}
+	 * @param event one of {@link GLFW#GLFW_CONNECTED CONNECTED} or {@link GLFW#GLFW_DISCONNECTED DISCONNECTED}
 	 */
 	public abstract void invoke(int joy, int event);
 

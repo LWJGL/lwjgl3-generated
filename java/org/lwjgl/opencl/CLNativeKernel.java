@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link CL10#clEnqueueNativeKernel} method. */
+/** Instances of this interface may be passed to the {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel} method. */
 public abstract class CLNativeKernel extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -47,7 +47,7 @@ public abstract class CLNativeKernel extends Closure.V {
 	}
 
 	/**
-	 * Will be called by the OpenCL using CL10##clEnqueueNativeKernel().
+	 * Will be called by the OpenCL using {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel}.
 	 *
 	 * @param args a pointer to the arguments list
 	 */

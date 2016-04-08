@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link CL10#clBuildProgram}, {@link CL12#clCompileProgram} and {@link CL12#clLinkProgram} methods. */
+/** Instances of this interface may be passed to the {@link CL10#clBuildProgram BuildProgram}, {@link CL12#clCompileProgram CompileProgram} and {@link CL12#clLinkProgram LinkProgram} methods. */
 public abstract class CLProgramCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -51,7 +51,7 @@ public abstract class CLProgramCallback extends Closure.V {
 	 * Will be called when the program is built, compiled or linked.
 	 *
 	 * @param program   the program that was built, compiled or linked
-	 * @param user_data the user-specified value that was passed when calling {@link CL10#clBuildProgram}, {@link CL12#clCompileProgram} or {@link CL12#clLinkProgram}
+	 * @param user_data the user-specified value that was passed when calling {@link CL10#clBuildProgram BuildProgram}, {@link CL12#clCompileProgram CompileProgram} or {@link CL12#clLinkProgram LinkProgram}
 	 */
 	public abstract void invoke(long program, long user_data);
 

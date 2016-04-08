@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetMouseButtonCallback} method. */
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetMouseButtonCallback SetMouseButtonCallback} method. */
 public abstract class GLFWMouseButtonCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -56,7 +56,7 @@ public abstract class GLFWMouseButtonCallback extends Closure.V {
 	 *
 	 * @param window the window that received the event
 	 * @param button the mouse button that was pressed or released
-	 * @param action the button action. One of:<br>{@link GLFW#GLFW_PRESS}, {@link GLFW#GLFW_RELEASE}, {@link GLFW#GLFW_REPEAT}
+	 * @param action the button action. One of:<br>{@link GLFW#GLFW_PRESS PRESS}, {@link GLFW#GLFW_RELEASE RELEASE}, {@link GLFW#GLFW_REPEAT REPEAT}
 	 * @param mods   bitfield describing which modifiers keys were held down
 	 */
 	public abstract void invoke(long window, int button, int action, int mods);

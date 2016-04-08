@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetCharCallback} method. */
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetCharCallback SetCharCallback} method. */
 public abstract class GLFWCharCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();

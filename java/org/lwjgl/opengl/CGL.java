@@ -604,8 +604,8 @@ public class CGL {
 	 * @param src  the source rendering context
 	 * @param dst  the destination rendering context
 	 * @param mask a mask that specifies the state variables to copy. Pass a bit field that contains the bitwise OR of the state variable names that you want to copy.
-	 *             Use the symbolic mask constants that are passed to the OpenGL function {@link GL11#glPushAttrib}. To copy as many state variables
-	 *             as possible, supply the constant {@link GL11#GL_ALL_ATTRIB_BITS}.
+	 *             Use the symbolic mask constants that are passed to the OpenGL function {@link GL11#glPushAttrib PushAttrib}. To copy as many state variables
+	 *             as possible, supply the constant {@link GL11#GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS}.
 	 */
 	public static int CGLCopyContext(long src, long dst, int mask) {
 		long __functionAddress = Functions.CopyContext;
@@ -716,9 +716,9 @@ public class CGL {
 	 *
 	 * @param width          the width, in pixels, of the pixel buffer
 	 * @param height         the height, in pixels, of the pixel buffer
-	 * @param target         a constant that specifies the type of the pixel buffer target texture. One of:<br>{@link GL11#GL_TEXTURE_2D}, {@link GL13#GL_TEXTURE_CUBE_MAP}, {@link GL31#GL_TEXTURE_RECTANGLE}
+	 * @param target         a constant that specifies the type of the pixel buffer target texture. One of:<br>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}
 	 * @param internalFormat a constant that specifies the internal color format of the pixel buffer. The format controls whether the alpha channel of the pixel buffer is used
-	 *                       for texturing operations. One of:<br>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}
+	 *                       for texturing operations. One of:<br>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA}
 	 * @param max_level      the maximum level of mipmap detail allowable. Pass 0 for a pixel buffer that is not using mipmaps. The value passed should never exceed the actual
 	 *                       maximum number of mipmap levels that can be represented with the given width and height.
 	 * @param pbuffer        on return, points to a new pixel buffer object
@@ -1068,7 +1068,7 @@ public class CGL {
 	 *
 	 * @param ctx     the rendering context to attach the pixel buffer to
 	 * @param pbuffer a pixel buffer object
-	 * @param face    the cube map face to draw if the pixel buffer texture target type is {@link GL13#GL_TEXTURE_CUBE_MAP}; otherwise pass 0.
+	 * @param face    the cube map face to draw if the pixel buffer texture target type is {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}; otherwise pass 0.
 	 * @param level   the mipmap level to draw. This must not exceed the maximum mipmap level set when the pixel buffer object was created. Pass 0 for a texture target
 	 *                that does not support mipmaps.
 	 * @param screen  a virtual screen value. The virtual screen determines the renderer OpenGL uses to draw to the pixel buffer object. For best performance, for a
@@ -1101,7 +1101,7 @@ public class CGL {
 	 *
 	 * @param ctx     a rendering context
 	 * @param pbuffer on return, points to the pixel buffer object attached to the rendering context
-	 * @param face    on return, points to the cube map face that is set if the pixel buffer texture target type is {@link GL13#GL_TEXTURE_CUBE_MAP}; otherwise 0 for all other
+	 * @param face    on return, points to the cube map face that is set if the pixel buffer texture target type is {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}; otherwise 0 for all other
 	 *                texture target types.
 	 * @param level   on return, points to the current mipmap level for drawing
 	 * @param screen  on return, points to the current virtual screen number, as set by the last valid call to {@link #CGLSetPBuffer SetPBuffer}
@@ -1151,7 +1151,7 @@ public class CGL {
 	 * the receiver is not a double-buffered context, this call does nothing.</p>
 	 * 
 	 * <p>If you set the swap interval attribute ({@link #kCGLCPSwapInterval CPSwapInterval}) appropriately, the copy takes place during the vertical retrace of the display,
-	 * rather than immediately after CGLFlushDrawable is called. An implicit {@link GL11#glFlush} operation is performed by CGLFlushDrawable
+	 * rather than immediately after CGLFlushDrawable is called. An implicit {@link GL11#glFlush Flush} operation is performed by CGLFlushDrawable
 	 * before it returns. For optimal performance, an application should not call glFlush immediately before calling CGLFlushDrawable. Subsequent OpenGL
 	 * commands can be issued immediately after calling CGLFlushDrawable, but are not executed until the buffer copy is completed.</p>
 	 *

@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetKeyCallback} method. */
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetKeyCallback SetKeyCallback} method. */
 public abstract class GLFWKeyCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -58,7 +58,7 @@ public abstract class GLFWKeyCallback extends Closure.V {
 	 * @param window   the window that received the event
 	 * @param key      the keyboard key that was pressed or released
 	 * @param scancode the system-specific scancode of the key
-	 * @param action   the key action. One of:<br>{@link GLFW#GLFW_PRESS}, {@link GLFW#GLFW_RELEASE}, {@link GLFW#GLFW_REPEAT}
+	 * @param action   the key action. One of:<br>{@link GLFW#GLFW_PRESS PRESS}, {@link GLFW#GLFW_RELEASE RELEASE}, {@link GLFW#GLFW_REPEAT REPEAT}
 	 * @param mods     bitfield describing which modifiers keys were held down
 	 */
 	public abstract void invoke(long window, int key, int scancode, int action, int mods);

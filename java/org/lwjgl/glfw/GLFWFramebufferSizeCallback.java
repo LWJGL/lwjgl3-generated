@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetFramebufferSizeCallback} method. */
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback} method. */
 public abstract class GLFWFramebufferSizeCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();

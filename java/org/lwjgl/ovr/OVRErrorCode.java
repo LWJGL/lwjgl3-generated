@@ -16,8 +16,8 @@ public class OVRErrorCode {
 	public static final int ovrSuccess = 0;
 
 	/**
-	 * Returned from a call to {@link OVR#ovr_SubmitFrame}. The call succeeded, but what the app rendered will not be visible on the HMD. Ideally the app
-	 * should continue calling {@link OVR#ovr_SubmitFrame}, but not do any rendering. When the result becomes {@link #ovrSuccess Success}, rendering should continue as usual.
+	 * Returned from a call to {@link OVR#ovr_SubmitFrame SubmitFrame}. The call succeeded, but what the app rendered will not be visible on the HMD. Ideally the app should
+	 * continue calling {@link OVR#ovr_SubmitFrame SubmitFrame}, but not do any rendering. When the result becomes {@link #ovrSuccess Success}, rendering should continue as usual.
 	 */
 	public static final int ovrSuccess_NotVisible = 1000;
 
@@ -234,10 +234,10 @@ public class OVRErrorCode {
 	/** In the event of a system-wide graphics reset or cable unplug this is returned to the app. */
 	public static final int ovrError_DisplayLost = -6000;
 
-	/** {@link OVR#OVR_CommitTextureSwapChain CommitTextureSwapChain} was called too many times on a texture swapchain without calling submit to use the chain. */
+	/** {@link OVR#ovr_CommitTextureSwapChain CommitTextureSwapChain} was called too many times on a texture swapchain without calling submit to use the chain. */
 	public static final int ovrError_TextureSwapChainFull = -6001;
 
-	/** The {@link OVRTextureSwapChain} is in an incomplete or inconsistent state. Ensure {@link OVR#OVR_CommitTextureSwapChain CommitTextureSwapChain} was called at least once first. */
+	/** The {@code ovrTextureSwapChain} is in an incomplete or inconsistent state. Ensure {@link OVR#ovr_CommitTextureSwapChain CommitTextureSwapChain} was called at least once first. */
 	public static final int ovrError_TextureSwapChainInvalid = -6002;
 
 	/** A runtime exception occurred. The application is required to shutdown LibOVR and re-initialize it before this error state will be cleared. */

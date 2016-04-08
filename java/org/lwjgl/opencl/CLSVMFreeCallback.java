@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link CL20#clEnqueueSVMFree} method. */
+/** Instances of this interface may be passed to the {@link CL20#clEnqueueSVMFree EnqueueSVMFree} method. */
 public abstract class CLSVMFreeCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -55,7 +55,7 @@ public abstract class CLSVMFreeCallback extends Closure.V {
 	 * @param queue            a valid host command-queue
 	 * @param num_svm_pointers the number of pointers in the {@code svm_pointers} array
 	 * @param svm_pointers     an array of shared virtual memory pointers to be freed
-	 * @param user_data        the user-specified value that was passed when calling {@link CL20#clEnqueueSVMFree}
+	 * @param user_data        the user-specified value that was passed when calling {@link CL20#clEnqueueSVMFree EnqueueSVMFree}
 	 */
 	public abstract void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data);
 

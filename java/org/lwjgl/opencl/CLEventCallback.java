@@ -14,7 +14,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link CL11#clSetEventCallback} method. */
+/** Instances of this interface may be passed to the {@link CL11#clSetEventCallback SetEventCallback} method. */
 public abstract class CLEventCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
@@ -56,7 +56,7 @@ public abstract class CLEventCallback extends Closure.V {
 	 * @param event_command_exec_status represents the execution status of command for which this callback function is invoked. If the callback is called as the result of the command
 	 *                                  associated with event being abnormally terminated, an appropriate error code for the error that caused the termination will be passed to
 	 *                                  {@code event_command_exec_status} instead.
-	 * @param user_data                 the user-specified value that was passed when calling {@link CL11#clSetEventCallback}
+	 * @param user_data                 the user-specified value that was passed when calling {@link CL11#clSetEventCallback SetEventCallback}
 	 */
 	public abstract void invoke(long event, int event_command_exec_status, long user_data);
 

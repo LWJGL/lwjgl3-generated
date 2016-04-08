@@ -37,10 +37,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <tr><td>HandStatusFlags</td><td>{@code HandPoses} status flags described by {@code ovrStatusBits}. Only {@link OVR#ovrStatus_OrientationTracked} and {@link OVR#ovrStatus_PositionTracked} are reported.</td></tr>
  * <tr><td>CalibratedOrigin</td><td>the pose of the origin captured during calibration.
  * 
- * <p>Like all other poses here, this is expressed in the space set by {@link OVR#ovr_RecenterTrackingOrigin}, and so will change every time that is called. This
- * pose can be used to calculate where the calibrated origin lands in the new recentered space. If an application never calls
- * {@link #ovr_RecenterTrackingOrigin}, expect this value to be the identity pose and as such will point respective origin based on {@code ovrTrackingOrigin}
- * requested when calling {@link OVR#ovr_GetTrackingState}.</p></td></tr>
+ * <p>Like all other poses here, this is expressed in the space set by {@link OVR#ovr_RecenterTrackingOrigin RecenterTrackingOrigin}, and so will change every time that is called. This pose can
+ * be used to calculate where the calibrated origin lands in the new recentered space. If an application never calls {@link OVR#ovr_RecenterTrackingOrigin RecenterTrackingOrigin}, expect
+ * this value to be the identity pose and as such will point respective origin based on {@code ovrTrackingOrigin} requested when calling
+ * {@link OVR#ovr_GetTrackingState GetTrackingState}.</p></td></tr>
  * </table>
  */
 public class OVRTrackingState extends Struct {

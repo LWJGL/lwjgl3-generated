@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetScrollCallback} method. */
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetScrollCallback SetScrollCallback} method. */
 public abstract class GLFWScrollCallback extends Closure.V {
 
 	private static final FFICIF        CIF  = apiClosureCIF();
