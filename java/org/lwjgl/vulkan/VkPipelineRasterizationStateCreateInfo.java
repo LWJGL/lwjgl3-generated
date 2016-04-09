@@ -15,6 +15,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineRasterizationStateCreateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineRasterizationStateCreateInfo">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code polygonMode} <b>must</b> be a valid {@code VkPolygonMode} value</li>
+ * <li>{@code cullMode} <b>must</b> be a valid combination of {@code VkCullModeFlagBits} values</li>
+ * <li>{@code frontFace} <b>must</b> be a valid {@code VkFrontFace} value</li>
+ * <li>If the depth clamping feature is not enabled, {@code depthClampEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
+ * <li>If the non-solid fill modes feature is not enabled, {@code polygonMode} <b>must</b> be {@link VK10#VK_POLYGON_MODE_FILL POLYGON_MODE_FILL}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineRasterizationStateCreateInfo {
@@ -36,6 +52,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */

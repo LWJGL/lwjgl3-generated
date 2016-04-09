@@ -14,6 +14,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkMemoryRequirements.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkMemoryRequirements">Vulkan Specification</a>
+ * 
+ * <p>Contains information about the memory requirements of an object.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkMemoryRequirements {
@@ -21,6 +26,14 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize alignment;
     uint32_t memoryTypeBits;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>size</td><td>the size, in bytes, of the memory allocation required for the resource</td></tr>
+ * <tr><td>alignment</td><td>the alignment, in bytes, of the offset within the allocation required for the resource</td></tr>
+ * <tr><td>memoryTypeBits</td><td>a bitfield and contains one bit set for every supported memory type for the resource</td></tr>
+ * </table>
  */
 public class VkMemoryRequirements extends Struct {
 

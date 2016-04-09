@@ -15,6 +15,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkOffset2D.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkOffset2D">Vulkan Specification</a>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkOffset2D {

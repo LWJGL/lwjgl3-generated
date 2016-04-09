@@ -15,6 +15,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageSubresourceRange.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageSubresourceRange">Vulkan Specification</a>
+ * 
+ * <p>Describes a range of mipmap levels, array layers, and aspects.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code aspectMask} <b>must</b> be a valid combination of {@code VkImageAspectFlagBits} values</li>
+ * <li>{@code aspectMask} <b>must not</b> be 0</li>
+ * <li>If {@code levelCount} is not {@link VK10#VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, {@code baseMipLevel + levelCount} <b>must</b> be less than or equal to the
+ * {@code mipLevels} specified in {@code VkImageCreateInfo} when the image was created</li>
+ * <li>If {@code layerCount} is not {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, {@code baseArrayLayer + layerCount} <b>must</b> be less than or equal to the
+ * {@code arrayLayers} specified in {@code VkImageCreateInfo} when the image was created</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageSubresourceRange {
@@ -24,6 +40,16 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t baseArrayLayer;
     uint32_t layerCount;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>aspectMask</td><td>a bitmask indicating which aspect(s) of the image are included in the view</td></tr>
+ * <tr><td>baseMipLevel</td><td>the first mipmap level accessible to the view</td></tr>
+ * <tr><td>levelCount</td><td>the number of mipmap levels (starting from {@code baseMipLevel}) accessible to the view</td></tr>
+ * <tr><td>baseArrayLayer</td><td>the first array layer accessible to the view</td></tr>
+ * <tr><td>layerCount</td><td>the number of array layers (starting from {@code baseArrayLayer}) accessible to the view</td></tr>
+ * </table>
  */
 public class VkImageSubresourceRange extends Struct {
 

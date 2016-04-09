@@ -15,6 +15,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkExtent3D.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkExtent3D">Vulkan Specification</a>
+ * 
+ * <p>Describes the size of a rectangular region of pixels within a three-dimensional image or framebuffer.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkExtent3D {
@@ -22,6 +27,14 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t height;
     uint32_t depth;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>width</td><td>the region width</td></tr>
+ * <tr><td>height</td><td>the region height</td></tr>
+ * <tr><td>depth</td><td>the region depth</td></tr>
+ * </table>
  */
 public class VkExtent3D extends Struct {
 

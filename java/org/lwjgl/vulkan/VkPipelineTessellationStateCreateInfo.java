@@ -15,6 +15,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineTessellationStateCreateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineTessellationStateCreateInfo">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code patchControlPoints} <b>must</b> be greater than zero and less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxTessellationPatchSize}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineTessellationStateCreateInfo {
@@ -27,6 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */

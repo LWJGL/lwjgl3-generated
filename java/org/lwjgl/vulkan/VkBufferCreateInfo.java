@@ -15,6 +15,31 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkBufferCreateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkBufferCreateInfo">Vulkan Specification</a>
+ * 
+ * <p>Contains information about how a buffer should be created.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO STRUCTURE_TYPE_BUFFER_CREATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be a valid combination of {@code VkBufferCreateFlagBits} values</li>
+ * <li>{@code usage} <b>must</b> be a valid combination of {@code VkBufferUsageFlagBits} values</li>
+ * <li>{@code usage} <b>must not</b> be 0</li>
+ * <li>{@code sharingMode} <b>must</b> be a valid {@code VkSharingMode} value</li>
+ * <li>{@code size} <b>must</b> be greater than 0</li>
+ * <li>If {@code sharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, {@code pQueueFamilyIndices} <b>must</b> be a pointer to an array of {@code queueFamilyIndexCount}
+ * {@code uint32_t} values</li>
+ * <li>If {@code sharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, {@code queueFamilyIndexCount} <b>must</b> be greater than 1</li>
+ * <li>If the sparse bindings feature is not enabled, {@code flags} <b>must not</b> contain {@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT}</li>
+ * <li>If the sparse buffer residency feature is not enabled, {@code flags} <b>must not</b> contain {@link VK10#VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}</li>
+ * <li>If the sparse aliased residency feature is not enabled, {@code flags} <b>must not</b> contain {@link VK10#VK_BUFFER_CREATE_SPARSE_ALIASED_BIT BUFFER_CREATE_SPARSE_ALIASED_BIT}</li>
+ * <li>If {@code flags} contains {@link VK10#VK_BUFFER_CREATE_SPARSE_ALIASED_BIT BUFFER_CREATE_SPARSE_ALIASED_BIT}, it <b>must</b> also contain at least one of {@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} or
+ * {@link VK10#VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkBufferCreateInfo {
@@ -31,7 +56,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>a {@code VkBufferCreateFlagBits} bitfield describing additional parameters of the buffer</td></tr>
+ * <tr><td>size</td><td>the size in bytes of the buffer to be created</td></tr>
+ * <tr><td>usage</td><td>a {@code VkBufferUsageFlagBits} bitfield describing the allowed usages of the buffer</td></tr>
+ * <tr><td>sharingMode</td><td>the sharing mode of the buffer when it will be accessed by multiple queue families</td></tr>
+ * <tr><td>queueFamilyIndexCount</td><td>the number of entries in the {@code pQueueFamilyIndices} array</td></tr>
+ * <tr><td>pQueueFamilyIndices</td><td>a list of queue families that will access this buffer (ignored if {@code sharingMode} is not {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT})</td></tr>
  * </table>
  */
 public class VkBufferCreateInfo extends Struct {

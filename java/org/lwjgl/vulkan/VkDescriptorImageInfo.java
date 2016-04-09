@@ -15,6 +15,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDescriptorImageInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDescriptorImageInfo">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>Each of {@code sampler} and {@code imageView} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDescriptorImageInfo {

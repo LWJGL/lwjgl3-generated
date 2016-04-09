@@ -14,6 +14,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkQueueFamilyProperties.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkQueueFamilyProperties">Vulkan Specification</a>
+ * 
+ * <p>Contains properties of a queue family.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkQueueFamilyProperties {
@@ -22,6 +27,15 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t timestampValidBits;
     {@link VkExtent3D VkExtent3D} minImageTransferGranularity;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>queueFlags</td><td>contains flags indicating the capabilities of the queues in this queue family</td></tr>
+ * <tr><td>queueCount</td><td>the unsigned integer count of queues in this queue family</td></tr>
+ * <tr><td>timestampValidBits</td><td>the unsigned integer count of meaningful bits in the timestamps written via {@link VK10#vkCmdWriteTimestamp CmdWriteTimestamp}</td></tr>
+ * <tr><td>minImageTransferGranularity</td><td>the minimum granularity supported for image transfer operations on the queues in this queue family</td></tr>
+ * </table>
  */
 public class VkQueueFamilyProperties extends Struct {
 

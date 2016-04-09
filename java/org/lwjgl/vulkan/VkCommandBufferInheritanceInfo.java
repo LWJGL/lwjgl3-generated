@@ -15,6 +15,21 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkCommandBufferInheritanceInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkCommandBufferInheritanceInfo">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>Each of {@code renderPass} and {@code framebuffer} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+ * {@code VkDevice}</li>
+ * <li>If the inherited queries feature is not enabled, {@code occlusionQueryEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
+ * <li>If the inherited queries feature is enabled, {@code queryFlags} <b>must</b> be a valid combination of {@code VkQueryControlFlagBits} values</li>
+ * <li>If the pipeline statistics queries feature is not enabled, {@code pipelineStatistics} <b>must</b> be 0</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkCommandBufferInheritanceInfo {
@@ -31,6 +46,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */

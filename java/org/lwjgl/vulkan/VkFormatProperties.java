@@ -14,6 +14,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkFormatProperties.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkFormatProperties">Vulkan Specification</a>
+ * 
+ * <p>Contains physical device properties for a {@code VkFormat}.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkFormatProperties {
@@ -21,6 +26,14 @@ import static org.lwjgl.system.MemoryStack.*;
     VkFormatFeatureFlags optimalTilingFeatures;
     VkFormatFeatureFlags bufferFeatures;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>linearTilingFeatures</td><td>what features are supported by {@link VK10#VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} images</td></tr>
+ * <tr><td>optimalTilingFeatures</td><td>what features are supported by {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL} images</td></tr>
+ * <tr><td>bufferFeatures</td><td>what features are supported by buffers</td></tr>
+ * </table>
  */
 public class VkFormatProperties extends Struct {
 

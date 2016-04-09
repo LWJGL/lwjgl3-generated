@@ -15,12 +15,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Contains information about how a {@code VkInstance} should be created.
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkInstanceCreateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkInstanceCreateInfo">Vulkan Specification</a>
  * 
- * <h3>Valid Usage</h3>
+ * <p>Contains information about how a {@code VkInstance} should be created.</p>
+ * 
+ * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO}</li>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO STRUCTURE_TYPE_INSTANCE_CREATE_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
  * <li>If {@code pApplicationInfo} is not {@code NULL}, {@code pApplicationInfo} <b>must</b> be a pointer to a valid {@link VkApplicationInfo} structure</li>
@@ -29,9 +32,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code enabledExtensionCount} is not 0, {@code ppEnabledExtensionNames} <b>must</b> be a pointer to an array of {@code enabledExtensionCount}
  * null-terminated strings</li>
  * <li>Any given element of {@code ppEnabledLayerNames} <b>must</b> be the name of a layer present on the system, exactly matching a string returned in the
- * {@link VkLayerProperties} structure by {@link VK10#vkEnumerateInstanceLayerProperties}</li>
+ * {@link VkLayerProperties} structure by {@link VK10#vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
  * <li>Any given element of {@code ppEnabledExtensionNames} <b>must</b> be the name of an extension present on the system, exactly matching a string returned in
- * the {@link VkExtensionProperties} structure by {@link VK10#vkEnumerateInstanceExtensionProperties}</li>
+ * the {@link VkExtensionProperties} structure by {@link VK10#vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}</li>
  * <li>If an extension listed in {@code ppEnabledExtensionNames} is provided as part of a layer, then both the layer and extension <b>must</b> be enabled to
  * enable that extension</li>
  * </ul>

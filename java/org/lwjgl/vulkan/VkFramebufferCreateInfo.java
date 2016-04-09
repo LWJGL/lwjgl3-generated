@@ -15,6 +15,39 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkFramebufferCreateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkFramebufferCreateInfo">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
+ * <li>If {@code attachmentCount} is not 0, {@code pAttachments} <b>must</b> be a pointer to an array of {@code attachmentCount} valid {@code VkImageView}
+ * handles</li>
+ * <li>Each of {@code renderPass} and the elements of {@code pAttachments} that are valid handles <b>must</b> have been created, allocated or retrieved from the
+ * same {@code VkDevice}</li>
+ * <li>{@code attachmentCount} <b>must</b> be equal to the attachment count specified in {@code renderPass}</li>
+ * <li>Any given element of {@code pAttachments} that is used as a color attachment or resolve attachment by {@code renderPass} <b>must</b> have been created
+ * with a {@code usage} value including {@link VK10#VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}</li>
+ * <li>Any given element of {@code pAttachments} that is used as a depth/stencil attachment by {@code renderPass} <b>must</b> have been created with a
+ * {@code usage} value including {@link VK10#VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}</li>
+ * <li>Any given element of {@code pAttachments} that is used as an input attachment by {@code renderPass} <b>must</b> have been created with a {@code usage}
+ * value including {@link VK10#VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT}</li>
+ * <li>Any given element of {@code pAttachments} <b>must</b> have been created with an {@code VkFormat} value that matches the {@code VkFormat} specified by the
+ * corresponding {@code VkAttachmentDescription} in {@code renderPass}</li>
+ * <li>Any given element of {@code pAttachments} <b>must</b> have been created with a {@code samples} value that matches the {@code samples} value specified by
+ * the corresponding {@code VkAttachmentDescription} in {@code renderPass}</li>
+ * <li>Any given element of {@code pAttachments} <b>must</b> have dimensions at least as large as the corresponding framebuffer dimension</li>
+ * <li>Any given element of {@code pAttachments} <b>must</b> only specify a single mip-level</li>
+ * <li>Any given element of {@code pAttachments} <b>must</b> have been created with the identity swizzle</li>
+ * <li>{@code width} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferWidth}</li>
+ * <li>{@code height} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferHeight}</li>
+ * <li>{@code layers} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferLayers}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkFramebufferCreateInfo {
@@ -32,6 +65,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */

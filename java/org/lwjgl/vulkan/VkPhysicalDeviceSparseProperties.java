@@ -14,6 +14,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPhysicalDeviceSparseProperties.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPhysicalDeviceSparseProperties">Vulkan Specification</a>
+ * 
+ * <p>Some features of the implementation are not possible to disable, and are reported to allow applications to alter their sparse resource usage
+ * accordingly.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPhysicalDeviceSparseProperties {
@@ -23,6 +29,17 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBool32 residencyAlignedMipSize;
     VkBool32 residencyNonResidentStrict;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>residencyStandard2DBlockShape</td><td>{@link VK10#VK_TRUE TRUE} if the physical device will access all single-sample 2D sparse resources using the standard sparse image block shapes</td></tr>
+ * <tr><td>residencyStandard2DMultisampleBlockShape</td><td>{@link VK10#VK_TRUE TRUE} if the physical device will access all multisample 2D sparse resources using the standard sparse image block shapes</td></tr>
+ * <tr><td>residencyStandard3DBlockShape</td><td>{@link VK10#VK_TRUE TRUE} if the physical device will access all 3D sparse resources using the standard sparse image block shapes</td></tr>
+ * <tr><td>residencyAlignedMipSize</td><td>TRUE if images with mip level dimensions that are not integer multiples of the corresponding dimensions of the sparse image block may be placed in the
+ * mip tail</td></tr>
+ * <tr><td>residencyNonResidentStrict</td><td>whether the physical device <b>can</b> consistently access non-resident regions of a resource</td></tr>
+ * </table>
  */
 public class VkPhysicalDeviceSparseProperties extends Struct {
 

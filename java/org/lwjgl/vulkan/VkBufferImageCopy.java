@@ -15,6 +15,43 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkBufferImageCopy.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkBufferImageCopy">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code imageSubresource} <b>must</b> be a valid {@link VkImageSubresourceLayers} structure</li>
+ * <li>{@code bufferOffset} <b>must</b> be a multiple of the calling command's {@code VkImage} parameter's texel size</li>
+ * <li>{@code bufferOffset} <b>must</b> be a multiple of 4</li>
+ * <li>{@code bufferRowLength} <b>must</b> be 0, or greater than or equal to the {@code width} member of {@code imageExtent}</li>
+ * <li>{@code bufferImageHeight} <b>must</b> be 0, or greater than or equal to the {@code height} member of {@code imageExtent}</li>
+ * <li>{@code imageOffset.x} and ({@code imageExtent.width} + {@code imageOffset.x}) <b>must</b> both be greater than or equal to 0 and less than or equal to
+ * the image subresource width</li>
+ * <li>{@code imageOffset.y} and (imageExtent.height + {@code imageOffset.y}) <b>must</b> both be greater than or equal to 0 and less than or equal to the image
+ * subresource height</li>
+ * <li>{@code imageOffset.z} and (imageExtent.depth + {@code imageOffset.z}) <b>must</b> both be greater than or equal to 0 and less than or equal to the image
+ * subresource depth</li>
+ * <li>If the calling command's {@code VkImage} parameter is a compressed format image:</li>
+ * <li>{@code bufferRowLength} <b>must</b> be a multiple of the compressed texel block width</li>
+ * <li>{@code bufferImageHeight} <b>must</b> be a multiple of the compressed texel block height</li>
+ * <li>all members of {@code imageOffset} <b>must</b> be a multiple of the corresponding dimensions of the compressed texel block</li>
+ * <li>{@code bufferOffset} <b>must</b> be a multiple of the compressed texel block size in bytes</li>
+ * <li>{@code imageExtent.width} <b>must</b> be a multiple of the compressed texel block width or ({@code imageExtent.width} + {@code imageOffset.x}) <b>must</b>
+ * equal the image subresource width</li>
+ * <li>{@code imageExtent.height} <b>must</b> be a multiple of the compressed texel block height or ({@code imageExtent.height} + {@code imageOffset.y}) <b>must</b>
+ * equal the image subresource height</li>
+ * <li>{@code imageExtent.depth} <b>must</b> be a multiple of the compressed texel block depth or ({@code imageExtent.depth} + {@code imageOffset.z}) <b>must</b>
+ * equal the image subresource depth</li>
+ * <li>{@code bufferOffset}, {@code bufferRowLength}, {@code bufferImageHeight} and all members of {@code imageOffset} and {@code imageExtent} <b>must</b>
+ * respect the image transfer granularity requirements of the queue family that it will be submitted against, as described in Physical Device
+ * Enumeration</li>
+ * <li>The {@code aspectMask} member of {@code imageSubresource} <b>must</b> specify aspects present in the calling command's {@code VkImage} parameter</li>
+ * <li>The {@code aspectMask} member of {@code imageSubresource} <b>must</b> only have a single bit set</li>
+ * <li>If the calling command's {@code VkImage} parameter is of {@code VkImageType} {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}, the {@code baseArrayLayer} and {@code layerCount}
+ * members of {@code imageSubresource} <b>must</b> be 0 and 1, respectively</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkBufferImageCopy {

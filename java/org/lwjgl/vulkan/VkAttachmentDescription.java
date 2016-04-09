@@ -15,6 +15,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkAttachmentDescription.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkAttachmentDescription">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code flags} <b>must</b> be a valid combination of {@code VkAttachmentDescriptionFlagBits} values</li>
+ * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
+ * <li>{@code samples} <b>must</b> be a valid {@code VkSampleCountFlagBits} value</li>
+ * <li>{@code loadOp} <b>must</b> be a valid {@code VkAttachmentLoadOp} value</li>
+ * <li>{@code storeOp} <b>must</b> be a valid {@code VkAttachmentStoreOp} value</li>
+ * <li>{@code stencilLoadOp} <b>must</b> be a valid {@code VkAttachmentLoadOp} value</li>
+ * <li>{@code stencilStoreOp} <b>must</b> be a valid {@code VkAttachmentStoreOp} value</li>
+ * <li>{@code initialLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+ * <li>{@code finalLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkAttachmentDescription {

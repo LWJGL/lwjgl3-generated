@@ -15,6 +15,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineCacheCreateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineCacheCreateInfo">Vulkan Specification</a>
+ * 
+ * <p>Contains information about how a pipeline cache object should be created.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>If {@code initialDataSize} is not 0, {@code pInitialData} <b>must</b> be a pointer to an array of {@code initialDataSize} bytes</li>
+ * <li>If {@code initialDataSize} is not 0, it <b>must</b> be equal to the size of {@code pInitialData}, as returned by {@link VK10#vkGetPipelineCacheData GetPipelineCacheData} when
+ * {@code pInitialData} was originally retrieved</li>
+ * <li>If {@code initialDataSize} is not 0, {@code pInitialData} <b>must</b> have been retrieved from a previous call to {@link VK10#vkGetPipelineCacheData GetPipelineCacheData}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineCacheCreateInfo {
@@ -28,7 +45,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>initialDataSize</td><td>the number of bytes in {@code pInitialData}</td></tr>
+ * <tr><td>pInitialData</td><td>a pointer to previously retrieved pipeline cache data</td></tr>
  * </table>
  */
 public class VkPipelineCacheCreateInfo extends Struct {

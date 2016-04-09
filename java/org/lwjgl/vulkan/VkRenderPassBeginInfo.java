@@ -15,6 +15,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkRenderPassBeginInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkRenderPassBeginInfo">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
+ * <li>{@code framebuffer} <b>must</b> be a valid {@code VkFramebuffer} handle</li>
+ * <li>If {@code clearValueCount} is not 0, {@code pClearValues} <b>must</b> be a pointer to an array of {@code clearValueCount} {@code VkClearValue} unions</li>
+ * <li>Each of {@code renderPass} and {@code framebuffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+ * <li>{@code clearValueCount} <b>must</b> be greater than or equal to the number of attachments in {@code renderPass} that specify a {@code loadOp} of
+ * {@link VK10#VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkRenderPassBeginInfo {
@@ -30,6 +46,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */

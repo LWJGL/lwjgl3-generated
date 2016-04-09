@@ -14,6 +14,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSparseImageMemoryRequirements.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSparseImageMemoryRequirements">Vulkan Specification</a>
+ * 
+ * <p>Describes the sparse memory requirements for a group of aspects of an image.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSparseImageMemoryRequirements {
@@ -23,6 +28,17 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize imageMipTailOffset;
     VkDeviceSize imageMipTailStride;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>formatProperties</td><td>the format properties</td></tr>
+ * <tr><td>imageMipTailFirstLod</td><td>the first mip level at which subresources are included in the mip tail region</td></tr>
+ * <tr><td>imageMipTailSize</td><td>the memory size (in bytes) of the mip tail region</td></tr>
+ * <tr><td>imageMipTailOffset</td><td>he opaque memory offset used with {@link VkSparseImageOpaqueMemoryBindInfo} to bind the mip tail region(s)</td></tr>
+ * <tr><td>imageMipTailStride</td><td>the offset stride between each array-layer’s mip tail, if {@code formatProperties.flags} does not contain {@link VK10#VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT}
+ * (otherwise the value is undefined)</td></tr>
+ * </table>
  */
 public class VkSparseImageMemoryRequirements extends Struct {
 

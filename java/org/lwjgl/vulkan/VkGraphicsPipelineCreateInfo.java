@@ -15,6 +15,107 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkGraphicsPipelineCreateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkGraphicsPipelineCreateInfo">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be a valid combination of {@code VkPipelineCreateFlagBits} values</li>
+ * <li>{@code pStages} <b>must</b> be a pointer to an array of {@code stageCount} valid {@link VkPipelineShaderStageCreateInfo} structures</li>
+ * <li>{@code pVertexInputState} <b>must</b> be a pointer to a valid {@link VkPipelineVertexInputStateCreateInfo} structure</li>
+ * <li>{@code pInputAssemblyState} <b>must</b> be a pointer to a valid {@link VkPipelineInputAssemblyStateCreateInfo} structure</li>
+ * <li>{@code pRasterizationState} <b>must</b> be a pointer to a valid {@link VkPipelineRasterizationStateCreateInfo} structure</li>
+ * <li>If {@code pDynamicState} is not {@code NULL}, {@code pDynamicState} <b>must</b> be a pointer to a valid {@link VkPipelineDynamicStateCreateInfo} structure</li>
+ * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
+ * <li>{@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
+ * <li>{@code stageCount} <b>must</b> be greater than 0</li>
+ * <li>Each of {@code layout}, {@code renderPass} and {@code basePipelineHandle} that are valid handles <b>must</b> have been created, allocated or retrieved
+ * from the same {@code VkDevice}</li>
+ * <li>If {@code flags} contains the {@link VK10#VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and {@code basePipelineIndex} is not {@code -1}, {@code basePipelineHandle}
+ * <b>must</b> be {@link VK10#VK_NULL_HANDLE NULL_HANDLE}</li>
+ * <li>If {@code flags} contains the {@link VK10#VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and {@code basePipelineIndex} is not {@code -1}, it <b>must</b> be a valid index into
+ * the calling command's {@code pCreateInfos} parameter</li>
+ * <li>If {@code flags} contains the {@link VK10#VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and {@code basePipelineHandle} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code basePipelineIndex}
+ * <b>must</b> be {@code -1}</li>
+ * <li>If {@code flags} contains the {@link VK10#VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and {@code basePipelineHandle} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code basePipelineHandle}
+ * <b>must</b> be a valid {@code VkPipeline} handle</li>
+ * <li>If {@code flags} contains the {@link VK10#VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and {@code basePipelineHandle} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, it <b>must</b> be a valid handle
+ * to a graphics {@code VkPipeline}</li>
+ * <li>The {@code stage} member of each element of {@code pStages} <b>must</b> be unique</li>
+ * <li>The {@code stage} member of one element of {@code pStages} <b>must</b> be {@link VK10#VK_SHADER_STAGE_VERTEX_BIT SHADER_STAGE_VERTEX_BIT}</li>
+ * <li>The {@code stage} member of any given element of {@code pStages} <b>must not</b> be {@link VK10#VK_SHADER_STAGE_COMPUTE_BIT SHADER_STAGE_COMPUTE_BIT}</li>
+ * <li>If {@code pStages} includes a tessellation control shader stage, it <b>must</b> include a tessellation evaluation shader stage</li>
+ * <li>If {@code pStages} includes a tessellation evaluation shader stage, it <b>must</b> include a tessellation control shader stage</li>
+ * <li>If {@code pStages} includes a tessellation control shader stage and a tessellation evaluation shader stage, {@code pTessellationState} <b>must not</b> be
+ * {@code NULL}</li>
+ * <li>If {@code pStages} includes both a tessellation control shader stage and a tessellation evaluation shader stage, the shader code of at least one
+ * <b>must</b> contain an {@code OpExecutionMode} instruction that specifies the type of subdivision in the pipeline</li>
+ * <li>If {@code pStages} includes both a tessellation control shader stage and a tessellation evaluation shader stage, and the shader code of both
+ * contain an {@code OpExecutionMode} instruction that specifies the type of subdivision in the pipeline, they <b>must</b> both specify the same subdivision
+ * mode</li>
+ * <li>If {@code pStages} includes both a tessellation control shader stage and a tessellation evaluation shader stage, the shader code of at least one
+ * <b>must</b> contain an {@code OpExecutionMode} instruction that specifies the output patch size in the pipeline</li>
+ * <li>If {@code pStages} includes both a tessellation control shader stage and a tessellation evaluation shader stage, and the shader code of both
+ * contain an {@code OpExecutionMode} instruction that specifies the out patch size in the pipeline, they <b>must</b> both specify the same patch size</li>
+ * <li>If {@code pStages} includes tessellation shader stages, the {@code topology} member of {@code pInputAssembly} <b>must</b> be
+ * {@link VK10#VK_PRIMITIVE_TOPOLOGY_PATCH_LIST PRIMITIVE_TOPOLOGY_PATCH_LIST}</li>
+ * <li>If {@code pStages} includes a geometry shader stage, and doesn't include any tessellation shader stages, its shader code <b>must</b> contain an
+ * {@code OpExecutionMode} instruction that specifies an input primitive type that is compatible with the primitive topology specified in
+ * {@code pInputAssembly}</li>
+ * <li>If {@code pStages} includes a geometry shader stage, and also includes tessellation shader stages, its shader code <b>must</b> contain an
+ * {@code OpExecutionMode} instruction that specifies an input primitive type that is compatible with the primitive topology that is output by the
+ * tessellation stages</li>
+ * <li>If {@code pStages} includes a fragment shader stage and a geometry shader stage, and the fragment shader code reads from an input variable that is
+ * decorated with {@code PrimitiveID}, then the geometry shader code <b>must</b> write to a matching output variable, decorated with {@code PrimitiveID}, in
+ * all execution paths</li>
+ * <li>If {@code pStages} includes a fragment shader stage, its shader code <b>must not</b> read from any input attachment that is defined as {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}
+ * in {@code subpass}</li>
+ * <li>The shader code for the entry points identified by {@code pStages}, and the rest of the state identified by this structure <b>must</b> adhere to the
+ * pipeline linking rules described in the Shader Interfaces chapter</li>
+ * <li>If {@code subpass} uses a depth/stencil attachment in {@code renderpass} that has a layout of {@link VK10#VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL} in the
+ * {@code VkAttachmentReference} defined by {@code subpass}, and {@code pDepthStencilState} is not {@code NULL}, the {@code depthWriteEnable} member of
+ * {@code pDepthStencilState} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
+ * <li>If {@code subpass} uses a depth/stencil attachment in {@code renderpass} that has a layout of {@link VK10#VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL} in the
+ * {@code VkAttachmentReference} defined by {@code subpass}, and {@code pDepthStencilState} is not {@code NULL}, the {@code failOp}, {@code passOp} and
+ * {@code depthFailOp} members of each of the {@code front} and {@code back} members of {@code pDepthStencilState} <b>must</b> be {@link VK10#VK_STENCIL_OP_KEEP STENCIL_OP_KEEP}</li>
+ * <li>If {@code pColorBlendState} is not {@code NULL}, the {@code blendEnable} member of each element of the {@code pAttachment} member of
+ * {@code pColorBlendState} <b>must</b> be {@link VK10#VK_FALSE FALSE} if the {@code format} of the attachment referred to in {@code subpass} of {@code renderPass} does not
+ * support color blend operations, as specified by the {@link VK10#VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT} flag in
+ * {@link VkFormatProperties}{@code ::linearTilingFeatures} or {@link VkFormatProperties}{@code ::optimalTilingFeatures} returned by
+ * {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+ * <li>If {@code pColorBlendState} is not {@code NULL}, The {@code attachmentCount} member of {@code pColorBlendState} <b>must</b> be equal to the
+ * {@code colorAttachmentCount} used to create {@code subpass}</li>
+ * <li>If no element of the {@code pDynamicStates} member of {@code pDynamicState} is {@link VK10#VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT}, the {@code pViewports} member of
+ * {@code pViewportState} <b>must</b> be a pointer to an array of {@code pViewportState}->viewportCount {@link VkViewport} structures</li>
+ * <li>If no element of the {@code pDynamicStates} member of {@code pDynamicState} is {@link VK10#VK_DYNAMIC_STATE_SCISSOR DYNAMIC_STATE_SCISSOR}, the {@code pScissors} member of
+ * {@code pViewportState} <b>must</b> be a pointer to an array of {@code pViewportState}->scissorCount {@link VkRect2D} structures</li>
+ * <li>If the wide lines feature is not enabled, and no element of the {@code pDynamicStates} member of {@code pDynamicState} is
+ * {@link VK10#VK_DYNAMIC_STATE_LINE_WIDTH DYNAMIC_STATE_LINE_WIDTH}, the {@code lineWidth} member of {@code pRasterizationState} <b>must</b> be {@code 1.0}</li>
+ * <li>If the {@code rasterizerDiscardEnable} member of {@code pRasterizationState} is {@link VK10#VK_FALSE FALSE}, {@code pViewportState} <b>must</b> be a pointer to a valid
+ * {@link VkPipelineViewportStateCreateInfo} structure</li>
+ * <li>If the {@code rasterizerDiscardEnable} member of {@code pRasterizationState} is {@link VK10#VK_FALSE FALSE}, {@code pMultisampleState} <b>must</b> be a pointer to a valid
+ * {@link VkPipelineMultisampleStateCreateInfo} structure</li>
+ * <li>If the {@code rasterizerDiscardEnable} member of {@code pRasterizationState} is {@link VK10#VK_FALSE FALSE}, and {@code subpass} uses a depth/stencil attachment,
+ * {@code pDepthStencilState} <b>must</b> be a pointer to a valid {@link VkPipelineDepthStencilStateCreateInfo} structure</li>
+ * <li>If the {@code rasterizerDiscardEnable} member of {@code pRasterizationState} is {@link VK10#VK_FALSE FALSE}, and {@code subpass} uses color attachments,
+ * {@code pColorBlendState} <b>must</b> be a pointer to a valid {@link VkPipelineColorBlendStateCreateInfo} structure</li>
+ * <li>If the depth bias clamping feature is not enabled, no element of the {@code pDynamicStates} member of {@code pDynamicState} is
+ * {@link VK10#VK_DYNAMIC_STATE_DEPTH_BIAS DYNAMIC_STATE_DEPTH_BIAS}, and the {@code depthBiasEnable} member of {@code pDepthStencil} is {@link VK10#VK_TRUE TRUE}, the {@code depthBiasClamp} member of
+ * {@code pDepthStencil} <b>must</b> be {@code 0.0}</li>
+ * <li>If no element of the {@code pDynamicStates} member of {@code pDynamicState} is {@link VK10#VK_DYNAMIC_STATE_DEPTH_BOUNDS DYNAMIC_STATE_DEPTH_BOUNDS}, and the {@code depthBoundsTestEnable}
+ * member of {@code pDepthStencil} is {@link VK10#VK_TRUE TRUE}, the {@code minDepthBounds} and {@code maxDepthBounds} members of {@code pDepthStencil} <b>must</b> be between
+ * {@code 0.0} and {@code 1.0}, inclusive</li>
+ * <li>{@code layout} <b>must</b> be consistent with all shaders specified in {@code pStages}</li>
+ * <li>If {@code subpass} uses color and/or depth/stencil attachments, then the {@code rasterizationSamples} member of {@code pMultisampleState} <b>must</b> be
+ * the same as the sample count for those subpass attachments</li>
+ * <li>If {@code subpass} does not use any color and/or depth/stencil attachments, then the {@code rasterizationSamples} member of
+ * {@code pMultisampleState} <b>must</b> follow the rules for a zero-attachment subpass</li>
+ * <li>{@code subpass} <b>must</b> be a valid subpass within {@code renderpass}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkGraphicsPipelineCreateInfo {
@@ -42,6 +143,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */

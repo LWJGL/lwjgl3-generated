@@ -15,6 +15,27 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkCopyDescriptorSet.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkCopyDescriptorSet">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET STRUCTURE_TYPE_COPY_DESCRIPTOR_SET}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code srcSet} <b>must</b> be a valid {@code VkDescriptorSet} handle</li>
+ * <li>{@code dstSet} <b>must</b> be a valid {@code VkDescriptorSet} handle</li>
+ * <li>Each of {@code srcSet} and {@code dstSet} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+ * <li>{@code srcBinding} <b>must</b> be a valid binding within {@code srcSet}</li>
+ * <li>The sum of {@code srcArrayElement} and {@code descriptorCount} <b>must</b> be less than or equal to the number of array elements in the descriptor set
+ * binding specified by {@code srcBinding}, and all applicable consecutive bindings</li>
+ * <li>{@code dstBinding} <b>must</b> be a valid binding within {@code dstSet}</li>
+ * <li>The sum of {@code dstArrayElement} and {@code descriptorCount} <b>must</b> be less than or equal to the number of array elements in the descriptor set
+ * binding specified by {@code dstBinding}, and all applicable consecutive bindings</li>
+ * <li>If {@code srcSet} is equal to {@code dstSet}, then the source and destination ranges of descriptors <b>must not</b> overlap, where the ranges <b>may</b> include
+ * array elements from consecutive bindings</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkCopyDescriptorSet {
@@ -32,6 +53,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */

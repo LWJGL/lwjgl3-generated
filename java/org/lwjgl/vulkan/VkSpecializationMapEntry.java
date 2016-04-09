@@ -15,6 +15,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSpecializationMapEntry.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSpecializationMapEntry">Vulkan Specification</a>
+ * 
+ * <p>Contains information about a specialization constant.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSpecializationMapEntry {
@@ -22,6 +27,14 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t offset;
     size_t size;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>constantID</td><td>ID of the specialization constant in SPIR-V</td></tr>
+ * <tr><td>offset</td><td>byte offset of the specialization constant value within the supplied data buffer</td></tr>
+ * <tr><td>size</td><td>byte size of the specialization constant value within the supplied data buffer</td></tr>
+ * </table>
  */
 public class VkSpecializationMapEntry extends Struct {
 

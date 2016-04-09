@@ -15,6 +15,20 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageSubresource.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageSubresource">Vulkan Specification</a>
+ * 
+ * <p>Selects a specific image of a subresource (mipLevel/arrayLayer) of an image created with linear tiling.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code aspectMask} <b>must</b> be a valid combination of {@code VkImageAspectFlagBits} values</li>
+ * <li>{@code aspectMask} <b>must not</b> be 0</li>
+ * <li>{@code mipLevel} <b>must</b> be less than the {@code mipLevels} specified in {@code VkImageCreateInfo} when the image was created</li>
+ * <li>{@code arrayLayer} <b>must</b> be less than the {@code arrayLayers} specified in {@code VkImageCreateInfo} when the image was created</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageSubresource {
@@ -22,6 +36,14 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t mipLevel;
     uint32_t arrayLayer;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>aspectMask</td><td>a {@code VkImageAspectFlags} selecting the image aspect</td></tr>
+ * <tr><td>mipLevel</td><td>selects the mipmap level</td></tr>
+ * <tr><td>arrayLayer</td><td>selects the array layer</td></tr>
+ * </table>
  */
 public class VkImageSubresource extends Struct {
 

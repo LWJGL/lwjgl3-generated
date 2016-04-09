@@ -15,6 +15,33 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDeviceCreateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDeviceCreateInfo">Vulkan Specification</a>
+ * 
+ * <p>Contains information about how to create a device.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO STRUCTURE_TYPE_DEVICE_CREATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code pQueueCreateInfos} <b>must</b> be a pointer to an array of {@code queueCreateInfoCount} valid {@link VkDeviceQueueCreateInfo} structures</li>
+ * <li>If {@code enabledLayerCount} is not 0, {@code ppEnabledLayerNames} <b>must</b> be a pointer to an array of {@code enabledLayerCount} null-terminated
+ * strings</li>
+ * <li>If {@code enabledExtensionCount} is not 0, {@code ppEnabledExtensionNames} <b>must</b> be a pointer to an array of {@code enabledExtensionCount}
+ * null-terminated strings</li>
+ * <li>If {@code pEnabledFeatures} is not {@code NULL}, {@code pEnabledFeatures} <b>must</b> be a pointer to a valid {@link VkPhysicalDeviceFeatures} structure</li>
+ * <li>{@code queueCreateInfoCount} <b>must</b> be greater than 0</li>
+ * <li>Any given element of {@code ppEnabledLayerNames} <b>must</b> be the name of a layer present on the system, exactly matching a string returned in the
+ * {@link VkLayerProperties} structure by {@link VK10#vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
+ * <li>Any given element of {@code ppEnabledExtensionNames} <b>must</b> be the name of an extension present on the system, exactly matching a string returned in
+ * the {@link VkExtensionProperties} structure by {@link VK10#vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties}</li>
+ * <li>If an extension listed in {@code ppEnabledExtensionNames} is provided as part of a layer, then both the layer and extension <b>must</b> be enabled to
+ * enable that extension</li>
+ * <li>The {@code queueFamilyIndex} member of any given element of {@code pQueueCreateInfos} <b>must</b> be unique within {@code pQueueCreateInfos}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDeviceCreateInfo {
@@ -33,7 +60,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>queueCreateInfoCount</td><td>the unsigned integer size of the {@code pQueueCreateInfos} array</td></tr>
+ * <tr><td>pQueueCreateInfos</td><td>a pointer to an array of {@link VkDeviceQueueCreateInfo} structures describing the queues that are requested to be created along with the logical device</td></tr>
+ * <tr><td>enabledLayerCount</td><td>the number of device layers to enable</td></tr>
+ * <tr><td>ppEnabledLayerNames</td><td>a pointer to an array of {@code enabledLayerCount} null-terminated UTF-8 strings containing the names of layers to enable for the created device</td></tr>
+ * <tr><td>enabledExtensionCount</td><td>the number of device extensions to enable</td></tr>
+ * <tr><td>ppEnabledExtensionNames</td><td>a pointer to an array of {@code enabledExtensionCount} null-terminated UTF-8 strings containing the names of extensions to enable for the created
+ * device</td></tr>
+ * <tr><td>pEnabledFeatures</td><td>{@code NULL} or a pointer to a {@link VkPhysicalDeviceFeatures} structure that contains boolean indicators of all the features to be enabled</td></tr>
  * </table>
  */
 public class VkDeviceCreateInfo extends Struct {

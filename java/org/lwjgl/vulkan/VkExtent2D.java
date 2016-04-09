@@ -15,6 +15,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkExtent2D.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkExtent2D">Vulkan Specification</a>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkExtent2D {

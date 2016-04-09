@@ -15,6 +15,25 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDeviceQueueCreateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDeviceQueueCreateInfo">Vulkan Specification</a>
+ * 
+ * <p>Contains information about how to create a device queue.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code pQueuePriorities} <b>must</b> be a pointer to an array of {@code queueCount} {@code float} values</li>
+ * <li>{@code queueCount} <b>must</b> be greater than 0</li>
+ * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties}</li>
+ * <li>{@code queueCount} <b>must</b> be less than or equal to the {@code queueCount} member of the {@link VkQueueFamilyProperties} structure, as returned by
+ * {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} in the {@code pQueueFamilyProperties}[{@code queueFamilyIndex}]</li>
+ * <li>Each element of {@code pQueuePriorities} <b>must</b> be between {@code 0.0} and {@code 1.0} inclusive</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDeviceQueueCreateInfo {
@@ -29,7 +48,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>queueFamilyIndex</td><td>an unsigned integer indicating the index of the queue family to create on this device</td></tr>
+ * <tr><td>queueCount</td><td>an unsigned integer specifying the number of queues to create in the queue family indicated by {@code queueFamilyIndex}</td></tr>
+ * <tr><td>pQueuePriorities</td><td>an array of {@code queueCount} normalized floating point values, specifying priorities of work that will be submitted to each created queue</td></tr>
  * </table>
  */
 public class VkDeviceQueueCreateInfo extends Struct {

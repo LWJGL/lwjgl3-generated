@@ -14,6 +14,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageFormatProperties.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageFormatProperties">Vulkan Specification</a>
+ * 
+ * <p>Contains additional capabilities for certain types of images.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageFormatProperties {
@@ -23,6 +28,16 @@ import static org.lwjgl.system.MemoryStack.*;
     VkSampleCountFlags sampleCounts;
     VkDeviceSize maxResourceSize;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>maxExtent</td><td>the maximum image dimensions</td></tr>
+ * <tr><td>maxMipLevels</td><td>the maximum number of mipmap levels</td></tr>
+ * <tr><td>maxArrayLayers</td><td>the maximum number of array layers</td></tr>
+ * <tr><td>sampleCounts</td><td>a bitmask of {@code VkSampleCountFlagBits} specifying all the supported sample counts for this image</td></tr>
+ * <tr><td>maxResourceSize</td><td>the maximum total image size in bytes, inclusive of all subresources</td></tr>
+ * </table>
  */
 public class VkImageFormatProperties extends Struct {
 

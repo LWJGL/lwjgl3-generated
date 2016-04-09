@@ -15,6 +15,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDescriptorSetAllocateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDescriptorSetAllocateInfo">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
+ * <li>{@code pSetLayouts} <b>must</b> be a pointer to an array of {@code descriptorSetCount} valid {@code VkDescriptorSetLayout} handles</li>
+ * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
+ * <li>Each of {@code descriptorPool} and the elements of {@code pSetLayouts} <b>must</b> have been created, allocated or retrieved from the same
+ * {@code VkDevice}</li>
+ * <li>{@code descriptorSetCount} <b>must not</b> be greater than the number of sets that are currently available for allocation in {@code descriptorPool}</li>
+ * <li>{@code descriptorPool} <b>must</b> have enough free descriptor capacity remaining to allocate the descriptor sets of the specified layouts</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDescriptorSetAllocateInfo {
@@ -28,6 +45,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * </table>
  */

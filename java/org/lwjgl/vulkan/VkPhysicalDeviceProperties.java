@@ -14,6 +14,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPhysicalDeviceProperties.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPhysicalDeviceProperties">Vulkan Specification</a>
+ * 
+ * <p>Contains general properties of a physical device.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPhysicalDeviceProperties {
@@ -27,6 +32,20 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkPhysicalDeviceLimits VkPhysicalDeviceLimits} limits;
     {@link VkPhysicalDeviceSparseProperties VkPhysicalDeviceSparseProperties} sparseProperties;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>apiVersion</td><td>the version of Vulkan supported by the device</td></tr>
+ * <tr><td>driverVersion</td><td>the vendor-specified version of the driver</td></tr>
+ * <tr><td>vendorID</td><td>a unique identifier for the vendor of the physical device</td></tr>
+ * <tr><td>deviceID</td><td>a unique identifier for the physical device among devices available from the vendor</td></tr>
+ * <tr><td>deviceType</td><td>a {@code VkPhysicalDeviceType} specifying the type of device</td></tr>
+ * <tr><td>deviceName</td><td>a null-terminated UTF-8 string containing the name of the device</td></tr>
+ * <tr><td>pipelineCacheUUID</td><td>an array of size {@code VK_UUID_SIZE}, containing 8-bit values that represent a universally unique identifier for the device</td></tr>
+ * <tr><td>limits</td><td>the {@link VkPhysicalDeviceLimits} structure which specifies device-specific limits of the physical device</td></tr>
+ * <tr><td>sparseProperties</td><td>the {@link VkPhysicalDeviceSparseProperties} structure which specifies various sparse related properties of the physical device</td></tr>
+ * </table>
  */
 public class VkPhysicalDeviceProperties extends Struct {
 

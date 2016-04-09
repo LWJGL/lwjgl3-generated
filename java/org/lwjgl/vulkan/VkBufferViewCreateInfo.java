@@ -15,6 +15,37 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkBufferViewCreateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkBufferViewCreateInfo">Vulkan Specification</a>
+ * 
+ * <p>Contains information about how a buffer view should be created.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+ * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
+ * <li>{@code offset} <b>must</b> be less than the size of {@code buffer}</li>
+ * <li>{@code offset} <b>must</b> be a multiple of {@link VkPhysicalDeviceLimits}{@code ::minTexelBufferOffsetAlignment}</li>
+ * <li>If {@code range} is not equal to {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE}:</li>
+ * <li>{@code range} <b>must</b> be greater than 0</li>
+ * <li>{@code range} <b>must</b> be a multiple of the element size of {@code format}</li>
+ * <li>{@code range} divided by the size of an element of {@code format}, <b>must</b> be less than or equal to
+ * {@link VkPhysicalDeviceLimits}{@code ::maxTexelBufferElements}</li>
+ * <li>the sum of {@code offset} and {@code range} <b>must</b> be less than or equal to the size of {@code buffer}</li>
+ * <li>{@code buffer} <b>must</b> have been created with a {@code usage} value containing at least one of {@link VK10#VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT} or
+ * {@link VK10#VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT}</li>
+ * <li>If {@code buffer} was created with {@code usage} containing {@link VK10#VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT}, {@code format} <b>must</b> be supported for uniform
+ * texel buffers, as specified by the {@link VK10#VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT} flag in {@link VkFormatProperties}{@code ::bufferFeatures} returned by
+ * {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+ * <li>If {@code buffer} was created with {@code usage} containing {@link VK10#VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT}, {@code format} <b>must</b> be supported for storage
+ * texel buffers, as specified by the {@link VK10#VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT} flag in {@link VkFormatProperties}{@code ::bufferFeatures} returned by
+ * {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkBufferViewCreateInfo {
@@ -30,7 +61,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>buffer</td><td>a {@code VkBuffer} on which the view will be created</td></tr>
+ * <tr><td>format</td><td>a {@code VkFormat} describing the format of the data elements in the buffer</td></tr>
+ * <tr><td>offset</td><td>an offset in bytes from the base address of the buffer</td></tr>
+ * <tr><td>range</td><td>a size in bytes of the buffer view</td></tr>
  * </table>
  */
 public class VkBufferViewCreateInfo extends Struct {

@@ -15,12 +15,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Contains information about the application.
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkApplicationInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkApplicationInfo">Vulkan Specification</a>
  * 
- * <h3>Valid Usage</h3>
+ * <p>Contains information about the application.</p>
+ * 
+ * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_APPLICATION_INFO}</li>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_APPLICATION_INFO STRUCTURE_TYPE_APPLICATION_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>If {@code pApplicationName} is not {@code NULL}, {@code pApplicationName} <b>must</b> be a null-terminated string</li>
  * <li>If {@code pEngineName} is not {@code NULL}, {@code pEngineName} <b>must</b> be a null-terminated string</li>
@@ -42,7 +45,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>should be set to {@link VK10#VK_STRUCTURE_TYPE_APPLICATION_INFO}</td></tr>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * <tr><td>pApplicationName</td><td>a pointer to a {@code NULL}-terminated UTF-8 string containing the name of the application</td></tr>
  * <tr><td>applicationVersion</td><td>contains an application-specific version number. It is recommended that new versions of an existing application specify monotonically increasing values

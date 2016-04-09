@@ -15,6 +15,21 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkViewport.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkViewport">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code width} <b>must</b> be greater than {@code 0.0} and less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[0]</li>
+ * <li>{@code height} <b>must</b> be greater than {@code 0.0} and less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[1]</li>
+ * <li>{@code x} and {@code y} <b>must</b> each be between {@code viewportBoundsRange}[0] and {@code viewportBoundsRange}[1], inclusive</li>
+ * <li>{@code x} + {@code width} <b>must</b> be less than or equal to {@code viewportBoundsRange}[1]</li>
+ * <li>{@code y} + {@code height} <b>must</b> be less than or equal to {@code viewportBoundsRange}[1]</li>
+ * <li>{@code minDepth} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
+ * <li>{@code maxDepth} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkViewport {

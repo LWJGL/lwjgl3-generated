@@ -15,6 +15,30 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkShaderModuleCreateInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkShaderModuleCreateInfo">Vulkan Specification</a>
+ * 
+ * <p>Contains information about how a shader module should be created.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code pCode} <b>must</b> be a pointer to an array of {@code codeSize / 4} {@code uint32_t} values</li>
+ * <li>{@code codeSize} <b>must</b> be greater than 0</li>
+ * <li>{@code codeSize} <b>must</b> be a multiple of 4</li>
+ * <li>{@code pCode} <b>must</b> point to valid SPIR-V code, formatted and packed as described by
+ * https://www.khronos.org/registry/spir-v/specs/1.0/SPIRV.html[the SPIR-V Specification v1.0]</li>
+ * <li>{@code pCode} <b>must</b> adhere to the validation rules described by the Validation Rules within a Module section of the SPIR-V Environment appendix</li>
+ * <li>{@code pCode} <b>must</b> declare the {@code Shader} capability</li>
+ * <li>{@code pCode} <b>must not</b> declare any capability that is not supported by the API, as described by the Capabilities section of the SPIR-V Environment
+ * appendix</li>
+ * <li>If {@code pCode} declares any of the capabilities that are listed as not required by the implementation, the relevant feature <b>must</b> be enabled, as
+ * listed in the SPIR-V Environment appendix</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkShaderModuleCreateInfo {
@@ -28,7 +52,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>codeSize</td><td>the size, in bytes, of the code pointed to by {@code pCode}</td></tr>
+ * <tr><td>pCode</td><td>points to code that is used to create the shader module</td></tr>
  * </table>
  */
 public class VkShaderModuleCreateInfo extends Struct {

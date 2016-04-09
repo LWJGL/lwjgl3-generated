@@ -15,6 +15,52 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageCopy.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageCopy">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code srcSubresource} <b>must</b> be a valid {@link VkImageSubresourceLayers} structure</li>
+ * <li>{@code dstSubresource} <b>must</b> be a valid {@link VkImageSubresourceLayers} structure</li>
+ * <li>The {@code aspectMask} member of {@code srcSubresource} and {@code dstSubresource} <b>must</b> match</li>
+ * <li>The {@code layerCount} member of {@code srcSubresource} and {@code dstSubresource} <b>must</b> match</li>
+ * <li>If either of the calling command's {@code srcImage} or {@code dstImage} parameters are of {@code VkImageType} {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}, the
+ * {@code baseArrayLayer} and {@code layerCount} members of both {@code srcSubresource} and {@code dstSubresource} <b>must</b> be 0 and 1, respectively</li>
+ * <li>The {@code aspectMask} member of {@code srcSubresource} <b>must</b> specify aspects present in the calling command's {@code srcImage}</li>
+ * <li>The {@code aspectMask} member of {@code dstSubresource} <b>must</b> specify aspects present in the calling command's {@code dstImage}</li>
+ * <li>{@code srcOffset.x} and ({@code extent.width} + {@code srcOffset.x}) <b>must</b> both be greater than or equal to 0 and less than or equal to the source
+ * image subresource width</li>
+ * <li>{@code srcOffset.y} and ({@code extent.height} + {@code srcOffset.y}) <b>must</b> both be greater than or equal to 0 and less than or equal to the source
+ * image subresource height</li>
+ * <li>{@code srcOffset.z} and ({@code extent.depth} + {@code srcOffset.z}) <b>must</b> both be greater than or equal to 0 and less than or equal to the source
+ * image subresource depth</li>
+ * <li>{@code dstOffset.x} and ({@code extent.width} + {@code dstOffset.x}) <b>must</b> both be greater than or equal to 0 and less than or equal to the
+ * destination image subresource width</li>
+ * <li>{@code dstOffset.y} and ({@code extent.height} + {@code dstOffset.y}) <b>must</b> both be greater than or equal to 0 and less than or equal to the
+ * destination image subresource height</li>
+ * <li>{@code dstOffset.z} and ({@code extent.depth} + {@code dstOffset.z}) <b>must</b> both be greater than or equal to 0 and less than or equal to the
+ * destination image subresource depth</li>
+ * <li>If the calling command's {@code srcImage} is a compressed format image:</li>
+ * <li>all members of {@code srcOffset} <b>must</b> be a multiple of the corresponding dimensions of the compressed texel block</li>
+ * <li>{@code extent.width} <b>must</b> be a multiple of the compressed texel block width or ({@code extent.width} + {@code srcOffset.x}) <b>must</b> equal the source
+ * image subresource width</li>
+ * <li>{@code extent.height} <b>must</b> be a multiple of the compressed texel block height or ({@code extent.height} + {@code srcOffset.y}) <b>must</b> equal the
+ * source image subresource height</li>
+ * <li>{@code extent.depth} <b>must</b> be a multiple of the compressed texel block depth or ({@code extent.depth} + {@code srcOffset.z}) <b>must</b> equal the source
+ * image subresource depth</li>
+ * <li>If the calling command's {@code dstImage} is a compressed format image:</li>
+ * <li>all members of {@code dstOffset} <b>must</b> be a multiple of the corresponding dimensions of the compressed texel block</li>
+ * <li>{@code extent.width} <b>must</b> be a multiple of the compressed texel block width or ({@code extent.width} + {@code dstOffset.x}) <b>must</b> equal the
+ * destination image subresource width</li>
+ * <li>{@code extent.height} <b>must</b> be a multiple of the compressed texel block height or ({@code extent.height} + {@code dstOffset.y}) <b>must</b> equal the
+ * destination image subresource height</li>
+ * <li>{@code extent.depth} <b>must</b> be a multiple of the compressed texel block depth or ({@code extent.depth} + {@code dstOffset.z}) <b>must</b> equal the
+ * destination image subresource depth</li>
+ * <li>{@code srcOffset}, {@code dstOffset}, and {@code extent} <b>must</b> respect the image transfer granularity requirements of the queue family that it will
+ * be submitted against, as described in Physical Device Enumeration</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageCopy {

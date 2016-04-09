@@ -15,6 +15,29 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineColorBlendAttachmentState.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineColorBlendAttachmentState">Vulkan Specification</a>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code srcColorBlendFactor} <b>must</b> be a valid {@code VkBlendFactor} value</li>
+ * <li>{@code dstColorBlendFactor} <b>must</b> be a valid {@code VkBlendFactor} value</li>
+ * <li>{@code colorBlendOp} <b>must</b> be a valid {@code VkBlendOp} value</li>
+ * <li>{@code srcAlphaBlendFactor} <b>must</b> be a valid {@code VkBlendFactor} value</li>
+ * <li>{@code dstAlphaBlendFactor} <b>must</b> be a valid {@code VkBlendFactor} value</li>
+ * <li>{@code alphaBlendOp} <b>must</b> be a valid {@code VkBlendOp} value</li>
+ * <li>{@code colorWriteMask} <b>must</b> be a valid combination of {@code VkColorComponentFlagBits} values</li>
+ * <li>If the dual source blending feature is not enabled, {@code srcColorBlendFactor} <b>must not</b> be {@link #BLEND_SRC1_COLOR}, {@link #BLEND_ONE_MINUS_SRC1_COLOR},
+ * {@link #BLEND_SRC1_ALPHA}, or {@link #BLEND_ONE_MINUS_SRC1_ALPHA}</li>
+ * <li>If the dual source blending feature is not enabled, {@code dstColorBlendFactor} <b>must not</b> be {@link #BLEND_SRC1_COLOR}, {@link #BLEND_ONE_MINUS_SRC1_COLOR},
+ * {@link #BLEND_SRC1_ALPHA}, or {@link #BLEND_ONE_MINUS_SRC1_ALPHA}</li>
+ * <li>If the dual source blending feature is not enabled, {@code srcAlphaBlendFactor} <b>must not</b> be {@link #BLEND_SRC1_COLOR}, {@link #BLEND_ONE_MINUS_SRC1_COLOR},
+ * {@link #BLEND_SRC1_ALPHA}, or {@link #BLEND_ONE_MINUS_SRC1_ALPHA}</li>
+ * <li>If the dual source blending feature is not enabled, {@code dstAlphaBlendFactor} <b>must not</b> be {@link #BLEND_SRC1_COLOR}, {@link #BLEND_ONE_MINUS_SRC1_COLOR},
+ * {@link #BLEND_SRC1_ALPHA}, or {@link #BLEND_ONE_MINUS_SRC1_ALPHA}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineColorBlendAttachmentState {

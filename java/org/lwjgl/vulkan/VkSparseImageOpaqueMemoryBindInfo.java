@@ -15,6 +15,21 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSparseImageOpaqueMemoryBindInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSparseImageOpaqueMemoryBindInfo">Vulkan Specification</a>
+ * 
+ * <p>Describes a memory binding to an opaque region of a {@code VkImage} object.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+ * <li>{@code pBinds} <b>must</b> be a pointer to an array of {@code bindCount} valid {@link VkSparseMemoryBind} structures</li>
+ * <li>{@code bindCount} <b>must</b> be greater than 0</li>
+ * <li>For any given element of {@code pBinds}, if the {@code flags} member of that element contains {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range
+ * defined <b>must</b> be within the mip tail region of the metadata aspect of {@code image}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSparseImageOpaqueMemoryBindInfo {
@@ -22,6 +37,14 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t bindCount;
     const VkSparseMemoryBind * pBinds;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>image</td><td>the {@code VkImage} object to be bound</td></tr>
+ * <tr><td>bindCount</td><td>the number of {@code VkSparseMemoryBind} structures in the {@code pBinds} array</td></tr>
+ * <tr><td>pBinds</td><td>a pointer to array of {@link VkSparseMemoryBind} structures</td></tr>
+ * </table>
  */
 public class VkSparseImageOpaqueMemoryBindInfo extends Struct {
 

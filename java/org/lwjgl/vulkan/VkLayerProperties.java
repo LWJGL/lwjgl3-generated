@@ -14,6 +14,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkLayerProperties.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkLayerProperties">Vulkan Specification</a>
+ * 
+ * <p>Contains information about an instance layer.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkLayerProperties {
@@ -22,6 +27,15 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t implementationVersion;
     char[256] description;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>layerName</td><td>a null-terminated UTF-8 string specifying the name of the layer</td></tr>
+ * <tr><td>specVersion</td><td>the Vulkan version the layer was written to</td></tr>
+ * <tr><td>implementationVersion</td><td>the version of this layer</td></tr>
+ * <tr><td>description</td><td>a null-terminated UTF-8 string providing additional details that can be used by the application to identify the layer</td></tr>
+ * </table>
  */
 public class VkLayerProperties extends Struct {
 

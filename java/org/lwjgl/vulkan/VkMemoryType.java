@@ -14,12 +14,25 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkMemoryType.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkMemoryType">Vulkan Specification</a>
+ * 
+ * <p>Contains information about a memory type.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkMemoryType {
     VkMemoryPropertyFlags propertyFlags;
     uint32_t heapIndex;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>propertyFlags</td><td>a bitmask of {@code VkMemoryPropertyFlagBits} properties for this memory type</td></tr>
+ * <tr><td>heapIndex</td><td>describes which memory heap this memory type corresponds to, and <b>must</b> be less than {@code memoryHeapCount} from the {@link VkPhysicalDeviceMemoryProperties}
+ * structure</td></tr>
+ * </table>
  */
 public class VkMemoryType extends Struct {
 

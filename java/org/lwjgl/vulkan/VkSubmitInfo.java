@@ -15,6 +15,50 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSubmitInfo.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSubmitInfo">Vulkan Specification</a>
+ * 
+ * <p>Contains information about a batch of work.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_SUBMIT_INFO STRUCTURE_TYPE_SUBMIT_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>If {@code waitSemaphoreCount} is not 0, {@code pWaitSemaphores} <b>must</b> be a pointer to an array of {@code waitSemaphoreCount} valid
+ * {@code VkSemaphore} handles</li>
+ * <li>If {@code waitSemaphoreCount} is not 0, {@code pWaitDstStageMask} <b>must</b> be a pointer to an array of {@code waitSemaphoreCount} valid combinations
+ * of {@code VkPipelineStageFlagBits} values</li>
+ * <li>Each element of {@code pWaitDstStageMask} <b>must not</b> be 0</li>
+ * <li>If {@code commandBufferCount} is not 0, {@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} valid
+ * {@code VkCommandBuffer} handles</li>
+ * <li>If {@code signalSemaphoreCount} is not 0, {@code pSignalSemaphores} <b>must</b> be a pointer to an array of {@code signalSemaphoreCount} valid
+ * {@code VkSemaphore} handles</li>
+ * <li>Each of the elements of {@code pWaitSemaphores}, the elements of {@code pCommandBuffers} and the elements of {@code pSignalSemaphores} that are
+ * valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+ * <li>Any given element of {@code pSignalSemaphores} <b>must</b> currently be unsignalled</li>
+ * <li>Any given element of {@code pCommandBuffers} <b>must</b> either have been recorded with the {@link VK10#VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}, or not currently
+ * be executing on the device</li>
+ * <li>Any given element of {@code pCommandBuffers} <b>must</b> be in the executable state</li>
+ * <li>If any given element of {@code pCommandBuffers} contains commands that execute secondary command buffers, those secondary command buffers <b>must</b>
+ * have been recorded with the {@link VK10#VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}, or not currently be executing on the device</li>
+ * <li>If any given element of {@code pCommandBuffers} was created with {@link VK10#VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT}, it <b>must not</b> have been previously
+ * submitted without re-recording that command buffer</li>
+ * <li>If any given element of {@code pCommandBuffers} contains commands that execute secondary command buffers created with
+ * {@link VK10#VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT}, each such secondary command buffer <b>must not</b> have been previously submitted without re-recording that
+ * command buffer</li>
+ * <li>Any given element of {@code pCommandBuffers} <b>must not</b> contain commands that execute a secondary command buffer, if that secondary command buffer
+ * has been recorded in another primary command buffer after it was recorded into this {@code VkCommandBuffer}</li>
+ * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been created on a {@code VkCommandPool} that was created for the same queue family that the
+ * calling command's {@code queue} belongs to</li>
+ * <li>Any given element of {@code pCommandBuffers} <b>must not</b> have been created with {@link VK10#VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
+ * <li>Any given element of {@code VkSemaphore} in {@code pWaitSemaphores} <b>must</b> refer to a prior signal of that {@code VkSemaphore} that won't be
+ * consumed by any other wait on that semaphore</li>
+ * <li>If the geometry shaders feature is not enabled, any given element of {@code pWaitDstStageMask} <b>must not</b> contain {@link VK10#VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+ * <li>If the tessellation shaders feature is not enabled, any given element of {@code pWaitDstStageMask} <b>must not</b> contain
+ * {@link VK10#VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or {@link VK10#VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSubmitInfo {
@@ -32,7 +76,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>waitSemaphoreCount</td><td>the number of semaphores upon which to wait before executing the command buffers for the batch</td></tr>
+ * <tr><td>pWaitSemaphores</td><td>a pointer to an array of semaphores upon which to wait before executing the command buffers in the batch</td></tr>
+ * <tr><td>pWaitDstStageMask</td><td>a pointer to an array of pipeline stages at which each corresponding semaphore wait will occur</td></tr>
+ * <tr><td>commandBufferCount</td><td>contains the number of command buffers to execute in the batch</td></tr>
+ * <tr><td>pCommandBuffers</td><td>a pointer to an array of command buffers to execute in the batch</td></tr>
+ * <tr><td>signalSemaphoreCount</td><td>the number of semaphores to be signaled once the commands specified in {@code pCommandBuffers} have completed execution</td></tr>
+ * <tr><td>pSignalSemaphores</td><td>a pointer to an array of semaphores which will be signaled when the command buffers for this batch have completed execution</td></tr>
  * </table>
  */
 public class VkSubmitInfo extends Struct {

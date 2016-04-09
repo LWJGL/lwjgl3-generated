@@ -15,6 +15,26 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSparseMemoryBind.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSparseMemoryBind">Vulkan Specification</a>
+ * 
+ * <p>Describes a sparse memory binding.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>If {@code memory} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
+ * <li>{@code flags} <b>must</b> be a valid combination of {@code VkSparseMemoryBindFlagBits} values</li>
+ * <li>If {@code memory} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code memory} and {@code memoryOffset} <b>must</b> match the memory requirements of the resource</li>
+ * <li>If {@code memory} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must not</b> have been created with a memory type that reports
+ * {@link VK10#VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} bit set</li>
+ * <li>{@code size} <b>must</b> be greater than 0</li>
+ * <li>{@code resourceOffset} <b>must</b> be less than the size of the resource</li>
+ * <li>{@code size} <b>must</b> be less than or equal to the size of the resource minus {@code resourceOffset}</li>
+ * <li>{@code memoryOffset} <b>must</b> be less than the size of {@code memory}</li>
+ * <li>{@code size} <b>must</b> be less than or equal to the size of {@code memory} minus {@code memoryOffset}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSparseMemoryBind {
@@ -24,6 +44,16 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize memoryOffset;
     VkSparseMemoryBindFlags flags;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>resourceOffset</td><td>the offset into the resource</td></tr>
+ * <tr><td>size</td><td>the size of the memory region to be bound</td></tr>
+ * <tr><td>memory</td><td>the {@code VkDeviceMemory} object that the range of the resource is bound to</td></tr>
+ * <tr><td>memoryOffset</td><td>the offset into the {@code VkDeviceMemory} object to bind the resource range to</td></tr>
+ * <tr><td>flags</td><td>are sparse memory binding flags</td></tr>
+ * </table>
  */
 public class VkSparseMemoryBind extends Struct {
 

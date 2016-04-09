@@ -15,6 +15,20 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkComponentMapping.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkComponentMapping">Vulkan Specification</a>
+ * 
+ * <p>Describes a remapping from components of the image to components of the vector returned by shader image instructions.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code r} <b>must</b> be a valid {@code VkComponentSwizzle} value</li>
+ * <li>{@code g} <b>must</b> be a valid {@code VkComponentSwizzle} value</li>
+ * <li>{@code b} <b>must</b> be a valid {@code VkComponentSwizzle} value</li>
+ * <li>{@code a} <b>must</b> be a valid {@code VkComponentSwizzle} value</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkComponentMapping {
@@ -23,6 +37,15 @@ import static org.lwjgl.system.MemoryStack.*;
     VkComponentSwizzle b;
     VkComponentSwizzle a;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>r</td><td>the value placed in the r component of the output vector</td></tr>
+ * <tr><td>g</td><td>the value placed in the g component of the output vector</td></tr>
+ * <tr><td>b</td><td>the value placed in the b component of the output vector</td></tr>
+ * <tr><td>a</td><td>the value placed in the a component of the output vector</td></tr>
+ * </table>
  */
 public class VkComponentMapping extends Struct {
 

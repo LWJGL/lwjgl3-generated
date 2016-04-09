@@ -14,12 +14,24 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkMemoryHeap.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkMemoryHeap">Vulkan Specification</a>
+ * 
+ * <p>Contains information about a memory heap.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkMemoryHeap {
     VkDeviceSize size;
     VkMemoryHeapFlags flags;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>size</td><td>the total memory size in bytes in the heap</td></tr>
+ * <tr><td>flags</td><td>a bitmask of {@code VkMemoryHeapFlagBits} attribute flags for the heap</td></tr>
+ * </table>
  */
 public class VkMemoryHeap extends Struct {
 
