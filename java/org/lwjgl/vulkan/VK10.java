@@ -2726,7 +2726,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
 	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
-	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of an instance layer returned by flink:vkEnumerateInstanceLayerProperties</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of an instance layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
 	 * </ul>
 	 * 
 	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
@@ -2800,7 +2800,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
 	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
-	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a device layer returned by flink:vkEnumerateDeviceLayerProperties</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a device layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
 	 * </ul>
 	 * 
 	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
@@ -7978,13 +7978,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
 	 * <li>Each of {@code commandBuffer}, {@code srcBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same
 	 * {@code VkDevice}</li>
-	 * <li>The {@code copySize} member of a given element of {@code pRegions} <b>must</b> be greater than 0</li>
+	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be greater than 0</li>
 	 * <li>The {@code srcOffset} member of a given element of {@code pRegions} <b>must</b> be less than the size of {@code srcBuffer}</li>
 	 * <li>The {@code dstOffset} member of a given element of {@code pRegions} <b>must</b> be less than the size of {@code dstBuffer}</li>
-	 * <li>The {@code copySize} member of a given element of {@code pRegions} <b>must</b> be less than or equal to the size of {@code srcBuffer} minus
-	 * {@code srcOffset}</li>
-	 * <li>The {@code copySize} member of a given element of {@code pRegions} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus
-	 * {@code dstOffset}</li>
+	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be less than or equal to the size of {@code srcBuffer} minus {@code srcOffset}</li>
+	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
 	 * <li>The union of the source regions, and the union of the destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
 	 * memory</li>
 	 * <li>{@code srcBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} usage flag</li>
@@ -9572,7 +9570,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferBeginInfo}{@code ::queryFlags} having all bits set that are set for the query</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded
-	 * with {@link VkCommandBufferBeginInfo}{@code ::pipelineStatistics} having all bits set that are set in the {@code VkQueryPool} the query uses</li>
+	 * with {@link VkCommandBufferInheritanceInfo}{@code ::pipelineStatistics} having all bits set that are set in the {@code VkQueryPool} the query uses</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> begin any query types that are active in {@code commandBuffer}</li>
 	 * </ul>
 	 * 

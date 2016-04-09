@@ -95,8 +95,8 @@ public class KHRWin32Surface {
 	 * 
 	 * <ul>
 	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-	 * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} for the
-	 * given {@code physicalDevice}</li>
+	 * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} for the given
+	 * {@code physicalDevice}</li>
 	 * </ul>
 	 *
 	 * @param physicalDevice   the physical device

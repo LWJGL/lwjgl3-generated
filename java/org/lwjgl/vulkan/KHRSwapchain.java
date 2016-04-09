@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class KHRSwapchain {
 
 	/** The extension specification version. */
-	public static final int VK_KHR_SWAPCHAIN_SPEC_VERSION = 67;
+	public static final int VK_KHR_SWAPCHAIN_SPEC_VERSION = 68;
 
 	/** The extension name. */
 	public static final String VK_KHR_SWAPCHAIN_EXTENSION_NAME = "VK_KHR_swapchain";
@@ -80,13 +80,29 @@ public class KHRSwapchain {
 	 * 
 	 * <p>The presentation engine is an abstraction for the platform’s compositor or hardware/software display engine.</p>
 	 * 
+	 * <p>The presentation engine may: be synchronous or asynchronous with respect to the application and/or logical device.</p>
+	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
 	 * <p>Some implementations may use the device’s graphics queue or dedicated presentation hardware to perform presentation.</p>
 	 * </div>
 	 * 
-	 * <p>The presentable images of a swapchain are always owned by either the application or the presentation engine, and never both simultaneously.
-	 * Applications <b>must not</b> access the presentable image when they do not own the image.</p>
+	 * <p>The presentable images of a swapchain are owned by the presentation engine. An application <b>can</b> acquire use of a presentable image from the
+	 * presentation engine. Use of a presentable image <b>must</b> occur only after the image is returned by {@link #vkAcquireNextImageKHR AcquireNextImageKHR}, and before it is presented by
+	 * {@link #vkQueuePresentKHR QueuePresentKHR}. This includes transitioning the image layout and rendering commands.</p>
+	 * 
+	 * <p>An application <b>can</b> acquire use of a presentable image with {@link #vkAcquireNextImageKHR AcquireNextImageKHR}. After acquiring a presentable image and before modifying it, the
+	 * application <b>must</b> use a synchronization primitive to ensure that the presentation engine has finished reading from the image. The application <b>can</b> then
+	 * transition the image's layout, queue rendering commands to it, etc. Finally, the application presents the image with {@link #vkQueuePresentKHR QueuePresentKHR}, which releases
+	 * the acquisition of the image.</p>
+	 * 
+	 * <p>The presentation engine controls the order in which presentable images are acquired for use by the application.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>This allows the platform to handle situations which require out-of-order return of images after presentation. At the same time, it allows the
+	 * application to generate command buffers referencing all of the images in the swapchain at initialization time, rather than in its main loop.</p>
+	 * </div>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -106,15 +122,6 @@ public class KHRSwapchain {
 	 * 
 	 * <p>If {@code vkCreateSwapchainKHR} succeeds, it will return a handle to a swapchain that contains an array of at least {@code minImageCount} presentable
 	 * images.</p>
-	 * 
-	 * <p>When a swapchain is created, all its associated presentable images are owned by the presentation engine targeted by the swapchain. The presentation
-	 * engine controls the order in which presentable images are available for use by the application.</p>
-	 * 
-	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-	 * 
-	 * <p>This allows the platform to handle situations which require out-of-order return of images after presentation. At the same time, it allows the
-	 * application to generate command buffers referencing all of the images in the swapchain at initialization time, rather than in its main loop.</p>
-	 * </div>
 	 * 
 	 * <p>The {@code VkSurfaceKHR} associated with a swapchain <b>must not</b> be destroyed until after the swapchain is destroyed.</p>
 	 * 
@@ -164,8 +171,8 @@ public class KHRSwapchain {
 	/**
 	 * Destroys a swapchain object.
 	 * 
-	 * <p>{@code swapchain} and all associated {@code VkImage} handles are destroyed, and <b>must not</b> be owned or used any more by the application. The memory of
-	 * each {@code VkImage} will only be freed after that image is no longer used by the platform. For example, if one image of the swapchain is being
+	 * <p>{@code swapchain} and all associated {@code VkImage} handles are destroyed, and <b>must</b> not be acquired or used any more by the application. The memory
+	 * of each {@code VkImage} will only be freed after that image is no longer used by the platform. For example, if one image of the swapchain is being
 	 * displayed in a window, the memory for that image may not be freed until the window is destroyed, or another swapchain is created for the window.
 	 * Destroying the swapchain does not invalidate the parent {@code VkSurfaceKHR}, and a new swapchain can be created with it.</p>
 	 * 
@@ -177,7 +184,7 @@ public class KHRSwapchain {
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>Each of {@code swapchain} and {@code device} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
 	 * {@code VkInstance}</li>
-	 * <li>All uses of presentable images acquired from {@code swapchain} and owned by the application <b>must</b> have completed execution</li>
+	 * <li>All uses of presentable images acquired from {@code swapchain} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code swapchain} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code swapchain} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -274,23 +281,60 @@ public class KHRSwapchain {
 	}
 
 	/**
-	 * Retrieves the index of the next available presentable image.
+	 * Acquires an available presentable image to use, and retrieves the index of that image.
 	 * 
-	 * <p>When successful, {@code vkAcquireNextImageKHR} retrieves the index of a presentable image that the application will be able to use. The presentation
-	 * engine may still own the image, as the presentation engine may be in the process of releasing the image when {@code vkAcquireNextImageKHR} returns. The
-	 * application will own the image when {@code semaphore} and/or {@code fence} is signaled by the presentation engine. Additional details follow.</p>
+	 * <h5>Valid Usage</h5>
 	 * 
-	 * <p>If {@code timeout} is 0, {@code vkAcquireNextImageKHR} will not block, but will either succeed or return an error. If {@code timeout} is
-	 * {@code UINT64_MAX}, the function will not return until the presentation engine will be able to release ownership of the image within finite time. For
-	 * example, if the presentation engine owns only the image currently being displayed and no other images are presented, {@code vkAcquireNextImageKHR} <b>may</b>
-	 * block indefinitely. Other values for {@code timeout} will cause the function to return when an image becomes available, or when the specified number of
-	 * nanoseconds have passed (in which case it will return an error).</p>
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
+	 * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code semaphore} <b>must</b> be a valid {@code VkSemaphore} handle</li>
+	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
+	 * <li>{@code pImageIndex} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code swapchain}, {@code device}, {@code semaphore} and {@code fence} that are valid handles <b>must</b> have been created, allocated or
+	 * retrieved from the same {@code VkInstance}</li>
+	 * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignalled</li>
+	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignalled and <b>must not</b> be associated with any other queue command that has not yet completed
+	 * execution on that queue</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code swapchain} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code semaphore} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <p>When successful, {@code vkAcquireNextImageKHR} acquires a presentable image that the application can use, and sets {@code pImageIndex} to the index of
+	 * that image. The presentation engine may not have finished reading from the image at the time it is acquired, so the application <b>must</b> use
+	 * {@code semaphore} and/or {@code fence} to ensure that the image layout and contents are not modified until the presentation engine reads have
+	 * completed.</p>
 	 * 
 	 * <p>The presentation engine controls the order in which presentable images are made available to the application. This allows the platform to handle
-	 * special situations, and not always give ownership of images in the same order as it previously did. If the swapchain has enough presentable images,
-	 * applications <b>can</b> acquire ownership of multiple images before presenting any, and then present them in a different order in which they were acquired.</p>
+	 * special situations. The order in which images are acquired is implementation-dependent. Images <b>may</b> be acquired in a seemingly random order that is not
+	 * a simple round-robin.</p>
 	 * 
-	 * <p>{@code vkAcquireNextImageKHR} <b>may</b> not block, and applications <b>cannot</b> rely on blocking in order to meter their rendering speed.</p>
+	 * <p>If a swapchain has enough presentable images, applications <b>can</b> acquire multiple images without an intervening {@link #vkQueuePresentKHR QueuePresentKHR}. Applications <b>can</b>
+	 * present images in a different order than the order in which they were acquired.</p>
+	 * 
+	 * <p>If {@code timeout} is 0, {@code vkAcquireNextImageKHR} will not block, but will either succeed or return {@link VK10#VK_TIMEOUT TIMEOUT}. If {@code timeout} is
+	 * {@code UINT64_MAX}, the function will not return until an image is acquired from the presentation engine. Other values for {@code timeout} will cause
+	 * the function to return when an image becomes available, or when the specified number of nanoseconds have passed (in which case it will return
+	 * {@link VK10#VK_TIMEOUT TIMEOUT}). An error can also cause {@code vkAcquireNextImageKHR} to return early.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>As mentioned above, the presentation engine may be asynchronous with respect to the application and/or logical device.
+	 * {@code vkAcquireNextImageKHR} <b>may</b> return as soon as it can identify which image will be acquired, and can guarantee that {@code semaphore} and
+	 * {@code fence} will be signaled by the presentation engine; and <b>may</b> not successfully return sooner. The application uses {@code timeout} to specify
+	 * how long {@code vkAcquireNextImageKHR} waits for an image to become acquired.</p>
+	 * </div>
+	 * 
+	 * <p>Applications <b>cannot</b> rely on {@code vkAcquireNextImageKHR} blocking in order to meter their rendering speed. Various factors <b>can</b> interrupt
+	 * {@code vkAcquireNextImageKHR} from blocking.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
@@ -300,36 +344,39 @@ public class KHRSwapchain {
 	 * </div>
 	 * 
 	 * <p>The availability of presentable images is influenced by factors such as the implementation of the presentation engine, the {@code VkPresentModeKHR}
-	 * being used, the number of images in the swapchain, the number of images that the application owns at any given time, and the performance of the
+	 * being used, the number of images in the swapchain, the number of images that the application has acquired at any given time, and the performance of the
 	 * application. The value of {@link VkSurfaceCapabilitiesKHR}{@code ::minImageCount} indicates how many images <b>must</b> be in the swapchain in order for
-	 * {@code vkAcquireNextImageKHR} to return an image in finite time if the application currently doesn’t own an image.</p>
+	 * {@code vkAcquireNextImageKHR} to acquire an image if the application currently has no acquired images.</p>
+	 * 
+	 * <p>Let {@code n} be the total number of images in the swapchain, {@code m} be the value of {@link VkSurfaceCapabilitiesKHR}{@code ::minImageCount}, and
+	 * {@code a} be the number of presentable images that the application has currently acquired (i.e. images acquired with {@code vkAcquireNextImageKH}R, but
+	 * not yet presented with {@link #vkQueuePresentKHR QueuePresentKHR}). {@code vkAcquireNextImageKHR} <b>can</b> always succeed if {@code a <= n - m} at the time
+	 * {@code vkAcquireNextImageKHR} is called. {@code vkAcquireNextImageKHR} <b>must</b> not be called when {@code a > n - m}; in such a case, and if
+	 * {@code timeout} is {@code UINT64_MAX}, {@code vkAcquireNextImageKHR} <b>may</b> block indefinitely.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
-	 * <p>For example, if the {@code minImageCount} member of {@link VkSurfaceCapabilitiesKHR} is 2, and the application wishes to use
-	 * {@link KHRSurface#VK_PRESENT_MODE_FIFO_KHR PRESENT_MODE_FIFO_KHR} and maintain ownership of up to 3 presentable images simultaneously, it <b>must</b> request a minimum image count of 4
-	 * when creating the swapchain. That will allow a presentable image to always become available in finite time (e.g. the image currently being
-	 * displayed) as long as the number of images the application owns prior to the {@code vkAcquireNextImageKHR} call is less than 3. If we modify this
-	 * example, so that the application creates a swapchain on the same surface, but with 5 images and a presentMode of
-	 * {@link KHRSurface#VK_PRESENT_MODE_MAILBOX_KHR PRESENT_MODE_MAILBOX_KHR}, a presentable image will always be available in zero time (i.e. {@code vkAcquireNextImageKHR} will never
-	 * block).</p>
+	 * <p>For example, if the {@code minImageCount} member of {@link VkSurfaceCapabilitiesKHR} is 2, and the application creates a swapchain with 2 presentable
+	 * images, the application can: acquire one image, and <b>must</b> present it before trying to acquire another image.</p>
+	 * 
+	 * <p>If we modify this example so that the application wishes to acquire up to 3 presentable images simultaneously, it <b>must</b> request a minimum image
+	 * count of 4 when creating the swapchain.</p>
 	 * </div>
 	 * 
 	 * <p>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, the semaphore <b>must</b> be unsignaled and not have any uncompleted signal or wait operations pending. It will
-	 * become signaled when the presentation engine has released ownership of the image, and the device may modify its contents. Queue operations that access
-	 * the image contents <b>must</b> wait until the semaphore signals; typically applications <b>should</b> include the semaphore in the {@code pWaitSemaphores} list for
-	 * the queue submission that transitions the image away from the {@link #VK_IMAGE_LAYOUT_PRESENT_SRC_KHR IMAGE_LAYOUT_PRESENT_SRC_KHR} layout. Use of the semaphore allows rendering operations to
-	 * be recorded and submitted before the presentation engine releases ownership.</p>
+	 * become signaled when the application <b>can</b> use the image. Queue operations that access the image contents <b>must</b> wait until the semaphore signals;
+	 * typically applications should: include the semaphore in the {@code pWaitSemaphores} list for the queue submission that transitions the image away from
+	 * the {@link #VK_IMAGE_LAYOUT_PRESENT_SRC_KHR IMAGE_LAYOUT_PRESENT_SRC_KHR} layout. Use of the semaphore allows rendering operations to be recorded and submitted before the presentation engine
+	 * has completed its use of the image.</p>
 	 * 
 	 * <p>If {@code fence} is not equal to {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, the fence <b>must</b> be unsignaled and not have any uncompleted signal operations pending. It will become
-	 * signaled when the presentation engine has released ownership of the image. Applications <b>can</b> use this to meter their frame generation work to match the
-	 * presentation rate.</p>
+	 * signaled when the application <b>can</b> use the image. Applications <b>can</b> use this to meter their frame generation work to match the presentation rate.</p>
 	 * 
 	 * <p>{@code semaphore} and {@code fence} <b>must</b> not both be equal to {@link VK10#VK_NULL_HANDLE NULL_HANDLE}. An application <b>must</b> wait until either the {@code semaphore} or
 	 * {@code fence} is signaled before using the presentable image.</p>
 	 * 
 	 * <p>{@code semaphore} and {@code fence} <b>may</b> already be signaled when {@code vkAcquireNextImageKHR} returns, if the image is being acquired for the first
-	 * time, or if the presentation engine has already released its ownership.</p>
+	 * time, or if the presentable image is immediately ready for use.</p>
 	 * 
 	 * <p>A successful call to {@code vkAcquireNextImageKHR} counts as a signal operation on semaphore for the purposes of queue forward-progress requirements.
 	 * The semaphore is guaranteed to signal, so a wait operation <b>can</b> be queued for the semaphore without risk of deadlock.</p>
@@ -378,31 +425,6 @@ public class KHRSwapchain {
 	 * <li>{@link #VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR} is returned if the surface has changed in such a way that it is no longer compatible with the swapchain, and further
 	 * presentation requests using the swapchain will fail. Applications <b>must</b> query the new surface properties and recreate their swapchain if they wish
 	 * to continue presenting to the surface.</li>
-	 * </ul>
-	 * 
-	 * <h5>Valid Usage</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-	 * <li>{@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
-	 * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code semaphore} <b>must</b> be a valid {@code VkSemaphore} handle</li>
-	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
-	 * <li>{@code pImageIndex} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code swapchain}, {@code device}, {@code semaphore} and {@code fence} that are valid handles <b>must</b> have been created, allocated or
-	 * retrieved from the same {@code VkInstance}</li>
-	 * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignalled</li>
-	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignalled and <b>must not</b> be associated with any other queue command that has not yet completed
-	 * execution on that queue</li>
-	 * </ul>
-	 * 
-	 * <h5>Host Synchronization</h5>
-	 * 
-	 * <ul>
-	 * <li>Host access to {@code swapchain} <b>must</b> be externally synchronized</li>
-	 * <li>Host access to {@code semaphore} <b>must</b> be externally synchronized</li>
-	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <p>If the native surface and presented image sizes no longer match, presentation may not succeed. If presentation does succeed, parts of the native
@@ -470,14 +492,13 @@ public class KHRSwapchain {
 	 * <li>Host access to {@code pPresentInfo.pSwapchains}[] <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
-	 * <p>When the application calls {@code vkQueuePresentKHR}, it releases ownership of the images referenced by {@code imageIndices} to the presentation
-	 * engine. The presented images <b>must not</b> be used again until the application regains control of them using {@link #vkAcquireNextImageKHR AcquireNextImageKHR} (and waiting until the
-	 * returned semaphore is signaled or fence is completed).</p>
+	 * <p>{@code vkQueuePresentKH}R, releases the acquisition of the images referenced by {@code imageIndices}. A presented images <b>must</b> not be used again before
+	 * it has been reacquired using {@link #vkAcquireNextImageKHR AcquireNextImageKHR}.</p>
 	 * 
-	 * <p>The transfer of ownership to the presentation engine happens in issue order with other queue operations, but semaphores have to be used to ensure that
-	 * prior rendering and other commands in the specified queue complete before the presentation operation. The presentation operation itself does not delay
-	 * processing of subsequent commands on the queue, however, presentation requests sent to a particular queue are always performed in order. Exact
-	 * presentation timing is controled by the semantics of the presentation engine and native platform in use.</p>
+	 * <p>The processing of the presentation happens in issue order with other queue operations, but semaphores have to be used to ensure that prior rendering
+	 * and other commands in the specified queue complete before the presentation begins. The presentation command itself does not delay processing of
+	 * subsequent commands on the queue, however, presentation requests sent to a particular queue are always performed in order. Exact presentation timing is
+	 * controled by the semantics of the presentation engine and native platform in use.</p>
 	 * 
 	 * <p>The result codes {@link #VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR} and {@link #VK_SUBOPTIMAL_KHR SUBOPTIMAL_KHR} have the same meaning when returned by {@code vkQueuePresentKHR} as they do when returned
 	 * by {@link #vkAcquireNextImageKHR AcquireNextImageKHR}. If multiple swapchains are presented, the result code is determined applying the following rules in order:</p>
