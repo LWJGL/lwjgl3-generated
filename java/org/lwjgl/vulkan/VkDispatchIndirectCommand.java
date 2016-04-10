@@ -17,6 +17,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDispatchIndirectCommand.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDispatchIndirectCommand">Vulkan Specification</a>
  * 
+ * <p>Describes an indirect dispatch command.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -32,6 +34,14 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t y;
     uint32_t z;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>x</td><td>the number of local workgroups to dispatch in the X dimension</td></tr>
+ * <tr><td>y</td><td>the number of local workgroups to dispatch in the Y dimension</td></tr>
+ * <tr><td>z</td><td>the number of local workgroups to dispatch in the Z dimension</td></tr>
+ * </table>
  */
 public class VkDispatchIndirectCommand extends Struct {
 

@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkComputePipelineCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkComputePipelineCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about how a compute pipeline should be created.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -59,8 +61,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>provides options for pipeline creation, and is of type {@code VkPipelineCreateFlagBits}</td></tr>
+ * <tr><td>stage</td><td>a {@link VkPipelineShaderStageCreateInfo} describing the compute shader</td></tr>
+ * <tr><td>layout</td><td>the description of binding locations used by both the pipeline and descriptor sets used with the pipeline</td></tr>
+ * <tr><td>basePipelineHandle</td><td>a pipeline to derive from</td></tr>
+ * <tr><td>basePipelineIndex</td><td>an index into the {@code pCreateInfos} parameter to use as a pipeline to derive from</td></tr>
  * </table>
  */
 public class VkComputePipelineCreateInfo extends Struct {

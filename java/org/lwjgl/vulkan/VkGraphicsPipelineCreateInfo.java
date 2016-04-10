@@ -18,6 +18,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkGraphicsPipelineCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkGraphicsPipelineCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Includes an array of shader create info structures containing all the desired active shader stages, as well as creation info to define all relevant
+ * fixed-function stages, and a pipeline layout.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -143,8 +146,31 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>a bitfield of {@code VkPipelineCreateFlagBits} controlling how the pipeline will be generated</td></tr>
+ * <tr><td>stageCount</td><td>the number of entries in the {@code pStages} array</td></tr>
+ * <tr><td>pStages</td><td>an array of size {@code stageCount} structures of type {@link VkPipelineShaderStageCreateInfo} describing the set of the shader stages to be included in the
+ * graphics pipeline</td></tr>
+ * <tr><td>pVertexInputState</td><td>a pointer to an instance of the {@link VkPipelineVertexInputStateCreateInfo} structure</td></tr>
+ * <tr><td>pInputAssemblyState</td><td>a pointer to an instance of the {@link VkPipelineInputAssemblyStateCreateInfo} structure which determines input assembly behavior</td></tr>
+ * <tr><td>pTessellationState</td><td>a pointer to an instance of the {@link VkPipelineTessellationStateCreateInfo} structure, or {@code NULL} if the pipeline does not include a tessellation control
+ * shader stage and tessellation evaluation shader stage</td></tr>
+ * <tr><td>pViewportState</td><td>a pointer to an instance of the {@link VkPipelineViewportStateCreateInfo} structure, or {@code NULL} if the pipeline has rasterization disabled</td></tr>
+ * <tr><td>pRasterizationState</td><td>a pointer to an instance of the {@link VkPipelineRasterizationStateCreateInfo} structure</td></tr>
+ * <tr><td>pMultisampleState</td><td>a pointer to an instance of the {@link VkPipelineMultisampleStateCreateInfo}, or {@code NULL} if the pipeline has rasterization disabled</td></tr>
+ * <tr><td>pDepthStencilState</td><td>a pointer to an instance of the {@link VkPipelineDepthStencilStateCreateInfo} structure, or {@code NULL} if the pipeline has rasterization disabled or if the
+ * subpass of the render pass the pipeline is created against does not use a depth/stencil attachment</td></tr>
+ * <tr><td>pColorBlendState</td><td>a pointer to an instance of the {@link VkPipelineColorBlendStateCreateInfo} structure, or {@code NULL} if the pipeline has rasterization disabled or if the subpass
+ * of the render pass the pipeline is created against does not use any color attachments</td></tr>
+ * <tr><td>pDynamicState</td><td>a pointer to {@link VkPipelineDynamicStateCreateInfo} and is used to indicate which properties of the pipeline state object are dynamic and can be changed
+ * independently of the pipeline state. This can be {@code NULL}, which means no state in the pipeline is considered dynamic.</td></tr>
+ * <tr><td>layout</td><td>the description of binding locations used by both the pipeline and descriptor sets used with the pipeline</td></tr>
+ * <tr><td>renderPass</td><td>a handle to a render pass object describing the environment in which the pipeline will be used; the pipeline can be used with an instance of any render
+ * pass compatible with the one provided</td></tr>
+ * <tr><td>subpass</td><td>the index of the subpass in {@code renderPass} where this pipeline will be used</td></tr>
+ * <tr><td>basePipelineHandle</td><td>a pipeline to derive from</td></tr>
+ * <tr><td>basePipelineIndex</td><td>an index into the {@code pCreateInfos} parameter to use as a pipeline to derive from</td></tr>
  * </table>
  */
 public class VkGraphicsPipelineCreateInfo extends Struct {

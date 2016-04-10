@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkCommandBufferBeginInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkCommandBufferBeginInfo">Vulkan Specification</a>
  * 
+ * <p>Contrains information about a command buffer recording.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -44,8 +46,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>a combination of bitfield flags indicating usage behavior for the command buffer</td></tr>
+ * <tr><td>pInheritanceInfo</td><td>a pointer to a {@link VkCommandBufferInheritanceInfo} structure, which is used if {@code commandBuffer} is a secondary command buffer. If this is a primary
+ * command buffer, then this value is ignored.</td></tr>
  * </table>
  */
 public class VkCommandBufferBeginInfo extends Struct {

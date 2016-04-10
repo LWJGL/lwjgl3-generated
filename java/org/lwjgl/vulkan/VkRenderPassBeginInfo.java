@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkRenderPassBeginInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkRenderPassBeginInfo">Vulkan Specification</a>
  * 
+ * <p>Indicates the render pass to begin an instance of, and the framebuffer the instance uses.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -46,8 +48,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>renderPass</td><td>the render pass to begin an instance of</td></tr>
+ * <tr><td>framebuffer</td><td>the framebuffer containing the attachments that are used with the render pass</td></tr>
+ * <tr><td>renderArea</td><td>the render area that is affected by the render pass instance</td></tr>
+ * <tr><td>clearValueCount</td><td>the number of elements in {@code pClearValues}</td></tr>
+ * <tr><td>pClearValues</td><td>an array of {@link VkClearValue} structures that contains clear values for each attachment, if the attachment uses a {@code loadOp} value of
+ * {@link VK10#VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}. The array is indexed by attachment number, with elements corresponding to uncleared attachments being unused.</td></tr>
  * </table>
  */
 public class VkRenderPassBeginInfo extends Struct {

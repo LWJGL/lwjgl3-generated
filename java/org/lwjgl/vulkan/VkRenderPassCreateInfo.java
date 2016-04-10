@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkRenderPassCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkRenderPassCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about how a render pass should be created.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -59,8 +61,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>attachmentCount</td><td>the number of attachments used by this render pass, or zero indicating no attachments</td></tr>
+ * <tr><td>pAttachments</td><td>points to an array of {@code attachmentCount} number of {@link VkAttachmentDescription} structures describing properties of the attachments, or {@code NULL} if
+ * {@code attachmentCount} is zero</td></tr>
+ * <tr><td>subpassCount</td><td>the number of subpasses to create for this render pass</td></tr>
+ * <tr><td>pSubpasses</td><td>points to an array of {@code subpassCount} number of {@link VkSubpassDescription} structures describing properties of the subpasses</td></tr>
+ * <tr><td>dependencyCount</td><td>the number of dependencies between pairs of subpasses, or zero indicating no dependencies</td></tr>
+ * <tr><td>pDependencies</td><td>points to an array of {@code dependencyCount} number of {@link VkSubpassDependency} structures describing dependencies between pairs of subpasses, or {@code NULL}
+ * if {@code dependencyCount} is zero</td></tr>
  * </table>
  */
 public class VkRenderPassCreateInfo extends Struct {

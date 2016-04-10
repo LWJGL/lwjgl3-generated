@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * <tr><td>allocationSize</td><td>the size of the allocation in bytes</td></tr>
  * <tr><td>memoryTypeIndex</td><td>the memory type index, which selects the properties of the memory to be allocated, as well as the heap the memory will come from</td></tr>

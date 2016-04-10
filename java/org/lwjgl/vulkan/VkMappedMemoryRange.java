@@ -47,7 +47,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE STRUCTURE_TYPE_MAPPED_MEMORY_RANGE}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * <tr><td>memory</td><td>the memory object to which this range belongs</td></tr>
  * <tr><td>offset</td><td>the zero-based byte offset from the beginning of the memory object</td></tr>

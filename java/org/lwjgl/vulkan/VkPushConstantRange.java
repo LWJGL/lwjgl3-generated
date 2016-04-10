@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPushConstantRange.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPushConstantRange">Vulkan Specification</a>
  * 
+ * <p>Describes a push constant range.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -36,6 +38,14 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t offset;
     uint32_t size;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>stageFlags</td><td>a set of stage flags describing the shader stages that will access a range of push constants</td></tr>
+ * <tr><td>offset</td><td>the start offset, in bytes, consumed by the range</td></tr>
+ * <tr><td>size</td><td>the size, in bytes, consumed by the range</td></tr>
+ * </table>
  */
 public class VkPushConstantRange extends Struct {
 

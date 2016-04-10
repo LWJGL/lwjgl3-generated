@@ -18,12 +18,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkExtent2D.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkExtent2D">Vulkan Specification</a>
  * 
+ * <p>Describes a 2D extent.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkExtent2D {
     uint32_t width;
     uint32_t height;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>width</td><td>the width</td></tr>
+ * <tr><td>height</td><td>the height</td></tr>
+ * </table>
  */
 public class VkExtent2D extends Struct {
 

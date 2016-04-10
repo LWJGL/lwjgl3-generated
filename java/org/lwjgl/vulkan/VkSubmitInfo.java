@@ -76,7 +76,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_SUBMIT_INFO STRUCTURE_TYPE_SUBMIT_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * <tr><td>waitSemaphoreCount</td><td>the number of semaphores upon which to wait before executing the command buffers for the batch</td></tr>
  * <tr><td>pWaitSemaphores</td><td>a pointer to an array of semaphores upon which to wait before executing the command buffers in the batch</td></tr>

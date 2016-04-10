@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkAttachmentReference.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkAttachmentReference">Vulkan Specification</a>
  * 
+ * <p>Describes a render pass attachment and what layout the attachment image will be in during a subpass.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -30,6 +32,15 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t attachment;
     VkImageLayout layout;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>attachment</td><td>the index of the attachment of the render pass, and corresponds to the index of the corresponding element in the {@code pAttachments} array of the
+ * {@link VkRenderPassCreateInfo} structure. If any color or depth/stencil attachments are {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}, then no writes occur for those attachments.</td></tr>
+ * <tr><td>layout</td><td>a {@code VkImageLayout} value specifying the layout the attachment uses during the subpass. The implementation will automatically perform layout
+ * transitions as needed between subpasses to make each subpass use the requested layouts.</td></tr>
+ * </table>
  */
 public class VkAttachmentReference extends Struct {
 

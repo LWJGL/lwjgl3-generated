@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageBlit.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageBlit">Vulkan Specification</a>
  * 
+ * <p>Specifies an image region to blit.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -51,6 +53,15 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkImageSubresourceLayers VkImageSubresourceLayers} dstSubresource;
     {@link VkOffset3D VkOffset3D}[2] dstOffsets;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>srcSubresource</td><td>the source image subresource</td></tr>
+ * <tr><td>srcOffsets</td><td>the source region</td></tr>
+ * <tr><td>dstSubresource</td><td>the destination image subresource</td></tr>
+ * <tr><td>dstOffsets</td><td>the destination region</td></tr>
+ * </table>
  */
 public class VkImageBlit extends Struct {
 

@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineRasterizationStateCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineRasterizationStateCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about rasterization as part of graphics pipeline creation.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -52,8 +54,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>depthClampEnable</td><td>controls whether to clamp the fragment’s depth values instead of clipping primitives to the z planes of the frustum</td></tr>
+ * <tr><td>rasterizerDiscardEnable</td><td>controls whether primitives are discarded immediately before the rasterization stage</td></tr>
+ * <tr><td>polygonMode</td><td>the triangle rendering mode</td></tr>
+ * <tr><td>cullMode</td><td>the triangle facing direction used for primitive culling</td></tr>
+ * <tr><td>frontFace</td><td>the front-facing triangle orientation to be used for culling</td></tr>
+ * <tr><td>depthBiasEnable</td><td>controls whether to bias fragment depth values</td></tr>
+ * <tr><td>depthBiasConstantFactor</td><td>a scalar factor controlling the constant depth value added to each fragment</td></tr>
+ * <tr><td>depthBiasClamp</td><td>the maximum (or minimum) depth bias of a fragment</td></tr>
+ * <tr><td>depthBiasSlopeFactor</td><td>a scalar factor applied to a fragment’s slope in depth bias calculations</td></tr>
+ * <tr><td>lineWidth</td><td>the width of rasterized line segments</td></tr>
  * </table>
  */
 public class VkPipelineRasterizationStateCreateInfo extends Struct {

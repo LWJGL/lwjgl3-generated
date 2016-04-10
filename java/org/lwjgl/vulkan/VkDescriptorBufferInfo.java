@@ -34,6 +34,14 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize offset;
     VkDeviceSize range;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>buffer</td><td>the buffer resource</td></tr>
+ * <tr><td>offset</td><td>the offset in bytes from the start of buffer. Access to buffer memory via this descriptor uses addressing that is relative to this starting offset.</td></tr>
+ * <tr><td>range</td><td>the size in bytes that is used for this descriptor update, or {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE} to use the range from offset to the end of the buffer</td></tr>
+ * </table>
  */
 public class VkDescriptorBufferInfo extends Struct {
 

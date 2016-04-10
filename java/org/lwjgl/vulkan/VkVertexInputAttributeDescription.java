@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkVertexInputAttributeDescription.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkVertexInputAttributeDescription">Vulkan Specification</a>
  * 
+ * <p>Describes a vertex input attribute.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -37,6 +39,15 @@ import static org.lwjgl.system.MemoryStack.*;
     VkFormat format;
     uint32_t offset;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>location</td><td>the shader binding location number for this attribute</td></tr>
+ * <tr><td>binding</td><td>the binding number which this attribute takes its data from</td></tr>
+ * <tr><td>format</td><td>the size and type of the vertex attribute data</td></tr>
+ * <tr><td>offset</td><td>a byte offset of this attribute relative to the start of an element in the vertex input binding</td></tr>
+ * </table>
  */
 public class VkVertexInputAttributeDescription extends Struct {
 

@@ -18,6 +18,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkBufferMemoryBarrier.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkBufferMemoryBarrier">Vulkan Specification</a>
  * 
+ * <p>Specifies a buffer memory barrier. This type of barrier only applies to memory accesses involving a specific range of the specified buffer object. That
+ * is, a memory dependency formed from a buffer memory barrier is scoped to the specified range of the buffer. It is also used to transfer ownership of a
+ * buffer range from one queue family to another.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -54,8 +58,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>srcAccessMask</td><td>a mask of the classes of memory accesses performed by the first set of commands that will participate in the dependency</td></tr>
+ * <tr><td>dstAccessMask</td><td>a mask of the classes of memory accesses performed by the second set of commands that will participate in the dependency</td></tr>
+ * <tr><td>srcQueueFamilyIndex</td><td>the queue family that is relinquishing ownership of the range of buffer to another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of
+ * ownership</td></tr>
+ * <tr><td>dstQueueFamilyIndex</td><td>the queue family that is acquiring ownership of the range of buffer from another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of ownership</td></tr>
+ * <tr><td>buffer</td><td>a handle to the buffer whose backing memory is affected by the barrier</td></tr>
+ * <tr><td>offset</td><td>an offset in bytes into the backing memory for buffer; this is relative to the base offset as bound to the buffer</td></tr>
+ * <tr><td>size</td><td>a size in bytes of the affected area of backing memory for buffer, or {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE} to use the range from offset to the end of the buffer</td></tr>
  * </table>
  */
 public class VkBufferMemoryBarrier extends Struct {

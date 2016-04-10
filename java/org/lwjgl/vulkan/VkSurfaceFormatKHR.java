@@ -14,12 +14,31 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSurfaceFormatKHR.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSurfaceFormatKHR">Vulkan Specification</a>
+ * 
+ * <p>Describes a surface format.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
+ * <li>{@code colorSpace} <b>must</b> be a valid {@code VkColorSpaceKHR} value</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSurfaceFormatKHR {
     VkFormat format;
     VkColorSpaceKHR colorSpace;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>format</td><td>a {@code VkFormat} that is compatible with the specified surface</td></tr>
+ * <tr><td>colorSpace</td><td>a presentation {@code VkColorSpaceKHR} that is compatible with the surface</td></tr>
+ * </table>
  */
 public class VkSurfaceFormatKHR extends Struct {
 

@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkCopyDescriptorSet.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkCopyDescriptorSet">Vulkan Specification</a>
  * 
+ * <p>Describes descriptor sets to copy between.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -53,8 +55,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET STRUCTURE_TYPE_COPY_DESCRIPTOR_SET}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>srcSet</td><td>the source set</td></tr>
+ * <tr><td>srcBinding</td><td>the source binding</td></tr>
+ * <tr><td>srcArrayElement</td><td>the source array element</td></tr>
+ * <tr><td>dstSet</td><td>the destination set</td></tr>
+ * <tr><td>dstBinding</td><td>the destination binding</td></tr>
+ * <tr><td>dstArrayElement</td><td>the destination array element</td></tr>
+ * <tr><td>descriptorCount</td><td>the number of descriptors to copy from the source to destination. If {@code descriptorCount} is greater than the number of remaining array elements in
+ * the source or destination binding, those affect consecutive bindings in a manner similar to {@link VkWriteDescriptorSet}.</td></tr>
  * </table>
  */
 public class VkCopyDescriptorSet extends Struct {

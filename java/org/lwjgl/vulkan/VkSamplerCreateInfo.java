@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSamplerCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSamplerCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about how a sampler object should be created.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -74,8 +76,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO STRUCTURE_TYPE_SAMPLER_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>magFilter</td><td>the magnification filter to apply to lookups</td></tr>
+ * <tr><td>minFilter</td><td>the minification filter to apply to lookups</td></tr>
+ * <tr><td>mipmapMode</td><td>the mipmap filter to apply to lookups</td></tr>
+ * <tr><td>addressModeU</td><td>the addressing mode for outside [0..1] range for U coordinate</td></tr>
+ * <tr><td>addressModeV</td><td>the addressing mode for outside [0..1] range for V coordinate</td></tr>
+ * <tr><td>addressModeW</td><td>the addressing mode for outside [0..1] range for W coordinate</td></tr>
+ * <tr><td>mipLodBias</td><td>the bias to be added to mipmap LOD calculation and bias provided by image sampling functions in SPIR-V</td></tr>
+ * <tr><td>anisotropyEnable</td><td>is {@link VK10#VK_TRUE TRUE} to enable anisotropic filtering, or {@link VK10#VK_FALSE FALSE} otherwise</td></tr>
+ * <tr><td>maxAnisotropy</td><td>the anisotropy value clamp</td></tr>
+ * <tr><td>compareEnable</td><td>is {@link VK10#VK_TRUE TRUE} to enable comparison against a reference value during lookups, or {@link VK10#VK_FALSE FALSE} otherwise</td></tr>
+ * <tr><td>compareOp</td><td>the comparison function to apply to fetched data before filtering</td></tr>
+ * <tr><td>minLod</td><td>the minimum value to which the computed level-of-detail value will be clamped</td></tr>
+ * <tr><td>maxLod</td><td>the maximum value to which the computed level-of-detail value will be clamped</td></tr>
+ * <tr><td>borderColor</td><td>the predefined border color to use</td></tr>
+ * <tr><td>unnormalizedCoordinates</td><td>controls whether to use unnormalized or normalized texel coordinates to address texels of the image</td></tr>
  * </table>
  */
 public class VkSamplerCreateInfo extends Struct {

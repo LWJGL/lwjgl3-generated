@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkBufferCopy.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkBufferCopy">Vulkan Specification</a>
  * 
+ * <p>Specifies a buffer regions to copy.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkBufferCopy {
@@ -25,6 +27,14 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize dstOffset;
     VkDeviceSize size;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>srcOffset</td><td>the starting offset in bytes from the start of {@code srcBuffer}</td></tr>
+ * <tr><td>dstOffset</td><td>the starting offset in bytes from the start of {@code dstBuffer}</td></tr>
+ * <tr><td>size</td><td>the number of bytes to copy</td></tr>
+ * </table>
  */
 public class VkBufferCopy extends Struct {
 

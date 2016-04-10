@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkAttachmentDescription.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkAttachmentDescription">Vulkan Specification</a>
  * 
+ * <p>Describes properties of an attachment.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -45,6 +47,22 @@ import static org.lwjgl.system.MemoryStack.*;
     VkImageLayout initialLayout;
     VkImageLayout finalLayout;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>flags</td><td>a bitfield of {@code VkAttachmentDescriptionFlagBits} describing additional properties of the attachment</td></tr>
+ * <tr><td>format</td><td>a {@code VkFormat} value specifying the format of the image that will be used for the attachment</td></tr>
+ * <tr><td>samples</td><td>the number of samples of the image as defined in {@code VkSampleCountFlagBits}</td></tr>
+ * <tr><td>loadOp</td><td>specifies how the contents of color and depth components of the attachment are treated at the beginning of the subpass where it is first used</td></tr>
+ * <tr><td>storeOp</td><td>specifies how the contents of color and depth components of the attachment are treated at the end of the subpass where it is last used</td></tr>
+ * <tr><td>stencilLoadOp</td><td>specifies how the contents of stencil components of the attachment are treated at the beginning of the subpass where it is first used, and must be one
+ * of the same values allowed for {@code loadOp}</td></tr>
+ * <tr><td>stencilStoreOp</td><td>specifies how the contents of stencil components of the attachment are treated at the end of the last subpass where it is used, and must be one of the
+ * same values allowed for {@code storeOp}</td></tr>
+ * <tr><td>initialLayout</td><td>the layout the attachment image subresource will be in when a render pass instance begins</td></tr>
+ * <tr><td>finalLayout</td><td>a bitfield of {@code VkAttachmentDescriptionFlagBits} describing additional properties of the attachment</td></tr>
+ * </table>
  */
 public class VkAttachmentDescription extends Struct {
 

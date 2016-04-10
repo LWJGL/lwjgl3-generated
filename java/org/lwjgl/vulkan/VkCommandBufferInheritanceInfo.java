@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkCommandBufferInheritanceInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkCommandBufferInheritanceInfo">Vulkan Specification</a>
  * 
+ * <p>Defines any state that will be inherited from a primary command buffer to a secondary command buffer.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -46,8 +48,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>renderPass</td><td>a {@code VkRenderPass} object that must be compatible with the one that is bound when the {@code VkCommandBuffer} is executed if the command buffer was
+ * allocated with the {@link VK10#VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT} set</td></tr>
+ * <tr><td>subpass</td><td>the index of the subpass within {@code renderPass} that the {@code VkCommandBuffer} will be rendering against if it was allocated with the
+ * {@link VK10#VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT} set</td></tr>
+ * <tr><td>framebuffer</td><td>refers to the {@code VkFramebuffer} object that the {@code VkCommandBuffer} will be rendering to if it was allocated with the
+ * {@link VK10#VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT} set. It can be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if the framebuffer is not known.</td></tr>
+ * <tr><td>occlusionQueryEnable</td><td>indicates whether the command buffer can be executed while an occlusion query is active in the primary command buffer</td></tr>
+ * <tr><td>queryFlags</td><td>indicates the query flags that can be used by an active occlusion query in the primary command buffer when this secondary command buffer is executed</td></tr>
+ * <tr><td>pipelineStatistics</td><td>indicates the set of pipeline statistics that can be counted by an active query in the primary command buffer when this secondary command buffer is
+ * executed</td></tr>
  * </table>
  */
 public class VkCommandBufferInheritanceInfo extends Struct {

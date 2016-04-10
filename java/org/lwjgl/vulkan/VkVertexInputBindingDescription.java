@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkVertexInputBindingDescription.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkVertexInputBindingDescription">Vulkan Specification</a>
  * 
+ * <p>Describes a vertex input binding.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -33,6 +35,14 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t stride;
     VkVertexInputRate inputRate;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>binding</td><td>the binding number that this structure describes</td></tr>
+ * <tr><td>stride</td><td>the distance in bytes between two consecutive elements within the buffer</td></tr>
+ * <tr><td>inputRate</td><td>a {@code VkVertexInputRate} value that specifies whether vertex attribute addressing is a function of the vertex index or of the instance index</td></tr>
+ * </table>
  */
 public class VkVertexInputBindingDescription extends Struct {
 

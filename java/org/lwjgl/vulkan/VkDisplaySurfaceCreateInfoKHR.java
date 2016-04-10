@@ -15,6 +15,34 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDisplaySurfaceCreateInfoKHR.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDisplaySurfaceCreateInfoKHR">Vulkan Specification</a>
+ * 
+ * <p>Contains information about how a display surface should be created.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link KHRDisplay#VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code displayMode} <b>must</b> be a valid {@code VkDisplayModeKHR} handle</li>
+ * <li>{@code transform} <b>must</b> be a valid {@code VkSurfaceTransformFlagBitsKHR} value</li>
+ * <li>{@code alphaMode} <b>must</b> be a valid {@code VkDisplayPlaneAlphaFlagBitsKHR} value</li>
+ * <li>{@code planeIndex} <b>must</b> be less than the number of display planes supported by the device as determined by calling
+ * {@link KHRDisplay#vkGetPhysicalDeviceDisplayPlanePropertiesKHR GetPhysicalDeviceDisplayPlanePropertiesKHR}</li>
+ * <li>If the {@code planeReorderPossible} member of the {@link VkDisplayPropertiesKHR} structure returned by {@link KHRDisplay#vkGetPhysicalDeviceDisplayPropertiesKHR GetPhysicalDeviceDisplayPropertiesKHR} for the
+ * display corresponding to {@code displayMode} is {@link VK10#VK_TRUE TRUE} then {@code planeStackIndex} <b>must</b> be less than the number of display planes supported by the
+ * device as determined by calling {@link KHRDisplay#vkGetPhysicalDeviceDisplayPlanePropertiesKHR GetPhysicalDeviceDisplayPlanePropertiesKHR}; otherwise {@code planeStackIndex} <b>must</b> equal the
+ * {@code currentStackIndex} member of {@code VkDisplayPlanePropertiesKHR} returned by {@link KHRDisplay#vkGetPhysicalDeviceDisplayPlanePropertiesKHR GetPhysicalDeviceDisplayPlanePropertiesKHR} for the display
+ * plane corresponding to {@code displayMode}</li>
+ * <li>If {@code alphaMode} is {@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR} then {@code globalAlpha} <b>must</b> be between 0 and 1, inclusive</li>
+ * <li>{@code alphaMode} <b>must</b> be 0 or one of the bits present in the {@code supportedAlpha} member of {@code VkDisplayPlaneCapabilitiesKHR} returned by
+ * {@link KHRDisplay#vkGetDisplayPlaneCapabilitiesKHR GetDisplayPlaneCapabilitiesKHR} for the display plane corresponding to {@code displayMode}</li>
+ * <li>The {@code width} and {@code height} members of {@code imageExtent} must be less than the {@code maxImageDimensions2D} member of
+ * {@code VkPhysicalDeviceLimits}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDisplaySurfaceCreateInfoKHR {
@@ -33,7 +61,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link KHRDisplay#VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use, and <b>must</b> be zero</td></tr>
+ * <tr><td>displayMode</td><td>the mode to use when displaying this surface</td></tr>
+ * <tr><td>planeIndex</td><td>the plane on which this surface appears</td></tr>
+ * <tr><td>planeStackIndex</td><td>the z-order of the plane</td></tr>
+ * <tr><td>transform</td><td>the transform to apply to the images as part of the scannout operation</td></tr>
+ * <tr><td>globalAlpha</td><td>the global alpha value. This value is ignored if {@code alphaMode} is not {@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR}.</td></tr>
+ * <tr><td>alphaMode</td><td>the type of alpha blending to use</td></tr>
+ * <tr><td>imageExtent</td><td>the size of the presentable images to use with the surface</td></tr>
  * </table>
  */
 public class VkDisplaySurfaceCreateInfoKHR extends Struct {

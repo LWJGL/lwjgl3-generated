@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDescriptorPoolSize.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDescriptorPoolSize">Vulkan Specification</a>
  * 
+ * <p>Contains a descriptor type and number of descriptors of that type to be allocated in a pool.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -31,6 +33,13 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDescriptorType type;
     uint32_t descriptorCount;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>type</td><td>the type of descriptor</td></tr>
+ * <tr><td>descriptorCount</td><td>the number of descriptors of that type to allocate</td></tr>
+ * </table>
  */
 public class VkDescriptorPoolSize extends Struct {
 

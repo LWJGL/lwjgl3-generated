@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageResolve.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageResolve">Vulkan Specification</a>
  * 
+ * <p>Specifies a region to resolve.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -38,6 +40,16 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkOffset3D VkOffset3D} dstOffset;
     {@link VkExtent3D VkExtent3D} extent;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>srcSubresource</td><td>a {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the source image data</td></tr>
+ * <tr><td>srcOffset</td><td>selects the initial x, y, and z offsets in texels of the sub-region of the source image data</td></tr>
+ * <tr><td>dstSubresource</td><td>a {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the destination image data</td></tr>
+ * <tr><td>dstOffset</td><td>selects the initial x, y, and z offsets in texels of the sub-region of the destination image data</td></tr>
+ * <tr><td>extent</td><td>the size in texels of the source image to resolve in width, height and depth</td></tr>
+ * </table>
  */
 public class VkImageResolve extends Struct {
 

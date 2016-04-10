@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageSubresourceLayers.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageSubresourceLayers">Vulkan Specification</a>
  * 
+ * <p>Specifies a subresource of an image.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -38,6 +40,15 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t baseArrayLayer;
     uint32_t layerCount;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>aspectMask</td><td>a combination of {@code VkImageAspectFlagBits}, selecting the color, depth and/or stencil aspects</td></tr>
+ * <tr><td>mipLevel</td><td>the mipmap level</td></tr>
+ * <tr><td>baseArrayLayer</td><td>the starting layer</td></tr>
+ * <tr><td>layerCount</td><td>the number of layers</td></tr>
+ * </table>
  */
 public class VkImageSubresourceLayers extends Struct {
 

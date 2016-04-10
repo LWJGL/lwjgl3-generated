@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineInputAssemblyStateCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineInputAssemblyStateCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about input assembly behavior.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -47,8 +49,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>topology</td><td>a {@code VkPrimitiveTopology} defining the primitive topology</td></tr>
+ * <tr><td>primitiveRestartEnable</td><td>controls whether a special vertex index value is treated as restarting the assembly of primitives</td></tr>
  * </table>
  */
 public class VkPipelineInputAssemblyStateCreateInfo extends Struct {

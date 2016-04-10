@@ -15,12 +15,24 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDisplayModeParametersKHR.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDisplayModeParametersKHR">Vulkan Specification</a>
+ * 
+ * <p>Describes the display parameters associated a display mode.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDisplayModeParametersKHR {
     {@link VkExtent2D VkExtent2D} visibleRegion;
     uint32_t refreshRate;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>visibleRegion</td><td>the 2D extents of the visible region</td></tr>
+ * <tr><td>refreshRate</td><td>a {@code uint32_t} that is the number of times the display is refreshed each second multiplied by 1000</td></tr>
+ * </table>
  */
 public class VkDisplayModeParametersKHR extends Struct {
 

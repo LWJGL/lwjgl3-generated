@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineViewportStateCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineViewportStateCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about viewports as part of graphics pipeline creation.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -48,8 +50,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>viewportCount</td><td>the number of viewports used by the pipeline</td></tr>
+ * <tr><td>pViewports</td><td>a pointer to an array of {@link VkViewport} structs, defining the viewport transforms. If the viewport state is dynamic, this member is ignored.</td></tr>
+ * <tr><td>scissorCount</td><td>the number of scissors and <b>must</b> match the number of viewports</td></tr>
+ * <tr><td>pScissors</td><td>a pointer to an array of {@link VkRect2D} structs which define the rectangular bounds of the scissor for the corresponding viewport. If the scissor state is
+ * dynamic, this member is ignored.</td></tr>
  * </table>
  */
 public class VkPipelineViewportStateCreateInfo extends Struct {

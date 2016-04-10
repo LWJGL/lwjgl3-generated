@@ -14,12 +14,30 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDisplayModePropertiesKHR.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDisplayModePropertiesKHR">Vulkan Specification</a>
+ * 
+ * <p>Describes properties of a display mode.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code displayMode} <b>must</b> be a valid {@code VkDisplayModeKHR} handle</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDisplayModePropertiesKHR {
     VkDisplayModeKHR displayMode;
     {@link VkDisplayModeParametersKHR VkDisplayModeParametersKHR} parameters;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>displayMode</td><td>a handle to the display mode described in this structure. This handle will be valid for the lifetime of the Vulkan instance.</td></tr>
+ * <tr><td>parameters</td><td>a {@link VkDisplayModeParametersKHR} structure describing the display parameters associated with {@code displayMode}</td></tr>
+ * </table>
  */
 public class VkDisplayModePropertiesKHR extends Struct {
 

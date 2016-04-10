@@ -15,6 +15,56 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSwapchainCreateInfoKHR.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSwapchainCreateInfoKHR">Vulkan Specification</a>
+ * 
+ * <p>Contains information about how a swapchain should be created.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link KHRSwapchain#VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
+ * <li>{@code imageFormat} <b>must</b> be a valid {@code VkFormat} value</li>
+ * <li>{@code imageColorSpace} <b>must</b> be a valid {@code VkColorSpaceKHR} value</li>
+ * <li>{@code imageUsage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
+ * <li>{@code imageUsage} <b>must not</b> be 0</li>
+ * <li>{@code imageSharingMode} <b>must</b> be a valid {@code VkSharingMode} value</li>
+ * <li>{@code preTransform} <b>must</b> be a valid {@code VkSurfaceTransformFlagBitsKHR} value</li>
+ * <li>{@code compositeAlpha} <b>must</b> be a valid {@code VkCompositeAlphaFlagBitsKHR} value</li>
+ * <li>{@code presentMode} <b>must</b> be a valid {@code VkPresentModeKHR} value</li>
+ * <li>If {@code oldSwapchain} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code oldSwapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
+ * <li>If {@code oldSwapchain} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code surface}</li>
+ * <li>Each of {@code surface} and {@code oldSwapchain} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+ * {@code VkInstance}</li>
+ * <li>{@code surface} <b>must</b> be a surface that is supported by the device as determined using {@link KHRSurface#vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR}</li>
+ * <li>The native window referred to by {@code surface} <b>must not</b> already be associated with a swapchain other than {@code oldSwapchain}, or with a
+ * non-{apiname} graphics API surface</li>
+ * <li>{@code minImageCount} <b>must</b> be greater than or equal to the value returned in the {@code minImageCount} member of the {@link VkSurfaceCapabilitiesKHR}
+ * structure returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the surface</li>
+ * <li>{@code minImageCount} <b>must</b> be less than or equal to the value returned in the {@code maxImageCount} member of the {@link VkSurfaceCapabilitiesKHR}
+ * structure returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the surface if the returned {@code maxImageCount} is not zero</li>
+ * <li>{@code imageFormat} and {@code imageColorspace} <b>must</b> match the {@code format} and {@code colorSpace} members, respectively, of one of the
+ * {@link VkSurfaceFormatKHR} structures returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceFormatsKHR GetPhysicalDeviceSurfaceFormatsKHR} for the surface</li>
+ * <li>{@code imageExtent} <b>must</b> be between {@code minImageExtent} and {@code maxImageExtent}, inclusive, where {@code minImageExtent} and
+ * {@code maxImageExtent} are members of the {@link VkSurfaceCapabilitiesKHR} structure returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the
+ * surface</li>
+ * <li>{@code imageArrayLayers} <b>must</b> be greater than 0 and less than or equal to the {@code maxImageArrayLayers} member of the {@link VkSurfaceCapabilitiesKHR}
+ * structure returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the surface</li>
+ * <li>{@code imageUsage} <b>must</b> be a subset of the supported usage flags present in the {@code supportedUsageFlags} member of the
+ * {@link VkSurfaceCapabilitiesKHR} structure returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the surface</li>
+ * <li>If {@code imageSharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, {@code pQueueFamilyIndices} <b>must</b> be a pointer to an array of
+ * {@code queueFamilyIndexCount} {@code uint32_t} values</li>
+ * <li>If {@code imageSharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, {@code queueFamilyIndexCount} <b>must</b> be greater than 1</li>
+ * <li>{@code preTransform} <b>must</b> be one of the bits present in the {@code supportedTransforms} member of the {@link VkSurfaceCapabilitiesKHR} structure
+ * returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the surface</li>
+ * <li>{@code compositeAlpha} <b>must</b> be one of the bits present in the {@code supportedCompositeAlpha} member of the {@link VkSurfaceCapabilitiesKHR} structure
+ * returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the surface</li>
+ * <li>{@code presentMode} <b>must</b> be one of the ename:VkPresentModeKHR values returned by {@link KHRSurface#vkGetPhysicalDeviceSurfacePresentModesKHR GetPhysicalDeviceSurfacePresentModesKHR} for the surface</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSwapchainCreateInfoKHR {
@@ -41,7 +91,50 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link KHRSwapchain#VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use, and <b>must</b> be zero</td></tr>
+ * <tr><td>surface</td><td>the surface that the swapchain will present images to</td></tr>
+ * <tr><td>minImageCount</td><td>the minimum number of presentable images that the application needs. The platform will either create the swapchain with at least that many images, or
+ * will fail to create the swapchain.</td></tr>
+ * <tr><td>imageFormat</td><td>a {@code VkFormat} that is valid for swapchains on the specified surface</td></tr>
+ * <tr><td>imageColorSpace</td><td>a {@code VkColorSpaceKHR} that is valid for swapchains on the specified surface</td></tr>
+ * <tr><td>imageExtent</td><td>the size (in pixels) of the swapchain. Behavior is platform-dependent when the image extent does not match the surface’s {@code currentExtent} as
+ * returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR}.</td></tr>
+ * <tr><td>imageArrayLayers</td><td>the number of views in a multiview/stereo surface. For non-stereoscopic-3D applications, this value is 1</td></tr>
+ * <tr><td>imageUsage</td><td>a bitfield of {@code VkImageUsageFlagBits}, indicating how the application will use the swapchain’s presentable images</td></tr>
+ * <tr><td>imageSharingMode</td><td>the sharing mode used for the images of the swapchain</td></tr>
+ * <tr><td>queueFamilyIndexCount</td><td>the number of queue families having access to the images of the swapchain in case {@code imageSharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}</td></tr>
+ * <tr><td>pQueueFamilyIndices</td><td>an array of queue family indices having access to the images of the swapchain in case {@code imageSharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}</td></tr>
+ * <tr><td>preTransform</td><td>a bitfield of {@code VkSurfaceTransformFlagBitsKHR}, describing the transform, relative to the presentation engine’s natural orientation, applied to
+ * the image content prior to presentation. If it does not match the {@code currentTransform} value returned by
+ * {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR}, the presentation engine will transform the image content as part of the presentation operation.</td></tr>
+ * <tr><td>compositeAlpha</td><td>a bitfield of {@code VkCompositeAlphaFlagBitsKHR}, indicating the alpha compositing mode to use when this surface is composited together with other
+ * surfaces on certain window systems</td></tr>
+ * <tr><td>presentMode</td><td>the presentation mode the swapchain will use. A swapchain’s present mode determines how incoming present requests will be processed and queued
+ * internally.</td></tr>
+ * <tr><td>clipped</td><td>indicates whether the Vulkan implementation is allowed to discard rendering operations that affect regions of the surface which aren’t visible.
+ * 
+ * <p>If set to {@link VK10#VK_TRUE TRUE}, the presentable images associated with the swapchain may not own all of their pixels. Pixels in the presentable images that correspond
+ * to regions of the target surface obscured by another window on the desktop or subject to some other clipping mechanism will have undefined content when
+ * read back. Pixel shaders may not execute for these pixels, and thus any side affects they would have had will not occur.</p>
+ * 
+ * <p>If set to {@link VK10#VK_FALSE FALSE}, presentable images associated with the swapchain will own all the pixels they contain.</p>
+ * 
+ * <p>Setting this value to {@link VK10#VK_TRUE TRUE} does not guarantee any clipping will occur, but allows more optimal presentation methods to be used on some platforms.</p>
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>Applications should set this value to {@link VK10#VK_TRUE TRUE} if they do not expect to read back the content of presentable images before presenting them or after
+ * reacquiring them and if their pixel shaders do not have any side effects that require them to run for all pixels in the presentable image.</p>
+ * </div></td></tr>
+ * <tr><td>oldSwapchain</td><td>if non-{@code NULL}, specifies the swapchain that will be replaced by the new swapchain being created. Upon calling {@link KHRSwapchain#vkCreateSwapchainKHR CreateSwapchainKHR} with a non-{@code NULL}
+ * {@code oldSwapchain}, any images not acquired by the application may be freed by the implementation, which may occur even if creation of the new
+ * swapchain fails. The application must destroy the old swapchain to free all memory associated with the old swapchain. The application must wait for the
+ * completion of any outstanding rendering to images it currently has acquired at the time the swapchain is destroyed. The application can continue to
+ * present any images it acquired and has not yet presented using the old swapchain, as long as it has not entered a state that causes it to return
+ * {@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR}. However, the application cannot acquire any more images from the old swapchain regardless of whether or not creation of the new
+ * swapchain succeeds.</td></tr>
  * </table>
  */
 public class VkSwapchainCreateInfoKHR extends Struct {

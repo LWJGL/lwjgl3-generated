@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineDynamicStateCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineDynamicStateCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about dynamic state as part of graphics pipeline creation.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -41,8 +43,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>dynamicStateCount</td><td>the number of elements in the {@code pDynamicStates} array</td></tr>
+ * <tr><td>pDynamicStates</td><td>an array of {@code VkDynamicState} enums which indicate which pieces of pipeline state will use the values from dynamic state commands rather than from
+ * the pipeline state creation info</td></tr>
  * </table>
  */
 public class VkPipelineDynamicStateCreateInfo extends Struct {

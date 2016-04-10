@@ -14,12 +14,37 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDisplayPlanePropertiesKHR.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDisplayPlanePropertiesKHR">Vulkan Specification</a>
+ * 
+ * <p>Describes properties of a display plane.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code currentDisplay} <b>must</b> be a valid {@code VkDisplayKHR} handle</li>
+ * </ul>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code currentDisplay} &ndash; the handle of the display the plane is currently associated with. If the plane is not currently attached to any displays, this will be {@link VK10#VK_NULL_HANDLE NULL_HANDLE}.</li>
+ * <li>{@code currentStackIndex} &ndash; the current z-order of the plane</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDisplayPlanePropertiesKHR {
     VkDisplayKHR currentDisplay;
     uint32_t currentStackIndex;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>currentDisplay</td><td>the handle of the display the plane is currently associated with. If the plane is not currently attached to any displays, this will be {@link VK10#VK_NULL_HANDLE NULL_HANDLE}.</td></tr>
+ * <tr><td>currentStackIndex</td><td>the current z-order of the plane</td></tr>
+ * </table>
  */
 public class VkDisplayPlanePropertiesKHR extends Struct {
 

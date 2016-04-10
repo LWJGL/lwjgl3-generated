@@ -14,6 +14,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDisplayPlaneCapabilitiesKHR.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDisplayPlaneCapabilitiesKHR">Vulkan Specification</a>
+ * 
+ * <p>Describes capabilities of a mode and plane combination.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code supportedAlpha} <b>must</b> be a valid combination of {@code VkDisplayPlaneAlphaFlagBitsKHR} values</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDisplayPlaneCapabilitiesKHR {
@@ -27,6 +38,20 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkExtent2D VkExtent2D} minDstExtent;
     {@link VkExtent2D VkExtent2D} maxDstExtent;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>supportedAlpha</td><td>a bitmask describing the supported alpha blending modes</td></tr>
+ * <tr><td>minSrcPosition</td><td>the minimum source rect offset supported by this plane using the specified mode</td></tr>
+ * <tr><td>maxSrcPosition</td><td>the maximum source rect offset supported by this plane using the specified mode</td></tr>
+ * <tr><td>minSrcExtent</td><td>the minimum source rect size supported by this plane using the specified mode</td></tr>
+ * <tr><td>maxSrcExtent</td><td>the maximum source rect size supported by this plane using the specified mode</td></tr>
+ * <tr><td>minDstPosition</td><td>the minimum output rect offset supported by this plane using the specified mode</td></tr>
+ * <tr><td>maxDstPosition</td><td>the maximum output rect offset supported by this plane using the specified mode</td></tr>
+ * <tr><td>minDstExtent</td><td>the minimum output rect size supported by this plane using the specified mode</td></tr>
+ * <tr><td>maxDstExtent</td><td>the maximum output rect size supported by this plane using the specified mode</td></tr>
+ * </table>
  */
 public class VkDisplayPlaneCapabilitiesKHR extends Struct {
 

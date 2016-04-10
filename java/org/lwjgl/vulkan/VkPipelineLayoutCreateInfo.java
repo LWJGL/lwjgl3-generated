@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineLayoutCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineLayoutCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about how a pipeline layout should be created.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -60,8 +62,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>setLayoutCount</td><td>the number of descriptor sets included in the pipeline layout</td></tr>
+ * <tr><td>pSetLayouts</td><td>a pointer to an array of {@code VkDescriptorSetLayout} objects</td></tr>
+ * <tr><td>pushConstantRangeCount</td><td>the number of push constant ranges included in the pipeline layout</td></tr>
+ * <tr><td>pPushConstantRanges</td><td>a pointer to an array of {@link VkPushConstantRange} structures defining a set of push constant ranges for use in a single pipeline layout</td></tr>
  * </table>
  */
 public class VkPipelineLayoutCreateInfo extends Struct {

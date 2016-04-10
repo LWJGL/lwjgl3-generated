@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineColorBlendStateCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineColorBlendStateCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about the blend state as part of graphics pipeline creation.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -47,8 +49,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>logicOpEnable</td><td>controls whether to apply logical operations</td></tr>
+ * <tr><td>logicOp</td><td>selects which logical operation to apply</td></tr>
+ * <tr><td>attachmentCount</td><td>the number of {@link VkPipelineColorBlendAttachmentState} elements in {@code pAttachments}</td></tr>
+ * <tr><td>pAttachments</td><td>pointer to array of per target attachment states</td></tr>
+ * <tr><td>blendConstants</td><td>an array of four values used as the R, G, B, and A components of the blend constant that are used in blending, depending on the blend factor</td></tr>
  * </table>
  */
 public class VkPipelineColorBlendStateCreateInfo extends Struct {

@@ -18,12 +18,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkOffset2D.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkOffset2D">Vulkan Specification</a>
  * 
+ * <p>Describes a 2D offset.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkOffset2D {
     int32_t x;
     int32_t y;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>x</td><td>the x offset</td></tr>
+ * <tr><td>y</td><td>the y offset</td></tr>
+ * </table>
  */
 public class VkOffset2D extends Struct {
 

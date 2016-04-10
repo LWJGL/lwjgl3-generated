@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkCommandBufferAllocateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkCommandBufferAllocateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about how a command buffer should be allocated.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -40,8 +42,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>commandPool</td><td>the name of the command pool that the command buffers allocate their memory from</td></tr>
+ * <tr><td>level</td><td>determines whether the command buffers are primary or secondary command buffers</td></tr>
+ * <tr><td>commandBufferCount</td><td>the number of command buffers to allocate from the pool</td></tr>
  * </table>
  */
 public class VkCommandBufferAllocateInfo extends Struct {

@@ -18,12 +18,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkRect2D.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkRect2D">Vulkan Specification</a>
  * 
+ * <p>Describes a 2D rectangular region.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkRect2D {
     {@link VkOffset2D VkOffset2D} offset;
     {@link VkExtent2D VkExtent2D} extent;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>offset</td><td>the region offset</td></tr>
+ * <tr><td>extent</td><td>the region extent</td></tr>
+ * </table>
  */
 public class VkRect2D extends Struct {
 

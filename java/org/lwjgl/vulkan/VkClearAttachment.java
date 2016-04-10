@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkClearAttachment.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkClearAttachment">Vulkan Specification</a>
  * 
+ * <p>Defines an attachment to clear and the clear values to use.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -34,6 +36,15 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t colorAttachment;
     {@link VkClearValue VkClearValue} clearValue;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>aspectMask</td><td>a mask selecting the color, depth and/or stencil aspects of the attachment to be cleared</td></tr>
+ * <tr><td>colorAttachment</td><td>is only meaningful if {@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT} is set in {@code aspectMask}, in which case it is an index to the {@code pColorAttachments} array in the
+ * {@link VkSubpassDescription} structure of the current subpass which selects the color attachment to clear</td></tr>
+ * <tr><td>clearValue</td><td>the color or depth/stencil value to clear the attachment to</td></tr>
+ * </table>
  */
 public class VkClearAttachment extends Struct {
 

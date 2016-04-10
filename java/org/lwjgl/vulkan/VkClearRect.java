@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkClearRect.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkClearRect">Vulkan Specification</a>
  * 
+ * <p>Defines a region within an attachment to clear.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkClearRect {
@@ -25,6 +27,14 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t baseArrayLayer;
     uint32_t layerCount;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>rect</td><td>the two-dimensional region to be cleared</td></tr>
+ * <tr><td>baseArrayLayer</td><td>the first layer to be cleared</td></tr>
+ * <tr><td>layerCount</td><td>the number of layers to clear</td></tr>
+ * </table>
  */
 public class VkClearRect extends Struct {
 

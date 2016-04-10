@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDescriptorSetAllocateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDescriptorSetAllocateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about how a descriptor set should be allocated.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -45,8 +47,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>descriptorPool</td><td>the pool which the sets will be allocated from</td></tr>
+ * <tr><td>descriptorSetCount</td><td>the number of descriptor sets to be allocated from the pool</td></tr>
+ * <tr><td>pSetLayouts</td><td>an array of descriptor set layouts, with each member specifying how the corresponding descriptor set is allocated</td></tr>
  * </table>
  */
 public class VkDescriptorSetAllocateInfo extends Struct {

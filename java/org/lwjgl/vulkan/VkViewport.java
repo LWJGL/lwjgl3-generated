@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkViewport.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkViewport">Vulkan Specification</a>
  * 
+ * <p>Describes viewport transformation parameters.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -40,6 +42,17 @@ import static org.lwjgl.system.MemoryStack.*;
     float minDepth;
     float maxDepth;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>x</td><td>the viewport's left bound</td></tr>
+ * <tr><td>y</td><td>the viewport's upper bound</td></tr>
+ * <tr><td>width</td><td>the viewport's width</td></tr>
+ * <tr><td>height</td><td>the viewport's height</td></tr>
+ * <tr><td>minDepth</td><td>the minimum viewport depth</td></tr>
+ * <tr><td>maxDepth</td><td>the maximum viewport depth</td></tr>
+ * </table>
  */
 public class VkViewport extends Struct {
 

@@ -15,6 +15,31 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPresentInfoKHR.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPresentInfoKHR">Vulkan Specification</a>
+ * 
+ * <p>Specifies the parameters of an image presentation.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link KHRSwapchain#VK_STRUCTURE_TYPE_PRESENT_INFO_KHR STRUCTURE_TYPE_PRESENT_INFO_KHR}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>If {@code pWaitSemaphores} is not {@code NULL}, {@code pWaitSemaphores} <b>must</b> be a pointer to an array of {@code waitSemaphoreCount} valid
+ * {@code VkSemaphore} handles</li>
+ * <li>{@code pSwapchains} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@code VkSwapchainKHR} handles</li>
+ * <li>{@code pImageIndices} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code uint32_t} values</li>
+ * <li>If {@code pResults} is not {@code NULL}, {@code pResults} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code VkResult} values</li>
+ * <li>{@code waitSemaphoreCount} <b>must</b> be greater than 0</li>
+ * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
+ * <li>Each of the elements of {@code pSwapchains} and the elements of {@code pWaitSemaphores} that are valid handles <b>must</b> have been created, allocated
+ * or retrieved from the same {@code VkInstance}</li>
+ * <li>Any given element of {@code pImageIndices} <b>must</b> be the index of a presentable image acquired from the swapchain specified by the corresponding
+ * element of the {@code pSwapchains} array</li>
+ * <li>Any given element of {@code VkSemaphore} in {@code pWaitSemaphores} <b>must</b> refer to a prior signal of that {@code VkSemaphore} that won't be
+ * consumed by any other wait on that semaphore</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPresentInfoKHR {
@@ -31,7 +56,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link KHRSwapchain#VK_STRUCTURE_TYPE_PRESENT_INFO_KHR STRUCTURE_TYPE_PRESENT_INFO_KHR}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>waitSemaphoreCount</td><td>the number of semaphores to wait for before issuing the present request. The number may be zero.</td></tr>
+ * <tr><td>pWaitSemaphores</td><td>if non-{@code NULL}, is an array of {@code VkSemaphore} objects with {@code waitSemaphoreCount} entries, and specifies the semaphores to wait for before
+ * issuing the present request</td></tr>
+ * <tr><td>swapchainCount</td><td>the number of swapchains being presented to by this command</td></tr>
+ * <tr><td>pSwapchains</td><td>an array of {@code VkSwapchainKHR} objects with {@code swapchainCount} entries. A given swapchain must not appear in this list more than once.</td></tr>
+ * <tr><td>pImageIndices</td><td>an array of indices into the array of each swapchain’s presentable images, with {@code swapchainCount} entries. Each entry in this array identifies the
+ * image to present on the corresponding entry in the {@code pSwapchains} array.</td></tr>
+ * <tr><td>pResults</td><td>an array of {@code VkResult} typed elements with {@code swapchainCount} entries. Applications that don’t need per-swapchain results can use {@code NULL} for
+ * {@code pResults}. If non-{@code NULL}, each entry in {@code pResults} will be set to the {@code VkResult} for presenting the swapchain corresponding to the
+ * same index in {@code pSwapchains}.</td></tr>
  * </table>
  */
 public class VkPresentInfoKHR extends Struct {

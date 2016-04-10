@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkBufferImageCopy.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkBufferImageCopy">Vulkan Specification</a>
  * 
+ * <p>Specifies a region to copy.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -62,6 +64,17 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkOffset3D VkOffset3D} imageOffset;
     {@link VkExtent3D VkExtent3D} imageExtent;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>bufferOffset</td><td>the offset in bytes from the start of the buffer object where the image data is copied from or to</td></tr>
+ * <tr><td>bufferRowLength</td><td>the buffer row length</td></tr>
+ * <tr><td>bufferImageHeight</td><td>the buffer image height</td></tr>
+ * <tr><td>imageSubresource</td><td>a {@link VkImageSubresourceLayers} used to specify the specific subresources of the image used for the source or destination image data</td></tr>
+ * <tr><td>imageOffset</td><td>selects the initial x, y, z offsets in texels of the sub-region of the source or destination image data</td></tr>
+ * <tr><td>imageExtent</td><td>the size in texels of the image to copy in width, height and depth</td></tr>
+ * </table>
  */
 public class VkBufferImageCopy extends Struct {
 

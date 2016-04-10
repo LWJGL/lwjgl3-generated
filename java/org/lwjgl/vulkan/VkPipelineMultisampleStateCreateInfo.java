@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineMultisampleStateCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineMultisampleStateCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about multisampling as part of graphics pipeline creation.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -48,8 +50,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>rasterizationSamples</td><td>a {@code VkSampleCountFlagBits} specifying the number of samples per pixel used in rasterization</td></tr>
+ * <tr><td>sampleShadingEnable</td><td>specifies that fragment shading executes per-sample if {@link VK10#VK_TRUE TRUE}, or per-fragment if {@link VK10#VK_FALSE FALSE}</td></tr>
+ * <tr><td>minSampleShading</td><td>the minimum fraction of sample shading</td></tr>
+ * <tr><td>pSampleMask</td><td>a bitmask of static coverage information that is ANDed with the coverage information generated during rasterization</td></tr>
+ * <tr><td>alphaToCoverageEnable</td><td>controls whether a temporary coverage value is generated based on the alpha component of the fragment’s first color output</td></tr>
+ * <tr><td>alphaToOneEnable</td><td>controls whether the alpha component of the fragment’s first color output is replaced with one</td></tr>
  * </table>
  */
 public class VkPipelineMultisampleStateCreateInfo extends Struct {

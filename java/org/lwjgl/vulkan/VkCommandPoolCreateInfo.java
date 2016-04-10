@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkCommandPoolCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkCommandPoolCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about how a command pool should be created.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -39,8 +41,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>a combination of bitfield flags indicating usage behavior for the pool and command buffers allocated from it</td></tr>
+ * <tr><td>queueFamilyIndex</td><td>designates a queue family</td></tr>
  * </table>
  */
 public class VkCommandPoolCreateInfo extends Struct {

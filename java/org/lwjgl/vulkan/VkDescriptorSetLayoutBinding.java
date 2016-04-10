@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDescriptorSetLayoutBinding.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDescriptorSetLayoutBinding">Vulkan Specification</a>
  * 
+ * <p>An entry in a descriptor set layout corresponding to zero or more descriptors of a single descriptor type in a set.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -37,6 +39,22 @@ import static org.lwjgl.system.MemoryStack.*;
     VkShaderStageFlags stageFlags;
     const VkSampler * pImmutableSamplers;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>binding</td><td>the binding number of this entry and corresponds to a resource of the same binding number in the shader stages</td></tr>
+ * <tr><td>descriptorType</td><td>a {@code VkDescriptorType} specifying which type of resource descriptors are used for this binding</td></tr>
+ * <tr><td>descriptorCount</td><td>the number of descriptors contained in the binding, accessed in a shader as an array. If {@code descriptorCount} is zero this binding entry is reserved
+ * and the resource must not be accessed from any stage via this binding within any pipeline using the set layout.</td></tr>
+ * <tr><td>stageFlags</td><td>a bitfield of {@code VkShaderStageFlagBits} specifying which pipeline shader stages can access a resource for this binding</td></tr>
+ * <tr><td>pImmutableSamplers</td><td>affects initialization of samplers. If {@code descriptorType} specifies a {@link VK10#VK_DESCRIPTOR_TYPE_SAMPLER DESCRIPTOR_TYPE_SAMPLER} or {@link VK10#VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER} type
+ * descriptor, then {@code pImmutableSamplers} can be used to initialize a set of immutable samplers. Immutable samplers are permanently bound into the
+ * set layout; later binding a sampler into an immutable sampler slot in a descriptor set is not allowed. If {@code pImmutableSamplers} is not {@code NULL}, then
+ * it is considered to be a pointer to an array of sampler handles that will be consumed by the set layout and used for the corresponding binding. If
+ * {@code pImmutableSamplers} is {@code NULL}, then the sampler slots are dynamic and sampler handles must be bound into descriptor sets using this layout. If
+ * {@code descriptorType} is not one of these descriptor types, then {@code pImmutableSamplers} is ignored.</td></tr>
+ * </table>
  */
 public class VkDescriptorSetLayoutBinding extends Struct {
 

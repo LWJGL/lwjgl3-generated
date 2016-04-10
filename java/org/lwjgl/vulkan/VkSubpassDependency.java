@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSubpassDependency.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSubpassDependency">Vulkan Specification</a>
  * 
+ * <p>Describes dependencies between pairs of subpasses.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -50,6 +52,18 @@ import static org.lwjgl.system.MemoryStack.*;
     VkAccessFlags dstAccessMask;
     VkDependencyFlags dependencyFlags;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>srcSubpass</td><td>the subpass index of the producer subpass</td></tr>
+ * <tr><td>dstSubpass</td><td>the subpass index of the consumer subpass</td></tr>
+ * <tr><td>srcStageMask</td><td>a combination of {@code VkPipelineStageFlagBits} values</td></tr>
+ * <tr><td>dstStageMask</td><td>a combination of {@code VkPipelineStageFlagBits} values</td></tr>
+ * <tr><td>srcAccessMask</td><td>a combination of {@code VkAccessFlagBits} values</td></tr>
+ * <tr><td>dstAccessMask</td><td>a combination of {@code VkAccessFlagBits} values</td></tr>
+ * <tr><td>dependencyFlags</td><td>a combination of {@code VkDependencyFlagBits} values</td></tr>
+ * </table>
  */
 public class VkSubpassDependency extends Struct {
 

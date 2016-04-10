@@ -18,12 +18,23 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkClearDepthStencilValue.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkClearDepthStencilValue">Vulkan Specification</a>
  * 
+ * <p>Specifies the depth and stencil clear values to use when clearing a depth/stencil image or attachment.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkClearDepthStencilValue {
     float depth;
     uint32_t stencil;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>depth</td><td>the clear value for the depth aspect of the depth/stencil attachment. It is a floating-point value which is automatically converted to the attachment’s
+ * format.</td></tr>
+ * <tr><td>stencil</td><td>the clear value for the stencil aspect of the depth/stencil attachment. It is a 32-bit integer value which is converted to the attachment’s format by
+ * taking the appropriate number of LSBs.</td></tr>
+ * </table>
  */
 public class VkClearDepthStencilValue extends Struct {
 

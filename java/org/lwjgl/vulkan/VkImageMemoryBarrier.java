@@ -18,6 +18,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageMemoryBarrier.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageMemoryBarrier">Vulkan Specification</a>
  * 
+ * <p>Specifies an image memory barrier. This type of barrier only applies to memory accesses involving a specific subresource range of the specified image
+ * object. That is, a memory dependency formed from a image memory barrier is scoped to the specified subresources of the image. It is also used to
+ * perform a layout transition for an image subresource range, or to transfer ownership of an image subresource range from one queue family to another.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -72,8 +76,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>srcAccessMask</td><td>a mask of the classes of memory accesses performed by the first set of commands that will participate in the dependency</td></tr>
+ * <tr><td>dstAccessMask</td><td>a mask of the classes of memory accesses performed by the second set of commands that will participate in the dependency</td></tr>
+ * <tr><td>oldLayout</td><td>describes the current layout of the image subresource(s)</td></tr>
+ * <tr><td>newLayout</td><td>describes the new layout of the image subresource(s)</td></tr>
+ * <tr><td>srcQueueFamilyIndex</td><td>the queue family that is relinquishing ownership of the image subresource(s) to another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of
+ * ownership)</td></tr>
+ * <tr><td>dstQueueFamilyIndex</td><td>the queue family that is acquiring ownership of the image subresource(s) from another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of
+ * ownership)</td></tr>
+ * <tr><td>image</td><td>a handle to the image whose backing memory is affected by the barrier</td></tr>
+ * <tr><td>subresourceRange</td><td>describes an area of the backing memory for image, as well as the set of subresources whose image layouts are modified</td></tr>
  * </table>
  */
 public class VkImageMemoryBarrier extends Struct {

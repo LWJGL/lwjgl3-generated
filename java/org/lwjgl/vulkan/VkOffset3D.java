@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkOffset3D.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkOffset3D">Vulkan Specification</a>
  * 
+ * <p>Describes a 3D offset.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkOffset3D {
@@ -25,6 +27,14 @@ import static org.lwjgl.system.MemoryStack.*;
     int32_t y;
     int32_t z;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>x</td><td>the x offset</td></tr>
+ * <tr><td>y</td><td>the y offset</td></tr>
+ * <tr><td>z</td><td>the z offset</td></tr>
+ * </table>
  */
 public class VkOffset3D extends Struct {
 

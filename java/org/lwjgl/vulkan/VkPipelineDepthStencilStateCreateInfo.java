@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineDepthStencilStateCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineDepthStencilStateCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about depth bounds tests, stencil test and depth test as part of graphics pipeline creation.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -50,8 +52,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>depthTestEnable</td><td>controls whether depth testing is enabled</td></tr>
+ * <tr><td>depthWriteEnable</td><td>controls whether depth writes are enabled</td></tr>
+ * <tr><td>depthCompareOp</td><td>the comparison operator used in the depth test</td></tr>
+ * <tr><td>depthBoundsTestEnable</td><td>controls whether depth bounds testing is enabled</td></tr>
+ * <tr><td>stencilTestEnable</td><td>controls whether stencil testing is enabled</td></tr>
+ * <tr><td>front</td><td>control the parameters of the stencil test for front facing primitives</td></tr>
+ * <tr><td>back</td><td>control the parameters of the stencil test for back facing primitives</td></tr>
+ * <tr><td>minDepthBounds</td><td>the minimum depths bounds test value</td></tr>
+ * <tr><td>maxDepthBounds</td><td>the maximum depths bounds test value</td></tr>
  * </table>
  */
 public class VkPipelineDepthStencilStateCreateInfo extends Struct {

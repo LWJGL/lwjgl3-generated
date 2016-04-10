@@ -45,7 +45,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_APPLICATION_INFO STRUCTURE_TYPE_APPLICATION_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
  * <tr><td>pApplicationName</td><td>a pointer to a {@code NULL}-terminated UTF-8 string containing the name of the application</td></tr>
  * <tr><td>applicationVersion</td><td>contains an application-specific version number. It is recommended that new versions of an existing application specify monotonically increasing values

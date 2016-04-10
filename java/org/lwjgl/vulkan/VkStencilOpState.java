@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkStencilOpState.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkStencilOpState">Vulkan Specification</a>
  * 
+ * <p>Contains information about the stencil test as part of graphics pipeline creation.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -38,6 +40,18 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t writeMask;
     uint32_t reference;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>failOp</td><td>the action performed on samples that fail the stencil test</td></tr>
+ * <tr><td>passOp</td><td>the action performed on samples that pass both the depth and stencil tests</td></tr>
+ * <tr><td>depthFailOp</td><td>the action performed on samples that pass the stencil test and fail the depth test</td></tr>
+ * <tr><td>compareOp</td><td>the comparison operator used in the stencil test</td></tr>
+ * <tr><td>compareMask</td><td>selects the bits of the unsigned integer stencil values participating in the stencil test</td></tr>
+ * <tr><td>writeMask</td><td>selects the bits of the unsigned integer stencil values updated by the stencil test in the stencil framebuffer attachment</td></tr>
+ * <tr><td>reference</td><td>an integer reference value that is used in the unsigned stencil comparison</td></tr>
+ * </table>
  */
 public class VkStencilOpState extends Struct {
 

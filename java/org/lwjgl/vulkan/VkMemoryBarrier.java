@@ -18,6 +18,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkMemoryBarrier.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkMemoryBarrier">Vulkan Specification</a>
  * 
+ * <p>Specifies a global memory barrier. This type of barrier applies to memory accesses involving all memory objects that exist at the time of its
+ * execution.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -39,8 +42,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_MEMORY_BARRIER STRUCTURE_TYPE_MEMORY_BARRIER}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>srcAccessMask</td><td>a mask of the classes of memory accesses performed by the first set of commands that will participate in the dependency</td></tr>
+ * <tr><td>dstAccessMask</td><td>a mask of the classes of memory accesses performed by the second set of commands that will participate in the dependency</td></tr>
  * </table>
  */
 public class VkMemoryBarrier extends Struct {

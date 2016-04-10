@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineVertexInputStateCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineVertexInputStateCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains vertex input attribute and vertex input binding descriptions as part of graphics pipeline creation.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -51,8 +53,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>vertexBindingDescriptionCount</td><td>the number of vertex binding descriptions provided in {@code pVertexBindingDescriptions}</td></tr>
+ * <tr><td>pVertexBindingDescriptions</td><td>a pointer to an array of {@link VkVertexInputBindingDescription} structures</td></tr>
+ * <tr><td>vertexAttributeDescriptionCount</td><td>the number of vertex attribute descriptions provided in {@code pVertexAttributeDescriptions}</td></tr>
+ * <tr><td>pVertexAttributeDescriptions</td><td>a pointer to an array of {@link VkVertexInputAttributeDescription} structures</td></tr>
  * </table>
  */
 public class VkPipelineVertexInputStateCreateInfo extends Struct {

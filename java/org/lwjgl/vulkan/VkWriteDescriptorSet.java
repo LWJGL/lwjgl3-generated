@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkWriteDescriptorSet.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkWriteDescriptorSet">Vulkan Specification</a>
  * 
+ * <p>Describes an operation updating the descriptor set using descriptors for resources specified in the structure.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -84,8 +86,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>dstSet</td><td>the destination descriptor set to update</td></tr>
+ * <tr><td>dstBinding</td><td>the descriptor binding within that set</td></tr>
+ * <tr><td>dstArrayElement</td><td>the starting element in that array</td></tr>
+ * <tr><td>descriptorCount</td><td>the number of descriptors to update (the number of elements in {@code pImageInfO}, {@code pBufferInfO}, or {@code pTexelBufferVieW})</td></tr>
+ * <tr><td>descriptorType</td><td>the type of each descriptor in {@code pImageInfo}, {@code pBufferInfo}, or {@code pTexelBufferView}, and must be the same type as what was specified in
+ * {@link VkDescriptorSetLayoutBinding} for {@code dstSet} at {@code dstBinding}. The type of the descriptor also controls which array the descriptors are taken
+ * from.</td></tr>
+ * <tr><td>pImageInfo</td><td>points to an array of {@link VkDescriptorImageInfo} structures or is ignored</td></tr>
+ * <tr><td>pBufferInfo</td><td>points to an array of {@link VkDescriptorBufferInfo} structures or is ignored</td></tr>
+ * <tr><td>pTexelBufferView</td><td>points to an array of {@code VkBufferView} handles or is ignored</td></tr>
  * </table>
  */
 public class VkWriteDescriptorSet extends Struct {

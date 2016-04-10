@@ -15,6 +15,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkClearColorValue.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkClearColorValue">Vulkan Specification</a>
+ * 
+ * <p>Specifies the color image clear values to use when clearing a color image or attachment.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>union VkClearColorValue {
@@ -22,6 +27,14 @@ import static org.lwjgl.system.MemoryStack.*;
     int32_t[4] int32;
     uint32_t[4] uint32;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>float32</td><td>used for floating point, unorm, snorm, uscaled, packed float, and sRGB formats</td></tr>
+ * <tr><td>int32</td><td>used for signed integer formats</td></tr>
+ * <tr><td>uint32</td><td>used for unsigned integer formats</td></tr>
+ * </table>
  */
 public class VkClearColorValue extends Struct {
 

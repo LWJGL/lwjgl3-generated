@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineColorBlendAttachmentState.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineColorBlendAttachmentState">Vulkan Specification</a>
  * 
+ * <p>Contains information about per-target blending state as part of graphics pipeline creation.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -50,6 +52,19 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBlendOp alphaBlendOp;
     VkColorComponentFlags colorWriteMask;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>blendEnable</td><td>controls whether blending is enabled for the corresponding color attachment</td></tr>
+ * <tr><td>srcColorBlendFactor</td><td>selects which blend factor is used to determine the source factors S<sub>r</sub>,S<sub>g</sub>,S<sub>b</sub></td></tr>
+ * <tr><td>dstColorBlendFactor</td><td>selects which blend factor is used to determine the destination factors D<sub>r</sub>,D<sub>g</sub>,D<sub>b</sub></td></tr>
+ * <tr><td>colorBlendOp</td><td>selects which blend operation is used to calculate the RGB values to write to the color attachment</td></tr>
+ * <tr><td>srcAlphaBlendFactor</td><td>selects which blend factor is used to determine the source factor S<sub>a</sub></td></tr>
+ * <tr><td>dstAlphaBlendFactor</td><td>selects which blend factor is used to determine the destination factor D<sub>a</sub></td></tr>
+ * <tr><td>alphaBlendOp</td><td>selects which blend operation is use to calculate the alpha values to write to the color attachment</td></tr>
+ * <tr><td>colorWriteMask</td><td>a bitmask selecting which of the R, G, B, and/or A components are enabled for writing</td></tr>
+ * </table>
  */
 public class VkPipelineColorBlendAttachmentState extends Struct {
 

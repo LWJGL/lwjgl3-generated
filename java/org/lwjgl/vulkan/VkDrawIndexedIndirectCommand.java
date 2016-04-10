@@ -17,6 +17,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDrawIndexedIndirectCommand.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDrawIndexedIndirectCommand">Vulkan Specification</a>
  * 
+ * <p>Describes an indirect indexed draw command.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -36,6 +38,16 @@ import static org.lwjgl.system.MemoryStack.*;
     int32_t vertexOffset;
     uint32_t firstInstance;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>indexCount</td><td>the number of vertices to draw</td></tr>
+ * <tr><td>instanceCount</td><td>the number of instances to draw</td></tr>
+ * <tr><td>firstIndex</td><td>the base index within the index buffer</td></tr>
+ * <tr><td>vertexOffset</td><td>the value added to the vertex index before indexing into the vertex buffer</td></tr>
+ * <tr><td>firstInstance</td><td>the instance ID of the first instance to draw</td></tr>
+ * </table>
  */
 public class VkDrawIndexedIndirectCommand extends Struct {
 

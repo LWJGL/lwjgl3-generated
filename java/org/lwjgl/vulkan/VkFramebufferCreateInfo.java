@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkFramebufferCreateInfo.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkFramebufferCreateInfo">Vulkan Specification</a>
  * 
+ * <p>Contains information about how a framebuffer should be created.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -65,8 +67,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure</td></tr>
+ * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO}</td></tr>
  * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
+ * <tr><td>flags</td><td>reserved for future use</td></tr>
+ * <tr><td>renderPass</td><td>a render pass that defines what render passes the framebuffer will be compatible with</td></tr>
+ * <tr><td>attachmentCount</td><td>the number of attachments</td></tr>
+ * <tr><td>pAttachments</td><td>an array of {@code VkImageView} handles, each of which will be used as the corresponding attachment in a render pass instance</td></tr>
+ * <tr><td>width</td><td>the framebuffer width</td></tr>
+ * <tr><td>height</td><td>the framebuffer height</td></tr>
+ * <tr><td>layers</td><td>the number of layers in the framebuffer</td></tr>
  * </table>
  */
 public class VkFramebufferCreateInfo extends Struct {

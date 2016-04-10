@@ -15,12 +15,24 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkClearValue.html">Khronos Reference Page</a><br>
+ * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkClearValue">Vulkan Specification</a>
+ * 
+ * <p>Specifies the color or depth/stencil value to clear an attachment to.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>union VkClearValue {
     {@link VkClearColorValue VkClearColorValue} color;
     {@link VkClearDepthStencilValue VkClearDepthStencilValue} depthStencil;
 }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <table class=lwjgl>
+ * <tr><td>color</td><td>the color image clear values to use when clearing a color image or attachment</td></tr>
+ * <tr><td>depthStencil</td><td>the depth and stencil clear values to use when clearing a depth/stencil image or attachment</td></tr>
+ * </table>
  */
 public class VkClearValue extends Struct {
 
