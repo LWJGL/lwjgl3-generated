@@ -16,19 +16,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Defines a method.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code name} &ndash; the name of the method at runtime</li>
+ * <li>{@code types} &ndash; the types of the method arguments</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct objc_method_description {
     SEL name;
     char * types;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>name</td><td>the name of the method at runtime</td></tr>
- * <tr><td>types</td><td>the types of the method arguments</td></tr>
- * </table>
  */
 public class ObjCMethodDescription extends Struct {
 

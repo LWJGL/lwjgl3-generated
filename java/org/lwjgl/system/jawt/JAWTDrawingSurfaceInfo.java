@@ -14,6 +14,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code platformInfo} &ndash; 
+ * Pointer to the platform-specific information. This can be safely cast to a {@code JAWT_Win32DrawingSurfaceInfo} on Windows or a
+ * {@code JAWT_X11DrawingSurfaceInfo} on Solaris. On Mac OS X this is a pointer to a {@code NSObject} that conforms to the {@code JAWT_SurfaceLayers}
+ * protocol.</li>
+ * <li>{@code ds} &ndash; Cached pointer to the underlying drawing surface.</li>
+ * <li>{@code bounds} &ndash; Bounding rectangle of the drawing surface.</li>
+ * <li>{@code clipSize} &ndash; Number of rectangles in the clip.</li>
+ * <li>{@code clip} &ndash; Clip rectangle array.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct JAWT_DrawingSurfaceInfo {
@@ -23,18 +36,6 @@ import static org.lwjgl.system.MemoryStack.*;
     jint clipSize;
     JAWT_Rectangle * clip;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>platformInfo</td><td>Pointer to the platform-specific information. This can be safely cast to a {@code JAWT_Win32DrawingSurfaceInfo} on Windows or a
- * {@code JAWT_X11DrawingSurfaceInfo} on Solaris. On Mac OS X this is a pointer to a {@code NSObject} that conforms to the {@code JAWT_SurfaceLayers}
- * protocol.</td></tr>
- * <tr><td>ds</td><td>Cached pointer to the underlying drawing surface.</td></tr>
- * <tr><td>bounds</td><td>Bounding rectangle of the drawing surface.</td></tr>
- * <tr><td>clipSize</td><td>Number of rectangles in the clip.</td></tr>
- * <tr><td>clip</td><td>Clip rectangle array.</td></tr>
- * </table>
  */
 public class JAWTDrawingSurfaceInfo extends Struct {
 

@@ -17,6 +17,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A glyph position.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code str} &ndash; position of the glyph in the input string</li>
+ * <li>{@code x} &ndash; the x-coordinate of the logical glyph position</li>
+ * <li>{@code minx} &ndash; the left bound of the glyph shape</li>
+ * <li>{@code maxx} &ndash; the right bound of the glyph shape</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct NVGglyphPosition {
@@ -25,15 +34,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float minx;
     float maxx;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>str</td><td>position of the glyph in the input string</td></tr>
- * <tr><td>x</td><td>the x-coordinate of the logical glyph position</td></tr>
- * <tr><td>minx</td><td>the left bound of the glyph shape</td></tr>
- * <tr><td>maxx</td><td>the right bound of the glyph shape</td></tr>
- * </table>
  */
 public class NVGGlyphPosition extends Struct {
 

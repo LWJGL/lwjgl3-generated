@@ -17,6 +17,16 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Description used to create a texture swap chain.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code ArraySize} &ndash; only supported with {@link OVR#ovrTexture_2D}. Not supported on PC at this time.</li>
+ * <li>{@code SampleCount} &ndash; current only supported on depth textures</li>
+ * <li>{@code StaticImage} &ndash; not buffered in a chain. For images that don't change</li>
+ * <li>{@code MiscFlags} &ndash; {@code ovrTextureMiscFlags}</li>
+ * <li>{@code BindFlags} &ndash; {@code ovrTextureBindFlags}. Not used for GL.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrTextureSwapChainDesc {
@@ -31,16 +41,6 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int MiscFlags;
     unsigned int BindFlags;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>ArraySize</td><td>only supported with {@link OVR#ovrTexture_2D}. Not supported on PC at this time.</td></tr>
- * <tr><td>SampleCount</td><td>current only supported on depth textures</td></tr>
- * <tr><td>StaticImage</td><td>not buffered in a chain. For images that don't change</td></tr>
- * <tr><td>MiscFlags</td><td>{@code ovrTextureMiscFlags}</td></tr>
- * <tr><td>BindFlags</td><td>{@code ovrTextureBindFlags}. Not used for GL.</td></tr>
- * </table>
  */
 public class OVRTextureSwapChainDesc extends Struct {
 

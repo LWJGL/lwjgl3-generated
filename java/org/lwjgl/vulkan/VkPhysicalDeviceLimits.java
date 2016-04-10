@@ -19,6 +19,159 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Contains properties of a physical device.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code maxImageDimension1D} &ndash; the maximum dimension ({@code width}) of an image created with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}</li>
+ * <li>{@code maxImageDimension2D} &ndash; 
+ * the maximum dimension ({@code width} or {@code height}) of an image created with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D} and without
+ * {@link VK10#VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT IMAGE_CREATE_CUBE_COMPATIBLE_BIT} set in flags</li>
+ * <li>{@code maxImageDimension3D} &ndash; the maximum dimension ({@code width}, {@code height}, or {@code depth}) of an image created with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}</li>
+ * <li>{@code maxImageDimensionCube} &ndash; 
+ * the maximum dimension ({@code width} or {@code height}) of an image created with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D} and with
+ * {@link VK10#VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT IMAGE_CREATE_CUBE_COMPATIBLE_BIT} set in flags</li>
+ * <li>{@code maxImageArrayLayers} &ndash; the maximum number of layers ({@code arrayLayers}) for an image</li>
+ * <li>{@code maxTexelBufferElements} &ndash; 
+ * the maximum number of addressable texels for a buffer view created on a buffer which was created with the {@link VK10#VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT} or
+ * {@link VK10#VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT} set in the usage member of the {@link VkBufferCreateInfo} structure</li>
+ * <li>{@code maxUniformBufferRange} &ndash; 
+ * the maximum value that <b>can</b> be specified in the range member of any {@link VkDescriptorBufferInfo} structures passed to a call to {@link VK10#vkUpdateDescriptorSets UpdateDescriptorSets} for
+ * descriptors of type {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC}</li>
+ * <li>{@code maxStorageBufferRange} &ndash; 
+ * the maximum value that <b>can</b> be specified in the range member of any {@link VkDescriptorBufferInfo} structures passed to a call to {@link VK10#vkUpdateDescriptorSets UpdateDescriptorSets} for
+ * descriptors of type {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC}</li>
+ * <li>{@code maxPushConstantsSize} &ndash; the maximum size, in bytes, of the pool of push constant memory</li>
+ * <li>{@code maxMemoryAllocationCount} &ndash; the maximum number of device memory allocations, as created by {@link VK10#vkAllocateMemory AllocateMemory}, which <b>can</b> simultaneously exist</li>
+ * <li>{@code maxSamplerAllocationCount} &ndash; the maximum number of sampler objects, as created by {@link VK10#vkCreateSampler CreateSampler}, which <b>can</b> simultaneously exist on a device</li>
+ * <li>{@code bufferImageGranularity} &ndash; 
+ * the granularity, in bytes, at which buffer or linear image resources, and optimal image resources <b>can</b> be bound to adjacent offsets in the same
+ * {@code VkDeviceMemory} object without aliasing</li>
+ * <li>{@code sparseAddressSpaceSize} &ndash; the total amount of address space available, in bytes, for sparse memory resources</li>
+ * <li>{@code maxBoundDescriptorSets} &ndash; the maximum number of descriptor sets that <b>can</b> be simultaneously used by a pipeline</li>
+ * <li>{@code maxPerStageDescriptorSamplers} &ndash; the maximum number of samplers that <b>can</b> be accessible to a single shader stage in a pipeline layout</li>
+ * <li>{@code maxPerStageDescriptorUniformBuffers} &ndash; the maximum number of uniform buffers that <b>can</b> be accessible to a single shader stage in a pipeline layout</li>
+ * <li>{@code maxPerStageDescriptorStorageBuffers} &ndash; the maximum number of storage buffers that <b>can</b> be accessible to a single shader stage in a pipeline layout</li>
+ * <li>{@code maxPerStageDescriptorSampledImages} &ndash; the maximum number of sampled images that <b>can</b> be accessible to a single shader stage in a pipeline layout</li>
+ * <li>{@code maxPerStageDescriptorStorageImages} &ndash; the maximum number of storage images that <b>can</b> be accessible to a single shader stage in a pipeline layout</li>
+ * <li>{@code maxPerStageDescriptorInputAttachments} &ndash; the maximum number of input attachments that <b>can</b> be accessible to a single shader stage in a pipeline layout</li>
+ * <li>{@code maxPerStageResources} &ndash; the maximum number of resources that <b>can</b> be accessible to a single shader stage in a pipeline layout</li>
+ * <li>{@code maxDescriptorSetSamplers} &ndash; 
+ * the maximum number of samplers that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and descriptor set
+ * numbers</li>
+ * <li>{@code maxDescriptorSetUniformBuffers} &ndash; 
+ * the maximum number of uniform buffers that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and descriptor
+ * set numbers</li>
+ * <li>{@code maxDescriptorSetUniformBuffersDynamic} &ndash; 
+ * the maximum number of dynamic uniform buffers that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and
+ * descriptor set numbers</li>
+ * <li>{@code maxDescriptorSetStorageBuffers} &ndash; 
+ * the maximum number of storage buffers that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and descriptor
+ * set numbers</li>
+ * <li>{@code maxDescriptorSetStorageBuffersDynamic} &ndash; 
+ * the maximum number of dynamic storage buffers that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and
+ * descriptor set numbers</li>
+ * <li>{@code maxDescriptorSetSampledImages} &ndash; 
+ * the maximum number of sampled images that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and descriptor
+ * set numbers</li>
+ * <li>{@code maxDescriptorSetStorageImages} &ndash; 
+ * the maximum number of storage images that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and descriptor
+ * set numbers</li>
+ * <li>{@code maxDescriptorSetInputAttachments} &ndash; 
+ * the maximum number of input attachments that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and
+ * descriptor set numbers</li>
+ * <li>{@code maxVertexInputAttributes} &ndash; the maximum number of vertex input attributes that <b>can</b> be specified for a graphics pipeline</li>
+ * <li>{@code maxVertexInputBindings} &ndash; the maximum number of vertex buffers that <b>can</b> be specified for providing vertex attributes to a graphics pipeline</li>
+ * <li>{@code maxVertexInputAttributeOffset} &ndash; the maximum vertex input attribute offset that <b>can</b> be added to the vertex input binding stride</li>
+ * <li>{@code maxVertexInputBindingStride} &ndash; the maximum vertex input binding stride that <b>can</b> be specified in a vertex input binding</li>
+ * <li>{@code maxVertexOutputComponents} &ndash; the maximum number of components of output variables which <b>can</b> be output by a vertex shader</li>
+ * <li>{@code maxTessellationGenerationLevel} &ndash; the maximum tessellation generation level supported by the fixed-function tessellation primitive generator</li>
+ * <li>{@code maxTessellationPatchSize} &ndash; the maximum patch size, in vertices, of patches that <b>can</b> be processed by the tessellation control shader and tessellation primitive generator</li>
+ * <li>{@code maxTessellationControlPerVertexInputComponents} &ndash; the maximum number of components of input variables which <b>can</b> be provided as per-vertex inputs to the tessellation control shader stage</li>
+ * <li>{@code maxTessellationControlPerVertexOutputComponents} &ndash; the maximum number of components of per-vertex output variables which <b>can</b> be output from the tessellation control shader stage</li>
+ * <li>{@code maxTessellationControlPerPatchOutputComponents} &ndash; the maximum number of components of per-patch output variables which <b>can</b> be output from the tessellation control shader stage</li>
+ * <li>{@code maxTessellationControlTotalOutputComponents} &ndash; the maximum total number of components of per-vertex and per-patch output variables which <b>can</b> be output from the tessellation control shader stage</li>
+ * <li>{@code maxTessellationEvaluationInputComponents} &ndash; the maximum number of components of input variables which <b>can</b> be provided as per-vertex inputs to the tessellation evaluation shader stage</li>
+ * <li>{@code maxTessellationEvaluationOutputComponents} &ndash; the maximum number of components of per-vertex output variables which <b>can</b> be output from the tessellation evaluation shader stage</li>
+ * <li>{@code maxGeometryShaderInvocations} &ndash; the maximum invocation count supported for instanced geometry shaders</li>
+ * <li>{@code maxGeometryInputComponents} &ndash; the maximum number of components of input variables which <b>can</b> be provided as inputs to the geometry shader stage</li>
+ * <li>{@code maxGeometryOutputComponents} &ndash; the maximum number of components of output variables which <b>can</b> be output from the geometry shader stage</li>
+ * <li>{@code maxGeometryOutputVertices} &ndash; the maximum number of vertices which <b>can</b> be emitted by any geometry shader</li>
+ * <li>{@code maxGeometryTotalOutputComponents} &ndash; the maximum total number of components of output, across all emitted vertices, which <b>can</b> be output from the geometry shader stage</li>
+ * <li>{@code maxFragmentInputComponents} &ndash; the maximum number of components of input variables which <b>can</b> be provided as inputs to the fragment shader stage</li>
+ * <li>{@code maxFragmentOutputAttachments} &ndash; the maximum number of output attachments which <b>can</b> be written to by the fragment shader stage</li>
+ * <li>{@code maxFragmentDualSrcAttachments} &ndash; 
+ * the maximum number of output attachments which <b>can</b> be written to by the fragment shader stage when blending is enabled and one of the dual source
+ * blend modes is in use</li>
+ * <li>{@code maxFragmentCombinedOutputResources} &ndash; the total number of storage buffers, storage images, and output buffers which <b>can</b> be used in the fragment shader stage</li>
+ * <li>{@code maxComputeSharedMemorySize} &ndash; 
+ * the maximum total storage size, in bytes, of all variables declared with the <b>WorkgroupLocal</b> storage class in shader modules (or with the shared
+ * storage qualifier in GLSL) in the compute shader stage</li>
+ * <li>{@code maxComputeWorkGroupCount} &ndash; the maximum number of local workgroups that <b>can</b> be dispatched by a single dispatch command</li>
+ * <li>{@code maxComputeWorkGroupInvocations} &ndash; the maximum total number of compute shader invocations in a single local workgrou</li>
+ * <li>{@code maxComputeWorkGroupSize} &ndash; the maximum size of a local compute workgroup, per dimension</li>
+ * <li>{@code subPixelPrecisionBits} &ndash; the number of bits of subpixel precision in framebuffer coordinates x<sub>f</sub> and y<sub>f</sub></li>
+ * <li>{@code subTexelPrecisionBits} &ndash; the number of bits of precision in the division along an axis of an image used for minification and magnification filters</li>
+ * <li>{@code mipmapPrecisionBits} &ndash; 
+ * the number of bits of division that the LOD calculation for mipmap fetching get snapped to when determining the contribution from each miplevel to the
+ * mip filtered results</li>
+ * <li>{@code maxDrawIndexedIndexValue} &ndash; the maximum index value that <b>can</b> be used for indexed draw calls when using 32-bit indices</li>
+ * <li>{@code maxDrawIndirectCount} &ndash; the maximum draw count that is supported for indirect draw calls</li>
+ * <li>{@code maxSamplerLodBias} &ndash; the maximum absolute sampler level of detail bias</li>
+ * <li>{@code maxSamplerAnisotropy} &ndash; the maximum degree of sampler anisotropy</li>
+ * <li>{@code maxViewports} &ndash; the maximum number of active viewports</li>
+ * <li>{@code maxViewportDimensions} &ndash; the maximum viewport dimensions in the X (width) and Y (height) dimensions, respectively</li>
+ * <li>{@code viewportBoundsRange} &ndash;  the {@code [minimum,maximum]} range that the corners of a viewport must be contained in</li>
+ * <li>{@code viewportSubPixelBits} &ndash; the number of bits of subpixel precision for viewport bounds</li>
+ * <li>{@code minMemoryMapAlignment} &ndash; the minimum required alignment, in bytes, of host visible memory allocations within the host address space</li>
+ * <li>{@code minTexelBufferOffsetAlignment} &ndash; the minimum required alignment, in bytes, for the {@code offset} member of the {@link VkBufferViewCreateInfo} structure for texel buffers</li>
+ * <li>{@code minUniformBufferOffsetAlignment} &ndash; the minimum required alignment, in bytes, for the {@code offset} member of the {@link VkDescriptorBufferInfo} structure for uniform buffers</li>
+ * <li>{@code minStorageBufferOffsetAlignment} &ndash; the minimum required alignment, in bytes, for the {@code offset} member of the {@link VkDescriptorBufferInfo} structure for storage buffers</li>
+ * <li>{@code minTexelOffset} &ndash; the minimum offset value for the {@code ConstOffset} image operand of any of the {@code OpImageSample*} or {@code OpImageFetch*} image instructions</li>
+ * <li>{@code maxTexelOffset} &ndash; the maximum offset value for the {@code ConstOffset} image operand of any of the {@code OpImageSample*} or {@code OpImageFetch*} image instructions</li>
+ * <li>{@code minTexelGatherOffset} &ndash; the minimum offset value for the {@code Offset} or {@code ConstOffsets} image operands of any of the {@code OpImage*Gather} image instructions</li>
+ * <li>{@code maxTexelGatherOffset} &ndash; the maximum offset value for the {@code Offset} or {@code ConstOffsets} image operands of any of the {@code OpImage*Gather} image instructions</li>
+ * <li>{@code minInterpolationOffset} &ndash; the minimum negative offset value for the {@code offset} operand of the {@code InterpolateAtOffset} extended instruction</li>
+ * <li>{@code maxInterpolationOffset} &ndash; the maximum positive offset value for the {@code offset} operand of the {@code InterpolateAtOffset} extended instruction</li>
+ * <li>{@code subPixelInterpolationOffsetBits} &ndash; 
+ * the number of subpixel fractional bits that the {@code x} and {@code y} offsets to the {@code InterpolateAtOffset} extended instruction <b>may</b> be rounded
+ * to as fixed-point values</li>
+ * <li>{@code maxFramebufferWidth} &ndash; the maximum width for a framebuffer</li>
+ * <li>{@code maxFramebufferHeight} &ndash; the maximum height for a framebuffer</li>
+ * <li>{@code maxFramebufferLayers} &ndash; the maximum layer count for a layered framebuffer</li>
+ * <li>{@code framebufferColorSampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} bits indicating the supported color sample counts for a framebuffer color attachment</li>
+ * <li>{@code framebufferDepthSampleCounts} &ndash; 
+ * a bitmask of {@code VkSampleCountFlagBits} bits indicating the supported depth sample counts for a framebuffer depth/stencil attachment, when the
+ * format includes a depth component</li>
+ * <li>{@code framebufferStencilSampleCounts} &ndash; 
+ * a bitmask of {@code VkSampleCountFlagBits} bits indicating the supported stencil sample counts for a framebuffer depth/stencil attachment, when the
+ * format includes a stencil component</li>
+ * <li>{@code framebufferNoAttachmentsSampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} bits indicating the supported sample counts for a framebuffer with no attachments</li>
+ * <li>{@code maxColorAttachments} &ndash; the maximum number of color attachments that <b>can</b> be used by a subpass in a render pass</li>
+ * <li>{@code sampledImageColorSampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all images with a non-integer color format</li>
+ * <li>{@code sampledImageIntegerSampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all images with a integer color format</li>
+ * <li>{@code sampledImageDepthSampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all images with a depth format</li>
+ * <li>{@code sampledImageStencilSampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} bits indicating the sample supported for all images with a stencil format</li>
+ * <li>{@code storageImageSampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all images used for storage operations</li>
+ * <li>{@code maxSampleMaskWords} &ndash; the maximum number of array elements of a variable decorated with the {@code SampleMask} built-in decoration</li>
+ * <li>{@code timestampComputeAndGraphics} &ndash; indicates support for timestamps on all graphics and compute queues</li>
+ * <li>{@code timestampPeriod} &ndash; the number of nanoseconds required for a timestamp query to be incremented by 1</li>
+ * <li>{@code maxClipDistances} &ndash; the maximum number of clip distances that <b>can</b> be used in a single shader stage</li>
+ * <li>{@code maxCullDistances} &ndash; the maximum number of cull distances that <b>can</b> be used in a single shader stage</li>
+ * <li>{@code maxCombinedClipAndCullDistances} &ndash; the maximum combined number of clip and cull distances that <b>can</b> be used in a single shader stage</li>
+ * <li>{@code discreteQueuePriorities} &ndash; 
+ * the number of discrete priorities that <b>can</b> be assigned to a queue based on the value of each member of
+ * {@link VkDeviceQueueCreateInfo}{@code ::pQueuePriorities}</li>
+ * <li>{@code pointSizeRange} &ndash; the range {@code [minimum,maximum]} of supported sizes for points</li>
+ * <li>{@code lineWidthRange} &ndash;  the range {@code [minimum,maximum]} of supported widths for lines</li>
+ * <li>{@code pointSizeGranularity} &ndash; the granularity of supported point sizes</li>
+ * <li>{@code lineWidthGranularity} &ndash; the granularity of supported line widths</li>
+ * <li>{@code strictLines} &ndash; indicates whether lines are rasterized according to the preferred method of rasterization</li>
+ * <li>{@code standardSampleLocations} &ndash; indicates whether rasterization uses the standard sample locations</li>
+ * <li>{@code optimalBufferCopyOffsetAlignment} &ndash; the optimal buffer offset alignment in bytes for {@link VK10#vkCmdCopyBufferToImage CmdCopyBufferToImage} and {@link VK10#vkCmdCopyImageToBuffer CmdCopyImageToBuffer}</li>
+ * <li>{@code optimalBufferCopyRowPitchAlignment} &ndash; the optimal buffer row pitch alignment in bytes for {@link VK10#vkCmdCopyBufferToImage CmdCopyBufferToImage} and {@link VK10#vkCmdCopyImageToBuffer CmdCopyImageToBuffer}</li>
+ * <li>{@code nonCoherentAtomSize} &ndash; the size and alignment in bytes that bounds concurrent access to host-mapped device memory</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPhysicalDeviceLimits {
@@ -129,138 +282,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize optimalBufferCopyRowPitchAlignment;
     VkDeviceSize nonCoherentAtomSize;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>maxImageDimension1D</td><td>the maximum dimension ({@code width}) of an image created with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}</td></tr>
- * <tr><td>maxImageDimension2D</td><td>the maximum dimension ({@code width} or {@code height}) of an image created with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D} and without
- * {@link VK10#VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT IMAGE_CREATE_CUBE_COMPATIBLE_BIT} set in flags</td></tr>
- * <tr><td>maxImageDimension3D</td><td>the maximum dimension ({@code width}, {@code height}, or {@code depth}) of an image created with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}</td></tr>
- * <tr><td>maxImageDimensionCube</td><td>the maximum dimension ({@code width} or {@code height}) of an image created with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D} and with
- * {@link VK10#VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT IMAGE_CREATE_CUBE_COMPATIBLE_BIT} set in flags</td></tr>
- * <tr><td>maxImageArrayLayers</td><td>the maximum number of layers ({@code arrayLayers}) for an image</td></tr>
- * <tr><td>maxTexelBufferElements</td><td>the maximum number of addressable texels for a buffer view created on a buffer which was created with the {@link VK10#VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT} or
- * {@link VK10#VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT} set in the usage member of the {@link VkBufferCreateInfo} structure</td></tr>
- * <tr><td>maxUniformBufferRange</td><td>the maximum value that <b>can</b> be specified in the range member of any {@link VkDescriptorBufferInfo} structures passed to a call to {@link VK10#vkUpdateDescriptorSets UpdateDescriptorSets} for
- * descriptors of type {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC}</td></tr>
- * <tr><td>maxStorageBufferRange</td><td>the maximum value that <b>can</b> be specified in the range member of any {@link VkDescriptorBufferInfo} structures passed to a call to {@link VK10#vkUpdateDescriptorSets UpdateDescriptorSets} for
- * descriptors of type {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC}</td></tr>
- * <tr><td>maxPushConstantsSize</td><td>the maximum size, in bytes, of the pool of push constant memory</td></tr>
- * <tr><td>maxMemoryAllocationCount</td><td>the maximum number of device memory allocations, as created by {@link VK10#vkAllocateMemory AllocateMemory}, which <b>can</b> simultaneously exist</td></tr>
- * <tr><td>maxSamplerAllocationCount</td><td>the maximum number of sampler objects, as created by {@link VK10#vkCreateSampler CreateSampler}, which <b>can</b> simultaneously exist on a device</td></tr>
- * <tr><td>bufferImageGranularity</td><td>the granularity, in bytes, at which buffer or linear image resources, and optimal image resources <b>can</b> be bound to adjacent offsets in the same
- * {@code VkDeviceMemory} object without aliasing</td></tr>
- * <tr><td>sparseAddressSpaceSize</td><td>the total amount of address space available, in bytes, for sparse memory resources</td></tr>
- * <tr><td>maxBoundDescriptorSets</td><td>the maximum number of descriptor sets that <b>can</b> be simultaneously used by a pipeline</td></tr>
- * <tr><td>maxPerStageDescriptorSamplers</td><td>the maximum number of samplers that <b>can</b> be accessible to a single shader stage in a pipeline layout</td></tr>
- * <tr><td>maxPerStageDescriptorUniformBuffers</td><td>the maximum number of uniform buffers that <b>can</b> be accessible to a single shader stage in a pipeline layout</td></tr>
- * <tr><td>maxPerStageDescriptorStorageBuffers</td><td>the maximum number of storage buffers that <b>can</b> be accessible to a single shader stage in a pipeline layout</td></tr>
- * <tr><td>maxPerStageDescriptorSampledImages</td><td>the maximum number of sampled images that <b>can</b> be accessible to a single shader stage in a pipeline layout</td></tr>
- * <tr><td>maxPerStageDescriptorStorageImages</td><td>the maximum number of storage images that <b>can</b> be accessible to a single shader stage in a pipeline layout</td></tr>
- * <tr><td>maxPerStageDescriptorInputAttachments</td><td>the maximum number of input attachments that <b>can</b> be accessible to a single shader stage in a pipeline layout</td></tr>
- * <tr><td>maxPerStageResources</td><td>the maximum number of resources that <b>can</b> be accessible to a single shader stage in a pipeline layout</td></tr>
- * <tr><td>maxDescriptorSetSamplers</td><td>the maximum number of samplers that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and descriptor set
- * numbers</td></tr>
- * <tr><td>maxDescriptorSetUniformBuffers</td><td>the maximum number of uniform buffers that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and descriptor
- * set numbers</td></tr>
- * <tr><td>maxDescriptorSetUniformBuffersDynamic</td><td>the maximum number of dynamic uniform buffers that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and
- * descriptor set numbers</td></tr>
- * <tr><td>maxDescriptorSetStorageBuffers</td><td>the maximum number of storage buffers that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and descriptor
- * set numbers</td></tr>
- * <tr><td>maxDescriptorSetStorageBuffersDynamic</td><td>the maximum number of dynamic storage buffers that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and
- * descriptor set numbers</td></tr>
- * <tr><td>maxDescriptorSetSampledImages</td><td>the maximum number of sampled images that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and descriptor
- * set numbers</td></tr>
- * <tr><td>maxDescriptorSetStorageImages</td><td>the maximum number of storage images that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and descriptor
- * set numbers</td></tr>
- * <tr><td>maxDescriptorSetInputAttachments</td><td>the maximum number of input attachments that <b>can</b> be included in descriptor bindings in a pipeline layout across all pipeline shader stages and
- * descriptor set numbers</td></tr>
- * <tr><td>maxVertexInputAttributes</td><td>the maximum number of vertex input attributes that <b>can</b> be specified for a graphics pipeline</td></tr>
- * <tr><td>maxVertexInputBindings</td><td>the maximum number of vertex buffers that <b>can</b> be specified for providing vertex attributes to a graphics pipeline</td></tr>
- * <tr><td>maxVertexInputAttributeOffset</td><td>the maximum vertex input attribute offset that <b>can</b> be added to the vertex input binding stride</td></tr>
- * <tr><td>maxVertexInputBindingStride</td><td>the maximum vertex input binding stride that <b>can</b> be specified in a vertex input binding</td></tr>
- * <tr><td>maxVertexOutputComponents</td><td>the maximum number of components of output variables which <b>can</b> be output by a vertex shader</td></tr>
- * <tr><td>maxTessellationGenerationLevel</td><td>the maximum tessellation generation level supported by the fixed-function tessellation primitive generator</td></tr>
- * <tr><td>maxTessellationPatchSize</td><td>the maximum patch size, in vertices, of patches that <b>can</b> be processed by the tessellation control shader and tessellation primitive generator</td></tr>
- * <tr><td>maxTessellationControlPerVertexInputComponents</td><td>the maximum number of components of input variables which <b>can</b> be provided as per-vertex inputs to the tessellation control shader stage</td></tr>
- * <tr><td>maxTessellationControlPerVertexOutputComponents</td><td>the maximum number of components of per-vertex output variables which <b>can</b> be output from the tessellation control shader stage</td></tr>
- * <tr><td>maxTessellationControlPerPatchOutputComponents</td><td>the maximum number of components of per-patch output variables which <b>can</b> be output from the tessellation control shader stage</td></tr>
- * <tr><td>maxTessellationControlTotalOutputComponents</td><td>the maximum total number of components of per-vertex and per-patch output variables which <b>can</b> be output from the tessellation control shader stage</td></tr>
- * <tr><td>maxTessellationEvaluationInputComponents</td><td>the maximum number of components of input variables which <b>can</b> be provided as per-vertex inputs to the tessellation evaluation shader stage</td></tr>
- * <tr><td>maxTessellationEvaluationOutputComponents</td><td>the maximum number of components of per-vertex output variables which <b>can</b> be output from the tessellation evaluation shader stage</td></tr>
- * <tr><td>maxGeometryShaderInvocations</td><td>the maximum invocation count supported for instanced geometry shaders</td></tr>
- * <tr><td>maxGeometryInputComponents</td><td>the maximum number of components of input variables which <b>can</b> be provided as inputs to the geometry shader stage</td></tr>
- * <tr><td>maxGeometryOutputComponents</td><td>the maximum number of components of output variables which <b>can</b> be output from the geometry shader stage</td></tr>
- * <tr><td>maxGeometryOutputVertices</td><td>the maximum number of vertices which <b>can</b> be emitted by any geometry shader</td></tr>
- * <tr><td>maxGeometryTotalOutputComponents</td><td>the maximum total number of components of output, across all emitted vertices, which <b>can</b> be output from the geometry shader stage</td></tr>
- * <tr><td>maxFragmentInputComponents</td><td>the maximum number of components of input variables which <b>can</b> be provided as inputs to the fragment shader stage</td></tr>
- * <tr><td>maxFragmentOutputAttachments</td><td>the maximum number of output attachments which <b>can</b> be written to by the fragment shader stage</td></tr>
- * <tr><td>maxFragmentDualSrcAttachments</td><td>the maximum number of output attachments which <b>can</b> be written to by the fragment shader stage when blending is enabled and one of the dual source
- * blend modes is in use</td></tr>
- * <tr><td>maxFragmentCombinedOutputResources</td><td>the total number of storage buffers, storage images, and output buffers which <b>can</b> be used in the fragment shader stage</td></tr>
- * <tr><td>maxComputeSharedMemorySize</td><td>the maximum total storage size, in bytes, of all variables declared with the <b>WorkgroupLocal</b> storage class in shader modules (or with the shared
- * storage qualifier in GLSL) in the compute shader stage</td></tr>
- * <tr><td>maxComputeWorkGroupCount</td><td>the maximum number of local workgroups that <b>can</b> be dispatched by a single dispatch command</td></tr>
- * <tr><td>maxComputeWorkGroupInvocations</td><td>the maximum total number of compute shader invocations in a single local workgrou</td></tr>
- * <tr><td>maxComputeWorkGroupSize</td><td>the maximum size of a local compute workgroup, per dimension</td></tr>
- * <tr><td>subPixelPrecisionBits</td><td>the number of bits of subpixel precision in framebuffer coordinates x<sub>f</sub> and y<sub>f</sub></td></tr>
- * <tr><td>subTexelPrecisionBits</td><td>the number of bits of precision in the division along an axis of an image used for minification and magnification filters</td></tr>
- * <tr><td>mipmapPrecisionBits</td><td>the number of bits of division that the LOD calculation for mipmap fetching get snapped to when determining the contribution from each miplevel to the
- * mip filtered results</td></tr>
- * <tr><td>maxDrawIndexedIndexValue</td><td>the maximum index value that <b>can</b> be used for indexed draw calls when using 32-bit indices</td></tr>
- * <tr><td>maxDrawIndirectCount</td><td>the maximum draw count that is supported for indirect draw calls</td></tr>
- * <tr><td>maxSamplerLodBias</td><td>the maximum absolute sampler level of detail bias</td></tr>
- * <tr><td>maxSamplerAnisotropy</td><td>the maximum degree of sampler anisotropy</td></tr>
- * <tr><td>maxViewports</td><td>the maximum number of active viewports</td></tr>
- * <tr><td>maxViewportDimensions</td><td>the maximum viewport dimensions in the X (width) and Y (height) dimensions, respectively</td></tr>
- * <tr><td>viewportBoundsRange</td><td>the {@code [minimum,maximum]} range that the corners of a viewport must be contained in</td></tr>
- * <tr><td>viewportSubPixelBits</td><td>the number of bits of subpixel precision for viewport bounds</td></tr>
- * <tr><td>minMemoryMapAlignment</td><td>the minimum required alignment, in bytes, of host visible memory allocations within the host address space</td></tr>
- * <tr><td>minTexelBufferOffsetAlignment</td><td>the minimum required alignment, in bytes, for the {@code offset} member of the {@link VkBufferViewCreateInfo} structure for texel buffers</td></tr>
- * <tr><td>minUniformBufferOffsetAlignment</td><td>the minimum required alignment, in bytes, for the {@code offset} member of the {@link VkDescriptorBufferInfo} structure for uniform buffers</td></tr>
- * <tr><td>minStorageBufferOffsetAlignment</td><td>the minimum required alignment, in bytes, for the {@code offset} member of the {@link VkDescriptorBufferInfo} structure for storage buffers</td></tr>
- * <tr><td>minTexelOffset</td><td>the minimum offset value for the {@code ConstOffset} image operand of any of the {@code OpImageSample*} or {@code OpImageFetch*} image instructions</td></tr>
- * <tr><td>maxTexelOffset</td><td>the maximum offset value for the {@code ConstOffset} image operand of any of the {@code OpImageSample*} or {@code OpImageFetch*} image instructions</td></tr>
- * <tr><td>minTexelGatherOffset</td><td>the minimum offset value for the {@code Offset} or {@code ConstOffsets} image operands of any of the {@code OpImage*Gather} image instructions</td></tr>
- * <tr><td>maxTexelGatherOffset</td><td>the maximum offset value for the {@code Offset} or {@code ConstOffsets} image operands of any of the {@code OpImage*Gather} image instructions</td></tr>
- * <tr><td>minInterpolationOffset</td><td>the minimum negative offset value for the {@code offset} operand of the {@code InterpolateAtOffset} extended instruction</td></tr>
- * <tr><td>maxInterpolationOffset</td><td>the maximum positive offset value for the {@code offset} operand of the {@code InterpolateAtOffset} extended instruction</td></tr>
- * <tr><td>subPixelInterpolationOffsetBits</td><td>the number of subpixel fractional bits that the {@code x} and {@code y} offsets to the {@code InterpolateAtOffset} extended instruction <b>may</b> be rounded
- * to as fixed-point values</td></tr>
- * <tr><td>maxFramebufferWidth</td><td>the maximum width for a framebuffer</td></tr>
- * <tr><td>maxFramebufferHeight</td><td>the maximum height for a framebuffer</td></tr>
- * <tr><td>maxFramebufferLayers</td><td>the maximum layer count for a layered framebuffer</td></tr>
- * <tr><td>framebufferColorSampleCounts</td><td>a bitmask of {@code VkSampleCountFlagBits} bits indicating the supported color sample counts for a framebuffer color attachment</td></tr>
- * <tr><td>framebufferDepthSampleCounts</td><td>a bitmask of {@code VkSampleCountFlagBits} bits indicating the supported depth sample counts for a framebuffer depth/stencil attachment, when the
- * format includes a depth component</td></tr>
- * <tr><td>framebufferStencilSampleCounts</td><td>a bitmask of {@code VkSampleCountFlagBits} bits indicating the supported stencil sample counts for a framebuffer depth/stencil attachment, when the
- * format includes a stencil component</td></tr>
- * <tr><td>framebufferNoAttachmentsSampleCounts</td><td>a bitmask of {@code VkSampleCountFlagBits} bits indicating the supported sample counts for a framebuffer with no attachments</td></tr>
- * <tr><td>maxColorAttachments</td><td>the maximum number of color attachments that <b>can</b> be used by a subpass in a render pass</td></tr>
- * <tr><td>sampledImageColorSampleCounts</td><td>a bitmask of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all images with a non-integer color format</td></tr>
- * <tr><td>sampledImageIntegerSampleCounts</td><td>a bitmask of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all images with a integer color format</td></tr>
- * <tr><td>sampledImageDepthSampleCounts</td><td>a bitmask of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all images with a depth format</td></tr>
- * <tr><td>sampledImageStencilSampleCounts</td><td>a bitmask of {@code VkSampleCountFlagBits} bits indicating the sample supported for all images with a stencil format</td></tr>
- * <tr><td>storageImageSampleCounts</td><td>a bitmask of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all images used for storage operations</td></tr>
- * <tr><td>maxSampleMaskWords</td><td>the maximum number of array elements of a variable decorated with the {@code SampleMask} built-in decoration</td></tr>
- * <tr><td>timestampComputeAndGraphics</td><td>indicates support for timestamps on all graphics and compute queues</td></tr>
- * <tr><td>timestampPeriod</td><td>the number of nanoseconds required for a timestamp query to be incremented by 1</td></tr>
- * <tr><td>maxClipDistances</td><td>the maximum number of clip distances that <b>can</b> be used in a single shader stage</td></tr>
- * <tr><td>maxCullDistances</td><td>the maximum number of cull distances that <b>can</b> be used in a single shader stage</td></tr>
- * <tr><td>maxCombinedClipAndCullDistances</td><td>the maximum combined number of clip and cull distances that <b>can</b> be used in a single shader stage</td></tr>
- * <tr><td>discreteQueuePriorities</td><td>the number of discrete priorities that <b>can</b> be assigned to a queue based on the value of each member of
- * {@link VkDeviceQueueCreateInfo}{@code ::pQueuePriorities}</td></tr>
- * <tr><td>pointSizeRange</td><td>the range {@code [minimum,maximum]} of supported sizes for points</td></tr>
- * <tr><td>lineWidthRange</td><td>the range {@code [minimum,maximum]} of supported widths for lines</td></tr>
- * <tr><td>pointSizeGranularity</td><td>the granularity of supported point sizes</td></tr>
- * <tr><td>lineWidthGranularity</td><td>the granularity of supported line widths</td></tr>
- * <tr><td>strictLines</td><td>indicates whether lines are rasterized according to the preferred method of rasterization</td></tr>
- * <tr><td>standardSampleLocations</td><td>indicates whether rasterization uses the standard sample locations</td></tr>
- * <tr><td>optimalBufferCopyOffsetAlignment</td><td>the optimal buffer offset alignment in bytes for {@link VK10#vkCmdCopyBufferToImage CmdCopyBufferToImage} and {@link VK10#vkCmdCopyImageToBuffer CmdCopyImageToBuffer}</td></tr>
- * <tr><td>optimalBufferCopyRowPitchAlignment</td><td>the optimal buffer row pitch alignment in bytes for {@link VK10#vkCmdCopyBufferToImage CmdCopyBufferToImage} and {@link VK10#vkCmdCopyImageToBuffer CmdCopyImageToBuffer}</td></tr>
- * <tr><td>nonCoherentAtomSize</td><td>the size and alignment in bytes that bounds concurrent access to host-mapped device memory</td></tr>
- * </table>
  */
 public class VkPhysicalDeviceLimits extends Struct {
 

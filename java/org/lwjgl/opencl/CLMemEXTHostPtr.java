@@ -17,19 +17,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Accepted by the {@code host_ptr} argument of {@link CL10#clCreateBuffer}, {@link CL10#clCreateImage2D} and {@link CL10#clCreateImage3D}.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code allocation_type} &ndash; type of external memory allocation. Legal values will be defined in layered extensions.</li>
+ * <li>{@code host_cache_policy} &ndash; host cache policy for this external memory allocation</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct cl_mem_ext_host_ptr {
     cl_uint allocation_type;
     cl_uint host_cache_policy;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>allocation_type</td><td>type of external memory allocation. Legal values will be defined in layered extensions.</td></tr>
- * <tr><td>host_cache_policy</td><td>host cache policy for this external memory allocation</td></tr>
- * </table>
  */
 public class CLMemEXTHostPtr extends Struct {
 

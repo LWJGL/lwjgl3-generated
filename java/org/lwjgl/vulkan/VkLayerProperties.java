@@ -19,6 +19,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Contains information about an instance layer.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code layerName} &ndash; a null-terminated UTF-8 string specifying the name of the layer</li>
+ * <li>{@code specVersion} &ndash; the Vulkan version the layer was written to</li>
+ * <li>{@code implementationVersion} &ndash; the version of this layer</li>
+ * <li>{@code description} &ndash; a null-terminated UTF-8 string providing additional details that can be used by the application to identify the layer</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkLayerProperties {
@@ -27,15 +36,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t implementationVersion;
     char[256] description;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>layerName</td><td>a null-terminated UTF-8 string specifying the name of the layer</td></tr>
- * <tr><td>specVersion</td><td>the Vulkan version the layer was written to</td></tr>
- * <tr><td>implementationVersion</td><td>the version of this layer</td></tr>
- * <tr><td>description</td><td>a null-terminated UTF-8 string providing additional details that can be used by the application to identify the layer</td></tr>
- * </table>
  */
 public class VkLayerProperties extends Struct {
 

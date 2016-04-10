@@ -16,6 +16,35 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Encapsulates data for touch input.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; the x-coordinate (horizontal point) of the touch input. This member is indicated in hundredths of a pixel of physical screen coordinates.</li>
+ * <li>{@code y} &ndash; the y-coordinate (vertical point) of the touch input. This member is indicated in hundredths of a pixel of physical screen coordinates.</li>
+ * <li>{@code hSource} &ndash; a device handle for the source input device. Each device is given a unique provider at run time by the touch input provider.</li>
+ * <li>{@code dwID} &ndash; 
+ * a touch point identifier that distinguishes a particular touch input. This value stays consistent in a touch contact sequence from the point a contact
+ * comes down until it comes back up. An ID may be reused later for subsequent contacts.</li>
+ * <li>{@code dwFlags} &ndash; 
+ * a set of bit flags that specify various aspects of touch point press, release, and motion. The bits in this member can be any reasonable combination of
+ * the values in the Remarks section.</li>
+ * <li>{@code dwMask} &ndash; 
+ * a set of bit flags that specify which of the optional fields in the structure contain valid values. The availability of valid information in the
+ * optional fields is device-specific. Applications should use an optional field value only when the corresponding bit is set in {@code dwMask}. This
+ * field may contain a combination of the {@code dwMask} flags mentioned in the Remarks section.</li>
+ * <li>{@code dwTime} &ndash; 
+ * the time stamp for the event, in milliseconds. The consuming application should note that the system performs no validation on this field; when the
+ * {@link User32#TOUCHINPUTMASKF_TIMEFROMSYSTEM} flag is not set, the accuracy and sequencing of values in this field are completely dependent on the touch input
+ * provider.</li>
+ * <li>{@code dwExtraInfo} &ndash; an additional value associated with the touch event.</li>
+ * <li>{@code cxContact} &ndash; 
+ * the width of the touch contact area in hundredths of a pixel in physical screen coordinates. This value is only valid if the {@code dwMask} member has
+ * the {@link User32#TOUCHINPUTMASKF_CONTACTAREA} flag set.</li>
+ * <li>{@code cyContact} &ndash; 
+ * the height of the touch contact area in hundredths of a pixel in physical screen coordinates. This value is only valid if the {@code dwMask} member has
+ * the {@link User32#TOUCHINPUTMASKF_CONTACTAREA} flag set.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct TOUCHINPUT {
@@ -30,29 +59,6 @@ import static org.lwjgl.system.MemoryStack.*;
     DWORD cxContact;
     DWORD cyContact;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>x</td><td>the x-coordinate (horizontal point) of the touch input. This member is indicated in hundredths of a pixel of physical screen coordinates.</td></tr>
- * <tr><td>y</td><td>the y-coordinate (vertical point) of the touch input. This member is indicated in hundredths of a pixel of physical screen coordinates.</td></tr>
- * <tr><td>hSource</td><td>a device handle for the source input device. Each device is given a unique provider at run time by the touch input provider.</td></tr>
- * <tr><td>dwID</td><td>a touch point identifier that distinguishes a particular touch input. This value stays consistent in a touch contact sequence from the point a contact
- * comes down until it comes back up. An ID may be reused later for subsequent contacts.</td></tr>
- * <tr><td>dwFlags</td><td>a set of bit flags that specify various aspects of touch point press, release, and motion. The bits in this member can be any reasonable combination of
- * the values in the Remarks section.</td></tr>
- * <tr><td>dwMask</td><td>a set of bit flags that specify which of the optional fields in the structure contain valid values. The availability of valid information in the
- * optional fields is device-specific. Applications should use an optional field value only when the corresponding bit is set in {@code dwMask}. This
- * field may contain a combination of the {@code dwMask} flags mentioned in the Remarks section.</td></tr>
- * <tr><td>dwTime</td><td>the time stamp for the event, in milliseconds. The consuming application should note that the system performs no validation on this field; when the
- * {@link User32#TOUCHINPUTMASKF_TIMEFROMSYSTEM} flag is not set, the accuracy and sequencing of values in this field are completely dependent on the touch input
- * provider.</td></tr>
- * <tr><td>dwExtraInfo</td><td>an additional value associated with the touch event.</td></tr>
- * <tr><td>cxContact</td><td>the width of the touch contact area in hundredths of a pixel in physical screen coordinates. This value is only valid if the {@code dwMask} member has
- * the {@link User32#TOUCHINPUTMASKF_CONTACTAREA} flag set.</td></tr>
- * <tr><td>cyContact</td><td>the height of the touch contact area in hundredths of a pixel in physical screen coordinates. This value is only valid if the {@code dwMask} member has
- * the {@link User32#TOUCHINPUTMASKF_CONTACTAREA} flag set.</td></tr>
- * </table>
  */
 public class TOUCHINPUT extends Struct {
 

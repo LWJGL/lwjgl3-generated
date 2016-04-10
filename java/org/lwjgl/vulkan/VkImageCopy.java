@@ -63,6 +63,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * be submitted against, as described in Physical Device Enumeration</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code srcSubresource} &ndash; a {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the source image data</li>
+ * <li>{@code srcOffset} &ndash; selects the initial x, y, and z offsets in texels of the sub-regions of the source image data</li>
+ * <li>{@code dstSubresource} &ndash; an {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the destination image data</li>
+ * <li>{@code dstOffset} &ndash; selects the initial x, y, and z offsets in texels of the sub-regions of the destination image data</li>
+ * <li>{@code extent} &ndash; the size in texels of the source image to copy in width, height and depth</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageCopy {
@@ -72,16 +82,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkOffset3D VkOffset3D} dstOffset;
     {@link VkExtent3D VkExtent3D} extent;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>srcSubresource</td><td>a {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the source image data</td></tr>
- * <tr><td>srcOffset</td><td>selects the initial x, y, and z offsets in texels of the sub-regions of the source image data</td></tr>
- * <tr><td>dstSubresource</td><td>an {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the destination image data</td></tr>
- * <tr><td>dstOffset</td><td>selects the initial x, y, and z offsets in texels of the sub-regions of the destination image data</td></tr>
- * <tr><td>extent</td><td>the size in texels of the source image to copy in width, height and depth</td></tr>
- * </table>
  */
 public class VkImageCopy extends Struct {
 

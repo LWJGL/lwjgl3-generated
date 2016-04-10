@@ -17,19 +17,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A 2D size with integer components.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code w} &ndash; the width</li>
+ * <li>{@code h} &ndash; the height</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrSizei {
     int w;
     int h;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>w</td><td>the width</td></tr>
- * <tr><td>h</td><td>the height</td></tr>
- * </table>
  */
 public class OVRSizei extends Struct {
 

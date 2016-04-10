@@ -16,17 +16,17 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * 32-bit canonical representation.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code digest} &ndash; the digest in canonical representation</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct XXH32_canonical_t {
     unsigned char[4] digest;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>digest</td><td>the digest in canonical representation</td></tr>
- * </table>
  */
 public class XXH32Canonical extends Struct {
 

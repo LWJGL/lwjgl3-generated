@@ -54,6 +54,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * members of {@code imageSubresource} <b>must</b> be 0 and 1, respectively</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code bufferOffset} &ndash; the offset in bytes from the start of the buffer object where the image data is copied from or to</li>
+ * <li>{@code bufferRowLength} &ndash; the buffer row length</li>
+ * <li>{@code bufferImageHeight} &ndash; the buffer image height</li>
+ * <li>{@code imageSubresource} &ndash; a {@link VkImageSubresourceLayers} used to specify the specific subresources of the image used for the source or destination image data</li>
+ * <li>{@code imageOffset} &ndash; selects the initial x, y, z offsets in texels of the sub-region of the source or destination image data</li>
+ * <li>{@code imageExtent} &ndash; the size in texels of the image to copy in width, height and depth</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkBufferImageCopy {
@@ -64,17 +75,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkOffset3D VkOffset3D} imageOffset;
     {@link VkExtent3D VkExtent3D} imageExtent;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>bufferOffset</td><td>the offset in bytes from the start of the buffer object where the image data is copied from or to</td></tr>
- * <tr><td>bufferRowLength</td><td>the buffer row length</td></tr>
- * <tr><td>bufferImageHeight</td><td>the buffer image height</td></tr>
- * <tr><td>imageSubresource</td><td>a {@link VkImageSubresourceLayers} used to specify the specific subresources of the image used for the source or destination image data</td></tr>
- * <tr><td>imageOffset</td><td>selects the initial x, y, z offsets in texels of the sub-region of the source or destination image data</td></tr>
- * <tr><td>imageExtent</td><td>the size in texels of the image to copy in width, height and depth</td></tr>
- * </table>
  */
 public class VkBufferImageCopy extends Struct {
 

@@ -17,6 +17,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A quaternion rotation.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; the vector x component</li>
+ * <li>{@code y} &ndash; the vector y component</li>
+ * <li>{@code z} &ndash; the vector z component</li>
+ * <li>{@code w} &ndash; the vector w component</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrQuatf {
@@ -25,15 +34,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float z;
     float w;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>x</td><td>the vector x component</td></tr>
- * <tr><td>y</td><td>the vector y component</td></tr>
- * <tr><td>z</td><td>the vector z component</td></tr>
- * <tr><td>w</td><td>the vector w component</td></tr>
- * </table>
  */
 public class OVRQuatf extends Struct {
 

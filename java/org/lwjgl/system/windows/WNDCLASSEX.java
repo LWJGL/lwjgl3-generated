@@ -17,6 +17,31 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Contains the window class attributes that are registered by the {@link User32#RegisterClassEx} function.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code cbSize} &ndash; the size, in bytes, of this structure</li>
+ * <li>{@code style} &ndash; the class style(s)</li>
+ * <li>{@code lpfnWndProc} &ndash; a pointer to the window procedure</li>
+ * <li>{@code cbClsExtra} &ndash; the number of extra bytes to allocate following the window-class structure. The system initializes the bytes to zero.</li>
+ * <li>{@code cbWndExtra} &ndash; the number of extra bytes to allocate following the window instance. The system initializes the bytes to zero.</li>
+ * <li>{@code hInstance} &ndash; a handle to the instance that contains the window procedure for the class</li>
+ * <li>{@code hIcon} &ndash; a handle to the class icon. This member must be a handle to an icon resource. If this member is {@code NULL}, the system provides a default icon.</li>
+ * <li>{@code hCursor} &ndash; 
+ * a handle to the class cursor. This member must be a handle to a cursor resource. If this member is {@code NULL}, an application must explicitly set the cursor
+ * shape whenever the mouse moves into the application's window.</li>
+ * <li>{@code hbrBackground} &ndash; 
+ * a handle to the class background brush. This member can be a handle to the brush to be used for painting the background, or it can be a color value.
+ * When this member is {@code NULL}, an application must paint its own background whenever it is requested to paint in its client area.</li>
+ * <li>{@code lpszMenuName} &ndash; 
+ * pointer to a null-terminated character string that specifies the resource name of the class menu, as the name appears in the resource file.  If this
+ * member is {@code NULL}, windows belonging to this class have no default menu.</li>
+ * <li>{@code lpszClassName} &ndash; a pointer to a null-terminated string or is an atom</li>
+ * <li>{@code hIconSm} &ndash; 
+ * a handle to a small icon that is associated with the window class. If this member is {@code NULL}, the system searches the icon resource specified by the
+ * {@code hIcon} member for an icon of the appropriate size to use as the small icon.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct WNDCLASSEX {
@@ -33,27 +58,6 @@ import static org.lwjgl.system.MemoryStack.*;
     LPCTSTR lpszClassName;
     HICON hIconSm;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>cbSize</td><td>the size, in bytes, of this structure</td></tr>
- * <tr><td>style</td><td>the class style(s)</td></tr>
- * <tr><td>lpfnWndProc</td><td>a pointer to the window procedure</td></tr>
- * <tr><td>cbClsExtra</td><td>the number of extra bytes to allocate following the window-class structure. The system initializes the bytes to zero.</td></tr>
- * <tr><td>cbWndExtra</td><td>the number of extra bytes to allocate following the window instance. The system initializes the bytes to zero.</td></tr>
- * <tr><td>hInstance</td><td>a handle to the instance that contains the window procedure for the class</td></tr>
- * <tr><td>hIcon</td><td>a handle to the class icon. This member must be a handle to an icon resource. If this member is {@code NULL}, the system provides a default icon.</td></tr>
- * <tr><td>hCursor</td><td>a handle to the class cursor. This member must be a handle to a cursor resource. If this member is {@code NULL}, an application must explicitly set the cursor
- * shape whenever the mouse moves into the application's window.</td></tr>
- * <tr><td>hbrBackground</td><td>a handle to the class background brush. This member can be a handle to the brush to be used for painting the background, or it can be a color value.
- * When this member is {@code NULL}, an application must paint its own background whenever it is requested to paint in its client area.</td></tr>
- * <tr><td>lpszMenuName</td><td>pointer to a null-terminated character string that specifies the resource name of the class menu, as the name appears in the resource file.  If this
- * member is {@code NULL}, windows belonging to this class have no default menu.</td></tr>
- * <tr><td>lpszClassName</td><td>a pointer to a null-terminated string or is an atom</td></tr>
- * <tr><td>hIconSm</td><td>a handle to a small icon that is associated with the window class. If this member is {@code NULL}, the system searches the icon resource specified by the
- * {@code hIcon} member for an icon of the appropriate size to use as the small icon.</td></tr>
- * </table>
  */
 public class WNDCLASSEX extends Struct {
 

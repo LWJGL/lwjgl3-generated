@@ -34,6 +34,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>For any given element of {@code pMapEntries}, {@code size} must be less than or equal to {@code dataSize} minus {@code offset}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code mapEntryCount} &ndash; the number of entries in the {@code pMapEntries} array</li>
+ * <li>{@code pMapEntries} &ndash; a pointer to an array of {@link VkSpecializationMapEntry} which maps constant IDs to offsets in {@code pData}</li>
+ * <li>{@code dataSize} &ndash; the byte size of the {@code pData} buffer</li>
+ * <li>{@code pData} &ndash; contains the actual constant values to specialize with</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSpecializationInfo {
@@ -42,15 +51,6 @@ import static org.lwjgl.system.MemoryStack.*;
     size_t dataSize;
     const void * pData;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>mapEntryCount</td><td>the number of entries in the {@code pMapEntries} array</td></tr>
- * <tr><td>pMapEntries</td><td>a pointer to an array of {@link VkSpecializationMapEntry} which maps constant IDs to offsets in {@code pData}</td></tr>
- * <tr><td>dataSize</td><td>the byte size of the {@code pData} buffer</td></tr>
- * <tr><td>pData</td><td>contains the actual constant values to specialize with</td></tr>
- * </table>
  */
 public class VkSpecializationInfo extends Struct {
 

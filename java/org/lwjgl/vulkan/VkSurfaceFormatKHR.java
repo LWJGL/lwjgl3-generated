@@ -26,19 +26,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code colorSpace} <b>must</b> be a valid {@code VkColorSpaceKHR} value</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code format} &ndash; a {@code VkFormat} that is compatible with the specified surface</li>
+ * <li>{@code colorSpace} &ndash; a presentation {@code VkColorSpaceKHR} that is compatible with the surface</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSurfaceFormatKHR {
     VkFormat format;
     VkColorSpaceKHR colorSpace;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>format</td><td>a {@code VkFormat} that is compatible with the specified surface</td></tr>
- * <tr><td>colorSpace</td><td>a presentation {@code VkColorSpaceKHR} that is compatible with the surface</td></tr>
- * </table>
  */
 public class VkSurfaceFormatKHR extends Struct {
 

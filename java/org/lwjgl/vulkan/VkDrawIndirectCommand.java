@@ -26,6 +26,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If the drawIndirectFirstInstance feature is not enabled, {@code firstInstance} <b>must</b> be 0</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code vertexCount} &ndash; the number of vertices to draw</li>
+ * <li>{@code instanceCount} &ndash; the number of instances to draw</li>
+ * <li>{@code firstVertex} &ndash; the index of the first vertex to draw</li>
+ * <li>{@code firstInstance} &ndash; the instance ID of the first instance to draw</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDrawIndirectCommand {
@@ -34,15 +43,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t firstVertex;
     uint32_t firstInstance;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>vertexCount</td><td>the number of vertices to draw</td></tr>
- * <tr><td>instanceCount</td><td>the number of instances to draw</td></tr>
- * <tr><td>firstVertex</td><td>the index of the first vertex to draw</td></tr>
- * <tr><td>firstInstance</td><td>the instance ID of the first instance to draw</td></tr>
- * </table>
  */
 public class VkDrawIndirectCommand extends Struct {
 

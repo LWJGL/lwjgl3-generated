@@ -39,16 +39,6 @@ import static org.lwjgl.system.MemoryStack.*;
     HINSTANCE hinstance;
     HWND hwnd;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link #STRUCTURE_TYPE_WIN32SURFACE_CREATE_INFO_KHR}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>hinstance</td><td>the WIN32 HINSTANCE for the window to associate the surface with</td></tr>
- * <tr><td>hwnd</td><td>the WIN32 HWND for the window to associate the surface with</td></tr>
- * </table>
  */
 public class VkWin32SurfaceCreateInfoKHR extends Struct {
 

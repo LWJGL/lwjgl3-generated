@@ -17,6 +17,12 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure for containing native AWT functions.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code version} &ndash; Version of this structure. This must always be set before calling JAWT_GetAWT()</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct JAWT {
@@ -27,12 +33,6 @@ import static org.lwjgl.system.MemoryStack.*;
     void * Unlock;
     void * GetComponent;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>version</td><td>Version of this structure. This must always be set before calling JAWT_GetAWT()</td></tr>
- * </table>
  */
 public class JAWT extends Struct {
 

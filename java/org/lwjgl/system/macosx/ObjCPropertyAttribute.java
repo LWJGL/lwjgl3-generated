@@ -17,19 +17,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Defines a property attribute.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code name} &ndash; the name of the attribute</li>
+ * <li>{@code value} &ndash; the value of the attribute (usually empty)</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct objc_property_attribute_t {
     char * name;
     char * value;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>name</td><td>the name of the attribute</td></tr>
- * <tr><td>value</td><td>the value of the attribute (usually empty)</td></tr>
- * </table>
  */
 public class ObjCPropertyAttribute extends Struct {
 

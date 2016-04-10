@@ -27,6 +27,22 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code supportedTransforms} <b>must</b> be a valid combination of {@code VkSurfaceTransformFlagBitsKHR} values</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code display} &ndash; a handle that is used to refer to the display described here. This handle will be valid for the lifetime of the Vulkan instance.</li>
+ * <li>{@code displayName} &ndash; a pointer to a NULL-terminated string containing the name of the display. Generally, this will be the name provided by the display’s EDID. It can be NULL if no suitable name is available.</li>
+ * <li>{@code physicalDimensions} &ndash; the physical width and height of the visible portion of the display, in millimeters</li>
+ * <li>{@code physicalResolution} &ndash; the physical, native, or preferred resolution of the display</li>
+ * <li>{@code supportedTransforms} &ndash; which transforms are supported by this display</li>
+ * <li>{@code planeReorderPossible} &ndash; 
+ * whether the planes on this display can have their z order changed. If this is {@link VK10#VK_TRUE TRUE}, the application can re-arrange the planes on this display in any
+ * order relative to each other.</li>
+ * <li>{@code persistentContent} &ndash; 
+ * whether the display supports self-refresh/internal buffering. If this is true, the application can submit persistent present operations on swapchains
+ * created against this display.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDisplayPropertiesKHR {
@@ -38,20 +54,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBool32 planeReorderPossible;
     VkBool32 persistentContent;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>display</td><td>a handle that is used to refer to the display described here. This handle will be valid for the lifetime of the Vulkan instance.</td></tr>
- * <tr><td>displayName</td><td>a pointer to a NULL-terminated string containing the name of the display. Generally, this will be the name provided by the display’s EDID. It can be NULL if no suitable name is available.</td></tr>
- * <tr><td>physicalDimensions</td><td>the physical width and height of the visible portion of the display, in millimeters</td></tr>
- * <tr><td>physicalResolution</td><td>the physical, native, or preferred resolution of the display</td></tr>
- * <tr><td>supportedTransforms</td><td>which transforms are supported by this display</td></tr>
- * <tr><td>planeReorderPossible</td><td>whether the planes on this display can have their z order changed. If this is {@link VK10#VK_TRUE TRUE}, the application can re-arrange the planes on this display in any
- * order relative to each other.</td></tr>
- * <tr><td>persistentContent</td><td>whether the display supports self-refresh/internal buffering. If this is true, the application can submit persistent present operations on swapchains
- * created against this display.</td></tr>
- * </table>
  */
 public class VkDisplayPropertiesKHR extends Struct {
 

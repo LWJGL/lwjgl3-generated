@@ -30,6 +30,22 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code apiVersion} <b>must</b> be zero, or otherwise it <b>must</b> be a version that the implementation supports, or supports an effective substitute for</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_APPLICATION_INFO STRUCTURE_TYPE_APPLICATION_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code pApplicationName} &ndash; a pointer to a {@code NULL}-terminated UTF-8 string containing the name of the application</li>
+ * <li>{@code applicationVersion} &ndash; 
+ * contains an application-specific version number. It is recommended that new versions of an existing application specify monotonically increasing values
+ * for {@code applicationVersion}.</li>
+ * <li>{@code pEngineName} &ndash; 
+ * if the application is built on a reusable engine, the name of the engine may be specified in the {@code NULL}-terminated UTF-8 string pointed to by
+ * {@code pEngineName}</li>
+ * <li>{@code engineVersion} &ndash; the version of the engine used to create the application</li>
+ * <li>{@code apiVersion} &ndash; the version of the Vulkan API that the application expects to use</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkApplicationInfo {
@@ -41,20 +57,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t engineVersion;
     uint32_t apiVersion;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_APPLICATION_INFO STRUCTURE_TYPE_APPLICATION_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>pApplicationName</td><td>a pointer to a {@code NULL}-terminated UTF-8 string containing the name of the application</td></tr>
- * <tr><td>applicationVersion</td><td>contains an application-specific version number. It is recommended that new versions of an existing application specify monotonically increasing values
- * for {@code applicationVersion}.</td></tr>
- * <tr><td>pEngineName</td><td>if the application is built on a reusable engine, the name of the engine may be specified in the {@code NULL}-terminated UTF-8 string pointed to by
- * {@code pEngineName}</td></tr>
- * <tr><td>engineVersion</td><td>the version of the engine used to create the application</td></tr>
- * <tr><td>apiVersion</td><td>the version of the Vulkan API that the application expects to use</td></tr>
- * </table>
  */
 public class VkApplicationInfo extends Struct {
 

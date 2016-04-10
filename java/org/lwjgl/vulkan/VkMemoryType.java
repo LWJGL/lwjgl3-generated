@@ -19,20 +19,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Contains information about a memory type.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code propertyFlags} &ndash; a bitmask of {@code VkMemoryPropertyFlagBits} properties for this memory type</li>
+ * <li>{@code heapIndex} &ndash; 
+ * describes which memory heap this memory type corresponds to, and <b>must</b> be less than {@code memoryHeapCount} from the {@link VkPhysicalDeviceMemoryProperties}
+ * structure</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkMemoryType {
     VkMemoryPropertyFlags propertyFlags;
     uint32_t heapIndex;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>propertyFlags</td><td>a bitmask of {@code VkMemoryPropertyFlagBits} properties for this memory type</td></tr>
- * <tr><td>heapIndex</td><td>describes which memory heap this memory type corresponds to, and <b>must</b> be less than {@code memoryHeapCount} from the {@link VkPhysicalDeviceMemoryProperties}
- * structure</td></tr>
- * </table>
  */
 public class VkMemoryType extends Struct {
 

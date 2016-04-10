@@ -20,6 +20,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Describes a 3D offset.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; the x offset</li>
+ * <li>{@code y} &ndash; the y offset</li>
+ * <li>{@code z} &ndash; the z offset</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkOffset3D {
@@ -27,14 +35,6 @@ import static org.lwjgl.system.MemoryStack.*;
     int32_t y;
     int32_t z;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>x</td><td>the x offset</td></tr>
- * <tr><td>y</td><td>the y offset</td></tr>
- * <tr><td>z</td><td>the z offset</td></tr>
- * </table>
  */
 public class VkOffset3D extends Struct {
 

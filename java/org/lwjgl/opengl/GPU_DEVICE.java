@@ -18,6 +18,23 @@ import org.lwjgl.system.windows.*;
 /**
  * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV EnumGpuDevicesNV} function.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code cb} &ndash; 
+ * the size of the {@code GPU_DEVICE} structure. Before calling {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV EnumGpuDevicesNV}, set {@code cb} to the size, in bytes, of {@code GPU_DEVICE}.</li>
+ * <li>{@code DeviceName} &ndash; 
+ * a string identifying the display device name. This will be the same string as stored in the {@code DeviceName} field of the {@code DISPLAY_DEVICE}
+ * structure, which is filled in by {@code EnumDisplayDevices}.</li>
+ * <li>{@code DeviceString} &ndash; 
+ * a string describing the GPU for this display device. It is the same string as stored in the {@code DeviceString} field in the {@code DISPLAY_DEVICE}
+ * structure that is filled in by {@code EnumDisplayDevices} when it describes a display adapter (and not a monitor).</li>
+ * <li>{@code Flags} &ndash; indicates the state of the display device</li>
+ * <li>{@code rcVirtualScreen} &ndash; 
+ * specifies the display device rectangle, in virtual screen coordinates. The value of {@code rcVirtualScreen} is undefined if the device is not part of
+ * the desktop, i.e. {@code DISPLAY_DEVICE_ATTACHED_TO_DESKTOP} is not set in the {@code Flags} field.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct GPU_DEVICE {
@@ -27,19 +44,6 @@ import org.lwjgl.system.windows.*;
     DWORD Flags;
     {@link RECT RECT} rcVirtualScreen;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>cb</td><td>the size of the {@code GPU_DEVICE} structure. Before calling {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV EnumGpuDevicesNV}, set {@code cb} to the size, in bytes, of {@code GPU_DEVICE}.</td></tr>
- * <tr><td>DeviceName</td><td>a string identifying the display device name. This will be the same string as stored in the {@code DeviceName} field of the {@code DISPLAY_DEVICE}
- * structure, which is filled in by {@code EnumDisplayDevices}.</td></tr>
- * <tr><td>DeviceString</td><td>a string describing the GPU for this display device. It is the same string as stored in the {@code DeviceString} field in the {@code DISPLAY_DEVICE}
- * structure that is filled in by {@code EnumDisplayDevices} when it describes a display adapter (and not a monitor).</td></tr>
- * <tr><td>Flags</td><td>indicates the state of the display device</td></tr>
- * <tr><td>rcVirtualScreen</td><td>specifies the display device rectangle, in virtual screen coordinates. The value of {@code rcVirtualScreen} is undefined if the device is not part of
- * the desktop, i.e. {@code DISPLAY_DEVICE_ATTACHED_TO_DESKTOP} is not set in the {@code Flags} field.</td></tr>
- * </table>
  */
 public class GPU_DEVICE extends Struct {
 

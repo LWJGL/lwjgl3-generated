@@ -63,6 +63,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@code FragDepth} in all execution paths</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code stage} &ndash; a {@code VkShaderStageFlagBits} naming the pipeline stage</li>
+ * <li>{@code module} &ndash; a {@code VkShaderModule} object that contains the shader for this stage</li>
+ * <li>{@code pName} &ndash; a pointer to a null-terminated UTF-8 string specifying the entry point name of the shader for this stage</li>
+ * <li>{@code pSpecializationInfo} &ndash; a pointer to {@link VkSpecializationInfo}, can be {@code NULL}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineShaderStageCreateInfo {
@@ -74,18 +86,6 @@ import static org.lwjgl.system.MemoryStack.*;
     const char * pName;
     const VkSpecializationInfo * pSpecializationInfo;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>stage</td><td>a {@code VkShaderStageFlagBits} naming the pipeline stage</td></tr>
- * <tr><td>module</td><td>a {@code VkShaderModule} object that contains the shader for this stage</td></tr>
- * <tr><td>pName</td><td>a pointer to a null-terminated UTF-8 string specifying the entry point name of the shader for this stage</td></tr>
- * <tr><td>pSpecializationInfo</td><td>a pointer to {@link VkSpecializationInfo}, can be {@code NULL}</td></tr>
- * </table>
  */
 public class VkPipelineShaderStageCreateInfo extends Struct {
 

@@ -19,6 +19,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Describes properties for a set of image aspects that are bound simultaneously in an image.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code aspectMask} &ndash; a {@code VkImageAspectFlags} specifying which aspects of the image the properties apply to</li>
+ * <li>{@code imageGranularity} &ndash; the width, height, and depth of the sparse image block in texels or compressed texel blocks</li>
+ * <li>{@code flags} &ndash; a {@code VkSparseImageFormatFlagBits} bitmask specifying additional information about the sparse resource</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSparseImageFormatProperties {
@@ -26,14 +34,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkExtent3D VkExtent3D} imageGranularity;
     VkSparseImageFormatFlags flags;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>aspectMask</td><td>a {@code VkImageAspectFlags} specifying which aspects of the image the properties apply to</td></tr>
- * <tr><td>imageGranularity</td><td>the width, height, and depth of the sparse image block in texels or compressed texel blocks</td></tr>
- * <tr><td>flags</td><td>a {@code VkSparseImageFormatFlagBits} bitmask specifying additional information about the sparse resource</td></tr>
- * </table>
  */
 public class VkSparseImageFormatProperties extends Struct {
 

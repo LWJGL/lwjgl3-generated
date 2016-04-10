@@ -27,6 +27,74 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@link VkDeviceCreateInfo} struct when creating a device</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code robustBufferAccess} &ndash; indicates that out of bounds accesses to buffers via shader operations are well-defined</li>
+ * <li>{@code fullDrawIndexUint32} &ndash; indicates the full 32-bit range of indices is supported for indexed draw calls when using a VkIndexType of {@link VK10#VK_INDEX_TYPE_UINT32 INDEX_TYPE_UINT32}</li>
+ * <li>{@code imageCubeArray} &ndash; 
+ * indicates whether image views with a {@code VkImageViewType} of {@link VK10#VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY} <b>can</b> be created, and that the corresponding
+ * <b>SampledCubeArray</b> and <b>ImageCubeArray</b> SPIR-V capabilities <b>can</b> be used in shader code</li>
+ * <li>{@code independentBlend} &ndash; indicates whether the {@link VkPipelineColorBlendAttachmentState} settings are controlled independently per-attachment</li>
+ * <li>{@code geometryShader} &ndash; indicates whether geometry shaders are supported</li>
+ * <li>{@code tessellationShader} &ndash; indicates whether tessellation control and evaluation shaders are supported</li>
+ * <li>{@code sampleRateShading} &ndash; indicates whether per-sample shading and multisample interpolation are supported</li>
+ * <li>{@code dualSrcBlend} &ndash; indicates whether blend operations which take two sources are supported</li>
+ * <li>{@code logicOp} &ndash; indicates whether logic operations are supported</li>
+ * <li>{@code multiDrawIndirect} &ndash; indicates whether multiple draw indirect is supported</li>
+ * <li>{@code drawIndirectFirstInstance} &ndash; indicates whether indirect draw calls support the {@code firstInstance} parameter</li>
+ * <li>{@code depthClamp} &ndash; indicates whether depth clamping is supported</li>
+ * <li>{@code depthBiasClamp} &ndash; indicates whether depth bias clamping is supported</li>
+ * <li>{@code fillModeNonSolid} &ndash; indicates whether point and wireframe fill modes are supported</li>
+ * <li>{@code depthBounds} &ndash; indicates whether depth bounds tests are supported</li>
+ * <li>{@code wideLines} &ndash; indicates whether lines with width other than 1.0 are supported</li>
+ * <li>{@code largePoints} &ndash; indicates whether points with size greater than 1.0 are supported</li>
+ * <li>{@code alphaToOne} &ndash; 
+ * indicates whether the implementation is able to replace the alpha value of the color fragment output from the fragment shader with the maximum
+ * representable alpha value for fixed-point colors or 1.0 for floating-point colors</li>
+ * <li>{@code multiViewport} &ndash; indicates whether more than one viewport is supported</li>
+ * <li>{@code samplerAnisotropy} &ndash; indicates whether anisotropic filtering is supported</li>
+ * <li>{@code textureCompressionETC2} &ndash; indicates whether the ETC2 and EAC compressed texture formats are supported</li>
+ * <li>{@code textureCompressionASTC_LDR} &ndash; indicates whether the ASTC LDR compressed texture formats are supported</li>
+ * <li>{@code textureCompressionBC} &ndash; indicates whether the BC compressed texture formats are supported</li>
+ * <li>{@code occlusionQueryPrecise} &ndash; indicates whether occlusion queries returning actual sample counts are supported</li>
+ * <li>{@code pipelineStatisticsQuery} &ndash; indicates whether the pipeline statistics queries are supported</li>
+ * <li>{@code vertexPipelineStoresAndAtomics} &ndash; indicates whether storage buffers and images support stores and atomic operations in the vertex, tessellation, and geometry shader stages</li>
+ * <li>{@code fragmentStoresAndAtomics} &ndash; indicates whether storage buffers and images support stores and atomic operations in the fragment shader stage</li>
+ * <li>{@code shaderTessellationAndGeometryPointSize} &ndash; 
+ * indicates whether the {@code PointSize} built-in decoration is available in the tessellation control, tessellation evaluation, and geometry shader
+ * stages</li>
+ * <li>{@code shaderImageGatherExtended} &ndash; indicates whether the extended set of image gather instructions are available in shader code</li>
+ * <li>{@code shaderStorageImageExtendedFormats} &ndash; indicates whether the extended storage image formats are available in shader code</li>
+ * <li>{@code shaderStorageImageMultisample} &ndash; indicates whether multisampled storage images are supported</li>
+ * <li>{@code shaderStorageImageReadWithoutFormat} &ndash; indicates whether storage images require a format qualifier to be specified when reading from storage images</li>
+ * <li>{@code shaderStorageImageWriteWithoutFormat} &ndash; indicates whether storage images require a format qualifier to be specified when writing to storage images</li>
+ * <li>{@code shaderUniformBufferArrayDynamicIndexing} &ndash; indicates whether arrays of uniform buffers <b>can</b> be indexed by dynamically uniform integer expressions in shader code</li>
+ * <li>{@code shaderSampledImageArrayDynamicIndexing} &ndash; indicates whether arrays of samplers or sampled images <b>can</b> be indexed by dynamically uniform integer expressions in shader code</li>
+ * <li>{@code shaderStorageBufferArrayDynamicIndexing} &ndash; indicates whether arrays of storage buffers <b>can</b> be indexed by dynamically uniform integer expressions in shader code</li>
+ * <li>{@code shaderStorageImageArrayDynamicIndexing} &ndash; indicates whether arrays of storage images <b>can</b> be indexed by dynamically uniform integer expressions in shader code</li>
+ * <li>{@code shaderClipDistance} &ndash; indicates whether clip distances are supported in shader code</li>
+ * <li>{@code shaderCullDistance} &ndash; indicates whether cull distances are supported in shader code</li>
+ * <li>{@code shaderFloat64} &ndash; indicates whether 64-bit floats (doubles) are supported in shader code</li>
+ * <li>{@code shaderInt64} &ndash; indicates whether 64-bit integers (signed and unsigned) are supported in shader code</li>
+ * <li>{@code shaderInt16} &ndash; indicates whether 16-bit integers (signed and unsigned) are supported in shader code</li>
+ * <li>{@code shaderResourceResidency} &ndash; indicates whether image operations that return resource residency information are supported in shader code</li>
+ * <li>{@code shaderResourceMinLod} &ndash; indicates whether image operations that specify the minimum resource level-of-detail (LOD) are supported in shader code</li>
+ * <li>{@code sparseBinding} &ndash; indicates whether resource memory <b>can</b> be managed at opaque sparse block level instead of at the object level</li>
+ * <li>{@code sparseResidencyBuffer} &ndash; indicates whether the device <b>can</b> access partially resident buffers</li>
+ * <li>{@code sparseResidencyImage2D} &ndash; indicates whether the device <b>can</b> access partially resident 2D images with 1 sample per pixel</li>
+ * <li>{@code sparseResidencyImage3D} &ndash; indicates whether the device <b>can</b> access partially resident 3D images</li>
+ * <li>{@code sparseResidency2Samples} &ndash; indicates whether the physical device <b>can</b> access partially resident 2D images with 2 samples per pixel</li>
+ * <li>{@code sparseResidency4Samples} &ndash; indicates whether the physical device <b>can</b> access partially resident 2D images with 4 samples per pixel</li>
+ * <li>{@code sparseResidency8Samples} &ndash; indicates whether the physical device <b>can</b> access partially resident 2D images with 8 samples per pixel</li>
+ * <li>{@code sparseResidency16Samples} &ndash; indicates whether the physical device <b>can</b> access partially resident 2D images with 16 samples per pixel</li>
+ * <li>{@code sparseResidencyAliased} &ndash; indicates whether the physical device <b>can</b> correctly access data aliased into multiple locations</li>
+ * <li>{@code variableMultisampleRate} &ndash; 
+ * indicates whether all pipelines that will be bound to a command buffer during a subpass with no attachments must have the same value for
+ * {@link VkPipelineMultisampleStateCreateInfo}{@code ::rasterizationSamples}</li>
+ * <li>{@code inheritedQueries} &ndash; indicates whether a secondary command buffer may be executed while a query is active</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPhysicalDeviceFeatures {
@@ -86,70 +154,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBool32 variableMultisampleRate;
     VkBool32 inheritedQueries;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>robustBufferAccess</td><td>indicates that out of bounds accesses to buffers via shader operations are well-defined</td></tr>
- * <tr><td>fullDrawIndexUint32</td><td>indicates the full 32-bit range of indices is supported for indexed draw calls when using a VkIndexType of {@link VK10#VK_INDEX_TYPE_UINT32 INDEX_TYPE_UINT32}</td></tr>
- * <tr><td>imageCubeArray</td><td>indicates whether image views with a {@code VkImageViewType} of {@link VK10#VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY} <b>can</b> be created, and that the corresponding
- * <b>SampledCubeArray</b> and <b>ImageCubeArray</b> SPIR-V capabilities <b>can</b> be used in shader code</td></tr>
- * <tr><td>independentBlend</td><td>indicates whether the {@link VkPipelineColorBlendAttachmentState} settings are controlled independently per-attachment</td></tr>
- * <tr><td>geometryShader</td><td>indicates whether geometry shaders are supported</td></tr>
- * <tr><td>tessellationShader</td><td>indicates whether tessellation control and evaluation shaders are supported</td></tr>
- * <tr><td>sampleRateShading</td><td>indicates whether per-sample shading and multisample interpolation are supported</td></tr>
- * <tr><td>dualSrcBlend</td><td>indicates whether blend operations which take two sources are supported</td></tr>
- * <tr><td>logicOp</td><td>indicates whether logic operations are supported</td></tr>
- * <tr><td>multiDrawIndirect</td><td>indicates whether multiple draw indirect is supported</td></tr>
- * <tr><td>drawIndirectFirstInstance</td><td>indicates whether indirect draw calls support the {@code firstInstance} parameter</td></tr>
- * <tr><td>depthClamp</td><td>indicates whether depth clamping is supported</td></tr>
- * <tr><td>depthBiasClamp</td><td>indicates whether depth bias clamping is supported</td></tr>
- * <tr><td>fillModeNonSolid</td><td>indicates whether point and wireframe fill modes are supported</td></tr>
- * <tr><td>depthBounds</td><td>indicates whether depth bounds tests are supported</td></tr>
- * <tr><td>wideLines</td><td>indicates whether lines with width other than 1.0 are supported</td></tr>
- * <tr><td>largePoints</td><td>indicates whether points with size greater than 1.0 are supported</td></tr>
- * <tr><td>alphaToOne</td><td>indicates whether the implementation is able to replace the alpha value of the color fragment output from the fragment shader with the maximum
- * representable alpha value for fixed-point colors or 1.0 for floating-point colors</td></tr>
- * <tr><td>multiViewport</td><td>indicates whether more than one viewport is supported</td></tr>
- * <tr><td>samplerAnisotropy</td><td>indicates whether anisotropic filtering is supported</td></tr>
- * <tr><td>textureCompressionETC2</td><td>indicates whether the ETC2 and EAC compressed texture formats are supported</td></tr>
- * <tr><td>textureCompressionASTC_LDR</td><td>indicates whether the ASTC LDR compressed texture formats are supported</td></tr>
- * <tr><td>textureCompressionBC</td><td>indicates whether the BC compressed texture formats are supported</td></tr>
- * <tr><td>occlusionQueryPrecise</td><td>indicates whether occlusion queries returning actual sample counts are supported</td></tr>
- * <tr><td>pipelineStatisticsQuery</td><td>indicates whether the pipeline statistics queries are supported</td></tr>
- * <tr><td>vertexPipelineStoresAndAtomics</td><td>indicates whether storage buffers and images support stores and atomic operations in the vertex, tessellation, and geometry shader stages</td></tr>
- * <tr><td>fragmentStoresAndAtomics</td><td>indicates whether storage buffers and images support stores and atomic operations in the fragment shader stage</td></tr>
- * <tr><td>shaderTessellationAndGeometryPointSize</td><td>indicates whether the {@code PointSize} built-in decoration is available in the tessellation control, tessellation evaluation, and geometry shader
- * stages</td></tr>
- * <tr><td>shaderImageGatherExtended</td><td>indicates whether the extended set of image gather instructions are available in shader code</td></tr>
- * <tr><td>shaderStorageImageExtendedFormats</td><td>indicates whether the extended storage image formats are available in shader code</td></tr>
- * <tr><td>shaderStorageImageMultisample</td><td>indicates whether multisampled storage images are supported</td></tr>
- * <tr><td>shaderStorageImageReadWithoutFormat</td><td>indicates whether storage images require a format qualifier to be specified when reading from storage images</td></tr>
- * <tr><td>shaderStorageImageWriteWithoutFormat</td><td>indicates whether storage images require a format qualifier to be specified when writing to storage images</td></tr>
- * <tr><td>shaderUniformBufferArrayDynamicIndexing</td><td>indicates whether arrays of uniform buffers <b>can</b> be indexed by dynamically uniform integer expressions in shader code</td></tr>
- * <tr><td>shaderSampledImageArrayDynamicIndexing</td><td>indicates whether arrays of samplers or sampled images <b>can</b> be indexed by dynamically uniform integer expressions in shader code</td></tr>
- * <tr><td>shaderStorageBufferArrayDynamicIndexing</td><td>indicates whether arrays of storage buffers <b>can</b> be indexed by dynamically uniform integer expressions in shader code</td></tr>
- * <tr><td>shaderStorageImageArrayDynamicIndexing</td><td>indicates whether arrays of storage images <b>can</b> be indexed by dynamically uniform integer expressions in shader code</td></tr>
- * <tr><td>shaderClipDistance</td><td>indicates whether clip distances are supported in shader code</td></tr>
- * <tr><td>shaderCullDistance</td><td>indicates whether cull distances are supported in shader code</td></tr>
- * <tr><td>shaderFloat64</td><td>indicates whether 64-bit floats (doubles) are supported in shader code</td></tr>
- * <tr><td>shaderInt64</td><td>indicates whether 64-bit integers (signed and unsigned) are supported in shader code</td></tr>
- * <tr><td>shaderInt16</td><td>indicates whether 16-bit integers (signed and unsigned) are supported in shader code</td></tr>
- * <tr><td>shaderResourceResidency</td><td>indicates whether image operations that return resource residency information are supported in shader code</td></tr>
- * <tr><td>shaderResourceMinLod</td><td>indicates whether image operations that specify the minimum resource level-of-detail (LOD) are supported in shader code</td></tr>
- * <tr><td>sparseBinding</td><td>indicates whether resource memory <b>can</b> be managed at opaque sparse block level instead of at the object level</td></tr>
- * <tr><td>sparseResidencyBuffer</td><td>indicates whether the device <b>can</b> access partially resident buffers</td></tr>
- * <tr><td>sparseResidencyImage2D</td><td>indicates whether the device <b>can</b> access partially resident 2D images with 1 sample per pixel</td></tr>
- * <tr><td>sparseResidencyImage3D</td><td>indicates whether the device <b>can</b> access partially resident 3D images</td></tr>
- * <tr><td>sparseResidency2Samples</td><td>indicates whether the physical device <b>can</b> access partially resident 2D images with 2 samples per pixel</td></tr>
- * <tr><td>sparseResidency4Samples</td><td>indicates whether the physical device <b>can</b> access partially resident 2D images with 4 samples per pixel</td></tr>
- * <tr><td>sparseResidency8Samples</td><td>indicates whether the physical device <b>can</b> access partially resident 2D images with 8 samples per pixel</td></tr>
- * <tr><td>sparseResidency16Samples</td><td>indicates whether the physical device <b>can</b> access partially resident 2D images with 16 samples per pixel</td></tr>
- * <tr><td>sparseResidencyAliased</td><td>indicates whether the physical device <b>can</b> correctly access data aliased into multiple locations</td></tr>
- * <tr><td>variableMultisampleRate</td><td>indicates whether all pipelines that will be bound to a command buffer during a subpass with no attachments must have the same value for
- * {@link VkPipelineMultisampleStateCreateInfo}{@code ::rasterizationSamples}</td></tr>
- * <tr><td>inheritedQueries</td><td>indicates whether a secondary command buffer may be executed while a query is active</td></tr>
- * </table>
  */
 public class VkPhysicalDeviceFeatures extends Struct {
 

@@ -17,19 +17,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Buffer region struct.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code origin} &ndash; the region offset, in bytes</li>
+ * <li>{@code size} &ndash; the region size, in bytes</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct cl_buffer_region {
     size_t origin;
     size_t size;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>origin</td><td>the region offset, in bytes</td></tr>
- * <tr><td>size</td><td>the region size, in bytes</td></tr>
- * </table>
  */
 public class CLBufferRegion extends Struct {
 

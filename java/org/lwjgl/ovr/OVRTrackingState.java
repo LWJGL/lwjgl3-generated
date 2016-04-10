@@ -16,6 +16,26 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Tracking state at a given absolute time (describes predicted HMD pose etc). Returned by {@link OVR#ovr_GetTrackingState}.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code HeadPose} &ndash; 
+ * Predicted head pose (and derivatives) at the requested absolute time. The look-ahead interval is equal to
+ * {@code (HeadPose.TimeInSeconds - RawSensorData.TimeInSeconds)}.</li>
+ * <li>{@code StatusFlags} &ndash; {@code HeadPose} tracking status described by {@code ovrStatusBits}.</li>
+ * <li>{@code HandPoses} &ndash; 
+ * The most recent calculated pose for each hand when hand controller tracking is present. {@code HandPoses[ovrHand_Left]} refers to the left hand and
+ * {@code HandPoses[ovrHand_Right]} to the right hand. These values can be combined with {@code ovrInputState} for complete hand controller information.</li>
+ * <li>{@code HandStatusFlags} &ndash; {@code HandPoses} status flags described by {@code ovrStatusBits}. Only {@link OVR#ovrStatus_OrientationTracked} and {@link OVR#ovrStatus_PositionTracked} are reported.</li>
+ * <li>{@code CalibratedOrigin} &ndash; 
+ * the pose of the origin captured during calibration.
+ * 
+ * <p>Like all other poses here, this is expressed in the space set by {@link OVR#ovr_RecenterTrackingOrigin RecenterTrackingOrigin}, and so will change every time that is called. This pose can
+ * be used to calculate where the calibrated origin lands in the new recentered space. If an application never calls {@link OVR#ovr_RecenterTrackingOrigin RecenterTrackingOrigin}, expect
+ * this value to be the identity pose and as such will point respective origin based on {@code ovrTrackingOrigin} requested when calling
+ * {@link OVR#ovr_GetTrackingState GetTrackingState}.</p></li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrTrackingState {
@@ -25,23 +45,6 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int[2] HandStatusFlags;
     {@link OVRPosef ovrPosef} CalibratedOrigin;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>HeadPose</td><td>Predicted head pose (and derivatives) at the requested absolute time. The look-ahead interval is equal to
- * {@code (HeadPose.TimeInSeconds - RawSensorData.TimeInSeconds)}.</td></tr>
- * <tr><td>StatusFlags</td><td>{@code HeadPose} tracking status described by {@code ovrStatusBits}.</td></tr>
- * <tr><td>HandPoses</td><td>The most recent calculated pose for each hand when hand controller tracking is present. {@code HandPoses[ovrHand_Left]} refers to the left hand and
- * {@code HandPoses[ovrHand_Right]} to the right hand. These values can be combined with {@code ovrInputState} for complete hand controller information.</td></tr>
- * <tr><td>HandStatusFlags</td><td>{@code HandPoses} status flags described by {@code ovrStatusBits}. Only {@link OVR#ovrStatus_OrientationTracked} and {@link OVR#ovrStatus_PositionTracked} are reported.</td></tr>
- * <tr><td>CalibratedOrigin</td><td>the pose of the origin captured during calibration.
- * 
- * <p>Like all other poses here, this is expressed in the space set by {@link OVR#ovr_RecenterTrackingOrigin RecenterTrackingOrigin}, and so will change every time that is called. This pose can
- * be used to calculate where the calibrated origin lands in the new recentered space. If an application never calls {@link OVR#ovr_RecenterTrackingOrigin RecenterTrackingOrigin}, expect
- * this value to be the identity pose and as such will point respective origin based on {@code ovrTrackingOrigin} requested when calling
- * {@link OVR#ovr_GetTrackingState GetTrackingState}.</p></td></tr>
- * </table>
  */
 public class OVRTrackingState extends Struct {
 

@@ -17,6 +17,14 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Image IO callbacks, used by {@link STBImage#stbi_load_from_callbacks load_from_callbacks}.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code read} &ndash; fill {@code data} with {@code size} bytes. Return number of bytes actually read.</li>
+ * <li>{@code skip} &ndash; skip the next {@code n} bytes, or {@code unget} the last -n bytes if negative</li>
+ * <li>{@code eof} &ndash; returns nonzero if we are at end of file/data</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct stbi_io_callbacks {
@@ -24,14 +32,6 @@ import static org.lwjgl.system.MemoryStack.*;
     stbi_io_callbacks.skip skip;
     stbi_io_callbacks.eof eof;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>read</td><td>fill {@code data} with {@code size} bytes. Return number of bytes actually read.</td></tr>
- * <tr><td>skip</td><td>skip the next {@code n} bytes, or {@code unget} the last -n bytes if negative</td></tr>
- * <tr><td>eof</td><td>returns nonzero if we are at end of file/data</td></tr>
- * </table>
  */
 public class STBIIOCallbacks extends Struct {
 

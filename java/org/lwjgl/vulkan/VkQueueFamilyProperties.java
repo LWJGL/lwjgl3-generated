@@ -19,6 +19,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Contains properties of a queue family.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code queueFlags} &ndash; contains flags indicating the capabilities of the queues in this queue family</li>
+ * <li>{@code queueCount} &ndash; the unsigned integer count of queues in this queue family</li>
+ * <li>{@code timestampValidBits} &ndash; the unsigned integer count of meaningful bits in the timestamps written via {@link VK10#vkCmdWriteTimestamp CmdWriteTimestamp}</li>
+ * <li>{@code minImageTransferGranularity} &ndash; the minimum granularity supported for image transfer operations on the queues in this queue family</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkQueueFamilyProperties {
@@ -27,15 +36,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t timestampValidBits;
     {@link VkExtent3D VkExtent3D} minImageTransferGranularity;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>queueFlags</td><td>contains flags indicating the capabilities of the queues in this queue family</td></tr>
- * <tr><td>queueCount</td><td>the unsigned integer count of queues in this queue family</td></tr>
- * <tr><td>timestampValidBits</td><td>the unsigned integer count of meaningful bits in the timestamps written via {@link VK10#vkCmdWriteTimestamp CmdWriteTimestamp}</td></tr>
- * <tr><td>minImageTransferGranularity</td><td>the minimum granularity supported for image transfer operations on the queues in this queue family</td></tr>
- * </table>
  */
 public class VkQueueFamilyProperties extends Struct {
 

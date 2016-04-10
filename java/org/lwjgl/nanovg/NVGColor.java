@@ -17,6 +17,16 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A NanoVG color.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code rgba} &ndash; an array of 4 color components</li>
+ * <li>{@code r} &ndash; the color red component</li>
+ * <li>{@code g} &ndash; the color green component</li>
+ * <li>{@code b} &ndash; the color blue component</li>
+ * <li>{@code a} &ndash; the color alpha component</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct NVGcolor {
@@ -30,16 +40,6 @@ import static org.lwjgl.system.MemoryStack.*;
         };
     };
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>rgba</td><td>an array of 4 color components</td></tr>
- * <tr><td>r</td><td>the color red component</td></tr>
- * <tr><td>g</td><td>the color green component</td></tr>
- * <tr><td>b</td><td>the color blue component</td></tr>
- * <tr><td>a</td><td>the color alpha component</td></tr>
- * </table>
  */
 public class NVGColor extends Struct {
 

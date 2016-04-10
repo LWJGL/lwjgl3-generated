@@ -29,6 +29,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code arrayLayer} <b>must</b> be less than the {@code arrayLayers} specified in {@code VkImageCreateInfo} when the image was created</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code aspectMask} &ndash; a {@code VkImageAspectFlags} selecting the image aspect</li>
+ * <li>{@code mipLevel} &ndash; selects the mipmap level</li>
+ * <li>{@code arrayLayer} &ndash; selects the array layer</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageSubresource {
@@ -36,14 +44,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t mipLevel;
     uint32_t arrayLayer;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>aspectMask</td><td>a {@code VkImageAspectFlags} selecting the image aspect</td></tr>
- * <tr><td>mipLevel</td><td>selects the mipmap level</td></tr>
- * <tr><td>arrayLayer</td><td>selects the array layer</td></tr>
- * </table>
  */
 public class VkImageSubresource extends Struct {
 

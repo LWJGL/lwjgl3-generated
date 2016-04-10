@@ -29,6 +29,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code level} <b>must</b> be a valid {@code VkCommandBufferLevel} value</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code commandPool} &ndash; the name of the command pool that the command buffers allocate their memory from</li>
+ * <li>{@code level} &ndash; determines whether the command buffers are primary or secondary command buffers</li>
+ * <li>{@code commandBufferCount} &ndash; the number of command buffers to allocate from the pool</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkCommandBufferAllocateInfo {
@@ -38,16 +48,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkCommandBufferLevel level;
     uint32_t commandBufferCount;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>commandPool</td><td>the name of the command pool that the command buffers allocate their memory from</td></tr>
- * <tr><td>level</td><td>determines whether the command buffers are primary or secondary command buffers</td></tr>
- * <tr><td>commandBufferCount</td><td>the number of command buffers to allocate from the pool</td></tr>
- * </table>
  */
 public class VkCommandBufferAllocateInfo extends Struct {
 

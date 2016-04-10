@@ -17,19 +17,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Bus address information used in {@link AMDBusAddressableMemory#clEnqueueMakeBuffersResidentAMD EnqueueMakeBuffersResidentAMD}.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code surfbusaddress} &ndash; contains the page aligned physical starting address of the backing store preallocated by the application on a remote device</li>
+ * <li>{@code signalbusaddress} &ndash; contains the page aligned physical starting address of preallocated signaling surface</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct cl_bus_address_amd {
     cl_long surfbusaddress;
     cl_long signalbusaddress;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>surfbusaddress</td><td>contains the page aligned physical starting address of the backing store preallocated by the application on a remote device</td></tr>
- * <tr><td>signalbusaddress</td><td>contains the page aligned physical starting address of preallocated signaling surface</td></tr>
- * </table>
  */
 public class CLBusAddressAMD extends Struct {
 

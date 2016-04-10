@@ -18,6 +18,16 @@ import org.lwjgl.system.windows.User32;
 /**
  * Win32-specific declarations for AWT native interface.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code hwnd} &ndash; the native window handle</li>
+ * <li>{@code hbitmap} &ndash; the DDB handle</li>
+ * <li>{@code pbits} &ndash; the DIB handle</li>
+ * <li>{@code hdc} &ndash; the device context handle. This HDC should always be used instead of the HDC returned from {@code BeginPaint()} or any calls to {@link User32#GetDC}.</li>
+ * <li>{@code hpalette} &ndash; the palette handle</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct JAWT_Win32DrawingSurfaceInfo {
@@ -29,16 +39,6 @@ import org.lwjgl.system.windows.User32;
     HDC hdc;
     HPALETTE hpalette;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>hwnd</td><td>the native window handle</td></tr>
- * <tr><td>hbitmap</td><td>the DDB handle</td></tr>
- * <tr><td>pbits</td><td>the DIB handle</td></tr>
- * <tr><td>hdc</td><td>the device context handle. This HDC should always be used instead of the HDC returned from {@code BeginPaint()} or any calls to {@link User32#GetDC}.</td></tr>
- * <tr><td>hpalette</td><td>the palette handle</td></tr>
- * </table>
  */
 public class JAWTWin32DrawingSurfaceInfo extends Struct {
 

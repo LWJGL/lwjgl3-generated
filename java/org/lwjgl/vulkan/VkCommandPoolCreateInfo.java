@@ -29,6 +29,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code queueFamilyIndex} <b>must</b> be the index of a queue family available in the calling command's {@code device} parameter</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; a combination of bitfield flags indicating usage behavior for the pool and command buffers allocated from it</li>
+ * <li>{@code queueFamilyIndex} &ndash; designates a queue family</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkCommandPoolCreateInfo {
@@ -37,15 +46,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkCommandPoolCreateFlags flags;
     uint32_t queueFamilyIndex;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>a combination of bitfield flags indicating usage behavior for the pool and command buffers allocated from it</td></tr>
- * <tr><td>queueFamilyIndex</td><td>designates a queue family</td></tr>
- * </table>
  */
 public class VkCommandPoolCreateInfo extends Struct {
 

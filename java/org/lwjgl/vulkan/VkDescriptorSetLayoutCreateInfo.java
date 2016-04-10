@@ -30,6 +30,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * structures</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code bindingCount} &ndash; the number of elements in {@code pBindings}</li>
+ * <li>{@code pBindings} &ndash; a pointer to an array of {@link VkDescriptorSetLayoutBinding} structures</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDescriptorSetLayoutCreateInfo {
@@ -39,16 +49,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t bindingCount;
     const VkDescriptorSetLayoutBinding * pBindings;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>bindingCount</td><td>the number of elements in {@code pBindings}</td></tr>
- * <tr><td>pBindings</td><td>a pointer to an array of {@link VkDescriptorSetLayoutBinding} structures</td></tr>
- * </table>
  */
 public class VkDescriptorSetLayoutCreateInfo extends Struct {
 

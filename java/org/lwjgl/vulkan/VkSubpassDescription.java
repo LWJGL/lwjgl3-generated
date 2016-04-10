@@ -52,6 +52,29 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If any attachment is used as both an input attachment and a color or depth/stencil attachment, then each use must use the same {@code layout}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code pipelineBindPoint} &ndash; a {@code VkPipelineBindPoint} value specifying whether this is a compute or graphics subpass. Currently, only graphics subpasses are supported.</li>
+ * <li>{@code inputAttachmentCount} &ndash; the number of input attachments</li>
+ * <li>{@code pInputAttachments} &ndash; 
+ * an array of {@link VkAttachmentReference} structures that lists which of the render pass’s attachments can be read in the shader during the subpass, and what
+ * layout the attachment images will be in during the subpass</li>
+ * <li>{@code colorAttachmentCount} &ndash; the number of color attachments</li>
+ * <li>{@code pColorAttachments} &ndash; 
+ * an array of {@code colorAttachmentCount} {@link VkAttachmentReference} structures that lists which of the render pass’s attachments will be used as color
+ * attachments in the subpass, and what layout the attachment images will be in during the subpass</li>
+ * <li>{@code pResolveAttachments} &ndash; 
+ * {@code NULL} or a pointer to an array of {@link VkAttachmentReference} structures. If {@code pResolveAttachments} is not {@code NULL}, each of its elements corresponds to
+ * a color attachment (the element in {@code pColorAttachments} at the same index)</li>
+ * <li>{@code pDepthStencilAttachment} &ndash; a pointer to a {@link VkAttachmentReference} specifying which attachment will be used for depth/stencil data and the layout it will be in during the subpass</li>
+ * <li>{@code preserveAttachmentCount} &ndash; the number of preserved attachments</li>
+ * <li>{@code pPreserveAttachments} &ndash; 
+ * an array of {@code preserveAttachmentCount} render pass attachment indices describing the attachments that are not used by a subpass, but whose
+ * contents must be preserved throughout the subpass</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSubpassDescription {
@@ -66,25 +89,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t preserveAttachmentCount;
     const uint32_t * pPreserveAttachments;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>pipelineBindPoint</td><td>a {@code VkPipelineBindPoint} value specifying whether this is a compute or graphics subpass. Currently, only graphics subpasses are supported.</td></tr>
- * <tr><td>inputAttachmentCount</td><td>the number of input attachments</td></tr>
- * <tr><td>pInputAttachments</td><td>an array of {@link VkAttachmentReference} structures that lists which of the render pass’s attachments can be read in the shader during the subpass, and what
- * layout the attachment images will be in during the subpass</td></tr>
- * <tr><td>colorAttachmentCount</td><td>the number of color attachments</td></tr>
- * <tr><td>pColorAttachments</td><td>an array of {@code colorAttachmentCount} {@link VkAttachmentReference} structures that lists which of the render pass’s attachments will be used as color
- * attachments in the subpass, and what layout the attachment images will be in during the subpass</td></tr>
- * <tr><td>pResolveAttachments</td><td>{@code NULL} or a pointer to an array of {@link VkAttachmentReference} structures. If {@code pResolveAttachments} is not {@code NULL}, each of its elements corresponds to
- * a color attachment (the element in {@code pColorAttachments} at the same index)</td></tr>
- * <tr><td>pDepthStencilAttachment</td><td>a pointer to a {@link VkAttachmentReference} specifying which attachment will be used for depth/stencil data and the layout it will be in during the subpass</td></tr>
- * <tr><td>preserveAttachmentCount</td><td>the number of preserved attachments</td></tr>
- * <tr><td>pPreserveAttachments</td><td>an array of {@code preserveAttachmentCount} render pass attachment indices describing the attachments that are not used by a subpass, but whose
- * contents must be preserved throughout the subpass</td></tr>
- * </table>
  */
 public class VkSubpassDescription extends Struct {
 

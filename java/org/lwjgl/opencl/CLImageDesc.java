@@ -17,6 +17,42 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Describes the type and dimensions of the image or image array.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code image_type} &ndash; describes the image type</li>
+ * <li>{@code image_width} &ndash; 
+ * the width of the image in pixels. For a 2D image and image array, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_WIDTH}. For a 3D image, the
+ * image width must be &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_WIDTH}. For a 1D image buffer, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE_MAX_BUFFER_SIZE}.
+ * For a 1D image and 1D image array, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_WIDTH}.</li>
+ * <li>{@code image_height} &ndash; 
+ * the height of the image in pixels. This is only used if the image is a 2D, 3D or 2D image array. For a 2D image or image array, the image height must
+ * be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_HEIGHT}. For a 3D image, the image height must be &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_HEIGHT}.</li>
+ * <li>{@code image_depth} &ndash; the depth of the image in pixels. This is only used if the image is a 3D image and must be a value &ge; 1 and &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_DEPTH}.</li>
+ * <li>{@code image_array_size} &ndash; 
+ * the number of images in the image array. This is only used if the image is a 1D or 2D image array. The values for {@code image_array_size}, if
+ * specified, must be a value &ge; 1 and &le; {@link CL10#CL_DEVICE_IMAGE_MAX_ARRAY_SIZE}.
+ * 
+ * <p>Note that reading and writing 2D image arrays from a kernel with {@code image_array_size = 1} may be lower performance than 2D images.</p></li>
+ * <li>{@code image_row_pitch} &ndash; 
+ * the scan-line pitch in bytes. This must be 0 if {@code host_ptr} is {@code NULL} and can be either 0 or &ge; {@code image_width * size} of element in bytes if
+ * {@code host_ptr} is not {@code NULL}. If {@code host_ptr} is not {@code NULL} and {@code image_row_pitch = 0}, {@code image_row_pitch} is calculated as
+ * {@code image_width * size} of element in bytes. If {@code image_row_pitch} is not 0, it must be a multiple of the image element size in bytes.</li>
+ * <li>{@code image_slice_pitch} &ndash; 
+ * the size in bytes of each 2D slice in the 3D image or the size in bytes of each image in a 1D or 2D image array. This must be 0 if {@code host_ptr} is
+ * {@code NULL}. If {@code host_ptr} is not {@code NULL}, {@code image_slice_pitch} can be either 0 or &ge; {@code image_row_pitch * image_height} for a 2D image array
+ * or 3D image and can be either 0 or &ge; {@code image_row_pitch} for a 1D image array. If {@code host_ptr} is not {@code NULL} and
+ * {@code image_slice_pitch = 0}, {@code image_slice_pitch} is calculated as {@code image_row_pitch * image_height} for a 2D image array or 3D image and
+ * {@code image_row_pitch} for a 1D image array. If {@code image_slice_pitch} is not 0, it must be a multiple of the {@code image_row_pitch}.</li>
+ * <li>{@code num_mip_levels} &ndash; must be 0</li>
+ * <li>{@code num_samples} &ndash; must be 0</li>
+ * <li>{@code buffer} &ndash; 
+ * refers to a valid buffer memory object if {@code image_type} is {@link CL10#CL_MEM_OBJECT_IMAGE1D_BUFFER}. Otherwise it must be {@code NULL}. For a 1D image buffer
+ * object, the image pixels are taken from the buffer object's data store. When the contents of a buffer object's data store are modified, those changes
+ * are reflected in the contents of the 1D image buffer object and vice-versa at corresponding sychronization points. The {@code image_width * size} of
+ * element in bytes must be &le; size of buffer object data store.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct cl_image_desc {
@@ -31,36 +67,6 @@ import static org.lwjgl.system.MemoryStack.*;
     cl_uint num_samples;
     cl_mem buffer;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>image_type</td><td>describes the image type</td></tr>
- * <tr><td>image_width</td><td>the width of the image in pixels. For a 2D image and image array, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_WIDTH}. For a 3D image, the
- * image width must be &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_WIDTH}. For a 1D image buffer, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE_MAX_BUFFER_SIZE}.
- * For a 1D image and 1D image array, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_WIDTH}.</td></tr>
- * <tr><td>image_height</td><td>the height of the image in pixels. This is only used if the image is a 2D, 3D or 2D image array. For a 2D image or image array, the image height must
- * be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_HEIGHT}. For a 3D image, the image height must be &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_HEIGHT}.</td></tr>
- * <tr><td>image_depth</td><td>the depth of the image in pixels. This is only used if the image is a 3D image and must be a value &ge; 1 and &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_DEPTH}.</td></tr>
- * <tr><td>image_array_size</td><td>the number of images in the image array. This is only used if the image is a 1D or 2D image array. The values for {@code image_array_size}, if
- * specified, must be a value &ge; 1 and &le; {@link CL10#CL_DEVICE_IMAGE_MAX_ARRAY_SIZE}.
- * 
- * <p>Note that reading and writing 2D image arrays from a kernel with {@code image_array_size = 1} may be lower performance than 2D images.</p></td></tr>
- * <tr><td>image_row_pitch</td><td>the scan-line pitch in bytes. This must be 0 if {@code host_ptr} is {@code NULL} and can be either 0 or &ge; {@code image_width * size} of element in bytes if
- * {@code host_ptr} is not {@code NULL}. If {@code host_ptr} is not {@code NULL} and {@code image_row_pitch = 0}, {@code image_row_pitch} is calculated as
- * {@code image_width * size} of element in bytes. If {@code image_row_pitch} is not 0, it must be a multiple of the image element size in bytes.</td></tr>
- * <tr><td>image_slice_pitch</td><td>the size in bytes of each 2D slice in the 3D image or the size in bytes of each image in a 1D or 2D image array. This must be 0 if {@code host_ptr} is
- * {@code NULL}. If {@code host_ptr} is not {@code NULL}, {@code image_slice_pitch} can be either 0 or &ge; {@code image_row_pitch * image_height} for a 2D image array
- * or 3D image and can be either 0 or &ge; {@code image_row_pitch} for a 1D image array. If {@code host_ptr} is not {@code NULL} and
- * {@code image_slice_pitch = 0}, {@code image_slice_pitch} is calculated as {@code image_row_pitch * image_height} for a 2D image array or 3D image and
- * {@code image_row_pitch} for a 1D image array. If {@code image_slice_pitch} is not 0, it must be a multiple of the {@code image_row_pitch}.</td></tr>
- * <tr><td>num_mip_levels</td><td>must be 0</td></tr>
- * <tr><td>num_samples</td><td>must be 0</td></tr>
- * <tr><td>buffer</td><td>refers to a valid buffer memory object if {@code image_type} is {@link CL10#CL_MEM_OBJECT_IMAGE1D_BUFFER}. Otherwise it must be {@code NULL}. For a 1D image buffer
- * object, the image pixels are taken from the buffer object's data store. When the contents of a buffer object's data store are modified, those changes
- * are reflected in the contents of the 1D image buffer object and vice-versa at corresponding sychronization points. The {@code image_width * size} of
- * element in bytes must be &le; size of buffer object data store.</td></tr>
- * </table>
  */
 public class CLImageDesc extends Struct {
 

@@ -78,6 +78,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code subResourceRange} and {@code viewType} <b>must</b> be compatible with the image, as described in the table below</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code image} &ndash; a {@code VkImage} on which the view will be created</li>
+ * <li>{@code viewType} &ndash; the type of the image view</li>
+ * <li>{@code format} &ndash; a {@code VkFormat} describing the format and type used to interpret data elements in the image</li>
+ * <li>{@code components} &ndash; a remapping of color components (or of depth or stencil components after they have been converted into color components)</li>
+ * <li>{@code subresourceRange} &ndash; selects the set of mipmap levels and array layers to be accessible to the view</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageViewCreateInfo {
@@ -90,19 +103,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkComponentMapping VkComponentMapping} components;
     {@link VkImageSubresourceRange VkImageSubresourceRange} subresourceRange;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>image</td><td>a {@code VkImage} on which the view will be created</td></tr>
- * <tr><td>viewType</td><td>the type of the image view</td></tr>
- * <tr><td>format</td><td>a {@code VkFormat} describing the format and type used to interpret data elements in the image</td></tr>
- * <tr><td>components</td><td>a remapping of color components (or of depth or stencil components after they have been converted into color components)</td></tr>
- * <tr><td>subresourceRange</td><td>selects the set of mipmap levels and array layers to be accessible to the view</td></tr>
- * </table>
  */
 public class VkImageViewCreateInfo extends Struct {
 

@@ -16,6 +16,17 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * The {@code par_shapes.h} mesh structure.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code points} &ndash; a flat list of 3-tuples (X Y Z X Y Z...) for the vertex positions</li>
+ * <li>{@code npoints} &ndash; the number of points</li>
+ * <li>{@code triangles} &ndash; flat list of 3-tuples (I J K I J K...)</li>
+ * <li>{@code ntriangles} &ndash; the number of triangles</li>
+ * <li>{@code normals} &ndash; an optional list of 3-tuples (X Y Z X Y Z...) for the vertex normals</li>
+ * <li>{@code tcoords} &ndash; an optional list of 2-tuples (U V U V U V...) for the vertex texture coordinates</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct par_shapes_mesh {
@@ -26,17 +37,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float * normals;
     float * tcoords;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>points</td><td>a flat list of 3-tuples (X Y Z X Y Z...) for the vertex positions</td></tr>
- * <tr><td>npoints</td><td>the number of points</td></tr>
- * <tr><td>triangles</td><td>flat list of 3-tuples (I J K I J K...)</td></tr>
- * <tr><td>ntriangles</td><td>the number of triangles</td></tr>
- * <tr><td>normals</td><td>an optional list of 3-tuples (X Y Z X Y Z...) for the vertex normals</td></tr>
- * <tr><td>tcoords</td><td>an optional list of 2-tuples (U V U V U V...) for the vertex texture coordinates</td></tr>
- * </table>
  */
 public class ParShapesMesh extends Struct {
 

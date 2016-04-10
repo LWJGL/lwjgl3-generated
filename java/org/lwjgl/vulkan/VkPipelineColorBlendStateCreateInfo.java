@@ -33,6 +33,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code logicOpEnable} is {@link VK10#VK_TRUE TRUE}, {@code logicOp} <b>must</b> be a valid {@code VkLogicOp} value</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code logicOpEnable} &ndash; controls whether to apply logical operations</li>
+ * <li>{@code logicOp} &ndash; selects which logical operation to apply</li>
+ * <li>{@code attachmentCount} &ndash; the number of {@link VkPipelineColorBlendAttachmentState} elements in {@code pAttachments}</li>
+ * <li>{@code pAttachments} &ndash; pointer to array of per target attachment states</li>
+ * <li>{@code blendConstants} &ndash; an array of four values used as the R, G, B, and A components of the blend constant that are used in blending, depending on the blend factor</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineColorBlendStateCreateInfo {
@@ -45,19 +58,6 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkPipelineColorBlendAttachmentState * pAttachments;
     float[4] blendConstants;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>logicOpEnable</td><td>controls whether to apply logical operations</td></tr>
- * <tr><td>logicOp</td><td>selects which logical operation to apply</td></tr>
- * <tr><td>attachmentCount</td><td>the number of {@link VkPipelineColorBlendAttachmentState} elements in {@code pAttachments}</td></tr>
- * <tr><td>pAttachments</td><td>pointer to array of per target attachment states</td></tr>
- * <tr><td>blendConstants</td><td>an array of four values used as the R, G, B, and A components of the blend constant that are used in blending, depending on the blend factor</td></tr>
- * </table>
  */
 public class VkPipelineColorBlendStateCreateInfo extends Struct {
 

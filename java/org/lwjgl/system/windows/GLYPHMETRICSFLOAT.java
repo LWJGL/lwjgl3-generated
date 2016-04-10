@@ -16,6 +16,16 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Contains information about the placement and orientation of a glyph in a character cell.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code gmfBlackBoxX} &ndash; specifies the width of the smallest rectangle (the glyph's black box) that completely encloses the glyph</li>
+ * <li>{@code gmfBlackBoxY} &ndash; specifies the height of the smallest rectangle (the glyph's black box) that completely encloses the glyph</li>
+ * <li>{@code gmfptGlyphOrigin} &ndash; specifies the x and y coordinates of the upper-left corner of the smallest rectangle that completely encloses the glyph</li>
+ * <li>{@code gmfCellIncX} &ndash; specifies the horizontal distance from the origin of the current character cell to the origin of the next character cell</li>
+ * <li>{@code gmfCellIncY} &ndash; specifies the vertical distance from the origin of the current character cell to the origin of the next character cell</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct GLYPHMETRICSFLOAT {
@@ -25,16 +35,6 @@ import static org.lwjgl.system.MemoryStack.*;
     FLOAT gmfCellIncX;
     FLOAT gmfCellIncY;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>gmfBlackBoxX</td><td>specifies the width of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
- * <tr><td>gmfBlackBoxY</td><td>specifies the height of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
- * <tr><td>gmfptGlyphOrigin</td><td>specifies the x and y coordinates of the upper-left corner of the smallest rectangle that completely encloses the glyph</td></tr>
- * <tr><td>gmfCellIncX</td><td>specifies the horizontal distance from the origin of the current character cell to the origin of the next character cell</td></tr>
- * <tr><td>gmfCellIncY</td><td>specifies the vertical distance from the origin of the current character cell to the origin of the next character cell</td></tr>
- * </table>
  */
 public class GLYPHMETRICSFLOAT extends Struct {
 

@@ -16,6 +16,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A framebuffer object.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code fbo} &ndash; the OpenGL framebuffer object handle</li>
+ * <li>{@code rbo} &ndash; the OpenGL renderbuffer handle</li>
+ * <li>{@code texture} &ndash; the OpenGL texture handle</li>
+ * <li>{@code image} &ndash; the NanoVG image handle</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct NVGLUframebuffer {
@@ -24,15 +33,6 @@ import static org.lwjgl.system.MemoryStack.*;
     GLuint texture;
     int image;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>fbo</td><td>the OpenGL framebuffer object handle</td></tr>
- * <tr><td>rbo</td><td>the OpenGL renderbuffer handle</td></tr>
- * <tr><td>texture</td><td>the OpenGL texture handle</td></tr>
- * <tr><td>image</td><td>the NanoVG image handle</td></tr>
- * </table>
  */
 public class NVGLUFramebuffer extends Struct {
 

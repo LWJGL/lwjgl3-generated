@@ -32,6 +32,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * the image was created</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code aspectMask} &ndash; a combination of {@code VkImageAspectFlagBits}, selecting the color, depth and/or stencil aspects</li>
+ * <li>{@code mipLevel} &ndash; the mipmap level</li>
+ * <li>{@code baseArrayLayer} &ndash; the starting layer</li>
+ * <li>{@code layerCount} &ndash; the number of layers</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageSubresourceLayers {
@@ -40,15 +49,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t baseArrayLayer;
     uint32_t layerCount;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>aspectMask</td><td>a combination of {@code VkImageAspectFlagBits}, selecting the color, depth and/or stencil aspects</td></tr>
- * <tr><td>mipLevel</td><td>the mipmap level</td></tr>
- * <tr><td>baseArrayLayer</td><td>the starting layer</td></tr>
- * <tr><td>layerCount</td><td>the number of layers</td></tr>
- * </table>
  */
 public class VkImageSubresourceLayers extends Struct {
 

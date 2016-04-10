@@ -43,6 +43,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@code VkPhysicalDeviceLimits}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link KHRDisplay#VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use, and <b>must</b> be zero</li>
+ * <li>{@code displayMode} &ndash; the mode to use when displaying this surface</li>
+ * <li>{@code planeIndex} &ndash; the plane on which this surface appears</li>
+ * <li>{@code planeStackIndex} &ndash; the z-order of the plane</li>
+ * <li>{@code transform} &ndash; the transform to apply to the images as part of the scannout operation</li>
+ * <li>{@code globalAlpha} &ndash; the global alpha value. This value is ignored if {@code alphaMode} is not {@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR}.</li>
+ * <li>{@code alphaMode} &ndash; the type of alpha blending to use</li>
+ * <li>{@code imageExtent} &ndash; the size of the presentable images to use with the surface</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDisplaySurfaceCreateInfoKHR {
@@ -57,21 +72,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDisplayPlaneAlphaFlagBitsKHR alphaMode;
     {@link VkExtent2D VkExtent2D} imageExtent;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link KHRDisplay#VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use, and <b>must</b> be zero</td></tr>
- * <tr><td>displayMode</td><td>the mode to use when displaying this surface</td></tr>
- * <tr><td>planeIndex</td><td>the plane on which this surface appears</td></tr>
- * <tr><td>planeStackIndex</td><td>the z-order of the plane</td></tr>
- * <tr><td>transform</td><td>the transform to apply to the images as part of the scannout operation</td></tr>
- * <tr><td>globalAlpha</td><td>the global alpha value. This value is ignored if {@code alphaMode} is not {@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR}.</td></tr>
- * <tr><td>alphaMode</td><td>the type of alpha blending to use</td></tr>
- * <tr><td>imageExtent</td><td>the size of the presentable images to use with the surface</td></tr>
- * </table>
  */
 public class VkDisplaySurfaceCreateInfoKHR extends Struct {
 

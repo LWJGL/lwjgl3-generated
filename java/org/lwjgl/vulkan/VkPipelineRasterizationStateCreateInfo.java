@@ -33,6 +33,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If the non-solid fill modes feature is not enabled, {@code polygonMode} <b>must</b> be {@link VK10#VK_POLYGON_MODE_FILL POLYGON_MODE_FILL}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code depthClampEnable} &ndash; controls whether to clamp the fragment’s depth values instead of clipping primitives to the z planes of the frustum</li>
+ * <li>{@code rasterizerDiscardEnable} &ndash; controls whether primitives are discarded immediately before the rasterization stage</li>
+ * <li>{@code polygonMode} &ndash; the triangle rendering mode</li>
+ * <li>{@code cullMode} &ndash; the triangle facing direction used for primitive culling</li>
+ * <li>{@code frontFace} &ndash; the front-facing triangle orientation to be used for culling</li>
+ * <li>{@code depthBiasEnable} &ndash; controls whether to bias fragment depth values</li>
+ * <li>{@code depthBiasConstantFactor} &ndash; a scalar factor controlling the constant depth value added to each fragment</li>
+ * <li>{@code depthBiasClamp} &ndash; the maximum (or minimum) depth bias of a fragment</li>
+ * <li>{@code depthBiasSlopeFactor} &ndash; a scalar factor applied to a fragment’s slope in depth bias calculations</li>
+ * <li>{@code lineWidth} &ndash; the width of rasterized line segments</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineRasterizationStateCreateInfo {
@@ -50,24 +68,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float depthBiasSlopeFactor;
     float lineWidth;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>depthClampEnable</td><td>controls whether to clamp the fragment’s depth values instead of clipping primitives to the z planes of the frustum</td></tr>
- * <tr><td>rasterizerDiscardEnable</td><td>controls whether primitives are discarded immediately before the rasterization stage</td></tr>
- * <tr><td>polygonMode</td><td>the triangle rendering mode</td></tr>
- * <tr><td>cullMode</td><td>the triangle facing direction used for primitive culling</td></tr>
- * <tr><td>frontFace</td><td>the front-facing triangle orientation to be used for culling</td></tr>
- * <tr><td>depthBiasEnable</td><td>controls whether to bias fragment depth values</td></tr>
- * <tr><td>depthBiasConstantFactor</td><td>a scalar factor controlling the constant depth value added to each fragment</td></tr>
- * <tr><td>depthBiasClamp</td><td>the maximum (or minimum) depth bias of a fragment</td></tr>
- * <tr><td>depthBiasSlopeFactor</td><td>a scalar factor applied to a fragment’s slope in depth bias calculations</td></tr>
- * <tr><td>lineWidth</td><td>the width of rasterized line segments</td></tr>
- * </table>
  */
 public class VkPipelineRasterizationStateCreateInfo extends Struct {
 

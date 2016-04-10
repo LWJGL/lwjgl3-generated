@@ -20,6 +20,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Contains information about a specialization constant.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code constantID} &ndash; ID of the specialization constant in SPIR-V</li>
+ * <li>{@code offset} &ndash; byte offset of the specialization constant value within the supplied data buffer</li>
+ * <li>{@code size} &ndash; byte size of the specialization constant value within the supplied data buffer</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSpecializationMapEntry {
@@ -27,14 +35,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t offset;
     size_t size;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>constantID</td><td>ID of the specialization constant in SPIR-V</td></tr>
- * <tr><td>offset</td><td>byte offset of the specialization constant value within the supplied data buffer</td></tr>
- * <tr><td>size</td><td>byte size of the specialization constant value within the supplied data buffer</td></tr>
- * </table>
  */
 public class VkSpecializationMapEntry extends Struct {
 

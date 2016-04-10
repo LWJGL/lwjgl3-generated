@@ -29,6 +29,27 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>ColorTexture[0] contains a single monoscopic rendering, and Viewport[0] and Viewport[1] both refer to that rendering.</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Header} &ndash; {@code Header.Type} must be {@link OVR#ovrLayerType_EyeMatrix}</li>
+ * <li>{@code ColorTexture} &ndash; {@code ovrTextureSwapChains} for the left and right eye respectively. The second one of which can be {@code NULL}</li>
+ * <li>{@code Viewport} &ndash; specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</li>
+ * <li>{@code RenderPose} &ndash; 
+ * specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned
+ * from {@link OVRUtil#ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</li>
+ * <li>{@code Matrix} &ndash; 
+ * specifies the mapping from a view-space vector to a UV coordinate on the textures given above.
+ * 
+ * <pre><code>P = (x,y,z,1)*Matrix
+TexU  = P.x/P.z
+TexV  = P.y/P.z</code></pre></li>
+ * <li>{@code SensorSampleTime} &ndash; 
+ * specifies the timestamp when the source {@link OVRPosef} (used in calculating RenderPose) was sampled from the SDK. Typically retrieved by calling
+ * {@link OVR#ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState}. The main purpose for this is to accurately track
+ * app tracking latency.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrLayerEyeMatrix {
@@ -39,24 +60,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRMatrix4f ovrMatrix4f}[2] Matrix;
     double SensorSampleTime;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeMatrix}</td></tr>
- * <tr><td>ColorTexture</td><td>{@code ovrTextureSwapChains} for the left and right eye respectively. The second one of which can be {@code NULL}</td></tr>
- * <tr><td>Viewport</td><td>specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
- * <tr><td>RenderPose</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned
- * from {@link OVRUtil#ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
- * <tr><td>Matrix</td><td>specifies the mapping from a view-space vector to a UV coordinate on the textures given above.
- * 
- * <pre><code>P = (x,y,z,1)*Matrix
-TexU  = P.x/P.z
-TexV  = P.y/P.z</code></pre></td></tr>
- * <tr><td>SensorSampleTime</td><td>specifies the timestamp when the source {@link OVRPosef} (used in calculating RenderPose) was sampled from the SDK. Typically retrieved by calling
- * {@link OVR#ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState}. The main purpose for this is to accurately track
- * app tracking latency.</td></tr>
- * </table>
  */
 public class OVRLayerEyeMatrix extends Struct {
 

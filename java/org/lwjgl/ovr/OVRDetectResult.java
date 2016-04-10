@@ -16,6 +16,21 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Return values for {@link OVRUtil#ovr_Detect}
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code IsOculusServiceRunning} &ndash; 
+ * is {@link OVR#ovrFalse} when the Oculus Service is not running. This means that the Oculus Service is either uninstalled or stopped.
+ * {@code IsOculusHMDConnected} will be {@link OVR#ovrFalse} in this case.
+ * 
+ * <p>is {@link OVR#ovrTrue} when the Oculus Service is running. This means that the Oculus Service is installed and running. {@code IsOculusHMDConnected} will
+ * reflect the state of the HMD.</p></li>
+ * <li>{@code IsOculusHMDConnected} &ndash; 
+ * is {@link OVR#ovrFalse} when an Oculus HMD is not detected. If the Oculus Service is not running, this will be {@link OVR#ovrFalse}.
+ * 
+ * <p>is {@link OVR#ovrTrue} when an Oculus HMD is detected. This implies that the Oculus Service is also installed and running.</p></li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrDetectResult {
@@ -23,19 +38,6 @@ import static org.lwjgl.system.MemoryStack.*;
     ovrBool IsOculusHMDConnected;
     char[6];
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>IsOculusServiceRunning</td><td>is {@link OVR#ovrFalse} when the Oculus Service is not running. This means that the Oculus Service is either uninstalled or stopped.
- * {@code IsOculusHMDConnected} will be {@link OVR#ovrFalse} in this case.
- * 
- * <p>is {@link OVR#ovrTrue} when the Oculus Service is running. This means that the Oculus Service is installed and running. {@code IsOculusHMDConnected} will
- * reflect the state of the HMD.</p></td></tr>
- * <tr><td>IsOculusHMDConnected</td><td>is {@link OVR#ovrFalse} when an Oculus HMD is not detected. If the Oculus Service is not running, this will be {@link OVR#ovrFalse}.
- * 
- * <p>is {@link OVR#ovrTrue} when an Oculus HMD is detected. This implies that the Oculus Service is also installed and running.</p></td></tr>
- * </table>
  */
 public class OVRDetectResult extends Struct {
 

@@ -34,6 +34,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * either {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, or a valid {@code VkFramebuffer} that is compatible with the {@code renderPass} member of {@code pInheritanceInfo}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; a combination of bitfield flags indicating usage behavior for the command buffer</li>
+ * <li>{@code pInheritanceInfo} &ndash; 
+ * a pointer to a {@link VkCommandBufferInheritanceInfo} structure, which is used if {@code commandBuffer} is a secondary command buffer. If this is a primary
+ * command buffer, then this value is ignored.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkCommandBufferBeginInfo {
@@ -42,16 +53,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkCommandBufferUsageFlags flags;
     const VkCommandBufferInheritanceInfo * pInheritanceInfo;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>a combination of bitfield flags indicating usage behavior for the command buffer</td></tr>
- * <tr><td>pInheritanceInfo</td><td>a pointer to a {@link VkCommandBufferInheritanceInfo} structure, which is used if {@code commandBuffer} is a secondary command buffer. If this is a primary
- * command buffer, then this value is ignored.</td></tr>
- * </table>
  */
 public class VkCommandBufferBeginInfo extends Struct {
 

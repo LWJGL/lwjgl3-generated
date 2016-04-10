@@ -21,6 +21,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@code DISPLAY_DEVICE} is filled in with information about the display adapter(s). If it is a valid device name, then it is filled in with information
  * about the monitor(s) for that device.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code cb} &ndash; size, in bytes, of the {@code DISPLAY_DEVICE} structure. This must be initialized prior to calling {@link User32#EnumDisplayDevices}.</li>
+ * <li>{@code DeviceName} &ndash; an array of characters identifying the device name. This is either the adapter device or the monitor device.</li>
+ * <li>{@code DeviceString} &ndash; an array of characters containing the device context string. This is either a description of the display adapter or of the display monitor.</li>
+ * <li>{@code StateFlags} &ndash; device state flags</li>
+ * <li>{@code DeviceID} &ndash; not used</li>
+ * <li>{@code DeviceKey} &ndash; reserved</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct DISPLAY_DEVICE {
@@ -31,17 +42,6 @@ import static org.lwjgl.system.MemoryStack.*;
     TCHAR[128] DeviceID;
     TCHAR[128] DeviceKey;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>cb</td><td>size, in bytes, of the {@code DISPLAY_DEVICE} structure. This must be initialized prior to calling {@link User32#EnumDisplayDevices}.</td></tr>
- * <tr><td>DeviceName</td><td>an array of characters identifying the device name. This is either the adapter device or the monitor device.</td></tr>
- * <tr><td>DeviceString</td><td>an array of characters containing the device context string. This is either a description of the display adapter or of the display monitor.</td></tr>
- * <tr><td>StateFlags</td><td>device state flags</td></tr>
- * <tr><td>DeviceID</td><td>not used</td></tr>
- * <tr><td>DeviceKey</td><td>reserved</td></tr>
- * </table>
  */
 public class DISPLAY_DEVICE extends Struct {
 

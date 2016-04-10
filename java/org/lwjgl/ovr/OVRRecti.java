@@ -17,19 +17,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A 2D rectangle with a position and size. All components are integers.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Pos} &ndash; the rectangle position</li>
+ * <li>{@code Size} &ndash; the rectangle size</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrRecti {
     {@link OVRVector2i ovrVector2i} Pos;
     {@link OVRSizei ovrSizei} Size;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>Pos</td><td>the rectangle position</td></tr>
- * <tr><td>Size</td><td>the rectangle size</td></tr>
- * </table>
  */
 public class OVRRecti extends Struct {
 

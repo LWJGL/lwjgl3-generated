@@ -17,6 +17,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Specifies the description of a single sensor.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code FrustumHFovInRadians} &ndash; sensor frustum horizontal field-of-view (if present).</li>
+ * <li>{@code FrustumVFovInRadians} &ndash; sensor frustum vertical field-of-view (if present).</li>
+ * <li>{@code FrustumNearZInMeters} &ndash; sensor frustum near Z (if present).</li>
+ * <li>{@code FrustumFarZInMeters} &ndash; sensor frustum far Z (if present).</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrTrackerDesc {
@@ -25,15 +34,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float FrustumNearZInMeters;
     float FrustumFarZInMeters;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>FrustumHFovInRadians</td><td>sensor frustum horizontal field-of-view (if present).</td></tr>
- * <tr><td>FrustumVFovInRadians</td><td>sensor frustum vertical field-of-view (if present).</td></tr>
- * <tr><td>FrustumNearZInMeters</td><td>sensor frustum near Z (if present).</td></tr>
- * <tr><td>FrustumFarZInMeters</td><td>sensor frustum far Z (if present).</td></tr>
- * </table>
  */
 public class OVRTrackerDesc extends Struct {
 

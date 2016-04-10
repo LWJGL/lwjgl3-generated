@@ -19,6 +19,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>{ UpTan = tan(90 degrees / 2), DownTan = tan(90 degrees / 2) }</code></pre>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code UpTan} &ndash; the tangent of the angle between the viewing vector and the top edge of the field of view</li>
+ * <li>{@code DownTan} &ndash; the tangent of the angle between the viewing vector and the bottom edge of the field of view</li>
+ * <li>{@code LeftTan} &ndash; the tangent of the angle between the viewing vector and the left edge of the field of view</li>
+ * <li>{@code RightTan} &ndash; the tangent of the angle between the viewing vector and the right edge of the field of view</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrFovPort {
@@ -27,15 +36,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float LeftTan;
     float RightTan;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>UpTan</td><td>the tangent of the angle between the viewing vector and the top edge of the field of view</td></tr>
- * <tr><td>DownTan</td><td>the tangent of the angle between the viewing vector and the bottom edge of the field of view</td></tr>
- * <tr><td>LeftTan</td><td>the tangent of the angle between the viewing vector and the left edge of the field of view</td></tr>
- * <tr><td>RightTan</td><td>the tangent of the angle between the viewing vector and the right edge of the field of view</td></tr>
- * </table>
  */
 public class OVRFovPort extends Struct {
 

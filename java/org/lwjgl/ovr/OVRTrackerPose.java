@@ -17,6 +17,16 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Specifies the pose for a single sensor.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code TrackerFlags} &ndash; {@code ovrTrackerFlags}.</li>
+ * <li>{@code Pose} &ndash; the sensor's pose. This pose includes sensor tilt (roll and pitch). For a leveled coordinate system use {@code LeveledPose}.</li>
+ * <li>{@code LeveledPose} &ndash; t
+ * the sensor's leveled pose, aligned with gravity. This value includes position and yaw of the sensor, but not roll and pitch. It can be used as a
+ * reference point to render real-world objects in the correct location.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrTrackerPose {
@@ -25,16 +35,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRPosef ovrPosef} LeveledPose;
     char[4];
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>TrackerFlags</td><td>{@code ovrTrackerFlags}.</td></tr>
- * <tr><td>Pose</td><td>the sensor's pose. This pose includes sensor tilt (roll and pitch). For a leveled coordinate system use {@code LeveledPose}.</td></tr>
- * <tr><td>LeveledPose</td><td>t
- * the sensor's leveled pose, aligned with gravity. This value includes position and yaw of the sensor, but not roll and pitch. It can be used as a
- * reference point to render real-world objects in the correct location.</td></tr>
- * </table>
  */
 public class OVRTrackerPose extends Struct {
 

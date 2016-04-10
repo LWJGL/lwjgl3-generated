@@ -17,6 +17,17 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A packed rectangle.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code id} &ndash; reserved for your use</li>
+ * <li>{@code w} &ndash; input width</li>
+ * <li>{@code h} &ndash; input height</li>
+ * <li>{@code x} &ndash; output x coordinate</li>
+ * <li>{@code y} &ndash; output y coordinate</li>
+ * <li>{@code was_packed} &ndash; non-zero if valid packing</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct stbrp_rect {
@@ -27,17 +38,6 @@ import static org.lwjgl.system.MemoryStack.*;
     stbrp_coord y;
     int was_packed;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>id</td><td>reserved for your use</td></tr>
- * <tr><td>w</td><td>input width</td></tr>
- * <tr><td>h</td><td>input height</td></tr>
- * <tr><td>x</td><td>output x coordinate</td></tr>
- * <tr><td>y</td><td>output y coordinate</td></tr>
- * <tr><td>was_packed</td><td>non-zero if valid packing</td></tr>
- * </table>
  */
 public class STBRPRect extends Struct {
 

@@ -17,6 +17,18 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A NanoVG paint.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code xform} &ndash; the transformation matrix</li>
+ * <li>{@code extent} &ndash; the extent</li>
+ * <li>{@code radius} &ndash; the radius</li>
+ * <li>{@code feather} &ndash; the feather amount</li>
+ * <li>{@code innerColor} &ndash; the inner color</li>
+ * <li>{@code outerColor} &ndash; the outer color</li>
+ * <li>{@code image} &ndash; the image handle</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct NVGpaint {
@@ -28,18 +40,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NVGColor NVGcolor} outerColor;
     int image;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>xform</td><td>the transformation matrix</td></tr>
- * <tr><td>extent</td><td>the extent</td></tr>
- * <tr><td>radius</td><td>the radius</td></tr>
- * <tr><td>feather</td><td>the feather amount</td></tr>
- * <tr><td>innerColor</td><td>the inner color</td></tr>
- * <tr><td>outerColor</td><td>the outer color</td></tr>
- * <tr><td>image</td><td>the image handle</td></tr>
- * </table>
  */
 public class NVGPaint extends Struct {
 

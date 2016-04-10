@@ -20,6 +20,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Specifies a buffer regions to copy.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code srcOffset} &ndash; the starting offset in bytes from the start of {@code srcBuffer}</li>
+ * <li>{@code dstOffset} &ndash; the starting offset in bytes from the start of {@code dstBuffer}</li>
+ * <li>{@code size} &ndash; the number of bytes to copy</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkBufferCopy {
@@ -27,14 +35,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize dstOffset;
     VkDeviceSize size;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>srcOffset</td><td>the starting offset in bytes from the start of {@code srcBuffer}</td></tr>
- * <tr><td>dstOffset</td><td>the starting offset in bytes from the start of {@code dstBuffer}</td></tr>
- * <tr><td>size</td><td>the number of bytes to copy</td></tr>
- * </table>
  */
 public class VkBufferCopy extends Struct {
 

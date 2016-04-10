@@ -30,6 +30,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code dynamicStateCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code dynamicStateCount} &ndash; the number of elements in the {@code pDynamicStates} array</li>
+ * <li>{@code pDynamicStates} &ndash; 
+ * an array of {@code VkDynamicState} enums which indicate which pieces of pipeline state will use the values from dynamic state commands rather than from
+ * the pipeline state creation info</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineDynamicStateCreateInfo {
@@ -39,17 +51,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t dynamicStateCount;
     const VkDynamicState * pDynamicStates;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>dynamicStateCount</td><td>the number of elements in the {@code pDynamicStates} array</td></tr>
- * <tr><td>pDynamicStates</td><td>an array of {@code VkDynamicState} enums which indicate which pieces of pipeline state will use the values from dynamic state commands rather than from
- * the pipeline state creation info</td></tr>
- * </table>
  */
 public class VkPipelineDynamicStateCreateInfo extends Struct {
 

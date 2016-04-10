@@ -39,6 +39,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * enable that extension</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO STRUCTURE_TYPE_INSTANCE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code pApplicationInfo} &ndash; a pointer to an instance of {@link VkApplicationInfo}</li>
+ * <li>{@code enabledLayerCount} &ndash; the number of global layers to enable</li>
+ * <li>{@code ppEnabledLayerNames} &ndash; a pointer to an array of {@code enabledLayerCount} null-terminated UTF-8 strings containing the names of layers to enable</li>
+ * <li>{@code enabledExtensionCount} &ndash; the number of global extensions to enable</li>
+ * <li>{@code ppEnabledExtensionNames} &ndash; a pointer to an array of {@code enabledExtensionCount} null-terminated UTF-8 strings containing the names of extensions to enable</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkInstanceCreateInfo {
@@ -51,19 +64,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t enabledExtensionCount;
     const char * const * ppEnabledExtensionNames;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO STRUCTURE_TYPE_INSTANCE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>pApplicationInfo</td><td>a pointer to an instance of {@link VkApplicationInfo}</td></tr>
- * <tr><td>enabledLayerCount</td><td>the number of global layers to enable</td></tr>
- * <tr><td>ppEnabledLayerNames</td><td>a pointer to an array of {@code enabledLayerCount} null-terminated UTF-8 strings containing the names of layers to enable</td></tr>
- * <tr><td>enabledExtensionCount</td><td>the number of global extensions to enable</td></tr>
- * <tr><td>ppEnabledExtensionNames</td><td>a pointer to an array of {@code enabledExtensionCount} null-terminated UTF-8 strings containing the names of extensions to enable</td></tr>
- * </table>
  */
 public class VkInstanceCreateInfo extends Struct {
 

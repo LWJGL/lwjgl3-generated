@@ -24,6 +24,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Quad layers are visible from both sides; they are not back-face culled.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Header} &ndash; {@code Header.Type} must be {@link OVR#ovrLayerType_Quad}</li>
+ * <li>{@code ColorTexture} &ndash; contains a single image, never with any stereo view</li>
+ * <li>{@code Viewport} &ndash; specifies the ColorTexture sub-rect UV coordinates</li>
+ * <li>{@code QuadPoseCenter} &ndash; 
+ * specifies the orientation and position of the center point of a Quad layer type.
+ * 
+ * <p>The supplied direction is the vector perpendicular to the quad. The position is in real-world meters (not the application's virtual world, the physical
+ * world the user is in) and is relative to the "zero" position set by {@link OVR#ovr_RecenterTrackingOrigin} unless the {@link OVR#ovrLayerFlag_HeadLocked} flag is
+ * used.</p></li>
+ * <li>{@code QuadSize} &ndash; width and height (respectively) of the quad in meters</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrLayerQuad {
@@ -33,20 +48,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRPosef ovrPosef} QuadPoseCenter;
     {@link OVRVector2f ovrVector2f} QuadSize;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_Quad}</td></tr>
- * <tr><td>ColorTexture</td><td>contains a single image, never with any stereo view</td></tr>
- * <tr><td>Viewport</td><td>specifies the ColorTexture sub-rect UV coordinates</td></tr>
- * <tr><td>QuadPoseCenter</td><td>specifies the orientation and position of the center point of a Quad layer type.
- * 
- * <p>The supplied direction is the vector perpendicular to the quad. The position is in real-world meters (not the application's virtual world, the physical
- * world the user is in) and is relative to the "zero" position set by {@link OVR#ovr_RecenterTrackingOrigin} unless the {@link OVR#ovrLayerFlag_HeadLocked} flag is
- * used.</p></td></tr>
- * <tr><td>QuadSize</td><td>width and height (respectively) of the quad in meters</td></tr>
- * </table>
  */
 public class OVRLayerQuad extends Struct {
 

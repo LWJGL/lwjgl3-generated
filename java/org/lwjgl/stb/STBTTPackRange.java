@@ -17,6 +17,16 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A range of packed character data, used by {@link STBTruetype#stbtt_PackFontRanges}
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code font_size} &ndash; the font size</li>
+ * <li>{@code first_unicode_codepoint_in_range} &ndash; if non-zero, then the chars are continuous, and this is the first codepoint</li>
+ * <li>{@code array_of_unicode_codepoints} &ndash; if non-zero, then this is an array of unicode codepoints</li>
+ * <li>{@code num_chars} &ndash; the number of codepoints in the range</li>
+ * <li>{@code chardata_for_range} &ndash; output</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct stbtt_pack_range {
@@ -27,16 +37,6 @@ import static org.lwjgl.system.MemoryStack.*;
     stbtt_packedchar * chardata_for_range;
     char[2];
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>font_size</td><td>the font size</td></tr>
- * <tr><td>first_unicode_codepoint_in_range</td><td>if non-zero, then the chars are continuous, and this is the first codepoint</td></tr>
- * <tr><td>array_of_unicode_codepoints</td><td>if non-zero, then this is an array of unicode codepoints</td></tr>
- * <tr><td>num_chars</td><td>the number of codepoints in the range</td></tr>
- * <tr><td>chardata_for_range</td><td>output</td></tr>
- * </table>
  */
 public class STBTTPackRange extends Struct {
 

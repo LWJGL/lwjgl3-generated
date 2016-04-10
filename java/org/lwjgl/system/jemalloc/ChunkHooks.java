@@ -22,6 +22,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * opted out of, but this is mainly intended to support platforms on which virtual memory mappings provided by the operating system kernel do not
  * automatically coalesce and split, e.g. Windows.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code alloc} &ndash; the chunk allocation hook</li>
+ * <li>{@code dalloc} &ndash; the chunk deallocation hook</li>
+ * <li>{@code commit} &ndash; the chunk commit hook</li>
+ * <li>{@code decommit} &ndash; the chunk decommit hook</li>
+ * <li>{@code purge} &ndash; the chunk purge hook</li>
+ * <li>{@code split} &ndash; the chunk split hook</li>
+ * <li>{@code merge} &ndash; the chunk merge hook</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct chunk_hooks_t {
@@ -33,18 +45,6 @@ import static org.lwjgl.system.MemoryStack.*;
     chunk_split_t split;
     chunk_merge_t merge;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>alloc</td><td>the chunk allocation hook</td></tr>
- * <tr><td>dalloc</td><td>the chunk deallocation hook</td></tr>
- * <tr><td>commit</td><td>the chunk commit hook</td></tr>
- * <tr><td>decommit</td><td>the chunk decommit hook</td></tr>
- * <tr><td>purge</td><td>the chunk purge hook</td></tr>
- * <tr><td>split</td><td>the chunk split hook</td></tr>
- * <tr><td>merge</td><td>the chunk merge hook</td></tr>
- * </table>
  */
 public class ChunkHooks extends Struct {
 

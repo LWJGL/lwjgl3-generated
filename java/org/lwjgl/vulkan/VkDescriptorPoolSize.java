@@ -27,19 +27,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code descriptorCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code type} &ndash; the type of descriptor</li>
+ * <li>{@code descriptorCount} &ndash; the number of descriptors of that type to allocate</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDescriptorPoolSize {
     VkDescriptorType type;
     uint32_t descriptorCount;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>type</td><td>the type of descriptor</td></tr>
- * <tr><td>descriptorCount</td><td>the number of descriptors of that type to allocate</td></tr>
- * </table>
  */
 public class VkDescriptorPoolSize extends Struct {
 

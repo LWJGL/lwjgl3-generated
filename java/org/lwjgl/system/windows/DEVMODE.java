@@ -17,6 +17,79 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Contains information about the initialization and environment of a printer or a display device.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code dmDeviceName} &ndash; 
+ * A zero-terminated character array that specifies the "friendly" name of the printer or display; for example, "PCL/HP LaserJet" in the case of PCL/HP
+ * LaserJet. This string is unique among device drivers. Note that this name may be truncated to fit in the {@code dmDeviceName} array.</li>
+ * <li>{@code dmSpecVersion} &ndash; 
+ * the version number of the initialization data specification on which the structure is based. To ensure the correct version is used for any operating
+ * system, use {@link GDI32#DM_SPECVERSION}.</li>
+ * <li>{@code dmDriverVersion} &ndash; the driver version number assigned by the driver developer</li>
+ * <li>{@code dmSize} &ndash; 
+ * specifies the size, in bytes, of the {@code DEVMODE} structure, not including any private driver-specific data that might follow the structure's
+ * public members. Set this member to {@link #SIZEOF} to indicate the version of the {@code DEVMODE} structure being used.</li>
+ * <li>{@code dmDriverExtra} &ndash; 
+ * contains the number of bytes of private driver-data that follow this structure. If a device driver does not use device-specific information, set this
+ * member to zero.</li>
+ * <li>{@code dmFields} &ndash; 
+ * specifies whether certain members of the {@code DEVMODE} structure have been initialized. If a member is initialized, its corresponding bit is set
+ * otherwise the bit is clear. A driver supports only those {@code DEVMODE} members that are appropriate for the printer or display technology.</li>
+ * <li>{@code dmOrientation} &ndash; for printer devices only</li>
+ * <li>{@code dmPaperSize} &ndash; for printer devices only</li>
+ * <li>{@code dmPaperLength} &ndash; for printer devices only</li>
+ * <li>{@code dmPaperWidth} &ndash; for printer devices only</li>
+ * <li>{@code dmScale} &ndash; for printer devices only</li>
+ * <li>{@code dmCopies} &ndash; for printer devices only</li>
+ * <li>{@code dmDefaultSource} &ndash; for printer devices only</li>
+ * <li>{@code dmPrintQuality} &ndash; for printer devices only</li>
+ * <li>{@code dmPosition} &ndash; 
+ * for display devices only, a {@link POINTL} structure that indicates the positional coordinates of the display device in reference to the desktop
+ * area. The primary display device is always located at coordinates (0,0).</li>
+ * <li>{@code dmDisplayOrientation} &ndash; 
+ * for display devices only, the orientation at which images should be presented. If {@link GDI32#DM_DISPLAYORIENTATION} is not set, this member must be
+ * zero. If {@link GDI32#DM_DISPLAYORIENTATION} is set, this member must be one of the following values:<br>{@link GDI32#DMDO_DEFAULT}, {@link GDI32#DMDO_90}, {@link GDI32#DMDO_180}, {@link GDI32#DMDO_270}
+ * 
+ * <p>To determine whether the display orientation is portrait or landscape orientation, check the ratio of {@code dmPelsWidth} to
+ * {@code dmPelsHeight}.</p></li>
+ * <li>{@code dmDisplayFixedOutput} &ndash; 
+ * for fixed-resolution display devices only, how the display presents a low-resolution mode on a higher-resolution display. For example, if a
+ * display device's resolution is fixed at 1024 x 768 pixels but its mode is set to 640 x 480 pixels, the device can either display a 640 x 480
+ * image somewhere in the interior of the 1024 x 768 screen space or stretch the 640 x 480 image to fill the larger screen space. If
+ * {@link GDI32#DM_DISPLAYFIXEDOUTPUT} is not set, this member must be zero. If {@link GDI32#DM_DISPLAYFIXEDOUTPUT} is set, this member must be one of the
+ * following values:<br>{@link GDI32#DMDFO_DEFAULT}, {@link GDI32#DMDFO_CENTER}, {@link GDI32#DMDFO_STRETCH}</li>
+ * <li>{@code dmColor} &ndash; for printer devices only</li>
+ * <li>{@code dmDuplex} &ndash; for printer devices only</li>
+ * <li>{@code dmYResolution} &ndash; for printer devices only</li>
+ * <li>{@code dmTTOption} &ndash; for printer devices only</li>
+ * <li>{@code dmCollate} &ndash; for printer devices only</li>
+ * <li>{@code dmFormName} &ndash; for printer devices only</li>
+ * <li>{@code dmLogPixels} &ndash; the number of pixels per logical inch</li>
+ * <li>{@code dmBitsPerPel} &ndash; 
+ * specifies the color resolution, in bits per pixel, of the display device (for example: 4 bits for 16 colors, 8 bits for 256 colors, or 16 bits for
+ * 65,536 colors)</li>
+ * <li>{@code dmPelsWidth} &ndash; specifies the width, in pixels, of the visible device surface</li>
+ * <li>{@code dmPelsHeight} &ndash; specifies the height, in pixels, of the visible device surface</li>
+ * <li>{@code dmDisplayFlags} &ndash; specifies the device's display mode, one or more of:<br>{@link GDI32#DM_INTERLACED}, {@link GDI32#DMDISPLAYFLAGS_TEXTMODE}</li>
+ * <li>{@code dmNup} &ndash; for printer devices only</li>
+ * <li>{@code dmDisplayFrequency} &ndash; 
+ * specifies the frequency, in hertz (cycles per second), of the display device in a particular mode. This value is also known as the display device's
+ * vertical refresh rate.
+ * 
+ * <p>When you call the {@link User32#EnumDisplaySettingsEx} function, the {@code dmDisplayFrequency} member may return with the value 0 or 1. These values
+ * represent the display hardware's default refresh rate. This default rate is typically set by switches on a display card or computer motherboard, or by
+ * a configuration program that does not use display functions such as {@code ChangeDisplaySettingsEx}.</p></li>
+ * <li>{@code dmICMMethod} &ndash; for printer devices only</li>
+ * <li>{@code dmICMIntent} &ndash; for printer devices only</li>
+ * <li>{@code dmMediaType} &ndash; for printer devices only</li>
+ * <li>{@code dmDitherType} &ndash; for printer devices only</li>
+ * <li>{@code dmReserved1} &ndash; not used; must be zero</li>
+ * <li>{@code dmReserved2} &ndash; not used; must be zero</li>
+ * <li>{@code dmPanningWidth} &ndash; this member must be zero</li>
+ * <li>{@code dmPanningHeight} &ndash; this member must be zero</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct DEVMODE {
@@ -67,69 +140,6 @@ import static org.lwjgl.system.MemoryStack.*;
     DWORD dmPanningWidth;
     DWORD dmPanningHeight;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>dmDeviceName</td><td>A zero-terminated character array that specifies the "friendly" name of the printer or display; for example, "PCL/HP LaserJet" in the case of PCL/HP
- * LaserJet. This string is unique among device drivers. Note that this name may be truncated to fit in the {@code dmDeviceName} array.</td></tr>
- * <tr><td>dmSpecVersion</td><td>the version number of the initialization data specification on which the structure is based. To ensure the correct version is used for any operating
- * system, use {@link GDI32#DM_SPECVERSION}.</td></tr>
- * <tr><td>dmDriverVersion</td><td>the driver version number assigned by the driver developer</td></tr>
- * <tr><td>dmSize</td><td>specifies the size, in bytes, of the {@code DEVMODE} structure, not including any private driver-specific data that might follow the structure's
- * public members. Set this member to {@link #SIZEOF} to indicate the version of the {@code DEVMODE} structure being used.</td></tr>
- * <tr><td>dmDriverExtra</td><td>contains the number of bytes of private driver-data that follow this structure. If a device driver does not use device-specific information, set this
- * member to zero.</td></tr>
- * <tr><td>dmFields</td><td>specifies whether certain members of the {@code DEVMODE} structure have been initialized. If a member is initialized, its corresponding bit is set
- * otherwise the bit is clear. A driver supports only those {@code DEVMODE} members that are appropriate for the printer or display technology.</td></tr>
- * <tr><td>dmOrientation</td><td>for printer devices only</td></tr>
- * <tr><td>dmPaperSize</td><td>for printer devices only</td></tr>
- * <tr><td>dmPaperLength</td><td>for printer devices only</td></tr>
- * <tr><td>dmPaperWidth</td><td>for printer devices only</td></tr>
- * <tr><td>dmScale</td><td>for printer devices only</td></tr>
- * <tr><td>dmCopies</td><td>for printer devices only</td></tr>
- * <tr><td>dmDefaultSource</td><td>for printer devices only</td></tr>
- * <tr><td>dmPrintQuality</td><td>for printer devices only</td></tr>
- * <tr><td>dmPosition</td><td>for display devices only, a {@link POINTL} structure that indicates the positional coordinates of the display device in reference to the desktop
- * area. The primary display device is always located at coordinates (0,0).</td></tr>
- * <tr><td>dmDisplayOrientation</td><td>for display devices only, the orientation at which images should be presented. If {@link GDI32#DM_DISPLAYORIENTATION} is not set, this member must be
- * zero. If {@link GDI32#DM_DISPLAYORIENTATION} is set, this member must be one of the following values:<br>{@link GDI32#DMDO_DEFAULT}, {@link GDI32#DMDO_90}, {@link GDI32#DMDO_180}, {@link GDI32#DMDO_270}
- * 
- * <p>To determine whether the display orientation is portrait or landscape orientation, check the ratio of {@code dmPelsWidth} to
- * {@code dmPelsHeight}.</p></td></tr>
- * <tr><td>dmDisplayFixedOutput</td><td>for fixed-resolution display devices only, how the display presents a low-resolution mode on a higher-resolution display. For example, if a
- * display device's resolution is fixed at 1024 x 768 pixels but its mode is set to 640 x 480 pixels, the device can either display a 640 x 480
- * image somewhere in the interior of the 1024 x 768 screen space or stretch the 640 x 480 image to fill the larger screen space. If
- * {@link GDI32#DM_DISPLAYFIXEDOUTPUT} is not set, this member must be zero. If {@link GDI32#DM_DISPLAYFIXEDOUTPUT} is set, this member must be one of the
- * following values:<br>{@link GDI32#DMDFO_DEFAULT}, {@link GDI32#DMDFO_CENTER}, {@link GDI32#DMDFO_STRETCH}</td></tr>
- * <tr><td>dmColor</td><td>for printer devices only</td></tr>
- * <tr><td>dmDuplex</td><td>for printer devices only</td></tr>
- * <tr><td>dmYResolution</td><td>for printer devices only</td></tr>
- * <tr><td>dmTTOption</td><td>for printer devices only</td></tr>
- * <tr><td>dmCollate</td><td>for printer devices only</td></tr>
- * <tr><td>dmFormName</td><td>for printer devices only</td></tr>
- * <tr><td>dmLogPixels</td><td>the number of pixels per logical inch</td></tr>
- * <tr><td>dmBitsPerPel</td><td>specifies the color resolution, in bits per pixel, of the display device (for example: 4 bits for 16 colors, 8 bits for 256 colors, or 16 bits for
- * 65,536 colors)</td></tr>
- * <tr><td>dmPelsWidth</td><td>specifies the width, in pixels, of the visible device surface</td></tr>
- * <tr><td>dmPelsHeight</td><td>specifies the height, in pixels, of the visible device surface</td></tr>
- * <tr><td>dmDisplayFlags</td><td>specifies the device's display mode, one or more of:<br>{@link GDI32#DM_INTERLACED}, {@link GDI32#DMDISPLAYFLAGS_TEXTMODE}</td></tr>
- * <tr><td>dmNup</td><td>for printer devices only</td></tr>
- * <tr><td>dmDisplayFrequency</td><td>specifies the frequency, in hertz (cycles per second), of the display device in a particular mode. This value is also known as the display device's
- * vertical refresh rate.
- * 
- * <p>When you call the {@link User32#EnumDisplaySettingsEx} function, the {@code dmDisplayFrequency} member may return with the value 0 or 1. These values
- * represent the display hardware's default refresh rate. This default rate is typically set by switches on a display card or computer motherboard, or by
- * a configuration program that does not use display functions such as {@code ChangeDisplaySettingsEx}.</p></td></tr>
- * <tr><td>dmICMMethod</td><td>for printer devices only</td></tr>
- * <tr><td>dmICMIntent</td><td>for printer devices only</td></tr>
- * <tr><td>dmMediaType</td><td>for printer devices only</td></tr>
- * <tr><td>dmDitherType</td><td>for printer devices only</td></tr>
- * <tr><td>dmReserved1</td><td>not used; must be zero</td></tr>
- * <tr><td>dmReserved2</td><td>not used; must be zero</td></tr>
- * <tr><td>dmPanningWidth</td><td>this member must be zero</td></tr>
- * <tr><td>dmPanningHeight</td><td>this member must be zero</td></tr>
- * </table>
  */
 public class DEVMODE extends Struct {
 

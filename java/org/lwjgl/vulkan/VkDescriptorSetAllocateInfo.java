@@ -34,6 +34,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code descriptorPool} <b>must</b> have enough free descriptor capacity remaining to allocate the descriptor sets of the specified layouts</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code descriptorPool} &ndash; the pool which the sets will be allocated from</li>
+ * <li>{@code descriptorSetCount} &ndash; the number of descriptor sets to be allocated from the pool</li>
+ * <li>{@code pSetLayouts} &ndash; an array of descriptor set layouts, with each member specifying how the corresponding descriptor set is allocated</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDescriptorSetAllocateInfo {
@@ -43,16 +53,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t descriptorSetCount;
     const VkDescriptorSetLayout * pSetLayouts;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>descriptorPool</td><td>the pool which the sets will be allocated from</td></tr>
- * <tr><td>descriptorSetCount</td><td>the number of descriptor sets to be allocated from the pool</td></tr>
- * <tr><td>pSetLayouts</td><td>an array of descriptor set layouts, with each member specifying how the corresponding descriptor set is allocated</td></tr>
- * </table>
  */
 public class VkDescriptorSetAllocateInfo extends Struct {
 

@@ -39,16 +39,6 @@ import static org.lwjgl.system.MemoryStack.*;
     Display * dpy;
     Window window;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link KHRXlibSurface#VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>dpy</td><td>a pointer to an Xlib Display connection to the X server</td></tr>
- * <tr><td>window</td><td>an Xlib Window to associate the surface with</td></tr>
- * </table>
  */
 public class VkXlibSurfaceCreateInfoKHR extends Struct {
 

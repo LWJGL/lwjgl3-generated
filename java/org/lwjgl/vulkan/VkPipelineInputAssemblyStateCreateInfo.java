@@ -36,6 +36,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If the tessellation shaders feature is not enabled, {@code topology} <b>must not</b> be {@link VK10#VK_PRIMITIVE_TOPOLOGY_PATCH_LIST PRIMITIVE_TOPOLOGY_PATCH_LIST}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code topology} &ndash; a {@code VkPrimitiveTopology} defining the primitive topology</li>
+ * <li>{@code primitiveRestartEnable} &ndash; controls whether a special vertex index value is treated as restarting the assembly of primitives</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineInputAssemblyStateCreateInfo {
@@ -45,16 +55,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkPrimitiveTopology topology;
     VkBool32 primitiveRestartEnable;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>topology</td><td>a {@code VkPrimitiveTopology} defining the primitive topology</td></tr>
- * <tr><td>primitiveRestartEnable</td><td>controls whether a special vertex index value is treated as restarting the assembly of primitives</td></tr>
- * </table>
  */
 public class VkPipelineInputAssemblyStateCreateInfo extends Struct {
 

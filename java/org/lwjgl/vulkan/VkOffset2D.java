@@ -20,19 +20,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Describes a 2D offset.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; the x offset</li>
+ * <li>{@code y} &ndash; the y offset</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkOffset2D {
     int32_t x;
     int32_t y;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>x</td><td>the x offset</td></tr>
- * <tr><td>y</td><td>the y offset</td></tr>
- * </table>
  */
 public class VkOffset2D extends Struct {
 

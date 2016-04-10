@@ -19,19 +19,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Contains information about a physical device extension.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code extensionName} &ndash; a null-terminated string specifying the name of the extension</li>
+ * <li>{@code specVersion} &ndash; the version of this extension</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkExtensionProperties {
     char[256] extensionName;
     uint32_t specVersion;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>extensionName</td><td>a null-terminated string specifying the name of the extension</td></tr>
- * <tr><td>specVersion</td><td>the version of this extension</td></tr>
- * </table>
  */
 public class VkExtensionProperties extends Struct {
 

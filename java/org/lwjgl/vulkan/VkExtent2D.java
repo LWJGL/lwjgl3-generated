@@ -20,19 +20,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Describes a 2D extent.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code width} &ndash; the width</li>
+ * <li>{@code height} &ndash; the height</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkExtent2D {
     uint32_t width;
     uint32_t height;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>width</td><td>the width</td></tr>
- * <tr><td>height</td><td>the height</td></tr>
- * </table>
  */
 public class VkExtent2D extends Struct {
 

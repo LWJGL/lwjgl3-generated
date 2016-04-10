@@ -29,6 +29,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code a} <b>must</b> be a valid {@code VkComponentSwizzle} value</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code r} &ndash; the value placed in the r component of the output vector</li>
+ * <li>{@code g} &ndash; the value placed in the g component of the output vector</li>
+ * <li>{@code b} &ndash; the value placed in the b component of the output vector</li>
+ * <li>{@code a} &ndash; the value placed in the a component of the output vector</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkComponentMapping {
@@ -37,15 +46,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkComponentSwizzle b;
     VkComponentSwizzle a;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>r</td><td>the value placed in the r component of the output vector</td></tr>
- * <tr><td>g</td><td>the value placed in the g component of the output vector</td></tr>
- * <tr><td>b</td><td>the value placed in the b component of the output vector</td></tr>
- * <tr><td>a</td><td>the value placed in the a component of the output vector</td></tr>
- * </table>
  */
 public class VkComponentMapping extends Struct {
 

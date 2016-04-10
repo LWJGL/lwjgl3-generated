@@ -45,6 +45,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * subresource depth</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code srcSubresource} &ndash; the source image subresource</li>
+ * <li>{@code srcOffsets} &ndash; the source region</li>
+ * <li>{@code dstSubresource} &ndash; the destination image subresource</li>
+ * <li>{@code dstOffsets} &ndash; the destination region</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageBlit {
@@ -53,15 +62,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkImageSubresourceLayers VkImageSubresourceLayers} dstSubresource;
     {@link VkOffset3D VkOffset3D}[2] dstOffsets;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>srcSubresource</td><td>the source image subresource</td></tr>
- * <tr><td>srcOffsets</td><td>the source region</td></tr>
- * <tr><td>dstSubresource</td><td>the destination image subresource</td></tr>
- * <tr><td>dstOffsets</td><td>the destination region</td></tr>
- * </table>
  */
 public class VkImageBlit extends Struct {
 

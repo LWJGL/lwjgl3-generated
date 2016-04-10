@@ -19,6 +19,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Use the utility function {@link OVRUtil#ovrTimewarpProjectionDesc_FromProjection} to generate this structure from the application's projection matrix.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Projection22} &ndash; projection matrix element [2][2]</li>
+ * <li>{@code Projection23} &ndash; projection matrix element [2][3]</li>
+ * <li>{@code Projection32} &ndash; projection matrix element [3][2]</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrTimewarpProjectionDesc {
@@ -26,14 +34,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float Projection23;
     float Projection32;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>Projection22</td><td>projection matrix element [2][2]</td></tr>
- * <tr><td>Projection23</td><td>projection matrix element [2][3]</td></tr>
- * <tr><td>Projection32</td><td>projection matrix element [3][2]</td></tr>
- * </table>
  */
 public class OVRTimewarpProjectionDesc extends Struct {
 

@@ -33,6 +33,26 @@ import static org.lwjgl.system.MemoryStack.*;
  * display the present operation targets then {@code persistent} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link KHRDisplaySwapchain#VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code srcRect} &ndash; 
+ * a rectangular region of pixels to present. It must be a subset of the image being presented. If {@code VkDisplayPresentInfoKHR} is not specified, this
+ * region will be assumed to be the entire presentable image.</li>
+ * <li>{@code dstRect} &ndash; 
+ * a rectangular region within the visible region of the swapchain’s display mode. If {@code VkDisplayPresentInfoKHR} is not specified, this region will
+ * be assumed to be the entire visible region of the visible region of the swapchain’s mode. If the specified rectangle is a subset of the display mode’s
+ * visible region, content from display planes below the swapchain’s plane will be visible outside the rectangle. If there are no planes below the
+ * swapchain’s, the area outside the specified rectangle will be black. If portions of the specified rectangle are outside of the display’s visible
+ * region, pixels mapping only to those portions of the rectangle will be discarded.</li>
+ * <li>{@code persistent} &ndash; 
+ * if {@link VK10#VK_TRUE TRUE}, the display engine will enable buffered mode on displays that support it. This allows the display engine to stop sending content to the
+ * display until a new image is presented. The display will instead maintain a copy of the last presented image. This allows less power to be used, but
+ * may increase presentation latency. If {@code VkDisplayPresentInfoKHR} is not specified, persistent mode will not be used.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDisplayPresentInfoKHR {
@@ -42,23 +62,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkRect2D VkRect2D} dstRect;
     VkBool32 persistent;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link KHRDisplaySwapchain#VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>srcRect</td><td>a rectangular region of pixels to present. It must be a subset of the image being presented. If {@code VkDisplayPresentInfoKHR} is not specified, this
- * region will be assumed to be the entire presentable image.</td></tr>
- * <tr><td>dstRect</td><td>a rectangular region within the visible region of the swapchain’s display mode. If {@code VkDisplayPresentInfoKHR} is not specified, this region will
- * be assumed to be the entire visible region of the visible region of the swapchain’s mode. If the specified rectangle is a subset of the display mode’s
- * visible region, content from display planes below the swapchain’s plane will be visible outside the rectangle. If there are no planes below the
- * swapchain’s, the area outside the specified rectangle will be black. If portions of the specified rectangle are outside of the display’s visible
- * region, pixels mapping only to those portions of the rectangle will be discarded.</td></tr>
- * <tr><td>persistent</td><td>if {@link VK10#VK_TRUE TRUE}, the display engine will enable buffered mode on displays that support it. This allows the display engine to stop sending content to the
- * display until a new image is presented. The display will instead maintain a copy of the last presented image. This allows less power to be used, but
- * may increase presentation latency. If {@code VkDisplayPresentInfoKHR} is not specified, persistent mode will not be used.</td></tr>
- * </table>
  */
 public class VkDisplayPresentInfoKHR extends Struct {
 

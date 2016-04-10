@@ -31,6 +31,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@code baseArrayLayer} and {@code layerCount} members of both {@code srcSubresource} and {@code dstSubresource} <b>must</b> be 0 and 1, respectively</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code srcSubresource} &ndash; a {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the source image data</li>
+ * <li>{@code srcOffset} &ndash; selects the initial x, y, and z offsets in texels of the sub-region of the source image data</li>
+ * <li>{@code dstSubresource} &ndash; a {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the destination image data</li>
+ * <li>{@code dstOffset} &ndash; selects the initial x, y, and z offsets in texels of the sub-region of the destination image data</li>
+ * <li>{@code extent} &ndash; the size in texels of the source image to resolve in width, height and depth</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageResolve {
@@ -40,16 +50,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkOffset3D VkOffset3D} dstOffset;
     {@link VkExtent3D VkExtent3D} extent;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>srcSubresource</td><td>a {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the source image data</td></tr>
- * <tr><td>srcOffset</td><td>selects the initial x, y, and z offsets in texels of the sub-region of the source image data</td></tr>
- * <tr><td>dstSubresource</td><td>a {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the destination image data</td></tr>
- * <tr><td>dstOffset</td><td>selects the initial x, y, and z offsets in texels of the sub-region of the destination image data</td></tr>
- * <tr><td>extent</td><td>the size in texels of the source image to resolve in width, height and depth</td></tr>
- * </table>
  */
 public class VkImageResolve extends Struct {
 

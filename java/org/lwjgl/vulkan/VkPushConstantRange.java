@@ -31,6 +31,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code size} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize} minus {@code offset}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code stageFlags} &ndash; a set of stage flags describing the shader stages that will access a range of push constants</li>
+ * <li>{@code offset} &ndash; the start offset, in bytes, consumed by the range</li>
+ * <li>{@code size} &ndash; the size, in bytes, consumed by the range</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPushConstantRange {
@@ -38,14 +46,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t offset;
     uint32_t size;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>stageFlags</td><td>a set of stage flags describing the shader stages that will access a range of push constants</td></tr>
- * <tr><td>offset</td><td>the start offset, in bytes, consumed by the range</td></tr>
- * <tr><td>size</td><td>the size, in bytes, consumed by the range</td></tr>
- * </table>
  */
 public class VkPushConstantRange extends Struct {
 

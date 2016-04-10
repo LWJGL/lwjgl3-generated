@@ -28,6 +28,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} <b>must not</b> be 0</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link EXTDebugReport#VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; indicate which event(s) will cause this callback to be called</li>
+ * <li>{@code pfnCallback} &ndash; the application callback function to call</li>
+ * <li>{@code pUserData} &ndash; user data to be passed to the callback</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDebugReportCallbackCreateInfoEXT {
@@ -37,16 +47,6 @@ import static org.lwjgl.system.MemoryStack.*;
     PFN_vkDebugReportCallbackEXT pfnCallback;
     void * pUserData;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link EXTDebugReport#VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>indicate which event(s) will cause this callback to be called</td></tr>
- * <tr><td>pfnCallback</td><td>the application callback function to call</td></tr>
- * <tr><td>pUserData</td><td>user data to be passed to the callback</td></tr>
- * </table>
  */
 public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 

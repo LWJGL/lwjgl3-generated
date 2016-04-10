@@ -31,6 +31,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code maxSets} <b>must</b> be greater than 0</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; specifies certain supported operations on the pool</li>
+ * <li>{@code maxSets} &ndash; the maximum number of descriptor sets that <b>can</b> be allocated from the pool</li>
+ * <li>{@code poolSizeCount} &ndash;  the number of elements in {@code pPoolSizes}</li>
+ * <li>{@code pPoolSizes} &ndash; 
+ * a pointer to an array of {@link VkDescriptorPoolSize} structures, each containing a descriptor type and number of descriptors of that type to be allocated in
+ * the pool</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDescriptorPoolCreateInfo {
@@ -41,18 +54,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t poolSizeCount;
     const VkDescriptorPoolSize * pPoolSizes;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>specifies certain supported operations on the pool</td></tr>
- * <tr><td>maxSets</td><td>the maximum number of descriptor sets that <b>can</b> be allocated from the pool</td></tr>
- * <tr><td>poolSizeCount</td><td>the number of elements in {@code pPoolSizes}</td></tr>
- * <tr><td>pPoolSizes</td><td>a pointer to an array of {@link VkDescriptorPoolSize} structures, each containing a descriptor type and number of descriptors of that type to be allocated in
- * the pool</td></tr>
- * </table>
  */
 public class VkDescriptorPoolCreateInfo extends Struct {
 

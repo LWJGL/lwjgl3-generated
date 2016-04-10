@@ -29,6 +29,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code aspectMask} <b>must not</b> include {@link VK10#VK_IMAGE_ASPECT_METADATA_BIT IMAGE_ASPECT_METADATA_BIT}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code aspectMask} &ndash; a mask selecting the color, depth and/or stencil aspects of the attachment to be cleared</li>
+ * <li>{@code colorAttachment} &ndash; 
+ * is only meaningful if {@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT} is set in {@code aspectMask}, in which case it is an index to the {@code pColorAttachments} array in the
+ * {@link VkSubpassDescription} structure of the current subpass which selects the color attachment to clear</li>
+ * <li>{@code clearValue} &ndash; the color or depth/stencil value to clear the attachment to</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkClearAttachment {
@@ -36,15 +46,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t colorAttachment;
     {@link VkClearValue VkClearValue} clearValue;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>aspectMask</td><td>a mask selecting the color, depth and/or stencil aspects of the attachment to be cleared</td></tr>
- * <tr><td>colorAttachment</td><td>is only meaningful if {@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT} is set in {@code aspectMask}, in which case it is an index to the {@code pColorAttachments} array in the
- * {@link VkSubpassDescription} structure of the current subpass which selects the color attachment to clear</td></tr>
- * <tr><td>clearValue</td><td>the color or depth/stencil value to clear the attachment to</td></tr>
- * </table>
  */
 public class VkClearAttachment extends Struct {
 

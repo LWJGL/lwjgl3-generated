@@ -41,6 +41,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code srcSubpass} and {@code dstSubpass} <b>must not</b> both be equal to {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code srcSubpass} &ndash; the subpass index of the producer subpass</li>
+ * <li>{@code dstSubpass} &ndash; the subpass index of the consumer subpass</li>
+ * <li>{@code srcStageMask} &ndash; a combination of {@code VkPipelineStageFlagBits} values</li>
+ * <li>{@code dstStageMask} &ndash; a combination of {@code VkPipelineStageFlagBits} values</li>
+ * <li>{@code srcAccessMask} &ndash; a combination of {@code VkAccessFlagBits} values</li>
+ * <li>{@code dstAccessMask} &ndash; a combination of {@code VkAccessFlagBits} values</li>
+ * <li>{@code dependencyFlags} &ndash; a combination of {@code VkDependencyFlagBits} values</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSubpassDependency {
@@ -52,18 +64,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkAccessFlags dstAccessMask;
     VkDependencyFlags dependencyFlags;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>srcSubpass</td><td>the subpass index of the producer subpass</td></tr>
- * <tr><td>dstSubpass</td><td>the subpass index of the consumer subpass</td></tr>
- * <tr><td>srcStageMask</td><td>a combination of {@code VkPipelineStageFlagBits} values</td></tr>
- * <tr><td>dstStageMask</td><td>a combination of {@code VkPipelineStageFlagBits} values</td></tr>
- * <tr><td>srcAccessMask</td><td>a combination of {@code VkAccessFlagBits} values</td></tr>
- * <tr><td>dstAccessMask</td><td>a combination of {@code VkAccessFlagBits} values</td></tr>
- * <tr><td>dependencyFlags</td><td>a combination of {@code VkDependencyFlagBits} values</td></tr>
- * </table>
  */
 public class VkSubpassDependency extends Struct {
 

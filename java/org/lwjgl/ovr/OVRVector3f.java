@@ -17,6 +17,14 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A 3D vector with float components.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; the vector x component</li>
+ * <li>{@code y} &ndash; the vector y component</li>
+ * <li>{@code z} &ndash; the vector z component</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrVector3f {
@@ -24,14 +32,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float y;
     float z;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>x</td><td>the vector x component</td></tr>
- * <tr><td>y</td><td>the vector y component</td></tr>
- * <tr><td>z</td><td>the vector z component</td></tr>
- * </table>
  */
 public class OVRVector3f extends Struct {
 

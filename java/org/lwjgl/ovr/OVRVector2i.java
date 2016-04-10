@@ -17,19 +17,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A 2D vector with integer components.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; the vector x component</li>
+ * <li>{@code y} &ndash; the vector y component</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrVector2i {
     int x;
     int y;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>x</td><td>the vector x component</td></tr>
- * <tr><td>y</td><td>the vector y component</td></tr>
- * </table>
  */
 public class OVRVector2i extends Struct {
 

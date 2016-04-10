@@ -26,21 +26,23 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code layout} <b>must</b> be a valid {@code VkImageLayout} value</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code attachment} &ndash; 
+ * the index of the attachment of the render pass, and corresponds to the index of the corresponding element in the {@code pAttachments} array of the
+ * {@link VkRenderPassCreateInfo} structure. If any color or depth/stencil attachments are {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}, then no writes occur for those attachments.</li>
+ * <li>{@code layout} &ndash; 
+ * a {@code VkImageLayout} value specifying the layout the attachment uses during the subpass. The implementation will automatically perform layout
+ * transitions as needed between subpasses to make each subpass use the requested layouts.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkAttachmentReference {
     uint32_t attachment;
     VkImageLayout layout;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>attachment</td><td>the index of the attachment of the render pass, and corresponds to the index of the corresponding element in the {@code pAttachments} array of the
- * {@link VkRenderPassCreateInfo} structure. If any color or depth/stencil attachments are {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}, then no writes occur for those attachments.</td></tr>
- * <tr><td>layout</td><td>a {@code VkImageLayout} value specifying the layout the attachment uses during the subpass. The implementation will automatically perform layout
- * transitions as needed between subpasses to make each subpass use the requested layouts.</td></tr>
- * </table>
  */
 public class VkAttachmentReference extends Struct {
 

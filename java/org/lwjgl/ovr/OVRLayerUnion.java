@@ -17,6 +17,12 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Union that combines {@code ovrLayer} types in a way that allows them to be used in a polymorphic way.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Header} &ndash; the layer header</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>union ovrLayer_Union {
@@ -24,12 +30,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRLayerEyeFov ovrLayerEyeFov} EyeFov;
     {@link OVRLayerQuad ovrLayerQuad} Quad;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>Header</td><td>the layer header</td></tr>
- * </table>
  */
 public class OVRLayerUnion extends Struct {
 

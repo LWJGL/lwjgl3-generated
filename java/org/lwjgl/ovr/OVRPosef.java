@@ -17,19 +17,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Position and orientation together.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Orientation} &ndash; the pose orientation</li>
+ * <li>{@code Position} &ndash; the pose position</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrPosef {
     {@link OVRQuatf ovrQuatf} Orientation;
     {@link OVRVector3f ovrVector3f} Position;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>Orientation</td><td>the pose orientation</td></tr>
- * <tr><td>Position</td><td>the pose position</td></tr>
- * </table>
  */
 public class OVRPosef extends Struct {
 

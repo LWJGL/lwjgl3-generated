@@ -32,6 +32,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code maxDepth} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; the viewport's left bound</li>
+ * <li>{@code y} &ndash; the viewport's upper bound</li>
+ * <li>{@code width} &ndash; the viewport's width</li>
+ * <li>{@code height} &ndash; the viewport's height</li>
+ * <li>{@code minDepth} &ndash; the minimum viewport depth</li>
+ * <li>{@code maxDepth} &ndash; the maximum viewport depth</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkViewport {
@@ -42,17 +53,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float minDepth;
     float maxDepth;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>x</td><td>the viewport's left bound</td></tr>
- * <tr><td>y</td><td>the viewport's upper bound</td></tr>
- * <tr><td>width</td><td>the viewport's width</td></tr>
- * <tr><td>height</td><td>the viewport's height</td></tr>
- * <tr><td>minDepth</td><td>the minimum viewport depth</td></tr>
- * <tr><td>maxDepth</td><td>the maximum viewport depth</td></tr>
- * </table>
  */
 public class VkViewport extends Struct {
 

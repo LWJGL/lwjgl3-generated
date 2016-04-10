@@ -19,19 +19,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Contains information about a memory heap.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code size} &ndash; the total memory size in bytes in the heap</li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkMemoryHeapFlagBits} attribute flags for the heap</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkMemoryHeap {
     VkDeviceSize size;
     VkMemoryHeapFlags flags;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>size</td><td>the total memory size in bytes in the heap</td></tr>
- * <tr><td>flags</td><td>a bitmask of {@code VkMemoryHeapFlagBits} attribute flags for the heap</td></tr>
- * </table>
  */
 public class VkMemoryHeap extends Struct {
 

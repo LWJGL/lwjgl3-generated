@@ -30,6 +30,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>The {@code refreshRate} member of {@code parameters} must be greater than 0</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link KHRDisplay#VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use, and <b>must</b> be zero</li>
+ * <li>{@code parameters} &ndash; a {@link VkDisplayModeParametersKHR} structure describing the display parameters to use in creating the new mode</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDisplayModeCreateInfoKHR {
@@ -38,15 +47,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDisplayModeCreateFlagsKHR flags;
     {@link VkDisplayModeParametersKHR VkDisplayModeParametersKHR} parameters;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link KHRDisplay#VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use, and <b>must</b> be zero</td></tr>
- * <tr><td>parameters</td><td>a {@link VkDisplayModeParametersKHR} structure describing the display parameters to use in creating the new mode</td></tr>
- * </table>
  */
 public class VkDisplayModeCreateInfoKHR extends Struct {
 

@@ -19,6 +19,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Describes the memory heaps and memory types available to a physical device.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code memoryTypeCount} &ndash; the number of memory types available across all memory heaps</li>
+ * <li>{@code memoryTypes} &ndash; the memory type descriptions</li>
+ * <li>{@code memoryHeapCount} &ndash; the number of memory heaps</li>
+ * <li>{@code memoryHeaps} &ndash; the memory heap descriptions</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPhysicalDeviceMemoryProperties {
@@ -27,15 +36,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t memoryHeapCount;
     {@link VkMemoryHeap VkMemoryHeap}[16] memoryHeaps;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>memoryTypeCount</td><td>the number of memory types available across all memory heaps</td></tr>
- * <tr><td>memoryTypes</td><td>the memory type descriptions</td></tr>
- * <tr><td>memoryHeapCount</td><td>the number of memory heaps</td></tr>
- * <tr><td>memoryHeaps</td><td>the memory heap descriptions</td></tr>
- * </table>
  */
 public class VkPhysicalDeviceMemoryProperties extends Struct {
 

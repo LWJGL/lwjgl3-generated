@@ -19,6 +19,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Contains information about the layout of a subresource (mipLevel/arrayLayer) of an image created with linear tiling.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code offset} &ndash; the byte offset from the start of the image where the subresource begins</li>
+ * <li>{@code size} &ndash; the size in bytes of the subresource</li>
+ * <li>{@code rowPitch} &ndash; the number of bytes between each row of texels in an image</li>
+ * <li>{@code arrayPitch} &ndash; the number of bytes between each array layer of an image</li>
+ * <li>{@code depthPitch} &ndash; the number of bytes between each slice of 3D image</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSubresourceLayout {
@@ -28,16 +38,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize arrayPitch;
     VkDeviceSize depthPitch;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>offset</td><td>the byte offset from the start of the image where the subresource begins</td></tr>
- * <tr><td>size</td><td>the size in bytes of the subresource</td></tr>
- * <tr><td>rowPitch</td><td>the number of bytes between each row of texels in an image</td></tr>
- * <tr><td>arrayPitch</td><td>the number of bytes between each array layer of an image</td></tr>
- * <tr><td>depthPitch</td><td>the number of bytes between each slice of 3D image</td></tr>
- * </table>
  */
 public class VkSubresourceLayout extends Struct {
 

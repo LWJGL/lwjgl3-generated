@@ -38,13 +38,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDisplayKHR currentDisplay;
     uint32_t currentStackIndex;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>currentDisplay</td><td>the handle of the display the plane is currently associated with. If the plane is not currently attached to any displays, this will be {@link VK10#VK_NULL_HANDLE NULL_HANDLE}.</td></tr>
- * <tr><td>currentStackIndex</td><td>the current z-order of the plane</td></tr>
- * </table>
  */
 public class VkDisplayPlanePropertiesKHR extends Struct {
 

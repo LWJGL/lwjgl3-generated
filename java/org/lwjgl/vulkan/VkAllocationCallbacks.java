@@ -29,6 +29,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If either of {@code pfnInternalAllocation} or {@code pfnInternalFree} is not {@code NULL}, both <b>must</b> be valid callbacks</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code pUserData} &ndash; 
+ * a value to be interpreted by the implementation of the callbacks. When any of the callbacks in {@code VkAllocationCallbacks} are called, the Vulkan
+ * implementation will pass this value as the first parameter to the callback. This value <b>can</b> vary each time an allocator is passed into a command, even
+ * when the same object takes an allocator in multiple commands.</li>
+ * <li>{@code pfnAllocation} &ndash; a pointer to an application-defined memory allocation function of type {@code PFN_vkAllocationFunction}</li>
+ * <li>{@code pfnReallocation} &ndash; a pointer to an application-defined memory reallocation function of type {@code PFN_vkReallocationFunction}</li>
+ * <li>{@code pfnFree} &ndash; a pointer to an application-defined memory free function of type {@code PFN_vkFreeFunction}</li>
+ * <li>{@code pfnInternalAllocation} &ndash; 
+ * a pointer to an application-defined function that is called by the implementation when the implementation makes internal allocations, and it is of type
+ * {@code PFN_vkInternalAllocationNotification}</li>
+ * <li>{@code pfnInternalFree} &ndash; 
+ * a pointer to an application-defined function that is called by the implementation when the implementation frees internal allocations, and it is of type
+ * {@code PFN_vkInternalFreeNotification}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkAllocationCallbacks {
@@ -39,21 +57,6 @@ import static org.lwjgl.system.MemoryStack.*;
     PFN_vkInternalAllocationNotification pfnInternalAllocation;
     PFN_vkInternalFreeNotification pfnInternalFree;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>pUserData</td><td>a value to be interpreted by the implementation of the callbacks. When any of the callbacks in {@code VkAllocationCallbacks} are called, the Vulkan
- * implementation will pass this value as the first parameter to the callback. This value <b>can</b> vary each time an allocator is passed into a command, even
- * when the same object takes an allocator in multiple commands.</td></tr>
- * <tr><td>pfnAllocation</td><td>a pointer to an application-defined memory allocation function of type {@code PFN_vkAllocationFunction}</td></tr>
- * <tr><td>pfnReallocation</td><td>a pointer to an application-defined memory reallocation function of type {@code PFN_vkReallocationFunction}</td></tr>
- * <tr><td>pfnFree</td><td>a pointer to an application-defined memory free function of type {@code PFN_vkFreeFunction}</td></tr>
- * <tr><td>pfnInternalAllocation</td><td>a pointer to an application-defined function that is called by the implementation when the implementation makes internal allocations, and it is of type
- * {@code PFN_vkInternalAllocationNotification}</td></tr>
- * <tr><td>pfnInternalFree</td><td>a pointer to an application-defined function that is called by the implementation when the implementation frees internal allocations, and it is of type
- * {@code PFN_vkInternalFreeNotification}</td></tr>
- * </table>
  */
 public class VkAllocationCallbacks extends Struct {
 

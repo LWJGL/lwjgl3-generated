@@ -34,6 +34,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>Each element of {@code pQueuePriorities} <b>must</b> be between {@code 0.0} and {@code 1.0} inclusive</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code queueFamilyIndex} &ndash; an unsigned integer indicating the index of the queue family to create on this device</li>
+ * <li>{@code queueCount} &ndash; an unsigned integer specifying the number of queues to create in the queue family indicated by {@code queueFamilyIndex}</li>
+ * <li>{@code pQueuePriorities} &ndash; an array of {@code queueCount} normalized floating point values, specifying priorities of work that will be submitted to each created queue</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDeviceQueueCreateInfo {
@@ -44,17 +55,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t queueCount;
     const float * pQueuePriorities;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>queueFamilyIndex</td><td>an unsigned integer indicating the index of the queue family to create on this device</td></tr>
- * <tr><td>queueCount</td><td>an unsigned integer specifying the number of queues to create in the queue family indicated by {@code queueFamilyIndex}</td></tr>
- * <tr><td>pQueuePriorities</td><td>an array of {@code queueCount} normalized floating point values, specifying priorities of work that will be submitted to each created queue</td></tr>
- * </table>
  */
 public class VkDeviceQueueCreateInfo extends Struct {
 

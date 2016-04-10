@@ -27,6 +27,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code z} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[2]</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; the number of local workgroups to dispatch in the X dimension</li>
+ * <li>{@code y} &ndash; the number of local workgroups to dispatch in the Y dimension</li>
+ * <li>{@code z} &ndash; the number of local workgroups to dispatch in the Z dimension</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDispatchIndirectCommand {
@@ -34,14 +42,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t y;
     uint32_t z;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>x</td><td>the number of local workgroups to dispatch in the X dimension</td></tr>
- * <tr><td>y</td><td>the number of local workgroups to dispatch in the Y dimension</td></tr>
- * <tr><td>z</td><td>the number of local workgroups to dispatch in the Z dimension</td></tr>
- * </table>
  */
 public class VkDispatchIndirectCommand extends Struct {
 

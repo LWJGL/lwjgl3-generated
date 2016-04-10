@@ -31,6 +31,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@link VkFormatProperties}{@code ::bufferFeatures} returned by {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code location} &ndash; the shader binding location number for this attribute</li>
+ * <li>{@code binding} &ndash; the binding number which this attribute takes its data from</li>
+ * <li>{@code format} &ndash; the size and type of the vertex attribute data</li>
+ * <li>{@code offset} &ndash; a byte offset of this attribute relative to the start of an element in the vertex input binding</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkVertexInputAttributeDescription {
@@ -39,15 +48,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkFormat format;
     uint32_t offset;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>location</td><td>the shader binding location number for this attribute</td></tr>
- * <tr><td>binding</td><td>the binding number which this attribute takes its data from</td></tr>
- * <tr><td>format</td><td>the size and type of the vertex attribute data</td></tr>
- * <tr><td>offset</td><td>a byte offset of this attribute relative to the start of an element in the vertex input binding</td></tr>
- * </table>
  */
 public class VkVertexInputAttributeDescription extends Struct {
 

@@ -30,6 +30,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code allocationSize} <b>must</b> be greater than 0</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code allocationSize} &ndash; the size of the allocation in bytes</li>
+ * <li>{@code memoryTypeIndex} &ndash; the memory type index, which selects the properties of the memory to be allocated, as well as the heap the memory will come from</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkMemoryAllocateInfo {
@@ -38,15 +47,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize allocationSize;
     uint32_t memoryTypeIndex;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>allocationSize</td><td>the size of the allocation in bytes</td></tr>
- * <tr><td>memoryTypeIndex</td><td>the memory type index, which selects the properties of the memory to be allocated, as well as the heap the memory will come from</td></tr>
- * </table>
  */
 public class VkMemoryAllocateInfo extends Struct {
 

@@ -17,6 +17,14 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Image data.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code width} &ndash; the width, in pixels, of this image</li>
+ * <li>{@code height} &ndash; the height, in pixels, of this image</li>
+ * <li>{@code pixels} &ndash; the pixel data of this image, arranged left-to-right, top-to-bottom</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct GLFWimage {
@@ -24,14 +32,6 @@ import static org.lwjgl.system.MemoryStack.*;
     int height;
     unsigned char * pixels;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>width</td><td>the width, in pixels, of this image</td></tr>
- * <tr><td>height</td><td>the height, in pixels, of this image</td></tr>
- * <tr><td>pixels</td><td>the pixel data of this image, arranged left-to-right, top-to-bottom</td></tr>
- * </table>
  */
 public class GLFWImage extends Struct {
 

@@ -41,6 +41,22 @@ import static org.lwjgl.system.MemoryStack.*;
  * valid queue families, at least one of them <b>must</b> be the same as the family of the queue that will execute this barrier</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code srcAccessMask} &ndash; a mask of the classes of memory accesses performed by the first set of commands that will participate in the dependency</li>
+ * <li>{@code dstAccessMask} &ndash; a mask of the classes of memory accesses performed by the second set of commands that will participate in the dependency</li>
+ * <li>{@code srcQueueFamilyIndex} &ndash; 
+ * the queue family that is relinquishing ownership of the range of buffer to another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of
+ * ownership</li>
+ * <li>{@code dstQueueFamilyIndex} &ndash; the queue family that is acquiring ownership of the range of buffer from another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of ownership</li>
+ * <li>{@code buffer} &ndash; a handle to the buffer whose backing memory is affected by the barrier</li>
+ * <li>{@code offset} &ndash; an offset in bytes into the backing memory for buffer; this is relative to the base offset as bound to the buffer</li>
+ * <li>{@code size} &ndash; a size in bytes of the affected area of backing memory for buffer, or {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE} to use the range from offset to the end of the buffer</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkBufferMemoryBarrier {
@@ -54,21 +70,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize offset;
     VkDeviceSize size;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>srcAccessMask</td><td>a mask of the classes of memory accesses performed by the first set of commands that will participate in the dependency</td></tr>
- * <tr><td>dstAccessMask</td><td>a mask of the classes of memory accesses performed by the second set of commands that will participate in the dependency</td></tr>
- * <tr><td>srcQueueFamilyIndex</td><td>the queue family that is relinquishing ownership of the range of buffer to another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of
- * ownership</td></tr>
- * <tr><td>dstQueueFamilyIndex</td><td>the queue family that is acquiring ownership of the range of buffer from another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of ownership</td></tr>
- * <tr><td>buffer</td><td>a handle to the buffer whose backing memory is affected by the barrier</td></tr>
- * <tr><td>offset</td><td>an offset in bytes into the backing memory for buffer; this is relative to the base offset as bound to the buffer</td></tr>
- * <tr><td>size</td><td>a size in bytes of the affected area of backing memory for buffer, or {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE} to use the range from offset to the end of the buffer</td></tr>
- * </table>
  */
 public class VkBufferMemoryBarrier extends Struct {
 

@@ -17,6 +17,17 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A text row.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code start} &ndash; pointer to the input text where the row starts</li>
+ * <li>{@code end} &ndash; pointer to the input text where the row ends (one past the last character</li>
+ * <li>{@code next} &ndash; pointer to the beginning of the next row</li>
+ * <li>{@code width} &ndash; logical width of the row</li>
+ * <li>{@code minx} &ndash; actual left bound of the row. Logical width and bounds can differ because of kerning and some parts over extending.</li>
+ * <li>{@code maxx} &ndash; actual right bound of the row. Logical width and bounds can differ because of kerning and some parts over extending.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct NVGtextRow {
@@ -27,17 +38,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float minx;
     float maxx;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>start</td><td>pointer to the input text where the row starts</td></tr>
- * <tr><td>end</td><td>pointer to the input text where the row ends (one past the last character</td></tr>
- * <tr><td>next</td><td>pointer to the beginning of the next row</td></tr>
- * <tr><td>width</td><td>logical width of the row</td></tr>
- * <tr><td>minx</td><td>actual left bound of the row. Logical width and bounds can differ because of kerning and some parts over extending.</td></tr>
- * <tr><td>maxx</td><td>actual right bound of the row. Logical width and bounds can differ because of kerning and some parts over extending.</td></tr>
- * </table>
  */
 public class NVGTextRow extends Struct {
 

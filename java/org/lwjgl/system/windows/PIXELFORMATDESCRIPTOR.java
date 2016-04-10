@@ -17,6 +17,43 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Describes the pixel format of a drawing surface.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code nSize} &ndash; specifies the size of this data structure. This value should be set to {@link #SIZEOF}.</li>
+ * <li>{@code nVersion} &ndash; specifies the version of this data structure. This value should be set to 1</li>
+ * <li>{@code dwFlags} &ndash; a set of bit flags that specify properties of the pixel buffer</li>
+ * <li>{@code iPixelType} &ndash; specifies the type of pixel data</li>
+ * <li>{@code cColorBits} &ndash; 
+ * specifies the number of color bitplanes in each color buffer. For RGBA pixel types, it is the size of the color buffer, excluding the alpha bitplanes.
+ * For color-index pixels, it is the size of the color-index buffer.</li>
+ * <li>{@code cRedBits} &ndash; specifies the number of red bitplanes in each RGBA color buffer</li>
+ * <li>{@code cRedShift} &ndash; specifies the shift count for red bitplanes in each RGBA color buffer</li>
+ * <li>{@code cGreenBits} &ndash; specifies the number of green bitplanes in each RGBA color buffer</li>
+ * <li>{@code cGreenShift} &ndash; specifies the shift count for green bitplanes in each RGBA color buffer</li>
+ * <li>{@code cBlueBits} &ndash; specifies the number of blue bitplanes in each RGBA color buffer</li>
+ * <li>{@code cBlueShift} &ndash; specifies the shift count for blue bitplanes in each RGBA color buffer</li>
+ * <li>{@code cAlphaBits} &ndash; specifies the number of alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported</li>
+ * <li>{@code cAlphaShift} &ndash; specifies the shift count for alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported</li>
+ * <li>{@code cAccumBits} &ndash; specifies the total number of bitplanes in the accumulation buffer</li>
+ * <li>{@code cAccumRedBits} &ndash; specifies the number of red bitplanes in the accumulation buffer</li>
+ * <li>{@code cAccumGreenBits} &ndash; specifies the number of green bitplanes in the accumulation buffer</li>
+ * <li>{@code cAccumBlueBits} &ndash; specifies the number of blue bitplanes in the accumulation buffer</li>
+ * <li>{@code cAccumAlphaBits} &ndash; specifies the number of alpha bitplanes in the accumulation buffer</li>
+ * <li>{@code cDepthBits} &ndash; specifies the depth of the depth (z-axis) buffer</li>
+ * <li>{@code cStencilBits} &ndash; specifies the depth of the stencil buffer</li>
+ * <li>{@code cAuxBuffers} &ndash; specifies the number of auxiliary buffers. Auxiliary buffers are not supported</li>
+ * <li>{@code iLayerType} &ndash; Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</li>
+ * <li>{@code bReserved} &ndash; 
+ * specifies the number of overlay and underlay planes. Bits 0 through 3 specify up to 15 overlay planes and bits 4 through 7 specify up to 15 underlay
+ * planes</li>
+ * <li>{@code dwLayerMask} &ndash; Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</li>
+ * <li>{@code dwVisibleMask} &ndash; 
+ * specifies the transparent color or index of an underlay plane. When the pixel type is RGBA, {@code dwVisibleMask} is a transparent RGB color value.
+ * When the pixel type is color index, it is a transparent index value.</li>
+ * <li>{@code dwDamageMask} &ndash; Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct PIXELFORMATDESCRIPTOR {
@@ -47,40 +84,6 @@ import static org.lwjgl.system.MemoryStack.*;
     DWORD dwVisibleMask;
     DWORD dwDamageMask;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>nSize</td><td>specifies the size of this data structure. This value should be set to {@link #SIZEOF}.</td></tr>
- * <tr><td>nVersion</td><td>specifies the version of this data structure. This value should be set to 1</td></tr>
- * <tr><td>dwFlags</td><td>a set of bit flags that specify properties of the pixel buffer</td></tr>
- * <tr><td>iPixelType</td><td>specifies the type of pixel data</td></tr>
- * <tr><td>cColorBits</td><td>specifies the number of color bitplanes in each color buffer. For RGBA pixel types, it is the size of the color buffer, excluding the alpha bitplanes.
- * For color-index pixels, it is the size of the color-index buffer.</td></tr>
- * <tr><td>cRedBits</td><td>specifies the number of red bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cRedShift</td><td>specifies the shift count for red bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cGreenBits</td><td>specifies the number of green bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cGreenShift</td><td>specifies the shift count for green bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cBlueBits</td><td>specifies the number of blue bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cBlueShift</td><td>specifies the shift count for blue bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cAlphaBits</td><td>specifies the number of alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported</td></tr>
- * <tr><td>cAlphaShift</td><td>specifies the shift count for alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported</td></tr>
- * <tr><td>cAccumBits</td><td>specifies the total number of bitplanes in the accumulation buffer</td></tr>
- * <tr><td>cAccumRedBits</td><td>specifies the number of red bitplanes in the accumulation buffer</td></tr>
- * <tr><td>cAccumGreenBits</td><td>specifies the number of green bitplanes in the accumulation buffer</td></tr>
- * <tr><td>cAccumBlueBits</td><td>specifies the number of blue bitplanes in the accumulation buffer</td></tr>
- * <tr><td>cAccumAlphaBits</td><td>specifies the number of alpha bitplanes in the accumulation buffer</td></tr>
- * <tr><td>cDepthBits</td><td>specifies the depth of the depth (z-axis) buffer</td></tr>
- * <tr><td>cStencilBits</td><td>specifies the depth of the stencil buffer</td></tr>
- * <tr><td>cAuxBuffers</td><td>specifies the number of auxiliary buffers. Auxiliary buffers are not supported</td></tr>
- * <tr><td>iLayerType</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
- * <tr><td>bReserved</td><td>specifies the number of overlay and underlay planes. Bits 0 through 3 specify up to 15 overlay planes and bits 4 through 7 specify up to 15 underlay
- * planes</td></tr>
- * <tr><td>dwLayerMask</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
- * <tr><td>dwVisibleMask</td><td>specifies the transparent color or index of an underlay plane. When the pixel type is RGBA, {@code dwVisibleMask} is a transparent RGB color value.
- * When the pixel type is color index, it is a transparent index value.</td></tr>
- * <tr><td>dwDamageMask</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
- * </table>
  */
 public class PIXELFORMATDESCRIPTOR extends Struct {
 

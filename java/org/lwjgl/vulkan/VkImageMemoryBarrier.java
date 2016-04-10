@@ -58,6 +58,25 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@link VK10#VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} set</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code srcAccessMask} &ndash; a mask of the classes of memory accesses performed by the first set of commands that will participate in the dependency</li>
+ * <li>{@code dstAccessMask} &ndash; a mask of the classes of memory accesses performed by the second set of commands that will participate in the dependency</li>
+ * <li>{@code oldLayout} &ndash; describes the current layout of the image subresource(s)</li>
+ * <li>{@code newLayout} &ndash; describes the new layout of the image subresource(s)</li>
+ * <li>{@code srcQueueFamilyIndex} &ndash; 
+ * the queue family that is relinquishing ownership of the image subresource(s) to another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of
+ * ownership)</li>
+ * <li>{@code dstQueueFamilyIndex} &ndash; 
+ * the queue family that is acquiring ownership of the image subresource(s) from another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of
+ * ownership)</li>
+ * <li>{@code image} &ndash; a handle to the image whose backing memory is affected by the barrier</li>
+ * <li>{@code subresourceRange} &ndash; describes an area of the backing memory for image, as well as the set of subresources whose image layouts are modified</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageMemoryBarrier {
@@ -72,23 +91,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkImage image;
     {@link VkImageSubresourceRange VkImageSubresourceRange} subresourceRange;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>srcAccessMask</td><td>a mask of the classes of memory accesses performed by the first set of commands that will participate in the dependency</td></tr>
- * <tr><td>dstAccessMask</td><td>a mask of the classes of memory accesses performed by the second set of commands that will participate in the dependency</td></tr>
- * <tr><td>oldLayout</td><td>describes the current layout of the image subresource(s)</td></tr>
- * <tr><td>newLayout</td><td>describes the new layout of the image subresource(s)</td></tr>
- * <tr><td>srcQueueFamilyIndex</td><td>the queue family that is relinquishing ownership of the image subresource(s) to another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of
- * ownership)</td></tr>
- * <tr><td>dstQueueFamilyIndex</td><td>the queue family that is acquiring ownership of the image subresource(s) from another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of
- * ownership)</td></tr>
- * <tr><td>image</td><td>a handle to the image whose backing memory is affected by the barrier</td></tr>
- * <tr><td>subresourceRange</td><td>describes an area of the backing memory for image, as well as the set of subresources whose image layouts are modified</td></tr>
- * </table>
  */
 public class VkImageMemoryBarrier extends Struct {
 

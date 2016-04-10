@@ -46,6 +46,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code layout} <b>must</b> be consistent with all shaders specified in {@code pStages}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; provides options for pipeline creation, and is of type {@code VkPipelineCreateFlagBits}</li>
+ * <li>{@code stage} &ndash; a {@link VkPipelineShaderStageCreateInfo} describing the compute shader</li>
+ * <li>{@code layout} &ndash; the description of binding locations used by both the pipeline and descriptor sets used with the pipeline</li>
+ * <li>{@code basePipelineHandle} &ndash; a pipeline to derive from</li>
+ * <li>{@code basePipelineIndex} &ndash; an index into the {@code pCreateInfos} parameter to use as a pipeline to derive from</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkComputePipelineCreateInfo {
@@ -57,18 +69,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkPipeline basePipelineHandle;
     int32_t basePipelineIndex;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>provides options for pipeline creation, and is of type {@code VkPipelineCreateFlagBits}</td></tr>
- * <tr><td>stage</td><td>a {@link VkPipelineShaderStageCreateInfo} describing the compute shader</td></tr>
- * <tr><td>layout</td><td>the description of binding locations used by both the pipeline and descriptor sets used with the pipeline</td></tr>
- * <tr><td>basePipelineHandle</td><td>a pipeline to derive from</td></tr>
- * <tr><td>basePipelineIndex</td><td>an index into the {@code pCreateInfos} parameter to use as a pipeline to derive from</td></tr>
- * </table>
  */
 public class VkComputePipelineCreateInfo extends Struct {
 

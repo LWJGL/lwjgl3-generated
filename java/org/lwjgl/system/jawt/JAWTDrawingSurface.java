@@ -18,6 +18,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>All operations on a JAWT_DrawingSurface MUST be performed from the same thread as the call to {@code GetDrawingSurface}.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code env} &ndash; 
+ * Cached reference to the Java environment of the calling thread.
+ * 
+ * <p>If Lock(), Unlock(), GetDrawingSurfaceInfo() or FreeDrawingSurfaceInfo() are called from a different thread, this data member should be set before
+ * calling those functions.</p></li>
+ * <li>{@code target} &ndash; Cached reference to the target object.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct JAWT_DrawingSurface {
@@ -28,16 +39,6 @@ import static org.lwjgl.system.MemoryStack.*;
     void * FreeDrawingSurfaceInfo;
     void * Unlock;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>env</td><td>Cached reference to the Java environment of the calling thread.
- * 
- * <p>If Lock(), Unlock(), GetDrawingSurfaceInfo() or FreeDrawingSurfaceInfo() are called from a different thread, this data member should be set before
- * calling those functions.</p></td></tr>
- * <tr><td>target</td><td>Cached reference to the target object.</td></tr>
- * </table>
  */
 public class JAWTDrawingSurface extends Struct {
 

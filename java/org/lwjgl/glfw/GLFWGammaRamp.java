@@ -17,6 +17,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Describes the gamma ramp for a monitor.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code red} &ndash; an array of value describing the response of the red channel</li>
+ * <li>{@code green} &ndash; an array of value describing the response of the green channel</li>
+ * <li>{@code blue} &ndash; an array of value describing the response of the blue channel</li>
+ * <li>{@code size} &ndash; the number of elements in each array</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct GLFWgammaramp {
@@ -25,15 +34,6 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned short * blue;
     unsigned int size;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>red</td><td>an array of value describing the response of the red channel</td></tr>
- * <tr><td>green</td><td>an array of value describing the response of the green channel</td></tr>
- * <tr><td>blue</td><td>an array of value describing the response of the blue channel</td></tr>
- * <tr><td>size</td><td>the number of elements in each array</td></tr>
- * </table>
  */
 public class GLFWGammaRamp extends Struct {
 

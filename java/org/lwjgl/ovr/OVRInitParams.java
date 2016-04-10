@@ -17,6 +17,22 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Parameters for {@link OVR#ovr_Initialize}.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Flags} &ndash; flags from {@code ovrInitFlags} to override default behavior. Use 0 for the defaults.</li>
+ * <li>{@code RequestedMinorVersion} &ndash; 
+ * requests a specific minimum minor version of the LibOVR runtime. Flags must include {@link OVR#ovrInit_RequestVersion} or this will be ignored and
+ * {@link OVRVersion#OVR_MINOR_VERSION} will be used.</li>
+ * <li>{@code LogCallback} &ndash; 
+ * user-supplied log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown} completes. Use {@code NULL}
+ * to specify no log callback.</li>
+ * <li>{@code UserData} &ndash; 
+ * user-supplied data which is passed as-is to {@code LogCallback}. Typically this is used to store an application-specific pointer which is read in the
+ * callback function.</li>
+ * <li>{@code ConnectionTimeoutMS} &ndash; relative number of milliseconds to wait for a connection to the server before failing. Use 0 for the default timeout.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrInitParams {
@@ -27,19 +43,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t ConnectionTimeoutMS;
     char[4];
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>Flags</td><td>flags from {@code ovrInitFlags} to override default behavior. Use 0 for the defaults.</td></tr>
- * <tr><td>RequestedMinorVersion</td><td>requests a specific minimum minor version of the LibOVR runtime. Flags must include {@link OVR#ovrInit_RequestVersion} or this will be ignored and
- * {@link OVRVersion#OVR_MINOR_VERSION} will be used.</td></tr>
- * <tr><td>LogCallback</td><td>user-supplied log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown} completes. Use {@code NULL}
- * to specify no log callback.</td></tr>
- * <tr><td>UserData</td><td>user-supplied data which is passed as-is to {@code LogCallback}. Typically this is used to store an application-specific pointer which is read in the
- * callback function.</td></tr>
- * <tr><td>ConnectionTimeoutMS</td><td>relative number of milliseconds to wait for a connection to the server before failing. Use 0 for the default timeout.</td></tr>
- * </table>
  */
 public class OVRInitParams extends Struct {
 

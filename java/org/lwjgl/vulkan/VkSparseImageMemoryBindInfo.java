@@ -28,6 +28,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code bindCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code image} &ndash; the {@code VkImage} object to be bound</li>
+ * <li>{@code bindCount} &ndash; the number of {@code VkSparseImageMemoryBind} structures in {@code pBinds} array</li>
+ * <li>{@code pBinds} &ndash; a pointer to array of {@link VkSparseImageMemoryBind} structures</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSparseImageMemoryBindInfo {
@@ -35,14 +43,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t bindCount;
     const VkSparseMemoryBind * pBinds;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>image</td><td>the {@code VkImage} object to be bound</td></tr>
- * <tr><td>bindCount</td><td>the number of {@code VkSparseImageMemoryBind} structures in {@code pBinds} array</td></tr>
- * <tr><td>pBinds</td><td>a pointer to array of {@link VkSparseImageMemoryBind} structures</td></tr>
- * </table>
  */
 public class VkSparseImageMemoryBindInfo extends Struct {
 

@@ -18,6 +18,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * Specifies the width, height, stride, format and memory pointer of the pixmap to be used by the function {@link HIClientpixmap#eglCreatePixmapSurfaceHI CreatePixmapSurfaceHI} to
  * create the {@code PixmapSurface}.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code pData} &ndash; 
+ * pointer to a memory buffer allocated by the application that will contain the result of the drawing operations. It is up to the application to ensure
+ * that the buffer size corresponds to {@code iHeight * iStride * sizeof(pixel)}.</li>
+ * <li>{@code iWidth} &ndash; width of the buffer in pixels</li>
+ * <li>{@code iHeight} &ndash; 
+ * height of the buffer in pixels. The height of the buffer can be negative; in that case the result of the drawing operations will be vertically swapped.
+ * When positive, {@code pData} will point at the bottom-left corner of the image; when negative, to the top-left corner.</li>
+ * <li>{@code iStride} &ndash; stride of the buffer, in pixels. It is important to note that each row of the buffer must start on 32-bit boundaries.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct EGLClientPixmapHI {
@@ -26,17 +39,6 @@ import static org.lwjgl.system.MemoryStack.*;
     EGLint iHeight;
     EGLint iStride;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>pData</td><td>pointer to a memory buffer allocated by the application that will contain the result of the drawing operations. It is up to the application to ensure
- * that the buffer size corresponds to {@code iHeight * iStride * sizeof(pixel)}.</td></tr>
- * <tr><td>iWidth</td><td>width of the buffer in pixels</td></tr>
- * <tr><td>iHeight</td><td>height of the buffer in pixels. The height of the buffer can be negative; in that case the result of the drawing operations will be vertically swapped.
- * When positive, {@code pData} will point at the bottom-left corner of the image; when negative, to the top-left corner.</td></tr>
- * <tr><td>iStride</td><td>stride of the buffer, in pixels. It is important to note that each row of the buffer must start on 32-bit boundaries.</td></tr>
- * </table>
  */
 public class EGLClientPixmapHI extends Struct {
 

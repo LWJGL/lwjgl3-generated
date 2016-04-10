@@ -29,6 +29,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code compareOp} <b>must</b> be a valid {@code VkCompareOp} value</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code failOp} &ndash; the action performed on samples that fail the stencil test</li>
+ * <li>{@code passOp} &ndash; the action performed on samples that pass both the depth and stencil tests</li>
+ * <li>{@code depthFailOp} &ndash; the action performed on samples that pass the stencil test and fail the depth test</li>
+ * <li>{@code compareOp} &ndash; the comparison operator used in the stencil test</li>
+ * <li>{@code compareMask} &ndash; selects the bits of the unsigned integer stencil values participating in the stencil test</li>
+ * <li>{@code writeMask} &ndash; selects the bits of the unsigned integer stencil values updated by the stencil test in the stencil framebuffer attachment</li>
+ * <li>{@code reference} &ndash; an integer reference value that is used in the unsigned stencil comparison</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkStencilOpState {
@@ -40,18 +52,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t writeMask;
     uint32_t reference;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>failOp</td><td>the action performed on samples that fail the stencil test</td></tr>
- * <tr><td>passOp</td><td>the action performed on samples that pass both the depth and stencil tests</td></tr>
- * <tr><td>depthFailOp</td><td>the action performed on samples that pass the stencil test and fail the depth test</td></tr>
- * <tr><td>compareOp</td><td>the comparison operator used in the stencil test</td></tr>
- * <tr><td>compareMask</td><td>selects the bits of the unsigned integer stencil values participating in the stencil test</td></tr>
- * <tr><td>writeMask</td><td>selects the bits of the unsigned integer stencil values updated by the stencil test in the stencil framebuffer attachment</td></tr>
- * <tr><td>reference</td><td>an integer reference value that is used in the unsigned stencil comparison</td></tr>
- * </table>
  */
 public class VkStencilOpState extends Struct {
 

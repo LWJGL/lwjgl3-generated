@@ -38,6 +38,22 @@ import static org.lwjgl.system.MemoryStack.*;
  * array elements from consecutive bindings</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET STRUCTURE_TYPE_COPY_DESCRIPTOR_SET}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code srcSet} &ndash; the source set</li>
+ * <li>{@code srcBinding} &ndash; the source binding</li>
+ * <li>{@code srcArrayElement} &ndash; the source array element</li>
+ * <li>{@code dstSet} &ndash; the destination set</li>
+ * <li>{@code dstBinding} &ndash; the destination binding</li>
+ * <li>{@code dstArrayElement} &ndash; the destination array element</li>
+ * <li>{@code descriptorCount} &ndash; 
+ * the number of descriptors to copy from the source to destination. If {@code descriptorCount} is greater than the number of remaining array elements in
+ * the source or destination binding, those affect consecutive bindings in a manner similar to {@link VkWriteDescriptorSet}.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkCopyDescriptorSet {
@@ -51,21 +67,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t dstArrayElement;
     uint32_t descriptorCount;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET STRUCTURE_TYPE_COPY_DESCRIPTOR_SET}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>srcSet</td><td>the source set</td></tr>
- * <tr><td>srcBinding</td><td>the source binding</td></tr>
- * <tr><td>srcArrayElement</td><td>the source array element</td></tr>
- * <tr><td>dstSet</td><td>the destination set</td></tr>
- * <tr><td>dstBinding</td><td>the destination binding</td></tr>
- * <tr><td>dstArrayElement</td><td>the destination array element</td></tr>
- * <tr><td>descriptorCount</td><td>the number of descriptors to copy from the source to destination. If {@code descriptorCount} is greater than the number of remaining array elements in
- * the source or destination binding, those affect consecutive bindings in a manner similar to {@link VkWriteDescriptorSet}.</td></tr>
- * </table>
  */
 public class VkCopyDescriptorSet extends Struct {
 

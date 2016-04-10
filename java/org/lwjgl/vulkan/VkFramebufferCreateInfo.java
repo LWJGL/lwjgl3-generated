@@ -50,6 +50,20 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code layers} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferLayers}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code renderPass} &ndash; a render pass that defines what render passes the framebuffer will be compatible with</li>
+ * <li>{@code attachmentCount} &ndash; the number of attachments</li>
+ * <li>{@code pAttachments} &ndash; an array of {@code VkImageView} handles, each of which will be used as the corresponding attachment in a render pass instance</li>
+ * <li>{@code width} &ndash; the framebuffer width</li>
+ * <li>{@code height} &ndash; the framebuffer height</li>
+ * <li>{@code layers} &ndash; the number of layers in the framebuffer</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkFramebufferCreateInfo {
@@ -63,20 +77,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t height;
     uint32_t layers;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>renderPass</td><td>a render pass that defines what render passes the framebuffer will be compatible with</td></tr>
- * <tr><td>attachmentCount</td><td>the number of attachments</td></tr>
- * <tr><td>pAttachments</td><td>an array of {@code VkImageView} handles, each of which will be used as the corresponding attachment in a render pass instance</td></tr>
- * <tr><td>width</td><td>the framebuffer width</td></tr>
- * <tr><td>height</td><td>the framebuffer height</td></tr>
- * <tr><td>layers</td><td>the number of layers in the framebuffer</td></tr>
- * </table>
  */
 public class VkFramebufferCreateInfo extends Struct {
 

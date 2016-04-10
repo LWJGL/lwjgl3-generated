@@ -31,6 +31,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@code arrayLayers} specified in {@code VkImageCreateInfo} when the image was created</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code aspectMask} &ndash; a bitmask indicating which aspect(s) of the image are included in the view</li>
+ * <li>{@code baseMipLevel} &ndash; the first mipmap level accessible to the view</li>
+ * <li>{@code levelCount} &ndash; the number of mipmap levels (starting from {@code baseMipLevel}) accessible to the view</li>
+ * <li>{@code baseArrayLayer} &ndash; the first array layer accessible to the view</li>
+ * <li>{@code layerCount} &ndash; the number of array layers (starting from {@code baseArrayLayer}) accessible to the view</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageSubresourceRange {
@@ -40,16 +50,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t baseArrayLayer;
     uint32_t layerCount;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>aspectMask</td><td>a bitmask indicating which aspect(s) of the image are included in the view</td></tr>
- * <tr><td>baseMipLevel</td><td>the first mipmap level accessible to the view</td></tr>
- * <tr><td>levelCount</td><td>the number of mipmap levels (starting from {@code baseMipLevel}) accessible to the view</td></tr>
- * <tr><td>baseArrayLayer</td><td>the first array layer accessible to the view</td></tr>
- * <tr><td>layerCount</td><td>the number of array layers (starting from {@code baseArrayLayer}) accessible to the view</td></tr>
- * </table>
  */
 public class VkImageSubresourceRange extends Struct {
 

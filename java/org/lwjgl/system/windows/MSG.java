@@ -17,6 +17,17 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Contains message information from a thread's message queue.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code hwnd} &ndash; a handle to the window whose window procedure receives the message. This member is {@code NULL} when the message is a thread message.</li>
+ * <li>{@code message} &ndash; the message identifier. Applications can only use the low word; the high word is reserved by the system.</li>
+ * <li>{@code wParam} &ndash; additional information about the message. The exact meaning depends on the value of the message member.</li>
+ * <li>{@code lParam} &ndash; additional information about the message. The exact meaning depends on the value of the message member.</li>
+ * <li>{@code time} &ndash; the time at which the message was posted</li>
+ * <li>{@code pt} &ndash; the cursor position, in screen coordinates, when the message was posted.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct MSG {
@@ -27,17 +38,6 @@ import static org.lwjgl.system.MemoryStack.*;
     DWORD time;
     {@link POINT POINT} pt;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>hwnd</td><td>a handle to the window whose window procedure receives the message. This member is {@code NULL} when the message is a thread message.</td></tr>
- * <tr><td>message</td><td>the message identifier. Applications can only use the low word; the high word is reserved by the system.</td></tr>
- * <tr><td>wParam</td><td>additional information about the message. The exact meaning depends on the value of the message member.</td></tr>
- * <tr><td>lParam</td><td>additional information about the message. The exact meaning depends on the value of the message member.</td></tr>
- * <tr><td>time</td><td>the time at which the message was posted</td></tr>
- * <tr><td>pt</td><td>the cursor position, in screen coordinates, when the message was posted.</td></tr>
- * </table>
  */
 public class MSG extends Struct {
 

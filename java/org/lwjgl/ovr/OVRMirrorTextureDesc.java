@@ -17,6 +17,12 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Description used to create a mirror texture.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code MiscFlags} &ndash; {@code ovrTextureMiscFlags}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrMirrorTextureDesc {
@@ -25,12 +31,6 @@ import static org.lwjgl.system.MemoryStack.*;
     int Height;
     unsigned int MiscFlags;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>MiscFlags</td><td>{@code ovrTextureMiscFlags}</td></tr>
- * </table>
  */
 public class OVRMirrorTextureDesc extends Struct {
 

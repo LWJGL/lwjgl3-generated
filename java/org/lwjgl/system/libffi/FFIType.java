@@ -17,6 +17,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Contains information about a libffi type.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code size} &ndash; set by libffi; you should initialize it to zero.</li>
+ * <li>{@code alignment} &ndash; set by libffi; you should initialize it to zero.</li>
+ * <li>{@code type} &ndash; for a structure, this should be set to {@link LibFFI#FFI_TYPE_STRUCT}.</li>
+ * <li>{@code elements} &ndash; a null-terminated array of pointers to {@code ffi_type} objects. There is one element per field of the struct.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ffi_type {
@@ -25,15 +34,6 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned short type;
     ffi_type ** elements;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>size</td><td>set by libffi; you should initialize it to zero.</td></tr>
- * <tr><td>alignment</td><td>set by libffi; you should initialize it to zero.</td></tr>
- * <tr><td>type</td><td>for a structure, this should be set to {@link LibFFI#FFI_TYPE_STRUCT}.</td></tr>
- * <tr><td>elements</td><td>a null-terminated array of pointers to {@code ffi_type} objects. There is one element per field of the struct.</td></tr>
- * </table>
  */
 public class FFIType extends Struct {
 

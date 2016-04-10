@@ -20,6 +20,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Specifies the color image clear values to use when clearing a color image or attachment.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code float32} &ndash; used for floating point, unorm, snorm, uscaled, packed float, and sRGB formats</li>
+ * <li>{@code int32} &ndash; used for signed integer formats</li>
+ * <li>{@code uint32} &ndash; used for unsigned integer formats</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>union VkClearColorValue {
@@ -27,14 +35,6 @@ import static org.lwjgl.system.MemoryStack.*;
     int32_t[4] int32;
     uint32_t[4] uint32;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>float32</td><td>used for floating point, unorm, snorm, uscaled, packed float, and sRGB formats</td></tr>
- * <tr><td>int32</td><td>used for signed integer formats</td></tr>
- * <tr><td>uint32</td><td>used for unsigned integer formats</td></tr>
- * </table>
  */
 public class VkClearColorValue extends Struct {
 

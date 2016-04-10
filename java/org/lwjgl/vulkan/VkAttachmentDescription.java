@@ -34,6 +34,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code finalLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code flags} &ndash; a bitfield of {@code VkAttachmentDescriptionFlagBits} describing additional properties of the attachment</li>
+ * <li>{@code format} &ndash; a {@code VkFormat} value specifying the format of the image that will be used for the attachment</li>
+ * <li>{@code samples} &ndash; the number of samples of the image as defined in {@code VkSampleCountFlagBits}</li>
+ * <li>{@code loadOp} &ndash; specifies how the contents of color and depth components of the attachment are treated at the beginning of the subpass where it is first used</li>
+ * <li>{@code storeOp} &ndash; specifies how the contents of color and depth components of the attachment are treated at the end of the subpass where it is last used</li>
+ * <li>{@code stencilLoadOp} &ndash; 
+ * specifies how the contents of stencil components of the attachment are treated at the beginning of the subpass where it is first used, and must be one
+ * of the same values allowed for {@code loadOp}</li>
+ * <li>{@code stencilStoreOp} &ndash; 
+ * specifies how the contents of stencil components of the attachment are treated at the end of the last subpass where it is used, and must be one of the
+ * same values allowed for {@code storeOp}</li>
+ * <li>{@code initialLayout} &ndash; the layout the attachment image subresource will be in when a render pass instance begins</li>
+ * <li>{@code finalLayout} &ndash; a bitfield of {@code VkAttachmentDescriptionFlagBits} describing additional properties of the attachment</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkAttachmentDescription {
@@ -47,22 +65,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkImageLayout initialLayout;
     VkImageLayout finalLayout;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>flags</td><td>a bitfield of {@code VkAttachmentDescriptionFlagBits} describing additional properties of the attachment</td></tr>
- * <tr><td>format</td><td>a {@code VkFormat} value specifying the format of the image that will be used for the attachment</td></tr>
- * <tr><td>samples</td><td>the number of samples of the image as defined in {@code VkSampleCountFlagBits}</td></tr>
- * <tr><td>loadOp</td><td>specifies how the contents of color and depth components of the attachment are treated at the beginning of the subpass where it is first used</td></tr>
- * <tr><td>storeOp</td><td>specifies how the contents of color and depth components of the attachment are treated at the end of the subpass where it is last used</td></tr>
- * <tr><td>stencilLoadOp</td><td>specifies how the contents of stencil components of the attachment are treated at the beginning of the subpass where it is first used, and must be one
- * of the same values allowed for {@code loadOp}</td></tr>
- * <tr><td>stencilStoreOp</td><td>specifies how the contents of stencil components of the attachment are treated at the end of the last subpass where it is used, and must be one of the
- * same values allowed for {@code storeOp}</td></tr>
- * <tr><td>initialLayout</td><td>the layout the attachment image subresource will be in when a render pass instance begins</td></tr>
- * <tr><td>finalLayout</td><td>a bitfield of {@code VkAttachmentDescriptionFlagBits} describing additional properties of the attachment</td></tr>
- * </table>
  */
 public class VkAttachmentDescription extends Struct {
 

@@ -18,6 +18,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * Describes the complete controller input state, including Oculus Touch, and XBox gamepad. If multiple inputs are connected and used at the same time,
  * their inputs are combined.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code TimeInSeconds} &ndash; system type when the controller state was last updated</li>
+ * <li>{@code ConnectedControllerTypes} &ndash; described by {@code ovrControllerType}. Indicates which ControllerTypes are present.</li>
+ * <li>{@code Buttons} &ndash; values for buttons described by {@code ovrButton}</li>
+ * <li>{@code Touches} &ndash; touch values for buttons and sensors as described by {@code ovrTouch}.</li>
+ * <li>{@code IndexTrigger} &ndash; left and right finger trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</li>
+ * <li>{@code HandTrigger} &ndash; left and right hand trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</li>
+ * <li>{@code Thumbstick} &ndash; horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range -1.0f to 1.0f.</li>
+ * <li>{@code ControllerType} &ndash; The type of the controller this state is for.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrInputState {
@@ -30,19 +43,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRVector2f ovrVector2f}[2] Thumbstick;
     ovrControllerType ControllerType;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>TimeInSeconds</td><td>system type when the controller state was last updated</td></tr>
- * <tr><td>ConnectedControllerTypes</td><td>described by {@code ovrControllerType}. Indicates which ControllerTypes are present.</td></tr>
- * <tr><td>Buttons</td><td>values for buttons described by {@code ovrButton}</td></tr>
- * <tr><td>Touches</td><td>touch values for buttons and sensors as described by {@code ovrTouch}.</td></tr>
- * <tr><td>IndexTrigger</td><td>left and right finger trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
- * <tr><td>HandTrigger</td><td>left and right hand trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
- * <tr><td>Thumbstick</td><td>horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range -1.0f to 1.0f.</td></tr>
- * <tr><td>ControllerType</td><td>The type of the controller this state is for.</td></tr>
- * </table>
  */
 public class OVRInputState extends Struct {
 

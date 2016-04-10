@@ -20,19 +20,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Describes the display parameters associated a display mode.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code visibleRegion} &ndash; the 2D extents of the visible region</li>
+ * <li>{@code refreshRate} &ndash; a {@code uint32_t} that is the number of times the display is refreshed each second multiplied by 1000</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDisplayModeParametersKHR {
     {@link VkExtent2D VkExtent2D} visibleRegion;
     uint32_t refreshRate;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>visibleRegion</td><td>the 2D extents of the visible region</td></tr>
- * <tr><td>refreshRate</td><td>a {@code uint32_t} that is the number of times the display is refreshed each second multiplied by 1000</td></tr>
- * </table>
  */
 public class VkDisplayModeParametersKHR extends Struct {
 

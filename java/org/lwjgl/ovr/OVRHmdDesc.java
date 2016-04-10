@@ -16,6 +16,27 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A complete descriptor of the HMD.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Type} &ndash; this HMD's type</li>
+ * <li>{@code ProductName} &ndash; name string describing the product: "Oculus Rift DK1", etc.</li>
+ * <li>{@code Manufacturer} &ndash; string describing the manufacturer. Usually "Oculus".</li>
+ * <li>{@code VendorId} &ndash; HID Vendor ID of the device</li>
+ * <li>{@code ProductId} &ndash; HID Product ID of the device</li>
+ * <li>{@code SerialNumber} &ndash; HMD serial number</li>
+ * <li>{@code FirmwareMajor} &ndash; HMD firmware major version number</li>
+ * <li>{@code FirmwareMinor} &ndash; HMD firmware minor version number</li>
+ * <li>{@code AvailableHmdCaps} &ndash; capability bits described by {@code ovrHmdCaps} which the HMD currently supports</li>
+ * <li>{@code DefaultHmdCaps} &ndash; capability bits described by {@code ovrHmdCaps} which are default for the current {@code Hmd}</li>
+ * <li>{@code AvailableTrackingCaps} &ndash; capability bits described by {@code ovrTrackingCaps} which the system currently supports</li>
+ * <li>{@code DefaultTrackingCaps} &ndash; capability bits described by {@code ovrTrackingCaps} which are default for the current system</li>
+ * <li>{@code DefaultEyeFov} &ndash; the recommended optical FOV for the HMD</li>
+ * <li>{@code MaxEyeFov} &ndash; the maximum optical FOV for the HMD</li>
+ * <li>{@code Resolution} &ndash; resolution of the full HMD screen (both eyes) in pixels</li>
+ * <li>{@code DisplayRefreshRate} &ndash; nominal refresh rate of the display in cycles per second at the time of HMD creation</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrHmdDesc {
@@ -38,27 +59,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float DisplayRefreshRate;
     char[4];
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>Type</td><td>this HMD's type</td></tr>
- * <tr><td>ProductName</td><td>name string describing the product: "Oculus Rift DK1", etc.</td></tr>
- * <tr><td>Manufacturer</td><td>string describing the manufacturer. Usually "Oculus".</td></tr>
- * <tr><td>VendorId</td><td>HID Vendor ID of the device</td></tr>
- * <tr><td>ProductId</td><td>HID Product ID of the device</td></tr>
- * <tr><td>SerialNumber</td><td>HMD serial number</td></tr>
- * <tr><td>FirmwareMajor</td><td>HMD firmware major version number</td></tr>
- * <tr><td>FirmwareMinor</td><td>HMD firmware minor version number</td></tr>
- * <tr><td>AvailableHmdCaps</td><td>capability bits described by {@code ovrHmdCaps} which the HMD currently supports</td></tr>
- * <tr><td>DefaultHmdCaps</td><td>capability bits described by {@code ovrHmdCaps} which are default for the current {@code Hmd}</td></tr>
- * <tr><td>AvailableTrackingCaps</td><td>capability bits described by {@code ovrTrackingCaps} which the system currently supports</td></tr>
- * <tr><td>DefaultTrackingCaps</td><td>capability bits described by {@code ovrTrackingCaps} which are default for the current system</td></tr>
- * <tr><td>DefaultEyeFov</td><td>the recommended optical FOV for the HMD</td></tr>
- * <tr><td>MaxEyeFov</td><td>the maximum optical FOV for the HMD</td></tr>
- * <tr><td>Resolution</td><td>resolution of the full HMD screen (both eyes) in pixels</td></tr>
- * <tr><td>DisplayRefreshRate</td><td>nominal refresh rate of the display in cycles per second at the time of HMD creation</td></tr>
- * </table>
  */
 public class OVRHmdDesc extends Struct {
 

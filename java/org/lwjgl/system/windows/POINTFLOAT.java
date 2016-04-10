@@ -17,19 +17,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Contains the x and y coordinates of a point.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; specifies the horizontal (x) coordinate of a point</li>
+ * <li>{@code y} &ndash; specifies the vertical (y) coordinate of a point</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct POINTFLOAT {
     FLOAT x;
     FLOAT y;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>x</td><td>specifies the horizontal (x) coordinate of a point</td></tr>
- * <tr><td>y</td><td>specifies the vertical (y) coordinate of a point</td></tr>
- * </table>
  */
 public class POINTFLOAT extends Struct {
 

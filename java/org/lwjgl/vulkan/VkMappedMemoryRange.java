@@ -34,6 +34,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code size} is not equal to {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be a multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE STRUCTURE_TYPE_MAPPED_MEMORY_RANGE}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code memory} &ndash; the memory object to which this range belongs</li>
+ * <li>{@code offset} &ndash; the zero-based byte offset from the beginning of the memory object</li>
+ * <li>{@code size} &ndash; either the size of range, or {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE} to affect the range from offset to the end of the current mapping of the allocation</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkMappedMemoryRange {
@@ -43,16 +53,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize offset;
     VkDeviceSize size;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE STRUCTURE_TYPE_MAPPED_MEMORY_RANGE}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>memory</td><td>the memory object to which this range belongs</td></tr>
- * <tr><td>offset</td><td>the zero-based byte offset from the beginning of the memory object</td></tr>
- * <tr><td>size</td><td>either the size of range, or {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE} to affect the range from offset to the end of the current mapping of the allocation</td></tr>
- * </table>
  */
 public class VkMappedMemoryRange extends Struct {
 

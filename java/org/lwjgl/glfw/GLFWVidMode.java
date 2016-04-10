@@ -16,6 +16,17 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Describes a single video mode.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code width} &ndash; the width, in screen coordinates, of the video mode</li>
+ * <li>{@code height} &ndash; the height, in screen coordinates, of the video mode</li>
+ * <li>{@code redBits} &ndash; the bit depth of the red channel of the video mode</li>
+ * <li>{@code greenBits} &ndash; the bit depth of the green channel of the video mode</li>
+ * <li>{@code blueBits} &ndash; the bit depth of the blue channel of the video mode</li>
+ * <li>{@code refreshRate} &ndash; the refresh rate, in Hz, of the video mode</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct GLFWvidmode {
@@ -26,17 +37,6 @@ import static org.lwjgl.system.MemoryStack.*;
     int blueBits;
     int refreshRate;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>width</td><td>the width, in screen coordinates, of the video mode</td></tr>
- * <tr><td>height</td><td>the height, in screen coordinates, of the video mode</td></tr>
- * <tr><td>redBits</td><td>the bit depth of the red channel of the video mode</td></tr>
- * <tr><td>greenBits</td><td>the bit depth of the green channel of the video mode</td></tr>
- * <tr><td>blueBits</td><td>the bit depth of the blue channel of the video mode</td></tr>
- * <tr><td>refreshRate</td><td>the refresh rate, in Hz, of the video mode</td></tr>
- * </table>
  */
 public class GLFWVidMode extends Struct {
 

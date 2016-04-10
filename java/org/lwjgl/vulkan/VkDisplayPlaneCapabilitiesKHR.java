@@ -25,6 +25,20 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code supportedAlpha} <b>must</b> be a valid combination of {@code VkDisplayPlaneAlphaFlagBitsKHR} values</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code supportedAlpha} &ndash; a bitmask describing the supported alpha blending modes</li>
+ * <li>{@code minSrcPosition} &ndash; the minimum source rect offset supported by this plane using the specified mode</li>
+ * <li>{@code maxSrcPosition} &ndash; the maximum source rect offset supported by this plane using the specified mode</li>
+ * <li>{@code minSrcExtent} &ndash; the minimum source rect size supported by this plane using the specified mode</li>
+ * <li>{@code maxSrcExtent} &ndash; the maximum source rect size supported by this plane using the specified mode</li>
+ * <li>{@code minDstPosition} &ndash; the minimum output rect offset supported by this plane using the specified mode</li>
+ * <li>{@code maxDstPosition} &ndash; the maximum output rect offset supported by this plane using the specified mode</li>
+ * <li>{@code minDstExtent} &ndash; the minimum output rect size supported by this plane using the specified mode</li>
+ * <li>{@code maxDstExtent} &ndash; the maximum output rect size supported by this plane using the specified mode</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDisplayPlaneCapabilitiesKHR {
@@ -38,20 +52,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkExtent2D VkExtent2D} minDstExtent;
     {@link VkExtent2D VkExtent2D} maxDstExtent;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>supportedAlpha</td><td>a bitmask describing the supported alpha blending modes</td></tr>
- * <tr><td>minSrcPosition</td><td>the minimum source rect offset supported by this plane using the specified mode</td></tr>
- * <tr><td>maxSrcPosition</td><td>the maximum source rect offset supported by this plane using the specified mode</td></tr>
- * <tr><td>minSrcExtent</td><td>the minimum source rect size supported by this plane using the specified mode</td></tr>
- * <tr><td>maxSrcExtent</td><td>the maximum source rect size supported by this plane using the specified mode</td></tr>
- * <tr><td>minDstPosition</td><td>the minimum output rect offset supported by this plane using the specified mode</td></tr>
- * <tr><td>maxDstPosition</td><td>the maximum output rect offset supported by this plane using the specified mode</td></tr>
- * <tr><td>minDstExtent</td><td>the minimum output rect size supported by this plane using the specified mode</td></tr>
- * <tr><td>maxDstExtent</td><td>the maximum output rect size supported by this plane using the specified mode</td></tr>
- * </table>
  */
 public class VkDisplayPlaneCapabilitiesKHR extends Struct {
 

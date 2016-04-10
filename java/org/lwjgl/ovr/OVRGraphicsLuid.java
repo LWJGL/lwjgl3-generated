@@ -18,17 +18,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>For Windows this is a LUID type.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Reserved} &ndash; public definition reserves space for graphics API-specific implementation.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrGraphicsLuid {
     char[8] Reserved;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>Reserved</td><td>public definition reserves space for graphics API-specific implementation.</td></tr>
- * </table>
  */
 public class OVRGraphicsLuid extends Struct {
 

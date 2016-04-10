@@ -44,6 +44,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>The value of any element of the {@code pPreserveAttachments} member in any given element of {@code pSubpasses} <b>must not</b> be {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code attachmentCount} &ndash; the number of attachments used by this render pass, or zero indicating no attachments</li>
+ * <li>{@code pAttachments} &ndash; 
+ * points to an array of {@code attachmentCount} number of {@link VkAttachmentDescription} structures describing properties of the attachments, or {@code NULL} if
+ * {@code attachmentCount} is zero</li>
+ * <li>{@code subpassCount} &ndash; the number of subpasses to create for this render pass</li>
+ * <li>{@code pSubpasses} &ndash; points to an array of {@code subpassCount} number of {@link VkSubpassDescription} structures describing properties of the subpasses</li>
+ * <li>{@code dependencyCount} &ndash; the number of dependencies between pairs of subpasses, or zero indicating no dependencies</li>
+ * <li>{@code pDependencies} &ndash; 
+ * points to an array of {@code dependencyCount} number of {@link VkSubpassDependency} structures describing dependencies between pairs of subpasses, or {@code NULL}
+ * if {@code dependencyCount} is zero</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkRenderPassCreateInfo {
@@ -57,22 +75,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t dependencyCount;
     const VkSubpassDependency * pDependencies;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>attachmentCount</td><td>the number of attachments used by this render pass, or zero indicating no attachments</td></tr>
- * <tr><td>pAttachments</td><td>points to an array of {@code attachmentCount} number of {@link VkAttachmentDescription} structures describing properties of the attachments, or {@code NULL} if
- * {@code attachmentCount} is zero</td></tr>
- * <tr><td>subpassCount</td><td>the number of subpasses to create for this render pass</td></tr>
- * <tr><td>pSubpasses</td><td>points to an array of {@code subpassCount} number of {@link VkSubpassDescription} structures describing properties of the subpasses</td></tr>
- * <tr><td>dependencyCount</td><td>the number of dependencies between pairs of subpasses, or zero indicating no dependencies</td></tr>
- * <tr><td>pDependencies</td><td>points to an array of {@code dependencyCount} number of {@link VkSubpassDependency} structures describing dependencies between pairs of subpasses, or {@code NULL}
- * if {@code dependencyCount} is zero</td></tr>
- * </table>
  */
 public class VkRenderPassCreateInfo extends Struct {
 

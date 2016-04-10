@@ -27,6 +27,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code range} is not equal to {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE}, {@code range} <b>must</b> be less than or equal to the size of {@code buffer} minus {@code offset}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code buffer} &ndash; the buffer resource</li>
+ * <li>{@code offset} &ndash; the offset in bytes from the start of buffer. Access to buffer memory via this descriptor uses addressing that is relative to this starting offset.</li>
+ * <li>{@code range} &ndash; the size in bytes that is used for this descriptor update, or {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE} to use the range from offset to the end of the buffer</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDescriptorBufferInfo {
@@ -34,14 +42,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize offset;
     VkDeviceSize range;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>buffer</td><td>the buffer resource</td></tr>
- * <tr><td>offset</td><td>the offset in bytes from the start of buffer. Access to buffer memory via this descriptor uses addressing that is relative to this starting offset.</td></tr>
- * <tr><td>range</td><td>the size in bytes that is used for this descriptor update, or {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE} to use the range from offset to the end of the buffer</td></tr>
- * </table>
  */
 public class VkDescriptorBufferInfo extends Struct {
 

@@ -26,19 +26,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@code HmdSpaceToWorldScaleInMeters} would be 0.0254. Note that if you are scaling the player in size, this must also scale. So if your application
  * units are inches, but you're shrinking the player to half their normal size, then {@code HmdSpaceToWorldScaleInMeters} would be {@code 0.0254*2.0}.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code HmdToEyeOffset} &ndash; translation of each eye</li>
+ * <li>{@code HmdSpaceToWorldScaleInMeters} &ndash; ratio of viewer units to meter units</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrViewScaleDesc {
     {@link OVRVector3f ovrVector3f}[2] HmdToEyeOffset;
     float HmdSpaceToWorldScaleInMeters;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>HmdToEyeOffset</td><td>translation of each eye</td></tr>
- * <tr><td>HmdSpaceToWorldScaleInMeters</td><td>ratio of viewer units to meter units</td></tr>
- * </table>
  */
 public class OVRViewScaleDesc extends Struct {
 

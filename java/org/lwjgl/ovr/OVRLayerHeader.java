@@ -20,19 +20,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * <p>{@code ovrLayerHeader} is used as a base member in these larger structs. This struct cannot be used by itself except for the case that {@code Type} is
  * {@link OVR#ovrLayerType_Disabled}.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Type} &ndash; described by {@code ovrLayerType}</li>
+ * <li>{@code Flags} &ndash; described by {@code ovrLayerFlags}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrLayerHeader {
     ovrLayerType Type;
     unsigned int Flags;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>Type</td><td>described by {@code ovrLayerType}</td></tr>
- * <tr><td>Flags</td><td>described by {@code ovrLayerFlags}</td></tr>
- * </table>
  */
 public class OVRLayerHeader extends Struct {
 

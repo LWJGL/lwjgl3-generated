@@ -19,6 +19,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * <p>Body refers to any object for which ovrPoseStatef is providing data.  It can be the HMD, Touch controller, sensor or something else. The context
  * depends on the usage of the struct.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code ThePose} &ndash; position and orientation</li>
+ * <li>{@code AngularVelocity} &ndash; angular velocity in radians per second</li>
+ * <li>{@code LinearVelocity} &ndash; velocity in meters per second</li>
+ * <li>{@code AngularAcceleration} &ndash; angular acceleration in radians per second per second</li>
+ * <li>{@code LinearAcceleration} &ndash; acceleration in meters per second per second</li>
+ * <li>{@code TimeInSeconds} &ndash; absolute time that this pose refers to. See {@link OVR#ovr_GetTimeInSeconds}</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrPoseStatef {
@@ -29,17 +40,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRVector3f ovrVector3f} LinearAcceleration;
     double TimeInSeconds;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>ThePose</td><td>position and orientation</td></tr>
- * <tr><td>AngularVelocity</td><td>angular velocity in radians per second</td></tr>
- * <tr><td>LinearVelocity</td><td>velocity in meters per second</td></tr>
- * <tr><td>AngularAcceleration</td><td>angular acceleration in radians per second per second</td></tr>
- * <tr><td>LinearAcceleration</td><td>acceleration in meters per second per second</td></tr>
- * <tr><td>TimeInSeconds</td><td>absolute time that this pose refers to. See {@link OVR#ovr_GetTimeInSeconds}</td></tr>
- * </table>
  */
 public class OVRPoseStatef extends Struct {
 

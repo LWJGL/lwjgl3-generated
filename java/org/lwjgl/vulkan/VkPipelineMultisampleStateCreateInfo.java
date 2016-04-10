@@ -33,6 +33,20 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code minSampleShading} <b>must</b> be in the range {@code [0,1]</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code rasterizationSamples} &ndash; a {@code VkSampleCountFlagBits} specifying the number of samples per pixel used in rasterization</li>
+ * <li>{@code sampleShadingEnable} &ndash; specifies that fragment shading executes per-sample if {@link VK10#VK_TRUE TRUE}, or per-fragment if {@link VK10#VK_FALSE FALSE}</li>
+ * <li>{@code minSampleShading} &ndash; the minimum fraction of sample shading</li>
+ * <li>{@code pSampleMask} &ndash; a bitmask of static coverage information that is ANDed with the coverage information generated during rasterization</li>
+ * <li>{@code alphaToCoverageEnable} &ndash; controls whether a temporary coverage value is generated based on the alpha component of the fragment’s first color output</li>
+ * <li>{@code alphaToOneEnable} &ndash; controls whether the alpha component of the fragment’s first color output is replaced with one</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineMultisampleStateCreateInfo {
@@ -46,20 +60,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBool32 alphaToCoverageEnable;
     VkBool32 alphaToOneEnable;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>rasterizationSamples</td><td>a {@code VkSampleCountFlagBits} specifying the number of samples per pixel used in rasterization</td></tr>
- * <tr><td>sampleShadingEnable</td><td>specifies that fragment shading executes per-sample if {@link VK10#VK_TRUE TRUE}, or per-fragment if {@link VK10#VK_FALSE FALSE}</td></tr>
- * <tr><td>minSampleShading</td><td>the minimum fraction of sample shading</td></tr>
- * <tr><td>pSampleMask</td><td>a bitmask of static coverage information that is ANDed with the coverage information generated during rasterization</td></tr>
- * <tr><td>alphaToCoverageEnable</td><td>controls whether a temporary coverage value is generated based on the alpha component of the fragment’s first color output</td></tr>
- * <tr><td>alphaToOneEnable</td><td>controls whether the alpha component of the fragment’s first color output is replaced with one</td></tr>
- * </table>
  */
 public class VkPipelineMultisampleStateCreateInfo extends Struct {
 

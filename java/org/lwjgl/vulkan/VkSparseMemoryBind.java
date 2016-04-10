@@ -35,6 +35,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code size} <b>must</b> be less than or equal to the size of {@code memory} minus {@code memoryOffset}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code resourceOffset} &ndash; the offset into the resource</li>
+ * <li>{@code size} &ndash; the size of the memory region to be bound</li>
+ * <li>{@code memory} &ndash; the {@code VkDeviceMemory} object that the range of the resource is bound to</li>
+ * <li>{@code memoryOffset} &ndash; the offset into the {@code VkDeviceMemory} object to bind the resource range to</li>
+ * <li>{@code flags} &ndash; are sparse memory binding flags</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSparseMemoryBind {
@@ -44,16 +54,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize memoryOffset;
     VkSparseMemoryBindFlags flags;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>resourceOffset</td><td>the offset into the resource</td></tr>
- * <tr><td>size</td><td>the size of the memory region to be bound</td></tr>
- * <tr><td>memory</td><td>the {@code VkDeviceMemory} object that the range of the resource is bound to</td></tr>
- * <tr><td>memoryOffset</td><td>the offset into the {@code VkDeviceMemory} object to bind the resource range to</td></tr>
- * <tr><td>flags</td><td>are sparse memory binding flags</td></tr>
- * </table>
  */
 public class VkSparseMemoryBind extends Struct {
 

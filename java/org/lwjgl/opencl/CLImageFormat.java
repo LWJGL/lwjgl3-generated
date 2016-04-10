@@ -17,20 +17,21 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * The image format descriptor struct.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code image_channel_order} &ndash; specifies the number of channels and the channel layout i.e. the memory layout in which channels are stored in the image</li>
+ * <li>{@code image_channel_data_type} &ndash; 
+ * describes the size of the channel data type. The number of bits per element determined by the {@code image_channel_data_type} and
+ * {@code image_channel_order} must be a power of two.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct cl_image_format {
     cl_channel_order image_channel_order;
     cl_channel_type image_channel_data_type;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>image_channel_order</td><td>specifies the number of channels and the channel layout i.e. the memory layout in which channels are stored in the image</td></tr>
- * <tr><td>image_channel_data_type</td><td>describes the size of the channel data type. The number of bits per element determined by the {@code image_channel_data_type} and
- * {@code image_channel_order} must be a power of two.</td></tr>
- * </table>
  */
 public class CLImageFormat extends Struct {
 

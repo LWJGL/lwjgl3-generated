@@ -28,6 +28,32 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code supportedUsageFlags} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code minImageCount} &ndash; the minimum number of images the specified device supports for a swapchain created for the surface</li>
+ * <li>{@code maxImageCount} &ndash; 
+ * the maximum number of images the specified device supports for a swapchain created for the surface. A value of 0 means that there is no limit on the
+ * number of images, though there <b>may</b> be limits related to the total amount of memory used by swapchain images.</li>
+ * <li>{@code currentExtent} &ndash; 
+ * the current width and height of the surface, or the special value {@code (0xFFFFFFFF,0xFFFFFFFF)} indicating that the surface size will be determined
+ * by the extent of a swapchain targeting the surface</li>
+ * <li>{@code minImageExtent} &ndash; the smallest valid swapchain extent for the surface on the specified device</li>
+ * <li>{@code maxImageExtent} &ndash; the largest valid swapchain extent for the surface on the specified device</li>
+ * <li>{@code maxImageArrayLayers} &ndash; the maximum number of layers swapchain images can have for a swapchain created for this device and surface</li>
+ * <li>{@code supportedTransforms} &ndash; a bitfield of {@code VkSurfaceTransformFlagBitsKHR}, describing the presentation transforms supported for the surface on the specified device</li>
+ * <li>{@code currentTransform} &ndash; 
+ * a bitfield of {@code VkSurfaceTransformFlagBitsKHR}, describing the surface’s current transform relative to the presentation engine’s natural
+ * orientation</li>
+ * <li>{@code supportedCompositeAlpha} &ndash; 
+ * a bitfield of {@code VkCompositeAlphaFlagBitsKHR}, representing the alpha compositing modes supported by the presentation engine for the surface on the
+ * specified device. Opaque composition can be achieved in any alpha compositing mode by either using a swapchain image format that has no alpha
+ * component, or by ensuring that all pixels in the swapchain images have an alpha value of 1.0.</li>
+ * <li>{@code supportedUsageFlags} &ndash; 
+ * a bitfield of {@code VkImageUsageFlagBits} representing the ways the application can use the presentable images of a swapchain created for the surface
+ * on the specified device. {@link VK10#VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} must be included in the set but implementations may support additional usages.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkSurfaceCapabilitiesKHR {
@@ -42,27 +68,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkCompositeAlphaFlagsKHR supportedCompositeAlpha;
     VkImageUsageFlags supportedUsageFlags;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>minImageCount</td><td>the minimum number of images the specified device supports for a swapchain created for the surface</td></tr>
- * <tr><td>maxImageCount</td><td>the maximum number of images the specified device supports for a swapchain created for the surface. A value of 0 means that there is no limit on the
- * number of images, though there <b>may</b> be limits related to the total amount of memory used by swapchain images.</td></tr>
- * <tr><td>currentExtent</td><td>the current width and height of the surface, or the special value {@code (0xFFFFFFFF,0xFFFFFFFF)} indicating that the surface size will be determined
- * by the extent of a swapchain targeting the surface</td></tr>
- * <tr><td>minImageExtent</td><td>the smallest valid swapchain extent for the surface on the specified device</td></tr>
- * <tr><td>maxImageExtent</td><td>the largest valid swapchain extent for the surface on the specified device</td></tr>
- * <tr><td>maxImageArrayLayers</td><td>the maximum number of layers swapchain images can have for a swapchain created for this device and surface</td></tr>
- * <tr><td>supportedTransforms</td><td>a bitfield of {@code VkSurfaceTransformFlagBitsKHR}, describing the presentation transforms supported for the surface on the specified device</td></tr>
- * <tr><td>currentTransform</td><td>a bitfield of {@code VkSurfaceTransformFlagBitsKHR}, describing the surface’s current transform relative to the presentation engine’s natural
- * orientation</td></tr>
- * <tr><td>supportedCompositeAlpha</td><td>a bitfield of {@code VkCompositeAlphaFlagBitsKHR}, representing the alpha compositing modes supported by the presentation engine for the surface on the
- * specified device. Opaque composition can be achieved in any alpha compositing mode by either using a swapchain image format that has no alpha
- * component, or by ensuring that all pixels in the swapchain images have an alpha value of 1.0.</td></tr>
- * <tr><td>supportedUsageFlags</td><td>a bitfield of {@code VkImageUsageFlagBits} representing the ways the application can use the presentable images of a swapchain created for the surface
- * on the specified device. {@link VK10#VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} must be included in the set but implementations may support additional usages.</td></tr>
- * </table>
  */
 public class VkSurfaceCapabilitiesKHR extends Struct {
 

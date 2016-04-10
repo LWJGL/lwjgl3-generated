@@ -32,6 +32,23 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If the depth bounds testing feature is not enabled, {@code depthBoundsTestEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code depthTestEnable} &ndash; controls whether depth testing is enabled</li>
+ * <li>{@code depthWriteEnable} &ndash; controls whether depth writes are enabled</li>
+ * <li>{@code depthCompareOp} &ndash; the comparison operator used in the depth test</li>
+ * <li>{@code depthBoundsTestEnable} &ndash; controls whether depth bounds testing is enabled</li>
+ * <li>{@code stencilTestEnable} &ndash; controls whether stencil testing is enabled</li>
+ * <li>{@code front} &ndash; control the parameters of the stencil test for front facing primitives</li>
+ * <li>{@code back} &ndash; control the parameters of the stencil test for back facing primitives</li>
+ * <li>{@code minDepthBounds} &ndash; the minimum depths bounds test value</li>
+ * <li>{@code maxDepthBounds} &ndash; the maximum depths bounds test value</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineDepthStencilStateCreateInfo {
@@ -48,23 +65,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float minDepthBounds;
     float maxDepthBounds;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>depthTestEnable</td><td>controls whether depth testing is enabled</td></tr>
- * <tr><td>depthWriteEnable</td><td>controls whether depth writes are enabled</td></tr>
- * <tr><td>depthCompareOp</td><td>the comparison operator used in the depth test</td></tr>
- * <tr><td>depthBoundsTestEnable</td><td>controls whether depth bounds testing is enabled</td></tr>
- * <tr><td>stencilTestEnable</td><td>controls whether stencil testing is enabled</td></tr>
- * <tr><td>front</td><td>control the parameters of the stencil test for front facing primitives</td></tr>
- * <tr><td>back</td><td>control the parameters of the stencil test for back facing primitives</td></tr>
- * <tr><td>minDepthBounds</td><td>the minimum depths bounds test value</td></tr>
- * <tr><td>maxDepthBounds</td><td>the maximum depths bounds test value</td></tr>
- * </table>
  */
 public class VkPipelineDepthStencilStateCreateInfo extends Struct {
 

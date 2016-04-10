@@ -17,17 +17,17 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * A 4x4 matrix with float components.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code M} &ndash; the matrix components</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrMatrix4f {
     float[16] M;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>M</td><td>the matrix components</td></tr>
- * </table>
  */
 public class OVRMatrix4f extends Struct {
 

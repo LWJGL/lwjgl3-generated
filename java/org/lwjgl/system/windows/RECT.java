@@ -17,6 +17,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Defines the coordinates of the upper-left and lower-right corners of a rectangle.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code left} &ndash; the x-coordinate of the upper-left corner of the rectangle</li>
+ * <li>{@code top} &ndash; the y-coordinate of the upper-left corner of the rectangle</li>
+ * <li>{@code right} &ndash; the x-coordinate of the lower-right corner of the rectangle</li>
+ * <li>{@code bottom} &ndash; the y-coordinate of the lower-right corner of the rectangle</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct RECT {
@@ -25,15 +34,6 @@ import static org.lwjgl.system.MemoryStack.*;
     LONG right;
     LONG bottom;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>left</td><td>the x-coordinate of the upper-left corner of the rectangle</td></tr>
- * <tr><td>top</td><td>the y-coordinate of the upper-left corner of the rectangle</td></tr>
- * <tr><td>right</td><td>the x-coordinate of the lower-right corner of the rectangle</td></tr>
- * <tr><td>bottom</td><td>the y-coordinate of the lower-right corner of the rectangle</td></tr>
- * </table>
  */
 public class RECT extends Struct {
 

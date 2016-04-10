@@ -20,19 +20,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Specifies the color or depth/stencil value to clear an attachment to.</p>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code color} &ndash; the color image clear values to use when clearing a color image or attachment</li>
+ * <li>{@code depthStencil} &ndash; the depth and stencil clear values to use when clearing a depth/stencil image or attachment</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>union VkClearValue {
     {@link VkClearColorValue VkClearColorValue} color;
     {@link VkClearDepthStencilValue VkClearDepthStencilValue} depthStencil;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>color</td><td>the color image clear values to use when clearing a color image or attachment</td></tr>
- * <tr><td>depthStencil</td><td>the depth and stencil clear values to use when clearing a depth/stencil image or attachment</td></tr>
- * </table>
  */
 public class VkClearValue extends Struct {
 

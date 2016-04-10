@@ -40,6 +40,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@link VK10#VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO STRUCTURE_TYPE_BUFFER_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; a {@code VkBufferCreateFlagBits} bitfield describing additional parameters of the buffer</li>
+ * <li>{@code size} &ndash; the size in bytes of the buffer to be created</li>
+ * <li>{@code usage} &ndash; a {@code VkBufferUsageFlagBits} bitfield describing the allowed usages of the buffer</li>
+ * <li>{@code sharingMode} &ndash; the sharing mode of the buffer when it will be accessed by multiple queue families</li>
+ * <li>{@code queueFamilyIndexCount} &ndash; the number of entries in the {@code pQueueFamilyIndices} array</li>
+ * <li>{@code pQueueFamilyIndices} &ndash; a list of queue families that will access this buffer (ignored if {@code sharingMode} is not {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT})</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkBufferCreateInfo {
@@ -52,19 +65,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t queueFamilyIndexCount;
     const uint32_t * pQueueFamilyIndices;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO STRUCTURE_TYPE_BUFFER_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>a {@code VkBufferCreateFlagBits} bitfield describing additional parameters of the buffer</td></tr>
- * <tr><td>size</td><td>the size in bytes of the buffer to be created</td></tr>
- * <tr><td>usage</td><td>a {@code VkBufferUsageFlagBits} bitfield describing the allowed usages of the buffer</td></tr>
- * <tr><td>sharingMode</td><td>the sharing mode of the buffer when it will be accessed by multiple queue families</td></tr>
- * <tr><td>queueFamilyIndexCount</td><td>the number of entries in the {@code pQueueFamilyIndices} array</td></tr>
- * <tr><td>pQueueFamilyIndices</td><td>a list of queue families that will access this buffer (ignored if {@code sharingMode} is not {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT})</td></tr>
- * </table>
  */
 public class VkBufferCreateInfo extends Struct {
 

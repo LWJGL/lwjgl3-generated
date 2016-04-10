@@ -146,6 +146,26 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@link VK10#VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO STRUCTURE_TYPE_IMAGE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; a {@code VkImageCreateFlagBits} bitfield describing additional parameters of the image</li>
+ * <li>{@code imageType} &ndash; the basic dimensionality of the image</li>
+ * <li>{@code format} &ndash; a {@code VkFormat} describing the format and type of the data elements that will be contained in the image</li>
+ * <li>{@code extent} &ndash; a {@link VkExtent3D} describing the number of data elements in each dimension of the base level</li>
+ * <li>{@code mipLevels} &ndash; the number of levels of detail available for minified sampling of the image</li>
+ * <li>{@code arrayLayers} &ndash; the number of layers in the image</li>
+ * <li>{@code samples} &ndash; the number of sub-data element samples in the image as defined in {@code VkSampleCountFlagBits}</li>
+ * <li>{@code tiling} &ndash; the tiling arrangement of the data elements in memory</li>
+ * <li>{@code usage} &ndash; a bitfield describing the intended usage of the image</li>
+ * <li>{@code sharingMode} &ndash; the sharing mode of the image when it will be accessed by multiple queue families</li>
+ * <li>{@code queueFamilyIndexCount} &ndash; the number of entries in the {@code pQueueFamilyIndices} array</li>
+ * <li>{@code pQueueFamilyIndices} &ndash; a list of queue families that will access this image (ignored if {@code sharingMode} is not {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT})</li>
+ * <li>{@code initialLayout} &ndash; selects the initial {@code VkImageLayout} state of all subresources of the image</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkImageCreateInfo {
@@ -165,26 +185,6 @@ import static org.lwjgl.system.MemoryStack.*;
     const uint32_t * pQueueFamilyIndices;
     VkImageLayout initialLayout;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO STRUCTURE_TYPE_IMAGE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>a {@code VkImageCreateFlagBits} bitfield describing additional parameters of the image</td></tr>
- * <tr><td>imageType</td><td>the basic dimensionality of the image</td></tr>
- * <tr><td>format</td><td>a {@code VkFormat} describing the format and type of the data elements that will be contained in the image</td></tr>
- * <tr><td>extent</td><td>a {@link VkExtent3D} describing the number of data elements in each dimension of the base level</td></tr>
- * <tr><td>mipLevels</td><td>the number of levels of detail available for minified sampling of the image</td></tr>
- * <tr><td>arrayLayers</td><td>the number of layers in the image</td></tr>
- * <tr><td>samples</td><td>the number of sub-data element samples in the image as defined in {@code VkSampleCountFlagBits}</td></tr>
- * <tr><td>tiling</td><td>the tiling arrangement of the data elements in memory</td></tr>
- * <tr><td>usage</td><td>a bitfield describing the intended usage of the image</td></tr>
- * <tr><td>sharingMode</td><td>the sharing mode of the image when it will be accessed by multiple queue families</td></tr>
- * <tr><td>queueFamilyIndexCount</td><td>the number of entries in the {@code pQueueFamilyIndices} array</td></tr>
- * <tr><td>pQueueFamilyIndices</td><td>a list of queue families that will access this image (ignored if {@code sharingMode} is not {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT})</td></tr>
- * <tr><td>initialLayout</td><td>selects the initial {@code VkImageLayout} state of all subresources of the image</td></tr>
- * </table>
  */
 public class VkImageCreateInfo extends Struct {
 

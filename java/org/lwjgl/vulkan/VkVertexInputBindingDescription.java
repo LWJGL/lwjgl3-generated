@@ -28,6 +28,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code stride} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindingStride}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code binding} &ndash; the binding number that this structure describes</li>
+ * <li>{@code stride} &ndash; the distance in bytes between two consecutive elements within the buffer</li>
+ * <li>{@code inputRate} &ndash; a {@code VkVertexInputRate} value that specifies whether vertex attribute addressing is a function of the vertex index or of the instance index</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkVertexInputBindingDescription {
@@ -35,14 +43,6 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t stride;
     VkVertexInputRate inputRate;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>binding</td><td>the binding number that this structure describes</td></tr>
- * <tr><td>stride</td><td>the distance in bytes between two consecutive elements within the buffer</td></tr>
- * <tr><td>inputRate</td><td>a {@code VkVertexInputRate} value that specifies whether vertex attribute addressing is a function of the vertex index or of the instance index</td></tr>
- * </table>
  */
 public class VkVertexInputBindingDescription extends Struct {
 

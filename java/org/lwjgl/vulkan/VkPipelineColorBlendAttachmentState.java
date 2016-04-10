@@ -40,6 +40,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@link #BLEND_SRC1_ALPHA}, or {@link #BLEND_ONE_MINUS_SRC1_ALPHA}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code blendEnable} &ndash; controls whether blending is enabled for the corresponding color attachment</li>
+ * <li>{@code srcColorBlendFactor} &ndash; selects which blend factor is used to determine the source factors S<sub>r</sub>,S<sub>g</sub>,S<sub>b</sub></li>
+ * <li>{@code dstColorBlendFactor} &ndash; selects which blend factor is used to determine the destination factors D<sub>r</sub>,D<sub>g</sub>,D<sub>b</sub></li>
+ * <li>{@code colorBlendOp} &ndash; selects which blend operation is used to calculate the RGB values to write to the color attachment</li>
+ * <li>{@code srcAlphaBlendFactor} &ndash; selects which blend factor is used to determine the source factor S<sub>a</sub></li>
+ * <li>{@code dstAlphaBlendFactor} &ndash; selects which blend factor is used to determine the destination factor D<sub>a</sub></li>
+ * <li>{@code alphaBlendOp} &ndash; selects which blend operation is use to calculate the alpha values to write to the color attachment</li>
+ * <li>{@code colorWriteMask} &ndash; a bitmask selecting which of the R, G, B, and/or A components are enabled for writing</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineColorBlendAttachmentState {
@@ -52,19 +65,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBlendOp alphaBlendOp;
     VkColorComponentFlags colorWriteMask;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>blendEnable</td><td>controls whether blending is enabled for the corresponding color attachment</td></tr>
- * <tr><td>srcColorBlendFactor</td><td>selects which blend factor is used to determine the source factors S<sub>r</sub>,S<sub>g</sub>,S<sub>b</sub></td></tr>
- * <tr><td>dstColorBlendFactor</td><td>selects which blend factor is used to determine the destination factors D<sub>r</sub>,D<sub>g</sub>,D<sub>b</sub></td></tr>
- * <tr><td>colorBlendOp</td><td>selects which blend operation is used to calculate the RGB values to write to the color attachment</td></tr>
- * <tr><td>srcAlphaBlendFactor</td><td>selects which blend factor is used to determine the source factor S<sub>a</sub></td></tr>
- * <tr><td>dstAlphaBlendFactor</td><td>selects which blend factor is used to determine the destination factor D<sub>a</sub></td></tr>
- * <tr><td>alphaBlendOp</td><td>selects which blend operation is use to calculate the alpha values to write to the color attachment</td></tr>
- * <tr><td>colorWriteMask</td><td>a bitmask selecting which of the R, G, B, and/or A components are enabled for writing</td></tr>
- * </table>
  */
 public class VkPipelineColorBlendAttachmentState extends Struct {
 

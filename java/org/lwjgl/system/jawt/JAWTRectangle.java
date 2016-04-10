@@ -17,6 +17,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure for a native rectangle.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; the rectangle X axis coordinate</li>
+ * <li>{@code y} &ndash; the rectangle Y axis coordinate</li>
+ * <li>{@code width} &ndash; the rectangle width</li>
+ * <li>{@code height} &ndash; the rectangle height</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct JAWT_Rectangle {
@@ -25,15 +34,6 @@ import static org.lwjgl.system.MemoryStack.*;
     jint width;
     jint height;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>x</td><td>the rectangle X axis coordinate</td></tr>
- * <tr><td>y</td><td>the rectangle Y axis coordinate</td></tr>
- * <tr><td>width</td><td>the rectangle width</td></tr>
- * <tr><td>height</td><td>the rectangle height</td></tr>
- * </table>
  */
 public class JAWTRectangle extends Struct {
 

@@ -17,6 +17,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * rendering information for each eye. Computed by either {@link OVR#ovr_GetRenderDesc} based on the specified FOV. Note that the rendering viewport is not
  * included here as it can be specified separately and modified per frame by passing different viewport values in the layer structure.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Eye} &ndash; the eye index this instance corresponds to</li>
+ * <li>{@code Fov} &ndash; the field of view</li>
+ * <li>{@code DistortedViewport} &ndash; distortion viewport</li>
+ * <li>{@code PixelsPerTanAngleAtCenter} &ndash; wow many display pixels will fit in tan(angle) = 1</li>
+ * <li>{@code HmdToEyeOffset} &ndash; translation of each eye, in meters.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrEyeRenderDesc {
@@ -26,16 +36,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRVector2f ovrVector2f} PixelsPerTanAngleAtCenter;
     {@link OVRVector3f ovrVector3f} HmdToEyeOffset;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>Eye</td><td>the eye index this instance corresponds to</td></tr>
- * <tr><td>Fov</td><td>the field of view</td></tr>
- * <tr><td>DistortedViewport</td><td>distortion viewport</td></tr>
- * <tr><td>PixelsPerTanAngleAtCenter</td><td>wow many display pixels will fit in tan(angle) = 1</td></tr>
- * <tr><td>HmdToEyeOffset</td><td>translation of each eye, in meters.</td></tr>
- * </table>
  */
 public class OVREyeRenderDesc extends Struct {
 

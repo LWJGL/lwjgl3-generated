@@ -16,6 +16,16 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * X11-specific declarations for AWT native interface.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code drawable} &ndash; the drawable</li>
+ * <li>{@code display} &ndash; the connection to the X server</li>
+ * <li>{@code visualID} &ndash; the VisualID</li>
+ * <li>{@code colormapID} &ndash; the colormap</li>
+ * <li>{@code depth} &ndash; the depth</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct JAWT_X11DrawingSurfaceInfo {
@@ -25,16 +35,6 @@ import static org.lwjgl.system.MemoryStack.*;
     Colormap colormapID;
     int depth;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>drawable</td><td>the drawable</td></tr>
- * <tr><td>display</td><td>the connection to the X server</td></tr>
- * <tr><td>visualID</td><td>the VisualID</td></tr>
- * <tr><td>colormapID</td><td>the colormap</td></tr>
- * <tr><td>depth</td><td>the depth</td></tr>
- * </table>
  */
 public class JAWTX11DrawingSurfaceInfo extends Struct {
 

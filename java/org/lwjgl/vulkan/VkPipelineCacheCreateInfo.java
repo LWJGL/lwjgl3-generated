@@ -32,6 +32,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code initialDataSize} is not 0, {@code pInitialData} <b>must</b> have been retrieved from a previous call to {@link VK10#vkGetPipelineCacheData GetPipelineCacheData}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code initialDataSize} &ndash; the number of bytes in {@code pInitialData}</li>
+ * <li>{@code pInitialData} &ndash; a pointer to previously retrieved pipeline cache data</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPipelineCacheCreateInfo {
@@ -41,16 +51,6 @@ import static org.lwjgl.system.MemoryStack.*;
     size_t initialDataSize;
     const void * pInitialData;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>initialDataSize</td><td>the number of bytes in {@code pInitialData}</td></tr>
- * <tr><td>pInitialData</td><td>a pointer to previously retrieved pipeline cache data</td></tr>
- * </table>
  */
 public class VkPipelineCacheCreateInfo extends Struct {
 

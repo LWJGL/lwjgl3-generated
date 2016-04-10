@@ -119,6 +119,42 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code subpass} <b>must</b> be a valid subpass within {@code renderpass}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; a bitfield of {@code VkPipelineCreateFlagBits} controlling how the pipeline will be generated</li>
+ * <li>{@code stageCount} &ndash; the number of entries in the {@code pStages} array</li>
+ * <li>{@code pStages} &ndash; 
+ * an array of size {@code stageCount} structures of type {@link VkPipelineShaderStageCreateInfo} describing the set of the shader stages to be included in the
+ * graphics pipeline</li>
+ * <li>{@code pVertexInputState} &ndash; a pointer to an instance of the {@link VkPipelineVertexInputStateCreateInfo} structure</li>
+ * <li>{@code pInputAssemblyState} &ndash; a pointer to an instance of the {@link VkPipelineInputAssemblyStateCreateInfo} structure which determines input assembly behavior</li>
+ * <li>{@code pTessellationState} &ndash; 
+ * a pointer to an instance of the {@link VkPipelineTessellationStateCreateInfo} structure, or {@code NULL} if the pipeline does not include a tessellation control
+ * shader stage and tessellation evaluation shader stage</li>
+ * <li>{@code pViewportState} &ndash; a pointer to an instance of the {@link VkPipelineViewportStateCreateInfo} structure, or {@code NULL} if the pipeline has rasterization disabled</li>
+ * <li>{@code pRasterizationState} &ndash; a pointer to an instance of the {@link VkPipelineRasterizationStateCreateInfo} structure</li>
+ * <li>{@code pMultisampleState} &ndash; a pointer to an instance of the {@link VkPipelineMultisampleStateCreateInfo}, or {@code NULL} if the pipeline has rasterization disabled</li>
+ * <li>{@code pDepthStencilState} &ndash; 
+ * a pointer to an instance of the {@link VkPipelineDepthStencilStateCreateInfo} structure, or {@code NULL} if the pipeline has rasterization disabled or if the
+ * subpass of the render pass the pipeline is created against does not use a depth/stencil attachment</li>
+ * <li>{@code pColorBlendState} &ndash; 
+ * a pointer to an instance of the {@link VkPipelineColorBlendStateCreateInfo} structure, or {@code NULL} if the pipeline has rasterization disabled or if the subpass
+ * of the render pass the pipeline is created against does not use any color attachments</li>
+ * <li>{@code pDynamicState} &ndash; 
+ * a pointer to {@link VkPipelineDynamicStateCreateInfo} and is used to indicate which properties of the pipeline state object are dynamic and can be changed
+ * independently of the pipeline state. This can be {@code NULL}, which means no state in the pipeline is considered dynamic.</li>
+ * <li>{@code layout} &ndash; the description of binding locations used by both the pipeline and descriptor sets used with the pipeline</li>
+ * <li>{@code renderPass} &ndash; 
+ * a handle to a render pass object describing the environment in which the pipeline will be used; the pipeline can be used with an instance of any render
+ * pass compatible with the one provided</li>
+ * <li>{@code subpass} &ndash; the index of the subpass in {@code renderPass} where this pipeline will be used</li>
+ * <li>{@code basePipelineHandle} &ndash; a pipeline to derive from</li>
+ * <li>{@code basePipelineIndex} &ndash; an index into the {@code pCreateInfos} parameter to use as a pipeline to derive from</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkGraphicsPipelineCreateInfo {
@@ -142,36 +178,6 @@ import static org.lwjgl.system.MemoryStack.*;
     VkPipeline basePipelineHandle;
     int32_t basePipelineIndex;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>a bitfield of {@code VkPipelineCreateFlagBits} controlling how the pipeline will be generated</td></tr>
- * <tr><td>stageCount</td><td>the number of entries in the {@code pStages} array</td></tr>
- * <tr><td>pStages</td><td>an array of size {@code stageCount} structures of type {@link VkPipelineShaderStageCreateInfo} describing the set of the shader stages to be included in the
- * graphics pipeline</td></tr>
- * <tr><td>pVertexInputState</td><td>a pointer to an instance of the {@link VkPipelineVertexInputStateCreateInfo} structure</td></tr>
- * <tr><td>pInputAssemblyState</td><td>a pointer to an instance of the {@link VkPipelineInputAssemblyStateCreateInfo} structure which determines input assembly behavior</td></tr>
- * <tr><td>pTessellationState</td><td>a pointer to an instance of the {@link VkPipelineTessellationStateCreateInfo} structure, or {@code NULL} if the pipeline does not include a tessellation control
- * shader stage and tessellation evaluation shader stage</td></tr>
- * <tr><td>pViewportState</td><td>a pointer to an instance of the {@link VkPipelineViewportStateCreateInfo} structure, or {@code NULL} if the pipeline has rasterization disabled</td></tr>
- * <tr><td>pRasterizationState</td><td>a pointer to an instance of the {@link VkPipelineRasterizationStateCreateInfo} structure</td></tr>
- * <tr><td>pMultisampleState</td><td>a pointer to an instance of the {@link VkPipelineMultisampleStateCreateInfo}, or {@code NULL} if the pipeline has rasterization disabled</td></tr>
- * <tr><td>pDepthStencilState</td><td>a pointer to an instance of the {@link VkPipelineDepthStencilStateCreateInfo} structure, or {@code NULL} if the pipeline has rasterization disabled or if the
- * subpass of the render pass the pipeline is created against does not use a depth/stencil attachment</td></tr>
- * <tr><td>pColorBlendState</td><td>a pointer to an instance of the {@link VkPipelineColorBlendStateCreateInfo} structure, or {@code NULL} if the pipeline has rasterization disabled or if the subpass
- * of the render pass the pipeline is created against does not use any color attachments</td></tr>
- * <tr><td>pDynamicState</td><td>a pointer to {@link VkPipelineDynamicStateCreateInfo} and is used to indicate which properties of the pipeline state object are dynamic and can be changed
- * independently of the pipeline state. This can be {@code NULL}, which means no state in the pipeline is considered dynamic.</td></tr>
- * <tr><td>layout</td><td>the description of binding locations used by both the pipeline and descriptor sets used with the pipeline</td></tr>
- * <tr><td>renderPass</td><td>a handle to a render pass object describing the environment in which the pipeline will be used; the pipeline can be used with an instance of any render
- * pass compatible with the one provided</td></tr>
- * <tr><td>subpass</td><td>the index of the subpass in {@code renderPass} where this pipeline will be used</td></tr>
- * <tr><td>basePipelineHandle</td><td>a pipeline to derive from</td></tr>
- * <tr><td>basePipelineIndex</td><td>an index into the {@code pCreateInfos} parameter to use as a pipeline to derive from</td></tr>
- * </table>
  */
 public class VkGraphicsPipelineCreateInfo extends Struct {
 

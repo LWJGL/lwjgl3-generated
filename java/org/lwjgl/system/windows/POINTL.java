@@ -17,19 +17,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Contains the coordinates of a point.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; the horizontal (x) coordinate of the point</li>
+ * <li>{@code y} &ndash; the vertical (y) coordinate of the point.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct POINTL {
     LONG x;
     LONG y;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>x</td><td>the horizontal (x) coordinate of the point</td></tr>
- * <tr><td>y</td><td>the vertical (y) coordinate of the point.</td></tr>
- * </table>
  */
 public class POINTL extends Struct {
 

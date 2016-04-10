@@ -42,6 +42,23 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>The {@code queueFamilyIndex} member of any given element of {@code pQueueCreateInfos} <b>must</b> be unique within {@code pQueueCreateInfos}</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO STRUCTURE_TYPE_DEVICE_CREATE_INFO}</li>
+ * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code flags} &ndash; reserved for future use</li>
+ * <li>{@code queueCreateInfoCount} &ndash; the unsigned integer size of the {@code pQueueCreateInfos} array</li>
+ * <li>{@code pQueueCreateInfos} &ndash; a pointer to an array of {@link VkDeviceQueueCreateInfo} structures describing the queues that are requested to be created along with the logical device</li>
+ * <li>{@code enabledLayerCount} &ndash; the number of device layers to enable</li>
+ * <li>{@code ppEnabledLayerNames} &ndash; a pointer to an array of {@code enabledLayerCount} null-terminated UTF-8 strings containing the names of layers to enable for the created device</li>
+ * <li>{@code enabledExtensionCount} &ndash; the number of device extensions to enable</li>
+ * <li>{@code ppEnabledExtensionNames} &ndash; 
+ * a pointer to an array of {@code enabledExtensionCount} null-terminated UTF-8 strings containing the names of extensions to enable for the created
+ * device</li>
+ * <li>{@code pEnabledFeatures} &ndash; {@code NULL} or a pointer to a {@link VkPhysicalDeviceFeatures} structure that contains boolean indicators of all the features to be enabled</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkDeviceCreateInfo {
@@ -56,22 +73,6 @@ import static org.lwjgl.system.MemoryStack.*;
     const char * const * ppEnabledExtensionNames;
     const VkPhysicalDeviceFeatures * pEnabledFeatures;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>sType</td><td>the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO STRUCTURE_TYPE_DEVICE_CREATE_INFO}</td></tr>
- * <tr><td>pNext</td><td>reserved for use by extensions</td></tr>
- * <tr><td>flags</td><td>reserved for future use</td></tr>
- * <tr><td>queueCreateInfoCount</td><td>the unsigned integer size of the {@code pQueueCreateInfos} array</td></tr>
- * <tr><td>pQueueCreateInfos</td><td>a pointer to an array of {@link VkDeviceQueueCreateInfo} structures describing the queues that are requested to be created along with the logical device</td></tr>
- * <tr><td>enabledLayerCount</td><td>the number of device layers to enable</td></tr>
- * <tr><td>ppEnabledLayerNames</td><td>a pointer to an array of {@code enabledLayerCount} null-terminated UTF-8 strings containing the names of layers to enable for the created device</td></tr>
- * <tr><td>enabledExtensionCount</td><td>the number of device extensions to enable</td></tr>
- * <tr><td>ppEnabledExtensionNames</td><td>a pointer to an array of {@code enabledExtensionCount} null-terminated UTF-8 strings containing the names of extensions to enable for the created
- * device</td></tr>
- * <tr><td>pEnabledFeatures</td><td>{@code NULL} or a pointer to a {@link VkPhysicalDeviceFeatures} structure that contains boolean indicators of all the features to be enabled</td></tr>
- * </table>
  */
 public class VkDeviceCreateInfo extends Struct {
 

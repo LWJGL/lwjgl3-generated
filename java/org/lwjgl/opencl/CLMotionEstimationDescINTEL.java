@@ -17,6 +17,18 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Describes the configuration of the motion estimation algorithm.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code mb_block_type} &ndash; describes the size of the blocks described by the motion estimator</li>
+ * <li>{@code subpixel_mode} &ndash; defines the search precision (and hence, the precision of the returned motion vectors)</li>
+ * <li>{@code sad_adjust_mode} &ndash; specifies distortion measure adjustment used for the motion search SAD comparison</li>
+ * <li>{@code search_path_type} &ndash; 
+ * specifies the search path and search radius when matching blocks in the neighborhood of each pixel block (optionally offset by the predicted motion
+ * vector). Currently, all search algorithms match the source block with pixel blocks in the reference area exhaustively within a {@code [Rx, Ry]}
+ * radius from the current source pixel block location (optionally offset by the predicted motion vector)</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct cl_motion_estimation_desc_intel {
@@ -25,17 +37,6 @@ import static org.lwjgl.system.MemoryStack.*;
     cl_uint sad_adjust_mode;
     cl_uint search_path_type;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>mb_block_type</td><td>describes the size of the blocks described by the motion estimator</td></tr>
- * <tr><td>subpixel_mode</td><td>defines the search precision (and hence, the precision of the returned motion vectors)</td></tr>
- * <tr><td>sad_adjust_mode</td><td>specifies distortion measure adjustment used for the motion search SAD comparison</td></tr>
- * <tr><td>search_path_type</td><td>specifies the search path and search radius when matching blocks in the neighborhood of each pixel block (optionally offset by the predicted motion
- * vector). Currently, all search algorithms match the source block with pixel blocks in the reference area exhaustively within a {@code [Rx, Ry]}
- * radius from the current source pixel block location (optionally offset by the predicted motion vector)</td></tr>
- * </table>
  */
 public class CLMotionEstimationDescINTEL extends Struct {
 

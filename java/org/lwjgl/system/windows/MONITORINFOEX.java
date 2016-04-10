@@ -17,6 +17,26 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Contains information about a display monitor.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code cbSize} &ndash; 
+ * the size, in bytes, of the structure.
+ * 
+ * <p>Set this member to {@link #SIZEOF} before calling the {@link User32#GetMonitorInfo} function. Doing so lets the function determine the type of structure you are
+ * passing to it.</p></li>
+ * <li>{@code rcMonitor} &ndash; 
+ * a {@link RECT} structure that specifies the display monitor rectangle, expressed in virtual-screen coordinates. Note that if the monitor is not the primary
+ * display monitor, some of the rectangle's coordinates may be negative values.</li>
+ * <li>{@code rcWork} &ndash; 
+ * a {@link RECT} structure that specifies the work area rectangle of the display monitor that can be used by applications, expressed in virtual-screen
+ * coordinates. Windows uses this rectangle to maximize an application on the monitor. The rest of the area in {@code rcMonitor} contains system windows
+ * such as the task bar and side bars. Note that if the monitor is not the primary display monitor, some of the rectangle's coordinates may be negative
+ * values.</li>
+ * <li>{@code dwFlags} &ndash; the attributes of the display monitor. May be:<br>{@link User32#MONITORINFOF_PRIMARY}</li>
+ * <li>{@code szDevice} &ndash; a string that specifies the device name of the monitor being used</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct MONITORINFOEX {
@@ -26,23 +46,6 @@ import static org.lwjgl.system.MemoryStack.*;
     DWORD dwFlags;
     TCHAR[32] szDevice;
 }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table class=lwjgl>
- * <tr><td>cbSize</td><td>the size, in bytes, of the structure.
- * 
- * <p>Set this member to {@link #SIZEOF} before calling the {@link User32#GetMonitorInfo} function. Doing so lets the function determine the type of structure you are
- * passing to it.</p></td></tr>
- * <tr><td>rcMonitor</td><td>a {@link RECT} structure that specifies the display monitor rectangle, expressed in virtual-screen coordinates. Note that if the monitor is not the primary
- * display monitor, some of the rectangle's coordinates may be negative values.</td></tr>
- * <tr><td>rcWork</td><td>a {@link RECT} structure that specifies the work area rectangle of the display monitor that can be used by applications, expressed in virtual-screen
- * coordinates. Windows uses this rectangle to maximize an application on the monitor. The rest of the area in {@code rcMonitor} contains system windows
- * such as the task bar and side bars. Note that if the monitor is not the primary display monitor, some of the rectangle's coordinates may be negative
- * values.</td></tr>
- * <tr><td>dwFlags</td><td>the attributes of the display monitor. May be:<br>{@link User32#MONITORINFOF_PRIMARY}</td></tr>
- * <tr><td>szDevice</td><td>a string that specifies the device name of the monitor being used</td></tr>
- * </table>
  */
 public class MONITORINFOEX extends Struct {
 
