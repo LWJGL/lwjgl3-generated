@@ -98,7 +98,13 @@ public class GLX {
 
 	// --- [ glXQueryExtension ] ---
 
-	/** Unsafe version of {@link #glXQueryExtension QueryExtension} */
+	/**
+	 * Ascertains if the GLX extension is defined for an X server.
+	 *
+	 * @param display    the connection to the X server
+	 * @param error_base returns the value of the first error code
+	 * @param event_base returns the value of the first event code
+	 */
 	public static int nglXQueryExtension(long display, long error_base, long event_base) {
 		long __functionAddress = Functions.QueryExtension;
 		if ( CHECKS )
@@ -113,15 +119,6 @@ public class GLX {
 	 * @param error_base returns the value of the first error code
 	 * @param event_base returns the value of the first event code
 	 */
-	public static int glXQueryExtension(long display, ByteBuffer error_base, ByteBuffer event_base) {
-		if ( CHECKS ) {
-			checkBuffer(error_base, 1 << 2);
-			checkBuffer(event_base, 1 << 2);
-		}
-		return nglXQueryExtension(display, memAddress(error_base), memAddress(event_base));
-	}
-
-	/** Alternative version of: {@link #glXQueryExtension QueryExtension} */
 	public static int glXQueryExtension(long display, IntBuffer error_base, IntBuffer event_base) {
 		if ( CHECKS ) {
 			checkBuffer(error_base, 1);
@@ -132,7 +129,13 @@ public class GLX {
 
 	// --- [ glXQueryVersion ] ---
 
-	/** Unsafe version of {@link #glXQueryVersion QueryVersion} */
+	/**
+	 * Queries the GLX version supported.
+	 *
+	 * @param display the connection to the X server
+	 * @param major   returns the major version
+	 * @param minor   returns the minor version
+	 */
 	public static int nglXQueryVersion(long display, long major, long minor) {
 		long __functionAddress = Functions.QueryVersion;
 		if ( CHECKS )
@@ -147,15 +150,6 @@ public class GLX {
 	 * @param major   returns the major version
 	 * @param minor   returns the minor version
 	 */
-	public static int glXQueryVersion(long display, ByteBuffer major, ByteBuffer minor) {
-		if ( CHECKS ) {
-			checkBuffer(major, 1 << 2);
-			checkBuffer(minor, 1 << 2);
-		}
-		return nglXQueryVersion(display, memAddress(major), memAddress(minor));
-	}
-
-	/** Alternative version of: {@link #glXQueryVersion QueryVersion} */
 	public static int glXQueryVersion(long display, IntBuffer major, IntBuffer minor) {
 		if ( CHECKS ) {
 			checkBuffer(major, 1);
@@ -166,7 +160,14 @@ public class GLX {
 
 	// --- [ glXGetConfig ] ---
 
-	/** Unsafe version of {@link #glXGetConfig GetConfig} */
+	/**
+	 * Returns a description of an OpenGL attribute exported by a Visual.
+	 *
+	 * @param display   the connection to the X server
+	 * @param visual    a pointer to an {@link XVisualInfo} structure
+	 * @param attribute the attribute to query
+	 * @param value     returns the attribute value
+	 */
 	public static int nglXGetConfig(long display, long visual, int attribute, long value) {
 		long __functionAddress = Functions.GetConfig;
 		if ( CHECKS ) {
@@ -184,13 +185,6 @@ public class GLX {
 	 * @param attribute the attribute to query
 	 * @param value     returns the attribute value
 	 */
-	public static int glXGetConfig(long display, XVisualInfo visual, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return nglXGetConfig(display, visual.address(), attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glXGetConfig GetConfig} */
 	public static int glXGetConfig(long display, XVisualInfo visual, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -199,7 +193,16 @@ public class GLX {
 
 	// --- [ glXChooseVisual ] ---
 
-	/** Unsafe version of {@link #glXChooseVisual ChooseVisual} */
+	/**
+	 * Finds a visual that matches the client’s specified attributes.
+	 *
+	 * @param display     the connection to the X server
+	 * @param screen      the screen number
+	 * @param attrib_list a list of attributes terminated with {@code None}
+	 *
+	 * @return a pointer to an {@code XVisualInfo} structure describing the visual that best matches the specified attributes. If no matching visual exists, {@code NULL} is
+	 *         returned.
+	 */
 	public static long nglXChooseVisual(long display, int screen, long attrib_list) {
 		long __functionAddress = Functions.ChooseVisual;
 		if ( CHECKS )
@@ -217,14 +220,6 @@ public class GLX {
 	 * @return a pointer to an {@code XVisualInfo} structure describing the visual that best matches the specified attributes. If no matching visual exists, {@code NULL} is
 	 *         returned.
 	 */
-	public static XVisualInfo glXChooseVisual(long display, int screen, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list);
-		long __result = nglXChooseVisual(display, screen, memAddressSafe(attrib_list));
-		return XVisualInfo.create(__result);
-	}
-
-	/** Alternative version of: {@link #glXChooseVisual ChooseVisual} */
 	public static XVisualInfo glXChooseVisual(long display, int screen, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
@@ -234,7 +229,14 @@ public class GLX {
 
 	// --- [ glXCreateContext ] ---
 
-	/** Unsafe version of {@link #glXCreateContext CreateContext} */
+	/**
+	 * Creates an OpenGL context.
+	 *
+	 * @param display    the connection to the X server
+	 * @param visual     a pointer to an {@link XVisualInfo} structure
+	 * @param share_list the GLXContext to share objects with
+	 * @param direct     whether direct rendering is requested
+	 */
 	public static long nglXCreateContext(long display, long visual, long share_list, int direct) {
 		long __functionAddress = Functions.CreateContext;
 		if ( CHECKS ) {
@@ -409,7 +411,13 @@ public class GLX {
 
 	// --- [ glXCreateGLXPixmap ] ---
 
-	/** Unsafe version of {@link #glXCreateGLXPixmap CreateGLXPixmap} */
+	/**
+	 * Creates a GLXPixmap from a Pixmap.
+	 *
+	 * @param display the connection to the X server
+	 * @param visual  a pointer to a {@link XVisualInfo} structure
+	 * @param pixmap  the Pixmap
+	 */
 	public static long nglXCreateGLXPixmap(long display, long visual, long pixmap) {
 		long __functionAddress = Functions.CreateGLXPixmap;
 		if ( CHECKS ) {

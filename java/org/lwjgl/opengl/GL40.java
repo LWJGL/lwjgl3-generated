@@ -283,7 +283,29 @@ public class GL40 {
 
 	// --- [ glDrawArraysIndirect ] ---
 
-	/** Unsafe version of {@link #glDrawArraysIndirect DrawArraysIndirect} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>{@code glDrawArraysIndirect} behaves similarly to {@link GL42#glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance}, except that the parameters to
+	 * glDrawArraysInstancedBaseInstance are stored in memory at the address given by {@code indirect}.</p>
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint first;
+    uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
+} DrawArraysIndirectCommand;
+
+const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
+glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre>
+	 *
+	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
+	 * @param indirect a structure containing the draw parameters
+	 */
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
 		long __functionAddress = GL.getCapabilities().glDrawArraysIndirect;
 		if ( CHECKS )
@@ -322,11 +344,33 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		nglDrawArraysIndirect(mode, memAddress(indirect));
 	}
 
-	/** Buffer object offset version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
-	public static void glDrawArraysIndirect(int mode, long indirectOffset) {
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>{@code glDrawArraysIndirect} behaves similarly to {@link GL42#glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance}, except that the parameters to
+	 * glDrawArraysInstancedBaseInstance are stored in memory at the address given by {@code indirect}.</p>
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint first;
+    uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
+} DrawArraysIndirectCommand;
+
+const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
+glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre>
+	 *
+	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
+	 * @param indirect a structure containing the draw parameters
+	 */
+	public static void glDrawArraysIndirect(int mode, long indirect) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglDrawArraysIndirect(mode, indirectOffset);
+		nglDrawArraysIndirect(mode, indirect);
 	}
 
 	/** IntBuffer version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
@@ -340,7 +384,43 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glDrawElementsIndirect ] ---
 
-	/** Unsafe version of {@link #glDrawElementsIndirect DrawElementsIndirect} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders indexed primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>{@code glDrawElementsIndirect} behaves similarly to {@link GL42#glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance}, execpt that the parameters to
+	 * glDrawElementsInstancedBaseVertexBaseInstance are stored in memory at the address given by {@code indirect}.</p>
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint firstIndex;
+    uint baseVertex;
+    uint baseInstance;
+} DrawElementsIndirectCommand;</code></pre>
+	 * 
+	 * <p>{@code glDrawElementsIndirect} is equivalent to:</p>
+	 * 
+	 * <pre><code>void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
+    const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
+    glDrawElementsInstancedBaseVertexBaseInstance(
+        mode,
+        cmd->count,
+        type,
+        cmd->firstIndex + size-of-type,
+        cmd->primCount,
+        cmd->baseVertex,
+        cmd->baseInstance
+    );
+}</code></pre>
+	 *
+	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
+	 * @param type     the type of data in the buffer bound to the {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER} binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indirect the address of a structure containing the draw parameters
+	 */
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
 		long __functionAddress = GL.getCapabilities().glDrawElementsIndirect;
 		if ( CHECKS )
@@ -393,11 +473,47 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		nglDrawElementsIndirect(mode, type, memAddress(indirect));
 	}
 
-	/** Buffer object offset version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
-	public static void glDrawElementsIndirect(int mode, int type, long indirectOffset) {
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders indexed primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>{@code glDrawElementsIndirect} behaves similarly to {@link GL42#glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance}, execpt that the parameters to
+	 * glDrawElementsInstancedBaseVertexBaseInstance are stored in memory at the address given by {@code indirect}.</p>
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint firstIndex;
+    uint baseVertex;
+    uint baseInstance;
+} DrawElementsIndirectCommand;</code></pre>
+	 * 
+	 * <p>{@code glDrawElementsIndirect} is equivalent to:</p>
+	 * 
+	 * <pre><code>void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
+    const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
+    glDrawElementsInstancedBaseVertexBaseInstance(
+        mode,
+        cmd->count,
+        type,
+        cmd->firstIndex + size-of-type,
+        cmd->primCount,
+        cmd->baseVertex,
+        cmd->baseInstance
+    );
+}</code></pre>
+	 *
+	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
+	 * @param type     the type of data in the buffer bound to the {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER} binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indirect the address of a structure containing the draw parameters
+	 */
+	public static void glDrawElementsIndirect(int mode, int type, long indirect) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglDrawElementsIndirect(mode, type, indirectOffset);
+		nglDrawElementsIndirect(mode, type, indirect);
 	}
 
 	/** IntBuffer version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
@@ -485,7 +601,15 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glUniform1dv ] ---
 
-	/** Unsafe version of {@link #glUniform1dv Uniform1dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single double uniform variable or a double uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform1dv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1dv;
 		if ( CHECKS )
@@ -499,23 +623,23 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single double uniform variable or a double uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform1dv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, count << 3);
-		nglUniform1dv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform1dv Uniform1dv} */
 	public static void glUniform1dv(int location, DoubleBuffer value) {
 		nglUniform1dv(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2dv ] ---
 
-	/** Unsafe version of {@link #glUniform2dv Uniform2dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dvec2 uniform variable or a dvec2 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform2dv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2dv;
 		if ( CHECKS )
@@ -529,23 +653,23 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dvec2 uniform variable or a dvec2 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform2dv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 1) << 3);
-		nglUniform2dv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform2dv Uniform2dv} */
 	public static void glUniform2dv(int location, DoubleBuffer value) {
 		nglUniform2dv(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3dv ] ---
 
-	/** Unsafe version of {@link #glUniform3dv Uniform3dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dvec3 uniform variable or a dvec3 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform3dv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3dv;
 		if ( CHECKS )
@@ -559,23 +683,23 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dvec3 uniform variable or a dvec3 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform3dv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 3) << 3);
-		nglUniform3dv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform3dv Uniform3dv} */
 	public static void glUniform3dv(int location, DoubleBuffer value) {
 		nglUniform3dv(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4dv ] ---
 
-	/** Unsafe version of {@link #glUniform4dv Uniform4dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dvec4 uniform variable or a dvec4 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform4dv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4dv;
 		if ( CHECKS )
@@ -589,23 +713,24 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dvec4 uniform variable or a dvec4 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform4dv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 3);
-		nglUniform4dv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform4dv Uniform4dv} */
 	public static void glUniform4dv(int location, DoubleBuffer value) {
 		nglUniform4dv(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2dv UniformMatrix2dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dmat2 uniform variable or a dmat2 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 */
 	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2dv;
 		if ( CHECKS )
@@ -619,24 +744,25 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dmat2 uniform variable or a dmat2 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix2dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 3);
-		nglUniformMatrix2dv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix2dv UniformMatrix2dv} */
 	public static void glUniformMatrix2dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix2dv(location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3dv UniformMatrix3dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dmat3 uniform variable or a dmat3 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 */
 	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3dv;
 		if ( CHECKS )
@@ -650,24 +776,25 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dmat3 uniform variable or a dmat3 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix3dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 9) << 3);
-		nglUniformMatrix3dv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix3dv UniformMatrix3dv} */
 	public static void glUniformMatrix3dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix3dv(location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4dv UniformMatrix4dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dmat4 uniform variable or a dmat4 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 */
 	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4dv;
 		if ( CHECKS )
@@ -681,24 +808,25 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dmat4 uniform variable or a dmat4 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix4dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 4) << 3);
-		nglUniformMatrix4dv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix4dv UniformMatrix4dv} */
 	public static void glUniformMatrix4dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix4dv(location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2x3dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dmat2x3 uniform variable or a dmat2x3 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 */
 	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3dv;
 		if ( CHECKS )
@@ -712,24 +840,25 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dmat2x3 uniform variable or a dmat2x3 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix2x3dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 6) << 3);
-		nglUniformMatrix2x3dv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
 	public static void glUniformMatrix2x3dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix2x3dv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2x4dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dmat2x4 uniform variable or a dmat2x4 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 */
 	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4dv;
 		if ( CHECKS )
@@ -743,24 +872,25 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dmat2x4 uniform variable or a dmat2x4 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix2x4dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 3) << 3);
-		nglUniformMatrix2x4dv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
 	public static void glUniformMatrix2x4dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix2x4dv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x2dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dmat3x2 uniform variable or a dmat3x2 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 */
 	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2dv;
 		if ( CHECKS )
@@ -774,24 +904,25 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dmat3x2 uniform variable or a dmat3x2 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix3x2dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 6) << 3);
-		nglUniformMatrix3x2dv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
 	public static void glUniformMatrix3x2dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix3x2dv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x4dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dmat3x4 uniform variable or a dmat3x4 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 */
 	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4dv;
 		if ( CHECKS )
@@ -805,24 +936,25 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dmat3x4 uniform variable or a dmat3x4 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix3x4dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 12) << 3);
-		nglUniformMatrix3x4dv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
 	public static void glUniformMatrix3x4dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix3x4dv(location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x2dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dmat4x2 uniform variable or a dmat4x2 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 */
 	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2dv;
 		if ( CHECKS )
@@ -836,24 +968,25 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dmat4x2 uniform variable or a dmat4x2 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix4x2dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 3) << 3);
-		nglUniformMatrix4x2dv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
 	public static void glUniformMatrix4x2dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix4x2dv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x3dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single dmat4x3 uniform variable or a dmat4x3 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 */
 	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3dv;
 		if ( CHECKS )
@@ -867,24 +1000,24 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Specifies the value of a single dmat4x3 uniform variable or a dmat4x3 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix4x3dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 12) << 3);
-		nglUniformMatrix4x3dv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
 	public static void glUniformMatrix4x3dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix4x3dv(location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glGetUniformdv ] ---
 
-	/** Unsafe version of {@link #glGetUniformdv GetUniformdv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the double value(s) of a uniform variable.
+	 *
+	 * @param program  the program object to be queried
+	 * @param location the location of the uniform variable to be queried
+	 * @param params   the value of the specified uniform variable
+	 */
 	public static void nglGetUniformdv(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformdv;
 		if ( CHECKS )
@@ -901,20 +1034,20 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param location the location of the uniform variable to be queried
 	 * @param params   the value of the specified uniform variable
 	 */
-	public static void glGetUniformdv(int program, int location, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetUniformdv(program, location, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetUniformdv GetUniformdv} */
 	public static void glGetUniformdv(int program, int location, DoubleBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformdv(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformdv GetUniformdv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the double value(s) of a uniform variable.
+	 *
+	 * @param program  the program object to be queried
+	 * @param location the location of the uniform variable to be queried
+	 */
 	public static double glGetUniformd(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -944,7 +1077,15 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glGetSubroutineUniformLocation ] ---
 
-	/** Unsafe version of {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineUniformLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the location of a subroutine uniform of a given shader stage within a program.
+	 *
+	 * @param program    the name of the program containing shader stage
+	 * @param shadertype the shader stage from which to query for subroutine uniform index. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param name       the name of the subroutine uniform whose index to query.
+	 */
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
 		long __functionAddress = GL.getCapabilities().glGetSubroutineUniformLocation;
 		if ( CHECKS )
@@ -967,7 +1108,15 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		return nglGetSubroutineUniformLocation(program, shadertype, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineUniformLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the location of a subroutine uniform of a given shader stage within a program.
+	 *
+	 * @param program    the name of the program containing shader stage
+	 * @param shadertype the shader stage from which to query for subroutine uniform index. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param name       the name of the subroutine uniform whose index to query.
+	 */
 	public static int glGetSubroutineUniformLocation(int program, int shadertype, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -980,7 +1129,15 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glGetSubroutineIndex ] ---
 
-	/** Unsafe version of {@link #glGetSubroutineIndex GetSubroutineIndex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the index of a subroutine function of a given shader stage within a program.
+	 *
+	 * @param program    the name of the program containing shader stage
+	 * @param shadertype the shader stage from which to query for subroutine function index. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param name       the name of the subroutine function whose index to query
+	 */
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
 		long __functionAddress = GL.getCapabilities().glGetSubroutineIndex;
 		if ( CHECKS )
@@ -1003,7 +1160,15 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		return nglGetSubroutineIndex(program, shadertype, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetSubroutineIndex GetSubroutineIndex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the index of a subroutine function of a given shader stage within a program.
+	 *
+	 * @param program    the name of the program containing shader stage
+	 * @param shadertype the shader stage from which to query for subroutine function index. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param name       the name of the subroutine function whose index to query
+	 */
 	public static int glGetSubroutineIndex(int program, int shadertype, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1016,7 +1181,17 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glGetActiveSubroutineUniformiv ] ---
 
-	/** Unsafe version of {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries a property of an active shader subroutine uniform.
+	 *
+	 * @param program    the name of the program containing the subroutine
+	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param index      the index of the shader subroutine uniform
+	 * @param pname      the parameter of the shader subroutine uniform to query. One of:<br>{@link #GL_NUM_COMPATIBLE_SUBROUTINES NUM_COMPATIBLE_SUBROUTINES}, {@link #GL_COMPATIBLE_SUBROUTINES COMPATIBLE_SUBROUTINES}, {@link GL31#GL_UNIFORM_SIZE UNIFORM_SIZE}, {@link GL31#GL_UNIFORM_NAME_LENGTH UNIFORM_NAME_LENGTH}
+	 * @param values     the address of a buffer into which the queried value or values will be placed
+	 */
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformiv;
 		if ( CHECKS )
@@ -1035,20 +1210,22 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param pname      the parameter of the shader subroutine uniform to query. One of:<br>{@link #GL_NUM_COMPATIBLE_SUBROUTINES NUM_COMPATIBLE_SUBROUTINES}, {@link #GL_COMPATIBLE_SUBROUTINES COMPATIBLE_SUBROUTINES}, {@link GL31#GL_UNIFORM_SIZE UNIFORM_SIZE}, {@link GL31#GL_UNIFORM_NAME_LENGTH UNIFORM_NAME_LENGTH}
 	 * @param values     the address of a buffer into which the queried value or values will be placed
 	 */
-	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, IntBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
 		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries a property of an active shader subroutine uniform.
+	 *
+	 * @param program    the name of the program containing the subroutine
+	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param index      the index of the shader subroutine uniform
+	 * @param pname      the parameter of the shader subroutine uniform to query. One of:<br>{@link #GL_NUM_COMPATIBLE_SUBROUTINES NUM_COMPATIBLE_SUBROUTINES}, {@link #GL_COMPATIBLE_SUBROUTINES COMPATIBLE_SUBROUTINES}, {@link GL31#GL_UNIFORM_SIZE UNIFORM_SIZE}, {@link GL31#GL_UNIFORM_NAME_LENGTH UNIFORM_NAME_LENGTH}
+	 */
 	public static int glGetActiveSubroutineUniformi(int program, int shadertype, int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1062,7 +1239,18 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glGetActiveSubroutineUniformName ] ---
 
-	/** Unsafe version of {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an active shader subroutine uniform.
+	 *
+	 * @param program    the name of the program containing the subroutine
+	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param index      the index of the shader subroutine uniform
+	 * @param bufsize    the size of the buffer whose address is given in {@code name}
+	 * @param length     the address of a variable into which is written the number of characters copied into {@code name}
+	 * @param name       the address of a buffer that will receive the name of the specified shader subroutine uniform
+	 */
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformName;
 		if ( CHECKS )
@@ -1078,26 +1266,25 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param program    the name of the program containing the subroutine
 	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 * @param index      the index of the shader subroutine uniform
-	 * @param bufsize    the size of the buffer whose address is given in {@code name}
 	 * @param length     the address of a variable into which is written the number of characters copied into {@code name}
 	 * @param name       the address of a buffer that will receive the name of the specified shader subroutine uniform
 	 */
-	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, ByteBuffer length, ByteBuffer name) {
-		if ( CHECKS ) {
-			checkBuffer(name, bufsize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, memAddressSafe(length), memAddress(name));
-	}
-
-	/** Alternative version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetActiveSubroutineUniformName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
-	/** String return version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an active shader subroutine uniform.
+	 *
+	 * @param program    the name of the program containing the subroutine
+	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param index      the index of the shader subroutine uniform
+	 * @param bufsize    the size of the buffer whose address is given in {@code name}
+	 */
 	public static String glGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1110,7 +1297,15 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an active shader subroutine uniform.
+	 *
+	 * @param program    the name of the program containing the subroutine
+	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param index      the index of the shader subroutine uniform
+	 */
 	public static String glGetActiveSubroutineUniformName(int program, int shadertype, int index) {
 		int bufsize = glGetActiveSubroutineUniformi(program, shadertype, index, GL31.GL_UNIFORM_NAME_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1126,7 +1321,18 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glGetActiveSubroutineName ] ---
 
-	/** Unsafe version of {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an active shader subroutine.
+	 *
+	 * @param program    the name of the program containing the subroutine
+	 * @param shadertype the shader stage from which to query the subroutine name. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param index      the index of the shader subroutine uniform
+	 * @param bufsize    the size of the buffer whose address is given in {@code name}
+	 * @param length     a variable which is to receive the length of the shader subroutine uniform name
+	 * @param name       an array into which the name of the shader subroutine uniform will be written
+	 */
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineName;
 		if ( CHECKS )
@@ -1142,26 +1348,25 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param program    the name of the program containing the subroutine
 	 * @param shadertype the shader stage from which to query the subroutine name. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 * @param index      the index of the shader subroutine uniform
-	 * @param bufsize    the size of the buffer whose address is given in {@code name}
 	 * @param length     a variable which is to receive the length of the shader subroutine uniform name
 	 * @param name       an array into which the name of the shader subroutine uniform will be written
 	 */
-	public static void glGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, ByteBuffer length, ByteBuffer name) {
-		if ( CHECKS ) {
-			checkBuffer(name, bufsize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetActiveSubroutineName(program, shadertype, index, bufsize, memAddressSafe(length), memAddress(name));
-	}
-
-	/** Alternative version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetActiveSubroutineName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
-	/** String return version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an active shader subroutine.
+	 *
+	 * @param program    the name of the program containing the subroutine
+	 * @param shadertype the shader stage from which to query the subroutine name. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param index      the index of the shader subroutine uniform
+	 * @param bufsize    the size of the buffer whose address is given in {@code name}
+	 */
 	public static String glGetActiveSubroutineName(int program, int shadertype, int index, int bufsize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1174,7 +1379,15 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an active shader subroutine.
+	 *
+	 * @param program    the name of the program containing the subroutine
+	 * @param shadertype the shader stage from which to query the subroutine name. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param index      the index of the shader subroutine uniform
+	 */
 	public static String glGetActiveSubroutineName(int program, int shadertype, int index) {
 		int bufsize = glGetProgramStagei(program, shadertype, GL_ACTIVE_SUBROUTINE_MAX_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1190,7 +1403,15 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glUniformSubroutinesuiv ] ---
 
-	/** Unsafe version of {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformSubroutines.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Loads active subroutine uniforms.
+	 *
+	 * @param shadertype the shader stage to update. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param count      the number of uniform indices stored in {@code indices}
+	 * @param indices    an array holding the indices to load into the shader subroutine variables
+	 */
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
 		long __functionAddress = GL.getCapabilities().glUniformSubroutinesuiv;
 		if ( CHECKS )
@@ -1204,21 +1425,19 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Loads active subroutine uniforms.
 	 *
 	 * @param shadertype the shader stage to update. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
-	 * @param count      the number of uniform indices stored in {@code indices}
 	 * @param indices    an array holding the indices to load into the shader subroutine variables
 	 */
-	public static void glUniformSubroutinesuiv(int shadertype, int count, ByteBuffer indices) {
-		if ( CHECKS )
-			checkBuffer(indices, count << 2);
-		nglUniformSubroutinesuiv(shadertype, count, memAddress(indices));
-	}
-
-	/** Alternative version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
 	public static void glUniformSubroutinesuiv(int shadertype, IntBuffer indices) {
 		nglUniformSubroutinesuiv(shadertype, indices.remaining(), memAddress(indices));
 	}
 
-	/** Single value version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformSubroutines.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Loads active subroutine uniforms.
+	 *
+	 * @param shadertype the shader stage to update. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 */
 	public static void glUniformSubroutinesui(int shadertype, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1231,7 +1450,15 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glGetUniformSubroutineuiv ] ---
 
-	/** Unsafe version of {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformSubroutine.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the value of a subroutine uniform of a given shader stage of the current program.
+	 *
+	 * @param shadertype the shader stage from which to query for subroutine uniform index. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param location   the location of the subroutine uniform
+	 * @param params     a variable to receive the value or values of the subroutine uniform
+	 */
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformSubroutineuiv;
 		if ( CHECKS )
@@ -1248,20 +1475,20 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param location   the location of the subroutine uniform
 	 * @param params     a variable to receive the value or values of the subroutine uniform
 	 */
-	public static void glGetUniformSubroutineuiv(int shadertype, int location, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	public static void glGetUniformSubroutineuiv(int shadertype, int location, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformSubroutine.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the value of a subroutine uniform of a given shader stage of the current program.
+	 *
+	 * @param shadertype the shader stage from which to query for subroutine uniform index. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param location   the location of the subroutine uniform
+	 */
 	public static int glGetUniformSubroutineui(int shadertype, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1275,7 +1502,16 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glGetProgramStageiv ] ---
 
-	/** Unsafe version of {@link #glGetProgramStageiv GetProgramStageiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramStage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves properties of a program object corresponding to a specified shader stage.
+	 *
+	 * @param program    the name of the program containing shader stage
+	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param pname      the parameter of the shader to query. One of:<br>{@link #GL_ACTIVE_SUBROUTINES ACTIVE_SUBROUTINES}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORMS ACTIVE_SUBROUTINE_UNIFORMS}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS}, {@link #GL_ACTIVE_SUBROUTINE_MAX_LENGTH ACTIVE_SUBROUTINE_MAX_LENGTH}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH}
+	 * @param values     a variable into which the queried value or values will be placed
+	 */
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
 		long __functionAddress = GL.getCapabilities().glGetProgramStageiv;
 		if ( CHECKS )
@@ -1293,20 +1529,21 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param pname      the parameter of the shader to query. One of:<br>{@link #GL_ACTIVE_SUBROUTINES ACTIVE_SUBROUTINES}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORMS ACTIVE_SUBROUTINE_UNIFORMS}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS}, {@link #GL_ACTIVE_SUBROUTINE_MAX_LENGTH ACTIVE_SUBROUTINE_MAX_LENGTH}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH}
 	 * @param values     a variable into which the queried value or values will be placed
 	 */
-	public static void glGetProgramStageiv(int program, int shadertype, int pname, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #glGetProgramStageiv GetProgramStageiv} */
 	public static void glGetProgramStageiv(int program, int shadertype, int pname, IntBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
 		nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetProgramStageiv GetProgramStageiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramStage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves properties of a program object corresponding to a specified shader stage.
+	 *
+	 * @param program    the name of the program containing shader stage
+	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param pname      the parameter of the shader to query. One of:<br>{@link #GL_ACTIVE_SUBROUTINES ACTIVE_SUBROUTINES}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORMS ACTIVE_SUBROUTINE_UNIFORMS}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS}, {@link #GL_ACTIVE_SUBROUTINE_MAX_LENGTH ACTIVE_SUBROUTINE_MAX_LENGTH}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH}
+	 */
 	public static int glGetProgramStagei(int program, int shadertype, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1337,7 +1574,14 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glPatchParameterfv ] ---
 
-	/** Unsafe version of {@link #glPatchParameterfv PatchParameterfv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies an array of float values for the specified parameter for patch primitives.
+	 *
+	 * @param pname  the name of the parameter to set. One of:<br>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}, {@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}
+	 * @param values an array containing the new values for the parameter given by {@code pname}
+	 */
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = GL.getCapabilities().glPatchParameterfv;
 		if ( CHECKS )
@@ -1353,14 +1597,6 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param pname  the name of the parameter to set. One of:<br>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}, {@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}
 	 * @param values an array containing the new values for the parameter given by {@code pname}
 	 */
-	public static void glPatchParameterfv(int pname, ByteBuffer values) {
-		if ( CHECKS )
-			if ( DEBUG )
-				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES) << 2);
-		nglPatchParameterfv(pname, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #glPatchParameterfv PatchParameterfv} */
 	public static void glPatchParameterfv(int pname, FloatBuffer values) {
 		if ( CHECKS )
 			if ( DEBUG )
@@ -1387,7 +1623,14 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glDeleteTransformFeedbacks ] ---
 
-	/** Unsafe version of {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Deletes transform feedback objects.
+	 *
+	 * @param n   the number of transform feedback objects to delete
+	 * @param ids an array of names of transform feedback objects to delete
+	 */
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacks;
 		if ( CHECKS )
@@ -1400,21 +1643,17 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * 
 	 * Deletes transform feedback objects.
 	 *
-	 * @param n   the number of transform feedback objects to delete
 	 * @param ids an array of names of transform feedback objects to delete
 	 */
-	public static void glDeleteTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglDeleteTransformFeedbacks(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(IntBuffer ids) {
 		nglDeleteTransformFeedbacks(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single value version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Deletes transform feedback objects.
+	 */
 	public static void glDeleteTransformFeedbacks(int id) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1427,7 +1666,14 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glGenTransformFeedbacks ] ---
 
-	/** Unsafe version of {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Reserves transform feedback object names.
+	 *
+	 * @param n   the number of transform feedback object names to reserve
+	 * @param ids an array of into which the reserved names will be written
+	 */
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacks;
 		if ( CHECKS )
@@ -1440,21 +1686,17 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * 
 	 * Reserves transform feedback object names.
 	 *
-	 * @param n   the number of transform feedback object names to reserve
 	 * @param ids an array of into which the reserved names will be written
 	 */
-	public static void glGenTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglGenTransformFeedbacks(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static void glGenTransformFeedbacks(IntBuffer ids) {
 		nglGenTransformFeedbacks(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single return value version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Reserves transform feedback object names.
+	 */
 	public static int glGenTransformFeedbacks() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1594,7 +1836,16 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glGetQueryIndexediv ] ---
 
-	/** Unsafe version of {@link #glGetQueryIndexediv GetQueryIndexediv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns parameters of an indexed query object target.
+	 *
+	 * @param target a query object target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param index  the index of the query object target
+	 * @param pname  the symbolic name of a query object target parameter
+	 * @param params the requested data
+	 */
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
 		if ( CHECKS )
@@ -1612,20 +1863,21 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param pname  the symbolic name of a query object target parameter
 	 * @param params the requested data
 	 */
-	public static void glGetQueryIndexediv(int target, int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetQueryIndexediv(target, index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static void glGetQueryIndexediv(int target, int index, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns parameters of an indexed query object target.
+	 *
+	 * @param target a query object target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param index  the index of the query object target
+	 * @param pname  the symbolic name of a query object target parameter
+	 */
 	public static int glGetQueryIndexedi(int target, int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

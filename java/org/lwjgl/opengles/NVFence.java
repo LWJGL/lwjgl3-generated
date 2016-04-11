@@ -55,7 +55,6 @@ public class NVFence {
 
 	// --- [ glDeleteFencesNV ] ---
 
-	/** Unsafe version of {@link #glDeleteFencesNV DeleteFencesNV} */
 	public static void nglDeleteFencesNV(int n, long fences) {
 		long __functionAddress = GLES.getCapabilities().glDeleteFencesNV;
 		if ( CHECKS )
@@ -63,18 +62,10 @@ public class NVFence {
 		callIPV(__functionAddress, n, fences);
 	}
 
-	public static void glDeleteFencesNV(int n, ByteBuffer fences) {
-		if ( CHECKS )
-			checkBuffer(fences, n << 2);
-		nglDeleteFencesNV(n, memAddress(fences));
-	}
-
-	/** Alternative version of: {@link #glDeleteFencesNV DeleteFencesNV} */
 	public static void glDeleteFencesNV(IntBuffer fences) {
 		nglDeleteFencesNV(fences.remaining(), memAddress(fences));
 	}
 
-	/** Single value version of: {@link #glDeleteFencesNV DeleteFencesNV} */
 	public static void glDeleteFencesNV(int fence) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -87,7 +78,6 @@ public class NVFence {
 
 	// --- [ glGenFencesNV ] ---
 
-	/** Unsafe version of {@link #glGenFencesNV GenFencesNV} */
 	public static void nglGenFencesNV(int n, long fences) {
 		long __functionAddress = GLES.getCapabilities().glGenFencesNV;
 		if ( CHECKS )
@@ -95,18 +85,10 @@ public class NVFence {
 		callIPV(__functionAddress, n, fences);
 	}
 
-	public static void glGenFencesNV(int n, ByteBuffer fences) {
-		if ( CHECKS )
-			checkBuffer(fences, n << 2);
-		nglGenFencesNV(n, memAddress(fences));
-	}
-
-	/** Alternative version of: {@link #glGenFencesNV GenFencesNV} */
 	public static void glGenFencesNV(IntBuffer fences) {
 		nglGenFencesNV(fences.remaining(), memAddress(fences));
 	}
 
-	/** Single return value version of: {@link #glGenFencesNV GenFencesNV} */
 	public static int glGenFencesNV() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -138,7 +120,6 @@ public class NVFence {
 
 	// --- [ glGetFenceivNV ] ---
 
-	/** Unsafe version of {@link #glGetFenceivNV GetFenceivNV} */
 	public static void nglGetFenceivNV(int fence, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetFenceivNV;
 		if ( CHECKS )
@@ -146,20 +127,12 @@ public class NVFence {
 		callIIPV(__functionAddress, fence, pname, params);
 	}
 
-	public static void glGetFenceivNV(int fence, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetFenceivNV(fence, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetFenceivNV GetFenceivNV} */
 	public static void glGetFenceivNV(int fence, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFenceivNV(fence, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFenceivNV GetFenceivNV} */
 	public static int glGetFenceiNV(int fence, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

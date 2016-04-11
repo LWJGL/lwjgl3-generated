@@ -35,7 +35,6 @@ public class HIClientpixmap {
 
 	// --- [ eglCreatePixmapSurfaceHI ] ---
 
-	/** Unsafe version of {@link #eglCreatePixmapSurfaceHI CreatePixmapSurfaceHI} */
 	public static long neglCreatePixmapSurfaceHI(long dpy, long config, long pixmap) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePixmapSurfaceHI;
 		if ( CHECKS ) {

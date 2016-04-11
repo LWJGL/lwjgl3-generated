@@ -64,7 +64,6 @@ public class NVTextureArray {
 
 	// --- [ glTexImage3DNV ] ---
 
-	/** Unsafe version of {@link #glTexImage3DNV TexImage3DNV} */
 	public static void nglTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3DNV;
 		if ( CHECKS )
@@ -78,11 +77,10 @@ public class NVTextureArray {
 		nglTexImage3DNV(target, level, internalFormat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** Buffer object offset version of: {@link #glTexImage3DNV TexImage3DNV} */
-	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, long pixelsOffset) {
+	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglTexImage3DNV(target, level, internalFormat, width, height, depth, border, format, type, pixelsOffset);
+		nglTexImage3DNV(target, level, internalFormat, width, height, depth, border, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTexImage3DNV TexImage3DNV} */
@@ -108,7 +106,6 @@ public class NVTextureArray {
 
 	// --- [ glTexSubImage3DNV ] ---
 
-	/** Unsafe version of {@link #glTexSubImage3DNV TexSubImage3DNV} */
 	public static void nglTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3DNV;
 		if ( CHECKS )
@@ -122,11 +119,10 @@ public class NVTextureArray {
 		nglTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** Buffer object offset version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
-	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixelsOffset) {
+	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixelsOffset);
+		nglTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
@@ -161,7 +157,6 @@ public class NVTextureArray {
 
 	// --- [ glCompressedTexImage3DNV ] ---
 
-	/** Unsafe version of {@link #glCompressedTexImage3DNV CompressedTexImage3DNV} */
 	public static void nglCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = GLES.getCapabilities().glCompressedTexImage3DNV;
 		if ( CHECKS )
@@ -175,16 +170,14 @@ public class NVTextureArray {
 		nglCompressedTexImage3DNV(target, level, internalformat, width, height, depth, border, imageSize, memAddressSafe(data));
 	}
 
-	/** Buffer object offset version of: {@link #glCompressedTexImage3DNV CompressedTexImage3DNV} */
-	public static void glCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long dataOffset) {
+	public static void glCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexImage3DNV(target, level, internalformat, width, height, depth, border, imageSize, dataOffset);
+		nglCompressedTexImage3DNV(target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	// --- [ glCompressedTexSubImage3DNV ] ---
 
-	/** Unsafe version of {@link #glCompressedTexSubImage3DNV CompressedTexSubImage3DNV} */
 	public static void nglCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = GLES.getCapabilities().glCompressedTexSubImage3DNV;
 		if ( CHECKS )
@@ -198,11 +191,10 @@ public class NVTextureArray {
 		nglCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, memAddress(data));
 	}
 
-	/** Buffer object offset version of: {@link #glCompressedTexSubImage3DNV CompressedTexSubImage3DNV} */
-	public static void glCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long dataOffset) {
+	public static void glCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset);
+		nglCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	// --- [ glFramebufferTextureLayerNV ] ---

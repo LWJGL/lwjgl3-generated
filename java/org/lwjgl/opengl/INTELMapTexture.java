@@ -87,7 +87,18 @@ public class INTELMapTexture {
 
 	// --- [ glMapTexture2DINTEL ] ---
 
-	/** Unsafe version of {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
+	/**
+	 * Attempts to return a direct pointer to the graphics storage for 2D texture indicated by the {@code texture} parameter.
+	 * 
+	 * <p><b>LWJGL note</b>: If glMapTexture2DINTEL without an explicit length argument is used and direct-state-access functionality is not available in the
+	 * current context, the texture object must currently be bound to the GL_TEXTURE_2D target.</p>
+	 *
+	 * @param texture the texture to map
+	 * @param level   the mipmap level-of-detail of the texture
+	 * @param access  the type of access that will be performed by the application. One of:<br>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}, {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}
+	 * @param stride  returns the distance in bytes between subsequent rows in the texture
+	 * @param layout  returns the internal layout of the texture in the graphics memory
+	 */
 	public static long nglMapTexture2DINTEL(int texture, int level, int access, long stride, long layout) {
 		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
 		if ( CHECKS )
@@ -107,16 +118,27 @@ public class INTELMapTexture {
 	 * @param stride  returns the distance in bytes between subsequent rows in the texture
 	 * @param layout  returns the internal layout of the texture in the graphics memory
 	 */
-	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, ByteBuffer stride, ByteBuffer layout) {
+	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, IntBuffer stride, IntBuffer layout) {
 		if ( CHECKS ) {
-			checkBuffer(stride, 1 << 2);
-			checkBuffer(layout, 1 << 2);
+			checkBuffer(stride, 1);
+			checkBuffer(layout, 1);
 		}
 		long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
 		return memByteBuffer(__result, memGetInt(memAddress(stride)) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT));
 	}
 
-	/** Alternative version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
+	/**
+	 * Attempts to return a direct pointer to the graphics storage for 2D texture indicated by the {@code texture} parameter.
+	 * 
+	 * <p><b>LWJGL note</b>: If glMapTexture2DINTEL without an explicit length argument is used and direct-state-access functionality is not available in the
+	 * current context, the texture object must currently be bound to the GL_TEXTURE_2D target.</p>
+	 *
+	 * @param texture the texture to map
+	 * @param level   the mipmap level-of-detail of the texture
+	 * @param access  the type of access that will be performed by the application. One of:<br>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}, {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}
+	 * @param stride  returns the distance in bytes between subsequent rows in the texture
+	 * @param layout  returns the internal layout of the texture in the graphics memory
+	 */
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, IntBuffer stride, IntBuffer layout, ByteBuffer old_buffer) {
 		if ( CHECKS ) {
 			checkBuffer(stride, 1);
@@ -127,7 +149,18 @@ public class INTELMapTexture {
 		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
 	}
 
-	/** Explicit size alternative version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
+	/**
+	 * Attempts to return a direct pointer to the graphics storage for 2D texture indicated by the {@code texture} parameter.
+	 * 
+	 * <p><b>LWJGL note</b>: If glMapTexture2DINTEL without an explicit length argument is used and direct-state-access functionality is not available in the
+	 * current context, the texture object must currently be bound to the GL_TEXTURE_2D target.</p>
+	 *
+	 * @param texture the texture to map
+	 * @param level   the mipmap level-of-detail of the texture
+	 * @param access  the type of access that will be performed by the application. One of:<br>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}, {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}
+	 * @param stride  returns the distance in bytes between subsequent rows in the texture
+	 * @param layout  returns the internal layout of the texture in the graphics memory
+	 */
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, IntBuffer stride, IntBuffer layout, long length, ByteBuffer old_buffer) {
 		if ( CHECKS ) {
 			checkBuffer(stride, 1);

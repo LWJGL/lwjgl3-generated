@@ -59,7 +59,6 @@ public class NVSync {
 
 	// --- [ eglCreateFenceSyncNV ] ---
 
-	/** Unsafe version of {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
 	public static long neglCreateFenceSyncNV(long dpy, int condition, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateFenceSyncNV;
 		if ( CHECKS ) {
@@ -69,13 +68,6 @@ public class NVSync {
 		return callPIPP(__functionAddress, dpy, condition, attrib_list);
 	}
 
-	public static long eglCreateFenceSyncNV(long dpy, int condition, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreateFenceSyncNV(dpy, condition, memAddress(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
 	public static long eglCreateFenceSyncNV(long dpy, int condition, IntBuffer attrib_list) {
 		if ( CHECKS )
 			checkNT(attrib_list, EGL10.EGL_NONE);
@@ -128,7 +120,6 @@ public class NVSync {
 
 	// --- [ eglGetSyncAttribNV ] ---
 
-	/** Unsafe version of {@link #eglGetSyncAttribNV GetSyncAttribNV} */
 	public static int neglGetSyncAttribNV(long sync, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribNV;
 		if ( CHECKS ) {
@@ -138,13 +129,6 @@ public class NVSync {
 		return callPIPI(__functionAddress, sync, attribute, value);
 	}
 
-	public static int eglGetSyncAttribNV(long sync, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return neglGetSyncAttribNV(sync, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglGetSyncAttribNV GetSyncAttribNV} */
 	public static int eglGetSyncAttribNV(long sync, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);

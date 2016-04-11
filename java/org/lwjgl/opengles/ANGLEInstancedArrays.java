@@ -56,7 +56,6 @@ public class ANGLEInstancedArrays {
 
 	// --- [ glDrawElementsInstancedANGLE ] ---
 
-	/** Unsafe version of {@link #glDrawElementsInstancedANGLE DrawElementsInstancedANGLE} */
 	public static void nglDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedANGLE;
 		if ( CHECKS )
@@ -64,43 +63,30 @@ public class ANGLEInstancedArrays {
 		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
-	public static void glDrawElementsInstancedANGLE(int mode, int count, int type, ByteBuffer indices, int primcount) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsInstancedANGLE(mode, count, type, memAddress(indices), primcount);
-	}
-
-	/** Buffer object offset version of: {@link #glDrawElementsInstancedANGLE DrawElementsInstancedANGLE} */
-	public static void glDrawElementsInstancedANGLE(int mode, int count, int type, long indicesOffset, int primcount) {
+	public static void glDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawElementsInstancedANGLE(mode, count, type, indicesOffset, primcount);
+		nglDrawElementsInstancedANGLE(mode, count, type, indices, primcount);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsInstancedANGLE DrawElementsInstancedANGLE} */
 	public static void glDrawElementsInstancedANGLE(int mode, int type, ByteBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedANGLE(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedANGLE DrawElementsInstancedANGLE} */
 	public static void glDrawElementsInstancedANGLE(int mode, ByteBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedANGLE(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedANGLE DrawElementsInstancedANGLE} */
 	public static void glDrawElementsInstancedANGLE(int mode, ShortBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedANGLE(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedANGLE DrawElementsInstancedANGLE} */
 	public static void glDrawElementsInstancedANGLE(int mode, IntBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);

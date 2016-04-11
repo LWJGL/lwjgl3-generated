@@ -65,7 +65,6 @@ public class NVTransformFeedback2 {
 
 	// --- [ glDeleteTransformFeedbacksNV ] ---
 
-	/** Unsafe version of {@link #glDeleteTransformFeedbacksNV DeleteTransformFeedbacksNV} */
 	public static void nglDeleteTransformFeedbacksNV(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacksNV;
 		if ( CHECKS )
@@ -73,18 +72,10 @@ public class NVTransformFeedback2 {
 		callIPV(__functionAddress, n, ids);
 	}
 
-	public static void glDeleteTransformFeedbacksNV(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglDeleteTransformFeedbacksNV(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glDeleteTransformFeedbacksNV DeleteTransformFeedbacksNV} */
 	public static void glDeleteTransformFeedbacksNV(IntBuffer ids) {
 		nglDeleteTransformFeedbacksNV(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single value version of: {@link #glDeleteTransformFeedbacksNV DeleteTransformFeedbacksNV} */
 	public static void glDeleteTransformFeedbacksNV(int id) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -97,7 +88,6 @@ public class NVTransformFeedback2 {
 
 	// --- [ glGenTransformFeedbacksNV ] ---
 
-	/** Unsafe version of {@link #glGenTransformFeedbacksNV GenTransformFeedbacksNV} */
 	public static void nglGenTransformFeedbacksNV(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacksNV;
 		if ( CHECKS )
@@ -105,22 +95,12 @@ public class NVTransformFeedback2 {
 		callIPV(__functionAddress, n, ids);
 	}
 
-	public static void glGenTransformFeedbacksNV(int n, ByteBuffer ids) {
-		if ( CHECKS ) {
-			checkBuffer(ids, n << 2);
-			checkBuffer(ids, 1 << 2);
-		}
-		nglGenTransformFeedbacksNV(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glGenTransformFeedbacksNV GenTransformFeedbacksNV} */
 	public static void glGenTransformFeedbacksNV(IntBuffer ids) {
 		if ( CHECKS )
 			checkBuffer(ids, 1);
 		nglGenTransformFeedbacksNV(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single return value version of: {@link #glGenTransformFeedbacksNV GenTransformFeedbacksNV} */
 	public static int glGenTransformFeedbacksNV() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

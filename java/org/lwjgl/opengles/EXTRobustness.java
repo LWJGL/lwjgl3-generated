@@ -88,7 +88,6 @@ public class EXTRobustness {
 
 	// --- [ glReadnPixelsEXT ] ---
 
-	/** Unsafe version of {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void nglReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
 		if ( CHECKS )
@@ -96,22 +95,12 @@ public class EXTRobustness {
 		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
 	}
 
-	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			checkBuffer(data, bufSize);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
-		nglReadnPixelsEXT(x, y, width, height, format, type, bufSize, memAddress(data));
-	}
-
-	/** Buffer object offset version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
-	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long dataOffset) {
+	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglReadnPixelsEXT(x, y, width, height, format, type, bufSize, dataOffset);
+		nglReadnPixelsEXT(x, y, width, height, format, type, bufSize, data);
 	}
 
-	/** Alternative version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ByteBuffer data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -141,7 +130,6 @@ public class EXTRobustness {
 
 	// --- [ glGetnUniformfvEXT ] ---
 
-	/** Unsafe version of {@link #glGetnUniformfvEXT GetnUniformfvEXT} */
 	public static void nglGetnUniformfvEXT(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformfvEXT;
 		if ( CHECKS )
@@ -149,18 +137,10 @@ public class EXTRobustness {
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
-	public static void glGetnUniformfvEXT(int program, int location, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetnUniformfvEXT(program, location, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetnUniformfvEXT GetnUniformfvEXT} */
 	public static void glGetnUniformfvEXT(int program, int location, FloatBuffer params) {
 		nglGetnUniformfvEXT(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformfvEXT GetnUniformfvEXT} */
 	public static float glGetnUniformfEXT(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -174,7 +154,6 @@ public class EXTRobustness {
 
 	// --- [ glGetnUniformivEXT ] ---
 
-	/** Unsafe version of {@link #glGetnUniformivEXT GetnUniformivEXT} */
 	public static void nglGetnUniformivEXT(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformivEXT;
 		if ( CHECKS )
@@ -182,18 +161,10 @@ public class EXTRobustness {
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
-	public static void glGetnUniformivEXT(int program, int location, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetnUniformivEXT(program, location, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetnUniformivEXT GetnUniformivEXT} */
 	public static void glGetnUniformivEXT(int program, int location, IntBuffer params) {
 		nglGetnUniformivEXT(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformivEXT GetnUniformivEXT} */
 	public static int glGetnUniformiEXT(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

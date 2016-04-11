@@ -34,7 +34,15 @@ public class EXTStaticBuffer {
 
 	// --- [ alBufferDataStatic ] ---
 
-	/** Unsafe version of {@link #alBufferDataStatic BufferDataStatic} */
+	/**
+	 * Sets the sample data of the specified buffer.
+	 *
+	 * @param buffer the buffer handle
+	 * @param format the data format
+	 * @param data   the sample data
+	 * @param len    the data buffer size, in bytes
+	 * @param freq   the data frequency
+	 */
 	public static void nalBufferDataStatic(int buffer, int format, long data, int len, int freq) {
 		long __functionAddress = AL.getCapabilities().alBufferDataStatic;
 		if ( CHECKS )
@@ -48,16 +56,8 @@ public class EXTStaticBuffer {
 	 * @param buffer the buffer handle
 	 * @param format the data format
 	 * @param data   the sample data
-	 * @param len    the data buffer size, in bytes
 	 * @param freq   the data frequency
 	 */
-	public static void alBufferDataStatic(int buffer, int format, ByteBuffer data, int len, int freq) {
-		if ( CHECKS )
-			checkBuffer(data, len);
-		nalBufferDataStatic(buffer, format, memAddress(data), len, freq);
-	}
-
-	/** Alternative version of: {@link #alBufferDataStatic BufferDataStatic} */
 	public static void alBufferDataStatic(int buffer, int format, ByteBuffer data, int freq) {
 		nalBufferDataStatic(buffer, format, memAddress(data), data.remaining(), freq);
 	}

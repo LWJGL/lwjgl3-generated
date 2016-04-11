@@ -79,7 +79,6 @@ public class KHRDebug {
 
 	// --- [ eglDebugMessageControlKHR ] ---
 
-	/** Unsafe version of {@link #eglDebugMessageControlKHR DebugMessageControlKHR} */
 	public static int neglDebugMessageControlKHR(long callback, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglDebugMessageControlKHR;
 		if ( CHECKS )
@@ -87,18 +86,12 @@ public class KHRDebug {
 		return callPPI(__functionAddress, callback, attrib_list);
 	}
 
-	public static int eglDebugMessageControlKHR(EGLDebugMessageKHRCallback callback, ByteBuffer attrib_list) {
-		return neglDebugMessageControlKHR(callback.address(), memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglDebugMessageControlKHR DebugMessageControlKHR} */
 	public static int eglDebugMessageControlKHR(EGLDebugMessageKHRCallback callback, PointerBuffer attrib_list) {
 		return neglDebugMessageControlKHR(callback.address(), memAddressSafe(attrib_list));
 	}
 
 	// --- [ eglQueryDebugKHR ] ---
 
-	/** Unsafe version of {@link #eglQueryDebugKHR QueryDebugKHR} */
 	public static int neglQueryDebugKHR(int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryDebugKHR;
 		if ( CHECKS )
@@ -106,13 +99,6 @@ public class KHRDebug {
 		return callIPI(__functionAddress, attribute, value);
 	}
 
-	public static int eglQueryDebugKHR(int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << POINTER_SHIFT);
-		return neglQueryDebugKHR(attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQueryDebugKHR QueryDebugKHR} */
 	public static int eglQueryDebugKHR(int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);

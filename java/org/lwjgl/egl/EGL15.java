@@ -80,7 +80,6 @@ public class EGL15 {
 
 	// --- [ eglCreateSync ] ---
 
-	/** Unsafe version of {@link #eglCreateSync CreateSync} */
 	public static long neglCreateSync(long dpy, int type, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateSync;
 		if ( CHECKS ) {
@@ -90,13 +89,6 @@ public class EGL15 {
 		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
-	public static long eglCreateSync(long dpy, int type, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			checkNTP(attrib_list, EGL10.EGL_NONE);
-		return neglCreateSync(dpy, type, memAddress(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreateSync CreateSync} */
 	public static long eglCreateSync(long dpy, int type, PointerBuffer attrib_list) {
 		if ( CHECKS )
 			checkNT(attrib_list, EGL10.EGL_NONE);
@@ -129,7 +121,6 @@ public class EGL15 {
 
 	// --- [ eglGetSyncAttrib ] ---
 
-	/** Unsafe version of {@link #eglGetSyncAttrib GetSyncAttrib} */
 	public static int neglGetSyncAttrib(long dpy, long sync, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglGetSyncAttrib;
 		if ( CHECKS ) {
@@ -140,13 +131,6 @@ public class EGL15 {
 		return callPPIPI(__functionAddress, dpy, sync, attribute, value);
 	}
 
-	public static int eglGetSyncAttrib(long dpy, long sync, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << POINTER_SHIFT);
-		return neglGetSyncAttrib(dpy, sync, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglGetSyncAttrib GetSyncAttrib} */
 	public static int eglGetSyncAttrib(long dpy, long sync, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -155,7 +139,6 @@ public class EGL15 {
 
 	// --- [ eglCreateImage ] ---
 
-	/** Unsafe version of {@link #eglCreateImage CreateImage} */
 	public static long neglCreateImage(long dpy, long ctx, int target, long buffer, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateImage;
 		if ( CHECKS ) {
@@ -167,13 +150,6 @@ public class EGL15 {
 		return callPPIPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
 
-	public static long eglCreateImage(long dpy, long ctx, int target, long buffer, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
-		return neglCreateImage(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreateImage CreateImage} */
 	public static long eglCreateImage(long dpy, long ctx, int target, long buffer, PointerBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -194,7 +170,6 @@ public class EGL15 {
 
 	// --- [ eglGetPlatformDisplay ] ---
 
-	/** Unsafe version of {@link #eglGetPlatformDisplay GetPlatformDisplay} */
 	public static long neglGetPlatformDisplay(int platform, long native_display, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglGetPlatformDisplay;
 		if ( CHECKS ) {
@@ -204,13 +179,6 @@ public class EGL15 {
 		return callIPPP(__functionAddress, platform, native_display, attrib_list);
 	}
 
-	public static long eglGetPlatformDisplay(int platform, long native_display, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
-		return neglGetPlatformDisplay(platform, native_display, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglGetPlatformDisplay GetPlatformDisplay} */
 	public static long eglGetPlatformDisplay(int platform, long native_display, PointerBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -219,7 +187,6 @@ public class EGL15 {
 
 	// --- [ eglCreatePlatformWindowSurface ] ---
 
-	/** Unsafe version of {@link #eglCreatePlatformWindowSurface CreatePlatformWindowSurface} */
 	public static long neglCreatePlatformWindowSurface(long dpy, long config, long native_window, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePlatformWindowSurface;
 		if ( CHECKS ) {
@@ -231,13 +198,6 @@ public class EGL15 {
 		return callPPPPP(__functionAddress, dpy, config, native_window, attrib_list);
 	}
 
-	public static long eglCreatePlatformWindowSurface(long dpy, long config, long native_window, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
-		return neglCreatePlatformWindowSurface(dpy, config, native_window, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreatePlatformWindowSurface CreatePlatformWindowSurface} */
 	public static long eglCreatePlatformWindowSurface(long dpy, long config, long native_window, PointerBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -246,7 +206,6 @@ public class EGL15 {
 
 	// --- [ eglCreatePlatformPixmapSurface ] ---
 
-	/** Unsafe version of {@link #eglCreatePlatformPixmapSurface CreatePlatformPixmapSurface} */
 	public static long neglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePlatformPixmapSurface;
 		if ( CHECKS ) {
@@ -258,13 +217,6 @@ public class EGL15 {
 		return callPPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
 	}
 
-	public static long eglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
-		return neglCreatePlatformPixmapSurface(dpy, config, native_pixmap, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreatePlatformPixmapSurface CreatePlatformPixmapSurface} */
 	public static long eglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, PointerBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);

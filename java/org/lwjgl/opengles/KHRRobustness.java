@@ -128,7 +128,18 @@ public class KHRRobustness {
 
 	// --- [ glReadnPixelsKHR ] ---
 
-	/** Unsafe version of {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	/**
+	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x       the left pixel coordinate
+	 * @param y       the lower pixel coordinate
+	 * @param width   the number of pixels to read in the x-dimension
+	 * @param height  the number of pixels to read in the y-dimension
+	 * @param format  the pixel format
+	 * @param type    the pixel type
+	 * @param bufSize the maximum number of bytes to write into {@code data}
+	 * @param pixels  a buffer in which to place the returned pixel data
+	 */
 	public static void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
 		if ( CHECKS )
@@ -148,22 +159,23 @@ public class KHRRobustness {
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
-	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer pixels) {
-		if ( CHECKS ) {
-			checkBuffer(pixels, bufSize);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
-		nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, memAddress(pixels));
-	}
-
-	/** Buffer object offset version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
-	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixelsOffset) {
+	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, pixelsOffset);
+		nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, pixels);
 	}
 
-	/** Alternative version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	/**
+	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x      the left pixel coordinate
+	 * @param y      the lower pixel coordinate
+	 * @param width  the number of pixels to read in the x-dimension
+	 * @param height the number of pixels to read in the y-dimension
+	 * @param format the pixel format
+	 * @param type   the pixel type
+	 * @param pixels a buffer in which to place the returned pixel data
+	 */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -193,7 +205,14 @@ public class KHRRobustness {
 
 	// --- [ glGetnUniformfvKHR ] ---
 
-	/** Unsafe version of {@link #glGetnUniformfvKHR GetnUniformfvKHR} */
+	/**
+	 * Returns the value or values of a uniform of the default uniform block.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 * @param bufSize  the maximum number of bytes to write to {@code params}
+	 * @param params   the buffer in which to place the returned data
+	 */
 	public static void nglGetnUniformfvKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformfvKHR;
 		if ( CHECKS )
@@ -206,21 +225,18 @@ public class KHRRobustness {
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformfvKHR(int program, int location, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetnUniformfvKHR(program, location, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetnUniformfvKHR GetnUniformfvKHR} */
 	public static void glGetnUniformfvKHR(int program, int location, FloatBuffer params) {
 		nglGetnUniformfvKHR(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformfvKHR GetnUniformfvKHR} */
+	/**
+	 * Returns the value or values of a uniform of the default uniform block.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 */
 	public static float glGetnUniformfKHR(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -234,7 +250,14 @@ public class KHRRobustness {
 
 	// --- [ glGetnUniformivKHR ] ---
 
-	/** Unsafe version of {@link #glGetnUniformivKHR GetnUniformivKHR} */
+	/**
+	 * Integer version of {@link #glGetnUniformfvKHR GetnUniformfvKHR}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 * @param bufSize  the maximum number of bytes to write to {@code params}
+	 * @param params   the buffer in which to place the returned data
+	 */
 	public static void nglGetnUniformivKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformivKHR;
 		if ( CHECKS )
@@ -247,21 +270,18 @@ public class KHRRobustness {
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformivKHR(int program, int location, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetnUniformivKHR(program, location, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetnUniformivKHR GetnUniformivKHR} */
 	public static void glGetnUniformivKHR(int program, int location, FloatBuffer params) {
 		nglGetnUniformivKHR(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformivKHR GetnUniformivKHR} */
+	/**
+	 * Integer version of {@link #glGetnUniformfvKHR GetnUniformfvKHR}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 */
 	public static float glGetnUniformiKHR(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -275,7 +295,14 @@ public class KHRRobustness {
 
 	// --- [ glGetnUniformuivKHR ] ---
 
-	/** Unsafe version of {@link #glGetnUniformuivKHR GetnUniformuivKHR} */
+	/**
+	 * Unsigned version of {@link #glGetnUniformivKHR GetnUniformivKHR}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 * @param bufSize  the maximum number of bytes to write to {@code params}
+	 * @param params   the buffer in which to place the returned data
+	 */
 	public static void nglGetnUniformuivKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformuivKHR;
 		if ( CHECKS )
@@ -288,21 +315,18 @@ public class KHRRobustness {
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformuivKHR(int program, int location, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetnUniformuivKHR(program, location, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetnUniformuivKHR GetnUniformuivKHR} */
 	public static void glGetnUniformuivKHR(int program, int location, FloatBuffer params) {
 		nglGetnUniformuivKHR(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformuivKHR GetnUniformuivKHR} */
+	/**
+	 * Unsigned version of {@link #glGetnUniformivKHR GetnUniformivKHR}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 */
 	public static float glGetnUniformuiKHR(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

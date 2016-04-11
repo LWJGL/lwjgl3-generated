@@ -143,7 +143,6 @@ public class EXTTransformFeedback {
 
 	// --- [ glTransformFeedbackVaryingsEXT ] ---
 
-	/** Unsafe version of {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
 	public static void nglTransformFeedbackVaryingsEXT(int program, int count, long varyings, int bufferMode) {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackVaryingsEXT;
 		if ( CHECKS )
@@ -151,18 +150,10 @@ public class EXTTransformFeedback {
 		callIIPIV(__functionAddress, program, count, varyings, bufferMode);
 	}
 
-	public static void glTransformFeedbackVaryingsEXT(int program, int count, ByteBuffer varyings, int bufferMode) {
-		if ( CHECKS )
-			checkBuffer(varyings, count << POINTER_SHIFT);
-		nglTransformFeedbackVaryingsEXT(program, count, memAddress(varyings), bufferMode);
-	}
-
-	/** Alternative version of: {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
 	public static void glTransformFeedbackVaryingsEXT(int program, PointerBuffer varyings, int bufferMode) {
 		nglTransformFeedbackVaryingsEXT(program, varyings.remaining(), memAddress(varyings), bufferMode);
 	}
 
-	/** Array version of: {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
 	public static void glTransformFeedbackVaryingsEXT(int program, CharSequence[] varyings, int bufferMode) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -174,7 +165,6 @@ public class EXTTransformFeedback {
 		}
 	}
 
-	/** Single varying version of: {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
 	public static void glTransformFeedbackVaryingsEXT(int program, CharSequence varying, int bufferMode) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -188,7 +178,6 @@ public class EXTTransformFeedback {
 
 	// --- [ glGetTransformFeedbackVaryingEXT ] ---
 
-	/** Unsafe version of {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
 	public static void nglGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVaryingEXT;
 		if ( CHECKS )
@@ -196,17 +185,6 @@ public class EXTTransformFeedback {
 		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
-	public static void glGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( CHECKS ) {
-			checkBuffer(name, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-			checkBuffer(size, 1 << 2);
-			checkBuffer(type, 1 << 2);
-		}
-		nglGetTransformFeedbackVaryingEXT(program, index, bufSize, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
-	}
-
-	/** Alternative version of: {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
 	public static void glGetTransformFeedbackVaryingEXT(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
@@ -216,7 +194,6 @@ public class EXTTransformFeedback {
 		nglGetTransformFeedbackVaryingEXT(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
-	/** String return version of: {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
 	public static String glGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, IntBuffer size, IntBuffer type) {
 		if ( CHECKS ) {
 			checkBuffer(size, 1);
@@ -233,7 +210,6 @@ public class EXTTransformFeedback {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
 	public static String glGetTransformFeedbackVaryingEXT(int program, int index, IntBuffer size, IntBuffer type) {
 		int bufSize = GL.getCapabilities().OpenGL20
 			? GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT)
@@ -255,7 +231,6 @@ public class EXTTransformFeedback {
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
-	/** Unsafe version of {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static void nglGetIntegerIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
 		if ( CHECKS )
@@ -263,20 +238,12 @@ public class EXTTransformFeedback {
 		callIIPV(__functionAddress, param, index, values);
 	}
 
-	public static void glGetIntegerIndexedvEXT(int param, int index, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nglGetIntegerIndexedvEXT(param, index, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static void glGetIntegerIndexedvEXT(int param, int index, IntBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
 		nglGetIntegerIndexedvEXT(param, index, memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static int glGetIntegerIndexedEXT(int param, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -290,7 +257,6 @@ public class EXTTransformFeedback {
 
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
-	/** Unsafe version of {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	public static void nglGetBooleanIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = GL.getCapabilities().glGetBooleanIndexedvEXT;
 		if ( CHECKS )
@@ -304,7 +270,6 @@ public class EXTTransformFeedback {
 		nglGetBooleanIndexedvEXT(param, index, memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	public static byte glGetBooleanIndexedEXT(int param, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

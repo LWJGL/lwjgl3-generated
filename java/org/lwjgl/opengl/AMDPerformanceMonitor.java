@@ -54,7 +54,6 @@ public class AMDPerformanceMonitor {
 
 	// --- [ glGetPerfMonitorGroupsAMD ] ---
 
-	/** Unsafe version of {@link #glGetPerfMonitorGroupsAMD GetPerfMonitorGroupsAMD} */
 	public static void nglGetPerfMonitorGroupsAMD(long numGroups, int groupsSize, long groups) {
 		long __functionAddress = GL.getCapabilities().glGetPerfMonitorGroupsAMD;
 		if ( CHECKS )
@@ -62,15 +61,6 @@ public class AMDPerformanceMonitor {
 		callPIPV(__functionAddress, numGroups, groupsSize, groups);
 	}
 
-	public static void glGetPerfMonitorGroupsAMD(ByteBuffer numGroups, int groupsSize, ByteBuffer groups) {
-		if ( CHECKS ) {
-			if ( numGroups != null ) checkBuffer(numGroups, 1 << 2);
-			if ( groups != null ) checkBuffer(groups, groupsSize << 2);
-		}
-		nglGetPerfMonitorGroupsAMD(memAddressSafe(numGroups), groupsSize, memAddressSafe(groups));
-	}
-
-	/** Alternative version of: {@link #glGetPerfMonitorGroupsAMD GetPerfMonitorGroupsAMD} */
 	public static void glGetPerfMonitorGroupsAMD(IntBuffer numGroups, IntBuffer groups) {
 		if ( CHECKS )
 			if ( numGroups != null ) checkBuffer(numGroups, 1);
@@ -79,7 +69,6 @@ public class AMDPerformanceMonitor {
 
 	// --- [ glGetPerfMonitorCountersAMD ] ---
 
-	/** Unsafe version of {@link #glGetPerfMonitorCountersAMD GetPerfMonitorCountersAMD} */
 	public static void nglGetPerfMonitorCountersAMD(int group, long numCounters, long maxActiveCounters, int counterSize, long counters) {
 		long __functionAddress = GL.getCapabilities().glGetPerfMonitorCountersAMD;
 		if ( CHECKS )
@@ -87,16 +76,6 @@ public class AMDPerformanceMonitor {
 		callIPPIPV(__functionAddress, group, numCounters, maxActiveCounters, counterSize, counters);
 	}
 
-	public static void glGetPerfMonitorCountersAMD(int group, ByteBuffer numCounters, ByteBuffer maxActiveCounters, int counterSize, ByteBuffer counters) {
-		if ( CHECKS ) {
-			checkBuffer(numCounters, 1 << 2);
-			checkBuffer(maxActiveCounters, 1 << 2);
-			checkBuffer(counters, counterSize << 2);
-		}
-		nglGetPerfMonitorCountersAMD(group, memAddress(numCounters), memAddress(maxActiveCounters), counterSize, memAddress(counters));
-	}
-
-	/** Alternative version of: {@link #glGetPerfMonitorCountersAMD GetPerfMonitorCountersAMD} */
 	public static void glGetPerfMonitorCountersAMD(int group, IntBuffer numCounters, IntBuffer maxActiveCounters, IntBuffer counters) {
 		if ( CHECKS ) {
 			checkBuffer(numCounters, 1);
@@ -107,7 +86,6 @@ public class AMDPerformanceMonitor {
 
 	// --- [ glGetPerfMonitorGroupStringAMD ] ---
 
-	/** Unsafe version of {@link #glGetPerfMonitorGroupStringAMD GetPerfMonitorGroupStringAMD} */
 	public static void nglGetPerfMonitorGroupStringAMD(int group, int bufSize, long length, long groupString) {
 		long __functionAddress = GL.getCapabilities().glGetPerfMonitorGroupStringAMD;
 		if ( CHECKS )
@@ -115,15 +93,6 @@ public class AMDPerformanceMonitor {
 		callIIPPV(__functionAddress, group, bufSize, length, groupString);
 	}
 
-	public static void glGetPerfMonitorGroupStringAMD(int group, int bufSize, ByteBuffer length, ByteBuffer groupString) {
-		if ( CHECKS ) {
-			checkBuffer(groupString, bufSize);
-			checkBuffer(length, 1 << 2);
-		}
-		nglGetPerfMonitorGroupStringAMD(group, bufSize, memAddress(length), memAddress(groupString));
-	}
-
-	/** Alternative version of: {@link #glGetPerfMonitorGroupStringAMD GetPerfMonitorGroupStringAMD} */
 	public static void glGetPerfMonitorGroupStringAMD(int group, IntBuffer length, ByteBuffer groupString) {
 		if ( CHECKS )
 			checkBuffer(length, 1);
@@ -132,7 +101,6 @@ public class AMDPerformanceMonitor {
 
 	// --- [ glGetPerfMonitorCounterStringAMD ] ---
 
-	/** Unsafe version of {@link #glGetPerfMonitorCounterStringAMD GetPerfMonitorCounterStringAMD} */
 	public static void nglGetPerfMonitorCounterStringAMD(int group, int counter, int bufSize, long length, long counterString) {
 		long __functionAddress = GL.getCapabilities().glGetPerfMonitorCounterStringAMD;
 		if ( CHECKS )
@@ -140,15 +108,6 @@ public class AMDPerformanceMonitor {
 		callIIIPPV(__functionAddress, group, counter, bufSize, length, counterString);
 	}
 
-	public static void glGetPerfMonitorCounterStringAMD(int group, int counter, int bufSize, ByteBuffer length, ByteBuffer counterString) {
-		if ( CHECKS ) {
-			if ( counterString != null ) checkBuffer(counterString, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetPerfMonitorCounterStringAMD(group, counter, bufSize, memAddressSafe(length), memAddressSafe(counterString));
-	}
-
-	/** Alternative version of: {@link #glGetPerfMonitorCounterStringAMD GetPerfMonitorCounterStringAMD} */
 	public static void glGetPerfMonitorCounterStringAMD(int group, int counter, IntBuffer length, ByteBuffer counterString) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
@@ -157,7 +116,6 @@ public class AMDPerformanceMonitor {
 
 	// --- [ glGetPerfMonitorCounterInfoAMD ] ---
 
-	/** Unsafe version of {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
 	public static void nglGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetPerfMonitorCounterInfoAMD;
 		if ( CHECKS )
@@ -187,7 +145,6 @@ public class AMDPerformanceMonitor {
 
 	// --- [ glGenPerfMonitorsAMD ] ---
 
-	/** Unsafe version of {@link #glGenPerfMonitorsAMD GenPerfMonitorsAMD} */
 	public static void nglGenPerfMonitorsAMD(int n, long monitors) {
 		long __functionAddress = GL.getCapabilities().glGenPerfMonitorsAMD;
 		if ( CHECKS )
@@ -195,18 +152,10 @@ public class AMDPerformanceMonitor {
 		callIPV(__functionAddress, n, monitors);
 	}
 
-	public static void glGenPerfMonitorsAMD(int n, ByteBuffer monitors) {
-		if ( CHECKS )
-			checkBuffer(monitors, n << 2);
-		nglGenPerfMonitorsAMD(n, memAddress(monitors));
-	}
-
-	/** Alternative version of: {@link #glGenPerfMonitorsAMD GenPerfMonitorsAMD} */
 	public static void glGenPerfMonitorsAMD(IntBuffer monitors) {
 		nglGenPerfMonitorsAMD(monitors.remaining(), memAddress(monitors));
 	}
 
-	/** Single return value version of: {@link #glGenPerfMonitorsAMD GenPerfMonitorsAMD} */
 	public static int glGenPerfMonitorsAMD() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -220,7 +169,6 @@ public class AMDPerformanceMonitor {
 
 	// --- [ glDeletePerfMonitorsAMD ] ---
 
-	/** Unsafe version of {@link #glDeletePerfMonitorsAMD DeletePerfMonitorsAMD} */
 	public static void nglDeletePerfMonitorsAMD(int n, long monitors) {
 		long __functionAddress = GL.getCapabilities().glDeletePerfMonitorsAMD;
 		if ( CHECKS )
@@ -228,18 +176,10 @@ public class AMDPerformanceMonitor {
 		callIPV(__functionAddress, n, monitors);
 	}
 
-	public static void glDeletePerfMonitorsAMD(int n, ByteBuffer monitors) {
-		if ( CHECKS )
-			checkBuffer(monitors, n << 2);
-		nglDeletePerfMonitorsAMD(n, memAddress(monitors));
-	}
-
-	/** Alternative version of: {@link #glDeletePerfMonitorsAMD DeletePerfMonitorsAMD} */
 	public static void glDeletePerfMonitorsAMD(IntBuffer monitors) {
 		nglDeletePerfMonitorsAMD(monitors.remaining(), memAddress(monitors));
 	}
 
-	/** Single value version of: {@link #glDeletePerfMonitorsAMD DeletePerfMonitorsAMD} */
 	public static void glDeletePerfMonitorsAMD(int monitor) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -252,7 +192,6 @@ public class AMDPerformanceMonitor {
 
 	// --- [ glSelectPerfMonitorCountersAMD ] ---
 
-	/** Unsafe version of {@link #glSelectPerfMonitorCountersAMD SelectPerfMonitorCountersAMD} */
 	public static void nglSelectPerfMonitorCountersAMD(int monitor, boolean enable, int group, int numCounters, long counterList) {
 		long __functionAddress = GL.getCapabilities().glSelectPerfMonitorCountersAMD;
 		if ( CHECKS )
@@ -260,13 +199,6 @@ public class AMDPerformanceMonitor {
 		callIZIIPV(__functionAddress, monitor, enable, group, numCounters, counterList);
 	}
 
-	public static void glSelectPerfMonitorCountersAMD(int monitor, boolean enable, int group, int numCounters, ByteBuffer counterList) {
-		if ( CHECKS )
-			checkBuffer(counterList, numCounters << 2);
-		nglSelectPerfMonitorCountersAMD(monitor, enable, group, numCounters, memAddress(counterList));
-	}
-
-	/** Alternative version of: {@link #glSelectPerfMonitorCountersAMD SelectPerfMonitorCountersAMD} */
 	public static void glSelectPerfMonitorCountersAMD(int monitor, boolean enable, int group, IntBuffer counterList) {
 		nglSelectPerfMonitorCountersAMD(monitor, enable, group, counterList.remaining(), memAddress(counterList));
 	}
@@ -291,7 +223,6 @@ public class AMDPerformanceMonitor {
 
 	// --- [ glGetPerfMonitorCounterDataAMD ] ---
 
-	/** Unsafe version of {@link #glGetPerfMonitorCounterDataAMD GetPerfMonitorCounterDataAMD} */
 	public static void nglGetPerfMonitorCounterDataAMD(int monitor, int pname, int dataSize, long data, long bytesWritten) {
 		long __functionAddress = GL.getCapabilities().glGetPerfMonitorCounterDataAMD;
 		if ( CHECKS )
@@ -299,15 +230,6 @@ public class AMDPerformanceMonitor {
 		callIIIPPV(__functionAddress, monitor, pname, dataSize, data, bytesWritten);
 	}
 
-	public static void glGetPerfMonitorCounterDataAMD(int monitor, int pname, int dataSize, ByteBuffer data, ByteBuffer bytesWritten) {
-		if ( CHECKS ) {
-			checkBuffer(data, dataSize << 2);
-			if ( bytesWritten != null ) checkBuffer(bytesWritten, 1 << 2);
-		}
-		nglGetPerfMonitorCounterDataAMD(monitor, pname, dataSize, memAddress(data), memAddressSafe(bytesWritten));
-	}
-
-	/** Alternative version of: {@link #glGetPerfMonitorCounterDataAMD GetPerfMonitorCounterDataAMD} */
 	public static void glGetPerfMonitorCounterDataAMD(int monitor, int pname, IntBuffer data, IntBuffer bytesWritten) {
 		if ( CHECKS )
 			if ( bytesWritten != null ) checkBuffer(bytesWritten, 1);

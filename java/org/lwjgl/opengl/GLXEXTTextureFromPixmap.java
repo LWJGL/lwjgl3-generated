@@ -91,7 +91,15 @@ public class GLXEXTTextureFromPixmap {
 
 	// --- [ glXBindTexImageEXT ] ---
 
-	/** Unsafe version of {@link #glXBindTexImageEXT BindTexImageEXT} */
+	/**
+	 * Defines a one- or two-dimensional texture image. The texture image is taken from {@code buffer} and need not be copied. The texture target, the texture
+	 * format, and the size of the texture components are derived from attributes of {@code drawable}.
+	 *
+	 * @param display     the connection to the X server
+	 * @param drawable    the drawable
+	 * @param buffer      the buffer
+	 * @param attrib_list an optional null-terminated list of attributes
+	 */
 	public static void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXBindTexImageEXT;
 		if ( CHECKS ) {
@@ -111,13 +119,6 @@ public class GLXEXTTextureFromPixmap {
 	 * @param buffer      the buffer
 	 * @param attrib_list an optional null-terminated list of attributes
 	 */
-	public static void glXBindTexImageEXT(long display, long drawable, int buffer, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list);
-		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #glXBindTexImageEXT BindTexImageEXT} */
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);

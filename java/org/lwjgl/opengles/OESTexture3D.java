@@ -52,7 +52,6 @@ public class OESTexture3D {
 
 	// --- [ glTexImage3DOES ] ---
 
-	/** Unsafe version of {@link #glTexImage3DOES TexImage3DOES} */
 	public static void nglTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3DOES;
 		if ( CHECKS )
@@ -66,11 +65,10 @@ public class OESTexture3D {
 		nglTexImage3DOES(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** Buffer object offset version of: {@link #glTexImage3DOES TexImage3DOES} */
-	public static void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixelsOffset) {
+	public static void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglTexImage3DOES(target, level, internalformat, width, height, depth, border, format, type, pixelsOffset);
+		nglTexImage3DOES(target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTexImage3DOES TexImage3DOES} */
@@ -103,7 +101,6 @@ public class OESTexture3D {
 
 	// --- [ glTexSubImage3DOES ] ---
 
-	/** Unsafe version of {@link #glTexSubImage3DOES TexSubImage3DOES} */
 	public static void nglTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3DOES;
 		if ( CHECKS )
@@ -117,11 +114,10 @@ public class OESTexture3D {
 		nglTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** Buffer object offset version of: {@link #glTexSubImage3DOES TexSubImage3DOES} */
-	public static void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixelsOffset) {
+	public static void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixelsOffset);
+		nglTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTexSubImage3DOES TexSubImage3DOES} */
@@ -163,7 +159,6 @@ public class OESTexture3D {
 
 	// --- [ glCompressedTexImage3DOES ] ---
 
-	/** Unsafe version of {@link #glCompressedTexImage3DOES CompressedTexImage3DOES} */
 	public static void nglCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = GLES.getCapabilities().glCompressedTexImage3DOES;
 		if ( CHECKS )
@@ -171,22 +166,12 @@ public class OESTexture3D {
 		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
-	public static void glCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			if ( data != null ) checkBuffer(data, imageSize);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTexImage3DOES(target, level, internalformat, width, height, depth, border, imageSize, memAddressSafe(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTexImage3DOES CompressedTexImage3DOES} */
-	public static void glCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long dataOffset) {
+	public static void glCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexImage3DOES(target, level, internalformat, width, height, depth, border, imageSize, dataOffset);
+		nglCompressedTexImage3DOES(target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTexImage3DOES CompressedTexImage3DOES} */
 	public static void glCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -195,7 +180,6 @@ public class OESTexture3D {
 
 	// --- [ glCompressedTexSubImage3DOES ] ---
 
-	/** Unsafe version of {@link #glCompressedTexSubImage3DOES CompressedTexSubImage3DOES} */
 	public static void nglCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = GLES.getCapabilities().glCompressedTexSubImage3DOES;
 		if ( CHECKS )
@@ -203,22 +187,12 @@ public class OESTexture3D {
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
-	public static void glCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			checkBuffer(data, imageSize);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, memAddress(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTexSubImage3DOES CompressedTexSubImage3DOES} */
-	public static void glCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long dataOffset) {
+	public static void glCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset);
+		nglCompressedTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTexSubImage3DOES CompressedTexSubImage3DOES} */
 	public static void glCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);

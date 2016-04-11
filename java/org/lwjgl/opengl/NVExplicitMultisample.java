@@ -70,7 +70,6 @@ public class NVExplicitMultisample {
 
 	// --- [ glGetMultisamplefvNV ] ---
 
-	/** Unsafe version of {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
 	public static void nglGetMultisamplefvNV(int pname, int index, long val) {
 		long __functionAddress = GL.getCapabilities().glGetMultisamplefvNV;
 		if ( CHECKS )
@@ -78,13 +77,6 @@ public class NVExplicitMultisample {
 		callIIPV(__functionAddress, pname, index, val);
 	}
 
-	public static void glGetMultisamplefvNV(int pname, int index, ByteBuffer val) {
-		if ( CHECKS )
-			checkBuffer(val, 2 << 2);
-		nglGetMultisamplefvNV(pname, index, memAddress(val));
-	}
-
-	/** Alternative version of: {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
 	public static void glGetMultisamplefvNV(int pname, int index, FloatBuffer val) {
 		if ( CHECKS )
 			checkBuffer(val, 2);

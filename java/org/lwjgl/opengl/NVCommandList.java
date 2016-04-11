@@ -192,7 +192,12 @@ public class NVCommandList {
 
 	// --- [ glCreateStatesNV ] ---
 
-	/** Unsafe version of {@link #glCreateStatesNV CreateStatesNV} */
+	/**
+	 * Returns {@code n} previously unused state object names in {@code states}, and creates a state object in the initial state for each name.
+	 *
+	 * @param n      the number of state object names to create
+	 * @param states the buffer in which to write the created state object names
+	 */
 	public static void nglCreateStatesNV(int n, long states) {
 		long __functionAddress = GL.getCapabilities().glCreateStatesNV;
 		if ( CHECKS )
@@ -203,21 +208,13 @@ public class NVCommandList {
 	/**
 	 * Returns {@code n} previously unused state object names in {@code states}, and creates a state object in the initial state for each name.
 	 *
-	 * @param n      the number of state object names to create
 	 * @param states the buffer in which to write the created state object names
 	 */
-	public static void glCreateStatesNV(int n, ByteBuffer states) {
-		if ( CHECKS )
-			checkBuffer(states, n << 2);
-		nglCreateStatesNV(n, memAddress(states));
-	}
-
-	/** Alternative version of: {@link #glCreateStatesNV CreateStatesNV} */
 	public static void glCreateStatesNV(IntBuffer states) {
 		nglCreateStatesNV(states.remaining(), memAddress(states));
 	}
 
-	/** Single return value version of: {@link #glCreateStatesNV CreateStatesNV} */
+	/** Returns {@code n} previously unused state object names in {@code states}, and creates a state object in the initial state for each name. */
 	public static int glCreateStatesNV() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -231,7 +228,13 @@ public class NVCommandList {
 
 	// --- [ glDeleteStatesNV ] ---
 
-	/** Unsafe version of {@link #glDeleteStatesNV DeleteStatesNV} */
+	/**
+	 * Deletes {@code n} names of state objects given by {@code states}. Once a state object is deleted it has no contents and its name is again unused.
+	 * Unused names in {@code states} are silently ignored, as is the value zero.
+	 *
+	 * @param n      the number of state object names to delete
+	 * @param states the buffer from which to read the state object names to delete
+	 */
 	public static void nglDeleteStatesNV(int n, long states) {
 		long __functionAddress = GL.getCapabilities().glDeleteStatesNV;
 		if ( CHECKS )
@@ -243,21 +246,16 @@ public class NVCommandList {
 	 * Deletes {@code n} names of state objects given by {@code states}. Once a state object is deleted it has no contents and its name is again unused.
 	 * Unused names in {@code states} are silently ignored, as is the value zero.
 	 *
-	 * @param n      the number of state object names to delete
 	 * @param states the buffer from which to read the state object names to delete
 	 */
-	public static void glDeleteStatesNV(int n, ByteBuffer states) {
-		if ( CHECKS )
-			checkBuffer(states, n << 2);
-		nglDeleteStatesNV(n, memAddress(states));
-	}
-
-	/** Alternative version of: {@link #glDeleteStatesNV DeleteStatesNV} */
 	public static void glDeleteStatesNV(IntBuffer states) {
 		nglDeleteStatesNV(states.remaining(), memAddress(states));
 	}
 
-	/** Single value version of: {@link #glDeleteStatesNV DeleteStatesNV} */
+	/**
+	 * Deletes {@code n} names of state objects given by {@code states}. Once a state object is deleted it has no contents and its name is again unused.
+	 * Unused names in {@code states} are silently ignored, as is the value zero.
+	 */
 	public static void glDeleteStatesNV(int state) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -347,7 +345,16 @@ public class NVCommandList {
 
 	// --- [ glDrawCommandsNV ] ---
 
-	/** Unsafe version of {@link #glDrawCommandsNV DrawCommandsNV} */
+	/**
+	 * Accepts arrays of buffer addresses as an array of offsets {@code indirects} into a buffer named by {@code buffer}, an array of command lengths in
+	 * {@code sizes}. All arrays have {@code count} entries.
+	 *
+	 * @param primitiveMode the primitive mode
+	 * @param buffer        the buffer object name
+	 * @param indirects     the array of offsets into the buffer
+	 * @param sizes         the array of command lengths
+	 * @param count         the number of commands
+	 */
 	public static void nglDrawCommandsNV(int primitiveMode, int buffer, long indirects, long sizes, int count) {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsNV;
 		if ( CHECKS )
@@ -363,17 +370,7 @@ public class NVCommandList {
 	 * @param buffer        the buffer object name
 	 * @param indirects     the array of offsets into the buffer
 	 * @param sizes         the array of command lengths
-	 * @param count         the number of commands
 	 */
-	public static void glDrawCommandsNV(int primitiveMode, int buffer, ByteBuffer indirects, ByteBuffer sizes, int count) {
-		if ( CHECKS ) {
-			checkBuffer(indirects, count << POINTER_SHIFT);
-			checkBuffer(sizes, count << 2);
-		}
-		nglDrawCommandsNV(primitiveMode, buffer, memAddress(indirects), memAddress(sizes), count);
-	}
-
-	/** Alternative version of: {@link #glDrawCommandsNV DrawCommandsNV} */
 	public static void glDrawCommandsNV(int primitiveMode, int buffer, PointerBuffer indirects, IntBuffer sizes) {
 		if ( CHECKS )
 			checkBuffer(sizes, indirects.remaining());
@@ -382,7 +379,15 @@ public class NVCommandList {
 
 	// --- [ glDrawCommandsAddressNV ] ---
 
-	/** Unsafe version of {@link #glDrawCommandsAddressNV DrawCommandsAddressNV} */
+	/**
+	 * Accepts arrays of buffer addresses as an array of GPU addresses {@code indirects}, an array of sequence lengths in {@code sizes}. All arrays have
+	 * {@code count} entries.
+	 *
+	 * @param primitiveMode the primitive mode
+	 * @param indirects     the array of GPU addreses
+	 * @param sizes         the array of command lengths
+	 * @param count         the number of commands
+	 */
 	public static void nglDrawCommandsAddressNV(int primitiveMode, long indirects, long sizes, int count) {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsAddressNV;
 		if ( CHECKS )
@@ -397,17 +402,7 @@ public class NVCommandList {
 	 * @param primitiveMode the primitive mode
 	 * @param indirects     the array of GPU addreses
 	 * @param sizes         the array of command lengths
-	 * @param count         the number of commands
 	 */
-	public static void glDrawCommandsAddressNV(int primitiveMode, ByteBuffer indirects, ByteBuffer sizes, int count) {
-		if ( CHECKS ) {
-			checkBuffer(indirects, count << 3);
-			checkBuffer(sizes, count << 2);
-		}
-		nglDrawCommandsAddressNV(primitiveMode, memAddress(indirects), memAddress(sizes), count);
-	}
-
-	/** Alternative version of: {@link #glDrawCommandsAddressNV DrawCommandsAddressNV} */
 	public static void glDrawCommandsAddressNV(int primitiveMode, LongBuffer indirects, IntBuffer sizes) {
 		if ( CHECKS )
 			checkBuffer(sizes, indirects.remaining());
@@ -416,7 +411,19 @@ public class NVCommandList {
 
 	// --- [ glDrawCommandsStatesNV ] ---
 
-	/** Unsafe version of {@link #glDrawCommandsStatesNV DrawCommandsStatesNV} */
+	/**
+	 * Accepts arrays of buffer addresses as an array of offsets {@code indirects} into a buffer named by {@code buffer}, an array of command lengths in
+	 * {@code sizes}, and an array of state object names in {@code states}, of which all names must be non-zero. Frame buffer object names are stored in
+	 * {@code fbos} and can be either zero or non-zero. All arrays have {@code count} entries. The residency of textures used as attachment inside the state
+	 * object's captured fbo or the passed fbo must managed explicitly.
+	 *
+	 * @param buffer    the buffer object name
+	 * @param indirects the array of offsets into the buffer
+	 * @param sizes     the array of command lengths
+	 * @param states    the array of state object names
+	 * @param fbos      the array of framebuffer object names
+	 * @param count     the number of commands
+	 */
 	public static void nglDrawCommandsStatesNV(int buffer, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesNV;
 		if ( CHECKS )
@@ -435,19 +442,7 @@ public class NVCommandList {
 	 * @param sizes     the array of command lengths
 	 * @param states    the array of state object names
 	 * @param fbos      the array of framebuffer object names
-	 * @param count     the number of commands
 	 */
-	public static void glDrawCommandsStatesNV(int buffer, ByteBuffer indirects, ByteBuffer sizes, ByteBuffer states, ByteBuffer fbos, int count) {
-		if ( CHECKS ) {
-			checkBuffer(indirects, count << POINTER_SHIFT);
-			checkBuffer(sizes, count << 2);
-			checkBuffer(states, count << 2);
-			checkBuffer(fbos, count << 2);
-		}
-		nglDrawCommandsStatesNV(buffer, memAddress(indirects), memAddress(sizes), memAddress(states), memAddress(fbos), count);
-	}
-
-	/** Alternative version of: {@link #glDrawCommandsStatesNV DrawCommandsStatesNV} */
 	public static void glDrawCommandsStatesNV(int buffer, PointerBuffer indirects, IntBuffer sizes, IntBuffer states, IntBuffer fbos) {
 		if ( CHECKS ) {
 			checkBuffer(sizes, indirects.remaining());
@@ -459,7 +454,18 @@ public class NVCommandList {
 
 	// --- [ glDrawCommandsStatesAddressNV ] ---
 
-	/** Unsafe version of {@link #glDrawCommandsStatesAddressNV DrawCommandsStatesAddressNV} */
+	/**
+	 * Accepts arrays of buffer addresses as an array of GPU addresses {@code indirects}, an array of command lengths in {@code sizes}, and an array of state
+	 * object names in {@code states}, of which all names must be non-zero. Frame buffer object names are stored in {@code fbos} and can be either zero or
+	 * non-zero. All arrays have {@code count} entries. The residency of textures used as attachment inside the state object's captured fbo or the passed fbo
+	 * must managed explicitly.
+	 *
+	 * @param indirects the array of GPU addresses
+	 * @param sizes     the array of command lengths
+	 * @param states    the array of state object names
+	 * @param fbos      the array of framebuffer object names
+	 * @param count     the number of commands
+	 */
 	public static void nglDrawCommandsStatesAddressNV(long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesAddressNV;
 		if ( CHECKS )
@@ -477,19 +483,7 @@ public class NVCommandList {
 	 * @param sizes     the array of command lengths
 	 * @param states    the array of state object names
 	 * @param fbos      the array of framebuffer object names
-	 * @param count     the number of commands
 	 */
-	public static void glDrawCommandsStatesAddressNV(ByteBuffer indirects, ByteBuffer sizes, ByteBuffer states, ByteBuffer fbos, int count) {
-		if ( CHECKS ) {
-			checkBuffer(indirects, count << 3);
-			checkBuffer(sizes, count << 2);
-			checkBuffer(states, count << 2);
-			checkBuffer(fbos, count << 2);
-		}
-		nglDrawCommandsStatesAddressNV(memAddress(indirects), memAddress(sizes), memAddress(states), memAddress(fbos), count);
-	}
-
-	/** Alternative version of: {@link #glDrawCommandsStatesAddressNV DrawCommandsStatesAddressNV} */
 	public static void glDrawCommandsStatesAddressNV(LongBuffer indirects, IntBuffer sizes, IntBuffer states, IntBuffer fbos) {
 		if ( CHECKS ) {
 			checkBuffer(sizes, indirects.remaining());
@@ -501,7 +495,12 @@ public class NVCommandList {
 
 	// --- [ glCreateCommandListsNV ] ---
 
-	/** Unsafe version of {@link #glCreateCommandListsNV CreateCommandListsNV} */
+	/**
+	 * Returns {@code n} previously unused command list names in {@code lists}, and creates a command list in the initial state for each name.
+	 *
+	 * @param n     the number of command list names to create
+	 * @param lists the buffer in which to return the created command list names
+	 */
 	public static void nglCreateCommandListsNV(int n, long lists) {
 		long __functionAddress = GL.getCapabilities().glCreateCommandListsNV;
 		if ( CHECKS )
@@ -512,21 +511,13 @@ public class NVCommandList {
 	/**
 	 * Returns {@code n} previously unused command list names in {@code lists}, and creates a command list in the initial state for each name.
 	 *
-	 * @param n     the number of command list names to create
 	 * @param lists the buffer in which to return the created command list names
 	 */
-	public static void glCreateCommandListsNV(int n, ByteBuffer lists) {
-		if ( CHECKS )
-			checkBuffer(lists, n << 2);
-		nglCreateCommandListsNV(n, memAddress(lists));
-	}
-
-	/** Alternative version of: {@link #glCreateCommandListsNV CreateCommandListsNV} */
 	public static void glCreateCommandListsNV(IntBuffer lists) {
 		nglCreateCommandListsNV(lists.remaining(), memAddress(lists));
 	}
 
-	/** Single return value version of: {@link #glCreateCommandListsNV CreateCommandListsNV} */
+	/** Returns {@code n} previously unused command list names in {@code lists}, and creates a command list in the initial state for each name. */
 	public static int glCreateCommandListsNV() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -540,7 +531,13 @@ public class NVCommandList {
 
 	// --- [ glDeleteCommandListsNV ] ---
 
-	/** Unsafe version of {@link #glDeleteCommandListsNV DeleteCommandListsNV} */
+	/**
+	 * Deletes {@code n} command lists stored in {@code lists}. Once a command list is deleted it has no contents and its name is again unused. Unused names
+	 * in {@code lists} are silently ignored, as is the value zero.
+	 *
+	 * @param n     the number of command list names to delete
+	 * @param lists the buffer from which to read the command list names to delete
+	 */
 	public static void nglDeleteCommandListsNV(int n, long lists) {
 		long __functionAddress = GL.getCapabilities().glDeleteCommandListsNV;
 		if ( CHECKS )
@@ -552,21 +549,16 @@ public class NVCommandList {
 	 * Deletes {@code n} command lists stored in {@code lists}. Once a command list is deleted it has no contents and its name is again unused. Unused names
 	 * in {@code lists} are silently ignored, as is the value zero.
 	 *
-	 * @param n     the number of command list names to delete
 	 * @param lists the buffer from which to read the command list names to delete
 	 */
-	public static void glDeleteCommandListsNV(int n, ByteBuffer lists) {
-		if ( CHECKS )
-			checkBuffer(lists, n << 2);
-		nglDeleteCommandListsNV(n, memAddress(lists));
-	}
-
-	/** Alternative version of: {@link #glDeleteCommandListsNV DeleteCommandListsNV} */
 	public static void glDeleteCommandListsNV(IntBuffer lists) {
 		nglDeleteCommandListsNV(lists.remaining(), memAddress(lists));
 	}
 
-	/** Single value version of: {@link #glDeleteCommandListsNV DeleteCommandListsNV} */
+	/**
+	 * Deletes {@code n} command lists stored in {@code lists}. Once a command list is deleted it has no contents and its name is again unused. Unused names
+	 * in {@code lists} are silently ignored, as is the value zero.
+	 */
 	public static void glDeleteCommandListsNV(int list) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -593,7 +585,31 @@ public class NVCommandList {
 
 	// --- [ glListDrawCommandsStatesClientNV ] ---
 
-	/** Unsafe version of {@link #glListDrawCommandsStatesClientNV ListDrawCommandsStatesClientNV} */
+	/**
+	 * A list has multiple segments and each segment enqueues an ordered list of commands. This command enqueues the equivalent of the
+	 * DrawCommandsStatesClientNV commands into the list indicated by {@code list} on the segment indicated by {@code segment}.
+	 * 
+	 * <p>A list has multiple segments and each segment enqueues an ordered list of command sequences. This command enqueues the equivalent of the
+	 * DrawCommandsStatesNV commands into the list indicated by {@code list} on the segment indicated by {@code segment} except that the sequence data is
+	 * copied from the sequences pointed to by the {@code indirects} pointer. The {@code indirects} pointer should point to a list of size {@code count} of
+	 * pointers, each of which should point to a command sequence.</p>
+	 * 
+	 * <p>The pre-validated state from {@code states} is saved into the command list, rather than a reference to the state object (i.e. the state objects or fbos
+	 * could be deleted and the command list would be unaffected). This includes native GPU addresses for all textures indirectly referenced through the fbos
+	 * passed or state objects' fbos attachments, therefore a recompile of the command list is required if such referenced textures change their allocation
+	 * (for example due to resizing), as well as explicit management of the residency of the textures prior {@link #glCallCommandListNV CallCommandListNV}.</p>
+	 * 
+	 * <p>ListDrawCommandsStatesClientNV performs a by-value copy of the indirect data based on the provided client-side pointers. In this case the content is
+	 * fully immutable, while the buffer-based versions can change the content of the buffers at any later time.</p>
+	 *
+	 * @param list      the command list
+	 * @param segment   the segment
+	 * @param indirects the array of GPU addresses
+	 * @param sizes     the array of command lengths
+	 * @param states    the array of state object names
+	 * @param fbos      the array of framebuffer object names
+	 * @param count     the number of commands
+	 */
 	public static void nglListDrawCommandsStatesClientNV(int list, int segment, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = GL.getCapabilities().glListDrawCommandsStatesClientNV;
 		if ( CHECKS )
@@ -624,19 +640,7 @@ public class NVCommandList {
 	 * @param sizes     the array of command lengths
 	 * @param states    the array of state object names
 	 * @param fbos      the array of framebuffer object names
-	 * @param count     the number of commands
 	 */
-	public static void glListDrawCommandsStatesClientNV(int list, int segment, ByteBuffer indirects, ByteBuffer sizes, ByteBuffer states, ByteBuffer fbos, int count) {
-		if ( CHECKS ) {
-			checkBuffer(indirects, count << POINTER_SHIFT);
-			checkBuffer(sizes, count << POINTER_SHIFT);
-			checkBuffer(states, count << 2);
-			checkBuffer(fbos, count << 2);
-		}
-		nglListDrawCommandsStatesClientNV(list, segment, memAddress(indirects), memAddress(sizes), memAddress(states), memAddress(fbos), count);
-	}
-
-	/** Alternative version of: {@link #glListDrawCommandsStatesClientNV ListDrawCommandsStatesClientNV} */
 	public static void glListDrawCommandsStatesClientNV(int list, int segment, PointerBuffer indirects, PointerBuffer sizes, IntBuffer states, IntBuffer fbos) {
 		if ( CHECKS ) {
 			checkBuffer(sizes, indirects.remaining());

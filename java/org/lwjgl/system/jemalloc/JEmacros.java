@@ -23,7 +23,7 @@ public class JEmacros {
 
 	// --- [ JEMALLOC_VERSION ] ---
 
-	/** JNI method for {@link #JEMALLOC_VERSION} */
+	/** Returns the version string. */
 	public static native long nJEMALLOC_VERSION();
 
 	/** Returns the version string. */
@@ -54,7 +54,7 @@ public class JEmacros {
 
 	// --- [ JEMALLOC_VERSION_GID ] ---
 
-	/** JNI method for {@link #JEMALLOC_VERSION_GID} */
+	/** Returns the globally unique identifier (git commit hash). */
 	public static native long nJEMALLOC_VERSION_GID();
 
 	/** Returns the globally unique identifier (git commit hash). */

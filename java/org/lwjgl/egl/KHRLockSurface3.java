@@ -62,7 +62,6 @@ public class KHRLockSurface3 {
 
 	// --- [ eglLockSurfaceKHR ] ---
 
-	/** Unsafe version of {@link #eglLockSurfaceKHR LockSurfaceKHR} */
 	public static int neglLockSurfaceKHR(long dpy, long surface, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglLockSurfaceKHR;
 		if ( CHECKS ) {
@@ -73,13 +72,6 @@ public class KHRLockSurface3 {
 		return callPPPI(__functionAddress, dpy, surface, attrib_list);
 	}
 
-	public static int eglLockSurfaceKHR(long dpy, long surface, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglLockSurfaceKHR(dpy, surface, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglLockSurfaceKHR LockSurfaceKHR} */
 	public static int eglLockSurfaceKHR(long dpy, long surface, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -100,7 +92,6 @@ public class KHRLockSurface3 {
 
 	// --- [ eglQuerySurface64KHR ] ---
 
-	/** Unsafe version of {@link #eglQuerySurface64KHR QuerySurface64KHR} */
 	public static int neglQuerySurface64KHR(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQuerySurface64KHR;
 		if ( CHECKS ) {
@@ -111,13 +102,6 @@ public class KHRLockSurface3 {
 		return callPPIPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
-	public static int eglQuerySurface64KHR(long dpy, long surface, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << POINTER_SHIFT);
-		return neglQuerySurface64KHR(dpy, surface, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQuerySurface64KHR QuerySurface64KHR} */
 	public static int eglQuerySurface64KHR(long dpy, long surface, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);

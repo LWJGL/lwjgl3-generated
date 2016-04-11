@@ -110,7 +110,13 @@ public class SOFTSourceLatency {
 
 	// --- [ alSourcedvSOFT ] ---
 
-	/** Unsafe version of {@link #alSourcedvSOFT SourcedvSOFT} */
+	/**
+	 * pointer version of {@link #alSourcedSOFT SourcedSOFT}
+	 *
+	 * @param source the source to modify
+	 * @param param  the parameter to modify
+	 * @param value  the parameter values
+	 */
 	public static void nalSourcedvSOFT(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alSourcedvSOFT;
 		if ( CHECKS )
@@ -125,18 +131,19 @@ public class SOFTSourceLatency {
 	 * @param param  the parameter to modify
 	 * @param value  the parameter values
 	 */
-	public static void alSourcedvSOFT(int source, int param, ByteBuffer value) {
-		nalSourcedvSOFT(source, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alSourcedvSOFT SourcedvSOFT} */
 	public static void alSourcedvSOFT(int source, int param, DoubleBuffer value) {
 		nalSourcedvSOFT(source, param, memAddress(value));
 	}
 
 	// --- [ alGetSourcedSOFT ] ---
 
-	/** Unsafe version of {@link #alGetSourcedSOFT GetSourcedSOFT} */
+	/**
+	 * Gets the double value of a source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query
+	 * @param value  the parameter values
+	 */
 	public static void nalGetSourcedSOFT(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcedSOFT;
 		if ( CHECKS )
@@ -151,20 +158,18 @@ public class SOFTSourceLatency {
 	 * @param param  the parameter to query
 	 * @param value  the parameter values
 	 */
-	public static void alGetSourcedSOFT(int source, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 3);
-		nalGetSourcedSOFT(source, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetSourcedSOFT GetSourcedSOFT} */
 	public static void alGetSourcedSOFT(int source, int param, DoubleBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetSourcedSOFT(source, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetSourcedSOFT GetSourcedSOFT} */
+	/**
+	 * Gets the double value of a source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query
+	 */
 	public static double alGetSourcedSOFT(int source, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -178,7 +183,15 @@ public class SOFTSourceLatency {
 
 	// --- [ alGetSource3dSOFT ] ---
 
-	/** Unsafe version of {@link #alGetSource3dSOFT GetSource3dSOFT} */
+	/**
+	 * Gets the 3 dimensional double values of a source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query
+	 * @param value1 the first value
+	 * @param value2 the second value
+	 * @param value3 the third value
+	 */
 	public static void nalGetSource3dSOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3dSOFT;
 		if ( CHECKS )
@@ -195,16 +208,6 @@ public class SOFTSourceLatency {
 	 * @param value2 the second value
 	 * @param value3 the third value
 	 */
-	public static void alGetSource3dSOFT(int source, int param, ByteBuffer value1, ByteBuffer value2, ByteBuffer value3) {
-		if ( CHECKS ) {
-			checkBuffer(value1, 1 << 3);
-			checkBuffer(value2, 1 << 3);
-			checkBuffer(value3, 1 << 3);
-		}
-		nalGetSource3dSOFT(source, param, memAddress(value1), memAddress(value2), memAddress(value3));
-	}
-
-	/** Alternative version of: {@link #alGetSource3dSOFT GetSource3dSOFT} */
 	public static void alGetSource3dSOFT(int source, int param, DoubleBuffer value1, DoubleBuffer value2, DoubleBuffer value3) {
 		if ( CHECKS ) {
 			checkBuffer(value1, 1);
@@ -216,7 +219,13 @@ public class SOFTSourceLatency {
 
 	// --- [ alGetSourcedvSOFT ] ---
 
-	/** Unsafe version of {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
+	/**
+	 * Array version of {@link #alGetSourcedSOFT GetSourcedSOFT}
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query
+	 * @param values the parameter values
+	 */
 	public static void nalGetSourcedvSOFT(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcedvSOFT;
 		if ( CHECKS )
@@ -231,11 +240,6 @@ public class SOFTSourceLatency {
 	 * @param param  the parameter to query
 	 * @param values the parameter values
 	 */
-	public static void alGetSourcedvSOFT(int source, int param, ByteBuffer values) {
-		nalGetSourcedvSOFT(source, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
 	public static void alGetSourcedvSOFT(int source, int param, DoubleBuffer values) {
 		nalGetSourcedvSOFT(source, param, memAddress(values));
 	}
@@ -276,7 +280,13 @@ public class SOFTSourceLatency {
 
 	// --- [ alSourcei64vSOFT ] ---
 
-	/** Unsafe version of {@link #alSourcei64vSOFT Sourcei64vSOFT} */
+	/**
+	 * Array version of {@link #alSourcei64SOFT Sourcei64SOFT}
+	 *
+	 * @param source the source to modify
+	 * @param param  the parameter to modify
+	 * @param values the parameter values
+	 */
 	public static void nalSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alSourcei64vSOFT;
 		if ( CHECKS )
@@ -291,18 +301,19 @@ public class SOFTSourceLatency {
 	 * @param param  the parameter to modify
 	 * @param values the parameter values
 	 */
-	public static void alSourcei64vSOFT(int source, int param, ByteBuffer values) {
-		nalSourcei64vSOFT(source, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alSourcei64vSOFT Sourcei64vSOFT} */
 	public static void alSourcei64vSOFT(int source, int param, LongBuffer values) {
 		nalSourcei64vSOFT(source, param, memAddress(values));
 	}
 
 	// --- [ alGetSourcei64SOFT ] ---
 
-	/** Unsafe version of {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
+	/**
+	 * Gets the 64 bit integer value of a source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query
+	 * @param value  the parameter values
+	 */
 	public static void nalGetSourcei64SOFT(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei64SOFT;
 		if ( CHECKS )
@@ -317,20 +328,18 @@ public class SOFTSourceLatency {
 	 * @param param  the parameter to query
 	 * @param value  the parameter values
 	 */
-	public static void alGetSourcei64SOFT(int source, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 3);
-		nalGetSourcei64SOFT(source, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
 	public static void alGetSourcei64SOFT(int source, int param, LongBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetSourcei64SOFT(source, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
+	/**
+	 * Gets the 64 bit integer value of a source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query
+	 */
 	public static long alGetSourcei64SOFT(int source, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -344,7 +353,15 @@ public class SOFTSourceLatency {
 
 	// --- [ alGetSource3i64SOFT ] ---
 
-	/** Unsafe version of {@link #alGetSource3i64SOFT GetSource3i64SOFT} */
+	/**
+	 * Gets the 3 dimensional 64 bit integer values of a source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query
+	 * @param value1 the first value
+	 * @param value2 the second value
+	 * @param value3 the third value
+	 */
 	public static void nalGetSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3i64SOFT;
 		if ( CHECKS )
@@ -361,16 +378,6 @@ public class SOFTSourceLatency {
 	 * @param value2 the second value
 	 * @param value3 the third value
 	 */
-	public static void alGetSource3i64SOFT(int source, int param, ByteBuffer value1, ByteBuffer value2, ByteBuffer value3) {
-		if ( CHECKS ) {
-			checkBuffer(value1, 1 << 3);
-			checkBuffer(value2, 1 << 3);
-			checkBuffer(value3, 1 << 3);
-		}
-		nalGetSource3i64SOFT(source, param, memAddress(value1), memAddress(value2), memAddress(value3));
-	}
-
-	/** Alternative version of: {@link #alGetSource3i64SOFT GetSource3i64SOFT} */
 	public static void alGetSource3i64SOFT(int source, int param, LongBuffer value1, LongBuffer value2, LongBuffer value3) {
 		if ( CHECKS ) {
 			checkBuffer(value1, 1);
@@ -382,7 +389,13 @@ public class SOFTSourceLatency {
 
 	// --- [ alGetSourcei64vSOFT ] ---
 
-	/** Unsafe version of {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
+	/**
+	 * Array version of {@link #alGetSourcei64SOFT GetSourcei64SOFT}
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query
+	 * @param values the parameter values
+	 */
 	public static void nalGetSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei64vSOFT;
 		if ( CHECKS )
@@ -397,11 +410,6 @@ public class SOFTSourceLatency {
 	 * @param param  the parameter to query
 	 * @param values the parameter values
 	 */
-	public static void alGetSourcei64vSOFT(int source, int param, ByteBuffer values) {
-		nalGetSourcei64vSOFT(source, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
 	public static void alGetSourcei64vSOFT(int source, int param, LongBuffer values) {
 		nalGetSourcei64vSOFT(source, param, memAddress(values));
 	}

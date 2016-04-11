@@ -54,7 +54,13 @@ public class GLXSGIXSwapBarrier {
 
 	// --- [ glXQueryMaxSwapBarriersSGIX ] ---
 
-	/** Unsafe version of {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
+	/**
+	 * Returns in {@code max} the maximum number of barriers supported by an implementation on {@code screen}.
+	 *
+	 * @param display the connection to the X server
+	 * @param screen  the screen
+	 * @param max     returns the maximum number of barriers
+	 */
 	public static int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapBarriersSGIX;
 		if ( CHECKS ) {
@@ -71,13 +77,6 @@ public class GLXSGIXSwapBarrier {
 	 * @param screen  the screen
 	 * @param max     returns the maximum number of barriers
 	 */
-	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, ByteBuffer max) {
-		if ( CHECKS )
-			checkBuffer(max, 1 << 2);
-		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max));
-	}
-
-	/** Alternative version of: {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
 	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, IntBuffer max) {
 		if ( CHECKS )
 			checkBuffer(max, 1);

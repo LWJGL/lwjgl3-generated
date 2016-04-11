@@ -80,7 +80,12 @@ public class ARBMatrixPalette {
 
 	// --- [ glMatrixIndexuivARB ] ---
 
-	/** Unsafe version of {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
+	/**
+	 * Sets the current matrix indices.
+	 *
+	 * @param size    the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
+	 * @param indices the matrix index values
+	 */
 	public static void nglMatrixIndexuivARB(int size, long indices) {
 		long __functionAddress = GL.getCapabilities().glMatrixIndexuivARB;
 		if ( CHECKS )
@@ -91,23 +96,20 @@ public class ARBMatrixPalette {
 	/**
 	 * Sets the current matrix indices.
 	 *
-	 * @param size    the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param indices the matrix index values
 	 */
-	public static void glMatrixIndexuivARB(int size, ByteBuffer indices) {
-		if ( CHECKS )
-			checkBuffer(indices, size << 2);
-		nglMatrixIndexuivARB(size, memAddress(indices));
-	}
-
-	/** Alternative version of: {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
 	public static void glMatrixIndexuivARB(IntBuffer indices) {
 		nglMatrixIndexuivARB(indices.remaining(), memAddress(indices));
 	}
 
 	// --- [ glMatrixIndexubvARB ] ---
 
-	/** Unsafe version of {@link #glMatrixIndexubvARB MatrixIndexubvARB} */
+	/**
+	 * Byte version of {@link #glMatrixIndexuivARB MatrixIndexuivARB}.
+	 *
+	 * @param size    the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
+	 * @param indices the matrix index values
+	 */
 	public static void nglMatrixIndexubvARB(int size, long indices) {
 		long __functionAddress = GL.getCapabilities().glMatrixIndexubvARB;
 		if ( CHECKS )
@@ -118,23 +120,20 @@ public class ARBMatrixPalette {
 	/**
 	 * Byte version of {@link #glMatrixIndexuivARB MatrixIndexuivARB}.
 	 *
-	 * @param size    the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param indices the matrix index values
 	 */
-	public static void glMatrixIndexubvARB(int size, ByteBuffer indices) {
-		if ( CHECKS )
-			checkBuffer(indices, size);
-		nglMatrixIndexubvARB(size, memAddress(indices));
-	}
-
-	/** Alternative version of: {@link #glMatrixIndexubvARB MatrixIndexubvARB} */
 	public static void glMatrixIndexubvARB(ByteBuffer indices) {
 		nglMatrixIndexubvARB(indices.remaining(), memAddress(indices));
 	}
 
 	// --- [ glMatrixIndexusvARB ] ---
 
-	/** Unsafe version of {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
+	/**
+	 * Short version of {@link #glMatrixIndexuivARB MatrixIndexuivARB}.
+	 *
+	 * @param size    the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
+	 * @param indices the matrix index values
+	 */
 	public static void nglMatrixIndexusvARB(int size, long indices) {
 		long __functionAddress = GL.getCapabilities().glMatrixIndexusvARB;
 		if ( CHECKS )
@@ -145,23 +144,22 @@ public class ARBMatrixPalette {
 	/**
 	 * Short version of {@link #glMatrixIndexuivARB MatrixIndexuivARB}.
 	 *
-	 * @param size    the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param indices the matrix index values
 	 */
-	public static void glMatrixIndexusvARB(int size, ByteBuffer indices) {
-		if ( CHECKS )
-			checkBuffer(indices, size << 1);
-		nglMatrixIndexusvARB(size, memAddress(indices));
-	}
-
-	/** Alternative version of: {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
 	public static void glMatrixIndexusvARB(ShortBuffer indices) {
 		nglMatrixIndexusvARB(indices.remaining(), memAddress(indices));
 	}
 
 	// --- [ glMatrixIndexPointerARB ] ---
 
-	/** Unsafe version of {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
+	/**
+	 * 
+	 *
+	 * @param size    the number of index values per vertex that are stored in the array. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
+	 * @param type    the data type of the values stored in the array. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the matrix index data
+	 */
 	public static void nglMatrixIndexPointerARB(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glMatrixIndexPointerARB;
 		if ( CHECKS )
@@ -183,28 +181,53 @@ public class ARBMatrixPalette {
 		nglMatrixIndexPointerARB(size, type, stride, memAddress(pointer));
 	}
 
-	/** Buffer object offset version of: {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
-	public static void glMatrixIndexPointerARB(int size, int type, int stride, long pointerOffset) {
+	/**
+	 * 
+	 *
+	 * @param size    the number of index values per vertex that are stored in the array. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
+	 * @param type    the data type of the values stored in the array. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the matrix index data
+	 */
+	public static void glMatrixIndexPointerARB(int size, int type, int stride, long pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
-		nglMatrixIndexPointerARB(size, type, stride, pointerOffset);
+		nglMatrixIndexPointerARB(size, type, stride, pointer);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
+	/**
+	 * 
+	 *
+	 * @param size    the number of index values per vertex that are stored in the array. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the matrix index data
+	 */
 	public static void glMatrixIndexPointerARB(int size, int stride, ByteBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_BYTE, stride, memAddress(pointer));
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
+	/**
+	 * 
+	 *
+	 * @param size    the number of index values per vertex that are stored in the array. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the matrix index data
+	 */
 	public static void glMatrixIndexPointerARB(int size, int stride, ShortBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_SHORT, stride, memAddress(pointer));
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
+	/**
+	 * 
+	 *
+	 * @param size    the number of index values per vertex that are stored in the array. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the matrix index data
+	 */
 	public static void glMatrixIndexPointerARB(int size, int stride, IntBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);

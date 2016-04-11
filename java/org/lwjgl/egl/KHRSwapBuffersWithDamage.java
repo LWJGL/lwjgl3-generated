@@ -38,7 +38,6 @@ public class KHRSwapBuffersWithDamage {
 
 	// --- [ eglSwapBuffersWithDamageKHR ] ---
 
-	/** Unsafe version of {@link #eglSwapBuffersWithDamageKHR SwapBuffersWithDamageKHR} */
 	public static int neglSwapBuffersWithDamageKHR(long dpy, long surface, long rects, int n_rects) {
 		long __functionAddress = EGL.getCapabilities().eglSwapBuffersWithDamageKHR;
 		if ( CHECKS ) {
@@ -49,13 +48,6 @@ public class KHRSwapBuffersWithDamage {
 		return callPPPII(__functionAddress, dpy, surface, rects, n_rects);
 	}
 
-	public static int eglSwapBuffersWithDamageKHR(long dpy, long surface, ByteBuffer rects, int n_rects) {
-		if ( CHECKS )
-			if ( rects != null ) checkBuffer(rects, n_rects << 2);
-		return neglSwapBuffersWithDamageKHR(dpy, surface, memAddressSafe(rects), n_rects);
-	}
-
-	/** Alternative version of: {@link #eglSwapBuffersWithDamageKHR SwapBuffersWithDamageKHR} */
 	public static int eglSwapBuffersWithDamageKHR(long dpy, long surface, IntBuffer rects) {
 		return neglSwapBuffersWithDamageKHR(dpy, surface, memAddressSafe(rects), rects == null ? 0 : rects.remaining());
 	}

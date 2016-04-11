@@ -84,7 +84,12 @@ public class ARBOcclusionQuery {
 
 	// --- [ glGenQueriesARB ] ---
 
-	/** Unsafe version of {@link #glGenQueriesARB GenQueriesARB} */
+	/**
+	 * Generates query object names.
+	 *
+	 * @param n   the number of query object names to be generated
+	 * @param ids a buffer in which the generated query object names are stored
+	 */
 	public static void nglGenQueriesARB(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glGenQueriesARB;
 		if ( CHECKS )
@@ -95,21 +100,13 @@ public class ARBOcclusionQuery {
 	/**
 	 * Generates query object names.
 	 *
-	 * @param n   the number of query object names to be generated
 	 * @param ids a buffer in which the generated query object names are stored
 	 */
-	public static void glGenQueriesARB(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglGenQueriesARB(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glGenQueriesARB GenQueriesARB} */
 	public static void glGenQueriesARB(IntBuffer ids) {
 		nglGenQueriesARB(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single return value version of: {@link #glGenQueriesARB GenQueriesARB} */
+	/** Generates query object names. */
 	public static int glGenQueriesARB() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -123,7 +120,12 @@ public class ARBOcclusionQuery {
 
 	// --- [ glDeleteQueriesARB ] ---
 
-	/** Unsafe version of {@link #glDeleteQueriesARB DeleteQueriesARB} */
+	/**
+	 * Deletes named query objects.
+	 *
+	 * @param n   the number of query objects to be deleted
+	 * @param ids an array of query objects to be deleted
+	 */
 	public static void nglDeleteQueriesARB(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glDeleteQueriesARB;
 		if ( CHECKS )
@@ -134,21 +136,13 @@ public class ARBOcclusionQuery {
 	/**
 	 * Deletes named query objects.
 	 *
-	 * @param n   the number of query objects to be deleted
 	 * @param ids an array of query objects to be deleted
 	 */
-	public static void glDeleteQueriesARB(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglDeleteQueriesARB(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glDeleteQueriesARB DeleteQueriesARB} */
 	public static void glDeleteQueriesARB(IntBuffer ids) {
 		nglDeleteQueriesARB(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single value version of: {@link #glDeleteQueriesARB DeleteQueriesARB} */
+	/** Deletes named query objects. */
 	public static void glDeleteQueriesARB(int id) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -204,7 +198,13 @@ public class ARBOcclusionQuery {
 
 	// --- [ glGetQueryivARB ] ---
 
-	/** Unsafe version of {@link #glGetQueryivARB GetQueryivARB} */
+	/**
+	 * Returns parameters of a query object target.
+	 *
+	 * @param target the query object target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param pname  the symbolic name of a query object target parameter. One of:<br>{@link #GL_QUERY_COUNTER_BITS_ARB QUERY_COUNTER_BITS_ARB}, {@link #GL_CURRENT_QUERY_ARB CURRENT_QUERY_ARB}
+	 * @param params the requested data
+	 */
 	public static void nglGetQueryivARB(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryivARB;
 		if ( CHECKS )
@@ -219,20 +219,18 @@ public class ARBOcclusionQuery {
 	 * @param pname  the symbolic name of a query object target parameter. One of:<br>{@link #GL_QUERY_COUNTER_BITS_ARB QUERY_COUNTER_BITS_ARB}, {@link #GL_CURRENT_QUERY_ARB CURRENT_QUERY_ARB}
 	 * @param params the requested data
 	 */
-	public static void glGetQueryivARB(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetQueryivARB(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryivARB GetQueryivARB} */
 	public static void glGetQueryivARB(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryivARB(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryivARB GetQueryivARB} */
+	/**
+	 * Returns parameters of a query object target.
+	 *
+	 * @param target the query object target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param pname  the symbolic name of a query object target parameter. One of:<br>{@link #GL_QUERY_COUNTER_BITS_ARB QUERY_COUNTER_BITS_ARB}, {@link #GL_CURRENT_QUERY_ARB CURRENT_QUERY_ARB}
+	 */
 	public static int glGetQueryiARB(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -246,7 +244,13 @@ public class ARBOcclusionQuery {
 
 	// --- [ glGetQueryObjectivARB ] ---
 
-	/** Unsafe version of {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
+	/**
+	 * Returns the integer value of a query object parameter.
+	 *
+	 * @param id     the name of a query object
+	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
+	 * @param params the requested data
+	 */
 	public static void nglGetQueryObjectivARB(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectivARB;
 		if ( CHECKS )
@@ -261,20 +265,18 @@ public class ARBOcclusionQuery {
 	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
 	 * @param params the requested data
 	 */
-	public static void glGetQueryObjectivARB(int id, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetQueryObjectivARB(id, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
 	public static void glGetQueryObjectivARB(int id, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectivARB(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
+	/**
+	 * Returns the integer value of a query object parameter.
+	 *
+	 * @param id    the name of a query object
+	 * @param pname the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
+	 */
 	public static int glGetQueryObjectiARB(int id, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -288,7 +290,13 @@ public class ARBOcclusionQuery {
 
 	// --- [ glGetQueryObjectuivARB ] ---
 
-	/** Unsafe version of {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
+	/**
+	 * Unsigned version of {@link #glGetQueryObjectivARB GetQueryObjectivARB}.
+	 *
+	 * @param id     the name of a query object
+	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
+	 * @param params the requested data
+	 */
 	public static void nglGetQueryObjectuivARB(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectuivARB;
 		if ( CHECKS )
@@ -303,20 +311,18 @@ public class ARBOcclusionQuery {
 	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
 	 * @param params the requested data
 	 */
-	public static void glGetQueryObjectuivARB(int id, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetQueryObjectuivARB(id, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
 	public static void glGetQueryObjectuivARB(int id, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectuivARB(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
+	/**
+	 * Unsigned version of {@link #glGetQueryObjectivARB GetQueryObjectivARB}.
+	 *
+	 * @param id    the name of a query object
+	 * @param pname the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
+	 */
 	public static int glGetQueryObjectuiARB(int id, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

@@ -76,7 +76,14 @@ public class GLXNVSwapGroup {
 
 	// --- [ glXQuerySwapGroupNV ] ---
 
-	/** Unsafe version of {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
+	/**
+	 * 
+	 *
+	 * @param display  the connection to the X server
+	 * @param drawable 
+	 * @param group    
+	 * @param barrier  
+	 */
 	public static int nglXQuerySwapGroupNV(long display, long drawable, long group, long barrier) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQuerySwapGroupNV;
 		if ( CHECKS ) {
@@ -95,15 +102,6 @@ public class GLXNVSwapGroup {
 	 * @param group    
 	 * @param barrier  
 	 */
-	public static int glXQuerySwapGroupNV(long display, long drawable, ByteBuffer group, ByteBuffer barrier) {
-		if ( CHECKS ) {
-			checkBuffer(group, 1 << 2);
-			checkBuffer(barrier, 1 << 2);
-		}
-		return nglXQuerySwapGroupNV(display, drawable, memAddress(group), memAddress(barrier));
-	}
-
-	/** Alternative version of: {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
 	public static int glXQuerySwapGroupNV(long display, long drawable, IntBuffer group, IntBuffer barrier) {
 		if ( CHECKS ) {
 			checkBuffer(group, 1);
@@ -114,7 +112,14 @@ public class GLXNVSwapGroup {
 
 	// --- [ glXQueryMaxSwapGroupsNV ] ---
 
-	/** Unsafe version of {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
+	/**
+	 * 
+	 *
+	 * @param display     the connection to the X server
+	 * @param screen      
+	 * @param maxGroups   
+	 * @param maxBarriers 
+	 */
 	public static int nglXQueryMaxSwapGroupsNV(long display, int screen, long maxGroups, long maxBarriers) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapGroupsNV;
 		if ( CHECKS ) {
@@ -132,15 +137,6 @@ public class GLXNVSwapGroup {
 	 * @param maxGroups   
 	 * @param maxBarriers 
 	 */
-	public static int glXQueryMaxSwapGroupsNV(long display, int screen, ByteBuffer maxGroups, ByteBuffer maxBarriers) {
-		if ( CHECKS ) {
-			checkBuffer(maxGroups, 1 << 2);
-			checkBuffer(maxBarriers, 1 << 2);
-		}
-		return nglXQueryMaxSwapGroupsNV(display, screen, memAddress(maxGroups), memAddress(maxBarriers));
-	}
-
-	/** Alternative version of: {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
 	public static int glXQueryMaxSwapGroupsNV(long display, int screen, IntBuffer maxGroups, IntBuffer maxBarriers) {
 		if ( CHECKS ) {
 			checkBuffer(maxGroups, 1);
@@ -151,7 +147,13 @@ public class GLXNVSwapGroup {
 
 	// --- [ glXQueryFrameCountNV ] ---
 
-	/** Unsafe version of {@link #glXQueryFrameCountNV QueryFrameCountNV} */
+	/**
+	 * 
+	 *
+	 * @param display the connection to the X server
+	 * @param screen  
+	 * @param count   
+	 */
 	public static int nglXQueryFrameCountNV(long display, int screen, long count) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryFrameCountNV;
 		if ( CHECKS ) {
@@ -168,13 +170,6 @@ public class GLXNVSwapGroup {
 	 * @param screen  
 	 * @param count   
 	 */
-	public static int glXQueryFrameCountNV(long display, int screen, ByteBuffer count) {
-		if ( CHECKS )
-			checkBuffer(count, 1 << 2);
-		return nglXQueryFrameCountNV(display, screen, memAddress(count));
-	}
-
-	/** Alternative version of: {@link #glXQueryFrameCountNV QueryFrameCountNV} */
 	public static int glXQueryFrameCountNV(long display, int screen, IntBuffer count) {
 		if ( CHECKS )
 			checkBuffer(count, 1);

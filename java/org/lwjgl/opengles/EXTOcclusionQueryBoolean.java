@@ -52,7 +52,6 @@ public class EXTOcclusionQueryBoolean {
 
 	// --- [ glGenQueriesEXT ] ---
 
-	/** Unsafe version of {@link #glGenQueriesEXT GenQueriesEXT} */
 	public static void nglGenQueriesEXT(int n, long ids) {
 		long __functionAddress = GLES.getCapabilities().glGenQueriesEXT;
 		if ( CHECKS )
@@ -60,18 +59,10 @@ public class EXTOcclusionQueryBoolean {
 		callIPV(__functionAddress, n, ids);
 	}
 
-	public static void glGenQueriesEXT(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglGenQueriesEXT(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glGenQueriesEXT GenQueriesEXT} */
 	public static void glGenQueriesEXT(IntBuffer ids) {
 		nglGenQueriesEXT(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single return value version of: {@link #glGenQueriesEXT GenQueriesEXT} */
 	public static int glGenQueriesEXT() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -85,7 +76,6 @@ public class EXTOcclusionQueryBoolean {
 
 	// --- [ glDeleteQueriesEXT ] ---
 
-	/** Unsafe version of {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
 	public static void nglDeleteQueriesEXT(int n, long ids) {
 		long __functionAddress = GLES.getCapabilities().glDeleteQueriesEXT;
 		if ( CHECKS )
@@ -93,18 +83,10 @@ public class EXTOcclusionQueryBoolean {
 		callIPV(__functionAddress, n, ids);
 	}
 
-	public static void glDeleteQueriesEXT(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglDeleteQueriesEXT(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
 	public static void glDeleteQueriesEXT(IntBuffer ids) {
 		nglDeleteQueriesEXT(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single value version of: {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
 	public static void glDeleteQueriesEXT(int id) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -144,7 +126,6 @@ public class EXTOcclusionQueryBoolean {
 
 	// --- [ glGetQueryivEXT ] ---
 
-	/** Unsafe version of {@link #glGetQueryivEXT GetQueryivEXT} */
 	public static void nglGetQueryivEXT(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetQueryivEXT;
 		if ( CHECKS )
@@ -152,20 +133,12 @@ public class EXTOcclusionQueryBoolean {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetQueryivEXT(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetQueryivEXT(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryivEXT GetQueryivEXT} */
 	public static void glGetQueryivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryivEXT GetQueryivEXT} */
 	public static int glGetQueryiEXT(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -179,7 +152,6 @@ public class EXTOcclusionQueryBoolean {
 
 	// --- [ glGetQueryObjectuivEXT ] ---
 
-	/** Unsafe version of {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	public static void nglGetQueryObjectuivEXT(int id, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetQueryObjectuivEXT;
 		if ( CHECKS )
@@ -187,20 +159,12 @@ public class EXTOcclusionQueryBoolean {
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
-	public static void glGetQueryObjectuivEXT(int id, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetQueryObjectuivEXT(id, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	public static void glGetQueryObjectuivEXT(int id, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectuivEXT(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	public static int glGetQueryObjectuiEXT(int id, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

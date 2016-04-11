@@ -72,7 +72,15 @@ public class ARBES2Compatibility {
 
 	// --- [ glShaderBinary ] ---
 
-	/** Unsafe version of {@link #glShaderBinary ShaderBinary} */
+	/**
+	 * Loads pre-compiled shader binaries.
+	 *
+	 * @param count        the number of shader object handles contained in {@code shaders}
+	 * @param shaders      an array of shader handles into which to load pre-compiled shader binaries
+	 * @param binaryformat the format of the shader binaries contained in {@code binary}
+	 * @param binary       an array of bytes containing pre-compiled binary shader code
+	 * @param length       the length of the array whose address is given in binary
+	 */
 	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
 		long __functionAddress = GL.getCapabilities().glShaderBinary;
 		if ( CHECKS )
@@ -83,28 +91,24 @@ public class ARBES2Compatibility {
 	/**
 	 * Loads pre-compiled shader binaries.
 	 *
-	 * @param count        the number of shader object handles contained in {@code shaders}
 	 * @param shaders      an array of shader handles into which to load pre-compiled shader binaries
 	 * @param binaryformat the format of the shader binaries contained in {@code binary}
 	 * @param binary       an array of bytes containing pre-compiled binary shader code
-	 * @param length       the length of the array whose address is given in binary
 	 */
-	public static void glShaderBinary(int count, ByteBuffer shaders, int binaryformat, ByteBuffer binary, int length) {
-		if ( CHECKS ) {
-			checkBuffer(shaders, count << 2);
-			checkBuffer(binary, length);
-		}
-		nglShaderBinary(count, memAddress(shaders), binaryformat, memAddress(binary), length);
-	}
-
-	/** Alternative version of: {@link #glShaderBinary ShaderBinary} */
 	public static void glShaderBinary(IntBuffer shaders, int binaryformat, ByteBuffer binary) {
 		nglShaderBinary(shaders.remaining(), memAddress(shaders), binaryformat, memAddress(binary), binary.remaining());
 	}
 
 	// --- [ glGetShaderPrecisionFormat ] ---
 
-	/** Unsafe version of {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
+	/**
+	 * Retrieves the range and precision for numeric formats supported by the shader compiler.
+	 *
+	 * @param shadertype    the type of shader whose precision to query. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}
+	 * @param precisiontype the numeric format whose precision and range to query
+	 * @param range         the address of array of two integers into which encodings of the implementation's numeric range are returned
+	 * @param precision     the address of an integer into which the numeric precision of the implementation is written
+	 */
 	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
 		long __functionAddress = GL.getCapabilities().glGetShaderPrecisionFormat;
 		if ( CHECKS )
@@ -120,15 +124,6 @@ public class ARBES2Compatibility {
 	 * @param range         the address of array of two integers into which encodings of the implementation's numeric range are returned
 	 * @param precision     the address of an integer into which the numeric precision of the implementation is written
 	 */
-	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, ByteBuffer range, ByteBuffer precision) {
-		if ( CHECKS ) {
-			checkBuffer(range, 2 << 2);
-			checkBuffer(precision, 1 << 2);
-		}
-		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
-	}
-
-	/** Alternative version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range, IntBuffer precision) {
 		if ( CHECKS ) {
 			checkBuffer(range, 2);
@@ -137,7 +132,13 @@ public class ARBES2Compatibility {
 		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
 	}
 
-	/** Single return value version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
+	/**
+	 * Retrieves the range and precision for numeric formats supported by the shader compiler.
+	 *
+	 * @param shadertype    the type of shader whose precision to query. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}
+	 * @param precisiontype the numeric format whose precision and range to query
+	 * @param range         the address of array of two integers into which encodings of the implementation's numeric range are returned
+	 */
 	public static int glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range) {
 		if ( CHECKS )
 			checkBuffer(range, 2);

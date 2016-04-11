@@ -27,7 +27,6 @@ public class WGLNVVertexArrayRange {
 
 	// --- [ wglAllocateMemoryNV ] ---
 
-	/** Unsafe version of {@link #wglAllocateMemoryNV AllocateMemoryNV} */
 	public static long nwglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglAllocateMemoryNV;
 		if ( CHECKS )
@@ -42,7 +41,6 @@ public class WGLNVVertexArrayRange {
 
 	// --- [ wglFreeMemoryNV ] ---
 
-	/** Unsafe version of {@link #wglFreeMemoryNV FreeMemoryNV} */
 	public static void nwglFreeMemoryNV(long pointer) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglFreeMemoryNV;
 		if ( CHECKS )

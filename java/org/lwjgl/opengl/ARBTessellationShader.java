@@ -139,7 +139,12 @@ public class ARBTessellationShader {
 
 	// --- [ glPatchParameterfv ] ---
 
-	/** Unsafe version of {@link #glPatchParameterfv PatchParameterfv} */
+	/**
+	 * Specifies an array of float values for the specified parameter for patch primitives.
+	 *
+	 * @param pname  the name of the parameter to set. One of:<br>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}, {@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}
+	 * @param values an array containing the new values for the parameter given by {@code pname}
+	 */
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = GL.getCapabilities().glPatchParameterfv;
 		if ( CHECKS )
@@ -153,14 +158,6 @@ public class ARBTessellationShader {
 	 * @param pname  the name of the parameter to set. One of:<br>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}, {@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}
 	 * @param values an array containing the new values for the parameter given by {@code pname}
 	 */
-	public static void glPatchParameterfv(int pname, ByteBuffer values) {
-		if ( CHECKS )
-			if ( DEBUG )
-				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES) << 2);
-		nglPatchParameterfv(pname, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #glPatchParameterfv PatchParameterfv} */
 	public static void glPatchParameterfv(int pname, FloatBuffer values) {
 		if ( CHECKS )
 			if ( DEBUG )

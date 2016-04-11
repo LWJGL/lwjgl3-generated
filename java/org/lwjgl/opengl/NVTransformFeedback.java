@@ -133,7 +133,6 @@ public class NVTransformFeedback {
 
 	// --- [ glTransformFeedbackAttribsNV ] ---
 
-	/** Unsafe version of {@link #glTransformFeedbackAttribsNV TransformFeedbackAttribsNV} */
 	public static void nglTransformFeedbackAttribsNV(int count, long attribs, int bufferMode) {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackAttribsNV;
 		if ( CHECKS )
@@ -141,13 +140,6 @@ public class NVTransformFeedback {
 		callIPIV(__functionAddress, count, attribs, bufferMode);
 	}
 
-	public static void glTransformFeedbackAttribsNV(int count, ByteBuffer attribs, int bufferMode) {
-		if ( CHECKS )
-			checkBuffer(attribs, count << 2);
-		nglTransformFeedbackAttribsNV(count, memAddress(attribs), bufferMode);
-	}
-
-	/** Alternative version of: {@link #glTransformFeedbackAttribsNV TransformFeedbackAttribsNV} */
 	public static void glTransformFeedbackAttribsNV(IntBuffer attribs, int bufferMode) {
 		nglTransformFeedbackAttribsNV(attribs.remaining(), memAddress(attribs), bufferMode);
 	}
@@ -181,7 +173,6 @@ public class NVTransformFeedback {
 
 	// --- [ glTransformFeedbackVaryingsNV ] ---
 
-	/** Unsafe version of {@link #glTransformFeedbackVaryingsNV TransformFeedbackVaryingsNV} */
 	public static void nglTransformFeedbackVaryingsNV(int program, int count, long locations, int bufferMode) {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackVaryingsNV;
 		if ( CHECKS )
@@ -189,20 +180,12 @@ public class NVTransformFeedback {
 		callIIPIV(__functionAddress, program, count, locations, bufferMode);
 	}
 
-	public static void glTransformFeedbackVaryingsNV(int program, int count, ByteBuffer locations, int bufferMode) {
-		if ( CHECKS )
-			checkBuffer(locations, count << 2);
-		nglTransformFeedbackVaryingsNV(program, count, memAddress(locations), bufferMode);
-	}
-
-	/** Alternative version of: {@link #glTransformFeedbackVaryingsNV TransformFeedbackVaryingsNV} */
 	public static void glTransformFeedbackVaryingsNV(int program, IntBuffer locations, int bufferMode) {
 		nglTransformFeedbackVaryingsNV(program, locations.remaining(), memAddress(locations), bufferMode);
 	}
 
 	// --- [ glActiveVaryingNV ] ---
 
-	/** Unsafe version of {@link #glActiveVaryingNV ActiveVaryingNV} */
 	public static void nglActiveVaryingNV(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glActiveVaryingNV;
 		if ( CHECKS )
@@ -216,7 +199,6 @@ public class NVTransformFeedback {
 		nglActiveVaryingNV(program, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glActiveVaryingNV ActiveVaryingNV} */
 	public static void glActiveVaryingNV(int program, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -229,7 +211,6 @@ public class NVTransformFeedback {
 
 	// --- [ glGetVaryingLocationNV ] ---
 
-	/** Unsafe version of {@link #glGetVaryingLocationNV GetVaryingLocationNV} */
 	public static int nglGetVaryingLocationNV(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetVaryingLocationNV;
 		if ( CHECKS )
@@ -243,7 +224,6 @@ public class NVTransformFeedback {
 		return nglGetVaryingLocationNV(program, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetVaryingLocationNV GetVaryingLocationNV} */
 	public static int glGetVaryingLocationNV(int program, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -256,7 +236,6 @@ public class NVTransformFeedback {
 
 	// --- [ glGetActiveVaryingNV ] ---
 
-	/** Unsafe version of {@link #glGetActiveVaryingNV GetActiveVaryingNV} */
 	public static void nglGetActiveVaryingNV(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveVaryingNV;
 		if ( CHECKS )
@@ -264,17 +243,6 @@ public class NVTransformFeedback {
 		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
-	public static void glGetActiveVaryingNV(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( CHECKS ) {
-			checkBuffer(name, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-			checkBuffer(size, 1 << 2);
-			checkBuffer(type, 1 << 2);
-		}
-		nglGetActiveVaryingNV(program, index, bufSize, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
-	}
-
-	/** Alternative version of: {@link #glGetActiveVaryingNV GetActiveVaryingNV} */
 	public static void glGetActiveVaryingNV(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
@@ -286,7 +254,6 @@ public class NVTransformFeedback {
 
 	// --- [ glGetTransformFeedbackVaryingNV ] ---
 
-	/** Unsafe version of {@link #glGetTransformFeedbackVaryingNV GetTransformFeedbackVaryingNV} */
 	public static void nglGetTransformFeedbackVaryingNV(int program, int index, long location) {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVaryingNV;
 		if ( CHECKS )
@@ -294,20 +261,12 @@ public class NVTransformFeedback {
 		callIIPV(__functionAddress, program, index, location);
 	}
 
-	public static void glGetTransformFeedbackVaryingNV(int program, int index, ByteBuffer location) {
-		if ( CHECKS )
-			checkBuffer(location, 1 << 2);
-		nglGetTransformFeedbackVaryingNV(program, index, memAddress(location));
-	}
-
-	/** Alternative version of: {@link #glGetTransformFeedbackVaryingNV GetTransformFeedbackVaryingNV} */
 	public static void glGetTransformFeedbackVaryingNV(int program, int index, IntBuffer location) {
 		if ( CHECKS )
 			checkBuffer(location, 1);
 		nglGetTransformFeedbackVaryingNV(program, index, memAddress(location));
 	}
 
-	/** Single return value version of: {@link #glGetTransformFeedbackVaryingNV GetTransformFeedbackVaryingNV} */
 	public static int glGetTransformFeedbackVaryingNV(int program, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -321,7 +280,6 @@ public class NVTransformFeedback {
 
 	// --- [ glTransformFeedbackStreamAttribsNV ] ---
 
-	/** Unsafe version of {@link #glTransformFeedbackStreamAttribsNV TransformFeedbackStreamAttribsNV} */
 	public static void nglTransformFeedbackStreamAttribsNV(int count, long attribs, int nbuffers, long bufstreams, int bufferMode) {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackStreamAttribsNV;
 		if ( CHECKS )
@@ -329,15 +287,6 @@ public class NVTransformFeedback {
 		callIPIPIV(__functionAddress, count, attribs, nbuffers, bufstreams, bufferMode);
 	}
 
-	public static void glTransformFeedbackStreamAttribsNV(int count, ByteBuffer attribs, int nbuffers, ByteBuffer bufstreams, int bufferMode) {
-		if ( CHECKS ) {
-			checkBuffer(attribs, count << 2);
-			checkBuffer(bufstreams, nbuffers << 2);
-		}
-		nglTransformFeedbackStreamAttribsNV(count, memAddress(attribs), nbuffers, memAddress(bufstreams), bufferMode);
-	}
-
-	/** Alternative version of: {@link #glTransformFeedbackStreamAttribsNV TransformFeedbackStreamAttribsNV} */
 	public static void glTransformFeedbackStreamAttribsNV(IntBuffer attribs, IntBuffer bufstreams, int bufferMode) {
 		nglTransformFeedbackStreamAttribsNV(attribs.remaining(), memAddress(attribs), bufstreams.remaining(), memAddress(bufstreams), bufferMode);
 	}

@@ -46,9 +46,6 @@ public class XXHash {
 
 	// --- [ XXH32 ] ---
 
-	/** JNI method for {@link #XXH32 32} */
-	public static native int nXXH32(long input, long length, int seed);
-
 	/**
 	 * Calculates the 32-bits hash of sequence {@code length} bytes stored at memory address {@code input}.
 	 *
@@ -56,21 +53,19 @@ public class XXHash {
 	 * @param length the number of bytes stored at memory address {@code input}
 	 * @param seed   the seed that can be used to alter the result predictably
 	 */
-	public static int XXH32(ByteBuffer input, long length, int seed) {
-		if ( CHECKS )
-			checkBuffer(input, length);
-		return nXXH32(memAddress(input), length, seed);
-	}
+	public static native int nXXH32(long input, long length, int seed);
 
-	/** Alternative version of: {@link #XXH32 32} */
+	/**
+	 * Calculates the 32-bits hash of sequence {@code length} bytes stored at memory address {@code input}.
+	 *
+	 * @param input the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
+	 * @param seed  the seed that can be used to alter the result predictably
+	 */
 	public static int XXH32(ByteBuffer input, int seed) {
 		return nXXH32(memAddress(input), input.remaining(), seed);
 	}
 
 	// --- [ XXH64 ] ---
-
-	/** JNI method for {@link #XXH64 64} */
-	public static native long nXXH64(long input, long length, long seed);
 
 	/**
 	 * 64-bit version of {@link #XXH32 32}.
@@ -81,13 +76,16 @@ public class XXHash {
 	 * @param length the number of bytes stored at memory address {@code input}
 	 * @param seed   the seed that can be used to alter the result predictably
 	 */
-	public static long XXH64(ByteBuffer input, long length, long seed) {
-		if ( CHECKS )
-			checkBuffer(input, length);
-		return nXXH64(memAddress(input), length, seed);
-	}
+	public static native long nXXH64(long input, long length, long seed);
 
-	/** Alternative version of: {@link #XXH64 64} */
+	/**
+	 * 64-bit version of {@link #XXH32 32}.
+	 * 
+	 * <p>This function runs faster on 64-bits systems, but slower on 32-bits systems.</p>
+	 *
+	 * @param input the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
+	 * @param seed  the seed that can be used to alter the result predictably
+	 */
 	public static long XXH64(ByteBuffer input, long seed) {
 		return nXXH64(memAddress(input), input.remaining(), seed);
 	}
@@ -103,7 +101,11 @@ public class XXHash {
 
 	// --- [ XXH32_freeState ] ---
 
-	/** JNI method for {@link #XXH32_freeState 32_freeState} */
+	/**
+	 * Frees the specified {@code XXH32_state_t}.
+	 *
+	 * @param statePtr the state to free
+	 */
 	public static native int nXXH32_freeState(long statePtr);
 
 	/**
@@ -124,7 +126,11 @@ public class XXHash {
 
 	// --- [ XXH64_freeState ] ---
 
-	/** JNI method for {@link #XXH64_freeState 64_freeState} */
+	/**
+	 * 64-bit version of {@link #XXH32_freeState 32_freeState}.
+	 *
+	 * @param statePtr the state to free
+	 */
 	public static native int nXXH64_freeState(long statePtr);
 
 	/**
@@ -140,7 +146,12 @@ public class XXHash {
 
 	// --- [ XXH32_reset ] ---
 
-	/** JNI method for {@link #XXH32_reset 32_reset} */
+	/**
+	 * Resets the specified {@code XXH32_state_t}.
+	 *
+	 * @param statePtr the {@code XXH32_state_t} to reset
+	 * @param seed     the seed that can be used to alter the hashing result predictably
+	 */
 	public static native int nXXH32_reset(long statePtr, int seed);
 
 	/**
@@ -156,9 +167,6 @@ public class XXHash {
 	}
 
 	// --- [ XXH32_update ] ---
-
-	/** JNI method for {@link #XXH32_update 32_update} */
-	public static native int nXXH32_update(long statePtr, long input, long length);
 
 	/**
 	 * Calculates the xxHash of an input provided in multiple segments, as opposed to provided as a single block.
@@ -181,15 +189,28 @@ public class XXHash {
 	 * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
 	 * @param length   the number of bytes stored at memory address {@code input}
 	 */
-	public static int XXH32_update(long statePtr, ByteBuffer input, long length) {
-		if ( CHECKS ) {
-			checkPointer(statePtr);
-			checkBuffer(input, length);
-		}
-		return nXXH32_update(statePtr, memAddress(input), length);
-	}
+	public static native int nXXH32_update(long statePtr, long input, long length);
 
-	/** Alternative version of: {@link #XXH32_update 32_update} */
+	/**
+	 * Calculates the xxHash of an input provided in multiple segments, as opposed to provided as a single block.
+	 * 
+	 * <p>XXH state must first be allocated.</p>
+	 * 
+	 * <p>Start a new hash by initializing state with a seed, using {@link #XXH32_reset 32_reset}.</p>
+	 * 
+	 * <p>Then, feed the hash state by calling {@link #XXH32_update 32_update} as many times as necessary. Obviously, input must be valid, hence allocated and read accessible. The
+	 * function returns an error code, with 0 meaning OK, and any other value meaning there is an error.</p>
+	 * 
+	 * <p>Finally, a hash value can be produced anytime, by using {@link #XXH32_digest 32_digest}. This function returns the 32-bits hash as an int.</p>
+	 * 
+	 * <p>It's still possible to continue inserting input into the hash state after a digest, and later on generate some new hashes, by calling again
+	 * {@link #XXH32_digest 32_digest}.</p>
+	 * 
+	 * <p>When done, free XXH state space.</p>
+	 *
+	 * @param statePtr the {@code XXH32_state_t} to use
+	 * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
+	 */
 	public static int XXH32_update(long statePtr, ByteBuffer input) {
 		if ( CHECKS )
 			checkPointer(statePtr);
@@ -198,7 +219,11 @@ public class XXHash {
 
 	// --- [ XXH32_digest ] ---
 
-	/** JNI method for {@link #XXH32_digest 32_digest} */
+	/**
+	 * Returns the final 32-bits hash of the specified {@code XXH32_state_t}.
+	 *
+	 * @param statePtr the {@code XXH32_state_t} to use
+	 */
 	public static native int nXXH32_digest(long statePtr);
 
 	/**
@@ -214,7 +239,12 @@ public class XXHash {
 
 	// --- [ XXH64_reset ] ---
 
-	/** JNI method for {@link #XXH64_reset 64_reset} */
+	/**
+	 * 64-bit version of {@link #XXH32_reset 32_reset}.
+	 *
+	 * @param statePtr the {@code XXH64_state_t} to reset
+	 * @param seed     the seed that can be used to alter the hashing result predictably
+	 */
 	public static native int nXXH64_reset(long statePtr, long seed);
 
 	/**
@@ -231,9 +261,6 @@ public class XXHash {
 
 	// --- [ XXH64_update ] ---
 
-	/** JNI method for {@link #XXH64_update 64_update} */
-	public static native int nXXH64_update(long statePtr, long input, long length);
-
 	/**
 	 * 64-bit version of {@link #XXH32_update 32_update}.
 	 *
@@ -241,15 +268,14 @@ public class XXHash {
 	 * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
 	 * @param length   the number of bytes stored at memory address {@code input}
 	 */
-	public static int XXH64_update(long statePtr, ByteBuffer input, long length) {
-		if ( CHECKS ) {
-			checkPointer(statePtr);
-			checkBuffer(input, length);
-		}
-		return nXXH64_update(statePtr, memAddress(input), length);
-	}
+	public static native int nXXH64_update(long statePtr, long input, long length);
 
-	/** Alternative version of: {@link #XXH64_update 64_update} */
+	/**
+	 * 64-bit version of {@link #XXH32_update 32_update}.
+	 *
+	 * @param statePtr the {@code XXH64_state_t} to use
+	 * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
+	 */
 	public static int XXH64_update(long statePtr, ByteBuffer input) {
 		if ( CHECKS )
 			checkPointer(statePtr);
@@ -258,7 +284,11 @@ public class XXHash {
 
 	// --- [ XXH64_digest ] ---
 
-	/** JNI method for {@link #XXH64_digest 64_digest} */
+	/**
+	 * 64-bit version of {@link #XXH32_digest 32_digest}.
+	 *
+	 * @param statePtr the {@code XXH64_state_t} to use
+	 */
 	public static native long nXXH64_digest(long statePtr);
 
 	/**
@@ -274,7 +304,16 @@ public class XXHash {
 
 	// --- [ XXH32_canonicalFromHash ] ---
 
-	/** JNI method for {@link #XXH32_canonicalFromHash 32_canonicalFromHash} */
+	/**
+	 * Default result type for XXH functions are primitive unsigned 32 and 64 bits.
+	 * 
+	 * <p>The canonical representation uses human-readable write convention, aka big-endian (large digits first). These functions allow transformation of hash
+	 * result into and from its canonical format. This way, hash values can be written into a file / memory, and remain comparable on different systems and
+	 * programs.</p>
+	 *
+	 * @param dst  the destination canonical representation
+	 * @param hash the source hash
+	 */
 	public static native void nXXH32_canonicalFromHash(long dst, int hash);
 
 	/**
@@ -293,7 +332,12 @@ public class XXHash {
 
 	// --- [ XXH64_canonicalFromHash ] ---
 
-	/** JNI method for {@link #XXH64_canonicalFromHash 64_canonicalFromHash} */
+	/**
+	 * 64-bit version of {@link #XXH32_canonicalFromHash 32_canonicalFromHash}.
+	 *
+	 * @param dst  the destination canonical representation
+	 * @param hash the source hash
+	 */
 	public static native void nXXH64_canonicalFromHash(long dst, long hash);
 
 	/**
@@ -308,7 +352,11 @@ public class XXHash {
 
 	// --- [ XXH32_hashFromCanonical ] ---
 
-	/** JNI method for {@link #XXH32_hashFromCanonical 32_hashFromCanonical} */
+	/**
+	 * Transforms the specified canonical representation to a primitive value.
+	 *
+	 * @param src the source canonical representation
+	 */
 	public static native int nXXH32_hashFromCanonical(long src);
 
 	/**
@@ -322,7 +370,11 @@ public class XXHash {
 
 	// --- [ XXH64_hashFromCanonical ] ---
 
-	/** JNI method for {@link #XXH64_hashFromCanonical 64_hashFromCanonical} */
+	/**
+	 * 64-bit version of {@link #XXH32_hashFromCanonical 32_hashFromCanonical}.
+	 *
+	 * @param src the source canonical representation
+	 */
 	public static native long nXXH64_hashFromCanonical(long src);
 
 	/**

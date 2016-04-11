@@ -40,7 +40,41 @@ public class KHRDisplaySwapchain {
 
 	// --- [ vkCreateSharedSwapchainsKHR ] ---
 
-	/** Unsafe version of {@link #vkCreateSharedSwapchainsKHR CreateSharedSwapchainsKHR} */
+	/**
+	 * Creates multiple swapchains that share presentable images.
+	 * 
+	 * <p>{@code vkCreateSharedSwapchains} is similar to {@link KHRSwapchain#vkCreateSwapchainKHR CreateSwapchainKHR}, except that it takes an array of {@link VkSwapchainCreateInfoKHR}
+	 * structures, and returns an array of swapchain objects.</p>
+	 * 
+	 * <p>The swapchain creation parameters that affect the properties and number of presentable images <b>must</b> match between all the swapchains. If the displays
+	 * used by any of the swapchains do not use the same presentable image layout or are incompatible in a way that prevents sharing images, swapchain
+	 * creation will fail with the result code {@link #VK_ERROR_INCOMPATIBLE_DISPLAY_KHR ERROR_INCOMPATIBLE_DISPLAY_KHR}. If any error occurs, no swapchains will be created. Images presented to
+	 * multiple swapchains <b>must</b> be re-acquired from all of them before transitioning away from {@link KHRSwapchain#VK_IMAGE_LAYOUT_PRESENT_SRC_KHR IMAGE_LAYOUT_PRESENT_SRC_KHR}. After destroying
+	 * one or more of the swapchains, the remaining swapchains and the presentable images <b>can</b> continue to be used.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfos} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@link VkSwapchainCreateInfoKHR} structures</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pSwapchains} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code VkSwapchainKHR} handles</li>
+	 * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code pCreateInfos}[].surface <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pCreateInfos}[].oldSwapchain <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device         the device to create the swapchains for
+	 * @param swapchainCount the number of swapchains to create
+	 * @param pCreateInfos   a pointer to an array of {@link VkSwapchainCreateInfoKHR} structures specifying the parameters of the created swapchains
+	 * @param pAllocator     controls host memory allocation
+	 * @param pSwapchains    a pointer to an array of {@code VkSwapchainKHR} handles in which the created swapchain objects will be returned
+	 */
 	public static int nvkCreateSharedSwapchainsKHR(VkDevice device, int swapchainCount, long pCreateInfos, long pAllocator, long pSwapchains) {
 		long __functionAddress = device.getCapabilities().vkCreateSharedSwapchainsKHR;
 		if ( CHECKS ) {
@@ -80,21 +114,11 @@ public class KHRDisplaySwapchain {
 	 * <li>Host access to {@code pCreateInfos}[].oldSwapchain <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 *
-	 * @param device         the device to create the swapchains for
-	 * @param swapchainCount the number of swapchains to create
-	 * @param pCreateInfos   a pointer to an array of {@link VkSwapchainCreateInfoKHR} structures specifying the parameters of the created swapchains
-	 * @param pAllocator     controls host memory allocation
-	 * @param pSwapchains    a pointer to an array of {@code VkSwapchainKHR} handles in which the created swapchain objects will be returned
+	 * @param device       the device to create the swapchains for
+	 * @param pCreateInfos a pointer to an array of {@link VkSwapchainCreateInfoKHR} structures specifying the parameters of the created swapchains
+	 * @param pAllocator   controls host memory allocation
+	 * @param pSwapchains  a pointer to an array of {@code VkSwapchainKHR} handles in which the created swapchain objects will be returned
 	 */
-	public static int vkCreateSharedSwapchainsKHR(VkDevice device, int swapchainCount, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, ByteBuffer pSwapchains) {
-		if ( CHECKS ) {
-			checkBuffer(pCreateInfos, swapchainCount);
-			checkBuffer(pSwapchains, swapchainCount << 3);
-		}
-		return nvkCreateSharedSwapchainsKHR(device, swapchainCount, pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSwapchains));
-	}
-
-	/** Alternative version of: {@link #vkCreateSharedSwapchainsKHR CreateSharedSwapchainsKHR} */
 	public static int vkCreateSharedSwapchainsKHR(VkDevice device, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pSwapchains) {
 		if ( CHECKS )
 			checkBuffer(pSwapchains, pCreateInfos.remaining());

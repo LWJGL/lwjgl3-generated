@@ -136,7 +136,6 @@ public class APPLESync {
 
 	// --- [ glGetInteger64vAPPLE ] ---
 
-	/** Unsafe version of {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
 	public static void nglGetInteger64vAPPLE(int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetInteger64vAPPLE;
 		if ( CHECKS )
@@ -144,20 +143,12 @@ public class APPLESync {
 		callIPV(__functionAddress, pname, params);
 	}
 
-	public static void glGetInteger64vAPPLE(int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetInteger64vAPPLE(pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
 	public static void glGetInteger64vAPPLE(int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetInteger64vAPPLE(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
 	public static long glGetInteger64APPLE(int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -171,7 +162,6 @@ public class APPLESync {
 
 	// --- [ glGetSyncivAPPLE ] ---
 
-	/** Unsafe version of {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
 	public static void nglGetSyncivAPPLE(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = GLES.getCapabilities().glGetSyncivAPPLE;
 		if ( CHECKS ) {
@@ -181,22 +171,12 @@ public class APPLESync {
 		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
-	public static void glGetSyncivAPPLE(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
-		if ( CHECKS ) {
-			checkBuffer(values, bufSize << 2);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetSyncivAPPLE(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
-	}
-
-	/** Alternative version of: {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
 	public static void glGetSyncivAPPLE(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetSyncivAPPLE(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
 	public static int glGetSynciAPPLE(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);

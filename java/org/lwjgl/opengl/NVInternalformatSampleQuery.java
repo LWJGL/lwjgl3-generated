@@ -62,7 +62,6 @@ public class NVInternalformatSampleQuery {
 
 	// --- [ glGetInternalformatSampleivNV ] ---
 
-	/** Unsafe version of {@link #glGetInternalformatSampleivNV GetInternalformatSampleivNV} */
 	public static void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetInternalformatSampleivNV;
 		if ( CHECKS )
@@ -70,11 +69,6 @@ public class NVInternalformatSampleQuery {
 		callIIIIIPV(__functionAddress, target, internalformat, samples, pname, bufSize, params);
 	}
 
-	public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, ByteBuffer params) {
-		nglGetInternalformatSampleivNV(target, internalformat, samples, pname, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetInternalformatSampleivNV GetInternalformatSampleivNV} */
 	public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, IntBuffer params) {
 		nglGetInternalformatSampleivNV(target, internalformat, samples, pname, bufSize, memAddress(params));
 	}

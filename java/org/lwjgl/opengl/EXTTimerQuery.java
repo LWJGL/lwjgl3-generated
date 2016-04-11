@@ -48,7 +48,6 @@ public class EXTTimerQuery {
 
 	// --- [ glGetQueryObjecti64vEXT ] ---
 
-	/** Unsafe version of {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	public static void nglGetQueryObjecti64vEXT(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64vEXT;
 		if ( CHECKS )
@@ -56,20 +55,12 @@ public class EXTTimerQuery {
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
-	public static void glGetQueryObjecti64vEXT(int id, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	public static void glGetQueryObjecti64vEXT(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	public static long glGetQueryObjecti64EXT(int id, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -83,7 +74,6 @@ public class EXTTimerQuery {
 
 	// --- [ glGetQueryObjectui64vEXT ] ---
 
-	/** Unsafe version of {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	public static void nglGetQueryObjectui64vEXT(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64vEXT;
 		if ( CHECKS )
@@ -91,20 +81,12 @@ public class EXTTimerQuery {
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
-	public static void glGetQueryObjectui64vEXT(int id, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	public static void glGetQueryObjectui64vEXT(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	public static long glGetQueryObjectui64EXT(int id, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

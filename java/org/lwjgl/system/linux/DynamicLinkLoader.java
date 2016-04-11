@@ -47,7 +47,13 @@ public class DynamicLinkLoader {
 
 	// --- [ dlopen ] ---
 
-	/** JNI method for {@link #dlopen} */
+	/**
+	 * Loads the dynamic library file named by the null-terminated string {@code filename} and returns an opaque "handle" for the dynamic library. If
+	 * {@code filename} is {@code NULL}, then the returned handle is for the main program.
+	 *
+	 * @param filename the name of the dynamic library to open, or {@code NULL}
+	 * @param mode     a bitfield. One or more of:<br>{@link #RTLD_LAZY}, {@link #RTLD_NOW}, {@link #RTLD_BINDING_MASK}, {@link #RTLD_NOLOAD}, {@link #RTLD_DEEPBIND}, {@link #RTLD_GLOBAL}, {@link #RTLD_LOCAL}, {@link #RTLD_NODELETE}
+	 */
 	public static native long ndlopen(long filename, int mode);
 
 	/**
@@ -63,7 +69,13 @@ public class DynamicLinkLoader {
 		return ndlopen(memAddressSafe(filename), mode);
 	}
 
-	/** CharSequence version of: {@link #dlopen} */
+	/**
+	 * Loads the dynamic library file named by the null-terminated string {@code filename} and returns an opaque "handle" for the dynamic library. If
+	 * {@code filename} is {@code NULL}, then the returned handle is for the main program.
+	 *
+	 * @param filename the name of the dynamic library to open, or {@code NULL}
+	 * @param mode     a bitfield. One or more of:<br>{@link #RTLD_LAZY}, {@link #RTLD_NOW}, {@link #RTLD_BINDING_MASK}, {@link #RTLD_NOLOAD}, {@link #RTLD_DEEPBIND}, {@link #RTLD_GLOBAL}, {@link #RTLD_LOCAL}, {@link #RTLD_NODELETE}
+	 */
 	public static long dlopen(CharSequence filename, int mode) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -76,7 +88,10 @@ public class DynamicLinkLoader {
 
 	// --- [ dlerror ] ---
 
-	/** JNI method for {@link #dlerror} */
+	/**
+	 * Returns a human readable string describing the most recent error that occurred from {@link #dlopen}, {@link #dlsym} or {@link #dlclose} since
+	 * the last call to {@code dlerror()}. It returns {@code NULL} if no errors have occurred since initialization or since it was last called.
+	 */
 	public static native long ndlerror();
 
 	/**
@@ -90,7 +105,14 @@ public class DynamicLinkLoader {
 
 	// --- [ dlsym ] ---
 
-	/** JNI method for {@link #dlsym} */
+	/**
+	 * Takes a "handle" of a dynamic library returned by {@link #dlopen} and the null-terminated symbol name, returning the address where that symbol is loaded
+	 * into memory. If the symbol is not found, in the specified library or any of the libraries that were automatically loaded by {@link #dlopen} when that
+	 * library was loaded, {@code dlsym()} returns {@code NULL}.
+	 *
+	 * @param handle the dynamic library handle
+	 * @param name   the symbol name
+	 */
 	public static native long ndlsym(long handle, long name);
 
 	/**
@@ -109,7 +131,14 @@ public class DynamicLinkLoader {
 		return ndlsym(handle, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #dlsym} */
+	/**
+	 * Takes a "handle" of a dynamic library returned by {@link #dlopen} and the null-terminated symbol name, returning the address where that symbol is loaded
+	 * into memory. If the symbol is not found, in the specified library or any of the libraries that were automatically loaded by {@link #dlopen} when that
+	 * library was loaded, {@code dlsym()} returns {@code NULL}.
+	 *
+	 * @param handle the dynamic library handle
+	 * @param name   the symbol name
+	 */
 	public static long dlsym(long handle, CharSequence name) {
 		if ( CHECKS )
 			checkPointer(handle);
@@ -124,7 +153,12 @@ public class DynamicLinkLoader {
 
 	// --- [ dlclose ] ---
 
-	/** JNI method for {@link #dlclose} */
+	/**
+	 * Decrements the reference count on the dynamic library handle handle. If the reference count drops to zero and no other loaded libraries use symbols in
+	 * it, then the dynamic library is unloaded.
+	 *
+	 * @param handle the dynamic library to close
+	 */
 	public static native int ndlclose(long handle);
 
 	/**

@@ -69,7 +69,13 @@ public class ARBTimerQuery {
 
 	// --- [ glGetQueryObjecti64v ] ---
 
-	/** Unsafe version of {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
+	/**
+	 * Returns the 64bit integer value of query object parameter.
+	 *
+	 * @param id     the name of a query object
+	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}, {@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}
+	 * @param params the requested data
+	 */
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
 		if ( CHECKS )
@@ -84,20 +90,18 @@ public class ARBTimerQuery {
 	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}, {@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}
 	 * @param params the requested data
 	 */
-	public static void glGetQueryObjecti64v(int id, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetQueryObjecti64v(id, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	public static void glGetQueryObjecti64v(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjecti64v(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
+	/**
+	 * Returns the 64bit integer value of query object parameter.
+	 *
+	 * @param id    the name of a query object
+	 * @param pname the symbolic name of a query object parameter. One of:<br>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}, {@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}
+	 */
 	public static long glGetQueryObjecti64(int id, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -111,7 +115,13 @@ public class ARBTimerQuery {
 
 	// --- [ glGetQueryObjectui64v ] ---
 
-	/** Unsafe version of {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
+	/**
+	 * Unsigned version of {@link #glGetQueryObjecti64v GetQueryObjecti64v}.
+	 *
+	 * @param id     the name of a query object
+	 * @param pname  the symbolic name of a query object parameter
+	 * @param params the requested data
+	 */
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
 		if ( CHECKS )
@@ -126,20 +136,18 @@ public class ARBTimerQuery {
 	 * @param pname  the symbolic name of a query object parameter
 	 * @param params the requested data
 	 */
-	public static void glGetQueryObjectui64v(int id, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetQueryObjectui64v(id, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	public static void glGetQueryObjectui64v(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectui64v(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
+	/**
+	 * Unsigned version of {@link #glGetQueryObjecti64v GetQueryObjecti64v}.
+	 *
+	 * @param id    the name of a query object
+	 * @param pname the symbolic name of a query object parameter
+	 */
 	public static long glGetQueryObjectui64(int id, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

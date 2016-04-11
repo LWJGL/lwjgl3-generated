@@ -79,7 +79,16 @@ public class NativeFileDialog {
 
 	// --- [ NFD_OpenDialog ] ---
 
-	/** JNI method for {@link #NFD_OpenDialog OpenDialog} */
+	/**
+	 * Launches a single file open dialog.
+	 * 
+	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+	 * needed.</p>
+	 *
+	 * @param filterList  an optional filter list
+	 * @param defaultPath an optional default path
+	 * @param outPath     returns the selected file path
+	 */
 	public static native int nNFD_OpenDialog(long filterList, long defaultPath, long outPath);
 
 	/**
@@ -92,16 +101,6 @@ public class NativeFileDialog {
 	 * @param defaultPath an optional default path
 	 * @param outPath     returns the selected file path
 	 */
-	public static int NFD_OpenDialog(ByteBuffer filterList, ByteBuffer defaultPath, ByteBuffer outPath) {
-		if ( CHECKS ) {
-			if ( filterList != null ) checkNT1(filterList);
-			if ( defaultPath != null ) checkNT1(defaultPath);
-			checkBuffer(outPath, 1 << POINTER_SHIFT);
-		}
-		return nNFD_OpenDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
-	}
-
-	/** Alternative version of: {@link #NFD_OpenDialog OpenDialog} */
 	public static int NFD_OpenDialog(ByteBuffer filterList, ByteBuffer defaultPath, PointerBuffer outPath) {
 		if ( CHECKS ) {
 			if ( filterList != null ) checkNT1(filterList);
@@ -111,7 +110,16 @@ public class NativeFileDialog {
 		return nNFD_OpenDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
 	}
 
-	/** CharSequence version of: {@link #NFD_OpenDialog OpenDialog} */
+	/**
+	 * Launches a single file open dialog.
+	 * 
+	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+	 * needed.</p>
+	 *
+	 * @param filterList  an optional filter list
+	 * @param defaultPath an optional default path
+	 * @param outPath     returns the selected file path
+	 */
 	public static int NFD_OpenDialog(CharSequence filterList, CharSequence defaultPath, PointerBuffer outPath) {
 		if ( CHECKS )
 			checkBuffer(outPath, 1);
@@ -127,7 +135,16 @@ public class NativeFileDialog {
 
 	// --- [ NFD_OpenDialogMultiple ] ---
 
-	/** JNI method for {@link #NFD_OpenDialogMultiple OpenDialogMultiple} */
+	/**
+	 * Launches a multiple file open dialog.
+	 * 
+	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPaths} will be filled with information about the selected file or files. The user must free that information with
+	 * {@link #NFD_PathSet_Free PathSet_Free} when it is no longer needed.</p>
+	 *
+	 * @param filterList  an optional filter list
+	 * @param defaultPath an optional default path
+	 * @param outPaths    a path set that will be filled with the selected files
+	 */
 	public static native int nNFD_OpenDialogMultiple(long filterList, long defaultPath, long outPaths);
 
 	/**
@@ -148,7 +165,16 @@ public class NativeFileDialog {
 		return nNFD_OpenDialogMultiple(memAddressSafe(filterList), memAddressSafe(defaultPath), outPaths.address());
 	}
 
-	/** CharSequence version of: {@link #NFD_OpenDialogMultiple OpenDialogMultiple} */
+	/**
+	 * Launches a multiple file open dialog.
+	 * 
+	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPaths} will be filled with information about the selected file or files. The user must free that information with
+	 * {@link #NFD_PathSet_Free PathSet_Free} when it is no longer needed.</p>
+	 *
+	 * @param filterList  an optional filter list
+	 * @param defaultPath an optional default path
+	 * @param outPaths    a path set that will be filled with the selected files
+	 */
 	public static int NFD_OpenDialogMultiple(CharSequence filterList, CharSequence defaultPath, NFDPathSet outPaths) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -162,7 +188,16 @@ public class NativeFileDialog {
 
 	// --- [ NFD_SaveDialog ] ---
 
-	/** JNI method for {@link #NFD_SaveDialog SaveDialog} */
+	/**
+	 * Launches a save dialog.
+	 * 
+	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+	 * needed.</p>
+	 *
+	 * @param filterList  an optional filter list
+	 * @param defaultPath an optional default path
+	 * @param outPath     returns the selected file path
+	 */
 	public static native int nNFD_SaveDialog(long filterList, long defaultPath, long outPath);
 
 	/**
@@ -175,16 +210,6 @@ public class NativeFileDialog {
 	 * @param defaultPath an optional default path
 	 * @param outPath     returns the selected file path
 	 */
-	public static int NFD_SaveDialog(ByteBuffer filterList, ByteBuffer defaultPath, ByteBuffer outPath) {
-		if ( CHECKS ) {
-			if ( filterList != null ) checkNT1(filterList);
-			if ( defaultPath != null ) checkNT1(defaultPath);
-			checkBuffer(outPath, 1 << POINTER_SHIFT);
-		}
-		return nNFD_SaveDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
-	}
-
-	/** Alternative version of: {@link #NFD_SaveDialog SaveDialog} */
 	public static int NFD_SaveDialog(ByteBuffer filterList, ByteBuffer defaultPath, PointerBuffer outPath) {
 		if ( CHECKS ) {
 			if ( filterList != null ) checkNT1(filterList);
@@ -194,7 +219,16 @@ public class NativeFileDialog {
 		return nNFD_SaveDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
 	}
 
-	/** CharSequence version of: {@link #NFD_SaveDialog SaveDialog} */
+	/**
+	 * Launches a save dialog.
+	 * 
+	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+	 * needed.</p>
+	 *
+	 * @param filterList  an optional filter list
+	 * @param defaultPath an optional default path
+	 * @param outPath     returns the selected file path
+	 */
 	public static int NFD_SaveDialog(CharSequence filterList, CharSequence defaultPath, PointerBuffer outPath) {
 		if ( CHECKS )
 			checkBuffer(outPath, 1);
@@ -210,7 +244,7 @@ public class NativeFileDialog {
 
 	// --- [ NFD_GetError ] ---
 
-	/** JNI method for {@link #NFD_GetError GetError} */
+	/** Returns the last error. */
 	public static native long nNFD_GetError();
 
 	/** Returns the last error. */
@@ -221,7 +255,11 @@ public class NativeFileDialog {
 
 	// --- [ NFD_PathSet_GetCount ] ---
 
-	/** JNI method for {@link #NFD_PathSet_GetCount PathSet_GetCount} */
+	/**
+	 * Returns the number of entries stored in {@code pathSet}.
+	 *
+	 * @param pathSet the path set to query
+	 */
 	public static native long nNFD_PathSet_GetCount(long pathSet);
 
 	/**
@@ -235,7 +273,12 @@ public class NativeFileDialog {
 
 	// --- [ NFD_PathSet_GetPath ] ---
 
-	/** JNI method for {@link #NFD_PathSet_GetPath PathSet_GetPath} */
+	/**
+	 * Returns the UTF-8 path at offset {@code index}.
+	 *
+	 * @param pathSet the path set to query
+	 * @param index   the path offset
+	 */
 	public static native long nNFD_PathSet_GetPath(long pathSet, long index);
 
 	/**
@@ -251,7 +294,11 @@ public class NativeFileDialog {
 
 	// --- [ NFD_PathSet_Free ] ---
 
-	/** JNI method for {@link #NFD_PathSet_Free PathSet_Free} */
+	/**
+	 * Frees the contents of the specified path set.
+	 *
+	 * @param pathSet the path set
+	 */
 	public static native void nNFD_PathSet_Free(long pathSet);
 
 	/**
@@ -265,7 +312,11 @@ public class NativeFileDialog {
 
 	// --- [ NFD_Free ] ---
 
-	/** JNI method for {@link #NFD_Free Free} */
+	/**
+	 * Frees memory allocated by NativeFileDialog.
+	 *
+	 * @param outPath the string to free
+	 */
 	public static native void nNFD_Free(long outPath);
 
 	/**

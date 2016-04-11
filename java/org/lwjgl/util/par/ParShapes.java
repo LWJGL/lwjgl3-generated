@@ -46,7 +46,11 @@ public class ParShapes {
 
 	// --- [ par_shapes_free_mesh ] ---
 
-	/** JNI method for {@link #par_shapes_free_mesh free_mesh} */
+	/**
+	 * Frees the specified {@link ParShapesMesh} structure.
+	 *
+	 * @param mesh the mesh to free
+	 */
 	public static native void npar_shapes_free_mesh(long mesh);
 
 	/**
@@ -60,7 +64,13 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_cylinder ] ---
 
-	/** JNI method for {@link #par_shapes_create_cylinder create_cylinder} */
+	/**
+	 * Creates a cylinder that sits on the Z=0 plane using the given tessellation levels across the UV domain.  Think of "slices" like a number of pizza
+	 * slices, and "stacks" like a number of stacked rings.  Height and radius are both 1.0, but they can easily be changed with {@link #par_shapes_scale scale}.
+	 *
+	 * @param slices the number of slices
+	 * @param stacks the number of stacks
+	 */
 	public static native long npar_shapes_create_cylinder(int slices, int stacks);
 
 	/**
@@ -77,7 +87,13 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_torus ] ---
 
-	/** JNI method for {@link #par_shapes_create_torus create_torus} */
+	/**
+	 * Creates a donut that sits on the Z=0 plane with the specified inner radius. The outer radius can be controlled with {@link #par_shapes_scale scale}.
+	 *
+	 * @param slices the number of slices
+	 * @param stacks the number of stacks
+	 * @param radius the torus radius
+	 */
 	public static native long npar_shapes_create_torus(int slices, int stacks, float radius);
 
 	/**
@@ -94,7 +110,12 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_parametric_sphere ] ---
 
-	/** JNI method for {@link #par_shapes_create_parametric_sphere create_parametric_sphere} */
+	/**
+	 * Creates a sphere with texture coordinates and small triangles near the poles.
+	 *
+	 * @param slices the number of slices
+	 * @param stacks the number of stacks
+	 */
 	public static native long npar_shapes_create_parametric_sphere(int slices, int stacks);
 
 	/**
@@ -110,7 +131,12 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_subdivided_sphere ] ---
 
-	/** JNI method for {@link #par_shapes_create_subdivided_sphere create_subdivided_sphere} */
+	/**
+	 * Approximates a sphere with a subdivided icosahedron, which produces a nice distribution of triangles, but no texture coordinates. Each subdivision
+	 * level scales the number of triangles by four, so use a very low number.
+	 *
+	 * @param nsubdivisions the number of subdivisions
+	 */
 	public static native long npar_shapes_create_subdivided_sphere(int nsubdivisions);
 
 	/**
@@ -126,7 +152,12 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_klein_bottle ] ---
 
-	/** JNI method for {@link #par_shapes_create_klein_bottle create_klein_bottle} */
+	/**
+	 * Creates a klein bottle mesh.
+	 *
+	 * @param slices the number of slices
+	 * @param stacks the number of stacks
+	 */
 	public static native long npar_shapes_create_klein_bottle(int slices, int stacks);
 
 	/**
@@ -142,7 +173,13 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_trefoil_knot ] ---
 
-	/** JNI method for {@link #par_shapes_create_trefoil_knot create_trefoil_knot} */
+	/**
+	 * Creates a trefoil knot mesh.
+	 *
+	 * @param slices the number of slices
+	 * @param stacks the number of stacks
+	 * @param radius 
+	 */
 	public static native long npar_shapes_create_trefoil_knot(int slices, int stacks, float radius);
 
 	/**
@@ -159,7 +196,12 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_hemisphere ] ---
 
-	/** JNI method for {@link #par_shapes_create_hemisphere create_hemisphere} */
+	/**
+	 * Creates a hemisphere mesh.
+	 *
+	 * @param slices the number of slices
+	 * @param stacks the number of stacks
+	 */
 	public static native long npar_shapes_create_hemisphere(int slices, int stacks);
 
 	/**
@@ -175,7 +217,12 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_plane ] ---
 
-	/** JNI method for {@link #par_shapes_create_plane create_plane} */
+	/**
+	 * Creates a plane mesh.
+	 *
+	 * @param slices the number of slices
+	 * @param stacks the number of stacks
+	 */
 	public static native long npar_shapes_create_plane(int slices, int stacks);
 
 	/**
@@ -191,7 +238,7 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_icosahedron ] ---
 
-	/** JNI method for {@link #par_shapes_create_icosahedron create_icosahedron} */
+	/** Generates points for a 20-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
 	public static native long npar_shapes_create_icosahedron();
 
 	/** Generates points for a 20-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
@@ -202,7 +249,7 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_dodecahedron ] ---
 
-	/** JNI method for {@link #par_shapes_create_dodecahedron create_dodecahedron} */
+	/** Generates points for a 12-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
 	public static native long npar_shapes_create_dodecahedron();
 
 	/** Generates points for a 12-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
@@ -213,7 +260,7 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_octohedron ] ---
 
-	/** JNI method for {@link #par_shapes_create_octohedron create_octohedron} */
+	/** Generates points for an 8-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
 	public static native long npar_shapes_create_octohedron();
 
 	/** Generates points for an 8-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
@@ -224,7 +271,7 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_tetrahedron ] ---
 
-	/** JNI method for {@link #par_shapes_create_tetrahedron create_tetrahedron} */
+	/** Generates points for a 4-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
 	public static native long npar_shapes_create_tetrahedron();
 
 	/** Generates points for a 4-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
@@ -235,7 +282,7 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_cube ] ---
 
-	/** JNI method for {@link #par_shapes_create_cube create_cube} */
+	/** Generates points for a cube that fits in the unit sphere. Texture coordinates and normals are not generated. */
 	public static native long npar_shapes_create_cube();
 
 	/** Generates points for a cube that fits in the unit sphere. Texture coordinates and normals are not generated. */
@@ -246,7 +293,14 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_disk ] ---
 
-	/** JNI method for {@link #par_shapes_create_disk create_disk} */
+	/**
+	 * Generates an orientable disk shape in 3-space.  Does not include normals or texture coordinates.
+	 *
+	 * @param radius the disk radius
+	 * @param slices the number of slices
+	 * @param center the disk center
+	 * @param normal the disk normal
+	 */
 	public static native long npar_shapes_create_disk(float radius, int slices, long center, long normal);
 
 	/**
@@ -257,12 +311,6 @@ public class ParShapes {
 	 * @param center the disk center
 	 * @param normal the disk normal
 	 */
-	public static ParShapesMesh par_shapes_create_disk(float radius, int slices, ByteBuffer center, ByteBuffer normal) {
-		long __result = npar_shapes_create_disk(radius, slices, memAddress(center), memAddress(normal));
-		return ParShapesMesh.create(__result);
-	}
-
-	/** Alternative version of: {@link #par_shapes_create_disk create_disk} */
 	public static ParShapesMesh par_shapes_create_disk(float radius, int slices, FloatBuffer center, FloatBuffer normal) {
 		long __result = npar_shapes_create_disk(radius, slices, memAddress(center), memAddress(normal));
 		return ParShapesMesh.create(__result);
@@ -270,7 +318,7 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_empty ] ---
 
-	/** JNI method for {@link #par_shapes_create_empty create_empty} */
+	/** Creates an empty shape. Useful for building scenes with {@link #par_shapes_merge_and_free merge_and_free}. */
 	public static native long npar_shapes_create_empty();
 
 	/** Creates an empty shape. Useful for building scenes with {@link #par_shapes_merge_and_free merge_and_free}. */
@@ -281,7 +329,13 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_rock ] ---
 
-	/** JNI method for {@link #par_shapes_create_rock create_rock} */
+	/**
+	 * Generates a rock shape that sits on the Y=0 plane, and sinks into it a bit. This includes smooth normals but no texture coordinates. Each subdivision
+	 * level scales the number of triangles by four, so use a very low number.
+	 *
+	 * @param seed          a seed value
+	 * @param nsubdivisions the number of subdivisions
+	 */
 	public static native long npar_shapes_create_rock(int seed, int nsubdivisions);
 
 	/**
@@ -298,7 +352,15 @@ public class ParShapes {
 
 	// --- [ par_shapes_create_lsystem ] ---
 
-	/** JNI method for {@link #par_shapes_create_lsystem create_lsystem} */
+	/**
+	 * Creates trees or vegetation by executing a recursive turtle graphics program. The program is a list of command-argument pairs. See the
+	 * <a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/util/par/ParTest.java#L263">unit test</a> for an example.
+	 * Texture coordinates and normals are not generated.
+	 *
+	 * @param program  the list of command-argument pairs
+	 * @param slices   the number of slices
+	 * @param maxdepth the maximum depth
+	 */
 	public static native long npar_shapes_create_lsystem(long program, int slices, int maxdepth);
 
 	/**
@@ -317,7 +379,15 @@ public class ParShapes {
 		return ParShapesMesh.create(__result);
 	}
 
-	/** CharSequence version of: {@link #par_shapes_create_lsystem create_lsystem} */
+	/**
+	 * Creates trees or vegetation by executing a recursive turtle graphics program. The program is a list of command-argument pairs. See the
+	 * <a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/util/par/ParTest.java#L263">unit test</a> for an example.
+	 * Texture coordinates and normals are not generated.
+	 *
+	 * @param program  the list of command-argument pairs
+	 * @param slices   the number of slices
+	 * @param maxdepth the maximum depth
+	 */
 	public static ParShapesMesh par_shapes_create_lsystem(CharSequence program, int slices, int maxdepth) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -331,7 +401,12 @@ public class ParShapes {
 
 	// --- [ par_shapes_export ] ---
 
-	/** JNI method for {@link #par_shapes_export export} */
+	/**
+	 * Dumps out a text file conforming to the venerable OBJ format.
+	 *
+	 * @param mesh    the mesh to export
+	 * @param objfile the OBJ file path
+	 */
 	public static native void npar_shapes_export(long mesh, long objfile);
 
 	/**
@@ -346,7 +421,12 @@ public class ParShapes {
 		npar_shapes_export(mesh.address(), memAddress(objfile));
 	}
 
-	/** CharSequence version of: {@link #par_shapes_export export} */
+	/**
+	 * Dumps out a text file conforming to the venerable OBJ format.
+	 *
+	 * @param mesh    the mesh to export
+	 * @param objfile the OBJ file path
+	 */
 	public static void par_shapes_export(ParShapesMesh mesh, CharSequence objfile) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -359,7 +439,12 @@ public class ParShapes {
 
 	// --- [ par_shapes_compute_aabb ] ---
 
-	/** JNI method for {@link #par_shapes_compute_aabb compute_aabb} */
+	/**
+	 * Takes a pointer to 6 floats and sets them to min xyz, max xyz.
+	 *
+	 * @param mesh the mesh to query
+	 * @param aabb a pointer to an array of 6 floats in which the AABB will be written
+	 */
 	public static native void npar_shapes_compute_aabb(long mesh, long aabb);
 
 	/**
@@ -368,13 +453,6 @@ public class ParShapes {
 	 * @param mesh the mesh to query
 	 * @param aabb a pointer to an array of 6 floats in which the AABB will be written
 	 */
-	public static void par_shapes_compute_aabb(ParShapesMesh mesh, ByteBuffer aabb) {
-		if ( CHECKS )
-			checkBuffer(aabb, 6 << 2);
-		npar_shapes_compute_aabb(mesh.address(), memAddress(aabb));
-	}
-
-	/** Alternative version of: {@link #par_shapes_compute_aabb compute_aabb} */
 	public static void par_shapes_compute_aabb(ParShapesMesh mesh, FloatBuffer aabb) {
 		if ( CHECKS )
 			checkBuffer(aabb, 6);
@@ -383,7 +461,12 @@ public class ParShapes {
 
 	// --- [ par_shapes_clone ] ---
 
-	/** JNI method for {@link #par_shapes_clone clone} */
+	/**
+	 * Makes a deep copy of a mesh. To make a brand new copy, pass {@code NULL} to {@code target}. To avoid memory churn, pass an existing mesh to {@code target}.
+	 *
+	 * @param mesh   the mesh to copy
+	 * @param target the target mesh
+	 */
 	public static native long npar_shapes_clone(long mesh, long target);
 
 	/**
@@ -399,7 +482,12 @@ public class ParShapes {
 
 	// --- [ par_shapes_merge ] ---
 
-	/** JNI method for {@link #par_shapes_merge merge} */
+	/**
+	 * Merges two shapes.
+	 *
+	 * @param dst the destination mesh
+	 * @param src the source mesh
+	 */
 	public static native void npar_shapes_merge(long dst, long src);
 
 	/**
@@ -414,7 +502,14 @@ public class ParShapes {
 
 	// --- [ par_shapes_translate ] ---
 
-	/** JNI method for {@link #par_shapes_translate translate} */
+	/**
+	 * Translates the specified mesh.
+	 *
+	 * @param mesh the mesh to translate
+	 * @param x    the X axis translation amount
+	 * @param y    the Y axis translation amount
+	 * @param z    the Z axis translation amount
+	 */
 	public static native void npar_shapes_translate(long mesh, float x, float y, float z);
 
 	/**
@@ -431,7 +526,13 @@ public class ParShapes {
 
 	// --- [ par_shapes_rotate ] ---
 
-	/** JNI method for {@link #par_shapes_rotate rotate} */
+	/**
+	 * Rotates the specified mesh.
+	 *
+	 * @param mesh    the mesh to rotate
+	 * @param radians the rotation angle, in radians
+	 * @param axis    the rotation axis
+	 */
 	public static native void npar_shapes_rotate(long mesh, float radians, long axis);
 
 	/**
@@ -441,13 +542,6 @@ public class ParShapes {
 	 * @param radians the rotation angle, in radians
 	 * @param axis    the rotation axis
 	 */
-	public static void par_shapes_rotate(ParShapesMesh mesh, float radians, ByteBuffer axis) {
-		if ( CHECKS )
-			checkBuffer(axis, 3 << 2);
-		npar_shapes_rotate(mesh.address(), radians, memAddress(axis));
-	}
-
-	/** Alternative version of: {@link #par_shapes_rotate rotate} */
 	public static void par_shapes_rotate(ParShapesMesh mesh, float radians, FloatBuffer axis) {
 		if ( CHECKS )
 			checkBuffer(axis, 3);
@@ -456,7 +550,14 @@ public class ParShapes {
 
 	// --- [ par_shapes_scale ] ---
 
-	/** JNI method for {@link #par_shapes_scale scale} */
+	/**
+	 * Scales the specified mesh.
+	 *
+	 * @param mesh the mesh to scale
+	 * @param x    the X axis scale factor
+	 * @param y    the Y axis scale factor
+	 * @param z    the Z axis scale factor
+	 */
 	public static native void npar_shapes_scale(long mesh, float x, float y, float z);
 
 	/**
@@ -473,7 +574,12 @@ public class ParShapes {
 
 	// --- [ par_shapes_merge_and_free ] ---
 
-	/** JNI method for {@link #par_shapes_merge_and_free merge_and_free} */
+	/**
+	 * Merges two shapes and frees the source shape.
+	 *
+	 * @param dst the destination mesh
+	 * @param src the source mesh
+	 */
 	public static native void npar_shapes_merge_and_free(long dst, long src);
 
 	/**
@@ -488,7 +594,13 @@ public class ParShapes {
 
 	// --- [ par_shapes_invert ] ---
 
-	/** JNI method for {@link #par_shapes_invert invert} */
+	/**
+	 * Reverses the winding of a run of faces. Useful when drawing the inside of a Cornell Box. Pass 0 for {@code nfaces} to reverse every face in the mesh.
+	 *
+	 * @param mesh      the mesh to reverse
+	 * @param startface the index of the first face to reverse
+	 * @param nfaces    the number of faces to reverse
+	 */
 	public static native void npar_shapes_invert(long mesh, int startface, int nfaces);
 
 	/**
@@ -504,7 +616,12 @@ public class ParShapes {
 
 	// --- [ par_shapes_remove_degenerate ] ---
 
-	/** JNI method for {@link #par_shapes_remove_degenerate remove_degenerate} */
+	/**
+	 * Removes all triangles whose area is less than {@code minarea}.
+	 *
+	 * @param mesh    the mesh to cleanup
+	 * @param minarea triangles with an area below this value will be removed
+	 */
 	public static native void npar_shapes_remove_degenerate(long mesh, float minarea);
 
 	/**
@@ -519,7 +636,15 @@ public class ParShapes {
 
 	// --- [ par_shapes_unweld ] ---
 
-	/** JNI method for {@link #par_shapes_unweld unweld} */
+	/**
+	 * Dereferences the entire index buffer and replaces the point list.
+	 * 
+	 * <p>This creates an inefficient structure, but is useful for drawing facets. If {@code create_indices} is true, a trivial "0 1 2 3..." index buffer is
+	 * generated.</p>
+	 *
+	 * @param mesh           the mesh to unweld
+	 * @param create_indices if an index buffer should be generated
+	 */
 	public static native void npar_shapes_unweld(long mesh, boolean create_indices);
 
 	/**
@@ -537,7 +662,14 @@ public class ParShapes {
 
 	// --- [ par_shapes_weld ] ---
 
-	/** JNI method for {@link #par_shapes_weld weld} */
+	/**
+	 * Merges colocated verts, builds a new index buffer, and returns the optimized mesh. {@code } is
+	 * the maximum distance to consider when welding vertices. The mapping argument can be
+	 *
+	 * @param mesh    the mesh to weld
+	 * @param epsilon the maximum distance to consider when welding vertices
+	 * @param mapping null, or a pointer to {@code npoints} 16-bit integers, which gets filled with the mapping from old vertex indices to new indices
+	 */
 	public static native long npar_shapes_weld(long mesh, float epsilon, long mapping);
 
 	/**
@@ -548,12 +680,6 @@ public class ParShapes {
 	 * @param epsilon the maximum distance to consider when welding vertices
 	 * @param mapping null, or a pointer to {@code npoints} 16-bit integers, which gets filled with the mapping from old vertex indices to new indices
 	 */
-	public static ParShapesMesh par_shapes_weld(ParShapesMesh mesh, float epsilon, ByteBuffer mapping) {
-		long __result = npar_shapes_weld(mesh.address(), epsilon, memAddressSafe(mapping));
-		return ParShapesMesh.create(__result);
-	}
-
-	/** Alternative version of: {@link #par_shapes_weld weld} */
 	public static ParShapesMesh par_shapes_weld(ParShapesMesh mesh, float epsilon, ShortBuffer mapping) {
 		long __result = npar_shapes_weld(mesh.address(), epsilon, memAddressSafe(mapping));
 		return ParShapesMesh.create(__result);
@@ -561,7 +687,11 @@ public class ParShapes {
 
 	// --- [ par_shapes_compute_normals ] ---
 
-	/** JNI method for {@link #par_shapes_compute_normals compute_normals} */
+	/**
+	 * Computes smooth normals by averaging adjacent facet normals.
+	 *
+	 * @param mesh the mesh
+	 */
 	public static native void npar_shapes_compute_normals(long mesh);
 
 	/**

@@ -56,7 +56,6 @@ public class KHRReusableSync {
 
 	// --- [ eglCreateSyncKHR ] ---
 
-	/** Unsafe version of {@link #eglCreateSyncKHR CreateSyncKHR} */
 	public static long neglCreateSyncKHR(long dpy, int type, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
 		if ( CHECKS ) {
@@ -66,13 +65,6 @@ public class KHRReusableSync {
 		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
-	public static long eglCreateSyncKHR(long dpy, int type, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreateSyncKHR(dpy, type, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreateSyncKHR CreateSyncKHR} */
 	public static long eglCreateSyncKHR(long dpy, int type, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -117,7 +109,6 @@ public class KHRReusableSync {
 
 	// --- [ eglGetSyncAttribKHR ] ---
 
-	/** Unsafe version of {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
 	public static int neglGetSyncAttribKHR(long dpy, long sync, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribKHR;
 		if ( CHECKS ) {
@@ -128,13 +119,6 @@ public class KHRReusableSync {
 		return callPPIPI(__functionAddress, dpy, sync, attribute, value);
 	}
 
-	public static int eglGetSyncAttribKHR(long dpy, long sync, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return neglGetSyncAttribKHR(dpy, sync, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
 	public static int eglGetSyncAttribKHR(long dpy, long sync, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);

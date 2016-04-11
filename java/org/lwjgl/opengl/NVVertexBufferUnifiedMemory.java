@@ -175,7 +175,6 @@ public class NVVertexBufferUnifiedMemory {
 
 	// --- [ glGetIntegerui64i_vNV ] ---
 
-	/** Unsafe version of {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
 	public static void nglGetIntegerui64i_vNV(int value, int index, long result) {
 		long __functionAddress = GL.getCapabilities().glGetIntegerui64i_vNV;
 		if ( CHECKS )
@@ -183,20 +182,12 @@ public class NVVertexBufferUnifiedMemory {
 		callIIPV(__functionAddress, value, index, result);
 	}
 
-	public static void glGetIntegerui64i_vNV(int value, int index, ByteBuffer result) {
-		if ( CHECKS )
-			checkBuffer(result, 1 << 3);
-		nglGetIntegerui64i_vNV(value, index, memAddress(result));
-	}
-
-	/** Alternative version of: {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
 	public static void glGetIntegerui64i_vNV(int value, int index, LongBuffer result) {
 		if ( CHECKS )
 			checkBuffer(result, 1);
 		nglGetIntegerui64i_vNV(value, index, memAddress(result));
 	}
 
-	/** Single return value version of: {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
 	public static long glGetIntegerui64iNV(int value, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

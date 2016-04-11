@@ -84,7 +84,6 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glVertexAttribL1i64vNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL1i64vNV VertexAttribL1i64vNV} */
 	public static void nglVertexAttribL1i64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1i64vNV;
 		if ( CHECKS )
@@ -92,13 +91,6 @@ public class NVVertexAttribInteger64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL1i64vNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 3);
-		nglVertexAttribL1i64vNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL1i64vNV VertexAttribL1i64vNV} */
 	public static void glVertexAttribL1i64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -107,7 +99,6 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glVertexAttribL2i64vNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL2i64vNV VertexAttribL2i64vNV} */
 	public static void nglVertexAttribL2i64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2i64vNV;
 		if ( CHECKS )
@@ -115,13 +106,6 @@ public class NVVertexAttribInteger64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL2i64vNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 3);
-		nglVertexAttribL2i64vNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL2i64vNV VertexAttribL2i64vNV} */
 	public static void glVertexAttribL2i64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -130,7 +114,6 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glVertexAttribL3i64vNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL3i64vNV VertexAttribL3i64vNV} */
 	public static void nglVertexAttribL3i64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3i64vNV;
 		if ( CHECKS )
@@ -138,13 +121,6 @@ public class NVVertexAttribInteger64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL3i64vNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 3);
-		nglVertexAttribL3i64vNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL3i64vNV VertexAttribL3i64vNV} */
 	public static void glVertexAttribL3i64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -153,7 +129,6 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glVertexAttribL4i64vNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL4i64vNV VertexAttribL4i64vNV} */
 	public static void nglVertexAttribL4i64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4i64vNV;
 		if ( CHECKS )
@@ -161,13 +136,6 @@ public class NVVertexAttribInteger64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL4i64vNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 3);
-		nglVertexAttribL4i64vNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL4i64vNV VertexAttribL4i64vNV} */
 	public static void glVertexAttribL4i64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -212,7 +180,6 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glVertexAttribL1ui64vNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL1ui64vNV VertexAttribL1ui64vNV} */
 	public static void nglVertexAttribL1ui64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64vNV;
 		if ( CHECKS )
@@ -220,13 +187,6 @@ public class NVVertexAttribInteger64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL1ui64vNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 3);
-		nglVertexAttribL1ui64vNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL1ui64vNV VertexAttribL1ui64vNV} */
 	public static void glVertexAttribL1ui64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -235,7 +195,6 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glVertexAttribL2ui64vNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL2ui64vNV VertexAttribL2ui64vNV} */
 	public static void nglVertexAttribL2ui64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2ui64vNV;
 		if ( CHECKS )
@@ -243,13 +202,6 @@ public class NVVertexAttribInteger64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL2ui64vNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 3);
-		nglVertexAttribL2ui64vNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL2ui64vNV VertexAttribL2ui64vNV} */
 	public static void glVertexAttribL2ui64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -258,7 +210,6 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glVertexAttribL3ui64vNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL3ui64vNV VertexAttribL3ui64vNV} */
 	public static void nglVertexAttribL3ui64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3ui64vNV;
 		if ( CHECKS )
@@ -266,13 +217,6 @@ public class NVVertexAttribInteger64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL3ui64vNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 3);
-		nglVertexAttribL3ui64vNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL3ui64vNV VertexAttribL3ui64vNV} */
 	public static void glVertexAttribL3ui64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -281,7 +225,6 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glVertexAttribL4ui64vNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL4ui64vNV VertexAttribL4ui64vNV} */
 	public static void nglVertexAttribL4ui64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4ui64vNV;
 		if ( CHECKS )
@@ -289,13 +232,6 @@ public class NVVertexAttribInteger64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL4ui64vNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 3);
-		nglVertexAttribL4ui64vNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL4ui64vNV VertexAttribL4ui64vNV} */
 	public static void glVertexAttribL4ui64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -304,7 +240,6 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glGetVertexAttribLi64vNV ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribLi64vNV GetVertexAttribLi64vNV} */
 	public static void nglGetVertexAttribLi64vNV(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLi64vNV;
 		if ( CHECKS )
@@ -312,20 +247,12 @@ public class NVVertexAttribInteger64bit {
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
-	public static void glGetVertexAttribLi64vNV(int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetVertexAttribLi64vNV(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribLi64vNV GetVertexAttribLi64vNV} */
 	public static void glGetVertexAttribLi64vNV(int index, int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribLi64vNV(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribLi64vNV GetVertexAttribLi64vNV} */
 	public static long glGetVertexAttribLi64NV(int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -339,7 +266,6 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glGetVertexAttribLui64vNV ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribLui64vNV GetVertexAttribLui64vNV} */
 	public static void nglGetVertexAttribLui64vNV(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLui64vNV;
 		if ( CHECKS )
@@ -347,20 +273,12 @@ public class NVVertexAttribInteger64bit {
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
-	public static void glGetVertexAttribLui64vNV(int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetVertexAttribLui64vNV(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribLui64vNV GetVertexAttribLui64vNV} */
 	public static void glGetVertexAttribLui64vNV(int index, int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribLui64vNV(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribLui64vNV GetVertexAttribLui64vNV} */
 	public static long glGetVertexAttribLui64NV(int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

@@ -174,7 +174,6 @@ public class EXTFramebufferObject {
 
 	// --- [ glDeleteRenderbuffersEXT ] ---
 
-	/** Unsafe version of {@link #glDeleteRenderbuffersEXT DeleteRenderbuffersEXT} */
 	public static void nglDeleteRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffersEXT;
 		if ( CHECKS )
@@ -182,18 +181,10 @@ public class EXTFramebufferObject {
 		callIPV(__functionAddress, n, renderbuffers);
 	}
 
-	public static void glDeleteRenderbuffersEXT(int n, ByteBuffer renderbuffers) {
-		if ( CHECKS )
-			checkBuffer(renderbuffers, n << 2);
-		nglDeleteRenderbuffersEXT(n, memAddress(renderbuffers));
-	}
-
-	/** Alternative version of: {@link #glDeleteRenderbuffersEXT DeleteRenderbuffersEXT} */
 	public static void glDeleteRenderbuffersEXT(IntBuffer renderbuffers) {
 		nglDeleteRenderbuffersEXT(renderbuffers.remaining(), memAddress(renderbuffers));
 	}
 
-	/** Single value version of: {@link #glDeleteRenderbuffersEXT DeleteRenderbuffersEXT} */
 	public static void glDeleteRenderbuffersEXT(int renderbuffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -206,7 +197,6 @@ public class EXTFramebufferObject {
 
 	// --- [ glGenRenderbuffersEXT ] ---
 
-	/** Unsafe version of {@link #glGenRenderbuffersEXT GenRenderbuffersEXT} */
 	public static void nglGenRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glGenRenderbuffersEXT;
 		if ( CHECKS )
@@ -214,18 +204,10 @@ public class EXTFramebufferObject {
 		callIPV(__functionAddress, n, renderbuffers);
 	}
 
-	public static void glGenRenderbuffersEXT(int n, ByteBuffer renderbuffers) {
-		if ( CHECKS )
-			checkBuffer(renderbuffers, n << 2);
-		nglGenRenderbuffersEXT(n, memAddress(renderbuffers));
-	}
-
-	/** Alternative version of: {@link #glGenRenderbuffersEXT GenRenderbuffersEXT} */
 	public static void glGenRenderbuffersEXT(IntBuffer renderbuffers) {
 		nglGenRenderbuffersEXT(renderbuffers.remaining(), memAddress(renderbuffers));
 	}
 
-	/** Single return value version of: {@link #glGenRenderbuffersEXT GenRenderbuffersEXT} */
 	public static int glGenRenderbuffersEXT() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -248,7 +230,6 @@ public class EXTFramebufferObject {
 
 	// --- [ glGetRenderbufferParameterivEXT ] ---
 
-	/** Unsafe version of {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
 	public static void nglGetRenderbufferParameterivEXT(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameterivEXT;
 		if ( CHECKS )
@@ -256,20 +237,12 @@ public class EXTFramebufferObject {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetRenderbufferParameterivEXT(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetRenderbufferParameterivEXT(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
 	public static void glGetRenderbufferParameterivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetRenderbufferParameterivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
 	public static int glGetRenderbufferParameteriEXT(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -301,7 +274,6 @@ public class EXTFramebufferObject {
 
 	// --- [ glDeleteFramebuffersEXT ] ---
 
-	/** Unsafe version of {@link #glDeleteFramebuffersEXT DeleteFramebuffersEXT} */
 	public static void nglDeleteFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteFramebuffersEXT;
 		if ( CHECKS )
@@ -309,18 +281,10 @@ public class EXTFramebufferObject {
 		callIPV(__functionAddress, n, framebuffers);
 	}
 
-	public static void glDeleteFramebuffersEXT(int n, ByteBuffer framebuffers) {
-		if ( CHECKS )
-			checkBuffer(framebuffers, n << 2);
-		nglDeleteFramebuffersEXT(n, memAddress(framebuffers));
-	}
-
-	/** Alternative version of: {@link #glDeleteFramebuffersEXT DeleteFramebuffersEXT} */
 	public static void glDeleteFramebuffersEXT(IntBuffer framebuffers) {
 		nglDeleteFramebuffersEXT(framebuffers.remaining(), memAddress(framebuffers));
 	}
 
-	/** Single value version of: {@link #glDeleteFramebuffersEXT DeleteFramebuffersEXT} */
 	public static void glDeleteFramebuffersEXT(int framebuffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -333,7 +297,6 @@ public class EXTFramebufferObject {
 
 	// --- [ glGenFramebuffersEXT ] ---
 
-	/** Unsafe version of {@link #glGenFramebuffersEXT GenFramebuffersEXT} */
 	public static void nglGenFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = GL.getCapabilities().glGenFramebuffersEXT;
 		if ( CHECKS )
@@ -341,18 +304,10 @@ public class EXTFramebufferObject {
 		callIPV(__functionAddress, n, framebuffers);
 	}
 
-	public static void glGenFramebuffersEXT(int n, ByteBuffer framebuffers) {
-		if ( CHECKS )
-			checkBuffer(framebuffers, n << 2);
-		nglGenFramebuffersEXT(n, memAddress(framebuffers));
-	}
-
-	/** Alternative version of: {@link #glGenFramebuffersEXT GenFramebuffersEXT} */
 	public static void glGenFramebuffersEXT(IntBuffer framebuffers) {
 		nglGenFramebuffersEXT(framebuffers.remaining(), memAddress(framebuffers));
 	}
 
-	/** Single return value version of: {@link #glGenFramebuffersEXT GenFramebuffersEXT} */
 	public static int glGenFramebuffersEXT() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -411,7 +366,6 @@ public class EXTFramebufferObject {
 
 	// --- [ glGetFramebufferAttachmentParameterivEXT ] ---
 
-	/** Unsafe version of {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
 	public static void nglGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameterivEXT;
 		if ( CHECKS )
@@ -419,20 +373,12 @@ public class EXTFramebufferObject {
 		callIIIPV(__functionAddress, target, attachment, pname, params);
 	}
 
-	public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
 	public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
 	public static int glGetFramebufferAttachmentParameteriEXT(int target, int attachment, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

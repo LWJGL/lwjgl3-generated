@@ -465,7 +465,19 @@ public class GL43 {
 
 	// --- [ glClearBufferData ] ---
 
-	/** Unsafe version of {@link #glClearBufferData ClearBufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Fills a buffer object's data store with a fixed value.
+	 *
+	 * @param target         the target of the operation. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link #GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link #GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
+	 * @param internalformat the internal format with which the data will be stored in the buffer object
+	 * @param format         the format of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type           the type of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param data           the buffer containing the data to be used as the source of the constant fill value. The elements of data are converted by the GL into the format
+	 *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
+	 *                       sub-range of the buffer is filled with zeros.
+	 */
 	public static void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
 		long __functionAddress = GL.getCapabilities().glClearBufferData;
 		if ( CHECKS )
@@ -507,7 +519,21 @@ public class GL43 {
 
 	// --- [ glClearBufferSubData ] ---
 
-	/** Unsafe version of {@link #glClearBufferSubData ClearBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Fills all or part of buffer object's data store with a fixed value.
+	 *
+	 * @param target         the target of the operation. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link #GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link #GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
+	 * @param internalformat the internal format with which the data will be stored in the buffer object
+	 * @param offset         the offset, in basic machine units into the buffer object's data store at which to start filling
+	 * @param size           the size, in basic machine units of the range of the data store to fill
+	 * @param format         the format of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type           the type of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param data           the buffer containing the data to be used as the source of the constant fill value. The elements of data are converted by the GL into the format
+	 *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
+	 *                       sub-range of the buffer is filled with zeros.
+	 */
 	public static void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = GL.getCapabilities().glClearBufferSubData;
 		if ( CHECKS )
@@ -631,7 +657,41 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glDebugMessageControl ] ---
 
-	/** Unsafe version of {@link #glDebugMessageControl DebugMessageControl} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDebugMessageControl.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
+	 * 
+	 * <p>If {@code enabled} is {@link GL11#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GL11#GL_FALSE FALSE}, then those messages will be disabled.</p>
+	 * 
+	 * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
+	 * ways:</p>
+	 * 
+	 * <ul>
+	 * <li>If {@code source}, {@code type}, or {@code severity} is {@link GL11#GL_DONT_CARE DONT_CARE}, the messages from all sources, of all types, or of all severities are
+	 * referenced respectively.</li>
+	 * <li>When values other than {@link GL11#GL_DONT_CARE DONT_CARE} are specified, all messages whose source, type, or severity match the specified {@code source}, {@code type},
+	 * or {@code severity} respectively will be referenced.</li>
+	 * <li>If {@code count} is greater than zero, then {@code ids} is an array of {@code count} message IDs for the specified combination of {@code source} and
+	 * {@code type}. In this case, if {@code source} or {@code type} is {@link GL11#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GL11#GL_DONT_CARE DONT_CARE}, the error
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</li>
+	 * </ul>
+	 * 
+	 * <p>Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
+	 * 
+	 * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
+	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
+	 * single call, and individually disabling all messages from that source using their types and IDs.</p>
+	 * 
+	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are disabled.</p>
+	 *
+	 * @param source   the source of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}, {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}
+	 * @param type     the type of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
+	 * @param severity the severity of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
+	 * @param count    the length of the array {@code ids}
+	 * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
+	 * @param enabled  whether the selected messages should be enabled or disabled
+	 */
 	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageControl;
 		if ( CHECKS )
@@ -670,22 +730,46 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param source   the source of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}, {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}
 	 * @param type     the type of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
 	 * @param severity the severity of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
-	 * @param count    the length of the array {@code ids}
 	 * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
-	public static void glDebugMessageControl(int source, int type, int severity, int count, ByteBuffer ids, boolean enabled) {
-		if ( CHECKS )
-			if ( ids != null ) checkBuffer(ids, count << 2);
-		nglDebugMessageControl(source, type, severity, count, memAddressSafe(ids), enabled);
-	}
-
-	/** Alternative version of: {@link #glDebugMessageControl DebugMessageControl} */
 	public static void glDebugMessageControl(int source, int type, int severity, IntBuffer ids, boolean enabled) {
 		nglDebugMessageControl(source, type, severity, ids == null ? 0 : ids.remaining(), memAddressSafe(ids), enabled);
 	}
 
-	/** Single value version of: {@link #glDebugMessageControl DebugMessageControl} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDebugMessageControl.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
+	 * 
+	 * <p>If {@code enabled} is {@link GL11#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GL11#GL_FALSE FALSE}, then those messages will be disabled.</p>
+	 * 
+	 * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
+	 * ways:</p>
+	 * 
+	 * <ul>
+	 * <li>If {@code source}, {@code type}, or {@code severity} is {@link GL11#GL_DONT_CARE DONT_CARE}, the messages from all sources, of all types, or of all severities are
+	 * referenced respectively.</li>
+	 * <li>When values other than {@link GL11#GL_DONT_CARE DONT_CARE} are specified, all messages whose source, type, or severity match the specified {@code source}, {@code type},
+	 * or {@code severity} respectively will be referenced.</li>
+	 * <li>If {@code count} is greater than zero, then {@code ids} is an array of {@code count} message IDs for the specified combination of {@code source} and
+	 * {@code type}. In this case, if {@code source} or {@code type} is {@link GL11#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GL11#GL_DONT_CARE DONT_CARE}, the error
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</li>
+	 * </ul>
+	 * 
+	 * <p>Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
+	 * 
+	 * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
+	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
+	 * single call, and individually disabling all messages from that source using their types and IDs.</p>
+	 * 
+	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are disabled.</p>
+	 *
+	 * @param source   the source of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}, {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}
+	 * @param type     the type of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
+	 * @param severity the severity of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
+	 * @param enabled  whether the selected messages should be enabled or disabled
+	 */
 	public static void glDebugMessageControl(int source, int type, int severity, int id, boolean enabled) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -698,7 +782,27 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glDebugMessageInsert ] ---
 
-	/** Unsafe version of {@link #glDebugMessageInsert DebugMessageInsert} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDebugMessageInsert.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
+	 * signals about specific render system events.
+	 * 
+	 * <p>The value of {@code id} specifies the ID for the message and {@code severity} indicates its severity level as defined by the caller. The string
+	 * {@code buf} contains the string representation of the message. The parameter {@code length} contains the number of characters in {@code buf}. If
+	 * {@code length} is negative, it is implied that {@code buf} contains a null terminated string. The error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} will be generated if the
+	 * number of characters in {@code buf}, excluding the null terminator when {@code length} is negative, is not less than the value of
+	 * {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 * 
+	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
+	 *
+	 * @param source   the source of the debug message to insert. One of:<br>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}, {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}
+	 * @param type     the type of the debug message insert. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
+	 * @param id       the user-supplied identifier of the message to insert. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
+	 * @param severity the severity of the debug messages to insert
+	 * @param length   the length of the string contained in the character array whose address is given by {@code message}
+	 * @param message  a character array containing the message to insert
+	 */
 	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageInsert;
 		if ( CHECKS )
@@ -724,21 +828,32 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param type     the type of the debug message insert. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
 	 * @param id       the user-supplied identifier of the message to insert. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
 	 * @param severity the severity of the debug messages to insert
-	 * @param length   the length of the string contained in the character array whose address is given by {@code message}
 	 * @param message  a character array containing the message to insert
 	 */
-	public static void glDebugMessageInsert(int source, int type, int id, int severity, int length, ByteBuffer message) {
-		if ( CHECKS )
-			checkBuffer(message, length);
-		nglDebugMessageInsert(source, type, id, severity, length, memAddress(message));
-	}
-
-	/** Alternative version of: {@link #glDebugMessageInsert DebugMessageInsert} */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, ByteBuffer message) {
 		nglDebugMessageInsert(source, type, id, severity, message.remaining(), memAddress(message));
 	}
 
-	/** CharSequence version of: {@link #glDebugMessageInsert DebugMessageInsert} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDebugMessageInsert.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
+	 * signals about specific render system events.
+	 * 
+	 * <p>The value of {@code id} specifies the ID for the message and {@code severity} indicates its severity level as defined by the caller. The string
+	 * {@code buf} contains the string representation of the message. The parameter {@code length} contains the number of characters in {@code buf}. If
+	 * {@code length} is negative, it is implied that {@code buf} contains a null terminated string. The error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} will be generated if the
+	 * number of characters in {@code buf}, excluding the null terminator when {@code length} is negative, is not less than the value of
+	 * {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 * 
+	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
+	 *
+	 * @param source   the source of the debug message to insert. One of:<br>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}, {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}
+	 * @param type     the type of the debug message insert. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
+	 * @param id       the user-supplied identifier of the message to insert. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
+	 * @param severity the severity of the debug messages to insert
+	 * @param message  a character array containing the message to insert
+	 */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, CharSequence message) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -794,14 +909,6 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glGetDebugMessageLog ] ---
 
-	/** Unsafe version of {@link #glGetDebugMessageLog GetDebugMessageLog} */
-	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
-		long __functionAddress = GL.getCapabilities().glGetDebugMessageLog;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
-	}
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetDebugMessageLog.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -838,19 +945,48 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param lengths    an array of variables to receive the lengths of the received messages
 	 * @param messageLog an array of characters that will receive the messages
 	 */
-	public static int glGetDebugMessageLog(int count, int bufsize, ByteBuffer sources, ByteBuffer types, ByteBuffer ids, ByteBuffer severities, ByteBuffer lengths, ByteBuffer messageLog) {
-		if ( CHECKS ) {
-			if ( messageLog != null ) checkBuffer(messageLog, bufsize);
-			if ( sources != null ) checkBuffer(sources, count << 2);
-			if ( types != null ) checkBuffer(types, count << 2);
-			if ( ids != null ) checkBuffer(ids, count << 2);
-			if ( severities != null ) checkBuffer(severities, count << 2);
-			if ( lengths != null ) checkBuffer(lengths, count << 2);
-		}
-		return nglGetDebugMessageLog(count, bufsize, memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
+	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
+		long __functionAddress = GL.getCapabilities().glGetDebugMessageLog;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
 	}
 
-	/** Alternative version of: {@link #glGetDebugMessageLog GetDebugMessageLog} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetDebugMessageLog.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves messages from the debug message log.
+	 * 
+	 * <p>This function fetches a maximum of {@code count} messages from the message log, and will return the number of messages successfully fetched.</p>
+	 * 
+	 * <p>Messages will be fetched from the log in order of oldest to newest. Those messages that were fetched will be removed from the log.</p>
+	 * 
+	 * <p>The sources, types, severities, IDs, and string lengths of fetched messages will be stored in the application-provided arrays {@code sources},
+	 * {@code types}, {@code severities}, {@code ids}, and {@code lengths}, respectively. The application is responsible for allocating enough space for each
+	 * array to hold up to {@code count} elements. The string representations of all fetched messages are stored in the {@code messageLog} array. If multiple
+	 * messages are fetched, their strings are concatenated into the same {@code messageLog} array and will be separated by single null terminators. The last
+	 * string in the array will also be null-terminated. The maximum size of {@code messageLog}, including the space used by all null terminators, is given by
+	 * {@code bufSize}. If {@code bufSize} is less than zero and {@code messageLog} is not {@code NULL}, an {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error will be generated. If a message's
+	 * string, including its null terminator, can not fully fit within the {@code messageLog} array's remaining space, then that message and any subsequent
+	 * messages will not be fetched and will remain in the log. The string lengths stored in the array {@code lengths} include the space for the null
+	 * terminator of each string.</p>
+	 * 
+	 * <p>Any or all of the arrays {@code sources}, {@code types}, {@code ids}, {@code severities}, {@code lengths} and {@code messageLog} can also be null
+	 * pointers, which causes the attributes for such arrays to be discarded when messages are fetched, however those messages will still be removed from the
+	 * log. Thus to simply delete up to {@code count} messages from the message log while ignoring their attributes, the application can call the function
+	 * with null pointers for all attribute arrays.</p>
+	 * 
+	 * <p>If the context was created without the {@link #GL_CONTEXT_FLAG_DEBUG_BIT CONTEXT_FLAG_DEBUG_BIT} in the {@link GL30#GL_CONTEXT_FLAGS CONTEXT_FLAGS} state, then the GL can opt to never add messages to the
+	 * message log so GetDebugMessageLog will always return zero.</p>
+	 *
+	 * @param count      the number of debug messages to retrieve from the log
+	 * @param sources    an array of variables to receive the sources of the retrieved messages
+	 * @param types      an array of variables to receive the types of the retrieved messages
+	 * @param ids        an array of unsigned integers to receive the ids of the retrieved messages
+	 * @param severities an array of variables to receive the severites of the retrieved messages
+	 * @param lengths    an array of variables to receive the lengths of the received messages
+	 * @param messageLog an array of characters that will receive the messages
+	 */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
 		if ( CHECKS ) {
 			if ( sources != null ) checkBuffer(sources, count);
@@ -864,7 +1000,25 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glPushDebugGroup ] ---
 
-	/** Unsafe version of {@link #glPushDebugGroup PushDebugGroup} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPushDebugGroup.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
+	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
+	 * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link #GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}, and
+	 * {@code severity} {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
+	 * volume of debug output of the debug group previously residing on the top of the debug group stack. Because debug groups are strictly hierarchical, any
+	 * additional control of the debug output volume will only apply within the active debug group and the debug groups pushed on top of the active debug group.
+	 * 
+	 * <p>An {@link GL11#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION} nor {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}. An
+	 * {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator, is
+	 * not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 *
+	 * @param source  the source of the debug message. One of:<br>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}
+	 * @param id      the identifier of the message
+	 * @param length  the length of the message to be sent to the debug output stream
+	 * @param message a string containing the message to be sent to the debug output stream
+	 */
 	public static void nglPushDebugGroup(int source, int id, int length, long message) {
 		long __functionAddress = GL.getCapabilities().glPushDebugGroup;
 		if ( CHECKS )
@@ -888,21 +1042,30 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 *
 	 * @param source  the source of the debug message. One of:<br>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}
 	 * @param id      the identifier of the message
-	 * @param length  the length of the message to be sent to the debug output stream
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
-	public static void glPushDebugGroup(int source, int id, int length, ByteBuffer message) {
-		if ( CHECKS )
-			checkBuffer(message, length);
-		nglPushDebugGroup(source, id, length, memAddress(message));
-	}
-
-	/** Alternative version of: {@link #glPushDebugGroup PushDebugGroup} */
 	public static void glPushDebugGroup(int source, int id, ByteBuffer message) {
 		nglPushDebugGroup(source, id, message.remaining(), memAddress(message));
 	}
 
-	/** CharSequence version of: {@link #glPushDebugGroup PushDebugGroup} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPushDebugGroup.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
+	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
+	 * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link #GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}, and
+	 * {@code severity} {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
+	 * volume of debug output of the debug group previously residing on the top of the debug group stack. Because debug groups are strictly hierarchical, any
+	 * additional control of the debug output volume will only apply within the active debug group and the debug groups pushed on top of the active debug group.
+	 * 
+	 * <p>An {@link GL11#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION} nor {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}. An
+	 * {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator, is
+	 * not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 *
+	 * @param source  the source of the debug message. One of:<br>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}
+	 * @param id      the identifier of the message
+	 * @param message a string containing the message to be sent to the debug output stream
+	 */
 	public static void glPushDebugGroup(int source, int id, CharSequence message) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -936,7 +1099,16 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glObjectLabel ] ---
 
-	/** Unsafe version of {@link #glObjectLabel ObjectLabel} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glObjectLabel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Labels a named object identified within a namespace.
+	 *
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link #GL_DISPLAY_LIST DISPLAY_LIST}, {@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link GL11#GL_TEXTURE TEXTURE}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param name       the name of the object to label
+	 * @param length     the length of the label to be used for the object
+	 * @param label      a string containing the label to assign to the object
+	 */
 	public static void nglObjectLabel(int identifier, int name, int length, long label) {
 		long __functionAddress = GL.getCapabilities().glObjectLabel;
 		if ( CHECKS )
@@ -951,21 +1123,21 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 *
 	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link #GL_DISPLAY_LIST DISPLAY_LIST}, {@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link GL11#GL_TEXTURE TEXTURE}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
 	 * @param name       the name of the object to label
-	 * @param length     the length of the label to be used for the object
 	 * @param label      a string containing the label to assign to the object
 	 */
-	public static void glObjectLabel(int identifier, int name, int length, ByteBuffer label) {
-		if ( CHECKS )
-			checkBuffer(label, length);
-		nglObjectLabel(identifier, name, length, memAddress(label));
-	}
-
-	/** Alternative version of: {@link #glObjectLabel ObjectLabel} */
 	public static void glObjectLabel(int identifier, int name, ByteBuffer label) {
 		nglObjectLabel(identifier, name, label.remaining(), memAddress(label));
 	}
 
-	/** CharSequence version of: {@link #glObjectLabel ObjectLabel} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glObjectLabel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Labels a named object identified within a namespace.
+	 *
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link #GL_DISPLAY_LIST DISPLAY_LIST}, {@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link GL11#GL_TEXTURE TEXTURE}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param name       the name of the object to label
+	 * @param label      a string containing the label to assign to the object
+	 */
 	public static void glObjectLabel(int identifier, int name, CharSequence label) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -979,7 +1151,17 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glGetObjectLabel ] ---
 
-	/** Unsafe version of {@link #glGetObjectLabel GetObjectLabel} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetObjectLabel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the label of a named object identified within a namespace.
+	 *
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link #GL_DISPLAY_LIST DISPLAY_LIST}, {@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link GL11#GL_TEXTURE TEXTURE}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param name       the name of the object whose label to retrieve
+	 * @param bufSize    the length of the buffer whose address is in {@code label}
+	 * @param length     the address of a variable to receive the length of the object label
+	 * @param label      a string that will receive the object label
+	 */
 	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = GL.getCapabilities().glGetObjectLabel;
 		if ( CHECKS )
@@ -994,26 +1176,24 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 *
 	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link #GL_DISPLAY_LIST DISPLAY_LIST}, {@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link GL11#GL_TEXTURE TEXTURE}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
 	 * @param name       the name of the object whose label to retrieve
-	 * @param bufSize    the length of the buffer whose address is in {@code label}
 	 * @param length     the address of a variable to receive the length of the object label
 	 * @param label      a string that will receive the object label
 	 */
-	public static void glGetObjectLabel(int identifier, int name, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( CHECKS ) {
-			checkBuffer(label, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetObjectLabel(identifier, name, bufSize, memAddressSafe(length), memAddress(label));
-	}
-
-	/** Alternative version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
-	/** String return version of: {@link #glGetObjectLabel GetObjectLabel} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetObjectLabel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the label of a named object identified within a namespace.
+	 *
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link #GL_DISPLAY_LIST DISPLAY_LIST}, {@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link GL11#GL_TEXTURE TEXTURE}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param name       the name of the object whose label to retrieve
+	 * @param bufSize    the length of the buffer whose address is in {@code label}
+	 */
 	public static String glGetObjectLabel(int identifier, int name, int bufSize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1026,7 +1206,14 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetObjectLabel GetObjectLabel} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetObjectLabel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the label of a named object identified within a namespace.
+	 *
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link #GL_DISPLAY_LIST DISPLAY_LIST}, {@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link GL11#GL_TEXTURE TEXTURE}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param name       the name of the object whose label to retrieve
+	 */
 	public static String glGetObjectLabel(int identifier, int name) {
 		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1042,7 +1229,15 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glObjectPtrLabel ] ---
 
-	/** Unsafe version of {@link #glObjectPtrLabel ObjectPtrLabel} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glObjectPtrLabel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Labels a sync object identified by a pointer.
+	 *
+	 * @param ptr    a pointer identifying a sync object
+	 * @param length the length of the label to be used for the object
+	 * @param label  a string containing the label to assign to the object
+	 */
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = GL.getCapabilities().glObjectPtrLabel;
 		if ( CHECKS ) {
@@ -1057,22 +1252,21 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * 
 	 * Labels a sync object identified by a pointer.
 	 *
-	 * @param ptr    a pointer identifying a sync object
-	 * @param length the length of the label to be used for the object
-	 * @param label  a string containing the label to assign to the object
+	 * @param ptr   a pointer identifying a sync object
+	 * @param label a string containing the label to assign to the object
 	 */
-	public static void glObjectPtrLabel(long ptr, int length, ByteBuffer label) {
-		if ( CHECKS )
-			checkBuffer(label, length);
-		nglObjectPtrLabel(ptr, length, memAddress(label));
-	}
-
-	/** Alternative version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, ByteBuffer label) {
 		nglObjectPtrLabel(ptr, label.remaining(), memAddress(label));
 	}
 
-	/** CharSequence version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glObjectPtrLabel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Labels a sync object identified by a pointer.
+	 *
+	 * @param ptr   a pointer identifying a sync object
+	 * @param label a string containing the label to assign to the object
+	 */
 	public static void glObjectPtrLabel(long ptr, CharSequence label) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1086,7 +1280,16 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glGetObjectPtrLabel ] ---
 
-	/** Unsafe version of {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetObjectPtrLabel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the label of a sync object identified by a pointer.
+	 *
+	 * @param ptr     the name of the sync object whose label to retrieve
+	 * @param bufSize the length of the buffer whose address is in {@code label}
+	 * @param length  a variable to receive the length of the object label
+	 * @param label   a string that will receive the object label
+	 */
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = GL.getCapabilities().glGetObjectPtrLabel;
 		if ( CHECKS ) {
@@ -1101,27 +1304,24 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * 
 	 * Retrieves the label of a sync object identified by a pointer.
 	 *
-	 * @param ptr     the name of the sync object whose label to retrieve
-	 * @param bufSize the length of the buffer whose address is in {@code label}
-	 * @param length  a variable to receive the length of the object label
-	 * @param label   a string that will receive the object label
+	 * @param ptr    the name of the sync object whose label to retrieve
+	 * @param length a variable to receive the length of the object label
+	 * @param label  a string that will receive the object label
 	 */
-	public static void glGetObjectPtrLabel(long ptr, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( CHECKS ) {
-			checkBuffer(label, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetObjectPtrLabel(ptr, bufSize, memAddressSafe(length), memAddress(label));
-	}
-
-	/** Alternative version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
-	/** String return version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetObjectPtrLabel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the label of a sync object identified by a pointer.
+	 *
+	 * @param ptr     the name of the sync object whose label to retrieve
+	 * @param bufSize the length of the buffer whose address is in {@code label}
+	 */
 	public static String glGetObjectPtrLabel(long ptr, int bufSize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1134,7 +1334,13 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetObjectPtrLabel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the label of a sync object identified by a pointer.
+	 *
+	 * @param ptr the name of the sync object whose label to retrieve
+	 */
 	public static String glGetObjectPtrLabel(long ptr) {
 		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1168,7 +1374,15 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glGetFramebufferParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFramebufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves a named parameter from a framebuffer.
+	 *
+	 * @param target target of the operation. One of:<br>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}
+	 * @param pname  a token indicating the parameter to be retrieved. One of:<br>{@link #GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link #GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link #GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link #GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link #GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
+	 * @param params a variable to receive the value of the parameter named {@code pname}
+	 */
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferParameteriv;
 		if ( CHECKS )
@@ -1185,20 +1399,20 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param pname  a token indicating the parameter to be retrieved. One of:<br>{@link #GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link #GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link #GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link #GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link #GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
 	 * @param params a variable to receive the value of the parameter named {@code pname}
 	 */
-	public static void glGetFramebufferParameteriv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetFramebufferParameteriv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static void glGetFramebufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFramebufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves a named parameter from a framebuffer.
+	 *
+	 * @param target target of the operation. One of:<br>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}
+	 * @param pname  a token indicating the parameter to be retrieved. One of:<br>{@link #GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link #GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link #GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link #GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link #GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
+	 */
 	public static int glGetFramebufferParameteri(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1212,7 +1426,17 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glGetInternalformati64v ] ---
 
-	/** Unsafe version of {@link #glGetInternalformati64v GetInternalformati64v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetInternalformat.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves information about implementation-dependent support for internal formats.
+	 *
+	 * @param target         the usage of the internal format. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}
+	 * @param internalformat the internal format about which to retrieve information
+	 * @param pname          the type of information to query
+	 * @param bufSize        the maximum number of values that may be written to params by the function
+	 * @param params         a variable into which to write the retrieved information
+	 */
 	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetInternalformati64v;
 		if ( CHECKS )
@@ -1228,21 +1452,21 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param target         the usage of the internal format. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}
 	 * @param internalformat the internal format about which to retrieve information
 	 * @param pname          the type of information to query
-	 * @param bufSize        the maximum number of values that may be written to params by the function
 	 * @param params         a variable into which to write the retrieved information
 	 */
-	public static void glGetInternalformati64v(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 3);
-		nglGetInternalformati64v(target, internalformat, pname, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetInternalformati64v GetInternalformati64v} */
 	public static void glGetInternalformati64v(int target, int internalformat, int pname, LongBuffer params) {
 		nglGetInternalformati64v(target, internalformat, pname, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInternalformati64v GetInternalformati64v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetInternalformat.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves information about implementation-dependent support for internal formats.
+	 *
+	 * @param target         the usage of the internal format. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}
+	 * @param internalformat the internal format about which to retrieve information
+	 * @param pname          the type of information to query
+	 */
 	public static long glGetInternalformati64(int target, int internalformat, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1330,7 +1554,15 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glInvalidateFramebuffer ] ---
 
-	/** Unsafe version of {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Invalidate the content some or all of a framebuffer object's attachments.
+	 *
+	 * @param target         the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param numAttachments the number of entries in the {@code attachments} array
+	 * @param attachments    the address of an array identifying the attachments to be invalidated
+	 */
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
 		long __functionAddress = GL.getCapabilities().glInvalidateFramebuffer;
 		if ( CHECKS )
@@ -1343,22 +1575,20 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * 
 	 * Invalidate the content some or all of a framebuffer object's attachments.
 	 *
-	 * @param target         the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
-	 * @param numAttachments the number of entries in the {@code attachments} array
-	 * @param attachments    the address of an array identifying the attachments to be invalidated
+	 * @param target      the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param attachments the address of an array identifying the attachments to be invalidated
 	 */
-	public static void glInvalidateFramebuffer(int target, int numAttachments, ByteBuffer attachments) {
-		if ( CHECKS )
-			checkBuffer(attachments, numAttachments << 2);
-		nglInvalidateFramebuffer(target, numAttachments, memAddress(attachments));
-	}
-
-	/** Alternative version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, IntBuffer attachments) {
 		nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments));
 	}
 
-	/** Single value version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Invalidate the content some or all of a framebuffer object's attachments.
+	 *
+	 * @param target the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 */
 	public static void glInvalidateFramebuffer(int target, int attachment) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1370,14 +1600,6 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	// --- [ glInvalidateSubFramebuffer ] ---
-
-	/** Unsafe version of {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
-	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
-	}
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateSubFramebuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -1392,18 +1614,40 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param width          the width of the region to be invalidated
 	 * @param height         the height of the region to be invalidated
 	 */
-	public static void glInvalidateSubFramebuffer(int target, int numAttachments, ByteBuffer attachments, int x, int y, int width, int height) {
+	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
+		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
 		if ( CHECKS )
-			checkBuffer(attachments, numAttachments << 2);
-		nglInvalidateSubFramebuffer(target, numAttachments, memAddress(attachments), x, y, width, height);
+			checkFunctionAddress(__functionAddress);
+		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
 	}
 
-	/** Alternative version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateSubFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
+	 *
+	 * @param target      the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param attachments an array identifying the attachments to be invalidated
+	 * @param x           the X offset of the region to be invalidated
+	 * @param y           the Y offset of the region to be invalidated
+	 * @param width       the width of the region to be invalidated
+	 * @param height      the height of the region to be invalidated
+	 */
 	public static void glInvalidateSubFramebuffer(int target, IntBuffer attachments, int x, int y, int width, int height) {
 		nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height);
 	}
 
-	/** Single value version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateSubFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
+	 *
+	 * @param target the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param x      the X offset of the region to be invalidated
+	 * @param y      the Y offset of the region to be invalidated
+	 * @param width  the width of the region to be invalidated
+	 * @param height the height of the region to be invalidated
+	 */
 	public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1416,7 +1660,36 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glMultiDrawArraysIndirect ] ---
 
-	/** Unsafe version of {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawArraysIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple sets of primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into an array of structures, each element of which takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint first;
+    uint baseInstance;
+} DrawArraysIndirectCommand;</code></pre>
+	 * 
+	 * <p>A single call to {@code glMultiDrawArraysIndirect} is equivalent, assuming no errors are generated to:</p>
+	 * 
+	 * <pre><code>const ubyte *ptr = (const ubyte *)indirect;
+for ( i = 0; i < primcount; i++ ) {
+    DrawArraysIndirect(mode, (DrawArraysIndirectCommand*)ptr);
+    if ( stride == 0 )
+        ptr += sizeof(DrawArraysIndirectCommand);
+    else
+        ptr += stride;
+}</code></pre>
+	 *
+	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indirect  an array of structures containing the draw parameters
+	 * @param primcount the number of elements in the array of draw parameter structures
+	 * @param stride    the distance in basic machine units between elements of the draw parameter array
+	 */
 	public static void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirect;
 		if ( CHECKS )
@@ -1462,11 +1735,40 @@ for ( i = 0; i < primcount; i++ ) {
 		nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
 	}
 
-	/** Buffer object offset version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
-	public static void glMultiDrawArraysIndirect(int mode, long indirectOffset, int primcount, int stride) {
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawArraysIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple sets of primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into an array of structures, each element of which takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint first;
+    uint baseInstance;
+} DrawArraysIndirectCommand;</code></pre>
+	 * 
+	 * <p>A single call to {@code glMultiDrawArraysIndirect} is equivalent, assuming no errors are generated to:</p>
+	 * 
+	 * <pre><code>const ubyte *ptr = (const ubyte *)indirect;
+for ( i = 0; i < primcount; i++ ) {
+    DrawArraysIndirect(mode, (DrawArraysIndirectCommand*)ptr);
+    if ( stride == 0 )
+        ptr += sizeof(DrawArraysIndirectCommand);
+    else
+        ptr += stride;
+}</code></pre>
+	 *
+	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indirect  an array of structures containing the draw parameters
+	 * @param primcount the number of elements in the array of draw parameter structures
+	 * @param stride    the distance in basic machine units between elements of the draw parameter array
+	 */
+	public static void glMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglMultiDrawArraysIndirect(mode, indirectOffset, primcount, stride);
+		nglMultiDrawArraysIndirect(mode, indirect, primcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
@@ -1480,7 +1782,38 @@ for ( i = 0; i < primcount; i++ ) {
 
 	// --- [ glMultiDrawElementsIndirect ] ---
 
-	/** Unsafe version of {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElementsIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple indexed primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>The parameters addressed by indirect are packed into a structure that takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint firstIndex;
+    uint baseVertex;
+    uint baseInstance;
+} DrawElementsIndirectCommand;</code></pre>
+	 * 
+	 * <p>A single call to {@code glMultiDrawElementsIndirect} is equivalent, assuming no errors are generated to:</p>
+	 * 
+	 * <pre><code>const ubyte *ptr = (const ubyte *)indirect;
+for ( i = 0; i < primcount; i++ ) {
+    DrawElementsIndirect(mode, type, (DrawElementsIndirectCommand *)ptr);
+    if ( stride == 0 )
+        ptr += sizeof(DrawElementsIndirectCommand);
+    else
+        ptr += stride;
+}</code></pre>
+	 *
+	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param type      the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indirect  a structure containing an array of draw parameters
+	 * @param primcount the number of elements in the array addressed by {@code indirect}
+	 * @param stride    the distance in basic machine units between elements of the draw parameter array
+	 */
 	public static void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirect;
 		if ( CHECKS )
@@ -1528,11 +1861,42 @@ for ( i = 0; i < primcount; i++ ) {
 		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
 	}
 
-	/** Buffer object offset version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
-	public static void glMultiDrawElementsIndirect(int mode, int type, long indirectOffset, int primcount, int stride) {
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElementsIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple indexed primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>The parameters addressed by indirect are packed into a structure that takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint firstIndex;
+    uint baseVertex;
+    uint baseInstance;
+} DrawElementsIndirectCommand;</code></pre>
+	 * 
+	 * <p>A single call to {@code glMultiDrawElementsIndirect} is equivalent, assuming no errors are generated to:</p>
+	 * 
+	 * <pre><code>const ubyte *ptr = (const ubyte *)indirect;
+for ( i = 0; i < primcount; i++ ) {
+    DrawElementsIndirect(mode, type, (DrawElementsIndirectCommand *)ptr);
+    if ( stride == 0 )
+        ptr += sizeof(DrawElementsIndirectCommand);
+    else
+        ptr += stride;
+}</code></pre>
+	 *
+	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param type      the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indirect  a structure containing an array of draw parameters
+	 * @param primcount the number of elements in the array addressed by {@code indirect}
+	 * @param stride    the distance in basic machine units between elements of the draw parameter array
+	 */
+	public static void glMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglMultiDrawElementsIndirect(mode, type, indirectOffset, primcount, stride);
+		nglMultiDrawElementsIndirect(mode, type, indirect, primcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
@@ -1546,7 +1910,16 @@ for ( i = 0; i < primcount; i++ ) {
 
 	// --- [ glGetProgramInterfaceiv ] ---
 
-	/** Unsafe version of {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramInterface.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries a property of an interface in a program.
+	 *
+	 * @param program          the name of a program object whose interface to query
+	 * @param programInterface a token identifying the interface within {@code program} to query. One of:<br>{@link #GL_UNIFORM UNIFORM}, {@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}
+	 * @param pname            the name of the parameter within {@code programInterface} to query. One of:<br>{@link #GL_ACTIVE_RESOURCES ACTIVE_RESOURCES}, {@link #GL_MAX_NAME_LENGTH MAX_NAME_LENGTH}, {@link #GL_MAX_NUM_ACTIVE_VARIABLES MAX_NUM_ACTIVE_VARIABLES}, {@link #GL_MAX_NUM_COMPATIBLE_SUBROUTINES MAX_NUM_COMPATIBLE_SUBROUTINES}
+	 * @param params           a variable to retrieve the value of {@code pname} for the program interface
+	 */
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramInterfaceiv;
 		if ( CHECKS )
@@ -1564,20 +1937,21 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param pname            the name of the parameter within {@code programInterface} to query. One of:<br>{@link #GL_ACTIVE_RESOURCES ACTIVE_RESOURCES}, {@link #GL_MAX_NAME_LENGTH MAX_NAME_LENGTH}, {@link #GL_MAX_NUM_ACTIVE_VARIABLES MAX_NUM_ACTIVE_VARIABLES}, {@link #GL_MAX_NUM_COMPATIBLE_SUBROUTINES MAX_NUM_COMPATIBLE_SUBROUTINES}
 	 * @param params           a variable to retrieve the value of {@code pname} for the program interface
 	 */
-	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramInterface.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries a property of an interface in a program.
+	 *
+	 * @param program          the name of a program object whose interface to query
+	 * @param programInterface a token identifying the interface within {@code program} to query. One of:<br>{@link #GL_UNIFORM UNIFORM}, {@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}
+	 * @param pname            the name of the parameter within {@code programInterface} to query. One of:<br>{@link #GL_ACTIVE_RESOURCES ACTIVE_RESOURCES}, {@link #GL_MAX_NAME_LENGTH MAX_NAME_LENGTH}, {@link #GL_MAX_NUM_ACTIVE_VARIABLES MAX_NUM_ACTIVE_VARIABLES}, {@link #GL_MAX_NUM_COMPATIBLE_SUBROUTINES MAX_NUM_COMPATIBLE_SUBROUTINES}
+	 */
 	public static int glGetProgramInterfacei(int program, int programInterface, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1591,7 +1965,15 @@ for ( i = 0; i < primcount; i++ ) {
 
 	// --- [ glGetProgramResourceIndex ] ---
 
-	/** Unsafe version of {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the index of a named resource within a program.
+	 *
+	 * @param program          the name of a program object whose resources to query
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {Wcode name}. One of:<br>{@link #GL_UNIFORM UNIFORM}, {@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}
+	 * @param name             the name of the resource to query the index of
+	 */
 	public static int nglGetProgramResourceIndex(int program, int programInterface, long name) {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceIndex;
 		if ( CHECKS )
@@ -1614,7 +1996,15 @@ for ( i = 0; i < primcount; i++ ) {
 		return nglGetProgramResourceIndex(program, programInterface, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the index of a named resource within a program.
+	 *
+	 * @param program          the name of a program object whose resources to query
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {Wcode name}. One of:<br>{@link #GL_UNIFORM UNIFORM}, {@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}
+	 * @param name             the name of the resource to query the index of
+	 */
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1627,7 +2017,18 @@ for ( i = 0; i < primcount; i++ ) {
 
 	// --- [ glGetProgramResourceName ] ---
 
-	/** Unsafe version of {@link #glGetProgramResourceName GetProgramResourceName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an indexed resource within a program.
+	 *
+	 * @param program          the name of a program object whose resources to query
+	 * @param programInterface a token identifying the interface within {@code program} containing the indexed resource. One of:<br>{@link #GL_UNIFORM UNIFORM}, {@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}
+	 * @param index            the index of the resource within {@code programInterface} of {@code program}
+	 * @param bufSize          the size of the character array whose address is given by {@code name}
+	 * @param length           a variable which will receive the length of the resource name
+	 * @param name             a character array into which will be written the name of the resource
+	 */
 	public static void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceName;
 		if ( CHECKS )
@@ -1643,26 +2044,25 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param program          the name of a program object whose resources to query
 	 * @param programInterface a token identifying the interface within {@code program} containing the indexed resource. One of:<br>{@link #GL_UNIFORM UNIFORM}, {@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}
 	 * @param index            the index of the resource within {@code programInterface} of {@code program}
-	 * @param bufSize          the size of the character array whose address is given by {@code name}
 	 * @param length           a variable which will receive the length of the resource name
 	 * @param name             a character array into which will be written the name of the resource
 	 */
-	public static void glGetProgramResourceName(int program, int programInterface, int index, int bufSize, ByteBuffer length, ByteBuffer name) {
-		if ( CHECKS ) {
-			checkBuffer(name, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetProgramResourceName(program, programInterface, index, bufSize, memAddressSafe(length), memAddress(name));
-	}
-
-	/** Alternative version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, IntBuffer length, ByteBuffer name) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramResourceName(program, programInterface, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
-	/** String return version of: {@link #glGetProgramResourceName GetProgramResourceName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an indexed resource within a program.
+	 *
+	 * @param program          the name of a program object whose resources to query
+	 * @param programInterface a token identifying the interface within {@code program} containing the indexed resource. One of:<br>{@link #GL_UNIFORM UNIFORM}, {@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}
+	 * @param index            the index of the resource within {@code programInterface} of {@code program}
+	 * @param bufSize          the size of the character array whose address is given by {@code name}
+	 */
 	public static String glGetProgramResourceName(int program, int programInterface, int index, int bufSize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1675,7 +2075,15 @@ for ( i = 0; i < primcount; i++ ) {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetProgramResourceName GetProgramResourceName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an indexed resource within a program.
+	 *
+	 * @param program          the name of a program object whose resources to query
+	 * @param programInterface a token identifying the interface within {@code program} containing the indexed resource. One of:<br>{@link #GL_UNIFORM UNIFORM}, {@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}
+	 * @param index            the index of the resource within {@code programInterface} of {@code program}
+	 */
 	public static String glGetProgramResourceName(int program, int programInterface, int index) {
 		int bufSize = glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1691,7 +2099,20 @@ for ( i = 0; i < primcount; i++ ) {
 
 	// --- [ glGetProgramResourceiv ] ---
 
-	/** Unsafe version of {@link #glGetProgramResourceiv GetProgramResourceiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResource.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves values for multiple properties of a single active resource within a program object.
+	 *
+	 * @param program          the name of a program object whose resources to query
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. One of:<br>{@link #GL_UNIFORM UNIFORM}, {@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}
+	 * @param index            the active resource index
+	 * @param propCount        the number of properties in {@code props}
+	 * @param props            an array that will receive the active resource properties
+	 * @param bufSize          the size of the integer array whose address is given by {@code params}
+	 * @param length           a variable which will receive the number of values returned
+	 * @param params           an array that will receive the property values
+	 */
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceiv;
 		if ( CHECKS )
@@ -1707,22 +2128,10 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param program          the name of a program object whose resources to query
 	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. One of:<br>{@link #GL_UNIFORM UNIFORM}, {@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}
 	 * @param index            the active resource index
-	 * @param propCount        the number of properties in {@code props}
 	 * @param props            an array that will receive the active resource properties
-	 * @param bufSize          the size of the integer array whose address is given by {@code params}
 	 * @param length           a variable which will receive the number of values returned
 	 * @param params           an array that will receive the property values
 	 */
-	public static void glGetProgramResourceiv(int program, int programInterface, int index, int propCount, ByteBuffer props, int bufSize, ByteBuffer length, ByteBuffer params) {
-		if ( CHECKS ) {
-			checkBuffer(props, propCount << 2);
-			checkBuffer(params, bufSize << 2);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetProgramResourceiv(program, programInterface, index, propCount, memAddress(props), bufSize, memAddressSafe(length), memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
 	public static void glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
@@ -1731,7 +2140,15 @@ for ( i = 0; i < primcount; i++ ) {
 
 	// --- [ glGetProgramResourceLocation ] ---
 
-	/** Unsafe version of {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the location of a named resource within a program.
+	 *
+	 * @param program          the name of a program object whose resources to query
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}
+	 * @param name             the name of the resource to query the location of
+	 */
 	public static int nglGetProgramResourceLocation(int program, int programInterface, long name) {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceLocation;
 		if ( CHECKS )
@@ -1754,7 +2171,15 @@ for ( i = 0; i < primcount; i++ ) {
 		return nglGetProgramResourceLocation(program, programInterface, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the location of a named resource within a program.
+	 *
+	 * @param program          the name of a program object whose resources to query
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}
+	 * @param name             the name of the resource to query the location of
+	 */
 	public static int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1767,7 +2192,15 @@ for ( i = 0; i < primcount; i++ ) {
 
 	// --- [ glGetProgramResourceLocationIndex ] ---
 
-	/** Unsafe version of {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceLocationIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the fragment color index of a named variable within a program.
+	 *
+	 * @param program          the name of a program object whose resources to query
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. Must be:<br>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}
+	 * @param name             the name of the resource to query the location of
+	 */
 	public static int nglGetProgramResourceLocationIndex(int program, int programInterface, long name) {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceLocationIndex;
 		if ( CHECKS )
@@ -1790,7 +2223,15 @@ for ( i = 0; i < primcount; i++ ) {
 		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceLocationIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the fragment color index of a named variable within a program.
+	 *
+	 * @param program          the name of a program object whose resources to query
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. Must be:<br>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}
+	 * @param name             the name of the resource to query the location of
+	 */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

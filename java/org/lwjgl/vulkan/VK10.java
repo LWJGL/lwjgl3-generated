@@ -1041,7 +1041,7 @@ public class VK10 {
 	/** The test passes when <b>R</b> &lt; <b>S</b>. */
 	public static final int VK_COMPARE_OP_LESS = 1;
 
-	/** The test passes when R = S} */
+	/** The test passes when R = S */
 	public static final int VK_COMPARE_OP_EQUAL = 2;
 
 	/** The test passes when <b>R</b> &le; <b>S</b>. */
@@ -2146,7 +2146,29 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	// --- [ vkCreateInstance ] ---
 
-	/** Unsafe version of {@link #vkCreateInstance CreateInstance} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateInstance.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new Vulkan instance.
+	 * 
+	 * <p>There is no global state in Vulkan and all per-application state is stored in a {@code VkInstance} object. Creating a {@code VkInstance} object
+	 * initializes the Vulkan library and allows the application to pass information about itself to the implementation.</p>
+	 * 
+	 * <p>{@code vkCreateInstance} creates the instance, then enables and initializes global layers and extensions requested by the application. If an extension
+	 * is provided by a layer, both the layer and extension <b>must</b> be specified at {@code vkCreateInstance} time.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkInstanceCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pInstance} <b>must</b> be a pointer to a {@code VkInstance} handle</li>
+	 * </ul>
+	 *
+	 * @param pCreateInfo points to an instance of {@link VkInstanceCreateInfo} controlling creation of the instance
+	 * @param pAllocator  controls host memory allocation
+	 * @param pInstance   a pointer to a {@code VkInstance} handle in which the resulting instance is returned
+	 */
 	public static int nvkCreateInstance(long pCreateInfo, long pAllocator, long pInstance) {
 		long __functionAddress = VK.getGlobalCommands().vkCreateInstance;
 		if ( CHECKS ) {
@@ -2179,13 +2201,6 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * @param pAllocator  controls host memory allocation
 	 * @param pInstance   a pointer to a {@code VkInstance} handle in which the resulting instance is returned
 	 */
-	public static int vkCreateInstance(VkInstanceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pInstance) {
-		if ( CHECKS )
-			checkBuffer(pInstance, 1 << POINTER_SHIFT);
-		return nvkCreateInstance(pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pInstance));
-	}
-
-	/** Alternative version of: {@link #vkCreateInstance CreateInstance} */
 	public static int vkCreateInstance(VkInstanceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pInstance) {
 		if ( CHECKS )
 			checkBuffer(pInstance, 1);
@@ -2194,7 +2209,34 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	// --- [ vkDestroyInstance ] ---
 
-	/** Unsafe version of {@link #vkDestroyInstance DestroyInstance} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyInstance.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys an instance of Vulkan.
+	 * 
+	 * <p>After destruction of the instance, all devices (logical and physical) and any objects created by those devices become invalid and <b>should not</b> be
+	 * accessed. However, objects allocated directly or indirectly through the instance are not destroyed automatically and so <b>may</b> be leaked. Applications
+	 * <b>should</b> destroy all objects created through instance before destroying the instance itself.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>All child objects created using {@code instance} <b>must</b> have been destroyed prior to destroying {@code instance}</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code instance} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code instance} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code instance} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param instance   the handle of the instance to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroyInstance(VkInstance instance, long pAllocator) {
 		long __functionAddress = instance.getCapabilities().vkDestroyInstance;
 		if ( CHECKS )
@@ -2236,7 +2278,33 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	// --- [ vkEnumeratePhysicalDevices ] ---
 
-	/** Unsafe version of {@link #vkEnumeratePhysicalDevices EnumeratePhysicalDevices} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumeratePhysicalDevices.html">Khronos Reference Page</a></p>
+	 * 
+	 * Retrieves a list of physical device objects representing the physical devices installed in the system.
+	 * 
+	 * <p>If {@code pPhysicalDevices} is {@code NULL}, then the number of physical devices available is returned in {@code pPhysicalDeviceCount}. Otherwise,
+	 * {@code pPhysicalDeviceCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pPhysicalDevices} array, and on return
+	 * the variable is overwritten with the number of structures actually written to {@code pPhysicalDevices}. If {@code pPhysicalDeviceCount} is less than
+	 * the number of physical devices available, at most {@code pPhysicalDeviceCount} structures will be written. If {@code pPhysicalDeviceCount} is smaller
+	 * than the number of physical devices available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available physical
+	 * devices were returned.</p>
+	 * 
+	 * <p>Once enumerated, general properties of the physical devices are queried by calling {@link #vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>{@code pPhysicalDeviceCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPhysicalDeviceCount} is not 0, and {@code pPhysicalDevices} is not {@code NULL}, {@code pPhysicalDevices} <b>must</b> be a
+	 * pointer to an array of {@code pPhysicalDeviceCount} {@code VkPhysicalDevice} handles</li>
+	 * </ul>
+	 *
+	 * @param instance             a handle to a Vulkan instance previously created with {@link #vkCreateInstance CreateInstance}
+	 * @param pPhysicalDeviceCount a pointer to an integer related to the number of physical devices available or queried
+	 * @param pPhysicalDevices     either {@code NULL} or a pointer to an array of {@code VkPhysicalDevice} structures
+	 */
 	public static int nvkEnumeratePhysicalDevices(VkInstance instance, long pPhysicalDeviceCount, long pPhysicalDevices) {
 		long __functionAddress = instance.getCapabilities().vkEnumeratePhysicalDevices;
 		return callPPPI(__functionAddress, instance.address(), pPhysicalDeviceCount, pPhysicalDevices);
@@ -2269,15 +2337,6 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * @param pPhysicalDeviceCount a pointer to an integer related to the number of physical devices available or queried
 	 * @param pPhysicalDevices     either {@code NULL} or a pointer to an array of {@code VkPhysicalDevice} structures
 	 */
-	public static int vkEnumeratePhysicalDevices(VkInstance instance, ByteBuffer pPhysicalDeviceCount, ByteBuffer pPhysicalDevices) {
-		if ( CHECKS ) {
-			checkBuffer(pPhysicalDeviceCount, 1 << 2);
-			if ( pPhysicalDevices != null ) checkBuffer(pPhysicalDevices, pPhysicalDeviceCount.getInt(pPhysicalDeviceCount.position()) << POINTER_SHIFT);
-		}
-		return nvkEnumeratePhysicalDevices(instance, memAddress(pPhysicalDeviceCount), memAddressSafe(pPhysicalDevices));
-	}
-
-	/** Alternative version of: {@link #vkEnumeratePhysicalDevices EnumeratePhysicalDevices} */
 	public static int vkEnumeratePhysicalDevices(VkInstance instance, IntBuffer pPhysicalDeviceCount, PointerBuffer pPhysicalDevices) {
 		if ( CHECKS ) {
 			checkBuffer(pPhysicalDeviceCount, 1);
@@ -2288,7 +2347,21 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	// --- [ vkGetPhysicalDeviceFeatures ] ---
 
-	/** Unsafe version of {@link #vkGetPhysicalDeviceFeatures GetPhysicalDeviceFeatures} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetPhysicalDeviceFeatures.html">Khronos Reference Page</a></p>
+	 * 
+	 * Reports capabilities of a physical device.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pFeatures} <b>must</b> be a pointer to a {@link VkPhysicalDeviceFeatures} structure</li>
+	 * </ul>
+	 *
+	 * @param physicalDevice the handle to the physical device whose properties will be queried
+	 * @param pFeatures      points to an instance of the {@link VkPhysicalDeviceProperties} structure, that will be filled with returned information
+	 */
 	public static void nvkGetPhysicalDeviceFeatures(VkPhysicalDevice physicalDevice, long pFeatures) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceFeatures;
 		callPPV(__functionAddress, physicalDevice.address(), pFeatures);
@@ -2315,7 +2388,23 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	// --- [ vkGetPhysicalDeviceFormatProperties ] ---
 
-	/** Unsafe version of {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetPhysicalDeviceFormatProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Lists physical device’s format capabilities.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
+	 * <li>{@code pFormatProperties} <b>must</b> be a pointer to a {@link VkFormatProperties} structure</li>
+	 * </ul>
+	 *
+	 * @param physicalDevice    the physical device from which to query the format properties
+	 * @param format            the format whose properties are queried
+	 * @param pFormatProperties a pointer to a {@link VkFormatProperties} structure in which physical device properties for format are returned
+	 */
 	public static void nvkGetPhysicalDeviceFormatProperties(VkPhysicalDevice physicalDevice, int format, long pFormatProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceFormatProperties;
 		callPIPV(__functionAddress, physicalDevice.address(), format, pFormatProperties);
@@ -2344,7 +2433,38 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	// --- [ vkGetPhysicalDeviceImageFormatProperties ] ---
 
-	/** Unsafe version of {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetPhysicalDeviceImageFormatProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Lists physical device's image format capabilities.
+	 * 
+	 * <p>In addition to the minimum capabilities, implementations <b>may</b> support additional capabilities for certain types of images. For example, larger
+	 * dimensions or additional sample counts for certain image types, or additional capabilities for linear tiling format images.</p>
+	 * 
+	 * <p>The {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags} parameters correspond to parameters that would be consumed by
+	 * {@link #vkCreateImage CreateImage}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
+	 * <li>{@code type} <b>must</b> be a valid {@code VkImageType} value</li>
+	 * <li>{@code tiling} <b>must</b> be a valid {@code VkImageTiling} value</li>
+	 * <li>{@code usage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
+	 * <li>{@code usage} <b>must not</b> be 0</li>
+	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkImageCreateFlagBits} values</li>
+	 * <li>{@code pImageFormatProperties} <b>must</b> be a pointer to a {@link VkImageFormatProperties} structure</li>
+	 * </ul>
+	 *
+	 * @param physicalDevice         the physical device from which to query the image capabilities
+	 * @param format                 the image format, corresponding to {@code VkImageCreateInfo.format}
+	 * @param type                   the image type, corresponding to {@code VkImageCreateInfo.imageType}. One of:<br>{@link #VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}, {@link #VK_IMAGE_TYPE_2D IMAGE_TYPE_2D}, {@link #VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}
+	 * @param tiling                 the image tiling, corresponding to {@code VkImageCreateInfo.tiling}. One of:<br>{@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}
+	 * @param usage                  the intended usage of the image, corresponding to {@code VkImageCreateInfo.usage}. One or more of:<br>{@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT}, {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT}, {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, {@link #VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}, {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT}
+	 * @param flags                  a bitfield describing additional parameters of the image, corresponding to {@code VkImageCreateInfo.flags}. One or more of:<br>{@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}, {@link #VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT}, {@link #VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT}, {@link #VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT IMAGE_CREATE_CUBE_COMPATIBLE_BIT}
+	 * @param pImageFormatProperties points to an instance of the {@link VkImageFormatProperties} structure in which capabilities are returned
+	 */
 	public static int nvkGetPhysicalDeviceImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int tiling, int usage, int flags, long pImageFormatProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceImageFormatProperties;
 		return callPIIIIIPI(__functionAddress, physicalDevice.address(), format, type, tiling, usage, flags, pImageFormatProperties);
@@ -2388,7 +2508,21 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	// --- [ vkGetPhysicalDeviceProperties ] ---
 
-	/** Unsafe version of {@link #vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetPhysicalDeviceProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Returns properties of a physical device.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pProperties} <b>must</b> be a pointer to a {@link VkPhysicalDeviceProperties} structure</li>
+	 * </ul>
+	 *
+	 * @param physicalDevice the handle to the physical device whose properties will be queried
+	 * @param pProperties    points to an instance of the {@link VkPhysicalDeviceProperties} structure, that will be filled with returned information
+	 */
 	public static void nvkGetPhysicalDeviceProperties(VkPhysicalDevice physicalDevice, long pProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceProperties;
 		callPPV(__functionAddress, physicalDevice.address(), pProperties);
@@ -2415,7 +2549,30 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	// --- [ vkGetPhysicalDeviceQueueFamilyProperties ] ---
 
-	/** Unsafe version of {@link #vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetPhysicalDeviceQueueFamilyProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Reports properties of the queues of the specified physical device.
+	 * 
+	 * <p>If {@code pQueueFamilyProperties} is {@code NULL}, then the number of queue families available is returned in {@code pQueueFamilyPropertyCount}. Otherwise,
+	 * {@code pQueueFamilyPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pQueueFamilyProperties} array, and
+	 * on return the variable is overwritten with the number of structures actually written to {@code pQueueFamilyProperties}. If the value of
+	 * {@code pQueueFamilyPropertyCount} is less than the number of queue families available, at most {@code pQueueFamilyPropertyCount} structures will be
+	 * written.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pQueueFamilyPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pQueueFamilyPropertyCount} is not 0, and {@code pQueueFamilyProperties} is not {@code NULL},
+	 * {@code pQueueFamilyProperties} <b>must</b> be a pointer to an array of {@code pQueueFamilyPropertyCount} {@link VkQueueFamilyProperties} structures</li>
+	 * </ul>
+	 *
+	 * @param physicalDevice            the handle to the physical device whose properties will be queried
+	 * @param pQueueFamilyPropertyCount a pointer to an integer related to the number of queue families available or queried
+	 * @param pQueueFamilyProperties    either {@code NULL} or a pointer to an array of {@link VkQueueFamilyProperties} structures
+	 */
 	public static void nvkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, long pQueueFamilyPropertyCount, long pQueueFamilyProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceQueueFamilyProperties;
 		callPPPV(__functionAddress, physicalDevice.address(), pQueueFamilyPropertyCount, pQueueFamilyProperties);
@@ -2445,15 +2602,6 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * @param pQueueFamilyPropertyCount a pointer to an integer related to the number of queue families available or queried
 	 * @param pQueueFamilyProperties    either {@code NULL} or a pointer to an array of {@link VkQueueFamilyProperties} structures
 	 */
-	public static void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, ByteBuffer pQueueFamilyPropertyCount, VkQueueFamilyProperties.Buffer pQueueFamilyProperties) {
-		if ( CHECKS ) {
-			checkBuffer(pQueueFamilyPropertyCount, 1 << 2);
-			if ( pQueueFamilyProperties != null ) checkBuffer(pQueueFamilyProperties, pQueueFamilyPropertyCount.getInt(pQueueFamilyPropertyCount.position()));
-		}
-		nvkGetPhysicalDeviceQueueFamilyProperties(physicalDevice, memAddress(pQueueFamilyPropertyCount), pQueueFamilyProperties == null ? NULL : pQueueFamilyProperties.address());
-	}
-
-	/** Alternative version of: {@link #vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} */
 	public static void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, IntBuffer pQueueFamilyPropertyCount, VkQueueFamilyProperties.Buffer pQueueFamilyProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pQueueFamilyPropertyCount, 1);
@@ -2464,7 +2612,21 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	// --- [ vkGetPhysicalDeviceMemoryProperties ] ---
 
-	/** Unsafe version of {@link #vkGetPhysicalDeviceMemoryProperties GetPhysicalDeviceMemoryProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetPhysicalDeviceMemoryProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Reports memory information for the specified physical device.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pMemoryProperties} <b>must</b> be a pointer to a {@link VkPhysicalDeviceMemoryProperties} structure</li>
+	 * </ul>
+	 *
+	 * @param physicalDevice    the handle to the device to query
+	 * @param pMemoryProperties points to an instance of {@link VkPhysicalDeviceMemoryProperties} structure in which the properties are returned
+	 */
 	public static void nvkGetPhysicalDeviceMemoryProperties(VkPhysicalDevice physicalDevice, long pMemoryProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceMemoryProperties;
 		callPPV(__functionAddress, physicalDevice.address(), pMemoryProperties);
@@ -2491,7 +2653,33 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	// --- [ vkGetInstanceProcAddr ] ---
 
-	/** Unsafe version of {@link #vkGetInstanceProcAddr GetInstanceProcAddr} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetInstanceProcAddr.html">Khronos Reference Page</a></p>
+	 * 
+	 * Returns a function pointer for a command.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
+	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be one of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
+	 * {@link #vkCreateInstance CreateInstance}</li>
+	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must</b> be the name of a core command or a command from an enabled extension, other than:
+	 * {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or {@link #vkCreateInstance CreateInstance}</li>
+	 * </ul>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
+	 * 
+	 * <p>LWJGL requires a non-{@code NULL} {@code instance} argument when calling this method. If {@code NULL} must be used, do the following:</p>
+	 * 
+	 * <pre><code>long GetInstanceProcAddr = VK.getFunctionProvider().getFunctionAddress("vkGetInstanceProcAddr");
+long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
+	 * </div>
+	 *
+	 * @param instance the instance that the function pointer will be compatible with
+	 * @param pName    the name of the command to obtain
+	 */
 	public static long nvkGetInstanceProcAddr(VkInstance instance, long pName) {
 		long __functionAddress = instance.getCapabilities().vkGetInstanceProcAddr;
 		return callPPP(__functionAddress, instance.address(), pName);
@@ -2530,7 +2718,33 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 		return nvkGetInstanceProcAddr(instance, memAddress(pName));
 	}
 
-	/** CharSequence version of: {@link #vkGetInstanceProcAddr GetInstanceProcAddr} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetInstanceProcAddr.html">Khronos Reference Page</a></p>
+	 * 
+	 * Returns a function pointer for a command.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
+	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be one of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
+	 * {@link #vkCreateInstance CreateInstance}</li>
+	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must</b> be the name of a core command or a command from an enabled extension, other than:
+	 * {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or {@link #vkCreateInstance CreateInstance}</li>
+	 * </ul>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
+	 * 
+	 * <p>LWJGL requires a non-{@code NULL} {@code instance} argument when calling this method. If {@code NULL} must be used, do the following:</p>
+	 * 
+	 * <pre><code>long GetInstanceProcAddr = VK.getFunctionProvider().getFunctionAddress("vkGetInstanceProcAddr");
+long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
+	 * </div>
+	 *
+	 * @param instance the instance that the function pointer will be compatible with
+	 * @param pName    the name of the command to obtain
+	 */
 	public static long vkGetInstanceProcAddr(VkInstance instance, CharSequence pName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2543,7 +2757,43 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkGetDeviceProcAddr ] ---
 
-	/** Unsafe version of {@link #vkGetDeviceProcAddr GetDeviceProcAddr} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetDeviceProcAddr.html">Khronos Reference Page</a></p>
+	 * 
+	 * Returns a device-specific function pointer for a command.
+	 * 
+	 * <p>In order to support systems with multiple Vulkan implementations comprising heterogeneous collections of hardware and software, the function pointers
+	 * returned by {@link #vkGetInstanceProcAddr GetInstanceProcAddr} <b>may</b> point to dispatch code, which calls a different real implementation for different {@code VkDevice} objects (and
+	 * objects created from them). The overhead of this internal dispatch <b>can</b> be avoided by obtaining device-specific function pointers for any commands that
+	 * use a device or device-child object as their dispatchable object.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
+	 * <li>{@code pName} <b>must</b> be the name of a supported command that has a first parameter of type {@code VkDevice}, {@code VkQueue} or
+	 * {@code VkCommandBuffer}, either in the core API or an enabled extension</li>
+	 * </ul>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
+	 * 
+	 * <p>The function pointers used by LWJGL for commands that have a first parameter of type {@link VkDevice}, {@link VkQueue} or {@link VkCommandBuffer}, have been acquired
+	 * using this command.</p>
+	 * </div>
+	 *
+	 * @param device the logical device that provides the function pointer
+	 * @param pName  the name of any Vulkan command whose first parameter is one of
+	 *               
+	 *               <ul>
+	 *               <li>{@link VkDevice}</li>
+	 *               <li>{@link VkQueue}</li>
+	 *               <li>{@link VkCommandBuffer}</li>
+	 *               </ul>
+	 *               
+	 *               <p>If {@code pName} is not the name of one of these Vulkan commands, and is not the name of an extension command belonging to an extension enabled for
+	 *               device, then {@code vkGetDeviceProcAddr} will return {@code NULL}.</p>
+	 */
 	public static long nvkGetDeviceProcAddr(VkDevice device, long pName) {
 		long __functionAddress = device.getCapabilities().vkGetDeviceProcAddr;
 		return callPPP(__functionAddress, device.address(), pName);
@@ -2592,7 +2842,43 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 		return nvkGetDeviceProcAddr(device, memAddress(pName));
 	}
 
-	/** CharSequence version of: {@link #vkGetDeviceProcAddr GetDeviceProcAddr} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetDeviceProcAddr.html">Khronos Reference Page</a></p>
+	 * 
+	 * Returns a device-specific function pointer for a command.
+	 * 
+	 * <p>In order to support systems with multiple Vulkan implementations comprising heterogeneous collections of hardware and software, the function pointers
+	 * returned by {@link #vkGetInstanceProcAddr GetInstanceProcAddr} <b>may</b> point to dispatch code, which calls a different real implementation for different {@code VkDevice} objects (and
+	 * objects created from them). The overhead of this internal dispatch <b>can</b> be avoided by obtaining device-specific function pointers for any commands that
+	 * use a device or device-child object as their dispatchable object.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
+	 * <li>{@code pName} <b>must</b> be the name of a supported command that has a first parameter of type {@code VkDevice}, {@code VkQueue} or
+	 * {@code VkCommandBuffer}, either in the core API or an enabled extension</li>
+	 * </ul>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
+	 * 
+	 * <p>The function pointers used by LWJGL for commands that have a first parameter of type {@link VkDevice}, {@link VkQueue} or {@link VkCommandBuffer}, have been acquired
+	 * using this command.</p>
+	 * </div>
+	 *
+	 * @param device the logical device that provides the function pointer
+	 * @param pName  the name of any Vulkan command whose first parameter is one of
+	 *               
+	 *               <ul>
+	 *               <li>{@link VkDevice}</li>
+	 *               <li>{@link VkQueue}</li>
+	 *               <li>{@link VkCommandBuffer}</li>
+	 *               </ul>
+	 *               
+	 *               <p>If {@code pName} is not the name of one of these Vulkan commands, and is not the name of an extension command belonging to an extension enabled for
+	 *               device, then {@code vkGetDeviceProcAddr} will return {@code NULL}.</p>
+	 */
 	public static long vkGetDeviceProcAddr(VkDevice device, CharSequence pName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2605,7 +2891,25 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateDevice ] ---
 
-	/** Unsafe version of {@link #vkCreateDevice CreateDevice} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateDevice.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new logical device instance.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkDeviceCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pDevice} <b>must</b> be a pointer to a {@code VkDevice} handle</li>
+	 * </ul>
+	 *
+	 * @param physicalDevice <b>must</b> be one of the device handles returned from a call to {@link #vkEnumeratePhysicalDevices EnumeratePhysicalDevices}
+	 * @param pCreateInfo    a pointer to a {@link VkDeviceCreateInfo} structure containing information about how to create the device
+	 * @param pAllocator     controls host memory allocation
+	 * @param pDevice        points to a handle in which the created {@code VkDevice} is returned
+	 */
 	public static int nvkCreateDevice(VkPhysicalDevice physicalDevice, long pCreateInfo, long pAllocator, long pDevice) {
 		long __functionAddress = physicalDevice.getCapabilities().vkCreateDevice;
 		if ( CHECKS ) {
@@ -2634,13 +2938,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator     controls host memory allocation
 	 * @param pDevice        points to a handle in which the created {@code VkDevice} is returned
 	 */
-	public static int vkCreateDevice(VkPhysicalDevice physicalDevice, VkDeviceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pDevice) {
-		if ( CHECKS )
-			checkBuffer(pDevice, 1 << POINTER_SHIFT);
-		return nvkCreateDevice(physicalDevice, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pDevice));
-	}
-
-	/** Alternative version of: {@link #vkCreateDevice CreateDevice} */
 	public static int vkCreateDevice(VkPhysicalDevice physicalDevice, VkDeviceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pDevice) {
 		if ( CHECKS )
 			checkBuffer(pDevice, 1);
@@ -2649,7 +2946,40 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyDevice ] ---
 
-	/** Unsafe version of {@link #vkDestroyDevice DestroyDevice} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyDevice.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a logical device.
+	 * 
+	 * <p>To ensure that no work is active on the device, {@link #vkDeviceWaitIdle DeviceWaitIdle} <b>can</b> be used to gate the destruction of the device. Prior to destroying a device, an
+	 * application is responsible for destroying/freeing any Vulkan objects that were created using that device as the first parameter of the corresponding
+	 * {@code vkCreate*} or {@code vkAllocate*} command.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The lifetime of each of these objects is bound by the lifetime of the {@code VkDevice} object. Therefore, to avoid resource leaks, it is critical
+	 * that an application explicitly free all of these resources prior to calling {@code vkDestroyDevice}.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>If {@code device} is not {@code NULL}, {@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>All child objects created on {@code device} <b>must</b> have been destroyed prior to destroying {@code device}</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code device} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code device} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code device} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroyDevice(VkDevice device, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyDevice;
 		if ( CHECKS )
@@ -2697,7 +3027,42 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkEnumerateInstanceExtensionProperties ] ---
 
-	/** Unsafe version of {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateInstanceExtensionProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Queries the available instance extensions.
+	 * 
+	 * <p>Extensions <b>may</b> define new Vulkan commands, structures, and enumerants. For compilation purposes, the interfaces defined by registered extensions,
+	 * including new structures and enumerants as well as function pointer types for new commands, are defined in the Khronos-supplied vulkan.h together with
+	 * the core API. However, commands defined by extensions may not be available for static linking - in which case function pointers to these commands
+	 * <b>should</b> be queried at runtime. Extensions <b>may</b> be provided by layers as well as by a Vulkan implementation.</p>
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of extensions properties available is returned in {@code pPropertyCount}. Otherwise,
+	 * {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable
+	 * is overwritten with the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than the number of
+	 * extension properties available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of
+	 * extensions available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available properties were returned.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated string</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of an instance layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
+	 * </ul>
+	 * 
+	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
+	 * {@code pLayerName} is the name of a layer, the instance extensions provided by that layer are returned.</p>
+	 * 
+	 * <p>To enable an instance extension, the name of the extension <b>should</b> be added to the {@code ppEnabledExtensionNames} member of {@link VkInstanceCreateInfo} when
+	 * creating a {@code VkInstance}.</p>
+	 *
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the instance layer to retrieve extensions from
+	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
+	 */
 	public static int nvkEnumerateInstanceExtensionProperties(long pLayerName, long pPropertyCount, long pProperties) {
 		long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceExtensionProperties;
 		return callPPPI(__functionAddress, pLayerName, pPropertyCount, pProperties);
@@ -2739,16 +3104,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
-	public static int vkEnumerateInstanceExtensionProperties(ByteBuffer pLayerName, ByteBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
-		if ( CHECKS ) {
-			if ( pLayerName != null ) checkNT1(pLayerName);
-			checkBuffer(pPropertyCount, 1 << 2);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.getInt(pPropertyCount.position()));
-		}
-		return nvkEnumerateInstanceExtensionProperties(memAddressSafe(pLayerName), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
-	}
-
-	/** Alternative version of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties} */
 	public static int vkEnumerateInstanceExtensionProperties(ByteBuffer pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			if ( pLayerName != null ) checkNT1(pLayerName);
@@ -2758,7 +3113,42 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 		return nvkEnumerateInstanceExtensionProperties(memAddressSafe(pLayerName), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
 	}
 
-	/** CharSequence version of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateInstanceExtensionProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Queries the available instance extensions.
+	 * 
+	 * <p>Extensions <b>may</b> define new Vulkan commands, structures, and enumerants. For compilation purposes, the interfaces defined by registered extensions,
+	 * including new structures and enumerants as well as function pointer types for new commands, are defined in the Khronos-supplied vulkan.h together with
+	 * the core API. However, commands defined by extensions may not be available for static linking - in which case function pointers to these commands
+	 * <b>should</b> be queried at runtime. Extensions <b>may</b> be provided by layers as well as by a Vulkan implementation.</p>
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of extensions properties available is returned in {@code pPropertyCount}. Otherwise,
+	 * {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable
+	 * is overwritten with the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than the number of
+	 * extension properties available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of
+	 * extensions available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available properties were returned.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated string</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of an instance layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
+	 * </ul>
+	 * 
+	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
+	 * {@code pLayerName} is the name of a layer, the instance extensions provided by that layer are returned.</p>
+	 * 
+	 * <p>To enable an instance extension, the name of the extension <b>should</b> be added to the {@code ppEnabledExtensionNames} member of {@link VkInstanceCreateInfo} when
+	 * creating a {@code VkInstance}.</p>
+	 *
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the instance layer to retrieve extensions from
+	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
+	 */
 	public static int vkEnumerateInstanceExtensionProperties(CharSequence pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
@@ -2775,7 +3165,39 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkEnumerateDeviceExtensionProperties ] ---
 
-	/** Unsafe version of {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateDeviceExtensionProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Queries the extensions available to a given physical device.
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of extensions properties available is returned in {@code pPropertyCount}. Otherwise,
+	 * {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable
+	 * is overwritten with the number of structures actually written to {@code pProperties}. If {@code pPropertyCount} is less than the number of extension
+	 * properties available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of extensions
+	 * available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available properties were returned.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated string</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a device layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
+	 * </ul>
+	 * 
+	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
+	 * {@code pLayerName} is the name of a layer, the device extensions provided by that layer are returned.</p>
+	 * 
+	 * <p>To enable a device layer, the name of the layer <b>should</b> be added to the {@code ppEnabledExtensionNames} member of {@link VkDeviceCreateInfo} when creating a
+	 * {@code VkDevice}.</p>
+	 *
+	 * @param physicalDevice the physical device that will be queried
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the device layer to retrieve extensions from
+	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
+	 */
 	public static int nvkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, long pLayerName, long pPropertyCount, long pProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceExtensionProperties;
 		return callPPPPI(__functionAddress, physicalDevice.address(), pLayerName, pPropertyCount, pProperties);
@@ -2814,16 +3236,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
-	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, ByteBuffer pLayerName, ByteBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
-		if ( CHECKS ) {
-			if ( pLayerName != null ) checkNT1(pLayerName);
-			checkBuffer(pPropertyCount, 1 << 2);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.getInt(pPropertyCount.position()));
-		}
-		return nvkEnumerateDeviceExtensionProperties(physicalDevice, memAddressSafe(pLayerName), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
-	}
-
-	/** Alternative version of: {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties} */
 	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, ByteBuffer pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			if ( pLayerName != null ) checkNT1(pLayerName);
@@ -2833,7 +3245,39 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 		return nvkEnumerateDeviceExtensionProperties(physicalDevice, memAddressSafe(pLayerName), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
 	}
 
-	/** CharSequence version of: {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateDeviceExtensionProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Queries the extensions available to a given physical device.
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of extensions properties available is returned in {@code pPropertyCount}. Otherwise,
+	 * {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable
+	 * is overwritten with the number of structures actually written to {@code pProperties}. If {@code pPropertyCount} is less than the number of extension
+	 * properties available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of extensions
+	 * available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available properties were returned.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated string</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a device layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
+	 * </ul>
+	 * 
+	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
+	 * {@code pLayerName} is the name of a layer, the device extensions provided by that layer are returned.</p>
+	 * 
+	 * <p>To enable a device layer, the name of the layer <b>should</b> be added to the {@code ppEnabledExtensionNames} member of {@link VkDeviceCreateInfo} when creating a
+	 * {@code VkDevice}.</p>
+	 *
+	 * @param physicalDevice the physical device that will be queried
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the device layer to retrieve extensions from
+	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
+	 */
 	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, CharSequence pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
@@ -2850,7 +3294,36 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkEnumerateInstanceLayerProperties ] ---
 
-	/** Unsafe version of {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateInstanceLayerProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Queries the available instance layers.
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of layer properties available is returned in {@code pPropertyCount}. Otherwise, {@code pPropertyCount}
+	 * <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable is overwritten with
+	 * the number of structures actually written to {@code pProperties}. If {@code pPropertyCount} is less than the number of layer properties available, at
+	 * most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of layers available, {@link #VK_INCOMPLETE INCOMPLETE} will be
+	 * returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available layer properties were returned.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkLayerProperties} structures</li>
+	 * </ul>
+	 * 
+	 * <p>To enable a instance layer, the name of the layer <b>should</b> be added to the {@code ppEnabledLayerNames} member of {@link VkInstanceCreateInfo} when creating a
+	 * {@code VkInstance}.</p>
+	 * 
+	 * <p>When a layer is enabled, it inserts itself into the call chain for Vulkan commands the layer is interested in. A common use of layers is to validate
+	 * application behavior during development. For example, the implementation will not check that Vulkan enums used by the application fall within allowed
+	 * ranges. Instead, a validation layer would do those checks and flag issues. This avoids a performance penalty during production use of the application
+	 * because those layers would not be enabled in production.</p>
+	 *
+	 * @param pPropertyCount a pointer to an integer related to the number of layer properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkLayerProperties} structures
+	 */
 	public static int nvkEnumerateInstanceLayerProperties(long pPropertyCount, long pProperties) {
 		long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceLayerProperties;
 		return callPPI(__functionAddress, pPropertyCount, pProperties);
@@ -2886,15 +3359,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pPropertyCount a pointer to an integer related to the number of layer properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkLayerProperties} structures
 	 */
-	public static int vkEnumerateInstanceLayerProperties(ByteBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
-		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1 << 2);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.getInt(pPropertyCount.position()));
-		}
-		return nvkEnumerateInstanceLayerProperties(memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
-	}
-
-	/** Alternative version of: {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} */
 	public static int vkEnumerateInstanceLayerProperties(IntBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
@@ -2905,7 +3369,38 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkEnumerateDeviceLayerProperties ] ---
 
-	/** Unsafe version of {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateDeviceLayerProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Queries the available device layers.
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of layer properties available is returned in {@code pPropertyCount}. Otherwise, {@code pPropertyCount}
+	 * <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable is overwritten with
+	 * the number of structures actually written to {@code pProperties}. If the value of {@code pPropertyCount} is less than the number of layer properties
+	 * available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of layers available,
+	 * {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available layer properties were returned.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkLayerProperties} structures</li>
+	 * </ul>
+	 * 
+	 * <p>To enable a device layer, the name of the layer <b>should</b> be added to the {@code ppEnabledLayerNames} member of {@link VkDeviceCreateInfo} when creating a
+	 * {@code VkDevice}.</p>
+	 * 
+	 * <p>Loader implementations <b>may</b> provide mechanisms outside the Vulkan API for enabling specific layers. Layers enabled through such a mechanism are
+	 * implicitly enabled, while layers enabled by including the layer name in the {@code ppEnabledLayerNames} member of {@link VkDeviceCreateInfo} are explicitly
+	 * enabled. Except where otherwise specified, implicitly enabled and explicitly enabled layers differ only in the way they are enabled. Explicitly
+	 * enabling a layer that is implicitly enabled has no additional effect.</p>
+	 *
+	 * @param physicalDevice the physical device that will be queried
+	 * @param pPropertyCount a pointer to an integer related to the number of layer properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of VkLayerProperties structures
+	 */
 	public static int nvkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, long pPropertyCount, long pProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceLayerProperties;
 		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties);
@@ -2943,15 +3438,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pPropertyCount a pointer to an integer related to the number of layer properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of VkLayerProperties structures
 	 */
-	public static int vkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, ByteBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
-		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1 << 2);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.getInt(pPropertyCount.position()));
-		}
-		return nvkEnumerateDeviceLayerProperties(physicalDevice, memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
-	}
-
-	/** Alternative version of: {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties} */
 	public static int vkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, IntBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
@@ -2962,7 +3448,55 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkGetDeviceQueue ] ---
 
-	/** Unsafe version of {@link #vkGetDeviceQueue GetDeviceQueue} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetDeviceQueue.html">Khronos Reference Page</a></p>
+	 * 
+	 * Retrieves a handle to a {@code VkQueue} object.
+	 * 
+	 * <p>The queue family index is used in multiple places in Vulkan in order to tie operations to a specific family of queues.</p>
+	 * 
+	 * <p>When retrieving a handle to the queue via {@code vkGetDeviceQueue}, the queue family index is used to select which queue family to retrieve the
+	 * {@code VkQueue} handle from.</p>
+	 * 
+	 * <p>When creating a {@code VkCommandPool} object (see Command Pools), a queue family index is specified in the {@link VkCommandPoolCreateInfo} structure. Command
+	 * buffers from this pool <b>can</b> only be submitted on queues corresponding to this queue family.</p>
+	 * 
+	 * <p>When creating {@code VkImage} and {@code VkBuffer} resources, a set of queue families is included in the {@link VkImageCreateInfo} and {@link VkBufferCreateInfo}
+	 * structures to specify the queue families that <b>can</b> access the resource.</p>
+	 * 
+	 * <p>When inserting a {@link VkBufferMemoryBarrier} or {@link VkImageMemoryBarrier} a source and destination queue family index is specified to allow the ownership of a
+	 * buffer or image to be transferred from one queue family to another.</p>
+	 * 
+	 * <p>Each queue is assigned a priority, as set in the {@link VkDeviceQueueCreateInfo} structures when creating the device. The priority of each queue is a
+	 * normalized floating point value between 0.0 and 1.0, which is then translated to a discrete priority level by the implementation. Higher values
+	 * indicate a higher priority, with 0.0 being the lowest priority and 1.0 being the highest.</p>
+	 * 
+	 * <p>Within the same device, queues with higher priority <b>may</b> be allotted more processing time than queues with lower priority. The implementation makes no
+	 * guarantees with regards to ordering or scheduling among queues with the same priority, other than the constraints defined by explicit scheduling
+	 * primitives. The implementation make no guarantees with regards to queues across different devices.</p>
+	 * 
+	 * <p>An implementation <b>may</b> allow a higher-priority queue to starve a lower-priority queue on the same {@code VkDevice} until the higher-priority queue has
+	 * no further commands to execute. The relationship of queue priorities <b>must not</b> cause queues on one {@code VkDevice} to starve queues on another
+	 * {@code VkDevice}.</p>
+	 * 
+	 * <p>No specific guarantees are made about higher priority queues receiving more processing time or better quality of service than lower priority queues.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pQueue} <b>must</b> be a pointer to a {@code VkQueue} handle</li>
+	 * <li>{@code queueFamilyIndex} <b>must</b> be one of the queue family indices specified when {@code device} was created, via the {@link VkDeviceQueueCreateInfo}
+	 * structure</li>
+	 * <li>{@code queueIndex} <b>must</b> be less than the number of queues created for the specified queue family index when {@code device} was created, via the
+	 * {@code queueCount} member of the {@link VkDeviceQueueCreateInfo} structure</li>
+	 * </ul>
+	 *
+	 * @param device           the logical device that owns the queue
+	 * @param queueFamilyIndex the index of the queue family to which the queue belongs
+	 * @param queueIndex       the index within this queue family of the queue to retrieve
+	 * @param pQueue           a pointer to a {@code VkQueue} object that will be filled with the handle for the requested queue
+	 */
 	public static void nvkGetDeviceQueue(VkDevice device, int queueFamilyIndex, int queueIndex, long pQueue) {
 		long __functionAddress = device.getCapabilities().vkGetDeviceQueue;
 		callPIIPV(__functionAddress, device.address(), queueFamilyIndex, queueIndex, pQueue);
@@ -3017,13 +3551,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param queueIndex       the index within this queue family of the queue to retrieve
 	 * @param pQueue           a pointer to a {@code VkQueue} object that will be filled with the handle for the requested queue
 	 */
-	public static void vkGetDeviceQueue(VkDevice device, int queueFamilyIndex, int queueIndex, ByteBuffer pQueue) {
-		if ( CHECKS )
-			checkBuffer(pQueue, 1 << POINTER_SHIFT);
-		nvkGetDeviceQueue(device, queueFamilyIndex, queueIndex, memAddress(pQueue));
-	}
-
-	/** Alternative version of: {@link #vkGetDeviceQueue GetDeviceQueue} */
 	public static void vkGetDeviceQueue(VkDevice device, int queueFamilyIndex, int queueIndex, PointerBuffer pQueue) {
 		if ( CHECKS )
 			checkBuffer(pQueue, 1);
@@ -3031,14 +3558,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	}
 
 	// --- [ vkQueueSubmit ] ---
-
-	/** Unsafe version of {@link #vkQueueSubmit QueueSubmit} */
-	public static int nvkQueueSubmit(VkQueue queue, int submitCount, long pSubmits, long fence) {
-		long __functionAddress = queue.getCapabilities().vkQueueSubmit;
-		if ( CHECKS )
-			if ( pSubmits != NULL ) VkSubmitInfo.validate(pSubmits, submitCount);
-		return callPIPJI(__functionAddress, queue.address(), submitCount, pSubmits, fence);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkQueueSubmit.html">Khronos Reference Page</a></p>
@@ -3085,18 +3604,103 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 *                    {@code VkSubmitInfo::pCommandBuffers} members of {@code pSubmits} is completed. If {@code submitCount} is zero but fence is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the
 	 *                    fence will still be submitted to the queue and will become signaled when all work previously submitted to the queue has completed.
 	 */
-	public static int vkQueueSubmit(VkQueue queue, int submitCount, VkSubmitInfo.Buffer pSubmits, long fence) {
+	public static int nvkQueueSubmit(VkQueue queue, int submitCount, long pSubmits, long fence) {
+		long __functionAddress = queue.getCapabilities().vkQueueSubmit;
 		if ( CHECKS )
-			if ( pSubmits != null ) checkBuffer(pSubmits, submitCount);
-		return nvkQueueSubmit(queue, submitCount, pSubmits == null ? NULL : pSubmits.address(), fence);
+			if ( pSubmits != NULL ) VkSubmitInfo.validate(pSubmits, submitCount);
+		return callPIPJI(__functionAddress, queue.address(), submitCount, pSubmits, fence);
 	}
 
-	/** Alternative version of: {@link #vkQueueSubmit QueueSubmit} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkQueueSubmit.html">Khronos Reference Page</a></p>
+	 * 
+	 * Submits a sequence of semaphores or command buffers to a queue.
+	 * 
+	 * <p>Each call to {@code vkQueueSubmit} submits zero or more batches of work to the queue for execution. {@code submitCount} is used to specify the number
+	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
+	 * be signalled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
+	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
+	 * address of which is passed in {@code pSubmitInfo}.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The exact definition of a submission is platform-specific, but is considered a relatively expensive operation. In general, applications <b>should</b>
+	 * attempt to batch work together into as few calls to {@code vkQueueSubmit} as possible.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
+	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
+	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code fence} <b>must</b> be unsignalled</li>
+	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code queue} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pSubmits}[].pWaitSemaphores[] <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pSubmits}[].pSignalSemaphores[] <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param queue    the handle of the queue that the command buffers will be submitted to
+	 * @param pSubmits a pointer to an array of {@link VkSubmitInfo} structures which describe the work to submit. All work described by {@code pSubmits} <b>must</b> be submitted to
+	 *                 the queue before the command returns.
+	 * @param fence    an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all
+	 *                 {@code VkSubmitInfo::pCommandBuffers} members of {@code pSubmits} is completed. If {@code submitCount} is zero but fence is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the
+	 *                 fence will still be submitted to the queue and will become signaled when all work previously submitted to the queue has completed.
+	 */
 	public static int vkQueueSubmit(VkQueue queue, VkSubmitInfo.Buffer pSubmits, long fence) {
 		return nvkQueueSubmit(queue, pSubmits == null ? 0 : pSubmits.remaining(), pSubmits == null ? NULL : pSubmits.address(), fence);
 	}
 
-	/** Single value version of: {@link #vkQueueSubmit QueueSubmit} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkQueueSubmit.html">Khronos Reference Page</a></p>
+	 * 
+	 * Submits a sequence of semaphores or command buffers to a queue.
+	 * 
+	 * <p>Each call to {@code vkQueueSubmit} submits zero or more batches of work to the queue for execution. {@code submitCount} is used to specify the number
+	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
+	 * be signalled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
+	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
+	 * address of which is passed in {@code pSubmitInfo}.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The exact definition of a submission is platform-specific, but is considered a relatively expensive operation. In general, applications <b>should</b>
+	 * attempt to batch work together into as few calls to {@code vkQueueSubmit} as possible.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
+	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
+	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code fence} <b>must</b> be unsignalled</li>
+	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code queue} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pSubmits}[].pWaitSemaphores[] <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pSubmits}[].pSignalSemaphores[] <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param queue the handle of the queue that the command buffers will be submitted to
+	 * @param fence an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all
+	 *              {@code VkSubmitInfo::pCommandBuffers} members of {@code pSubmits} is completed. If {@code submitCount} is zero but fence is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the
+	 *              fence will still be submitted to the queue and will become signaled when all work previously submitted to the queue has completed.
+	 */
 	public static int vkQueueSubmit(VkQueue queue, VkSubmitInfo pSubmit, long fence) {
 		return nvkQueueSubmit(queue, 1, pSubmit.address(), fence);
 	}
@@ -3153,7 +3757,46 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkAllocateMemory ] ---
 
-	/** Unsafe version of {@link #vkAllocateMemory AllocateMemory} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkAllocateMemory.html">Khronos Reference Page</a></p>
+	 * 
+	 * Allocates device memory.
+	 * 
+	 * <p>Allocations returned by {@code vkAllocateMemory} are guaranteed to meet any alignment requirement by the implementation. For example, if an
+	 * implementation requires 128 byte alignment for images and 64 byte alignment for buffers, the device memory returned through this mechanism would be
+	 * 128-byte aligned. This ensures that applications <b>can</b> correctly suballocate objects of different types (with potentially different alignment
+	 * requirements) in the same memory object.</p>
+	 * 
+	 * <p>When memory is allocated, its contents are undefined.</p>
+	 * 
+	 * <p>There is an implementation-dependent maximum number of memory allocations which <b>can</b> be simultaneously created on a device. This is specified by the
+	 * {@code maxMemoryAllocationCount} member of the {@link VkPhysicalDeviceLimits} structure. If {@code maxMemoryAllocationCount} is exceeded,
+	 * {@code vkAllocateMemory} will return {@link #VK_ERROR_TOO_MANY_OBJECTS ERROR_TOO_MANY_OBJECTS}.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Some platforms <b>may</b> have a limit on the maximum size of a single allocation. For example, certain systems <b>may</b> fail to create allocations with a size
+	 * greater than or equal to 4GB. Such a limit is implementation-dependent, and if such a failure occurs then the error {@link #VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}
+	 * <b>should</b> be returned.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pAllocateInfo} <b>must</b> be a pointer to a valid {@link VkMemoryAllocateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pMemory} <b>must</b> be a pointer to a {@code VkDeviceMemory} handle</li>
+	 * <li>The number of currently valid memory objects, allocated from {@code device}, <b>must</b> be less than
+	 * {@link VkPhysicalDeviceLimits}{@code ::maxMemoryAllocationCount}</li>
+	 * </ul>
+	 *
+	 * @param device        the logical device that owns the memory
+	 * @param pAllocateInfo a pointer to an instance of the {@link VkMemoryAllocateInfo} structure describing parameters of the allocation. A successful returned allocation <b>must</b>
+	 *                      use the requested parameters -- no substitution is permitted by the implementation.
+	 * @param pAllocator    controls host memory allocation
+	 * @param pMemory       a pointer to a {@code VkDeviceMemory} handle in which information about the allocated memory is returned
+	 */
 	public static int nvkAllocateMemory(VkDevice device, long pAllocateInfo, long pAllocator, long pMemory) {
 		long __functionAddress = device.getCapabilities().vkAllocateMemory;
 		if ( CHECKS )
@@ -3201,13 +3844,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator    controls host memory allocation
 	 * @param pMemory       a pointer to a {@code VkDeviceMemory} handle in which information about the allocated memory is returned
 	 */
-	public static int vkAllocateMemory(VkDevice device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pMemory) {
-		if ( CHECKS )
-			checkBuffer(pMemory, 1 << 3);
-		return nvkAllocateMemory(device, pAllocateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pMemory));
-	}
-
-	/** Alternative version of: {@link #vkAllocateMemory AllocateMemory} */
 	public static int vkAllocateMemory(VkDevice device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, LongBuffer pMemory) {
 		if ( CHECKS )
 			checkBuffer(pMemory, 1);
@@ -3216,7 +3852,41 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkFreeMemory ] ---
 
-	/** Unsafe version of {@link #vkFreeMemory FreeMemory} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFreeMemory.html">Khronos Reference Page</a></p>
+	 * 
+	 * Frees a memory object.
+	 * 
+	 * <p>Before freeing a memory object, an application <b>must</b> ensure the memory object is no longer in use by the device — for example by command buffers queued
+	 * for execution. The memory <b>can</b> remain bound to images or buffers at the time the memory object is freed, but any further use of them (on host or
+	 * device) for anything other than destroying those objects will result in undefined behavior. If there are still any bound images or buffers, the memory
+	 * <b>may</b> not be immediately released by the implementation, but <b>must</b> be released by the time all bound images and buffers have been destroyed. Once memory
+	 * is released, it is returned to the heap from which it was allocated.</p>
+	 * 
+	 * <p>If a memory object is mapped at the time it is freed, it is implicitly unmapped.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code memory} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code memory} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code memory} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code memory} (via images or buffers) <b>must</b> have completed execution</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code memory} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that owns the memory
+	 * @param memory     the {@code VkDeviceMemory} object to be freed
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkFreeMemory(VkDevice device, long memory, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkFreeMemory;
 		if ( CHECKS )
@@ -3265,7 +3935,64 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkMapMemory ] ---
 
-	/** Unsafe version of {@link #vkMapMemory MapMemory} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkMapMemory.html">Khronos Reference Page</a></p>
+	 * 
+	 * Retrieves a host virtual address pointer to a region of a mappable memory object.
+	 * 
+	 * <p>Memory objects created with {@link #vkAllocateMemory AllocateMemory} are not directly host accessible. Memory objects created with the memory property
+	 * {@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} are considered mappable. Memory objects <b>must</b> be mappable in order to be successfully mapped on the host.</p>
+	 * 
+	 * <p>It is an application error to call {@code vkMapMemory} on a memory object that is already mapped.</p>
+	 * 
+	 * <p>{@code vkMapMemory} does not check whether the device memory is currently in use before returning the host-accessible pointer. The application <b>must</b>
+	 * guarantee that any previously submitted command that writes to this range has completed before the host reads from or writes to that range, and that
+	 * any previously submitted command that reads from that range has completed before the host writes to that region. If the device memory was allocated
+	 * without the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} set, these guarantees <b>must</b> be made for an extended range: the application <b>must</b> round down the start of
+	 * the range to the nearest multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}, and round the end of the range up to the nearest multiple
+	 * of {@code VkPhysicalDeviceLimits::nonCoherentAtomSize}.</p>
+	 * 
+	 * <p>While a range of device memory is mapped for host access, the application is responsible for synchronizing both device and host access to that memory
+	 * range.</p>
+	 * 
+	 * <p>Host-visible memory types that advertise the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} property still require memory barriers between host and device in order
+	 * to be coherent, but do not require additional cache management operations ({@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} or {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges}) to achieve
+	 * coherency. For host writes to be seen by subsequent command buffer operations, a pipeline barrier from a source of {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} and
+	 * {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} to a destination of the relevant device pipeline stages and access types <b>must</b> be performed. Note that such a barrier is
+	 * performed implicitly upon each command buffer submission, so an explicit barrier is only rarely needed (e.g. if a command buffer waits upon an event
+	 * signaled by the host, where the host wrote some data after submission). For device writes to be seen by subsequent host reads, a pipeline barrier is
+	 * required to make the writes visible.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
+	 * <li>{@code flags} <b>must</b> be 0</li>
+	 * <li>{@code ppData} <b>must</b> be a pointer to a pointer</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code memory} <b>must not</b> currently be mapped</li>
+	 * <li>{@code offset} <b>must</b> be less than the size of {@code memory}</li>
+	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be greater than 0</li>
+	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be less than or equal to the size of the {@code memory} minus {@code offset}</li>
+	 * <li>{@code memory} <b>must</b> have been created with a memory type that reports {@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code memory} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device the logical device that owns the memory
+	 * @param memory the {@code VkDeviceMemory} object to be mapped
+	 * @param offset a zero-based byte offset from the beginning of the memory object
+	 * @param size   he size of the memory range to map, or {@link #VK_WHOLE_SIZE WHOLE_SIZE} to map from offset to the end of the allocation
+	 * @param flags  reserved for future use, and <b>must</b> be zero
+	 * @param ppData points to a pointer in which is returned a host-accessible pointer to the beginning of the mapped range. This pointer minus offset <b>must</b> be aligned
+	 *               to at least {@link VkPhysicalDeviceLimits}{@code ::minMemoryMapAlignment}.
+	 */
 	public static int nvkMapMemory(VkDevice device, long memory, long offset, long size, int flags, long ppData) {
 		long __functionAddress = device.getCapabilities().vkMapMemory;
 		return callPJJJIPI(__functionAddress, device.address(), memory, offset, size, flags, ppData);
@@ -3329,13 +4056,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param ppData points to a pointer in which is returned a host-accessible pointer to the beginning of the mapped range. This pointer minus offset <b>must</b> be aligned
 	 *               to at least {@link VkPhysicalDeviceLimits}{@code ::minMemoryMapAlignment}.
 	 */
-	public static int vkMapMemory(VkDevice device, long memory, long offset, long size, int flags, ByteBuffer ppData) {
-		if ( CHECKS )
-			checkBuffer(ppData, 1 << POINTER_SHIFT);
-		return nvkMapMemory(device, memory, offset, size, flags, memAddress(ppData));
-	}
-
-	/** Alternative version of: {@link #vkMapMemory MapMemory} */
 	public static int vkMapMemory(VkDevice device, long memory, long offset, long size, int flags, PointerBuffer ppData) {
 		if ( CHECKS )
 			checkBuffer(ppData, 1);
@@ -3375,7 +4095,26 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkFlushMappedMemoryRanges ] ---
 
-	/** Unsafe version of {@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFlushMappedMemoryRanges.html">Khronos Reference Page</a></p>
+	 * 
+	 * Flushes mapped memory ranges.
+	 * 
+	 * <p>{@code vkFlushMappedMemoryRanges} <b>must</b> be called after the host writes to non-coherent memory have completed and before command buffers that will read
+	 * or write any of those memory locations are submitted to a queue.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
+	 * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
+	 * </ul>
+	 *
+	 * @param device           the logical device that owns the memory ranges
+	 * @param memoryRangeCount the length of the {@code pMemoryRanges} array
+	 * @param pMemoryRanges    a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to flush
+	 */
 	public static int nvkFlushMappedMemoryRanges(VkDevice device, int memoryRangeCount, long pMemoryRanges) {
 		long __functionAddress = device.getCapabilities().vkFlushMappedMemoryRanges;
 		return callPIPI(__functionAddress, device.address(), memoryRangeCount, pMemoryRanges);
@@ -3397,33 +4136,36 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
 	 * </ul>
 	 *
-	 * @param device           the logical device that owns the memory ranges
-	 * @param memoryRangeCount the length of the {@code pMemoryRanges} array
-	 * @param pMemoryRanges    a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to flush
+	 * @param device        the logical device that owns the memory ranges
+	 * @param pMemoryRanges a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to flush
 	 */
-	public static int vkFlushMappedMemoryRanges(VkDevice device, int memoryRangeCount, VkMappedMemoryRange.Buffer pMemoryRanges) {
-		if ( CHECKS )
-			checkBuffer(pMemoryRanges, memoryRangeCount);
-		return nvkFlushMappedMemoryRanges(device, memoryRangeCount, pMemoryRanges.address());
-	}
-
-	/** Alternative version of: {@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} */
 	public static int vkFlushMappedMemoryRanges(VkDevice device, VkMappedMemoryRange.Buffer pMemoryRanges) {
 		return nvkFlushMappedMemoryRanges(device, pMemoryRanges.remaining(), pMemoryRanges.address());
 	}
 
-	/** Single value version of: {@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFlushMappedMemoryRanges.html">Khronos Reference Page</a></p>
+	 * 
+	 * Flushes mapped memory ranges.
+	 * 
+	 * <p>{@code vkFlushMappedMemoryRanges} <b>must</b> be called after the host writes to non-coherent memory have completed and before command buffers that will read
+	 * or write any of those memory locations are submitted to a queue.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
+	 * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
+	 * </ul>
+	 *
+	 * @param device the logical device that owns the memory ranges
+	 */
 	public static int vkFlushMappedMemoryRanges(VkDevice device, VkMappedMemoryRange pMemoryRange) {
 		return nvkFlushMappedMemoryRanges(device, 1, pMemoryRange.address());
 	}
 
 	// --- [ vkInvalidateMappedMemoryRanges ] ---
-
-	/** Unsafe version of {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} */
-	public static int nvkInvalidateMappedMemoryRanges(VkDevice device, int memoryRangeCount, long pMemoryRanges) {
-		long __functionAddress = device.getCapabilities().vkInvalidateMappedMemoryRanges;
-		return callPIPI(__functionAddress, device.address(), memoryRangeCount, pMemoryRanges);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkInvalidateMappedMemoryRanges.html">Khronos Reference Page</a></p>
@@ -3445,25 +4187,95 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param memoryRangeCount the length of the {@code pMemoryRanges} array
 	 * @param pMemoryRanges    a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to invalidate
 	 */
-	public static int vkInvalidateMappedMemoryRanges(VkDevice device, int memoryRangeCount, VkMappedMemoryRange.Buffer pMemoryRanges) {
-		if ( CHECKS )
-			checkBuffer(pMemoryRanges, memoryRangeCount);
-		return nvkInvalidateMappedMemoryRanges(device, memoryRangeCount, pMemoryRanges.address());
+	public static int nvkInvalidateMappedMemoryRanges(VkDevice device, int memoryRangeCount, long pMemoryRanges) {
+		long __functionAddress = device.getCapabilities().vkInvalidateMappedMemoryRanges;
+		return callPIPI(__functionAddress, device.address(), memoryRangeCount, pMemoryRanges);
 	}
 
-	/** Alternative version of: {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkInvalidateMappedMemoryRanges.html">Khronos Reference Page</a></p>
+	 * 
+	 * Invalidates ranges of mapped memory objects.
+	 * 
+	 * <p>{@code vkInvalidateMappedMemoryRanges} <b>must</b> be called after command buffers that execute and flush (via memory barriers) the device writes have
+	 * completed, and before the host will read or write any of those locations.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
+	 * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
+	 * </ul>
+	 *
+	 * @param device        the logical device that owns the memory ranges
+	 * @param pMemoryRanges a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to invalidate
+	 */
 	public static int vkInvalidateMappedMemoryRanges(VkDevice device, VkMappedMemoryRange.Buffer pMemoryRanges) {
 		return nvkInvalidateMappedMemoryRanges(device, pMemoryRanges.remaining(), pMemoryRanges.address());
 	}
 
-	/** Single value version of: {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkInvalidateMappedMemoryRanges.html">Khronos Reference Page</a></p>
+	 * 
+	 * Invalidates ranges of mapped memory objects.
+	 * 
+	 * <p>{@code vkInvalidateMappedMemoryRanges} <b>must</b> be called after command buffers that execute and flush (via memory barriers) the device writes have
+	 * completed, and before the host will read or write any of those locations.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
+	 * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
+	 * </ul>
+	 *
+	 * @param device the logical device that owns the memory ranges
+	 */
 	public static int vkInvalidateMappedMemoryRanges(VkDevice device, VkMappedMemoryRange pMemoryRange) {
 		return nvkInvalidateMappedMemoryRanges(device, 1, pMemoryRange.address());
 	}
 
 	// --- [ vkGetDeviceMemoryCommitment ] ---
 
-	/** Unsafe version of {@link #vkGetDeviceMemoryCommitment GetDeviceMemoryCommitment} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetDeviceMemoryCommitment.html">Khronos Reference Page</a></p>
+	 * 
+	 * Determines the amount of lazily-allocated memory that is currently committed for a memory object.
+	 * 
+	 * <p>If the memory object is allocated from a heap with the {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} bit set, that object’s backing memory <b>may</b> be provided by
+	 * the implementation lazily. The actual committed size of the memory <b>may</b> initially be as small as zero (or as large as the requested size), and
+	 * monotonically increases as additional memory is needed.</p>
+	 * 
+	 * <p>A memory type with this flag set is only allowed to be bound to a {@code VkImage} whose usage flags include {@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT}.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Using lazily allocated memory objects for framebuffer attachments that are not needed once a render pass instance has completed <b>may</b> allow some
+	 * implementations to never allocate memory for such attachments.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
+	 * <li>{@code pCommittedMemoryInBytes} <b>must</b> be a pointer to a {@code VkDeviceSize} value</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code memory} <b>must</b> have been created with a memory type that reports {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT}</li>
+	 * </ul>
+	 * 
+	 * <p>The implementation <b>may</b> update the commitment at any time, and the value returned by this query <b>may</b> be out of date.</p>
+	 * 
+	 * <p>The implementation guarantees to allocate any committed memory from the {@code heapIndex} indicated by the memory type that the memory object was
+	 * created with.</p>
+	 *
+	 * @param device                  the logical device that owns the memory
+	 * @param memory                  the memory object being queried
+	 * @param pCommittedMemoryInBytes a pointer to a {@code VkDeviceSize} value in which the number of bytes currently committed is returned, on success
+	 */
 	public static void nvkGetDeviceMemoryCommitment(VkDevice device, long memory, long pCommittedMemoryInBytes) {
 		long __functionAddress = device.getCapabilities().vkGetDeviceMemoryCommitment;
 		callPJPV(__functionAddress, device.address(), memory, pCommittedMemoryInBytes);
@@ -3506,13 +4318,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param memory                  the memory object being queried
 	 * @param pCommittedMemoryInBytes a pointer to a {@code VkDeviceSize} value in which the number of bytes currently committed is returned, on success
 	 */
-	public static void vkGetDeviceMemoryCommitment(VkDevice device, long memory, ByteBuffer pCommittedMemoryInBytes) {
-		if ( CHECKS )
-			checkBuffer(pCommittedMemoryInBytes, 1 << 3);
-		nvkGetDeviceMemoryCommitment(device, memory, memAddress(pCommittedMemoryInBytes));
-	}
-
-	/** Alternative version of: {@link #vkGetDeviceMemoryCommitment GetDeviceMemoryCommitment} */
 	public static void vkGetDeviceMemoryCommitment(VkDevice device, long memory, LongBuffer pCommittedMemoryInBytes) {
 		if ( CHECKS )
 			checkBuffer(pCommittedMemoryInBytes, 1);
@@ -3614,7 +4419,25 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkGetBufferMemoryRequirements ] ---
 
-	/** Unsafe version of {@link #vkGetBufferMemoryRequirements GetBufferMemoryRequirements} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetBufferMemoryRequirements.html">Khronos Reference Page</a></p>
+	 * 
+	 * Determines the memory requirements for a non-sparse buffer resource.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements} structure</li>
+	 * <li>{@code buffer} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code buffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
+	 *
+	 * @param device              the logical device that owns the buffer
+	 * @param buffer              the buffer to query
+	 * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements} structure in which the memory requirements of the buffer object are returned
+	 */
 	public static void nvkGetBufferMemoryRequirements(VkDevice device, long buffer, long pMemoryRequirements) {
 		long __functionAddress = device.getCapabilities().vkGetBufferMemoryRequirements;
 		callPJPV(__functionAddress, device.address(), buffer, pMemoryRequirements);
@@ -3645,7 +4468,25 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkGetImageMemoryRequirements ] ---
 
-	/** Unsafe version of {@link #vkGetImageMemoryRequirements GetImageMemoryRequirements} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetImageMemoryRequirements.html">Khronos Reference Page</a></p>
+	 * 
+	 * Determines the memory requirements for a non-sparse image resource.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements} structure</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
+	 *
+	 * @param device              the logical device that owns the image
+	 * @param image               the image to query
+	 * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements} structure in which the memory requirements of the image object are returned
+	 */
 	public static void nvkGetImageMemoryRequirements(VkDevice device, long image, long pMemoryRequirements) {
 		long __functionAddress = device.getCapabilities().vkGetImageMemoryRequirements;
 		callPJPV(__functionAddress, device.address(), image, pMemoryRequirements);
@@ -3676,7 +4517,45 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkGetImageSparseMemoryRequirements ] ---
 
-	/** Unsafe version of {@link #vkGetImageSparseMemoryRequirements GetImageSparseMemoryRequirements} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetImageSparseMemoryRequirements.html">Khronos Reference Page</a></p>
+	 * 
+	 * Query sparse memory requirements for an image.
+	 * 
+	 * <p>If {@code pSparseMemoryRequirements} is {@code NULL}, then the number of sparse memory requirements available is returned in
+	 * {@code pSparseMemoryRequirementCount}. Otherwise, {@code pSparseMemoryRequirementCount} <b>must</b> point to a variable set by the user to the number of
+	 * elements in the {@code pSparseMemoryRequirements} array, and on return the variable is overwritten with the number of structures actually written to
+	 * {@code pSparseMemoryRequirements}. If the value of {@code pSparseMemoryRequirementCount} is less than the number of sparse memory requirements
+	 * available, at most {@code pSparseMemoryRequirementCount} structures will be written.</p>
+	 * 
+	 * <p>If the image was not created with {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} then {@code pSparseMemoryRequirementCount} will be set to zero and
+	 * {@code pSparseMemoryRequirements} will not be written to.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>It is legal for an implementation to report a larger value in {@link VkMemoryRequirements}{@code ::size} than would be obtained by adding together memory
+	 * sizes for all {@link VkSparseImageMemoryRequirements} returned by {@code vkGetImageSparseMemoryRequirements}. This <b>may</b> occur when the hardware requires
+	 * unused padding in the address range describing the resource.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code pSparseMemoryRequirementCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pSparseMemoryRequirementCount} is not 0, and {@code pSparseMemoryRequirements} is not {@code NULL},
+	 * {@code pSparseMemoryRequirements} <b>must</b> be a pointer to an array of {@code pSparseMemoryRequirementCount} {@link VkSparseImageMemoryRequirements}
+	 * structures</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
+	 *
+	 * @param device                        the logical device that owns the image
+	 * @param image                         the {@code VkImage} object to get the memory requirements for
+	 * @param pSparseMemoryRequirementCount a pointer to an integer related to the number of sparse memory requirements available or queried
+	 * @param pSparseMemoryRequirements     either {@code NULL} or a pointer to an array of {@link VkSparseImageMemoryRequirements} structures
+	 */
 	public static void nvkGetImageSparseMemoryRequirements(VkDevice device, long image, long pSparseMemoryRequirementCount, long pSparseMemoryRequirements) {
 		long __functionAddress = device.getCapabilities().vkGetImageSparseMemoryRequirements;
 		callPJPPV(__functionAddress, device.address(), image, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
@@ -3721,15 +4600,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pSparseMemoryRequirementCount a pointer to an integer related to the number of sparse memory requirements available or queried
 	 * @param pSparseMemoryRequirements     either {@code NULL} or a pointer to an array of {@link VkSparseImageMemoryRequirements} structures
 	 */
-	public static void vkGetImageSparseMemoryRequirements(VkDevice device, long image, ByteBuffer pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements.Buffer pSparseMemoryRequirements) {
-		if ( CHECKS ) {
-			checkBuffer(pSparseMemoryRequirementCount, 1 << 2);
-			if ( pSparseMemoryRequirements != null ) checkBuffer(pSparseMemoryRequirements, pSparseMemoryRequirementCount.getInt(pSparseMemoryRequirementCount.position()));
-		}
-		nvkGetImageSparseMemoryRequirements(device, image, memAddress(pSparseMemoryRequirementCount), pSparseMemoryRequirements == null ? NULL : pSparseMemoryRequirements.address());
-	}
-
-	/** Alternative version of: {@link #vkGetImageSparseMemoryRequirements GetImageSparseMemoryRequirements} */
 	public static void vkGetImageSparseMemoryRequirements(VkDevice device, long image, IntBuffer pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements.Buffer pSparseMemoryRequirements) {
 		if ( CHECKS ) {
 			checkBuffer(pSparseMemoryRequirementCount, 1);
@@ -3740,7 +4610,67 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkGetPhysicalDeviceSparseImageFormatProperties ] ---
 
-	/** Unsafe version of {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetPhysicalDeviceSparseImageFormatProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Retrieves properties of an image format applied to sparse images.
+	 * 
+	 * <p>Given that certain aspects of sparse image support, including the sparse image block size, <b>may</b> be implementation-dependent,
+	 * {@code vkGetPhysicalDeviceSparseImageFormatProperties} <b>can</b> be used to query for sparse image format properties prior to resource creation. This command
+	 * is used to check whether a given set of sparse image parameters is supported and what the sparse block shape will be.</p>
+	 * 
+	 * <p>{@code vkGetPhysicalDeviceSparseImageFormatProperties} returns an array of {@link VkSparseImageFormatProperties}. Each element will describe properties for
+	 * one set of image aspects that are bound simultaneously in the image. This is usually one element for each aspect in the image, but for interleaved
+	 * depth/stencil images there is only one element describing the combined aspects.</p>
+	 * 
+	 * <p>If {@code pProperties} is {@code NULL}, then the number of sparse format properties available is returned in {@code pPropertyCount}. Otherwise,
+	 * {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable
+	 * is overwritten with the number of structures actually written to {@code pProperties}. If {@code pPropertyCount} is less than the number of sparse
+	 * format properties available, at most {@code pPropertyCount} structures will be written.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+	 * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
+	 * <li>{@code type} <b>must</b> be a valid {@code VkImageType} value</li>
+	 * <li>{@code samples} <b>must</b> be a valid {@code VkSampleCountFlagBits} value</li>
+	 * <li>{@code usage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
+	 * <li>{@code usage} <b>must not</b> be 0</li>
+	 * <li>{@code tiling} <b>must</b> be a valid {@code VkImageTiling} value</li>
+	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
+	 * array of {@code pPropertyCount} {@link VkSparseImageFormatProperties} structures</li>
+	 * <li>If {@code format} is an integer format, samples <b>must</b> be one of the bit flags specified in
+	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageIntegerSampleCounts}</li>
+	 * <li>If {@code format} is a non-integer color format, samples <b>must</b> be one of the bit flags specified in
+	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageColorSampleCounts}</li>
+	 * <li>If {@code format} is a depth format, samples <b>must</b> be one of the bit flags specified in
+	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageDepthSampleCounts}</li>
+	 * <li>If {@code format} is a stencil format, samples <b>must</b> be one of the bit flags specified in
+	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageStencilSampleCounts}</li>
+	 * <li>If {@code usage} includes {@link #VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}, samples <b>must</b> be one of the bit flags specified in
+	 * {@link VkPhysicalDeviceLimits}{@code ::storageImageSampleCounts}</li>
+	 * </ul>
+	 * 
+	 * <p>If {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} is not supported for the given arguments, {@code pPropertyCount} will be set to zero upon return, and no data
+	 * will be written to {@code pProperties}.</p>
+	 * 
+	 * <p>Multiple aspects are returned for depth/stencil images that are implemented as separate planes by the implementation. The depth and stencil data planes
+	 * each have unique {@link VkSparseImageFormatProperties} data.</p>
+	 * 
+	 * <p>Depth/stencil images with depth and stencil data interleaved into a single plane will return a single {@link VkSparseImageFormatProperties} structure with
+	 * the {@code aspectMask} set to <code>{@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} | {@link #VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}</code>.</p>
+	 *
+	 * @param physicalDevice the physical device from which to query the sparse image capabilities
+	 * @param format         the image format
+	 * @param type           the dimensionality of image. One of:<br>{@link #VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}, {@link #VK_IMAGE_TYPE_2D IMAGE_TYPE_2D}, {@link #VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}
+	 * @param samples        the number of samples per pixel as defined in {@code VkSampleCountFlagBits}. One of:<br>{@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}, {@link #VK_SAMPLE_COUNT_2_BIT SAMPLE_COUNT_2_BIT}, {@link #VK_SAMPLE_COUNT_4_BIT SAMPLE_COUNT_4_BIT}, {@link #VK_SAMPLE_COUNT_8_BIT SAMPLE_COUNT_8_BIT}, {@link #VK_SAMPLE_COUNT_16_BIT SAMPLE_COUNT_16_BIT}, {@link #VK_SAMPLE_COUNT_32_BIT SAMPLE_COUNT_32_BIT}, {@link #VK_SAMPLE_COUNT_64_BIT SAMPLE_COUNT_64_BIT}
+	 * @param usage          a bitfield describing the intended usage of the image. One or more of:<br>{@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT}, {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT}, {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, {@link #VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}, {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT}
+	 * @param tiling         the tiling arrangement of the data elements in memory. One of:<br>{@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}
+	 * @param pPropertyCount a pointer to an integer related to the number of sparse format properties available or queried
+	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkSparseImageFormatProperties} structures
+	 */
 	public static void nvkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, long pPropertyCount, long pProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSparseImageFormatProperties;
 		callPIIIIIPPV(__functionAddress, physicalDevice.address(), format, type, samples, usage, tiling, pPropertyCount, pProperties);
@@ -3807,15 +4737,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pPropertyCount a pointer to an integer related to the number of sparse format properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkSparseImageFormatProperties} structures
 	 */
-	public static void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, ByteBuffer pPropertyCount, VkSparseImageFormatProperties.Buffer pProperties) {
-		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1 << 2);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.getInt(pPropertyCount.position()));
-		}
-		nvkGetPhysicalDeviceSparseImageFormatProperties(physicalDevice, format, type, samples, usage, tiling, memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
-	}
-
-	/** Alternative version of: {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties} */
 	public static void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, IntBuffer pPropertyCount, VkSparseImageFormatProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
@@ -3826,7 +4747,51 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkQueueBindSparse ] ---
 
-	/** Unsafe version of {@link #vkQueueBindSparse QueueBindSparse} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkQueueBindSparse.html">Khronos Reference Page</a></p>
+	 * 
+	 * Submits sparse binding operations to a queue for execution.
+	 * 
+	 * <p>Each batch of sparse binding operations is represented by a list of {@link VkSparseBufferMemoryBindInfo}, {@link VkSparseImageOpaqueMemoryBindInfo}, and
+	 * {@link VkSparseImageMemoryBindInfo} structures (encapsulated in a {@link VkBindSparseInfo} structure), each preceded by a list of semaphores upon which to wait
+	 * before beginning execution of the operations, and followed by a second list of semaphores to signal upon completion of the operations.</p>
+	 * 
+	 * <p>When all sparse binding operations in {@code pBindInfo} have completed execution, the status of fence is set to signaled, providing certain implicit
+	 * ordering guarantees.</p>
+	 * 
+	 * <p>Within a batch, a given range of a resource <b>must not</b> be bound more than once. Across batches, if a range is to be bound to one allocation and offset
+	 * and then to another allocation and offset, then the application <b>must</b> guarantee (usually using semaphores) that the binding operations are executed in
+	 * the correct order, as well as to order binding operations against the execution of command buffer submissions.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
+	 * <li>If {@code bindInfoCount} is not 0, {@code pBindInfo} <b>must</b> be a pointer to an array of {@code bindInfoCount} valid {@link VkBindSparseInfo} structures</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
+	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
+	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code fence} <b>must</b> be unsignalled</li>
+	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code queue} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo}[].pWaitSemaphores[] <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo}[].pSignalSemaphores[] <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo}[].pBufferBinds[].buffer <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo}[].pImageOpaqueBinds[].image <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo}[].pImageBinds[].image <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param queue         the queue to submit the sparse binding operation to
+	 * @param bindInfoCount the size of the array pointed to by {@code pBindInfo}
+	 * @param pBindInfo     an array of {@link VkBindSparseInfo} structures each specifying the parameters of a sparse binding operation batch
+	 * @param fence         if not {@link #VK_NULL_HANDLE NULL_HANDLE}, is a fence to be signaled once the sparse binding operation completes
+	 */
 	public static int nvkQueueBindSparse(VkQueue queue, int bindInfoCount, long pBindInfo, long fence) {
 		long __functionAddress = queue.getCapabilities().vkQueueBindSparse;
 		if ( CHECKS )
@@ -3874,30 +4839,88 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 *
-	 * @param queue         the queue to submit the sparse binding operation to
-	 * @param bindInfoCount the size of the array pointed to by {@code pBindInfo}
-	 * @param pBindInfo     an array of {@link VkBindSparseInfo} structures each specifying the parameters of a sparse binding operation batch
-	 * @param fence         if not {@link #VK_NULL_HANDLE NULL_HANDLE}, is a fence to be signaled once the sparse binding operation completes
+	 * @param queue     the queue to submit the sparse binding operation to
+	 * @param pBindInfo an array of {@link VkBindSparseInfo} structures each specifying the parameters of a sparse binding operation batch
+	 * @param fence     if not {@link #VK_NULL_HANDLE NULL_HANDLE}, is a fence to be signaled once the sparse binding operation completes
 	 */
-	public static int vkQueueBindSparse(VkQueue queue, int bindInfoCount, VkBindSparseInfo.Buffer pBindInfo, long fence) {
-		if ( CHECKS )
-			checkBuffer(pBindInfo, bindInfoCount);
-		return nvkQueueBindSparse(queue, bindInfoCount, pBindInfo.address(), fence);
-	}
-
-	/** Alternative version of: {@link #vkQueueBindSparse QueueBindSparse} */
 	public static int vkQueueBindSparse(VkQueue queue, VkBindSparseInfo.Buffer pBindInfo, long fence) {
 		return nvkQueueBindSparse(queue, pBindInfo.remaining(), pBindInfo.address(), fence);
 	}
 
-	/** Single value version of: {@link #vkQueueBindSparse QueueBindSparse} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkQueueBindSparse.html">Khronos Reference Page</a></p>
+	 * 
+	 * Submits sparse binding operations to a queue for execution.
+	 * 
+	 * <p>Each batch of sparse binding operations is represented by a list of {@link VkSparseBufferMemoryBindInfo}, {@link VkSparseImageOpaqueMemoryBindInfo}, and
+	 * {@link VkSparseImageMemoryBindInfo} structures (encapsulated in a {@link VkBindSparseInfo} structure), each preceded by a list of semaphores upon which to wait
+	 * before beginning execution of the operations, and followed by a second list of semaphores to signal upon completion of the operations.</p>
+	 * 
+	 * <p>When all sparse binding operations in {@code pBindInfo} have completed execution, the status of fence is set to signaled, providing certain implicit
+	 * ordering guarantees.</p>
+	 * 
+	 * <p>Within a batch, a given range of a resource <b>must not</b> be bound more than once. Across batches, if a range is to be bound to one allocation and offset
+	 * and then to another allocation and offset, then the application <b>must</b> guarantee (usually using semaphores) that the binding operations are executed in
+	 * the correct order, as well as to order binding operations against the execution of command buffer submissions.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
+	 * <li>If {@code bindInfoCount} is not 0, {@code pBindInfo} <b>must</b> be a pointer to an array of {@code bindInfoCount} valid {@link VkBindSparseInfo} structures</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
+	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
+	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code fence} <b>must</b> be unsignalled</li>
+	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code queue} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo}[].pWaitSemaphores[] <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo}[].pSignalSemaphores[] <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo}[].pBufferBinds[].buffer <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo}[].pImageOpaqueBinds[].image <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pBindInfo}[].pImageBinds[].image <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param queue     the queue to submit the sparse binding operation to
+	 * @param pBindInfo an array of {@link VkBindSparseInfo} structures each specifying the parameters of a sparse binding operation batch
+	 * @param fence     if not {@link #VK_NULL_HANDLE NULL_HANDLE}, is a fence to be signaled once the sparse binding operation completes
+	 */
 	public static int vkQueueBindSparse(VkQueue queue, VkBindSparseInfo pBindInfo, long fence) {
 		return nvkQueueBindSparse(queue, 1, pBindInfo.address(), fence);
 	}
 
 	// --- [ vkCreateFence ] ---
 
-	/** Unsafe version of {@link #vkCreateFence CreateFence} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateFence.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new fence object.
+	 * 
+	 * <p>Fences <b>can</b> be used by the host to determine completion of execution of submissions to queues performed with {@link #vkQueueSubmit QueueSubmit} and {@link #vkQueueBindSparse QueueBindSparse}.</p>
+	 * 
+	 * <p>A fence’s status is always either signaled or unsignaled. The host <b>can</b> poll the status of a single fence, or wait for any or all of a group of fences
+	 * to become signaled.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkFenceCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pFence} <b>must</b> be a pointer to a {@code VkFence} handle</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that creates the fence
+	 * @param pCreateInfo points to a {@link VkFenceCreateInfo} structure specifying the state of the fence object
+	 * @param pAllocator  controls host memory allocation
+	 * @param pFence      points to a handle in which the resulting fence object is returned
+	 */
 	public static int nvkCreateFence(VkDevice device, long pCreateInfo, long pAllocator, long pFence) {
 		long __functionAddress = device.getCapabilities().vkCreateFence;
 		if ( CHECKS )
@@ -3929,13 +4952,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator  controls host memory allocation
 	 * @param pFence      points to a handle in which the resulting fence object is returned
 	 */
-	public static int vkCreateFence(VkDevice device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pFence) {
-		if ( CHECKS )
-			checkBuffer(pFence, 1 << 3);
-		return nvkCreateFence(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pFence));
-	}
-
-	/** Alternative version of: {@link #vkCreateFence CreateFence} */
 	public static int vkCreateFence(VkDevice device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pFence) {
 		if ( CHECKS )
 			checkBuffer(pFence, 1);
@@ -3944,7 +4960,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyFence ] ---
 
-	/** Unsafe version of {@link #vkDestroyFence DestroyFence} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyFence.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a fence object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>{@code fence} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code fence} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code fence} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that destroys the fence
+	 * @param fence      the handle of the fence to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroyFence(VkDevice device, long fence, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyFence;
 		if ( CHECKS )
@@ -3987,7 +5031,34 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkResetFences ] ---
 
-	/** Unsafe version of {@link #vkResetFences ResetFences} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkResetFences.html">Khronos Reference Page</a></p>
+	 * 
+	 * Resets the status of one or more fences to the unsignaled state.
+	 * 
+	 * <p>If a fence is already in the unsignaled state, then resetting it has no effect.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
+	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>Any given element of {@code pFences} <b>must not</b> currently be associated with any queue command that has not yet completed execution on that queue</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to each member of {@code pFences} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that owns the fences
+	 * @param fenceCount the number of fences to reset
+	 * @param pFences    a pointer to an array of {@code fenceCount} fence handles to reset
+	 */
 	public static int nvkResetFences(VkDevice device, int fenceCount, long pFences) {
 		long __functionAddress = device.getCapabilities().vkResetFences;
 		return callPIPI(__functionAddress, device.address(), fenceCount, pFences);
@@ -4017,22 +5088,39 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>Host access to each member of {@code pFences} <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 *
-	 * @param device     the logical device that owns the fences
-	 * @param fenceCount the number of fences to reset
-	 * @param pFences    a pointer to an array of {@code fenceCount} fence handles to reset
+	 * @param device  the logical device that owns the fences
+	 * @param pFences a pointer to an array of {@code fenceCount} fence handles to reset
 	 */
-	public static int vkResetFences(VkDevice device, int fenceCount, ByteBuffer pFences) {
-		if ( CHECKS )
-			checkBuffer(pFences, fenceCount << 3);
-		return nvkResetFences(device, fenceCount, memAddress(pFences));
-	}
-
-	/** Alternative version of: {@link #vkResetFences ResetFences} */
 	public static int vkResetFences(VkDevice device, LongBuffer pFences) {
 		return nvkResetFences(device, pFences.remaining(), memAddress(pFences));
 	}
 
-	/** Single value version of: {@link #vkResetFences ResetFences} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkResetFences.html">Khronos Reference Page</a></p>
+	 * 
+	 * Resets the status of one or more fences to the unsignaled state.
+	 * 
+	 * <p>If a fence is already in the unsignaled state, then resetting it has no effect.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
+	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>Any given element of {@code pFences} <b>must not</b> currently be associated with any queue command that has not yet completed execution on that queue</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to each member of {@code pFences} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device the logical device that owns the fences
+	 */
 	public static int vkResetFences(VkDevice device, long pFence) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -4076,12 +5164,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkWaitForFences ] ---
 
-	/** Unsafe version of {@link #vkWaitForFences WaitForFences} */
-	public static int nvkWaitForFences(VkDevice device, int fenceCount, long pFences, int waitAll, long timeout) {
-		long __functionAddress = device.getCapabilities().vkWaitForFences;
-		return callPIPIJI(__functionAddress, device.address(), fenceCount, pFences, waitAll, timeout);
-	}
-
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkWaitForFences.html">Khronos Reference Page</a></p>
 	 * 
@@ -4122,18 +5204,92 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param timeout    the timeout period in units of nanoseconds. {@code timeout} is adjusted to the closest value allowed by the implementation-dependent
 	 *                   timeout accuracy, which <b>may</b> be substantially longer than one nanosecond, and <b>may</b> be longer than the requested period.
 	 */
-	public static int vkWaitForFences(VkDevice device, int fenceCount, ByteBuffer pFences, int waitAll, long timeout) {
-		if ( CHECKS )
-			checkBuffer(pFences, fenceCount << 3);
-		return nvkWaitForFences(device, fenceCount, memAddress(pFences), waitAll, timeout);
+	public static int nvkWaitForFences(VkDevice device, int fenceCount, long pFences, int waitAll, long timeout) {
+		long __functionAddress = device.getCapabilities().vkWaitForFences;
+		return callPIPIJI(__functionAddress, device.address(), fenceCount, pFences, waitAll, timeout);
 	}
 
-	/** Alternative version of: {@link #vkWaitForFences WaitForFences} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkWaitForFences.html">Khronos Reference Page</a></p>
+	 * 
+	 * Causes the host to wait until any one or all of a group of fences is signaled.
+	 * 
+	 * <p>If the condition is satisfied when {@code vkWaitForFences} is called, then {@code vkWaitForFences} returns immediately. If the condition is not
+	 * satisfied at the time {@code vkWaitForFences} is called, then {@code vkWaitForFences} will block and wait up to timeout nanoseconds for the condition
+	 * to become satisfied.</p>
+	 * 
+	 * <p>If {@code timeout} is zero, then {@code vkWaitForFences} does not wait, but simply returns the current state of the fences. {@link #VK_TIMEOUT TIMEOUT} will be returned
+	 * in this case if the condition is not satisfied, even though no actual wait was performed.</p>
+	 * 
+	 * <p>If the specified {@code timeout} period expires before the condition is satisfied, {@code vkWaitForFences} returns {@link #VK_TIMEOUT TIMEOUT}. If the condition is
+	 * satisfied before timeout nanoseconds has expired, {@code vkWaitForFences} returns {@link #VK_SUCCESS SUCCESS}.</p>
+	 * 
+	 * <p>Fences become signaled when the device completes executing the work that was submitted to a queue accompanied by the fence. But this alone is not
+	 * sufficient for the host to be guaranteed to see the results of device writes to memory. To provide that guarantee, the application <b>must</b> insert a
+	 * memory barrier between the device writes and the end of the submission that will signal the fence, with {@code dstAccessMask} having the
+	 * {@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} bit set, with {@code dstStageMask} having the {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} bit set, and with the appropriate {@code srcStageMask} and
+	 * {@code srcAccessMask} members set to guarantee completion of the writes. If the memory was allocated without the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT}
+	 * set, then {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} <b>must</b> be called after the fence is signaled in order to ensure the writes are visible to the host.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
+	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
+	 *
+	 * @param device  the logical device that owns the fences
+	 * @param pFences a pointer to an array of {@code fenceCount} fence handles
+	 * @param waitAll the condition that <b>must</b> be satisfied to successfully unblock the wait. If {@code waitAll} is {@link #VK_TRUE TRUE}, then the condition is that all fences in
+	 *                {@code pFences} are signaled. Otherwise, the condition is that at least one fence in {@code pFences} is signaled.
+	 * @param timeout the timeout period in units of nanoseconds. {@code timeout} is adjusted to the closest value allowed by the implementation-dependent
+	 *                timeout accuracy, which <b>may</b> be substantially longer than one nanosecond, and <b>may</b> be longer than the requested period.
+	 */
 	public static int vkWaitForFences(VkDevice device, LongBuffer pFences, int waitAll, long timeout) {
 		return nvkWaitForFences(device, pFences.remaining(), memAddress(pFences), waitAll, timeout);
 	}
 
-	/** Single value version of: {@link #vkWaitForFences WaitForFences} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkWaitForFences.html">Khronos Reference Page</a></p>
+	 * 
+	 * Causes the host to wait until any one or all of a group of fences is signaled.
+	 * 
+	 * <p>If the condition is satisfied when {@code vkWaitForFences} is called, then {@code vkWaitForFences} returns immediately. If the condition is not
+	 * satisfied at the time {@code vkWaitForFences} is called, then {@code vkWaitForFences} will block and wait up to timeout nanoseconds for the condition
+	 * to become satisfied.</p>
+	 * 
+	 * <p>If {@code timeout} is zero, then {@code vkWaitForFences} does not wait, but simply returns the current state of the fences. {@link #VK_TIMEOUT TIMEOUT} will be returned
+	 * in this case if the condition is not satisfied, even though no actual wait was performed.</p>
+	 * 
+	 * <p>If the specified {@code timeout} period expires before the condition is satisfied, {@code vkWaitForFences} returns {@link #VK_TIMEOUT TIMEOUT}. If the condition is
+	 * satisfied before timeout nanoseconds has expired, {@code vkWaitForFences} returns {@link #VK_SUCCESS SUCCESS}.</p>
+	 * 
+	 * <p>Fences become signaled when the device completes executing the work that was submitted to a queue accompanied by the fence. But this alone is not
+	 * sufficient for the host to be guaranteed to see the results of device writes to memory. To provide that guarantee, the application <b>must</b> insert a
+	 * memory barrier between the device writes and the end of the submission that will signal the fence, with {@code dstAccessMask} having the
+	 * {@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} bit set, with {@code dstStageMask} having the {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} bit set, and with the appropriate {@code srcStageMask} and
+	 * {@code srcAccessMask} members set to guarantee completion of the writes. If the memory was allocated without the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT}
+	 * set, then {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} <b>must</b> be called after the fence is signaled in order to ensure the writes are visible to the host.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
+	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
+	 *
+	 * @param device  the logical device that owns the fences
+	 * @param waitAll the condition that <b>must</b> be satisfied to successfully unblock the wait. If {@code waitAll} is {@link #VK_TRUE TRUE}, then the condition is that all fences in
+	 *                {@code pFences} are signaled. Otherwise, the condition is that at least one fence in {@code pFences} is signaled.
+	 * @param timeout the timeout period in units of nanoseconds. {@code timeout} is adjusted to the closest value allowed by the implementation-dependent
+	 *                timeout accuracy, which <b>may</b> be substantially longer than one nanosecond, and <b>may</b> be longer than the requested period.
+	 */
 	public static int vkWaitForFences(VkDevice device, long pFence, int waitAll, long timeout) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -4146,7 +5302,80 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateSemaphore ] ---
 
-	/** Unsafe version of {@link #vkCreateSemaphore CreateSemaphore} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateSemaphore.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new queue semaphore object.
+	 * 
+	 * <p>Semaphores are used to coordinate operations between queues and between queue submissions within a single queue. An application might associate
+	 * semaphores with resources or groups of resources to marshal ownership of shared data. A semaphore’s status is always either <em>signaled</em> or
+	 * <em>unsignaled</em>. Semaphores are signaled by queues and <b>can</b> also be waited on in the same or different queues until they are signaled.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkSemaphoreCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pSemaphore} <b>must</b> be a pointer to a {@code VkSemaphore} handle</li>
+	 * </ul>
+	 * 
+	 * <p>To signal a semaphore from a queue, include it in an element of the array of {@link VkSubmitInfo} structures passed through the {@code pSubmitInfo} parameter
+	 * to a call to {@link #vkQueueSubmit QueueSubmit}, or in an element of the array of {@link VkBindSparseInfo} structures passed through the {@code pBindInfo} parameter to a call to
+	 * {@link #vkQueueBindSparse QueueBindSparse}.</p>
+	 * 
+	 * <p>Semaphores included in the {@code pSignalSemaphores} array of one of the elements of a queue submission are signaled once queue execution reaches the
+	 * signal operation, and all previous work in the queue completes. Any operations waiting on that semaphore in other queues will be released once it is
+	 * signaled.</p>
+	 * 
+	 * <p>Similarly, to wait on a semaphore from a queue, include it in the {@code pWaitSemaphores} array of one of the elements of a batch in a queue
+	 * submission. When queue execution reaches the wait operation, will stall execution of subsequently submitted operations until the semaphore reaches the
+	 * signaled state due to a signaling operation. Once the semaphore is signaled, the subsequent operations will be permitted to execute and the status of
+	 * the semaphore will be reset to the unsignaled state.</p>
+	 * 
+	 * <p>In the case of {@code VkSubmitInfo}, command buffers wait at specific pipeline stages, rather than delaying the entire command buffer’s execution, with the
+	 * pipeline stages determined by the value of the corresponding element of the {@code pWaitDstStageMask} member of {@code VkSubmitInfo}. Execution of work
+	 * by those stages in subsequent commands is stalled until the corresponding semaphore reaches the signaled state. Subsequent sparse binding operations
+	 * wait for the semaphore to become signaled, regardless of the values of {@code pWaitDstStageMask}.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>A common scenario for using {@code pWaitDstStageMask} with values other than {@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT} is when synchronizing a window system
+	 * presentation operation against subsequent command buffers which render the next frame. In this case, an image that was being presented <b>must not</b> be
+	 * overwritten until the presentation operation completes, but other pipeline stages <b>can</b> execute without waiting. A mask of
+	 * {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT} prevents subsequent color attachment writes from executing until the semaphore signals. Some
+	 * implementations <b>may</b> be able to execute transfer operations and/or vertex processing work before the semaphore is signaled.</p>
+	 * 
+	 * <p>If an image layout transition needs to be performed on a swapchain image before it is used in a framebuffer, that <b>can</b> be performed as the first
+	 * operation submitted to the queue after acquiring the image, and <b>should not</b> prevent other work from overlapping with the presentation operation.
+	 * For example, a {@link VkImageMemoryBarrier} could use:</p>
+	 * 
+	 * <ul>
+	 * <li><code>srcStageMask = {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}</code></li>
+	 * <li><code>srcAccessMask = {@link #VK_ACCESS_MEMORY_READ_BIT ACCESS_MEMORY_READ_BIT}</code></li>
+	 * <li><code>dstStageMask = {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}</code></li>
+	 * <li><code>dstAccessMask = {@link #VK_ACCESS_COLOR_ATTACHMENT_READ_BIT ACCESS_COLOR_ATTACHMENT_READ_BIT} | {@link #VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}.</code></li>
+	 * <li><code>oldLayout = {@link KHRSwapchain#VK_IMAGE_LAYOUT_PRESENT_SRC_KHR IMAGE_LAYOUT_PRESENT_SRC_KHR}</code></li>
+	 * <li><code>newLayout = {@link #VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL}</code></li>
+	 * </ul>
+	 * 
+	 * <p>Alternately, {@code oldLayout} <b>can</b> be {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, if the image’s contents need not be preserved.</p>
+	 * 
+	 * <p>This barrier accomplishes a dependency chain between previous presentation operations and subsequent color attachment output operations, with the
+	 * layout transition performed in between, and does not introduce a dependency between previous work and any vertex processing stages. More precisely,
+	 * the semaphore signals after the presentation operation completes, then the semaphore wait stalls the {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}
+	 * stage, then there is a dependency from that same stage to itself with the layout transition performed in between.</p>
+	 * </div>
+	 * 
+	 * <p>When a queue signals or waits upon a semaphore, certain implicit ordering guarantees are provided.</p>
+	 * 
+	 * <p>Semaphore operations <b>may</b> not make the side effects of commands visible to the host.</p>
+	 *
+	 * @param device      the logical device that creates the semaphore
+	 * @param pCreateInfo points to a {@link VkSemaphoreCreateInfo} structure specifying the state of the semaphore object
+	 * @param pAllocator  controls host memory allocation
+	 * @param pSemaphore  points to a handle in which the resulting semaphore object is returned. The semaphore is created in the unsignaled state.
+	 */
 	public static int nvkCreateSemaphore(VkDevice device, long pCreateInfo, long pAllocator, long pSemaphore) {
 		long __functionAddress = device.getCapabilities().vkCreateSemaphore;
 		if ( CHECKS )
@@ -4228,13 +5457,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator  controls host memory allocation
 	 * @param pSemaphore  points to a handle in which the resulting semaphore object is returned. The semaphore is created in the unsignaled state.
 	 */
-	public static int vkCreateSemaphore(VkDevice device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSemaphore) {
-		if ( CHECKS )
-			checkBuffer(pSemaphore, 1 << 3);
-		return nvkCreateSemaphore(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSemaphore));
-	}
-
-	/** Alternative version of: {@link #vkCreateSemaphore CreateSemaphore} */
 	public static int vkCreateSemaphore(VkDevice device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSemaphore) {
 		if ( CHECKS )
 			checkBuffer(pSemaphore, 1);
@@ -4243,7 +5465,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroySemaphore ] ---
 
-	/** Unsafe version of {@link #vkDestroySemaphore DestroySemaphore} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroySemaphore.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a semaphore object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code semaphore} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code semaphore} <b>must</b> be a valid {@code VkSemaphore} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code semaphore} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>{@code semaphore} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code semaphore} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code semaphore} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code semaphore} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that destroys the semaphore
+	 * @param semaphore  the handle of the semaphore to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroySemaphore(VkDevice device, long semaphore, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroySemaphore;
 		if ( CHECKS )
@@ -4286,7 +5536,30 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateEvent ] ---
 
-	/** Unsafe version of {@link #vkCreateEvent CreateEvent} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateEvent.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new event object.
+	 * 
+	 * <p>Events represent a fine-grained synchronization primitive that <b>can</b> be used to gauge progress through a sequence of commands executed on a queue by
+	 * Vulkan. An event is initially in the unsignaled state. It <b>can</b> be signaled by a device, using commands inserted into the command buffer, or by the
+	 * host. It <b>can</b> also be reset to the unsignaled state by a device or the host. The host <b>can</b> query the state of an event. A device <b>can</b> wait for one or
+	 * more events to become signaled.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkEventCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pEvent} <b>must</b> be a pointer to a {@code VkEvent} handle</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that creates the event
+	 * @param pCreateInfo a pointer to an instance of the {@link VkEventCreateInfo} structure which contains information about how the event is to be created
+	 * @param pAllocator  controls host memory allocation
+	 * @param pEvent      points to a handle in which the resulting event object is returned
+	 */
 	public static int nvkCreateEvent(VkDevice device, long pCreateInfo, long pAllocator, long pEvent) {
 		long __functionAddress = device.getCapabilities().vkCreateEvent;
 		if ( CHECKS )
@@ -4318,13 +5591,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator  controls host memory allocation
 	 * @param pEvent      points to a handle in which the resulting event object is returned
 	 */
-	public static int vkCreateEvent(VkDevice device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pEvent) {
-		if ( CHECKS )
-			checkBuffer(pEvent, 1 << 3);
-		return nvkCreateEvent(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pEvent));
-	}
-
-	/** Alternative version of: {@link #vkCreateEvent CreateEvent} */
 	public static int vkCreateEvent(VkDevice device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pEvent) {
 		if ( CHECKS )
 			checkBuffer(pEvent, 1);
@@ -4333,7 +5599,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyEvent ] ---
 
-	/** Unsafe version of {@link #vkDestroyEvent DestroyEvent} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyEvent.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys an event object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code event} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code event} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code event} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code event} <b>must</b> have completed execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code event} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code event} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code event} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that destroys the event
+	 * @param event      the handle of the event to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroyEvent(VkDevice device, long event, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyEvent;
 		if ( CHECKS )
@@ -4470,7 +5764,27 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateQueryPool ] ---
 
-	/** Unsafe version of {@link #vkCreateQueryPool CreateQueryPool} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateQueryPool.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new query pool object.
+	 * 
+	 * <p>Queries are managed using query pool objects. Each query pool is a collection of a specific number of queries of a particular type.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkQueryPoolCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pQueryPool} <b>must</b> be a pointer to a {@code VkQueryPool} handle</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that creates the query pool
+	 * @param pCreateInfo pointer to an instance of the {@link VkQueryPoolCreateInfo} structure containing the number and type of queries to be managed by the pool
+	 * @param pAllocator  controls host memory allocation
+	 * @param pQueryPool  a pointer to a {@code VkQueryPool} handle in which the resulting query pool object is returned
+	 */
 	public static int nvkCreateQueryPool(VkDevice device, long pCreateInfo, long pAllocator, long pQueryPool) {
 		long __functionAddress = device.getCapabilities().vkCreateQueryPool;
 		if ( CHECKS )
@@ -4499,13 +5813,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator  controls host memory allocation
 	 * @param pQueryPool  a pointer to a {@code VkQueryPool} handle in which the resulting query pool object is returned
 	 */
-	public static int vkCreateQueryPool(VkDevice device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pQueryPool) {
-		if ( CHECKS )
-			checkBuffer(pQueryPool, 1 << 3);
-		return nvkCreateQueryPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pQueryPool));
-	}
-
-	/** Alternative version of: {@link #vkCreateQueryPool CreateQueryPool} */
 	public static int vkCreateQueryPool(VkDevice device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pQueryPool) {
 		if ( CHECKS )
 			checkBuffer(pQueryPool, 1);
@@ -4514,7 +5821,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyQueryPool ] ---
 
-	/** Unsafe version of {@link #vkDestroyQueryPool DestroyQueryPool} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyQueryPool.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a query pool object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code queryPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code queryPool} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code queryPool} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code queryPool} <b>must</b> have completed execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code queryPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code queryPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code queryPool} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that destroys the query pool
+	 * @param queryPool  the query pool to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroyQueryPool(VkDevice device, long queryPool, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyQueryPool;
 		if ( CHECKS )
@@ -4556,12 +5891,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	}
 
 	// --- [ vkGetQueryPoolResults ] ---
-
-	/** Unsafe version of {@link #vkGetQueryPoolResults GetQueryPoolResults} */
-	public static int nvkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, long dataSize, long pData, long stride, int flags) {
-		long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
-		return callPJIIPPJII(__functionAddress, device.address(), queryPool, firstQuery, queryCount, dataSize, pData, stride, flags);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetQueryPoolResults.html">Khronos Reference Page</a></p>
@@ -4643,13 +5972,90 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param stride     the stride in bytes between results for individual queries within {@code pData}.
 	 * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned. One or more of:<br>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT}, {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT}, {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT}, {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}
 	 */
-	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, long dataSize, ByteBuffer pData, long stride, int flags) {
-		if ( CHECKS )
-			checkBuffer(pData, dataSize);
-		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, dataSize, memAddress(pData), stride, flags);
+	public static int nvkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, long dataSize, long pData, long stride, int flags) {
+		long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
+		return callPJIIPPJII(__functionAddress, device.address(), queryPool, firstQuery, queryCount, dataSize, pData, stride, flags);
 	}
 
-	/** Alternative version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetQueryPoolResults.html">Khronos Reference Page</a></p>
+	 * 
+	 * Retrieves status and results for a set of queries.
+	 * 
+	 * <p>If no bits are set in {@code flags}, and all requested queries are in the available state, results are written as an array of 32-bit unsigned integer
+	 * values. The behavior when not all queries are available, is described below.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set and the result overflows a 32-bit value, the value <b>may</b> either wrap or saturate. Similarly, if {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT}
+	 * is set and the result overflows a 64-bit value, the value <b>may</b> either wrap or saturate.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is set, Vulkan will wait for each query to be in the available state before retrieving the numerical results for that query.
+	 * In this case, {@code vkGetQueryPoolResults} is guaranteed to succeed and return {@link #VK_SUCCESS SUCCESS} if the queries become available in a finite time (i.e. if they
+	 * have been issued and not reset). If queries will never finish (e.g. due to being reset but not issued), then {@code vkGetQueryPoolResults} <b>may</b> not
+	 * return in finite time.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} and {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} are both not set then no result values are written to {@code pData} for queries that are in the
+	 * unavailable state at the time of the call, and {@code vkGetQueryPoolResults} returns {@link #VK_NOT_READY NOT_READY}. However, availability state is still written to
+	 * {@code pData} for those queries if {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is set.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Applications <b>must</b> take care to ensure that use of the {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} bit has the desired effect.</p>
+	 * 
+	 * <p>For example, if a query has been used previously and a command buffer records the commands {@link #vkCmdResetQueryPool CmdResetQueryPool}, {@link #vkCmdBeginQuery CmdBeginQuery}, and
+	 * {@link #vkCmdEndQuery CmdEndQuery} for that query, then the query will remain in the available state until the {@code vkCmdResetQueryPool} command executes on a queue.
+	 * Applications <b>can</b> use fences or events to ensure that an query has already been reset before checking for its results or availability status.
+	 * Otherwise, a stale value could be returned from a previous use of the query.</p>
+	 * 
+	 * <p>The above also applies when {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is used in combination with {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT}. In this case, the returned
+	 * availability status <b>may</b> reflect the result of a previous use of the query unless the {@code vkCmdResetQueryPool} command has been executed since
+	 * the last use of the query.</p>
+	 * </div>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Applications <b>can</b> double-buffer query pool usage, with a pool per frame, and reset queries at the end of the frame in which they are read.</p>
+	 * </div>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} is set, {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is not set, and the query’s status is unavailable, an intermediate result value between
+	 * zero and the final result value is written to {@code pData} for that query.</p>
+	 * 
+	 * <p>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} <b>must not</b> be used if the pool’s {@code queryType} is {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is set, the final integer value written for each query is non-zero if the query’s status was available or zero
+	 * if the status was unavailable. When {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is used, implementations <b>must</b> guarantee that if they return a non-zero
+	 * availability value then the numerical results <b>must</b> be valid, assuming the results are not reset by a subsequent command.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Satisfying this guarantee <b>may</b> require careful ordering by the application, e.g. to read the availability status before reading the results.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkQueryResultFlagBits} values</li>
+	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>{@code queryPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code queryPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code firstQuery} <b>must</b> be less than the number of queries in {@code queryPool}</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code pData} and {@code stride} must be multiples of 4</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code pData} and {@code stride} must be multiples of 8</li>
+	 * <li>The sum of {@code firstQuery} and {@code queryCount} <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
+	 * <li>{@code dataSize} <b>must</b> be large enough to contain the result of each query, as described here</li>
+	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must not</b> contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that owns the query pool
+	 * @param queryPool  the query pool managing the queries containing the desired results
+	 * @param firstQuery the initial query index
+	 * @param queryCount the number of queries. {@code firstQuery} and {@code queryCount} together define a range of queries
+	 * @param pData      a pointer to a user-allocated buffer where the results will be written
+	 * @param stride     the stride in bytes between results for individual queries within {@code pData}.
+	 * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned. One or more of:<br>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT}, {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT}, {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT}, {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}
+	 */
 	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, ByteBuffer pData, long stride, int flags) {
 		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining(), memAddress(pData), stride, flags);
 	}
@@ -4666,7 +6072,31 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateBuffer ] ---
 
-	/** Unsafe version of {@link #vkCreateBuffer CreateBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new buffer object.
+	 * 
+	 * <p>Buffers represent linear arrays of data which are used for various purposes by binding them to the graphics pipeline via descriptor sets or via certain
+	 * commands, or by directly specifying them as parameters to certain commands.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkBufferCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pBuffer} <b>must</b> be a pointer to a {@code VkBuffer} handle</li>
+	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} or {@link #VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}, creating this
+	 * {@code VkBuffer} <b>must not</b> cause the total required sparse memory for all currently valid sparse resources on the device to exceed
+	 * {@link VkPhysicalDeviceLimits}{@code ::sparseAddressSpaceSize}</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that creates the buffer object
+	 * @param pCreateInfo a pointer to an instance of the {@link VkBufferCreateInfo} structure containing parameters affecting creation of the buffer
+	 * @param pAllocator  controls host memory allocation
+	 * @param pBuffer     points to a {@code VkBuffer} handle in which the resulting buffer object is returned
+	 */
 	public static int nvkCreateBuffer(VkDevice device, long pCreateInfo, long pAllocator, long pBuffer) {
 		long __functionAddress = device.getCapabilities().vkCreateBuffer;
 		if ( CHECKS ) {
@@ -4701,13 +6131,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator  controls host memory allocation
 	 * @param pBuffer     points to a {@code VkBuffer} handle in which the resulting buffer object is returned
 	 */
-	public static int vkCreateBuffer(VkDevice device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pBuffer) {
-		if ( CHECKS )
-			checkBuffer(pBuffer, 1 << 3);
-		return nvkCreateBuffer(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pBuffer));
-	}
-
-	/** Alternative version of: {@link #vkCreateBuffer CreateBuffer} */
 	public static int vkCreateBuffer(VkDevice device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pBuffer) {
 		if ( CHECKS )
 			checkBuffer(pBuffer, 1);
@@ -4716,7 +6139,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyBuffer ] ---
 
-	/** Unsafe version of {@link #vkDestroyBuffer DestroyBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a buffer object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code buffer} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code buffer} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code buffer} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code buffer}, either directly or via a {@code VkBufferView}, <b>must</b> have completed execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code buffer} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code buffer} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code buffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that destroys the buffer
+	 * @param buffer     the buffer to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroyBuffer(VkDevice device, long buffer, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyBuffer;
 		if ( CHECKS )
@@ -4759,7 +6210,34 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateBufferView ] ---
 
-	/** Unsafe version of {@link #vkCreateBufferView CreateBufferView} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateBufferView.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new buffer view object.
+	 * 
+	 * <p>A buffer view represents a contiguous range of a buffer and a specific format to be used to interpret the data. Buffer views are used to enable shaders
+	 * to access buffer contents interpreted as formatted data. In order to create a valid buffer view, the buffer <b>must</b> have been created with at least one of
+	 * the following usage flags:</p>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT}</li>
+	 * <li>{@link #VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT}</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkBufferViewCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pView} <b>must</b> be a pointer to a {@code VkBufferView} handle</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that creates the buffer view
+	 * @param pCreateInfo a pointer to an instance of the {@link VkBufferViewCreateInfo} structure containing parameters to be used to create the buffer
+	 * @param pAllocator  controls host memory allocation
+	 * @param pView       points to a {@code VkBufferView} handle in which the resulting buffer view object is returned
+	 */
 	public static int nvkCreateBufferView(VkDevice device, long pCreateInfo, long pAllocator, long pView) {
 		long __functionAddress = device.getCapabilities().vkCreateBufferView;
 		if ( CHECKS )
@@ -4795,13 +6273,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator  controls host memory allocation
 	 * @param pView       points to a {@code VkBufferView} handle in which the resulting buffer view object is returned
 	 */
-	public static int vkCreateBufferView(VkDevice device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pView) {
-		if ( CHECKS )
-			checkBuffer(pView, 1 << 3);
-		return nvkCreateBufferView(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pView));
-	}
-
-	/** Alternative version of: {@link #vkCreateBufferView CreateBufferView} */
 	public static int vkCreateBufferView(VkDevice device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pView) {
 		if ( CHECKS )
 			checkBuffer(pView, 1);
@@ -4810,7 +6281,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyBufferView ] ---
 
-	/** Unsafe version of {@link #vkDestroyBufferView DestroyBufferView} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyBufferView.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a buffer view object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code bufferView} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code bufferView} <b>must</b> be a valid {@code VkBufferView} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code bufferView} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code bufferView} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code bufferView} <b>must</b> have completed execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code bufferView} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code bufferView} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code bufferView} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that destroys the buffer view
+	 * @param bufferView the buffer view to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroyBufferView(VkDevice device, long bufferView, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyBufferView;
 		if ( CHECKS )
@@ -4853,7 +6352,31 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateImage ] ---
 
-	/** Unsafe version of {@link #vkCreateImage CreateImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new image object.
+	 * 
+	 * <p>Images represent multidimensional - up to 3 - arrays of data which <b>can</b> be used for various purposes (e.g. attachments, textures), by binding them to
+	 * the graphics pipeline via descriptor sets, or by directly specifying them as parameters to certain commands.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkImageCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pImage} <b>must</b> be a pointer to a {@code VkImage} handle</li>
+	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} or {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}, creating this
+	 * {@code VkImage} <b>must not</b> cause the total required sparse memory for all currently valid sparse resources on the device to exceed
+	 * {@link VkPhysicalDeviceLimits}{@code ::sparseAddressSpaceSize}</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that creates the image
+	 * @param pCreateInfo a pointer to an instance of the {@link VkImageCreateInfo} structure containing parameters to be used to create the image
+	 * @param pAllocator  controls host memory allocation
+	 * @param pImage      points to a {@code VkImage} handle in which the resulting image object is returned
+	 */
 	public static int nvkCreateImage(VkDevice device, long pCreateInfo, long pAllocator, long pImage) {
 		long __functionAddress = device.getCapabilities().vkCreateImage;
 		if ( CHECKS ) {
@@ -4888,13 +6411,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator  controls host memory allocation
 	 * @param pImage      points to a {@code VkImage} handle in which the resulting image object is returned
 	 */
-	public static int vkCreateImage(VkDevice device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pImage) {
-		if ( CHECKS )
-			checkBuffer(pImage, 1 << 3);
-		return nvkCreateImage(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pImage));
-	}
-
-	/** Alternative version of: {@link #vkCreateImage CreateImage} */
 	public static int vkCreateImage(VkDevice device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pImage) {
 		if ( CHECKS )
 			checkBuffer(pImage, 1);
@@ -4903,7 +6419,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyImage ] ---
 
-	/** Unsafe version of {@link #vkDestroyImage DestroyImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys an image object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code image} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code image} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code image} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code image}, either directly or via a {@code VkImageView}, <b>must</b> have completed execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code image} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code image} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code image} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that destroys the image
+	 * @param image      the image to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroyImage(VkDevice device, long image, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyImage;
 		if ( CHECKS )
@@ -4946,7 +6490,29 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkGetImageSubresourceLayout ] ---
 
-	/** Unsafe version of {@link #vkGetImageSubresourceLayout GetImageSubresourceLayout} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetImageSubresourceLayout.html">Khronos Reference Page</a></p>
+	 * 
+	 * Queries the layout of a subresource (mipLevel/arrayLayer) of an image created with linear tiling.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code pSubresource} <b>must</b> be a pointer to a valid {@link VkImageSubresource} structure</li>
+	 * <li>{@code pLayout} <b>must</b> be a pointer to a {@link VkSubresourceLayout} structure</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}</li>
+	 * <li>The {@code aspectMask} member of {@code pSubresource} <b>must</b> only have a single bit set</li>
+	 * </ul>
+	 *
+	 * @param device       the logical device that owns the image
+	 * @param image        the image whose layout is being queried
+	 * @param pSubresource a pointer to a {@link VkImageSubresource} structure selecting a specific image for the subresource
+	 * @param pLayout      points to a {@link VkSubresourceLayout} structure in which the layout is returned
+	 */
 	public static void nvkGetImageSubresourceLayout(VkDevice device, long image, long pSubresource, long pLayout) {
 		long __functionAddress = device.getCapabilities().vkGetImageSubresourceLayout;
 		callPJPPV(__functionAddress, device.address(), image, pSubresource, pLayout);
@@ -4981,7 +6547,25 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateImageView ] ---
 
-	/** Unsafe version of {@link #vkCreateImageView CreateImageView} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateImageView.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates an image view from an existing image.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkImageViewCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pView} <b>must</b> be a pointer to a {@code VkImageView} handle</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that creates the image view
+	 * @param pCreateInfo a pointer to an instance of the {@link VkImageViewCreateInfo} structure containing parameters to be used to create the image view
+	 * @param pAllocator  controls host memory allocation
+	 * @param pView       points to a {@code VkImageView} handle in which the resulting image view object is returned
+	 */
 	public static int nvkCreateImageView(VkDevice device, long pCreateInfo, long pAllocator, long pView) {
 		long __functionAddress = device.getCapabilities().vkCreateImageView;
 		if ( CHECKS )
@@ -5008,13 +6592,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator  controls host memory allocation
 	 * @param pView       points to a {@code VkImageView} handle in which the resulting image view object is returned
 	 */
-	public static int vkCreateImageView(VkDevice device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pView) {
-		if ( CHECKS )
-			checkBuffer(pView, 1 << 3);
-		return nvkCreateImageView(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pView));
-	}
-
-	/** Alternative version of: {@link #vkCreateImageView CreateImageView} */
 	public static int vkCreateImageView(VkDevice device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pView) {
 		if ( CHECKS )
 			checkBuffer(pView, 1);
@@ -5023,7 +6600,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyImageView ] ---
 
-	/** Unsafe version of {@link #vkDestroyImageView DestroyImageView} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyImageView.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys an image view object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code imageView} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code imageView} <b>must</b> be a valid {@code VkImageView} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code imageView} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code imageView} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code imageView} <b>must</b> have completed execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code imageView} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code imageView} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code imageView} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that destroys the image view
+	 * @param imageView  the image view to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroyImageView(VkDevice device, long imageView, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyImageView;
 		if ( CHECKS )
@@ -5066,7 +6671,29 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateShaderModule ] ---
 
-	/** Unsafe version of {@link #vkCreateShaderModule CreateShaderModule} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateShaderModule.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new shader module object.
+	 * 
+	 * <p>Shader modules contain shader code and one or more entry points. Shaders are selected from a shader module by specifying an entry point as part of
+	 * pipeline creation. The stages of a pipeline <b>can</b> use shaders that come from different modules. The shader code defining a shader module <b>must</b> be in the
+	 * SPIR-V format.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkShaderModuleCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pShaderModule} <b>must</b> be a pointer to a {@code VkShaderModule} handle</li>
+	 * </ul>
+	 *
+	 * @param device        the logical device that creates the shader module
+	 * @param pCreateInfo   a pointer to an instance of the {@link VkShaderModuleCreateInfo} structure
+	 * @param pAllocator    controls host memory allocation
+	 * @param pShaderModule points to a {@code VkShaderModule} handle in which the resulting render pass object is returned
+	 */
 	public static int nvkCreateShaderModule(VkDevice device, long pCreateInfo, long pAllocator, long pShaderModule) {
 		long __functionAddress = device.getCapabilities().vkCreateShaderModule;
 		if ( CHECKS ) {
@@ -5099,13 +6726,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator    controls host memory allocation
 	 * @param pShaderModule points to a {@code VkShaderModule} handle in which the resulting render pass object is returned
 	 */
-	public static int vkCreateShaderModule(VkDevice device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pShaderModule) {
-		if ( CHECKS )
-			checkBuffer(pShaderModule, 1 << 3);
-		return nvkCreateShaderModule(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pShaderModule));
-	}
-
-	/** Alternative version of: {@link #vkCreateShaderModule CreateShaderModule} */
 	public static int vkCreateShaderModule(VkDevice device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pShaderModule) {
 		if ( CHECKS )
 			checkBuffer(pShaderModule, 1);
@@ -5114,7 +6734,34 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyShaderModule ] ---
 
-	/** Unsafe version of {@link #vkDestroyShaderModule DestroyShaderModule} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyShaderModule.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a shader module object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code shaderModule} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code shaderModule} <b>must</b> be a valid {@code VkShaderModule} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code shaderModule} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code shaderModule} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code shaderModule} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code shaderModule} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code shaderModule} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device       the logical device that destroys the shader module
+	 * @param shaderModule the handle of the shader module to destroy
+	 * @param pAllocator   controls host memory allocation
+	 */
 	public static void nvkDestroyShaderModule(VkDevice device, long shaderModule, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyShaderModule;
 		if ( CHECKS )
@@ -5156,7 +6803,42 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreatePipelineCache ] ---
 
-	/** Unsafe version of {@link #vkCreatePipelineCache CreatePipelineCache} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreatePipelineCache.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new pipeline cache object.
+	 * 
+	 * <p>Pipeline cache objects allow the result of pipeline construction to be reused between pipelines and between runs of an application. Reuse between
+	 * pipelines is achieved by passing the same pipeline cache object when creating multiple related pipelines. Reuse across runs of an application is
+	 * achieved by retrieving pipeline cache contents in one run of an application, saving the contents, and using them to preinitialize a pipeline cache on a
+	 * subsequent run. The contents and size of the pipeline cache objects are managed by the implementation. Applications <b>can</b> control the amount of data
+	 * retrieved from a pipeline cache object.</p>
+	 * 
+	 * <p>Once created, a pipeline cache <b>can</b> be passed to the {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines} and {@link #vkCreateComputePipelines CreateComputePipelines} commands. If the pipeline cache passed
+	 * into these commands is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the implementation will query it for possible reuse opportunities and update it with new content. The use of
+	 * the pipeline cache object in these commands is internally synchronized, and the same pipeline cache object <b>can</b> be used in multiple threads
+	 * simultaneously.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Implementations <b>should</b> make every effort to limit any critical sections to the actual accesses to the cache, which is expected to be significantly
+	 * shorter than the duration of the {@code vkCreateGraphicsPipelines} and {@code vkCreateComputePipelines} commands.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkPipelineCacheCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pPipelineCache} <b>must</b> be a pointer to a {@code VkPipelineCache} handle</li>
+	 * </ul>
+	 *
+	 * @param device         the logical device that creates the pipeline cache object
+	 * @param pCreateInfo    a pointer to a {@link VkPipelineCacheCreateInfo} structure that contains the initial parameters for the pipeline cache object
+	 * @param pAllocator     controls host memory allocation
+	 * @param pPipelineCache a pointer to a {@code VkPipelineCache} handle in which the resulting pipeline cache object is returned
+	 */
 	public static int nvkCreatePipelineCache(VkDevice device, long pCreateInfo, long pAllocator, long pPipelineCache) {
 		long __functionAddress = device.getCapabilities().vkCreatePipelineCache;
 		if ( CHECKS ) {
@@ -5202,13 +6884,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator     controls host memory allocation
 	 * @param pPipelineCache a pointer to a {@code VkPipelineCache} handle in which the resulting pipeline cache object is returned
 	 */
-	public static int vkCreatePipelineCache(VkDevice device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pPipelineCache) {
-		if ( CHECKS )
-			checkBuffer(pPipelineCache, 1 << 3);
-		return nvkCreatePipelineCache(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelineCache));
-	}
-
-	/** Alternative version of: {@link #vkCreatePipelineCache CreatePipelineCache} */
 	public static int vkCreatePipelineCache(VkDevice device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pPipelineCache) {
 		if ( CHECKS )
 			checkBuffer(pPipelineCache, 1);
@@ -5217,7 +6892,34 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyPipelineCache ] ---
 
-	/** Unsafe version of {@link #vkDestroyPipelineCache DestroyPipelineCache} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyPipelineCache.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a pipeline cache object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code pipelineCache} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code pipelineCache} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code pipelineCache} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code pipelineCache} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code pipelineCache} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device        
+	 * @param pipelineCache 
+	 * @param pAllocator    controls host memory allocation
+	 */
 	public static void nvkDestroyPipelineCache(VkDevice device, long pipelineCache, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyPipelineCache;
 		if ( CHECKS )
@@ -5259,7 +6961,65 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkGetPipelineCacheData ] ---
 
-	/** Unsafe version of {@link #vkGetPipelineCacheData GetPipelineCacheData} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetPipelineCacheData.html">Khronos Reference Page</a></p>
+	 * 
+	 * Retrieves data from a pipeline cache object.
+	 * 
+	 * <p>If {@code pData} is {@code NULL}, then the maximum size of the data that <b>can</b> be retrieved from the pipeline cache, in bytes, is returned in {@code pDataSize}.
+	 * Otherwise, {@code pDataSize} <b>must</b> point to a variable set by the user to the size of the buffer, in bytes, pointed to by {@code pData}, and on return
+	 * the variable is overwritten with the amount of data actually written to {@code pData}.</p>
+	 * 
+	 * <p>If {@code dataSize} is less than the maximum size that <b>can</b> be retrieved by the pipeline cache, at most {@code pDataSize} bytes will be written to
+	 * {@code pData}, and {@code vkGetPipelineCacheData} will return {@link #VK_INCOMPLETE INCOMPLETE}. Any data written to {@code pData} is valid and <b>can</b> be provided as the
+	 * {@code pInitialData} member of the {@link VkPipelineCacheCreateInfo} structure passed to {@link #vkCreatePipelineCache CreatePipelineCache}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pipelineCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
+	 * <li>{@code pDataSize} <b>must</b> be a pointer to a {@code size_t} value</li>
+	 * <li>If the value referenced by {@code pDataSize} is not 0, and {@code pData} is not {@code NULL}, {@code pData} <b>must</b> be a pointer to an array of
+	 * {@code pDataSize} bytes</li>
+	 * <li>{@code pipelineCache} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code pipelineCache} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
+	 * 
+	 * <p>Applications <b>can</b> store the data retrieved from the pipeline cache, and use these data, possibly in a future run of the application, to populate new
+	 * pipeline cache objects. The results of pipeline compiles, however, <b>may</b> depend on the vendor ID, device ID, driver version, and other details of the
+	 * device. To enable applications to detect when previously retrieved data is incompatible with the device, the initial bytes written to {@code pData}
+	 * <b>must</b> be a header consisting of the following members:</p>
+	 * 
+	 * <table class=lwjgl>
+	 * <tr><th>Offset</th><th>Size</th><th>Meaning</th></tr>
+	 * <tr><td>0</td><td>4</td><td>length in bytes of the entire pipeline cache header written as a stream of bytes, with the least significant byte first</td></tr>
+	 * <tr><td>4</td><td>4</td><td>a {@code VkPipelineCacheHeaderVersion} value written as a stream of bytes, with the least significant byte first</td></tr>
+	 * <tr><td>8</td><td>4</td><td>a vendor ID equal to {@link VkPhysicalDeviceProperties}{@code ::vendorID} written as a stream of bytes, with the least significant byte first</td></tr>
+	 * <tr><td>12</td><td>4</td><td>a device ID equal to {@code VkPhysicalDeviceProperties::deviceID} written as a stream of bytes, with the least significant byte first</td></tr>
+	 * <tr><td>16</td><td>{@link #VK_UUID_SIZE UUID_SIZE}</td><td>a pipeline cache ID equal to {@code VkPhysicalDeviceProperties::pipelineCacheUUID}</td></tr>
+	 * </table>
+	 * 
+	 * <p>The first four bytes encode the length of the entire pipeline header, in bytes. This value includes all fields in the header including the pipeline
+	 * cache version field and the size of the length field.</p>
+	 * 
+	 * <p>The next four bytes encode the pipeline cache version. This field is interpreted as an {@code VkPipelineCacheHeaderVersion} value, and <b>must</b> have one of
+	 * the following values:</p>
+	 * 
+	 * <pre><code>typedef enum VkPipelineCacheHeaderVersion {
+    VK_PIPELINE_CACHE_HEADER_VERSION_ONE = 1,
+} VkPipelineCacheHeaderVersion;</code></pre>
+	 * 
+	 * <p>A consumer of the pipeline cache <b>should</b> use the cache version to interpret the remainder of the cache header.</p>
+	 * 
+	 * <p>If {@code dataSize} is less than what is necessary to store this header, nothing will be written to {@code pData} and zero will be written to
+	 * {@code dataSize}.</p>
+	 *
+	 * @param device        the logical device that owns the pipeline cache
+	 * @param pipelineCache the pipeline cache to retrieve data from
+	 * @param pDataSize     a pointer to a value related to the amount of data in the pipeline cache
+	 * @param pData         either {@code NULL} or a pointer to a buffer
+	 */
 	public static int nvkGetPipelineCacheData(VkDevice device, long pipelineCache, long pDataSize, long pData) {
 		long __functionAddress = device.getCapabilities().vkGetPipelineCacheData;
 		return callPJPPI(__functionAddress, device.address(), pipelineCache, pDataSize, pData);
@@ -5324,15 +7084,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pDataSize     a pointer to a value related to the amount of data in the pipeline cache
 	 * @param pData         either {@code NULL} or a pointer to a buffer
 	 */
-	public static int vkGetPipelineCacheData(VkDevice device, long pipelineCache, ByteBuffer pDataSize, ByteBuffer pData) {
-		if ( CHECKS ) {
-			checkBuffer(pDataSize, 1 << POINTER_SHIFT);
-			if ( pData != null ) checkBuffer(pData, PointerBuffer.get(pDataSize, pDataSize.position()));
-		}
-		return nvkGetPipelineCacheData(device, pipelineCache, memAddress(pDataSize), memAddressSafe(pData));
-	}
-
-	/** Alternative version of: {@link #vkGetPipelineCacheData GetPipelineCacheData} */
 	public static int vkGetPipelineCacheData(VkDevice device, long pipelineCache, PointerBuffer pDataSize, ByteBuffer pData) {
 		if ( CHECKS ) {
 			checkBuffer(pDataSize, 1);
@@ -5342,12 +7093,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	}
 
 	// --- [ vkMergePipelineCaches ] ---
-
-	/** Unsafe version of {@link #vkMergePipelineCaches MergePipelineCaches} */
-	public static int nvkMergePipelineCaches(VkDevice device, long dstCache, int srcCacheCount, long pSrcCaches) {
-		long __functionAddress = device.getCapabilities().vkMergePipelineCaches;
-		return callPJIPI(__functionAddress, device.address(), dstCache, srcCacheCount, pSrcCaches);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkMergePipelineCaches.html">Khronos Reference Page</a></p>
@@ -5386,28 +7131,52 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pSrcCaches    an array of pipeline cache handles, which will be merged into {@code dstCache}. The previous contents of {@code dstCache} are included after the
 	 *                      merge.
 	 */
-	public static int vkMergePipelineCaches(VkDevice device, long dstCache, int srcCacheCount, ByteBuffer pSrcCaches) {
-		if ( CHECKS )
-			checkBuffer(pSrcCaches, srcCacheCount << 3);
-		return nvkMergePipelineCaches(device, dstCache, srcCacheCount, memAddress(pSrcCaches));
+	public static int nvkMergePipelineCaches(VkDevice device, long dstCache, int srcCacheCount, long pSrcCaches) {
+		long __functionAddress = device.getCapabilities().vkMergePipelineCaches;
+		return callPJIPI(__functionAddress, device.address(), dstCache, srcCacheCount, pSrcCaches);
 	}
 
-	/** Alternative version of: {@link #vkMergePipelineCaches MergePipelineCaches} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkMergePipelineCaches.html">Khronos Reference Page</a></p>
+	 * 
+	 * Merges pipeline cache objects.
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The details of the merge operation are implementation dependent, but implementations <b>should</b> merge the contents of the specified pipelines and prune
+	 * duplicate entries.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code dstCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
+	 * <li>{@code pSrcCaches} <b>must</b> be a pointer to an array of {@code srcCacheCount} valid {@code VkPipelineCache} handles</li>
+	 * <li>{@code srcCacheCount} <b>must</b> be greater than 0</li>
+	 * <li>{@code dstCache} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pSrcCaches} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device}, {@code dstCache} and the elements of {@code pSrcCaches} <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>{@code dstCache} <b>must not</b> appear in the list of source caches</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code dstCache} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that owns the pipeline cache objects
+	 * @param dstCache   the handle of the pipeline cache to merge results into
+	 * @param pSrcCaches an array of pipeline cache handles, which will be merged into {@code dstCache}. The previous contents of {@code dstCache} are included after the
+	 *                   merge.
+	 */
 	public static int vkMergePipelineCaches(VkDevice device, long dstCache, LongBuffer pSrcCaches) {
 		return nvkMergePipelineCaches(device, dstCache, pSrcCaches.remaining(), memAddress(pSrcCaches));
 	}
 
 	// --- [ vkCreateGraphicsPipelines ] ---
-
-	/** Unsafe version of {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines} */
-	public static int nvkCreateGraphicsPipelines(VkDevice device, long pipelineCache, int createInfoCount, long pCreateInfos, long pAllocator, long pPipelines) {
-		long __functionAddress = device.getCapabilities().vkCreateGraphicsPipelines;
-		if ( CHECKS ) {
-			VkGraphicsPipelineCreateInfo.validate(pCreateInfos, createInfoCount);
-			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
-		}
-		return callPJIPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateGraphicsPipelines.html">Khronos Reference Page</a></p>
@@ -5441,15 +7210,46 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator      controls host memory allocation
 	 * @param pPipelines      a pointer to an array in which the resulting graphics pipeline objects are returned
 	 */
-	public static int vkCreateGraphicsPipelines(VkDevice device, long pipelineCache, int createInfoCount, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, ByteBuffer pPipelines) {
+	public static int nvkCreateGraphicsPipelines(VkDevice device, long pipelineCache, int createInfoCount, long pCreateInfos, long pAllocator, long pPipelines) {
+		long __functionAddress = device.getCapabilities().vkCreateGraphicsPipelines;
 		if ( CHECKS ) {
-			checkBuffer(pCreateInfos, createInfoCount);
-			checkBuffer(pPipelines, createInfoCount << 3);
+			VkGraphicsPipelineCreateInfo.validate(pCreateInfos, createInfoCount);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
-		return nvkCreateGraphicsPipelines(device, pipelineCache, createInfoCount, pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelines));
+		return callPJIPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 	}
 
-	/** Alternative version of: {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateGraphicsPipelines.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates graphics pipelines.
+	 * 
+	 * <p>Graphics pipelines consist of multiple shader stages, multiple fixed-function pipeline stages, and a pipeline layout.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code pipelineCache} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
+	 * <li>{@code pCreateInfos} <b>must</b> be a pointer to an array of {@code createInfoCount} valid {@link VkGraphicsPipelineCreateInfo} structures</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pPipelines} <b>must</b> be a pointer to an array of {@code createInfoCount} {@code VkPipeline} handles</li>
+	 * <li>{@code createInfoCount} <b>must</b> be greater than 0</li>
+	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code pipelineCache} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>If the {@code flags} member of any given element of {@code pCreateInfos} contains the {@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and the
+	 * {@code basePipelineIndex} member of that same element is not {@code -1}, {@code basePipelineIndex} <b>must</b> be less than the index into
+	 * {@code pCreateInfos} that corresponds to that element</li>
+	 * </ul>
+	 *
+	 * @param device        the logical device that creates the graphics pipelines
+	 * @param pipelineCache either {@link #VK_NULL_HANDLE NULL_HANDLE}, indicating that pipeline caching is disabled; or the handle of a valid pipeline cache object, in which case use of that cache
+	 *                      is enabled for the duration of the command
+	 * @param pCreateInfos  an array of {@link VkGraphicsPipelineCreateInfo} structures
+	 * @param pAllocator    controls host memory allocation
+	 * @param pPipelines    a pointer to an array in which the resulting graphics pipeline objects are returned
+	 */
 	public static int vkCreateGraphicsPipelines(VkDevice device, long pipelineCache, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pPipelines) {
 		if ( CHECKS )
 			checkBuffer(pPipelines, pCreateInfos.remaining());
@@ -5457,16 +7257,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	}
 
 	// --- [ vkCreateComputePipelines ] ---
-
-	/** Unsafe version of {@link #vkCreateComputePipelines CreateComputePipelines} */
-	public static int nvkCreateComputePipelines(VkDevice device, long pipelineCache, int createInfoCount, long pCreateInfos, long pAllocator, long pPipelines) {
-		long __functionAddress = device.getCapabilities().vkCreateComputePipelines;
-		if ( CHECKS ) {
-			VkComputePipelineCreateInfo.validate(pCreateInfos, createInfoCount);
-			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
-		}
-		return callPJIPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateComputePipelines.html">Khronos Reference Page</a></p>
@@ -5504,15 +7294,50 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator      controls host memory allocation
 	 * @param pPipelines      a pointer to an array in which the resulting compute pipeline objects are returned
 	 */
-	public static int vkCreateComputePipelines(VkDevice device, long pipelineCache, int createInfoCount, VkComputePipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, ByteBuffer pPipelines) {
+	public static int nvkCreateComputePipelines(VkDevice device, long pipelineCache, int createInfoCount, long pCreateInfos, long pAllocator, long pPipelines) {
+		long __functionAddress = device.getCapabilities().vkCreateComputePipelines;
 		if ( CHECKS ) {
-			checkBuffer(pCreateInfos, createInfoCount);
-			checkBuffer(pPipelines, createInfoCount << 3);
+			VkComputePipelineCreateInfo.validate(pCreateInfos, createInfoCount);
+			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
-		return nvkCreateComputePipelines(device, pipelineCache, createInfoCount, pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelines));
+		return callPJIPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 	}
 
-	/** Alternative version of: {@link #vkCreateComputePipelines CreateComputePipelines} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateComputePipelines.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new compute pipeline object.
+	 * 
+	 * <p>Compute pipelines consist of a single static compute shader stage and the pipeline layout.</p>
+	 * 
+	 * <p>The compute pipeline encapsulates a compute shader and is created by calling {@code vkCreateComputePipelines} with {@code module} and {@code pName}
+	 * selecting an entry point from a shader module, where that entry point defines a valid compute shader, in the {@link VkPipelineShaderStageCreateInfo}
+	 * structure contained within the {@link VkComputePipelineCreateInfo} structure.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code pipelineCache} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
+	 * <li>{@code pCreateInfos} <b>must</b> be a pointer to an array of {@code createInfoCount} valid {@link VkComputePipelineCreateInfo} structures</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pPipelines} <b>must</b> be a pointer to an array of {@code createInfoCount} {@code VkPipeline} handles</li>
+	 * <li>{@code createInfoCount} <b>must</b> be greater than 0</li>
+	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code pipelineCache} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>If the {@code flags} member of any given element of {@code pCreateInfos} contains the {@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and the
+	 * {@code basePipelineIndex} member of that same element is not {@code -1}, {@code basePipelineIndex} <b>must</b> be less than the index into
+	 * {@code pCreateInfos} that corresponds to that element</li>
+	 * </ul>
+	 *
+	 * @param device        the logical device that creates the compute pipelines
+	 * @param pipelineCache either {@link #VK_NULL_HANDLE NULL_HANDLE}, indicating that pipeline caching is disabled; or the handle of a valid pipeline cache object, in which case use of that cache
+	 *                      is enabled for the duration of the command
+	 * @param pCreateInfos  an array of {@link VkComputePipelineCreateInfo} structures
+	 * @param pAllocator    controls host memory allocation
+	 * @param pPipelines    a pointer to an array in which the resulting compute pipeline objects are returned
+	 */
 	public static int vkCreateComputePipelines(VkDevice device, long pipelineCache, VkComputePipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pPipelines) {
 		if ( CHECKS )
 			checkBuffer(pPipelines, pCreateInfos.remaining());
@@ -5521,7 +7346,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyPipeline ] ---
 
-	/** Unsafe version of {@link #vkDestroyPipeline DestroyPipeline} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyPipeline.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a graphics or compute pipeline object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code pipeline} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipeline} <b>must</b> be a valid {@code VkPipeline} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code pipeline} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code pipeline} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code pipeline} <b>must</b> have completed execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code pipeline} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code pipeline} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code pipeline} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that destroys the pipeline
+	 * @param pipeline   the handle of the pipeline to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroyPipeline(VkDevice device, long pipeline, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyPipeline;
 		if ( CHECKS )
@@ -5564,7 +7417,101 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreatePipelineLayout ] ---
 
-	/** Unsafe version of {@link #vkCreatePipelineLayout CreatePipelineLayout} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreatePipelineLayout.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new pipeline layout object.
+	 * 
+	 * <p>Access to descriptor sets from a pipeline is accomplished through a pipeline layout. Zero or more descriptor set layouts and zero or more push constant
+	 * ranges are combined to form a pipeline layout object which describes the complete set of resources that <b>can</b> be accessed by a pipeline. The pipeline
+	 * layout represents a sequence of descriptor sets with each having a specific layout. This sequence of layouts is used to determine the interface between
+	 * shader stages and shader resources. Each pipeline is created using a pipeline layout.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkPipelineLayoutCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pPipelineLayout} <b>must</b> be a pointer to a {@code VkPipelineLayout} handle</li>
+	 * </ul>
+	 * 
+	 * <p>Once created, pipeline layouts are used as part of pipeline creation, as part of binding descriptor sets, and as part of setting push constants.
+	 * Pipeline creation accepts a pipeline layout as input, and the layout <b>may</b> be used to map (set, binding, arrayElement) tuples to hardware resources or
+	 * memory locations within a descriptor set. The assignment of hardware resources depends only on the bindings defined in the descriptor sets that
+	 * comprise the pipeline layout, and not on any shader source.</p>
+	 * 
+	 * <p>All resource variables statically used in all shaders in a pipeline <b>must</b> be declared with a (set, binding, arrayElement) that exists in the
+	 * corresponding descriptor set layout and is of an appropriate descriptor type and includes the set of shader stages it is used by in {@code stageFlags}.
+	 * The pipeline layout <b>can</b> include entries that are not used by a particular pipeline, or that are dead-code eliminated from any of the shaders. The
+	 * pipeline layout allows the application to provide a consistent set of bindings across multiple pipeline compiles, which enables those pipelines to be
+	 * compiled in a way that the implementation <b>may</b> cheaply switch pipelines without reprogramming the bindings.</p>
+	 * 
+	 * <p>Similarly, the push constant block declared in each shader (if present) <b>must</b> only place variables at offsets that are each included in a push constant
+	 * range with {@code stageFlags} including the bit corresponding to the shader stage that uses it. The pipeline layout <b>can</b> include ranges or portions of
+	 * ranges that are not used by a particular pipeline, or for which the variables have been dead-code eliminated from any of the shaders.</p>
+	 * 
+	 * <p>There is a limit on the total number of resources of each type that <b>can</b> be included in bindings in all descriptor set layouts in a pipeline layout as
+	 * shown in the table below. The “Total Resources Available” column gives the limit on the number of each type of resource that <b>can</b> be included in
+	 * bindings in all descriptor sets in the pipeline layout. Some resource types count against multiple limits. Additionally, there are limits on the total
+	 * number of each type of resource that <b>can</b> be used in any pipeline stage.</p>
+	 * 
+	 * <table class=lwjgl>
+	 * <tr><th>Total Resources Available</th><th>Resource Types</th></tr>
+	 * <tr><td rowspan=2>maxDescriptorSetSamplers</td><td>sampler</td></tr>
+	 * <tr><td>combined image sampler</td></tr>
+	 * <tr><td rowspan=3>maxDescriptorSetSampledImages</td><td>sampled image</td></tr>
+	 * <tr><td>combined image sampler</td></tr>
+	 * <tr><td>uniform texel buffer</td></tr>
+	 * <tr><td rowspan=2>maxDescriptorSetStorageImages</td><td>storage image</td></tr>
+	 * <tr><td>storage texel buffer</td></tr>
+	 * <tr><td rowspan=2>maxDescriptorSetUniformBuffers</td><td>uniform buffer</td></tr>
+	 * <tr><td>uniform buffer dynamic</td></tr>
+	 * <tr><td>maxDescriptorSetUniformBuffersDynamic</td><td>uniform buffer dynamic</td></tr>
+	 * <tr><td rowspan=2>maxDescriptorSetStorageBuffers</td><td>storage buffer</td></tr>
+	 * <tr><td>storage buffer dynamic</td></tr>
+	 * <tr><td>maxDescriptorSetStorageBuffersDynamic</td><td>storage buffer dynamic</td></tr>
+	 * <tr><td>maxDescriptorSetInputAttachments</td><td>input attachment</td></tr>
+	 * </table>
+	 * 
+	 * <h5>Pipeline Layout Compatibility</h5>
+	 * 
+	 * <p>Two pipeline layouts are defined to be “compatible for push constants” if they were created with identical push constant ranges. Two pipeline layouts
+	 * are defined to be “compatible for set N” if they were created with matching (the same, or identically defined) descriptor set layouts for sets zero
+	 * through N, and if they were created with identical push constant ranges.</p>
+	 * 
+	 * <p>When binding a descriptor set  to set number N, if the previously bound descriptor sets for sets zero through N-1 were all bound using compatible
+	 * pipeline layouts, then performing this binding does not disturb any of the lower numbered sets. If, additionally, the previous bound descriptor set for
+	 * set N was bound using a pipeline layout compatible for set N, then the bindings in sets numbered greater than N are also not disturbed.</p>
+	 * 
+	 * <p>Similarly, when binding a pipeline, the pipeline <b>can</b> correctly access any previously bound descriptor sets which were bound with compatible pipeline
+	 * layouts, as long as all lower numbered sets were also bound with compatible layouts.</p>
+	 * 
+	 * <p>Layout compatibility means that descriptor sets <b>can</b> be bound to a command buffer for use by any pipeline created with a compatible pipeline layout,
+	 * and without having bound a particular pipeline first. It also means that descriptor sets <b>can</b> remain valid across a pipeline change, and the same
+	 * resources will be accessible to the newly bound pipeline.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Implementor’s Note</h5>
+	 * 
+	 * <p>A consequence of layout compatibility is that when the implementation compiles a pipeline layout and assigns hardware units to resources, the
+	 * mechanism to assign hardware units for set N <b>should</b> only be a function of sets [0..N].</p>
+	 * </div>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Place the least frequently changing descriptor sets near the start of the pipeline layout, and place the descriptor sets representing the most
+	 * frequently changing resources near the end. When pipelines are switched, only the descriptor set bindings that have been invalidated will need to
+	 * be updated and the remainder of the descriptor set bindings will remain in place.</p>
+	 * </div>
+	 * 
+	 * <p>The maximum number of descriptor sets that <b>can</b> be bound to a pipeline layout is queried from physical device properties (see
+	 * {@link VkPhysicalDeviceLimits}{@code ::maxBoundDescriptorSets}).</p>
+	 *
+	 * @param device          the logical device that creates the pipeline layout
+	 * @param pCreateInfo     a pointer to an instance of the {@link VkPipelineLayoutCreateInfo} structure specifying the state of the pipeline layout object
+	 * @param pAllocator      controls host memory allocation
+	 * @param pPipelineLayout points to a {@code VkPipelineLayout} handle in which the resulting pipeline layout object is returned
+	 */
 	public static int nvkCreatePipelineLayout(VkDevice device, long pCreateInfo, long pAllocator, long pPipelineLayout) {
 		long __functionAddress = device.getCapabilities().vkCreatePipelineLayout;
 		if ( CHECKS ) {
@@ -5669,13 +7616,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator      controls host memory allocation
 	 * @param pPipelineLayout points to a {@code VkPipelineLayout} handle in which the resulting pipeline layout object is returned
 	 */
-	public static int vkCreatePipelineLayout(VkDevice device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pPipelineLayout) {
-		if ( CHECKS )
-			checkBuffer(pPipelineLayout, 1 << 3);
-		return nvkCreatePipelineLayout(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelineLayout));
-	}
-
-	/** Alternative version of: {@link #vkCreatePipelineLayout CreatePipelineLayout} */
 	public static int vkCreatePipelineLayout(VkDevice device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pPipelineLayout) {
 		if ( CHECKS )
 			checkBuffer(pPipelineLayout, 1);
@@ -5684,7 +7624,34 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyPipelineLayout ] ---
 
-	/** Unsafe version of {@link #vkDestroyPipelineLayout DestroyPipelineLayout} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyPipelineLayout.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a pipeline layout object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code pipelineLayout} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineLayout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code pipelineLayout} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code pipelineLayout} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code pipelineLayout} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code pipelineLayout} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code pipelineLayout} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device         the logical device that destroys the pipeline layout
+	 * @param pipelineLayout the pipeline layout to destroy
+	 * @param pAllocator     controls host memory allocation
+	 */
 	public static void nvkDestroyPipelineLayout(VkDevice device, long pipelineLayout, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyPipelineLayout;
 		if ( CHECKS )
@@ -5726,7 +7693,28 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateSampler ] ---
 
-	/** Unsafe version of {@link #vkCreateSampler CreateSampler} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateSampler.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new sampler object.
+	 * 
+	 * <p>{@code VkSampler} objects encapsulate the state of an image sampler which is used by the implementation to read image data and apply filtering and
+	 * other transformations for the shader.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkSamplerCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pSampler} <b>must</b> be a pointer to a {@code VkSampler} handle</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that creates the sampler
+	 * @param pCreateInfo a pointer to an instance of the {@link VkSamplerCreateInfo} structure specifying the state of the sampler object
+	 * @param pAllocator  controls host memory allocation
+	 * @param pSampler    points to a {@code VkSampler} handle in which the resulting sampler object is returned
+	 */
 	public static int nvkCreateSampler(VkDevice device, long pCreateInfo, long pAllocator, long pSampler) {
 		long __functionAddress = device.getCapabilities().vkCreateSampler;
 		if ( CHECKS )
@@ -5756,13 +7744,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator  controls host memory allocation
 	 * @param pSampler    points to a {@code VkSampler} handle in which the resulting sampler object is returned
 	 */
-	public static int vkCreateSampler(VkDevice device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSampler) {
-		if ( CHECKS )
-			checkBuffer(pSampler, 1 << 3);
-		return nvkCreateSampler(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSampler));
-	}
-
-	/** Alternative version of: {@link #vkCreateSampler CreateSampler} */
 	public static int vkCreateSampler(VkDevice device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSampler) {
 		if ( CHECKS )
 			checkBuffer(pSampler, 1);
@@ -5771,7 +7752,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroySampler ] ---
 
-	/** Unsafe version of {@link #vkDestroySampler DestroySampler} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroySampler.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a sampler object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code sampler} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code sampler} <b>must</b> be a valid {@code VkSampler} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code sampler} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code sampler} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code sampler} <b>must</b> have completed execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code sampler} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code sampler} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code sampler} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that destroys the sampler
+	 * @param sampler    the sampler to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroySampler(VkDevice device, long sampler, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroySampler;
 		if ( CHECKS )
@@ -5814,7 +7823,29 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateDescriptorSetLayout ] ---
 
-	/** Unsafe version of {@link #vkCreateDescriptorSetLayout CreateDescriptorSetLayout} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateDescriptorSetLayout.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new descriptor set layout object.
+	 * 
+	 * <p>A descriptor set layout object is defined by an array of zero or more descriptor bindings. Each individual descriptor binding is specified by a
+	 * descriptor type, a count (array size) of the number of descriptors in the binding, a set of shader stages that <b>can</b> access the binding, and (if using
+	 * immutable samplers) an array of sampler descriptors.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkDescriptorSetLayoutCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pSetLayout} <b>must</b> be a pointer to a {@code VkDescriptorSetLayout} handle</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that creates the descriptor set layout
+	 * @param pCreateInfo a pointer to an instance of the {@link VkDescriptorSetLayoutCreateInfo} structure specifying the state of the descriptor set layout object
+	 * @param pAllocator  controls host memory allocation
+	 * @param pSetLayout  points to a {@code VkDescriptorSetLayout} handle in which the resulting descriptor set layout object is returned
+	 */
 	public static int nvkCreateDescriptorSetLayout(VkDevice device, long pCreateInfo, long pAllocator, long pSetLayout) {
 		long __functionAddress = device.getCapabilities().vkCreateDescriptorSetLayout;
 		if ( CHECKS ) {
@@ -5847,13 +7878,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator  controls host memory allocation
 	 * @param pSetLayout  points to a {@code VkDescriptorSetLayout} handle in which the resulting descriptor set layout object is returned
 	 */
-	public static int vkCreateDescriptorSetLayout(VkDevice device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSetLayout) {
-		if ( CHECKS )
-			checkBuffer(pSetLayout, 1 << 3);
-		return nvkCreateDescriptorSetLayout(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSetLayout));
-	}
-
-	/** Alternative version of: {@link #vkCreateDescriptorSetLayout CreateDescriptorSetLayout} */
 	public static int vkCreateDescriptorSetLayout(VkDevice device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSetLayout) {
 		if ( CHECKS )
 			checkBuffer(pSetLayout, 1);
@@ -5862,7 +7886,34 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyDescriptorSetLayout ] ---
 
-	/** Unsafe version of {@link #vkDestroyDescriptorSetLayout DestroyDescriptorSetLayout} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyDescriptorSetLayout.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a descriptor set layout object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code descriptorSetLayout} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code descriptorSetLayout} <b>must</b> be a valid {@code VkDescriptorSetLayout} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code descriptorSetLayout} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code descriptorSetLayout} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code descriptorSetLayout} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code descriptorSetLayout} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code descriptorSetLayout} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device              the logical device that destroys the descriptor set layout
+	 * @param descriptorSetLayout the descriptor set layout to destroy
+	 * @param pAllocator          controls host memory allocation
+	 */
 	public static void nvkDestroyDescriptorSetLayout(VkDevice device, long descriptorSetLayout, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyDescriptorSetLayout;
 		if ( CHECKS )
@@ -5904,7 +7955,29 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateDescriptorPool ] ---
 
-	/** Unsafe version of {@link #vkCreateDescriptorPool CreateDescriptorPool} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateDescriptorPool.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a descriptor pool object.
+	 * 
+	 * <p>Descriptor sets are allocated from descriptor pool objects. A descriptor pool maintains a pool of descriptors, from which sets are allocated.
+	 * Descriptor pools are externally synchronized, meaning that the application <b>must not</b> allocate and/or free descriptor sets from the same pool in multiple
+	 * threads simultaneously.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkDescriptorPoolCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pDescriptorPool} <b>must</b> be a pointer to a {@code VkDescriptorPool} handle</li>
+	 * </ul>
+	 *
+	 * @param device          the logical device that creates the descriptor pool
+	 * @param pCreateInfo     a pointer to an instance of the {@link VkDescriptorPoolCreateInfo} structure specifying the state of the descriptor pool object
+	 * @param pAllocator      controls host memory allocation
+	 * @param pDescriptorPool points to a {@code VkDescriptorPool} handle in which the resulting descriptor pool object is returned
+	 */
 	public static int nvkCreateDescriptorPool(VkDevice device, long pCreateInfo, long pAllocator, long pDescriptorPool) {
 		long __functionAddress = device.getCapabilities().vkCreateDescriptorPool;
 		if ( CHECKS ) {
@@ -5937,13 +8010,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator      controls host memory allocation
 	 * @param pDescriptorPool points to a {@code VkDescriptorPool} handle in which the resulting descriptor pool object is returned
 	 */
-	public static int vkCreateDescriptorPool(VkDevice device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pDescriptorPool) {
-		if ( CHECKS )
-			checkBuffer(pDescriptorPool, 1 << 3);
-		return nvkCreateDescriptorPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pDescriptorPool));
-	}
-
-	/** Alternative version of: {@link #vkCreateDescriptorPool CreateDescriptorPool} */
 	public static int vkCreateDescriptorPool(VkDevice device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pDescriptorPool) {
 		if ( CHECKS )
 			checkBuffer(pDescriptorPool, 1);
@@ -5952,7 +8018,38 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyDescriptorPool ] ---
 
-	/** Unsafe version of {@link #vkDestroyDescriptorPool DestroyDescriptorPool} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyDescriptorPool.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a descriptor pool object.
+	 * 
+	 * <p>When a pool is destroyed, all descriptor sets allocated from the pool are implicitly freed and become invalid. Descriptor sets allocated from a given
+	 * pool do not need to be freed before destroying that descriptor pool.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code descriptorPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code descriptorPool} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code descriptorPool} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code descriptorPool} (via any allocated descriptor sets) <b>must</b> have completed execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code descriptorPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code descriptorPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code descriptorPool} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device         the logical device that destroys the descriptor pool
+	 * @param descriptorPool the descriptor pool to destroy
+	 * @param pAllocator     controls host memory allocation
+	 */
 	public static void nvkDestroyDescriptorPool(VkDevice device, long descriptorPool, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyDescriptorPool;
 		if ( CHECKS )
@@ -6037,7 +8134,36 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkAllocateDescriptorSets ] ---
 
-	/** Unsafe version of {@link #vkAllocateDescriptorSets AllocateDescriptorSets} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkAllocateDescriptorSets.html">Khronos Reference Page</a></p>
+	 * 
+	 * Allocates descriptor sets from a descriptor pool.
+	 * 
+	 * <p>When a descriptor set is allocated, the initial state is largely uninitialized and all descriptors are undefined. However, the descriptor set <b>can</b> be
+	 * bound in a command buffer without causing errors or exceptions. All entries that are statically used by a pipeline in a drawing or dispatching command
+	 * <b>must</b> have been populated before the descriptor set is bound for use by that command. Entries that are not statically used by a pipeline <b>can</b> have
+	 * uninitialized descriptors or descriptors of resources that have been destroyed, and executing a draw or dispatch with such a descriptor set bound does
+	 * not cause undefined behavior. This means applications need not populate unused entries with dummy descriptors.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pAllocateInfo} <b>must</b> be a pointer to a valid {@link VkDescriptorSetAllocateInfo} structure</li>
+	 * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code pAllocateInfo}->descriptorSetCount {@code VkDescriptorSet} handles</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code pAllocateInfo}->descriptorPool <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device          the logical device that owns the descriptor pool
+	 * @param pAllocateInfo   a pointer to an instance of the {@link VkDescriptorSetAllocateInfo} structure describing parameters of the allocation
+	 * @param pDescriptorSets a pointer to an array of {@code VkDescriptorSet} handles in which the resulting descriptor set objects are returned. The array <b>must</b> be at least the
+	 *                        length specified by the {@code descriptorSetCount} member of {@code pAllocateInfo}.
+	 */
 	public static int nvkAllocateDescriptorSets(VkDevice device, long pAllocateInfo, long pDescriptorSets) {
 		long __functionAddress = device.getCapabilities().vkAllocateDescriptorSets;
 		if ( CHECKS )
@@ -6075,13 +8201,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pDescriptorSets a pointer to an array of {@code VkDescriptorSet} handles in which the resulting descriptor set objects are returned. The array <b>must</b> be at least the
 	 *                        length specified by the {@code descriptorSetCount} member of {@code pAllocateInfo}.
 	 */
-	public static int vkAllocateDescriptorSets(VkDevice device, VkDescriptorSetAllocateInfo pAllocateInfo, ByteBuffer pDescriptorSets) {
-		if ( CHECKS )
-			checkBuffer(pDescriptorSets, pAllocateInfo.descriptorSetCount() << 3);
-		return nvkAllocateDescriptorSets(device, pAllocateInfo.address(), memAddress(pDescriptorSets));
-	}
-
-	/** Alternative version of: {@link #vkAllocateDescriptorSets AllocateDescriptorSets} */
 	public static int vkAllocateDescriptorSets(VkDevice device, VkDescriptorSetAllocateInfo pAllocateInfo, LongBuffer pDescriptorSets) {
 		if ( CHECKS )
 			checkBuffer(pDescriptorSets, pAllocateInfo.descriptorSetCount());
@@ -6089,12 +8208,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	}
 
 	// --- [ vkFreeDescriptorSets ] ---
-
-	/** Unsafe version of {@link #vkFreeDescriptorSets FreeDescriptorSets} */
-	public static int nvkFreeDescriptorSets(VkDevice device, long descriptorPool, int descriptorSetCount, long pDescriptorSets) {
-		long __functionAddress = device.getCapabilities().vkFreeDescriptorSets;
-		return callPJIPI(__functionAddress, device.address(), descriptorPool, descriptorSetCount, pDescriptorSets);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFreeDescriptorSets.html">Khronos Reference Page</a></p>
@@ -6130,18 +8243,79 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pDescriptorSets    an array of handles to {@code VkDescriptorSet} objects. All elements of {@code pDescriptorSets} <b>must</b> have been allocated from
 	 *                           {@code descriptorPool}.
 	 */
-	public static int vkFreeDescriptorSets(VkDevice device, long descriptorPool, int descriptorSetCount, ByteBuffer pDescriptorSets) {
-		if ( CHECKS )
-			checkBuffer(pDescriptorSets, descriptorSetCount << 3);
-		return nvkFreeDescriptorSets(device, descriptorPool, descriptorSetCount, memAddress(pDescriptorSets));
+	public static int nvkFreeDescriptorSets(VkDevice device, long descriptorPool, int descriptorSetCount, long pDescriptorSets) {
+		long __functionAddress = device.getCapabilities().vkFreeDescriptorSets;
+		return callPJIPI(__functionAddress, device.address(), descriptorPool, descriptorSetCount, pDescriptorSets);
 	}
 
-	/** Alternative version of: {@link #vkFreeDescriptorSets FreeDescriptorSets} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFreeDescriptorSets.html">Khronos Reference Page</a></p>
+	 * 
+	 * Frees one or more descriptor sets.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
+	 * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
+	 * <li>{@code descriptorPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pDescriptorSets} that is a valid handle <b>must</b> have been created, allocated or retrieved from {@code descriptorPool}</li>
+	 * <li>Each of {@code device}, {@code descriptorPool} and the elements of {@code pDescriptorSets} that are valid handles <b>must</b> have been created,
+	 * allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to any element of {@code pDescriptorSets} <b>must</b> have completed execution</li>
+	 * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b>
+	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+	 * <li>{@code descriptorPool} <b>must</b> have been created with the {@link #VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT} flag</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code descriptorPool} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to each member of {@code pDescriptorSets} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device          the logical device that owns the descriptor pool
+	 * @param descriptorPool  the descriptor pool from which the descriptor sets were allocated
+	 * @param pDescriptorSets an array of handles to {@code VkDescriptorSet} objects. All elements of {@code pDescriptorSets} <b>must</b> have been allocated from
+	 *                        {@code descriptorPool}.
+	 */
 	public static int vkFreeDescriptorSets(VkDevice device, long descriptorPool, LongBuffer pDescriptorSets) {
 		return nvkFreeDescriptorSets(device, descriptorPool, pDescriptorSets.remaining(), memAddress(pDescriptorSets));
 	}
 
-	/** Single value version of: {@link #vkFreeDescriptorSets FreeDescriptorSets} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFreeDescriptorSets.html">Khronos Reference Page</a></p>
+	 * 
+	 * Frees one or more descriptor sets.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
+	 * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
+	 * <li>{@code descriptorPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pDescriptorSets} that is a valid handle <b>must</b> have been created, allocated or retrieved from {@code descriptorPool}</li>
+	 * <li>Each of {@code device}, {@code descriptorPool} and the elements of {@code pDescriptorSets} that are valid handles <b>must</b> have been created,
+	 * allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to any element of {@code pDescriptorSets} <b>must</b> have completed execution</li>
+	 * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b>
+	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+	 * <li>{@code descriptorPool} <b>must</b> have been created with the {@link #VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT} flag</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code descriptorPool} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to each member of {@code pDescriptorSets} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device         the logical device that owns the descriptor pool
+	 * @param descriptorPool the descriptor pool from which the descriptor sets were allocated
+	 */
 	public static int vkFreeDescriptorSets(VkDevice device, long descriptorPool, long pDescriptorSet) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -6153,14 +8327,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	}
 
 	// --- [ vkUpdateDescriptorSets ] ---
-
-	/** Unsafe version of {@link #vkUpdateDescriptorSets UpdateDescriptorSets} */
-	public static void nvkUpdateDescriptorSets(VkDevice device, int descriptorWriteCount, long pDescriptorWrites, int descriptorCopyCount, long pDescriptorCopies) {
-		long __functionAddress = device.getCapabilities().vkUpdateDescriptorSets;
-		if ( CHECKS )
-			if ( pDescriptorWrites != NULL ) VkWriteDescriptorSet.validate(pDescriptorWrites, descriptorWriteCount);
-		callPIPIPV(__functionAddress, device.address(), descriptorWriteCount, pDescriptorWrites, descriptorCopyCount, pDescriptorCopies);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkUpdateDescriptorSets.html">Khronos Reference Page</a></p>
@@ -6192,22 +8358,68 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param descriptorCopyCount  the number of elements in the {@code pDescriptorCopies} array
 	 * @param pDescriptorCopies    a pointer to an array of {@link VkCopyDescriptorSet} structures describing the descriptor sets to copy between
 	 */
-	public static void vkUpdateDescriptorSets(VkDevice device, int descriptorWriteCount, VkWriteDescriptorSet.Buffer pDescriptorWrites, int descriptorCopyCount, VkCopyDescriptorSet.Buffer pDescriptorCopies) {
-		if ( CHECKS ) {
-			if ( pDescriptorWrites != null ) checkBuffer(pDescriptorWrites, descriptorWriteCount);
-			if ( pDescriptorCopies != null ) checkBuffer(pDescriptorCopies, descriptorCopyCount);
-		}
-		nvkUpdateDescriptorSets(device, descriptorWriteCount, pDescriptorWrites == null ? NULL : pDescriptorWrites.address(), descriptorCopyCount, pDescriptorCopies == null ? NULL : pDescriptorCopies.address());
+	public static void nvkUpdateDescriptorSets(VkDevice device, int descriptorWriteCount, long pDescriptorWrites, int descriptorCopyCount, long pDescriptorCopies) {
+		long __functionAddress = device.getCapabilities().vkUpdateDescriptorSets;
+		if ( CHECKS )
+			if ( pDescriptorWrites != NULL ) VkWriteDescriptorSet.validate(pDescriptorWrites, descriptorWriteCount);
+		callPIPIPV(__functionAddress, device.address(), descriptorWriteCount, pDescriptorWrites, descriptorCopyCount, pDescriptorCopies);
 	}
 
-	/** Alternative version of: {@link #vkUpdateDescriptorSets UpdateDescriptorSets} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkUpdateDescriptorSets.html">Khronos Reference Page</a></p>
+	 * 
+	 * Updates the contents of a descriptor set object.
+	 * 
+	 * <p>Once allocated, descriptor sets <b>can</b> be updated with a combination of write and copy operations.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code descriptorWriteCount} is not 0, {@code pDescriptorWrites} <b>must</b> be a pointer to an array of {@code descriptorWriteCount} valid
+	 * {@link VkWriteDescriptorSet} structures</li>
+	 * <li>If {@code descriptorCopyCount} is not 0, {@code pDescriptorCopies} <b>must</b> be a pointer to an array of {@code descriptorCopyCount} valid
+	 * {@link VkCopyDescriptorSet} structures</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code pDescriptorWrites}[].dstSet <b>must</b> be externally synchronized</li>
+	 * <li>Host access to {@code pDescriptorCopies}[].dstSet <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device            the logical device that updates the descriptor sets
+	 * @param pDescriptorWrites a pointer to an array of {@link VkWriteDescriptorSet} structures describing the descriptor sets to write to
+	 * @param pDescriptorCopies a pointer to an array of {@link VkCopyDescriptorSet} structures describing the descriptor sets to copy between
+	 */
 	public static void vkUpdateDescriptorSets(VkDevice device, VkWriteDescriptorSet.Buffer pDescriptorWrites, VkCopyDescriptorSet.Buffer pDescriptorCopies) {
 		nvkUpdateDescriptorSets(device, pDescriptorWrites == null ? 0 : pDescriptorWrites.remaining(), pDescriptorWrites == null ? NULL : pDescriptorWrites.address(), pDescriptorCopies == null ? 0 : pDescriptorCopies.remaining(), pDescriptorCopies == null ? NULL : pDescriptorCopies.address());
 	}
 
 	// --- [ vkCreateFramebuffer ] ---
 
-	/** Unsafe version of {@link #vkCreateFramebuffer CreateFramebuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateFramebuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new framebuffer object.
+	 * 
+	 * <p>Render passes operate in conjunction with framebuffers, which represent a collection of specific memory attachments that a render pass instance uses.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkFramebufferCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pFramebuffer} <b>must</b> be a pointer to a {@code VkFramebuffer} handle</li>
+	 * </ul>
+	 *
+	 * @param device       the logical device that creates the framebuffer
+	 * @param pCreateInfo  points to a {@link VkFramebufferCreateInfo} structure which describes additional information about framebuffer creation
+	 * @param pAllocator   controls host memory allocation
+	 * @param pFramebuffer points to a {@code VkFramebuffer} handle in which the resulting framebuffer object is returned
+	 */
 	public static int nvkCreateFramebuffer(VkDevice device, long pCreateInfo, long pAllocator, long pFramebuffer) {
 		long __functionAddress = device.getCapabilities().vkCreateFramebuffer;
 		if ( CHECKS ) {
@@ -6238,13 +8450,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator   controls host memory allocation
 	 * @param pFramebuffer points to a {@code VkFramebuffer} handle in which the resulting framebuffer object is returned
 	 */
-	public static int vkCreateFramebuffer(VkDevice device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pFramebuffer) {
-		if ( CHECKS )
-			checkBuffer(pFramebuffer, 1 << 3);
-		return nvkCreateFramebuffer(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pFramebuffer));
-	}
-
-	/** Alternative version of: {@link #vkCreateFramebuffer CreateFramebuffer} */
 	public static int vkCreateFramebuffer(VkDevice device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pFramebuffer) {
 		if ( CHECKS )
 			checkBuffer(pFramebuffer, 1);
@@ -6253,7 +8458,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyFramebuffer ] ---
 
-	/** Unsafe version of {@link #vkDestroyFramebuffer DestroyFramebuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyFramebuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a framebuffer object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code framebuffer} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code framebuffer} <b>must</b> be a valid {@code VkFramebuffer} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code framebuffer} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code framebuffer} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code framebuffer} <b>must</b> have completed execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code framebuffer} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code framebuffer} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code framebuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that destroys the framebuffer
+	 * @param framebuffer the handle of the framebuffer to destroy
+	 * @param pAllocator  controls host memory allocation
+	 */
 	public static void nvkDestroyFramebuffer(VkDevice device, long framebuffer, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyFramebuffer;
 		if ( CHECKS )
@@ -6296,7 +8529,25 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateRenderPass ] ---
 
-	/** Unsafe version of {@link #vkCreateRenderPass CreateRenderPass} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateRenderPass.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new render pass object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkRenderPassCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pRenderPass} <b>must</b> be a pointer to a {@code VkRenderPass} handle</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that creates the render pass
+	 * @param pCreateInfo a pointer to an instance of the {@link VkRenderPassCreateInfo} structure that describes the parameters of the render pass
+	 * @param pAllocator  controls host memory allocation
+	 * @param pRenderPass points to a {@code VkRenderPass} handle in which the resulting render pass object is returned
+	 */
 	public static int nvkCreateRenderPass(VkDevice device, long pCreateInfo, long pAllocator, long pRenderPass) {
 		long __functionAddress = device.getCapabilities().vkCreateRenderPass;
 		if ( CHECKS ) {
@@ -6325,13 +8576,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator  controls host memory allocation
 	 * @param pRenderPass points to a {@code VkRenderPass} handle in which the resulting render pass object is returned
 	 */
-	public static int vkCreateRenderPass(VkDevice device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pRenderPass) {
-		if ( CHECKS )
-			checkBuffer(pRenderPass, 1 << 3);
-		return nvkCreateRenderPass(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pRenderPass));
-	}
-
-	/** Alternative version of: {@link #vkCreateRenderPass CreateRenderPass} */
 	public static int vkCreateRenderPass(VkDevice device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pRenderPass) {
 		if ( CHECKS )
 			checkBuffer(pRenderPass, 1);
@@ -6340,7 +8584,35 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyRenderPass ] ---
 
-	/** Unsafe version of {@link #vkDestroyRenderPass DestroyRenderPass} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyRenderPass.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a render pass object.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code renderPass} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code renderPass} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code renderPass} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All submitted commands that refer to {@code renderPass} <b>must</b> have completed execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code renderPass} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code renderPass} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code renderPass} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device     the logical device that destroys the render pass
+	 * @param renderPass the handle of the render pass to destroy
+	 * @param pAllocator controls host memory allocation
+	 */
 	public static void nvkDestroyRenderPass(VkDevice device, long renderPass, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyRenderPass;
 		if ( CHECKS )
@@ -6383,7 +8655,36 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkGetRenderAreaGranularity ] ---
 
-	/** Unsafe version of {@link #vkGetRenderAreaGranularity GetRenderAreaGranularity} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetRenderAreaGranularity.html">Khronos Reference Page</a></p>
+	 * 
+	 * Queries the granularity for optimal render area.
+	 * 
+	 * <p>The conditions leading to an optimal {@code renderArea} are:</p>
+	 * 
+	 * <ul>
+	 * <li>the {@code offset.x} member in {@code renderArea} is a multiple of the width member of the returned {@link VkExtent2D} (the horizontal granularity).</li>
+	 * <li>the {@code offset.y} member in {@code renderArea} is a multiple of the height of the returned {@link VkExtent2D} (the vertical granularity).</li>
+	 * <li>either the {@code offset.width} member in {@code renderArea} is a multiple of the horizontal granularity or {@code offset.x+offset.width} is equal
+	 * to the width of the framebuffer in the {@link VkRenderPassBeginInfo}.</li>
+	 * <li>either the {@code offset.height} member in {@code renderArea} is a multiple of the vertical granularity or {@code offset.y+offset.height} is equal
+	 * to the height of the framebuffer in the {@link VkRenderPassBeginInfo}.</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
+	 * <li>{@code pGranularity} <b>must</b> be a pointer to a {@link VkExtent2D} structure</li>
+	 * <li>{@code renderPass} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code renderPass} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * </ul>
+	 *
+	 * @param device       the logical device that owns the render pass
+	 * @param renderPass   a handle to a render pass
+	 * @param pGranularity points to a {@link VkExtent2D} structure in which the granularity is returned
+	 */
 	public static void nvkGetRenderAreaGranularity(VkDevice device, long renderPass, long pGranularity) {
 		long __functionAddress = device.getCapabilities().vkGetRenderAreaGranularity;
 		callPJPV(__functionAddress, device.address(), renderPass, pGranularity);
@@ -6425,7 +8726,30 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCreateCommandPool ] ---
 
-	/** Unsafe version of {@link #vkCreateCommandPool CreateCommandPool} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateCommandPool.html">Khronos Reference Page</a></p>
+	 * 
+	 * Creates a new command pool object.
+	 * 
+	 * <p>Command pools are opaque objects that command buffer memory is allocated from, and which allow the implementation to amortize the cost of resource
+	 * creation across multiple command buffers. Command pools are application-synchronized, meaning that a command pool <b>must not</b> be used concurrently in
+	 * multiple threads. That includes use via recording commands on any command buffers allocated from the pool, as well as operations that allocate, free,
+	 * and reset command buffers or the pool itself.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkCommandPoolCreateInfo} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pCommandPool} <b>must</b> be a pointer to a {@code VkCommandPool} handle</li>
+	 * </ul>
+	 *
+	 * @param device       the logical device that creates the command pool
+	 * @param pCreateInfo  contains information used to create the command pool
+	 * @param pAllocator   controls host memory allocation
+	 * @param pCommandPool points to an {@code VkCommandPool} handle in which the created pool is returned
+	 */
 	public static int nvkCreateCommandPool(VkDevice device, long pCreateInfo, long pAllocator, long pCommandPool) {
 		long __functionAddress = device.getCapabilities().vkCreateCommandPool;
 		if ( CHECKS )
@@ -6457,13 +8781,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator   controls host memory allocation
 	 * @param pCommandPool points to an {@code VkCommandPool} handle in which the created pool is returned
 	 */
-	public static int vkCreateCommandPool(VkDevice device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pCommandPool) {
-		if ( CHECKS )
-			checkBuffer(pCommandPool, 1 << 3);
-		return nvkCreateCommandPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pCommandPool));
-	}
-
-	/** Alternative version of: {@link #vkCreateCommandPool CreateCommandPool} */
 	public static int vkCreateCommandPool(VkDevice device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pCommandPool) {
 		if ( CHECKS )
 			checkBuffer(pCommandPool, 1);
@@ -6472,7 +8789,38 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkDestroyCommandPool ] ---
 
-	/** Unsafe version of {@link #vkDestroyCommandPool DestroyCommandPool} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkDestroyCommandPool.html">Khronos Reference Page</a></p>
+	 * 
+	 * Destroys a command pool object.
+	 * 
+	 * <p>When a pool is destroyed, all command buffers allocated from the pool are implicitly freed and become invalid. Command buffers allocated from a given
+	 * pool do not need to be freed before destroying that command pool.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>If {@code commandPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>If {@code commandPool} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each of {@code device} and {@code commandPool} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkPhysicalDevice}</li>
+	 * <li>All {@code VkCommandBuffer} objects allocated from {@code commandPool} <b>must not</b> be pending execution</li>
+	 * <li>If {@code VkAllocationCallbacks} were provided when {@code commandPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code commandPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandPool} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that destroys the command pool
+	 * @param commandPool the handle of the command pool to destroy
+	 * @param pAllocator  controls host memory allocation
+	 */
 	public static void nvkDestroyCommandPool(VkDevice device, long commandPool, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroyCommandPool;
 		if ( CHECKS )
@@ -6551,7 +8899,29 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkAllocateCommandBuffers ] ---
 
-	/** Unsafe version of {@link #vkAllocateCommandBuffers AllocateCommandBuffers} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkAllocateCommandBuffers.html">Khronos Reference Page</a></p>
+	 * 
+	 * Allocates command buffers.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pAllocateInfo} <b>must</b> be a pointer to a valid {@link VkCommandBufferAllocateInfo} structure</li>
+	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code pAllocateInfo}->commandBufferCount {@code VkCommandBuffer} handles</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code pAllocateInfo}->commandPool <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device          the logical device that owns the command pool
+	 * @param pAllocateInfo   an instance of the {@link VkCommandBufferAllocateInfo} structure which defines additional information about creating the pool
+	 * @param pCommandBuffers points to an array in which the allocated command buffers are returned. Each allocated command buffer begins in the initial state.
+	 */
 	public static int nvkAllocateCommandBuffers(VkDevice device, long pAllocateInfo, long pCommandBuffers) {
 		long __functionAddress = device.getCapabilities().vkAllocateCommandBuffers;
 		return callPPPI(__functionAddress, device.address(), pAllocateInfo, pCommandBuffers);
@@ -6580,13 +8950,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocateInfo   an instance of the {@link VkCommandBufferAllocateInfo} structure which defines additional information about creating the pool
 	 * @param pCommandBuffers points to an array in which the allocated command buffers are returned. Each allocated command buffer begins in the initial state.
 	 */
-	public static int vkAllocateCommandBuffers(VkDevice device, VkCommandBufferAllocateInfo pAllocateInfo, ByteBuffer pCommandBuffers) {
-		if ( CHECKS )
-			checkBuffer(pCommandBuffers, pAllocateInfo.commandBufferCount() << POINTER_SHIFT);
-		return nvkAllocateCommandBuffers(device, pAllocateInfo.address(), memAddress(pCommandBuffers));
-	}
-
-	/** Alternative version of: {@link #vkAllocateCommandBuffers AllocateCommandBuffers} */
 	public static int vkAllocateCommandBuffers(VkDevice device, VkCommandBufferAllocateInfo pAllocateInfo, PointerBuffer pCommandBuffers) {
 		if ( CHECKS )
 			checkBuffer(pCommandBuffers, pAllocateInfo.commandBufferCount());
@@ -6594,12 +8957,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	}
 
 	// --- [ vkFreeCommandBuffers ] ---
-
-	/** Unsafe version of {@link #vkFreeCommandBuffers FreeCommandBuffers} */
-	public static void nvkFreeCommandBuffers(VkDevice device, long commandPool, int commandBufferCount, long pCommandBuffers) {
-		long __functionAddress = device.getCapabilities().vkFreeCommandBuffers;
-		callPJIPV(__functionAddress, device.address(), commandPool, commandBufferCount, pCommandBuffers);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFreeCommandBuffers.html">Khronos Reference Page</a></p>
@@ -6633,18 +8990,76 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param commandBufferCount the length of the {@code pCommandBuffers} array
 	 * @param pCommandBuffers    an array of handles of command buffers to free
 	 */
-	public static void vkFreeCommandBuffers(VkDevice device, long commandPool, int commandBufferCount, ByteBuffer pCommandBuffers) {
-		if ( CHECKS )
-			checkBuffer(pCommandBuffers, commandBufferCount << POINTER_SHIFT);
-		nvkFreeCommandBuffers(device, commandPool, commandBufferCount, memAddress(pCommandBuffers));
+	public static void nvkFreeCommandBuffers(VkDevice device, long commandPool, int commandBufferCount, long pCommandBuffers) {
+		long __functionAddress = device.getCapabilities().vkFreeCommandBuffers;
+		callPJIPV(__functionAddress, device.address(), commandPool, commandBufferCount, pCommandBuffers);
 	}
 
-	/** Alternative version of: {@link #vkFreeCommandBuffers FreeCommandBuffers} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFreeCommandBuffers.html">Khronos Reference Page</a></p>
+	 * 
+	 * Frees command buffers.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
+	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
+	 * <li>{@code commandPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated or retrieved from {@code commandPool}</li>
+	 * <li>Each of {@code device}, {@code commandPool} and the elements of {@code pCommandBuffers} that are valid handles <b>must</b> have been created, allocated
+	 * or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>All elements of {@code pCommandBuffers} <b>must not</b> be pending execution</li>
+	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b>
+	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandPool} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to each member of {@code pCommandBuffers} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device          the logical device that owns the command pool
+	 * @param commandPool     the handle of the command pool that the command buffers were allocated from
+	 * @param pCommandBuffers an array of handles of command buffers to free
+	 */
 	public static void vkFreeCommandBuffers(VkDevice device, long commandPool, PointerBuffer pCommandBuffers) {
 		nvkFreeCommandBuffers(device, commandPool, pCommandBuffers.remaining(), memAddress(pCommandBuffers));
 	}
 
-	/** Single value version of: {@link #vkFreeCommandBuffers FreeCommandBuffers} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFreeCommandBuffers.html">Khronos Reference Page</a></p>
+	 * 
+	 * Frees command buffers.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
+	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
+	 * <li>{@code commandPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated or retrieved from {@code commandPool}</li>
+	 * <li>Each of {@code device}, {@code commandPool} and the elements of {@code pCommandBuffers} that are valid handles <b>must</b> have been created, allocated
+	 * or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>All elements of {@code pCommandBuffers} <b>must not</b> be pending execution</li>
+	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b>
+	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandPool} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to each member of {@code pCommandBuffers} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param device      the logical device that owns the command pool
+	 * @param commandPool the handle of the command pool that the command buffers were allocated from
+	 */
 	public static void vkFreeCommandBuffers(VkDevice device, long commandPool, VkCommandBuffer pCommandBuffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -6657,7 +9072,61 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkBeginCommandBuffer ] ---
 
-	/** Unsafe version of {@link #vkBeginCommandBuffer BeginCommandBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkBeginCommandBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * Starts recording a command buffer.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code pBeginInfo} <b>must</b> be a pointer to a valid {@link VkCommandBufferBeginInfo} structure</li>
+	 * <li>{@code commandBuffer} <b>must not</b> be in the recording state</li>
+	 * <li>{@code commandBuffer} <b>must not</b> currently be pending execution</li>
+	 * <li>If {@code commandBuffer} was allocated from a {@code VkCommandPool} which did not have the {@link #VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT} flag set,
+	 * {@code commandBuffer} <b>must</b> be in the initial state.</li>
+	 * <li>If {@code commandBuffer} is a secondary command buffer, the {@code pInheritanceInfo} member of {@code pBeginInfo} <b>must</b> be a valid
+	 * {@link VkCommandBufferInheritanceInfo} structure</li>
+	 * <li>If {@code commandBuffer} is a secondary command buffer and either the {@code occlusionQueryEnable} member of the {@code pInheritanceInfo} member of
+	 * {@code pBeginInfo} is {@link #VK_FALSE FALSE}, or the precise occlusion queries feature is not enabled, the {@code queryFlags} member of the
+	 * {@code pInheritanceInfo} member {@code pBeginInfo} <b>must not</b> contain {@link #VK_QUERY_CONTROL_PRECISE_BIT QUERY_CONTROL_PRECISE_BIT}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <p>A primary command buffer is considered to be pending execution from the time it is submitted via {@link #vkQueueSubmit QueueSubmit} until that submission completes.</p>
+	 * 
+	 * <p>A secondary command buffer is considered to be pending execution from the time its execution is recorded into a primary buffer (via
+	 * {@link #vkCmdExecuteCommands CmdExecuteCommands}) until the final time that primary buffer’s submission to a queue completes. If, after the primary buffer completes, the
+	 * secondary command buffer is recorded to execute on a different primary buffer, the first primary buffer <b>must not</b> be resubmitted until after it is reset
+	 * with {@link #vkResetCommandBuffer ResetCommandBuffer}.</p>
+	 * 
+	 * <p>If {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} is not set on a secondary command buffer, that command buffer <b>must not</b> be used more than once in a given
+	 * primary command buffer. Furthermore, if a secondary command buffer without {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} set is recorded to execute in a
+	 * primary command buffer with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} set, the primary command buffer <b>must not</b> be pending execution more than once at
+	 * a time.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>On some implementations, not using the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} bit enables command buffers to be patched in-place if needed,
+	 * rather than creating a copy of the command buffer.</p>
+	 * </div>
+	 * 
+	 * <p>If a command buffer is in the executable state and the command buffer was allocated from a command pool with the
+	 * {@link #VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT} flag set, then {@code vkBeginCommandBuffer} implicitly resets the command buffer, behaving as if
+	 * {@link #vkResetCommandBuffer ResetCommandBuffer} had been called with {@link #VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT} not set. It then puts the command buffer in the recording state.</p>
+	 * 
+	 * <p>Once recording starts, an application records a sequence of commands ({@code vkCmd*}) to set state in the command buffer, draw, dispatch, and other
+	 * commands.</p>
+	 *
+	 * @param commandBuffer the handle of the command buffer which is to be put in the recording state
+	 * @param pBeginInfo    an instance of the {@link VkCommandBufferBeginInfo} structure, which defines additional information about how the command buffer begins recording
+	 */
 	public static int nvkBeginCommandBuffer(VkCommandBuffer commandBuffer, long pBeginInfo) {
 		long __functionAddress = commandBuffer.getCapabilities().vkBeginCommandBuffer;
 		return callPPI(__functionAddress, commandBuffer.address(), pBeginInfo);
@@ -6839,7 +9308,42 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCmdSetViewport ] ---
 
-	/** Unsafe version of {@link #vkCmdSetViewport CmdSetViewport} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdSetViewport.html">Khronos Reference Page</a></p>
+	 * 
+	 * Sets the viewport on a command buffer.
+	 * 
+	 * <p>If the bound pipeline state object was not created with the {@link #VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT} dynamic state enabled, viewport transformation parameters are
+	 * specified using the {@code pViewports} member of {@link VkPipelineViewportStateCreateInfo} in the pipeline state object. If the pipeline state object was
+	 * created with the {@link #VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT} dynamic state enabled, the viewport transformation parameters are dynamically set and changed with this
+	 * command.</p>
+	 * 
+	 * <p>The viewport parameters taken from element {@code i} of {@code pViewports} replace the current state for the viewport index
+	 * {@code firstViewport + i}, for {@code i} in {@code [0,viewportCount)}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code pViewports} <b>must</b> be a pointer to an array of {@code viewportCount} valid {@link VkViewport} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>{@code viewportCount} <b>must</b> be greater than 0</li>
+	 * <li>{@code firstViewport} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
+	 * <li>The sum of {@code firstViewport} and {@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded
+	 * @param firstViewport the index of the first viewport whose parameters are updated by the command
+	 * @param viewportCount the number of viewports whose parameters are updated by the command
+	 * @param pViewports    a pointer to an array of {@code VkViewport} structures specifying viewport parameters
+	 */
 	public static void nvkCmdSetViewport(VkCommandBuffer commandBuffer, int firstViewport, int viewportCount, long pViewports) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetViewport;
 		callPIIPV(__functionAddress, commandBuffer.address(), firstViewport, viewportCount, pViewports);
@@ -6878,23 +9382,68 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 *
 	 * @param commandBuffer the command buffer into which the command will be recorded
 	 * @param firstViewport the index of the first viewport whose parameters are updated by the command
-	 * @param viewportCount the number of viewports whose parameters are updated by the command
 	 * @param pViewports    a pointer to an array of {@code VkViewport} structures specifying viewport parameters
 	 */
-	public static void vkCmdSetViewport(VkCommandBuffer commandBuffer, int firstViewport, int viewportCount, VkViewport.Buffer pViewports) {
-		if ( CHECKS )
-			checkBuffer(pViewports, viewportCount);
-		nvkCmdSetViewport(commandBuffer, firstViewport, viewportCount, pViewports.address());
-	}
-
-	/** Alternative version of: {@link #vkCmdSetViewport CmdSetViewport} */
 	public static void vkCmdSetViewport(VkCommandBuffer commandBuffer, int firstViewport, VkViewport.Buffer pViewports) {
 		nvkCmdSetViewport(commandBuffer, firstViewport, pViewports.remaining(), pViewports.address());
 	}
 
 	// --- [ vkCmdSetScissor ] ---
 
-	/** Unsafe version of {@link #vkCmdSetScissor CmdSetScissor} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdSetScissor.html">Khronos Reference Page</a></p>
+	 * 
+	 * Sets the dynamic scissor rectangles on a command buffer.
+	 * 
+	 * <p>The scissor test determines if a fragment’s framebuffer coordinates <code>(x<sub>f</sub>,y<sub>f</sub>)</code> lie within the scissor rectangle
+	 * corresponding to the viewport index used by the primitive that generated the fragment. If the pipeline state object is created without
+	 * {@link #VK_DYNAMIC_STATE_SCISSOR DYNAMIC_STATE_SCISSOR} enabled then the scissor rectangles are set by the {@link VkPipelineViewportStateCreateInfo} state of the pipeline state object.
+	 * Otherwise, use this command to dynamically set the scissor rectangles.</p>
+	 * 
+	 * <p>The scissor rectangles taken from element {@code i} of {@code pScissors} replace the current state for the scissor index {@code firstScissor + i}, for
+	 * {@code i} in {@code [0,scissorCount)}.</p>
+	 * 
+	 * <p>Each scissor rectangle is described by a {@link VkRect2D} structure, with the {@code offset.x} and {@code offset.y} values determining the upper left corner
+	 * of the scissor rectangle, and the {@code extent.width} and {@code extent.height} values determining the size in pixels.</p>
+	 * 
+	 * <p>If <code>offset.x &le; x<sub>f</sub> &lt; offset.x + extent.width</code>  and <code>offset.y &le; y<sub>f</sub> &lt; offset.y + extent.height</code> for
+	 * the selected scissor rectangle, then the scissor test passes. Otherwise, the test fails and the fragment is discarded. For points, lines, and polygons,
+	 * the scissor rectangle for a primitive is selected in the same manner as the viewport. The scissor rectangles only apply to drawing commands, not to
+	 * other commands like clears or copies.</p>
+	 * 
+	 * <p>It is legal for {@code offset.x + extent.width} or {@code offset.y + extent.height} to exceed the dimensions of the framebuffer - the scissor test
+	 * still applies as defined above. Rasterization does not produce fragments outside of the framebuffer, so such fragments never have the scissor test
+	 * performed on them.</p>
+	 * 
+	 * <p>The scissor test is always performed. Applications <b>can</b> effectively disable the scissor test by specifying a scissor rectangle that encompasses the
+	 * entire framebuffer.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code pScissors} <b>must</b> be a pointer to an array of {@code scissorCount} {@link VkRect2D} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>{@code scissorCount} <b>must</b> be greater than 0</li>
+	 * <li>{@code firstScissor} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
+	 * <li>The sum of {@code firstScissor} and {@code scissorCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
+	 * <li>The {@code x} and {@code y} members of {@code offset} <b>must</b> be greater than or equal to 0</li>
+	 * <li>Evaluation of ({@code offset.x} + {@code extent.width}) <b>must not</b> cause a signed integer addition overflow</li>
+	 * <li>Evaluation of ({@code offset.y} + {@code extent.height}) <b>must not</b> cause a signed integer addition overflow</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded
+	 * @param firstScissor  the index of the first scissor whose state is updated by the command
+	 * @param scissorCount  the number of scissors whose rectangles are updated by the command
+	 * @param pScissors     a pointer to an array of {@link VkRect2D} structures defining scissor rectangles
+	 */
 	public static void nvkCmdSetScissor(VkCommandBuffer commandBuffer, int firstScissor, int scissorCount, long pScissors) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetScissor;
 		callPIIPV(__functionAddress, commandBuffer.address(), firstScissor, scissorCount, pScissors);
@@ -6951,16 +9500,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 *
 	 * @param commandBuffer the command buffer into which the command will be recorded
 	 * @param firstScissor  the index of the first scissor whose state is updated by the command
-	 * @param scissorCount  the number of scissors whose rectangles are updated by the command
 	 * @param pScissors     a pointer to an array of {@link VkRect2D} structures defining scissor rectangles
 	 */
-	public static void vkCmdSetScissor(VkCommandBuffer commandBuffer, int firstScissor, int scissorCount, VkRect2D.Buffer pScissors) {
-		if ( CHECKS )
-			checkBuffer(pScissors, scissorCount);
-		nvkCmdSetScissor(commandBuffer, firstScissor, scissorCount, pScissors.address());
-	}
-
-	/** Alternative version of: {@link #vkCmdSetScissor CmdSetScissor} */
 	public static void vkCmdSetScissor(VkCommandBuffer commandBuffer, int firstScissor, VkRect2D.Buffer pScissors) {
 		nvkCmdSetScissor(commandBuffer, firstScissor, pScissors.remaining(), pScissors.address());
 	}
@@ -7088,7 +9629,32 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCmdSetBlendConstants ] ---
 
-	/** Unsafe version of {@link #vkCmdSetBlendConstants CmdSetBlendConstants} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdSetBlendConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * Sets the values of blend constants.
+	 * 
+	 * <p>If the pipeline state object is created without the {@link #VK_DYNAMIC_STATE_BLEND_CONSTANTS DYNAMIC_STATE_BLEND_CONSTANTS} dynamic state enabled then the “blend constant”
+	 * {@code (Rc,Gc,Bc,Ac)} is specified via the {@code blendConstants} member of {@link VkPipelineColorBlendStateCreateInfo}. Otherwise the blend constant is
+	 * dynamically set and changed by calling this command,</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer  the command buffer into which the command will be recorded
+	 * @param blendConstants an array of four values specifying the R, G, B, and A components of the blend constant color used in blending, depending on the blend factor
+	 */
 	public static void nvkCmdSetBlendConstants(VkCommandBuffer commandBuffer, long blendConstants) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetBlendConstants;
 		callPPV(__functionAddress, commandBuffer.address(), blendConstants);
@@ -7120,13 +9686,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param commandBuffer  the command buffer into which the command will be recorded
 	 * @param blendConstants an array of four values specifying the R, G, B, and A components of the blend constant color used in blending, depending on the blend factor
 	 */
-	public static void vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, ByteBuffer blendConstants) {
-		if ( CHECKS )
-			checkBuffer(blendConstants, 4 << 2);
-		nvkCmdSetBlendConstants(commandBuffer, memAddress(blendConstants));
-	}
-
-	/** Alternative version of: {@link #vkCmdSetBlendConstants CmdSetBlendConstants} */
 	public static void vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, FloatBuffer blendConstants) {
 		if ( CHECKS )
 			checkBuffer(blendConstants, 4);
@@ -7283,12 +9842,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 
 	// --- [ vkCmdBindDescriptorSets ] ---
 
-	/** Unsafe version of {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets} */
-	public static void nvkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, int descriptorSetCount, long pDescriptorSets, int dynamicOffsetCount, long pDynamicOffsets) {
-		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindDescriptorSets;
-		callPIJIIPIPV(__functionAddress, commandBuffer.address(), pipelineBindPoint, layout, firstSet, descriptorSetCount, pDescriptorSets, dynamicOffsetCount, pDynamicOffsets);
-	}
-
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdBindDescriptorSets.html">Khronos Reference Page</a></p>
 	 * 
@@ -7363,15 +9916,83 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param dynamicOffsetCount the number of dynamic offsets in the {@code pDynamicOffsets} array
 	 * @param pDynamicOffsets    a pointer to an array of {@code uint32_t} values specifying dynamic offsets
 	 */
-	public static void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, int descriptorSetCount, ByteBuffer pDescriptorSets, int dynamicOffsetCount, ByteBuffer pDynamicOffsets) {
-		if ( CHECKS ) {
-			checkBuffer(pDescriptorSets, descriptorSetCount << 3);
-			if ( pDynamicOffsets != null ) checkBuffer(pDynamicOffsets, dynamicOffsetCount << 2);
-		}
-		nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, descriptorSetCount, memAddress(pDescriptorSets), dynamicOffsetCount, memAddressSafe(pDynamicOffsets));
+	public static void nvkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, int descriptorSetCount, long pDescriptorSets, int dynamicOffsetCount, long pDynamicOffsets) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindDescriptorSets;
+		callPIJIIPIPV(__functionAddress, commandBuffer.address(), pipelineBindPoint, layout, firstSet, descriptorSetCount, pDescriptorSets, dynamicOffsetCount, pDynamicOffsets);
 	}
 
-	/** Alternative version of: {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdBindDescriptorSets.html">Khronos Reference Page</a></p>
+	 * 
+	 * Binds descriptor sets to a command buffer.
+	 * 
+	 * <p>If any of the sets being bound include dynamic uniform or storage buffers, then {@code pDynamicOffsets} includes one element for each array element in
+	 * each dynamic descriptor type binding in each set.</p>
+	 * 
+	 * <p>{@code vkCmdBindDescriptorSets} causes the sets numbered {@code [firstSet.. firstSet+descriptorSetCount-1]} to use the bindings stored in
+	 * {@code pDescriptorSets[0..descriptorSetCount-1]} for subsequent rendering commands (either compute or graphics, according to the
+	 * {@code pipelineBindPoint}). Any bindings that were previously applied via these sets are no longer valid.</p>
+	 * 
+	 * <p>Once bound, a descriptor set affects rendering of subsequent graphics or compute commands in the command buffer until a different set is bound to the
+	 * same set number, or else until the set is disturbed.</p>
+	 * 
+	 * <p>A compatible descriptor set <b>must</b> be bound for all set numbers that any shaders in a pipeline access, at the time that a draw or dispatch command is
+	 * recorded to execute using that pipeline. However, if none of the shaders in a pipeline statically use any bindings with a particular set number, then
+	 * no descriptor set need be bound for that set number, even if the pipeline layout includes a non-trivial descriptor set layout for that set number.</p>
+	 * 
+	 * <p>If any of the sets being bound include dynamic uniform or storage buffers, then {@code pDynamicOffsets} includes one element for each array element in
+	 * each dynamic descriptor type binding in each set. Values are taken from {@code pDynamicOffsets} in an order such that all entries for set N come before
+	 * set N+1; within a set, entries are ordered by the binding numbers in the decriptor set layouts; and within a binding array, elements are in order.
+	 * {@code dynamicOffsetCount} <b>must</b> equal the total number of dynamic descriptors in the sets being bound.</p>
+	 * 
+	 * <p>The effective offset used for dynamic uniform and storage buffer bindings is the sum of the relative offset taken from {@code pDynamicOffsets}, and the
+	 * base address of the buffer plus base offset in the descriptor set. The length of the dynamic uniform and storage buffer bindings is the buffer range as
+	 * specified in the descriptor set.</p>
+	 * 
+	 * <p>Each of the {@code pDescriptorSets} <b>must</b> be compatible with the pipeline layout specified by {@code layout}. The layout used to program the bindings
+	 * <b>must</b> also be compatible with the pipeline used in subsequent graphics or compute commands.</p>
+	 * 
+	 * <p>The descriptor set contents bound by a call to {@code vkCmdBindDescriptorSets} <b>may</b> be consumed during host execution of the command, or during shader
+	 * execution of the resulting draws, or any time in between. Thus, the contents <b>must not</b> be altered (overwritten by an update command, or freed) between
+	 * when the command is recorded and when the command completes executing on the queue. The contents of {@code pDynamicOffsets} are consumed immediately
+	 * during execution of {@code vkCmdBindDescriptorSets}. Once all pending uses have completed, it is legal to update and reuse a descriptor set.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code pipelineBindPoint} <b>must</b> be a valid {@code VkPipelineBindPoint} value</li>
+	 * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
+	 * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} valid {@code VkDescriptorSet} handles</li>
+	 * <li>If {@code dynamicOffsetCount} is not 0, {@code pDynamicOffsets} <b>must</b> be a pointer to an array of {@code dynamicOffsetCount} {@code uint32_t}
+	 * values</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer}, {@code layout} and the elements of {@code pDescriptorSets} <b>must</b> have been created, allocated or retrieved from the
+	 * same {@code VkDevice}</li>
+	 * <li>Any given element of {@code pDescriptorSets} <b>must</b> have been created with a {@code VkDescriptorSetLayout} that matches (is the same as, or defined
+	 * identically to) the {@code VkDescriptorSetLayout} at set {@code n} in {@code layout}, where {@code n} is the sum of {@code firstSet} and the index
+	 * into {@code pDescriptorSets}</li>
+	 * <li>{@code dynamicOffsetCount} <b>must</b> be equal to the total number of dynamic descriptors in {@code pDescriptorSets}</li>
+	 * <li>{@code pipelineBindPoint} <b>must</b> be supported by the {@code commandBuffer}'s parent {@code VkCommandPool}'s queue family</li>
+	 * <li>Any given element of {@code pDynamicOffsets} <b>must</b> satisfy the required alignment for the corresponding descriptor binding's descriptor type</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer     the command buffer that the descriptor sets will be bound to
+	 * @param pipelineBindPoint a {@code VkPipelineBindPoint} indicating whether the descriptors will be used by graphics pipelines or compute pipelines. There is a separate set
+	 *                          of bind points for each of graphics and compute, so binding one does not disturb the other. One of:<br>{@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}, {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}
+	 * @param layout            a {@code VkPipelineLayout} object used to program the bindings
+	 * @param firstSet          the set number of the first descriptor set to be bound
+	 * @param pDescriptorSets   a pointer to an array of {@code VkDescriptorSet} structures describing the descriptor sets to write to
+	 * @param pDynamicOffsets   a pointer to an array of {@code uint32_t} values specifying dynamic offsets
+	 */
 	public static void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, LongBuffer pDescriptorSets, IntBuffer pDynamicOffsets) {
 		nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, pDescriptorSets.remaining(), memAddress(pDescriptorSets), pDynamicOffsets == null ? 0 : pDynamicOffsets.remaining(), memAddressSafe(pDynamicOffsets));
 	}
@@ -7415,12 +10036,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	}
 
 	// --- [ vkCmdBindVertexBuffers ] ---
-
-	/** Unsafe version of {@link #vkCmdBindVertexBuffers CmdBindVertexBuffers} */
-	public static void nvkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, int firstBinding, int bindingCount, long pBuffers, long pOffsets) {
-		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindVertexBuffers;
-		callPIIPPV(__functionAddress, commandBuffer.address(), firstBinding, bindingCount, pBuffers, pOffsets);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdBindVertexBuffers.html">Khronos Reference Page</a></p>
@@ -7489,15 +10104,77 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param pBuffers      a pointer to an array of buffer handles
 	 * @param pOffsets      a pointer to an array of buffer offsets
 	 */
-	public static void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, int firstBinding, int bindingCount, ByteBuffer pBuffers, ByteBuffer pOffsets) {
-		if ( CHECKS ) {
-			checkBuffer(pBuffers, bindingCount << 3);
-			checkBuffer(pOffsets, bindingCount << 3);
-		}
-		nvkCmdBindVertexBuffers(commandBuffer, firstBinding, bindingCount, memAddress(pBuffers), memAddress(pOffsets));
+	public static void nvkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, int firstBinding, int bindingCount, long pBuffers, long pOffsets) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindVertexBuffers;
+		callPIIPPV(__functionAddress, commandBuffer.address(), firstBinding, bindingCount, pBuffers, pOffsets);
 	}
 
-	/** Alternative version of: {@link #vkCmdBindVertexBuffers CmdBindVertexBuffers} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdBindVertexBuffers.html">Khronos Reference Page</a></p>
+	 * 
+	 * Binds vertex buffers to a command buffer.
+	 * 
+	 * <p>The values taken from elements {@code i} of {@code pBuffers} and {@code pOffsets} replace the current state for the vertex input binding
+	 * {@code firstBinding + i}, for {@code i} in {@code [0,bindingCount)}. The vertex input binding is updated to start at the offset indicated by
+	 * {@code pOffsets[i]} from the start of the buffer {@code pBuffers[i]}. All vertex input attributes that use each of these bindings will use these
+	 * updated addresses in their address calculations for subsequent draw commands.</p>
+	 * 
+	 * <p>The address of each attribute for each {@code vertexIndex} and {@code instanceIndex} is calculated as follows:</p>
+	 * 
+	 * <ul>
+	 * <li>Let {@code attribDesc} be the member of {@link VkPipelineVertexInputStateCreateInfo}{@code ::pVertexAttributeDescriptions} with
+	 * {@link VkVertexInputAttributeDescription}{@code ::location} equal to the vertex input attribute number.</li>
+	 * <li>Let {@code bindingDesc} be the member of {@code VkPipelineVertexInputStateCreateInfo::pVertexBindingDescriptions} with
+	 * {@code VkVertexInputAttributeDescription::binding} equal to {@code attribDesc.binding}.</li>
+	 * <li>Let {@code vertexIndex} be the index of the vertex within the draw (a value between {@code firstVertex} and {@code firstVertex+vertexCount} for
+	 * {@link #vkCmdDraw CmdDraw}, or a value taken from the index buffer for {@link #vkCmdDrawIndexed CmdDrawIndexed}), and let {@code instanceIndex} be the instance number of the draw (a
+	 * value between {@code firstInstance} and {@code firstInstance+instanceCount}).</li>
+	 * </ul>
+	 * 
+	 * <pre><code>bufferBindingAddress = buffer[binding].baseAddress + offset[binding];
+
+if (bindingDesc.inputRate == VK_VERTEX_INPUT_RATE_VERTEX)
+    vertexOffset = vertexIndex * bindingDesc.stride;
+else
+    vertexOffset = instanceIndex * bindingDesc.stride;
+
+attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code></pre>
+	 * 
+	 * <p>For each attribute, raw data is extracted starting at {@code attribAddress} and is converted from the {@code VkVertexInputAttributeDescription}’s
+	 * format to either to floating-point, unsigned integer, or signed integer based on the base type of the format; the base type of the format <b>must</b> match
+	 * the base type of the input variable in the shader. If format is a packed format, {@code attribAddress} <b>must</b> be a multiple of the size in bytes of the
+	 * whole attribute data type. Otherwise, {@code attribAddress} <b>must</b> be a multiple of the size in bytes of the component type indicated by format. If the
+	 * format does not include G, B, or A components, then those are filled with (0,0,1) as needed (using either 1.0f or integer 1 based on the format) for
+	 * attributes that are not 64-bit data types. The number of components in the vertex shader input variable need not exactly match the number of components
+	 * in the format. If the vertex shader has fewer components, the extra components are discarded.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code pBuffers} <b>must</b> be a pointer to an array of {@code bindingCount} valid {@code VkBuffer} handles</li>
+	 * <li>{@code pOffsets} <b>must</b> be a pointer to an array of {@code bindingCount} {@code VkDeviceSize} values</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>{@code bindingCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer} and the elements of {@code pBuffers} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code firstBinding} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindings}</li>
+	 * <li>The sum of {@code firstBinding} and {@code bindingCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindings}</li>
+	 * <li>All elements of {@code pOffsets} <b>must</b> be less than the size of the corresponding element in {@code pBuffers}</li>
+	 * <li>All elements of {@code pBuffers} <b>must</b> have been created with the {@link #VK_BUFFER_USAGE_VERTEX_BUFFER_BIT BUFFER_USAGE_VERTEX_BUFFER_BIT} flag</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer the command buffer into which the command is recorded
+	 * @param firstBinding  the index of the first vertex input binding whose state is updated by the command
+	 * @param pBuffers      a pointer to an array of buffer handles
+	 * @param pOffsets      a pointer to an array of buffer offsets
+	 */
 	public static void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, int firstBinding, LongBuffer pBuffers, LongBuffer pOffsets) {
 		if ( CHECKS )
 			checkBuffer(pOffsets, pBuffers.remaining());
@@ -7951,7 +10628,50 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 
 	// --- [ vkCmdCopyBuffer ] ---
 
-	/** Unsafe version of {@link #vkCmdCopyBuffer CmdCopyBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdCopyBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * Copies data between buffer objects.
+	 * 
+	 * <p>Each region in {@code pRegions} is copied from the source buffer to the same region of the destination buffer. {@code srcBuffer} and {@code dstBuffer}
+	 * <b>can</b> be the same buffer or alias the same memory, but the result is undefined if the copy regions overlap in memory.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code srcBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} {@link VkBufferCopy} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer}, {@code srcBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkDevice}</li>
+	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be greater than 0</li>
+	 * <li>The {@code srcOffset} member of a given element of {@code pRegions} <b>must</b> be less than the size of {@code srcBuffer}</li>
+	 * <li>The {@code dstOffset} member of a given element of {@code pRegions} <b>must</b> be less than the size of {@code dstBuffer}</li>
+	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be less than or equal to the size of {@code srcBuffer} minus {@code srcOffset}</li>
+	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
+	 * <li>The union of the source regions, and the union of the destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * memory</li>
+	 * <li>{@code srcBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} usage flag</li>
+	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded
+	 * @param srcBuffer     the source buffer
+	 * @param dstBuffer     the destination buffer
+	 * @param regionCount   the number of regions to copy
+	 * @param pRegions      a pointer to an array of {@link VkBufferCopy} structures specifying the regions to copy
+	 */
 	public static void nvkCmdCopyBuffer(VkCommandBuffer commandBuffer, long srcBuffer, long dstBuffer, int regionCount, long pRegions) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdCopyBuffer;
 		callPJJIPV(__functionAddress, commandBuffer.address(), srcBuffer, dstBuffer, regionCount, pRegions);
@@ -7998,23 +10718,102 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param commandBuffer the command buffer into which the command will be recorded
 	 * @param srcBuffer     the source buffer
 	 * @param dstBuffer     the destination buffer
-	 * @param regionCount   the number of regions to copy
 	 * @param pRegions      a pointer to an array of {@link VkBufferCopy} structures specifying the regions to copy
 	 */
-	public static void vkCmdCopyBuffer(VkCommandBuffer commandBuffer, long srcBuffer, long dstBuffer, int regionCount, VkBufferCopy.Buffer pRegions) {
-		if ( CHECKS )
-			checkBuffer(pRegions, regionCount);
-		nvkCmdCopyBuffer(commandBuffer, srcBuffer, dstBuffer, regionCount, pRegions.address());
-	}
-
-	/** Alternative version of: {@link #vkCmdCopyBuffer CmdCopyBuffer} */
 	public static void vkCmdCopyBuffer(VkCommandBuffer commandBuffer, long srcBuffer, long dstBuffer, VkBufferCopy.Buffer pRegions) {
 		nvkCmdCopyBuffer(commandBuffer, srcBuffer, dstBuffer, pRegions.remaining(), pRegions.address());
 	}
 
 	// --- [ vkCmdCopyImage ] ---
 
-	/** Unsafe version of {@link #vkCmdCopyImage CmdCopyImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdCopyImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Copy data between image objects.
+	 * 
+	 * <p>{@code vkCmdCopyImage} performs image copies in a similar manner to a host {@code memcpy}. It does not perform general-purpose conversions such as
+	 * scaling, resizing, blending, color-space conversion, or format conversions. Rather, it simply copies raw image data. {@code vkCmdCopyImage} <b>can</b> copy
+	 * between images with different formats, provided the formats are compatible.</p>
+	 * 
+	 * <p>Each region in {@code pRegions} is copied from the source image to the same region of the destination image. {@code srcImage} and {@code dstImage} <b>can</b>
+	 * be the same image or alias the same memory.</p>
+	 * 
+	 * <p>Copies are done layer by layer starting with {@code baseArrayLayer} member of {@code srcSubresource} for the source and {@code dstSubresource} for the
+	 * destination. {@code layerCount} layers are copied to the destination image.</p>
+	 * 
+	 * <p>The formats of {@code srcImage} and {@code dstImage} <b>must</b> be compatible. Formats are considered compatible if their texel size in bytes is the same
+	 * between both formats. For example, {@link #VK_FORMAT_R8G8B8A8_UNORM FORMAT_R8G8B8A8_UNORM} is compatible with {@link #VK_FORMAT_R32_UINT FORMAT_R32_UINT} because because both texels are 4 bytes in size.
+	 * Depth/stencil formats <b>must</b> match exactly.</p>
+	 * 
+	 * <p>{@code vkCmdCopyImage} allows copying between size-compatible compressed and uncompressed internal formats. Formats are size-compatible if the texel
+	 * size of the uncompressed format is equal to the block size in bytes of the compressed format. Such a copy does not perform on-the-fly compression or
+	 * decompression. When copying from an uncompressed format to a compressed format, each texel of uncompressed data becomes a single block of compressed
+	 * data. When copying from a compressed format to an uncompressed format, a block of compressed data becomes a single texel of uncompressed data. Thus,
+	 * for example, it is legal to copy between a 128-bit uncompressed format and a compressed format which uses 8-bit/texel 4x4 blocks, or between a 64-bit
+	 * uncompressed format and a compressed format which uses 4-bit/texel 4x4 blocks.</p>
+	 * 
+	 * <p>When copying between compressed and uncompressed formats the {@code extent} members represent the texel dimensions of the source image and not the
+	 * destination. When copying from a compressed image to an uncompressed image the image texel dimensions written to the uncompressed image will be source
+	 * extent divided by the block size. When copying from an uncompressed image to a compressed image the image texel dimensions written to the compressed
+	 * image will be the source extent multiplied by the block size. In both cases the number of bytes read and the number of bytes written will be identical.</p>
+	 * 
+	 * <p>Copying to or from block-compressed images is typically done in multiples of the block. For this reason the {@code extent} <b>must</b> be a multiple of the
+	 * block dimension. There is one exception to this rule which is required to handle compressed images created with dimensions that are not a multiple of
+	 * the block dimensions. If the {@code srcImage is} compressed and if {@code extent.width} is not a multiple of the block width then
+	 * {@code (extent.width + srcOffset.x)} <b>must</b> equal the subresource width, if {@code extent.height} is not a multiple of the block height then
+	 * {@code (extent.height + srcOffset.y)} <b>must</b> equal the subresource height and if {@code extent.depth} is not a multiple of the block depth then
+	 * {@code (extent.depth + srcOffset.z)} <b>must</b> equal the subresource depth. Similarily if the {@code dstImage} is compressed and if {@code extent.width} is
+	 * not a multiple of the block width then {@code (extent.width + dstOffset.x)} <b>must</b> equal the subresource width, if {@code extent.height} is not a
+	 * multiple of the block height then {@code (extent.height + dstOffset.y)} <b>must</b> equal the subresource height and if {@code extent.depth} is not a
+	 * multiple of the block depth then {@code (extent.depth + dstOffset.z)} <b>must</b> equal the subresource depth. This allows the last block of the image in
+	 * each non-multiple dimension to be included as a source or target of the copy.</p>
+	 * 
+	 * <p>{@code vkCmdCopyImage} <b>can</b> be used to copy image data between multisample images, but both images <b>must</b> have the same number of samples.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code srcImage} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code srcImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code dstImage} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkImageCopy} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
+	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * memory</li>
+	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>The {@code VkFormat} of each of {@code srcImage} and {@code dstImage} <b>must</b> be compatible, as defined below</li>
+	 * <li>The sample count of {@code srcImage} and {@code dstImage} <b>must</b> match</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer  the command buffer into which the command will be recorded
+	 * @param srcImage       the source image
+	 * @param srcImageLayout the current layout of the source image subresource
+	 * @param dstImage       the destination image
+	 * @param dstImageLayout the current layout of the destination image subresource
+	 * @param regionCount    the number of regions to copy
+	 * @param pRegions       a pointer to an array of {@link VkImageCopy} structures specifying the regions to copy
+	 */
 	public static void nvkCmdCopyImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdCopyImage;
 		callPJIJIIPV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
@@ -8105,27 +10904,13 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param srcImageLayout the current layout of the source image subresource
 	 * @param dstImage       the destination image
 	 * @param dstImageLayout the current layout of the destination image subresource
-	 * @param regionCount    the number of regions to copy
 	 * @param pRegions       a pointer to an array of {@link VkImageCopy} structures specifying the regions to copy
 	 */
-	public static void vkCmdCopyImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, VkImageCopy.Buffer pRegions) {
-		if ( CHECKS )
-			checkBuffer(pRegions, regionCount);
-		nvkCmdCopyImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions.address());
-	}
-
-	/** Alternative version of: {@link #vkCmdCopyImage CmdCopyImage} */
 	public static void vkCmdCopyImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, VkImageCopy.Buffer pRegions) {
 		nvkCmdCopyImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address());
 	}
 
 	// --- [ vkCmdBlitImage ] ---
-
-	/** Unsafe version of {@link #vkCmdBlitImage CmdBlitImage} */
-	public static void nvkCmdBlitImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions, int filter) {
-		long __functionAddress = commandBuffer.getCapabilities().vkCmdBlitImage;
-		callPJIJIIPIV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions, filter);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdBlitImage.html">Khronos Reference Page</a></p>
@@ -8191,20 +10976,126 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param pRegions       a pointer to an array of {@link VkImageBlit} structures specifying the regions to blit
 	 * @param filter         a {@code VkFilter} specifying the filter to apply if the blits require scaling
 	 */
-	public static void vkCmdBlitImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, VkImageBlit.Buffer pRegions, int filter) {
-		if ( CHECKS )
-			checkBuffer(pRegions, regionCount);
-		nvkCmdBlitImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions.address(), filter);
+	public static void nvkCmdBlitImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions, int filter) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdBlitImage;
+		callPJIJIIPIV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions, filter);
 	}
 
-	/** Alternative version of: {@link #vkCmdBlitImage CmdBlitImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdBlitImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Copies regions of a source image into a destination image, potentially performing format conversion, arbitrary scaling, and filtering.
+	 * 
+	 * <p>{@code vkCmdBlitImage} <b>must not</b> be used for multisampled source or destination images. Use {@link #vkCmdResolveImage CmdResolveImage} for this purpose.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code srcImage} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code srcImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code dstImage} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkImageBlit} structures</li>
+	 * <li>{@code filter} <b>must</b> be a valid {@code VkFilter} value</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
+	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * memory</li>
+	 * <li>{@code srcImage} <b>must</b> use a format that supports {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}, which is indicated by
+	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linear tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally
+	 * tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>{@code dstImage} <b>must</b> use a format that supports {@link #VK_FORMAT_FEATURE_BLIT_DST_BIT FORMAT_FEATURE_BLIT_DST_BIT}, which is indicated by
+	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linear tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally
+	 * tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>The sample count of {@code srcImage} and {@code dstImage} <b>must</b> both be equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
+	 * <li>If either of {@code srcImage} or {@code dstImage} was created with a signed integer {@code VkFormat}, the other <b>must</b> also have been created with a
+	 * signed integer {@code VkFormat}</li>
+	 * <li>If either of {@code srcImage} or {@code dstImage} was created with an unsigned integer {@code VkFormat}, the other <b>must</b> also have been created
+	 * with an unsigned integer {@code VkFormat}</li>
+	 * <li>If either of {@code srcImage} or {@code dstImage} was created with a depth/stencil format, the other <b>must</b> have exactly the same format</li>
+	 * <li>If {@code srcImage} was created with a depth/stencil format, {@code filter} <b>must</b> be {@link #VK_FILTER_NEAREST FILTER_NEAREST}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer  the command buffer into which the command will be recorded
+	 * @param srcImage       the source image
+	 * @param srcImageLayout the layout of the source image subresources for the blit
+	 * @param dstImage       the destination image
+	 * @param dstImageLayout the layout of the destination image subresources for the blit
+	 * @param pRegions       a pointer to an array of {@link VkImageBlit} structures specifying the regions to blit
+	 * @param filter         a {@code VkFilter} specifying the filter to apply if the blits require scaling
+	 */
 	public static void vkCmdBlitImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, VkImageBlit.Buffer pRegions, int filter) {
 		nvkCmdBlitImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address(), filter);
 	}
 
 	// --- [ vkCmdCopyBufferToImage ] ---
 
-	/** Unsafe version of {@link #vkCmdCopyBufferToImage CmdCopyBufferToImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdCopyBufferToImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Copies data from a buffer object to an image object.
+	 * 
+	 * <p>Each region in {@code pRegions} is copied from the specified region of the source buffer to the specified region of the destination image.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code srcBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code dstImage} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkBufferImageCopy} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer}, {@code srcBuffer} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkDevice}</li>
+	 * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcBuffer}</li>
+	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * memory</li>
+	 * <li>{@code srcBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} usage flag</li>
+	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer  the command buffer into which the command will be recorded
+	 * @param srcBuffer      the source buffer
+	 * @param dstImage       the destination image
+	 * @param dstImageLayout the layout of the destination image subresources for the copy
+	 * @param regionCount    the number of regions to copy
+	 * @param pRegions       a pointer to an array of {@link VkBufferImageCopy} structures specifying the regions to copy
+	 */
 	public static void nvkCmdCopyBufferToImage(VkCommandBuffer commandBuffer, long srcBuffer, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdCopyBufferToImage;
 		callPJJIIPV(__functionAddress, commandBuffer.address(), srcBuffer, dstImage, dstImageLayout, regionCount, pRegions);
@@ -8253,23 +11144,60 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param srcBuffer      the source buffer
 	 * @param dstImage       the destination image
 	 * @param dstImageLayout the layout of the destination image subresources for the copy
-	 * @param regionCount    the number of regions to copy
 	 * @param pRegions       a pointer to an array of {@link VkBufferImageCopy} structures specifying the regions to copy
 	 */
-	public static void vkCmdCopyBufferToImage(VkCommandBuffer commandBuffer, long srcBuffer, long dstImage, int dstImageLayout, int regionCount, VkBufferImageCopy.Buffer pRegions) {
-		if ( CHECKS )
-			checkBuffer(pRegions, regionCount);
-		nvkCmdCopyBufferToImage(commandBuffer, srcBuffer, dstImage, dstImageLayout, regionCount, pRegions.address());
-	}
-
-	/** Alternative version of: {@link #vkCmdCopyBufferToImage CmdCopyBufferToImage} */
 	public static void vkCmdCopyBufferToImage(VkCommandBuffer commandBuffer, long srcBuffer, long dstImage, int dstImageLayout, VkBufferImageCopy.Buffer pRegions) {
 		nvkCmdCopyBufferToImage(commandBuffer, srcBuffer, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address());
 	}
 
 	// --- [ vkCmdCopyImageToBuffer ] ---
 
-	/** Unsafe version of {@link #vkCmdCopyImageToBuffer CmdCopyImageToBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdCopyImageToBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * Copies data from an image object to a buffer object.
+	 * 
+	 * <p>Each region in {@code pRegions} is copied from the specified region of the source image to the specified region of the destination buffer.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code srcImage} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code srcImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkBufferImageCopy} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkDevice}</li>
+	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
+	 * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstBuffer}</li>
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * memory</li>
+	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
+	 * <li>{@code srcImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer  the command buffer into which the command will be recorded
+	 * @param srcImage       the source image
+	 * @param srcImageLayout the layout of the source image subresources for the copy
+	 * @param dstBuffer      the destination buffer
+	 * @param regionCount    the number of regions to copy
+	 * @param pRegions       a pointer to an array of {@link VkBufferImageCopy} structures specifying the regions to copy
+	 */
 	public static void nvkCmdCopyImageToBuffer(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstBuffer, int regionCount, long pRegions) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdCopyImageToBuffer;
 		callPJIJIPV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstBuffer, regionCount, pRegions);
@@ -8318,23 +11246,56 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param srcImage       the source image
 	 * @param srcImageLayout the layout of the source image subresources for the copy
 	 * @param dstBuffer      the destination buffer
-	 * @param regionCount    the number of regions to copy
 	 * @param pRegions       a pointer to an array of {@link VkBufferImageCopy} structures specifying the regions to copy
 	 */
-	public static void vkCmdCopyImageToBuffer(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstBuffer, int regionCount, VkBufferImageCopy.Buffer pRegions) {
-		if ( CHECKS )
-			checkBuffer(pRegions, regionCount);
-		nvkCmdCopyImageToBuffer(commandBuffer, srcImage, srcImageLayout, dstBuffer, regionCount, pRegions.address());
-	}
-
-	/** Alternative version of: {@link #vkCmdCopyImageToBuffer CmdCopyImageToBuffer} */
 	public static void vkCmdCopyImageToBuffer(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstBuffer, VkBufferImageCopy.Buffer pRegions) {
 		nvkCmdCopyImageToBuffer(commandBuffer, srcImage, srcImageLayout, dstBuffer, pRegions.remaining(), pRegions.address());
 	}
 
 	// --- [ vkCmdUpdateBuffer ] ---
 
-	/** Unsafe version of {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * Updates buffer data inline in a command buffer.
+	 * 
+	 * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
+	 * 
+	 * <p>{@code vkCmdUpdateBuffer} is only allowed outside of a render pass. This command is treated as “transfer” operation, for the purposes of
+	 * synchronization barriers. The {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} <b>must</b> be specified in usage of {@link VkBufferCreateInfo} in order for the buffer to be
+	 * compatible with {@code vkCmdUpdateBuffer}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize / 4} {@code uint32_t} values</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>Each of {@code commandBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
+	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code dstOffset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to 65536</li>
+	 * <li>{@code dataSize} <b>must</b> be a multiple of 4</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded
+	 * @param dstBuffer     a handle to the buffer to be updated
+	 * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4
+	 * @param dataSize      the number of bytes to update, and <b>must</b> be a multiple of 4
+	 * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size
+	 */
 	public static void nvkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, long dataSize, long pData) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
 		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, dataSize, pData);
@@ -8379,16 +11340,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param commandBuffer the command buffer into which the command will be recorded
 	 * @param dstBuffer     a handle to the buffer to be updated
 	 * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4
-	 * @param dataSize      the number of bytes to update, and <b>must</b> be a multiple of 4
 	 * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size
 	 */
-	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, long dataSize, ByteBuffer pData) {
-		if ( CHECKS )
-			checkBuffer(pData, dataSize << 2);
-		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, dataSize, memAddress(pData));
-	}
-
-	/** Alternative version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, IntBuffer pData) {
 		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining(), memAddress(pData));
 	}
@@ -8439,7 +11392,47 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 
 	// --- [ vkCmdClearColorImage ] ---
 
-	/** Unsafe version of {@link #vkCmdClearColorImage CmdClearColorImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdClearColorImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Clears one or more subranges of a color image.
+	 * 
+	 * <p>Each specified range in {@code pRanges} is cleared to the value specified by {@code pColor}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code imageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code pColor} <b>must</b> be a pointer to a valid {@code VkClearColorValue} union</li>
+	 * <li>{@code pRanges} <b>must</b> be a pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code imageLayout} <b>must</b> specify the layout of the subresource ranges of {@code image} specified in {@code pRanges} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a subresource range that is contained within {@code image}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded
+	 * @param image         the image to be cleared
+	 * @param imageLayout   the current layout of the image subresource ranges to be cleared. One of:<br>{@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}
+	 * @param pColor        a pointer to a {@link VkClearColorValue} structure that contains the values the image subresource ranges will be cleared to
+	 * @param rangeCount    the number of subresource range structures in {@code pRanges}
+	 * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared. The
+	 *                      {@code aspectMask} of all subresource ranges <b>must</b> only include {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}.
+	 */
 	public static void nvkCmdClearColorImage(VkCommandBuffer commandBuffer, long image, int imageLayout, long pColor, int rangeCount, long pRanges) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdClearColorImage;
 		callPJIPIPV(__functionAddress, commandBuffer.address(), image, imageLayout, pColor, rangeCount, pRanges);
@@ -8482,33 +11475,56 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param image         the image to be cleared
 	 * @param imageLayout   the current layout of the image subresource ranges to be cleared. One of:<br>{@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}
 	 * @param pColor        a pointer to a {@link VkClearColorValue} structure that contains the values the image subresource ranges will be cleared to
-	 * @param rangeCount    the number of subresource range structures in {@code pRanges}
 	 * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared. The
 	 *                      {@code aspectMask} of all subresource ranges <b>must</b> only include {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}.
 	 */
-	public static void vkCmdClearColorImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearColorValue pColor, int rangeCount, VkImageSubresourceRange.Buffer pRanges) {
-		if ( CHECKS )
-			checkBuffer(pRanges, rangeCount);
-		nvkCmdClearColorImage(commandBuffer, image, imageLayout, pColor.address(), rangeCount, pRanges.address());
-	}
-
-	/** Alternative version of: {@link #vkCmdClearColorImage CmdClearColorImage} */
 	public static void vkCmdClearColorImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearColorValue pColor, VkImageSubresourceRange.Buffer pRanges) {
 		nvkCmdClearColorImage(commandBuffer, image, imageLayout, pColor.address(), pRanges.remaining(), pRanges.address());
 	}
 
-	/** Single value version of: {@link #vkCmdClearColorImage CmdClearColorImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdClearColorImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Clears one or more subranges of a color image.
+	 * 
+	 * <p>Each specified range in {@code pRanges} is cleared to the value specified by {@code pColor}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code imageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code pColor} <b>must</b> be a pointer to a valid {@code VkClearColorValue} union</li>
+	 * <li>{@code pRanges} <b>must</b> be a pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code imageLayout} <b>must</b> specify the layout of the subresource ranges of {@code image} specified in {@code pRanges} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a subresource range that is contained within {@code image}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded
+	 * @param image         the image to be cleared
+	 * @param imageLayout   the current layout of the image subresource ranges to be cleared. One of:<br>{@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}
+	 * @param pColor        a pointer to a {@link VkClearColorValue} structure that contains the values the image subresource ranges will be cleared to
+	 */
 	public static void vkCmdClearColorImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearColorValue pColor, VkImageSubresourceRange pRange) {
 		nvkCmdClearColorImage(commandBuffer, image, imageLayout, pColor.address(), 1, pRange.address());
 	}
 
 	// --- [ vkCmdClearDepthStencilImage ] ---
-
-	/** Unsafe version of {@link #vkCmdClearDepthStencilImage CmdClearDepthStencilImage} */
-	public static void nvkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, long image, int imageLayout, long pDepthStencil, int rangeCount, long pRanges) {
-		long __functionAddress = commandBuffer.getCapabilities().vkCmdClearDepthStencilImage;
-		callPJIPIPV(__functionAddress, commandBuffer.address(), image, imageLayout, pDepthStencil, rangeCount, pRanges);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdClearDepthStencilImage.html">Khronos Reference Page</a></p>
@@ -8551,29 +11567,96 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 *                      {@link #VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} if the image format has a stencil component. {@code pDepthStencil} is a pointer to a {@link VkClearDepthStencilValue} structure
 	 *                      that contains the values the image subresource ranges will be cleared to.
 	 */
-	public static void vkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearDepthStencilValue pDepthStencil, int rangeCount, VkImageSubresourceRange.Buffer pRanges) {
-		if ( CHECKS )
-			checkBuffer(pRanges, rangeCount);
-		nvkCmdClearDepthStencilImage(commandBuffer, image, imageLayout, pDepthStencil.address(), rangeCount, pRanges.address());
+	public static void nvkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, long image, int imageLayout, long pDepthStencil, int rangeCount, long pRanges) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdClearDepthStencilImage;
+		callPJIPIPV(__functionAddress, commandBuffer.address(), image, imageLayout, pDepthStencil, rangeCount, pRanges);
 	}
 
-	/** Alternative version of: {@link #vkCmdClearDepthStencilImage CmdClearDepthStencilImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdClearDepthStencilImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Clears one or more subranges of a depth/stencil image.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code imageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code pDepthStencil} <b>must</b> be a pointer to a valid {@link VkClearDepthStencilValue} structure</li>
+	 * <li>{@code pRanges} <b>must</b> be a pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code imageLayout} <b>must</b> specify the layout of the subresource ranges of {@code image} specified in {@code pRanges} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a subresource range that is contained within {@code image}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded
+	 * @param image         the image to be cleared
+	 * @param imageLayout   the current layout of the image subresource ranges to be cleared. One of:<br>{@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}
+	 * @param pDepthStencil a pointer to a {@link VkClearDepthStencilValue} structure that contains the values the depth and stencil image subresource ranges will be cleared to
+	 * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared. The
+	 *                      {@code aspectMask} of each subresource range in {@code pRanges} <b>can</b> include {@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} if the image format has a depth component, and
+	 *                      {@link #VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} if the image format has a stencil component. {@code pDepthStencil} is a pointer to a {@link VkClearDepthStencilValue} structure
+	 *                      that contains the values the image subresource ranges will be cleared to.
+	 */
 	public static void vkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearDepthStencilValue pDepthStencil, VkImageSubresourceRange.Buffer pRanges) {
 		nvkCmdClearDepthStencilImage(commandBuffer, image, imageLayout, pDepthStencil.address(), pRanges.remaining(), pRanges.address());
 	}
 
-	/** Single value version of: {@link #vkCmdClearDepthStencilImage CmdClearDepthStencilImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdClearDepthStencilImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Clears one or more subranges of a depth/stencil image.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code imageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code pDepthStencil} <b>must</b> be a pointer to a valid {@link VkClearDepthStencilValue} structure</li>
+	 * <li>{@code pRanges} <b>must</b> be a pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code imageLayout} <b>must</b> specify the layout of the subresource ranges of {@code image} specified in {@code pRanges} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a subresource range that is contained within {@code image}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded
+	 * @param image         the image to be cleared
+	 * @param imageLayout   the current layout of the image subresource ranges to be cleared. One of:<br>{@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}
+	 * @param pDepthStencil a pointer to a {@link VkClearDepthStencilValue} structure that contains the values the depth and stencil image subresource ranges will be cleared to
+	 */
 	public static void vkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearDepthStencilValue pDepthStencil, VkImageSubresourceRange pRange) {
 		nvkCmdClearDepthStencilImage(commandBuffer, image, imageLayout, pDepthStencil.address(), 1, pRange.address());
 	}
 
 	// --- [ vkCmdClearAttachments ] ---
-
-	/** Unsafe version of {@link #vkCmdClearAttachments CmdClearAttachments} */
-	public static void nvkCmdClearAttachments(VkCommandBuffer commandBuffer, int attachmentCount, long pAttachments, int rectCount, long pRects) {
-		long __functionAddress = commandBuffer.getCapabilities().vkCmdClearAttachments;
-		callPIPIPV(__functionAddress, commandBuffer.address(), attachmentCount, pAttachments, rectCount, pRects);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdClearAttachments.html">Khronos Reference Page</a></p>
@@ -8620,22 +11703,113 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param rectCount       the number of entries in the {@code pRects} array
 	 * @param pRects          points to an array of {@link VkClearRect} structures defining regions within each selected attachment to clear
 	 */
-	public static void vkCmdClearAttachments(VkCommandBuffer commandBuffer, int attachmentCount, VkClearAttachment.Buffer pAttachments, int rectCount, VkClearRect.Buffer pRects) {
-		if ( CHECKS ) {
-			checkBuffer(pAttachments, attachmentCount);
-			checkBuffer(pRects, rectCount);
-		}
-		nvkCmdClearAttachments(commandBuffer, attachmentCount, pAttachments.address(), rectCount, pRects.address());
+	public static void nvkCmdClearAttachments(VkCommandBuffer commandBuffer, int attachmentCount, long pAttachments, int rectCount, long pRects) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdClearAttachments;
+		callPIPIPV(__functionAddress, commandBuffer.address(), attachmentCount, pAttachments, rectCount, pRects);
 	}
 
-	/** Alternative version of: {@link #vkCmdClearAttachments CmdClearAttachments} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdClearAttachments.html">Khronos Reference Page</a></p>
+	 * 
+	 * Clears one or more regions of color and depth/stencil attachments inside a render pass instance.
+	 * 
+	 * <p>{@code vkCmdClearAttachments} <b>can</b> clear multiple regions of each attachment used in the current subpass of a render pass instance. This command <b>must</b>
+	 * be called only inside a render pass instance, and implicitly selects the images to clear based on the current framebuffer attachments and the command
+	 * parameters.</p>
+	 * 
+	 * <p>No memory barriers are needed between {@code vkCmdClearAttachments} and preceding or subsequent draw or attachment clear commands in the same subpass.</p>
+	 * 
+	 * <p>The {@code vkCmdClearAttachments} command is not affected by the bound pipeline state.</p>
+	 * 
+	 * <p>Attachments <b>can</b> also be cleared at the beginning of a render pass instance by setting {@code loadOp} (or {@code stencilLoadOp}) of
+	 * {@link VkAttachmentDescription} to {@link #VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}, as described for {@link #vkCreateRenderPass CreateRenderPass}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code pAttachments} <b>must</b> be a pointer to an array of {@code attachmentCount} valid {@link VkClearAttachment} structures</li>
+	 * <li>{@code pRects} <b>must</b> be a pointer to an array of {@code rectCount} {@link VkClearRect} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>This command <b>must</b> only be called inside of a render pass instance</li>
+	 * <li>{@code attachmentCount} <b>must</b> be greater than 0</li>
+	 * <li>{@code rectCount} <b>must</b> be greater than 0</li>
+	 * <li>If the {@code aspectMask} member of any given element of {@code pAttachments} contains {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}, the {@code colorAttachment} member
+	 * of those elements <b>must</b> refer to a valid color attachment in the current subpass</li>
+	 * <li>The rectangular region specified by a given element of {@code pRects} <b>must</b> be contained within the render area of the current render pass instance</li>
+	 * <li>The layers specified by a given element of {@code pRects} <b>must</b> be contained within every attachment that {@code pAttachments} refers to</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded
+	 * @param pAttachments  a pointer to an array of {@link VkClearAttachment} structures defining the attachments to clear and the clear values to use
+	 * @param pRects        points to an array of {@link VkClearRect} structures defining regions within each selected attachment to clear
+	 */
 	public static void vkCmdClearAttachments(VkCommandBuffer commandBuffer, VkClearAttachment.Buffer pAttachments, VkClearRect.Buffer pRects) {
 		nvkCmdClearAttachments(commandBuffer, pAttachments.remaining(), pAttachments.address(), pRects.remaining(), pRects.address());
 	}
 
 	// --- [ vkCmdResolveImage ] ---
 
-	/** Unsafe version of {@link #vkCmdResolveImage CmdResolveImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdResolveImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Resolves a multisample image to a non-multisample image.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code srcImage} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code srcImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code dstImage} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkImageResolve} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
+	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * memory</li>
+	 * <li>{@code srcImage} <b>must</b> have a sample count equal to any valid sample count value other than {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
+	 * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}, {@code dstImage} <b>must</b> have been created with a {@code format}
+	 * that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in
+	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code dstImage} <b>must</b> have been created with a {@code format}
+	 * that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer  the command buffer into which the command will be recorded
+	 * @param srcImage       the source image
+	 * @param srcImageLayout the layout of the source image subresources for the resolve
+	 * @param dstImage       the destination image
+	 * @param dstImageLayout the layout of the destination image subresources for the resolve
+	 * @param regionCount    the number of regions to resolve
+	 * @param pRegions       a pointer to an array of {@link VkImageResolve} structures specifying the regions to resolve
+	 */
 	public static void nvkCmdResolveImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdResolveImage;
 		callPJIJIIPV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
@@ -8691,21 +11865,63 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param srcImageLayout the layout of the source image subresources for the resolve
 	 * @param dstImage       the destination image
 	 * @param dstImageLayout the layout of the destination image subresources for the resolve
-	 * @param regionCount    the number of regions to resolve
 	 * @param pRegions       a pointer to an array of {@link VkImageResolve} structures specifying the regions to resolve
 	 */
-	public static void vkCmdResolveImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, VkImageResolve.Buffer pRegions) {
-		if ( CHECKS )
-			checkBuffer(pRegions, regionCount);
-		nvkCmdResolveImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions.address());
-	}
-
-	/** Alternative version of: {@link #vkCmdResolveImage CmdResolveImage} */
 	public static void vkCmdResolveImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, VkImageResolve.Buffer pRegions) {
 		nvkCmdResolveImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address());
 	}
 
-	/** Single value version of: {@link #vkCmdResolveImage CmdResolveImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdResolveImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Resolves a multisample image to a non-multisample image.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code srcImage} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code srcImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code dstImage} <b>must</b> be a valid {@code VkImage} handle</li>
+	 * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkImageResolve} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
+	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * memory</li>
+	 * <li>{@code srcImage} <b>must</b> have a sample count equal to any valid sample count value other than {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
+	 * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
+	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}, {@code dstImage} <b>must</b> have been created with a {@code format}
+	 * that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in
+	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code dstImage} <b>must</b> have been created with a {@code format}
+	 * that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer  the command buffer into which the command will be recorded
+	 * @param srcImage       the source image
+	 * @param srcImageLayout the layout of the source image subresources for the resolve
+	 * @param dstImage       the destination image
+	 * @param dstImageLayout the layout of the destination image subresources for the resolve
+	 */
 	public static void vkCmdResolveImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, VkImageResolve pRegion) {
 		nvkCmdResolveImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, 1, pRegion.address());
 	}
@@ -8794,12 +12010,6 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 
 	// --- [ vkCmdWaitEvents ] ---
 
-	/** Unsafe version of {@link #vkCmdWaitEvents CmdWaitEvents} */
-	public static void nvkCmdWaitEvents(VkCommandBuffer commandBuffer, int eventCount, long pEvents, int srcStageMask, int dstStageMask, int memoryBarrierCount, long pMemoryBarriers, int bufferMemoryBarrierCount, long pBufferMemoryBarriers, int imageMemoryBarrierCount, long pImageMemoryBarriers) {
-		long __functionAddress = commandBuffer.getCapabilities().vkCmdWaitEvents;
-		callPIPIIIPIPIPV(__functionAddress, commandBuffer.address(), eventCount, pEvents, srcStageMask, dstStageMask, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
-	}
-
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdWaitEvents.html">Khronos Reference Page</a></p>
 	 * 
@@ -8879,28 +12089,91 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param imageMemoryBarrierCount  the number of elements in the {@code pImageMemoryBarriers} array
 	 * @param pImageMemoryBarriers     a pointer to an array of {@code imageMemoryBarrierCount} {@link VkImageMemoryBarrier} structures
 	 */
-	public static void vkCmdWaitEvents(VkCommandBuffer commandBuffer, int eventCount, ByteBuffer pEvents, int srcStageMask, int dstStageMask, int memoryBarrierCount, VkMemoryBarrier.Buffer pMemoryBarriers, int bufferMemoryBarrierCount, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, int imageMemoryBarrierCount, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
-		if ( CHECKS ) {
-			checkBuffer(pEvents, eventCount << 3);
-			if ( pMemoryBarriers != null ) checkBuffer(pMemoryBarriers, memoryBarrierCount);
-			if ( pBufferMemoryBarriers != null ) checkBuffer(pBufferMemoryBarriers, bufferMemoryBarrierCount);
-			if ( pImageMemoryBarriers != null ) checkBuffer(pImageMemoryBarriers, imageMemoryBarrierCount);
-		}
-		nvkCmdWaitEvents(commandBuffer, eventCount, memAddress(pEvents), srcStageMask, dstStageMask, memoryBarrierCount, pMemoryBarriers == null ? NULL : pMemoryBarriers.address(), bufferMemoryBarrierCount, pBufferMemoryBarriers == null ? NULL : pBufferMemoryBarriers.address(), imageMemoryBarrierCount, pImageMemoryBarriers == null ? NULL : pImageMemoryBarriers.address());
+	public static void nvkCmdWaitEvents(VkCommandBuffer commandBuffer, int eventCount, long pEvents, int srcStageMask, int dstStageMask, int memoryBarrierCount, long pMemoryBarriers, int bufferMemoryBarrierCount, long pBufferMemoryBarriers, int imageMemoryBarrierCount, long pImageMemoryBarriers) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdWaitEvents;
+		callPIPIIIPIPIPV(__functionAddress, commandBuffer.address(), eventCount, pEvents, srcStageMask, dstStageMask, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
 	}
 
-	/** Alternative version of: {@link #vkCmdWaitEvents CmdWaitEvents} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdWaitEvents.html">Khronos Reference Page</a></p>
+	 * 
+	 * Waits for one or more events to enter the signaled state on a device.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code pEvents} <b>must</b> be a pointer to an array of {@code eventCount} valid {@code VkEvent} handles</li>
+	 * <li>{@code srcStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
+	 * <li>{@code srcStageMask} <b>must not</b> be 0</li>
+	 * <li>{@code dstStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
+	 * <li>{@code dstStageMask} <b>must not</b> be 0</li>
+	 * <li>If {@code memoryBarrierCount} is not 0, {@code pMemoryBarriers} <b>must</b> be a pointer to an array of {@code memoryBarrierCount} valid
+	 * {@link VkMemoryBarrier} structures</li>
+	 * <li>If {@code bufferMemoryBarrierCount} is not 0, {@code pBufferMemoryBarriers} <b>must</b> be a pointer to an array of {@code bufferMemoryBarrierCount}
+	 * valid {@link VkBufferMemoryBarrier} structures</li>
+	 * <li>If {@code imageMemoryBarrierCount} is not 0, {@code pImageMemoryBarriers} <b>must</b> be a pointer to an array of {@code imageMemoryBarrierCount} valid
+	 * {@link VkImageMemoryBarrier} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>{@code eventCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer} and the elements of {@code pEvents} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code srcStageMask} <b>must</b> be the bitwise OR of the {@code stageMask} parameter used in previous calls to {@link #vkCmdSetEvent CmdSetEvent} with any of the members of
+	 * {@code pEvents} and {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} if any of the members of {@code pEvents} was set using {@link #vkSetEvent SetEvent}</li>
+	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
+	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
+	 * <li>If {@code pEvents} includes one or more events that will be signaled by {@link #vkSetEvent SetEvent} after {@code commandBuffer} has been submitted to a queue, then
+	 * {@link #vkCmdWaitEvents CmdWaitEvents} <b>must not</b> be called inside a render pass instance</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <p>{@code vkCmdWaitEvents} waits for events set by either {@link #vkSetEvent SetEvent} or {@link #vkCmdSetEvent CmdSetEvent} to become signaled. Logically, it has three phases:</p>
+	 * 
+	 * <ul>
+	 * <li>Wait at the pipeline stages specified by {@code dstStageMask} until the {@code eventCount} event objects specified by {@code pEvents} become
+	 * signaled. Implementations <b>may</b> wait for each event object to become signaled in sequence (starting with the first event object in {@code pEvents},
+	 * and ending with the last), or wait for all of the event objects to become signaled at the same time.</li>
+	 * <li>Execute the memory barriers specified by {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} and {@code pImageMemoryBarriers}.</li>
+	 * <li>Resume execution of pipeline stages specified by {@code dstStageMask}</li>
+	 * </ul>
+	 * 
+	 * <p>Implementations may not execute commands in a pipelined manner, so {@code vkCmdWaitEvents} may not observe the results of a subsequent
+	 * {@code vkCmdSetEvent} or {@code vkCmdResetEvent} command, even if the stages in {@code dstStageMask} occur after the stages in {@code srcStageMask}.</p>
+	 * 
+	 * <p>Commands that update the state of events in different pipeline stages <b>may</b> execute out of order, unless the ordering is enforced by execution
+	 * dependencies.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Applications <b>should</b> be careful to avoid race conditions when using events. For example, an event <b>should</b> only be reset if no
+	 * {@code vkCmdWaitEvents} command is executing that waits upon that event.</p>
+	 * </div>
+	 * 
+	 * <p>An act of setting or resetting an event in one queue <b>may</b> not affect or be visible to other queues. For cross-queue synchronization, semaphores <b>can</b> be
+	 * used.</p>
+	 *
+	 * @param commandBuffer         the command buffer into which the command is recorded
+	 * @param pEvents               an array of event object handles to wait on
+	 * @param srcStageMask          the bitwise OR of the pipeline stages used to signal the event object handles in {@code pEvents}. One or more of:<br>{@link #VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT PIPELINE_STAGE_TOP_OF_PIPE_BIT}, {@link #VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT PIPELINE_STAGE_DRAW_INDIRECT_BIT}, {@link #VK_PIPELINE_STAGE_VERTEX_INPUT_BIT PIPELINE_STAGE_VERTEX_INPUT_BIT}, {@link #VK_PIPELINE_STAGE_VERTEX_SHADER_BIT PIPELINE_STAGE_VERTEX_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT PIPELINE_STAGE_FRAGMENT_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT}, {@link #VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT}, {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}, {@link #VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT PIPELINE_STAGE_COMPUTE_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}, {@link #VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT}, {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT}, {@link #VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT PIPELINE_STAGE_ALL_GRAPHICS_BIT}, {@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT}
+	 * @param dstStageMask          the pipeline stages at which the wait will occur. One or more of:<br>{@link #VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT PIPELINE_STAGE_TOP_OF_PIPE_BIT}, {@link #VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT PIPELINE_STAGE_DRAW_INDIRECT_BIT}, {@link #VK_PIPELINE_STAGE_VERTEX_INPUT_BIT PIPELINE_STAGE_VERTEX_INPUT_BIT}, {@link #VK_PIPELINE_STAGE_VERTEX_SHADER_BIT PIPELINE_STAGE_VERTEX_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT PIPELINE_STAGE_FRAGMENT_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT}, {@link #VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT}, {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}, {@link #VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT PIPELINE_STAGE_COMPUTE_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}, {@link #VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT}, {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT}, {@link #VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT PIPELINE_STAGE_ALL_GRAPHICS_BIT}, {@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT}
+	 * @param pMemoryBarriers       a pointer to an array of {@code memoryBarrierCount} {@link VkMemoryBarrier} structures
+	 * @param pBufferMemoryBarriers a pointer to an array of {@code bufferMemoryBarrierCount} {@link VkBufferMemoryBarrier} structures
+	 * @param pImageMemoryBarriers  a pointer to an array of {@code imageMemoryBarrierCount} {@link VkImageMemoryBarrier} structures
+	 */
 	public static void vkCmdWaitEvents(VkCommandBuffer commandBuffer, LongBuffer pEvents, int srcStageMask, int dstStageMask, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
 		nvkCmdWaitEvents(commandBuffer, pEvents.remaining(), memAddress(pEvents), srcStageMask, dstStageMask, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), pMemoryBarriers == null ? NULL : pMemoryBarriers.address(), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), pBufferMemoryBarriers == null ? NULL : pBufferMemoryBarriers.address(), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), pImageMemoryBarriers == null ? NULL : pImageMemoryBarriers.address());
 	}
 
 	// --- [ vkCmdPipelineBarrier ] ---
-
-	/** Unsafe version of {@link #vkCmdPipelineBarrier CmdPipelineBarrier} */
-	public static void nvkCmdPipelineBarrier(VkCommandBuffer commandBuffer, int srcStageMask, int dstStageMask, int dependencyFlags, int memoryBarrierCount, long pMemoryBarriers, int bufferMemoryBarrierCount, long pBufferMemoryBarriers, int imageMemoryBarrierCount, long pImageMemoryBarriers) {
-		long __functionAddress = commandBuffer.getCapabilities().vkCmdPipelineBarrier;
-		callPIIIIPIPIPV(__functionAddress, commandBuffer.address(), srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
-	}
 
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPipelineBarrier.html">Khronos Reference Page</a></p>
@@ -8966,16 +12239,72 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param imageMemoryBarrierCount  the length of the {@code pImageMemoryBarriers} array
 	 * @param pImageMemoryBarriers     a pointer to an array of {@link VkImageMemoryBarrier} structures
 	 */
-	public static void vkCmdPipelineBarrier(VkCommandBuffer commandBuffer, int srcStageMask, int dstStageMask, int dependencyFlags, int memoryBarrierCount, VkMemoryBarrier.Buffer pMemoryBarriers, int bufferMemoryBarrierCount, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, int imageMemoryBarrierCount, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
-		if ( CHECKS ) {
-			if ( pMemoryBarriers != null ) checkBuffer(pMemoryBarriers, memoryBarrierCount);
-			if ( pBufferMemoryBarriers != null ) checkBuffer(pBufferMemoryBarriers, bufferMemoryBarrierCount);
-			if ( pImageMemoryBarriers != null ) checkBuffer(pImageMemoryBarriers, imageMemoryBarrierCount);
-		}
-		nvkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, pMemoryBarriers == null ? NULL : pMemoryBarriers.address(), bufferMemoryBarrierCount, pBufferMemoryBarriers == null ? NULL : pBufferMemoryBarriers.address(), imageMemoryBarrierCount, pImageMemoryBarriers == null ? NULL : pImageMemoryBarriers.address());
+	public static void nvkCmdPipelineBarrier(VkCommandBuffer commandBuffer, int srcStageMask, int dstStageMask, int dependencyFlags, int memoryBarrierCount, long pMemoryBarriers, int bufferMemoryBarrierCount, long pBufferMemoryBarriers, int imageMemoryBarrierCount, long pImageMemoryBarriers) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdPipelineBarrier;
+		callPIIIIPIPIPV(__functionAddress, commandBuffer.address(), srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
 	}
 
-	/** Alternative version of: {@link #vkCmdPipelineBarrier CmdPipelineBarrier} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPipelineBarrier.html">Khronos Reference Page</a></p>
+	 * 
+	 * Records a pipeline barrier.
+	 * 
+	 * <p>A pipeline barrier inserts an execution dependency and a set of memory dependencies between a set of commands earlier in the command buffer and a set
+	 * of commands later in the command buffer.</p>
+	 * 
+	 * <p>Each element of the {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} and {@code pImageMemoryBarriers} arrays specifies two halves of a memory
+	 * dependency, as defined above. Specifics of each type of memory barrier and the memory access types are defined further in Memory Barriers.</p>
+	 * 
+	 * <p>If {@code vkCmdPipelineBarrier} is called outside a render pass instance, then the first set of commands is all prior commands submitted to the queue
+	 * and recorded in the command buffer and the second set of commands is all subsequent commands recorded in the command buffer and submitted to the queue.
+	 * If {@code vkCmdPipelineBarrier} is called inside a render pass instance, then the first set of commands is all prior commands in the same subpass and
+	 * the second set of commands is all subsequent commands in the same subpass.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code srcStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
+	 * <li>{@code srcStageMask} <b>must not</b> be 0</li>
+	 * <li>{@code dstStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
+	 * <li>{@code dstStageMask} <b>must not</b> be 0</li>
+	 * <li>{@code dependencyFlags} <b>must</b> be a valid combination of {@code VkDependencyFlagBits} values</li>
+	 * <li>If {@code memoryBarrierCount} is not 0, {@code pMemoryBarriers} <b>must</b> be a pointer to an array of {@code memoryBarrierCount} valid
+	 * {@link VkMemoryBarrier} structures</li>
+	 * <li>If {@code bufferMemoryBarrierCount} is not 0, {@code pBufferMemoryBarriers} <b>must</b> be a pointer to an array of {@code bufferMemoryBarrierCount}
+	 * valid {@link VkBufferMemoryBarrier} structures</li>
+	 * <li>If {@code imageMemoryBarrierCount} is not 0, {@code pImageMemoryBarriers} <b>must</b> be a pointer to an array of {@code imageMemoryBarrierCount} valid
+	 * {@link VkImageMemoryBarrier} structures</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
+	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * {@code VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the render pass <b>must</b> declare at least one self-dependency from the current
+	 * subpass to itself - see Subpass Self-dependency</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer         the command buffer into which the command is recorded
+	 * @param srcStageMask          a bitmask of {@code VkPipelineStageFlagBits} specifying a set of source pipeline stages. One or more of:<br>{@link #VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT PIPELINE_STAGE_TOP_OF_PIPE_BIT}, {@link #VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT PIPELINE_STAGE_DRAW_INDIRECT_BIT}, {@link #VK_PIPELINE_STAGE_VERTEX_INPUT_BIT PIPELINE_STAGE_VERTEX_INPUT_BIT}, {@link #VK_PIPELINE_STAGE_VERTEX_SHADER_BIT PIPELINE_STAGE_VERTEX_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT PIPELINE_STAGE_FRAGMENT_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT}, {@link #VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT}, {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}, {@link #VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT PIPELINE_STAGE_COMPUTE_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}, {@link #VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT}, {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT}, {@link #VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT PIPELINE_STAGE_ALL_GRAPHICS_BIT}, {@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT}
+	 * @param dstStageMask          a bitmask specifying a set of destination pipeline stages.
+	 *                              
+	 *                              <p>The pipeline barrier specifies an execution dependency such that all work performed by the set of pipeline stages included in {@code srcStageMask}
+	 *                              of the first set of commands completes before any work performed by the set of pipeline stages included in {@code dstStageMask} of the second set
+	 *                              of commands begins. One or more of:<br>{@link #VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT PIPELINE_STAGE_TOP_OF_PIPE_BIT}, {@link #VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT PIPELINE_STAGE_DRAW_INDIRECT_BIT}, {@link #VK_PIPELINE_STAGE_VERTEX_INPUT_BIT PIPELINE_STAGE_VERTEX_INPUT_BIT}, {@link #VK_PIPELINE_STAGE_VERTEX_SHADER_BIT PIPELINE_STAGE_VERTEX_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT PIPELINE_STAGE_FRAGMENT_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT}, {@link #VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT}, {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}, {@link #VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT PIPELINE_STAGE_COMPUTE_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}, {@link #VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT}, {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT}, {@link #VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT PIPELINE_STAGE_ALL_GRAPHICS_BIT}, {@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT}</p>
+	 * @param dependencyFlags       a bitmask of {@code VkDependencyFlagBits}. The execution dependency is by-region if the mask includes {@link #VK_DEPENDENCY_BY_REGION_BIT DEPENDENCY_BY_REGION_BIT}. One or more of:<br>{@link #VK_DEPENDENCY_BY_REGION_BIT DEPENDENCY_BY_REGION_BIT}
+	 * @param pMemoryBarriers       a pointer to an array of {@link VkMemoryBarrier} structures
+	 * @param pBufferMemoryBarriers a pointer to an array of {@link VkBufferMemoryBarrier} structures
+	 * @param pImageMemoryBarriers  a pointer to an array of {@link VkImageMemoryBarrier} structures
+	 */
 	public static void vkCmdPipelineBarrier(VkCommandBuffer commandBuffer, int srcStageMask, int dstStageMask, int dependencyFlags, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
 		nvkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), pMemoryBarriers == null ? NULL : pMemoryBarriers.address(), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), pBufferMemoryBarriers == null ? NULL : pBufferMemoryBarriers.address(), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), pImageMemoryBarriers == null ? NULL : pImageMemoryBarriers.address());
 	}
@@ -9290,7 +12619,50 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 
 	// --- [ vkCmdPushConstants ] ---
 
-	/** Unsafe version of {@link #vkCmdPushConstants CmdPushConstants} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPushConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * Updates the values of push constants.
+	 * 
+	 * <p>The pipeline layout defines shader push constants which are updated via Vulkan commands rather than via writes to memory or copy commands.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Push constants represent a high speed path to modify constant data in pipelines that is expected to outperform memory-backed resource updates.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
+	 * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
+	 * <li>{@code stageFlags} <b>must not</b> be 0</li>
+	 * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>{@code size} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer} and {@code layout} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+	 * <li>{@code offset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code size} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
+	 * <li>{@code size} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize} minus {@code offset}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer the command buffer in which the push constant update will be recorded
+	 * @param layout        the pipeline layout used to program the push constant updates
+	 * @param stageFlags    a bitmask of {@code VkShaderStageFlagBits} specifying the shader stages that will use the push constants in the updated range. One or more of:<br>{@link #VK_SHADER_STAGE_VERTEX_BIT SHADER_STAGE_VERTEX_BIT}, {@link #VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT SHADER_STAGE_TESSELLATION_CONTROL_BIT}, {@link #VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT SHADER_STAGE_TESSELLATION_EVALUATION_BIT}, {@link #VK_SHADER_STAGE_GEOMETRY_BIT SHADER_STAGE_GEOMETRY_BIT}, {@link #VK_SHADER_STAGE_FRAGMENT_BIT SHADER_STAGE_FRAGMENT_BIT}, {@link #VK_SHADER_STAGE_COMPUTE_BIT SHADER_STAGE_COMPUTE_BIT}, {@link #VK_SHADER_STAGE_ALL_GRAPHICS SHADER_STAGE_ALL_GRAPHICS}, {@link #VK_SHADER_STAGE_ALL SHADER_STAGE_ALL}
+	 * @param offset        the start offset of the push constant range to update, in units of bytes
+	 * @param size          the size of the push constant range to update, in units of bytes
+	 * @param pValues       an array of {@code size} bytes containing the new push constant values
+	 */
 	public static void nvkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, int size, long pValues) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
 		callPJIIIPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, size, pValues);
@@ -9337,16 +12709,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param layout        the pipeline layout used to program the push constant updates
 	 * @param stageFlags    a bitmask of {@code VkShaderStageFlagBits} specifying the shader stages that will use the push constants in the updated range. One or more of:<br>{@link #VK_SHADER_STAGE_VERTEX_BIT SHADER_STAGE_VERTEX_BIT}, {@link #VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT SHADER_STAGE_TESSELLATION_CONTROL_BIT}, {@link #VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT SHADER_STAGE_TESSELLATION_EVALUATION_BIT}, {@link #VK_SHADER_STAGE_GEOMETRY_BIT SHADER_STAGE_GEOMETRY_BIT}, {@link #VK_SHADER_STAGE_FRAGMENT_BIT SHADER_STAGE_FRAGMENT_BIT}, {@link #VK_SHADER_STAGE_COMPUTE_BIT SHADER_STAGE_COMPUTE_BIT}, {@link #VK_SHADER_STAGE_ALL_GRAPHICS SHADER_STAGE_ALL_GRAPHICS}, {@link #VK_SHADER_STAGE_ALL SHADER_STAGE_ALL}
 	 * @param offset        the start offset of the push constant range to update, in units of bytes
-	 * @param size          the size of the push constant range to update, in units of bytes
 	 * @param pValues       an array of {@code size} bytes containing the new push constant values
 	 */
-	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, int size, ByteBuffer pValues) {
-		if ( CHECKS )
-			checkBuffer(pValues, size);
-		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, size, memAddress(pValues));
-	}
-
-	/** Alternative version of: {@link #vkCmdPushConstants CmdPushConstants} */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, ByteBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining(), memAddress(pValues));
 	}
@@ -9378,7 +12742,57 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 
 	// --- [ vkCmdBeginRenderPass ] ---
 
-	/** Unsafe version of {@link #vkCmdBeginRenderPass CmdBeginRenderPass} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdBeginRenderPass.html">Khronos Reference Page</a></p>
+	 * 
+	 * Begins a render pass instance.
+	 * 
+	 * <p>An application records the commands for a render pass instance one subpass at a time, by beginning a render pass instance, iterating over the subpasses
+	 * to record commands for that subpass, and then ending the render pass instance.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code pRenderPassBegin} <b>must</b> be a pointer to a valid {@link VkRenderPassBeginInfo} structure</li>
+	 * <li>{@code contents} <b>must</b> be a valid {@code VkSubpassContents} value</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code commandBuffer} <b>must</b> be a primary {@code VkCommandBuffer}</li>
+	 * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the
+	 * {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin}
+	 * is {@link #VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
+	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} set</li>
+	 * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the
+	 * {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin}
+	 * is {@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL} then the corresponding attachment image of the
+	 * framebuffer specified in the {@code framebuffer} member of {@code pRenderPassBegin} <b>must</b> have been created with
+	 * {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} set</li>
+	 * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the
+	 * {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin}
+	 * is {@link #VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
+	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} set</li>
+	 * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the
+	 * {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin}
+	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_BIT IMAGE_LAYOUT_TRANSFER_SRC_BIT} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
+	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} set</li>
+	 * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the
+	 * {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin}
+	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_BIT IMAGE_LAYOUT_TRANSFER_DST_BIT} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
+	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} set</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 *
+	 * @param commandBuffer    the command buffer in which to record the command
+	 * @param pRenderPassBegin a pointer to a {@link VkRenderPassBeginInfo} structure which indicates the render pass to begin an instance of, and the framebuffer the instance uses
+	 * @param contents         specifies how the commands in the first subpass will be provided. One of:<br>{@link #VK_SUBPASS_CONTENTS_INLINE SUBPASS_CONTENTS_INLINE}, {@link #VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS}
+	 */
 	public static void nvkCmdBeginRenderPass(VkCommandBuffer commandBuffer, long pRenderPassBegin, int contents) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdBeginRenderPass;
 		if ( CHECKS )
@@ -9520,12 +12934,6 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 
 	// --- [ vkCmdExecuteCommands ] ---
 
-	/** Unsafe version of {@link #vkCmdExecuteCommands CmdExecuteCommands} */
-	public static void nvkCmdExecuteCommands(VkCommandBuffer commandBuffer, int commandBufferCount, long pCommandBuffers) {
-		long __functionAddress = commandBuffer.getCapabilities().vkCmdExecuteCommands;
-		callPIPV(__functionAddress, commandBuffer.address(), commandBufferCount, pCommandBuffers);
-	}
-
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdExecuteCommands.html">Khronos Reference Page</a></p>
 	 * 
@@ -9588,18 +12996,135 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param pCommandBuffers    an array of secondary command buffer handles, which are recorded to execute in the primary command buffer in the order they are listed in the
 	 *                           array
 	 */
-	public static void vkCmdExecuteCommands(VkCommandBuffer commandBuffer, int commandBufferCount, ByteBuffer pCommandBuffers) {
-		if ( CHECKS )
-			checkBuffer(pCommandBuffers, commandBufferCount << POINTER_SHIFT);
-		nvkCmdExecuteCommands(commandBuffer, commandBufferCount, memAddress(pCommandBuffers));
+	public static void nvkCmdExecuteCommands(VkCommandBuffer commandBuffer, int commandBufferCount, long pCommandBuffers) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdExecuteCommands;
+		callPIPV(__functionAddress, commandBuffer.address(), commandBufferCount, pCommandBuffers);
 	}
 
-	/** Alternative version of: {@link #vkCmdExecuteCommands CmdExecuteCommands} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdExecuteCommands.html">Khronos Reference Page</a></p>
+	 * 
+	 * Executes a secondary command buffer from a primary command buffer.
+	 * 
+	 * <p>A secondary command buffer <b>must not</b> be directly submitted to a queue. Instead, secondary command buffers are recorded to execute as part of a primary
+	 * command buffer with this command.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} valid {@code VkCommandBuffer} handles</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>{@code commandBuffer} <b>must</b> be a primary {@code VkCommandBuffer}</li>
+	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer} and the elements of {@code pCommandBuffers} <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkDevice}</li>
+	 * <li>{@code commandBuffer} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in {@code commandBuffer}, or appear twice in
+	 * {@code pCommandBuffers}, unless it was created with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in any other {@code VkCommandBuffer}, unless it was created with
+	 * the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> be in the executable state</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, that render pass instance <b>must</b> have been begun with the {@code contents}
+	 * parameter of {@link #vkCmdBeginRenderPass CmdBeginRenderPass} set to {@link #VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS}</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
+	 * the {@link #VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT}</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
+	 * the {@code subpass} member of the {@code inheritanceInfo} structure set to the index of the subpass which the given command buffer will be executed
+	 * in</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
+	 * a render pass that is compatible with the current render pass</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, and any given element of {@code pCommandBuffers} was recorded with the
+	 * {@code framebuffer} member of the {@link VkCommandBufferInheritanceInfo} structure not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> be
+	 * compatible with the {@code VkFramebuffer} used in the current render pass instance</li>
+	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must not</b> have any queries active</li>
+	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
+	 * {@link VkCommandBufferBeginInfo}{@code ::occlusionQueryEnable} set to {@link #VK_TRUE TRUE}</li>
+	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
+	 * {@link VkCommandBufferBeginInfo}{@code ::queryFlags} having all bits set that are set for the query</li>
+	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded
+	 * with {@link VkCommandBufferInheritanceInfo}{@code ::pipelineStatistics} having all bits set that are set in the {@code VkQueryPool} the query uses</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> begin any query types that are active in {@code commandBuffer}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <p>Once {@code vkCmdExecuteCommands} has been called, any prior executions of the secondary command buffers specified by {@code pCommandBuffers} in any
+	 * other primary command buffer become invalidated, unless those secondary command buffers were recorded with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}.</p>
+	 *
+	 * @param commandBuffer   a handle to a primary command buffer that the secondary command buffers are submitted to, and <b>must</b> be in the recording state
+	 * @param pCommandBuffers an array of secondary command buffer handles, which are recorded to execute in the primary command buffer in the order they are listed in the
+	 *                        array
+	 */
 	public static void vkCmdExecuteCommands(VkCommandBuffer commandBuffer, PointerBuffer pCommandBuffers) {
 		nvkCmdExecuteCommands(commandBuffer, pCommandBuffers.remaining(), memAddress(pCommandBuffers));
 	}
 
-	/** Single value version of: {@link #vkCmdExecuteCommands CmdExecuteCommands} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdExecuteCommands.html">Khronos Reference Page</a></p>
+	 * 
+	 * Executes a secondary command buffer from a primary command buffer.
+	 * 
+	 * <p>A secondary command buffer <b>must not</b> be directly submitted to a queue. Instead, secondary command buffers are recorded to execute as part of a primary
+	 * command buffer with this command.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} valid {@code VkCommandBuffer} handles</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>{@code commandBuffer} <b>must</b> be a primary {@code VkCommandBuffer}</li>
+	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer} and the elements of {@code pCommandBuffers} <b>must</b> have been created, allocated or retrieved from the same
+	 * {@code VkDevice}</li>
+	 * <li>{@code commandBuffer} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in {@code commandBuffer}, or appear twice in
+	 * {@code pCommandBuffers}, unless it was created with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in any other {@code VkCommandBuffer}, unless it was created with
+	 * the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> be in the executable state</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, that render pass instance <b>must</b> have been begun with the {@code contents}
+	 * parameter of {@link #vkCmdBeginRenderPass CmdBeginRenderPass} set to {@link #VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS}</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
+	 * the {@link #VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT}</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
+	 * the {@code subpass} member of the {@code inheritanceInfo} structure set to the index of the subpass which the given command buffer will be executed
+	 * in</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
+	 * a render pass that is compatible with the current render pass</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, and any given element of {@code pCommandBuffers} was recorded with the
+	 * {@code framebuffer} member of the {@link VkCommandBufferInheritanceInfo} structure not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> be
+	 * compatible with the {@code VkFramebuffer} used in the current render pass instance</li>
+	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must not</b> have any queries active</li>
+	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
+	 * {@link VkCommandBufferBeginInfo}{@code ::occlusionQueryEnable} set to {@link #VK_TRUE TRUE}</li>
+	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
+	 * {@link VkCommandBufferBeginInfo}{@code ::queryFlags} having all bits set that are set for the query</li>
+	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded
+	 * with {@link VkCommandBufferInheritanceInfo}{@code ::pipelineStatistics} having all bits set that are set in the {@code VkQueryPool} the query uses</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> begin any query types that are active in {@code commandBuffer}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <p>Once {@code vkCmdExecuteCommands} has been called, any prior executions of the secondary command buffers specified by {@code pCommandBuffers} in any
+	 * other primary command buffer become invalidated, unless those secondary command buffers were recorded with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}.</p>
+	 *
+	 * @param commandBuffer a handle to a primary command buffer that the secondary command buffers are submitted to, and <b>must</b> be in the recording state
+	 */
 	public static void vkCmdExecuteCommands(VkCommandBuffer commandBuffer, VkCommandBuffer pCommandBuffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

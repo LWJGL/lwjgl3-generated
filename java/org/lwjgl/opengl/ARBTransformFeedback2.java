@@ -73,7 +73,12 @@ public class ARBTransformFeedback2 {
 
 	// --- [ glDeleteTransformFeedbacks ] ---
 
-	/** Unsafe version of {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
+	/**
+	 * Deletes transform feedback objects.
+	 *
+	 * @param n   the number of transform feedback objects to delete
+	 * @param ids an array of names of transform feedback objects to delete
+	 */
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacks;
 		if ( CHECKS )
@@ -84,21 +89,13 @@ public class ARBTransformFeedback2 {
 	/**
 	 * Deletes transform feedback objects.
 	 *
-	 * @param n   the number of transform feedback objects to delete
 	 * @param ids an array of names of transform feedback objects to delete
 	 */
-	public static void glDeleteTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglDeleteTransformFeedbacks(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(IntBuffer ids) {
 		nglDeleteTransformFeedbacks(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single value version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
+	/** Deletes transform feedback objects. */
 	public static void glDeleteTransformFeedbacks(int id) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -111,7 +108,12 @@ public class ARBTransformFeedback2 {
 
 	// --- [ glGenTransformFeedbacks ] ---
 
-	/** Unsafe version of {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
+	/**
+	 * Reserves transform feedback object names.
+	 *
+	 * @param n   the number of transform feedback object names to reserve
+	 * @param ids an array of into which the reserved names will be written
+	 */
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacks;
 		if ( CHECKS )
@@ -122,21 +124,13 @@ public class ARBTransformFeedback2 {
 	/**
 	 * Reserves transform feedback object names.
 	 *
-	 * @param n   the number of transform feedback object names to reserve
 	 * @param ids an array of into which the reserved names will be written
 	 */
-	public static void glGenTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglGenTransformFeedbacks(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static void glGenTransformFeedbacks(IntBuffer ids) {
 		nglGenTransformFeedbacks(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single return value version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
+	/** Reserves transform feedback object names. */
 	public static int glGenTransformFeedbacks() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

@@ -47,7 +47,6 @@ public class EXTDeviceQuery {
 
 	// --- [ eglQueryDeviceAttribEXT ] ---
 
-	/** Unsafe version of {@link #eglQueryDeviceAttribEXT QueryDeviceAttribEXT} */
 	public static int neglQueryDeviceAttribEXT(long device, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryDeviceAttribEXT;
 		if ( CHECKS ) {
@@ -57,13 +56,6 @@ public class EXTDeviceQuery {
 		return callPIPI(__functionAddress, device, attribute, value);
 	}
 
-	public static int eglQueryDeviceAttribEXT(long device, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << POINTER_SHIFT);
-		return neglQueryDeviceAttribEXT(device, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQueryDeviceAttribEXT QueryDeviceAttribEXT} */
 	public static int eglQueryDeviceAttribEXT(long device, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -72,7 +64,6 @@ public class EXTDeviceQuery {
 
 	// --- [ eglQueryDeviceStringEXT ] ---
 
-	/** Unsafe version of {@link #eglQueryDeviceStringEXT QueryDeviceStringEXT} */
 	public static long neglQueryDeviceStringEXT(long device, int name) {
 		long __functionAddress = EGL.getCapabilities().eglQueryDeviceStringEXT;
 		if ( CHECKS ) {
@@ -89,7 +80,6 @@ public class EXTDeviceQuery {
 
 	// --- [ eglQueryDisplayAttribEXT ] ---
 
-	/** Unsafe version of {@link #eglQueryDisplayAttribEXT QueryDisplayAttribEXT} */
 	public static int neglQueryDisplayAttribEXT(long dpy, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryDisplayAttribEXT;
 		if ( CHECKS ) {
@@ -99,13 +89,6 @@ public class EXTDeviceQuery {
 		return callPIPI(__functionAddress, dpy, attribute, value);
 	}
 
-	public static int eglQueryDisplayAttribEXT(long dpy, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << POINTER_SHIFT);
-		return neglQueryDisplayAttribEXT(dpy, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQueryDisplayAttribEXT QueryDisplayAttribEXT} */
 	public static int eglQueryDisplayAttribEXT(long dpy, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);

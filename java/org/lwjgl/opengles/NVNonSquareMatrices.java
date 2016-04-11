@@ -44,7 +44,6 @@ public class NVNonSquareMatrices {
 
 	// --- [ glUniformMatrix2x3fvNV ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2x3fvNV UniformMatrix2x3fvNV} */
 	public static void nglUniformMatrix2x3fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix2x3fvNV;
 		if ( CHECKS )
@@ -52,20 +51,12 @@ public class NVNonSquareMatrices {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix2x3fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 6) << 2);
-		nglUniformMatrix2x3fvNV(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix2x3fvNV UniformMatrix2x3fvNV} */
 	public static void glUniformMatrix2x3fvNV(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix2x3fvNV(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x2fvNV ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3x2fvNV UniformMatrix3x2fvNV} */
 	public static void nglUniformMatrix3x2fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix3x2fvNV;
 		if ( CHECKS )
@@ -73,20 +64,12 @@ public class NVNonSquareMatrices {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix3x2fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 6) << 2);
-		nglUniformMatrix3x2fvNV(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix3x2fvNV UniformMatrix3x2fvNV} */
 	public static void glUniformMatrix3x2fvNV(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix3x2fvNV(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2x4fvNV ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2x4fvNV UniformMatrix2x4fvNV} */
 	public static void nglUniformMatrix2x4fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix2x4fvNV;
 		if ( CHECKS )
@@ -94,20 +77,12 @@ public class NVNonSquareMatrices {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix2x4fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 3) << 2);
-		nglUniformMatrix2x4fvNV(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix2x4fvNV UniformMatrix2x4fvNV} */
 	public static void glUniformMatrix2x4fvNV(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix2x4fvNV(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x2fvNV ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4x2fvNV UniformMatrix4x2fvNV} */
 	public static void nglUniformMatrix4x2fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix4x2fvNV;
 		if ( CHECKS )
@@ -115,20 +90,12 @@ public class NVNonSquareMatrices {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix4x2fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 3) << 2);
-		nglUniformMatrix4x2fvNV(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix4x2fvNV UniformMatrix4x2fvNV} */
 	public static void glUniformMatrix4x2fvNV(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4x2fvNV(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x4fvNV ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3x4fvNV UniformMatrix3x4fvNV} */
 	public static void nglUniformMatrix3x4fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix3x4fvNV;
 		if ( CHECKS )
@@ -136,20 +103,12 @@ public class NVNonSquareMatrices {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix3x4fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 12) << 2);
-		nglUniformMatrix3x4fvNV(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix3x4fvNV UniformMatrix3x4fvNV} */
 	public static void glUniformMatrix3x4fvNV(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix3x4fvNV(location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x3fvNV ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4x3fvNV UniformMatrix4x3fvNV} */
 	public static void nglUniformMatrix4x3fvNV(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix4x3fvNV;
 		if ( CHECKS )
@@ -157,13 +116,6 @@ public class NVNonSquareMatrices {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix4x3fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 12) << 2);
-		nglUniformMatrix4x3fvNV(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix4x3fvNV UniformMatrix4x3fvNV} */
 	public static void glUniformMatrix4x3fvNV(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4x3fvNV(location, value.remaining() / 12, transpose, memAddress(value));
 	}

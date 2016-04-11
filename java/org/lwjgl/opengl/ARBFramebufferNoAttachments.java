@@ -93,7 +93,13 @@ public class ARBFramebufferNoAttachments {
 
 	// --- [ glGetFramebufferParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
+	/**
+	 * Retrieves a named parameter from a framebuffer.
+	 *
+	 * @param target target of the operation. One of:<br>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}
+	 * @param pname  a token indicating the parameter to be retrieved. One of:<br>{@link #GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link #GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link #GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link #GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link #GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
+	 * @param params a variable to receive the value of the parameter named {@code pname}
+	 */
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferParameteriv;
 		if ( CHECKS )
@@ -108,20 +114,18 @@ public class ARBFramebufferNoAttachments {
 	 * @param pname  a token indicating the parameter to be retrieved. One of:<br>{@link #GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link #GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link #GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link #GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link #GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
 	 * @param params a variable to receive the value of the parameter named {@code pname}
 	 */
-	public static void glGetFramebufferParameteriv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetFramebufferParameteriv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static void glGetFramebufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
+	/**
+	 * Retrieves a named parameter from a framebuffer.
+	 *
+	 * @param target target of the operation. One of:<br>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}
+	 * @param pname  a token indicating the parameter to be retrieved. One of:<br>{@link #GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link #GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link #GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link #GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link #GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
+	 */
 	public static int glGetFramebufferParameteri(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -151,7 +155,13 @@ public class ARBFramebufferNoAttachments {
 
 	// --- [ glGetNamedFramebufferParameterivEXT ] ---
 
-	/** Unsafe version of {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
+	/**
+	 * DSA version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv}.
+	 *
+	 * @param framebuffer the framebuffer object
+	 * @param pname       a token indicating the parameter to be retrieved. One of:<br>{@link GL43#GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
+	 * @param params      a variable to receive the value of the parameter named {@code pname}
+	 */
 	public static void nglGetNamedFramebufferParameterivEXT(int framebuffer, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameterivEXT;
 		if ( CHECKS )
@@ -166,20 +176,18 @@ public class ARBFramebufferNoAttachments {
 	 * @param pname       a token indicating the parameter to be retrieved. One of:<br>{@link GL43#GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
 	 * @param params      a variable to receive the value of the parameter named {@code pname}
 	 */
-	public static void glGetNamedFramebufferParameterivEXT(int framebuffer, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetNamedFramebufferParameterivEXT(framebuffer, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
 	public static void glGetNamedFramebufferParameterivEXT(int framebuffer, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferParameterivEXT(framebuffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
+	/**
+	 * DSA version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv}.
+	 *
+	 * @param framebuffer the framebuffer object
+	 * @param pname       a token indicating the parameter to be retrieved. One of:<br>{@link GL43#GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
+	 */
 	public static int glGetNamedFramebufferParameteriEXT(int framebuffer, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

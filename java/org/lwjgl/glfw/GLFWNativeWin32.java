@@ -36,7 +36,17 @@ public class GLFWNativeWin32 {
 
 	// --- [ glfwGetWin32Adapter ] ---
 
-	/** Unsafe version of {@link #glfwGetWin32Adapter GetWin32Adapter} */
+	/**
+	 * Returns the adapter device name of the specified monitor.
+	 * 
+	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
+	 *
+	 * @param monitor the GLFW monitor
+	 *
+	 * @return The UTF-8 encoded adapter device name (for example `\\.\DISPLAY1`) of the specified monitor, or {@code NULL} if an error occurred.
+	 *
+	 * @since version 3.1
+	 */
 	public static long nglfwGetWin32Adapter(long monitor) {
 		long __functionAddress = Functions.GetWin32Adapter;
 		if ( CHECKS )
@@ -62,7 +72,17 @@ public class GLFWNativeWin32 {
 
 	// --- [ glfwGetWin32Monitor ] ---
 
-	/** Unsafe version of {@link #glfwGetWin32Monitor GetWin32Monitor} */
+	/**
+	 * Returns the display device name of the specified monitor.
+	 * 
+	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
+	 *
+	 * @param monitor the GLFW monitor
+	 *
+	 * @return The UTF-8 encoded display device name (for example `\\.\DISPLAY1\Monitor0`) of the specified monitor, or {@code NULL} if an error occurred.
+	 *
+	 * @since version 3.1
+	 */
 	public static long nglfwGetWin32Monitor(long monitor) {
 		long __functionAddress = Functions.GetWin32Monitor;
 		if ( CHECKS )

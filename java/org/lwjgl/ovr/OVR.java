@@ -409,7 +409,39 @@ public class OVR {
 
 	// --- [ ovr_Initialize ] ---
 
-	/** JNI method for {@link #ovr_Initialize Initialize} */
+	/**
+	 * Initialize LibOVR for application usage. This includes finding and loading the LibOVRRT shared library. No LibOVR API functions, other than
+	 * {@link #ovr_GetLastErrorInfo GetLastErrorInfo}, can be called unless {@link #ovr_Initialize Initialize} succeeds. A successful call to {@code ovr_Initialize} must be eventually followed by a call to
+	 * {@link #ovr_Shutdown Shutdown}. {@code ovr_Initialize} calls are idempotent. Calling {@code ovr_Initialize} twice does not require two matching calls to
+	 * {@code ovr_Shutdown}. If already initialized, the return value is {@link OVRErrorCode#ovrSuccess Success}.
+	 * 
+	 * <p>LibOVRRT shared library search order:</p>
+	 * 
+	 * <ol>
+	 * <li>Current working directory (often the same as the application directory).</li>
+	 * <li>Module directory (usually the same as the application directory, but not if the module is a separate shared library).</li>
+	 * <li>Application directory</li>
+	 * <li>Development directory (only if OVR_ENABLE_DEVELOPER_SEARCH is enabled, which is off by default).</li>
+	 * <li>Standard OS shared library search location(s) (OS-specific).</li>
+	 * </ol>
+	 *
+	 * @param params an {@link OVRInitParams} struct that cpecifies custom initialization options. May be {@code NULL} to indicate default options.
+	 *
+	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link #ovr_GetLastErrorInfo GetLastErrorInfo} to get more information. Example failed results
+	 *         include:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrError_Initialize Error_Initialize}: Generic initialization error.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_LibLoad Error_LibLoad}: Couldn't load LibOVRRT.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_LibVersion Error_LibVersion}: LibOVRRT version incompatibility.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_ServiceConnection Error_ServiceConnection}: Couldn't connect to the OVR Service.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_ServiceVersion Error_ServiceVersion}: OVR Service version incompatibility.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_IncompatibleOS Error_IncompatibleOS}: The operating system version is incompatible.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_DisplayInit Error_DisplayInit}: Unable to initialize the HMD display.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_ServerStart Error_ServerStart}:  Unable to start the server. Is it already running?</li>
+	 *         <li>{@link OVRErrorCode#ovrError_Reinitialization Error_Reinitialization}: Attempted to re-initialize with a different version.</li>
+	 *         </ul>
+	 */
 	public static native int novr_Initialize(long params);
 
 	/**
@@ -462,7 +494,16 @@ public class OVR {
 
 	// --- [ ovr_GetLastErrorInfo ] ---
 
-	/** JNI method for {@link #ovr_GetLastErrorInfo GetLastErrorInfo} */
+	/**
+	 * Returns information about the most recent failed return value by the current thread for this library.
+	 * 
+	 * <p>This function itself can never generate an error. The last error is never cleared by LibOVR, but will be overwritten by new errors. Do not use this
+	 * call to determine if there was an error in the last API call as successful API calls don't clear the last {@link OVRErrorInfo}. To avoid any inconsistency,
+	 * {@link #ovr_GetLastErrorInfo GetLastErrorInfo} should be called immediately after an API function that returned a failed {@code ovrResult}, with no other API functions called in
+	 * the interim.</p>
+	 *
+	 * @param errorInfo The last {@link OVRErrorInfo} for the current thread
+	 */
 	public static native void novr_GetLastErrorInfo(long errorInfo);
 
 	/**
@@ -481,7 +522,18 @@ public class OVR {
 
 	// --- [ ovr_GetVersionString ] ---
 
-	/** JNI method for {@link #ovr_GetVersionString GetVersionString} */
+	/**
+	 * Returns the version string representing the LibOVRRT version.
+	 * 
+	 * <p>The returned string pointer is valid until the next call to {@link #ovr_Shutdown Shutdown}.</p>
+	 * 
+	 * <p>Note that the returned version string doesn't necessarily match the current OVR_MAJOR_VERSION, etc., as the returned string refers to the LibOVRRT
+	 * shared library version and not the locally compiled interface version.</p>
+	 * 
+	 * <p>The format of this string is subject to change in future versions and its contents should not be interpreted.</p>
+	 *
+	 * @return a UTF8-encoded null-terminated version string
+	 */
 	public static native long novr_GetVersionString();
 
 	/**
@@ -503,7 +555,16 @@ public class OVR {
 
 	// --- [ ovr_TraceMessage ] ---
 
-	/** JNI method for {@link #ovr_TraceMessage TraceMessage} */
+	/**
+	 * Writes a message string to the LibOVR tracing mechanism (if enabled).
+	 * 
+	 * <p>This message will be passed back to the application via the {@link OVRLogCallback} if it was registered.</p>
+	 *
+	 * @param level   an {@code ovrLogLevel} constant. One of:<br>{@link #ovrLogLevel_Debug LogLevel_Debug}, {@link #ovrLogLevel_Info LogLevel_Info}, {@link #ovrLogLevel_Error LogLevel_Error}
+	 * @param message a UTF8-encoded null-terminated string
+	 *
+	 * @return the {@code strlen} of the message or a negative value if the message is too large
+	 */
 	public static native long novr_TraceMessage(int level, long message);
 
 	/**
@@ -546,7 +607,15 @@ public class OVR {
 
 	// --- [ ovr_GetHmdDesc ] ---
 
-	/** JNI method for {@link #ovr_GetHmdDesc GetHmdDesc} */
+	/**
+	 * Returns information about the current HMD.
+	 * 
+	 * <p>{@link #ovr_Initialize Initialize} must have first been called in order for this to succeed, otherwise ovrHmdDesc::Type will be reported as {@link #ovrHmd_None Hmd_None}.</p>
+	 *
+	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}, else {@code NULL} in which case this function detects whether an HMD is present and returns its
+	 *                 info if so.
+	 * @param __result an {@link OVRHmdDesc}. If the {@code hmd} is {@code NULL} and ovrHmdDesc::Type is {@link #ovrHmd_None Hmd_None} then no HMD is present.
+	 */
 	public static native void novr_GetHmdDesc(long session, long __result);
 
 	/**
@@ -564,7 +633,13 @@ public class OVR {
 
 	// --- [ ovr_GetTrackerCount ] ---
 
-	/** JNI method for {@link #ovr_GetTrackerCount GetTrackerCount} */
+	/**
+	 * Returns the number of sensors.
+	 * 
+	 * <p>The number of sensors may change at any time, so this function should be called before use as opposed to once on startup.</p>
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 */
 	public static native int novr_GetTrackerCount(long session);
 
 	/**
@@ -582,7 +657,18 @@ public class OVR {
 
 	// --- [ ovr_GetTrackerDesc ] ---
 
-	/** JNI method for {@link #ovr_GetTrackerDesc GetTrackerDesc} */
+	/**
+	 * Returns a given sensor description.
+	 * 
+	 * <p>It's possible that sensor {@code desc [0]} may indicate a unconnnected or non-pose tracked sensor, but sensor {@code desc [1]} may be connected.</p>
+	 * 
+	 * <p>{@link #ovr_Initialize Initialize} must have first been called in order for this to succeed, otherwise the returned {@code trackerDescArray} will be zero-initialized. The
+	 * data returned by this function can change at runtime.</p>
+	 *
+	 * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param trackerDescIndex a sensor index. The valid indexes are in the range of 0 to the sensor count returned by {@link #ovr_GetTrackerCount GetTrackerCount}.
+	 * @param __result         an {@link OVRTrackerDesc}. An empty {@code OVRTrackerDesc} will be returned if {@code trackerDescIndex} is out of range.
+	 */
 	public static native void novr_GetTrackerDesc(long session, int trackerDescIndex, long __result);
 
 	/**
@@ -605,7 +691,19 @@ public class OVR {
 
 	// --- [ ovr_Create ] ---
 
-	/** JNI method for {@link #ovr_Create Create} */
+	/**
+	 * Creates a handle to a VR session.
+	 * 
+	 * <p>Upon success the returned {@code ovrSession} must be eventually freed with {@link #ovr_Destroy Destroy} when it is no longer needed. A second call to {@link #ovr_Create Create} will result
+	 * in an error return value if the previous {@code Hmd} has not been destroyed.</p>
+	 *
+	 * @param pSession a pointer to an {@code ovrSession} which will be written to upon success
+	 * @param luid     a system specific graphics adapter identifier that locates which graphics adapter has the HMD attached. This must match the adapter used by the
+	 *                 application or no rendering output will be possible. This is important for stability on multi-adapter systems. An application that simply chooses
+	 *                 the default adapter will not run reliably on multi-adapter systems.
+	 *
+	 * @return an {@code ovrResult} indicating success or failure. Upon failure the returned {@code pHmd} will be {@code NULL}.
+	 */
 	public static native int novr_Create(long pSession, long luid);
 
 	/**
@@ -621,13 +719,6 @@ public class OVR {
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. Upon failure the returned {@code pHmd} will be {@code NULL}.
 	 */
-	public static int ovr_Create(ByteBuffer pSession, OVRGraphicsLuid luid) {
-		if ( CHECKS )
-			checkBuffer(pSession, 1 << POINTER_SHIFT);
-		return novr_Create(memAddress(pSession), luid.address());
-	}
-
-	/** Alternative version of: {@link #ovr_Create Create} */
 	public static int ovr_Create(PointerBuffer pSession, OVRGraphicsLuid luid) {
 		if ( CHECKS )
 			checkBuffer(pSession, 1);
@@ -636,7 +727,11 @@ public class OVR {
 
 	// --- [ ovr_Destroy ] ---
 
-	/** JNI method for {@link #ovr_Destroy Destroy} */
+	/**
+	 * Destroys the HMD.
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 */
 	public static native void novr_Destroy(long session);
 
 	/**
@@ -652,7 +747,12 @@ public class OVR {
 
 	// --- [ ovr_GetSessionStatus ] ---
 
-	/** JNI method for {@link #ovr_GetSessionStatus GetSessionStatus} */
+	/**
+	 * Returns status information for the application.
+	 *
+	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param sessionStatus an {@link OVRSessionStatus} that is filled in
+	 */
 	public static native int novr_GetSessionStatus(long session, long sessionStatus);
 
 	/**
@@ -669,7 +769,14 @@ public class OVR {
 
 	// --- [ ovr_SetTrackingOriginType ] ---
 
-	/** JNI method for {@link #ovr_SetTrackingOriginType SetTrackingOriginType} */
+	/**
+	 * Sets the tracking origin type.
+	 * 
+	 * <p>When the tracking origin is changed, all of the calls that either provide or accept ovrPosef will use the new tracking origin provided.</p>
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param origin  an {@code ovrTrackingOrigin} to be used for all {@link OVRPosef}
+	 */
 	public static native int novr_SetTrackingOriginType(long session, int origin);
 
 	/**
@@ -688,7 +795,11 @@ public class OVR {
 
 	// --- [ ovr_GetTrackingOriginType ] ---
 
-	/** JNI method for {@link #ovr_GetTrackingOriginType GetTrackingOriginType} */
+	/**
+	 * Gets the tracking origin state.
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 */
 	public static native int novr_GetTrackingOriginType(long session);
 
 	/**
@@ -704,7 +815,21 @@ public class OVR {
 
 	// --- [ ovr_RecenterTrackingOrigin ] ---
 
-	/** JNI method for {@link #ovr_RecenterTrackingOrigin RecenterTrackingOrigin} */
+	/**
+	 * Re-centers the sensor position and orientation.
+	 * 
+	 * <p>This resets the (x,y,z) positional components and the yaw orientation component. The Roll and pitch orientation components are always determined by
+	 * gravity and cannot be redefined. All future tracking will report values relative to this new reference position. If you are using {@link OVRTrackerPose} then
+	 * you will need to call {@link #ovr_GetTrackerPose GetTrackerPose} after this, because the sensor position(s) will change as a result of this.</p>
+	 * 
+	 * <p>The headset cannot be facing vertically upward or downward but rather must be roughly level otherwise this function will fail with
+	 * {@link OVRErrorCode#ovrError_InvalidHeadsetOrientation Error_InvalidHeadsetOrientation}.</p>
+	 * 
+	 * <p>For more info, see the notes on each {@code ovrTrackingOrigin} enumeration to understand how recenter will vary slightly in its behavior based on the
+	 * current {@code ovrTrackingOrigin} setting.</p>
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 */
 	public static native int novr_RecenterTrackingOrigin(long session);
 
 	/**
@@ -730,7 +855,14 @@ public class OVR {
 
 	// --- [ ovr_ClearShouldRecenterFlag ] ---
 
-	/** JNI method for {@link #ovr_ClearShouldRecenterFlag ClearShouldRecenterFlag} */
+	/**
+	 * Clears the ShouldRecenter status bit in ovrSessionStatus.
+	 * 
+	 * <p>Clears the {@code ShouldRecenter} status bit in {@link OVRSessionStatus}, allowing further recenter requests to be detected. Since this is automatically done
+	 * by {@link #ovr_RecenterTrackingOrigin RecenterTrackingOrigin}, this is only needs to be called when application is doing its own re-centering.</p>
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 */
 	public static native void novr_ClearShouldRecenterFlag(long session);
 
 	/**
@@ -749,7 +881,22 @@ public class OVR {
 
 	// --- [ ovr_GetTrackingState ] ---
 
-	/** JNI method for {@link #ovr_GetTrackingState GetTrackingState} */
+	/**
+	 * Returns tracking state reading based on the specified absolute system time.
+	 * 
+	 * <p>Pass an {@code absTime} value of 0.0 to request the most recent sensor reading. In this case both {@code PredictedPose} and {@code SamplePose} will
+	 * have the same value.</p>
+	 * 
+	 * <p>This may also be used for more refined timing of front buffer rendering logic, and so on.</p>
+	 * 
+	 * <p>This may be called by multiple threads.</p>
+	 *
+	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param absTime       the absolute future time to predict the return {@link OVRTrackingState} value. Use 0 to request the most recent tracking state.
+	 * @param latencyMarker specifies that this call is the point in time where the "App-to-Mid-Photon" latency timer starts from. If a given {@code ovrLayer} provides
+	 *                      "SensorSampleTimestamp", that will override the value stored here.
+	 * @param __result      the {@link OVRTrackingState} that is predicted for the given {@code absTime}
+	 */
 	public static native void novr_GetTrackingState(long session, double absTime, boolean latencyMarker, long __result);
 
 	/**
@@ -776,7 +923,12 @@ public class OVR {
 
 	// --- [ ovr_GetTrackerPose ] ---
 
-	/** JNI method for {@link #ovr_GetTrackerPose GetTrackerPose} */
+	/**
+	 * Returns the {@link OVRTrackerPose} for the given sensor.
+	 *
+	 * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param trackerPoseIndex index of the sensor being requested.
+	 */
 	public static native void novr_GetTrackerPose(long session, int trackerPoseIndex, long __result);
 
 	/**
@@ -793,7 +945,16 @@ public class OVR {
 
 	// --- [ ovr_GetInputState ] ---
 
-	/** JNI method for {@link #ovr_GetInputState GetInputState} */
+	/**
+	 * Returns the most recent input state for controllers, without positional tracking info. Developers can tell whether the same state was returned by
+	 * checking the {@code PacketNumber}.
+	 *
+	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param controllerType which controllers the input will be returned for
+	 * @param inputState     the input state that will be filled in
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} if the new state was successfully obtained
+	 */
 	public static native int novr_GetInputState(long session, int controllerType, long inputState);
 
 	/**
@@ -814,7 +975,11 @@ public class OVR {
 
 	// --- [ ovr_GetConnectedControllerTypes ] ---
 
-	/** JNI method for {@link #ovr_GetConnectedControllerTypes GetConnectedControllerTypes} */
+	/**
+	 * Returns controller types connected to the system OR'ed together.
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 */
 	public static native int novr_GetConnectedControllerTypes(long session);
 
 	/**
@@ -830,7 +995,20 @@ public class OVR {
 
 	// --- [ ovr_SetControllerVibration ] ---
 
-	/** JNI method for {@link #ovr_SetControllerVibration SetControllerVibration} */
+	/**
+	 * Turns on vibration of the given controller.
+	 * 
+	 * <p>To disable vibration, call {@link #ovr_SetControllerVibration SetControllerVibration} with an amplitude of 0. Vibration automatically stops after a nominal amount of time, so if you
+	 * want vibration to be continuous over multiple seconds then you need to call this function periodically.</p>
+	 *
+	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param controllerType the controller to apply the vibration to
+	 * @param frequency      a vibration frequency in the range of 0.0 to 1.0. Currently the only valid values are 0.0, 0.5, and 1.0 and other values will be clamped to one of
+	 *                       these.
+	 * @param amplitude      a vibration amplitude in the range of 0.0 to 1.0.
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 */
 	public static native int novr_SetControllerVibration(long session, int controllerType, float frequency, float amplitude);
 
 	/**
@@ -855,7 +1033,13 @@ public class OVR {
 
 	// --- [ ovr_GetTextureSwapChainLength ] ---
 
-	/** JNI method for {@link #ovr_GetTextureSwapChainLength GetTextureSwapChainLength} */
+	/**
+	 * Gets the number of buffers in an {@code ovrTextureSwapChain}.
+	 *
+	 * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param chain      the {@code ovrTextureSwapChain} for which the length should be retrieved
+	 * @param out_Length returns the number of buffers in the specified chain
+	 */
 	public static native int novr_GetTextureSwapChainLength(long session, long chain, long out_Length);
 
 	/**
@@ -865,16 +1049,6 @@ public class OVR {
 	 * @param chain      the {@code ovrTextureSwapChain} for which the length should be retrieved
 	 * @param out_Length returns the number of buffers in the specified chain
 	 */
-	public static int ovr_GetTextureSwapChainLength(long session, long chain, ByteBuffer out_Length) {
-		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(chain);
-			checkBuffer(out_Length, 1 << 2);
-		}
-		return novr_GetTextureSwapChainLength(session, chain, memAddress(out_Length));
-	}
-
-	/** Alternative version of: {@link #ovr_GetTextureSwapChainLength GetTextureSwapChainLength} */
 	public static int ovr_GetTextureSwapChainLength(long session, long chain, IntBuffer out_Length) {
 		if ( CHECKS ) {
 			checkPointer(session);
@@ -886,7 +1060,13 @@ public class OVR {
 
 	// --- [ ovr_GetTextureSwapChainCurrentIndex ] ---
 
-	/** JNI method for {@link #ovr_GetTextureSwapChainCurrentIndex GetTextureSwapChainCurrentIndex} */
+	/**
+	 * Gets the current index in an {@code ovrTextureSwapChain}.
+	 *
+	 * @param session   an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param chain     the {@code ovrTextureSwapChain} for which the index should be retrieved
+	 * @param out_Index returns the current (free) index in specified chain
+	 */
 	public static native int novr_GetTextureSwapChainCurrentIndex(long session, long chain, long out_Index);
 
 	/**
@@ -896,16 +1076,6 @@ public class OVR {
 	 * @param chain     the {@code ovrTextureSwapChain} for which the index should be retrieved
 	 * @param out_Index returns the current (free) index in specified chain
 	 */
-	public static int ovr_GetTextureSwapChainCurrentIndex(long session, long chain, ByteBuffer out_Index) {
-		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(chain);
-			checkBuffer(out_Index, 1 << 2);
-		}
-		return novr_GetTextureSwapChainCurrentIndex(session, chain, memAddress(out_Index));
-	}
-
-	/** Alternative version of: {@link #ovr_GetTextureSwapChainCurrentIndex GetTextureSwapChainCurrentIndex} */
 	public static int ovr_GetTextureSwapChainCurrentIndex(long session, long chain, IntBuffer out_Index) {
 		if ( CHECKS ) {
 			checkPointer(session);
@@ -917,7 +1087,13 @@ public class OVR {
 
 	// --- [ ovr_GetTextureSwapChainDesc ] ---
 
-	/** JNI method for {@link #ovr_GetTextureSwapChainDesc GetTextureSwapChainDesc} */
+	/**
+	 * Gets the description of the buffers in an {@code ovrTextureSwapChain}.
+	 *
+	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param chain    the {@code ovrTextureSwapChain} for which the description should be retrieved
+	 * @param out_Desc returns the description of the specified chain
+	 */
 	public static native int novr_GetTextureSwapChainDesc(long session, long chain, long out_Desc);
 
 	/**
@@ -937,7 +1113,16 @@ public class OVR {
 
 	// --- [ ovr_CommitTextureSwapChain ] ---
 
-	/** JNI method for {@link #ovr_CommitTextureSwapChain CommitTextureSwapChain} */
+	/**
+	 * Commits any pending changes to an {@code ovrTextureSwapChain}, and advances its current index.
+	 * 
+	 * <p>When Commit is called, the texture at the current index is considered ready for use by the runtime, and further writes to it should be avoided. The
+	 * swap chain's current index is advanced, providing there's room in the chain. The next time the SDK dereferences this texture swap chain, it will
+	 * synchronize with the app's graphics context and pick up the submitted index, opening up room in the swap chain for further commits.</p>
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param chain   the {@code ovrTextureSwapChain} to commit
+	 */
 	public static native int novr_CommitTextureSwapChain(long session, long chain);
 
 	/**
@@ -960,7 +1145,12 @@ public class OVR {
 
 	// --- [ ovr_DestroyTextureSwapChain ] ---
 
-	/** JNI method for {@link #ovr_DestroyTextureSwapChain DestroyTextureSwapChain} */
+	/**
+	 * Destroys an {@code ovrTextureSwapChain} and frees all the resources associated with it.
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param chain   the {@code ovrTextureSwapChain} to destroy. If it is {@code NULL} then this function has no effect.
+	 */
 	public static native void novr_DestroyTextureSwapChain(long session, long chain);
 
 	/**
@@ -977,7 +1167,12 @@ public class OVR {
 
 	// --- [ ovr_DestroyMirrorTexture ] ---
 
-	/** JNI method for {@link #ovr_DestroyMirrorTexture DestroyMirrorTexture} */
+	/**
+	 * Destroys a mirror texture previously created by one of the mirror texture creation functions.
+	 *
+	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param mirrorTexture the {@code ovrTexture} to destroy. If it is {@code NULL} then this function has no effect.
+	 */
 	public static native void novr_DestroyMirrorTexture(long session, long mirrorTexture);
 
 	/**
@@ -994,7 +1189,19 @@ public class OVR {
 
 	// --- [ ovr_GetFovTextureSize ] ---
 
-	/** JNI method for {@link #ovr_GetFovTextureSize GetFovTextureSize} */
+	/**
+	 * Calculates the recommended viewport size for rendering a given eye within the HMD with a given FOV cone.
+	 * 
+	 * <p>Higher FOV will generally require larger textures to maintain quality. Apps packing multiple eye views together on the same texture should ensure there
+	 * are at least 8 pixels of padding between them to prevent texture filtering and chromatic aberration causing images to leak between the two eye views.</p>
+	 *
+	 * @param session               an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param eye                   which eye (left or right) to calculate for. One of:<br>{@link #ovrEye_Left Eye_Left}, {@link #ovrEye_Right Eye_Right}
+	 * @param fov                   the {@link OVRFovPort} to use
+	 * @param pixelsPerDisplayPixel the ratio of the number of render target pixels to display pixels at the center of distortion. 1.0 is the default value. Lower values can improve
+	 *                              performance, higher values give improved quality.
+	 * @param __result              the texture width and height size
+	 */
 	public static native void novr_GetFovTextureSize(long session, int eye, long fov, float pixelsPerDisplayPixel, long __result);
 
 	/**
@@ -1018,7 +1225,14 @@ public class OVR {
 
 	// --- [ ovr_GetRenderDesc ] ---
 
-	/** JNI method for {@link #ovr_GetRenderDesc GetRenderDesc} */
+	/**
+	 * Computes the distortion viewport, view adjust, and other rendering parameters for the specified eye.
+	 *
+	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param eyeType  which eye (left or right) for which to perform calculations. One of:<br>{@link #ovrEye_Left Eye_Left}, {@link #ovrEye_Right Eye_Right}
+	 * @param fov      the {@link OVRFovPort} to use.
+	 * @param __result the computed {@link OVREyeRenderDesc} for the given {@code eyeType} and field of view
+	 */
 	public static native void novr_GetRenderDesc(long session, int eyeType, long fov, long __result);
 
 	/**
@@ -1036,9 +1250,6 @@ public class OVR {
 	}
 
 	// --- [ ovr_SubmitFrame ] ---
-
-	/** JNI method for {@link #ovr_SubmitFrame SubmitFrame} */
-	public static native int novr_SubmitFrame(long session, long frameIndex, long viewScaleDesc, long layerPtrList, int layerCount);
 
 	/**
 	 * Submits layers for distortion and display.
@@ -1089,15 +1300,55 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	 *         {@link #ovr_CommitTextureSwapChain CommitTextureSwapChain} was called at least once first.</li>
 	 *         </ul>
 	 */
-	public static int ovr_SubmitFrame(long session, long frameIndex, OVRViewScaleDesc viewScaleDesc, ByteBuffer layerPtrList, int layerCount) {
-		if ( CHECKS ) {
-			checkPointer(session);
-			checkBuffer(layerPtrList, layerCount << POINTER_SHIFT);
-		}
-		return novr_SubmitFrame(session, frameIndex, viewScaleDesc == null ? NULL : viewScaleDesc.address(), memAddress(layerPtrList), layerCount);
-	}
+	public static native int novr_SubmitFrame(long session, long frameIndex, long viewScaleDesc, long layerPtrList, int layerCount);
 
-	/** Alternative version of: {@link #ovr_SubmitFrame SubmitFrame} */
+	/**
+	 * Submits layers for distortion and display.
+	 * 
+	 * <p>{@code ovr_SubmitFrame} triggers distortion and processing which might happen asynchronously. The function will return when there is room in the submission
+	 * queue and surfaces are available. Distortion might or might not have completed.</p>
+	 * 
+	 * <ul>
+	 * <li>Layers are drawn in the order they are specified in the array, regardless of the layer type.</li>
+	 * <li>Layers are not remembered between successive calls to {@code ovr_SubmitFrame}. A layer must be specified in every call to {@code ovr_SubmitFrame}
+	 * or it won't be displayed.</li>
+	 * <li>If a {@code layerPtrList} entry that was specified in a previous call to {@code ovr_SubmitFrame} is passed as {@code NULL} or is of type
+	 * {@link #ovrLayerType_Disabled LayerType_Disabled}, that layer is no longer displayed.</li>
+	 * <li>A {@code layerPtrList} entry can be of any layer type and multiple entries of the same layer type are allowed. No {@code layerPtrList} entry may be
+	 * duplicated (i.e. the same pointer as an earlier entry).</li>
+	 * </ul>
+	 * 
+	 * <h3>Example code</h3>
+	 * 
+	 * <pre><code>ovrLayerEyeFov  layer0;
+ovrLayerQuad    layer1;
+...
+ovrLayerHeader* layers[2] = { &layer0.Header, &layer1.Header };
+ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code></pre>
+	 *
+	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param frameIndex    the targeted application frame index, or 0 to refer to one frame after the last time {@link #ovr_SubmitFrame SubmitFrame} was called
+	 * @param viewScaleDesc provides additional information needed only if {@code layerPtrList} contains an {@link #ovrLayerType_Quad LayerType_Quad}. If {@code NULL}, a default version is used based on the
+	 *                      current configuration and a 1.0 world scale.
+	 * @param layerPtrList  a list of {@code ovrLayer} pointers, which can include {@code NULL} entries to indicate that any previously shown layer at that index is to not be
+	 *                      displayed. Each layer header must be a part of a layer structure such as {@link OVRLayerEyeFov} or {@link OVRLayerQuad}, with {@code Header.Type} identifying
+	 *                      its type. A {@code NULL} {@code layerPtrList} entry in the array indicates the absence of the given layer.
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon one of the possible success values:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: rendering completed successfully.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}: rendering completed successfully but was not displayed on the HMD, usually because another application currently
+	 *         has ownership of the HMD. Applications receiving this result should stop rendering new content, but continue to call {@code ovr_SubmitFrame}
+	 *         periodically until it returns a value other than {@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_DisplayLost Error_DisplayLost}: The session has become invalid (such as due to a device removal) and the shared resources need to be released
+	 *         ({@link #ovr_DestroyTextureSwapChain DestroyTextureSwapChain}), the session needs to destroyed ({@link #ovr_Destroy Destroy}) and recreated ({@link #ovr_Create Create}), and new resources need to be created
+	 *         ({@code ovr_CreateTextureSwapChainXXX}). The application's existing private graphics resources do not need to be recreated unless the new
+	 *         {@code ovr_Create} call returns a different {@code GraphicsLuid}.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_TextureSwapChainInvalid Error_TextureSwapChainInvalid}: The {@code ovrTextureSwapChain} is in an incomplete or inconsistent state. Ensure
+	 *         {@link #ovr_CommitTextureSwapChain CommitTextureSwapChain} was called at least once first.</li>
+	 *         </ul>
+	 */
 	public static int ovr_SubmitFrame(long session, long frameIndex, OVRViewScaleDesc viewScaleDesc, PointerBuffer layerPtrList) {
 		if ( CHECKS )
 			checkPointer(session);
@@ -1106,7 +1357,25 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 
 	// --- [ ovr_GetPredictedDisplayTime ] ---
 
-	/** JNI method for {@link #ovr_GetPredictedDisplayTime GetPredictedDisplayTime} */
+	/**
+	 * Gets the time of the specified frame midpoint.
+	 * 
+	 * <p>Predicts the time at which the given frame will be displayed. The predicted time is the middle of the time period during which the corresponding eye
+	 * images will be displayed.</p>
+	 * 
+	 * <p>The application should increment frameIndex for each successively targeted frame, and pass that index to any relevent OVR functions that need to apply
+	 * to the frame identified by that index.</p>
+	 * 
+	 * <p>This function is thread-safe and allows for multiple application threads to target their processing to the same displayed frame.</p>
+	 * 
+	 * <p>In the event that prediction fails due to various reasons (e.g. the display being off or app has yet to present any frames), the return value will be
+	 * current CPU time.</p>
+	 *
+	 * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param frameIndex the frame the caller wishes to target. A value of zero returns the next frame index.
+	 *
+	 * @return the absolute frame midpoint time for the given {@code frameIndex}
+	 */
 	public static native double novr_GetPredictedDisplayTime(long session, long frameIndex);
 
 	/**
@@ -1147,7 +1416,15 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 
 	// --- [ ovr_GetBool ] ---
 
-	/** JNI method for {@link #ovr_GetBool GetBool} */
+	/**
+	 * Reads a boolean property.
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid for only the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the property interpreted as a boolean value. Returns {@code defaultVal} if the property doesn't exist.
+	 */
 	public static native boolean novr_GetBool(long session, long propertyName, boolean defaultVal);
 
 	/**
@@ -1167,7 +1444,15 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 		return novr_GetBool(session, memAddress(propertyName), defaultVal);
 	}
 
-	/** CharSequence version of: {@link #ovr_GetBool GetBool} */
+	/**
+	 * Reads a boolean property.
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid for only the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the property interpreted as a boolean value. Returns {@code defaultVal} if the property doesn't exist.
+	 */
 	public static boolean ovr_GetBool(long session, CharSequence propertyName, boolean defaultVal) {
 		if ( CHECKS )
 			checkPointer(session);
@@ -1182,7 +1467,17 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 
 	// --- [ ovr_SetBool ] ---
 
-	/** JNI method for {@link #ovr_SetBool SetBool} */
+	/**
+	 * Writes or creates a boolean property.
+	 * 
+	 * <p>If the property wasn't previously a boolean property, it is changed to a boolean property.</p>
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the value to write
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
+	 */
 	public static native boolean novr_SetBool(long session, long propertyName, boolean value);
 
 	/**
@@ -1204,7 +1499,17 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 		return novr_SetBool(session, memAddress(propertyName), value);
 	}
 
-	/** CharSequence version of: {@link #ovr_SetBool SetBool} */
+	/**
+	 * Writes or creates a boolean property.
+	 * 
+	 * <p>If the property wasn't previously a boolean property, it is changed to a boolean property.</p>
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the value to write
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
+	 */
 	public static boolean ovr_SetBool(long session, CharSequence propertyName, boolean value) {
 		if ( CHECKS )
 			checkPointer(session);
@@ -1219,7 +1524,15 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 
 	// --- [ ovr_GetInt ] ---
 
-	/** JNI method for {@link #ovr_GetInt GetInt} */
+	/**
+	 * Reads an integer property.
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the property interpreted as an integer value. Returns {@code defaultVal} if the property doesn't exist.
+	 */
 	public static native int novr_GetInt(long session, long propertyName, int defaultVal);
 
 	/**
@@ -1239,7 +1552,15 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 		return novr_GetInt(session, memAddress(propertyName), defaultVal);
 	}
 
-	/** CharSequence version of: {@link #ovr_GetInt GetInt} */
+	/**
+	 * Reads an integer property.
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the property interpreted as an integer value. Returns {@code defaultVal} if the property doesn't exist.
+	 */
 	public static int ovr_GetInt(long session, CharSequence propertyName, int defaultVal) {
 		if ( CHECKS )
 			checkPointer(session);
@@ -1254,7 +1575,17 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 
 	// --- [ ovr_SetInt ] ---
 
-	/** JNI method for {@link #ovr_SetInt SetInt} */
+	/**
+	 * Writes or creates an integer property.
+	 * 
+	 * <p>If the property wasn't previously an integer property, it is changed to an integer property.</p>
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the value to write
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
+	 */
 	public static native boolean novr_SetInt(long session, long propertyName, int value);
 
 	/**
@@ -1276,7 +1607,17 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 		return novr_SetInt(session, memAddress(propertyName), value);
 	}
 
-	/** CharSequence version of: {@link #ovr_SetInt SetInt} */
+	/**
+	 * Writes or creates an integer property.
+	 * 
+	 * <p>If the property wasn't previously an integer property, it is changed to an integer property.</p>
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the value to write
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
+	 */
 	public static boolean ovr_SetInt(long session, CharSequence propertyName, int value) {
 		if ( CHECKS )
 			checkPointer(session);
@@ -1291,7 +1632,15 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 
 	// --- [ ovr_GetFloat ] ---
 
-	/** JNI method for {@link #ovr_GetFloat GetFloat} */
+	/**
+	 * Reads a float property.
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the property interpreted as a float value. Returns {@code defaultVal} if the property doesn't exist.
+	 */
 	public static native float novr_GetFloat(long session, long propertyName, float defaultVal);
 
 	/**
@@ -1311,7 +1660,15 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 		return novr_GetFloat(session, memAddress(propertyName), defaultVal);
 	}
 
-	/** CharSequence version of: {@link #ovr_GetFloat GetFloat} */
+	/**
+	 * Reads a float property.
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the property interpreted as a float value. Returns {@code defaultVal} if the property doesn't exist.
+	 */
 	public static float ovr_GetFloat(long session, CharSequence propertyName, float defaultVal) {
 		if ( CHECKS )
 			checkPointer(session);
@@ -1326,7 +1683,17 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 
 	// --- [ ovr_SetFloat ] ---
 
-	/** JNI method for {@link #ovr_SetFloat SetFloat} */
+	/**
+	 * Writes or creates a float property.
+	 * 
+	 * <p>If the property wasn't previously a float property, it's changed to a float property.</p>
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the value to write
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
+	 */
 	public static native boolean novr_SetFloat(long session, long propertyName, float value);
 
 	/**
@@ -1348,7 +1715,17 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 		return novr_SetFloat(session, memAddress(propertyName), value);
 	}
 
-	/** CharSequence version of: {@link #ovr_SetFloat SetFloat} */
+	/**
+	 * Writes or creates a float property.
+	 * 
+	 * <p>If the property wasn't previously a float property, it's changed to a float property.</p>
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the value to write
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
+	 */
 	public static boolean ovr_SetFloat(long session, CharSequence propertyName, float value) {
 		if ( CHECKS )
 			checkPointer(session);
@@ -1363,9 +1740,6 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 
 	// --- [ ovr_GetFloatArray ] ---
 
-	/** JNI method for {@link #ovr_GetFloatArray GetFloatArray} */
-	public static native int novr_GetFloatArray(long session, long propertyName, long values, int valuesCapacity);
-
 	/**
 	 * Reads a float array property.
 	 *
@@ -1376,16 +1750,17 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	 *
 	 * @return the number of elements read, or 0 if property doesn't exist or is empty
 	 */
-	public static int ovr_GetFloatArray(long session, ByteBuffer propertyName, ByteBuffer values, int valuesCapacity) {
-		if ( CHECKS ) {
-			checkPointer(session);
-			checkNT1(propertyName);
-			checkBuffer(values, valuesCapacity << 2);
-		}
-		return novr_GetFloatArray(session, memAddress(propertyName), memAddress(values), valuesCapacity);
-	}
+	public static native int novr_GetFloatArray(long session, long propertyName, long values, int valuesCapacity);
 
-	/** Alternative version of: {@link #ovr_GetFloatArray GetFloatArray} */
+	/**
+	 * Reads a float array property.
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param values       an array of float to write to
+	 *
+	 * @return the number of elements read, or 0 if property doesn't exist or is empty
+	 */
 	public static int ovr_GetFloatArray(long session, ByteBuffer propertyName, FloatBuffer values) {
 		if ( CHECKS ) {
 			checkPointer(session);
@@ -1394,7 +1769,15 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 		return novr_GetFloatArray(session, memAddress(propertyName), memAddress(values), values.remaining());
 	}
 
-	/** CharSequence version of: {@link #ovr_GetFloatArray GetFloatArray} */
+	/**
+	 * Reads a float array property.
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param values       an array of float to write to
+	 *
+	 * @return the number of elements read, or 0 if property doesn't exist or is empty
+	 */
 	public static int ovr_GetFloatArray(long session, CharSequence propertyName, FloatBuffer values) {
 		if ( CHECKS )
 			checkPointer(session);
@@ -1409,9 +1792,6 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 
 	// --- [ ovr_SetFloatArray ] ---
 
-	/** JNI method for {@link #ovr_SetFloatArray SetFloatArray} */
-	public static native boolean novr_SetFloatArray(long session, long propertyName, long values, int valuesSize);
-
 	/**
 	 * Writes or creates a float array property.
 	 *
@@ -1422,16 +1802,17 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 	 *
 	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
 	 */
-	public static boolean ovr_SetFloatArray(long session, ByteBuffer propertyName, ByteBuffer values, int valuesSize) {
-		if ( CHECKS ) {
-			checkPointer(session);
-			checkNT1(propertyName);
-			checkBuffer(values, valuesSize << 2);
-		}
-		return novr_SetFloatArray(session, memAddress(propertyName), memAddress(values), valuesSize);
-	}
+	public static native boolean novr_SetFloatArray(long session, long propertyName, long values, int valuesSize);
 
-	/** Alternative version of: {@link #ovr_SetFloatArray SetFloatArray} */
+	/**
+	 * Writes or creates a float array property.
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param values       an array of float to write from
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
+	 */
 	public static boolean ovr_SetFloatArray(long session, ByteBuffer propertyName, FloatBuffer values) {
 		if ( CHECKS ) {
 			checkPointer(session);
@@ -1440,7 +1821,15 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 		return novr_SetFloatArray(session, memAddress(propertyName), memAddress(values), values.remaining());
 	}
 
-	/** CharSequence version of: {@link #ovr_SetFloatArray SetFloatArray} */
+	/**
+	 * Writes or creates a float array property.
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param values       an array of float to write from
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
+	 */
 	public static boolean ovr_SetFloatArray(long session, CharSequence propertyName, FloatBuffer values) {
 		if ( CHECKS )
 			checkPointer(session);
@@ -1455,7 +1844,18 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 
 	// --- [ ovr_GetString ] ---
 
-	/** JNI method for {@link #ovr_GetString GetString} */
+	/**
+	 * Reads a string property.
+	 * 
+	 * <p>Strings are UTF8-encoded and null-terminated.</p>
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the string property if it exists. Otherwise returns {@code defaultVal}, which can be specified as {@code NULL}. The return memory is guaranteed to be valid
+	 *         until next call to {@code ovr_GetString} or until the HMD is destroyed, whichever occurs first.
+	 */
 	public static native long novr_GetString(long session, long propertyName, long defaultVal);
 
 	/**
@@ -1508,7 +1908,17 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 
 	// --- [ ovr_SetString ] ---
 
-	/** JNI method for {@link #ovr_SetString SetString} */
+	/**
+	 * Writes or creates a string property.
+	 * 
+	 * <p>Strings are UTF8-encoded and null-terminated.</p>
+	 *
+	 * @param hmddesc      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the string property, which only needs to be valid for the duration of the call
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
+	 */
 	public static native boolean novr_SetString(long hmddesc, long propertyName, long value);
 
 	/**
@@ -1531,7 +1941,17 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 		return novr_SetString(hmddesc, memAddress(propertyName), memAddress(value));
 	}
 
-	/** CharSequence version of: {@link #ovr_SetString SetString} */
+	/**
+	 * Writes or creates a string property.
+	 * 
+	 * <p>Strings are UTF8-encoded and null-terminated.</p>
+	 *
+	 * @param hmddesc      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the string property, which only needs to be valid for the duration of the call
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
+	 */
 	public static boolean ovr_SetString(long hmddesc, CharSequence propertyName, CharSequence value) {
 		if ( CHECKS )
 			checkPointer(hmddesc);

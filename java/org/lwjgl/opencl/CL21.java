@@ -93,7 +93,28 @@ public class CL21 {
 
 	// --- [ clGetDeviceAndHostTimer ] ---
 
-	/** Unsafe version of {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer} */
+	/**
+	 * Returns a reasonably synchronized pair of timestamps from the device timer and the host timer as seen by device. Implementations may need to execute
+	 * this query with a high latency in order to provide reasonable synchronization of the timestamps. The host timestamp and device timestamp returned by
+	 * this function and {@link #clGetHostTimer GetHostTimer} each have an implementation defined timebase. The timestamps will always be in their respective timebases regardless
+	 * of which query function is used. The timestamp returned from {@link CL10#clGetEventProfilingInfo GetEventProfilingInfo} for an event on a device and a device timestamp queried from
+	 * the same device will always be in the same timebase.
+	 *
+	 * @param device           a device returned by {@link CL10#clGetDeviceIDs GetDeviceIDs}
+	 * @param device_timestamp will be updated with the value of the device timer in nanoseconds. The resolution of the timer is the same as the device profiling timer returned
+	 *                         by {@link CL10#clGetDeviceInfo GetDeviceInfo} and the {@link CL10#CL_DEVICE_PROFILING_TIMER_RESOLUTION DEVICE_PROFILING_TIMER_RESOLUTION} query.
+	 * @param host_timestamp   will be updated with the value of the host timer in nanoseconds at the closest possible point in time to that at which {@code device_timestamp} was
+	 *                         returned. The resolution of the timer may be queried via {@link CL10#clGetPlatformInfo GetPlatformInfo} and the flag {@link #CL_PLATFORM_HOST_TIMER_RESOLUTION PLATFORM_HOST_TIMER_RESOLUTION}.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} with a time value in {@code host_timestamp} if provided. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not a valid OpenCL device.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_timestamp} or {@code device_timestamp} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int nclGetDeviceAndHostTimer(long device, long device_timestamp, long host_timestamp) {
 		long __functionAddress = CL.getICD().clGetDeviceAndHostTimer;
 		if ( CHECKS ) {
@@ -125,15 +146,6 @@ public class CL21 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clGetDeviceAndHostTimer(long device, ByteBuffer device_timestamp, ByteBuffer host_timestamp) {
-		if ( CHECKS ) {
-			checkBuffer(device_timestamp, 1 << 3);
-			checkBuffer(host_timestamp, 1 << 3);
-		}
-		return nclGetDeviceAndHostTimer(device, memAddress(device_timestamp), memAddress(host_timestamp));
-	}
-
-	/** Alternative version of: {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer} */
 	public static int clGetDeviceAndHostTimer(long device, LongBuffer device_timestamp, LongBuffer host_timestamp) {
 		if ( CHECKS ) {
 			checkBuffer(device_timestamp, 1);
@@ -144,7 +156,26 @@ public class CL21 {
 
 	// --- [ clGetHostTimer ] ---
 
-	/** Unsafe version of {@link #clGetHostTimer GetHostTimer} */
+	/**
+	 * Returns the current value of the host clock as seen by device. This value is in the same timebase as the {@code host_timestamp} returned from
+	 * {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer}. The implementation will return with as low a latency as possible to allow a correlation with a subsequent application sampled
+	 * time. The host timestamp and device timestamp returned by this function and {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer} each have an implementation defined timebase. The
+	 * timestamps will always be in their respective timebases regardless of which query function is used. The timestamp returned from
+	 * {@link CL10#clGetEventProfilingInfo GetEventProfilingInfo} for an event on a device and a device timestamp queried from the same device will always be in the same timebase.
+	 *
+	 * @param device         a device returned by {@link CL10#clGetDeviceIDs GetDeviceIDs}
+	 * @param host_timestamp will be updated with the value of the current timer in nanoseconds. The resolution of the timer may be queried via {@link CL10#clGetPlatformInfo GetPlatformInfo} and the
+	 *                       flag {@link #CL_PLATFORM_HOST_TIMER_RESOLUTION PLATFORM_HOST_TIMER_RESOLUTION}.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} with a time value in {@code host_timestamp} if provided. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not a valid OpenCL device.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_timestamp} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int nclGetHostTimer(long device, long host_timestamp) {
 		long __functionAddress = CL.getICD().clGetHostTimer;
 		if ( CHECKS ) {
@@ -174,26 +205,11 @@ public class CL21 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clGetHostTimer(long device, ByteBuffer host_timestamp) {
-		return nclGetHostTimer(device, memAddress(host_timestamp));
-	}
-
-	/** Alternative version of: {@link #clGetHostTimer GetHostTimer} */
 	public static int clGetHostTimer(long device, LongBuffer host_timestamp) {
 		return nclGetHostTimer(device, memAddress(host_timestamp));
 	}
 
 	// --- [ clCreateProgramWithIL ] ---
-
-	/** Unsafe version of {@link #clCreateProgramWithIL CreateProgramWithIL} */
-	public static long nclCreateProgramWithIL(long context, long il, long length, long errcode_ret) {
-		long __functionAddress = CL.getICD().clCreateProgramWithIL;
-		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-		}
-		return callPPPPP(__functionAddress, context, il, length, errcode_ret);
-	}
 
 	/**
 	 * Creates a program object for a context, and loads the IL pointed to by {@code il} and with length in bytes {@code length} into the program object.
@@ -215,15 +231,34 @@ public class CL21 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clCreateProgramWithIL(long context, ByteBuffer il, long length, ByteBuffer errcode_ret) {
+	public static long nclCreateProgramWithIL(long context, long il, long length, long errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateProgramWithIL;
 		if ( CHECKS ) {
-			checkBuffer(il, length);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
 		}
-		return nclCreateProgramWithIL(context, memAddress(il), length, memAddressSafe(errcode_ret));
+		return callPPPPP(__functionAddress, context, il, length, errcode_ret);
 	}
 
-	/** Alternative version of: {@link #clCreateProgramWithIL CreateProgramWithIL} */
+	/**
+	 * Creates a program object for a context, and loads the IL pointed to by {@code il} and with length in bytes {@code length} into the program object.
+	 *
+	 * @param context     a valid OpenCL context
+	 * @param il          a pointer to a {@code length}-byte block of memory containing SPIR-V or an implementation-defined intermediate language
+	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
+	 *
+	 * @return a valid non-zero program object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the program object is created successfully. Otherwise, it returns a {@code NULL}
+	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code il} is {@code NULL} or if {@code length} is zero.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the {@code length}-byte memory pointed to by {@code il} does not contain well-formed intermediate language input that can be
+	 *         consumed by the OpenCL runtime.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static long clCreateProgramWithIL(long context, ByteBuffer il, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -232,7 +267,35 @@ public class CL21 {
 
 	// --- [ clCloneKernel ] ---
 
-	/** Unsafe version of {@link #clCloneKernel CloneKernel} */
+	/**
+	 * Makes a shallow copy of the kernel object, its arguments and any information passed to the kernel object using {@link CL20#clSetKernelExecInfo SetKernelExecInfo}. If the kernel
+	 * object was ready to be enqueued before copying it, the clone of the kernel object is ready to enqueue.
+	 * 
+	 * <p>The returned kernel object is an exact copy of {@code source_kernel}, with one caveat: the reference count on the returned kernel object is set as if
+	 * it had been returned by {@link CL10#clCreateKernel CreateKernel}. The reference count of {@code source_kernel} will not be changed.</p>
+	 * 
+	 * <p>The resulting kernel will be in the same state as if {@link CL10#clCreateKernel CreateKernel} is called to create the resultant kernel with the same arguments as those used
+	 * to create {@code source_kernel}, the latest call to {@link CL10#clSetKernelArg SetKernelArg} or {@link CL20#clSetKernelArgSVMPointer SetKernelArgSVMPointer} for each argument index applied to kernel and
+	 * the last call to {@link CL20#clSetKernelExecInfo SetKernelExecInfo} for each value of the param name parameter are applied to the new kernel object.</p>
+	 * 
+	 * <p>All arguments of the new kernel object must be intact and it may be correctly used in the same situations as kernel except those that assume a
+	 * pre-existing reference count. Setting arguments on the new kernel object will not affect {@code source_kernel} except insofar as the argument points to
+	 * a shared underlying entity and in that situation behavior is as if two kernel objects had been created and the same argument applied to each. Only the
+	 * data stored in the kernel object is copied; data referenced by the kernel's arguments are not copied. For example, if a buffer or pointer argument is
+	 * set on a kernel object, the pointer is copied but the underlying memory allocation is not.</p>
+	 *
+	 * @param source_kernel a valid {@code cl_kernel} object that will be copied. {@code source_kernel} will not be modified in any way by this function.
+	 * @param errcode_ret   will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
+	 *
+	 * @return a valid non-zero kernel object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the kernel is successfully copied. Otherwise it returns a {@code NULL} value with
+	 *         one of the following error values returned in {@code errcode_ret}:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_KERNEL INVALID_KERNEL} if {@code source_kernel} is not a valid kernel object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static long nclCloneKernel(long source_kernel, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCloneKernel;
 		if ( CHECKS ) {
@@ -271,13 +334,6 @@ public class CL21 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clCloneKernel(long source_kernel, ByteBuffer errcode_ret) {
-		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
-		return nclCloneKernel(source_kernel, memAddressSafe(errcode_ret));
-	}
-
-	/** Alternative version of: {@link #clCloneKernel CloneKernel} */
 	public static long clCloneKernel(long source_kernel, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -285,16 +341,6 @@ public class CL21 {
 	}
 
 	// --- [ clGetKernelSubGroupInfo ] ---
-
-	/** Unsafe version of {@link #clGetKernelSubGroupInfo GetKernelSubGroupInfo} */
-	public static int nclGetKernelSubGroupInfo(long kernel, long device, int param_name, long input_value_size, long input_value, long param_value_size, long param_value, long param_value_size_ret) {
-		long __functionAddress = CL.getICD().clGetKernelSubGroupInfo;
-		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(kernel);
-		}
-		return callPPIPPPPPI(__functionAddress, kernel, device, param_name, input_value_size, input_value, param_value_size, param_value, param_value_size_ret);
-	}
 
 	/**
 	 * Returns information about the kernel object.
@@ -323,16 +369,40 @@ public class CL21 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, long input_value_size, ByteBuffer input_value, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
+	public static int nclGetKernelSubGroupInfo(long kernel, long device, int param_name, long input_value_size, long input_value, long param_value_size, long param_value, long param_value_size_ret) {
+		long __functionAddress = CL.getICD().clGetKernelSubGroupInfo;
 		if ( CHECKS ) {
-			if ( input_value != null ) checkBuffer(input_value, input_value_size);
-			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
+			checkFunctionAddress(__functionAddress);
+			checkPointer(kernel);
 		}
-		return nclGetKernelSubGroupInfo(kernel, device, param_name, input_value_size, memAddressSafe(input_value), param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return callPPIPPPPPI(__functionAddress, kernel, device, param_name, input_value_size, input_value, param_value_size, param_value, param_value_size_ret);
 	}
 
-	/** Alternative version of: {@link #clGetKernelSubGroupInfo GetKernelSubGroupInfo} */
+	/**
+	 * Returns information about the kernel object.
+	 *
+	 * @param kernel               the kernel object being queried
+	 * @param device               a specific device in the list of devices associated with {@code kernel}. The list of devices is the list of devices in the OpenCL context that is
+	 *                             associated with {@code kernel}. If the list of devices associated with kernel is a single device, device can be a {@code NULL} value.
+	 * @param param_name           the information to query. One of:<br>{@link #CL_KERNEL_MAX_NUM_SUB_GROUPS KERNEL_MAX_NUM_SUB_GROUPS}, {@link #CL_KERNEL_COMPILE_NUM_SUB_GROUPS KERNEL_COMPILE_NUM_SUB_GROUPS}, {@link #CL_KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE}, {@link #CL_KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE}, {@link #CL_KERNEL_LOCAL_SIZE_FOR_SUB_GROUP_COUNT KERNEL_LOCAL_SIZE_FOR_SUB_GROUP_COUNT}
+	 * @param input_value          a pointer to memory where the appropriate parameterization of the query is passed from. If {@code input_value} is {@code NULL}, it is ignored.
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
+	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not in the list of devices associated with {@code kernel} or if {@code device} is {@code NULL} but there is more than
+	 *         one device associated with {@code kernel}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value} is &lt size of return type and
+	 *         {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is {@link #CL_KERNEL_SUB_GROUP_SIZE_FOR_NDRANGE KERNEL_SUB_GROUP_SIZE_FOR_NDRANGE} and the size in bytes specified by {@code input_value_size} is not valid
+	 *         or if {@code input_value} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_KERNEL INVALID_KERNEL} if {@code kernel} is not a valid kernel object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -347,16 +417,6 @@ public class CL21 {
 	}
 
 	// --- [ clEnqueueSVMMigrateMem ] ---
-
-	/** Unsafe version of {@link #clEnqueueSVMMigrateMem EnqueueSVMMigrateMem} */
-	public static int nclEnqueueSVMMigrateMem(long command_queue, int num_svm_pointers, long svm_pointers, long sizes, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = CL.getICD().clEnqueueSVMMigrateMem;
-		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
-		}
-		return callPIPPJIPPI(__functionAddress, command_queue, num_svm_pointers, svm_pointers, sizes, flags, num_events_in_wait_list, event_wait_list, event);
-	}
 
 	/**
 	 * Enqueues a command to indicate which device a set of ranges of SVM allocations should be associated with. Once the event returned by
@@ -397,17 +457,51 @@ public class CL21 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueSVMMigrateMem(long command_queue, int num_svm_pointers, ByteBuffer svm_pointers, ByteBuffer sizes, long flags, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
+	public static int nclEnqueueSVMMigrateMem(long command_queue, int num_svm_pointers, long svm_pointers, long sizes, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
+		long __functionAddress = CL.getICD().clEnqueueSVMMigrateMem;
 		if ( CHECKS ) {
-			checkBuffer(svm_pointers, num_svm_pointers << POINTER_SHIFT);
-			if ( sizes != null ) checkBuffer(sizes, num_svm_pointers << POINTER_SHIFT);
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
-			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
+			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
 		}
-		return nclEnqueueSVMMigrateMem(command_queue, num_svm_pointers, memAddress(svm_pointers), memAddressSafe(sizes), flags, num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPIPPJIPPI(__functionAddress, command_queue, num_svm_pointers, svm_pointers, sizes, flags, num_events_in_wait_list, event_wait_list, event);
 	}
 
-	/** Alternative version of: {@link #clEnqueueSVMMigrateMem EnqueueSVMMigrateMem} */
+	/**
+	 * Enqueues a command to indicate which device a set of ranges of SVM allocations should be associated with. Once the event returned by
+	 * {@code clEnqueueSVMMigrateMem} has become {@link CL10#CL_COMPLETE COMPLETE}, the ranges specified by svm pointers and sizes have been successfully migrated to the device
+	 * associated with command queue.
+	 * 
+	 * <p>The user is responsible for managing the event dependencies associated with this command in order to avoid overlapping access to SVM allocations.
+	 * Improperly specified event dependencies passed to {@code clEnqueueSVMMigrateMem} could result in undefined results.</p>
+	 *
+	 * @param command_queue   a valid host command queue. The specified set of allocation ranges will be migrated to the OpenCL device associated with {@code command_queue}.
+	 * @param svm_pointers    a pointer to an array of pointers. Each pointer in this array must be within an allocation produced by a call to {@link CL20#clSVMAlloc SVMAlloc}.
+	 * @param sizes           an array of sizes. The pair {@code svm_pointers[i]} and {@code sizes[i]} together define the starting address and number of bytes in a range to be
+	 *                        migrated. {@code sizes} may be {@code NULL} indicating that every allocation containing any {@code svm_pointer[i]} is to be migrated. Also, if
+	 *                        {@code sizes[i]} is zero, then the entire allocation containing {@code svm_pointer[i]} is migrated.
+	 * @param flags           a bit-field that is used to specify migration options
+	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event           Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                        {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                        complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                        {@code event_wait_list} array.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and events in {@code event_wait_list} are not the same</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code num_svm_pointers} is zero or {@code svm_pointers} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code sizes[i]} is non-zero range <code>[svm_pointers[i], svm_pointers[i]+sizes[i])</code> is not contained within an existing
+	 *         {@link CL20#clSVMAlloc SVMAlloc} allocation.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clEnqueueSVMMigrateMem(long command_queue, PointerBuffer svm_pointers, PointerBuffer sizes, long flags, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			if ( sizes != null ) checkBuffer(sizes, svm_pointers.remaining());

@@ -84,7 +84,13 @@ public class GLXAMDGPUAssociation {
 
 	// --- [ glXCreateAssociatedContextAttribsAMD ] ---
 
-	/** Unsafe version of {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
+	/**
+	 * Creates an associated context and requests a specific GL version.
+	 *
+	 * @param id            
+	 * @param share_context 
+	 * @param attribList    
+	 */
 	public static long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateAssociatedContextAttribsAMD;
 		if ( CHECKS ) {
@@ -101,11 +107,6 @@ public class GLXAMDGPUAssociation {
 	 * @param share_context 
 	 * @param attribList    
 	 */
-	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, ByteBuffer attribList) {
-		return nglXCreateAssociatedContextAttribsAMD(id, share_context, memAddress(attribList));
-	}
-
-	/** Alternative version of: {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, IntBuffer attribList) {
 		return nglXCreateAssociatedContextAttribsAMD(id, share_context, memAddress(attribList));
 	}
@@ -169,7 +170,15 @@ public class GLXAMDGPUAssociation {
 
 	// --- [ glXGetGPUInfoAMD ] ---
 
-	/** Unsafe version of {@link #glXGetGPUInfoAMD GetGPUInfoAMD} */
+	/**
+	 * Queries GPU properties.
+	 *
+	 * @param id       
+	 * @param property one of:<br>{@link #GLX_GPU_VENDOR_AMD GPU_VENDOR_AMD}, {@link #GLX_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}, {@link #GLX_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}, {@link #GLX_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}, {@link #GLX_GPU_RAM_AMD GPU_RAM_AMD}, {@link #GLX_GPU_CLOCK_AMD GPU_CLOCK_AMD}, {@link #GLX_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}, {@link #GLX_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}, {@link #GLX_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}, {@link #GLX_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}
+	 * @param dataType 
+	 * @param size     
+	 * @param data     
+	 */
 	public static int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetGPUInfoAMD;
 		if ( CHECKS )

@@ -44,7 +44,6 @@ public class EXTDrawInstanced {
 
 	// --- [ glDrawElementsInstancedEXT ] ---
 
-	/** Unsafe version of {@link #glDrawElementsInstancedEXT DrawElementsInstancedEXT} */
 	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedEXT;
 		if ( CHECKS )

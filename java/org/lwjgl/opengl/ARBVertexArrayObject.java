@@ -57,7 +57,12 @@ public class ARBVertexArrayObject {
 
 	// --- [ glDeleteVertexArrays ] ---
 
-	/** Unsafe version of {@link #glDeleteVertexArrays DeleteVertexArrays} */
+	/**
+	 * Deletes vertex array objects.
+	 *
+	 * @param n      the number of vertex array objects to be deleted
+	 * @param arrays an array containing the n names of the objects to be deleted
+	 */
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
 		if ( CHECKS )
@@ -68,21 +73,13 @@ public class ARBVertexArrayObject {
 	/**
 	 * Deletes vertex array objects.
 	 *
-	 * @param n      the number of vertex array objects to be deleted
 	 * @param arrays an array containing the n names of the objects to be deleted
 	 */
-	public static void glDeleteVertexArrays(int n, ByteBuffer arrays) {
-		if ( CHECKS )
-			checkBuffer(arrays, n << 2);
-		nglDeleteVertexArrays(n, memAddress(arrays));
-	}
-
-	/** Alternative version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(IntBuffer arrays) {
 		nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays));
 	}
 
-	/** Single value version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
+	/** Deletes vertex array objects. */
 	public static void glDeleteVertexArrays(int array) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -95,7 +92,12 @@ public class ARBVertexArrayObject {
 
 	// --- [ glGenVertexArrays ] ---
 
-	/** Unsafe version of {@link #glGenVertexArrays GenVertexArrays} */
+	/**
+	 * Generates vertex array object names.
+	 *
+	 * @param n      the number of vertex array object names to generate
+	 * @param arrays a buffer in which the generated vertex array object names are stored
+	 */
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
 		if ( CHECKS )
@@ -106,21 +108,13 @@ public class ARBVertexArrayObject {
 	/**
 	 * Generates vertex array object names.
 	 *
-	 * @param n      the number of vertex array object names to generate
 	 * @param arrays a buffer in which the generated vertex array object names are stored
 	 */
-	public static void glGenVertexArrays(int n, ByteBuffer arrays) {
-		if ( CHECKS )
-			checkBuffer(arrays, n << 2);
-		nglGenVertexArrays(n, memAddress(arrays));
-	}
-
-	/** Alternative version of: {@link #glGenVertexArrays GenVertexArrays} */
 	public static void glGenVertexArrays(IntBuffer arrays) {
 		nglGenVertexArrays(arrays.remaining(), memAddress(arrays));
 	}
 
-	/** Single return value version of: {@link #glGenVertexArrays GenVertexArrays} */
+	/** Generates vertex array object names. */
 	public static int glGenVertexArrays() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

@@ -62,7 +62,15 @@ public class ARBDrawInstanced {
 
 	// --- [ glDrawElementsInstancedARB ] ---
 
-	/** Unsafe version of {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
+	/**
+	 * Draws multiple instances of a set of elements.
+	 *
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param count     the number of elements to be rendered
+	 * @param type      the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices   a pointer to the location where the indices are stored
+	 * @param primcount the number of instances of the specified range of indices to be rendered
+	 */
 	public static void nglDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedARB;
 		if ( CHECKS )
@@ -79,43 +87,59 @@ public class ARBDrawInstanced {
 	 * @param indices   a pointer to the location where the indices are stored
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
-	public static void glDrawElementsInstancedARB(int mode, int count, int type, ByteBuffer indices, int primcount) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsInstancedARB(mode, count, type, memAddress(indices), primcount);
-	}
-
-	/** Buffer object offset version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
-	public static void glDrawElementsInstancedARB(int mode, int count, int type, long indicesOffset, int primcount) {
+	public static void glDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawElementsInstancedARB(mode, count, type, indicesOffset, primcount);
+		nglDrawElementsInstancedARB(mode, count, type, indices, primcount);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
+	/**
+	 * Draws multiple instances of a set of elements.
+	 *
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param type      the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices   a pointer to the location where the indices are stored
+	 * @param primcount the number of instances of the specified range of indices to be rendered
+	 */
 	public static void glDrawElementsInstancedARB(int mode, int type, ByteBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
+	/**
+	 * Draws multiple instances of a set of elements.
+	 *
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices   a pointer to the location where the indices are stored
+	 * @param primcount the number of instances of the specified range of indices to be rendered
+	 */
 	public static void glDrawElementsInstancedARB(int mode, ByteBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
+	/**
+	 * Draws multiple instances of a set of elements.
+	 *
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices   a pointer to the location where the indices are stored
+	 * @param primcount the number of instances of the specified range of indices to be rendered
+	 */
 	public static void glDrawElementsInstancedARB(int mode, ShortBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
+	/**
+	 * Draws multiple instances of a set of elements.
+	 *
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices   a pointer to the location where the indices are stored
+	 * @param primcount the number of instances of the specified range of indices to be rendered
+	 */
 	public static void glDrawElementsInstancedARB(int mode, IntBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);

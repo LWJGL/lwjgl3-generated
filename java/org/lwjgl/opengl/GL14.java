@@ -249,7 +249,13 @@ public class GL14 {
 
 	// --- [ glFogCoordfv ] ---
 
-	/** Unsafe version of {@link #glFogCoordfv FogCoordfv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoord.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glFogCoordf FogCoordf}.
+	 *
+	 * @param coord the fog coordinate value
+	 */
 	public static void nglFogCoordfv(long coord) {
 		long __functionAddress = GL.getCapabilities().glFogCoordfv;
 		if ( CHECKS )
@@ -264,13 +270,6 @@ public class GL14 {
 	 *
 	 * @param coord the fog coordinate value
 	 */
-	public static void glFogCoordfv(ByteBuffer coord) {
-		if ( CHECKS )
-			checkBuffer(coord, 1 << 2);
-		nglFogCoordfv(memAddress(coord));
-	}
-
-	/** Alternative version of: {@link #glFogCoordfv FogCoordfv} */
 	public static void glFogCoordfv(FloatBuffer coord) {
 		if ( CHECKS )
 			checkBuffer(coord, 1);
@@ -279,7 +278,13 @@ public class GL14 {
 
 	// --- [ glFogCoorddv ] ---
 
-	/** Unsafe version of {@link #glFogCoorddv FogCoorddv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoord.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glFogCoordd FogCoordd}.
+	 *
+	 * @param coord the fog coordinate value
+	 */
 	public static void nglFogCoorddv(long coord) {
 		long __functionAddress = GL.getCapabilities().glFogCoorddv;
 		if ( CHECKS )
@@ -294,13 +299,6 @@ public class GL14 {
 	 *
 	 * @param coord the fog coordinate value
 	 */
-	public static void glFogCoorddv(ByteBuffer coord) {
-		if ( CHECKS )
-			checkBuffer(coord, 1 << 3);
-		nglFogCoorddv(memAddress(coord));
-	}
-
-	/** Alternative version of: {@link #glFogCoorddv FogCoorddv} */
 	public static void glFogCoorddv(DoubleBuffer coord) {
 		if ( CHECKS )
 			checkBuffer(coord, 1);
@@ -309,7 +307,15 @@ public class GL14 {
 
 	// --- [ glFogCoordPointer ] ---
 
-	/** Unsafe version of {@link #glFogCoordPointer FogCoordPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Specifies the location and organization of a fog coordinate array.
+	 *
+	 * @param type    the data type of the values stored in the array. One of:<br>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the fog coordinate array data
+	 */
 	public static void nglFogCoordPointer(int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
 		if ( CHECKS )
@@ -332,11 +338,19 @@ public class GL14 {
 		nglFogCoordPointer(type, stride, memAddress(pointer));
 	}
 
-	/** Buffer object offset version of: {@link #glFogCoordPointer FogCoordPointer} */
-	public static void glFogCoordPointer(int type, int stride, long pointerOffset) {
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Specifies the location and organization of a fog coordinate array.
+	 *
+	 * @param type    the data type of the values stored in the array. One of:<br>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the fog coordinate array data
+	 */
+	public static void glFogCoordPointer(int type, int stride, long pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
-		nglFogCoordPointer(type, stride, pointerOffset);
+		nglFogCoordPointer(type, stride, pointer);
 	}
 
 	/** ShortBuffer version of: {@link #glFogCoordPointer FogCoordPointer} */
@@ -355,7 +369,16 @@ public class GL14 {
 
 	// --- [ glMultiDrawArrays ] ---
 
-	/** Unsafe version of {@link #glMultiDrawArrays MultiDrawArrays} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple sets of primitives from array data.
+	 *
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param first     an array of starting indices in the enabled arrays
+	 * @param count     an array of the number of indices to be rendered
+	 * @param primcount the size of {@code first} and {@code count}
+	 */
 	public static void nglMultiDrawArrays(int mode, long first, long count, int primcount) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArrays;
 		if ( CHECKS )
@@ -368,20 +391,10 @@ public class GL14 {
 	 * 
 	 * Renders multiple sets of primitives from array data.
 	 *
-	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
-	 * @param first     an array of starting indices in the enabled arrays
-	 * @param count     an array of the number of indices to be rendered
-	 * @param primcount the size of {@code first} and {@code count}
+	 * @param mode  the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param first an array of starting indices in the enabled arrays
+	 * @param count an array of the number of indices to be rendered
 	 */
-	public static void glMultiDrawArrays(int mode, ByteBuffer first, ByteBuffer count, int primcount) {
-		if ( CHECKS ) {
-			checkBuffer(first, primcount << 2);
-			checkBuffer(count, primcount << 2);
-		}
-		nglMultiDrawArrays(mode, memAddress(first), memAddress(count), primcount);
-	}
-
-	/** Alternative version of: {@link #glMultiDrawArrays MultiDrawArrays} */
 	public static void glMultiDrawArrays(int mode, IntBuffer first, IntBuffer count) {
 		if ( CHECKS )
 			checkBuffer(count, first.remaining());
@@ -389,14 +402,6 @@ public class GL14 {
 	}
 
 	// --- [ glMultiDrawElements ] ---
-
-	/** Unsafe version of {@link #glMultiDrawElements MultiDrawElements} */
-	public static void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawElements;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIPIPIV(__functionAddress, mode, count, type, indices, primcount);
-	}
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElements.xhtml">OpenGL SDK Reference</a></p>
@@ -411,15 +416,25 @@ public class GL14 {
 	 * @param indices   a pointer to the location where the indices are stored
 	 * @param primcount the size of the {@code count} array
 	 */
-	public static void glMultiDrawElements(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount) {
-		if ( CHECKS ) {
-			checkBuffer(count, primcount << 2);
-			checkBuffer(indices, primcount << POINTER_SHIFT);
-		}
-		nglMultiDrawElements(mode, memAddress(count), type, memAddress(indices), primcount);
+	public static void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount) {
+		long __functionAddress = GL.getCapabilities().glMultiDrawElements;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIPIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
-	/** Alternative version of: {@link #glMultiDrawElements MultiDrawElements} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElements.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple sets of primitives by specifying indices of array data elements.
+	 * 
+	 * <p><b>LWJGL note</b>: Use {@link MemoryUtil#memAddress} to retrieve pointers to the index buffers.</p>
+	 *
+	 * @param mode    the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param count   an array of the elements counts
+	 * @param type    the type of the values in indices. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices a pointer to the location where the indices are stored
+	 */
 	public static void glMultiDrawElements(int mode, IntBuffer count, int type, PointerBuffer indices) {
 		if ( CHECKS )
 			checkBuffer(indices, count.remaining());
@@ -462,7 +477,14 @@ public class GL14 {
 
 	// --- [ glPointParameterfv ] ---
 
-	/** Unsafe version of {@link #glPointParameterfv PointParameterfv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glPointParameterf PointParameterf}.
+	 *
+	 * @param pname  the parameter to set. Must be:<br>{@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}
+	 * @param params the parameter value
+	 */
 	public static void nglPointParameterfv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glPointParameterfv;
 		if ( CHECKS )
@@ -478,13 +500,6 @@ public class GL14 {
 	 * @param pname  the parameter to set. Must be:<br>{@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}
 	 * @param params the parameter value
 	 */
-	public static void glPointParameterfv(int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 3 << 2);
-		nglPointParameterfv(pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glPointParameterfv PointParameterfv} */
 	public static void glPointParameterfv(int pname, FloatBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 3);
@@ -493,7 +508,14 @@ public class GL14 {
 
 	// --- [ glPointParameteriv ] ---
 
-	/** Unsafe version of {@link #glPointParameteriv PointParameteriv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glPointParameteri PointParameteri}.
+	 *
+	 * @param pname  the parameter to set. Must be:<br>{@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}
+	 * @param params the parameter value
+	 */
 	public static void nglPointParameteriv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glPointParameteriv;
 		if ( CHECKS )
@@ -509,13 +531,6 @@ public class GL14 {
 	 * @param pname  the parameter to set. Must be:<br>{@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}
 	 * @param params the parameter value
 	 */
-	public static void glPointParameteriv(int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 3 << 2);
-		nglPointParameteriv(pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glPointParameteriv PointParameteriv} */
 	public static void glPointParameteriv(int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 3);
@@ -668,7 +683,13 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3bv ] ---
 
-	/** Unsafe version of {@link #glSecondaryColor3bv SecondaryColor3bv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Byte pointer version of {@link #glSecondaryColor3b SecondaryColor3b}.
+	 *
+	 * @param v the secondary color buffer
+	 */
 	public static void nglSecondaryColor3bv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3bv;
 		if ( CHECKS )
@@ -691,7 +712,13 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3sv ] ---
 
-	/** Unsafe version of {@link #glSecondaryColor3sv SecondaryColor3sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glSecondaryColor3s SecondaryColor3s}.
+	 *
+	 * @param v the secondary color buffer
+	 */
 	public static void nglSecondaryColor3sv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3sv;
 		if ( CHECKS )
@@ -706,13 +733,6 @@ public class GL14 {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3sv(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 1);
-		nglSecondaryColor3sv(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glSecondaryColor3sv SecondaryColor3sv} */
 	public static void glSecondaryColor3sv(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -721,7 +741,13 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3iv ] ---
 
-	/** Unsafe version of {@link #glSecondaryColor3iv SecondaryColor3iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glSecondaryColor3i SecondaryColor3i}.
+	 *
+	 * @param v the secondary color buffer
+	 */
 	public static void nglSecondaryColor3iv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3iv;
 		if ( CHECKS )
@@ -736,13 +762,6 @@ public class GL14 {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3iv(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 2);
-		nglSecondaryColor3iv(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glSecondaryColor3iv SecondaryColor3iv} */
 	public static void glSecondaryColor3iv(IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -751,7 +770,13 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3fv ] ---
 
-	/** Unsafe version of {@link #glSecondaryColor3fv SecondaryColor3fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glSecondaryColor3f SecondaryColor3f}.
+	 *
+	 * @param v the secondary color buffer
+	 */
 	public static void nglSecondaryColor3fv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3fv;
 		if ( CHECKS )
@@ -766,13 +791,6 @@ public class GL14 {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3fv(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 2);
-		nglSecondaryColor3fv(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glSecondaryColor3fv SecondaryColor3fv} */
 	public static void glSecondaryColor3fv(FloatBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -781,7 +799,13 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3dv ] ---
 
-	/** Unsafe version of {@link #glSecondaryColor3dv SecondaryColor3dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glSecondaryColor3d SecondaryColor3d}.
+	 *
+	 * @param v the secondary color buffer
+	 */
 	public static void nglSecondaryColor3dv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3dv;
 		if ( CHECKS )
@@ -796,13 +820,6 @@ public class GL14 {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3dv(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 3);
-		nglSecondaryColor3dv(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glSecondaryColor3dv SecondaryColor3dv} */
 	public static void glSecondaryColor3dv(DoubleBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -811,7 +828,13 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3ubv ] ---
 
-	/** Unsafe version of {@link #glSecondaryColor3ubv SecondaryColor3ubv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glSecondaryColor3ub SecondaryColor3ub}.
+	 *
+	 * @param v the secondary color buffer
+	 */
 	public static void nglSecondaryColor3ubv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3ubv;
 		if ( CHECKS )
@@ -834,7 +857,13 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3usv ] ---
 
-	/** Unsafe version of {@link #glSecondaryColor3usv SecondaryColor3usv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glSecondaryColor3us SecondaryColor3us}.
+	 *
+	 * @param v the secondary color buffer
+	 */
 	public static void nglSecondaryColor3usv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3usv;
 		if ( CHECKS )
@@ -849,13 +878,6 @@ public class GL14 {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3usv(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 1);
-		nglSecondaryColor3usv(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glSecondaryColor3usv SecondaryColor3usv} */
 	public static void glSecondaryColor3usv(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -864,7 +886,13 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3uiv ] ---
 
-	/** Unsafe version of {@link #glSecondaryColor3uiv SecondaryColor3uiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glSecondaryColor3ui SecondaryColor3ui}.
+	 *
+	 * @param v the secondary color buffer
+	 */
 	public static void nglSecondaryColor3uiv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3uiv;
 		if ( CHECKS )
@@ -879,13 +907,6 @@ public class GL14 {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3uiv(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 2);
-		nglSecondaryColor3uiv(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glSecondaryColor3uiv SecondaryColor3uiv} */
 	public static void glSecondaryColor3uiv(IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -894,7 +915,16 @@ public class GL14 {
 
 	// --- [ glSecondaryColorPointer ] ---
 
-	/** Unsafe version of {@link #glSecondaryColorPointer SecondaryColorPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Specifies the location and organization of a secondary color array.
+	 *
+	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. Must be:<br>3
+	 * @param type    the data type of the values stored in the array. One of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the secondary color array data
+	 */
 	public static void nglSecondaryColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
 		if ( CHECKS )
@@ -918,11 +948,20 @@ public class GL14 {
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
 	}
 
-	/** Buffer object offset version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
-	public static void glSecondaryColorPointer(int size, int type, int stride, long pointerOffset) {
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Specifies the location and organization of a secondary color array.
+	 *
+	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. Must be:<br>3
+	 * @param type    the data type of the values stored in the array. One of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the secondary color array data
+	 */
+	public static void glSecondaryColorPointer(int size, int type, int stride, long pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
-		nglSecondaryColorPointer(size, type, stride, pointerOffset);
+		nglSecondaryColorPointer(size, type, stride, pointer);
 	}
 
 	/** ShortBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
@@ -1035,7 +1074,13 @@ public class GL14 {
 
 	// --- [ glWindowPos2iv ] ---
 
-	/** Unsafe version of {@link #glWindowPos2iv WindowPos2iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glWindowPos2i WindowPos2i}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos2iv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2iv;
 		if ( CHECKS )
@@ -1050,13 +1095,6 @@ public class GL14 {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2iv(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 2 << 2);
-		nglWindowPos2iv(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos2iv WindowPos2iv} */
 	public static void glWindowPos2iv(IntBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 2);
@@ -1065,7 +1103,13 @@ public class GL14 {
 
 	// --- [ glWindowPos2sv ] ---
 
-	/** Unsafe version of {@link #glWindowPos2sv WindowPos2sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glWindowPos2s WindowPos2s}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos2sv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2sv;
 		if ( CHECKS )
@@ -1080,13 +1124,6 @@ public class GL14 {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2sv(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 2 << 1);
-		nglWindowPos2sv(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos2sv WindowPos2sv} */
 	public static void glWindowPos2sv(ShortBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 2);
@@ -1095,7 +1132,13 @@ public class GL14 {
 
 	// --- [ glWindowPos2fv ] ---
 
-	/** Unsafe version of {@link #glWindowPos2fv WindowPos2fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glWindowPos2f WindowPos2f}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos2fv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2fv;
 		if ( CHECKS )
@@ -1110,13 +1153,6 @@ public class GL14 {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2fv(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 2 << 2);
-		nglWindowPos2fv(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos2fv WindowPos2fv} */
 	public static void glWindowPos2fv(FloatBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 2);
@@ -1125,7 +1161,13 @@ public class GL14 {
 
 	// --- [ glWindowPos2dv ] ---
 
-	/** Unsafe version of {@link #glWindowPos2dv WindowPos2dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glWindowPos2d WindowPos2d}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos2dv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2dv;
 		if ( CHECKS )
@@ -1140,13 +1182,6 @@ public class GL14 {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2dv(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 2 << 3);
-		nglWindowPos2dv(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos2dv WindowPos2dv} */
 	public static void glWindowPos2dv(DoubleBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 2);
@@ -1227,7 +1262,13 @@ public class GL14 {
 
 	// --- [ glWindowPos3iv ] ---
 
-	/** Unsafe version of {@link #glWindowPos3iv WindowPos3iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glWindowPos3i WindowPos3i}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos3iv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3iv;
 		if ( CHECKS )
@@ -1242,13 +1283,6 @@ public class GL14 {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3iv(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 3 << 2);
-		nglWindowPos3iv(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos3iv WindowPos3iv} */
 	public static void glWindowPos3iv(IntBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 3);
@@ -1257,7 +1291,13 @@ public class GL14 {
 
 	// --- [ glWindowPos3sv ] ---
 
-	/** Unsafe version of {@link #glWindowPos3sv WindowPos3sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glWindowPos3s WindowPos3s}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos3sv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3sv;
 		if ( CHECKS )
@@ -1272,13 +1312,6 @@ public class GL14 {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3sv(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 3 << 1);
-		nglWindowPos3sv(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos3sv WindowPos3sv} */
 	public static void glWindowPos3sv(ShortBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 3);
@@ -1287,7 +1320,13 @@ public class GL14 {
 
 	// --- [ glWindowPos3fv ] ---
 
-	/** Unsafe version of {@link #glWindowPos3fv WindowPos3fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glWindowPos3f WindowPos3f}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos3fv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3fv;
 		if ( CHECKS )
@@ -1302,13 +1341,6 @@ public class GL14 {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3fv(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 3 << 2);
-		nglWindowPos3fv(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos3fv WindowPos3fv} */
 	public static void glWindowPos3fv(FloatBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 3);
@@ -1317,7 +1349,13 @@ public class GL14 {
 
 	// --- [ glWindowPos3dv ] ---
 
-	/** Unsafe version of {@link #glWindowPos3dv WindowPos3dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glWindowPos3d WindowPos3d}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos3dv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3dv;
 		if ( CHECKS )
@@ -1332,13 +1370,6 @@ public class GL14 {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3dv(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 3 << 3);
-		nglWindowPos3dv(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos3dv WindowPos3dv} */
 	public static void glWindowPos3dv(DoubleBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 3);

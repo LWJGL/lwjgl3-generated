@@ -41,7 +41,6 @@ public class KHRImage {
 
 	// --- [ eglCreateImageKHR ] ---
 
-	/** Unsafe version of {@link #eglCreateImageKHR CreateImageKHR} */
 	public static long neglCreateImageKHR(long dpy, long ctx, int target, long buffer, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateImageKHR;
 		if ( CHECKS ) {
@@ -53,13 +52,6 @@ public class KHRImage {
 		return callPPIPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
 
-	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreateImageKHR(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreateImageKHR CreateImageKHR} */
 	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);

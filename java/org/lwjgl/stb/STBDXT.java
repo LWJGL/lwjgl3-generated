@@ -36,7 +36,15 @@ public class STBDXT {
 
 	// --- [ stb_compress_dxt_block ] ---
 
-	/** JNI method for {@link #stb_compress_dxt_block compress_dxt_block} */
+	/**
+	 * Call this function for every block (you must pad). The source should be a 4x4 block of RGBA data in row-major order; A is ignored if you specify
+	 * {@code alpha=0}; you can turn on dithering and "high quality" using {@code mode}.
+	 *
+	 * @param dest  a buffer in which to store the compressed block
+	 * @param src   the block to compress
+	 * @param alpha 1 to compress the alpha channel, 0 to ignore it
+	 * @param mode  the compression mode. One of:<br>{@link #STB_DXT_NORMAL DXT_NORMAL}, {@link #STB_DXT_DITHER DXT_DITHER}, {@link #STB_DXT_HIGHQUAL DXT_HIGHQUAL}
+	 */
 	public static native void nstb_compress_dxt_block(long dest, long src, int alpha, int mode);
 
 	/**

@@ -68,7 +68,12 @@ public class ARBPointParameters {
 
 	// --- [ glPointParameterfvARB ] ---
 
-	/** Unsafe version of {@link #glPointParameterfvARB PointParameterfvARB} */
+	/**
+	 * Pointer version of {@link #glPointParameterfARB PointParameterfARB}.
+	 *
+	 * @param pname  the parameter to set. Must be:<br>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}
+	 * @param params the parameter value
+	 */
 	public static void nglPointParameterfvARB(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glPointParameterfvARB;
 		if ( CHECKS )
@@ -82,13 +87,6 @@ public class ARBPointParameters {
 	 * @param pname  the parameter to set. Must be:<br>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}
 	 * @param params the parameter value
 	 */
-	public static void glPointParameterfvARB(int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 3 << 2);
-		nglPointParameterfvARB(pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glPointParameterfvARB PointParameterfvARB} */
 	public static void glPointParameterfvARB(int pname, FloatBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 3);

@@ -108,7 +108,6 @@ public class EXTVertexAttrib64bit {
 
 	// --- [ glVertexAttribL1dvEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL1dvEXT VertexAttribL1dvEXT} */
 	public static void nglVertexAttribL1dvEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1dvEXT;
 		if ( CHECKS )
@@ -116,18 +115,12 @@ public class EXTVertexAttrib64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL1dvEXT(int index, ByteBuffer v) {
-		nglVertexAttribL1dvEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL1dvEXT VertexAttribL1dvEXT} */
 	public static void glVertexAttribL1dvEXT(int index, DoubleBuffer v) {
 		nglVertexAttribL1dvEXT(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribL2dvEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL2dvEXT VertexAttribL2dvEXT} */
 	public static void nglVertexAttribL2dvEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2dvEXT;
 		if ( CHECKS )
@@ -135,18 +128,12 @@ public class EXTVertexAttrib64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL2dvEXT(int index, ByteBuffer v) {
-		nglVertexAttribL2dvEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL2dvEXT VertexAttribL2dvEXT} */
 	public static void glVertexAttribL2dvEXT(int index, DoubleBuffer v) {
 		nglVertexAttribL2dvEXT(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribL3dvEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL3dvEXT VertexAttribL3dvEXT} */
 	public static void nglVertexAttribL3dvEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3dvEXT;
 		if ( CHECKS )
@@ -154,18 +141,12 @@ public class EXTVertexAttrib64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL3dvEXT(int index, ByteBuffer v) {
-		nglVertexAttribL3dvEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL3dvEXT VertexAttribL3dvEXT} */
 	public static void glVertexAttribL3dvEXT(int index, DoubleBuffer v) {
 		nglVertexAttribL3dvEXT(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribL4dvEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL4dvEXT VertexAttribL4dvEXT} */
 	public static void nglVertexAttribL4dvEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4dvEXT;
 		if ( CHECKS )
@@ -173,18 +154,12 @@ public class EXTVertexAttrib64bit {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribL4dvEXT(int index, ByteBuffer v) {
-		nglVertexAttribL4dvEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribL4dvEXT VertexAttribL4dvEXT} */
 	public static void glVertexAttribL4dvEXT(int index, DoubleBuffer v) {
 		nglVertexAttribL4dvEXT(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribLPointerEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribLPointerEXT VertexAttribLPointerEXT} */
 	public static void nglVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribLPointerEXT;
 		if ( CHECKS )
@@ -198,14 +173,12 @@ public class EXTVertexAttrib64bit {
 		nglVertexAttribLPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
 
-	/** Buffer object offset version of: {@link #glVertexAttribLPointerEXT VertexAttribLPointerEXT} */
-	public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointerOffset) {
+	public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
-		nglVertexAttribLPointerEXT(index, size, type, stride, pointerOffset);
+		nglVertexAttribLPointerEXT(index, size, type, stride, pointer);
 	}
 
-	/** GL_DOUBLE version of: {@link #glVertexAttribLPointerEXT VertexAttribLPointerEXT} */
 	public static void glVertexAttribLPointerEXT(int index, int size, int stride, DoubleBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -214,7 +187,6 @@ public class EXTVertexAttrib64bit {
 
 	// --- [ glGetVertexAttribLdvEXT ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribLdvEXT GetVertexAttribLdvEXT} */
 	public static void nglGetVertexAttribLdvEXT(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLdvEXT;
 		if ( CHECKS )
@@ -222,11 +194,6 @@ public class EXTVertexAttrib64bit {
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
-	public static void glGetVertexAttribLdvEXT(int index, int pname, ByteBuffer params) {
-		nglGetVertexAttribLdvEXT(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribLdvEXT GetVertexAttribLdvEXT} */
 	public static void glGetVertexAttribLdvEXT(int index, int pname, DoubleBuffer params) {
 		nglGetVertexAttribLdvEXT(index, pname, memAddress(params));
 	}

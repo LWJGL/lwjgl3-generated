@@ -84,7 +84,6 @@ public class EXTDrawBuffers {
 
 	// --- [ glDrawBuffersEXT ] ---
 
-	/** Unsafe version of {@link #glDrawBuffersEXT DrawBuffersEXT} */
 	public static void nglDrawBuffersEXT(int n, long bufs) {
 		long __functionAddress = GLES.getCapabilities().glDrawBuffersEXT;
 		if ( CHECKS )
@@ -92,18 +91,10 @@ public class EXTDrawBuffers {
 		callIPV(__functionAddress, n, bufs);
 	}
 
-	public static void glDrawBuffersEXT(int n, ByteBuffer bufs) {
-		if ( CHECKS )
-			checkBuffer(bufs, n << 2);
-		nglDrawBuffersEXT(n, memAddress(bufs));
-	}
-
-	/** Alternative version of: {@link #glDrawBuffersEXT DrawBuffersEXT} */
 	public static void glDrawBuffersEXT(IntBuffer bufs) {
 		nglDrawBuffersEXT(bufs.remaining(), memAddress(bufs));
 	}
 
-	/** Single value version of: {@link #glDrawBuffersEXT DrawBuffersEXT} */
 	public static void glDrawBuffersEXT(int buf) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

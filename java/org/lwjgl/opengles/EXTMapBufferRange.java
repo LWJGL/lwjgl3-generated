@@ -54,7 +54,6 @@ public class EXTMapBufferRange {
 
 	// --- [ glMapBufferRangeEXT ] ---
 
-	/** Unsafe version of {@link #glMapBufferRangeEXT MapBufferRangeEXT} */
 	public static long nglMapBufferRangeEXT(int target, long offset, long length, int access) {
 		long __functionAddress = GLES.getCapabilities().glMapBufferRangeEXT;
 		if ( CHECKS )
@@ -67,7 +66,6 @@ public class EXTMapBufferRange {
 		return memByteBuffer(__result, (int)length);
 	}
 
-	/** Alternative version of: {@link #glMapBufferRangeEXT MapBufferRangeEXT} */
 	public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapBufferRangeEXT(target, offset, length, access);
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);

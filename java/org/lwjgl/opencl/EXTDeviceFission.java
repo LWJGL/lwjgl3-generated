@@ -117,7 +117,6 @@ public class EXTDeviceFission {
 
 	// --- [ clCreateSubDevicesEXT ] ---
 
-	/** Unsafe version of {@link #clCreateSubDevicesEXT CreateSubDevicesEXT} */
 	public static int nclCreateSubDevicesEXT(long in_device, long properties, int num_entries, long out_devices, long num_devices) {
 		long __functionAddress = CL.getICD().clCreateSubDevicesEXT;
 		if ( CHECKS ) {
@@ -127,16 +126,6 @@ public class EXTDeviceFission {
 		return callPPIPPI(__functionAddress, in_device, properties, num_entries, out_devices, num_devices);
 	}
 
-	public static int clCreateSubDevicesEXT(long in_device, ByteBuffer properties, int num_entries, ByteBuffer out_devices, ByteBuffer num_devices) {
-		if ( CHECKS ) {
-			checkNT8(properties);
-			if ( out_devices != null ) checkBuffer(out_devices, num_entries << POINTER_SHIFT);
-			if ( num_devices != null ) checkBuffer(num_devices, 1 << 2);
-		}
-		return nclCreateSubDevicesEXT(in_device, memAddress(properties), num_entries, memAddressSafe(out_devices), memAddressSafe(num_devices));
-	}
-
-	/** Alternative version of: {@link #clCreateSubDevicesEXT CreateSubDevicesEXT} */
 	public static int clCreateSubDevicesEXT(long in_device, LongBuffer properties, PointerBuffer out_devices, IntBuffer num_devices) {
 		if ( CHECKS ) {
 			checkNT(properties);

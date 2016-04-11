@@ -34,7 +34,6 @@ public class NVNativeQuery {
 
 	// --- [ eglQueryNativeDisplayNV ] ---
 
-	/** Unsafe version of {@link #eglQueryNativeDisplayNV QueryNativeDisplayNV} */
 	public static int neglQueryNativeDisplayNV(long dpy, long display_id) {
 		long __functionAddress = EGL.getCapabilities().eglQueryNativeDisplayNV;
 		if ( CHECKS ) {
@@ -44,13 +43,6 @@ public class NVNativeQuery {
 		return callPPI(__functionAddress, dpy, display_id);
 	}
 
-	public static int eglQueryNativeDisplayNV(long dpy, ByteBuffer display_id) {
-		if ( CHECKS )
-			checkBuffer(display_id, 1 << POINTER_SHIFT);
-		return neglQueryNativeDisplayNV(dpy, memAddress(display_id));
-	}
-
-	/** Alternative version of: {@link #eglQueryNativeDisplayNV QueryNativeDisplayNV} */
 	public static int eglQueryNativeDisplayNV(long dpy, PointerBuffer display_id) {
 		if ( CHECKS )
 			checkBuffer(display_id, 1);
@@ -59,7 +51,6 @@ public class NVNativeQuery {
 
 	// --- [ eglQueryNativeWindowNV ] ---
 
-	/** Unsafe version of {@link #eglQueryNativeWindowNV QueryNativeWindowNV} */
 	public static int neglQueryNativeWindowNV(long dpy, long surf, long window) {
 		long __functionAddress = EGL.getCapabilities().eglQueryNativeWindowNV;
 		if ( CHECKS ) {
@@ -70,13 +61,6 @@ public class NVNativeQuery {
 		return callPPPI(__functionAddress, dpy, surf, window);
 	}
 
-	public static int eglQueryNativeWindowNV(long dpy, long surf, ByteBuffer window) {
-		if ( CHECKS )
-			checkBuffer(window, 1 << POINTER_SHIFT);
-		return neglQueryNativeWindowNV(dpy, surf, memAddress(window));
-	}
-
-	/** Alternative version of: {@link #eglQueryNativeWindowNV QueryNativeWindowNV} */
 	public static int eglQueryNativeWindowNV(long dpy, long surf, PointerBuffer window) {
 		if ( CHECKS )
 			checkBuffer(window, 1);
@@ -85,7 +69,6 @@ public class NVNativeQuery {
 
 	// --- [ eglQueryNativePixmapNV ] ---
 
-	/** Unsafe version of {@link #eglQueryNativePixmapNV QueryNativePixmapNV} */
 	public static int neglQueryNativePixmapNV(long dpy, long surf, long pixmap) {
 		long __functionAddress = EGL.getCapabilities().eglQueryNativePixmapNV;
 		if ( CHECKS ) {
@@ -96,13 +79,6 @@ public class NVNativeQuery {
 		return callPPPI(__functionAddress, dpy, surf, pixmap);
 	}
 
-	public static int eglQueryNativePixmapNV(long dpy, long surf, ByteBuffer pixmap) {
-		if ( CHECKS )
-			checkBuffer(pixmap, 1 << POINTER_SHIFT);
-		return neglQueryNativePixmapNV(dpy, surf, memAddress(pixmap));
-	}
-
-	/** Alternative version of: {@link #eglQueryNativePixmapNV QueryNativePixmapNV} */
 	public static int eglQueryNativePixmapNV(long dpy, long surf, PointerBuffer pixmap) {
 		if ( CHECKS )
 			checkBuffer(pixmap, 1);

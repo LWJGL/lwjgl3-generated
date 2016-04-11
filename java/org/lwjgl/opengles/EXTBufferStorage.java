@@ -59,7 +59,6 @@ public class EXTBufferStorage {
 
 	// --- [ glBufferStorageEXT ] ---
 
-	/** Unsafe version of {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void nglBufferStorageEXT(int target, long size, long data, int flags) {
 		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
 		if ( CHECKS )
@@ -67,13 +66,6 @@ public class EXTBufferStorage {
 		callIPPIV(__functionAddress, target, size, data, flags);
 	}
 
-	public static void glBufferStorageEXT(int target, long size, ByteBuffer data, int flags) {
-		if ( CHECKS )
-			if ( data != null ) checkBuffer(data, size);
-		nglBufferStorageEXT(target, size, memAddressSafe(data), flags);
-	}
-
-	/** Alternative version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, long size, int flags) {
 		nglBufferStorageEXT(target, size, NULL, flags);
 	}

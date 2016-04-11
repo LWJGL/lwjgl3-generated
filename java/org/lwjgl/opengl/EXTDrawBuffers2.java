@@ -49,7 +49,6 @@ public class EXTDrawBuffers2 {
 
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
-	/** Unsafe version of {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	public static void nglGetBooleanIndexedvEXT(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetBooleanIndexedvEXT;
 		if ( CHECKS )
@@ -63,7 +62,6 @@ public class EXTDrawBuffers2 {
 		nglGetBooleanIndexedvEXT(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	public static byte glGetBooleanIndexedEXT(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -77,7 +75,6 @@ public class EXTDrawBuffers2 {
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
-	/** Unsafe version of {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static void nglGetIntegerIndexedvEXT(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
 		if ( CHECKS )
@@ -85,20 +82,12 @@ public class EXTDrawBuffers2 {
 		callIIPV(__functionAddress, target, index, data);
 	}
 
-	public static void glGetIntegerIndexedvEXT(int target, int index, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, 1 << 2);
-		nglGetIntegerIndexedvEXT(target, index, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static void glGetIntegerIndexedvEXT(int target, int index, IntBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetIntegerIndexedvEXT(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static int glGetIntegerIndexedEXT(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

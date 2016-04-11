@@ -23,7 +23,11 @@ public class StringH {
 
 	// --- [ strerror ] ---
 
-	/** JNI method for {@link #strerror} */
+	/**
+	 * Maps the error number in {@code errnum} to a locale-dependent error message string and returns a pointer to it.
+	 *
+	 * @param errnum the error number
+	 */
 	public static native long nstrerror(int errnum);
 
 	/**

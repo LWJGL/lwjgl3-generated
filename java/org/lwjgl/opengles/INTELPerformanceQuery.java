@@ -103,7 +103,6 @@ public class INTELPerformanceQuery {
 
 	// --- [ glCreatePerfQueryINTEL ] ---
 
-	/** Unsafe version of {@link #glCreatePerfQueryINTEL CreatePerfQueryINTEL} */
 	public static void nglCreatePerfQueryINTEL(int queryId, long queryHandle) {
 		long __functionAddress = GLES.getCapabilities().glCreatePerfQueryINTEL;
 		if ( CHECKS )
@@ -111,20 +110,12 @@ public class INTELPerformanceQuery {
 		callIPV(__functionAddress, queryId, queryHandle);
 	}
 
-	public static void glCreatePerfQueryINTEL(int queryId, ByteBuffer queryHandle) {
-		if ( CHECKS )
-			checkBuffer(queryHandle, 1 << 2);
-		nglCreatePerfQueryINTEL(queryId, memAddress(queryHandle));
-	}
-
-	/** Alternative version of: {@link #glCreatePerfQueryINTEL CreatePerfQueryINTEL} */
 	public static void glCreatePerfQueryINTEL(int queryId, IntBuffer queryHandle) {
 		if ( CHECKS )
 			checkBuffer(queryHandle, 1);
 		nglCreatePerfQueryINTEL(queryId, memAddress(queryHandle));
 	}
 
-	/** Single return value version of: {@link #glCreatePerfQueryINTEL CreatePerfQueryINTEL} */
 	public static int glCreatePerfQueryINTEL(int queryId) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -156,7 +147,6 @@ public class INTELPerformanceQuery {
 
 	// --- [ glGetFirstPerfQueryIdINTEL ] ---
 
-	/** Unsafe version of {@link #glGetFirstPerfQueryIdINTEL GetFirstPerfQueryIdINTEL} */
 	public static void nglGetFirstPerfQueryIdINTEL(long queryId) {
 		long __functionAddress = GLES.getCapabilities().glGetFirstPerfQueryIdINTEL;
 		if ( CHECKS )
@@ -164,20 +154,12 @@ public class INTELPerformanceQuery {
 		callPV(__functionAddress, queryId);
 	}
 
-	public static void glGetFirstPerfQueryIdINTEL(ByteBuffer queryId) {
-		if ( CHECKS )
-			checkBuffer(queryId, 1 << 2);
-		nglGetFirstPerfQueryIdINTEL(memAddress(queryId));
-	}
-
-	/** Alternative version of: {@link #glGetFirstPerfQueryIdINTEL GetFirstPerfQueryIdINTEL} */
 	public static void glGetFirstPerfQueryIdINTEL(IntBuffer queryId) {
 		if ( CHECKS )
 			checkBuffer(queryId, 1);
 		nglGetFirstPerfQueryIdINTEL(memAddress(queryId));
 	}
 
-	/** Single return value version of: {@link #glGetFirstPerfQueryIdINTEL GetFirstPerfQueryIdINTEL} */
 	public static int glGetFirstPerfQueryIdINTEL() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -191,7 +173,6 @@ public class INTELPerformanceQuery {
 
 	// --- [ glGetNextPerfQueryIdINTEL ] ---
 
-	/** Unsafe version of {@link #glGetNextPerfQueryIdINTEL GetNextPerfQueryIdINTEL} */
 	public static void nglGetNextPerfQueryIdINTEL(int queryId, long nextQueryId) {
 		long __functionAddress = GLES.getCapabilities().glGetNextPerfQueryIdINTEL;
 		if ( CHECKS )
@@ -199,20 +180,12 @@ public class INTELPerformanceQuery {
 		callIPV(__functionAddress, queryId, nextQueryId);
 	}
 
-	public static void glGetNextPerfQueryIdINTEL(int queryId, ByteBuffer nextQueryId) {
-		if ( CHECKS )
-			checkBuffer(nextQueryId, 1 << 2);
-		nglGetNextPerfQueryIdINTEL(queryId, memAddress(nextQueryId));
-	}
-
-	/** Alternative version of: {@link #glGetNextPerfQueryIdINTEL GetNextPerfQueryIdINTEL} */
 	public static void glGetNextPerfQueryIdINTEL(int queryId, IntBuffer nextQueryId) {
 		if ( CHECKS )
 			checkBuffer(nextQueryId, 1);
 		nglGetNextPerfQueryIdINTEL(queryId, memAddress(nextQueryId));
 	}
 
-	/** Single return value version of: {@link #glGetNextPerfQueryIdINTEL GetNextPerfQueryIdINTEL} */
 	public static int glGetNextPerfQueryIdINTEL(int queryId) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -226,7 +199,6 @@ public class INTELPerformanceQuery {
 
 	// --- [ glGetPerfCounterInfoINTEL ] ---
 
-	/** Unsafe version of {@link #glGetPerfCounterInfoINTEL GetPerfCounterInfoINTEL} */
 	public static void nglGetPerfCounterInfoINTEL(int queryId, int counterId, int counterNameLength, long counterName, int counterDescLength, long counterDesc, long counterOffset, long counterDataSize, long counterTypeEnum, long counterDataTypeEnum, long rawCounterMaxValue) {
 		long __functionAddress = GLES.getCapabilities().glGetPerfCounterInfoINTEL;
 		if ( CHECKS )
@@ -234,20 +206,6 @@ public class INTELPerformanceQuery {
 		callIIIPIPPPPPPV(__functionAddress, queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue);
 	}
 
-	public static void glGetPerfCounterInfoINTEL(int queryId, int counterId, int counterNameLength, ByteBuffer counterName, int counterDescLength, ByteBuffer counterDesc, ByteBuffer counterOffset, ByteBuffer counterDataSize, ByteBuffer counterTypeEnum, ByteBuffer counterDataTypeEnum, ByteBuffer rawCounterMaxValue) {
-		if ( CHECKS ) {
-			checkBuffer(counterName, counterNameLength);
-			checkBuffer(counterDesc, counterDescLength);
-			checkBuffer(counterOffset, 1 << 2);
-			checkBuffer(counterDataSize, 1 << 2);
-			checkBuffer(counterTypeEnum, 1 << 2);
-			checkBuffer(counterDataTypeEnum, 1 << 2);
-			checkBuffer(rawCounterMaxValue, 1 << 3);
-		}
-		nglGetPerfCounterInfoINTEL(queryId, counterId, counterNameLength, memAddress(counterName), counterDescLength, memAddress(counterDesc), memAddress(counterOffset), memAddress(counterDataSize), memAddress(counterTypeEnum), memAddress(counterDataTypeEnum), memAddress(rawCounterMaxValue));
-	}
-
-	/** Alternative version of: {@link #glGetPerfCounterInfoINTEL GetPerfCounterInfoINTEL} */
 	public static void glGetPerfCounterInfoINTEL(int queryId, int counterId, ByteBuffer counterName, ByteBuffer counterDesc, IntBuffer counterOffset, IntBuffer counterDataSize, IntBuffer counterTypeEnum, IntBuffer counterDataTypeEnum, LongBuffer rawCounterMaxValue) {
 		if ( CHECKS ) {
 			checkBuffer(counterOffset, 1);
@@ -261,7 +219,6 @@ public class INTELPerformanceQuery {
 
 	// --- [ glGetPerfQueryDataINTEL ] ---
 
-	/** Unsafe version of {@link #glGetPerfQueryDataINTEL GetPerfQueryDataINTEL} */
 	public static void nglGetPerfQueryDataINTEL(int queryHandle, int flags, int dataSize, long data, long bytesWritten) {
 		long __functionAddress = GLES.getCapabilities().glGetPerfQueryDataINTEL;
 		if ( CHECKS )
@@ -269,15 +226,6 @@ public class INTELPerformanceQuery {
 		callIIIPPV(__functionAddress, queryHandle, flags, dataSize, data, bytesWritten);
 	}
 
-	public static void glGetPerfQueryDataINTEL(int queryHandle, int flags, int dataSize, ByteBuffer data, ByteBuffer bytesWritten) {
-		if ( CHECKS ) {
-			checkBuffer(data, dataSize);
-			checkBuffer(bytesWritten, 1 << 2);
-		}
-		nglGetPerfQueryDataINTEL(queryHandle, flags, dataSize, memAddress(data), memAddress(bytesWritten));
-	}
-
-	/** Alternative version of: {@link #glGetPerfQueryDataINTEL GetPerfQueryDataINTEL} */
 	public static void glGetPerfQueryDataINTEL(int queryHandle, int flags, ByteBuffer data, IntBuffer bytesWritten) {
 		if ( CHECKS )
 			checkBuffer(bytesWritten, 1);
@@ -286,7 +234,6 @@ public class INTELPerformanceQuery {
 
 	// --- [ glGetPerfQueryIdByNameINTEL ] ---
 
-	/** Unsafe version of {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
 	public static void nglGetPerfQueryIdByNameINTEL(long queryName, long queryId) {
 		long __functionAddress = GLES.getCapabilities().glGetPerfQueryIdByNameINTEL;
 		if ( CHECKS )
@@ -294,15 +241,6 @@ public class INTELPerformanceQuery {
 		callPPV(__functionAddress, queryName, queryId);
 	}
 
-	public static void glGetPerfQueryIdByNameINTEL(ByteBuffer queryName, ByteBuffer queryId) {
-		if ( CHECKS ) {
-			checkNT1(queryName);
-			checkBuffer(queryId, 1 << 2);
-		}
-		nglGetPerfQueryIdByNameINTEL(memAddress(queryName), memAddress(queryId));
-	}
-
-	/** Alternative version of: {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
 	public static void glGetPerfQueryIdByNameINTEL(ByteBuffer queryName, IntBuffer queryId) {
 		if ( CHECKS ) {
 			checkNT1(queryName);
@@ -311,7 +249,6 @@ public class INTELPerformanceQuery {
 		nglGetPerfQueryIdByNameINTEL(memAddress(queryName), memAddress(queryId));
 	}
 
-	/** CharSequence version of: {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
 	public static void glGetPerfQueryIdByNameINTEL(CharSequence queryName, IntBuffer queryId) {
 		if ( CHECKS )
 			checkBuffer(queryId, 1);
@@ -324,7 +261,6 @@ public class INTELPerformanceQuery {
 		}
 	}
 
-	/** Single return value version of: {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
 	public static int glGetPerfQueryIdByNameINTEL(CharSequence queryName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -339,7 +275,6 @@ public class INTELPerformanceQuery {
 
 	// --- [ glGetPerfQueryInfoINTEL ] ---
 
-	/** Unsafe version of {@link #glGetPerfQueryInfoINTEL GetPerfQueryInfoINTEL} */
 	public static void nglGetPerfQueryInfoINTEL(int queryId, int queryNameLength, long queryName, long dataSize, long noCounters, long noInstances, long capsMask) {
 		long __functionAddress = GLES.getCapabilities().glGetPerfQueryInfoINTEL;
 		if ( CHECKS )
@@ -347,18 +282,6 @@ public class INTELPerformanceQuery {
 		callIIPPPPPV(__functionAddress, queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask);
 	}
 
-	public static void glGetPerfQueryInfoINTEL(int queryId, int queryNameLength, ByteBuffer queryName, ByteBuffer dataSize, ByteBuffer noCounters, ByteBuffer noInstances, ByteBuffer capsMask) {
-		if ( CHECKS ) {
-			checkBuffer(queryName, queryNameLength);
-			checkBuffer(dataSize, 1 << 2);
-			checkBuffer(noCounters, 1 << 2);
-			checkBuffer(noInstances, 1 << 2);
-			checkBuffer(capsMask, 1 << 2);
-		}
-		nglGetPerfQueryInfoINTEL(queryId, queryNameLength, memAddress(queryName), memAddress(dataSize), memAddress(noCounters), memAddress(noInstances), memAddress(capsMask));
-	}
-
-	/** Alternative version of: {@link #glGetPerfQueryInfoINTEL GetPerfQueryInfoINTEL} */
 	public static void glGetPerfQueryInfoINTEL(int queryId, ByteBuffer queryName, IntBuffer dataSize, IntBuffer noCounters, IntBuffer noInstances, IntBuffer capsMask) {
 		if ( CHECKS ) {
 			checkBuffer(dataSize, 1);

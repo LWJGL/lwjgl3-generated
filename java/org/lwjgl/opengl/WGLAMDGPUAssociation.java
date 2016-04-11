@@ -54,7 +54,16 @@ public class WGLAMDGPUAssociation {
 
 	// --- [ wglGetGPUIDsAMD ] ---
 
-	/** Unsafe version of {@link #wglGetGPUIDsAMD GetGPUIDsAMD} */
+	/**
+	 * Returns the IDs for available GPUs.
+	 * 
+	 * <p>If the function succeeds, the return value is the number of total GPUs available. The value 0 is returned if no GPUs are available or if the call has
+	 * failed. The ID 0 is reserved and will not be retuned as a valid GPU ID. If the array {@code ids} is {@code NULL}, the function will only return the total
+	 * number of GPUs. {@code ids} will be tightly packed with no 0 values between valid ids.</p>
+	 *
+	 * @param maxCount the max number of IDs that can be returned
+	 * @param ids      the array of returned IDs
+	 */
 	public static int nwglGetGPUIDsAMD(int maxCount, long ids) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUIDsAMD;
 		if ( CHECKS )
@@ -69,23 +78,29 @@ public class WGLAMDGPUAssociation {
 	 * failed. The ID 0 is reserved and will not be retuned as a valid GPU ID. If the array {@code ids} is {@code NULL}, the function will only return the total
 	 * number of GPUs. {@code ids} will be tightly packed with no 0 values between valid ids.</p>
 	 *
-	 * @param maxCount the max number of IDs that can be returned
-	 * @param ids      the array of returned IDs
+	 * @param ids the array of returned IDs
 	 */
-	public static int wglGetGPUIDsAMD(int maxCount, ByteBuffer ids) {
-		if ( CHECKS )
-			if ( ids != null ) checkBuffer(ids, maxCount << 2);
-		return nwglGetGPUIDsAMD(maxCount, memAddressSafe(ids));
-	}
-
-	/** Alternative version of: {@link #wglGetGPUIDsAMD GetGPUIDsAMD} */
 	public static int wglGetGPUIDsAMD(IntBuffer ids) {
 		return nwglGetGPUIDsAMD(ids == null ? 0 : ids.remaining(), memAddressSafe(ids));
 	}
 
 	// --- [ wglGetGPUInfoAMD ] ---
 
-	/** Unsafe version of {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
+	/**
+	 * Each GPU in a system may have different properties, performance characteristics and different supported OpenGL versions. Use this function to determine
+	 * which GPU is best suited for a specific task.
+	 * 
+	 * <p>For a string, {@code size} will be the number of characters allocated and will include {@code NULL} termination. For arrays of type GL_UNSIGNED_INT, GL_INT,
+	 * and GL_FLOAT {@code size} will be the array depth. If the function succeeds, the number of values written will be returned. If the number of values
+	 * written is equal to {@code size}, the query should be repeated with a larger {@code data} buffer. Strings should be queried using the GL_UNSIGNED_BYTE
+	 * type, are UTF-8 encoded and will be {@code NULL} terminated. If the function fails, -1 will be returned.</p>
+	 *
+	 * @param id       a GPU id obtained from calling {@link #wglGetGPUIDsAMD GetGPUIDsAMD}
+	 * @param property the information being queried. One of:<br>{@link #WGL_GPU_VENDOR_AMD GPU_VENDOR_AMD}, {@link #WGL_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}, {@link #WGL_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}, {@link #WGL_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}, {@link #WGL_GPU_RAM_AMD GPU_RAM_AMD}, {@link #WGL_GPU_CLOCK_AMD GPU_CLOCK_AMD}, {@link #WGL_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}, {@link #WGL_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}, {@link #WGL_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}, {@link #WGL_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}
+	 * @param dataType the data type to be returned. One of:<br>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}
+	 * @param size     the size of the {@code data} buffer
+	 * @param data     the buffer which will be filled with the requested information
+	 */
 	public static int nwglGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUInfoAMD;
 		if ( CHECKS )
@@ -105,16 +120,8 @@ public class WGLAMDGPUAssociation {
 	 * @param id       a GPU id obtained from calling {@link #wglGetGPUIDsAMD GetGPUIDsAMD}
 	 * @param property the information being queried. One of:<br>{@link #WGL_GPU_VENDOR_AMD GPU_VENDOR_AMD}, {@link #WGL_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}, {@link #WGL_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}, {@link #WGL_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}, {@link #WGL_GPU_RAM_AMD GPU_RAM_AMD}, {@link #WGL_GPU_CLOCK_AMD GPU_CLOCK_AMD}, {@link #WGL_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}, {@link #WGL_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}, {@link #WGL_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}, {@link #WGL_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}
 	 * @param dataType the data type to be returned. One of:<br>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}
-	 * @param size     the size of the {@code data} buffer
 	 * @param data     the buffer which will be filled with the requested information
 	 */
-	public static int wglGetGPUInfoAMD(int id, int property, int dataType, int size, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, size << GLChecks.typeToByteShift(dataType));
-		return nwglGetGPUInfoAMD(id, property, dataType, size, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
 	public static int wglGetGPUInfoAMD(int id, int property, int dataType, ByteBuffer data) {
 		return nwglGetGPUInfoAMD(id, property, dataType, data.remaining() >> GLChecks.typeToByteShift(dataType), memAddress(data));
 	}
@@ -165,7 +172,15 @@ public class WGLAMDGPUAssociation {
 
 	// --- [ wglCreateAssociatedContextAttribsAMD ] ---
 
-	/** Unsafe version of {@link #wglCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
+	/**
+	 * Create an associated context with a specific GL version.
+	 * 
+	 * <p>All capabilities and limitations of {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB} apply to {@code CreateAssociatedContextAttribsAMD}.</p>
+	 *
+	 * @param id           a valid GPU id
+	 * @param shareContext must either be {@code NULL} or that of an associated context created with the same GPU ID as {@code id}
+	 * @param attribList   a 0-terminated list of attributes for the context
+	 */
 	public static long nwglCreateAssociatedContextAttribsAMD(int id, long shareContext, long attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateAssociatedContextAttribsAMD;
 		if ( CHECKS )
@@ -182,13 +197,6 @@ public class WGLAMDGPUAssociation {
 	 * @param shareContext must either be {@code NULL} or that of an associated context created with the same GPU ID as {@code id}
 	 * @param attribList   a 0-terminated list of attributes for the context
 	 */
-	public static long wglCreateAssociatedContextAttribsAMD(int id, long shareContext, ByteBuffer attribList) {
-		if ( CHECKS )
-			if ( attribList != null ) checkNT4(attribList);
-		return nwglCreateAssociatedContextAttribsAMD(id, shareContext, memAddressSafe(attribList));
-	}
-
-	/** Alternative version of: {@link #wglCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	public static long wglCreateAssociatedContextAttribsAMD(int id, long shareContext, IntBuffer attribList) {
 		if ( CHECKS )
 			if ( attribList != null ) checkNT(attribList);

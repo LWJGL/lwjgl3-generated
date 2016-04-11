@@ -76,7 +76,6 @@ public class NVDrawBuffers {
 
 	// --- [ glDrawBuffersNV ] ---
 
-	/** Unsafe version of {@link #glDrawBuffersNV DrawBuffersNV} */
 	public static void nglDrawBuffersNV(int n, long bufs) {
 		long __functionAddress = GLES.getCapabilities().glDrawBuffersNV;
 		if ( CHECKS )
@@ -84,18 +83,10 @@ public class NVDrawBuffers {
 		callIPV(__functionAddress, n, bufs);
 	}
 
-	public static void glDrawBuffersNV(int n, ByteBuffer bufs) {
-		if ( CHECKS )
-			checkBuffer(bufs, n << 2);
-		nglDrawBuffersNV(n, memAddress(bufs));
-	}
-
-	/** Alternative version of: {@link #glDrawBuffersNV DrawBuffersNV} */
 	public static void glDrawBuffersNV(IntBuffer bufs) {
 		nglDrawBuffersNV(bufs.remaining(), memAddress(bufs));
 	}
 
-	/** Single value version of: {@link #glDrawBuffersNV DrawBuffersNV} */
 	public static void glDrawBuffersNV(int buf) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

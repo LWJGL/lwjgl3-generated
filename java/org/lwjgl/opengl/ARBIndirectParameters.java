@@ -52,7 +52,18 @@ public class ARBIndirectParameters {
 
 	// --- [ glMultiDrawArraysIndirectCountARB ] ---
 
-	/** Unsafe version of {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
+	/**
+	 * Behaves similarly to {@link GL43#glMultiDrawArraysIndirect MultiDrawArraysIndirect}, except that {@code drawcount} defines an offset (in bytes) into the buffer object bound to the
+	 * {@link #GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB} binding point at which a single {@code sizei} typed value is stored, which contains the draw count. {@code maxdrawcount} specifies
+	 * the maximum number of draws that are expected to be stored in the buffer. If the value stored at {@code drawcount} into the buffer is greater than
+	 * {@code maxdrawcount}, an implementation stop processing draws after {@code maxdrawcount} parameter sets. {@code drawcount} must be a multiple of four.
+	 *
+	 * @param mode         what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indirect     an array of structures containing the draw parameters
+	 * @param drawcount    the offset into the parameter buffer object
+	 * @param maxdrawcount the maximum number of draws
+	 * @param stride       the distance in basic machine units between elements of the draw parameter array
+	 */
 	public static void nglMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectCountARB;
 		if ( CHECKS )
@@ -80,11 +91,22 @@ public class ARBIndirectParameters {
 		nglMultiDrawArraysIndirectCountARB(mode, memAddress(indirect), drawcount, maxdrawcount, stride);
 	}
 
-	/** Buffer object offset version of: {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
-	public static void glMultiDrawArraysIndirectCountARB(int mode, long indirectOffset, long drawcount, int maxdrawcount, int stride) {
+	/**
+	 * Behaves similarly to {@link GL43#glMultiDrawArraysIndirect MultiDrawArraysIndirect}, except that {@code drawcount} defines an offset (in bytes) into the buffer object bound to the
+	 * {@link #GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB} binding point at which a single {@code sizei} typed value is stored, which contains the draw count. {@code maxdrawcount} specifies
+	 * the maximum number of draws that are expected to be stored in the buffer. If the value stored at {@code drawcount} into the buffer is greater than
+	 * {@code maxdrawcount}, an implementation stop processing draws after {@code maxdrawcount} parameter sets. {@code drawcount} must be a multiple of four.
+	 *
+	 * @param mode         what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indirect     an array of structures containing the draw parameters
+	 * @param drawcount    the offset into the parameter buffer object
+	 * @param maxdrawcount the maximum number of draws
+	 * @param stride       the distance in basic machine units between elements of the draw parameter array
+	 */
+	public static void glMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglMultiDrawArraysIndirectCountARB(mode, indirectOffset, drawcount, maxdrawcount, stride);
+		nglMultiDrawArraysIndirectCountARB(mode, indirect, drawcount, maxdrawcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
@@ -98,7 +120,19 @@ public class ARBIndirectParameters {
 
 	// --- [ glMultiDrawElementsIndirectCountARB ] ---
 
-	/** Unsafe version of {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
+	/**
+	 * Behaves similarly to {@link GL43#glMultiDrawElementsIndirect MultiDrawElementsIndirect}, except that {@code drawcount} defines an offset (in bytes) into the buffer object bound to the
+	 * {@link #GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB} binding point at which a single {@code sizei} typed value is stored, which contains the draw count. {@code maxdrawcount} specifies
+	 * the maximum number of draws that are expected to be stored in the buffer. If the value stored at {@code drawcount} into the buffer is greater than
+	 * {@code maxdrawcount}, an implementation stop processing draws after {@code maxdrawcount} parameter sets. {@code drawcount} must be a multiple of four.
+	 *
+	 * @param mode         what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param type         the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indirect     a structure containing an array of draw parameters
+	 * @param drawcount    the offset into the parameter buffer object
+	 * @param maxdrawcount the maximum number of draws
+	 * @param stride       the distance in basic machine units between elements of the draw parameter array
+	 */
 	public static void nglMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectCountARB;
 		if ( CHECKS )
@@ -127,11 +161,23 @@ public class ARBIndirectParameters {
 		nglMultiDrawElementsIndirectCountARB(mode, type, memAddress(indirect), drawcount, maxdrawcount, stride);
 	}
 
-	/** Buffer object offset version of: {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
-	public static void glMultiDrawElementsIndirectCountARB(int mode, int type, long indirectOffset, long drawcount, int maxdrawcount, int stride) {
+	/**
+	 * Behaves similarly to {@link GL43#glMultiDrawElementsIndirect MultiDrawElementsIndirect}, except that {@code drawcount} defines an offset (in bytes) into the buffer object bound to the
+	 * {@link #GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB} binding point at which a single {@code sizei} typed value is stored, which contains the draw count. {@code maxdrawcount} specifies
+	 * the maximum number of draws that are expected to be stored in the buffer. If the value stored at {@code drawcount} into the buffer is greater than
+	 * {@code maxdrawcount}, an implementation stop processing draws after {@code maxdrawcount} parameter sets. {@code drawcount} must be a multiple of four.
+	 *
+	 * @param mode         what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param type         the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indirect     a structure containing an array of draw parameters
+	 * @param drawcount    the offset into the parameter buffer object
+	 * @param maxdrawcount the maximum number of draws
+	 * @param stride       the distance in basic machine units between elements of the draw parameter array
+	 */
+	public static void glMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglMultiDrawElementsIndirectCountARB(mode, type, indirectOffset, drawcount, maxdrawcount, stride);
+		nglMultiDrawElementsIndirectCountARB(mode, type, indirect, drawcount, maxdrawcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */

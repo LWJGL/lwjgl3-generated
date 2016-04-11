@@ -311,9 +311,6 @@ public class STBTruetype {
 
 	// --- [ stbtt_BakeFontBitmap ] ---
 
-	/** JNI method for {@link #stbtt_BakeFontBitmap BakeFontBitmap} */
-	public static native int nstbtt_BakeFontBitmap(long data, int offset, float pixel_height, long pixels, int pw, int ph, int first_char, int num_chars, long chardata);
-
 	/**
 	 * Bakes a font to a bitmap for use as texture.
 	 * 
@@ -332,15 +329,24 @@ public class STBTruetype {
 	 * @return if positive, the first unused row of the bitmap. If negative, returns the negative of the number of characters that fit. If 0, no characters fit and no
 	 *         rows were used.
 	 */
-	public static int stbtt_BakeFontBitmap(ByteBuffer data, int offset, float pixel_height, ByteBuffer pixels, int pw, int ph, int first_char, int num_chars, STBTTBakedChar.Buffer chardata) {
-		if ( CHECKS ) {
-			checkBuffer(pixels, pw * ph);
-			checkBuffer(chardata, num_chars);
-		}
-		return nstbtt_BakeFontBitmap(memAddress(data), offset, pixel_height, memAddress(pixels), pw, ph, first_char, num_chars, chardata.address());
-	}
+	public static native int nstbtt_BakeFontBitmap(long data, int offset, float pixel_height, long pixels, int pw, int ph, int first_char, int num_chars, long chardata);
 
-	/** Alternative version of: {@link #stbtt_BakeFontBitmap BakeFontBitmap} */
+	/**
+	 * Bakes a font to a bitmap for use as texture.
+	 * 
+	 * <p>This uses a very simply packing, use with {@link #stbtt_GetBakedQuad GetBakedQuad}.</p>
+	 *
+	 * @param data         the font data
+	 * @param pixel_height the font height, in pixels
+	 * @param pixels       a buffer in which to write the font bitmap
+	 * @param pw           the bitmap width, in pixels
+	 * @param ph           the bitmap height, in pixels
+	 * @param first_char   the first character to bake
+	 * @param chardata     an array of {@link STBTTBakedChar} structs, it's {@code num_chars} long
+	 *
+	 * @return if positive, the first unused row of the bitmap. If negative, returns the negative of the number of characters that fit. If 0, no characters fit and no
+	 *         rows were used.
+	 */
 	public static int stbtt_BakeFontBitmap(ByteBuffer data, float pixel_height, ByteBuffer pixels, int pw, int ph, int first_char, STBTTBakedChar.Buffer chardata) {
 		if ( CHECKS )
 			checkBuffer(pixels, pw * ph);
@@ -349,7 +355,21 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetBakedQuad ] ---
 
-	/** JNI method for {@link #stbtt_GetBakedQuad GetBakedQuad} */
+	/**
+	 * Computes quad to draw for a given char and advances the current position.
+	 * 
+	 * <p>The coordinate system used assumes y increases downwards. Characters will extend both above and below the current position; see discussion of
+	 * "BASELINE" above.</p>
+	 *
+	 * @param chardata        an array of {@link STBTTBakedChar} structs
+	 * @param pw              the bitmap width, in pixels
+	 * @param ph              the bitmap height, in pixels
+	 * @param char_index      the character index in the {@code chardata} array
+	 * @param xpos            the current x position, in screen pixel space
+	 * @param ypos            the current y position, in screen pixel space
+	 * @param q               an {@link STBTTAlignedQuad} struct in which to return the quad to draw
+	 * @param opengl_fillrule 1 if opengl fill rule; 0 if DX9 or earlier
+	 */
 	public static native void nstbtt_GetBakedQuad(long chardata, int pw, int ph, int char_index, long xpos, long ypos, long q, int opengl_fillrule);
 
 	/**
@@ -367,16 +387,6 @@ public class STBTruetype {
 	 * @param q               an {@link STBTTAlignedQuad} struct in which to return the quad to draw
 	 * @param opengl_fillrule 1 if opengl fill rule; 0 if DX9 or earlier
 	 */
-	public static void stbtt_GetBakedQuad(STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, ByteBuffer xpos, ByteBuffer ypos, STBTTAlignedQuad q, int opengl_fillrule) {
-		if ( CHECKS ) {
-			checkBuffer(chardata, char_index + 1);
-			checkBuffer(xpos, 1 << 2);
-			checkBuffer(ypos, 1 << 2);
-		}
-		nstbtt_GetBakedQuad(chardata.address(), pw, ph, char_index, memAddress(xpos), memAddress(ypos), q.address(), opengl_fillrule);
-	}
-
-	/** Alternative version of: {@link #stbtt_GetBakedQuad GetBakedQuad} */
 	public static void stbtt_GetBakedQuad(STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, FloatBuffer xpos, FloatBuffer ypos, STBTTAlignedQuad q, int opengl_fillrule) {
 		if ( CHECKS ) {
 			checkBuffer(chardata, char_index + 1);
@@ -388,7 +398,20 @@ public class STBTruetype {
 
 	// --- [ stbtt_PackBegin ] ---
 
-	/** JNI method for {@link #stbtt_PackBegin PackBegin} */
+	/**
+	 * Initializes a packing context stored in the passed-in {@code stbtt_pack_context}. Future calls using this context will pack characters into the bitmap
+	 * passed in here: a 1-channel bitmap that is width x height.
+	 *
+	 * @param spc             an {@link STBTTPackContext} struct
+	 * @param pixels          a buffer in which to store the bitmap data
+	 * @param width           the bitmap width, in pixels
+	 * @param height          the bitmap height, in pixels
+	 * @param stride_in_bytes the distance from one row to the next (or 0 to mean they are packed tightly together)
+	 * @param padding         the amount of padding to leave between each character (normally you want '1' for bitmaps you'll use as textures with bilinear filtering)
+	 * @param alloc_context   a pointer to an allocation context
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
 	public static native int nstbtt_PackBegin(long spc, long pixels, int width, int height, int stride_in_bytes, int padding, long alloc_context);
 
 	/**
@@ -411,7 +434,19 @@ public class STBTruetype {
 		return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, memAddressSafe(alloc_context));
 	}
 
-	/** Alternative version of: {@link #stbtt_PackBegin PackBegin} */
+	/**
+	 * Initializes a packing context stored in the passed-in {@code stbtt_pack_context}. Future calls using this context will pack characters into the bitmap
+	 * passed in here: a 1-channel bitmap that is width x height.
+	 *
+	 * @param spc             an {@link STBTTPackContext} struct
+	 * @param pixels          a buffer in which to store the bitmap data
+	 * @param width           the bitmap width, in pixels
+	 * @param height          the bitmap height, in pixels
+	 * @param stride_in_bytes the distance from one row to the next (or 0 to mean they are packed tightly together)
+	 * @param padding         the amount of padding to leave between each character (normally you want '1' for bitmaps you'll use as textures with bilinear filtering)
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
 	public static int stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding) {
 		if ( CHECKS )
 			checkBuffer(pixels, width * height);
@@ -420,7 +455,11 @@ public class STBTruetype {
 
 	// --- [ stbtt_PackEnd ] ---
 
-	/** JNI method for {@link #stbtt_PackEnd PackEnd} */
+	/**
+	 * Cleans up the packing context and frees all memory.
+	 *
+	 * @param spc an {@link STBTTPackContext} struct
+	 */
 	public static native void nstbtt_PackEnd(long spc);
 
 	/**
@@ -446,9 +485,6 @@ public class STBTruetype {
 
 	// --- [ stbtt_PackFontRange ] ---
 
-	/** JNI method for {@link #stbtt_PackFontRange PackFontRange} */
-	public static native int nstbtt_PackFontRange(long spc, long fontdata, int font_index, float font_size, int first_unicode_char_in_range, int num_chars_in_range, long chardata_for_range);
-
 	/**
 	 * Creates character bitmaps from the {@code font_index}'th font found in fontdata (use {@code font_index=0} if you don't know what that is). It creates
 	 * {@code num_chars_in_range} bitmaps for characters with unicode values starting at {@code first_unicode_char_in_range} and increasing. Data for how to
@@ -468,21 +504,31 @@ public class STBTruetype {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbtt_PackFontRange(STBTTPackContext spc, ByteBuffer fontdata, int font_index, float font_size, int first_unicode_char_in_range, int num_chars_in_range, STBTTPackedchar.Buffer chardata_for_range) {
-		if ( CHECKS )
-			checkBuffer(chardata_for_range, num_chars_in_range);
-		return nstbtt_PackFontRange(spc.address(), memAddress(fontdata), font_index, font_size, first_unicode_char_in_range, num_chars_in_range, chardata_for_range.address());
-	}
+	public static native int nstbtt_PackFontRange(long spc, long fontdata, int font_index, float font_size, int first_unicode_char_in_range, int num_chars_in_range, long chardata_for_range);
 
-	/** Alternative version of: {@link #stbtt_PackFontRange PackFontRange} */
+	/**
+	 * Creates character bitmaps from the {@code font_index}'th font found in fontdata (use {@code font_index=0} if you don't know what that is). It creates
+	 * {@code num_chars_in_range} bitmaps for characters with unicode values starting at {@code first_unicode_char_in_range} and increasing. Data for how to
+	 * render them is stored in {@code chardata_for_range}; pass these to {@link #stbtt_GetPackedQuad GetPackedQuad} to get back renderable quads.
+	 *
+	 * @param spc                         an {@link STBTTPackContext} struct
+	 * @param fontdata                    the font data
+	 * @param font_index                  the font index (use 0 if you don't know what that is
+	 * @param font_size                   the full height of the character from ascender to descender, as computed by {@link #stbtt_ScaleForPixelHeight ScaleForPixelHeight}. To use a point size as computed by
+	 *                                    {@link #stbtt_ScaleForMappingEmToPixels ScaleForMappingEmToPixels}, wrap the font size in {@link #STBTT_POINT_SIZE} and pass the result, i.e.:
+	 *                                    
+	 *                                    <pre><code>...,                  20 , ... // font max minus min y is 20 pixels tall
+..., STBTT_POINT_SIZE(20), ... // 'M' is 20 pixels tall</code></pre>
+	 * @param first_unicode_char_in_range the first unicode code point in the range
+	 * @param chardata_for_range          an array of {@link STBTTPackedchar} structs
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
 	public static int stbtt_PackFontRange(STBTTPackContext spc, ByteBuffer fontdata, int font_index, float font_size, int first_unicode_char_in_range, STBTTPackedchar.Buffer chardata_for_range) {
 		return nstbtt_PackFontRange(spc.address(), memAddress(fontdata), font_index, font_size, first_unicode_char_in_range, chardata_for_range.remaining(), chardata_for_range.address());
 	}
 
 	// --- [ stbtt_PackFontRanges ] ---
-
-	/** JNI method for {@link #stbtt_PackFontRanges PackFontRanges} */
-	public static native int nstbtt_PackFontRanges(long spc, long fontdata, int font_index, long ranges, int num_ranges);
 
 	/**
 	 * Creates character bitmaps from multiple ranges of characters stored in ranges. This will usually create a better-packed bitmap than multiple calls to
@@ -496,15 +542,19 @@ public class STBTruetype {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbtt_PackFontRanges(STBTTPackContext spc, ByteBuffer fontdata, int font_index, STBTTPackRange.Buffer ranges, int num_ranges) {
-		if ( CHECKS ) {
-			checkBuffer(ranges, num_ranges);
-			STBTTPackRange.validate(ranges.address(), num_ranges);
-		}
-		return nstbtt_PackFontRanges(spc.address(), memAddress(fontdata), font_index, ranges.address(), num_ranges);
-	}
+	public static native int nstbtt_PackFontRanges(long spc, long fontdata, int font_index, long ranges, int num_ranges);
 
-	/** Alternative version of: {@link #stbtt_PackFontRanges PackFontRanges} */
+	/**
+	 * Creates character bitmaps from multiple ranges of characters stored in ranges. This will usually create a better-packed bitmap than multiple calls to
+	 * {@link #stbtt_PackFontRange PackFontRange}. Note that you can call this multiple times within a single {@link #stbtt_PackBegin PackBegin}/{@link #stbtt_PackEnd PackEnd}.
+	 *
+	 * @param spc        an {@link STBTTPackContext} struct
+	 * @param fontdata   the font data
+	 * @param font_index the font index (use 0 if you don't know what that is
+	 * @param ranges     an array of {@link STBTTPackRange} structs
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
 	public static int stbtt_PackFontRanges(STBTTPackContext spc, ByteBuffer fontdata, int font_index, STBTTPackRange.Buffer ranges) {
 		if ( CHECKS )
 			STBTTPackRange.validate(ranges.address(), ranges.remaining());
@@ -513,7 +563,21 @@ public class STBTruetype {
 
 	// --- [ stbtt_PackSetOversampling ] ---
 
-	/** JNI method for {@link #stbtt_PackSetOversampling PackSetOversampling} */
+	/**
+	 * Oversampling a font increases the quality by allowing higher-quality subpixel positioning, and is especially valuable at smaller text sizes.
+	 * 
+	 * <p>This function sets the amount of oversampling for all following calls to {@link #stbtt_PackFontRange PackFontRange} or {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} for a given pack context. The
+	 * default (no oversampling) is achieved by {@code h_oversample=1, v_oversample=1}. The total number of pixels required is
+	 * {@code h_oversample*v_oversample} larger than the default; for example, 2x2 oversampling requires 4x the storage of 1x1. For best results, render
+	 * oversampled textures with bilinear filtering. Look at the readme in
+	 * <a href="https://github.com/nothings/stb/blob/master/tests/oversample/README.md">stb/tests/oversample</a> for information about oversampled fonts.</p>
+	 * 
+	 * <p>To use with PackFontRangesGather etc., you must set it before calls to {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}.</p>
+	 *
+	 * @param spc          an {@link STBTTPackContext} struct
+	 * @param h_oversample the horizontal oversampling amount
+	 * @param v_oversample the vertical oversampling amount
+	 */
 	public static native void nstbtt_PackSetOversampling(long spc, int h_oversample, int v_oversample);
 
 	/**
@@ -537,7 +601,21 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetPackedQuad ] ---
 
-	/** JNI method for {@link #stbtt_GetPackedQuad GetPackedQuad} */
+	/**
+	 * Computes quad to draw for a given char and advances the current position.
+	 * 
+	 * <p>The coordinate system used assumes y increases downwards. Characters will extend both above and below the current position; see discussion of
+	 * "BASELINE" above.</p>
+	 *
+	 * @param chardata         an array of {@link STBTTPackedchar} structs
+	 * @param pw               the bitmap width, in pixels
+	 * @param ph               the bitmap height, in pixels
+	 * @param char_index       the character index in the {@code chardata} array
+	 * @param xpos             the current x position, in screen pixel space
+	 * @param ypos             the current y position, in screen pixel space
+	 * @param q                an {@link STBTTAlignedQuad} struct in which to return the quad to draw
+	 * @param align_to_integer 1 to align the quad to integer coordinates
+	 */
 	public static native void nstbtt_GetPackedQuad(long chardata, int pw, int ph, int char_index, long xpos, long ypos, long q, int align_to_integer);
 
 	/**
@@ -555,16 +633,6 @@ public class STBTruetype {
 	 * @param q                an {@link STBTTAlignedQuad} struct in which to return the quad to draw
 	 * @param align_to_integer 1 to align the quad to integer coordinates
 	 */
-	public static void stbtt_GetPackedQuad(STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, ByteBuffer xpos, ByteBuffer ypos, STBTTAlignedQuad q, int align_to_integer) {
-		if ( CHECKS ) {
-			checkBuffer(chardata, char_index + 1);
-			checkBuffer(xpos, 1 << 2);
-			checkBuffer(ypos, 1 << 2);
-		}
-		nstbtt_GetPackedQuad(chardata.address(), pw, ph, char_index, memAddress(xpos), memAddress(ypos), q.address(), align_to_integer);
-	}
-
-	/** Alternative version of: {@link #stbtt_GetPackedQuad GetPackedQuad} */
 	public static void stbtt_GetPackedQuad(STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, FloatBuffer xpos, FloatBuffer ypos, STBTTAlignedQuad q, int align_to_integer) {
 		if ( CHECKS ) {
 			checkBuffer(chardata, char_index + 1);
@@ -575,9 +643,6 @@ public class STBTruetype {
 	}
 
 	// --- [ stbtt_PackFontRangesGatherRects ] ---
-
-	/** JNI method for {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} */
-	public static native int nstbtt_PackFontRangesGatherRects(long spc, long info, long ranges, int num_ranges, long rects);
 
 	/**
 	 * Calling these functions in sequence is roughly equivalent to calling {@link #stbtt_PackFontRanges PackFontRanges}. If you want more control over the packing of multiple fonts, or
@@ -591,15 +656,19 @@ public class STBTruetype {
 	 * @param num_ranges the number of {@link STBTTPackRange} structs in {@code ranges}
 	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
 	 */
-	public static int stbtt_PackFontRangesGatherRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, int num_ranges, STBRPRect rects) {
-		if ( CHECKS ) {
-			checkBuffer(ranges, num_ranges);
-			STBTTPackRange.validate(ranges.address(), num_ranges);
-		}
-		return nstbtt_PackFontRangesGatherRects(spc.address(), info.address(), ranges.address(), num_ranges, rects.address());
-	}
+	public static native int nstbtt_PackFontRangesGatherRects(long spc, long info, long ranges, int num_ranges, long rects);
 
-	/** Alternative version of: {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} */
+	/**
+	 * Calling these functions in sequence is roughly equivalent to calling {@link #stbtt_PackFontRanges PackFontRanges}. If you want more control over the packing of multiple fonts, or
+	 * if you want to pack custom data into a font texture, take a look at the source of {@link #stbtt_PackFontRanges PackFontRanges} and create a custom version using these functions,
+	 * e.g. call {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} multiple times, building up a single array of rects, then call {@link #stbtt_PackFontRangesPackRects PackFontRangesPackRects} once, then call
+	 * {@link #stbtt_PackFontRangesRenderIntoRects PackFontRangesRenderIntoRects} repeatedly. This may result in a better packing than calling {@link #stbtt_PackFontRanges PackFontRanges} multiple times (or it may not).
+	 *
+	 * @param spc    an {@link STBTTPackContext} struct
+	 * @param info   an {@link STBTTFontinfo} struct
+	 * @param ranges an array of {@link STBTTPackRange} structs
+	 * @param rects  an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
+	 */
 	public static int stbtt_PackFontRangesGatherRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect rects) {
 		if ( CHECKS )
 			STBTTPackRange.validate(ranges.address(), ranges.remaining());
@@ -608,9 +677,6 @@ public class STBTruetype {
 
 	// --- [ stbtt_PackFontRangesPackRects ] ---
 
-	/** JNI method for {@link #stbtt_PackFontRangesPackRects PackFontRangesPackRects} */
-	public static native void nstbtt_PackFontRangesPackRects(long spc, long rects, int num_rects);
-
 	/**
 	 * See {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}.
 	 *
@@ -618,21 +684,19 @@ public class STBTruetype {
 	 * @param rects     an array of {@link STBRPRect} structs
 	 * @param num_rects the number of structs in {@code rects}
 	 */
-	public static void stbtt_PackFontRangesPackRects(STBTTPackContext spc, STBRPRect.Buffer rects, int num_rects) {
-		if ( CHECKS )
-			checkBuffer(rects, num_rects);
-		nstbtt_PackFontRangesPackRects(spc.address(), rects.address(), num_rects);
-	}
+	public static native void nstbtt_PackFontRangesPackRects(long spc, long rects, int num_rects);
 
-	/** Alternative version of: {@link #stbtt_PackFontRangesPackRects PackFontRangesPackRects} */
+	/**
+	 * See {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}.
+	 *
+	 * @param spc   an {@link STBTTPackContext} struct
+	 * @param rects an array of {@link STBRPRect} structs
+	 */
 	public static void stbtt_PackFontRangesPackRects(STBTTPackContext spc, STBRPRect.Buffer rects) {
 		nstbtt_PackFontRangesPackRects(spc.address(), rects.address(), rects.remaining());
 	}
 
 	// --- [ stbtt_PackFontRangesRenderIntoRects ] ---
-
-	/** JNI method for {@link #stbtt_PackFontRangesRenderIntoRects PackFontRangesRenderIntoRects} */
-	public static native int nstbtt_PackFontRangesRenderIntoRects(long spc, long info, long ranges, int num_ranges, long rects);
 
 	/**
 	 * See {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}.
@@ -643,15 +707,16 @@ public class STBTruetype {
 	 * @param num_ranges the number of {@link STBTTPackRange} structs in {@code ranges}
 	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
 	 */
-	public static int stbtt_PackFontRangesRenderIntoRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, int num_ranges, STBRPRect rects) {
-		if ( CHECKS ) {
-			checkBuffer(ranges, num_ranges);
-			STBTTPackRange.validate(ranges.address(), num_ranges);
-		}
-		return nstbtt_PackFontRangesRenderIntoRects(spc.address(), info.address(), ranges.address(), num_ranges, rects.address());
-	}
+	public static native int nstbtt_PackFontRangesRenderIntoRects(long spc, long info, long ranges, int num_ranges, long rects);
 
-	/** Alternative version of: {@link #stbtt_PackFontRangesRenderIntoRects PackFontRangesRenderIntoRects} */
+	/**
+	 * See {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}.
+	 *
+	 * @param spc    an {@link STBTTPackContext} struct
+	 * @param info   an {@link STBTTFontinfo} struct
+	 * @param ranges an array of {@link STBTTPackRange} structs
+	 * @param rects  an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
+	 */
 	public static int stbtt_PackFontRangesRenderIntoRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect rects) {
 		if ( CHECKS )
 			STBTTPackRange.validate(ranges.address(), ranges.remaining());
@@ -660,7 +725,14 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetFontOffsetForIndex ] ---
 
-	/** JNI method for {@link #stbtt_GetFontOffsetForIndex GetFontOffsetForIndex} */
+	/**
+	 * Each .ttf/.ttc file may have more than one font. Each font has a sequential index number starting from 0. Call this function to get the font offset for
+	 * a given index; it returns -1 if the index is out of range. A regular .ttf file will only define one font and it always be at offset 0, so it will
+	 * return '0' for index 0, and -1 for all other indices. You can just skip this step if you know it's that kind of font.
+	 *
+	 * @param data  the font data
+	 * @param index the font index
+	 */
 	public static native int nstbtt_GetFontOffsetForIndex(long data, int index);
 
 	/**
@@ -677,7 +749,17 @@ public class STBTruetype {
 
 	// --- [ stbtt_InitFont ] ---
 
-	/** JNI method for {@link #stbtt_InitFont InitFont} */
+	/**
+	 * Given an offset into the file that defines a font, this function builds the necessary cached info for the rest of the system. You must allocate the
+	 * {@link STBTTFontinfo} yourself, and stbtt_InitFont will fill it out. You don't need to do anything special to free it, because the contents are pure value
+	 * data with no additional data structures.
+	 *
+	 * @param info   an {@link STBTTFontinfo} struct
+	 * @param data   the font data
+	 * @param offset the font data offset
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
 	public static native int nstbtt_InitFont(long info, long data, int offset);
 
 	/**
@@ -695,14 +777,31 @@ public class STBTruetype {
 		return nstbtt_InitFont(info.address(), memAddress(data), offset);
 	}
 
-	/** Alternative version of: {@link #stbtt_InitFont InitFont} */
+	/**
+	 * Given an offset into the file that defines a font, this function builds the necessary cached info for the rest of the system. You must allocate the
+	 * {@link STBTTFontinfo} yourself, and stbtt_InitFont will fill it out. You don't need to do anything special to free it, because the contents are pure value
+	 * data with no additional data structures.
+	 *
+	 * @param info an {@link STBTTFontinfo} struct
+	 * @param data the font data
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
 	public static int stbtt_InitFont(STBTTFontinfo info, ByteBuffer data) {
 		return nstbtt_InitFont(info.address(), memAddress(data), 0);
 	}
 
 	// --- [ stbtt_FindGlyphIndex ] ---
 
-	/** JNI method for {@link #stbtt_FindGlyphIndex FindGlyphIndex} */
+	/**
+	 * If you're going to perform multiple operations on the same character and you want a speed-up, call this function with the character you're going to
+	 * process, then use glyph-based functions instead of the codepoint-based functions.
+	 *
+	 * @param info              an {@link STBTTFontinfo} struct
+	 * @param unicode_codepoint the unicode code point
+	 *
+	 * @return the glyph index
+	 */
 	public static native int nstbtt_FindGlyphIndex(long info, int unicode_codepoint);
 
 	/**
@@ -720,7 +819,19 @@ public class STBTruetype {
 
 	// --- [ stbtt_ScaleForPixelHeight ] ---
 
-	/** JNI method for {@link #stbtt_ScaleForPixelHeight ScaleForPixelHeight} */
+	/**
+	 * Computes a scale factor to produce a font whose "height" is {@code pixels} tall. Height is measured as the distance from the highest ascender to the
+	 * lowest descender; in other words, it's equivalent to calling {@link #stbtt_GetFontVMetrics GetFontVMetrics} and computing:
+	 * 
+	 * <pre><code>scale = pixels / (ascent - descent)</code></pre>
+	 * 
+	 * <p>so if you prefer to measure height by the ascent only, use a similar calculation.</p>
+	 *
+	 * @param info   an {@link STBTTFontinfo} struct
+	 * @param pixels the font height, in pixels
+	 *
+	 * @return the scale factor
+	 */
 	public static native float nstbtt_ScaleForPixelHeight(long info, float pixels);
 
 	/**
@@ -742,7 +853,15 @@ public class STBTruetype {
 
 	// --- [ stbtt_ScaleForMappingEmToPixels ] ---
 
-	/** JNI method for {@link #stbtt_ScaleForMappingEmToPixels ScaleForMappingEmToPixels} */
+	/**
+	 * Computes a scale factor to produce a font whose EM size is mapped to {@code pixels} tall. This is probably what traditional APIs compute, but I'm not
+	 * positive.
+	 *
+	 * @param info   an {@link STBTTFontinfo} struct
+	 * @param pixels the font height, in pixels
+	 *
+	 * @return the scale factor
+	 */
 	public static native float nstbtt_ScaleForMappingEmToPixels(long info, float pixels);
 
 	/**
@@ -760,7 +879,16 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetFontVMetrics ] ---
 
-	/** JNI method for {@link #stbtt_GetFontVMetrics GetFontVMetrics} */
+	/**
+	 * Returns vertical metrics for the specified font. You should advance the vertical position by {@code *ascent - *descent + *lineGap}
+	 * 
+	 * <p>The returned values are expressed in unscaled coordinates, so you must multiply by the scale factor for a given size.</p>
+	 *
+	 * @param info    an {@link STBTTFontinfo} struct
+	 * @param ascent  returns the coordinate above the baseline the font extends
+	 * @param descent returns the coordinate below the baseline the font extends (i.e. it is typically negative)
+	 * @param lineGap returns the spacing between one row's descent and the next row's ascent
+	 */
 	public static native void nstbtt_GetFontVMetrics(long info, long ascent, long descent, long lineGap);
 
 	/**
@@ -773,16 +901,6 @@ public class STBTruetype {
 	 * @param descent returns the coordinate below the baseline the font extends (i.e. it is typically negative)
 	 * @param lineGap returns the spacing between one row's descent and the next row's ascent
 	 */
-	public static void stbtt_GetFontVMetrics(STBTTFontinfo info, ByteBuffer ascent, ByteBuffer descent, ByteBuffer lineGap) {
-		if ( CHECKS ) {
-			checkBuffer(ascent, 1 << 2);
-			checkBuffer(descent, 1 << 2);
-			checkBuffer(lineGap, 1 << 2);
-		}
-		nstbtt_GetFontVMetrics(info.address(), memAddress(ascent), memAddress(descent), memAddress(lineGap));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetFontVMetrics GetFontVMetrics} */
 	public static void stbtt_GetFontVMetrics(STBTTFontinfo info, IntBuffer ascent, IntBuffer descent, IntBuffer lineGap) {
 		if ( CHECKS ) {
 			checkBuffer(ascent, 1);
@@ -794,7 +912,15 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetFontBoundingBox ] ---
 
-	/** JNI method for {@link #stbtt_GetFontBoundingBox GetFontBoundingBox} */
+	/**
+	 * Returns the bounding box around all possible characters.
+	 *
+	 * @param info an {@link STBTTFontinfo} struct
+	 * @param x0   the left coordinate
+	 * @param y0   the bottom coordinate
+	 * @param x1   the right coordinate
+	 * @param y1   the top coordinate
+	 */
 	public static native void nstbtt_GetFontBoundingBox(long info, long x0, long y0, long x1, long y1);
 
 	/**
@@ -806,17 +932,6 @@ public class STBTruetype {
 	 * @param x1   the right coordinate
 	 * @param y1   the top coordinate
 	 */
-	public static void stbtt_GetFontBoundingBox(STBTTFontinfo info, ByteBuffer x0, ByteBuffer y0, ByteBuffer x1, ByteBuffer y1) {
-		if ( CHECKS ) {
-			checkBuffer(x0, 1 << 2);
-			checkBuffer(y0, 1 << 2);
-			checkBuffer(x1, 1 << 2);
-			checkBuffer(y1, 1 << 2);
-		}
-		nstbtt_GetFontBoundingBox(info.address(), memAddress(x0), memAddress(y0), memAddress(x1), memAddress(y1));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetFontBoundingBox GetFontBoundingBox} */
 	public static void stbtt_GetFontBoundingBox(STBTTFontinfo info, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
 		if ( CHECKS ) {
 			checkBuffer(x0, 1);
@@ -829,7 +944,16 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointHMetrics ] ---
 
-	/** JNI method for {@link #stbtt_GetCodepointHMetrics GetCodepointHMetrics} */
+	/**
+	 * Returns horizontal metrics for the specified codepoint.
+	 * 
+	 * <p>The returned values are expressed in unscaled coordinates.</p>
+	 *
+	 * @param info            an {@link STBTTFontinfo} struct
+	 * @param codepoint       the unicode codepoint
+	 * @param advanceWidth    the offset from the current horizontal position to the next horizontal position
+	 * @param leftSideBearing the offset from the current horizontal position to the left edge of the character
+	 */
 	public static native void nstbtt_GetCodepointHMetrics(long info, int codepoint, long advanceWidth, long leftSideBearing);
 
 	/**
@@ -842,15 +966,6 @@ public class STBTruetype {
 	 * @param advanceWidth    the offset from the current horizontal position to the next horizontal position
 	 * @param leftSideBearing the offset from the current horizontal position to the left edge of the character
 	 */
-	public static void stbtt_GetCodepointHMetrics(STBTTFontinfo info, int codepoint, ByteBuffer advanceWidth, ByteBuffer leftSideBearing) {
-		if ( CHECKS ) {
-			checkBuffer(advanceWidth, 1 << 2);
-			checkBuffer(leftSideBearing, 1 << 2);
-		}
-		nstbtt_GetCodepointHMetrics(info.address(), codepoint, memAddress(advanceWidth), memAddress(leftSideBearing));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetCodepointHMetrics GetCodepointHMetrics} */
 	public static void stbtt_GetCodepointHMetrics(STBTTFontinfo info, int codepoint, IntBuffer advanceWidth, IntBuffer leftSideBearing) {
 		if ( CHECKS ) {
 			checkBuffer(advanceWidth, 1);
@@ -861,7 +976,13 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointKernAdvance ] ---
 
-	/** JNI method for {@link #stbtt_GetCodepointKernAdvance GetCodepointKernAdvance} */
+	/**
+	 * Returns the additional amount to add to the {@code advance} value between {@code ch1} and {@code ch2}.
+	 *
+	 * @param info an {@link STBTTFontinfo} struct
+	 * @param ch1  the first unicode codepoint
+	 * @param ch2  the second unicode codepoint
+	 */
 	public static native int nstbtt_GetCodepointKernAdvance(long info, int ch1, int ch2);
 
 	/**
@@ -877,7 +998,16 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointBox ] ---
 
-	/** JNI method for {@link #stbtt_GetCodepointBox GetCodepointBox} */
+	/**
+	 * Gets the bounding box of the visible part of the glyph, in unscaled coordinates.
+	 *
+	 * @param info      an {@link STBTTFontinfo} struct
+	 * @param codepoint the unicode codepoint
+	 * @param x0        returns the left coordinate
+	 * @param y0        returns the bottom coordinate
+	 * @param x1        returns the right coordinate
+	 * @param y1        returns the top coordinate
+	 */
 	public static native int nstbtt_GetCodepointBox(long info, int codepoint, long x0, long y0, long x1, long y1);
 
 	/**
@@ -890,17 +1020,6 @@ public class STBTruetype {
 	 * @param x1        returns the right coordinate
 	 * @param y1        returns the top coordinate
 	 */
-	public static int stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, ByteBuffer x0, ByteBuffer y0, ByteBuffer x1, ByteBuffer y1) {
-		if ( CHECKS ) {
-			checkBuffer(x0, 1 << 2);
-			checkBuffer(y0, 1 << 2);
-			checkBuffer(x1, 1 << 2);
-			checkBuffer(y1, 1 << 2);
-		}
-		return nstbtt_GetCodepointBox(info.address(), codepoint, memAddress(x0), memAddress(y0), memAddress(x1), memAddress(y1));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetCodepointBox GetCodepointBox} */
 	public static int stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
 		if ( CHECKS ) {
 			checkBuffer(x0, 1);
@@ -913,7 +1032,14 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphHMetrics ] ---
 
-	/** JNI method for {@link #stbtt_GetGlyphHMetrics GetGlyphHMetrics} */
+	/**
+	 * Glyph version of {@link #stbtt_GetCodepointHMetrics GetCodepointHMetrics}, for greater efficiency.
+	 *
+	 * @param info            an {@link STBTTFontinfo} struct
+	 * @param glyph_index     the glyph index
+	 * @param advanceWidth    the offset from the current horizontal position to the next horizontal position
+	 * @param leftSideBearing the offset from the current horizontal position to the left edge of the character
+	 */
 	public static native void nstbtt_GetGlyphHMetrics(long info, int glyph_index, long advanceWidth, long leftSideBearing);
 
 	/**
@@ -924,15 +1050,6 @@ public class STBTruetype {
 	 * @param advanceWidth    the offset from the current horizontal position to the next horizontal position
 	 * @param leftSideBearing the offset from the current horizontal position to the left edge of the character
 	 */
-	public static void stbtt_GetGlyphHMetrics(STBTTFontinfo info, int glyph_index, ByteBuffer advanceWidth, ByteBuffer leftSideBearing) {
-		if ( CHECKS ) {
-			checkBuffer(advanceWidth, 1 << 2);
-			checkBuffer(leftSideBearing, 1 << 2);
-		}
-		nstbtt_GetGlyphHMetrics(info.address(), glyph_index, memAddress(advanceWidth), memAddress(leftSideBearing));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetGlyphHMetrics GetGlyphHMetrics} */
 	public static void stbtt_GetGlyphHMetrics(STBTTFontinfo info, int glyph_index, IntBuffer advanceWidth, IntBuffer leftSideBearing) {
 		if ( CHECKS ) {
 			checkBuffer(advanceWidth, 1);
@@ -943,7 +1060,13 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphKernAdvance ] ---
 
-	/** JNI method for {@link #stbtt_GetGlyphKernAdvance GetGlyphKernAdvance} */
+	/**
+	 * Glyph version of {@link #stbtt_GetCodepointKernAdvance GetCodepointKernAdvance}, for greater efficiency.
+	 *
+	 * @param info   an {@link STBTTFontinfo} struct
+	 * @param glyph1 the first glyph index
+	 * @param glyph2 the second glyph index
+	 */
 	public static native int nstbtt_GetGlyphKernAdvance(long info, int glyph1, int glyph2);
 
 	/**
@@ -959,7 +1082,16 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphBox ] ---
 
-	/** JNI method for {@link #stbtt_GetGlyphBox GetGlyphBox} */
+	/**
+	 * Glyph version of {@link #stbtt_GetCodepointBox GetCodepointBox}, for greater efficiency.
+	 *
+	 * @param info        an {@link STBTTFontinfo} struct
+	 * @param glyph_index the glyph index
+	 * @param x0          returns the left coordinate
+	 * @param y0          returns the bottom coordinate
+	 * @param x1          returns the right coordinate
+	 * @param y1          returns the top coordinate
+	 */
 	public static native int nstbtt_GetGlyphBox(long info, int glyph_index, long x0, long y0, long x1, long y1);
 
 	/**
@@ -972,17 +1104,6 @@ public class STBTruetype {
 	 * @param x1          returns the right coordinate
 	 * @param y1          returns the top coordinate
 	 */
-	public static int stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, ByteBuffer x0, ByteBuffer y0, ByteBuffer x1, ByteBuffer y1) {
-		if ( CHECKS ) {
-			checkBuffer(x0, 1 << 2);
-			checkBuffer(y0, 1 << 2);
-			checkBuffer(x1, 1 << 2);
-			checkBuffer(y1, 1 << 2);
-		}
-		return nstbtt_GetGlyphBox(info.address(), glyph_index, memAddress(x0), memAddress(y0), memAddress(x1), memAddress(y1));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetGlyphBox GetGlyphBox} */
 	public static int stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
 		if ( CHECKS ) {
 			checkBuffer(x0, 1);
@@ -995,7 +1116,12 @@ public class STBTruetype {
 
 	// --- [ stbtt_IsGlyphEmpty ] ---
 
-	/** JNI method for {@link #stbtt_IsGlyphEmpty IsGlyphEmpty} */
+	/**
+	 * Returns non-zero if nothing is drawn for this glyph.
+	 *
+	 * @param info        an {@link STBTTFontinfo} struct
+	 * @param glyph_index the glyph index
+	 */
 	public static native int nstbtt_IsGlyphEmpty(long info, int glyph_index);
 
 	/**
@@ -1010,7 +1136,19 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointShape ] ---
 
-	/** JNI method for {@link #stbtt_GetCodepointShape GetCodepointShape} */
+	/**
+	 * Returns number of vertices and fills {@code *vertices} with the pointer to them
+	 * 
+	 * <p>The shape is a series of countours. Each one starts with a {@link #STBTT_vmove vmove}, then consists of a series of mixed {@link #STBTT_vline vline} and {@link #STBTT_vcurve vcurve} segments. A {@link #STBTT_vline vline} draws a
+	 * line from previous endpoint to its {@code x,y}; a {@link #STBTT_vcurve vcurve} draws a quadratic bezier from previous endpoint to its {@code x,y}, using {@code cx,cy} as
+	 * the bezier control point.</p>
+	 * 
+	 * <p>The {@link STBTTVertex} values are expressed in "unscaled" coordinates.</p>
+	 *
+	 * @param info              an {@link STBTTFontinfo} struct
+	 * @param unicode_codepoint the unicode codepoint
+	 * @param vertices          returns a pointer to an array of {@link STBTTVertex} structs
+	 */
 	public static native int nstbtt_GetCodepointShape(long info, int unicode_codepoint, long vertices);
 
 	/**
@@ -1026,20 +1164,24 @@ public class STBTruetype {
 	 * @param unicode_codepoint the unicode codepoint
 	 * @param vertices          returns a pointer to an array of {@link STBTTVertex} structs
 	 */
-	public static int stbtt_GetCodepointShape(STBTTFontinfo info, int unicode_codepoint, ByteBuffer vertices) {
-		if ( CHECKS )
-			checkBuffer(vertices, 1 << POINTER_SHIFT);
-		return nstbtt_GetCodepointShape(info.address(), unicode_codepoint, memAddress(vertices));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetCodepointShape GetCodepointShape} */
 	public static int stbtt_GetCodepointShape(STBTTFontinfo info, int unicode_codepoint, PointerBuffer vertices) {
 		if ( CHECKS )
 			checkBuffer(vertices, 1);
 		return nstbtt_GetCodepointShape(info.address(), unicode_codepoint, memAddress(vertices));
 	}
 
-	/** Buffer return version of: {@link #stbtt_GetCodepointShape GetCodepointShape} */
+	/**
+	 * Returns number of vertices and fills {@code *vertices} with the pointer to them
+	 * 
+	 * <p>The shape is a series of countours. Each one starts with a {@link #STBTT_vmove vmove}, then consists of a series of mixed {@link #STBTT_vline vline} and {@link #STBTT_vcurve vcurve} segments. A {@link #STBTT_vline vline} draws a
+	 * line from previous endpoint to its {@code x,y}; a {@link #STBTT_vcurve vcurve} draws a quadratic bezier from previous endpoint to its {@code x,y}, using {@code cx,cy} as
+	 * the bezier control point.</p>
+	 * 
+	 * <p>The {@link STBTTVertex} values are expressed in "unscaled" coordinates.</p>
+	 *
+	 * @param info              an {@link STBTTFontinfo} struct
+	 * @param unicode_codepoint the unicode codepoint
+	 */
 	public static STBTTVertex.Buffer stbtt_GetCodepointShape(STBTTFontinfo info, int unicode_codepoint) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1053,7 +1195,13 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphShape ] ---
 
-	/** JNI method for {@link #stbtt_GetGlyphShape GetGlyphShape} */
+	/**
+	 * Glyph version of {@link #stbtt_GetCodepointShape GetCodepointShape}, for greater efficiency.
+	 *
+	 * @param info        an {@link STBTTFontinfo} struct
+	 * @param glyph_index the unicode codepoint
+	 * @param vertices    returns a pointer to an array of {@link STBTTVertex} structs
+	 */
 	public static native int nstbtt_GetGlyphShape(long info, int glyph_index, long vertices);
 
 	/**
@@ -1063,20 +1211,18 @@ public class STBTruetype {
 	 * @param glyph_index the unicode codepoint
 	 * @param vertices    returns a pointer to an array of {@link STBTTVertex} structs
 	 */
-	public static int stbtt_GetGlyphShape(STBTTFontinfo info, int glyph_index, ByteBuffer vertices) {
-		if ( CHECKS )
-			checkBuffer(vertices, 1 << POINTER_SHIFT);
-		return nstbtt_GetGlyphShape(info.address(), glyph_index, memAddress(vertices));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetGlyphShape GetGlyphShape} */
 	public static int stbtt_GetGlyphShape(STBTTFontinfo info, int glyph_index, PointerBuffer vertices) {
 		if ( CHECKS )
 			checkBuffer(vertices, 1);
 		return nstbtt_GetGlyphShape(info.address(), glyph_index, memAddress(vertices));
 	}
 
-	/** Buffer return version of: {@link #stbtt_GetGlyphShape GetGlyphShape} */
+	/**
+	 * Glyph version of {@link #stbtt_GetCodepointShape GetCodepointShape}, for greater efficiency.
+	 *
+	 * @param info        an {@link STBTTFontinfo} struct
+	 * @param glyph_index the unicode codepoint
+	 */
 	public static STBTTVertex.Buffer stbtt_GetGlyphShape(STBTTFontinfo info, int glyph_index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1090,7 +1236,12 @@ public class STBTruetype {
 
 	// --- [ stbtt_FreeShape ] ---
 
-	/** JNI method for {@link #stbtt_FreeShape FreeShape} */
+	/**
+	 * Frees the data allocated by {@link #stbtt_GetCodepointShape GetCodepointShape} and {@link #stbtt_GetGlyphShape GetGlyphShape}.
+	 *
+	 * @param info     an {@link STBTTFontinfo} struct
+	 * @param vertices the array of {@link STBTTVertex} structs to free
+	 */
 	public static native void nstbtt_FreeShape(long info, long vertices);
 
 	/**
@@ -1107,7 +1258,12 @@ public class STBTruetype {
 
 	// --- [ stbtt_FreeBitmap ] ---
 
-	/** JNI method for {@link #stbtt_FreeBitmap FreeBitmap} */
+	/**
+	 * Frees a bitmap allocated by {@link #stbtt_GetCodepointBitmap GetCodepointBitmap}, {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel}, {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} or {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel}.
+	 *
+	 * @param bitmap   the bitmap to free
+	 * @param userdata a pointer to user data
+	 */
 	public static native void nstbtt_FreeBitmap(long bitmap, long userdata);
 
 	/**
@@ -1122,7 +1278,18 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointBitmap ] ---
 
-	/** JNI method for {@link #stbtt_GetCodepointBitmap GetCodepointBitmap} */
+	/**
+	 * Allocates a large-enough single-channel 8bpp bitmap and renders the specified character/glyph at the specified scale into it, with antialiasing.
+	 *
+	 * @param info      an {@link STBTTFontinfo} struct
+	 * @param scale_x   the horizontal scale
+	 * @param scale_y   the vertical scale
+	 * @param codepoint the unicode codepoint to render
+	 * @param width     returns the bitmap width
+	 * @param height    returns the bitmap height
+	 * @param xoff      returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
+	 * @param yoff      returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
+	 */
 	public static native long nstbtt_GetCodepointBitmap(long info, float scale_x, float scale_y, int codepoint, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1137,18 +1304,6 @@ public class STBTruetype {
 	 * @param xoff      returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
 	 * @param yoff      returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
 	 */
-	public static ByteBuffer stbtt_GetCodepointBitmap(STBTTFontinfo info, float scale_x, float scale_y, int codepoint, ByteBuffer width, ByteBuffer height, ByteBuffer xoff, ByteBuffer yoff) {
-		if ( CHECKS ) {
-			checkBuffer(width, 1 << 2);
-			checkBuffer(height, 1 << 2);
-			checkBuffer(xoff, 1 << 2);
-			checkBuffer(yoff, 1 << 2);
-		}
-		long __result = nstbtt_GetCodepointBitmap(info.address(), scale_x, scale_y, codepoint, memAddress(width), memAddress(height), memAddress(xoff), memAddress(yoff));
-		return memByteBuffer(__result, width.getInt(width.position()) * height.getInt(height.position()));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetCodepointBitmap GetCodepointBitmap} */
 	public static ByteBuffer stbtt_GetCodepointBitmap(STBTTFontinfo info, float scale_x, float scale_y, int codepoint, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
 		if ( CHECKS ) {
 			checkBuffer(width, 1);
@@ -1162,7 +1317,20 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointBitmapSubpixel ] ---
 
-	/** JNI method for {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel} */
+	/**
+	 * Same as {@link #stbtt_GetCodepointBitmap GetCodepointBitmap}, but you can specify a subpixel shift for the character.
+	 *
+	 * @param info      an {@link STBTTFontinfo} struct
+	 * @param scale_x   the horizontal scale
+	 * @param scale_y   the vertical scale
+	 * @param shift_x   the horizontal subpixel shift
+	 * @param shift_y   the vertical subpixel shift
+	 * @param codepoint the unicode codepoint to render
+	 * @param width     returns the bitmap width
+	 * @param height    returns the bitmap height
+	 * @param xoff      returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
+	 * @param yoff      returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
+	 */
 	public static native long nstbtt_GetCodepointBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1179,18 +1347,6 @@ public class STBTruetype {
 	 * @param xoff      returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
 	 * @param yoff      returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
 	 */
-	public static ByteBuffer stbtt_GetCodepointBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, ByteBuffer width, ByteBuffer height, ByteBuffer xoff, ByteBuffer yoff) {
-		if ( CHECKS ) {
-			checkBuffer(width, 1 << 2);
-			checkBuffer(height, 1 << 2);
-			checkBuffer(xoff, 1 << 2);
-			checkBuffer(yoff, 1 << 2);
-		}
-		long __result = nstbtt_GetCodepointBitmapSubpixel(info.address(), scale_x, scale_y, shift_x, shift_y, codepoint, memAddress(width), memAddress(height), memAddress(xoff), memAddress(yoff));
-		return memByteBuffer(__result, width.getInt(width.position()) * height.getInt(height.position()));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel} */
 	public static ByteBuffer stbtt_GetCodepointBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
 		if ( CHECKS ) {
 			checkBuffer(width, 1);
@@ -1204,7 +1360,19 @@ public class STBTruetype {
 
 	// --- [ stbtt_MakeCodepointBitmap ] ---
 
-	/** JNI method for {@link #stbtt_MakeCodepointBitmap MakeCodepointBitmap} */
+	/**
+	 * Same as {@link #stbtt_GetCodepointBitmap GetCodepointBitmap}, but you pass in storage for the bitmap in the form of {@code output}, with row spacing of {@code out_stride} bytes. The
+	 * bitmap is clipped to {@code out_w/out_h} bytes. Call {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} to get the width and height and positioning info for it first.
+	 *
+	 * @param info       an {@link STBTTFontinfo} struct
+	 * @param output     the bitmap storage
+	 * @param out_w      the bitmap width
+	 * @param out_h      the bitmap height
+	 * @param out_stride the row stride, in bytes
+	 * @param scale_x    the horizontal scale
+	 * @param scale_y    the vertical scale
+	 * @param codepoint  the unicode codepoint to render
+	 */
 	public static native void nstbtt_MakeCodepointBitmap(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int codepoint);
 
 	/**
@@ -1228,7 +1396,20 @@ public class STBTruetype {
 
 	// --- [ stbtt_MakeCodepointBitmapSubpixel ] ---
 
-	/** JNI method for {@link #stbtt_MakeCodepointBitmapSubpixel MakeCodepointBitmapSubpixel} */
+	/**
+	 * Same as {@link #stbtt_MakeCodepointBitmap MakeCodepointBitmap}, but you can specify a subpixel shift for the character.
+	 *
+	 * @param info       an {@link STBTTFontinfo} struct
+	 * @param output     the bitmap storage
+	 * @param out_w      the bitmap width
+	 * @param out_h      the bitmap height
+	 * @param out_stride the row stride, in bytes
+	 * @param scale_x    the horizontal scale
+	 * @param scale_y    the vertical scale
+	 * @param shift_x    the horizontal subpixel shift
+	 * @param shift_y    the vertical subpixel shift
+	 * @param codepoint  the unicode codepoint to render
+	 */
 	public static native void nstbtt_MakeCodepointBitmapSubpixel(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint);
 
 	/**
@@ -1253,7 +1434,21 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointBitmapBox ] ---
 
-	/** JNI method for {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} */
+	/**
+	 * Get the bbox of the bitmap centered around the glyph origin; so the bitmap width is {@code ix1-ix0}, height is {@code iy1-iy0}, and location to place
+	 * the bitmap top left is {@code (leftSideBearing*scale,iy0)}.
+	 * 
+	 * <p>Note that the bitmap uses y-increases-down, but the shape uses y-increases-up, so {@code CodepointBitmapBox} and {@code CodepointBox} are inverted.</p>
+	 *
+	 * @param font      an {@link STBTTFontinfo} struct
+	 * @param codepoint the unicode codepoint
+	 * @param scale_x   the horizontal scale
+	 * @param scale_y   the vertical scale
+	 * @param ix0       returns the left coordinate
+	 * @param iy0       returns the bottom coordinate
+	 * @param ix1       returns the right coordinate
+	 * @param iy1       returns the top coordinate
+	 */
 	public static native void nstbtt_GetCodepointBitmapBox(long font, int codepoint, float scale_x, float scale_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1271,17 +1466,6 @@ public class STBTruetype {
 	 * @param ix1       returns the right coordinate
 	 * @param iy1       returns the top coordinate
 	 */
-	public static void stbtt_GetCodepointBitmapBox(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, ByteBuffer ix0, ByteBuffer iy0, ByteBuffer ix1, ByteBuffer iy1) {
-		if ( CHECKS ) {
-			checkBuffer(ix0, 1 << 2);
-			checkBuffer(iy0, 1 << 2);
-			checkBuffer(ix1, 1 << 2);
-			checkBuffer(iy1, 1 << 2);
-		}
-		nstbtt_GetCodepointBitmapBox(font.address(), codepoint, scale_x, scale_y, memAddress(ix0), memAddress(iy0), memAddress(ix1), memAddress(iy1));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} */
 	public static void stbtt_GetCodepointBitmapBox(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
 		if ( CHECKS ) {
 			checkBuffer(ix0, 1);
@@ -1294,7 +1478,20 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointBitmapBoxSubpixel ] ---
 
-	/** JNI method for {@link #stbtt_GetCodepointBitmapBoxSubpixel GetCodepointBitmapBoxSubpixel} */
+	/**
+	 * Same as {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox}, but you can specify a subpixel shift for the character.
+	 *
+	 * @param font      an {@link STBTTFontinfo} struct
+	 * @param codepoint the unicode codepoint
+	 * @param scale_x   the horizontal scale
+	 * @param scale_y   the vertical scale
+	 * @param shift_x   the horizontal subpixel shift
+	 * @param shift_y   the vertical subpixel shift
+	 * @param ix0       returns the left coordinate
+	 * @param iy0       returns the bottom coordinate
+	 * @param ix1       returns the right coordinate
+	 * @param iy1       returns the top coordinate
+	 */
 	public static native void nstbtt_GetCodepointBitmapBoxSubpixel(long font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1311,17 +1508,6 @@ public class STBTruetype {
 	 * @param ix1       returns the right coordinate
 	 * @param iy1       returns the top coordinate
 	 */
-	public static void stbtt_GetCodepointBitmapBoxSubpixel(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, ByteBuffer ix0, ByteBuffer iy0, ByteBuffer ix1, ByteBuffer iy1) {
-		if ( CHECKS ) {
-			checkBuffer(ix0, 1 << 2);
-			checkBuffer(iy0, 1 << 2);
-			checkBuffer(ix1, 1 << 2);
-			checkBuffer(iy1, 1 << 2);
-		}
-		nstbtt_GetCodepointBitmapBoxSubpixel(font.address(), codepoint, scale_x, scale_y, shift_x, shift_y, memAddress(ix0), memAddress(iy0), memAddress(ix1), memAddress(iy1));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetCodepointBitmapBoxSubpixel GetCodepointBitmapBoxSubpixel} */
 	public static void stbtt_GetCodepointBitmapBoxSubpixel(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
 		if ( CHECKS ) {
 			checkBuffer(ix0, 1);
@@ -1334,7 +1520,18 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphBitmap ] ---
 
-	/** JNI method for {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} */
+	/**
+	 * Allocates a large-enough single-channel 8bpp bitmap and renders the specified character/glyph at the specified scale into it, with antialiasing.
+	 *
+	 * @param info    an {@link STBTTFontinfo} struct
+	 * @param scale_x the horizontal scale
+	 * @param scale_y the vertical scale
+	 * @param glyph   the glyph index to render
+	 * @param width   returns the bitmap width
+	 * @param height  returns the bitmap height
+	 * @param xoff    returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
+	 * @param yoff    returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
+	 */
 	public static native long nstbtt_GetGlyphBitmap(long info, float scale_x, float scale_y, int glyph, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1349,18 +1546,6 @@ public class STBTruetype {
 	 * @param xoff    returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
 	 * @param yoff    returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
 	 */
-	public static ByteBuffer stbtt_GetGlyphBitmap(STBTTFontinfo info, float scale_x, float scale_y, int glyph, ByteBuffer width, ByteBuffer height, ByteBuffer xoff, ByteBuffer yoff) {
-		if ( CHECKS ) {
-			checkBuffer(width, 1 << 2);
-			checkBuffer(height, 1 << 2);
-			checkBuffer(xoff, 1 << 2);
-			checkBuffer(yoff, 1 << 2);
-		}
-		long __result = nstbtt_GetGlyphBitmap(info.address(), scale_x, scale_y, glyph, memAddress(width), memAddress(height), memAddress(xoff), memAddress(yoff));
-		return memByteBuffer(__result, width.getInt(width.position()) * height.getInt(height.position()));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} */
 	public static ByteBuffer stbtt_GetGlyphBitmap(STBTTFontinfo info, float scale_x, float scale_y, int glyph, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
 		if ( CHECKS ) {
 			checkBuffer(width, 1);
@@ -1374,7 +1559,20 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphBitmapSubpixel ] ---
 
-	/** JNI method for {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel} */
+	/**
+	 * Same as {@link #stbtt_GetGlyphBitmap GetGlyphBitmap}, but you can specify a subpixel shift for the character.
+	 *
+	 * @param info    an {@link STBTTFontinfo} struct
+	 * @param scale_x the horizontal scale
+	 * @param scale_y the vertical scale
+	 * @param shift_x the horizontal subpixel shift
+	 * @param shift_y the vertical subpixel shift
+	 * @param glyph   the glyph index to render
+	 * @param width   returns the bitmap width
+	 * @param height  returns the bitmap height
+	 * @param xoff    returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
+	 * @param yoff    returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
+	 */
 	public static native long nstbtt_GetGlyphBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1391,18 +1589,6 @@ public class STBTruetype {
 	 * @param xoff    returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
 	 * @param yoff    returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
 	 */
-	public static ByteBuffer stbtt_GetGlyphBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, ByteBuffer width, ByteBuffer height, ByteBuffer xoff, ByteBuffer yoff) {
-		if ( CHECKS ) {
-			checkBuffer(width, 1 << 2);
-			checkBuffer(height, 1 << 2);
-			checkBuffer(xoff, 1 << 2);
-			checkBuffer(yoff, 1 << 2);
-		}
-		long __result = nstbtt_GetGlyphBitmapSubpixel(info.address(), scale_x, scale_y, shift_x, shift_y, glyph, memAddress(width), memAddress(height), memAddress(xoff), memAddress(yoff));
-		return memByteBuffer(__result, width.getInt(width.position()) * height.getInt(height.position()));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel} */
 	public static ByteBuffer stbtt_GetGlyphBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
 		if ( CHECKS ) {
 			checkBuffer(width, 1);
@@ -1416,7 +1602,19 @@ public class STBTruetype {
 
 	// --- [ stbtt_MakeGlyphBitmap ] ---
 
-	/** JNI method for {@link #stbtt_MakeGlyphBitmap MakeGlyphBitmap} */
+	/**
+	 * Same as {@link #stbtt_GetGlyphBitmap GetGlyphBitmap}, but you pass in storage for the bitmap in the form of {@code output}, with row spacing of {@code out_stride} bytes. The
+	 * bitmap is clipped to {@code out_w/out_h} bytes. Call {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} to get the width and height and positioning info for it first.
+	 *
+	 * @param info       an {@link STBTTFontinfo} struct
+	 * @param output     the bitmap storage
+	 * @param out_w      the bitmap width
+	 * @param out_h      the bitmap height
+	 * @param out_stride the row stride, in bytes
+	 * @param scale_x    the horizontal scale
+	 * @param scale_y    the vertical scale
+	 * @param glyph      the glyph index to render
+	 */
 	public static native void nstbtt_MakeGlyphBitmap(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int glyph);
 
 	/**
@@ -1440,7 +1638,20 @@ public class STBTruetype {
 
 	// --- [ stbtt_MakeGlyphBitmapSubpixel ] ---
 
-	/** JNI method for {@link #stbtt_MakeGlyphBitmapSubpixel MakeGlyphBitmapSubpixel} */
+	/**
+	 * Same as {@link #stbtt_MakeGlyphBitmap MakeGlyphBitmap}, but you can specify a subpixel shift for the character.
+	 *
+	 * @param info       an {@link STBTTFontinfo} struct
+	 * @param output     the bitmap storage
+	 * @param out_w      the bitmap width
+	 * @param out_h      the bitmap height
+	 * @param out_stride the row stride, in bytes
+	 * @param scale_x    the horizontal scale
+	 * @param scale_y    the vertical scale
+	 * @param shift_x    the horizontal subpixel shift
+	 * @param shift_y    the vertical subpixel shift
+	 * @param glyph      the glyph index to render
+	 */
 	public static native void nstbtt_MakeGlyphBitmapSubpixel(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int glyph);
 
 	/**
@@ -1465,7 +1676,21 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphBitmapBox ] ---
 
-	/** JNI method for {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} */
+	/**
+	 * Get the bbox of the bitmap centered around the glyph origin; so the bitmap width is {@code ix1-ix0}, height is {@code iy1-iy0}, and location to place
+	 * the bitmap top left is {@code (leftSideBearing*scale,iy0)}.
+	 * 
+	 * <p>Note that the bitmap uses y-increases-down, but the shape uses y-increases-up, so {@code GlyphBitmapBox} and {@code GlyphBox} are inverted.</p>
+	 *
+	 * @param font    an {@link STBTTFontinfo} struct
+	 * @param glyph   the glyph index
+	 * @param scale_x the horizontal scale
+	 * @param scale_y the vertical scale
+	 * @param ix0     returns the left coordinate
+	 * @param iy0     returns the bottom coordinate
+	 * @param ix1     returns the right coordinate
+	 * @param iy1     returns the top coordinate
+	 */
 	public static native void nstbtt_GetGlyphBitmapBox(long font, int glyph, float scale_x, float scale_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1483,17 +1708,6 @@ public class STBTruetype {
 	 * @param ix1     returns the right coordinate
 	 * @param iy1     returns the top coordinate
 	 */
-	public static void stbtt_GetGlyphBitmapBox(STBTTFontinfo font, int glyph, float scale_x, float scale_y, ByteBuffer ix0, ByteBuffer iy0, ByteBuffer ix1, ByteBuffer iy1) {
-		if ( CHECKS ) {
-			checkBuffer(ix0, 1 << 2);
-			checkBuffer(iy0, 1 << 2);
-			checkBuffer(ix1, 1 << 2);
-			checkBuffer(iy1, 1 << 2);
-		}
-		nstbtt_GetGlyphBitmapBox(font.address(), glyph, scale_x, scale_y, memAddress(ix0), memAddress(iy0), memAddress(ix1), memAddress(iy1));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} */
 	public static void stbtt_GetGlyphBitmapBox(STBTTFontinfo font, int glyph, float scale_x, float scale_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
 		if ( CHECKS ) {
 			checkBuffer(ix0, 1);
@@ -1506,7 +1720,20 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphBitmapBoxSubpixel ] ---
 
-	/** JNI method for {@link #stbtt_GetGlyphBitmapBoxSubpixel GetGlyphBitmapBoxSubpixel} */
+	/**
+	 * Same as {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox}, but you can specify a subpixel shift for the character.
+	 *
+	 * @param font    an {@link STBTTFontinfo} struct
+	 * @param glyph   the glyph index
+	 * @param scale_x the horizontal scale
+	 * @param scale_y the vertical scale
+	 * @param shift_x the horizontal subpixel shift
+	 * @param shift_y the vertical subpixel shift
+	 * @param ix0     returns the left coordinate
+	 * @param iy0     returns the bottom coordinate
+	 * @param ix1     returns the right coordinate
+	 * @param iy1     returns the top coordinate
+	 */
 	public static native void nstbtt_GetGlyphBitmapBoxSubpixel(long font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1523,17 +1750,6 @@ public class STBTruetype {
 	 * @param ix1     returns the right coordinate
 	 * @param iy1     returns the top coordinate
 	 */
-	public static void stbtt_GetGlyphBitmapBoxSubpixel(STBTTFontinfo font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, ByteBuffer ix0, ByteBuffer iy0, ByteBuffer ix1, ByteBuffer iy1) {
-		if ( CHECKS ) {
-			checkBuffer(ix0, 1 << 2);
-			checkBuffer(iy0, 1 << 2);
-			checkBuffer(ix1, 1 << 2);
-			checkBuffer(iy1, 1 << 2);
-		}
-		nstbtt_GetGlyphBitmapBoxSubpixel(font.address(), glyph, scale_x, scale_y, shift_x, shift_y, memAddress(ix0), memAddress(iy0), memAddress(ix1), memAddress(iy1));
-	}
-
-	/** Alternative version of: {@link #stbtt_GetGlyphBitmapBoxSubpixel GetGlyphBitmapBoxSubpixel} */
 	public static void stbtt_GetGlyphBitmapBoxSubpixel(STBTTFontinfo font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
 		if ( CHECKS ) {
 			checkBuffer(ix0, 1);
@@ -1546,7 +1762,16 @@ public class STBTruetype {
 
 	// --- [ stbtt_FindMatchingFont ] ---
 
-	/** JNI method for {@link #stbtt_FindMatchingFont FindMatchingFont} */
+	/**
+	 * Returns the offset (not index) of the font that matches, or -1 if none.
+	 * 
+	 * <p>If you use STBTT_MACSTYLE_DONTCARE, use a font name like "Arial Bold". If you use any other flag, use a font name like "Arial"; this checks the
+	 * {@code macStyle} header field; I don't know if fonts set this consistently.</p>
+	 *
+	 * @param fontdata the font data
+	 * @param name     the font name
+	 * @param flags    the style flags. One of:<br>{@link #STBTT_MACSTYLE_DONTCARE MACSTYLE_DONTCARE}, {@link #STBTT_MACSTYLE_BOLD MACSTYLE_BOLD}, {@link #STBTT_MACSTYLE_ITALIC MACSTYLE_ITALIC}, {@link #STBTT_MACSTYLE_UNDERSCORE MACSTYLE_UNDERSCORE}, {@link #STBTT_MACSTYLE_NONE MACSTYLE_NONE}
+	 */
 	public static native int nstbtt_FindMatchingFont(long fontdata, long name, int flags);
 
 	/**
@@ -1565,7 +1790,16 @@ public class STBTruetype {
 		return nstbtt_FindMatchingFont(memAddress(fontdata), memAddress(name), flags);
 	}
 
-	/** CharSequence version of: {@link #stbtt_FindMatchingFont FindMatchingFont} */
+	/**
+	 * Returns the offset (not index) of the font that matches, or -1 if none.
+	 * 
+	 * <p>If you use STBTT_MACSTYLE_DONTCARE, use a font name like "Arial Bold". If you use any other flag, use a font name like "Arial"; this checks the
+	 * {@code macStyle} header field; I don't know if fonts set this consistently.</p>
+	 *
+	 * @param fontdata the font data
+	 * @param name     the font name
+	 * @param flags    the style flags. One of:<br>{@link #STBTT_MACSTYLE_DONTCARE MACSTYLE_DONTCARE}, {@link #STBTT_MACSTYLE_BOLD MACSTYLE_BOLD}, {@link #STBTT_MACSTYLE_ITALIC MACSTYLE_ITALIC}, {@link #STBTT_MACSTYLE_UNDERSCORE MACSTYLE_UNDERSCORE}, {@link #STBTT_MACSTYLE_NONE MACSTYLE_NONE}
+	 */
 	public static int stbtt_FindMatchingFont(ByteBuffer fontdata, CharSequence name, int flags) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1578,9 +1812,6 @@ public class STBTruetype {
 
 	// --- [ stbtt_CompareUTF8toUTF16_bigendian ] ---
 
-	/** JNI method for {@link #stbtt_CompareUTF8toUTF16_bigendian CompareUTF8toUTF16_bigendian} */
-	public static native int nstbtt_CompareUTF8toUTF16_bigendian(long s1, int len1, long s2, int len2);
-
 	/**
 	 * Returns 1/0 whether the first string interpreted as utf8 is identical to the second string interpreted as big-endian utf16... useful for strings
 	 * returned from {@link #stbtt_GetFontNameString GetFontNameString}.
@@ -1590,22 +1821,38 @@ public class STBTruetype {
 	 * @param s2   the second string
 	 * @param len2 the length of the second string, in bytes
 	 */
-	public static int stbtt_CompareUTF8toUTF16_bigendian(ByteBuffer s1, int len1, ByteBuffer s2, int len2) {
-		if ( CHECKS ) {
-			checkBuffer(s1, len1);
-			checkBuffer(s2, len2);
-		}
-		return nstbtt_CompareUTF8toUTF16_bigendian(memAddress(s1), len1, memAddress(s2), len2);
-	}
+	public static native int nstbtt_CompareUTF8toUTF16_bigendian(long s1, int len1, long s2, int len2);
 
-	/** Alternative version of: {@link #stbtt_CompareUTF8toUTF16_bigendian CompareUTF8toUTF16_bigendian} */
+	/**
+	 * Returns 1/0 whether the first string interpreted as utf8 is identical to the second string interpreted as big-endian utf16... useful for strings
+	 * returned from {@link #stbtt_GetFontNameString GetFontNameString}.
+	 *
+	 * @param s1 the first string
+	 * @param s2 the second string
+	 */
 	public static int stbtt_CompareUTF8toUTF16_bigendian(ByteBuffer s1, ByteBuffer s2) {
 		return nstbtt_CompareUTF8toUTF16_bigendian(memAddress(s1), s1.remaining(), memAddress(s2), s2.remaining());
 	}
 
 	// --- [ stbtt_GetFontNameString ] ---
 
-	/** JNI method for {@link #stbtt_GetFontNameString GetFontNameString} */
+	/**
+	 * Returns the string (which may be big-endian double byte, e.g. for unicode) and puts the length in bytes in {@code *length}.
+	 * 
+	 * <p>See the truetype spec:</p>
+	 * 
+	 * <ul>
+	 * <li><a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6name.html">TrueType Reference Manual - The 'name' table</a></li>
+	 * <li><a href="http://www.microsoft.com/typography/otspec/name.htm">OpenType™ Specification - The Naming Table</a></li>
+	 * </ul>
+	 *
+	 * @param font       an {@link STBTTFontinfo} struct
+	 * @param length     returns the string length, in bytes
+	 * @param platformID the platform ID. One of:<br>{@link #STBTT_PLATFORM_ID_UNICODE PLATFORM_ID_UNICODE}, {@link #STBTT_PLATFORM_ID_MAC PLATFORM_ID_MAC}, {@link #STBTT_PLATFORM_ID_ISO PLATFORM_ID_ISO}, {@link #STBTT_PLATFORM_ID_MICROSOFT PLATFORM_ID_MICROSOFT}
+	 * @param encodingID the encoding ID. One of:<br>{@link #STBTT_UNICODE_EID_UNICODE_1_0 UNICODE_EID_UNICODE_1_0}, {@link #STBTT_UNICODE_EID_UNICODE_1_1 UNICODE_EID_UNICODE_1_1}, {@link #STBTT_UNICODE_EID_ISO_10646 UNICODE_EID_ISO_10646}, {@link #STBTT_UNICODE_EID_UNICODE_2_0_BMP UNICODE_EID_UNICODE_2_0_BMP}, {@link #STBTT_UNICODE_EID_UNICODE_2_0_FULL UNICODE_EID_UNICODE_2_0_FULL}, {@link #STBTT_MS_EID_SYMBOL MS_EID_SYMBOL}, {@link #STBTT_MS_EID_UNICODE_BMP MS_EID_UNICODE_BMP}, {@link #STBTT_MS_EID_SHIFTJIS MS_EID_SHIFTJIS}, {@link #STBTT_MS_EID_UNICODE_FULL MS_EID_UNICODE_FULL}, {@link #STBTT_MAC_EID_ROMAN MAC_EID_ROMAN}, {@link #STBTT_MAC_EID_JAPANESE MAC_EID_JAPANESE}, {@link #STBTT_MAC_EID_CHINESE_TRAD MAC_EID_CHINESE_TRAD}, {@link #STBTT_MAC_EID_KOREAN MAC_EID_KOREAN}, {@link #STBTT_MAC_EID_ARABIC MAC_EID_ARABIC}, {@link #STBTT_MAC_EID_HEBREW MAC_EID_HEBREW}, {@link #STBTT_MAC_EID_GREEK MAC_EID_GREEK}, {@link #STBTT_MAC_EID_RUSSIAN MAC_EID_RUSSIAN}
+	 * @param languageID the language ID. One of:<br>{@link #STBTT_MS_LANG_ENGLISH MS_LANG_ENGLISH}, {@link #STBTT_MS_LANG_CHINESE MS_LANG_CHINESE}, {@link #STBTT_MS_LANG_DUTCH MS_LANG_DUTCH}, {@link #STBTT_MS_LANG_FRENCH MS_LANG_FRENCH}, {@link #STBTT_MS_LANG_GERMAN MS_LANG_GERMAN}, {@link #STBTT_MS_LANG_HEBREW MS_LANG_HEBREW}, {@link #STBTT_MS_LANG_ITALIAN MS_LANG_ITALIAN}, {@link #STBTT_MS_LANG_JAPANESE MS_LANG_JAPANESE}, {@link #STBTT_MS_LANG_KOREAN MS_LANG_KOREAN}, {@link #STBTT_MS_LANG_RUSSIAN MS_LANG_RUSSIAN}, {@link #STBTT_MS_LANG_SPANISH MS_LANG_SPANISH}, {@link #STBTT_MS_LANG_SWEDISH MS_LANG_SWEDISH}, {@link #STBTT_MAC_LANG_ENGLISH MAC_LANG_ENGLISH}, {@link #STBTT_MAC_LANG_ARABIC MAC_LANG_ARABIC}, {@link #STBTT_MAC_LANG_DUTCH MAC_LANG_DUTCH}, {@link #STBTT_MAC_LANG_FRENCH MAC_LANG_FRENCH}, {@link #STBTT_MAC_LANG_GERMAN MAC_LANG_GERMAN}, {@link #STBTT_MAC_LANG_HEBREW MAC_LANG_HEBREW}, {@link #STBTT_MAC_LANG_ITALIAN MAC_LANG_ITALIAN}, {@link #STBTT_MAC_LANG_JAPANESE MAC_LANG_JAPANESE}, {@link #STBTT_MAC_LANG_KOREAN MAC_LANG_KOREAN}, {@link #STBTT_MAC_LANG_RUSSIAN MAC_LANG_RUSSIAN}, {@link #STBTT_MAC_LANG_SPANISH MAC_LANG_SPANISH}, {@link #STBTT_MAC_LANG_SWEDISH MAC_LANG_SWEDISH}, {@link #STBTT_MAC_LANG_CHINESE_SIMPLIFIED MAC_LANG_CHINESE_SIMPLIFIED}, {@link #STBTT_MAC_LANG_CHINESE_TRAD MAC_LANG_CHINESE_TRAD}
+	 * @param nameID     the name ID
+	 */
 	public static native long nstbtt_GetFontNameString(long font, long length, int platformID, int encodingID, int languageID, int nameID);
 
 	/**

@@ -85,10 +85,22 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_GetAWT ] ---
 
-	/** JNI method for {@link #JAWT_GetAWT GetAWT} */
+	/**
+	 * Returns the AWT native structure.
+	 *
+	 * @param awt the target {@code JAWT} struct
+	 *
+	 * @return {@code JNI_FALSE} if an error occurs
+	 */
 	public static native boolean nJAWT_GetAWT(long __functionAddress, long awt);
 
-	/** Unsafe version of {@link #JAWT_GetAWT GetAWT} */
+	/**
+	 * Returns the AWT native structure.
+	 *
+	 * @param awt the target {@code JAWT} struct
+	 *
+	 * @return {@code JNI_FALSE} if an error occurs
+	 */
 	public static boolean nJAWT_GetAWT(long awt) {
 		long __functionAddress = Functions.GetAWT;
 		return nJAWT_GetAWT(__functionAddress, awt);
@@ -107,7 +119,21 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_DrawingSurface_Lock ] ---
 
-	/** Unsafe version of {@link #JAWT_DrawingSurface_Lock DrawingSurface_Lock} */
+	/**
+	 * Locks the surface of the target component for native rendering. When finished drawing, the surface must be unlocked with {@link #JAWT_DrawingSurface_Unlock DrawingSurface_Unlock}.
+	 *
+	 * @param __functionAddress the function address
+	 * @param ds                the surface to lock
+	 *
+	 * @return a bitmask with one or more of the following values:
+	 *         
+	 *         <ul>
+	 *         <li>{@link #JAWT_LOCK_ERROR LOCK_ERROR} - When an error has occurred and the surface could not be locked.</li>
+	 *         <li>{@link #JAWT_LOCK_CLIP_CHANGED LOCK_CLIP_CHANGED} - When the clip region has changed.</li>
+	 *         <li>{@link #JAWT_LOCK_BOUNDS_CHANGED LOCK_BOUNDS_CHANGED} - When the bounds of the surface have changed.</li>
+	 *         <li>{@link #JAWT_LOCK_SURFACE_CHANGED LOCK_SURFACE_CHANGED} - When the surface itself has changed</li>
+	 *         </ul>
+	 */
 	public static int nJAWT_DrawingSurface_Lock(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -135,7 +161,19 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_DrawingSurface_GetDrawingSurfaceInfo ] ---
 
-	/** Unsafe version of {@link #JAWT_DrawingSurface_GetDrawingSurfaceInfo DrawingSurface_GetDrawingSurfaceInfo} */
+	/**
+	 * Returns the drawing surface info.
+	 * 
+	 * <p>The value returned may be cached, but the values may change if additional calls to {@link #JAWT_DrawingSurface_Lock DrawingSurface_Lock} or {@link #JAWT_DrawingSurface_Unlock DrawingSurface_Unlock} are made.
+	 * {@link #JAWT_DrawingSurface_Lock DrawingSurface_Lock} must be called before this can return a valid value.</p>
+	 * 
+	 * <p>When finished with the returned value, {@link #JAWT_DrawingSurface_FreeDrawingSurfaceInfo DrawingSurface_FreeDrawingSurfaceInfo} must be called.</p>
+	 *
+	 * @param __functionAddress the function address
+	 * @param ds                the {@link JAWTDrawingSurface} to free
+	 *
+	 * @return {@code NULL} if an error has occurred.
+	 */
 	public static long nJAWT_DrawingSurface_GetDrawingSurfaceInfo(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -162,7 +200,12 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_DrawingSurface_FreeDrawingSurfaceInfo ] ---
 
-	/** Unsafe version of {@link #JAWT_DrawingSurface_FreeDrawingSurfaceInfo DrawingSurface_FreeDrawingSurfaceInfo} */
+	/**
+	 * Frees the drawing surface info.
+	 *
+	 * @param __functionAddress the function address
+	 * @param dsi               the {@link JAWTDrawingSurfaceInfo} to free
+	 */
 	public static void nJAWT_DrawingSurface_FreeDrawingSurfaceInfo(long __functionAddress, long dsi) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -181,7 +224,12 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_DrawingSurface_Unlock ] ---
 
-	/** Unsafe version of {@link #JAWT_DrawingSurface_Unlock DrawingSurface_Unlock} */
+	/**
+	 * Unlocks the drawing surface of the target component for native rendering.
+	 *
+	 * @param __functionAddress the function address
+	 * @param ds                the surface to unlock
+	 */
 	public static void nJAWT_DrawingSurface_Unlock(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -200,7 +248,16 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_GetDrawingSurface ] ---
 
-	/** JNI method for {@link #JAWT_GetDrawingSurface GetDrawingSurface} */
+	/**
+	 * Returns a drawing surface from a target {@code jobject}. This value may be cached.
+	 * 
+	 * <p>{@link #JAWT_FreeDrawingSurface FreeDrawingSurface} must be called when finished with the returned {@link JAWTDrawingSurface}.</p>
+	 *
+	 * @param __functionAddress the function address
+	 * @param target            must be a {@link java.awt.Component Component} (should be a {@link java.awt.Canvas Canvas} or {@link java.awt.Window Window} for native rendering)
+	 *
+	 * @return {@code NULL} if an error has occurred
+	 */
 	public static native long nJAWT_GetDrawingSurface(long __functionAddress, Object target);
 
 	/**
@@ -222,7 +279,12 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_FreeDrawingSurface ] ---
 
-	/** Unsafe version of {@link #JAWT_FreeDrawingSurface FreeDrawingSurface} */
+	/**
+	 * Frees the drawing surface allocated in {@link #JAWT_GetDrawingSurface GetDrawingSurface}.
+	 *
+	 * @param __functionAddress the function address
+	 * @param ds                the {@link JAWTDrawingSurface} to free
+	 */
 	public static void nJAWT_FreeDrawingSurface(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -241,7 +303,11 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_Lock ] ---
 
-	/** JNI method for {@link #JAWT_Lock Lock} */
+	/**
+	 * Locks the entire AWT for synchronization purposes.
+	 *
+	 * @param __functionAddress the function address
+	 */
 	public static native void nJAWT_Lock(long __functionAddress);
 
 	/**
@@ -257,7 +323,11 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_Unlock ] ---
 
-	/** JNI method for {@link #JAWT_Unlock Unlock} */
+	/**
+	 * Unlocks the entire AWT for synchronization purposes.
+	 *
+	 * @param __functionAddress the function address
+	 */
 	public static native void nJAWT_Unlock(long __functionAddress);
 
 	/**
@@ -273,7 +343,15 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_GetComponent ] ---
 
-	/** JNI method for {@link #JAWT_GetComponent GetComponent} */
+	/**
+	 * Returns a reference to a {@code java.awt.Component Component} from a native platform handle. On Windows, this corresponds to an {@code HWND}; on
+	 * Solaris and Linux, this is a {@code Drawable}. For other platforms, see the appropriate machine-dependent header file for a description. The reference
+	 * returned by this function is a local reference that is only valid in this environment. This function returns a {@code NULL} reference if no component could be
+	 * found with matching platform information.
+	 *
+	 * @param __functionAddress the function address
+	 * @param platformInfo      the native platform handle
+	 */
 	public static native Object nJAWT_GetComponent(long __functionAddress, long platformInfo);
 
 	/**

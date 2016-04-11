@@ -65,7 +65,6 @@ public class NVSampleLocations {
 
 	// --- [ glFramebufferSampleLocationsfvNV ] ---
 
-	/** Unsafe version of {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
 	public static void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v) {
 		long __functionAddress = GLES.getCapabilities().glFramebufferSampleLocationsfvNV;
 		if ( CHECKS )
@@ -73,20 +72,12 @@ public class NVSampleLocations {
 		callIIIPV(__functionAddress, target, start, count, v);
 	}
 
-	public static void glFramebufferSampleLocationsfvNV(int target, int start, int count, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, count << 2);
-		nglFramebufferSampleLocationsfvNV(target, start, count, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
 	public static void glFramebufferSampleLocationsfvNV(int target, int start, FloatBuffer v) {
 		nglFramebufferSampleLocationsfvNV(target, start, v.remaining(), memAddress(v));
 	}
 
 	// --- [ glNamedFramebufferSampleLocationsfvNV ] ---
 
-	/** Unsafe version of {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
 	public static void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v) {
 		long __functionAddress = GLES.getCapabilities().glNamedFramebufferSampleLocationsfvNV;
 		if ( CHECKS )
@@ -94,13 +85,6 @@ public class NVSampleLocations {
 		callIIIPV(__functionAddress, framebuffer, start, count, v);
 	}
 
-	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, count << 2);
-		nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
 	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, FloatBuffer v) {
 		nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, v.remaining(), memAddress(v));
 	}

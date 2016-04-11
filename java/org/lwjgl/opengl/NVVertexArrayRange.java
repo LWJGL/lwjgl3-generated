@@ -47,7 +47,6 @@ public class NVVertexArrayRange {
 
 	// --- [ glVertexArrayRangeNV ] ---
 
-	/** Unsafe version of {@link #glVertexArrayRangeNV VertexArrayRangeNV} */
 	public static void nglVertexArrayRangeNV(int length, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexArrayRangeNV;
 		if ( CHECKS )

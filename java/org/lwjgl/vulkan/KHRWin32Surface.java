@@ -40,7 +40,26 @@ public class KHRWin32Surface {
 
 	// --- [ vkCreateWin32SurfaceKHR ] ---
 
-	/** Unsafe version of {@link #vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR} */
+	/**
+	 * Creates a {@code VkSurfaceKHR} object for a Win32 window.
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
+	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkWin32SurfaceCreateInfoKHR} structure</li>
+	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+	 * <li>{@code pSurface} <b>must</b> be a pointer to a {@code VkSurfaceKHR} handle</li>
+	 * </ul>
+	 * 
+	 * <p>With Win32, {@code minImageExtent}, {@code maxImageExtent}, and {@code currentExtent} are the window size. Therefore, a swapchain’s {@code imageExtent}
+	 * <b>must</b> match the window’s size.</p>
+	 *
+	 * @param instance    the instance to associate the surface with
+	 * @param pCreateInfo a pointer to an instance of the {@link VkWin32SurfaceCreateInfoKHR} structure containing parameters affecting the creation of the surface object
+	 * @param pAllocator  controls host memory allocation
+	 * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned
+	 */
 	public static int nvkCreateWin32SurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
 		long __functionAddress = instance.getCapabilities().vkCreateWin32SurfaceKHR;
 		if ( CHECKS ) {
@@ -71,13 +90,6 @@ public class KHRWin32Surface {
 	 * @param pAllocator  controls host memory allocation
 	 * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned
 	 */
-	public static int vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, ByteBuffer pSurface) {
-		if ( CHECKS )
-			checkBuffer(pSurface, 1 << 3);
-		return nvkCreateWin32SurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
-	}
-
-	/** Alternative version of: {@link #vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR} */
 	public static int vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1);

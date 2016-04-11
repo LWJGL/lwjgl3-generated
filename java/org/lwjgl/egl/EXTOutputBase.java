@@ -57,7 +57,6 @@ public class EXTOutputBase {
 
 	// --- [ eglGetOutputLayersEXT ] ---
 
-	/** Unsafe version of {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */
 	public static int neglGetOutputLayersEXT(long dpy, long attrib_list, long layers, int max_layers, long num_layers) {
 		long __functionAddress = EGL.getCapabilities().eglGetOutputLayersEXT;
 		if ( CHECKS ) {
@@ -67,16 +66,6 @@ public class EXTOutputBase {
 		return callPPPIPI(__functionAddress, dpy, attrib_list, layers, max_layers, num_layers);
 	}
 
-	public static int eglGetOutputLayersEXT(long dpy, ByteBuffer attrib_list, ByteBuffer layers, int max_layers, ByteBuffer num_layers) {
-		if ( CHECKS ) {
-			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
-			if ( layers != null ) checkBuffer(layers, max_layers << POINTER_SHIFT);
-			checkBuffer(num_layers, 1 << 2);
-		}
-		return neglGetOutputLayersEXT(dpy, memAddressSafe(attrib_list), memAddressSafe(layers), max_layers, memAddress(num_layers));
-	}
-
-	/** Alternative version of: {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */
 	public static int eglGetOutputLayersEXT(long dpy, PointerBuffer attrib_list, PointerBuffer layers, IntBuffer num_layers) {
 		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -87,7 +76,6 @@ public class EXTOutputBase {
 
 	// --- [ eglGetOutputPortsEXT ] ---
 
-	/** Unsafe version of {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
 	public static int neglGetOutputPortsEXT(long dpy, long attrib_list, long ports, int max_ports, long num_ports) {
 		long __functionAddress = EGL.getCapabilities().eglGetOutputPortsEXT;
 		if ( CHECKS ) {
@@ -97,16 +85,6 @@ public class EXTOutputBase {
 		return callPPPIPI(__functionAddress, dpy, attrib_list, ports, max_ports, num_ports);
 	}
 
-	public static int eglGetOutputPortsEXT(long dpy, ByteBuffer attrib_list, ByteBuffer ports, int max_ports, ByteBuffer num_ports) {
-		if ( CHECKS ) {
-			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
-			if ( ports != null ) checkBuffer(ports, max_ports << POINTER_SHIFT);
-			checkBuffer(num_ports, 1 << 2);
-		}
-		return neglGetOutputPortsEXT(dpy, memAddressSafe(attrib_list), memAddressSafe(ports), max_ports, memAddress(num_ports));
-	}
-
-	/** Alternative version of: {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
 	public static int eglGetOutputPortsEXT(long dpy, PointerBuffer attrib_list, PointerBuffer ports, IntBuffer num_ports) {
 		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -129,7 +107,6 @@ public class EXTOutputBase {
 
 	// --- [ eglQueryOutputLayerAttribEXT ] ---
 
-	/** Unsafe version of {@link #eglQueryOutputLayerAttribEXT QueryOutputLayerAttribEXT} */
 	public static int neglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryOutputLayerAttribEXT;
 		if ( CHECKS ) {
@@ -140,13 +117,6 @@ public class EXTOutputBase {
 		return callPPIPI(__functionAddress, dpy, layer, attribute, value);
 	}
 
-	public static int eglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << POINTER_SHIFT);
-		return neglQueryOutputLayerAttribEXT(dpy, layer, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQueryOutputLayerAttribEXT QueryOutputLayerAttribEXT} */
 	public static int eglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -155,7 +125,6 @@ public class EXTOutputBase {
 
 	// --- [ eglQueryOutputLayerStringEXT ] ---
 
-	/** Unsafe version of {@link #eglQueryOutputLayerStringEXT QueryOutputLayerStringEXT} */
 	public static long neglQueryOutputLayerStringEXT(long dpy, long layer, int name) {
 		long __functionAddress = EGL.getCapabilities().eglQueryOutputLayerStringEXT;
 		if ( CHECKS ) {
@@ -185,7 +154,6 @@ public class EXTOutputBase {
 
 	// --- [ eglQueryOutputPortAttribEXT ] ---
 
-	/** Unsafe version of {@link #eglQueryOutputPortAttribEXT QueryOutputPortAttribEXT} */
 	public static int neglQueryOutputPortAttribEXT(long dpy, long port, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryOutputPortAttribEXT;
 		if ( CHECKS ) {
@@ -196,13 +164,6 @@ public class EXTOutputBase {
 		return callPPIPI(__functionAddress, dpy, port, attribute, value);
 	}
 
-	public static int eglQueryOutputPortAttribEXT(long dpy, long port, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << POINTER_SHIFT);
-		return neglQueryOutputPortAttribEXT(dpy, port, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQueryOutputPortAttribEXT QueryOutputPortAttribEXT} */
 	public static int eglQueryOutputPortAttribEXT(long dpy, long port, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -211,7 +172,6 @@ public class EXTOutputBase {
 
 	// --- [ eglQueryOutputPortStringEXT ] ---
 
-	/** Unsafe version of {@link #eglQueryOutputPortStringEXT QueryOutputPortStringEXT} */
 	public static long neglQueryOutputPortStringEXT(long dpy, long port, int name) {
 		long __functionAddress = EGL.getCapabilities().eglQueryOutputPortStringEXT;
 		if ( CHECKS ) {

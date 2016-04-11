@@ -58,7 +58,13 @@ public class ARBViewportArray {
 
 	// --- [ glViewportArrayv ] ---
 
-	/** Unsafe version of {@link #glViewportArrayv ViewportArrayv} */
+	/**
+	 * Sets multiple viewports.
+	 *
+	 * @param first the first viewport to set
+	 * @param count the number of viewports to set
+	 * @param v     an array containing the viewport parameters
+	 */
 	public static void nglViewportArrayv(int first, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glViewportArrayv;
 		if ( CHECKS )
@@ -70,16 +76,8 @@ public class ARBViewportArray {
 	 * Sets multiple viewports.
 	 *
 	 * @param first the first viewport to set
-	 * @param count the number of viewports to set
 	 * @param v     an array containing the viewport parameters
 	 */
-	public static void glViewportArrayv(int first, int count, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, (count << 2) << 2);
-		nglViewportArrayv(first, count, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glViewportArrayv ViewportArrayv} */
 	public static void glViewportArrayv(int first, FloatBuffer v) {
 		nglViewportArrayv(first, v.remaining() >> 2, memAddress(v));
 	}
@@ -104,7 +102,12 @@ public class ARBViewportArray {
 
 	// --- [ glViewportIndexedfv ] ---
 
-	/** Unsafe version of {@link #glViewportIndexedfv ViewportIndexedfv} */
+	/**
+	 * Pointer version of {@link #glViewportIndexedf ViewportIndexedf}.
+	 *
+	 * @param index the viewport to set
+	 * @param v     the viewport parameters
+	 */
 	public static void nglViewportIndexedfv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glViewportIndexedfv;
 		if ( CHECKS )
@@ -118,13 +121,6 @@ public class ARBViewportArray {
 	 * @param index the viewport to set
 	 * @param v     the viewport parameters
 	 */
-	public static void glViewportIndexedfv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglViewportIndexedfv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glViewportIndexedfv ViewportIndexedfv} */
 	public static void glViewportIndexedfv(int index, FloatBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -133,7 +129,13 @@ public class ARBViewportArray {
 
 	// --- [ glScissorArrayv ] ---
 
-	/** Unsafe version of {@link #glScissorArrayv ScissorArrayv} */
+	/**
+	 * Defines the scissor box for multiple viewports.
+	 *
+	 * @param first the index of the first viewport whose scissor box to modify
+	 * @param count the number of scissor boxes to modify
+	 * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
+	 */
 	public static void nglScissorArrayv(int first, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glScissorArrayv;
 		if ( CHECKS )
@@ -145,16 +147,8 @@ public class ARBViewportArray {
 	 * Defines the scissor box for multiple viewports.
 	 *
 	 * @param first the index of the first viewport whose scissor box to modify
-	 * @param count the number of scissor boxes to modify
 	 * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
 	 */
-	public static void glScissorArrayv(int first, int count, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, (count << 2) << 2);
-		nglScissorArrayv(first, count, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glScissorArrayv ScissorArrayv} */
 	public static void glScissorArrayv(int first, IntBuffer v) {
 		nglScissorArrayv(first, v.remaining() >> 2, memAddress(v));
 	}
@@ -179,7 +173,12 @@ public class ARBViewportArray {
 
 	// --- [ glScissorIndexedv ] ---
 
-	/** Unsafe version of {@link #glScissorIndexedv ScissorIndexedv} */
+	/**
+	 * Pointer version of {@link #glScissorIndexed ScissorIndexed}.
+	 *
+	 * @param index the index of the viewport whose scissor box to modify
+	 * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
+	 */
 	public static void nglScissorIndexedv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glScissorIndexedv;
 		if ( CHECKS )
@@ -193,13 +192,6 @@ public class ARBViewportArray {
 	 * @param index the index of the viewport whose scissor box to modify
 	 * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
 	 */
-	public static void glScissorIndexedv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglScissorIndexedv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glScissorIndexedv ScissorIndexedv} */
 	public static void glScissorIndexedv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -208,7 +200,13 @@ public class ARBViewportArray {
 
 	// --- [ glDepthRangeArrayv ] ---
 
-	/** Unsafe version of {@link #glDepthRangeArrayv DepthRangeArrayv} */
+	/**
+	 * Specifies mapping of depth values from normalized device coordinates to window coordinates for a specified set of viewports.
+	 *
+	 * @param first the index of the first viewport whose depth range to update
+	 * @param count the number of viewports whose depth range to update
+	 * @param v     n array containing the near and far values for the depth range of each modified viewport
+	 */
 	public static void nglDepthRangeArrayv(int first, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glDepthRangeArrayv;
 		if ( CHECKS )
@@ -220,16 +218,8 @@ public class ARBViewportArray {
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates for a specified set of viewports.
 	 *
 	 * @param first the index of the first viewport whose depth range to update
-	 * @param count the number of viewports whose depth range to update
 	 * @param v     n array containing the near and far values for the depth range of each modified viewport
 	 */
-	public static void glDepthRangeArrayv(int first, int count, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, (count << 1) << 3);
-		nglDepthRangeArrayv(first, count, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glDepthRangeArrayv DepthRangeArrayv} */
 	public static void glDepthRangeArrayv(int first, DoubleBuffer v) {
 		nglDepthRangeArrayv(first, v.remaining() >> 1, memAddress(v));
 	}
@@ -252,7 +242,13 @@ public class ARBViewportArray {
 
 	// --- [ glGetFloati_v ] ---
 
-	/** Unsafe version of {@link #glGetFloati_v GetFloati_v} */
+	/**
+	 * Queries the float value of an indexed state variable.
+	 *
+	 * @param target the indexed state to query
+	 * @param index  the index of the element being queried
+	 * @param data   a scalar or buffer in which to place the returned data
+	 */
 	public static void nglGetFloati_v(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetFloati_v;
 		if ( CHECKS )
@@ -267,20 +263,18 @@ public class ARBViewportArray {
 	 * @param index  the index of the element being queried
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetFloati_v(int target, int index, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, 1 << 2);
-		nglGetFloati_v(target, index, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #glGetFloati_v GetFloati_v} */
 	public static void glGetFloati_v(int target, int index, FloatBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetFloati_v(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetFloati_v GetFloati_v} */
+	/**
+	 * Queries the float value of an indexed state variable.
+	 *
+	 * @param target the indexed state to query
+	 * @param index  the index of the element being queried
+	 */
 	public static float glGetFloati(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -294,7 +288,13 @@ public class ARBViewportArray {
 
 	// --- [ glGetDoublei_v ] ---
 
-	/** Unsafe version of {@link #glGetDoublei_v GetDoublei_v} */
+	/**
+	 * Queries the double value of an indexed state variable.
+	 *
+	 * @param target the indexed state to query
+	 * @param index  the index of the element being queried
+	 * @param data   a scalar or buffer in which to place the returned data
+	 */
 	public static void nglGetDoublei_v(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetDoublei_v;
 		if ( CHECKS )
@@ -309,20 +309,18 @@ public class ARBViewportArray {
 	 * @param index  the index of the element being queried
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetDoublei_v(int target, int index, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, 1 << 3);
-		nglGetDoublei_v(target, index, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #glGetDoublei_v GetDoublei_v} */
 	public static void glGetDoublei_v(int target, int index, DoubleBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetDoublei_v(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetDoublei_v GetDoublei_v} */
+	/**
+	 * Queries the double value of an indexed state variable.
+	 *
+	 * @param target the indexed state to query
+	 * @param index  the index of the element being queried
+	 */
 	public static double glGetDoublei(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

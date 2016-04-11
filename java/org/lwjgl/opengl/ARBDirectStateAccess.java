@@ -73,7 +73,12 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCreateTransformFeedbacks ] ---
 
-	/** Unsafe version of {@link #glCreateTransformFeedbacks CreateTransformFeedbacks} */
+	/**
+	 * Returns {@code n} previously unused transform feedback object names in {@code ids}, each representing a new state vector.
+	 *
+	 * @param n   the number of transform feedback object names to create
+	 * @param ids the buffer in which to return the names
+	 */
 	public static void nglCreateTransformFeedbacks(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glCreateTransformFeedbacks;
 		if ( CHECKS )
@@ -84,21 +89,13 @@ public class ARBDirectStateAccess {
 	/**
 	 * Returns {@code n} previously unused transform feedback object names in {@code ids}, each representing a new state vector.
 	 *
-	 * @param n   the number of transform feedback object names to create
 	 * @param ids the buffer in which to return the names
 	 */
-	public static void glCreateTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglCreateTransformFeedbacks(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glCreateTransformFeedbacks CreateTransformFeedbacks} */
 	public static void glCreateTransformFeedbacks(IntBuffer ids) {
 		nglCreateTransformFeedbacks(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single return value version of: {@link #glCreateTransformFeedbacks CreateTransformFeedbacks} */
+	/** Returns {@code n} previously unused transform feedback object names in {@code ids}, each representing a new state vector. */
 	public static int glCreateTransformFeedbacks() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -146,7 +143,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetTransformFeedbackiv ] ---
 
-	/** Unsafe version of {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
+	/**
+	 * Returns information about a transform feedback object.
+	 *
+	 * @param xfb   zero or the name of an existing transform feedback object
+	 * @param pname the parameter to query. One of:<br>{@link GL42#GL_TRANSFORM_FEEDBACK_PAUSED TRANSFORM_FEEDBACK_PAUSED}, {@link GL42#GL_TRANSFORM_FEEDBACK_ACTIVE TRANSFORM_FEEDBACK_ACTIVE}
+	 * @param param the buffer in which to return the parameter value
+	 */
 	public static void nglGetTransformFeedbackiv(int xfb, int pname, long param) {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackiv;
 		if ( CHECKS )
@@ -161,20 +164,18 @@ public class ARBDirectStateAccess {
 	 * @param pname the parameter to query. One of:<br>{@link GL42#GL_TRANSFORM_FEEDBACK_PAUSED TRANSFORM_FEEDBACK_PAUSED}, {@link GL42#GL_TRANSFORM_FEEDBACK_ACTIVE TRANSFORM_FEEDBACK_ACTIVE}
 	 * @param param the buffer in which to return the parameter value
 	 */
-	public static void glGetTransformFeedbackiv(int xfb, int pname, ByteBuffer param) {
-		if ( CHECKS )
-			checkBuffer(param, 1 << 2);
-		nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
-	}
-
-	/** Alternative version of: {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
 	public static void glGetTransformFeedbackiv(int xfb, int pname, IntBuffer param) {
 		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
+	/**
+	 * Returns information about a transform feedback object.
+	 *
+	 * @param xfb   zero or the name of an existing transform feedback object
+	 * @param pname the parameter to query. One of:<br>{@link GL42#GL_TRANSFORM_FEEDBACK_PAUSED TRANSFORM_FEEDBACK_PAUSED}, {@link GL42#GL_TRANSFORM_FEEDBACK_ACTIVE TRANSFORM_FEEDBACK_ACTIVE}
+	 */
 	public static int glGetTransformFeedbacki(int xfb, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -188,7 +189,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetTransformFeedbacki_v ] ---
 
-	/** Unsafe version of {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
+	/**
+	 * Returns information about a transform feedback object.
+	 *
+	 * @param xfb   zero or the name of an existing transform feedback object
+	 * @param pname the parameter to query. Must be:<br>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_BINDING TRANSFORM_FEEDBACK_BUFFER_BINDING}
+	 * @param index the transform feedback stream index
+	 * @param param the buffer in which to return the parameter value
+	 */
 	public static void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki_v;
 		if ( CHECKS )
@@ -204,20 +212,19 @@ public class ARBDirectStateAccess {
 	 * @param index the transform feedback stream index
 	 * @param param the buffer in which to return the parameter value
 	 */
-	public static void glGetTransformFeedbacki_v(int xfb, int pname, int index, ByteBuffer param) {
-		if ( CHECKS )
-			checkBuffer(param, 1 << 2);
-		nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
-	}
-
-	/** Alternative version of: {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
 	public static void glGetTransformFeedbacki_v(int xfb, int pname, int index, IntBuffer param) {
 		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
+	/**
+	 * Returns information about a transform feedback object.
+	 *
+	 * @param xfb   zero or the name of an existing transform feedback object
+	 * @param pname the parameter to query. Must be:<br>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_BINDING TRANSFORM_FEEDBACK_BUFFER_BINDING}
+	 * @param index the transform feedback stream index
+	 */
 	public static int glGetTransformFeedbacki(int xfb, int pname, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -231,7 +238,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetTransformFeedbacki64_v ] ---
 
-	/** Unsafe version of {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
+	/**
+	 * Returns information about a transform feedback object.
+	 *
+	 * @param xfb   zero or the name of an existing transform feedback object
+	 * @param pname the parameter to query. One of:<br>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_START TRANSFORM_FEEDBACK_BUFFER_START}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_SIZE TRANSFORM_FEEDBACK_BUFFER_SIZE}
+	 * @param index the transform feedback stream index
+	 * @param param the buffer in which to return the parameter value
+	 */
 	public static void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki64_v;
 		if ( CHECKS )
@@ -247,20 +261,19 @@ public class ARBDirectStateAccess {
 	 * @param index the transform feedback stream index
 	 * @param param the buffer in which to return the parameter value
 	 */
-	public static void glGetTransformFeedbacki64_v(int xfb, int pname, int index, ByteBuffer param) {
-		if ( CHECKS )
-			checkBuffer(param, 1 << 3);
-		nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
-	}
-
-	/** Alternative version of: {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
 	public static void glGetTransformFeedbacki64_v(int xfb, int pname, int index, LongBuffer param) {
 		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
+	/**
+	 * Returns information about a transform feedback object.
+	 *
+	 * @param xfb   zero or the name of an existing transform feedback object
+	 * @param pname the parameter to query. One of:<br>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_START TRANSFORM_FEEDBACK_BUFFER_START}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_SIZE TRANSFORM_FEEDBACK_BUFFER_SIZE}
+	 * @param index the transform feedback stream index
+	 */
 	public static long glGetTransformFeedbacki64(int xfb, int pname, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -274,7 +287,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCreateBuffers ] ---
 
-	/** Unsafe version of {@link #glCreateBuffers CreateBuffers} */
+	/**
+	 * Returns {@code n} previously unused buffer names in {@code buffers}, each representing a new buffer object initialized as if it had been bound to an
+	 * unspecified target.
+	 *
+	 * @param n       the number of buffer names to create
+	 * @param buffers the buffer in which to return the names
+	 */
 	public static void nglCreateBuffers(int n, long buffers) {
 		long __functionAddress = GL.getCapabilities().glCreateBuffers;
 		if ( CHECKS )
@@ -286,21 +305,16 @@ public class ARBDirectStateAccess {
 	 * Returns {@code n} previously unused buffer names in {@code buffers}, each representing a new buffer object initialized as if it had been bound to an
 	 * unspecified target.
 	 *
-	 * @param n       the number of buffer names to create
 	 * @param buffers the buffer in which to return the names
 	 */
-	public static void glCreateBuffers(int n, ByteBuffer buffers) {
-		if ( CHECKS )
-			checkBuffer(buffers, n << 2);
-		nglCreateBuffers(n, memAddress(buffers));
-	}
-
-	/** Alternative version of: {@link #glCreateBuffers CreateBuffers} */
 	public static void glCreateBuffers(IntBuffer buffers) {
 		nglCreateBuffers(buffers.remaining(), memAddress(buffers));
 	}
 
-	/** Single return value version of: {@link #glCreateBuffers CreateBuffers} */
+	/**
+	 * Returns {@code n} previously unused buffer names in {@code buffers}, each representing a new buffer object initialized as if it had been bound to an
+	 * unspecified target.
+	 */
 	public static int glCreateBuffers() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -313,14 +327,6 @@ public class ARBDirectStateAccess {
 	}
 
 	// --- [ glNamedBufferStorage ] ---
-
-	/** Unsafe version of {@link #glNamedBufferStorage NamedBufferStorage} */
-	public static void nglNamedBufferStorage(int buffer, long size, long data, int flags) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIPPIV(__functionAddress, buffer, size, data, flags);
-	}
 
 	/**
 	 * DSA version of {@link GL44#glBufferStorage BufferStorage}.
@@ -366,13 +372,55 @@ public class ARBDirectStateAccess {
 	 *               
 	 *               <p>It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
-	public static void glNamedBufferStorage(int buffer, long size, ByteBuffer data, int flags) {
+	public static void nglNamedBufferStorage(int buffer, long size, long data, int flags) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
 		if ( CHECKS )
-			if ( data != null ) checkBuffer(data, size);
-		nglNamedBufferStorage(buffer, size, memAddressSafe(data), flags);
+			checkFunctionAddress(__functionAddress);
+		callIPPIV(__functionAddress, buffer, size, data, flags);
 	}
 
-	/** Alternative version of: {@link #glNamedBufferStorage NamedBufferStorage} */
+	/**
+	 * DSA version of {@link GL44#glBufferStorage BufferStorage}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param size   the size of the data store in basic machine units
+	 * @param flags  the bitwise {@code OR} of flags describing the intended usage of the buffer object's data store by the application. Valid flags and their meanings
+	 *               are as follows:
+	 *               
+	 *               <ul>
+	 *               <li>{@link GL44#GL_DYNAMIC_STORAGE_BIT DYNAMIC_STORAGE_BIT} &ndash; The contents of the data store may be updated after creation through calls to
+	 *               {@link GL15#glBufferSubData BufferSubData}. If this bit is not set, the buffer content may not be directly updated by the client. The {@code data}
+	 *               argument may be used to specify the initial content of the buffer's data store regardless of the presence of the {@link GL44#GL_DYNAMIC_STORAGE_BIT DYNAMIC_STORAGE_BIT}.
+	 *               Regardless of the presence of this bit, buffers may always be updated with server-side calls such as {@link GL31#glCopyBufferSubData CopyBufferSubData} and
+	 *               {@link GL43#glClearBufferSubData ClearBufferSubData}.</li>
+	 *               <li>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} &ndash; The buffer's data store may be mapped by the client for read access and a pointer in the client's address space
+	 *               obtained that may be read from.</li>
+	 *               <li>{@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT} &ndash; The buffer's data store may be mapped by the client for write access and a pointer in the client's address
+	 *               space obtained that may be written to.</li>
+	 *               <li>{@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT} &ndash; The client may request that the server read from or write to the buffer while it is mapped. The client's
+	 *               pointer to the data store remains valid so long as the data store is mapped, even during execution of drawing or dispatch commands.</li>
+	 *               <li>{@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} &ndash; Shared access to buffers that are simultaneously mapped for client access and are used by the server will be
+	 *               coherent, so long as that mapping is performed using MapBufferRange. That is, data written to the store by either the client or server will be
+	 *               immediately visible to the other with no further action taken by the application. In particular:
+	 *               
+	 *               <ul>
+	 *               <li>If {@code MAP_COHERENT_BIT} is not set and the client performs a write followed by a call to the {@link GL42#glMemoryBarrier MemoryBarrier} command with
+	 *               the {@link GL44#GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT CLIENT_MAPPED_BUFFER_BARRIER_BIT} set, then in subsequent commands the server will see the writes.</li>
+	 *               <li>If {@code MAP_COHERENT_BIT} is set and the client performs a write, then in subsequent commands the server will see the writes.</li>
+	 *               <li>If {@code MAP_COHERENT_BIT} is not set and the server performs a write, the application must call {@link GL42#glMemoryBarrier MemoryBarrier} with the
+	 *               {@link GL44#GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT CLIENT_MAPPED_BUFFER_BARRIER_BIT} set and then call {@link GL32#glFenceSync FenceSync} with {@link GL32#GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE} (or
+	 *               {@link GL11#glFinish Finish}). Then the CPU will see the writes after the sync is complete.</li>
+	 *               <li>If {@code MAP_COHERENT_BIT} is set and the server does a write, the app must call {@link GL32#glFenceSync FenceSync} with
+	 *               {@link GL32#GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE} (or {@link GL11#glFinish Finish}). Then the CPU will see the writes after the sync is complete.</li>
+	 *               </ul></li>
+	 *               <li>{@link GL44#GL_CLIENT_STORAGE_BIT CLIENT_STORAGE_BIT} &ndash; When all other criteria for the buffer storage allocation are met, this bit may be used by an
+	 *               implementation to determine whether to use storage that is local to the server or to the client to serve as the backing store for the buffer.</li>
+	 *               </ul>
+	 *               
+	 *               <p>If {@code flags} contains {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.</p>
+	 *               
+	 *               <p>It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
+	 */
 	public static void glNamedBufferStorage(int buffer, long size, int flags) {
 		nglNamedBufferStorage(buffer, size, NULL, flags);
 	}
@@ -404,7 +452,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glNamedBufferData ] ---
 
-	/** Unsafe version of {@link #glNamedBufferData NamedBufferData} */
+	/**
+	 * DSA version of {@link GL15#glBufferData BufferData}.
+	 *
+	 * @param buffer 
+	 * @param size   the size in bytes of the buffer object's new data store
+	 * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
+	 * @param usage  the expected usage pattern of the data store. One of:<br>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}, {@link GL15#GL_STREAM_READ STREAM_READ}, {@link GL15#GL_STREAM_COPY STREAM_COPY}, {@link GL15#GL_STATIC_DRAW STATIC_DRAW}, {@link GL15#GL_STATIC_READ STATIC_READ}, {@link GL15#GL_STATIC_COPY STATIC_COPY}, {@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}, {@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}, {@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}
+	 */
 	public static void nglNamedBufferData(int buffer, long size, long data, int usage) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferData;
 		if ( CHECKS )
@@ -417,16 +472,8 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param buffer 
 	 * @param size   the size in bytes of the buffer object's new data store
-	 * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
 	 * @param usage  the expected usage pattern of the data store. One of:<br>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}, {@link GL15#GL_STREAM_READ STREAM_READ}, {@link GL15#GL_STREAM_COPY STREAM_COPY}, {@link GL15#GL_STATIC_DRAW STATIC_DRAW}, {@link GL15#GL_STATIC_READ STATIC_READ}, {@link GL15#GL_STATIC_COPY STATIC_COPY}, {@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}, {@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}, {@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}
 	 */
-	public static void glNamedBufferData(int buffer, long size, ByteBuffer data, int usage) {
-		if ( CHECKS )
-			if ( data != null ) checkBuffer(data, size);
-		nglNamedBufferData(buffer, size, memAddressSafe(data), usage);
-	}
-
-	/** Alternative version of: {@link #glNamedBufferData NamedBufferData} */
 	public static void glNamedBufferData(int buffer, long size, int usage) {
 		nglNamedBufferData(buffer, size, NULL, usage);
 	}
@@ -458,7 +505,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glNamedBufferSubData ] ---
 
-	/** Unsafe version of {@link #glNamedBufferSubData NamedBufferSubData} */
+	/**
+	 * DSA version of {@link GL15#glBufferSubData BufferSubData}.
+	 *
+	 * @param buffer 
+	 * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
+	 * @param size   the size in bytes of the data store region being replaced
+	 * @param data   a pointer to the new data that will be copied into the data store
+	 */
 	public static void nglNamedBufferSubData(int buffer, long offset, long size, long data) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
 		if ( CHECKS )
@@ -471,16 +525,8 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param buffer 
 	 * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
-	 * @param size   the size in bytes of the data store region being replaced
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
-	public static void glNamedBufferSubData(int buffer, long offset, long size, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, size);
-		nglNamedBufferSubData(buffer, offset, size, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #glNamedBufferSubData NamedBufferSubData} */
 	public static void glNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
 		nglNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
 	}
@@ -525,7 +571,17 @@ public class ARBDirectStateAccess {
 
 	// --- [ glClearNamedBufferData ] ---
 
-	/** Unsafe version of {@link #glClearNamedBufferData ClearNamedBufferData} */
+	/**
+	 * DSA version of {@link GL43#glClearBufferData ClearBufferData}.
+	 *
+	 * @param buffer         the buffer object name
+	 * @param internalformat the internal format with which the data will be stored in the buffer object
+	 * @param format         the format of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type           the type of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param data           the buffer containing the data to be used as the source of the constant fill value. The elements of data are converted by the GL into the format
+	 *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
+	 *                       sub-range of the buffer is filled with zeros.
+	 */
 	public static void nglClearNamedBufferData(int buffer, int internalformat, int format, int type, long data) {
 		long __functionAddress = GL.getCapabilities().glClearNamedBufferData;
 		if ( CHECKS )
@@ -565,7 +621,19 @@ public class ARBDirectStateAccess {
 
 	// --- [ glClearNamedBufferSubData ] ---
 
-	/** Unsafe version of {@link #glClearNamedBufferSubData ClearNamedBufferSubData} */
+	/**
+	 * DSA version of {@link GL43#glClearBufferSubData ClearBufferSubData}.
+	 *
+	 * @param buffer         the buffer object name
+	 * @param internalformat the internal format with which the data will be stored in the buffer object
+	 * @param offset         the offset, in basic machine units into the buffer object's data store at which to start filling
+	 * @param size           the size, in basic machine units of the range of the data store to fill
+	 * @param format         the format of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type           the type of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param data           the buffer containing the data to be used as the source of the constant fill value. The elements of data are converted by the GL into the format
+	 *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
+	 *                       sub-range of the buffer is filled with zeros.
+	 */
 	public static void nglClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubData;
 		if ( CHECKS )
@@ -607,7 +675,12 @@ public class ARBDirectStateAccess {
 
 	// --- [ glMapNamedBuffer ] ---
 
-	/** Unsafe version of {@link #glMapNamedBuffer MapNamedBuffer} */
+	/**
+	 * DSA version of {@link GL15#glMapBuffer MapBuffer}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param access the access policy, indicating whether it will be possible to read from, write to, or both read from and write to the buffer object's mapped data store. One of:<br>{@link GL15#GL_READ_ONLY READ_ONLY}, {@link GL15#GL_WRITE_ONLY WRITE_ONLY}, {@link GL15#GL_READ_WRITE READ_WRITE}
+	 */
 	public static long nglMapNamedBuffer(int buffer, int access) {
 		long __functionAddress = GL.getCapabilities().glMapNamedBuffer;
 		if ( CHECKS )
@@ -626,14 +699,24 @@ public class ARBDirectStateAccess {
 		return memByteBuffer(__result, glGetNamedBufferParameteri(buffer, GL15.GL_BUFFER_SIZE));
 	}
 
-	/** Alternative version of: {@link #glMapNamedBuffer MapNamedBuffer} */
+	/**
+	 * DSA version of {@link GL15#glMapBuffer MapBuffer}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param access the access policy, indicating whether it will be possible to read from, write to, or both read from and write to the buffer object's mapped data store. One of:<br>{@link GL15#GL_READ_ONLY READ_ONLY}, {@link GL15#GL_WRITE_ONLY WRITE_ONLY}, {@link GL15#GL_READ_WRITE READ_WRITE}
+	 */
 	public static ByteBuffer glMapNamedBuffer(int buffer, int access, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBuffer(buffer, access);
 		int length = glGetNamedBufferParameteri(buffer, GL15.GL_BUFFER_SIZE);
 		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
 	}
 
-	/** Explicit size alternative version of: {@link #glMapNamedBuffer MapNamedBuffer} */
+	/**
+	 * DSA version of {@link GL15#glMapBuffer MapBuffer}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param access the access policy, indicating whether it will be possible to read from, write to, or both read from and write to the buffer object's mapped data store. One of:<br>{@link GL15#GL_READ_ONLY READ_ONLY}, {@link GL15#GL_WRITE_ONLY WRITE_ONLY}, {@link GL15#GL_READ_WRITE READ_WRITE}
+	 */
 	public static ByteBuffer glMapNamedBuffer(int buffer, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBuffer(buffer, access);
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
@@ -641,7 +724,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glMapNamedBufferRange ] ---
 
-	/** Unsafe version of {@link #glMapNamedBufferRange MapNamedBufferRange} */
+	/**
+	 * DSA version of {@link GL30#glMapBufferRange MapBufferRange}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param offset the starting offset within the buffer of the range to be mapped
+	 * @param length the length of the range to be mapped
+	 * @param access a combination of access flags indicating the desired access to the range. One or more of:<br>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}, {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}, {@link GL30#GL_MAP_INVALIDATE_RANGE_BIT MAP_INVALIDATE_RANGE_BIT}, {@link GL30#GL_MAP_INVALIDATE_BUFFER_BIT MAP_INVALIDATE_BUFFER_BIT}, {@link GL30#GL_MAP_FLUSH_EXPLICIT_BIT MAP_FLUSH_EXPLICIT_BIT}, {@link GL30#GL_MAP_UNSYNCHRONIZED_BIT MAP_UNSYNCHRONIZED_BIT}
+	 */
 	public static long nglMapNamedBufferRange(int buffer, long offset, long length, int access) {
 		long __functionAddress = GL.getCapabilities().glMapNamedBufferRange;
 		if ( CHECKS )
@@ -662,7 +752,14 @@ public class ARBDirectStateAccess {
 		return memByteBuffer(__result, (int)length);
 	}
 
-	/** Alternative version of: {@link #glMapNamedBufferRange MapNamedBufferRange} */
+	/**
+	 * DSA version of {@link GL30#glMapBufferRange MapBufferRange}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param offset the starting offset within the buffer of the range to be mapped
+	 * @param length the length of the range to be mapped
+	 * @param access a combination of access flags indicating the desired access to the range. One or more of:<br>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}, {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}, {@link GL30#GL_MAP_INVALIDATE_RANGE_BIT MAP_INVALIDATE_RANGE_BIT}, {@link GL30#GL_MAP_INVALIDATE_BUFFER_BIT MAP_INVALIDATE_BUFFER_BIT}, {@link GL30#GL_MAP_FLUSH_EXPLICIT_BIT MAP_FLUSH_EXPLICIT_BIT}, {@link GL30#GL_MAP_UNSYNCHRONIZED_BIT MAP_UNSYNCHRONIZED_BIT}
+	 */
 	public static ByteBuffer glMapNamedBufferRange(int buffer, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBufferRange(buffer, offset, length, access);
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
@@ -700,7 +797,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetNamedBufferParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
+	/**
+	 * DSA version of {@link GL15#glGetBufferParameteriv GetBufferParameteriv}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
+	 * @param params the requested parameter
+	 */
 	public static void nglGetNamedBufferParameteriv(int buffer, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteriv;
 		if ( CHECKS )
@@ -715,20 +818,18 @@ public class ARBDirectStateAccess {
 	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
 	 * @param params the requested parameter
 	 */
-	public static void glGetNamedBufferParameteriv(int buffer, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetNamedBufferParameteriv(buffer, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
 	public static void glGetNamedBufferParameteriv(int buffer, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferParameteriv(buffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
+	/**
+	 * DSA version of {@link GL15#glGetBufferParameteriv GetBufferParameteriv}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
+	 */
 	public static int glGetNamedBufferParameteri(int buffer, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -742,7 +843,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetNamedBufferParameteri64v ] ---
 
-	/** Unsafe version of {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
+	/**
+	 * DSA version of {@link GL32#glGetBufferParameteri64v GetBufferParameteri64v}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
+	 * @param params the requested parameter
+	 */
 	public static void nglGetNamedBufferParameteri64v(int buffer, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteri64v;
 		if ( CHECKS )
@@ -757,20 +864,18 @@ public class ARBDirectStateAccess {
 	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
 	 * @param params the requested parameter
 	 */
-	public static void glGetNamedBufferParameteri64v(int buffer, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetNamedBufferParameteri64v(buffer, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
 	public static void glGetNamedBufferParameteri64v(int buffer, int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferParameteri64v(buffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
+	/**
+	 * DSA version of {@link GL32#glGetBufferParameteri64v GetBufferParameteri64v}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
+	 */
 	public static long glGetNamedBufferParameteri64(int buffer, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -784,7 +889,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetNamedBufferPointerv ] ---
 
-	/** Unsafe version of {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
+	/**
+	 * DSA version of {@link GL15#glGetBufferPointerv GetBufferPointerv}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param pname  the pointer to be returned. Must be:<br>{@link GL15#GL_BUFFER_MAP_POINTER BUFFER_MAP_POINTER}
+	 * @param params the pointer value specified by {@code pname}
+	 */
 	public static void nglGetNamedBufferPointerv(int buffer, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferPointerv;
 		if ( CHECKS )
@@ -799,20 +910,18 @@ public class ARBDirectStateAccess {
 	 * @param pname  the pointer to be returned. Must be:<br>{@link GL15#GL_BUFFER_MAP_POINTER BUFFER_MAP_POINTER}
 	 * @param params the pointer value specified by {@code pname}
 	 */
-	public static void glGetNamedBufferPointerv(int buffer, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << POINTER_SHIFT);
-		nglGetNamedBufferPointerv(buffer, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
 	public static void glGetNamedBufferPointerv(int buffer, int pname, PointerBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferPointerv(buffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
+	/**
+	 * DSA version of {@link GL15#glGetBufferPointerv GetBufferPointerv}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param pname  the pointer to be returned. Must be:<br>{@link GL15#GL_BUFFER_MAP_POINTER BUFFER_MAP_POINTER}
+	 */
 	public static long glGetNamedBufferPointer(int buffer, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -826,7 +935,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetNamedBufferSubData ] ---
 
-	/** Unsafe version of {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
+	/**
+	 * DSA version of {@link GL15#glGetBufferSubData GetBufferSubData}.
+	 *
+	 * @param buffer the buffer object name
+	 * @param offset the offset into the buffer object's data store from which data will be returned, measured in bytes
+	 * @param size   the size in bytes of the data store region being returned
+	 * @param data   a pointer to the location where buffer object data is returned
+	 */
 	public static void nglGetNamedBufferSubData(int buffer, long offset, long size, long data) {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
 		if ( CHECKS )
@@ -839,16 +955,8 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param buffer the buffer object name
 	 * @param offset the offset into the buffer object's data store from which data will be returned, measured in bytes
-	 * @param size   the size in bytes of the data store region being returned
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
-	public static void glGetNamedBufferSubData(int buffer, long offset, long size, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, size);
-		nglGetNamedBufferSubData(buffer, offset, size, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
 	public static void glGetNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
 		nglGetNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
 	}
@@ -875,7 +983,12 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCreateFramebuffers ] ---
 
-	/** Unsafe version of {@link #glCreateFramebuffers CreateFramebuffers} */
+	/**
+	 * Returns {@code n} previously unused framebuffer names in {@code framebuffers}, each representing a new framebuffer object.
+	 *
+	 * @param n            the number of framebuffer names to create
+	 * @param framebuffers the buffer in which to store the framebuffer names
+	 */
 	public static void nglCreateFramebuffers(int n, long framebuffers) {
 		long __functionAddress = GL.getCapabilities().glCreateFramebuffers;
 		if ( CHECKS )
@@ -886,21 +999,13 @@ public class ARBDirectStateAccess {
 	/**
 	 * Returns {@code n} previously unused framebuffer names in {@code framebuffers}, each representing a new framebuffer object.
 	 *
-	 * @param n            the number of framebuffer names to create
 	 * @param framebuffers the buffer in which to store the framebuffer names
 	 */
-	public static void glCreateFramebuffers(int n, ByteBuffer framebuffers) {
-		if ( CHECKS )
-			checkBuffer(framebuffers, n << 2);
-		nglCreateFramebuffers(n, memAddress(framebuffers));
-	}
-
-	/** Alternative version of: {@link #glCreateFramebuffers CreateFramebuffers} */
 	public static void glCreateFramebuffers(IntBuffer framebuffers) {
 		nglCreateFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
 	}
 
-	/** Single return value version of: {@link #glCreateFramebuffers CreateFramebuffers} */
+	/** Returns {@code n} previously unused framebuffer names in {@code framebuffers}, each representing a new framebuffer object. */
 	public static int glCreateFramebuffers() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -997,7 +1102,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glNamedFramebufferDrawBuffers ] ---
 
-	/** Unsafe version of {@link #glNamedFramebufferDrawBuffers NamedFramebufferDrawBuffers} */
+	/**
+	 * DSA version of {@link GL20#glDrawBuffers DrawBuffers}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 * @param n           the number of buffers in {@code bufs}
+	 * @param bufs        an array of symbolic constants specifying the buffers into which fragment colors or data values will be written. One of:<br>{@link GL11#GL_NONE NONE}, {@link GL11#GL_FRONT_LEFT FRONT_LEFT}, {@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}, {@link GL11#GL_BACK_LEFT BACK_LEFT}, {@link GL11#GL_BACK_RIGHT BACK_RIGHT}, {@link GL11#GL_AUX0 AUX0}, {@link GL11#GL_AUX1 AUX1}, {@link GL11#GL_AUX2 AUX2}, {@link GL11#GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
+	 */
 	public static void nglNamedFramebufferDrawBuffers(int framebuffer, int n, long bufs) {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferDrawBuffers;
 		if ( CHECKS )
@@ -1009,21 +1120,17 @@ public class ARBDirectStateAccess {
 	 * DSA version of {@link GL20#glDrawBuffers DrawBuffers}.
 	 *
 	 * @param framebuffer the framebuffer name
-	 * @param n           the number of buffers in {@code bufs}
 	 * @param bufs        an array of symbolic constants specifying the buffers into which fragment colors or data values will be written. One of:<br>{@link GL11#GL_NONE NONE}, {@link GL11#GL_FRONT_LEFT FRONT_LEFT}, {@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}, {@link GL11#GL_BACK_LEFT BACK_LEFT}, {@link GL11#GL_BACK_RIGHT BACK_RIGHT}, {@link GL11#GL_AUX0 AUX0}, {@link GL11#GL_AUX1 AUX1}, {@link GL11#GL_AUX2 AUX2}, {@link GL11#GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
-	public static void glNamedFramebufferDrawBuffers(int framebuffer, int n, ByteBuffer bufs) {
-		if ( CHECKS )
-			checkBuffer(bufs, n << 2);
-		nglNamedFramebufferDrawBuffers(framebuffer, n, memAddress(bufs));
-	}
-
-	/** Alternative version of: {@link #glNamedFramebufferDrawBuffers NamedFramebufferDrawBuffers} */
 	public static void glNamedFramebufferDrawBuffers(int framebuffer, IntBuffer bufs) {
 		nglNamedFramebufferDrawBuffers(framebuffer, bufs.remaining(), memAddress(bufs));
 	}
 
-	/** Single value version of: {@link #glNamedFramebufferDrawBuffers NamedFramebufferDrawBuffers} */
+	/**
+	 * DSA version of {@link GL20#glDrawBuffers DrawBuffers}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 */
 	public static void glNamedFramebufferDrawBuffers(int framebuffer, int buf) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1051,7 +1158,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glInvalidateNamedFramebufferData ] ---
 
-	/** Unsafe version of {@link #glInvalidateNamedFramebufferData InvalidateNamedFramebufferData} */
+	/**
+	 * DSA version of {@link GL43#glInvalidateFramebuffer InvalidateFramebuffer}.
+	 *
+	 * @param framebuffer    the framebuffer name
+	 * @param numAttachments the number of entries in the {@code attachments} array
+	 * @param attachments    the address of an array identifying the attachments to be invalidated
+	 */
 	public static void nglInvalidateNamedFramebufferData(int framebuffer, int numAttachments, long attachments) {
 		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferData;
 		if ( CHECKS )
@@ -1062,22 +1175,18 @@ public class ARBDirectStateAccess {
 	/**
 	 * DSA version of {@link GL43#glInvalidateFramebuffer InvalidateFramebuffer}.
 	 *
-	 * @param framebuffer    the framebuffer name
-	 * @param numAttachments the number of entries in the {@code attachments} array
-	 * @param attachments    the address of an array identifying the attachments to be invalidated
+	 * @param framebuffer the framebuffer name
+	 * @param attachments the address of an array identifying the attachments to be invalidated
 	 */
-	public static void glInvalidateNamedFramebufferData(int framebuffer, int numAttachments, ByteBuffer attachments) {
-		if ( CHECKS )
-			checkBuffer(attachments, numAttachments << 2);
-		nglInvalidateNamedFramebufferData(framebuffer, numAttachments, memAddress(attachments));
-	}
-
-	/** Alternative version of: {@link #glInvalidateNamedFramebufferData InvalidateNamedFramebufferData} */
 	public static void glInvalidateNamedFramebufferData(int framebuffer, IntBuffer attachments) {
 		nglInvalidateNamedFramebufferData(framebuffer, attachments.remaining(), memAddress(attachments));
 	}
 
-	/** Single value version of: {@link #glInvalidateNamedFramebufferData InvalidateNamedFramebufferData} */
+	/**
+	 * DSA version of {@link GL43#glInvalidateFramebuffer InvalidateFramebuffer}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 */
 	public static void glInvalidateNamedFramebufferData(int framebuffer, int attachment) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1090,14 +1199,6 @@ public class ARBDirectStateAccess {
 
 	// --- [ glInvalidateNamedFramebufferSubData ] ---
 
-	/** Unsafe version of {@link #glInvalidateNamedFramebufferSubData InvalidateNamedFramebufferSubData} */
-	public static void nglInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, long attachments, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferSubData;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPIIIIV(__functionAddress, framebuffer, numAttachments, attachments, x, y, width, height);
-	}
-
 	/**
 	 * DSA version of {@link GL43#glInvalidateSubFramebuffer InvalidateSubFramebuffer}.
 	 *
@@ -1109,18 +1210,36 @@ public class ARBDirectStateAccess {
 	 * @param width          the width of the region to be invalidated
 	 * @param height         the height of the region to be invalidated
 	 */
-	public static void glInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, ByteBuffer attachments, int x, int y, int width, int height) {
+	public static void nglInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, long attachments, int x, int y, int width, int height) {
+		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferSubData;
 		if ( CHECKS )
-			checkBuffer(attachments, numAttachments << 2);
-		nglInvalidateNamedFramebufferSubData(framebuffer, numAttachments, memAddress(attachments), x, y, width, height);
+			checkFunctionAddress(__functionAddress);
+		callIIPIIIIV(__functionAddress, framebuffer, numAttachments, attachments, x, y, width, height);
 	}
 
-	/** Alternative version of: {@link #glInvalidateNamedFramebufferSubData InvalidateNamedFramebufferSubData} */
+	/**
+	 * DSA version of {@link GL43#glInvalidateSubFramebuffer InvalidateSubFramebuffer}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 * @param attachments an array identifying the attachments to be invalidated
+	 * @param x           the X offset of the region to be invalidated
+	 * @param y           the Y offset of the region to be invalidated
+	 * @param width       the width of the region to be invalidated
+	 * @param height      the height of the region to be invalidated
+	 */
 	public static void glInvalidateNamedFramebufferSubData(int framebuffer, IntBuffer attachments, int x, int y, int width, int height) {
 		nglInvalidateNamedFramebufferSubData(framebuffer, attachments.remaining(), memAddress(attachments), x, y, width, height);
 	}
 
-	/** Single value version of: {@link #glInvalidateNamedFramebufferSubData InvalidateNamedFramebufferSubData} */
+	/**
+	 * DSA version of {@link GL43#glInvalidateSubFramebuffer InvalidateSubFramebuffer}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 * @param x           the X offset of the region to be invalidated
+	 * @param y           the Y offset of the region to be invalidated
+	 * @param width       the width of the region to be invalidated
+	 * @param height      the height of the region to be invalidated
+	 */
 	public static void glInvalidateNamedFramebufferSubData(int framebuffer, int attachment, int x, int y, int width, int height) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1133,7 +1252,15 @@ public class ARBDirectStateAccess {
 
 	// --- [ glClearNamedFramebufferiv ] ---
 
-	/** Unsafe version of {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
+	/**
+	 * DSA version of {@link GL30#glClearBufferiv ClearBufferiv}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 * @param buffer      the buffer to clear. One of:<br>{@link GL11#GL_COLOR COLOR}, {@link GL11#GL_STENCIL STENCIL}
+	 * @param drawbuffer  the draw buffer to clear
+	 * @param value       for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For stencil buffers, a pointer to a
+	 *                    single stencil value to clear the buffer to.
+	 */
 	public static void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferiv;
 		if ( CHECKS )
@@ -1150,13 +1277,6 @@ public class ARBDirectStateAccess {
 	 * @param value       for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For stencil buffers, a pointer to a
 	 *                    single stencil value to clear the buffer to.
 	 */
-	public static void glClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
 	public static void glClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -1165,7 +1285,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glClearNamedFramebufferuiv ] ---
 
-	/** Unsafe version of {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
+	/**
+	 * DSA version of {@link GL30#glClearBufferuiv ClearBufferuiv}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 * @param buffer      the buffer to clear. Must be:<br>{@link GL11#GL_COLOR COLOR}
+	 * @param drawbuffer  the draw buffer to clear
+	 * @param value       a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to
+	 */
 	public static void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferuiv;
 		if ( CHECKS )
@@ -1181,13 +1308,6 @@ public class ARBDirectStateAccess {
 	 * @param drawbuffer  the draw buffer to clear
 	 * @param value       a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to
 	 */
-	public static void glClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 4 << 2);
-		nglClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
 	public static void glClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 4);
@@ -1196,7 +1316,15 @@ public class ARBDirectStateAccess {
 
 	// --- [ glClearNamedFramebufferfv ] ---
 
-	/** Unsafe version of {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
+	/**
+	 * DSA version of {@link GL30#glClearBufferfv ClearBufferfv}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 * @param buffer      the buffer to clear. One of:<br>{@link GL11#GL_COLOR COLOR}, {@link GL11#GL_DEPTH DEPTH}
+	 * @param drawbuffer  the draw buffer to clear
+	 * @param value       for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For depth buffers, a pointer to a
+	 *                    single depth value to clear the buffer to.
+	 */
 	public static void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferfv;
 		if ( CHECKS )
@@ -1213,13 +1341,6 @@ public class ARBDirectStateAccess {
 	 * @param value       for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For depth buffers, a pointer to a
 	 *                    single depth value to clear the buffer to.
 	 */
-	public static void glClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
 	public static void glClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -1286,7 +1407,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetNamedFramebufferParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
+	/**
+	 * DSA version of {@link GL43#glGetFramebufferParameteriv GetFramebufferParameteriv}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 * @param pname       a token indicating the parameter to be retrieved. One of:<br>{@link GL43#GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
+	 * @param params      a variable to receive the value of the parameter named {@code pname}
+	 */
 	public static void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameteriv;
 		if ( CHECKS )
@@ -1301,20 +1428,18 @@ public class ARBDirectStateAccess {
 	 * @param pname       a token indicating the parameter to be retrieved. One of:<br>{@link GL43#GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
 	 * @param params      a variable to receive the value of the parameter named {@code pname}
 	 */
-	public static void glGetNamedFramebufferParameteriv(int framebuffer, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetNamedFramebufferParameteriv(framebuffer, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
 	public static void glGetNamedFramebufferParameteriv(int framebuffer, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferParameteriv(framebuffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
+	/**
+	 * DSA version of {@link GL43#glGetFramebufferParameteriv GetFramebufferParameteriv}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 * @param pname       a token indicating the parameter to be retrieved. One of:<br>{@link GL43#GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
+	 */
 	public static int glGetNamedFramebufferParameteri(int framebuffer, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1328,7 +1453,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetNamedFramebufferAttachmentParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
+	/**
+	 * DSA version of {@link GL30#glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 * @param attachment  the attachment within {@code target}. One of:<br>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link GL30#GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link GL30#GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link GL30#GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link GL30#GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link GL30#GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link GL30#GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link GL30#GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link GL30#GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link GL30#GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link GL30#GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link GL30#GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link GL30#GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link GL30#GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link GL30#GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link GL30#GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link GL30#GL_COLOR_ATTACHMENT16 COLOR_ATTACHMENT16}, {@link GL30#GL_COLOR_ATTACHMENT17 COLOR_ATTACHMENT17}, {@link GL30#GL_COLOR_ATTACHMENT18 COLOR_ATTACHMENT18}, {@link GL30#GL_COLOR_ATTACHMENT19 COLOR_ATTACHMENT19}, {@link GL30#GL_COLOR_ATTACHMENT20 COLOR_ATTACHMENT20}, {@link GL30#GL_COLOR_ATTACHMENT21 COLOR_ATTACHMENT21}, {@link GL30#GL_COLOR_ATTACHMENT22 COLOR_ATTACHMENT22}, {@link GL30#GL_COLOR_ATTACHMENT23 COLOR_ATTACHMENT23}, {@link GL30#GL_COLOR_ATTACHMENT24 COLOR_ATTACHMENT24}, {@link GL30#GL_COLOR_ATTACHMENT25 COLOR_ATTACHMENT25}, {@link GL30#GL_COLOR_ATTACHMENT26 COLOR_ATTACHMENT26}, {@link GL30#GL_COLOR_ATTACHMENT27 COLOR_ATTACHMENT27}, {@link GL30#GL_COLOR_ATTACHMENT28 COLOR_ATTACHMENT28}, {@link GL30#GL_COLOR_ATTACHMENT29 COLOR_ATTACHMENT29}, {@link GL30#GL_COLOR_ATTACHMENT30 COLOR_ATTACHMENT30}, {@link GL30#GL_COLOR_ATTACHMENT31 COLOR_ATTACHMENT31}, {@link GL30#GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link GL30#GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link GL30#GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
+	 * @param pname       the parameter of {@code attachment} to query. One of:<br>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
+	 * @param params      an array to receive the value of the queried parameter
+	 */
 	public static void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferAttachmentParameteriv;
 		if ( CHECKS )
@@ -1344,20 +1476,19 @@ public class ARBDirectStateAccess {
 	 * @param pname       the parameter of {@code attachment} to query. One of:<br>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
 	 * @param params      an array to receive the value of the queried parameter
 	 */
-	public static void glGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
 	public static void glGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
+	/**
+	 * DSA version of {@link GL30#glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv}.
+	 *
+	 * @param framebuffer the framebuffer name
+	 * @param attachment  the attachment within {@code target}. One of:<br>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link GL30#GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link GL30#GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link GL30#GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link GL30#GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link GL30#GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link GL30#GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link GL30#GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link GL30#GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link GL30#GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link GL30#GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link GL30#GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link GL30#GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link GL30#GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link GL30#GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link GL30#GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link GL30#GL_COLOR_ATTACHMENT16 COLOR_ATTACHMENT16}, {@link GL30#GL_COLOR_ATTACHMENT17 COLOR_ATTACHMENT17}, {@link GL30#GL_COLOR_ATTACHMENT18 COLOR_ATTACHMENT18}, {@link GL30#GL_COLOR_ATTACHMENT19 COLOR_ATTACHMENT19}, {@link GL30#GL_COLOR_ATTACHMENT20 COLOR_ATTACHMENT20}, {@link GL30#GL_COLOR_ATTACHMENT21 COLOR_ATTACHMENT21}, {@link GL30#GL_COLOR_ATTACHMENT22 COLOR_ATTACHMENT22}, {@link GL30#GL_COLOR_ATTACHMENT23 COLOR_ATTACHMENT23}, {@link GL30#GL_COLOR_ATTACHMENT24 COLOR_ATTACHMENT24}, {@link GL30#GL_COLOR_ATTACHMENT25 COLOR_ATTACHMENT25}, {@link GL30#GL_COLOR_ATTACHMENT26 COLOR_ATTACHMENT26}, {@link GL30#GL_COLOR_ATTACHMENT27 COLOR_ATTACHMENT27}, {@link GL30#GL_COLOR_ATTACHMENT28 COLOR_ATTACHMENT28}, {@link GL30#GL_COLOR_ATTACHMENT29 COLOR_ATTACHMENT29}, {@link GL30#GL_COLOR_ATTACHMENT30 COLOR_ATTACHMENT30}, {@link GL30#GL_COLOR_ATTACHMENT31 COLOR_ATTACHMENT31}, {@link GL30#GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link GL30#GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link GL30#GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
+	 * @param pname       the parameter of {@code attachment} to query. One of:<br>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
+	 */
 	public static int glGetNamedFramebufferAttachmentParameteri(int framebuffer, int attachment, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1371,7 +1502,12 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCreateRenderbuffers ] ---
 
-	/** Unsafe version of {@link #glCreateRenderbuffers CreateRenderbuffers} */
+	/**
+	 * Returns {@code n} previously unused renderbuffer names in {@code renderbuffers}, each representing a new renderbuffer object.
+	 *
+	 * @param n             the number of renderbuffer names to create
+	 * @param renderbuffers the buffer in which to store the created renderbuffer names
+	 */
 	public static void nglCreateRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glCreateRenderbuffers;
 		if ( CHECKS )
@@ -1382,21 +1518,13 @@ public class ARBDirectStateAccess {
 	/**
 	 * Returns {@code n} previously unused renderbuffer names in {@code renderbuffers}, each representing a new renderbuffer object.
 	 *
-	 * @param n             the number of renderbuffer names to create
 	 * @param renderbuffers the buffer in which to store the created renderbuffer names
 	 */
-	public static void glCreateRenderbuffers(int n, ByteBuffer renderbuffers) {
-		if ( CHECKS )
-			checkBuffer(renderbuffers, n << 2);
-		nglCreateRenderbuffers(n, memAddress(renderbuffers));
-	}
-
-	/** Alternative version of: {@link #glCreateRenderbuffers CreateRenderbuffers} */
 	public static void glCreateRenderbuffers(IntBuffer renderbuffers) {
 		nglCreateRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
 	}
 
-	/** Single return value version of: {@link #glCreateRenderbuffers CreateRenderbuffers} */
+	/** Returns {@code n} previously unused renderbuffer names in {@code renderbuffers}, each representing a new renderbuffer object. */
 	public static int glCreateRenderbuffers() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1445,7 +1573,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetNamedRenderbufferParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
+	/**
+	 * DSA version of {@link GL30#glGetRenderbufferParameteriv GetRenderbufferParameteriv}.
+	 *
+	 * @param renderbuffer 
+	 * @param pname        the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br>{@link GL30#GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}, {@link GL30#GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}, {@link GL30#GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}, {@link GL30#GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}, {@link GL30#GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}, {@link GL30#GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}, {@link GL30#GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}, {@link GL30#GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}, {@link GL30#GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}, {@link GL30#GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}
+	 * @param params       an array to receive the value of the queried parameter
+	 */
 	public static void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedRenderbufferParameteriv;
 		if ( CHECKS )
@@ -1460,20 +1594,18 @@ public class ARBDirectStateAccess {
 	 * @param pname        the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br>{@link GL30#GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}, {@link GL30#GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}, {@link GL30#GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}, {@link GL30#GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}, {@link GL30#GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}, {@link GL30#GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}, {@link GL30#GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}, {@link GL30#GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}, {@link GL30#GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}, {@link GL30#GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}
 	 * @param params       an array to receive the value of the queried parameter
 	 */
-	public static void glGetNamedRenderbufferParameteriv(int renderbuffer, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
 	public static void glGetNamedRenderbufferParameteriv(int renderbuffer, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
+	/**
+	 * DSA version of {@link GL30#glGetRenderbufferParameteriv GetRenderbufferParameteriv}.
+	 *
+	 * @param renderbuffer 
+	 * @param pname        the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br>{@link GL30#GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}, {@link GL30#GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}, {@link GL30#GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}, {@link GL30#GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}, {@link GL30#GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}, {@link GL30#GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}, {@link GL30#GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}, {@link GL30#GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}, {@link GL30#GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}, {@link GL30#GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}
+	 */
 	public static int glGetNamedRenderbufferParameteri(int renderbuffer, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1487,7 +1619,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCreateTextures ] ---
 
-	/** Unsafe version of {@link #glCreateTextures CreateTextures} */
+	/**
+	 * Returns {@code n} previously unused texture names in {@code textures}, each representing a new texture object.
+	 *
+	 * @param target   the texture target. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}
+	 * @param n        the number of texture names to create
+	 * @param textures the buffer in which to store the created texture names
+	 */
 	public static void nglCreateTextures(int target, int n, long textures) {
 		long __functionAddress = GL.getCapabilities().glCreateTextures;
 		if ( CHECKS )
@@ -1499,21 +1637,17 @@ public class ARBDirectStateAccess {
 	 * Returns {@code n} previously unused texture names in {@code textures}, each representing a new texture object.
 	 *
 	 * @param target   the texture target. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}
-	 * @param n        the number of texture names to create
 	 * @param textures the buffer in which to store the created texture names
 	 */
-	public static void glCreateTextures(int target, int n, ByteBuffer textures) {
-		if ( CHECKS )
-			checkBuffer(textures, n << 2);
-		nglCreateTextures(target, n, memAddress(textures));
-	}
-
-	/** Alternative version of: {@link #glCreateTextures CreateTextures} */
 	public static void glCreateTextures(int target, IntBuffer textures) {
 		nglCreateTextures(target, textures.remaining(), memAddress(textures));
 	}
 
-	/** Single return value version of: {@link #glCreateTextures CreateTextures} */
+	/**
+	 * Returns {@code n} previously unused texture names in {@code textures}, each representing a new texture object.
+	 *
+	 * @param target the texture target. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}
+	 */
 	public static int glCreateTextures(int target) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1656,7 +1790,17 @@ public class ARBDirectStateAccess {
 
 	// --- [ glTextureSubImage1D ] ---
 
-	/** Unsafe version of {@link #glTextureSubImage1D TextureSubImage1D} */
+	/**
+	 * DSA version of {@link GL11#glTexSubImage1D TexSubImage1D}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail-number
+	 * @param xoffset the left coordinate of the texel subregion
+	 * @param width   the subregion width
+	 * @param format  the pixel data format. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel data type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param pixels  the pixel data
+	 */
 	public static void nglTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
 		if ( CHECKS )
@@ -1681,11 +1825,21 @@ public class ARBDirectStateAccess {
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** Buffer object offset version of: {@link #glTextureSubImage1D TextureSubImage1D} */
-	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixelsOffset) {
+	/**
+	 * DSA version of {@link GL11#glTexSubImage1D TexSubImage1D}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail-number
+	 * @param xoffset the left coordinate of the texel subregion
+	 * @param width   the subregion width
+	 * @param format  the pixel data format. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel data type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param pixels  the pixel data
+	 */
+	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglTextureSubImage1D(texture, level, xoffset, width, format, type, pixelsOffset);
+		nglTextureSubImage1D(texture, level, xoffset, width, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
@@ -1718,7 +1872,19 @@ public class ARBDirectStateAccess {
 
 	// --- [ glTextureSubImage2D ] ---
 
-	/** Unsafe version of {@link #glTextureSubImage2D TextureSubImage2D} */
+	/**
+	 * DSA version of {@link GL11#glTexSubImage2D TexSubImage2D}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail-number
+	 * @param xoffset the left coordinate of the texel subregion
+	 * @param yoffset the bottom coordinate of the texel subregion
+	 * @param width   the subregion width
+	 * @param height  the subregion height
+	 * @param format  the pixel data format. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel data type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param pixels  the pixel data
+	 */
 	public static void nglTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
 		if ( CHECKS )
@@ -1745,11 +1911,23 @@ public class ARBDirectStateAccess {
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** Buffer object offset version of: {@link #glTextureSubImage2D TextureSubImage2D} */
-	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixelsOffset) {
+	/**
+	 * DSA version of {@link GL11#glTexSubImage2D TexSubImage2D}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail-number
+	 * @param xoffset the left coordinate of the texel subregion
+	 * @param yoffset the bottom coordinate of the texel subregion
+	 * @param width   the subregion width
+	 * @param height  the subregion height
+	 * @param format  the pixel data format. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel data type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param pixels  the pixel data
+	 */
+	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixelsOffset);
+		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
@@ -1782,7 +1960,21 @@ public class ARBDirectStateAccess {
 
 	// --- [ glTextureSubImage3D ] ---
 
-	/** Unsafe version of {@link #glTextureSubImage3D TextureSubImage3D} */
+	/**
+	 * DSA version of {@link GL12#glTexSubImage3D TexSubImage3D}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail-number
+	 * @param xoffset the x coordinate of the texel subregion
+	 * @param yoffset the y coordinate of the texel subregion
+	 * @param zoffset the z coordinate of the texel subregion
+	 * @param width   the subregion width
+	 * @param height  the subregion height
+	 * @param depth   the subregion depth
+	 * @param format  the pixel data format. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel data type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param pixels  the pixel data
+	 */
 	public static void nglTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
 		if ( CHECKS )
@@ -1811,11 +2003,25 @@ public class ARBDirectStateAccess {
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** Buffer object offset version of: {@link #glTextureSubImage3D TextureSubImage3D} */
-	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixelsOffset) {
+	/**
+	 * DSA version of {@link GL12#glTexSubImage3D TexSubImage3D}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail-number
+	 * @param xoffset the x coordinate of the texel subregion
+	 * @param yoffset the y coordinate of the texel subregion
+	 * @param zoffset the z coordinate of the texel subregion
+	 * @param width   the subregion width
+	 * @param height  the subregion height
+	 * @param depth   the subregion depth
+	 * @param format  the pixel data format. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel data type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param pixels  the pixel data
+	 */
+	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixelsOffset);
+		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
@@ -1848,7 +2054,17 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCompressedTextureSubImage1D ] ---
 
-	/** Unsafe version of {@link #glCompressedTextureSubImage1D CompressedTextureSubImage1D} */
+	/**
+	 * DSA version of {@link GL13#glCompressedTexSubImage1D CompressedTexSubImage1D}.
+	 *
+	 * @param texture   the texture name
+	 * @param level     the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset   a texel offset in the x direction within the texture array
+	 * @param width     the width of the texture subimage
+	 * @param format    the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
+	 * @param data      a pointer to the compressed image data
+	 */
 	public static void nglCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage1D;
 		if ( CHECKS )
@@ -1867,22 +2083,22 @@ public class ARBDirectStateAccess {
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 * @param data      a pointer to the compressed image data
 	 */
-	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, memAddress(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTextureSubImage1D CompressedTextureSubImage1D} */
-	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long dataOffset) {
+	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, dataOffset);
+		nglCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTextureSubImage1D CompressedTextureSubImage1D} */
+	/**
+	 * DSA version of {@link GL13#glCompressedTexSubImage1D CompressedTexSubImage1D}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset a texel offset in the x direction within the texture array
+	 * @param width   the width of the texture subimage
+	 * @param format  the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param data    a pointer to the compressed image data
+	 */
 	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, ByteBuffer data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -1891,7 +2107,19 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCompressedTextureSubImage2D ] ---
 
-	/** Unsafe version of {@link #glCompressedTextureSubImage2D CompressedTextureSubImage2D} */
+	/**
+	 * DSA version of {@link GL13#glCompressedTexSubImage2D CompressedTexSubImage2D}.
+	 *
+	 * @param texture   the texture name
+	 * @param level     the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset   a texel offset in the x direction within the texture array
+	 * @param yoffset   a texel offset in the y direction within the texture array
+	 * @param width     the width of the texture subimage
+	 * @param height    the height of the texture subimage
+	 * @param format    the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
+	 * @param data      a pointer to the compressed image data
+	 */
 	public static void nglCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage2D;
 		if ( CHECKS )
@@ -1912,22 +2140,24 @@ public class ARBDirectStateAccess {
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 * @param data      a pointer to the compressed image data
 	 */
-	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, memAddress(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTextureSubImage2D CompressedTextureSubImage2D} */
-	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long dataOffset) {
+	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, dataOffset);
+		nglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTextureSubImage2D CompressedTextureSubImage2D} */
+	/**
+	 * DSA version of {@link GL13#glCompressedTexSubImage2D CompressedTexSubImage2D}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset a texel offset in the x direction within the texture array
+	 * @param yoffset a texel offset in the y direction within the texture array
+	 * @param width   the width of the texture subimage
+	 * @param height  the height of the texture subimage
+	 * @param format  the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param data    a pointer to the compressed image data
+	 */
 	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -1936,7 +2166,21 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCompressedTextureSubImage3D ] ---
 
-	/** Unsafe version of {@link #glCompressedTextureSubImage3D CompressedTextureSubImage3D} */
+	/**
+	 * DSA version of {@link GL13#glCompressedTexSubImage3D CompressedTexSubImage3D}.
+	 *
+	 * @param texture   the texture name
+	 * @param level     the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset   a texel offset in the x direction within the texture array
+	 * @param yoffset   a texel offset in the y direction within the texture array
+	 * @param zoffset   a texel offset in the z direction within the texture array
+	 * @param width     the width of the texture subimage
+	 * @param height    the height of the texture subimage
+	 * @param depth     the depth of the texture subimage
+	 * @param format    the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
+	 * @param data      a pointer to the compressed image data
+	 */
 	public static void nglCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage3D;
 		if ( CHECKS )
@@ -1959,22 +2203,26 @@ public class ARBDirectStateAccess {
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 * @param data      a pointer to the compressed image data
 	 */
-	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, memAddress(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTextureSubImage3D CompressedTextureSubImage3D} */
-	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long dataOffset) {
+	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset);
+		nglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTextureSubImage3D CompressedTextureSubImage3D} */
+	/**
+	 * DSA version of {@link GL13#glCompressedTexSubImage3D CompressedTexSubImage3D}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset a texel offset in the x direction within the texture array
+	 * @param yoffset a texel offset in the y direction within the texture array
+	 * @param zoffset a texel offset in the z direction within the texture array
+	 * @param width   the width of the texture subimage
+	 * @param height  the height of the texture subimage
+	 * @param depth   the depth of the texture subimage
+	 * @param format  the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param data    a pointer to the compressed image data
+	 */
 	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -2061,7 +2309,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glTextureParameterfv ] ---
 
-	/** Unsafe version of {@link #glTextureParameterfv TextureParameterfv} */
+	/**
+	 * DSA version of {@link GL11#glTexParameterfv TexParameterfv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the parameter to set
+	 * @param params  the parameter value
+	 */
 	public static void nglTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTextureParameterfv;
 		if ( CHECKS )
@@ -2076,13 +2330,6 @@ public class ARBDirectStateAccess {
 	 * @param pname   the parameter to set
 	 * @param params  the parameter value
 	 */
-	public static void glTextureParameterfv(int texture, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 4 << 2);
-		nglTextureParameterfv(texture, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTextureParameterfv TextureParameterfv} */
 	public static void glTextureParameterfv(int texture, int pname, FloatBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 4);
@@ -2107,7 +2354,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glTextureParameterIiv ] ---
 
-	/** Unsafe version of {@link #glTextureParameterIiv TextureParameterIiv} */
+	/**
+	 * DSA version of {@link GL30#glTexParameterIiv TexParameterIiv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the symbolic name of a single-valued texture parameter
+	 * @param params  the value of {@code pname}
+	 */
 	public static void nglTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTextureParameterIiv;
 		if ( CHECKS )
@@ -2122,20 +2375,18 @@ public class ARBDirectStateAccess {
 	 * @param pname   the symbolic name of a single-valued texture parameter
 	 * @param params  the value of {@code pname}
 	 */
-	public static void glTextureParameterIiv(int texture, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglTextureParameterIiv(texture, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTextureParameterIiv TextureParameterIiv} */
 	public static void glTextureParameterIiv(int texture, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTextureParameterIiv(texture, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTextureParameterIiv TextureParameterIiv} */
+	/**
+	 * DSA version of {@link GL30#glTexParameterIiv TexParameterIiv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the symbolic name of a single-valued texture parameter
+	 */
 	public static void glTextureParameterIi(int texture, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2148,7 +2399,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glTextureParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glTextureParameterIuiv TextureParameterIuiv} */
+	/**
+	 * DSA version of {@link GL30#glTexParameterIuiv TexParameterIuiv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the symbolic name of a single-valued texture parameter
+	 * @param params  the value of {@code pname}
+	 */
 	public static void nglTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTextureParameterIuiv;
 		if ( CHECKS )
@@ -2163,20 +2420,18 @@ public class ARBDirectStateAccess {
 	 * @param pname   the symbolic name of a single-valued texture parameter
 	 * @param params  the value of {@code pname}
 	 */
-	public static void glTextureParameterIuiv(int texture, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglTextureParameterIuiv(texture, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTextureParameterIuiv TextureParameterIuiv} */
 	public static void glTextureParameterIuiv(int texture, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTextureParameterIuiv(texture, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTextureParameterIuiv TextureParameterIuiv} */
+	/**
+	 * DSA version of {@link GL30#glTexParameterIuiv TexParameterIuiv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the symbolic name of a single-valued texture parameter
+	 */
 	public static void glTextureParameterIui(int texture, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2189,7 +2444,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glTextureParameteriv ] ---
 
-	/** Unsafe version of {@link #glTextureParameteriv TextureParameteriv} */
+	/**
+	 * DSA version of {@link GL11#glTexParameteriv TexParameteriv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the parameter to set
+	 * @param params  the parameter value
+	 */
 	public static void nglTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTextureParameteriv;
 		if ( CHECKS )
@@ -2204,13 +2465,6 @@ public class ARBDirectStateAccess {
 	 * @param pname   the parameter to set
 	 * @param params  the parameter value
 	 */
-	public static void glTextureParameteriv(int texture, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 4 << 2);
-		nglTextureParameteriv(texture, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTextureParameteriv TextureParameteriv} */
 	public static void glTextureParameteriv(int texture, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 4);
@@ -2252,7 +2506,16 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetTextureImage ] ---
 
-	/** Unsafe version of {@link #glGetTextureImage GetTextureImage} */
+	/**
+	 * DSA version of {@link GL11#glGetTexImage GetTexImage}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail number
+	 * @param format  the pixel format. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param bufSize the size of the buffer to receive the retrieved pixel data
+	 * @param pixels  the buffer in which to place the returned data
+	 */
 	public static void nglGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTextureImage;
 		if ( CHECKS )
@@ -2270,22 +2533,21 @@ public class ARBDirectStateAccess {
 	 * @param bufSize the size of the buffer to receive the retrieved pixel data
 	 * @param pixels  the buffer in which to place the returned data
 	 */
-	public static void glGetTextureImage(int texture, int level, int format, int type, int bufSize, ByteBuffer pixels) {
-		if ( CHECKS ) {
-			checkBuffer(pixels, bufSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
-		nglGetTextureImage(texture, level, format, type, bufSize, memAddress(pixels));
-	}
-
-	/** Buffer object offset version of: {@link #glGetTextureImage GetTextureImage} */
-	public static void glGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixelsOffset) {
+	public static void glGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglGetTextureImage(texture, level, format, type, bufSize, pixelsOffset);
+		nglGetTextureImage(texture, level, format, type, bufSize, pixels);
 	}
 
-	/** Alternative version of: {@link #glGetTextureImage GetTextureImage} */
+	/**
+	 * DSA version of {@link GL11#glGetTexImage GetTexImage}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail number
+	 * @param format  the pixel format. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param pixels  the buffer in which to place the returned data
+	 */
 	public static void glGetTextureImage(int texture, int level, int format, int type, ByteBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -2322,7 +2584,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetCompressedTextureImage ] ---
 
-	/** Unsafe version of {@link #glGetCompressedTextureImage GetCompressedTextureImage} */
+	/**
+	 * DSA version of {@link GL13#glGetCompressedTexImage GetCompressedTexImage}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param bufSize the size of the buffer to receive the retrieved pixel data
+	 * @param pixels  a buffer in which to return the compressed texture image
+	 */
 	public static void nglGetCompressedTextureImage(int texture, int level, int bufSize, long pixels) {
 		long __functionAddress = GL.getCapabilities().glGetCompressedTextureImage;
 		if ( CHECKS )
@@ -2338,24 +2607,19 @@ public class ARBDirectStateAccess {
 	 * @param bufSize the size of the buffer to receive the retrieved pixel data
 	 * @param pixels  a buffer in which to return the compressed texture image
 	 */
-	public static void glGetCompressedTextureImage(int texture, int level, int bufSize, ByteBuffer pixels) {
-		if ( CHECKS ) {
-			checkBuffer(pixels, bufSize);
-			if ( DEBUG )
-				checkBuffer(pixels, glGetTextureLevelParameteri(texture, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
-		nglGetCompressedTextureImage(texture, level, bufSize, memAddress(pixels));
-	}
-
-	/** Buffer object offset version of: {@link #glGetCompressedTextureImage GetCompressedTextureImage} */
-	public static void glGetCompressedTextureImage(int texture, int level, int bufSize, long pixelsOffset) {
+	public static void glGetCompressedTextureImage(int texture, int level, int bufSize, long pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglGetCompressedTextureImage(texture, level, bufSize, pixelsOffset);
+		nglGetCompressedTextureImage(texture, level, bufSize, pixels);
 	}
 
-	/** Alternative version of: {@link #glGetCompressedTextureImage GetCompressedTextureImage} */
+	/**
+	 * DSA version of {@link GL13#glGetCompressedTexImage GetCompressedTexImage}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param pixels  a buffer in which to return the compressed texture image
+	 */
 	public static void glGetCompressedTextureImage(int texture, int level, ByteBuffer pixels) {
 		if ( CHECKS ) {
 			if ( DEBUG )
@@ -2367,7 +2631,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetTextureLevelParameterfv ] ---
 
-	/** Unsafe version of {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
+	/**
+	 * DSA version of {@link GL11#glGetTexLevelParameterfv GetTexLevelParameterfv}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail number
+	 * @param pname   the parameter to query
+	 * @param params  a scalar or buffer in which to place the returned data
+	 */
 	public static void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameterfv;
 		if ( CHECKS )
@@ -2383,20 +2654,19 @@ public class ARBDirectStateAccess {
 	 * @param pname   the parameter to query
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTextureLevelParameterfv(int texture, int level, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
 	public static void glGetTextureLevelParameterfv(int texture, int level, int pname, FloatBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
+	/**
+	 * DSA version of {@link GL11#glGetTexLevelParameterfv GetTexLevelParameterfv}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail number
+	 * @param pname   the parameter to query
+	 */
 	public static float glGetTextureLevelParameterf(int texture, int level, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2410,7 +2680,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetTextureLevelParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
+	/**
+	 * DSA version of {@link GL11#glGetTexLevelParameteriv GetTexLevelParameteriv}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail number
+	 * @param pname   the parameter to query. One of:<br>{@link GL11#GL_TEXTURE_WIDTH TEXTURE_WIDTH}, {@link GL11#GL_TEXTURE_HEIGHT TEXTURE_HEIGHT}, {@link GL12#GL_TEXTURE_DEPTH TEXTURE_DEPTH}, {@link GL11#GL_TEXTURE_BORDER TEXTURE_BORDER}, {@link GL32#GL_TEXTURE_SAMPLES TEXTURE_SAMPLES}, {@link GL32#GL_TEXTURE_FIXED_SAMPLE_LOCATIONS TEXTURE_FIXED_SAMPLE_LOCATIONS}, {@link GL11#GL_TEXTURE_INTERNAL_FORMAT TEXTURE_INTERNAL_FORMAT}, {@link GL11#GL_TEXTURE_RED_SIZE TEXTURE_RED_SIZE}, {@link GL11#GL_TEXTURE_GREEN_SIZE TEXTURE_GREEN_SIZE}, {@link GL11#GL_TEXTURE_BLUE_SIZE TEXTURE_BLUE_SIZE}, {@link GL11#GL_TEXTURE_ALPHA_SIZE TEXTURE_ALPHA_SIZE}, {@link GL11#GL_TEXTURE_LUMINANCE_SIZE TEXTURE_LUMINANCE_SIZE}, {@link GL11#GL_TEXTURE_INTENSITY_SIZE TEXTURE_INTENSITY_SIZE}, {@link GL14#GL_TEXTURE_DEPTH_SIZE TEXTURE_DEPTH_SIZE}, {@link GL30#GL_TEXTURE_STENCIL_SIZE TEXTURE_STENCIL_SIZE}, {@link GL30#GL_TEXTURE_SHARED_SIZE TEXTURE_SHARED_SIZE}, {@link GL30#GL_TEXTURE_RED_TYPE TEXTURE_RED_TYPE}, {@link GL30#GL_TEXTURE_GREEN_TYPE TEXTURE_GREEN_TYPE}, {@link GL30#GL_TEXTURE_BLUE_TYPE TEXTURE_BLUE_TYPE}, {@link GL30#GL_TEXTURE_ALPHA_TYPE TEXTURE_ALPHA_TYPE}, {@link GL30#GL_TEXTURE_LUMINANCE_TYPE TEXTURE_LUMINANCE_TYPE}, {@link GL30#GL_TEXTURE_INTENSITY_TYPE TEXTURE_INTENSITY_TYPE}, {@link GL30#GL_TEXTURE_DEPTH_TYPE TEXTURE_DEPTH_TYPE}, {@link GL13#GL_TEXTURE_COMPRESSED TEXTURE_COMPRESSED}, {@link GL13#GL_TEXTURE_COMPRESSED_IMAGE_SIZE TEXTURE_COMPRESSED_IMAGE_SIZE}, {@link GL31#GL_TEXTURE_BUFFER_DATA_STORE_BINDING TEXTURE_BUFFER_DATA_STORE_BINDING}, {@link GL43#GL_TEXTURE_BUFFER_OFFSET TEXTURE_BUFFER_OFFSET}, {@link GL43#GL_TEXTURE_BUFFER_SIZE TEXTURE_BUFFER_SIZE}
+	 * @param params  a scalar or buffer in which to place the returned data
+	 */
 	public static void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameteriv;
 		if ( CHECKS )
@@ -2426,20 +2703,19 @@ public class ARBDirectStateAccess {
 	 * @param pname   the parameter to query. One of:<br>{@link GL11#GL_TEXTURE_WIDTH TEXTURE_WIDTH}, {@link GL11#GL_TEXTURE_HEIGHT TEXTURE_HEIGHT}, {@link GL12#GL_TEXTURE_DEPTH TEXTURE_DEPTH}, {@link GL11#GL_TEXTURE_BORDER TEXTURE_BORDER}, {@link GL32#GL_TEXTURE_SAMPLES TEXTURE_SAMPLES}, {@link GL32#GL_TEXTURE_FIXED_SAMPLE_LOCATIONS TEXTURE_FIXED_SAMPLE_LOCATIONS}, {@link GL11#GL_TEXTURE_INTERNAL_FORMAT TEXTURE_INTERNAL_FORMAT}, {@link GL11#GL_TEXTURE_RED_SIZE TEXTURE_RED_SIZE}, {@link GL11#GL_TEXTURE_GREEN_SIZE TEXTURE_GREEN_SIZE}, {@link GL11#GL_TEXTURE_BLUE_SIZE TEXTURE_BLUE_SIZE}, {@link GL11#GL_TEXTURE_ALPHA_SIZE TEXTURE_ALPHA_SIZE}, {@link GL11#GL_TEXTURE_LUMINANCE_SIZE TEXTURE_LUMINANCE_SIZE}, {@link GL11#GL_TEXTURE_INTENSITY_SIZE TEXTURE_INTENSITY_SIZE}, {@link GL14#GL_TEXTURE_DEPTH_SIZE TEXTURE_DEPTH_SIZE}, {@link GL30#GL_TEXTURE_STENCIL_SIZE TEXTURE_STENCIL_SIZE}, {@link GL30#GL_TEXTURE_SHARED_SIZE TEXTURE_SHARED_SIZE}, {@link GL30#GL_TEXTURE_RED_TYPE TEXTURE_RED_TYPE}, {@link GL30#GL_TEXTURE_GREEN_TYPE TEXTURE_GREEN_TYPE}, {@link GL30#GL_TEXTURE_BLUE_TYPE TEXTURE_BLUE_TYPE}, {@link GL30#GL_TEXTURE_ALPHA_TYPE TEXTURE_ALPHA_TYPE}, {@link GL30#GL_TEXTURE_LUMINANCE_TYPE TEXTURE_LUMINANCE_TYPE}, {@link GL30#GL_TEXTURE_INTENSITY_TYPE TEXTURE_INTENSITY_TYPE}, {@link GL30#GL_TEXTURE_DEPTH_TYPE TEXTURE_DEPTH_TYPE}, {@link GL13#GL_TEXTURE_COMPRESSED TEXTURE_COMPRESSED}, {@link GL13#GL_TEXTURE_COMPRESSED_IMAGE_SIZE TEXTURE_COMPRESSED_IMAGE_SIZE}, {@link GL31#GL_TEXTURE_BUFFER_DATA_STORE_BINDING TEXTURE_BUFFER_DATA_STORE_BINDING}, {@link GL43#GL_TEXTURE_BUFFER_OFFSET TEXTURE_BUFFER_OFFSET}, {@link GL43#GL_TEXTURE_BUFFER_SIZE TEXTURE_BUFFER_SIZE}
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTextureLevelParameteriv(int texture, int level, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
 	public static void glGetTextureLevelParameteriv(int texture, int level, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
+	/**
+	 * DSA version of {@link GL11#glGetTexLevelParameteriv GetTexLevelParameteriv}.
+	 *
+	 * @param texture the texture name
+	 * @param level   the level-of-detail number
+	 * @param pname   the parameter to query. One of:<br>{@link GL11#GL_TEXTURE_WIDTH TEXTURE_WIDTH}, {@link GL11#GL_TEXTURE_HEIGHT TEXTURE_HEIGHT}, {@link GL12#GL_TEXTURE_DEPTH TEXTURE_DEPTH}, {@link GL11#GL_TEXTURE_BORDER TEXTURE_BORDER}, {@link GL32#GL_TEXTURE_SAMPLES TEXTURE_SAMPLES}, {@link GL32#GL_TEXTURE_FIXED_SAMPLE_LOCATIONS TEXTURE_FIXED_SAMPLE_LOCATIONS}, {@link GL11#GL_TEXTURE_INTERNAL_FORMAT TEXTURE_INTERNAL_FORMAT}, {@link GL11#GL_TEXTURE_RED_SIZE TEXTURE_RED_SIZE}, {@link GL11#GL_TEXTURE_GREEN_SIZE TEXTURE_GREEN_SIZE}, {@link GL11#GL_TEXTURE_BLUE_SIZE TEXTURE_BLUE_SIZE}, {@link GL11#GL_TEXTURE_ALPHA_SIZE TEXTURE_ALPHA_SIZE}, {@link GL11#GL_TEXTURE_LUMINANCE_SIZE TEXTURE_LUMINANCE_SIZE}, {@link GL11#GL_TEXTURE_INTENSITY_SIZE TEXTURE_INTENSITY_SIZE}, {@link GL14#GL_TEXTURE_DEPTH_SIZE TEXTURE_DEPTH_SIZE}, {@link GL30#GL_TEXTURE_STENCIL_SIZE TEXTURE_STENCIL_SIZE}, {@link GL30#GL_TEXTURE_SHARED_SIZE TEXTURE_SHARED_SIZE}, {@link GL30#GL_TEXTURE_RED_TYPE TEXTURE_RED_TYPE}, {@link GL30#GL_TEXTURE_GREEN_TYPE TEXTURE_GREEN_TYPE}, {@link GL30#GL_TEXTURE_BLUE_TYPE TEXTURE_BLUE_TYPE}, {@link GL30#GL_TEXTURE_ALPHA_TYPE TEXTURE_ALPHA_TYPE}, {@link GL30#GL_TEXTURE_LUMINANCE_TYPE TEXTURE_LUMINANCE_TYPE}, {@link GL30#GL_TEXTURE_INTENSITY_TYPE TEXTURE_INTENSITY_TYPE}, {@link GL30#GL_TEXTURE_DEPTH_TYPE TEXTURE_DEPTH_TYPE}, {@link GL13#GL_TEXTURE_COMPRESSED TEXTURE_COMPRESSED}, {@link GL13#GL_TEXTURE_COMPRESSED_IMAGE_SIZE TEXTURE_COMPRESSED_IMAGE_SIZE}, {@link GL31#GL_TEXTURE_BUFFER_DATA_STORE_BINDING TEXTURE_BUFFER_DATA_STORE_BINDING}, {@link GL43#GL_TEXTURE_BUFFER_OFFSET TEXTURE_BUFFER_OFFSET}, {@link GL43#GL_TEXTURE_BUFFER_SIZE TEXTURE_BUFFER_SIZE}
+	 */
 	public static int glGetTextureLevelParameteri(int texture, int level, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2453,7 +2729,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetTextureParameterfv ] ---
 
-	/** Unsafe version of {@link #glGetTextureParameterfv GetTextureParameterfv} */
+	/**
+	 * DSA version of {@link GL11#glGetTexParameterfv GetTexParameterfv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the parameter to query
+	 * @param params  a scalar or buffer in which to place the returned data
+	 */
 	public static void nglGetTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTextureParameterfv;
 		if ( CHECKS )
@@ -2468,20 +2750,18 @@ public class ARBDirectStateAccess {
 	 * @param pname   the parameter to query
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTextureParameterfv(int texture, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTextureParameterfv(texture, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTextureParameterfv GetTextureParameterfv} */
 	public static void glGetTextureParameterfv(int texture, int pname, FloatBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterfv(texture, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameterfv GetTextureParameterfv} */
+	/**
+	 * DSA version of {@link GL11#glGetTexParameterfv GetTexParameterfv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the parameter to query
+	 */
 	public static float glGetTextureParameterf(int texture, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2495,7 +2775,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetTextureParameterIiv ] ---
 
-	/** Unsafe version of {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
+	/**
+	 * DSA version of {@link GL30#glGetTexParameterIiv GetTexParameterIiv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the symbolic name of a texture parameter
+	 * @param params  returns the texture parameter value
+	 */
 	public static void nglGetTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTextureParameterIiv;
 		if ( CHECKS )
@@ -2510,20 +2796,18 @@ public class ARBDirectStateAccess {
 	 * @param pname   the symbolic name of a texture parameter
 	 * @param params  returns the texture parameter value
 	 */
-	public static void glGetTextureParameterIiv(int texture, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTextureParameterIiv(texture, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
 	public static void glGetTextureParameterIiv(int texture, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterIiv(texture, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
+	/**
+	 * DSA version of {@link GL30#glGetTexParameterIiv GetTexParameterIiv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the symbolic name of a texture parameter
+	 */
 	public static int glGetTextureParameterIi(int texture, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2537,7 +2821,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetTextureParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
+	/**
+	 * DSA version of {@link GL30#glGetTexParameterIuiv GetTexParameterIuiv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the symbolic name of a texture parameter
+	 * @param params  returns the texture parameter value
+	 */
 	public static void nglGetTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTextureParameterIuiv;
 		if ( CHECKS )
@@ -2552,20 +2842,18 @@ public class ARBDirectStateAccess {
 	 * @param pname   the symbolic name of a texture parameter
 	 * @param params  returns the texture parameter value
 	 */
-	public static void glGetTextureParameterIuiv(int texture, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTextureParameterIuiv(texture, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
 	public static void glGetTextureParameterIuiv(int texture, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterIuiv(texture, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
+	/**
+	 * DSA version of {@link GL30#glGetTexParameterIuiv GetTexParameterIuiv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the symbolic name of a texture parameter
+	 */
 	public static int glGetTextureParameterIui(int texture, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2579,7 +2867,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetTextureParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetTextureParameteriv GetTextureParameteriv} */
+	/**
+	 * DSA version of {@link GL11#glGetTexParameteriv GetTexParameteriv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the parameter to query. One of:<br>{@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL}, {@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link GL11#GL_TEXTURE_PRIORITY TEXTURE_PRIORITY}, {@link GL33#GL_TEXTURE_SWIZZLE_R TEXTURE_SWIZZLE_R}, {@link GL33#GL_TEXTURE_SWIZZLE_G TEXTURE_SWIZZLE_G}, {@link GL33#GL_TEXTURE_SWIZZLE_B TEXTURE_SWIZZLE_B}, {@link GL33#GL_TEXTURE_SWIZZLE_A TEXTURE_SWIZZLE_A}, {@link GL33#GL_TEXTURE_SWIZZLE_RGBA TEXTURE_SWIZZLE_RGBA}, {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL14#GL_DEPTH_TEXTURE_MODE DEPTH_TEXTURE_MODE}, {@link GL14#GL_GENERATE_MIPMAP GENERATE_MIPMAP}, {@link GL42#GL_IMAGE_FORMAT_COMPATIBILITY_TYPE IMAGE_FORMAT_COMPATIBILITY_TYPE}, {@link GL42#GL_TEXTURE_IMMUTABLE_FORMAT TEXTURE_IMMUTABLE_FORMAT}, {@link GL43#GL_TEXTURE_IMMUTABLE_LEVELS TEXTURE_IMMUTABLE_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LEVEL TEXTURE_VIEW_MIN_LEVEL}, {@link GL43#GL_TEXTURE_VIEW_NUM_LEVELS TEXTURE_VIEW_NUM_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LAYER TEXTURE_VIEW_MIN_LAYER}, {@link GL43#GL_TEXTURE_VIEW_NUM_LAYERS TEXTURE_VIEW_NUM_LAYERS}, {@link GL11#GL_TEXTURE_RESIDENT TEXTURE_RESIDENT}
+	 * @param params  a scalar or buffer in which to place the returned data
+	 */
 	public static void nglGetTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTextureParameteriv;
 		if ( CHECKS )
@@ -2594,20 +2888,18 @@ public class ARBDirectStateAccess {
 	 * @param pname   the parameter to query. One of:<br>{@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL}, {@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link GL11#GL_TEXTURE_PRIORITY TEXTURE_PRIORITY}, {@link GL33#GL_TEXTURE_SWIZZLE_R TEXTURE_SWIZZLE_R}, {@link GL33#GL_TEXTURE_SWIZZLE_G TEXTURE_SWIZZLE_G}, {@link GL33#GL_TEXTURE_SWIZZLE_B TEXTURE_SWIZZLE_B}, {@link GL33#GL_TEXTURE_SWIZZLE_A TEXTURE_SWIZZLE_A}, {@link GL33#GL_TEXTURE_SWIZZLE_RGBA TEXTURE_SWIZZLE_RGBA}, {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL14#GL_DEPTH_TEXTURE_MODE DEPTH_TEXTURE_MODE}, {@link GL14#GL_GENERATE_MIPMAP GENERATE_MIPMAP}, {@link GL42#GL_IMAGE_FORMAT_COMPATIBILITY_TYPE IMAGE_FORMAT_COMPATIBILITY_TYPE}, {@link GL42#GL_TEXTURE_IMMUTABLE_FORMAT TEXTURE_IMMUTABLE_FORMAT}, {@link GL43#GL_TEXTURE_IMMUTABLE_LEVELS TEXTURE_IMMUTABLE_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LEVEL TEXTURE_VIEW_MIN_LEVEL}, {@link GL43#GL_TEXTURE_VIEW_NUM_LEVELS TEXTURE_VIEW_NUM_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LAYER TEXTURE_VIEW_MIN_LAYER}, {@link GL43#GL_TEXTURE_VIEW_NUM_LAYERS TEXTURE_VIEW_NUM_LAYERS}, {@link GL11#GL_TEXTURE_RESIDENT TEXTURE_RESIDENT}
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTextureParameteriv(int texture, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTextureParameteriv(texture, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTextureParameteriv GetTextureParameteriv} */
 	public static void glGetTextureParameteriv(int texture, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameteriv(texture, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameteriv GetTextureParameteriv} */
+	/**
+	 * DSA version of {@link GL11#glGetTexParameteriv GetTexParameteriv}.
+	 *
+	 * @param texture the texture name
+	 * @param pname   the parameter to query. One of:<br>{@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL}, {@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link GL11#GL_TEXTURE_PRIORITY TEXTURE_PRIORITY}, {@link GL33#GL_TEXTURE_SWIZZLE_R TEXTURE_SWIZZLE_R}, {@link GL33#GL_TEXTURE_SWIZZLE_G TEXTURE_SWIZZLE_G}, {@link GL33#GL_TEXTURE_SWIZZLE_B TEXTURE_SWIZZLE_B}, {@link GL33#GL_TEXTURE_SWIZZLE_A TEXTURE_SWIZZLE_A}, {@link GL33#GL_TEXTURE_SWIZZLE_RGBA TEXTURE_SWIZZLE_RGBA}, {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL14#GL_DEPTH_TEXTURE_MODE DEPTH_TEXTURE_MODE}, {@link GL14#GL_GENERATE_MIPMAP GENERATE_MIPMAP}, {@link GL42#GL_IMAGE_FORMAT_COMPATIBILITY_TYPE IMAGE_FORMAT_COMPATIBILITY_TYPE}, {@link GL42#GL_TEXTURE_IMMUTABLE_FORMAT TEXTURE_IMMUTABLE_FORMAT}, {@link GL43#GL_TEXTURE_IMMUTABLE_LEVELS TEXTURE_IMMUTABLE_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LEVEL TEXTURE_VIEW_MIN_LEVEL}, {@link GL43#GL_TEXTURE_VIEW_NUM_LEVELS TEXTURE_VIEW_NUM_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LAYER TEXTURE_VIEW_MIN_LAYER}, {@link GL43#GL_TEXTURE_VIEW_NUM_LAYERS TEXTURE_VIEW_NUM_LAYERS}, {@link GL11#GL_TEXTURE_RESIDENT TEXTURE_RESIDENT}
+	 */
 	public static int glGetTextureParameteri(int texture, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2621,7 +2913,12 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCreateVertexArrays ] ---
 
-	/** Unsafe version of {@link #glCreateVertexArrays CreateVertexArrays} */
+	/**
+	 * Returns {@code n} previously unused vertex array object names in {@code arrays}.
+	 *
+	 * @param n      the number of vertex array object names to create
+	 * @param arrays the buffer in which to return the created vertex array object names
+	 */
 	public static void nglCreateVertexArrays(int n, long arrays) {
 		long __functionAddress = GL.getCapabilities().glCreateVertexArrays;
 		if ( CHECKS )
@@ -2632,21 +2929,13 @@ public class ARBDirectStateAccess {
 	/**
 	 * Returns {@code n} previously unused vertex array object names in {@code arrays}.
 	 *
-	 * @param n      the number of vertex array object names to create
 	 * @param arrays the buffer in which to return the created vertex array object names
 	 */
-	public static void glCreateVertexArrays(int n, ByteBuffer arrays) {
-		if ( CHECKS )
-			checkBuffer(arrays, n << 2);
-		nglCreateVertexArrays(n, memAddress(arrays));
-	}
-
-	/** Alternative version of: {@link #glCreateVertexArrays CreateVertexArrays} */
 	public static void glCreateVertexArrays(IntBuffer arrays) {
 		nglCreateVertexArrays(arrays.remaining(), memAddress(arrays));
 	}
 
-	/** Single return value version of: {@link #glCreateVertexArrays CreateVertexArrays} */
+	/** Returns {@code n} previously unused vertex array object names in {@code arrays}. */
 	public static int glCreateVertexArrays() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2723,7 +3012,16 @@ public class ARBDirectStateAccess {
 
 	// --- [ glVertexArrayVertexBuffers ] ---
 
-	/** Unsafe version of {@link #glVertexArrayVertexBuffers VertexArrayVertexBuffers} */
+	/**
+	 * DSA version of {@link GL44#glBindVertexBuffers BindVertexBuffers}.
+	 *
+	 * @param vaobj   the vertex array object name
+	 * @param first   the first vertex buffer binding point
+	 * @param count   the number of vertex buffer binding points
+	 * @param buffers an array of zeros or names of existing buffers objects
+	 * @param offsets an array of offses
+	 * @param strides an array of stride values
+	 */
 	public static void nglVertexArrayVertexBuffers(int vaobj, int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBuffers;
 		if ( CHECKS )
@@ -2736,21 +3034,10 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param vaobj   the vertex array object name
 	 * @param first   the first vertex buffer binding point
-	 * @param count   the number of vertex buffer binding points
 	 * @param buffers an array of zeros or names of existing buffers objects
 	 * @param offsets an array of offses
 	 * @param strides an array of stride values
 	 */
-	public static void glVertexArrayVertexBuffers(int vaobj, int first, int count, ByteBuffer buffers, ByteBuffer offsets, ByteBuffer strides) {
-		if ( CHECKS ) {
-			if ( buffers != null ) checkBuffer(buffers, count << 2);
-			if ( offsets != null ) checkBuffer(offsets, count << POINTER_SHIFT);
-			if ( strides != null ) checkBuffer(strides, count << 2);
-		}
-		nglVertexArrayVertexBuffers(vaobj, first, count, memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
-	}
-
-	/** Alternative version of: {@link #glVertexArrayVertexBuffers VertexArrayVertexBuffers} */
 	public static void glVertexArrayVertexBuffers(int vaobj, int first, IntBuffer buffers, PointerBuffer offsets, IntBuffer strides) {
 		if ( CHECKS ) {
 			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
@@ -2849,7 +3136,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetVertexArrayiv ] ---
 
-	/** Unsafe version of {@link #glGetVertexArrayiv GetVertexArrayiv} */
+	/**
+	 * Queries parameters of a vertex array object.
+	 *
+	 * @param vaobj the vertex array object name
+	 * @param pname the parameter to query. Must be:<br>{@link GL15#GL_ELEMENT_ARRAY_BUFFER_BINDING ELEMENT_ARRAY_BUFFER_BINDING}
+	 * @param param the buffer in which to return the parameter values
+	 */
 	public static void nglGetVertexArrayiv(int vaobj, int pname, long param) {
 		long __functionAddress = GL.getCapabilities().glGetVertexArrayiv;
 		if ( CHECKS )
@@ -2864,20 +3157,18 @@ public class ARBDirectStateAccess {
 	 * @param pname the parameter to query. Must be:<br>{@link GL15#GL_ELEMENT_ARRAY_BUFFER_BINDING ELEMENT_ARRAY_BUFFER_BINDING}
 	 * @param param the buffer in which to return the parameter values
 	 */
-	public static void glGetVertexArrayiv(int vaobj, int pname, ByteBuffer param) {
-		if ( CHECKS )
-			checkBuffer(param, 1 << 2);
-		nglGetVertexArrayiv(vaobj, pname, memAddress(param));
-	}
-
-	/** Alternative version of: {@link #glGetVertexArrayiv GetVertexArrayiv} */
 	public static void glGetVertexArrayiv(int vaobj, int pname, IntBuffer param) {
 		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayiv(vaobj, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetVertexArrayiv GetVertexArrayiv} */
+	/**
+	 * Queries parameters of a vertex array object.
+	 *
+	 * @param vaobj the vertex array object name
+	 * @param pname the parameter to query. Must be:<br>{@link GL15#GL_ELEMENT_ARRAY_BUFFER_BINDING ELEMENT_ARRAY_BUFFER_BINDING}
+	 */
 	public static int glGetVertexArrayi(int vaobj, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2891,7 +3182,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetVertexArrayIndexediv ] ---
 
-	/** Unsafe version of {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
+	/**
+	 * Queries parameters of an attribute of a vertex array object.
+	 *
+	 * @param vaobj the vertex array object name
+	 * @param index the attribute to query
+	 * @param pname the parameter to query. One of:<br>{@link GL20#GL_VERTEX_ATTRIB_ARRAY_ENABLED VERTEX_ATTRIB_ARRAY_ENABLED}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_SIZE VERTEX_ATTRIB_ARRAY_SIZE},, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_STRIDE VERTEX_ATTRIB_ARRAY_STRIDE}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_TYPE VERTEX_ATTRIB_ARRAY_TYPE}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_NORMALIZED VERTEX_ATTRIB_ARRAY_NORMALIZED}, {@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}, {@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}, {@link GL43#GL_VERTEX_ATTRIB_ARRAY_LONG VERTEX_ATTRIB_ARRAY_LONG}, {@link GL43#GL_VERTEX_ATTRIB_RELATIVE_OFFSET VERTEX_ATTRIB_RELATIVE_OFFSET}
+	 * @param param the buffer in which to return the parameter values
+	 */
 	public static void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexediv;
 		if ( CHECKS )
@@ -2907,20 +3205,19 @@ public class ARBDirectStateAccess {
 	 * @param pname the parameter to query. One of:<br>{@link GL20#GL_VERTEX_ATTRIB_ARRAY_ENABLED VERTEX_ATTRIB_ARRAY_ENABLED}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_SIZE VERTEX_ATTRIB_ARRAY_SIZE},, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_STRIDE VERTEX_ATTRIB_ARRAY_STRIDE}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_TYPE VERTEX_ATTRIB_ARRAY_TYPE}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_NORMALIZED VERTEX_ATTRIB_ARRAY_NORMALIZED}, {@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}, {@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}, {@link GL43#GL_VERTEX_ATTRIB_ARRAY_LONG VERTEX_ATTRIB_ARRAY_LONG}, {@link GL43#GL_VERTEX_ATTRIB_RELATIVE_OFFSET VERTEX_ATTRIB_RELATIVE_OFFSET}
 	 * @param param the buffer in which to return the parameter values
 	 */
-	public static void glGetVertexArrayIndexediv(int vaobj, int index, int pname, ByteBuffer param) {
-		if ( CHECKS )
-			checkBuffer(param, 1 << 2);
-		nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
-	}
-
-	/** Alternative version of: {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
 	public static void glGetVertexArrayIndexediv(int vaobj, int index, int pname, IntBuffer param) {
 		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
+	/**
+	 * Queries parameters of an attribute of a vertex array object.
+	 *
+	 * @param vaobj the vertex array object name
+	 * @param index the attribute to query
+	 * @param pname the parameter to query. One of:<br>{@link GL20#GL_VERTEX_ATTRIB_ARRAY_ENABLED VERTEX_ATTRIB_ARRAY_ENABLED}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_SIZE VERTEX_ATTRIB_ARRAY_SIZE},, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_STRIDE VERTEX_ATTRIB_ARRAY_STRIDE}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_TYPE VERTEX_ATTRIB_ARRAY_TYPE}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_NORMALIZED VERTEX_ATTRIB_ARRAY_NORMALIZED}, {@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}, {@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}, {@link GL43#GL_VERTEX_ATTRIB_ARRAY_LONG VERTEX_ATTRIB_ARRAY_LONG}, {@link GL43#GL_VERTEX_ATTRIB_RELATIVE_OFFSET VERTEX_ATTRIB_RELATIVE_OFFSET}
+	 */
 	public static int glGetVertexArrayIndexedi(int vaobj, int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2934,7 +3231,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetVertexArrayIndexed64iv ] ---
 
-	/** Unsafe version of {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
+	/**
+	 * Queries parameters of an attribute of a vertex array object.
+	 *
+	 * @param vaobj the vertex array object name
+	 * @param index the attribute to query
+	 * @param pname the parameter to query. Must be:<br>{@link GL43#GL_VERTEX_BINDING_OFFSET VERTEX_BINDING_OFFSET}
+	 * @param param the buffer in which to return the parameter values
+	 */
 	public static void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexed64iv;
 		if ( CHECKS )
@@ -2950,20 +3254,19 @@ public class ARBDirectStateAccess {
 	 * @param pname the parameter to query. Must be:<br>{@link GL43#GL_VERTEX_BINDING_OFFSET VERTEX_BINDING_OFFSET}
 	 * @param param the buffer in which to return the parameter values
 	 */
-	public static void glGetVertexArrayIndexed64iv(int vaobj, int index, int pname, ByteBuffer param) {
-		if ( CHECKS )
-			checkBuffer(param, 1 << 3);
-		nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
-	}
-
-	/** Alternative version of: {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
 	public static void glGetVertexArrayIndexed64iv(int vaobj, int index, int pname, LongBuffer param) {
 		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
+	/**
+	 * Queries parameters of an attribute of a vertex array object.
+	 *
+	 * @param vaobj the vertex array object name
+	 * @param index the attribute to query
+	 * @param pname the parameter to query. Must be:<br>{@link GL43#GL_VERTEX_BINDING_OFFSET VERTEX_BINDING_OFFSET}
+	 */
 	public static long glGetVertexArrayIndexed64i(int vaobj, int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2977,7 +3280,12 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCreateSamplers ] ---
 
-	/** Unsafe version of {@link #glCreateSamplers CreateSamplers} */
+	/**
+	 * Returns {@code n} previously unused sampler names in {@code samplers}, each representing a new sampler object.
+	 *
+	 * @param n        the number of sampler object names to create
+	 * @param samplers the buffer in which to return the created sampler object names
+	 */
 	public static void nglCreateSamplers(int n, long samplers) {
 		long __functionAddress = GL.getCapabilities().glCreateSamplers;
 		if ( CHECKS )
@@ -2988,21 +3296,13 @@ public class ARBDirectStateAccess {
 	/**
 	 * Returns {@code n} previously unused sampler names in {@code samplers}, each representing a new sampler object.
 	 *
-	 * @param n        the number of sampler object names to create
 	 * @param samplers the buffer in which to return the created sampler object names
 	 */
-	public static void glCreateSamplers(int n, ByteBuffer samplers) {
-		if ( CHECKS )
-			checkBuffer(samplers, n << 2);
-		nglCreateSamplers(n, memAddress(samplers));
-	}
-
-	/** Alternative version of: {@link #glCreateSamplers CreateSamplers} */
 	public static void glCreateSamplers(IntBuffer samplers) {
 		nglCreateSamplers(samplers.remaining(), memAddress(samplers));
 	}
 
-	/** Single return value version of: {@link #glCreateSamplers CreateSamplers} */
+	/** Returns {@code n} previously unused sampler names in {@code samplers}, each representing a new sampler object. */
 	public static int glCreateSamplers() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -3016,7 +3316,12 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCreateProgramPipelines ] ---
 
-	/** Unsafe version of {@link #glCreateProgramPipelines CreateProgramPipelines} */
+	/**
+	 * Returns {@code n} previously unused program pipeline names in {@code pipelines}, each representing a new program pipeline object.
+	 *
+	 * @param n         the number of program pipeline names to create
+	 * @param pipelines the buffer in which to return the created program pipeline names
+	 */
 	public static void nglCreateProgramPipelines(int n, long pipelines) {
 		long __functionAddress = GL.getCapabilities().glCreateProgramPipelines;
 		if ( CHECKS )
@@ -3027,21 +3332,13 @@ public class ARBDirectStateAccess {
 	/**
 	 * Returns {@code n} previously unused program pipeline names in {@code pipelines}, each representing a new program pipeline object.
 	 *
-	 * @param n         the number of program pipeline names to create
 	 * @param pipelines the buffer in which to return the created program pipeline names
 	 */
-	public static void glCreateProgramPipelines(int n, ByteBuffer pipelines) {
-		if ( CHECKS )
-			checkBuffer(pipelines, n << 2);
-		nglCreateProgramPipelines(n, memAddress(pipelines));
-	}
-
-	/** Alternative version of: {@link #glCreateProgramPipelines CreateProgramPipelines} */
 	public static void glCreateProgramPipelines(IntBuffer pipelines) {
 		nglCreateProgramPipelines(pipelines.remaining(), memAddress(pipelines));
 	}
 
-	/** Single return value version of: {@link #glCreateProgramPipelines CreateProgramPipelines} */
+	/** Returns {@code n} previously unused program pipeline names in {@code pipelines}, each representing a new program pipeline object. */
 	public static int glCreateProgramPipelines() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -3055,7 +3352,13 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCreateQueries ] ---
 
-	/** Unsafe version of {@link #glCreateQueries CreateQueries} */
+	/**
+	 * Returns {@code n} previously unused query object names in {@code ids}, each representing a new query object with the specified {@code target}.
+	 *
+	 * @param target the query target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param n      the number of query object names to create
+	 * @param ids    the buffer in which to return the created query object names
+	 */
 	public static void nglCreateQueries(int target, int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glCreateQueries;
 		if ( CHECKS )
@@ -3067,21 +3370,17 @@ public class ARBDirectStateAccess {
 	 * Returns {@code n} previously unused query object names in {@code ids}, each representing a new query object with the specified {@code target}.
 	 *
 	 * @param target the query target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
-	 * @param n      the number of query object names to create
 	 * @param ids    the buffer in which to return the created query object names
 	 */
-	public static void glCreateQueries(int target, int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglCreateQueries(target, n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glCreateQueries CreateQueries} */
 	public static void glCreateQueries(int target, IntBuffer ids) {
 		nglCreateQueries(target, ids.remaining(), memAddress(ids));
 	}
 
-	/** Single return value version of: {@link #glCreateQueries CreateQueries} */
+	/**
+	 * Returns {@code n} previously unused query object names in {@code ids}, each representing a new query object with the specified {@code target}.
+	 *
+	 * @param target the query target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 */
 	public static int glCreateQueries(int target) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

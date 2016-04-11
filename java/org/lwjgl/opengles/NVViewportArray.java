@@ -55,7 +55,6 @@ public class NVViewportArray {
 
 	// --- [ glViewportArrayvNV ] ---
 
-	/** Unsafe version of {@link #glViewportArrayvNV ViewportArrayvNV} */
 	public static void nglViewportArrayvNV(int first, int count, long v) {
 		long __functionAddress = GLES.getCapabilities().glViewportArrayvNV;
 		if ( CHECKS )
@@ -63,13 +62,6 @@ public class NVViewportArray {
 		callIIPV(__functionAddress, first, count, v);
 	}
 
-	public static void glViewportArrayvNV(int first, int count, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, (count << 2) << 2);
-		nglViewportArrayvNV(first, count, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glViewportArrayvNV ViewportArrayvNV} */
 	public static void glViewportArrayvNV(int first, FloatBuffer v) {
 		nglViewportArrayvNV(first, v.remaining() >> 2, memAddress(v));
 	}
@@ -85,7 +77,6 @@ public class NVViewportArray {
 
 	// --- [ glViewportIndexedfvNV ] ---
 
-	/** Unsafe version of {@link #glViewportIndexedfvNV ViewportIndexedfvNV} */
 	public static void nglViewportIndexedfvNV(int index, long v) {
 		long __functionAddress = GLES.getCapabilities().glViewportIndexedfvNV;
 		if ( CHECKS )
@@ -93,13 +84,6 @@ public class NVViewportArray {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glViewportIndexedfvNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglViewportIndexedfvNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glViewportIndexedfvNV ViewportIndexedfvNV} */
 	public static void glViewportIndexedfvNV(int index, FloatBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -108,7 +92,6 @@ public class NVViewportArray {
 
 	// --- [ glScissorArrayvNV ] ---
 
-	/** Unsafe version of {@link #glScissorArrayvNV ScissorArrayvNV} */
 	public static void nglScissorArrayvNV(int first, int count, long v) {
 		long __functionAddress = GLES.getCapabilities().glScissorArrayvNV;
 		if ( CHECKS )
@@ -116,13 +99,6 @@ public class NVViewportArray {
 		callIIPV(__functionAddress, first, count, v);
 	}
 
-	public static void glScissorArrayvNV(int first, int count, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, (count << 2) << 2);
-		nglScissorArrayvNV(first, count, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glScissorArrayvNV ScissorArrayvNV} */
 	public static void glScissorArrayvNV(int first, IntBuffer v) {
 		nglScissorArrayvNV(first, v.remaining() >> 2, memAddress(v));
 	}
@@ -138,7 +114,6 @@ public class NVViewportArray {
 
 	// --- [ glScissorIndexedvNV ] ---
 
-	/** Unsafe version of {@link #glScissorIndexedvNV ScissorIndexedvNV} */
 	public static void nglScissorIndexedvNV(int index, long v) {
 		long __functionAddress = GLES.getCapabilities().glScissorIndexedvNV;
 		if ( CHECKS )
@@ -146,13 +121,6 @@ public class NVViewportArray {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glScissorIndexedvNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglScissorIndexedvNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glScissorIndexedvNV ScissorIndexedvNV} */
 	public static void glScissorIndexedvNV(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -161,7 +129,6 @@ public class NVViewportArray {
 
 	// --- [ glDepthRangeArrayfvNV ] ---
 
-	/** Unsafe version of {@link #glDepthRangeArrayfvNV DepthRangeArrayfvNV} */
 	public static void nglDepthRangeArrayfvNV(int first, int count, long v) {
 		long __functionAddress = GLES.getCapabilities().glDepthRangeArrayfvNV;
 		if ( CHECKS )
@@ -169,13 +136,6 @@ public class NVViewportArray {
 		callIIPV(__functionAddress, first, count, v);
 	}
 
-	public static void glDepthRangeArrayfvNV(int first, int count, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, (count << 1) << 2);
-		nglDepthRangeArrayfvNV(first, count, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glDepthRangeArrayfvNV DepthRangeArrayfvNV} */
 	public static void glDepthRangeArrayfvNV(int first, FloatBuffer v) {
 		nglDepthRangeArrayfvNV(first, v.remaining() >> 1, memAddress(v));
 	}
@@ -191,7 +151,6 @@ public class NVViewportArray {
 
 	// --- [ glGetFloati_vNV ] ---
 
-	/** Unsafe version of {@link #glGetFloati_vNV GetFloati_vNV} */
 	public static void nglGetFloati_vNV(int target, int index, long data) {
 		long __functionAddress = GLES.getCapabilities().glGetFloati_vNV;
 		if ( CHECKS )
@@ -199,20 +158,12 @@ public class NVViewportArray {
 		callIIPV(__functionAddress, target, index, data);
 	}
 
-	public static void glGetFloati_vNV(int target, int index, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, 1 << 2);
-		nglGetFloati_vNV(target, index, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #glGetFloati_vNV GetFloati_vNV} */
 	public static void glGetFloati_vNV(int target, int index, FloatBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetFloati_vNV(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetFloati_vNV GetFloati_vNV} */
 	public static float glGetFloatiNV(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

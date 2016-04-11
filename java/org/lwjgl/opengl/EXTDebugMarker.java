@@ -39,7 +39,6 @@ public class EXTDebugMarker {
 
 	// --- [ glInsertEventMarkerEXT ] ---
 
-	/** Unsafe version of {@link #glInsertEventMarkerEXT InsertEventMarkerEXT} */
 	public static void nglInsertEventMarkerEXT(int length, long marker) {
 		long __functionAddress = GL.getCapabilities().glInsertEventMarkerEXT;
 		if ( CHECKS )
@@ -47,18 +46,10 @@ public class EXTDebugMarker {
 		callIPV(__functionAddress, length, marker);
 	}
 
-	public static void glInsertEventMarkerEXT(int length, ByteBuffer marker) {
-		if ( CHECKS )
-			checkBuffer(marker, length);
-		nglInsertEventMarkerEXT(length, memAddress(marker));
-	}
-
-	/** Alternative version of: {@link #glInsertEventMarkerEXT InsertEventMarkerEXT} */
 	public static void glInsertEventMarkerEXT(ByteBuffer marker) {
 		nglInsertEventMarkerEXT(marker.remaining(), memAddress(marker));
 	}
 
-	/** CharSequence version of: {@link #glInsertEventMarkerEXT InsertEventMarkerEXT} */
 	public static void glInsertEventMarkerEXT(CharSequence marker) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -72,7 +63,6 @@ public class EXTDebugMarker {
 
 	// --- [ glPushGroupMarkerEXT ] ---
 
-	/** Unsafe version of {@link #glPushGroupMarkerEXT PushGroupMarkerEXT} */
 	public static void nglPushGroupMarkerEXT(int length, long marker) {
 		long __functionAddress = GL.getCapabilities().glPushGroupMarkerEXT;
 		if ( CHECKS )
@@ -80,18 +70,10 @@ public class EXTDebugMarker {
 		callIPV(__functionAddress, length, marker);
 	}
 
-	public static void glPushGroupMarkerEXT(int length, ByteBuffer marker) {
-		if ( CHECKS )
-			checkBuffer(marker, length);
-		nglPushGroupMarkerEXT(length, memAddress(marker));
-	}
-
-	/** Alternative version of: {@link #glPushGroupMarkerEXT PushGroupMarkerEXT} */
 	public static void glPushGroupMarkerEXT(ByteBuffer marker) {
 		nglPushGroupMarkerEXT(marker.remaining(), memAddress(marker));
 	}
 
-	/** CharSequence version of: {@link #glPushGroupMarkerEXT PushGroupMarkerEXT} */
 	public static void glPushGroupMarkerEXT(CharSequence marker) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

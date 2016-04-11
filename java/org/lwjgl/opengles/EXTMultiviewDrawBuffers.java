@@ -70,7 +70,6 @@ public class EXTMultiviewDrawBuffers {
 
 	// --- [ glDrawBuffersIndexedEXT ] ---
 
-	/** Unsafe version of {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
 	public static void nglDrawBuffersIndexedEXT(int n, long location, long indices) {
 		long __functionAddress = GLES.getCapabilities().glDrawBuffersIndexedEXT;
 		if ( CHECKS )
@@ -78,15 +77,6 @@ public class EXTMultiviewDrawBuffers {
 		callIPPV(__functionAddress, n, location, indices);
 	}
 
-	public static void glDrawBuffersIndexedEXT(int n, ByteBuffer location, ByteBuffer indices) {
-		if ( CHECKS ) {
-			checkBuffer(location, n << 2);
-			checkBuffer(indices, n << 2);
-		}
-		nglDrawBuffersIndexedEXT(n, memAddress(location), memAddress(indices));
-	}
-
-	/** Alternative version of: {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
 	public static void glDrawBuffersIndexedEXT(IntBuffer location, IntBuffer indices) {
 		if ( CHECKS )
 			checkBuffer(indices, location.remaining());
@@ -95,7 +85,6 @@ public class EXTMultiviewDrawBuffers {
 
 	// --- [ glGetIntegeri_vEXT ] ---
 
-	/** Unsafe version of {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
 	public static void nglGetIntegeri_vEXT(int target, int index, long data) {
 		long __functionAddress = GLES.getCapabilities().glGetIntegeri_vEXT;
 		if ( CHECKS )
@@ -103,20 +92,12 @@ public class EXTMultiviewDrawBuffers {
 		callIIPV(__functionAddress, target, index, data);
 	}
 
-	public static void glGetIntegeri_vEXT(int target, int index, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, 1 << 2);
-		nglGetIntegeri_vEXT(target, index, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
 	public static void glGetIntegeri_vEXT(int target, int index, IntBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetIntegeri_vEXT(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
 	public static int glGetIntegeriEXT(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

@@ -88,7 +88,6 @@ public class NVFramebufferMixedSamples {
 
 	// --- [ glCoverageModulationTableNV ] ---
 
-	/** Unsafe version of {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
 	public static void nglCoverageModulationTableNV(int n, long v) {
 		long __functionAddress = GLES.getCapabilities().glCoverageModulationTableNV;
 		if ( CHECKS )
@@ -96,20 +95,12 @@ public class NVFramebufferMixedSamples {
 		callIPV(__functionAddress, n, v);
 	}
 
-	public static void glCoverageModulationTableNV(int n, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, n << 2);
-		nglCoverageModulationTableNV(n, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
 	public static void glCoverageModulationTableNV(FloatBuffer v) {
 		nglCoverageModulationTableNV(v.remaining(), memAddress(v));
 	}
 
 	// --- [ glGetCoverageModulationTableNV ] ---
 
-	/** Unsafe version of {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
 	public static void nglGetCoverageModulationTableNV(int bufsize, long v) {
 		long __functionAddress = GLES.getCapabilities().glGetCoverageModulationTableNV;
 		if ( CHECKS )
@@ -117,13 +108,6 @@ public class NVFramebufferMixedSamples {
 		callIPV(__functionAddress, bufsize, v);
 	}
 
-	public static void glGetCoverageModulationTableNV(int bufsize, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, bufsize << 2);
-		nglGetCoverageModulationTableNV(bufsize, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
 	public static void glGetCoverageModulationTableNV(FloatBuffer v) {
 		nglGetCoverageModulationTableNV(v.remaining(), memAddress(v));
 	}

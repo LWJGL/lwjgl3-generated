@@ -114,7 +114,14 @@ public class ARBTransformFeedback3 {
 
 	// --- [ glGetQueryIndexediv ] ---
 
-	/** Unsafe version of {@link #glGetQueryIndexediv GetQueryIndexediv} */
+	/**
+	 * Returns parameters of an indexed query object target.
+	 *
+	 * @param target a query object target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param index  the index of the query object target
+	 * @param pname  the symbolic name of a query object target parameter
+	 * @param params the requested data
+	 */
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
 		if ( CHECKS )
@@ -130,20 +137,19 @@ public class ARBTransformFeedback3 {
 	 * @param pname  the symbolic name of a query object target parameter
 	 * @param params the requested data
 	 */
-	public static void glGetQueryIndexediv(int target, int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetQueryIndexediv(target, index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static void glGetQueryIndexediv(int target, int index, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
+	/**
+	 * Returns parameters of an indexed query object target.
+	 *
+	 * @param target a query object target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param index  the index of the query object target
+	 * @param pname  the symbolic name of a query object target parameter
+	 */
 	public static int glGetQueryIndexedi(int target, int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

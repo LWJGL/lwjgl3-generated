@@ -54,7 +54,15 @@ public class NVDrawInstanced {
 
 	// --- [ glDrawElementsInstancedNV ] ---
 
-	/** Unsafe version of {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
+	/**
+	 * 
+	 *
+	 * @param mode      
+	 * @param count     
+	 * @param type      {@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE} {@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT} {@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices   
+	 * @param primcount 
+	 */
 	public static void nglDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedNV;
 		if ( CHECKS )
@@ -71,43 +79,38 @@ public class NVDrawInstanced {
 	 * @param indices   
 	 * @param primcount 
 	 */
-	public static void glDrawElementsInstancedNV(int mode, int count, int type, ByteBuffer indices, int primcount) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsInstancedNV(mode, count, type, memAddress(indices), primcount);
-	}
-
-	/** Buffer object offset version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
-	public static void glDrawElementsInstancedNV(int mode, int count, int type, long indicesOffset, int primcount) {
+	public static void glDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawElementsInstancedNV(mode, count, type, indicesOffset, primcount);
+		nglDrawElementsInstancedNV(mode, count, type, indices, primcount);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
+	/**
+	 * 
+	 *
+	 * @param mode      
+	 * @param type      {@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE} {@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT} {@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices   
+	 * @param primcount 
+	 */
 	public static void glDrawElementsInstancedNV(int mode, int type, ByteBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedNV(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
 	public static void glDrawElementsInstancedNV(int mode, ByteBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
 	public static void glDrawElementsInstancedNV(int mode, ShortBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
 	public static void glDrawElementsInstancedNV(int mode, IntBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);

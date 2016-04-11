@@ -502,7 +502,14 @@ public class GL30 {
 
 	// --- [ glGetStringi ] ---
 
-	/** Unsafe version of {@link #glGetStringi GetStringi} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetStringi.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries indexed string state.
+	 *
+	 * @param name  the indexed state to query. One of:<br>{@link GL11#GL_EXTENSIONS EXTENSIONS}, {@link GL20#GL_SHADING_LANGUAGE_VERSION SHADING_LANGUAGE_VERSION}
+	 * @param index the index of the particular element being queried
+	 */
 	public static long nglGetStringi(int name, int index) {
 		long __functionAddress = GL.getCapabilities().glGetStringi;
 		if ( CHECKS )
@@ -525,7 +532,16 @@ public class GL30 {
 
 	// --- [ glClearBufferiv ] ---
 
-	/** Unsafe version of {@link #glClearBufferiv ClearBufferiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
+	 *
+	 * @param buffer     the buffer to clear. One of:<br>{@link GL11#GL_COLOR COLOR}, {@link GL11#GL_STENCIL STENCIL}
+	 * @param drawbuffer the draw buffer to clear
+	 * @param value      for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For stencil buffers, a pointer to a
+	 *                   single stencil value to clear the buffer to.
+	 */
 	public static void nglClearBufferiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = GL.getCapabilities().glClearBufferiv;
 		if ( CHECKS )
@@ -543,13 +559,6 @@ public class GL30 {
 	 * @param value      for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For stencil buffers, a pointer to a
 	 *                   single stencil value to clear the buffer to.
 	 */
-	public static void glClearBufferiv(int buffer, int drawbuffer, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglClearBufferiv(buffer, drawbuffer, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glClearBufferiv ClearBufferiv} */
 	public static void glClearBufferiv(int buffer, int drawbuffer, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -558,7 +567,15 @@ public class GL30 {
 
 	// --- [ glClearBufferuiv ] ---
 
-	/** Unsafe version of {@link #glClearBufferuiv ClearBufferuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
+	 *
+	 * @param buffer     the buffer to clear. Must be:<br>{@link GL11#GL_COLOR COLOR}
+	 * @param drawbuffer the draw buffer to clear
+	 * @param value      a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to
+	 */
 	public static void nglClearBufferuiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = GL.getCapabilities().glClearBufferuiv;
 		if ( CHECKS )
@@ -575,13 +592,6 @@ public class GL30 {
 	 * @param drawbuffer the draw buffer to clear
 	 * @param value      a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to
 	 */
-	public static void glClearBufferuiv(int buffer, int drawbuffer, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 4 << 2);
-		nglClearBufferuiv(buffer, drawbuffer, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glClearBufferuiv ClearBufferuiv} */
 	public static void glClearBufferuiv(int buffer, int drawbuffer, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 4);
@@ -590,7 +600,16 @@ public class GL30 {
 
 	// --- [ glClearBufferfv ] ---
 
-	/** Unsafe version of {@link #glClearBufferfv ClearBufferfv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
+	 *
+	 * @param buffer     the buffer to clear. One of:<br>{@link GL11#GL_COLOR COLOR}, {@link GL11#GL_DEPTH DEPTH}
+	 * @param drawbuffer the draw buffer to clear
+	 * @param value      for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For depth buffers, a pointer to a
+	 *                   single depth value to clear the buffer to.
+	 */
 	public static void nglClearBufferfv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = GL.getCapabilities().glClearBufferfv;
 		if ( CHECKS )
@@ -608,13 +627,6 @@ public class GL30 {
 	 * @param value      for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For depth buffers, a pointer to a
 	 *                   single depth value to clear the buffer to.
 	 */
-	public static void glClearBufferfv(int buffer, int drawbuffer, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglClearBufferfv(buffer, drawbuffer, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glClearBufferfv ClearBufferfv} */
 	public static void glClearBufferfv(int buffer, int drawbuffer, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -790,7 +802,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI1iv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI1iv VertexAttribI1iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttribI1i VertexAttribI1i}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI1iv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1iv;
 		if ( CHECKS )
@@ -806,13 +825,6 @@ public class GL30 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI1iv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 2);
-		nglVertexAttribI1iv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI1iv VertexAttribI1iv} */
 	public static void glVertexAttribI1iv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -821,7 +833,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI2iv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI2iv VertexAttribI2iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttribI2i VertexAttribI2i}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI2iv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2iv;
 		if ( CHECKS )
@@ -837,13 +856,6 @@ public class GL30 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI2iv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 2);
-		nglVertexAttribI2iv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI2iv VertexAttribI2iv} */
 	public static void glVertexAttribI2iv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -852,7 +864,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI3iv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI3iv VertexAttribI3iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttribI3i VertexAttribI3i}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI3iv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3iv;
 		if ( CHECKS )
@@ -868,13 +887,6 @@ public class GL30 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI3iv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 2);
-		nglVertexAttribI3iv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI3iv VertexAttribI3iv} */
 	public static void glVertexAttribI3iv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -883,7 +895,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI4iv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4iv VertexAttribI4iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttribI4i VertexAttribI4i}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4iv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4iv;
 		if ( CHECKS )
@@ -899,13 +918,6 @@ public class GL30 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI4iv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttribI4iv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI4iv VertexAttribI4iv} */
 	public static void glVertexAttribI4iv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -914,7 +926,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI1uiv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI1uiv VertexAttribI1uiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttribI1ui VertexAttribI1ui}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI1uiv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1uiv;
 		if ( CHECKS )
@@ -930,13 +949,6 @@ public class GL30 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI1uiv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 2);
-		nglVertexAttribI1uiv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI1uiv VertexAttribI1uiv} */
 	public static void glVertexAttribI1uiv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -945,7 +957,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI2uiv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI2uiv VertexAttribI2uiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttribI2ui VertexAttribI2ui}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI2uiv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2uiv;
 		if ( CHECKS )
@@ -961,13 +980,6 @@ public class GL30 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI2uiv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 2);
-		nglVertexAttribI2uiv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI2uiv VertexAttribI2uiv} */
 	public static void glVertexAttribI2uiv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -976,7 +988,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI3uiv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI3uiv VertexAttribI3uiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttribI3ui VertexAttribI3ui}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI3uiv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3uiv;
 		if ( CHECKS )
@@ -992,13 +1011,6 @@ public class GL30 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI3uiv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 2);
-		nglVertexAttribI3uiv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI3uiv VertexAttribI3uiv} */
 	public static void glVertexAttribI3uiv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -1007,7 +1019,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI4uiv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4uiv VertexAttribI4uiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttribI4ui VertexAttribI4ui}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4uiv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4uiv;
 		if ( CHECKS )
@@ -1023,13 +1042,6 @@ public class GL30 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI4uiv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttribI4uiv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI4uiv VertexAttribI4uiv} */
 	public static void glVertexAttribI4uiv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -1038,7 +1050,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI4bv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4bv VertexAttribI4bv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4b.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Byte version of {@link #glVertexAttribI4iv VertexAttribI4iv}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4bv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4bv;
 		if ( CHECKS )
@@ -1062,7 +1081,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI4sv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4sv VertexAttribI4sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Short version of {@link #glVertexAttribI4iv VertexAttribI4iv}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4sv;
 		if ( CHECKS )
@@ -1078,13 +1104,6 @@ public class GL30 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI4sv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglVertexAttribI4sv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI4sv VertexAttribI4sv} */
 	public static void glVertexAttribI4sv(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -1093,7 +1112,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI4ubv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4ubv VertexAttribI4ubv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4ub.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Byte version of {@link #glVertexAttribI4uiv VertexAttribI4uiv}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4ubv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4ubv;
 		if ( CHECKS )
@@ -1117,7 +1143,14 @@ public class GL30 {
 
 	// --- [ glVertexAttribI4usv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4usv VertexAttribI4usv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Short version of {@link #glVertexAttribI4uiv VertexAttribI4uiv}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4usv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4usv;
 		if ( CHECKS )
@@ -1133,13 +1166,6 @@ public class GL30 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI4usv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglVertexAttribI4usv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI4usv VertexAttribI4usv} */
 	public static void glVertexAttribI4usv(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -1148,7 +1174,19 @@ public class GL30 {
 
 	// --- [ glVertexAttribIPointer ] ---
 
-	/** Unsafe version of {@link #glVertexAttribIPointer VertexAttribIPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribIPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the location and organization of a pure integer vertex attribute array.
+	 *
+	 * @param index   the index of the pure integer generic vertex attribute to be modified
+	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param type    the data type of each component in the array. One of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+	 *                the array. The initial value is 0.
+	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+	 */
 	public static void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIPointer;
 		if ( CHECKS )
@@ -1175,11 +1213,23 @@ public class GL30 {
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
-	/** Buffer object offset version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
-	public static void glVertexAttribIPointer(int index, int size, int type, int stride, long pointerOffset) {
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribIPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the location and organization of a pure integer vertex attribute array.
+	 *
+	 * @param index   the index of the pure integer generic vertex attribute to be modified
+	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param type    the data type of each component in the array. One of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+	 *                the array. The initial value is 0.
+	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+	 */
+	public static void glVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
-		nglVertexAttribIPointer(index, size, type, stride, pointerOffset);
+		nglVertexAttribIPointer(index, size, type, stride, pointer);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
@@ -1198,7 +1248,15 @@ public class GL30 {
 
 	// --- [ glGetVertexAttribIiv ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribIiv GetVertexAttribIiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the value of a pure integer generic vertex attribute parameter.
+	 *
+	 * @param index  the index of the pure integer generic vertex attribute to be modified
+	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. Must be:<br>{@link GL20#GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}
+	 * @param params returns the requested data
+	 */
 	public static void nglGetVertexAttribIiv(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribIiv;
 		if ( CHECKS )
@@ -1215,20 +1273,20 @@ public class GL30 {
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. Must be:<br>{@link GL20#GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribIiv(int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 4 << 2);
-		nglGetVertexAttribIiv(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv} */
 	public static void glGetVertexAttribIiv(int index, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribIiv(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the value of a pure integer generic vertex attribute parameter.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param pname the symbolic name of the vertex attribute parameter to be queried. Must be:<br>{@link GL20#GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}
+	 */
 	public static int glGetVertexAttribIi(int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1242,7 +1300,15 @@ public class GL30 {
 
 	// --- [ glGetVertexAttribIuiv ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribIuiv GetVertexAttribIuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Unsigned version of {@link #glGetVertexAttribIiv GetVertexAttribIiv}.
+	 *
+	 * @param index  the index of the pure integer generic vertex attribute to be modified
+	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. Must be:<br>{@link GL20#GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}
+	 * @param params returns the requested data
+	 */
 	public static void nglGetVertexAttribIuiv(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribIuiv;
 		if ( CHECKS )
@@ -1259,20 +1325,20 @@ public class GL30 {
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. Must be:<br>{@link GL20#GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribIuiv(int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 4 << 2);
-		nglGetVertexAttribIuiv(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribIuiv GetVertexAttribIuiv} */
 	public static void glGetVertexAttribIuiv(int index, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribIuiv(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribIuiv GetVertexAttribIuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Unsigned version of {@link #glGetVertexAttribIiv GetVertexAttribIiv}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param pname the symbolic name of the vertex attribute parameter to be queried. Must be:<br>{@link GL20#GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}
+	 */
 	public static int glGetVertexAttribIui(int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1360,7 +1426,15 @@ public class GL30 {
 
 	// --- [ glUniform1uiv ] ---
 
-	/** Unsafe version of {@link #glUniform1uiv Uniform1uiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single uint uniform variable or a uint uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform1uiv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1uiv;
 		if ( CHECKS )
@@ -1374,23 +1448,23 @@ public class GL30 {
 	 * Specifies the value of a single uint uniform variable or a uint uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform1uiv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, count << 2);
-		nglUniform1uiv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform1uiv Uniform1uiv} */
 	public static void glUniform1uiv(int location, IntBuffer value) {
 		nglUniform1uiv(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2uiv ] ---
 
-	/** Unsafe version of {@link #glUniform2uiv Uniform2uiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single uvec2 uniform variable or a uvec2 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform2uiv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2uiv;
 		if ( CHECKS )
@@ -1404,23 +1478,23 @@ public class GL30 {
 	 * Specifies the value of a single uvec2 uniform variable or a uvec2 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform2uiv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 1) << 2);
-		nglUniform2uiv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform2uiv Uniform2uiv} */
 	public static void glUniform2uiv(int location, IntBuffer value) {
 		nglUniform2uiv(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3uiv ] ---
 
-	/** Unsafe version of {@link #glUniform3uiv Uniform3uiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single uvec3 uniform variable or a uvec3 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform3uiv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3uiv;
 		if ( CHECKS )
@@ -1434,23 +1508,23 @@ public class GL30 {
 	 * Specifies the value of a single uvec3 uniform variable or a uvec3 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform3uiv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 3) << 2);
-		nglUniform3uiv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform3uiv Uniform3uiv} */
 	public static void glUniform3uiv(int location, IntBuffer value) {
 		nglUniform3uiv(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4uiv ] ---
 
-	/** Unsafe version of {@link #glUniform4uiv Uniform4uiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single uvec4 uniform variable or a uvec4 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform4uiv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4uiv;
 		if ( CHECKS )
@@ -1464,23 +1538,23 @@ public class GL30 {
 	 * Specifies the value of a single uvec4 uniform variable or a uvec4 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform4uiv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglUniform4uiv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform4uiv Uniform4uiv} */
 	public static void glUniform4uiv(int location, IntBuffer value) {
 		nglUniform4uiv(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glGetUniformuiv ] ---
 
-	/** Unsafe version of {@link #glGetUniformuiv GetUniformuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the uint value(s) of a uniform variable.
+	 *
+	 * @param program  the program object to be queried
+	 * @param location the location of the uniform variable to be queried
+	 * @param params   the value of the specified uniform variable
+	 */
 	public static void nglGetUniformuiv(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformuiv;
 		if ( CHECKS )
@@ -1497,20 +1571,20 @@ public class GL30 {
 	 * @param location the location of the uniform variable to be queried
 	 * @param params   the value of the specified uniform variable
 	 */
-	public static void glGetUniformuiv(int program, int location, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetUniformuiv(program, location, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetUniformuiv GetUniformuiv} */
 	public static void glGetUniformuiv(int program, int location, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformuiv(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformuiv GetUniformuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the uint value(s) of a uniform variable.
+	 *
+	 * @param program  the program object to be queried
+	 * @param location the location of the uniform variable to be queried
+	 */
 	public static int glGetUniformui(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1524,7 +1598,15 @@ public class GL30 {
 
 	// --- [ glBindFragDataLocation ] ---
 
-	/** Unsafe version of {@link #glBindFragDataLocation BindFragDataLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindFragDataLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Binds a user-defined varying out variable to a fragment shader color number.
+	 *
+	 * @param program     the name of the program containing varying out variable whose binding to modify
+	 * @param colorNumber the color number to bind the user-defined varying out variable to
+	 * @param name        the name of the user-defined varying out variable whose binding to modify
+	 */
 	public static void nglBindFragDataLocation(int program, int colorNumber, long name) {
 		long __functionAddress = GL.getCapabilities().glBindFragDataLocation;
 		if ( CHECKS )
@@ -1547,7 +1629,15 @@ public class GL30 {
 		nglBindFragDataLocation(program, colorNumber, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glBindFragDataLocation BindFragDataLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindFragDataLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Binds a user-defined varying out variable to a fragment shader color number.
+	 *
+	 * @param program     the name of the program containing varying out variable whose binding to modify
+	 * @param colorNumber the color number to bind the user-defined varying out variable to
+	 * @param name        the name of the user-defined varying out variable whose binding to modify
+	 */
 	public static void glBindFragDataLocation(int program, int colorNumber, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1560,7 +1650,14 @@ public class GL30 {
 
 	// --- [ glGetFragDataLocation ] ---
 
-	/** Unsafe version of {@link #glGetFragDataLocation GetFragDataLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFragDataLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the bindings of color numbers to user-defined varying out variables.
+	 *
+	 * @param program the name of the program containing varying out variable whose binding to query
+	 * @param name    the name of the user-defined varying out variable whose binding to query
+	 */
 	public static int nglGetFragDataLocation(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetFragDataLocation;
 		if ( CHECKS )
@@ -1582,7 +1679,14 @@ public class GL30 {
 		return nglGetFragDataLocation(program, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetFragDataLocation GetFragDataLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFragDataLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the bindings of color numbers to user-defined varying out variables.
+	 *
+	 * @param program the name of the program containing varying out variable whose binding to query
+	 * @param name    the name of the user-defined varying out variable whose binding to query
+	 */
 	public static int glGetFragDataLocation(int program, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1615,7 +1719,7 @@ public class GL30 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginConditionalRender.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-Ends conditional rendering.
+	 * Ends conditional rendering.
 	 */
 	public static void glEndConditionalRender() {
 		long __functionAddress = GL.getCapabilities().glEndConditionalRender;
@@ -1626,7 +1730,23 @@ Ends conditional rendering.
 
 	// --- [ glMapBufferRange ] ---
 
-	/** Unsafe version of {@link #glMapBufferRange MapBufferRange} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMapBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Maps a section of a buffer object's data store.
+	 * 
+	 * <p><b>LWJGL note</b>: This method comes in 2 flavors:</p>
+	 * 
+	 * <ol>
+	 * <li>{@link #glMapBufferRange(int, long, long, int)} - Always returns a new ByteBuffer instance.</li>
+	 * <li>{@link #glMapBufferRange(int, long, long, int, ByteBuffer)} - The {@code old_buffer} parameter is reused if not null.</li>
+	 * </ol>
+	 *
+	 * @param target a binding to which the target buffer is bound. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
+	 * @param offset the starting offset within the buffer of the range to be mapped
+	 * @param length the length of the range to be mapped
+	 * @param access a combination of access flags indicating the desired access to the range. One or more of:<br>{@link #GL_MAP_READ_BIT MAP_READ_BIT}, {@link #GL_MAP_WRITE_BIT MAP_WRITE_BIT}, {@link #GL_MAP_INVALIDATE_RANGE_BIT MAP_INVALIDATE_RANGE_BIT}, {@link #GL_MAP_INVALIDATE_BUFFER_BIT MAP_INVALIDATE_BUFFER_BIT}, {@link #GL_MAP_FLUSH_EXPLICIT_BIT MAP_FLUSH_EXPLICIT_BIT}, {@link #GL_MAP_UNSYNCHRONIZED_BIT MAP_UNSYNCHRONIZED_BIT}
+	 */
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
 		long __functionAddress = GL.getCapabilities().glMapBufferRange;
 		if ( CHECKS )
@@ -1656,7 +1776,23 @@ Ends conditional rendering.
 		return memByteBuffer(__result, (int)length);
 	}
 
-	/** Alternative version of: {@link #glMapBufferRange MapBufferRange} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMapBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Maps a section of a buffer object's data store.
+	 * 
+	 * <p><b>LWJGL note</b>: This method comes in 2 flavors:</p>
+	 * 
+	 * <ol>
+	 * <li>{@link #glMapBufferRange(int, long, long, int)} - Always returns a new ByteBuffer instance.</li>
+	 * <li>{@link #glMapBufferRange(int, long, long, int, ByteBuffer)} - The {@code old_buffer} parameter is reused if not null.</li>
+	 * </ol>
+	 *
+	 * @param target a binding to which the target buffer is bound. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
+	 * @param offset the starting offset within the buffer of the range to be mapped
+	 * @param length the length of the range to be mapped
+	 * @param access a combination of access flags indicating the desired access to the range. One or more of:<br>{@link #GL_MAP_READ_BIT MAP_READ_BIT}, {@link #GL_MAP_WRITE_BIT MAP_WRITE_BIT}, {@link #GL_MAP_INVALIDATE_RANGE_BIT MAP_INVALIDATE_RANGE_BIT}, {@link #GL_MAP_INVALIDATE_BUFFER_BIT MAP_INVALIDATE_BUFFER_BIT}, {@link #GL_MAP_FLUSH_EXPLICIT_BIT MAP_FLUSH_EXPLICIT_BIT}, {@link #GL_MAP_UNSYNCHRONIZED_BIT MAP_UNSYNCHRONIZED_BIT}
+	 */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapBufferRange(target, offset, length, access);
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
@@ -1732,7 +1868,14 @@ Ends conditional rendering.
 
 	// --- [ glDeleteRenderbuffers ] ---
 
-	/** Unsafe version of {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Deletes renderbuffer objects.
+	 *
+	 * @param n             the number of renderbuffer objects to be deleted
+	 * @param renderbuffers an array containing {@code n} renderbuffer objects to be deleted
+	 */
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffers;
 		if ( CHECKS )
@@ -1745,21 +1888,17 @@ Ends conditional rendering.
 	 * 
 	 * Deletes renderbuffer objects.
 	 *
-	 * @param n             the number of renderbuffer objects to be deleted
 	 * @param renderbuffers an array containing {@code n} renderbuffer objects to be deleted
 	 */
-	public static void glDeleteRenderbuffers(int n, ByteBuffer renderbuffers) {
-		if ( CHECKS )
-			checkBuffer(renderbuffers, n << 2);
-		nglDeleteRenderbuffers(n, memAddress(renderbuffers));
-	}
-
-	/** Alternative version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(IntBuffer renderbuffers) {
 		nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
 	}
 
-	/** Single value version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Deletes renderbuffer objects.
+	 */
 	public static void glDeleteRenderbuffers(int renderbuffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1772,7 +1911,14 @@ Ends conditional rendering.
 
 	// --- [ glGenRenderbuffers ] ---
 
-	/** Unsafe version of {@link #glGenRenderbuffers GenRenderbuffers} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Generates renderbuffer object names.
+	 *
+	 * @param n             the number of renderbuffer object names to generate
+	 * @param renderbuffers a buffer in which the generated renderbuffer object names are stored
+	 */
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glGenRenderbuffers;
 		if ( CHECKS )
@@ -1785,21 +1931,17 @@ Ends conditional rendering.
 	 * 
 	 * Generates renderbuffer object names.
 	 *
-	 * @param n             the number of renderbuffer object names to generate
 	 * @param renderbuffers a buffer in which the generated renderbuffer object names are stored
 	 */
-	public static void glGenRenderbuffers(int n, ByteBuffer renderbuffers) {
-		if ( CHECKS )
-			checkBuffer(renderbuffers, n << 2);
-		nglGenRenderbuffers(n, memAddress(renderbuffers));
-	}
-
-	/** Alternative version of: {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static void glGenRenderbuffers(IntBuffer renderbuffers) {
 		nglGenRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
 	}
 
-	/** Single return value version of: {@link #glGenRenderbuffers GenRenderbuffers} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Generates renderbuffer object names.
+	 */
 	public static int glGenRenderbuffers() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1854,7 +1996,15 @@ Ends conditional rendering.
 
 	// --- [ glGetRenderbufferParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetRenderbufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves information about a bound renderbuffer object.
+	 *
+	 * @param target the target of the query operation. Must be:<br>{@link #GL_RENDERBUFFER RENDERBUFFER}
+	 * @param pname  the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br>{@link #GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}, {@link #GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}, {@link #GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}, {@link #GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}, {@link #GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}, {@link #GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}, {@link #GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}, {@link #GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}, {@link #GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}, {@link #GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}
+	 * @param params an array to receive the value of the queried parameter
+	 */
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameteriv;
 		if ( CHECKS )
@@ -1871,20 +2021,20 @@ Ends conditional rendering.
 	 * @param pname  the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br>{@link #GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}, {@link #GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}, {@link #GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}, {@link #GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}, {@link #GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}, {@link #GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}, {@link #GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}, {@link #GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}, {@link #GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}, {@link #GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}
 	 * @param params an array to receive the value of the queried parameter
 	 */
-	public static void glGetRenderbufferParameteriv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static void glGetRenderbufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetRenderbufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves information about a bound renderbuffer object.
+	 *
+	 * @param target the target of the query operation. Must be:<br>{@link #GL_RENDERBUFFER RENDERBUFFER}
+	 * @param pname  the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br>{@link #GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}, {@link #GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}, {@link #GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}, {@link #GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}, {@link #GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}, {@link #GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}, {@link #GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}, {@link #GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}, {@link #GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}, {@link #GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}
+	 */
 	public static int glGetRenderbufferParameteri(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1931,7 +2081,14 @@ Ends conditional rendering.
 
 	// --- [ glDeleteFramebuffers ] ---
 
-	/** Unsafe version of {@link #glDeleteFramebuffers DeleteFramebuffers} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteFramebuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Deletes framebuffer objects.
+	 *
+	 * @param n            the number of framebuffer objects to be deleted
+	 * @param framebuffers an array containing {@code n} framebuffer objects to be deleted
+	 */
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteFramebuffers;
 		if ( CHECKS )
@@ -1944,21 +2101,17 @@ Ends conditional rendering.
 	 * 
 	 * Deletes framebuffer objects.
 	 *
-	 * @param n            the number of framebuffer objects to be deleted
 	 * @param framebuffers an array containing {@code n} framebuffer objects to be deleted
 	 */
-	public static void glDeleteFramebuffers(int n, ByteBuffer framebuffers) {
-		if ( CHECKS )
-			checkBuffer(framebuffers, n << 2);
-		nglDeleteFramebuffers(n, memAddress(framebuffers));
-	}
-
-	/** Alternative version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void glDeleteFramebuffers(IntBuffer framebuffers) {
 		nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
 	}
 
-	/** Single value version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteFramebuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Deletes framebuffer objects.
+	 */
 	public static void glDeleteFramebuffers(int framebuffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1971,7 +2124,14 @@ Ends conditional rendering.
 
 	// --- [ glGenFramebuffers ] ---
 
-	/** Unsafe version of {@link #glGenFramebuffers GenFramebuffers} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenFramebuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Generates framebuffer object names.
+	 *
+	 * @param n            the number of framebuffer object names to generate
+	 * @param framebuffers a buffer in which the generated framebuffer object names are stored
+	 */
 	public static void nglGenFramebuffers(int n, long framebuffers) {
 		long __functionAddress = GL.getCapabilities().glGenFramebuffers;
 		if ( CHECKS )
@@ -1984,21 +2144,17 @@ Ends conditional rendering.
 	 * 
 	 * Generates framebuffer object names.
 	 *
-	 * @param n            the number of framebuffer object names to generate
 	 * @param framebuffers a buffer in which the generated framebuffer object names are stored
 	 */
-	public static void glGenFramebuffers(int n, ByteBuffer framebuffers) {
-		if ( CHECKS )
-			checkBuffer(framebuffers, n << 2);
-		nglGenFramebuffers(n, memAddress(framebuffers));
-	}
-
-	/** Alternative version of: {@link #glGenFramebuffers GenFramebuffers} */
 	public static void glGenFramebuffers(IntBuffer framebuffers) {
 		nglGenFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
 	}
 
-	/** Single return value version of: {@link #glGenFramebuffers GenFramebuffers} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenFramebuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Generates framebuffer object names.
+	 */
 	public static int glGenFramebuffers() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2128,7 +2284,16 @@ Ends conditional rendering.
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFramebufferAttachmentParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrievees information about attachments of a bound framebuffer object.
+	 *
+	 * @param target     the target of the query operation. One of:<br>{@link #GL_FRAMEBUFFER FRAMEBUFFER}, {@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}
+	 * @param attachment the attachment within {@code target}. One of:<br>{@link #GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link #GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link #GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link #GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link #GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link #GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link #GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link #GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link #GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link #GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link #GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link #GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link #GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link #GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link #GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link #GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link #GL_COLOR_ATTACHMENT16 COLOR_ATTACHMENT16}, {@link #GL_COLOR_ATTACHMENT17 COLOR_ATTACHMENT17}, {@link #GL_COLOR_ATTACHMENT18 COLOR_ATTACHMENT18}, {@link #GL_COLOR_ATTACHMENT19 COLOR_ATTACHMENT19}, {@link #GL_COLOR_ATTACHMENT20 COLOR_ATTACHMENT20}, {@link #GL_COLOR_ATTACHMENT21 COLOR_ATTACHMENT21}, {@link #GL_COLOR_ATTACHMENT22 COLOR_ATTACHMENT22}, {@link #GL_COLOR_ATTACHMENT23 COLOR_ATTACHMENT23}, {@link #GL_COLOR_ATTACHMENT24 COLOR_ATTACHMENT24}, {@link #GL_COLOR_ATTACHMENT25 COLOR_ATTACHMENT25}, {@link #GL_COLOR_ATTACHMENT26 COLOR_ATTACHMENT26}, {@link #GL_COLOR_ATTACHMENT27 COLOR_ATTACHMENT27}, {@link #GL_COLOR_ATTACHMENT28 COLOR_ATTACHMENT28}, {@link #GL_COLOR_ATTACHMENT29 COLOR_ATTACHMENT29}, {@link #GL_COLOR_ATTACHMENT30 COLOR_ATTACHMENT30}, {@link #GL_COLOR_ATTACHMENT31 COLOR_ATTACHMENT31}, {@link #GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link #GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link #GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
+	 * @param pname      the parameter of {@code attachment} to query. One of:<br>{@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
+	 * @param params     an array to receive the value of the queried parameter
+	 */
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameteriv;
 		if ( CHECKS )
@@ -2146,20 +2311,21 @@ Ends conditional rendering.
 	 * @param pname      the parameter of {@code attachment} to query. One of:<br>{@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
 	 * @param params     an array to receive the value of the queried parameter
 	 */
-	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFramebufferAttachmentParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrievees information about attachments of a bound framebuffer object.
+	 *
+	 * @param target     the target of the query operation. One of:<br>{@link #GL_FRAMEBUFFER FRAMEBUFFER}, {@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}
+	 * @param attachment the attachment within {@code target}. One of:<br>{@link #GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link #GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link #GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link #GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link #GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link #GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link #GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link #GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link #GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link #GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link #GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link #GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link #GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link #GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link #GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link #GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link #GL_COLOR_ATTACHMENT16 COLOR_ATTACHMENT16}, {@link #GL_COLOR_ATTACHMENT17 COLOR_ATTACHMENT17}, {@link #GL_COLOR_ATTACHMENT18 COLOR_ATTACHMENT18}, {@link #GL_COLOR_ATTACHMENT19 COLOR_ATTACHMENT19}, {@link #GL_COLOR_ATTACHMENT20 COLOR_ATTACHMENT20}, {@link #GL_COLOR_ATTACHMENT21 COLOR_ATTACHMENT21}, {@link #GL_COLOR_ATTACHMENT22 COLOR_ATTACHMENT22}, {@link #GL_COLOR_ATTACHMENT23 COLOR_ATTACHMENT23}, {@link #GL_COLOR_ATTACHMENT24 COLOR_ATTACHMENT24}, {@link #GL_COLOR_ATTACHMENT25 COLOR_ATTACHMENT25}, {@link #GL_COLOR_ATTACHMENT26 COLOR_ATTACHMENT26}, {@link #GL_COLOR_ATTACHMENT27 COLOR_ATTACHMENT27}, {@link #GL_COLOR_ATTACHMENT28 COLOR_ATTACHMENT28}, {@link #GL_COLOR_ATTACHMENT29 COLOR_ATTACHMENT29}, {@link #GL_COLOR_ATTACHMENT30 COLOR_ATTACHMENT30}, {@link #GL_COLOR_ATTACHMENT31 COLOR_ATTACHMENT31}, {@link #GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link #GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link #GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
+	 * @param pname      the parameter of {@code attachment} to query. One of:<br>{@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
+	 */
 	public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2214,7 +2380,15 @@ Ends conditional rendering.
 
 	// --- [ glTexParameterIiv ] ---
 
-	/** Unsafe version of {@link #glTexParameterIiv TexParameterIiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Sets the integer value of a texture parameter.
+	 *
+	 * @param target the texture target
+	 * @param pname  the symbolic name of a single-valued texture parameter
+	 * @param params the value of {@code pname}
+	 */
 	public static void nglTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexParameterIiv;
 		if ( CHECKS )
@@ -2231,20 +2405,20 @@ Ends conditional rendering.
 	 * @param pname  the symbolic name of a single-valued texture parameter
 	 * @param params the value of {@code pname}
 	 */
-	public static void glTexParameterIiv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglTexParameterIiv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTexParameterIiv TexParameterIiv} */
 	public static void glTexParameterIiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIiv(target, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTexParameterIiv TexParameterIiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Sets the integer value of a texture parameter.
+	 *
+	 * @param target the texture target
+	 * @param pname  the symbolic name of a single-valued texture parameter
+	 */
 	public static void glTexParameterIi(int target, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2257,7 +2431,15 @@ Ends conditional rendering.
 
 	// --- [ glTexParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glTexParameterIuiv TexParameterIuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Sets the unsigned integer value of a texture parameter.
+	 *
+	 * @param target the texture target
+	 * @param pname  the symbolic name of a single-valued texture parameter
+	 * @param params the value of {@code pname}
+	 */
 	public static void nglTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexParameterIuiv;
 		if ( CHECKS )
@@ -2274,20 +2456,20 @@ Ends conditional rendering.
 	 * @param pname  the symbolic name of a single-valued texture parameter
 	 * @param params the value of {@code pname}
 	 */
-	public static void glTexParameterIuiv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglTexParameterIuiv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTexParameterIuiv TexParameterIuiv} */
 	public static void glTexParameterIuiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIuiv(target, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTexParameterIuiv TexParameterIuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Sets the unsigned integer value of a texture parameter.
+	 *
+	 * @param target the texture target
+	 * @param pname  the symbolic name of a single-valued texture parameter
+	 */
 	public static void glTexParameterIui(int target, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2300,7 +2482,15 @@ Ends conditional rendering.
 
 	// --- [ glGetTexParameterIiv ] ---
 
-	/** Unsafe version of {@link #glGetTexParameterIiv GetTexParameterIiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the integer value of a texture parameter.
+	 *
+	 * @param target the texture target
+	 * @param pname  the symbolic name of a texture parameter
+	 * @param params returns the texture parameter value
+	 */
 	public static void nglGetTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexParameterIiv;
 		if ( CHECKS )
@@ -2317,20 +2507,20 @@ Ends conditional rendering.
 	 * @param pname  the symbolic name of a texture parameter
 	 * @param params returns the texture parameter value
 	 */
-	public static void glGetTexParameterIiv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTexParameterIiv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTexParameterIiv GetTexParameterIiv} */
 	public static void glGetTexParameterIiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIiv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIiv GetTexParameterIiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the integer value of a texture parameter.
+	 *
+	 * @param target the texture target
+	 * @param pname  the symbolic name of a texture parameter
+	 */
 	public static int glGetTexParameterIi(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2344,7 +2534,15 @@ Ends conditional rendering.
 
 	// --- [ glGetTexParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the unsigned integer value of a texture parameter.
+	 *
+	 * @param target the texture target
+	 * @param pname  the symbolic name of a texture parameter
+	 * @param params returns the texture parameter value
+	 */
 	public static void nglGetTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexParameterIuiv;
 		if ( CHECKS )
@@ -2361,20 +2559,20 @@ Ends conditional rendering.
 	 * @param pname  the symbolic name of a texture parameter
 	 * @param params returns the texture parameter value
 	 */
-	public static void glGetTexParameterIuiv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTexParameterIuiv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
 	public static void glGetTexParameterIuiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIuiv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the unsigned integer value of a texture parameter.
+	 *
+	 * @param target the texture target
+	 * @param pname  the symbolic name of a texture parameter
+	 */
 	public static int glGetTexParameterIui(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2408,7 +2606,15 @@ Ends conditional rendering.
 
 	// --- [ glGetBooleani_v ] ---
 
-	/** Unsafe version of {@link #glGetBooleani_v GetBooleani_v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the boolean value of an indexed state variable.
+	 *
+	 * @param target the indexed state to query
+	 * @param index  the index of the element being queried
+	 * @param data   a scalar or buffer in which to place the returned data
+	 */
 	public static void nglGetBooleani_v(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetBooleani_v;
 		if ( CHECKS )
@@ -2431,7 +2637,14 @@ Ends conditional rendering.
 		nglGetBooleani_v(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetBooleani_v GetBooleani_v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the boolean value of an indexed state variable.
+	 *
+	 * @param target the indexed state to query
+	 * @param index  the index of the element being queried
+	 */
 	public static byte glGetBooleani(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2445,7 +2658,15 @@ Ends conditional rendering.
 
 	// --- [ glGetIntegeri_v ] ---
 
-	/** Unsafe version of {@link #glGetIntegeri_v GetIntegeri_v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the integer value of an indexed state variable.
+	 *
+	 * @param target the indexed state to query
+	 * @param index  the index of the element being queried
+	 * @param data   a scalar or buffer in which to place the returned data
+	 */
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
 		if ( CHECKS )
@@ -2462,20 +2683,20 @@ Ends conditional rendering.
 	 * @param index  the index of the element being queried
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetIntegeri_v(int target, int index, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, 1 << 2);
-		nglGetIntegeri_v(target, index, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #glGetIntegeri_v GetIntegeri_v} */
 	public static void glGetIntegeri_v(int target, int index, IntBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetIntegeri_v(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetIntegeri_v GetIntegeri_v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the integer value of an indexed state variable.
+	 *
+	 * @param target the indexed state to query
+	 * @param index  the index of the element being queried
+	 */
 	public static int glGetIntegeri(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2597,7 +2818,7 @@ Ends conditional rendering.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-Ends transform feedback operation.
+	 * Ends transform feedback operation.
 	 */
 	public static void glEndTransformFeedback() {
 		long __functionAddress = GL.getCapabilities().glEndTransformFeedback;
@@ -2608,7 +2829,16 @@ Ends transform feedback operation.
 
 	// --- [ glTransformFeedbackVaryings ] ---
 
-	/** Unsafe version of {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTransformFeedbackVaryings.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies values to record in transform feedback buffers.
+	 *
+	 * @param program    the target program object
+	 * @param count      the number of varying variables used for transform feedback
+	 * @param varyings   an array of {@code count} zero-terminated strings specifying the names of the varying variables to use for transform feedback
+	 * @param bufferMode the mode used to capture the varying variables when transform feedback is active. One of:<br>{@link #GL_INTERLEAVED_ATTRIBS INTERLEAVED_ATTRIBS}, {@link #GL_SEPARATE_ATTRIBS SEPARATE_ATTRIBS}
+	 */
 	public static void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode) {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackVaryings;
 		if ( CHECKS )
@@ -2622,22 +2852,22 @@ Ends transform feedback operation.
 	 * Specifies values to record in transform feedback buffers.
 	 *
 	 * @param program    the target program object
-	 * @param count      the number of varying variables used for transform feedback
 	 * @param varyings   an array of {@code count} zero-terminated strings specifying the names of the varying variables to use for transform feedback
 	 * @param bufferMode the mode used to capture the varying variables when transform feedback is active. One of:<br>{@link #GL_INTERLEAVED_ATTRIBS INTERLEAVED_ATTRIBS}, {@link #GL_SEPARATE_ATTRIBS SEPARATE_ATTRIBS}
 	 */
-	public static void glTransformFeedbackVaryings(int program, int count, ByteBuffer varyings, int bufferMode) {
-		if ( CHECKS )
-			checkBuffer(varyings, count << POINTER_SHIFT);
-		nglTransformFeedbackVaryings(program, count, memAddress(varyings), bufferMode);
-	}
-
-	/** Alternative version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, PointerBuffer varyings, int bufferMode) {
 		nglTransformFeedbackVaryings(program, varyings.remaining(), memAddress(varyings), bufferMode);
 	}
 
-	/** Array version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTransformFeedbackVaryings.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies values to record in transform feedback buffers.
+	 *
+	 * @param program    the target program object
+	 * @param varyings   an array of {@code count} zero-terminated strings specifying the names of the varying variables to use for transform feedback
+	 * @param bufferMode the mode used to capture the varying variables when transform feedback is active. One of:<br>{@link #GL_INTERLEAVED_ATTRIBS INTERLEAVED_ATTRIBS}, {@link #GL_SEPARATE_ATTRIBS SEPARATE_ATTRIBS}
+	 */
 	public static void glTransformFeedbackVaryings(int program, CharSequence[] varyings, int bufferMode) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2649,7 +2879,14 @@ Ends transform feedback operation.
 		}
 	}
 
-	/** Single varying version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTransformFeedbackVaryings.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies values to record in transform feedback buffers.
+	 *
+	 * @param program    the target program object
+	 * @param bufferMode the mode used to capture the varying variables when transform feedback is active. One of:<br>{@link #GL_INTERLEAVED_ATTRIBS INTERLEAVED_ATTRIBS}, {@link #GL_SEPARATE_ATTRIBS SEPARATE_ATTRIBS}
+	 */
 	public static void glTransformFeedbackVaryings(int program, CharSequence varying, int bufferMode) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2662,14 +2899,6 @@ Ends transform feedback operation.
 	}
 
 	// --- [ glGetTransformFeedbackVarying ] ---
-
-	/** Unsafe version of {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
-	public static void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name) {
-		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVarying;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
-	}
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedbackVarying.xhtml">OpenGL SDK Reference</a></p>
@@ -2684,17 +2913,25 @@ Ends transform feedback operation.
 	 * @param type    a variable that will receive the type of the varying
 	 * @param name    a buffer into which will be written the name of the varying
 	 */
-	public static void glGetTransformFeedbackVarying(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( CHECKS ) {
-			checkBuffer(name, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-			checkBuffer(size, 1 << 2);
-			checkBuffer(type, 1 << 2);
-		}
-		nglGetTransformFeedbackVarying(program, index, bufSize, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
+	public static void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name) {
+		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVarying;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
-	/** Alternative version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedbackVarying.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves information about varying variables selected for transform feedback.
+	 *
+	 * @param program the target program object
+	 * @param index   the index of the varying variable whose information to retrieve
+	 * @param length  a variable which will receive the number of characters written into {@code name}, excluding the null-terminator. If {@code length} is NULL no length is returned.
+	 * @param size    a variable that will receive the size of the varying
+	 * @param type    a variable that will receive the type of the varying
+	 * @param name    a buffer into which will be written the name of the varying
+	 */
 	public static void glGetTransformFeedbackVarying(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
@@ -2704,7 +2941,17 @@ Ends transform feedback operation.
 		nglGetTransformFeedbackVarying(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
-	/** String return version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedbackVarying.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves information about varying variables selected for transform feedback.
+	 *
+	 * @param program the target program object
+	 * @param index   the index of the varying variable whose information to retrieve
+	 * @param bufSize the maximum number of characters, including the null terminator, that may be written into {@code name}
+	 * @param size    a variable that will receive the size of the varying
+	 * @param type    a variable that will receive the type of the varying
+	 */
 	public static String glGetTransformFeedbackVarying(int program, int index, int bufSize, IntBuffer size, IntBuffer type) {
 		if ( CHECKS ) {
 			checkBuffer(size, 1);
@@ -2721,7 +2968,16 @@ Ends transform feedback operation.
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedbackVarying.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves information about varying variables selected for transform feedback.
+	 *
+	 * @param program the target program object
+	 * @param index   the index of the varying variable whose information to retrieve
+	 * @param size    a variable that will receive the size of the varying
+	 * @param type    a variable that will receive the type of the varying
+	 */
 	public static String glGetTransformFeedbackVarying(int program, int index, IntBuffer size, IntBuffer type) {
 		int bufSize = GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH);
 		if ( CHECKS ) {
@@ -2757,7 +3013,14 @@ Ends transform feedback operation.
 
 	// --- [ glDeleteVertexArrays ] ---
 
-	/** Unsafe version of {@link #glDeleteVertexArrays DeleteVertexArrays} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteVertexArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Deletes vertex array objects.
+	 *
+	 * @param n      the number of vertex array objects to be deleted
+	 * @param arrays an array containing the n names of the objects to be deleted
+	 */
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
 		if ( CHECKS )
@@ -2770,21 +3033,17 @@ Ends transform feedback operation.
 	 * 
 	 * Deletes vertex array objects.
 	 *
-	 * @param n      the number of vertex array objects to be deleted
 	 * @param arrays an array containing the n names of the objects to be deleted
 	 */
-	public static void glDeleteVertexArrays(int n, ByteBuffer arrays) {
-		if ( CHECKS )
-			checkBuffer(arrays, n << 2);
-		nglDeleteVertexArrays(n, memAddress(arrays));
-	}
-
-	/** Alternative version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(IntBuffer arrays) {
 		nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays));
 	}
 
-	/** Single value version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteVertexArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Deletes vertex array objects.
+	 */
 	public static void glDeleteVertexArrays(int array) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2797,7 +3056,14 @@ Ends transform feedback operation.
 
 	// --- [ glGenVertexArrays ] ---
 
-	/** Unsafe version of {@link #glGenVertexArrays GenVertexArrays} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenVertexArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Generates vertex array object names.
+	 *
+	 * @param n      the number of vertex array object names to generate
+	 * @param arrays a buffer in which the generated vertex array object names are stored
+	 */
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
 		if ( CHECKS )
@@ -2810,21 +3076,17 @@ Ends transform feedback operation.
 	 * 
 	 * Generates vertex array object names.
 	 *
-	 * @param n      the number of vertex array object names to generate
 	 * @param arrays a buffer in which the generated vertex array object names are stored
 	 */
-	public static void glGenVertexArrays(int n, ByteBuffer arrays) {
-		if ( CHECKS )
-			checkBuffer(arrays, n << 2);
-		nglGenVertexArrays(n, memAddress(arrays));
-	}
-
-	/** Alternative version of: {@link #glGenVertexArrays GenVertexArrays} */
 	public static void glGenVertexArrays(IntBuffer arrays) {
 		nglGenVertexArrays(arrays.remaining(), memAddress(arrays));
 	}
 
-	/** Single return value version of: {@link #glGenVertexArrays GenVertexArrays} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenVertexArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Generates vertex array object names.
+	 */
 	public static int glGenVertexArrays() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

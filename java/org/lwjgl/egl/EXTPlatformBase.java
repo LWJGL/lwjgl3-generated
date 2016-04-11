@@ -52,7 +52,6 @@ public class EXTPlatformBase {
 
 	// --- [ eglGetPlatformDisplayEXT ] ---
 
-	/** Unsafe version of {@link #eglGetPlatformDisplayEXT GetPlatformDisplayEXT} */
 	public static long neglGetPlatformDisplayEXT(int platform, long native_display, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglGetPlatformDisplayEXT;
 		if ( CHECKS ) {
@@ -62,13 +61,6 @@ public class EXTPlatformBase {
 		return callIPPP(__functionAddress, platform, native_display, attrib_list);
 	}
 
-	public static long eglGetPlatformDisplayEXT(int platform, long native_display, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglGetPlatformDisplayEXT(platform, native_display, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglGetPlatformDisplayEXT GetPlatformDisplayEXT} */
 	public static long eglGetPlatformDisplayEXT(int platform, long native_display, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -77,7 +69,6 @@ public class EXTPlatformBase {
 
 	// --- [ eglCreatePlatformWindowSurfaceEXT ] ---
 
-	/** Unsafe version of {@link #eglCreatePlatformWindowSurfaceEXT CreatePlatformWindowSurfaceEXT} */
 	public static long neglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePlatformWindowSurfaceEXT;
 		if ( CHECKS ) {
@@ -89,13 +80,6 @@ public class EXTPlatformBase {
 		return callPPPPP(__functionAddress, dpy, config, native_window, attrib_list);
 	}
 
-	public static long eglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreatePlatformWindowSurfaceEXT(dpy, config, native_window, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreatePlatformWindowSurfaceEXT CreatePlatformWindowSurfaceEXT} */
 	public static long eglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -104,7 +88,6 @@ public class EXTPlatformBase {
 
 	// --- [ eglCreatePlatformPixmapSurfaceEXT ] ---
 
-	/** Unsafe version of {@link #eglCreatePlatformPixmapSurfaceEXT CreatePlatformPixmapSurfaceEXT} */
 	public static long neglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePlatformPixmapSurfaceEXT;
 		if ( CHECKS ) {
@@ -116,13 +99,6 @@ public class EXTPlatformBase {
 		return callPPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
 	}
 
-	public static long eglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreatePlatformPixmapSurfaceEXT(dpy, config, native_pixmap, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreatePlatformPixmapSurfaceEXT CreatePlatformPixmapSurfaceEXT} */
 	public static long eglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);

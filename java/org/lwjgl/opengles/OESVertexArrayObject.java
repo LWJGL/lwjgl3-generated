@@ -47,7 +47,6 @@ public class OESVertexArrayObject {
 
 	// --- [ glDeleteVertexArraysOES ] ---
 
-	/** Unsafe version of {@link #glDeleteVertexArraysOES DeleteVertexArraysOES} */
 	public static void nglDeleteVertexArraysOES(int n, long arrays) {
 		long __functionAddress = GLES.getCapabilities().glDeleteVertexArraysOES;
 		if ( CHECKS )
@@ -55,18 +54,10 @@ public class OESVertexArrayObject {
 		callIPV(__functionAddress, n, arrays);
 	}
 
-	public static void glDeleteVertexArraysOES(int n, ByteBuffer arrays) {
-		if ( CHECKS )
-			checkBuffer(arrays, n << 2);
-		nglDeleteVertexArraysOES(n, memAddress(arrays));
-	}
-
-	/** Alternative version of: {@link #glDeleteVertexArraysOES DeleteVertexArraysOES} */
 	public static void glDeleteVertexArraysOES(IntBuffer arrays) {
 		nglDeleteVertexArraysOES(arrays.remaining(), memAddress(arrays));
 	}
 
-	/** Single value version of: {@link #glDeleteVertexArraysOES DeleteVertexArraysOES} */
 	public static void glDeleteVertexArraysOES(int array) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -79,7 +70,6 @@ public class OESVertexArrayObject {
 
 	// --- [ glGenVertexArraysOES ] ---
 
-	/** Unsafe version of {@link #glGenVertexArraysOES GenVertexArraysOES} */
 	public static void nglGenVertexArraysOES(int n, long arrays) {
 		long __functionAddress = GLES.getCapabilities().glGenVertexArraysOES;
 		if ( CHECKS )
@@ -87,22 +77,12 @@ public class OESVertexArrayObject {
 		callIPV(__functionAddress, n, arrays);
 	}
 
-	public static void glGenVertexArraysOES(int n, ByteBuffer arrays) {
-		if ( CHECKS ) {
-			checkBuffer(arrays, n << 2);
-			checkBuffer(arrays, 1 << 2);
-		}
-		nglGenVertexArraysOES(n, memAddress(arrays));
-	}
-
-	/** Alternative version of: {@link #glGenVertexArraysOES GenVertexArraysOES} */
 	public static void glGenVertexArraysOES(IntBuffer arrays) {
 		if ( CHECKS )
 			checkBuffer(arrays, 1);
 		nglGenVertexArraysOES(arrays.remaining(), memAddress(arrays));
 	}
 
-	/** Single return value version of: {@link #glGenVertexArraysOES GenVertexArraysOES} */
 	public static int glGenVertexArraysOES() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

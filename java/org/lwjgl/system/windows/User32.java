@@ -975,10 +975,18 @@ public class User32 {
 
 	// --- [ RegisterClassEx ] ---
 
-	/** JNI method for {@link #RegisterClassEx} */
+	/**
+	 * Registers a window class for subsequent use in calls to the {@link #CreateWindowEx} function.
+	 *
+	 * @param lpwcx a {@link WNDCLASSEX} structure. You must fill the structure with the appropriate class attributes before passing it to the function.
+	 */
 	public static native short nRegisterClassEx(long __functionAddress, long lpwcx);
 
-	/** Unsafe version of {@link #RegisterClassEx} */
+	/**
+	 * Registers a window class for subsequent use in calls to the {@link #CreateWindowEx} function.
+	 *
+	 * @param lpwcx a {@link WNDCLASSEX} structure. You must fill the structure with the appropriate class attributes before passing it to the function.
+	 */
 	public static short nRegisterClassEx(long lpwcx) {
 		long __functionAddress = Functions.RegisterClassEx;
 		if ( CHECKS )
@@ -997,10 +1005,26 @@ public class User32 {
 
 	// --- [ UnregisterClass ] ---
 
-	/** JNI method for {@link #UnregisterClass} */
+	/**
+	 * Unregisters a window class, freeing the memory required for the class.
+	 *
+	 * @param lpClassName a null-terminated string or a class atom. If {@code lpClassName} is a string, it specifies the window class name. This class name must have been
+	 *                    registered by a previous call to the {@link #RegisterClassEx} function. System classes, such as dialog box controls, cannot be unregistered. If this
+	 *                    parameter is an atom, it must be a class atom created by a previous call to the {@link #RegisterClassEx} function. The atom must be in the low-order
+	 *                    word of {@code lpClassName}; the high-order word must be zero.
+	 * @param hInstance   a handle to the instance of the module that created the class
+	 */
 	public static native int nUnregisterClass(long __functionAddress, long lpClassName, long hInstance);
 
-	/** Unsafe version of {@link #UnregisterClass} */
+	/**
+	 * Unregisters a window class, freeing the memory required for the class.
+	 *
+	 * @param lpClassName a null-terminated string or a class atom. If {@code lpClassName} is a string, it specifies the window class name. This class name must have been
+	 *                    registered by a previous call to the {@link #RegisterClassEx} function. System classes, such as dialog box controls, cannot be unregistered. If this
+	 *                    parameter is an atom, it must be a class atom created by a previous call to the {@link #RegisterClassEx} function. The atom must be in the low-order
+	 *                    word of {@code lpClassName}; the high-order word must be zero.
+	 * @param hInstance   a handle to the instance of the module that created the class
+	 */
 	public static int nUnregisterClass(long lpClassName, long hInstance) {
 		long __functionAddress = Functions.UnregisterClass;
 		return nUnregisterClass(__functionAddress, lpClassName, hInstance);
@@ -1021,7 +1045,15 @@ public class User32 {
 		return nUnregisterClass(memAddress(lpClassName), hInstance);
 	}
 
-	/** CharSequence version of: {@link #UnregisterClass} */
+	/**
+	 * Unregisters a window class, freeing the memory required for the class.
+	 *
+	 * @param lpClassName a null-terminated string or a class atom. If {@code lpClassName} is a string, it specifies the window class name. This class name must have been
+	 *                    registered by a previous call to the {@link #RegisterClassEx} function. System classes, such as dialog box controls, cannot be unregistered. If this
+	 *                    parameter is an atom, it must be a class atom created by a previous call to the {@link #RegisterClassEx} function. The atom must be in the low-order
+	 *                    word of {@code lpClassName}; the high-order word must be zero.
+	 * @param hInstance   a handle to the instance of the module that created the class
+	 */
 	public static int UnregisterClass(CharSequence lpClassName, long hInstance) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1034,10 +1066,42 @@ public class User32 {
 
 	// --- [ CreateWindowEx ] ---
 
-	/** JNI method for {@link #CreateWindowEx} */
+	/**
+	 * Creates an overlapped, pop-up, or child window with an extended window style; otherwise, this function is identical to the CreateWindow function.
+	 *
+	 * @param dwExStyle    the extended window style of the window being created
+	 * @param lpClassName  a null-terminated string or a class atom created by a previous call to the {@link #RegisterClassEx(WNDCLASSEX)} function.
+	 * @param lpWindowName the window name. If the window style specifies a title bar, the window title pointed to by {@code lpWindowName} is displayed in the title bar.
+	 * @param dwStyle      the style of the window being created
+	 * @param x            the initial horizontal position of the window
+	 * @param y            the initial vertical position of the window
+	 * @param nWidth       the width, in device units, of the window
+	 * @param nHeight      the height, in device units, of the window
+	 * @param hWndParent   a handle to the parent or owner window of the window being created. To create a child window or an owned window, supply a valid window handle.
+	 * @param hMenu        a handle to a menu, or specifies a child-window identifier, depending on the window style
+	 * @param hInstance    a handle to the instance of the module to be associated with the window
+	 * @param lpParam      a value to be passed to the window through the {@code CREATESTRUCT} structure ({@code createParams} member) pointed to by the {@code lParam} param
+	 *                     of the {@link #WM_CREATE} message.
+	 */
 	public static native long nCreateWindowEx(long __functionAddress, int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam);
 
-	/** Unsafe version of {@link #CreateWindowEx} */
+	/**
+	 * Creates an overlapped, pop-up, or child window with an extended window style; otherwise, this function is identical to the CreateWindow function.
+	 *
+	 * @param dwExStyle    the extended window style of the window being created
+	 * @param lpClassName  a null-terminated string or a class atom created by a previous call to the {@link #RegisterClassEx(WNDCLASSEX)} function.
+	 * @param lpWindowName the window name. If the window style specifies a title bar, the window title pointed to by {@code lpWindowName} is displayed in the title bar.
+	 * @param dwStyle      the style of the window being created
+	 * @param x            the initial horizontal position of the window
+	 * @param y            the initial vertical position of the window
+	 * @param nWidth       the width, in device units, of the window
+	 * @param nHeight      the height, in device units, of the window
+	 * @param hWndParent   a handle to the parent or owner window of the window being created. To create a child window or an owned window, supply a valid window handle.
+	 * @param hMenu        a handle to a menu, or specifies a child-window identifier, depending on the window style
+	 * @param hInstance    a handle to the instance of the module to be associated with the window
+	 * @param lpParam      a value to be passed to the window through the {@code CREATESTRUCT} structure ({@code createParams} member) pointed to by the {@code lParam} param
+	 *                     of the {@link #WM_CREATE} message.
+	 */
 	public static long nCreateWindowEx(int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
 		long __functionAddress = Functions.CreateWindowEx;
 		return nCreateWindowEx(__functionAddress, dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
@@ -1068,7 +1132,23 @@ public class User32 {
 		return nCreateWindowEx(dwExStyle, memAddressSafe(lpClassName), memAddressSafe(lpWindowName), dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
 	}
 
-	/** CharSequence version of: {@link #CreateWindowEx} */
+	/**
+	 * Creates an overlapped, pop-up, or child window with an extended window style; otherwise, this function is identical to the CreateWindow function.
+	 *
+	 * @param dwExStyle    the extended window style of the window being created
+	 * @param lpClassName  a null-terminated string or a class atom created by a previous call to the {@link #RegisterClassEx(WNDCLASSEX)} function.
+	 * @param lpWindowName the window name. If the window style specifies a title bar, the window title pointed to by {@code lpWindowName} is displayed in the title bar.
+	 * @param dwStyle      the style of the window being created
+	 * @param x            the initial horizontal position of the window
+	 * @param y            the initial vertical position of the window
+	 * @param nWidth       the width, in device units, of the window
+	 * @param nHeight      the height, in device units, of the window
+	 * @param hWndParent   a handle to the parent or owner window of the window being created. To create a child window or an owned window, supply a valid window handle.
+	 * @param hMenu        a handle to a menu, or specifies a child-window identifier, depending on the window style
+	 * @param hInstance    a handle to the instance of the module to be associated with the window
+	 * @param lpParam      a value to be passed to the window through the {@code CREATESTRUCT} structure ({@code createParams} member) pointed to by the {@code lParam} param
+	 *                     of the {@link #WM_CREATE} message.
+	 */
 	public static long CreateWindowEx(int dwExStyle, CharSequence lpClassName, CharSequence lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1082,7 +1162,16 @@ public class User32 {
 
 	// --- [ DestroyWindow ] ---
 
-	/** JNI method for {@link #DestroyWindow} */
+	/**
+	 * Destroys the specified window. The function sends {@link #WM_DESTROY} and {@link #WM_NCDESTROY} messages to the window to deactivate it and remove the keyboard focus
+	 * from it. The function also destroys the window's menu, flushes the thread message queue, destroys timers, removes clipboard ownership, and breaks the
+	 * clipboard viewer chain (if the window is at the top of the viewer chain).
+	 * 
+	 * <p>If the specified window is a parent or owner window, DestroyWindow automatically destroys the associated child or owned windows when it destroys the
+	 * parent or owner window. The function first destroys child or owned windows, and then it destroys the parent or owner window.</p>
+	 *
+	 * @param hWnd a handle to the window to be destroyed
+	 */
 	public static native int nDestroyWindow(long __functionAddress, long hWnd);
 
 	/**
@@ -1155,7 +1244,18 @@ public class User32 {
 
 	// --- [ SetWindowPos ] ---
 
-	/** JNI method for {@link #SetWindowPos} */
+	/**
+	 * Changes the size, position, and Z order of a child, pop-up, or top-level window. These windows are ordered according to their appearance on the screen.
+	 * The topmost window receives the highest rank and is the first window in the Z order.
+	 *
+	 * @param hWnd            a handle to the window
+	 * @param hWndInsertAfter a handle to the window to precede the positioned window in the Z order. This parameter must be a window handle or one of:<br>{@link #HWND_TOP}, {@link #HWND_BOTTOM}, {@link #HWND_TOPMOST}, {@link #HWND_NOTOPMOST}
+	 * @param X               the new position of the left side of the window, in client coordinates
+	 * @param Y               the new position of the top of the window, in client coordinates
+	 * @param cx              the new width of the window, in pixels
+	 * @param cy              the new height of the window, in pixels
+	 * @param uFlags          the window sizing and positioning flags. One or more of:<br>{@link #SWP_NOSIZE}, {@link #SWP_NOMOVE}, {@link #SWP_NOZORDER}, {@link #SWP_NOREDRAW}, {@link #SWP_NOACTIVATE}, {@link #SWP_FRAMECHANGED}, {@link #SWP_SHOWWINDOW}, {@link #SWP_HIDEWINDOW}, {@link #SWP_NOCOPYBITS}, {@link #SWP_NOOWNERZORDER}, {@link #SWP_NOSENDCHANGING}, {@link #SWP_DRAWFRAME}, {@link #SWP_NOREPOSITION}, {@link #SWP_DEFERERASE}, {@link #SWP_ASYNCWINDOWPOS}
+	 */
 	public static native int nSetWindowPos(long __functionAddress, long hWnd, long hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags);
 
 	/**
@@ -1179,10 +1279,22 @@ public class User32 {
 
 	// --- [ SetWindowText ] ---
 
-	/** JNI method for {@link #SetWindowText} */
+	/**
+	 * Changes the text of the specified window's title bar (if it has one). If the specified window is a control, the text of the control is changed.
+	 * However, {@code SetWindowText} cannot change the text of a control in another application.
+	 *
+	 * @param hWnd     a handle to the window or control whose text is to be changed
+	 * @param lpString the new title or control text
+	 */
 	public static native int nSetWindowText(long __functionAddress, long hWnd, long lpString);
 
-	/** Unsafe version of {@link #SetWindowText} */
+	/**
+	 * Changes the text of the specified window's title bar (if it has one). If the specified window is a control, the text of the control is changed.
+	 * However, {@code SetWindowText} cannot change the text of a control in another application.
+	 *
+	 * @param hWnd     a handle to the window or control whose text is to be changed
+	 * @param lpString the new title or control text
+	 */
 	public static int nSetWindowText(long hWnd, long lpString) {
 		long __functionAddress = Functions.SetWindowText;
 		if ( CHECKS )
@@ -1203,7 +1315,13 @@ public class User32 {
 		return nSetWindowText(hWnd, memAddress(lpString));
 	}
 
-	/** CharSequence version of: {@link #SetWindowText} */
+	/**
+	 * Changes the text of the specified window's title bar (if it has one). If the specified window is a control, the text of the control is changed.
+	 * However, {@code SetWindowText} cannot change the text of a control in another application.
+	 *
+	 * @param hWnd     a handle to the window or control whose text is to be changed
+	 * @param lpString the new title or control text
+	 */
 	public static int SetWindowText(long hWnd, CharSequence lpString) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1216,10 +1334,40 @@ public class User32 {
 
 	// --- [ GetMessage ] ---
 
-	/** JNI method for {@link #GetMessage} */
+	/**
+	 * Retrieves a message from the calling thread's message queue. The function dispatches incoming sent messages until a posted message is available for
+	 * retrieval. Unlike GetMessage, the {@link #PeekMessage} function does not wait for a message to be posted before returning.
+	 *
+	 * @param lpMsg         a pointer to an {@link MSG} structure that receives message information from the thread's message queue
+	 * @param hWnd          a handle to the window whose messages are to be retrieved. The window must belong to the current thread.
+	 *                      
+	 *                      <p>If {@code hWnd} is {@code NULL}, {@code GetMessage} retrieves messages for any window that belongs to the current thread, and any messages on the current
+	 *                      thread's message queue whose {@code hwnd} value is {@code NULL} (see the {@link MSG} structure). Therefore if {@code hWnd} is {@code NULL}, both window messages and
+	 *                      thread messages are processed.</p>
+	 *                      
+	 *                      <p>If {@code hWnd} is -1, {@code GetMessage} retrieves only messages on the current thread's message queue whose {@code hwnd} value is {@code NULL}, that is,
+	 *                      thread messages as posted by {@link #PostMessage} (when the {@code hWnd} parameter is {@code NULL}) or {@code PostThreadMessage}.</p>
+	 * @param wMsgFilterMin the integer value of the lowest message value to be retrieved
+	 * @param wMsgFilterMax the integer value of the highest message value to be retrieved
+	 */
 	public static native int nGetMessage(long __functionAddress, long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax);
 
-	/** Unsafe version of {@link #GetMessage} */
+	/**
+	 * Retrieves a message from the calling thread's message queue. The function dispatches incoming sent messages until a posted message is available for
+	 * retrieval. Unlike GetMessage, the {@link #PeekMessage} function does not wait for a message to be posted before returning.
+	 *
+	 * @param lpMsg         a pointer to an {@link MSG} structure that receives message information from the thread's message queue
+	 * @param hWnd          a handle to the window whose messages are to be retrieved. The window must belong to the current thread.
+	 *                      
+	 *                      <p>If {@code hWnd} is {@code NULL}, {@code GetMessage} retrieves messages for any window that belongs to the current thread, and any messages on the current
+	 *                      thread's message queue whose {@code hwnd} value is {@code NULL} (see the {@link MSG} structure). Therefore if {@code hWnd} is {@code NULL}, both window messages and
+	 *                      thread messages are processed.</p>
+	 *                      
+	 *                      <p>If {@code hWnd} is -1, {@code GetMessage} retrieves only messages on the current thread's message queue whose {@code hwnd} value is {@code NULL}, that is,
+	 *                      thread messages as posted by {@link #PostMessage} (when the {@code hWnd} parameter is {@code NULL}) or {@code PostThreadMessage}.</p>
+	 * @param wMsgFilterMin the integer value of the lowest message value to be retrieved
+	 * @param wMsgFilterMax the integer value of the highest message value to be retrieved
+	 */
 	public static int nGetMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax) {
 		long __functionAddress = Functions.GetMessage;
 		return nGetMessage(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
@@ -1247,7 +1395,22 @@ public class User32 {
 
 	// --- [ PeekMessage ] ---
 
-	/** Unsafe version of {@link #PeekMessage} */
+	/**
+	 * Dispatches incoming sent messages, checks the thread message queue for a posted message, and retrieves the message (if any exist).
+	 *
+	 * @param lpMsg         a pointer to an {@link MSG} structure that receives message information
+	 * @param hWnd          a handle to the window whose messages are to be retrieved. The window must belong to the current thread.
+	 *                      
+	 *                      <p>If {@code hWnd} is {@code NULL}, {@code GetMessage} retrieves messages for any window that belongs to the current thread, and any messages on the current
+	 *                      thread's message queue whose {@code hwnd} value is {@code NULL} (see the {@link MSG} structure). Therefore if {@code hWnd} is {@code NULL}, both window messages and
+	 *                      thread messages are processed.</p>
+	 *                      
+	 *                      <p>If {@code hWnd} is -1, {@code GetMessage} retrieves only messages on the current thread's message queue whose {@code hwnd} value is {@code NULL}, that is,
+	 *                      thread messages as posted by {@link #PostMessage} (when the {@code hWnd} parameter is {@code NULL}) or {@code PostThreadMessage}.</p>
+	 * @param wMsgFilterMin the integer value of the lowest message value to be retrieved
+	 * @param wMsgFilterMax the integer value of the highest message value to be retrieved
+	 * @param wRemoveMsg    specifies how messages are to be handled. One of:<br>{@link #PM_NOREMOVE}, {@link #PM_REMOVE}, {@link #PM_NOYIELD}
+	 */
 	public static int nPeekMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax, int wRemoveMsg) {
 		long __functionAddress = Functions.PeekMessage;
 		return callPPIIII(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax, wRemoveMsg);
@@ -1275,7 +1438,13 @@ public class User32 {
 
 	// --- [ TranslateMessage ] ---
 
-	/** Unsafe version of {@link #TranslateMessage} */
+	/**
+	 * Translates virtual-key messages into character messages. The character messages are posted to the calling thread's message queue, to be read the next
+	 * time the thread calls the {@link #GetMessage} or {@link #PeekMessage} function.
+	 *
+	 * @param lpMsg an {@link MSG} structure that contains message information retrieved from the calling thread's message queue by using the {@link #GetMessage} or {@link #PeekMessage}
+	 *              function.
+	 */
 	public static int nTranslateMessage(long lpMsg) {
 		long __functionAddress = Functions.TranslateMessage;
 		return callPI(__functionAddress, lpMsg);
@@ -1294,7 +1463,10 @@ public class User32 {
 
 	// --- [ WaitMessage ] ---
 
-	/** JNI method for {@link #WaitMessage} */
+	/**
+	 * Yields control to other threads when a thread has no other messages in its message queue. The WaitMessage function suspends the thread and does not
+	 * return until a new message is placed in the thread's message queue.
+	 */
 	public static native int nWaitMessage(long __functionAddress);
 
 	/**
@@ -1308,7 +1480,11 @@ public class User32 {
 
 	// --- [ DispatchMessage ] ---
 
-	/** Unsafe version of {@link #DispatchMessage} */
+	/**
+	 * Dispatches a message to a window procedure. It is typically used to dispatch a message retrieved by the {@link #GetMessage} function.
+	 *
+	 * @param lpmsg a pointer to a structure that contains the message.
+	 */
 	public static long nDispatchMessage(long lpmsg) {
 		long __functionAddress = Functions.DispatchMessage;
 		return callPP(__functionAddress, lpmsg);
@@ -1325,7 +1501,21 @@ public class User32 {
 
 	// --- [ PostMessage ] ---
 
-	/** JNI method for {@link #PostMessage} */
+	/**
+	 * Places (posts) a message in the message queue associated with the thread that created the specified window and returns without waiting for the thread
+	 * to process the message.
+	 *
+	 * @param hWnd   a handle to the window whose window procedure is to receive the message. The following values have special meanings:
+	 *               
+	 *               <ul>
+	 *               <li>{@link #HWND_BROADCAST} - The message is posted to all top-level windows in the system, including disabled or invisible unowned windows, overlapped
+	 *               windows, and pop-up windows. The message is not posted to child windows.</li>
+	 *               <li>{@code NULL} - The function behaves like a call to PostThreadMessage with the dwThreadId parameter set to the identifier of the current thread.</li>
+	 *               </ul>
+	 * @param Msg    the message to be posted
+	 * @param wParam additional message-specific information
+	 * @param lParam additional message-specific information
+	 */
 	public static native int nPostMessage(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
 
 	/**
@@ -1350,7 +1540,20 @@ public class User32 {
 
 	// --- [ SendMessage ] ---
 
-	/** JNI method for {@link #SendMessage} */
+	/**
+	 * Sends the specified message to a window or windows. The {@code SendMessage} function calls the window procedure for the specified window and does not
+	 * return until the window procedure has processed the message.
+	 *
+	 * @param hWnd   a handle to the window whose window procedure will receive the message. If this parameter is {@link #HWND_BROADCAST}, the message is sent to all top-level
+	 *               windows in the system, including disabled or invisible unowned windows, overlapped windows, and pop-up windows; but the message is not sent to
+	 *               child windows.
+	 *               
+	 *               <p>Message sending is subject to UIPI. The thread of a process can send messages only to message queues of threads in processes of lesser or equal
+	 *               integrity level.</p>
+	 * @param Msg    the message to be sent
+	 * @param wParam additional message-specific information
+	 * @param lParam additional message-specific information
+	 */
 	public static native int nSendMessage(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
 
 	/**
@@ -1376,10 +1579,30 @@ public class User32 {
 
 	// --- [ AdjustWindowRectEx ] ---
 
-	/** JNI method for {@link #AdjustWindowRectEx} */
+	/**
+	 * Calculates the required size of the window rectangle, based on the desired size of the client rectangle. The window rectangle can then be passed to the
+	 * {@link #CreateWindowEx} function to create a window whose client area is the desired size.
+	 *
+	 * @param lpRect    a pointer to a {@link RECT} structure that contains the coordinates of the top-left and bottom-right corners of the desired client area. When the
+	 *                  function returns, the structure contains the coordinates of the top-left and bottom-right corners of the window to accommodate the desired client
+	 *                  area.
+	 * @param dwStyle   the window style of the window whose required size is to be calculated. Note that you cannot specify the {@link #WS_OVERLAPPED} style.
+	 * @param bMenu     indicates whether the window has a menu
+	 * @param dwExStyle the extended window style of the window whose required size is to be calculated
+	 */
 	public static native int nAdjustWindowRectEx(long __functionAddress, long lpRect, int dwStyle, int bMenu, int dwExStyle);
 
-	/** Unsafe version of {@link #AdjustWindowRectEx} */
+	/**
+	 * Calculates the required size of the window rectangle, based on the desired size of the client rectangle. The window rectangle can then be passed to the
+	 * {@link #CreateWindowEx} function to create a window whose client area is the desired size.
+	 *
+	 * @param lpRect    a pointer to a {@link RECT} structure that contains the coordinates of the top-left and bottom-right corners of the desired client area. When the
+	 *                  function returns, the structure contains the coordinates of the top-left and bottom-right corners of the window to accommodate the desired client
+	 *                  area.
+	 * @param dwStyle   the window style of the window whose required size is to be calculated. Note that you cannot specify the {@link #WS_OVERLAPPED} style.
+	 * @param bMenu     indicates whether the window has a menu
+	 * @param dwExStyle the extended window style of the window whose required size is to be calculated
+	 */
 	public static int nAdjustWindowRectEx(long lpRect, int dwStyle, int bMenu, int dwExStyle) {
 		long __functionAddress = Functions.AdjustWindowRectEx;
 		return nAdjustWindowRectEx(__functionAddress, lpRect, dwStyle, bMenu, dwExStyle);
@@ -1402,10 +1625,22 @@ public class User32 {
 
 	// --- [ GetWindowRect ] ---
 
-	/** JNI method for {@link #GetWindowRect} */
+	/**
+	 * Retrieves the dimensions of the bounding rectangle of the specified window. The dimensions are given in screen coordinates that are relative to the
+	 * upper-left corner of the screen.
+	 *
+	 * @param hWnd   a handle to the window
+	 * @param lpRect a pointer to a {@link RECT} structure that receives the screen coordinates of the upper-left and lower-right corners of the window
+	 */
 	public static native int nGetWindowRect(long __functionAddress, long hWnd, long lpRect);
 
-	/** Unsafe version of {@link #GetWindowRect} */
+	/**
+	 * Retrieves the dimensions of the bounding rectangle of the specified window. The dimensions are given in screen coordinates that are relative to the
+	 * upper-left corner of the screen.
+	 *
+	 * @param hWnd   a handle to the window
+	 * @param lpRect a pointer to a {@link RECT} structure that receives the screen coordinates of the upper-left and lower-right corners of the window
+	 */
 	public static int nGetWindowRect(long hWnd, long lpRect) {
 		long __functionAddress = Functions.GetWindowRect;
 		if ( CHECKS )
@@ -1426,7 +1661,19 @@ public class User32 {
 
 	// --- [ MoveWindow ] ---
 
-	/** JNI method for {@link #MoveWindow} */
+	/**
+	 * Changes the position and dimensions of the specified window. For a top-level window, the position and dimensions are relative to the upper-left corner
+	 * of the screen. For a child window, they are relative to the upper-left corner of the parent window's client area.
+	 *
+	 * @param hWnd     a handle to the window
+	 * @param X        the new position of the left side of the window
+	 * @param Y        the new position of the top of the window
+	 * @param nWidth   the new width of the window
+	 * @param nHeight  the new height of the window
+	 * @param bRepaint indicates whether the window is to be repainted. If this parameter is TRUE, the window receives a message. If the parameter is FALSE, no repainting
+	 *                 of any kind occurs. This applies to the client area, the nonclient area (including the title bar and scroll bars), and any part of the parent
+	 *                 window uncovered as a result of moving a child window.
+	 */
 	public static native int nMoveWindow(long __functionAddress, long hWnd, int X, int Y, int nWidth, int nHeight, int bRepaint);
 
 	/**
@@ -1451,10 +1698,26 @@ public class User32 {
 
 	// --- [ GetWindowPlacement ] ---
 
-	/** JNI method for {@link #GetWindowPlacement} */
+	/**
+	 * Retrieves the show state and the restored, minimized, and maximized positions of the specified window.
+	 *
+	 * @param hWnd    a handle to the window
+	 * @param lpwndpl a pointer to the {@link WINDOWPLACEMENT} structure that receives the show state and position information.
+	 *                
+	 *                <p>Before calling {@code GetWindowPlacement}, set the length member to {@link WINDOWPLACEMENT#SIZEOF}. {@code GetWindowPlacement} fails if
+	 *                {@code lpwndpl->length} is not set correctly.</p>
+	 */
 	public static native int nGetWindowPlacement(long __functionAddress, long hWnd, long lpwndpl);
 
-	/** Unsafe version of {@link #GetWindowPlacement} */
+	/**
+	 * Retrieves the show state and the restored, minimized, and maximized positions of the specified window.
+	 *
+	 * @param hWnd    a handle to the window
+	 * @param lpwndpl a pointer to the {@link WINDOWPLACEMENT} structure that receives the show state and position information.
+	 *                
+	 *                <p>Before calling {@code GetWindowPlacement}, set the length member to {@link WINDOWPLACEMENT#SIZEOF}. {@code GetWindowPlacement} fails if
+	 *                {@code lpwndpl->length} is not set correctly.</p>
+	 */
 	public static int nGetWindowPlacement(long hWnd, long lpwndpl) {
 		long __functionAddress = Functions.GetWindowPlacement;
 		if ( CHECKS )
@@ -1477,10 +1740,26 @@ public class User32 {
 
 	// --- [ SetWindowPlacement ] ---
 
-	/** JNI method for {@link #SetWindowPlacement} */
+	/**
+	 * Sets the show state and the restored, minimized, and maximized positions of the specified window.
+	 *
+	 * @param hWnd    a handle to the window
+	 * @param lpwndpl a pointer to the {@link WINDOWPLACEMENT} structure that specifies the new show state and window positions.
+	 *                
+	 *                <p>Before calling {@code SetWindowPlacement}, set the {@code length} member of the {@code WINDOWPLACEMENT} structure to {@link WINDOWPLACEMENT#SIZEOF}.
+	 *                {@code SetWindowPlacement} fails if the length member is not set correctly.</p>
+	 */
 	public static native int nSetWindowPlacement(long __functionAddress, long hWnd, long lpwndpl);
 
-	/** Unsafe version of {@link #SetWindowPlacement} */
+	/**
+	 * Sets the show state and the restored, minimized, and maximized positions of the specified window.
+	 *
+	 * @param hWnd    a handle to the window
+	 * @param lpwndpl a pointer to the {@link WINDOWPLACEMENT} structure that specifies the new show state and window positions.
+	 *                
+	 *                <p>Before calling {@code SetWindowPlacement}, set the {@code length} member of the {@code WINDOWPLACEMENT} structure to {@link WINDOWPLACEMENT#SIZEOF}.
+	 *                {@code SetWindowPlacement} fails if the length member is not set correctly.</p>
+	 */
 	public static int nSetWindowPlacement(long hWnd, long lpwndpl) {
 		long __functionAddress = Functions.SetWindowPlacement;
 		if ( CHECKS )
@@ -1560,7 +1839,16 @@ public class User32 {
 
 	// --- [ SetWindowLongPtr ] ---
 
-	/** JNI method for {@link #SetWindowLongPtr} */
+	/**
+	 * Changes an attribute of the specified window. The function also sets a value at the specified offset in the extra window memory.
+	 *
+	 * @param hWnd      a handle to the window and, indirectly, the class to which the window belongs
+	 * @param nIndex    the zero-based offset to the value to be set. Valid values are in the range zero through the number of bytes of extra window memory, minus the size
+	 *                  of an integer. To set any other value, specify one of:<br>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
+	 * @param dwNewLong the replacement value
+	 *
+	 * @return the previous value at the given {@code index}
+	 */
 	public static native long nSetWindowLongPtr(long __functionAddress, long hWnd, int nIndex, long dwNewLong);
 
 	/**
@@ -1582,7 +1870,13 @@ public class User32 {
 
 	// --- [ GetWindowLongPtr ] ---
 
-	/** JNI method for {@link #GetWindowLongPtr} */
+	/**
+	 * Retrieves information about the specified window. The function also retrieves the value at a specified offset into the extra window memory.
+	 *
+	 * @param hWnd   a handle to the window and, indirectly, the class to which the window belongs
+	 * @param nIndex the zero-based offset to the value to be set. Valid values are in the range zero through the number of bytes of extra window memory, minus the size
+	 *               of an integer. To set any other value, specify one of:<br>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
+	 */
 	public static native long nGetWindowLongPtr(long __functionAddress, long hWnd, int nIndex);
 
 	/**
@@ -1601,7 +1895,20 @@ public class User32 {
 
 	// --- [ SetClassLongPtr ] ---
 
-	/** JNI method for {@link #SetClassLongPtr} */
+	/**
+	 * Replaces the specified value at the specified offset in the extra class memory or the {@link WNDCLASSEX} structure for the class to which the specified
+	 * window belongs.
+	 *
+	 * @param hWnd      a handle to the window and, indirectly, the class to which the window belongs
+	 * @param nIndex    the value to be replaced. To set a value in the extra class memory, specify the positive, zero-based byte offset of the value to be set. Valid
+	 *                  values are in the range zero through the number of bytes of extra class memory, minus eight; for example, if you specified 24 or more bytes of
+	 *                  extra class memory, a value of 16 would be an index to the third integer. To set a value other than the {@link WNDCLASSEX} structure, specify one of:<br>{@link #GCL_MENUNAME}, {@link #GCL_HBRBACKGROUND}, {@link #GCL_HCURSOR}, {@link #GCL_HICON}, {@link #GCL_HMODULE}, {@link #GCL_CBWNDEXTRA}, {@link #GCL_CBCLSEXTRA}, {@link #GCL_WNDPROC}, {@link #GCL_STYLE}, {@link #GCW_ATOM}, {@link #GCL_HICONSM}
+	 * @param dwNewLong the replacement value
+	 *
+	 * @return if the function succeeds, the return value is the previous value of the specified offset. If this was not previously set, the return value is zero.
+	 *         
+	 *         <p>If the function fails, the return value is zero. To get extended error information, call {@link WinBase#getLastError}.</p>
+	 */
 	public static native long nSetClassLongPtr(long __functionAddress, long hWnd, int nIndex, long dwNewLong);
 
 	/**
@@ -1627,7 +1934,15 @@ public class User32 {
 
 	// --- [ GetClassLongPtr ] ---
 
-	/** JNI method for {@link #GetClassLongPtr} */
+	/**
+	 * Retrieves the specified value from the {@link WNDCLASSEX} structure associated with the specified window.
+	 *
+	 * @param hWnd   a handle to the window and, indirectly, the class to which the window belongs
+	 * @param nIndex the value to be retrieved. To retrieve a value from the extra class memory, specify the positive, zero-based byte offset of the value to be
+	 *               retrieved. Valid values are in the range zero through the number of bytes of extra class memory, minus eight; for example, if you specified 24 or
+	 *               more bytes of extra class memory, a value of 16 would be an index to the third integer. To retrieve any other value from the {@link WNDCLASSEX}
+	 *               structure, specify one of:<br>{@link #GCL_MENUNAME}, {@link #GCL_HBRBACKGROUND}, {@link #GCL_HCURSOR}, {@link #GCL_HICON}, {@link #GCL_HMODULE}, {@link #GCL_CBWNDEXTRA}, {@link #GCL_CBCLSEXTRA}, {@link #GCL_WNDPROC}, {@link #GCL_STYLE}, {@link #GCW_ATOM}, {@link #GCL_HICONSM}
+	 */
 	public static native long nGetClassLongPtr(long __functionAddress, long hWnd, int nIndex);
 
 	/**
@@ -1648,7 +1963,17 @@ public class User32 {
 
 	// --- [ SetLayeredWindowAttributes ] ---
 
-	/** JNI method for {@link #SetLayeredWindowAttributes} */
+	/**
+	 * 
+	 *
+	 * @param hwnd    a handle to the layered window. A layered window is created by specifying {@link #WS_EX_LAYERED} when creating the window with the {@link #CreateWindowEx}
+	 *                function or by setting {@link #WS_EX_LAYERED} via {@link #SetWindowLongPtr} after the window has been created.
+	 * @param crKey   the transparency color key (0x00bbggrr) to be used when composing the layered window. All pixels painted by the window in this color will be
+	 *                transparent.
+	 * @param bAlpha  the alpha value used to describe the opacity of the layered window. When {@code bAlpha} is 0, the window is completely transparent. When
+	 *                {@code bAlpha} is 255, the window is opaque.
+	 * @param dwFlags an action to be taken. One or more of:<br>{@link #LWA_COLORKEY}, {@link #LWA_ALPHA}
+	 */
 	public static native int nSetLayeredWindowAttributes(long __functionAddress, long hwnd, int crKey, byte bAlpha, int dwFlags);
 
 	/**
@@ -1671,10 +1996,22 @@ public class User32 {
 
 	// --- [ LoadIcon ] ---
 
-	/** JNI method for {@link #LoadIcon} */
+	/**
+	 * Loads the specified icon resource from the executable (.exe) file associated with an application instance.
+	 *
+	 * @param instance a handle to an instance of the module whose executable file contains the icon to be loaded. This parameter must be {@code NULL} when a standard icon is
+	 *                 being loaded.
+	 * @param iconName the name of the icon resource to be loaded or one of:<br>{@link #IDI_APPLICATION}, {@link #IDI_HAND}, {@link #IDI_QUESTION}, {@link #IDI_EXCLAMATION}, {@link #IDI_ASTERISK}, {@link #IDI_WINLOGO}, {@link #IDI_SHIELD}, {@link #IDI_WARNING}, {@link #IDI_ERROR}, {@link #IDI_INFORMATION}
+	 */
 	public static native long nLoadIcon(long __functionAddress, long instance, long iconName);
 
-	/** Unsafe version of {@link #LoadIcon} */
+	/**
+	 * Loads the specified icon resource from the executable (.exe) file associated with an application instance.
+	 *
+	 * @param instance a handle to an instance of the module whose executable file contains the icon to be loaded. This parameter must be {@code NULL} when a standard icon is
+	 *                 being loaded.
+	 * @param iconName the name of the icon resource to be loaded or one of:<br>{@link #IDI_APPLICATION}, {@link #IDI_HAND}, {@link #IDI_QUESTION}, {@link #IDI_EXCLAMATION}, {@link #IDI_ASTERISK}, {@link #IDI_WINLOGO}, {@link #IDI_SHIELD}, {@link #IDI_WARNING}, {@link #IDI_ERROR}, {@link #IDI_INFORMATION}
+	 */
 	public static long nLoadIcon(long instance, long iconName) {
 		long __functionAddress = Functions.LoadIcon;
 		return nLoadIcon(__functionAddress, instance, iconName);
@@ -1693,7 +2030,13 @@ public class User32 {
 		return nLoadIcon(instance, memAddress(iconName));
 	}
 
-	/** CharSequence version of: {@link #LoadIcon} */
+	/**
+	 * Loads the specified icon resource from the executable (.exe) file associated with an application instance.
+	 *
+	 * @param instance a handle to an instance of the module whose executable file contains the icon to be loaded. This parameter must be {@code NULL} when a standard icon is
+	 *                 being loaded.
+	 * @param iconName the name of the icon resource to be loaded or one of:<br>{@link #IDI_APPLICATION}, {@link #IDI_HAND}, {@link #IDI_QUESTION}, {@link #IDI_EXCLAMATION}, {@link #IDI_ASTERISK}, {@link #IDI_WINLOGO}, {@link #IDI_SHIELD}, {@link #IDI_WARNING}, {@link #IDI_ERROR}, {@link #IDI_INFORMATION}
+	 */
 	public static long LoadIcon(long instance, CharSequence iconName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1706,10 +2049,20 @@ public class User32 {
 
 	// --- [ LoadCursor ] ---
 
-	/** JNI method for {@link #LoadCursor} */
+	/**
+	 * Loads the specified cursor resource from the executable (.EXE) file associated with an application instance.
+	 *
+	 * @param instance   a handle to an instance of the module whose executable file contains the cursor to be loaded.
+	 * @param cursorName the name of the cursor resource to be loaded or one of:<br>{@link #IDC_ARROW}, {@link #IDC_IBEAM}, {@link #IDC_WAIT}, {@link #IDC_CROSS}, {@link #IDC_UPARROW}, {@link #IDC_SIZE}, {@link #IDC_ICON}, {@link #IDC_SIZENWSE}, {@link #IDC_SIZENESW}, {@link #IDC_SIZEWE}, {@link #IDC_SIZENS}, {@link #IDC_SIZEALL}, {@link #IDC_NO}, {@link #IDC_HAND}, {@link #IDC_APPSTARTING}, {@link #IDC_HELP}
+	 */
 	public static native long nLoadCursor(long __functionAddress, long instance, long cursorName);
 
-	/** Unsafe version of {@link #LoadCursor} */
+	/**
+	 * Loads the specified cursor resource from the executable (.EXE) file associated with an application instance.
+	 *
+	 * @param instance   a handle to an instance of the module whose executable file contains the cursor to be loaded.
+	 * @param cursorName the name of the cursor resource to be loaded or one of:<br>{@link #IDC_ARROW}, {@link #IDC_IBEAM}, {@link #IDC_WAIT}, {@link #IDC_CROSS}, {@link #IDC_UPARROW}, {@link #IDC_SIZE}, {@link #IDC_ICON}, {@link #IDC_SIZENWSE}, {@link #IDC_SIZENESW}, {@link #IDC_SIZEWE}, {@link #IDC_SIZENS}, {@link #IDC_SIZEALL}, {@link #IDC_NO}, {@link #IDC_HAND}, {@link #IDC_APPSTARTING}, {@link #IDC_HELP}
+	 */
 	public static long nLoadCursor(long instance, long cursorName) {
 		long __functionAddress = Functions.LoadCursor;
 		return nLoadCursor(__functionAddress, instance, cursorName);
@@ -1727,7 +2080,12 @@ public class User32 {
 		return nLoadCursor(instance, memAddress(cursorName));
 	}
 
-	/** CharSequence version of: {@link #LoadCursor} */
+	/**
+	 * Loads the specified cursor resource from the executable (.EXE) file associated with an application instance.
+	 *
+	 * @param instance   a handle to an instance of the module whose executable file contains the cursor to be loaded.
+	 * @param cursorName the name of the cursor resource to be loaded or one of:<br>{@link #IDC_ARROW}, {@link #IDC_IBEAM}, {@link #IDC_WAIT}, {@link #IDC_CROSS}, {@link #IDC_UPARROW}, {@link #IDC_SIZE}, {@link #IDC_ICON}, {@link #IDC_SIZENWSE}, {@link #IDC_SIZENESW}, {@link #IDC_SIZEWE}, {@link #IDC_SIZENS}, {@link #IDC_SIZEALL}, {@link #IDC_NO}, {@link #IDC_HAND}, {@link #IDC_APPSTARTING}, {@link #IDC_HELP}
+	 */
 	public static long LoadCursor(long instance, CharSequence cursorName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1783,7 +2141,20 @@ public class User32 {
 
 	// --- [ RegisterTouchWindow ] ---
 
-	/** JNI method for {@link #RegisterTouchWindow} */
+	/**
+	 * Registers a window as being touch-capable.
+	 * 
+	 * <p>{@code RegisterTouchWindow} must be called on every window that will be used for touch input. This means that if you have an application that has
+	 * multiple windows within it, {@code RegisterTouchWindow} must be called on every window in that application that uses touch features. Also, an
+	 * application can call {@code RegisterTouchWindow} any number of times for the same window if it desires to change the modifier flags. A window can be
+	 * marked as no longer requiring touch input using the {@link #UnregisterTouchWindow} function.</p>
+	 *
+	 * @param hWnd    the handle of the window being registered. The function fails with {@code ERROR_ACCESS_DENIED} if the calling thread does not own the specified
+	 *                window.
+	 * @param ulFlags a set of bit flags that specify optional modifications. This field may contain 0 or one or more of:<br>{@link #TWF_FINETOUCH}, {@link #TWF_WANTPALM}
+	 *
+	 * @since Windows 7 (desktop apps only)
+	 */
 	public static native int nRegisterTouchWindow(long __functionAddress, long hWnd, int ulFlags);
 
 	/**
@@ -1811,7 +2182,13 @@ public class User32 {
 
 	// --- [ UnregisterTouchWindow ] ---
 
-	/** JNI method for {@link #UnregisterTouchWindow} */
+	/**
+	 * Registers a window as no longer being touch-capable.
+	 *
+	 * @param hWnd the handle of the window. The function fails with {@code ERROR_ACCESS_DENIED} if the calling thread does not own the specified window.
+	 *
+	 * @since Windows 7 (desktop apps only)
+	 */
 	public static native int nUnregisterTouchWindow(long __functionAddress, long hWnd);
 
 	/**
@@ -1832,7 +2209,15 @@ public class User32 {
 
 	// --- [ IsTouchWindow ] ---
 
-	/** Unsafe version of {@link #IsTouchWindow} */
+	/**
+	 * Checks whether a specified window is touch-capable and, optionally, retrieves the modifier flags set for the window's touch capability.
+	 *
+	 * @param hWnd     the handle of the window. The function fails with {@code ERROR_ACCESS_DENIED} if the calling thread is not on the same desktop as the specified
+	 *                 window.
+	 * @param pulFlags an optional address of the {@code ULONG} variable to receive the modifier flags for the specified window's touch capability.
+	 *
+	 * @since Windows 7 (desktop apps only)
+	 */
 	public static int nIsTouchWindow(long hWnd, long pulFlags) {
 		long __functionAddress = Functions.IsTouchWindow;
 		if ( CHECKS ) {
@@ -1851,29 +2236,11 @@ public class User32 {
 	 *
 	 * @since Windows 7 (desktop apps only)
 	 */
-	public static int IsTouchWindow(long hWnd, ByteBuffer pulFlags) {
-		return nIsTouchWindow(hWnd, memAddressSafe(pulFlags));
-	}
-
-	/** Alternative version of: {@link #IsTouchWindow} */
 	public static int IsTouchWindow(long hWnd, IntBuffer pulFlags) {
 		return nIsTouchWindow(hWnd, memAddressSafe(pulFlags));
 	}
 
 	// --- [ GetTouchInputInfo ] ---
-
-	/** JNI method for {@link #GetTouchInputInfo} */
-	public static native int nGetTouchInputInfo(long __functionAddress, long hTouchInput, int cInputs, long pInputs, int cbSize);
-
-	/** Unsafe version of {@link #GetTouchInputInfo} */
-	public static int nGetTouchInputInfo(long hTouchInput, int cInputs, long pInputs, int cbSize) {
-		long __functionAddress = Functions.GetTouchInputInfo;
-		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hTouchInput);
-		}
-		return nGetTouchInputInfo(__functionAddress, hTouchInput, cInputs, pInputs, cbSize);
-	}
 
 	/**
 	 * Retrieves detailed information about touch inputs associated with a particular touch input handle.
@@ -1890,20 +2257,59 @@ public class User32 {
 	 *
 	 * @since Windows 7 (desktop apps only)
 	 */
-	public static int GetTouchInputInfo(long hTouchInput, int cInputs, TOUCHINPUT.Buffer pInputs, int cbSize) {
-		if ( CHECKS )
-			checkBuffer(pInputs, cInputs);
-		return nGetTouchInputInfo(hTouchInput, cInputs, pInputs.address(), cbSize);
+	public static native int nGetTouchInputInfo(long __functionAddress, long hTouchInput, int cInputs, long pInputs, int cbSize);
+
+	/**
+	 * Retrieves detailed information about touch inputs associated with a particular touch input handle.
+	 *
+	 * @param hTouchInput the touch input handle received in the {@code LPARAM} of a touch message. The function fails with {@code ERROR_INVALID_HANDLE} if this handle is
+	 *                    not valid. Note that the handle is not valid after it has been used in a successful call to {@link #CloseTouchInputHandle} or after it has been passed to
+	 *                    {@link #DefWindowProc}, {@link #PostMessage}, {@link #SendMessage} or one of their variants.
+	 * @param cInputs     The number of structures in the {@code pInputs} array. This should ideally be at least equal to the number of touch points associated with the
+	 *                    message as indicated in the message {@code WPARAM}. If {@code cInputs} is less than the number of touch points, the function will still succeed and
+	 *                    populate the {@code pInputs} buffer with information about {@code cInputs} touch points.
+	 * @param pInputs     a pointer to an array of {@link TOUCHINPUT} structures to receive information about the touch points associated with the specified touch input handle
+	 * @param cbSize      the size, in bytes, of a single {@link TOUCHINPUT} structure. If {@code cbSize} is not the size of a single {@code TOUCHINPUT} structure, the function
+	 *                    fails with {@code ERROR_INVALID_PARAMETER}.
+	 *
+	 * @since Windows 7 (desktop apps only)
+	 */
+	public static int nGetTouchInputInfo(long hTouchInput, int cInputs, long pInputs, int cbSize) {
+		long __functionAddress = Functions.GetTouchInputInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hTouchInput);
+		}
+		return nGetTouchInputInfo(__functionAddress, hTouchInput, cInputs, pInputs, cbSize);
 	}
 
-	/** Alternative version of: {@link #GetTouchInputInfo} */
+	/**
+	 * Retrieves detailed information about touch inputs associated with a particular touch input handle.
+	 *
+	 * @param hTouchInput the touch input handle received in the {@code LPARAM} of a touch message. The function fails with {@code ERROR_INVALID_HANDLE} if this handle is
+	 *                    not valid. Note that the handle is not valid after it has been used in a successful call to {@link #CloseTouchInputHandle} or after it has been passed to
+	 *                    {@link #DefWindowProc}, {@link #PostMessage}, {@link #SendMessage} or one of their variants.
+	 * @param pInputs     a pointer to an array of {@link TOUCHINPUT} structures to receive information about the touch points associated with the specified touch input handle
+	 * @param cbSize      the size, in bytes, of a single {@link TOUCHINPUT} structure. If {@code cbSize} is not the size of a single {@code TOUCHINPUT} structure, the function
+	 *                    fails with {@code ERROR_INVALID_PARAMETER}.
+	 *
+	 * @since Windows 7 (desktop apps only)
+	 */
 	public static int GetTouchInputInfo(long hTouchInput, TOUCHINPUT.Buffer pInputs, int cbSize) {
 		return nGetTouchInputInfo(hTouchInput, pInputs.remaining(), pInputs.address(), cbSize);
 	}
 
 	// --- [ CloseTouchInputHandle ] ---
 
-	/** JNI method for {@link #CloseTouchInputHandle} */
+	/**
+	 * Closes a touch input handle, frees process memory associated with it, and invalidates the handle.
+	 *
+	 * @param hTouchInput the touch input handle received in the {@code LPARAM} of a touch message. The function fails with {@code ERROR_INVALID_HANDLE} if this handle is
+	 *                    not valid. Note that the handle is not valid after it has been used in a successful call to {@link #CloseTouchInputHandle} or after it has been passed to
+	 *                    {@link #DefWindowProc}, {@link #PostMessage}, {@link #SendMessage} or one of their variants.
+	 *
+	 * @since Windows 7 (desktop apps only)
+	 */
 	public static native int nCloseTouchInputHandle(long __functionAddress, long hTouchInput);
 
 	/**
@@ -1941,7 +2347,15 @@ public class User32 {
 
 	// --- [ GetMonitorInfo ] ---
 
-	/** Unsafe version of {@link #GetMonitorInfo} */
+	/**
+	 * Retrieves information about a display monitor.
+	 *
+	 * @param hMonitor a handle to the display monitor of interest
+	 * @param lpmi     a pointer to a {@link MONITORINFOEX} structure that receives information about the specified display monitor.
+	 *                 
+	 *                 <p>You must set the {@code cbSize} member of the structure to {@link MONITORINFOEX#SIZEOF} before calling the {@code GetMonitorInfo} function. Doing so lets
+	 *                 the function determine the type of structure you are passing to it.</p>
+	 */
 	public static int nGetMonitorInfo(long hMonitor, long lpmi) {
 		long __functionAddress = Functions.GetMonitorInfo;
 		if ( CHECKS )
@@ -1964,7 +2378,23 @@ public class User32 {
 
 	// --- [ EnumDisplayDevices ] ---
 
-	/** Unsafe version of {@link #EnumDisplayDevices} */
+	/**
+	 * Obtains information about the display devices in the current session.
+	 *
+	 * @param lpDevice        the device name. If {@code NULL}, function returns information for the display adapter(s) on the machine, based on {@code devNum}.
+	 * @param iDevNum         an index value that specifies the display device of interest.
+	 *                        
+	 *                        <p>The operating system identifies each display device in the current session with an index value. The index values are consecutive integers, starting
+	 *                        at 0. If the current session has three display devices, for example, they are specified by the index values 0, 1, and 2.</p>
+	 * @param lpDisplayDevice a pointer to a {@link DISPLAY_DEVICE} structure that receives information about the display device specified by {@code iDevNum}.
+	 *                        
+	 *                        <p>Before calling {@code EnumDisplayDevices}, you must initialize the {@code cb} member of {@code DISPLAY_DEVICE} to the size, in bytes, of
+	 *                        {@code DISPLAY_DEVICE}.</p>
+	 * @param dwFlags         set this flag to {@link #EDD_GET_DEVICE_INTERFACE_NAME} to retrieve the device interface name for {@code GUID_DEVINTERFACE_MONITOR}, which is registered by
+	 *                        the operating system on a per monitor basis. The value is placed in the {@code DeviceID} member of the {@link DISPLAY_DEVICE} structure returned in
+	 *                        {@code lpDisplayDevice}. The resulting device interface name can be used with SetupAPI functions and serves as a link between GDI monitor devices
+	 *                        and SetupAPI monitor devices.
+	 */
 	public static int nEnumDisplayDevices(long lpDevice, int iDevNum, long lpDisplayDevice, int dwFlags) {
 		long __functionAddress = Functions.EnumDisplayDevices;
 		return callPIPII(__functionAddress, lpDevice, iDevNum, lpDisplayDevice, dwFlags);
@@ -1993,7 +2423,23 @@ public class User32 {
 		return nEnumDisplayDevices(memAddressSafe(lpDevice), iDevNum, lpDisplayDevice.address(), dwFlags);
 	}
 
-	/** CharSequence version of: {@link #EnumDisplayDevices} */
+	/**
+	 * Obtains information about the display devices in the current session.
+	 *
+	 * @param lpDevice        the device name. If {@code NULL}, function returns information for the display adapter(s) on the machine, based on {@code devNum}.
+	 * @param iDevNum         an index value that specifies the display device of interest.
+	 *                        
+	 *                        <p>The operating system identifies each display device in the current session with an index value. The index values are consecutive integers, starting
+	 *                        at 0. If the current session has three display devices, for example, they are specified by the index values 0, 1, and 2.</p>
+	 * @param lpDisplayDevice a pointer to a {@link DISPLAY_DEVICE} structure that receives information about the display device specified by {@code iDevNum}.
+	 *                        
+	 *                        <p>Before calling {@code EnumDisplayDevices}, you must initialize the {@code cb} member of {@code DISPLAY_DEVICE} to the size, in bytes, of
+	 *                        {@code DISPLAY_DEVICE}.</p>
+	 * @param dwFlags         set this flag to {@link #EDD_GET_DEVICE_INTERFACE_NAME} to retrieve the device interface name for {@code GUID_DEVINTERFACE_MONITOR}, which is registered by
+	 *                        the operating system on a per monitor basis. The value is placed in the {@code DeviceID} member of the {@link DISPLAY_DEVICE} structure returned in
+	 *                        {@code lpDisplayDevice}. The resulting device interface name can be used with SetupAPI functions and serves as a link between GDI monitor devices
+	 *                        and SetupAPI monitor devices.
+	 */
 	public static int EnumDisplayDevices(CharSequence lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2006,7 +2452,33 @@ public class User32 {
 
 	// --- [ EnumDisplaySettingsEx ] ---
 
-	/** Unsafe version of {@link #EnumDisplaySettingsEx} */
+	/**
+	 * Retrieves information about one of the graphics modes for a display device. To retrieve information for all the graphics modes for a display device,
+	 * make a series of calls to this function.
+	 *
+	 * @param lpszDeviceName a pointer to a null-terminated string that specifies the display device about which graphics mode the function will obtain information.
+	 *                       
+	 *                       <p>This parameter is either {@code NULL} or a {@link DISPLAY_DEVICE#DeviceName} returned from {@link #EnumDisplayDevices}. A {@code NULL} value specifies the current display
+	 *                       device on the computer that the calling thread is running on.</p>
+	 * @param iModeNum       indicates the type of information to be retrieved.
+	 *                       
+	 *                       <p>Graphics mode indexes start at zero. To obtain information for all of a display device's graphics modes, make a series of calls to
+	 *                       {@code EnumDisplaySettingsEx}, as follows: Set {@code iModeNum} to zero for the first call, and increment {@code iModeNum} by one for each
+	 *                       subsequent call. Continue calling the function until the return value is zero.</p>
+	 *                       
+	 *                       <p>When you call {@code EnumDisplaySettingsEx} with {@code iModeNum} set to zero, the operating system initializes and caches information about the
+	 *                       display device. When you call {@code EnumDisplaySettingsEx} with {@code iModeNum} set to a nonzero value, the function returns the information that
+	 *                       was cached the last time the function was called with {@code iModeNum} set to zero.</p>
+	 *                       
+	 *                       <p>This value can be a graphics mode index or one of:<br>{@link #ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS}</p>
+	 * @param lpDevMode      a pointer to a {@link DEVMODE} structure into which the function stores information about the specified graphics mode. Before calling
+	 *                       {@code EnumDisplaySettingsEx}, set the {@code dmSize} member to {@link DEVMODE#SIZEOF}, and set the {@code dmDriverExtra} member to indicate the size, in
+	 *                       bytes, of the additional space available to receive private driver data.
+	 *                       
+	 *                       <p>The {@code EnumDisplaySettingsEx} function will populate the {@code dmFields} member of the {@code lpDevMode} and one or more other members of the
+	 *                       {@code DEVMODE} structure. To determine which members were set by the call to {@code EnumDisplaySettingsEx}, inspect the {@code dmFields} bitmask.</p>
+	 * @param dwFlags        this parameter can be one of:<br>{@link #EDS_RAWMODE}, {@link #EDS_ROTATEDMODE}
+	 */
 	public static int nEnumDisplaySettingsEx(long lpszDeviceName, int iModeNum, long lpDevMode, int dwFlags) {
 		long __functionAddress = Functions.EnumDisplaySettingsEx;
 		return callPIPII(__functionAddress, lpszDeviceName, iModeNum, lpDevMode, dwFlags);
@@ -2045,7 +2517,33 @@ public class User32 {
 		return nEnumDisplaySettingsEx(memAddressSafe(lpszDeviceName), iModeNum, lpDevMode.address(), dwFlags);
 	}
 
-	/** CharSequence version of: {@link #EnumDisplaySettingsEx} */
+	/**
+	 * Retrieves information about one of the graphics modes for a display device. To retrieve information for all the graphics modes for a display device,
+	 * make a series of calls to this function.
+	 *
+	 * @param lpszDeviceName a pointer to a null-terminated string that specifies the display device about which graphics mode the function will obtain information.
+	 *                       
+	 *                       <p>This parameter is either {@code NULL} or a {@link DISPLAY_DEVICE#DeviceName} returned from {@link #EnumDisplayDevices}. A {@code NULL} value specifies the current display
+	 *                       device on the computer that the calling thread is running on.</p>
+	 * @param iModeNum       indicates the type of information to be retrieved.
+	 *                       
+	 *                       <p>Graphics mode indexes start at zero. To obtain information for all of a display device's graphics modes, make a series of calls to
+	 *                       {@code EnumDisplaySettingsEx}, as follows: Set {@code iModeNum} to zero for the first call, and increment {@code iModeNum} by one for each
+	 *                       subsequent call. Continue calling the function until the return value is zero.</p>
+	 *                       
+	 *                       <p>When you call {@code EnumDisplaySettingsEx} with {@code iModeNum} set to zero, the operating system initializes and caches information about the
+	 *                       display device. When you call {@code EnumDisplaySettingsEx} with {@code iModeNum} set to a nonzero value, the function returns the information that
+	 *                       was cached the last time the function was called with {@code iModeNum} set to zero.</p>
+	 *                       
+	 *                       <p>This value can be a graphics mode index or one of:<br>{@link #ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS}</p>
+	 * @param lpDevMode      a pointer to a {@link DEVMODE} structure into which the function stores information about the specified graphics mode. Before calling
+	 *                       {@code EnumDisplaySettingsEx}, set the {@code dmSize} member to {@link DEVMODE#SIZEOF}, and set the {@code dmDriverExtra} member to indicate the size, in
+	 *                       bytes, of the additional space available to receive private driver data.
+	 *                       
+	 *                       <p>The {@code EnumDisplaySettingsEx} function will populate the {@code dmFields} member of the {@code lpDevMode} and one or more other members of the
+	 *                       {@code DEVMODE} structure. To determine which members were set by the call to {@code EnumDisplaySettingsEx}, inspect the {@code dmFields} bitmask.</p>
+	 * @param dwFlags        this parameter can be one of:<br>{@link #EDS_RAWMODE}, {@link #EDS_ROTATEDMODE}
+	 */
 	public static int EnumDisplaySettingsEx(CharSequence lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2058,7 +2556,26 @@ public class User32 {
 
 	// --- [ ChangeDisplaySettingsEx ] ---
 
-	/** Unsafe version of {@link #ChangeDisplaySettingsEx} */
+	/**
+	 * Changes the settings of the specified display device to the specified graphics mode.
+	 *
+	 * @param lpszDeviceName a pointer to a null-terminated string that specifies the display device whose graphics mode will change. Only display device names as returned by
+	 *                       {@link #EnumDisplayDevices} are valid.
+	 *                       
+	 *                       <p>The {@code lpszDeviceName} parameter can be {@code NULL}. A {@code NULL} value specifies the default display device. The default device can be determined by
+	 *                       calling {@code EnumDisplayDevices} and checking for the {@link GDI32#DISPLAY_DEVICE_PRIMARY_DEVICE} flag.</p>
+	 * @param lpDevMode      a pointer to a {@link DEVMODE} structure that describes the new graphics mode. If {@code lpDevMode} is {@code NULL}, all the values currently in the registry
+	 *                       will be used for the display setting. Passing {@code NULL} for the {@code lpDevMode} parameter and 0 for the {@code dwFlags} parameter is the easiest way
+	 *                       to return to the default mode after a dynamic mode change.
+	 *                       
+	 *                       <p>The {@code dmSize} member must be initialized to the size, in bytes, of the {@code DEVMODE} structure. The {@code dmDriverExtra} member must be
+	 *                       initialized to indicate the number of bytes of private driver data following the {@code DEVMODE} structure.</p>
+	 * @param hwnd           reserved; must be {@code NULL}
+	 * @param dwflags        indicates how the graphics mode should be changed. One of:<br>{@link #CDS_UPDATEREGISTRY}, {@link #CDS_TEST}, {@link #CDS_FULLSCREEN}, {@link #CDS_GLOBAL}, {@link #CDS_SET_PRIMARY}, {@link #CDS_VIDEOPARAMETERS}, {@link #CDS_ENABLE_UNSAFE_MODES}, {@link #CDS_DISABLE_UNSAFE_MODES}, {@link #CDS_RESET}, {@link #CDS_RESET_EX}, {@link #CDS_NORESET}
+	 * @param lParam         if {@code flags} is {@link #CDS_VIDEOPARAMETERS}, {@code lParam} is a pointer to a {@code VIDEOPARAMETERS} structure. Otherwise {@code lParam} must be {@code NULL}.
+	 *
+	 * @return one of the following values: {@link #DISP_CHANGE_SUCCESSFUL} {@link #DISP_CHANGE_RESTART} {@link #DISP_CHANGE_FAILED} {@link #DISP_CHANGE_BADMODE} {@link #DISP_CHANGE_NOTUPDATED} {@link #DISP_CHANGE_BADFLAGS} {@link #DISP_CHANGE_BADPARAM} {@link #DISP_CHANGE_BADDUALVIEW}
+	 */
 	public static int nChangeDisplaySettingsEx(long lpszDeviceName, long lpDevMode, long hwnd, int dwflags, long lParam) {
 		long __functionAddress = Functions.ChangeDisplaySettingsEx;
 		return callPPPIPI(__functionAddress, lpszDeviceName, lpDevMode, hwnd, dwflags, lParam);
@@ -2090,7 +2607,26 @@ public class User32 {
 		return nChangeDisplaySettingsEx(memAddressSafe(lpszDeviceName), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
 	}
 
-	/** CharSequence version of: {@link #ChangeDisplaySettingsEx} */
+	/**
+	 * Changes the settings of the specified display device to the specified graphics mode.
+	 *
+	 * @param lpszDeviceName a pointer to a null-terminated string that specifies the display device whose graphics mode will change. Only display device names as returned by
+	 *                       {@link #EnumDisplayDevices} are valid.
+	 *                       
+	 *                       <p>The {@code lpszDeviceName} parameter can be {@code NULL}. A {@code NULL} value specifies the default display device. The default device can be determined by
+	 *                       calling {@code EnumDisplayDevices} and checking for the {@link GDI32#DISPLAY_DEVICE_PRIMARY_DEVICE} flag.</p>
+	 * @param lpDevMode      a pointer to a {@link DEVMODE} structure that describes the new graphics mode. If {@code lpDevMode} is {@code NULL}, all the values currently in the registry
+	 *                       will be used for the display setting. Passing {@code NULL} for the {@code lpDevMode} parameter and 0 for the {@code dwFlags} parameter is the easiest way
+	 *                       to return to the default mode after a dynamic mode change.
+	 *                       
+	 *                       <p>The {@code dmSize} member must be initialized to the size, in bytes, of the {@code DEVMODE} structure. The {@code dmDriverExtra} member must be
+	 *                       initialized to indicate the number of bytes of private driver data following the {@code DEVMODE} structure.</p>
+	 * @param hwnd           reserved; must be {@code NULL}
+	 * @param dwflags        indicates how the graphics mode should be changed. One of:<br>{@link #CDS_UPDATEREGISTRY}, {@link #CDS_TEST}, {@link #CDS_FULLSCREEN}, {@link #CDS_GLOBAL}, {@link #CDS_SET_PRIMARY}, {@link #CDS_VIDEOPARAMETERS}, {@link #CDS_ENABLE_UNSAFE_MODES}, {@link #CDS_DISABLE_UNSAFE_MODES}, {@link #CDS_RESET}, {@link #CDS_RESET_EX}, {@link #CDS_NORESET}
+	 * @param lParam         if {@code flags} is {@link #CDS_VIDEOPARAMETERS}, {@code lParam} is a pointer to a {@code VIDEOPARAMETERS} structure. Otherwise {@code lParam} must be {@code NULL}.
+	 *
+	 * @return one of the following values: {@link #DISP_CHANGE_SUCCESSFUL} {@link #DISP_CHANGE_RESTART} {@link #DISP_CHANGE_FAILED} {@link #DISP_CHANGE_BADMODE} {@link #DISP_CHANGE_NOTUPDATED} {@link #DISP_CHANGE_BADFLAGS} {@link #DISP_CHANGE_BADPARAM} {@link #DISP_CHANGE_BADDUALVIEW}
+	 */
 	public static int ChangeDisplaySettingsEx(CharSequence lpszDeviceName, DEVMODE lpDevMode, long hwnd, int dwflags, long lParam) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

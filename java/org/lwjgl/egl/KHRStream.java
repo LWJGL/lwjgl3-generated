@@ -79,7 +79,6 @@ public class KHRStream {
 
 	// --- [ eglCreateStreamKHR ] ---
 
-	/** Unsafe version of {@link #eglCreateStreamKHR CreateStreamKHR} */
 	public static long neglCreateStreamKHR(long dpy, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateStreamKHR;
 		if ( CHECKS ) {
@@ -89,13 +88,6 @@ public class KHRStream {
 		return callPPP(__functionAddress, dpy, attrib_list);
 	}
 
-	public static long eglCreateStreamKHR(long dpy, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreateStreamKHR(dpy, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreateStreamKHR CreateStreamKHR} */
 	public static long eglCreateStreamKHR(long dpy, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -128,7 +120,6 @@ public class KHRStream {
 
 	// --- [ eglQueryStreamKHR ] ---
 
-	/** Unsafe version of {@link #eglQueryStreamKHR QueryStreamKHR} */
 	public static int neglQueryStreamKHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryStreamKHR;
 		if ( CHECKS ) {
@@ -139,13 +130,6 @@ public class KHRStream {
 		return callPPIPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
-	public static int eglQueryStreamKHR(long dpy, long stream, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return neglQueryStreamKHR(dpy, stream, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQueryStreamKHR QueryStreamKHR} */
 	public static int eglQueryStreamKHR(long dpy, long stream, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -154,7 +138,6 @@ public class KHRStream {
 
 	// --- [ eglQueryStreamu64KHR ] ---
 
-	/** Unsafe version of {@link #eglQueryStreamu64KHR QueryStreamu64KHR} */
 	public static int neglQueryStreamu64KHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryStreamu64KHR;
 		if ( CHECKS ) {
@@ -165,13 +148,6 @@ public class KHRStream {
 		return callPPIPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
-	public static int eglQueryStreamu64KHR(long dpy, long stream, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 3);
-		return neglQueryStreamu64KHR(dpy, stream, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQueryStreamu64KHR QueryStreamu64KHR} */
 	public static int eglQueryStreamu64KHR(long dpy, long stream, int attribute, LongBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);

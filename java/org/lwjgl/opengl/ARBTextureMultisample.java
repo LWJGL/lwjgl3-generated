@@ -133,7 +133,13 @@ public class ARBTextureMultisample {
 
 	// --- [ glGetMultisamplefv ] ---
 
-	/** Unsafe version of {@link #glGetMultisamplefv GetMultisamplefv} */
+	/**
+	 * Retrieves the location of a sample.
+	 *
+	 * @param pname the sample parameter name. Must be:<br>{@link #GL_SAMPLE_POSITION SAMPLE_POSITION}
+	 * @param index the index of the sample whose position to query
+	 * @param val   an array to receive the position of the sample
+	 */
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
 		if ( CHECKS )
@@ -148,20 +154,18 @@ public class ARBTextureMultisample {
 	 * @param index the index of the sample whose position to query
 	 * @param val   an array to receive the position of the sample
 	 */
-	public static void glGetMultisamplefv(int pname, int index, ByteBuffer val) {
-		if ( CHECKS )
-			checkBuffer(val, 1 << 2);
-		nglGetMultisamplefv(pname, index, memAddress(val));
-	}
-
-	/** Alternative version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static void glGetMultisamplefv(int pname, int index, FloatBuffer val) {
 		if ( CHECKS )
 			checkBuffer(val, 1);
 		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
-	/** Single return value version of: {@link #glGetMultisamplefv GetMultisamplefv} */
+	/**
+	 * Retrieves the location of a sample.
+	 *
+	 * @param pname the sample parameter name. Must be:<br>{@link #GL_SAMPLE_POSITION SAMPLE_POSITION}
+	 * @param index the index of the sample whose position to query
+	 */
 	public static float glGetMultisamplef(int pname, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

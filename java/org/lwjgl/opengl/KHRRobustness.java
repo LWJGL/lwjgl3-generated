@@ -129,7 +129,18 @@ public class KHRRobustness {
 
 	// --- [ glReadnPixels ] ---
 
-	/** Unsafe version of {@link #glReadnPixels ReadnPixels} */
+	/**
+	 * Behaves identically to {@link GL11#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x       the left pixel coordinate
+	 * @param y       the lower pixel coordinate
+	 * @param width   the number of pixels to read in the x-dimension
+	 * @param height  the number of pixels to read in the y-dimension
+	 * @param format  the pixel format. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param bufSize the maximum number of bytes to write into {@code data}
+	 * @param pixels  a buffer in which to place the returned pixel data
+	 */
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = GL.getCapabilities().glReadnPixels;
 		if ( CHECKS )
@@ -149,22 +160,23 @@ public class KHRRobustness {
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
-	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer pixels) {
-		if ( CHECKS ) {
-			checkBuffer(pixels, bufSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
-		nglReadnPixels(x, y, width, height, format, type, bufSize, memAddress(pixels));
-	}
-
-	/** Buffer object offset version of: {@link #glReadnPixels ReadnPixels} */
-	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixelsOffset) {
+	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglReadnPixels(x, y, width, height, format, type, bufSize, pixelsOffset);
+		nglReadnPixels(x, y, width, height, format, type, bufSize, pixels);
 	}
 
-	/** Alternative version of: {@link #glReadnPixels ReadnPixels} */
+	/**
+	 * Behaves identically to {@link GL11#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x      the left pixel coordinate
+	 * @param y      the lower pixel coordinate
+	 * @param width  the number of pixels to read in the x-dimension
+	 * @param height the number of pixels to read in the y-dimension
+	 * @param format the pixel format. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type   the pixel type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param pixels a buffer in which to place the returned pixel data
+	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -194,7 +206,14 @@ public class KHRRobustness {
 
 	// --- [ glGetnUniformfv ] ---
 
-	/** Unsafe version of {@link #glGetnUniformfv GetnUniformfv} */
+	/**
+	 * Returns the value or values of a uniform of the default uniform block.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 * @param bufSize  the maximum number of bytes to write to {@code params}
+	 * @param params   the buffer in which to place the returned data
+	 */
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformfv;
 		if ( CHECKS )
@@ -207,21 +226,18 @@ public class KHRRobustness {
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformfv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetnUniformfv(program, location, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetnUniformfv GetnUniformfv} */
 	public static void glGetnUniformfv(int program, int location, FloatBuffer params) {
 		nglGetnUniformfv(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformfv GetnUniformfv} */
+	/**
+	 * Returns the value or values of a uniform of the default uniform block.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 */
 	public static float glGetnUniformf(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -235,7 +251,14 @@ public class KHRRobustness {
 
 	// --- [ glGetnUniformiv ] ---
 
-	/** Unsafe version of {@link #glGetnUniformiv GetnUniformiv} */
+	/**
+	 * Integer version of {@link #glGetnUniformfv GetnUniformfv}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 * @param bufSize  the maximum number of bytes to write to {@code params}
+	 * @param params   the buffer in which to place the returned data
+	 */
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformiv;
 		if ( CHECKS )
@@ -248,21 +271,18 @@ public class KHRRobustness {
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformiv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetnUniformiv(program, location, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetnUniformiv GetnUniformiv} */
 	public static void glGetnUniformiv(int program, int location, FloatBuffer params) {
 		nglGetnUniformiv(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformiv GetnUniformiv} */
+	/**
+	 * Integer version of {@link #glGetnUniformfv GetnUniformfv}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 */
 	public static float glGetnUniformi(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -276,7 +296,14 @@ public class KHRRobustness {
 
 	// --- [ glGetnUniformuiv ] ---
 
-	/** Unsafe version of {@link #glGetnUniformuiv GetnUniformuiv} */
+	/**
+	 * Unsigned version of {@link #glGetnUniformiv GetnUniformiv}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 * @param bufSize  the maximum number of bytes to write to {@code params}
+	 * @param params   the buffer in which to place the returned data
+	 */
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformuiv;
 		if ( CHECKS )
@@ -289,21 +316,18 @@ public class KHRRobustness {
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformuiv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetnUniformuiv(program, location, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetnUniformuiv GetnUniformuiv} */
 	public static void glGetnUniformuiv(int program, int location, FloatBuffer params) {
 		nglGetnUniformuiv(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformuiv GetnUniformuiv} */
+	/**
+	 * Unsigned version of {@link #glGetnUniformiv GetnUniformiv}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 */
 	public static float glGetnUniformui(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

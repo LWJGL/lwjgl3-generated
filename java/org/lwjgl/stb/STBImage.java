@@ -118,7 +118,35 @@ public class STBImage {
 
 	// --- [ stbi_load ] ---
 
-	/** JNI method for {@link #stbi_load load} */
+	/**
+	 * Loads an image from the specified file.
+	 * 
+	 * <p>The return value from an image loader is an {@code 'unsigned char *'} which points to the pixel data, or {@code NULL} on an allocation failure or if the image
+	 * is corrupt or invalid. The pixel data consists of {@code *y} scanlines of {@code *x} pixels, with each pixel consisting of N interleaved 8-bit
+	 * components; the first pixel pointed to is top-left-most in the image. There is no padding between image scanlines or between pixels, regardless of
+	 * format. The number of components N is {@code 'req_comp'} if {@code req_comp} is non-zero, or {@code *comp} otherwise. If {@code req_comp} is non-zero,
+	 * {@code *comp} has the number of components that <i>would</i> have been output otherwise. E.g. if you set {@code req_comp} to 4, you will always get
+	 * RGBA output, but you can check {@code *comp} to see if it's trivially opaque because e.g. there were only 3 channels in the source image.</p>
+	 * 
+	 * <p>An output image with N components has the following components interleaved in this order in each pixel:</p>
+	 * 
+	 * <pre><code>N=#comp     components
+  1           grey
+  2           grey, alpha
+  3           red, green, blue
+  4           red, green, blue, alpha</code></pre>
+	 * 
+	 * <p>If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *comp} will be unchanged. The function
+	 * {@link #stbi_failure_reason failure_reason} can be queried for an extremely brief, end-user unfriendly explanation of why the load failed.</p>
+	 * 
+	 * <p>Paletted PNG, BMP, GIF, and PIC images are automatically depalettized.</p>
+	 *
+	 * @param filename the file name
+	 * @param x        outputs the image width in pixels
+	 * @param y        outputs the image height in pixels
+	 * @param comp     outputs number of components in image
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 */
 	public static native long nstbi_load(long filename, long x, long y, long comp, int req_comp);
 
 	/**
@@ -150,18 +178,6 @@ public class STBImage {
 	 * @param comp     outputs number of components in image
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
-	public static ByteBuffer stbi_load(ByteBuffer filename, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( CHECKS ) {
-			checkNT1(filename);
-			checkBuffer(x, 1 << 2);
-			checkBuffer(y, 1 << 2);
-			checkBuffer(comp, 1 << 2);
-		}
-		long __result = nstbi_load(memAddress(filename), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memByteBuffer(__result, x.getInt(x.position()) * y.getInt(y.position()) * comp.getInt(comp.position()));
-	}
-
-	/** Alternative version of: {@link #stbi_load load} */
 	public static ByteBuffer stbi_load(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkNT1(filename);
@@ -173,7 +189,35 @@ public class STBImage {
 		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
 	}
 
-	/** CharSequence version of: {@link #stbi_load load} */
+	/**
+	 * Loads an image from the specified file.
+	 * 
+	 * <p>The return value from an image loader is an {@code 'unsigned char *'} which points to the pixel data, or {@code NULL} on an allocation failure or if the image
+	 * is corrupt or invalid. The pixel data consists of {@code *y} scanlines of {@code *x} pixels, with each pixel consisting of N interleaved 8-bit
+	 * components; the first pixel pointed to is top-left-most in the image. There is no padding between image scanlines or between pixels, regardless of
+	 * format. The number of components N is {@code 'req_comp'} if {@code req_comp} is non-zero, or {@code *comp} otherwise. If {@code req_comp} is non-zero,
+	 * {@code *comp} has the number of components that <i>would</i> have been output otherwise. E.g. if you set {@code req_comp} to 4, you will always get
+	 * RGBA output, but you can check {@code *comp} to see if it's trivially opaque because e.g. there were only 3 channels in the source image.</p>
+	 * 
+	 * <p>An output image with N components has the following components interleaved in this order in each pixel:</p>
+	 * 
+	 * <pre><code>N=#comp     components
+  1           grey
+  2           grey, alpha
+  3           red, green, blue
+  4           red, green, blue, alpha</code></pre>
+	 * 
+	 * <p>If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *comp} will be unchanged. The function
+	 * {@link #stbi_failure_reason failure_reason} can be queried for an extremely brief, end-user unfriendly explanation of why the load failed.</p>
+	 * 
+	 * <p>Paletted PNG, BMP, GIF, and PIC images are automatically depalettized.</p>
+	 *
+	 * @param filename the file name
+	 * @param x        outputs the image width in pixels
+	 * @param y        outputs the image height in pixels
+	 * @param comp     outputs number of components in image
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 */
 	public static ByteBuffer stbi_load(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
@@ -192,9 +236,6 @@ public class STBImage {
 
 	// --- [ stbi_load_from_memory ] ---
 
-	/** JNI method for {@link #stbi_load_from_memory load_from_memory} */
-	public static native long nstbi_load_from_memory(long buffer, int len, long x, long y, long comp, int req_comp);
-
 	/**
 	 * In-memory version of {@link #stbi_load load}.
 	 *
@@ -205,18 +246,17 @@ public class STBImage {
 	 * @param comp     outputs number of components in image
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
-	public static ByteBuffer stbi_load_from_memory(ByteBuffer buffer, int len, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( CHECKS ) {
-			checkBuffer(buffer, len);
-			checkBuffer(x, 1 << 2);
-			checkBuffer(y, 1 << 2);
-			checkBuffer(comp, 1 << 2);
-		}
-		long __result = nstbi_load_from_memory(memAddress(buffer), len, memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memByteBuffer(__result, x.getInt(x.position()) * y.getInt(y.position()) * comp.getInt(comp.position()));
-	}
+	public static native long nstbi_load_from_memory(long buffer, int len, long x, long y, long comp, int req_comp);
 
-	/** Alternative version of: {@link #stbi_load_from_memory load_from_memory} */
+	/**
+	 * In-memory version of {@link #stbi_load load}.
+	 *
+	 * @param buffer   the buffer from which to load the image data
+	 * @param x        outputs the image width in pixels
+	 * @param y        outputs the image height in pixels
+	 * @param comp     outputs number of components in image
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 */
 	public static ByteBuffer stbi_load_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
@@ -229,7 +269,22 @@ public class STBImage {
 
 	// --- [ stbi_load_from_callbacks ] ---
 
-	/** JNI method for {@link #stbi_load_from_callbacks load_from_callbacks} */
+	/**
+	 * Callback version of {@link #stbi_load load}.
+	 * 
+	 * <p>I/O callbacks allow you to read from arbitrary sources, like packaged files or some other source. Data read from callbacks are processed through a
+	 * small internal buffer (currently 128 bytes) to try to reduce overhead.</p>
+	 * 
+	 * <p>The three functions you must define are "read" (reads some bytes of data), "skip" (skips some bytes of data), "eof" (reports if the stream is at the
+	 * end).</p>
+	 *
+	 * @param clbk     an {@link STBIIOCallbacks} struct
+	 * @param user     a pointer to user data
+	 * @param x        outputs the image width in pixels
+	 * @param y        outputs the image height in pixels
+	 * @param comp     outputs number of components in image
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 */
 	public static native long nstbi_load_from_callbacks(long clbk, long user, long x, long y, long comp, int req_comp);
 
 	/**
@@ -248,18 +303,6 @@ public class STBImage {
 	 * @param comp     outputs number of components in image
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
-	public static ByteBuffer stbi_load_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( CHECKS ) {
-			checkBuffer(x, 1 << 2);
-			checkBuffer(y, 1 << 2);
-			checkBuffer(comp, 1 << 2);
-			STBIIOCallbacks.validate(clbk.address());
-		}
-		long __result = nstbi_load_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memByteBuffer(__result, x.getInt(x.position()) * y.getInt(y.position()) * comp.getInt(comp.position()));
-	}
-
-	/** Alternative version of: {@link #stbi_load_from_callbacks load_from_callbacks} */
 	public static ByteBuffer stbi_load_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
@@ -273,7 +316,15 @@ public class STBImage {
 
 	// --- [ stbi_loadf ] ---
 
-	/** JNI method for {@link #stbi_loadf loadf} */
+	/**
+	 * Floating-point version of {@link #stbi_load load}.
+	 *
+	 * @param filename the file name
+	 * @param x        outputs the image width in pixels
+	 * @param y        outputs the image height in pixels
+	 * @param comp     outputs number of components in image
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 */
 	public static native long nstbi_loadf(long filename, long x, long y, long comp, int req_comp);
 
 	/**
@@ -285,18 +336,6 @@ public class STBImage {
 	 * @param comp     outputs number of components in image
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
-	public static FloatBuffer stbi_loadf(ByteBuffer filename, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( CHECKS ) {
-			checkNT1(filename);
-			checkBuffer(x, 1 << 2);
-			checkBuffer(y, 1 << 2);
-			checkBuffer(comp, 1 << 2);
-		}
-		long __result = nstbi_loadf(memAddress(filename), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memFloatBuffer(__result, x.getInt(x.position()) * y.getInt(y.position()) * comp.getInt(comp.position()));
-	}
-
-	/** Alternative version of: {@link #stbi_loadf loadf} */
 	public static FloatBuffer stbi_loadf(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkNT1(filename);
@@ -308,7 +347,15 @@ public class STBImage {
 		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
 	}
 
-	/** CharSequence version of: {@link #stbi_loadf loadf} */
+	/**
+	 * Floating-point version of {@link #stbi_load load}.
+	 *
+	 * @param filename the file name
+	 * @param x        outputs the image width in pixels
+	 * @param y        outputs the image height in pixels
+	 * @param comp     outputs number of components in image
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 */
 	public static FloatBuffer stbi_loadf(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
@@ -327,9 +374,6 @@ public class STBImage {
 
 	// --- [ stbi_loadf_from_memory ] ---
 
-	/** JNI method for {@link #stbi_loadf_from_memory loadf_from_memory} */
-	public static native long nstbi_loadf_from_memory(long buffer, int len, long x, long y, long comp, int req_comp);
-
 	/**
 	 * Floating-point version of {@link #stbi_load_from_memory load_from_memory}.
 	 *
@@ -340,18 +384,17 @@ public class STBImage {
 	 * @param comp     outputs number of components in image
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
-	public static FloatBuffer stbi_loadf_from_memory(ByteBuffer buffer, int len, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( CHECKS ) {
-			checkBuffer(buffer, len);
-			checkBuffer(x, 1 << 2);
-			checkBuffer(y, 1 << 2);
-			checkBuffer(comp, 1 << 2);
-		}
-		long __result = nstbi_loadf_from_memory(memAddress(buffer), len, memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memFloatBuffer(__result, x.getInt(x.position()) * y.getInt(y.position()) * comp.getInt(comp.position()));
-	}
+	public static native long nstbi_loadf_from_memory(long buffer, int len, long x, long y, long comp, int req_comp);
 
-	/** Alternative version of: {@link #stbi_loadf_from_memory loadf_from_memory} */
+	/**
+	 * Floating-point version of {@link #stbi_load_from_memory load_from_memory}.
+	 *
+	 * @param buffer   the buffer from which to load the image data
+	 * @param x        outputs the image width in pixels
+	 * @param y        outputs the image height in pixels
+	 * @param comp     outputs number of components in image
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 */
 	public static FloatBuffer stbi_loadf_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
@@ -364,7 +407,16 @@ public class STBImage {
 
 	// --- [ stbi_loadf_from_callbacks ] ---
 
-	/** JNI method for {@link #stbi_loadf_from_callbacks loadf_from_callbacks} */
+	/**
+	 * Floating-point version of {@link #stbi_load_from_callbacks load_from_callbacks}.
+	 *
+	 * @param clbk     an {@link STBIIOCallbacks} struct
+	 * @param user     a pointer to user data
+	 * @param x        outputs the image width in pixels
+	 * @param y        outputs the image height in pixels
+	 * @param comp     outputs number of components in image
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 */
 	public static native long nstbi_loadf_from_callbacks(long clbk, long user, long x, long y, long comp, int req_comp);
 
 	/**
@@ -377,18 +429,6 @@ public class STBImage {
 	 * @param comp     outputs number of components in image
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
-	public static FloatBuffer stbi_loadf_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( CHECKS ) {
-			checkBuffer(x, 1 << 2);
-			checkBuffer(y, 1 << 2);
-			checkBuffer(comp, 1 << 2);
-			STBIIOCallbacks.validate(clbk.address());
-		}
-		long __result = nstbi_loadf_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memFloatBuffer(__result, x.getInt(x.position()) * y.getInt(y.position()) * comp.getInt(comp.position()));
-	}
-
-	/** Alternative version of: {@link #stbi_loadf_from_callbacks loadf_from_callbacks} */
 	public static FloatBuffer stbi_loadf_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
@@ -438,7 +478,13 @@ public class STBImage {
 
 	// --- [ stbi_is_hdr ] ---
 
-	/** JNI method for {@link #stbi_is_hdr is_hdr} */
+	/**
+	 * Checks if the specified file contains an HDR image.
+	 *
+	 * @param filename the file name
+	 *
+	 * @return 1 if the image is HDR, 0 otherwise
+	 */
 	public static native int nstbi_is_hdr(long filename);
 
 	/**
@@ -454,7 +500,13 @@ public class STBImage {
 		return nstbi_is_hdr(memAddress(filename));
 	}
 
-	/** CharSequence version of: {@link #stbi_is_hdr is_hdr} */
+	/**
+	 * Checks if the specified file contains an HDR image.
+	 *
+	 * @param filename the file name
+	 *
+	 * @return 1 if the image is HDR, 0 otherwise
+	 */
 	public static int stbi_is_hdr(CharSequence filename) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -467,29 +519,31 @@ public class STBImage {
 
 	// --- [ stbi_is_hdr_from_memory ] ---
 
-	/** JNI method for {@link #stbi_is_hdr_from_memory is_hdr_from_memory} */
-	public static native int nstbi_is_hdr_from_memory(long buffer, int len);
-
 	/**
 	 * In-memory version of {@link #stbi_is_hdr is_hdr}.
 	 *
 	 * @param buffer the buffer from which to read the image data
 	 * @param len    the buffer length, in bytes
 	 */
-	public static int stbi_is_hdr_from_memory(ByteBuffer buffer, int len) {
-		if ( CHECKS )
-			checkBuffer(buffer, len);
-		return nstbi_is_hdr_from_memory(memAddress(buffer), len);
-	}
+	public static native int nstbi_is_hdr_from_memory(long buffer, int len);
 
-	/** Alternative version of: {@link #stbi_is_hdr_from_memory is_hdr_from_memory} */
+	/**
+	 * In-memory version of {@link #stbi_is_hdr is_hdr}.
+	 *
+	 * @param buffer the buffer from which to read the image data
+	 */
 	public static int stbi_is_hdr_from_memory(ByteBuffer buffer) {
 		return nstbi_is_hdr_from_memory(memAddress(buffer), buffer.remaining());
 	}
 
 	// --- [ stbi_is_hdr_from_callbacks ] ---
 
-	/** JNI method for {@link #stbi_is_hdr_from_callbacks is_hdr_from_callbacks} */
+	/**
+	 * Callback version of {@link #stbi_is_hdr is_hdr}.
+	 *
+	 * @param clbk an {@link STBIIOCallbacks} struct
+	 * @param user a pointer to user data
+	 */
 	public static native int nstbi_is_hdr_from_callbacks(long clbk, long user);
 
 	/**
@@ -506,7 +560,7 @@ public class STBImage {
 
 	// --- [ stbi_failure_reason ] ---
 
-	/** JNI method for {@link #stbi_failure_reason failure_reason} */
+	/** Returns a brief reason for failure. */
 	public static native long nstbi_failure_reason();
 
 	/** Returns a brief reason for failure. */
@@ -517,7 +571,11 @@ public class STBImage {
 
 	// --- [ stbi_image_free ] ---
 
-	/** JNI method for {@link #stbi_image_free image_free} */
+	/**
+	 * Frees a loaded image
+	 *
+	 * @param retval_from_stbi_load an stb image
+	 */
 	public static native void nstbi_image_free(long retval_from_stbi_load);
 
 	/**
@@ -531,7 +589,16 @@ public class STBImage {
 
 	// --- [ stbi_info ] ---
 
-	/** JNI method for {@link #stbi_info info} */
+	/**
+	 * Returns image dimensions &amp; components without fully decoding the image.
+	 *
+	 * @param filename the file name
+	 * @param x        outputs the image width in pixels
+	 * @param y        outputs the image height in pixels
+	 * @param comp     outputs number of components in image
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
 	public static native int nstbi_info(long filename, long x, long y, long comp);
 
 	/**
@@ -544,17 +611,6 @@ public class STBImage {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbi_info(ByteBuffer filename, ByteBuffer x, ByteBuffer y, ByteBuffer comp) {
-		if ( CHECKS ) {
-			checkNT1(filename);
-			checkBuffer(x, 1 << 2);
-			checkBuffer(y, 1 << 2);
-			checkBuffer(comp, 1 << 2);
-		}
-		return nstbi_info(memAddress(filename), memAddress(x), memAddress(y), memAddress(comp));
-	}
-
-	/** Alternative version of: {@link #stbi_info info} */
 	public static int stbi_info(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
 			checkNT1(filename);
@@ -565,7 +621,16 @@ public class STBImage {
 		return nstbi_info(memAddress(filename), memAddress(x), memAddress(y), memAddress(comp));
 	}
 
-	/** CharSequence version of: {@link #stbi_info info} */
+	/**
+	 * Returns image dimensions &amp; components without fully decoding the image.
+	 *
+	 * @param filename the file name
+	 * @param x        outputs the image width in pixels
+	 * @param y        outputs the image height in pixels
+	 * @param comp     outputs number of components in image
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
 	public static int stbi_info(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
@@ -583,9 +648,6 @@ public class STBImage {
 
 	// --- [ stbi_info_from_memory ] ---
 
-	/** JNI method for {@link #stbi_info_from_memory info_from_memory} */
-	public static native int nstbi_info_from_memory(long buffer, int len, long x, long y, long comp);
-
 	/**
 	 * In-memory version of {@link #stbi_info info}.
 	 *
@@ -595,17 +657,16 @@ public class STBImage {
 	 * @param y      outputs the image height in pixels
 	 * @param comp   outputs number of components in image
 	 */
-	public static int stbi_info_from_memory(ByteBuffer buffer, int len, ByteBuffer x, ByteBuffer y, ByteBuffer comp) {
-		if ( CHECKS ) {
-			checkBuffer(buffer, len);
-			checkBuffer(x, 1 << 2);
-			checkBuffer(y, 1 << 2);
-			checkBuffer(comp, 1 << 2);
-		}
-		return nstbi_info_from_memory(memAddress(buffer), len, memAddress(x), memAddress(y), memAddress(comp));
-	}
+	public static native int nstbi_info_from_memory(long buffer, int len, long x, long y, long comp);
 
-	/** Alternative version of: {@link #stbi_info_from_memory info_from_memory} */
+	/**
+	 * In-memory version of {@link #stbi_info info}.
+	 *
+	 * @param buffer the buffer from which to read the image data
+	 * @param x      outputs the image width in pixels
+	 * @param y      outputs the image height in pixels
+	 * @param comp   outputs number of components in image
+	 */
 	public static int stbi_info_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
@@ -617,7 +678,15 @@ public class STBImage {
 
 	// --- [ stbi_info_from_callbacks ] ---
 
-	/** JNI method for {@link #stbi_info_from_callbacks info_from_callbacks} */
+	/**
+	 * Callback version of {@link #stbi_info info}.
+	 *
+	 * @param clbk an {@link STBIIOCallbacks} struct
+	 * @param user a pointer to user data
+	 * @param x    outputs the image width in pixels
+	 * @param y    outputs the image height in pixels
+	 * @param comp outputs number of components in image
+	 */
 	public static native int nstbi_info_from_callbacks(long clbk, long user, long x, long y, long comp);
 
 	/**
@@ -629,17 +698,6 @@ public class STBImage {
 	 * @param y    outputs the image height in pixels
 	 * @param comp outputs number of components in image
 	 */
-	public static int stbi_info_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp) {
-		if ( CHECKS ) {
-			checkBuffer(x, 1 << 2);
-			checkBuffer(y, 1 << 2);
-			checkBuffer(comp, 1 << 2);
-			STBIIOCallbacks.validate(clbk.address());
-		}
-		return nstbi_info_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp));
-	}
-
-	/** Alternative version of: {@link #stbi_info_from_callbacks info_from_callbacks} */
 	public static int stbi_info_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
@@ -680,30 +738,22 @@ public class STBImage {
 
 	// --- [ stbi_zlib_decode_malloc_guesssize ] ---
 
-	/** JNI method for {@link #stbi_zlib_decode_malloc_guesssize zlib_decode_malloc_guesssize} */
-	public static native long nstbi_zlib_decode_malloc_guesssize(long buffer, int len, int initial_size, long outlen);
-
 	/**
 	 * ZLIB client - used by PNG, available for other purposes
 	 *
 	 * @param buffer       
 	 * @param len          
 	 * @param initial_size 
+	 * @param outlen       
 	 */
-	public static ByteBuffer stbi_zlib_decode_malloc_guesssize(ByteBuffer buffer, int len, int initial_size) {
-		if ( CHECKS )
-			checkBuffer(buffer, len);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		IntBuffer outlen = stack.callocInt(1);
-		try {
-			long __result = nstbi_zlib_decode_malloc_guesssize(memAddress(buffer), len, initial_size, memAddress(outlen));
-			return memByteBuffer(__result, outlen.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+	public static native long nstbi_zlib_decode_malloc_guesssize(long buffer, int len, int initial_size, long outlen);
 
-	/** Alternative version of: {@link #stbi_zlib_decode_malloc_guesssize zlib_decode_malloc_guesssize} */
+	/**
+	 * ZLIB client - used by PNG, available for other purposes
+	 *
+	 * @param buffer       
+	 * @param initial_size 
+	 */
 	public static ByteBuffer stbi_zlib_decode_malloc_guesssize(ByteBuffer buffer, int initial_size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -717,31 +767,24 @@ public class STBImage {
 
 	// --- [ stbi_zlib_decode_malloc_guesssize_headerflag ] ---
 
-	/** JNI method for {@link #stbi_zlib_decode_malloc_guesssize_headerflag zlib_decode_malloc_guesssize_headerflag} */
-	public static native long nstbi_zlib_decode_malloc_guesssize_headerflag(long buffer, int len, int initial_size, long outlen, int parse_header);
-
 	/**
 	 * ZLIB client - used by PNG, available for other purposes
 	 *
 	 * @param buffer       
 	 * @param len          
 	 * @param initial_size 
+	 * @param outlen       
 	 * @param parse_header 
 	 */
-	public static ByteBuffer stbi_zlib_decode_malloc_guesssize_headerflag(ByteBuffer buffer, int len, int initial_size, int parse_header) {
-		if ( CHECKS )
-			checkBuffer(buffer, len);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		IntBuffer outlen = stack.callocInt(1);
-		try {
-			long __result = nstbi_zlib_decode_malloc_guesssize_headerflag(memAddress(buffer), len, initial_size, memAddress(outlen), parse_header);
-			return memByteBuffer(__result, outlen.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+	public static native long nstbi_zlib_decode_malloc_guesssize_headerflag(long buffer, int len, int initial_size, long outlen, int parse_header);
 
-	/** Alternative version of: {@link #stbi_zlib_decode_malloc_guesssize_headerflag zlib_decode_malloc_guesssize_headerflag} */
+	/**
+	 * ZLIB client - used by PNG, available for other purposes
+	 *
+	 * @param buffer       
+	 * @param initial_size 
+	 * @param parse_header 
+	 */
 	public static ByteBuffer stbi_zlib_decode_malloc_guesssize_headerflag(ByteBuffer buffer, int initial_size, int parse_header) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -755,29 +798,20 @@ public class STBImage {
 
 	// --- [ stbi_zlib_decode_malloc ] ---
 
-	/** JNI method for {@link #stbi_zlib_decode_malloc zlib_decode_malloc} */
+	/**
+	 * ZLIB client - used by PNG, available for other purposes
+	 *
+	 * @param buffer 
+	 * @param len    
+	 * @param outlen 
+	 */
 	public static native long nstbi_zlib_decode_malloc(long buffer, int len, long outlen);
 
 	/**
 	 * ZLIB client - used by PNG, available for other purposes
 	 *
 	 * @param buffer 
-	 * @param len    
 	 */
-	public static ByteBuffer stbi_zlib_decode_malloc(ByteBuffer buffer, int len) {
-		if ( CHECKS )
-			checkBuffer(buffer, len);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		IntBuffer outlen = stack.callocInt(1);
-		try {
-			long __result = nstbi_zlib_decode_malloc(memAddress(buffer), len, memAddress(outlen));
-			return memByteBuffer(__result, outlen.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
-	/** Alternative version of: {@link #stbi_zlib_decode_malloc zlib_decode_malloc} */
 	public static ByteBuffer stbi_zlib_decode_malloc(ByteBuffer buffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -791,9 +825,6 @@ public class STBImage {
 
 	// --- [ stbi_zlib_decode_buffer ] ---
 
-	/** JNI method for {@link #stbi_zlib_decode_buffer zlib_decode_buffer} */
-	public static native int nstbi_zlib_decode_buffer(long obuffer, int olen, long ibuffer, int ilen);
-
 	/**
 	 * ZLIB client - used by PNG, available for other purposes
 	 *
@@ -802,44 +833,34 @@ public class STBImage {
 	 * @param ibuffer 
 	 * @param ilen    
 	 */
-	public static int stbi_zlib_decode_buffer(ByteBuffer obuffer, int olen, ByteBuffer ibuffer, int ilen) {
-		if ( CHECKS ) {
-			checkBuffer(obuffer, olen);
-			checkBuffer(ibuffer, ilen);
-		}
-		return nstbi_zlib_decode_buffer(memAddress(obuffer), olen, memAddress(ibuffer), ilen);
-	}
+	public static native int nstbi_zlib_decode_buffer(long obuffer, int olen, long ibuffer, int ilen);
 
-	/** Alternative version of: {@link #stbi_zlib_decode_buffer zlib_decode_buffer} */
+	/**
+	 * ZLIB client - used by PNG, available for other purposes
+	 *
+	 * @param obuffer 
+	 * @param ibuffer 
+	 */
 	public static int stbi_zlib_decode_buffer(ByteBuffer obuffer, ByteBuffer ibuffer) {
 		return nstbi_zlib_decode_buffer(memAddress(obuffer), obuffer.remaining(), memAddress(ibuffer), ibuffer.remaining());
 	}
 
 	// --- [ stbi_zlib_decode_noheader_malloc ] ---
 
-	/** JNI method for {@link #stbi_zlib_decode_noheader_malloc zlib_decode_noheader_malloc} */
+	/**
+	 * ZLIB client - used by PNG, available for other purposes
+	 *
+	 * @param buffer 
+	 * @param len    
+	 * @param outlen 
+	 */
 	public static native long nstbi_zlib_decode_noheader_malloc(long buffer, int len, long outlen);
 
 	/**
 	 * ZLIB client - used by PNG, available for other purposes
 	 *
 	 * @param buffer 
-	 * @param len    
 	 */
-	public static ByteBuffer stbi_zlib_decode_noheader_malloc(ByteBuffer buffer, int len) {
-		if ( CHECKS )
-			checkBuffer(buffer, len);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		IntBuffer outlen = stack.callocInt(1);
-		try {
-			long __result = nstbi_zlib_decode_noheader_malloc(memAddress(buffer), len, memAddress(outlen));
-			return memByteBuffer(__result, outlen.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
-	/** Alternative version of: {@link #stbi_zlib_decode_noheader_malloc zlib_decode_noheader_malloc} */
 	public static ByteBuffer stbi_zlib_decode_noheader_malloc(ByteBuffer buffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -853,9 +874,6 @@ public class STBImage {
 
 	// --- [ stbi_zlib_decode_noheader_buffer ] ---
 
-	/** JNI method for {@link #stbi_zlib_decode_noheader_buffer zlib_decode_noheader_buffer} */
-	public static native int nstbi_zlib_decode_noheader_buffer(long obuffer, int olen, long ibuffer, int ilen);
-
 	/**
 	 * ZLIB client - used by PNG, available for other purposes
 	 *
@@ -864,15 +882,14 @@ public class STBImage {
 	 * @param ibuffer 
 	 * @param ilen    
 	 */
-	public static int stbi_zlib_decode_noheader_buffer(ByteBuffer obuffer, int olen, ByteBuffer ibuffer, int ilen) {
-		if ( CHECKS ) {
-			checkBuffer(obuffer, olen);
-			checkBuffer(ibuffer, ilen);
-		}
-		return nstbi_zlib_decode_noheader_buffer(memAddress(obuffer), olen, memAddress(ibuffer), ilen);
-	}
+	public static native int nstbi_zlib_decode_noheader_buffer(long obuffer, int olen, long ibuffer, int ilen);
 
-	/** Alternative version of: {@link #stbi_zlib_decode_noheader_buffer zlib_decode_noheader_buffer} */
+	/**
+	 * ZLIB client - used by PNG, available for other purposes
+	 *
+	 * @param obuffer 
+	 * @param ibuffer 
+	 */
 	public static int stbi_zlib_decode_noheader_buffer(ByteBuffer obuffer, ByteBuffer ibuffer) {
 		return nstbi_zlib_decode_noheader_buffer(memAddress(obuffer), obuffer.remaining(), memAddress(ibuffer), ibuffer.remaining());
 	}

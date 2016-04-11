@@ -70,7 +70,11 @@ public class NVDrawVulkanImage {
 
 	// --- [ glGetVkProcAddrNV ] ---
 
-	/** Unsafe version of {@link #glGetVkProcAddrNV GetVkProcAddrNV} */
+	/**
+	 * Queries the Vulkan function entry points from within an OpenGL context.
+	 *
+	 * @param name name of the Vulkan function
+	 */
 	public static long nglGetVkProcAddrNV(long name) {
 		long __functionAddress = GL.getCapabilities().glGetVkProcAddrNV;
 		if ( CHECKS )
@@ -89,7 +93,11 @@ public class NVDrawVulkanImage {
 		return nglGetVkProcAddrNV(memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetVkProcAddrNV GetVkProcAddrNV} */
+	/**
+	 * Queries the Vulkan function entry points from within an OpenGL context.
+	 *
+	 * @param name name of the Vulkan function
+	 */
 	public static long glGetVkProcAddrNV(CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

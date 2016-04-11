@@ -50,7 +50,14 @@ public class GLXEXTImportContext {
 
 	// --- [ glXQueryContextInfoEXT ] ---
 
-	/** Unsafe version of {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
+	/**
+	 * Obtains the value of a context's attribute.
+	 *
+	 * @param display   the connection to the X server
+	 * @param context   the context being queried
+	 * @param attribute the attribute to query
+	 * @param value     returns the attribute value
+	 */
 	public static int nglXQueryContextInfoEXT(long display, long context, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContextInfoEXT;
 		if ( CHECKS ) {
@@ -69,13 +76,6 @@ public class GLXEXTImportContext {
 	 * @param attribute the attribute to query
 	 * @param value     returns the attribute value
 	 */
-	public static int glXQueryContextInfoEXT(long display, long context, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return nglXQueryContextInfoEXT(display, context, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
 	public static int glXQueryContextInfoEXT(long display, long context, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);

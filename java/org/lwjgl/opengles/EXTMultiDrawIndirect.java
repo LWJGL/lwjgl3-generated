@@ -39,7 +39,6 @@ public class EXTMultiDrawIndirect {
 
 	// --- [ glMultiDrawArraysIndirectEXT ] ---
 
-	/** Unsafe version of {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
 	public static void nglMultiDrawArraysIndirectEXT(int mode, long indirect, int drawcount, int stride) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysIndirectEXT;
 		if ( CHECKS )
@@ -55,11 +54,10 @@ public class EXTMultiDrawIndirect {
 		nglMultiDrawArraysIndirectEXT(mode, memAddress(indirect), drawcount, stride);
 	}
 
-	/** Buffer object offset version of: {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
-	public static void glMultiDrawArraysIndirectEXT(int mode, long indirectOffset, int drawcount, int stride) {
+	public static void glMultiDrawArraysIndirectEXT(int mode, long indirect, int drawcount, int stride) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglMultiDrawArraysIndirectEXT(mode, indirectOffset, drawcount, stride);
+		nglMultiDrawArraysIndirectEXT(mode, indirect, drawcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
@@ -73,7 +71,6 @@ public class EXTMultiDrawIndirect {
 
 	// --- [ glMultiDrawElementsIndirectEXT ] ---
 
-	/** Unsafe version of {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */
 	public static void nglMultiDrawElementsIndirectEXT(int mode, int type, long indirect, int drawcount, int stride) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsIndirectEXT;
 		if ( CHECKS )
@@ -89,11 +86,10 @@ public class EXTMultiDrawIndirect {
 		nglMultiDrawElementsIndirectEXT(mode, type, memAddress(indirect), drawcount, stride);
 	}
 
-	/** Buffer object offset version of: {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */
-	public static void glMultiDrawElementsIndirectEXT(int mode, int type, long indirectOffset, int drawcount, int stride) {
+	public static void glMultiDrawElementsIndirectEXT(int mode, int type, long indirect, int drawcount, int stride) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglMultiDrawElementsIndirectEXT(mode, type, indirectOffset, drawcount, stride);
+		nglMultiDrawElementsIndirectEXT(mode, type, indirect, drawcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */

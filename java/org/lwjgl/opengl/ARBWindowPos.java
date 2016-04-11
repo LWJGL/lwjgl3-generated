@@ -104,7 +104,11 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos2ivARB ] ---
 
-	/** Unsafe version of {@link #glWindowPos2ivARB WindowPos2ivARB} */
+	/**
+	 * Pointer version of {@link #glWindowPos2iARB WindowPos2iARB}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos2ivARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2ivARB;
 		if ( CHECKS )
@@ -117,13 +121,6 @@ public class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2ivARB(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 2 << 2);
-		nglWindowPos2ivARB(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos2ivARB WindowPos2ivARB} */
 	public static void glWindowPos2ivARB(IntBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 2);
@@ -132,7 +129,11 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos2svARB ] ---
 
-	/** Unsafe version of {@link #glWindowPos2svARB WindowPos2svARB} */
+	/**
+	 * Pointer version of {@link #glWindowPos2sARB WindowPos2sARB}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos2svARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2svARB;
 		if ( CHECKS )
@@ -145,13 +146,6 @@ public class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2svARB(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 2 << 1);
-		nglWindowPos2svARB(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos2svARB WindowPos2svARB} */
 	public static void glWindowPos2svARB(ShortBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 2);
@@ -160,7 +154,11 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos2fvARB ] ---
 
-	/** Unsafe version of {@link #glWindowPos2fvARB WindowPos2fvARB} */
+	/**
+	 * Pointer version of {@link #glWindowPos2fARB WindowPos2fARB}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos2fvARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2fvARB;
 		if ( CHECKS )
@@ -173,13 +171,6 @@ public class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2fvARB(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 2 << 2);
-		nglWindowPos2fvARB(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos2fvARB WindowPos2fvARB} */
 	public static void glWindowPos2fvARB(FloatBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 2);
@@ -188,7 +179,11 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos2dvARB ] ---
 
-	/** Unsafe version of {@link #glWindowPos2dvARB WindowPos2dvARB} */
+	/**
+	 * Pointer version of {@link #glWindowPos2dARB WindowPos2dARB}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos2dvARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2dvARB;
 		if ( CHECKS )
@@ -201,13 +196,6 @@ public class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2dvARB(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 2 << 3);
-		nglWindowPos2dvARB(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos2dvARB WindowPos2dvARB} */
 	public static void glWindowPos2dvARB(DoubleBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 2);
@@ -280,7 +268,11 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos3ivARB ] ---
 
-	/** Unsafe version of {@link #glWindowPos3ivARB WindowPos3ivARB} */
+	/**
+	 * Pointer version of {@link #glWindowPos3iARB WindowPos3iARB}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos3ivARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3ivARB;
 		if ( CHECKS )
@@ -293,13 +285,6 @@ public class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3ivARB(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 3 << 2);
-		nglWindowPos3ivARB(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos3ivARB WindowPos3ivARB} */
 	public static void glWindowPos3ivARB(IntBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 3);
@@ -308,7 +293,11 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos3svARB ] ---
 
-	/** Unsafe version of {@link #glWindowPos3svARB WindowPos3svARB} */
+	/**
+	 * Pointer version of {@link #glWindowPos3sARB WindowPos3sARB}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos3svARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3svARB;
 		if ( CHECKS )
@@ -321,13 +310,6 @@ public class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3svARB(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 3 << 1);
-		nglWindowPos3svARB(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos3svARB WindowPos3svARB} */
 	public static void glWindowPos3svARB(ShortBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 3);
@@ -336,7 +318,11 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos3fvARB ] ---
 
-	/** Unsafe version of {@link #glWindowPos3fvARB WindowPos3fvARB} */
+	/**
+	 * Pointer version of {@link #glWindowPos3fARB WindowPos3fARB}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos3fvARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3fvARB;
 		if ( CHECKS )
@@ -349,13 +335,6 @@ public class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3fvARB(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 3 << 2);
-		nglWindowPos3fvARB(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos3fvARB WindowPos3fvARB} */
 	public static void glWindowPos3fvARB(FloatBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 3);
@@ -364,7 +343,11 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos3dvARB ] ---
 
-	/** Unsafe version of {@link #glWindowPos3dvARB WindowPos3dvARB} */
+	/**
+	 * Pointer version of {@link #glWindowPos3dARB WindowPos3dARB}.
+	 *
+	 * @param p the position value
+	 */
 	public static void nglWindowPos3dvARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3dvARB;
 		if ( CHECKS )
@@ -377,13 +360,6 @@ public class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3dvARB(ByteBuffer p) {
-		if ( CHECKS )
-			checkBuffer(p, 3 << 3);
-		nglWindowPos3dvARB(memAddress(p));
-	}
-
-	/** Alternative version of: {@link #glWindowPos3dvARB WindowPos3dvARB} */
 	public static void glWindowPos3dvARB(DoubleBuffer p) {
 		if ( CHECKS )
 			checkBuffer(p, 3);

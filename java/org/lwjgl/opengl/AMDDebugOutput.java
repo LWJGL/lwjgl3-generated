@@ -82,7 +82,42 @@ public class AMDDebugOutput {
 
 	// --- [ glDebugMessageEnableAMD ] ---
 
-	/** Unsafe version of {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
+	/**
+	 * Allows disabling or enabling generation of subsets of messages. If {@code enabled} is {@link GL11#GL_TRUE TRUE}, the referenced subset of messages is enabled. If
+	 * {@link GL11#GL_FALSE FALSE}, then those messages are disabled. This command can reference different subsets of messages by varying its parameter values in the following
+	 * ways:
+	 * 
+	 * <ol>
+	 * <li>To reference all messages, let {@code category}, {@code severity}, and {@code count} all be zero. The value of {@code ids} is ignored in this case.</li>
+	 * <li>To reference all messages across all categories with a specific severity level, let {@code category} and {@code count} be zero and let
+	 * {@code severity} identify the severity level. The value of {@code ids} is ignored in this case.</li>
+	 * <li>To reference all messages within a single category, let {@code category} identify the referenced category and let {@code severity} and {@code count}
+	 * be zero. The value of {@code ids} is ignored in this case.</li>
+	 * <li>To reference all messages within a single category and at a specific severity level, let {@code category} identify the category and {@code severity}
+	 * identify the severity level, and let {@code count} be zero. The value of {@code ids} is ignored in this case.</li>
+	 * <li>To reference specific messages by ID within a single category, let {@code category} identify the category, let {@code severity} be zero, let
+	 * {@code count} be greater than zero and let {@code ids} identify the IDs of {@code count} messages within the identified category. Operations on
+	 * message IDs that are not valid within the category are silently ignored.</li>
+	 * </ol>
+	 * 
+	 * <p>In all of the above cases, if {@code category} is non-zero and specifies an invalid category, the error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated. Similarly if
+	 * {@code severity} is non-zero and is an invalid severity level, the error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated. If {@code count} is less than zero, the error
+	 * {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated. If the parameters do not fall into one of the cases defined above, the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated. The error
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this command is called in a non-debug context.</p>
+	 * 
+	 * <p>Although messages are grouped into categories and severities, and entire groups of messages can be turned off with a single call, there is no explicit
+	 * per-category or per-severity enabled state. Instead the enabled state is stored individually for each message. There is no difference between disabling
+	 * a category of messages with a single call, and enumerating all messages of that category and individually disabling each of them by their ID.</p>
+	 * 
+	 * <p>All messages of severity level {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD} and {@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD} in all categories are initially enabled, and all messages at
+	 * {@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD} are initially disabled.</p>
+	 *
+	 * @param category the message category. One of:<br>{@link #GL_DEBUG_CATEGORY_API_ERROR_AMD DEBUG_CATEGORY_API_ERROR_AMD}, {@link #GL_DEBUG_CATEGORY_WINDOW_SYSTEM_AMD DEBUG_CATEGORY_WINDOW_SYSTEM_AMD}, {@link #GL_DEBUG_CATEGORY_DEPRECATION_AMD DEBUG_CATEGORY_DEPRECATION_AMD}, {@link #GL_DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD}, {@link #GL_DEBUG_CATEGORY_PERFORMANCE_AMD DEBUG_CATEGORY_PERFORMANCE_AMD}, {@link #GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD DEBUG_CATEGORY_SHADER_COMPILER_AMD}, {@link #GL_DEBUG_CATEGORY_APPLICATION_AMD DEBUG_CATEGORY_APPLICATION_AMD}, {@link #GL_DEBUG_CATEGORY_OTHER_AMD DEBUG_CATEGORY_OTHER_AMD}
+	 * @param severity the message severity. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD}, {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD}, {@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD}
+	 * @param count    the number of values in the {@code ids} array
+	 * @param ids      an array of message ids
+	 * @param enabled  whether to enable or disable the referenced subset of messages
+	 */
 	public static void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageEnableAMD;
 		if ( CHECKS )
@@ -122,22 +157,47 @@ public class AMDDebugOutput {
 	 *
 	 * @param category the message category. One of:<br>{@link #GL_DEBUG_CATEGORY_API_ERROR_AMD DEBUG_CATEGORY_API_ERROR_AMD}, {@link #GL_DEBUG_CATEGORY_WINDOW_SYSTEM_AMD DEBUG_CATEGORY_WINDOW_SYSTEM_AMD}, {@link #GL_DEBUG_CATEGORY_DEPRECATION_AMD DEBUG_CATEGORY_DEPRECATION_AMD}, {@link #GL_DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD}, {@link #GL_DEBUG_CATEGORY_PERFORMANCE_AMD DEBUG_CATEGORY_PERFORMANCE_AMD}, {@link #GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD DEBUG_CATEGORY_SHADER_COMPILER_AMD}, {@link #GL_DEBUG_CATEGORY_APPLICATION_AMD DEBUG_CATEGORY_APPLICATION_AMD}, {@link #GL_DEBUG_CATEGORY_OTHER_AMD DEBUG_CATEGORY_OTHER_AMD}
 	 * @param severity the message severity. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD}, {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD}, {@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD}
-	 * @param count    the number of values in the {@code ids} array
 	 * @param ids      an array of message ids
 	 * @param enabled  whether to enable or disable the referenced subset of messages
 	 */
-	public static void glDebugMessageEnableAMD(int category, int severity, int count, ByteBuffer ids, boolean enabled) {
-		if ( CHECKS )
-			if ( ids != null ) checkBuffer(ids, count << 2);
-		nglDebugMessageEnableAMD(category, severity, count, memAddressSafe(ids), enabled);
-	}
-
-	/** Alternative version of: {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
 	public static void glDebugMessageEnableAMD(int category, int severity, IntBuffer ids, boolean enabled) {
 		nglDebugMessageEnableAMD(category, severity, ids == null ? 0 : ids.remaining(), memAddressSafe(ids), enabled);
 	}
 
-	/** Single value version of: {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
+	/**
+	 * Allows disabling or enabling generation of subsets of messages. If {@code enabled} is {@link GL11#GL_TRUE TRUE}, the referenced subset of messages is enabled. If
+	 * {@link GL11#GL_FALSE FALSE}, then those messages are disabled. This command can reference different subsets of messages by varying its parameter values in the following
+	 * ways:
+	 * 
+	 * <ol>
+	 * <li>To reference all messages, let {@code category}, {@code severity}, and {@code count} all be zero. The value of {@code ids} is ignored in this case.</li>
+	 * <li>To reference all messages across all categories with a specific severity level, let {@code category} and {@code count} be zero and let
+	 * {@code severity} identify the severity level. The value of {@code ids} is ignored in this case.</li>
+	 * <li>To reference all messages within a single category, let {@code category} identify the referenced category and let {@code severity} and {@code count}
+	 * be zero. The value of {@code ids} is ignored in this case.</li>
+	 * <li>To reference all messages within a single category and at a specific severity level, let {@code category} identify the category and {@code severity}
+	 * identify the severity level, and let {@code count} be zero. The value of {@code ids} is ignored in this case.</li>
+	 * <li>To reference specific messages by ID within a single category, let {@code category} identify the category, let {@code severity} be zero, let
+	 * {@code count} be greater than zero and let {@code ids} identify the IDs of {@code count} messages within the identified category. Operations on
+	 * message IDs that are not valid within the category are silently ignored.</li>
+	 * </ol>
+	 * 
+	 * <p>In all of the above cases, if {@code category} is non-zero and specifies an invalid category, the error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated. Similarly if
+	 * {@code severity} is non-zero and is an invalid severity level, the error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated. If {@code count} is less than zero, the error
+	 * {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated. If the parameters do not fall into one of the cases defined above, the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated. The error
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this command is called in a non-debug context.</p>
+	 * 
+	 * <p>Although messages are grouped into categories and severities, and entire groups of messages can be turned off with a single call, there is no explicit
+	 * per-category or per-severity enabled state. Instead the enabled state is stored individually for each message. There is no difference between disabling
+	 * a category of messages with a single call, and enumerating all messages of that category and individually disabling each of them by their ID.</p>
+	 * 
+	 * <p>All messages of severity level {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD} and {@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD} in all categories are initially enabled, and all messages at
+	 * {@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD} are initially disabled.</p>
+	 *
+	 * @param category the message category. One of:<br>{@link #GL_DEBUG_CATEGORY_API_ERROR_AMD DEBUG_CATEGORY_API_ERROR_AMD}, {@link #GL_DEBUG_CATEGORY_WINDOW_SYSTEM_AMD DEBUG_CATEGORY_WINDOW_SYSTEM_AMD}, {@link #GL_DEBUG_CATEGORY_DEPRECATION_AMD DEBUG_CATEGORY_DEPRECATION_AMD}, {@link #GL_DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD}, {@link #GL_DEBUG_CATEGORY_PERFORMANCE_AMD DEBUG_CATEGORY_PERFORMANCE_AMD}, {@link #GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD DEBUG_CATEGORY_SHADER_COMPILER_AMD}, {@link #GL_DEBUG_CATEGORY_APPLICATION_AMD DEBUG_CATEGORY_APPLICATION_AMD}, {@link #GL_DEBUG_CATEGORY_OTHER_AMD DEBUG_CATEGORY_OTHER_AMD}
+	 * @param severity the message severity. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD}, {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD}, {@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD}
+	 * @param enabled  whether to enable or disable the referenced subset of messages
+	 */
 	public static void glDebugMessageEnableAMD(int category, int severity, int id, boolean enabled) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -150,7 +210,23 @@ public class AMDDebugOutput {
 
 	// --- [ glDebugMessageInsertAMD ] ---
 
-	/** Unsafe version of {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
+	/**
+	 * Injects an application-supplied message into the debug message stream.
+	 * 
+	 * <p>The value of {@code id} specifies the ID for the message and {@code severity} indicates its severity level as defined by the application. If
+	 * {@code severity} is not a valid severity level, the error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} will be generated. The value of {@code category} must be
+	 * {@link #GL_DEBUG_CATEGORY_APPLICATION_AMD DEBUG_CATEGORY_APPLICATION_AMD}, or the error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} will be generated. The string {@code buf} contains the string representation of the
+	 * message. The parameter {@code length} contains the size of the message's string representation, excluding the null-terminator. If {@code length} is
+	 * zero, then its value is derived from the string-length of {@code buf} and {@code buf} must contain a null-terminated string. The error
+	 * {@link GL11#GL_INVALID_VALUE INVALID_VALUE} will be generated if {@code length} is less than zero or its derived value is larger than or equal to {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_AMD MAX_DEBUG_MESSAGE_LENGTH_AMD}.
+	 * The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} will be generated if this function is called in a non-debug context.</p>
+	 *
+	 * @param category the message category. Must be:<br>{@link #GL_DEBUG_CATEGORY_APPLICATION_AMD DEBUG_CATEGORY_APPLICATION_AMD}
+	 * @param severity the message severity. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD}, {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD}, {@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD}
+	 * @param id       the message id
+	 * @param length   the number of character in the message
+	 * @param buf      the message characters
+	 */
 	public static void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageInsertAMD;
 		if ( CHECKS )
@@ -172,21 +248,28 @@ public class AMDDebugOutput {
 	 * @param category the message category. Must be:<br>{@link #GL_DEBUG_CATEGORY_APPLICATION_AMD DEBUG_CATEGORY_APPLICATION_AMD}
 	 * @param severity the message severity. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD}, {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD}, {@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD}
 	 * @param id       the message id
-	 * @param length   the number of character in the message
 	 * @param buf      the message characters
 	 */
-	public static void glDebugMessageInsertAMD(int category, int severity, int id, int length, ByteBuffer buf) {
-		if ( CHECKS )
-			checkBuffer(buf, length);
-		nglDebugMessageInsertAMD(category, severity, id, length, memAddress(buf));
-	}
-
-	/** Alternative version of: {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, ByteBuffer buf) {
 		nglDebugMessageInsertAMD(category, severity, id, buf.remaining(), memAddress(buf));
 	}
 
-	/** CharSequence version of: {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
+	/**
+	 * Injects an application-supplied message into the debug message stream.
+	 * 
+	 * <p>The value of {@code id} specifies the ID for the message and {@code severity} indicates its severity level as defined by the application. If
+	 * {@code severity} is not a valid severity level, the error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} will be generated. The value of {@code category} must be
+	 * {@link #GL_DEBUG_CATEGORY_APPLICATION_AMD DEBUG_CATEGORY_APPLICATION_AMD}, or the error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} will be generated. The string {@code buf} contains the string representation of the
+	 * message. The parameter {@code length} contains the size of the message's string representation, excluding the null-terminator. If {@code length} is
+	 * zero, then its value is derived from the string-length of {@code buf} and {@code buf} must contain a null-terminated string. The error
+	 * {@link GL11#GL_INVALID_VALUE INVALID_VALUE} will be generated if {@code length} is less than zero or its derived value is larger than or equal to {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_AMD MAX_DEBUG_MESSAGE_LENGTH_AMD}.
+	 * The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} will be generated if this function is called in a non-debug context.</p>
+	 *
+	 * @param category the message category. Must be:<br>{@link #GL_DEBUG_CATEGORY_APPLICATION_AMD DEBUG_CATEGORY_APPLICATION_AMD}
+	 * @param severity the message severity. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD}, {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD}, {@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD}
+	 * @param id       the message id
+	 * @param buf      the message characters
+	 */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, CharSequence buf) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -236,14 +319,6 @@ public class AMDDebugOutput {
 
 	// --- [ glGetDebugMessageLogAMD ] ---
 
-	/** Unsafe version of {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
-	public static int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog) {
-		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogAMD;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return callIIPPPPPI(__functionAddress, count, bufsize, categories, severities, ids, lengths, messageLog);
-	}
-
 	/**
 	 * Retrieves messages from the debug message log.
 	 * 
@@ -269,18 +344,37 @@ public class AMDDebugOutput {
 	 * @param lengths    an array of variables to receive the lengths of the retrieved messages
 	 * @param messageLog an array of characters that will receive the messages
 	 */
-	public static int glGetDebugMessageLogAMD(int count, int bufsize, ByteBuffer categories, ByteBuffer severities, ByteBuffer ids, ByteBuffer lengths, ByteBuffer messageLog) {
-		if ( CHECKS ) {
-			if ( messageLog != null ) checkBuffer(messageLog, bufsize);
-			if ( categories != null ) checkBuffer(categories, count << 2);
-			if ( severities != null ) checkBuffer(severities, count << 2);
-			if ( ids != null ) checkBuffer(ids, count << 2);
-			if ( lengths != null ) checkBuffer(lengths, count << 2);
-		}
-		return nglGetDebugMessageLogAMD(count, bufsize, memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddressSafe(messageLog));
+	public static int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog) {
+		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return callIIPPPPPI(__functionAddress, count, bufsize, categories, severities, ids, lengths, messageLog);
 	}
 
-	/** Alternative version of: {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
+	/**
+	 * Retrieves messages from the debug message log.
+	 * 
+	 * <p>This function will fetch as many messages as possible from the message log up to {@code count} in order from oldest to newest, and will return the
+	 * number of messages fetched. Those messages that were fetched will be removed from the log. The value of {@code count} must be greater than zero and less
+	 * than {@link #GL_MAX_DEBUG_LOGGED_MESSAGES_AMD MAX_DEBUG_LOGGED_MESSAGES_AMD} or otherwise the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} will be generated. The value of {@code count} can be larger than the
+	 * actual number of messages currently in the log. If {@code messageLog} is not a null pointer, then the string representations of all fetched messages
+	 * will be stored in the buffer {@code messageLog} and will be separated by null-terminators. The maximum size of the buffer (including all
+	 * null-terminators) is denoted by {@code bufSize}, and strings of messages within {@code count} that do not fit in the buffer will not be fetched. If
+	 * {@code bufSize} is less than zero, the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} will be generated. If {@code messageLog} is a null pointer, then the value of
+	 * {@code bufSize} is ignored. The categories, severity levels, IDs, and string representation lengths of all (up to {@code count}) removed messages will
+	 * be stored in the arrays {@code categories}, {@code severities}, {@code ids}, and {@code lengths}, respectively. The counts stored in the array
+	 * {@code lengths} include the null-terminator of each string. Any and all of the output arrays, including {@code messageLog}, are optional, and no data is
+	 * returned for those arrays that are specified with a null pointer. To simply delete up to {@code count} messages from the message log and ignoring, the
+	 * application can call the function with null pointers for all output arrays. The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} will be generated by GetDebugMessageLogAMD
+	 * if it is called in a non-debug context.</p>
+	 *
+	 * @param count      the number of debug messages to retrieve from the log
+	 * @param categories an array of variables to receive the categories of the retrieved messages
+	 * @param severities an array of variables to receive the severities of the retrieved messages
+	 * @param ids        an array of variables to receive the ids of the retrieved messages
+	 * @param lengths    an array of variables to receive the lengths of the retrieved messages
+	 * @param messageLog an array of characters that will receive the messages
+	 */
 	public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, ByteBuffer messageLog) {
 		if ( CHECKS ) {
 			if ( categories != null ) checkBuffer(categories, count);

@@ -66,7 +66,16 @@ public class SOFTHRTF {
 
 	// --- [ alcGetStringiSOFT ] ---
 
-	/** Unsafe version of {@link #alcGetStringiSOFT GetStringiSOFT} */
+	/**
+	 * Returns a human-readable string for an HRTF.
+	 * 
+	 * <p>The returned string will be an implementation-defined UTF-8 encoded specifier for the given HRTF index, designed for display to the user. The returned
+	 * strings are valid until the next enumeration point or the device is closed.</p>
+	 *
+	 * @param device    he same one that previously queried the number of HRTF specifiers
+	 * @param paramName the parameter to query. Must be:<br>{@link #ALC_HRTF_SPECIFIER_SOFT HRTF_SPECIFIER_SOFT}
+	 * @param index     an index between 0 (inclusive) and the previously-queried HRTF count (exclusive)
+	 */
 	public static long nalcGetStringiSOFT(long device, int paramName, int index) {
 		long __functionAddress = ALC.getICD().alcGetStringiSOFT;
 		if ( CHECKS ) {
@@ -93,7 +102,17 @@ public class SOFTHRTF {
 
 	// --- [ alcResetDeviceSOFT ] ---
 
-	/** Unsafe version of {@link #alcResetDeviceSOFT ResetDeviceSOFT} */
+	/**
+	 * Resets a device after it is opened for playback, to attempt changing the playback properties.
+	 *
+	 * @param device   a handle to a valid playback device as returned by {@link ALC10#alcOpenDevice OpenDevice}, otherwise the call fails and an {@link ALC10#ALC_INVALID_DEVICE INVALID_DEVICE} error is generated
+	 * @param attrList the same as what could be passed to {@link ALC10#alcCreateContext CreateContext}. The AL is allowed to ignore attributes and attribute value combinations the device
+	 *                 cannot support, for example if the device doesn't support the requested {@link ALC10#ALC_FREQUENCY FREQUENCY} value, another value it does support may be set.
+	 *
+	 * @return on success the function returns {@link ALC10#ALC_TRUE TRUE}, and on failure the function returns {@link ALC10#ALC_FALSE FALSE}. Note that a return of {@link ALC10#ALC_TRUE TRUE} does not indicate any
+	 *         attributes were honored, just that the device was successfully reset. If you need to know what the attributes are after a reset, query the device using
+	 *         {@link ALC10#alcGetIntegerv GetIntegerv} with the relevant attributes.
+	 */
 	public static boolean nalcResetDeviceSOFT(long device, long attrList) {
 		long __functionAddress = ALC.getICD().alcResetDeviceSOFT;
 		if ( CHECKS ) {
@@ -114,11 +133,6 @@ public class SOFTHRTF {
 	 *         attributes were honored, just that the device was successfully reset. If you need to know what the attributes are after a reset, query the device using
 	 *         {@link ALC10#alcGetIntegerv GetIntegerv} with the relevant attributes.
 	 */
-	public static boolean alcResetDeviceSOFT(long device, ByteBuffer attrList) {
-		return nalcResetDeviceSOFT(device, memAddress(attrList));
-	}
-
-	/** Alternative version of: {@link #alcResetDeviceSOFT ResetDeviceSOFT} */
 	public static boolean alcResetDeviceSOFT(long device, IntBuffer attrList) {
 		return nalcResetDeviceSOFT(device, memAddress(attrList));
 	}

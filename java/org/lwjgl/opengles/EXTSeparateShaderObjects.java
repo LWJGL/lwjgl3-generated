@@ -110,7 +110,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glCreateShaderProgramvEXT ] ---
 
-	/** Unsafe version of {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
 	public static int nglCreateShaderProgramvEXT(int type, int count, long strings) {
 		long __functionAddress = GLES.getCapabilities().glCreateShaderProgramvEXT;
 		if ( CHECKS )
@@ -118,18 +117,10 @@ public class EXTSeparateShaderObjects {
 		return callIIPI(__functionAddress, type, count, strings);
 	}
 
-	public static int glCreateShaderProgramvEXT(int type, int count, ByteBuffer strings) {
-		if ( CHECKS )
-			checkBuffer(strings, count << POINTER_SHIFT);
-		return nglCreateShaderProgramvEXT(type, count, memAddress(strings));
-	}
-
-	/** Alternative version of: {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
 	public static int glCreateShaderProgramvEXT(int type, PointerBuffer strings) {
 		return nglCreateShaderProgramvEXT(type, strings.remaining(), memAddress(strings));
 	}
 
-	/** Array version of: {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
 	public static int glCreateShaderProgramvEXT(int type, CharSequence... strings) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -142,7 +133,6 @@ public class EXTSeparateShaderObjects {
 		}
 	}
 
-	/** Single string version of: {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
 	public static int glCreateShaderProgramvEXT(int type, CharSequence string) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -157,7 +147,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glDeleteProgramPipelinesEXT ] ---
 
-	/** Unsafe version of {@link #glDeleteProgramPipelinesEXT DeleteProgramPipelinesEXT} */
 	public static void nglDeleteProgramPipelinesEXT(int n, long pipelines) {
 		long __functionAddress = GLES.getCapabilities().glDeleteProgramPipelinesEXT;
 		if ( CHECKS )
@@ -165,18 +154,10 @@ public class EXTSeparateShaderObjects {
 		callIPV(__functionAddress, n, pipelines);
 	}
 
-	public static void glDeleteProgramPipelinesEXT(int n, ByteBuffer pipelines) {
-		if ( CHECKS )
-			checkBuffer(pipelines, n << 2);
-		nglDeleteProgramPipelinesEXT(n, memAddress(pipelines));
-	}
-
-	/** Alternative version of: {@link #glDeleteProgramPipelinesEXT DeleteProgramPipelinesEXT} */
 	public static void glDeleteProgramPipelinesEXT(IntBuffer pipelines) {
 		nglDeleteProgramPipelinesEXT(pipelines.remaining(), memAddress(pipelines));
 	}
 
-	/** Single value version of: {@link #glDeleteProgramPipelinesEXT DeleteProgramPipelinesEXT} */
 	public static void glDeleteProgramPipelinesEXT(int pipeline) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -189,7 +170,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glGenProgramPipelinesEXT ] ---
 
-	/** Unsafe version of {@link #glGenProgramPipelinesEXT GenProgramPipelinesEXT} */
 	public static void nglGenProgramPipelinesEXT(int n, long pipelines) {
 		long __functionAddress = GLES.getCapabilities().glGenProgramPipelinesEXT;
 		if ( CHECKS )
@@ -197,18 +177,10 @@ public class EXTSeparateShaderObjects {
 		callIPV(__functionAddress, n, pipelines);
 	}
 
-	public static void glGenProgramPipelinesEXT(int n, ByteBuffer pipelines) {
-		if ( CHECKS )
-			checkBuffer(pipelines, n << 2);
-		nglGenProgramPipelinesEXT(n, memAddress(pipelines));
-	}
-
-	/** Alternative version of: {@link #glGenProgramPipelinesEXT GenProgramPipelinesEXT} */
 	public static void glGenProgramPipelinesEXT(IntBuffer pipelines) {
 		nglGenProgramPipelinesEXT(pipelines.remaining(), memAddress(pipelines));
 	}
 
-	/** Single return value version of: {@link #glGenProgramPipelinesEXT GenProgramPipelinesEXT} */
 	public static int glGenProgramPipelinesEXT() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -222,7 +194,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glGetProgramPipelineInfoLogEXT ] ---
 
-	/** Unsafe version of {@link #glGetProgramPipelineInfoLogEXT GetProgramPipelineInfoLogEXT} */
 	public static void nglGetProgramPipelineInfoLogEXT(int pipeline, int bufSize, long length, long infoLog) {
 		long __functionAddress = GLES.getCapabilities().glGetProgramPipelineInfoLogEXT;
 		if ( CHECKS )
@@ -230,22 +201,12 @@ public class EXTSeparateShaderObjects {
 		callIIPPV(__functionAddress, pipeline, bufSize, length, infoLog);
 	}
 
-	public static void glGetProgramPipelineInfoLogEXT(int pipeline, int bufSize, ByteBuffer length, ByteBuffer infoLog) {
-		if ( CHECKS ) {
-			checkBuffer(infoLog, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetProgramPipelineInfoLogEXT(pipeline, bufSize, memAddressSafe(length), memAddress(infoLog));
-	}
-
-	/** Alternative version of: {@link #glGetProgramPipelineInfoLogEXT GetProgramPipelineInfoLogEXT} */
 	public static void glGetProgramPipelineInfoLogEXT(int pipeline, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramPipelineInfoLogEXT(pipeline, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
-	/** String return version of: {@link #glGetProgramPipelineInfoLogEXT GetProgramPipelineInfoLogEXT} */
 	public static String glGetProgramPipelineInfoLogEXT(int pipeline, int bufSize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		ByteBuffer infoLog = memAlloc(bufSize);
@@ -259,7 +220,6 @@ public class EXTSeparateShaderObjects {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetProgramPipelineInfoLogEXT GetProgramPipelineInfoLogEXT} */
 	public static String glGetProgramPipelineInfoLogEXT(int pipeline) {
 		int bufSize = glGetProgramPipelineiEXT(pipeline, GLES20.GL_INFO_LOG_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -276,7 +236,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glGetProgramPipelineivEXT ] ---
 
-	/** Unsafe version of {@link #glGetProgramPipelineivEXT GetProgramPipelineivEXT} */
 	public static void nglGetProgramPipelineivEXT(int pipeline, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetProgramPipelineivEXT;
 		if ( CHECKS )
@@ -284,20 +243,12 @@ public class EXTSeparateShaderObjects {
 		callIIPV(__functionAddress, pipeline, pname, params);
 	}
 
-	public static void glGetProgramPipelineivEXT(int pipeline, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetProgramPipelineivEXT(pipeline, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetProgramPipelineivEXT GetProgramPipelineivEXT} */
 	public static void glGetProgramPipelineivEXT(int pipeline, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramPipelineivEXT(pipeline, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetProgramPipelineivEXT GetProgramPipelineivEXT} */
 	public static int glGetProgramPipelineiEXT(int pipeline, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -338,7 +289,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform1fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform1fvEXT ProgramUniform1fvEXT} */
 	public static void nglProgramUniform1fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform1fvEXT;
 		if ( CHECKS )
@@ -346,13 +296,6 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform1fvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, count << 2);
-		nglProgramUniform1fvEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform1fvEXT ProgramUniform1fvEXT} */
 	public static void glProgramUniform1fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform1fvEXT(program, location, value.remaining(), memAddress(value));
 	}
@@ -368,7 +311,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform1ivEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform1ivEXT ProgramUniform1ivEXT} */
 	public static void nglProgramUniform1ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform1ivEXT;
 		if ( CHECKS )
@@ -376,13 +318,6 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform1ivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, count << 2);
-		nglProgramUniform1ivEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform1ivEXT ProgramUniform1ivEXT} */
 	public static void glProgramUniform1ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform1ivEXT(program, location, value.remaining(), memAddress(value));
 	}
@@ -398,7 +333,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform2fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform2fvEXT ProgramUniform2fvEXT} */
 	public static void nglProgramUniform2fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform2fvEXT;
 		if ( CHECKS )
@@ -406,13 +340,6 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform2fvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 1) << 2);
-		nglProgramUniform2fvEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform2fvEXT ProgramUniform2fvEXT} */
 	public static void glProgramUniform2fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform2fvEXT(program, location, value.remaining() >> 1, memAddress(value));
 	}
@@ -428,7 +355,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform2ivEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform2ivEXT ProgramUniform2ivEXT} */
 	public static void nglProgramUniform2ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform2ivEXT;
 		if ( CHECKS )
@@ -436,13 +362,6 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform2ivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 1) << 2);
-		nglProgramUniform2ivEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform2ivEXT ProgramUniform2ivEXT} */
 	public static void glProgramUniform2ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform2ivEXT(program, location, value.remaining() >> 1, memAddress(value));
 	}
@@ -458,7 +377,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform3fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform3fvEXT ProgramUniform3fvEXT} */
 	public static void nglProgramUniform3fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform3fvEXT;
 		if ( CHECKS )
@@ -466,13 +384,6 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform3fvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 3) << 2);
-		nglProgramUniform3fvEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform3fvEXT ProgramUniform3fvEXT} */
 	public static void glProgramUniform3fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform3fvEXT(program, location, value.remaining() / 3, memAddress(value));
 	}
@@ -488,7 +399,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform3ivEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform3ivEXT ProgramUniform3ivEXT} */
 	public static void nglProgramUniform3ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform3ivEXT;
 		if ( CHECKS )
@@ -496,13 +406,6 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform3ivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 3) << 2);
-		nglProgramUniform3ivEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform3ivEXT ProgramUniform3ivEXT} */
 	public static void glProgramUniform3ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform3ivEXT(program, location, value.remaining() / 3, memAddress(value));
 	}
@@ -518,7 +421,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform4fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform4fvEXT ProgramUniform4fvEXT} */
 	public static void nglProgramUniform4fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform4fvEXT;
 		if ( CHECKS )
@@ -526,13 +428,6 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform4fvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglProgramUniform4fvEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform4fvEXT ProgramUniform4fvEXT} */
 	public static void glProgramUniform4fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform4fvEXT(program, location, value.remaining() >> 2, memAddress(value));
 	}
@@ -548,7 +443,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform4ivEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform4ivEXT ProgramUniform4ivEXT} */
 	public static void nglProgramUniform4ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform4ivEXT;
 		if ( CHECKS )
@@ -556,20 +450,12 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform4ivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglProgramUniform4ivEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform4ivEXT ProgramUniform4ivEXT} */
 	public static void glProgramUniform4ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform4ivEXT(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2fvEXT ProgramUniformMatrix2fvEXT} */
 	public static void nglProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix2fvEXT;
 		if ( CHECKS )
@@ -577,20 +463,12 @@ public class EXTSeparateShaderObjects {
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
-	public static void glProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglProgramUniformMatrix2fvEXT(program, location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniformMatrix2fvEXT ProgramUniformMatrix2fvEXT} */
 	public static void glProgramUniformMatrix2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2fvEXT(program, location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3fvEXT ProgramUniformMatrix3fvEXT} */
 	public static void nglProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix3fvEXT;
 		if ( CHECKS )
@@ -598,20 +476,12 @@ public class EXTSeparateShaderObjects {
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
-	public static void glProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 9) << 2);
-		nglProgramUniformMatrix3fvEXT(program, location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniformMatrix3fvEXT ProgramUniformMatrix3fvEXT} */
 	public static void glProgramUniformMatrix3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3fvEXT(program, location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4fvEXT ProgramUniformMatrix4fvEXT} */
 	public static void nglProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix4fvEXT;
 		if ( CHECKS )
@@ -619,13 +489,6 @@ public class EXTSeparateShaderObjects {
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
-	public static void glProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 4) << 2);
-		nglProgramUniformMatrix4fvEXT(program, location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniformMatrix4fvEXT ProgramUniformMatrix4fvEXT} */
 	public static void glProgramUniformMatrix4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4fvEXT(program, location, value.remaining() >> 4, transpose, memAddress(value));
 	}
@@ -686,7 +549,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform1uivEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform1uivEXT ProgramUniform1uivEXT} */
 	public static void nglProgramUniform1uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform1uivEXT;
 		if ( CHECKS )
@@ -694,20 +556,12 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform1uivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, count << 2);
-		nglProgramUniform1uivEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform1uivEXT ProgramUniform1uivEXT} */
 	public static void glProgramUniform1uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform1uivEXT(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2uivEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform2uivEXT ProgramUniform2uivEXT} */
 	public static void nglProgramUniform2uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform2uivEXT;
 		if ( CHECKS )
@@ -715,20 +569,12 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform2uivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 1) << 2);
-		nglProgramUniform2uivEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform2uivEXT ProgramUniform2uivEXT} */
 	public static void glProgramUniform2uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform2uivEXT(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3uivEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform3uivEXT ProgramUniform3uivEXT} */
 	public static void nglProgramUniform3uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform3uivEXT;
 		if ( CHECKS )
@@ -736,20 +582,12 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform3uivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 3) << 2);
-		nglProgramUniform3uivEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform3uivEXT ProgramUniform3uivEXT} */
 	public static void glProgramUniform3uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform3uivEXT(program, location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4uivEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniform4uivEXT ProgramUniform4uivEXT} */
 	public static void nglProgramUniform4uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform4uivEXT;
 		if ( CHECKS )
@@ -757,20 +595,12 @@ public class EXTSeparateShaderObjects {
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
-	public static void glProgramUniform4uivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglProgramUniform4uivEXT(program, location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniform4uivEXT ProgramUniform4uivEXT} */
 	public static void glProgramUniform4uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform4uivEXT(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x3fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x3fvEXT ProgramUniformMatrix2x3fvEXT} */
 	public static void nglProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix2x3fvEXT;
 		if ( CHECKS )
@@ -778,20 +608,12 @@ public class EXTSeparateShaderObjects {
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
-	public static void glProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 6) << 2);
-		nglProgramUniformMatrix2x3fvEXT(program, location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniformMatrix2x3fvEXT ProgramUniformMatrix2x3fvEXT} */
 	public static void glProgramUniformMatrix2x3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2x3fvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x2fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x2fvEXT ProgramUniformMatrix3x2fvEXT} */
 	public static void nglProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix3x2fvEXT;
 		if ( CHECKS )
@@ -799,20 +621,12 @@ public class EXTSeparateShaderObjects {
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
-	public static void glProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 6) << 2);
-		nglProgramUniformMatrix3x2fvEXT(program, location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniformMatrix3x2fvEXT ProgramUniformMatrix3x2fvEXT} */
 	public static void glProgramUniformMatrix3x2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3x2fvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x4fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x4fvEXT ProgramUniformMatrix2x4fvEXT} */
 	public static void nglProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix2x4fvEXT;
 		if ( CHECKS )
@@ -820,20 +634,12 @@ public class EXTSeparateShaderObjects {
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
-	public static void glProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 3) << 2);
-		nglProgramUniformMatrix2x4fvEXT(program, location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniformMatrix2x4fvEXT ProgramUniformMatrix2x4fvEXT} */
 	public static void glProgramUniformMatrix2x4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2x4fvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x2fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x2fvEXT ProgramUniformMatrix4x2fvEXT} */
 	public static void nglProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix4x2fvEXT;
 		if ( CHECKS )
@@ -841,20 +647,12 @@ public class EXTSeparateShaderObjects {
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
-	public static void glProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 3) << 2);
-		nglProgramUniformMatrix4x2fvEXT(program, location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniformMatrix4x2fvEXT ProgramUniformMatrix4x2fvEXT} */
 	public static void glProgramUniformMatrix4x2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4x2fvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x4fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x4fvEXT ProgramUniformMatrix3x4fvEXT} */
 	public static void nglProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix3x4fvEXT;
 		if ( CHECKS )
@@ -862,20 +660,12 @@ public class EXTSeparateShaderObjects {
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
-	public static void glProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 12) << 2);
-		nglProgramUniformMatrix3x4fvEXT(program, location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniformMatrix3x4fvEXT ProgramUniformMatrix3x4fvEXT} */
 	public static void glProgramUniformMatrix3x4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3x4fvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x3fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x3fvEXT ProgramUniformMatrix4x3fvEXT} */
 	public static void nglProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glProgramUniformMatrix4x3fvEXT;
 		if ( CHECKS )
@@ -883,13 +673,6 @@ public class EXTSeparateShaderObjects {
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
-	public static void glProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 12) << 2);
-		nglProgramUniformMatrix4x3fvEXT(program, location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glProgramUniformMatrix4x3fvEXT ProgramUniformMatrix4x3fvEXT} */
 	public static void glProgramUniformMatrix4x3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4x3fvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}

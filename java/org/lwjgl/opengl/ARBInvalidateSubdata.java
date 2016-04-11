@@ -128,7 +128,13 @@ public class ARBInvalidateSubdata {
 
 	// --- [ glInvalidateFramebuffer ] ---
 
-	/** Unsafe version of {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
+	/**
+	 * Invalidate the content some or all of a framebuffer object's attachments.
+	 *
+	 * @param target         the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param numAttachments the number of entries in the {@code attachments} array
+	 * @param attachments    the address of an array identifying the attachments to be invalidated
+	 */
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
 		long __functionAddress = GL.getCapabilities().glInvalidateFramebuffer;
 		if ( CHECKS )
@@ -139,22 +145,18 @@ public class ARBInvalidateSubdata {
 	/**
 	 * Invalidate the content some or all of a framebuffer object's attachments.
 	 *
-	 * @param target         the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
-	 * @param numAttachments the number of entries in the {@code attachments} array
-	 * @param attachments    the address of an array identifying the attachments to be invalidated
+	 * @param target      the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param attachments the address of an array identifying the attachments to be invalidated
 	 */
-	public static void glInvalidateFramebuffer(int target, int numAttachments, ByteBuffer attachments) {
-		if ( CHECKS )
-			checkBuffer(attachments, numAttachments << 2);
-		nglInvalidateFramebuffer(target, numAttachments, memAddress(attachments));
-	}
-
-	/** Alternative version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, IntBuffer attachments) {
 		nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments));
 	}
 
-	/** Single value version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
+	/**
+	 * Invalidate the content some or all of a framebuffer object's attachments.
+	 *
+	 * @param target the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 */
 	public static void glInvalidateFramebuffer(int target, int attachment) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -167,14 +169,6 @@ public class ARBInvalidateSubdata {
 
 	// --- [ glInvalidateSubFramebuffer ] ---
 
-	/** Unsafe version of {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
-	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
-	}
-
 	/**
 	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
 	 *
@@ -186,18 +180,36 @@ public class ARBInvalidateSubdata {
 	 * @param width          the width of the region to be invalidated
 	 * @param height         the height of the region to be invalidated
 	 */
-	public static void glInvalidateSubFramebuffer(int target, int numAttachments, ByteBuffer attachments, int x, int y, int width, int height) {
+	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
+		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
 		if ( CHECKS )
-			checkBuffer(attachments, numAttachments << 2);
-		nglInvalidateSubFramebuffer(target, numAttachments, memAddress(attachments), x, y, width, height);
+			checkFunctionAddress(__functionAddress);
+		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
 	}
 
-	/** Alternative version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
+	/**
+	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
+	 *
+	 * @param target      the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param attachments an array identifying the attachments to be invalidated
+	 * @param x           the X offset of the region to be invalidated
+	 * @param y           the Y offset of the region to be invalidated
+	 * @param width       the width of the region to be invalidated
+	 * @param height      the height of the region to be invalidated
+	 */
 	public static void glInvalidateSubFramebuffer(int target, IntBuffer attachments, int x, int y, int width, int height) {
 		nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height);
 	}
 
-	/** Single value version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
+	/**
+	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
+	 *
+	 * @param target the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param x      the X offset of the region to be invalidated
+	 * @param y      the Y offset of the region to be invalidated
+	 * @param width  the width of the region to be invalidated
+	 * @param height the height of the region to be invalidated
+	 */
 	public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

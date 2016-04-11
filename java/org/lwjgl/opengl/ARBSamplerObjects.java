@@ -51,7 +51,12 @@ public class ARBSamplerObjects {
 
 	// --- [ glGenSamplers ] ---
 
-	/** Unsafe version of {@link #glGenSamplers GenSamplers} */
+	/**
+	 * Generates sampler object names.
+	 *
+	 * @param count    the number of sampler object names to generate
+	 * @param samplers a buffer in which the generated sampler object names are stored
+	 */
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = GL.getCapabilities().glGenSamplers;
 		if ( CHECKS )
@@ -62,21 +67,13 @@ public class ARBSamplerObjects {
 	/**
 	 * Generates sampler object names.
 	 *
-	 * @param count    the number of sampler object names to generate
 	 * @param samplers a buffer in which the generated sampler object names are stored
 	 */
-	public static void glGenSamplers(int count, ByteBuffer samplers) {
-		if ( CHECKS )
-			checkBuffer(samplers, count << 2);
-		nglGenSamplers(count, memAddress(samplers));
-	}
-
-	/** Alternative version of: {@link #glGenSamplers GenSamplers} */
 	public static void glGenSamplers(IntBuffer samplers) {
 		nglGenSamplers(samplers.remaining(), memAddress(samplers));
 	}
 
-	/** Single return value version of: {@link #glGenSamplers GenSamplers} */
+	/** Generates sampler object names. */
 	public static int glGenSamplers() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -90,7 +87,12 @@ public class ARBSamplerObjects {
 
 	// --- [ glDeleteSamplers ] ---
 
-	/** Unsafe version of {@link #glDeleteSamplers DeleteSamplers} */
+	/**
+	 * Deletes named sampler objects.
+	 *
+	 * @param count    the number of sampler objects to be deleted
+	 * @param samplers an array of sampler objects to be deleted
+	 */
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = GL.getCapabilities().glDeleteSamplers;
 		if ( CHECKS )
@@ -101,21 +103,13 @@ public class ARBSamplerObjects {
 	/**
 	 * Deletes named sampler objects.
 	 *
-	 * @param count    the number of sampler objects to be deleted
 	 * @param samplers an array of sampler objects to be deleted
 	 */
-	public static void glDeleteSamplers(int count, ByteBuffer samplers) {
-		if ( CHECKS )
-			checkBuffer(samplers, count << 2);
-		nglDeleteSamplers(count, memAddress(samplers));
-	}
-
-	/** Alternative version of: {@link #glDeleteSamplers DeleteSamplers} */
 	public static void glDeleteSamplers(IntBuffer samplers) {
 		nglDeleteSamplers(samplers.remaining(), memAddress(samplers));
 	}
 
-	/** Single value version of: {@link #glDeleteSamplers DeleteSamplers} */
+	/** Deletes named sampler objects. */
 	public static void glDeleteSamplers(int sampler) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -189,7 +183,13 @@ public class ARBSamplerObjects {
 
 	// --- [ glSamplerParameteriv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameteriv SamplerParameteriv} */
+	/**
+	 * Pointer version of {@link #glSamplerParameteri SamplerParameteri}.
+	 *
+	 * @param sampler the sampler object whose parameter to modify
+	 * @param pname   the symbolic name of a sampler parameter. One of:<br>{@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}, {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}
+	 * @param params  an array where the value or values of {@code pname} are stored
+	 */
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteriv;
 		if ( CHECKS )
@@ -204,18 +204,19 @@ public class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a sampler parameter. One of:<br>{@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}, {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
-	public static void glSamplerParameteriv(int sampler, int pname, ByteBuffer params) {
-		nglSamplerParameteriv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glSamplerParameteriv SamplerParameteriv} */
 	public static void glSamplerParameteriv(int sampler, int pname, IntBuffer params) {
 		nglSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterfv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameterfv SamplerParameterfv} */
+	/**
+	 * Float version of {@link #glSamplerParameteriv SamplerParameteriv}.
+	 *
+	 * @param sampler the sampler object whose parameter to modify
+	 * @param pname   the symbolic name of a sampler parameter
+	 * @param params  an array where the value or values of {@code pname} are stored
+	 */
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterfv;
 		if ( CHECKS )
@@ -230,18 +231,19 @@ public class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
-	public static void glSamplerParameterfv(int sampler, int pname, ByteBuffer params) {
-		nglSamplerParameterfv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glSamplerParameterfv SamplerParameterfv} */
 	public static void glSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
 		nglSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterIiv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameterIiv SamplerParameterIiv} */
+	/**
+	 * Pure integer version of {@link #glSamplerParameteriv SamplerParameteriv}.
+	 *
+	 * @param sampler the sampler object whose parameter to modify
+	 * @param pname   the symbolic name of a sampler parameter
+	 * @param params  an array where the value or values of {@code pname} are stored
+	 */
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIiv;
 		if ( CHECKS )
@@ -256,18 +258,19 @@ public class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
-	public static void glSamplerParameterIiv(int sampler, int pname, ByteBuffer params) {
-		nglSamplerParameterIiv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glSamplerParameterIiv SamplerParameterIiv} */
 	public static void glSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		nglSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
+	/**
+	 * Unsigned pure integer version of {@link #glSamplerParameteriv SamplerParameteriv}.
+	 *
+	 * @param sampler the sampler object whose parameter to modify
+	 * @param pname   the symbolic name of a sampler parameter
+	 * @param params  an array where the value or values of {@code pname} are stored
+	 */
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIuiv;
 		if ( CHECKS )
@@ -282,18 +285,19 @@ public class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
-	public static void glSamplerParameterIuiv(int sampler, int pname, ByteBuffer params) {
-		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
 	public static void glSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glGetSamplerParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
+	/**
+	 * Return the integer value(s) of a sampler parameter.
+	 *
+	 * @param sampler the name of the sampler object from which to retrieve parameters
+	 * @param pname   the symbolic name of a sampler parameter. One of:<br>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, ,, {@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}
+	 * @param params  the sampler parameters
+	 */
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameteriv;
 		if ( CHECKS )
@@ -308,20 +312,18 @@ public class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a sampler parameter. One of:<br>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, ,, {@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}
 	 * @param params  the sampler parameters
 	 */
-	public static void glGetSamplerParameteriv(int sampler, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static void glGetSamplerParameteriv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
+	/**
+	 * Return the integer value(s) of a sampler parameter.
+	 *
+	 * @param sampler the name of the sampler object from which to retrieve parameters
+	 * @param pname   the symbolic name of a sampler parameter. One of:<br>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, ,, {@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}
+	 */
 	public static int glGetSamplerParameteri(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -335,7 +337,13 @@ public class ARBSamplerObjects {
 
 	// --- [ glGetSamplerParameterfv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
+	/**
+	 * Float version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
+	 *
+	 * @param sampler the name of the sampler object from which to retrieve parameters
+	 * @param pname   the symbolic name of a sampler parameter
+	 * @param params  the sampler parameters
+	 */
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterfv;
 		if ( CHECKS )
@@ -350,20 +358,18 @@ public class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  the sampler parameters
 	 */
-	public static void glGetSamplerParameterfv(int sampler, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static void glGetSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
+	/**
+	 * Float version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
+	 *
+	 * @param sampler the name of the sampler object from which to retrieve parameters
+	 * @param pname   the symbolic name of a sampler parameter
+	 */
 	public static float glGetSamplerParameterf(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -377,7 +383,13 @@ public class ARBSamplerObjects {
 
 	// --- [ glGetSamplerParameterIiv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
+	/**
+	 * Pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
+	 *
+	 * @param sampler the name of the sampler object from which to retrieve parameters
+	 * @param pname   the symbolic name of a sampler parameter
+	 * @param params  the sampler parameters
+	 */
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIiv;
 		if ( CHECKS )
@@ -392,20 +404,18 @@ public class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  the sampler parameters
 	 */
-	public static void glGetSamplerParameterIiv(int sampler, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static void glGetSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
+	/**
+	 * Pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
+	 *
+	 * @param sampler the name of the sampler object from which to retrieve parameters
+	 * @param pname   the symbolic name of a sampler parameter
+	 */
 	public static int glGetSamplerParameterIi(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -419,7 +429,13 @@ public class ARBSamplerObjects {
 
 	// --- [ glGetSamplerParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
+	/**
+	 * Unsigned pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
+	 *
+	 * @param sampler the name of the sampler object from which to retrieve parameters
+	 * @param pname   the symbolic name of a sampler parameter
+	 * @param params  the sampler parameters
+	 */
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIuiv;
 		if ( CHECKS )
@@ -434,20 +450,18 @@ public class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  the sampler parameters
 	 */
-	public static void glGetSamplerParameterIuiv(int sampler, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
+	/**
+	 * Unsigned pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
+	 *
+	 * @param sampler the name of the sampler object from which to retrieve parameters
+	 * @param pname   the symbolic name of a sampler parameter
+	 */
 	public static int glGetSamplerParameterIui(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

@@ -47,7 +47,6 @@ public class OESMapbuffer {
 
 	// --- [ glMapBufferOES ] ---
 
-	/** Unsafe version of {@link #glMapBufferOES MapBufferOES} */
 	public static long nglMapBufferOES(int target, int access) {
 		long __functionAddress = GLES.getCapabilities().glMapBufferOES;
 		if ( CHECKS )
@@ -60,14 +59,12 @@ public class OESMapbuffer {
 		return memByteBuffer(__result, GLES20.glGetBufferParameteri(target, GLES20.GL_BUFFER_SIZE));
 	}
 
-	/** Alternative version of: {@link #glMapBufferOES MapBufferOES} */
 	public static ByteBuffer glMapBufferOES(int target, int access, ByteBuffer old_buffer) {
 		long __result = nglMapBufferOES(target, access);
 		int length = GLES20.glGetBufferParameteri(target, GLES20.GL_BUFFER_SIZE);
 		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
 	}
 
-	/** Explicit size alternative version of: {@link #glMapBufferOES MapBufferOES} */
 	public static ByteBuffer glMapBufferOES(int target, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapBufferOES(target, access);
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
@@ -84,7 +81,6 @@ public class OESMapbuffer {
 
 	// --- [ glGetBufferPointervOES ] ---
 
-	/** Unsafe version of {@link #glGetBufferPointervOES GetBufferPointervOES} */
 	public static void nglGetBufferPointervOES(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetBufferPointervOES;
 		if ( CHECKS )
@@ -92,20 +88,12 @@ public class OESMapbuffer {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetBufferPointervOES(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << POINTER_SHIFT);
-		nglGetBufferPointervOES(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetBufferPointervOES GetBufferPointervOES} */
 	public static void glGetBufferPointervOES(int target, int pname, PointerBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferPointervOES(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferPointervOES GetBufferPointervOES} */
 	public static long glGetBufferPointerOES(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

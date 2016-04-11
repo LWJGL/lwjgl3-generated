@@ -33,7 +33,13 @@ public class WGLARBExtensionsString {
 
 	// --- [ wglGetExtensionsStringARB ] ---
 
-	/** Unsafe version of {@link #wglGetExtensionsStringARB GetExtensionsStringARB} */
+	/**
+	 * Returns a list of supported extensions to WGL. Although the contents of the string is implementation specific, the string will be {@code NULL} terminated and
+	 * will contain a space-separated list of extension names. (The extension names themselves do not contain spaces.) If there are no extensions then the
+	 * empty string is returned.
+	 *
+	 * @param hdc the device context to query extensions for
+	 */
 	public static long nwglGetExtensionsStringARB(long hdc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetExtensionsStringARB;
 		if ( CHECKS ) {

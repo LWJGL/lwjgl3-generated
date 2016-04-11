@@ -68,7 +68,6 @@ public class NVHalfFloat {
 
 	// --- [ glVertex2hvNV ] ---
 
-	/** Unsafe version of {@link #glVertex2hvNV Vertex2hvNV} */
 	public static void nglVertex2hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glVertex2hvNV;
 		if ( CHECKS )
@@ -76,13 +75,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, v);
 	}
 
-	public static void glVertex2hvNV(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 1);
-		nglVertex2hvNV(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertex2hvNV Vertex2hvNV} */
 	public static void glVertex2hvNV(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -100,7 +92,6 @@ public class NVHalfFloat {
 
 	// --- [ glVertex3hvNV ] ---
 
-	/** Unsafe version of {@link #glVertex3hvNV Vertex3hvNV} */
 	public static void nglVertex3hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glVertex3hvNV;
 		if ( CHECKS )
@@ -108,13 +99,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, v);
 	}
 
-	public static void glVertex3hvNV(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 1);
-		nglVertex3hvNV(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertex3hvNV Vertex3hvNV} */
 	public static void glVertex3hvNV(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -132,7 +116,6 @@ public class NVHalfFloat {
 
 	// --- [ glVertex4hvNV ] ---
 
-	/** Unsafe version of {@link #glVertex4hvNV Vertex4hvNV} */
 	public static void nglVertex4hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glVertex4hvNV;
 		if ( CHECKS )
@@ -140,13 +123,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, v);
 	}
 
-	public static void glVertex4hvNV(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglVertex4hvNV(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertex4hvNV Vertex4hvNV} */
 	public static void glVertex4hvNV(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -164,7 +140,6 @@ public class NVHalfFloat {
 
 	// --- [ glNormal3hvNV ] ---
 
-	/** Unsafe version of {@link #glNormal3hvNV Normal3hvNV} */
 	public static void nglNormal3hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3hvNV;
 		if ( CHECKS )
@@ -172,13 +147,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, v);
 	}
 
-	public static void glNormal3hvNV(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 1);
-		nglNormal3hvNV(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glNormal3hvNV Normal3hvNV} */
 	public static void glNormal3hvNV(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -196,7 +164,6 @@ public class NVHalfFloat {
 
 	// --- [ glColor3hvNV ] ---
 
-	/** Unsafe version of {@link #glColor3hvNV Color3hvNV} */
 	public static void nglColor3hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3hvNV;
 		if ( CHECKS )
@@ -204,13 +171,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, v);
 	}
 
-	public static void glColor3hvNV(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 1);
-		nglColor3hvNV(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glColor3hvNV Color3hvNV} */
 	public static void glColor3hvNV(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -228,7 +188,6 @@ public class NVHalfFloat {
 
 	// --- [ glColor4hvNV ] ---
 
-	/** Unsafe version of {@link #glColor4hvNV Color4hvNV} */
 	public static void nglColor4hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4hvNV;
 		if ( CHECKS )
@@ -236,13 +195,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, v);
 	}
 
-	public static void glColor4hvNV(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglColor4hvNV(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glColor4hvNV Color4hvNV} */
 	public static void glColor4hvNV(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -260,7 +212,6 @@ public class NVHalfFloat {
 
 	// --- [ glTexCoord1hvNV ] ---
 
-	/** Unsafe version of {@link #glTexCoord1hvNV TexCoord1hvNV} */
 	public static void nglTexCoord1hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1hvNV;
 		if ( CHECKS )
@@ -268,13 +219,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, v);
 	}
 
-	public static void glTexCoord1hvNV(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 1);
-		nglTexCoord1hvNV(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glTexCoord1hvNV TexCoord1hvNV} */
 	public static void glTexCoord1hvNV(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -292,7 +236,6 @@ public class NVHalfFloat {
 
 	// --- [ glTexCoord2hvNV ] ---
 
-	/** Unsafe version of {@link #glTexCoord2hvNV TexCoord2hvNV} */
 	public static void nglTexCoord2hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2hvNV;
 		if ( CHECKS )
@@ -300,13 +243,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, v);
 	}
 
-	public static void glTexCoord2hvNV(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 1);
-		nglTexCoord2hvNV(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glTexCoord2hvNV TexCoord2hvNV} */
 	public static void glTexCoord2hvNV(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -324,7 +260,6 @@ public class NVHalfFloat {
 
 	// --- [ glTexCoord3hvNV ] ---
 
-	/** Unsafe version of {@link #glTexCoord3hvNV TexCoord3hvNV} */
 	public static void nglTexCoord3hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3hvNV;
 		if ( CHECKS )
@@ -332,13 +267,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, v);
 	}
 
-	public static void glTexCoord3hvNV(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 1);
-		nglTexCoord3hvNV(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glTexCoord3hvNV TexCoord3hvNV} */
 	public static void glTexCoord3hvNV(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -356,7 +284,6 @@ public class NVHalfFloat {
 
 	// --- [ glTexCoord4hvNV ] ---
 
-	/** Unsafe version of {@link #glTexCoord4hvNV TexCoord4hvNV} */
 	public static void nglTexCoord4hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4hvNV;
 		if ( CHECKS )
@@ -364,13 +291,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, v);
 	}
 
-	public static void glTexCoord4hvNV(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglTexCoord4hvNV(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glTexCoord4hvNV TexCoord4hvNV} */
 	public static void glTexCoord4hvNV(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -388,7 +308,6 @@ public class NVHalfFloat {
 
 	// --- [ glMultiTexCoord1hvNV ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord1hvNV MultiTexCoord1hvNV} */
 	public static void nglMultiTexCoord1hvNV(int target, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1hvNV;
 		if ( CHECKS )
@@ -396,13 +315,6 @@ public class NVHalfFloat {
 		callIPV(__functionAddress, target, v);
 	}
 
-	public static void glMultiTexCoord1hvNV(int target, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 1);
-		nglMultiTexCoord1hvNV(target, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord1hvNV MultiTexCoord1hvNV} */
 	public static void glMultiTexCoord1hvNV(int target, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -420,7 +332,6 @@ public class NVHalfFloat {
 
 	// --- [ glMultiTexCoord2hvNV ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord2hvNV MultiTexCoord2hvNV} */
 	public static void nglMultiTexCoord2hvNV(int target, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2hvNV;
 		if ( CHECKS )
@@ -428,13 +339,6 @@ public class NVHalfFloat {
 		callIPV(__functionAddress, target, v);
 	}
 
-	public static void glMultiTexCoord2hvNV(int target, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 1);
-		nglMultiTexCoord2hvNV(target, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord2hvNV MultiTexCoord2hvNV} */
 	public static void glMultiTexCoord2hvNV(int target, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -452,7 +356,6 @@ public class NVHalfFloat {
 
 	// --- [ glMultiTexCoord3hvNV ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord3hvNV MultiTexCoord3hvNV} */
 	public static void nglMultiTexCoord3hvNV(int target, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3hvNV;
 		if ( CHECKS )
@@ -460,13 +363,6 @@ public class NVHalfFloat {
 		callIPV(__functionAddress, target, v);
 	}
 
-	public static void glMultiTexCoord3hvNV(int target, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 1);
-		nglMultiTexCoord3hvNV(target, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord3hvNV MultiTexCoord3hvNV} */
 	public static void glMultiTexCoord3hvNV(int target, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -484,7 +380,6 @@ public class NVHalfFloat {
 
 	// --- [ glMultiTexCoord4hvNV ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord4hvNV MultiTexCoord4hvNV} */
 	public static void nglMultiTexCoord4hvNV(int target, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4hvNV;
 		if ( CHECKS )
@@ -492,13 +387,6 @@ public class NVHalfFloat {
 		callIPV(__functionAddress, target, v);
 	}
 
-	public static void glMultiTexCoord4hvNV(int target, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglMultiTexCoord4hvNV(target, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord4hvNV MultiTexCoord4hvNV} */
 	public static void glMultiTexCoord4hvNV(int target, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -516,7 +404,6 @@ public class NVHalfFloat {
 
 	// --- [ glFogCoordhvNV ] ---
 
-	/** Unsafe version of {@link #glFogCoordhvNV FogCoordhvNV} */
 	public static void nglFogCoordhvNV(long fog) {
 		long __functionAddress = GL.getCapabilities().glFogCoordhvNV;
 		if ( CHECKS )
@@ -524,13 +411,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, fog);
 	}
 
-	public static void glFogCoordhvNV(ByteBuffer fog) {
-		if ( CHECKS )
-			checkBuffer(fog, 1 << 1);
-		nglFogCoordhvNV(memAddress(fog));
-	}
-
-	/** Alternative version of: {@link #glFogCoordhvNV FogCoordhvNV} */
 	public static void glFogCoordhvNV(ShortBuffer fog) {
 		if ( CHECKS )
 			checkBuffer(fog, 1);
@@ -548,7 +428,6 @@ public class NVHalfFloat {
 
 	// --- [ glSecondaryColor3hvNV ] ---
 
-	/** Unsafe version of {@link #glSecondaryColor3hvNV SecondaryColor3hvNV} */
 	public static void nglSecondaryColor3hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3hvNV;
 		if ( CHECKS )
@@ -556,13 +435,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, v);
 	}
 
-	public static void glSecondaryColor3hvNV(ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 1);
-		nglSecondaryColor3hvNV(memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glSecondaryColor3hvNV SecondaryColor3hvNV} */
 	public static void glSecondaryColor3hvNV(ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -580,7 +452,6 @@ public class NVHalfFloat {
 
 	// --- [ glVertexWeighthvNV ] ---
 
-	/** Unsafe version of {@link #glVertexWeighthvNV VertexWeighthvNV} */
 	public static void nglVertexWeighthvNV(long weight) {
 		long __functionAddress = GL.getCapabilities().glVertexWeighthvNV;
 		if ( CHECKS )
@@ -588,13 +459,6 @@ public class NVHalfFloat {
 		callPV(__functionAddress, weight);
 	}
 
-	public static void glVertexWeighthvNV(ByteBuffer weight) {
-		if ( CHECKS )
-			checkBuffer(weight, 1 << 1);
-		nglVertexWeighthvNV(memAddress(weight));
-	}
-
-	/** Alternative version of: {@link #glVertexWeighthvNV VertexWeighthvNV} */
 	public static void glVertexWeighthvNV(ShortBuffer weight) {
 		if ( CHECKS )
 			checkBuffer(weight, 1);
@@ -612,7 +476,6 @@ public class NVHalfFloat {
 
 	// --- [ glVertexAttrib1hvNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib1hvNV VertexAttrib1hvNV} */
 	public static void nglVertexAttrib1hvNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1hvNV;
 		if ( CHECKS )
@@ -620,13 +483,6 @@ public class NVHalfFloat {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttrib1hvNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 1);
-		nglVertexAttrib1hvNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib1hvNV VertexAttrib1hvNV} */
 	public static void glVertexAttrib1hvNV(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -644,7 +500,6 @@ public class NVHalfFloat {
 
 	// --- [ glVertexAttrib2hvNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib2hvNV VertexAttrib2hvNV} */
 	public static void nglVertexAttrib2hvNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2hvNV;
 		if ( CHECKS )
@@ -652,13 +507,6 @@ public class NVHalfFloat {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttrib2hvNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 1);
-		nglVertexAttrib2hvNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib2hvNV VertexAttrib2hvNV} */
 	public static void glVertexAttrib2hvNV(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -676,7 +524,6 @@ public class NVHalfFloat {
 
 	// --- [ glVertexAttrib3hvNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib3hvNV VertexAttrib3hvNV} */
 	public static void nglVertexAttrib3hvNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3hvNV;
 		if ( CHECKS )
@@ -684,13 +531,6 @@ public class NVHalfFloat {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttrib3hvNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 1);
-		nglVertexAttrib3hvNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib3hvNV VertexAttrib3hvNV} */
 	public static void glVertexAttrib3hvNV(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -708,7 +548,6 @@ public class NVHalfFloat {
 
 	// --- [ glVertexAttrib4hvNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4hvNV VertexAttrib4hvNV} */
 	public static void nglVertexAttrib4hvNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4hvNV;
 		if ( CHECKS )
@@ -716,13 +555,6 @@ public class NVHalfFloat {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttrib4hvNV(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglVertexAttrib4hvNV(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4hvNV VertexAttrib4hvNV} */
 	public static void glVertexAttrib4hvNV(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -731,7 +563,6 @@ public class NVHalfFloat {
 
 	// --- [ glVertexAttribs1hvNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribs1hvNV VertexAttribs1hvNV} */
 	public static void nglVertexAttribs1hvNV(int index, int n, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs1hvNV;
 		if ( CHECKS )
@@ -739,20 +570,12 @@ public class NVHalfFloat {
 		callIIPV(__functionAddress, index, n, v);
 	}
 
-	public static void glVertexAttribs1hvNV(int index, int n, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, n << 1);
-		nglVertexAttribs1hvNV(index, n, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribs1hvNV VertexAttribs1hvNV} */
 	public static void glVertexAttribs1hvNV(int index, ShortBuffer v) {
 		nglVertexAttribs1hvNV(index, v.remaining(), memAddress(v));
 	}
 
 	// --- [ glVertexAttribs2hvNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribs2hvNV VertexAttribs2hvNV} */
 	public static void nglVertexAttribs2hvNV(int index, int n, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs2hvNV;
 		if ( CHECKS )
@@ -760,20 +583,12 @@ public class NVHalfFloat {
 		callIIPV(__functionAddress, index, n, v);
 	}
 
-	public static void glVertexAttribs2hvNV(int index, int n, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, (n << 1) << 1);
-		nglVertexAttribs2hvNV(index, n, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribs2hvNV VertexAttribs2hvNV} */
 	public static void glVertexAttribs2hvNV(int index, ShortBuffer v) {
 		nglVertexAttribs2hvNV(index, v.remaining() >> 1, memAddress(v));
 	}
 
 	// --- [ glVertexAttribs3hvNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribs3hvNV VertexAttribs3hvNV} */
 	public static void nglVertexAttribs3hvNV(int index, int n, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs3hvNV;
 		if ( CHECKS )
@@ -781,20 +596,12 @@ public class NVHalfFloat {
 		callIIPV(__functionAddress, index, n, v);
 	}
 
-	public static void glVertexAttribs3hvNV(int index, int n, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, (n * 3) << 1);
-		nglVertexAttribs3hvNV(index, n, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribs3hvNV VertexAttribs3hvNV} */
 	public static void glVertexAttribs3hvNV(int index, ShortBuffer v) {
 		nglVertexAttribs3hvNV(index, v.remaining() / 3, memAddress(v));
 	}
 
 	// --- [ glVertexAttribs4hvNV ] ---
 
-	/** Unsafe version of {@link #glVertexAttribs4hvNV VertexAttribs4hvNV} */
 	public static void nglVertexAttribs4hvNV(int index, int n, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs4hvNV;
 		if ( CHECKS )
@@ -802,13 +609,6 @@ public class NVHalfFloat {
 		callIIPV(__functionAddress, index, n, v);
 	}
 
-	public static void glVertexAttribs4hvNV(int index, int n, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, (n << 2) << 1);
-		nglVertexAttribs4hvNV(index, n, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribs4hvNV VertexAttribs4hvNV} */
 	public static void glVertexAttribs4hvNV(int index, ShortBuffer v) {
 		nglVertexAttribs4hvNV(index, v.remaining() >> 2, memAddress(v));
 	}

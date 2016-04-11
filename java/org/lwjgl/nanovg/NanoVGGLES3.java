@@ -38,7 +38,15 @@ public class NanoVGGLES3 {
 
 	// --- [ nvglCreateImageFromHandleGLES3 ] ---
 
-	/** JNI method for {@link #nvglCreateImageFromHandleGLES3 lCreateImageFromHandleGLES3} */
+	/**
+	 * Creates a NanoVG image from an OpenGL texture.
+	 *
+	 * @param ctx       the NanoVG context
+	 * @param textureId the OpenGL texture id
+	 * @param w         the image width
+	 * @param h         the image height
+	 * @param flags     the image flags
+	 */
 	public static native int nnvglCreateImageFromHandleGLES3(long ctx, int textureId, int w, int h, int flags);
 
 	/**
@@ -58,7 +66,12 @@ public class NanoVGGLES3 {
 
 	// --- [ nvglImageHandleGLES3 ] ---
 
-	/** JNI method for {@link #nvglImageHandleGLES3 lImageHandleGLES3} */
+	/**
+	 * Returns the OpenGL texture id associated with a NanoVG image.
+	 *
+	 * @param ctx   the NanoVG context
+	 * @param image the image handle
+	 */
 	public static native int nnvglImageHandleGLES3(long ctx, int image);
 
 	/**
@@ -87,7 +100,11 @@ public class NanoVGGLES3 {
 
 	// --- [ nvgDeleteGLES3 ] ---
 
-	/** JNI method for {@link #nvgDeleteGLES3 DeleteGLES3} */
+	/**
+	 * Deletes a NanoVG context created with {@link #nvgCreateGLES3 CreateGLES3}.
+	 *
+	 * @param ctx the NanoVG context
+	 */
 	public static native void nnvgDeleteGLES3(long ctx);
 
 	/**
@@ -103,7 +120,14 @@ public class NanoVGGLES3 {
 
 	// --- [ nvgluCreateFramebuffer ] ---
 
-	/** JNI method for {@link #nvgluCreateFramebuffer luCreateFramebuffer} */
+	/**
+	 * Creates a framebuffer object to render to.
+	 *
+	 * @param ctx        the NanoVG context
+	 * @param w          the framebuffer width
+	 * @param h          the framebuffer height
+	 * @param imageFlags the image flags
+	 */
 	public static native long nnvgluCreateFramebuffer(long ctx, int w, int h, int imageFlags);
 
 	/**
@@ -123,7 +147,12 @@ public class NanoVGGLES3 {
 
 	// --- [ nvgluBindFramebuffer ] ---
 
-	/** JNI method for {@link #nvgluBindFramebuffer luBindFramebuffer} */
+	/**
+	 * Binds the framebuffer object associated with the specified {@link NVGLUFramebuffer}.
+	 *
+	 * @param ctx the NanoVG context
+	 * @param fb  the framebuffer to bind
+	 */
 	public static native void nnvgluBindFramebuffer(long ctx, long fb);
 
 	/**
@@ -140,7 +169,12 @@ public class NanoVGGLES3 {
 
 	// --- [ nvgluDeleteFramebuffer ] ---
 
-	/** JNI method for {@link #nvgluDeleteFramebuffer luDeleteFramebuffer} */
+	/**
+	 * Deletes an {@link NVGLUFramebuffer}.
+	 *
+	 * @param ctx the NanoVG context
+	 * @param fb  the framebuffer to delete
+	 */
 	public static native void nnvgluDeleteFramebuffer(long ctx, long fb);
 
 	/**

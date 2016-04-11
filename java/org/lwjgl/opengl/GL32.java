@@ -203,7 +203,15 @@ public class GL32 {
 
 	// --- [ glGetBufferParameteri64v ] ---
 
-	/** Unsafe version of {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the value of a buffer object parameter.
+	 *
+	 * @param target the target buffer object. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
+	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
+	 * @param params the requested parameter
+	 */
 	public static void nglGetBufferParameteri64v(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetBufferParameteri64v;
 		if ( CHECKS )
@@ -220,20 +228,20 @@ public class GL32 {
 	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
 	 * @param params the requested parameter
 	 */
-	public static void glGetBufferParameteri64v(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetBufferParameteri64v(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
 	public static void glGetBufferParameteri64v(int target, int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferParameteri64v(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the value of a buffer object parameter.
+	 *
+	 * @param target the target buffer object. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
+	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
+	 */
 	public static long glGetBufferParameteri64(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -247,7 +255,17 @@ public class GL32 {
 
 	// --- [ glDrawElementsBaseVertex ] ---
 
-	/** Unsafe version of {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param count      the number of elements to be rendered
+	 * @param type       the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
+	 */
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = GL.getCapabilities().glDrawElementsBaseVertex;
 		if ( CHECKS )
@@ -266,43 +284,67 @@ public class GL32 {
 	 * @param indices    a pointer to the location where the indices are stored
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
-	public static void glDrawElementsBaseVertex(int mode, int count, int type, ByteBuffer indices, int basevertex) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsBaseVertex(mode, count, type, memAddress(indices), basevertex);
-	}
-
-	/** Buffer object offset version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
-	public static void glDrawElementsBaseVertex(int mode, int count, int type, long indicesOffset, int basevertex) {
+	public static void glDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawElementsBaseVertex(mode, count, type, indicesOffset, basevertex);
+		nglDrawElementsBaseVertex(mode, count, type, indices, basevertex);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param type       the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawElementsBaseVertex(int mode, ByteBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawElementsBaseVertex(int mode, ShortBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -311,7 +353,19 @@ public class GL32 {
 
 	// --- [ glDrawRangeElementsBaseVertex ] ---
 
-	/** Unsafe version of {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param start      the minimum array index contained in {@code indices}
+	 * @param end        the maximum array index contained in {@code indices}
+	 * @param count      the number of elements to be rendered
+	 * @param type       the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
+	 */
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = GL.getCapabilities().glDrawRangeElementsBaseVertex;
 		if ( CHECKS )
@@ -332,43 +386,75 @@ public class GL32 {
 	 * @param indices    a pointer to the location where the indices are stored
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
-	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, ByteBuffer indices, int basevertex) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, memAddress(indices), basevertex);
-	}
-
-	/** Buffer object offset version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
-	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indicesOffset, int basevertex) {
+	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indicesOffset, basevertex);
+		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
 	}
 
-	/** Alternative version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param start      the minimum array index contained in {@code indices}
+	 * @param end        the maximum array index contained in {@code indices}
+	 * @param type       the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param start      the minimum array index contained in {@code indices}
+	 * @param end        the maximum array index contained in {@code indices}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ByteBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param start      the minimum array index contained in {@code indices}
+	 * @param end        the maximum array index contained in {@code indices}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ShortBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param start      the minimum array index contained in {@code indices}
+	 * @param end        the maximum array index contained in {@code indices}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -377,7 +463,18 @@ public class GL32 {
 
 	// --- [ glDrawElementsInstancedBaseVertex ] ---
 
-	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param count      the number of elements to be rendered
+	 * @param type       the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param primcount  the number of instances of the indexed geometry that should be drawn
+	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
+	 */
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertex;
 		if ( CHECKS )
@@ -397,43 +494,71 @@ public class GL32 {
 	 * @param primcount  the number of instances of the indexed geometry that should be drawn
 	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
 	 */
-	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, ByteBuffer indices, int primcount, int basevertex) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsInstancedBaseVertex(mode, count, type, memAddress(indices), primcount, basevertex);
-	}
-
-	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
-	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indicesOffset, int primcount, int basevertex) {
+	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawElementsInstancedBaseVertex(mode, count, type, indicesOffset, primcount, basevertex);
+		nglDrawElementsInstancedBaseVertex(mode, count, type, indices, primcount, basevertex);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param type       the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param primcount  the number of instances of the indexed geometry that should be drawn
+	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int primcount, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, basevertex);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param primcount  the number of instances of the indexed geometry that should be drawn
+	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ByteBuffer indices, int primcount, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param primcount  the number of instances of the indexed geometry that should be drawn
+	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ShortBuffer indices, int primcount, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param primcount  the number of instances of the indexed geometry that should be drawn
+	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
+	 */
 	public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int primcount, int basevertex) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -442,7 +567,20 @@ public class GL32 {
 
 	// --- [ glMultiDrawElementsBaseVertex ] ---
 
-	/** Unsafe version of {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Renders multiple sets of primitives by specifying indices of array data elements and an offset to apply to each index.
+	 * 
+	 * <p><b>LWJGL note</b>: Use {@link MemoryUtil#memAddress} to retrieve pointers to the index buffers.</p>
+	 *
+	 * @param mode       the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param count      an array of the elements counts
+	 * @param type       the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices    a pointer to the location where the indices are stored
+	 * @param primcount  the size of the {@code count} array
+	 * @param basevertex a pointer to the location where the base vertices are stored
+	 */
 	public static void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsBaseVertex;
 		if ( CHECKS )
@@ -461,19 +599,8 @@ public class GL32 {
 	 * @param count      an array of the elements counts
 	 * @param type       the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indices    a pointer to the location where the indices are stored
-	 * @param primcount  the size of the {@code count} array
 	 * @param basevertex a pointer to the location where the base vertices are stored
 	 */
-	public static void glMultiDrawElementsBaseVertex(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount, ByteBuffer basevertex) {
-		if ( CHECKS ) {
-			checkBuffer(count, primcount << 2);
-			checkBuffer(indices, primcount << POINTER_SHIFT);
-			checkBuffer(basevertex, primcount << 2);
-		}
-		nglMultiDrawElementsBaseVertex(mode, memAddress(count), type, memAddress(indices), primcount, memAddress(basevertex));
-	}
-
-	/** Alternative version of: {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex} */
 	public static void glMultiDrawElementsBaseVertex(int mode, IntBuffer count, int type, PointerBuffer indices, IntBuffer basevertex) {
 		if ( CHECKS ) {
 			checkBuffer(indices, count.remaining());
@@ -547,7 +674,15 @@ public class GL32 {
 
 	// --- [ glGetMultisamplefv ] ---
 
-	/** Unsafe version of {@link #glGetMultisamplefv GetMultisamplefv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the location of a sample.
+	 *
+	 * @param pname the sample parameter name. Must be:<br>{@link #GL_SAMPLE_POSITION SAMPLE_POSITION}
+	 * @param index the index of the sample whose position to query
+	 * @param val   an array to receive the position of the sample
+	 */
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
 		if ( CHECKS )
@@ -564,20 +699,20 @@ public class GL32 {
 	 * @param index the index of the sample whose position to query
 	 * @param val   an array to receive the position of the sample
 	 */
-	public static void glGetMultisamplefv(int pname, int index, ByteBuffer val) {
-		if ( CHECKS )
-			checkBuffer(val, 1 << 2);
-		nglGetMultisamplefv(pname, index, memAddress(val));
-	}
-
-	/** Alternative version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static void glGetMultisamplefv(int pname, int index, FloatBuffer val) {
 		if ( CHECKS )
 			checkBuffer(val, 1);
 		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
-	/** Single return value version of: {@link #glGetMultisamplefv GetMultisamplefv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the location of a sample.
+	 *
+	 * @param pname the sample parameter name. Must be:<br>{@link #GL_SAMPLE_POSITION SAMPLE_POSITION}
+	 * @param index the index of the sample whose position to query
+	 */
 	public static float glGetMultisamplef(int pname, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -737,7 +872,14 @@ public class GL32 {
 
 	// --- [ glGetInteger64v ] ---
 
-	/** Unsafe version of {@link #glGetInteger64v GetInteger64v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the 64bit integer value or values of a selected parameter.
+	 *
+	 * @param pname  the parameter value to be returned
+	 * @param params the value or values of the specified parameter
+	 */
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetInteger64v;
 		if ( CHECKS )
@@ -753,20 +895,19 @@ public class GL32 {
 	 * @param pname  the parameter value to be returned
 	 * @param params the value or values of the specified parameter
 	 */
-	public static void glGetInteger64v(int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetInteger64v(pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetInteger64v GetInteger64v} */
 	public static void glGetInteger64v(int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInteger64v GetInteger64v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the 64bit integer value or values of a selected parameter.
+	 *
+	 * @param pname the parameter value to be returned
+	 */
 	public static long glGetInteger64(int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -780,7 +921,15 @@ public class GL32 {
 
 	// --- [ glGetInteger64i_v ] ---
 
-	/** Unsafe version of {@link #glGetInteger64i_v GetInteger64i_v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the 64bit integer value of an indexed state variable.
+	 *
+	 * @param pname  the indexed state to query
+	 * @param index  the index of the element being queried
+	 * @param params the value or values of the specified parameter
+	 */
 	public static void nglGetInteger64i_v(int pname, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glGetInteger64i_v;
 		if ( CHECKS )
@@ -797,20 +946,20 @@ public class GL32 {
 	 * @param index  the index of the element being queried
 	 * @param params the value or values of the specified parameter
 	 */
-	public static void glGetInteger64i_v(int pname, int index, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetInteger64i_v(pname, index, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetInteger64i_v GetInteger64i_v} */
 	public static void glGetInteger64i_v(int pname, int index, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetInteger64i_v(pname, index, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInteger64i_v GetInteger64i_v} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the 64bit integer value of an indexed state variable.
+	 *
+	 * @param pname the indexed state to query
+	 * @param index the index of the element being queried
+	 */
 	public static long glGetInteger64i(int pname, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -824,7 +973,17 @@ public class GL32 {
 
 	// --- [ glGetSynciv ] ---
 
-	/** Unsafe version of {@link #glGetSynciv GetSynciv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSync.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the properties of a sync object.
+	 *
+	 * @param sync    the sync object whose properties to query
+	 * @param pname   the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
+	 * @param bufSize the size of the buffer whose address is given in {@code values}
+	 * @param length  the address of an variable to receive the number of integers placed in {@code values}
+	 * @param values  the address of an array to receive the values of the queried parameter
+	 */
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = GL.getCapabilities().glGetSynciv;
 		if ( CHECKS ) {
@@ -839,28 +998,26 @@ public class GL32 {
 	 * 
 	 * Queries the properties of a sync object.
 	 *
-	 * @param sync    the sync object whose properties to query
-	 * @param pname   the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
-	 * @param bufSize the size of the buffer whose address is given in {@code values}
-	 * @param length  the address of an variable to receive the number of integers placed in {@code values}
-	 * @param values  the address of an array to receive the values of the queried parameter
+	 * @param sync   the sync object whose properties to query
+	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
+	 * @param length the address of an variable to receive the number of integers placed in {@code values}
+	 * @param values the address of an array to receive the values of the queried parameter
 	 */
-	public static void glGetSynciv(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
-		if ( CHECKS ) {
-			checkBuffer(values, bufSize << 2);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
-	}
-
-	/** Alternative version of: {@link #glGetSynciv GetSynciv} */
 	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetSynciv GetSynciv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSync.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the properties of a sync object.
+	 *
+	 * @param sync   the sync object whose properties to query
+	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
+	 * @param length the address of an variable to receive the number of integers placed in {@code values}
+	 */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);

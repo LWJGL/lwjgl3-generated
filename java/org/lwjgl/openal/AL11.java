@@ -62,7 +62,12 @@ public class AL11 {
 
 	// --- [ alGetListeneriv ] ---
 
-	/** Unsafe version of {@link #alGetListeneriv GetListeneriv} */
+	/**
+	 * Returns the integer values of the specified listener parameter.
+	 *
+	 * @param param  the parameter to query
+	 * @param values the parameter values
+	 */
 	public static void nalGetListeneriv(int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetListeneriv;
 		if ( CHECKS )
@@ -76,13 +81,6 @@ public class AL11 {
 	 * @param param  the parameter to query
 	 * @param values the parameter values
 	 */
-	public static void alGetListeneriv(int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetListeneriv(param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetListeneriv GetListeneriv} */
 	public static void alGetListeneriv(int param, IntBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -109,7 +107,12 @@ public class AL11 {
 
 	// --- [ alListeneriv ] ---
 
-	/** Unsafe version of {@link #alListeneriv Listeneriv} */
+	/**
+	 * Pointer version.
+	 *
+	 * @param listener the parameter to modify
+	 * @param value    the parameter values
+	 */
 	public static void nalListeneriv(int listener, long value) {
 		long __functionAddress = AL.getCapabilities().alListeneriv;
 		if ( CHECKS )
@@ -123,13 +126,6 @@ public class AL11 {
 	 * @param listener the parameter to modify
 	 * @param value    the parameter values
 	 */
-	public static void alListeneriv(int listener, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalListeneriv(listener, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alListeneriv Listeneriv} */
 	public static void alListeneriv(int listener, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -138,7 +134,13 @@ public class AL11 {
 
 	// --- [ alSourceiv ] ---
 
-	/** Unsafe version of {@link #alSourceiv Sourceiv} */
+	/**
+	 * Pointer version.
+	 *
+	 * @param source    the source to modify
+	 * @param paramName the parameter to modify
+	 * @param value     the parameter values
+	 */
 	public static void nalSourceiv(int source, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alSourceiv;
 		if ( CHECKS )
@@ -153,13 +155,6 @@ public class AL11 {
 	 * @param paramName the parameter to modify
 	 * @param value     the parameter values
 	 */
-	public static void alSourceiv(int source, int paramName, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalSourceiv(source, paramName, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alSourceiv Sourceiv} */
 	public static void alSourceiv(int source, int paramName, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -202,7 +197,13 @@ public class AL11 {
 
 	// --- [ alBufferfv ] ---
 
-	/** Unsafe version of {@link #alBufferfv Bufferfv} */
+	/**
+	 * the pointer version of {@link #alBufferf Bufferf}
+	 *
+	 * @param buffer    the buffer to modify
+	 * @param paramName the parameter to modify
+	 * @param value     the parameter values
+	 */
 	public static void nalBufferfv(int buffer, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alBufferfv;
 		if ( CHECKS )
@@ -217,13 +218,6 @@ public class AL11 {
 	 * @param paramName the parameter to modify
 	 * @param value     the parameter values
 	 */
-	public static void alBufferfv(int buffer, int paramName, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalBufferfv(buffer, paramName, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alBufferfv Bufferfv} */
 	public static void alBufferfv(int buffer, int paramName, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -266,7 +260,13 @@ public class AL11 {
 
 	// --- [ alBufferiv ] ---
 
-	/** Unsafe version of {@link #alBufferiv Bufferiv} */
+	/**
+	 * the pointer version of {@link #alBufferi Bufferi}
+	 *
+	 * @param buffer    the buffer to modify
+	 * @param paramName the parameter to modify
+	 * @param value     the parameter values
+	 */
 	public static void nalBufferiv(int buffer, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alBufferiv;
 		if ( CHECKS )
@@ -281,13 +281,6 @@ public class AL11 {
 	 * @param paramName the parameter to modify
 	 * @param value     the parameter values
 	 */
-	public static void alBufferiv(int buffer, int paramName, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalBufferiv(buffer, paramName, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alBufferiv Bufferiv} */
 	public static void alBufferiv(int buffer, int paramName, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -296,7 +289,13 @@ public class AL11 {
 
 	// --- [ alGetBufferi ] ---
 
-	/** Unsafe version of {@link #alGetBufferi GetBufferi} */
+	/**
+	 * Returns the integer value of the specified buffer parameter.
+	 *
+	 * @param buffer the buffer to query
+	 * @param param  the parameter to query
+	 * @param value  the parameter value
+	 */
 	public static void nalGetBufferi(int buffer, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferi;
 		if ( CHECKS )
@@ -311,20 +310,18 @@ public class AL11 {
 	 * @param param  the parameter to query
 	 * @param value  the parameter value
 	 */
-	public static void alGetBufferi(int buffer, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetBufferi(buffer, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetBufferi GetBufferi} */
 	public static void alGetBufferi(int buffer, int param, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetBufferi(buffer, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetBufferi GetBufferi} */
+	/**
+	 * Returns the integer value of the specified buffer parameter.
+	 *
+	 * @param buffer the buffer to query
+	 * @param param  the parameter to query
+	 */
 	public static int alGetBufferi(int buffer, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -338,7 +335,13 @@ public class AL11 {
 
 	// --- [ alGetBufferiv ] ---
 
-	/** Unsafe version of {@link #alGetBufferiv GetBufferiv} */
+	/**
+	 * Returns the integer values of the specified buffer parameter.
+	 *
+	 * @param buffer the buffer to query
+	 * @param param  the parameter to query
+	 * @param values the parameter values
+	 */
 	public static void nalGetBufferiv(int buffer, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetBufferiv;
 		if ( CHECKS )
@@ -353,13 +356,6 @@ public class AL11 {
 	 * @param param  the parameter to query
 	 * @param values the parameter values
 	 */
-	public static void alGetBufferiv(int buffer, int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetBufferiv(buffer, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetBufferiv GetBufferiv} */
 	public static void alGetBufferiv(int buffer, int param, IntBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -368,7 +364,13 @@ public class AL11 {
 
 	// --- [ alGetBufferf ] ---
 
-	/** Unsafe version of {@link #alGetBufferf GetBufferf} */
+	/**
+	 * Returns the float value of the specified buffer parameter.
+	 *
+	 * @param buffer the buffer to query
+	 * @param param  the parameter to query
+	 * @param value  the parameter value
+	 */
 	public static void nalGetBufferf(int buffer, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferf;
 		if ( CHECKS )
@@ -383,20 +385,18 @@ public class AL11 {
 	 * @param param  the parameter to query
 	 * @param value  the parameter value
 	 */
-	public static void alGetBufferf(int buffer, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetBufferf(buffer, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetBufferf GetBufferf} */
 	public static void alGetBufferf(int buffer, int param, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetBufferf(buffer, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetBufferf GetBufferf} */
+	/**
+	 * Returns the float value of the specified buffer parameter.
+	 *
+	 * @param buffer the buffer to query
+	 * @param param  the parameter to query
+	 */
 	public static float alGetBufferf(int buffer, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -410,7 +410,13 @@ public class AL11 {
 
 	// --- [ alGetBufferfv ] ---
 
-	/** Unsafe version of {@link #alGetBufferfv GetBufferfv} */
+	/**
+	 * Returns the float values of the specified buffer parameter.
+	 *
+	 * @param buffer the buffer to query
+	 * @param param  the parameter to query
+	 * @param values the parameter values
+	 */
 	public static void nalGetBufferfv(int buffer, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetBufferfv;
 		if ( CHECKS )
@@ -425,13 +431,6 @@ public class AL11 {
 	 * @param param  the parameter to query
 	 * @param values the parameter values
 	 */
-	public static void alGetBufferfv(int buffer, int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetBufferfv(buffer, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetBufferfv GetBufferfv} */
 	public static void alGetBufferfv(int buffer, int param, FloatBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);

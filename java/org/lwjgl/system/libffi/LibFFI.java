@@ -100,9 +100,6 @@ public class LibFFI {
 
 	// --- [ ffi_prep_cif ] ---
 
-	/** JNI method for {@link #ffi_prep_cif prep_cif} */
-	public static native int nffi_prep_cif(long cif, int abi, int nargs, long rtype, long atypes);
-
 	/**
 	 * Prepares an {@link FFICIF} structure for use with {@link #ffi_call call}.
 	 *
@@ -115,21 +112,24 @@ public class LibFFI {
 	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
 	 */
-	public static int ffi_prep_cif(FFICIF cif, int abi, int nargs, FFIType rtype, ByteBuffer atypes) {
-		if ( CHECKS )
-			if ( atypes != null ) checkBuffer(atypes, nargs << POINTER_SHIFT);
-		return nffi_prep_cif(cif.address(), abi, nargs, rtype.address(), memAddressSafe(atypes));
-	}
+	public static native int nffi_prep_cif(long cif, int abi, int nargs, long rtype, long atypes);
 
-	/** Alternative version of: {@link #ffi_prep_cif prep_cif} */
+	/**
+	 * Prepares an {@link FFICIF} structure for use with {@link #ffi_call call}.
+	 *
+	 * @param cif    the {@link FFICIF} structure to prepare
+	 * @param abi    the ABI to use; normally {@link #FFI_DEFAULT_ABI DEFAULT_ABI} is what you want. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
+	 * @param rtype  a pointer to an {@link FFIType} structure that describes the data type, size and alignment of the return value
+	 * @param atypes an array of {@code nargs} pointers to {@link FFIType} structures that describe the data type, size and alignment of each argument
+	 *
+	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
+	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
+	 */
 	public static int ffi_prep_cif(FFICIF cif, int abi, FFIType rtype, PointerBuffer atypes) {
 		return nffi_prep_cif(cif.address(), abi, atypes == null ? 0 : atypes.remaining(), rtype.address(), memAddressSafe(atypes));
 	}
 
 	// --- [ ffi_prep_cif_var ] ---
-
-	/** JNI method for {@link #ffi_prep_cif_var prep_cif_var} */
-	public static native int nffi_prep_cif_var(long cif, int abi, int nfixedargs, int ntotalargs, long rtype, long atypes);
 
 	/**
 	 * Prepares an {@link FFICIF} structure for use with {@link #ffi_call call} for variadic functions.
@@ -148,20 +148,39 @@ public class LibFFI {
 	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
 	 */
-	public static int ffi_prep_cif_var(FFICIF cif, int abi, int nfixedargs, int ntotalargs, FFIType rtype, ByteBuffer atypes) {
-		if ( CHECKS )
-			checkBuffer(atypes, ntotalargs << POINTER_SHIFT);
-		return nffi_prep_cif_var(cif.address(), abi, nfixedargs, ntotalargs, rtype.address(), memAddress(atypes));
-	}
+	public static native int nffi_prep_cif_var(long cif, int abi, int nfixedargs, int ntotalargs, long rtype, long atypes);
 
-	/** Alternative version of: {@link #ffi_prep_cif_var prep_cif_var} */
+	/**
+	 * Prepares an {@link FFICIF} structure for use with {@link #ffi_call call} for variadic functions.
+	 * 
+	 * <p>Note that, different cif's must be prepped for calls to the same function when different numbers of arguments are passed.</p>
+	 * 
+	 * <p>Also note that a call to {@code ffi_prep_cif_var} with {@code nfixedargs == ntotalargs} is NOT equivalent to a call to {@link #ffi_prep_cif prep_cif}.</p>
+	 *
+	 * @param cif        the {@link FFICIF} structure to prepare
+	 * @param abi        the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
+	 * @param nfixedargs the number of fixed arguments, prior to any variadic arguments. It must be greater than zero.
+	 * @param rtype      a pointer to an {@link FFIType} structure that describes the data type, size and alignment of the return value
+	 * @param atypes     an array of {@code ntotalargs} pointers to {@link FFIType} structures that describe the data type, size and alignment of each argument
+	 *
+	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
+	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
+	 */
 	public static int ffi_prep_cif_var(FFICIF cif, int abi, int nfixedargs, FFIType rtype, PointerBuffer atypes) {
 		return nffi_prep_cif_var(cif.address(), abi, nfixedargs, atypes.remaining(), rtype.address(), memAddress(atypes));
 	}
 
 	// --- [ ffi_call ] ---
 
-	/** JNI method for {@link #ffi_call call} */
+	/**
+	 * Provides a simple mechanism for invoking a function without requiring knowledge of the function's interface at compile time.
+	 *
+	 * @param cif    a {@link FFICIF} structure. It must be initialized with {@link #ffi_prep_cif prep_cif} or {@link #ffi_prep_cif_var prep_cif_var} before it is used with {@code ffi_call}.
+	 * @param fn     the function to call
+	 * @param rvalue a pointer to storage in which to place the returned value. The storage must be sizeof(ffi_arg) or larger for non-floating point types. For
+	 *               smaller-sized return value types, the ffi_arg or ffi_sarg integral type must be used to hold the return value.
+	 * @param avalue an array of pointers from which the argument values are retrieved
+	 */
 	public static native void nffi_call(long cif, long fn, long rvalue, long avalue);
 
 	/**
@@ -173,13 +192,6 @@ public class LibFFI {
 	 *               smaller-sized return value types, the ffi_arg or ffi_sarg integral type must be used to hold the return value.
 	 * @param avalue an array of pointers from which the argument values are retrieved
 	 */
-	public static void ffi_call(FFICIF cif, long fn, ByteBuffer rvalue, ByteBuffer avalue) {
-		if ( CHECKS )
-			checkPointer(fn);
-		nffi_call(cif.address(), fn, memAddressSafe(rvalue), memAddressSafe(avalue));
-	}
-
-	/** Alternative version of: {@link #ffi_call call} */
 	public static void ffi_call(FFICIF cif, long fn, ByteBuffer rvalue, PointerBuffer avalue) {
 		if ( CHECKS )
 			checkPointer(fn);
@@ -188,7 +200,14 @@ public class LibFFI {
 
 	// --- [ ffi_closure_alloc ] ---
 
-	/** JNI method for {@link #ffi_closure_alloc closure_alloc} */
+	/**
+	 * Allocates an {@link FFIClosure} structure.
+	 *
+	 * @param size the number of bytes to allocate. Must be:<br>{@link FFIClosure#SIZEOF}
+	 * @param code a buffer in which to place the returned executable address
+	 *
+	 * @return a pointer to the writable address
+	 */
 	public static native long nffi_closure_alloc(long size, long code);
 
 	/**
@@ -199,14 +218,6 @@ public class LibFFI {
 	 *
 	 * @return a pointer to the writable address
 	 */
-	public static ByteBuffer ffi_closure_alloc(long size, ByteBuffer code) {
-		if ( CHECKS )
-			checkBuffer(code, 1 << POINTER_SHIFT);
-		long __result = nffi_closure_alloc(size, memAddress(code));
-		return memByteBuffer(__result, (int)size);
-	}
-
-	/** Alternative version of: {@link #ffi_closure_alloc closure_alloc} */
 	public static ByteBuffer ffi_closure_alloc(long size, PointerBuffer code) {
 		if ( CHECKS )
 			checkBuffer(code, 1);
@@ -216,7 +227,11 @@ public class LibFFI {
 
 	// --- [ ffi_closure_free ] ---
 
-	/** JNI method for {@link #ffi_closure_free closure_free} */
+	/**
+	 * Frees memory allocated using {@link #ffi_closure_alloc closure_alloc}.
+	 *
+	 * @param writable the address of an {@link FFIClosure} structure
+	 */
 	public static native void nffi_closure_free(long writable);
 
 	/**
@@ -230,7 +245,15 @@ public class LibFFI {
 
 	// --- [ ffi_prep_closure_loc ] ---
 
-	/** JNI method for {@link #ffi_prep_closure_loc prep_closure_loc} */
+	/**
+	 * 
+	 *
+	 * @param closure   the address of an {@link FFIClosure} object; this is the writable address returned by {@link #ffi_closure_alloc closure_alloc}.
+	 * @param cif       the {@link FFICIF} describing the function parameters
+	 * @param fun       the function which will be called when the closure is invoked
+	 * @param user_data an arbitrary datum that is passed, uninterpreted, to your closure function
+	 * @param codeloc   the executable address returned by {@link #ffi_closure_alloc closure_alloc}.
+	 */
 	public static native int nffi_prep_closure_loc(long closure, long cif, long fun, long user_data, long codeloc);
 
 	/**

@@ -45,7 +45,6 @@ public class MESADRMImage {
 
 	// --- [ eglCreateDRMImageMESA ] ---
 
-	/** Unsafe version of {@link #eglCreateDRMImageMESA CreateDRMImageMESA} */
 	public static long neglCreateDRMImageMESA(long dpy, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateDRMImageMESA;
 		if ( CHECKS ) {
@@ -55,13 +54,6 @@ public class MESADRMImage {
 		return callPPP(__functionAddress, dpy, attrib_list);
 	}
 
-	public static long eglCreateDRMImageMESA(long dpy, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreateDRMImageMESA(dpy, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreateDRMImageMESA CreateDRMImageMESA} */
 	public static long eglCreateDRMImageMESA(long dpy, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -70,7 +62,6 @@ public class MESADRMImage {
 
 	// --- [ eglExportDRMImageMESA ] ---
 
-	/** Unsafe version of {@link #eglExportDRMImageMESA ExportDRMImageMESA} */
 	public static int neglExportDRMImageMESA(long dpy, long image, long name, long handle, long stride) {
 		long __functionAddress = EGL.getCapabilities().eglExportDRMImageMESA;
 		if ( CHECKS ) {
@@ -81,16 +72,6 @@ public class MESADRMImage {
 		return callPPPPPI(__functionAddress, dpy, image, name, handle, stride);
 	}
 
-	public static int eglExportDRMImageMESA(long dpy, long image, ByteBuffer name, ByteBuffer handle, ByteBuffer stride) {
-		if ( CHECKS ) {
-			if ( name != null ) checkBuffer(name, 1 << 2);
-			if ( handle != null ) checkBuffer(handle, 1 << 2);
-			if ( stride != null ) checkBuffer(stride, 1 << 2);
-		}
-		return neglExportDRMImageMESA(dpy, image, memAddressSafe(name), memAddressSafe(handle), memAddressSafe(stride));
-	}
-
-	/** Alternative version of: {@link #eglExportDRMImageMESA ExportDRMImageMESA} */
 	public static int eglExportDRMImageMESA(long dpy, long image, IntBuffer name, IntBuffer handle, IntBuffer stride) {
 		if ( CHECKS ) {
 			if ( name != null ) checkBuffer(name, 1);

@@ -55,7 +55,15 @@ public class ARBGetProgramBinary {
 
 	// --- [ glGetProgramBinary ] ---
 
-	/** Unsafe version of {@link #glGetProgramBinary GetProgramBinary} */
+	/**
+	 * Returns a binary representation of a program object's compiled and linked executable source.
+	 *
+	 * @param program      the name of a program object whose binary representation to retrieve
+	 * @param bufSize      the size of the buffer whose address is given by {@code binary}
+	 * @param length       the address of a variable to receive the number of bytes written into {@code binary}
+	 * @param binaryFormat a variable to receive a token indicating the format of the binary data returned by the GL
+	 * @param binary       an array into which the GL will return {@code program}'s binary representation
+	 */
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
 		if ( CHECKS )
@@ -67,21 +75,10 @@ public class ARBGetProgramBinary {
 	 * Returns a binary representation of a program object's compiled and linked executable source.
 	 *
 	 * @param program      the name of a program object whose binary representation to retrieve
-	 * @param bufSize      the size of the buffer whose address is given by {@code binary}
 	 * @param length       the address of a variable to receive the number of bytes written into {@code binary}
 	 * @param binaryFormat a variable to receive a token indicating the format of the binary data returned by the GL
 	 * @param binary       an array into which the GL will return {@code program}'s binary representation
 	 */
-	public static void glGetProgramBinary(int program, int bufSize, ByteBuffer length, ByteBuffer binaryFormat, ByteBuffer binary) {
-		if ( CHECKS ) {
-			checkBuffer(binary, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-			checkBuffer(binaryFormat, 1 << 2);
-		}
-		nglGetProgramBinary(program, bufSize, memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
-	}
-
-	/** Alternative version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static void glGetProgramBinary(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
 		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
@@ -92,7 +89,14 @@ public class ARBGetProgramBinary {
 
 	// --- [ glProgramBinary ] ---
 
-	/** Unsafe version of {@link #glProgramBinary ProgramBinary} */
+	/**
+	 * Loads a program object with a program binary.
+	 *
+	 * @param program      the name of a program object into which to load a program binary
+	 * @param binaryFormat the format of the binary data in binary
+	 * @param binary       an array containing the binary to be loaded into {@code program}
+	 * @param length       the number of bytes contained in {@code binary}
+	 */
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = GL.getCapabilities().glProgramBinary;
 		if ( CHECKS )
@@ -106,15 +110,7 @@ public class ARBGetProgramBinary {
 	 * @param program      the name of a program object into which to load a program binary
 	 * @param binaryFormat the format of the binary data in binary
 	 * @param binary       an array containing the binary to be loaded into {@code program}
-	 * @param length       the number of bytes contained in {@code binary}
 	 */
-	public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary, int length) {
-		if ( CHECKS )
-			checkBuffer(binary, length);
-		nglProgramBinary(program, binaryFormat, memAddress(binary), length);
-	}
-
-	/** Alternative version of: {@link #glProgramBinary ProgramBinary} */
 	public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary) {
 		nglProgramBinary(program, binaryFormat, memAddress(binary), binary.remaining());
 	}

@@ -140,7 +140,6 @@ public class EXTTextureInteger {
 
 	// --- [ glTexParameterIivEXT ] ---
 
-	/** Unsafe version of {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	public static void nglTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexParameterIivEXT;
 		if ( CHECKS )
@@ -148,20 +147,12 @@ public class EXTTextureInteger {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glTexParameterIivEXT(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglTexParameterIivEXT(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	public static void glTexParameterIivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	public static void glTexParameterIiEXT(int target, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -174,7 +165,6 @@ public class EXTTextureInteger {
 
 	// --- [ glTexParameterIuivEXT ] ---
 
-	/** Unsafe version of {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	public static void nglTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexParameterIuivEXT;
 		if ( CHECKS )
@@ -182,20 +172,12 @@ public class EXTTextureInteger {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglTexParameterIuivEXT(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	public static void glTexParameterIuivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIuivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	public static void glTexParameterIuiEXT(int target, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -208,7 +190,6 @@ public class EXTTextureInteger {
 
 	// --- [ glGetTexParameterIivEXT ] ---
 
-	/** Unsafe version of {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static void nglGetTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexParameterIivEXT;
 		if ( CHECKS )
@@ -216,20 +197,12 @@ public class EXTTextureInteger {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetTexParameterIivEXT(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTexParameterIivEXT(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static void glGetTexParameterIivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static int glGetTexParameterIiEXT(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -243,7 +216,6 @@ public class EXTTextureInteger {
 
 	// --- [ glGetTexParameterIuivEXT ] ---
 
-	/** Unsafe version of {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static void nglGetTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexParameterIuivEXT;
 		if ( CHECKS )
@@ -251,20 +223,12 @@ public class EXTTextureInteger {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTexParameterIuivEXT(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static void glGetTexParameterIuivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIuivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static int glGetTexParameterIuiEXT(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

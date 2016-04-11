@@ -99,7 +99,6 @@ public class EGL10 {
 
 	// --- [ eglChooseConfig ] ---
 
-	/** Unsafe version of {@link #eglChooseConfig ChooseConfig} */
 	public static int neglChooseConfig(long dpy, long attrib_list, long configs, int config_size, long num_config) {
 		long __functionAddress = EGL.getCapabilities().eglChooseConfig;
 		if ( CHECKS ) {
@@ -109,16 +108,6 @@ public class EGL10 {
 		return callPPPIPI(__functionAddress, dpy, attrib_list, configs, config_size, num_config);
 	}
 
-	public static int eglChooseConfig(long dpy, ByteBuffer attrib_list, ByteBuffer configs, int config_size, ByteBuffer num_config) {
-		if ( CHECKS ) {
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-			if ( configs != null ) checkBuffer(configs, config_size << POINTER_SHIFT);
-			checkBuffer(num_config, 1 << 2);
-		}
-		return neglChooseConfig(dpy, memAddressSafe(attrib_list), memAddressSafe(configs), config_size, memAddress(num_config));
-	}
-
-	/** Alternative version of: {@link #eglChooseConfig ChooseConfig} */
 	public static int eglChooseConfig(long dpy, IntBuffer attrib_list, PointerBuffer configs, IntBuffer num_config) {
 		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -142,7 +131,6 @@ public class EGL10 {
 
 	// --- [ eglCreateContext ] ---
 
-	/** Unsafe version of {@link #eglCreateContext CreateContext} */
 	public static long neglCreateContext(long dpy, long config, long share_context, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateContext;
 		if ( CHECKS ) {
@@ -153,13 +141,6 @@ public class EGL10 {
 		return callPPPPP(__functionAddress, dpy, config, share_context, attrib_list);
 	}
 
-	public static long eglCreateContext(long dpy, long config, long share_context, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreateContext(dpy, config, share_context, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreateContext CreateContext} */
 	public static long eglCreateContext(long dpy, long config, long share_context, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -168,7 +149,6 @@ public class EGL10 {
 
 	// --- [ eglCreatePbufferSurface ] ---
 
-	/** Unsafe version of {@link #eglCreatePbufferSurface CreatePbufferSurface} */
 	public static long neglCreatePbufferSurface(long dpy, long config, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePbufferSurface;
 		if ( CHECKS ) {
@@ -179,13 +159,6 @@ public class EGL10 {
 		return callPPPP(__functionAddress, dpy, config, attrib_list);
 	}
 
-	public static long eglCreatePbufferSurface(long dpy, long config, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreatePbufferSurface(dpy, config, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreatePbufferSurface CreatePbufferSurface} */
 	public static long eglCreatePbufferSurface(long dpy, long config, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -194,7 +167,6 @@ public class EGL10 {
 
 	// --- [ eglCreatePixmapSurface ] ---
 
-	/** Unsafe version of {@link #eglCreatePixmapSurface CreatePixmapSurface} */
 	public static long neglCreatePixmapSurface(long dpy, long config, long pixmap, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePixmapSurface;
 		if ( CHECKS ) {
@@ -206,13 +178,6 @@ public class EGL10 {
 		return callPPPPP(__functionAddress, dpy, config, pixmap, attrib_list);
 	}
 
-	public static long eglCreatePixmapSurface(long dpy, long config, long pixmap, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreatePixmapSurface(dpy, config, pixmap, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreatePixmapSurface CreatePixmapSurface} */
 	public static long eglCreatePixmapSurface(long dpy, long config, long pixmap, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -221,7 +186,6 @@ public class EGL10 {
 
 	// --- [ eglCreateWindowSurface ] ---
 
-	/** Unsafe version of {@link #eglCreateWindowSurface CreateWindowSurface} */
 	public static long neglCreateWindowSurface(long dpy, long config, long win, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateWindowSurface;
 		if ( CHECKS ) {
@@ -233,13 +197,6 @@ public class EGL10 {
 		return callPPPPP(__functionAddress, dpy, config, win, attrib_list);
 	}
 
-	public static long eglCreateWindowSurface(long dpy, long config, long win, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreateWindowSurface(dpy, config, win, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreateWindowSurface CreateWindowSurface} */
 	public static long eglCreateWindowSurface(long dpy, long config, long win, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
@@ -272,7 +229,6 @@ public class EGL10 {
 
 	// --- [ eglGetConfigAttrib ] ---
 
-	/** Unsafe version of {@link #eglGetConfigAttrib GetConfigAttrib} */
 	public static int neglGetConfigAttrib(long dpy, long config, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglGetConfigAttrib;
 		if ( CHECKS ) {
@@ -283,13 +239,6 @@ public class EGL10 {
 		return callPPIPI(__functionAddress, dpy, config, attribute, value);
 	}
 
-	public static int eglGetConfigAttrib(long dpy, long config, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return neglGetConfigAttrib(dpy, config, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglGetConfigAttrib GetConfigAttrib} */
 	public static int eglGetConfigAttrib(long dpy, long config, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -298,7 +247,6 @@ public class EGL10 {
 
 	// --- [ eglGetConfigs ] ---
 
-	/** Unsafe version of {@link #eglGetConfigs GetConfigs} */
 	public static int neglGetConfigs(long dpy, long configs, int config_size, long num_config) {
 		long __functionAddress = EGL.getCapabilities().eglGetConfigs;
 		if ( CHECKS ) {
@@ -308,15 +256,6 @@ public class EGL10 {
 		return callPPIPI(__functionAddress, dpy, configs, config_size, num_config);
 	}
 
-	public static int eglGetConfigs(long dpy, ByteBuffer configs, int config_size, ByteBuffer num_config) {
-		if ( CHECKS ) {
-			if ( configs != null ) checkBuffer(configs, config_size << POINTER_SHIFT);
-			checkBuffer(num_config, 1 << 2);
-		}
-		return neglGetConfigs(dpy, memAddressSafe(configs), config_size, memAddress(num_config));
-	}
-
-	/** Alternative version of: {@link #eglGetConfigs GetConfigs} */
 	public static int eglGetConfigs(long dpy, PointerBuffer configs, IntBuffer num_config) {
 		if ( CHECKS )
 			checkBuffer(num_config, 1);
@@ -361,7 +300,6 @@ public class EGL10 {
 
 	// --- [ eglGetProcAddress ] ---
 
-	/** Unsafe version of {@link #eglGetProcAddress GetProcAddress} */
 	public static long neglGetProcAddress(long procname) {
 		long __functionAddress = EGL.getCapabilities().eglGetProcAddress;
 		if ( CHECKS )
@@ -375,7 +313,6 @@ public class EGL10 {
 		return neglGetProcAddress(memAddress(procname));
 	}
 
-	/** CharSequence version of: {@link #eglGetProcAddress GetProcAddress} */
 	public static long eglGetProcAddress(CharSequence procname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -388,7 +325,6 @@ public class EGL10 {
 
 	// --- [ eglInitialize ] ---
 
-	/** Unsafe version of {@link #eglInitialize Initialize} */
 	public static int neglInitialize(long dpy, long major, long minor) {
 		long __functionAddress = EGL.getCapabilities().eglInitialize;
 		if ( CHECKS ) {
@@ -398,15 +334,6 @@ public class EGL10 {
 		return callPPPI(__functionAddress, dpy, major, minor);
 	}
 
-	public static int eglInitialize(long dpy, ByteBuffer major, ByteBuffer minor) {
-		if ( CHECKS ) {
-			checkBuffer(major, 1 << 2);
-			checkBuffer(minor, 1 << 2);
-		}
-		return neglInitialize(dpy, memAddress(major), memAddress(minor));
-	}
-
-	/** Alternative version of: {@link #eglInitialize Initialize} */
 	public static int eglInitialize(long dpy, IntBuffer major, IntBuffer minor) {
 		if ( CHECKS ) {
 			checkBuffer(major, 1);
@@ -431,7 +358,6 @@ public class EGL10 {
 
 	// --- [ eglQueryContext ] ---
 
-	/** Unsafe version of {@link #eglQueryContext QueryContext} */
 	public static int neglQueryContext(long dpy, long ctx, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryContext;
 		if ( CHECKS ) {
@@ -442,13 +368,6 @@ public class EGL10 {
 		return callPPIPI(__functionAddress, dpy, ctx, attribute, value);
 	}
 
-	public static int eglQueryContext(long dpy, long ctx, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return neglQueryContext(dpy, ctx, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQueryContext QueryContext} */
 	public static int eglQueryContext(long dpy, long ctx, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -457,7 +376,6 @@ public class EGL10 {
 
 	// --- [ eglQueryString ] ---
 
-	/** Unsafe version of {@link #eglQueryString QueryString} */
 	public static long neglQueryString(long dpy, int name) {
 		long __functionAddress = EGL.getCapabilities().eglQueryString;
 		if ( CHECKS )
@@ -472,7 +390,6 @@ public class EGL10 {
 
 	// --- [ eglQuerySurface ] ---
 
-	/** Unsafe version of {@link #eglQuerySurface QuerySurface} */
 	public static int neglQuerySurface(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQuerySurface;
 		if ( CHECKS ) {
@@ -483,13 +400,6 @@ public class EGL10 {
 		return callPPIPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
-	public static int eglQuerySurface(long dpy, long surface, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return neglQuerySurface(dpy, surface, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQuerySurface QuerySurface} */
 	public static int eglQuerySurface(long dpy, long surface, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);

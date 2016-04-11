@@ -366,14 +366,6 @@ public class NVPathRendering {
 
 	// --- [ glPathCommandsNV ] ---
 
-	/** Unsafe version of {@link #glPathCommandsNV PathCommandsNV} */
-	public static void nglPathCommandsNV(int path, int numCommands, long commands, int numCoords, int coordType, long coords) {
-		long __functionAddress = GL.getCapabilities().glPathCommandsNV;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPIIPV(__functionAddress, path, numCommands, commands, numCoords, coordType, coords);
-	}
-
 	/**
 	 * 
 	 *
@@ -384,15 +376,21 @@ public class NVPathRendering {
 	 * @param coordType   one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_FLOAT FLOAT}
 	 * @param coords      
 	 */
-	public static void glPathCommandsNV(int path, int numCommands, ByteBuffer commands, int numCoords, int coordType, ByteBuffer coords) {
-		if ( CHECKS ) {
-			checkBuffer(commands, numCommands);
-			checkBuffer(coords, numCoords << GLChecks.typeToByteShift(coordType));
-		}
-		nglPathCommandsNV(path, numCommands, memAddress(commands), numCoords, coordType, memAddress(coords));
+	public static void nglPathCommandsNV(int path, int numCommands, long commands, int numCoords, int coordType, long coords) {
+		long __functionAddress = GL.getCapabilities().glPathCommandsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIPIIPV(__functionAddress, path, numCommands, commands, numCoords, coordType, coords);
 	}
 
-	/** Alternative version of: {@link #glPathCommandsNV PathCommandsNV} */
+	/**
+	 * 
+	 *
+	 * @param path      
+	 * @param commands  
+	 * @param coordType one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_FLOAT FLOAT}
+	 * @param coords    
+	 */
 	public static void glPathCommandsNV(int path, ByteBuffer commands, int coordType, ByteBuffer coords) {
 		nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
@@ -409,7 +407,14 @@ public class NVPathRendering {
 
 	// --- [ glPathCoordsNV ] ---
 
-	/** Unsafe version of {@link #glPathCoordsNV PathCoordsNV} */
+	/**
+	 * 
+	 *
+	 * @param path      
+	 * @param numCoords 
+	 * @param coordType one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_FLOAT FLOAT}
+	 * @param coords    
+	 */
 	public static void nglPathCoordsNV(int path, int numCoords, int coordType, long coords) {
 		long __functionAddress = GL.getCapabilities().glPathCoordsNV;
 		if ( CHECKS )
@@ -421,17 +426,9 @@ public class NVPathRendering {
 	 * 
 	 *
 	 * @param path      
-	 * @param numCoords 
 	 * @param coordType one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_FLOAT FLOAT}
 	 * @param coords    
 	 */
-	public static void glPathCoordsNV(int path, int numCoords, int coordType, ByteBuffer coords) {
-		if ( CHECKS )
-			checkBuffer(coords, numCoords << GLChecks.typeToByteShift(coordType));
-		nglPathCoordsNV(path, numCoords, coordType, memAddress(coords));
-	}
-
-	/** Alternative version of: {@link #glPathCoordsNV PathCoordsNV} */
 	public static void glPathCoordsNV(int path, int coordType, ByteBuffer coords) {
 		nglPathCoordsNV(path, coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
@@ -448,7 +445,18 @@ public class NVPathRendering {
 
 	// --- [ glPathSubCommandsNV ] ---
 
-	/** Unsafe version of {@link #glPathSubCommandsNV PathSubCommandsNV} */
+	/**
+	 * 
+	 *
+	 * @param path             
+	 * @param commandStart     
+	 * @param commandsToDelete 
+	 * @param numCommands      
+	 * @param commands         
+	 * @param numCoords        
+	 * @param coordType        one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_FLOAT FLOAT}
+	 * @param coords           
+	 */
 	public static void nglPathSubCommandsNV(int path, int commandStart, int commandsToDelete, int numCommands, long commands, int numCoords, int coordType, long coords) {
 		long __functionAddress = GL.getCapabilities().glPathSubCommandsNV;
 		if ( CHECKS )
@@ -462,21 +470,10 @@ public class NVPathRendering {
 	 * @param path             
 	 * @param commandStart     
 	 * @param commandsToDelete 
-	 * @param numCommands      
 	 * @param commands         
-	 * @param numCoords        
 	 * @param coordType        one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_FLOAT FLOAT}
 	 * @param coords           
 	 */
-	public static void glPathSubCommandsNV(int path, int commandStart, int commandsToDelete, int numCommands, ByteBuffer commands, int numCoords, int coordType, ByteBuffer coords) {
-		if ( CHECKS ) {
-			checkBuffer(commands, numCommands);
-			checkBuffer(coords, numCoords << GLChecks.typeToByteShift(coordType));
-		}
-		nglPathSubCommandsNV(path, commandStart, commandsToDelete, numCommands, memAddress(commands), numCoords, coordType, memAddress(coords));
-	}
-
-	/** Alternative version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
 	public static void glPathSubCommandsNV(int path, int commandStart, int commandsToDelete, ByteBuffer commands, int coordType, ByteBuffer coords) {
 		nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
@@ -493,7 +490,15 @@ public class NVPathRendering {
 
 	// --- [ glPathSubCoordsNV ] ---
 
-	/** Unsafe version of {@link #glPathSubCoordsNV PathSubCoordsNV} */
+	/**
+	 * 
+	 *
+	 * @param path       
+	 * @param coordStart 
+	 * @param numCoords  
+	 * @param coordType  one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_FLOAT FLOAT}
+	 * @param coords     
+	 */
 	public static void nglPathSubCoordsNV(int path, int coordStart, int numCoords, int coordType, long coords) {
 		long __functionAddress = GL.getCapabilities().glPathSubCoordsNV;
 		if ( CHECKS )
@@ -506,17 +511,9 @@ public class NVPathRendering {
 	 *
 	 * @param path       
 	 * @param coordStart 
-	 * @param numCoords  
 	 * @param coordType  one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_FLOAT FLOAT}
 	 * @param coords     
 	 */
-	public static void glPathSubCoordsNV(int path, int coordStart, int numCoords, int coordType, ByteBuffer coords) {
-		if ( CHECKS )
-			checkBuffer(coords, numCoords << GLChecks.typeToByteShift(coordType));
-		nglPathSubCoordsNV(path, coordStart, numCoords, coordType, memAddress(coords));
-	}
-
-	/** Alternative version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
 	public static void glPathSubCoordsNV(int path, int coordStart, int coordType, ByteBuffer coords) {
 		nglPathSubCoordsNV(path, coordStart, coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
@@ -533,7 +530,14 @@ public class NVPathRendering {
 
 	// --- [ glPathStringNV ] ---
 
-	/** Unsafe version of {@link #glPathStringNV PathStringNV} */
+	/**
+	 * 
+	 *
+	 * @param path       
+	 * @param format     one of:<br>{@link #GL_PATH_FORMAT_SVG_NV PATH_FORMAT_SVG_NV}, {@link #GL_PATH_FORMAT_PS_NV PATH_FORMAT_PS_NV}
+	 * @param length     
+	 * @param pathString 
+	 */
 	public static void nglPathStringNV(int path, int format, int length, long pathString) {
 		long __functionAddress = GL.getCapabilities().glPathStringNV;
 		if ( CHECKS )
@@ -546,29 +550,13 @@ public class NVPathRendering {
 	 *
 	 * @param path       
 	 * @param format     one of:<br>{@link #GL_PATH_FORMAT_SVG_NV PATH_FORMAT_SVG_NV}, {@link #GL_PATH_FORMAT_PS_NV PATH_FORMAT_PS_NV}
-	 * @param length     
 	 * @param pathString 
 	 */
-	public static void glPathStringNV(int path, int format, int length, ByteBuffer pathString) {
-		if ( CHECKS )
-			checkBuffer(pathString, length);
-		nglPathStringNV(path, format, length, memAddress(pathString));
-	}
-
-	/** Alternative version of: {@link #glPathStringNV PathStringNV} */
 	public static void glPathStringNV(int path, int format, ByteBuffer pathString) {
 		nglPathStringNV(path, format, pathString.remaining(), memAddress(pathString));
 	}
 
 	// --- [ glPathGlyphsNV ] ---
-
-	/** Unsafe version of {@link #glPathGlyphsNV PathGlyphsNV} */
-	public static void nglPathGlyphsNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int numGlyphs, int type, long charcodes, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
-		long __functionAddress = GL.getCapabilities().glPathGlyphsNV;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPIIIPIIFV(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, numGlyphs, type, charcodes, handleMissingGlyphs, pathParameterTemplate, emScale);
-	}
 
 	/**
 	 * 
@@ -584,15 +572,26 @@ public class NVPathRendering {
 	 * @param pathParameterTemplate 
 	 * @param emScale               
 	 */
-	public static void glPathGlyphsNV(int firstPathName, int fontTarget, ByteBuffer fontName, int fontStyle, int numGlyphs, int type, ByteBuffer charcodes, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
-		if ( CHECKS ) {
-			checkNT1(fontName);
-			checkBuffer(charcodes, numGlyphs * charcodeTypeToBytes(type));
-		}
-		nglPathGlyphsNV(firstPathName, fontTarget, memAddress(fontName), fontStyle, numGlyphs, type, memAddress(charcodes), handleMissingGlyphs, pathParameterTemplate, emScale);
+	public static void nglPathGlyphsNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int numGlyphs, int type, long charcodes, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
+		long __functionAddress = GL.getCapabilities().glPathGlyphsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIPIIIPIIFV(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, numGlyphs, type, charcodes, handleMissingGlyphs, pathParameterTemplate, emScale);
 	}
 
-	/** Alternative version of: {@link #glPathGlyphsNV PathGlyphsNV} */
+	/**
+	 * 
+	 *
+	 * @param firstPathName         
+	 * @param fontTarget            one of:<br>{@link #GL_STANDARD_FONT_NAME_NV STANDARD_FONT_NAME_NV}, {@link #GL_SYSTEM_FONT_NAME_NV SYSTEM_FONT_NAME_NV}, {@link #GL_FILE_NAME_NV FILE_NAME_NV}
+	 * @param fontName              
+	 * @param fontStyle             one or more of:<br>{@link #GL_BOLD_BIT_NV BOLD_BIT_NV}, {@link #GL_ITALIC_BIT_NV ITALIC_BIT_NV}
+	 * @param type                  one of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
+	 * @param charcodes             
+	 * @param handleMissingGlyphs   one of:<br>{@link #GL_SKIP_MISSING_GLYPH_NV SKIP_MISSING_GLYPH_NV}, {@link #GL_USE_MISSING_GLYPH_NV USE_MISSING_GLYPH_NV}
+	 * @param pathParameterTemplate 
+	 * @param emScale               
+	 */
 	public static void glPathGlyphsNV(int firstPathName, int fontTarget, ByteBuffer fontName, int fontStyle, int type, ByteBuffer charcodes, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
 		if ( CHECKS )
 			checkNT1(fontName);
@@ -601,7 +600,19 @@ public class NVPathRendering {
 
 	// --- [ glPathGlyphRangeNV ] ---
 
-	/** Unsafe version of {@link #glPathGlyphRangeNV PathGlyphRangeNV} */
+	/**
+	 * 
+	 *
+	 * @param firstPathName         
+	 * @param fontTarget            one of:<br>{@link #GL_STANDARD_FONT_NAME_NV STANDARD_FONT_NAME_NV}, {@link #GL_SYSTEM_FONT_NAME_NV SYSTEM_FONT_NAME_NV}, {@link #GL_FILE_NAME_NV FILE_NAME_NV}
+	 * @param fontName              
+	 * @param fontStyle             one or more of:<br>{@link #GL_BOLD_BIT_NV BOLD_BIT_NV}, {@link #GL_ITALIC_BIT_NV ITALIC_BIT_NV}
+	 * @param firstGlyph            
+	 * @param numGlyphs             
+	 * @param handleMissingGlyphs   one of:<br>{@link #GL_SKIP_MISSING_GLYPH_NV SKIP_MISSING_GLYPH_NV}, {@link #GL_USE_MISSING_GLYPH_NV USE_MISSING_GLYPH_NV}
+	 * @param pathParameterTemplate 
+	 * @param emScale               
+	 */
 	public static void nglPathGlyphRangeNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int firstGlyph, int numGlyphs, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
 		long __functionAddress = GL.getCapabilities().glPathGlyphRangeNV;
 		if ( CHECKS )
@@ -630,7 +641,18 @@ public class NVPathRendering {
 
 	// --- [ glPathGlyphIndexArrayNV ] ---
 
-	/** Unsafe version of {@link #glPathGlyphIndexArrayNV PathGlyphIndexArrayNV} */
+	/**
+	 * 
+	 *
+	 * @param firstPathName         
+	 * @param fontTarget            one of:<br>{@link #GL_STANDARD_FONT_NAME_NV STANDARD_FONT_NAME_NV}, {@link #GL_SYSTEM_FONT_NAME_NV SYSTEM_FONT_NAME_NV}, {@link #GL_FILE_NAME_NV FILE_NAME_NV}
+	 * @param fontName              
+	 * @param fontStyle             one or more of:<br>{@link #GL_BOLD_BIT_NV BOLD_BIT_NV}, {@link #GL_ITALIC_BIT_NV ITALIC_BIT_NV}
+	 * @param firstGlyphIndex       
+	 * @param numGlyphs             
+	 * @param pathParameterTemplate 
+	 * @param emScale               
+	 */
 	public static int nglPathGlyphIndexArrayNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale) {
 		long __functionAddress = GL.getCapabilities().glPathGlyphIndexArrayNV;
 		if ( CHECKS )
@@ -658,14 +680,6 @@ public class NVPathRendering {
 
 	// --- [ glPathMemoryGlyphIndexArrayNV ] ---
 
-	/** Unsafe version of {@link #glPathMemoryGlyphIndexArrayNV PathMemoryGlyphIndexArrayNV} */
-	public static int nglPathMemoryGlyphIndexArrayNV(int firstPathName, int fontTarget, long fontSize, long fontData, int faceIndex, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale) {
-		long __functionAddress = GL.getCapabilities().glPathMemoryGlyphIndexArrayNV;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return callIIPPIIIIFI(__functionAddress, firstPathName, fontTarget, fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
-	}
-
 	/**
 	 * 
 	 *
@@ -679,13 +693,25 @@ public class NVPathRendering {
 	 * @param pathParameterTemplate 
 	 * @param emScale               
 	 */
-	public static int glPathMemoryGlyphIndexArrayNV(int firstPathName, int fontTarget, long fontSize, ByteBuffer fontData, int faceIndex, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale) {
+	public static int nglPathMemoryGlyphIndexArrayNV(int firstPathName, int fontTarget, long fontSize, long fontData, int faceIndex, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale) {
+		long __functionAddress = GL.getCapabilities().glPathMemoryGlyphIndexArrayNV;
 		if ( CHECKS )
-			checkBuffer(fontData, fontSize);
-		return nglPathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, fontSize, memAddress(fontData), faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
+			checkFunctionAddress(__functionAddress);
+		return callIIPPIIIIFI(__functionAddress, firstPathName, fontTarget, fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 	}
 
-	/** Alternative version of: {@link #glPathMemoryGlyphIndexArrayNV PathMemoryGlyphIndexArrayNV} */
+	/**
+	 * 
+	 *
+	 * @param firstPathName         
+	 * @param fontTarget            one of:<br>{@link #GL_STANDARD_FONT_NAME_NV STANDARD_FONT_NAME_NV}, {@link #GL_SYSTEM_FONT_NAME_NV SYSTEM_FONT_NAME_NV}, {@link #GL_FILE_NAME_NV FILE_NAME_NV}
+	 * @param fontData              
+	 * @param faceIndex             
+	 * @param firstGlyphIndex       
+	 * @param numGlyphs             
+	 * @param pathParameterTemplate 
+	 * @param emScale               
+	 */
 	public static int glPathMemoryGlyphIndexArrayNV(int firstPathName, int fontTarget, ByteBuffer fontData, int faceIndex, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale) {
 		return nglPathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, fontData.remaining(), memAddress(fontData), faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 	}
@@ -701,7 +727,6 @@ public class NVPathRendering {
 
 	// --- [ glWeightPathsNV ] ---
 
-	/** Unsafe version of {@link #glWeightPathsNV WeightPathsNV} */
 	public static void nglWeightPathsNV(int resultPath, int numPaths, long paths, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightPathsNV;
 		if ( CHECKS )
@@ -709,15 +734,6 @@ public class NVPathRendering {
 		callIIPPV(__functionAddress, resultPath, numPaths, paths, weights);
 	}
 
-	public static void glWeightPathsNV(int resultPath, int numPaths, ByteBuffer paths, ByteBuffer weights) {
-		if ( CHECKS ) {
-			checkBuffer(paths, numPaths << 2);
-			checkBuffer(weights, numPaths << 2);
-		}
-		nglWeightPathsNV(resultPath, numPaths, memAddress(paths), memAddress(weights));
-	}
-
-	/** Alternative version of: {@link #glWeightPathsNV WeightPathsNV} */
 	public static void glWeightPathsNV(int resultPath, IntBuffer paths, FloatBuffer weights) {
 		if ( CHECKS )
 			checkBuffer(weights, paths.remaining());
@@ -735,7 +751,14 @@ public class NVPathRendering {
 
 	// --- [ glTransformPathNV ] ---
 
-	/** Unsafe version of {@link #glTransformPathNV TransformPathNV} */
+	/**
+	 * 
+	 *
+	 * @param resultPath      
+	 * @param srcPath         
+	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
+	 * @param transformValues 
+	 */
 	public static void nglTransformPathNV(int resultPath, int srcPath, int transformType, long transformValues) {
 		long __functionAddress = GL.getCapabilities().glTransformPathNV;
 		if ( CHECKS )
@@ -751,13 +774,6 @@ public class NVPathRendering {
 	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
 	 * @param transformValues 
 	 */
-	public static void glTransformPathNV(int resultPath, int srcPath, int transformType, ByteBuffer transformValues) {
-		if ( CHECKS )
-			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
-		nglTransformPathNV(resultPath, srcPath, transformType, memAddress(transformValues));
-	}
-
-	/** Alternative version of: {@link #glTransformPathNV TransformPathNV} */
 	public static void glTransformPathNV(int resultPath, int srcPath, int transformType, FloatBuffer transformValues) {
 		if ( CHECKS )
 			checkBuffer(transformValues, transformTypeToElements(transformType));
@@ -766,7 +782,13 @@ public class NVPathRendering {
 
 	// --- [ glPathParameterivNV ] ---
 
-	/** Unsafe version of {@link #glPathParameterivNV PathParameterivNV} */
+	/**
+	 * 
+	 *
+	 * @param path  
+	 * @param pname one of:<br>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}, {@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}, {@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}, {@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}, {@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}, {@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}, {@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}, {@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}, {@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}, {@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}, {@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}, {@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}, {@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}, {@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}, {@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}
+	 * @param value 
+	 */
 	public static void nglPathParameterivNV(int path, int pname, long value) {
 		long __functionAddress = GL.getCapabilities().glPathParameterivNV;
 		if ( CHECKS )
@@ -781,13 +803,6 @@ public class NVPathRendering {
 	 * @param pname one of:<br>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}, {@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}, {@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}, {@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}, {@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}, {@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}, {@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}, {@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}, {@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}, {@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}, {@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}, {@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}, {@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}, {@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}, {@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}
 	 * @param value 
 	 */
-	public static void glPathParameterivNV(int path, int pname, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglPathParameterivNV(path, pname, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glPathParameterivNV PathParameterivNV} */
 	public static void glPathParameterivNV(int path, int pname, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -812,7 +827,13 @@ public class NVPathRendering {
 
 	// --- [ glPathParameterfvNV ] ---
 
-	/** Unsafe version of {@link #glPathParameterfvNV PathParameterfvNV} */
+	/**
+	 * 
+	 *
+	 * @param path  
+	 * @param pname one of:<br>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}, {@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}, {@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}, {@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}, {@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}, {@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}, {@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}, {@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}, {@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}, {@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}, {@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}, {@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}, {@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}, {@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}, {@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}, {@link #GL_PATH_END_CAPS_NV PATH_END_CAPS_NV}, {@link #GL_PATH_DASH_CAPS_NV PATH_DASH_CAPS_NV}
+	 * @param value 
+	 */
 	public static void nglPathParameterfvNV(int path, int pname, long value) {
 		long __functionAddress = GL.getCapabilities().glPathParameterfvNV;
 		if ( CHECKS )
@@ -827,13 +848,6 @@ public class NVPathRendering {
 	 * @param pname one of:<br>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}, {@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}, {@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}, {@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}, {@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}, {@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}, {@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}, {@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}, {@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}, {@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}, {@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}, {@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}, {@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}, {@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}, {@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}, {@link #GL_PATH_END_CAPS_NV PATH_END_CAPS_NV}, {@link #GL_PATH_DASH_CAPS_NV PATH_DASH_CAPS_NV}
 	 * @param value 
 	 */
-	public static void glPathParameterfvNV(int path, int pname, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglPathParameterfvNV(path, pname, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glPathParameterfvNV PathParameterfvNV} */
 	public static void glPathParameterfvNV(int path, int pname, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -858,7 +872,6 @@ public class NVPathRendering {
 
 	// --- [ glPathDashArrayNV ] ---
 
-	/** Unsafe version of {@link #glPathDashArrayNV PathDashArrayNV} */
 	public static void nglPathDashArrayNV(int path, int dashCount, long dashArray) {
 		long __functionAddress = GL.getCapabilities().glPathDashArrayNV;
 		if ( CHECKS )
@@ -866,13 +879,6 @@ public class NVPathRendering {
 		callIIPV(__functionAddress, path, dashCount, dashArray);
 	}
 
-	public static void glPathDashArrayNV(int path, int dashCount, ByteBuffer dashArray) {
-		if ( CHECKS )
-			checkBuffer(dashArray, dashCount << 2);
-		nglPathDashArrayNV(path, dashCount, memAddress(dashArray));
-	}
-
-	/** Alternative version of: {@link #glPathDashArrayNV PathDashArrayNV} */
 	public static void glPathDashArrayNV(int path, FloatBuffer dashArray) {
 		nglPathDashArrayNV(path, dashArray.remaining(), memAddress(dashArray));
 	}
@@ -949,14 +955,6 @@ public class NVPathRendering {
 
 	// --- [ glStencilFillPathInstancedNV ] ---
 
-	/** Unsafe version of {@link #glStencilFillPathInstancedNV StencilFillPathInstancedNV} */
-	public static void nglStencilFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int fillMode, int mask, int transformType, long transformValues) {
-		long __functionAddress = GL.getCapabilities().glStencilFillPathInstancedNV;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, fillMode, mask, transformType, transformValues);
-	}
-
 	/**
 	 * 
 	 *
@@ -969,15 +967,24 @@ public class NVPathRendering {
 	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
 	 * @param transformValues 
 	 */
-	public static void glStencilFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int transformType, ByteBuffer transformValues) {
-		if ( CHECKS ) {
-			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
-		}
-		nglStencilFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, fillMode, mask, transformType, memAddress(transformValues));
+	public static void nglStencilFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int fillMode, int mask, int transformType, long transformValues) {
+		long __functionAddress = GL.getCapabilities().glStencilFillPathInstancedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, fillMode, mask, transformType, transformValues);
 	}
 
-	/** Alternative version of: {@link #glStencilFillPathInstancedNV StencilFillPathInstancedNV} */
+	/**
+	 * 
+	 *
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
+	 * @param paths           
+	 * @param pathBase        
+	 * @param fillMode        one of:<br>{@link GL11#GL_INVERT INVERT}, {@link #GL_COUNT_UP_NV COUNT_UP_NV}, {@link #GL_COUNT_DOWN_NV COUNT_DOWN_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}
+	 * @param mask            
+	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
+	 * @param transformValues 
+	 */
 	public static void glStencilFillPathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int transformType, FloatBuffer transformValues) {
 		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( CHECKS )
@@ -986,14 +993,6 @@ public class NVPathRendering {
 	}
 
 	// --- [ glStencilStrokePathInstancedNV ] ---
-
-	/** Unsafe version of {@link #glStencilStrokePathInstancedNV StencilStrokePathInstancedNV} */
-	public static void nglStencilStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int reference, int mask, int transformType, long transformValues) {
-		long __functionAddress = GL.getCapabilities().glStencilStrokePathInstancedNV;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, reference, mask, transformType, transformValues);
-	}
 
 	/**
 	 * 
@@ -1007,15 +1006,24 @@ public class NVPathRendering {
 	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
 	 * @param transformValues 
 	 */
-	public static void glStencilStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int transformType, ByteBuffer transformValues) {
-		if ( CHECKS ) {
-			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
-		}
-		nglStencilStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, reference, mask, transformType, memAddress(transformValues));
+	public static void nglStencilStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int reference, int mask, int transformType, long transformValues) {
+		long __functionAddress = GL.getCapabilities().glStencilStrokePathInstancedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, reference, mask, transformType, transformValues);
 	}
 
-	/** Alternative version of: {@link #glStencilStrokePathInstancedNV StencilStrokePathInstancedNV} */
+	/**
+	 * 
+	 *
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
+	 * @param paths           
+	 * @param pathBase        
+	 * @param reference       
+	 * @param mask            
+	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
+	 * @param transformValues 
+	 */
 	public static void glStencilStrokePathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int transformType, FloatBuffer transformValues) {
 		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( CHECKS )
@@ -1034,7 +1042,14 @@ public class NVPathRendering {
 
 	// --- [ glPathColorGenNV ] ---
 
-	/** Unsafe version of {@link #glPathColorGenNV PathColorGenNV} */
+	/**
+	 * 
+	 *
+	 * @param color       one of:<br>{@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link #GL_PRIMARY_COLOR_NV PRIMARY_COLOR_NV}, {@link #GL_SECONDARY_COLOR_NV SECONDARY_COLOR_NV}
+	 * @param genMode     one of:<br>{@link GL11#GL_NONE NONE}, {@link #GL_OBJECT_LINEAR_NV OBJECT_LINEAR_NV}, {@link #GL_PATH_OBJECT_BOUNDING_BOX_NV PATH_OBJECT_BOUNDING_BOX_NV}, {@link #GL_EYE_LINEAR_NV EYE_LINEAR_NV}, {@link #GL_CONSTANT_NV CONSTANT_NV}
+	 * @param colorFormat {@link GL11#GL_LUMINANCE LUMINANCE} {@link GL11#GL_ALPHA ALPHA} {@link GL11#GL_INTENSITY INTENSITY} {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA} {@link GL11#GL_RGB RGB} {@link GL11#GL_RGBA RGBA}
+	 * @param coeffs      
+	 */
 	public static void nglPathColorGenNV(int color, int genMode, int colorFormat, long coeffs) {
 		long __functionAddress = GL.getCapabilities().glPathColorGenNV;
 		if ( CHECKS )
@@ -1050,13 +1065,6 @@ public class NVPathRendering {
 	 * @param colorFormat {@link GL11#GL_LUMINANCE LUMINANCE} {@link GL11#GL_ALPHA ALPHA} {@link GL11#GL_INTENSITY INTENSITY} {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA} {@link GL11#GL_RGB RGB} {@link GL11#GL_RGBA RGBA}
 	 * @param coeffs      
 	 */
-	public static void glPathColorGenNV(int color, int genMode, int colorFormat, ByteBuffer coeffs) {
-		if ( CHECKS )
-			checkBuffer(coeffs, (genModeToElements(genMode) * colorFormatToComponents(colorFormat)) << 2);
-		nglPathColorGenNV(color, genMode, colorFormat, memAddress(coeffs));
-	}
-
-	/** Alternative version of: {@link #glPathColorGenNV PathColorGenNV} */
 	public static void glPathColorGenNV(int color, int genMode, int colorFormat, FloatBuffer coeffs) {
 		if ( CHECKS )
 			checkBuffer(coeffs, genModeToElements(genMode) * colorFormatToComponents(colorFormat));
@@ -1065,7 +1073,6 @@ public class NVPathRendering {
 
 	// --- [ glPathTexGenNV ] ---
 
-	/** Unsafe version of {@link #glPathTexGenNV PathTexGenNV} */
 	public static void nglPathTexGenNV(int texCoordSet, int genMode, int components, long coeffs) {
 		long __functionAddress = GL.getCapabilities().glPathTexGenNV;
 		if ( CHECKS )
@@ -1073,13 +1080,6 @@ public class NVPathRendering {
 		callIIIPV(__functionAddress, texCoordSet, genMode, components, coeffs);
 	}
 
-	public static void glPathTexGenNV(int texCoordSet, int genMode, int components, ByteBuffer coeffs) {
-		if ( CHECKS )
-			checkBuffer(coeffs, (genModeToElements(genMode) * components) << 2);
-		nglPathTexGenNV(texCoordSet, genMode, components, memAddress(coeffs));
-	}
-
-	/** Alternative version of: {@link #glPathTexGenNV PathTexGenNV} */
 	public static void glPathTexGenNV(int texCoordSet, int genMode, int components, FloatBuffer coeffs) {
 		if ( CHECKS )
 			checkBuffer(coeffs, genModeToElements(genMode) * components);
@@ -1127,7 +1127,17 @@ public class NVPathRendering {
 
 	// --- [ glCoverFillPathInstancedNV ] ---
 
-	/** Unsafe version of {@link #glCoverFillPathInstancedNV CoverFillPathInstancedNV} */
+	/**
+	 * 
+	 *
+	 * @param numPaths        
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
+	 * @param paths           
+	 * @param pathBase        
+	 * @param coverMode       one of:<br>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}, {@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}, {@link #GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV BOUNDING_BOX_OF_BOUNDING_BOXES_NV}
+	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
+	 * @param transformValues 
+	 */
 	public static void nglCoverFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int coverMode, int transformType, long transformValues) {
 		long __functionAddress = GL.getCapabilities().glCoverFillPathInstancedNV;
 		if ( CHECKS )
@@ -1138,7 +1148,6 @@ public class NVPathRendering {
 	/**
 	 * 
 	 *
-	 * @param numPaths        
 	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
 	 * @param paths           
 	 * @param pathBase        
@@ -1146,15 +1155,6 @@ public class NVPathRendering {
 	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
 	 * @param transformValues 
 	 */
-	public static void glCoverFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, ByteBuffer transformValues) {
-		if ( CHECKS ) {
-			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
-		}
-		nglCoverFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
-	}
-
-	/** Alternative version of: {@link #glCoverFillPathInstancedNV CoverFillPathInstancedNV} */
 	public static void glCoverFillPathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, FloatBuffer transformValues) {
 		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( CHECKS )
@@ -1163,14 +1163,6 @@ public class NVPathRendering {
 	}
 
 	// --- [ glCoverStrokePathInstancedNV ] ---
-
-	/** Unsafe version of {@link #glCoverStrokePathInstancedNV CoverStrokePathInstancedNV} */
-	public static void nglCoverStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int coverMode, int transformType, long transformValues) {
-		long __functionAddress = GL.getCapabilities().glCoverStrokePathInstancedNV;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues);
-	}
 
 	/**
 	 * 
@@ -1183,15 +1175,23 @@ public class NVPathRendering {
 	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
 	 * @param transformValues 
 	 */
-	public static void glCoverStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, ByteBuffer transformValues) {
-		if ( CHECKS ) {
-			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
-		}
-		nglCoverStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
+	public static void nglCoverStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int coverMode, int transformType, long transformValues) {
+		long __functionAddress = GL.getCapabilities().glCoverStrokePathInstancedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIPIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues);
 	}
 
-	/** Alternative version of: {@link #glCoverStrokePathInstancedNV CoverStrokePathInstancedNV} */
+	/**
+	 * 
+	 *
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
+	 * @param paths           
+	 * @param pathBase        
+	 * @param coverMode       one of:<br>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}, {@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}, {@link #GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV BOUNDING_BOX_OF_BOUNDING_BOXES_NV}
+	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
+	 * @param transformValues 
+	 */
 	public static void glCoverStrokePathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, FloatBuffer transformValues) {
 		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( CHECKS )
@@ -1235,14 +1235,6 @@ public class NVPathRendering {
 
 	// --- [ glStencilThenCoverFillPathInstancedNV ] ---
 
-	/** Unsafe version of {@link #glStencilThenCoverFillPathInstancedNV StencilThenCoverFillPathInstancedNV} */
-	public static void nglStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, long transformValues) {
-		long __functionAddress = GL.getCapabilities().glStencilThenCoverFillPathInstancedNV;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPIIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, fillMode, mask, coverMode, transformType, transformValues);
-	}
-
 	/**
 	 * 
 	 *
@@ -1256,15 +1248,25 @@ public class NVPathRendering {
 	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
 	 * @param transformValues 
 	 */
-	public static void glStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, ByteBuffer transformValues) {
-		if ( CHECKS ) {
-			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
-		}
-		nglStencilThenCoverFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, fillMode, mask, coverMode, transformType, memAddress(transformValues));
+	public static void nglStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, long transformValues) {
+		long __functionAddress = GL.getCapabilities().glStencilThenCoverFillPathInstancedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIPIIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, fillMode, mask, coverMode, transformType, transformValues);
 	}
 
-	/** Alternative version of: {@link #glStencilThenCoverFillPathInstancedNV StencilThenCoverFillPathInstancedNV} */
+	/**
+	 * 
+	 *
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
+	 * @param paths           
+	 * @param pathBase        
+	 * @param fillMode        one of:<br>{@link GL11#GL_INVERT INVERT}, {@link #GL_COUNT_UP_NV COUNT_UP_NV}, {@link #GL_COUNT_DOWN_NV COUNT_DOWN_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}
+	 * @param mask            
+	 * @param coverMode       one of:<br>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}, {@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}, {@link #GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV BOUNDING_BOX_OF_BOUNDING_BOXES_NV}
+	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
+	 * @param transformValues 
+	 */
 	public static void glStencilThenCoverFillPathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, FloatBuffer transformValues) {
 		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( CHECKS )
@@ -1273,14 +1275,6 @@ public class NVPathRendering {
 	}
 
 	// --- [ glStencilThenCoverStrokePathInstancedNV ] ---
-
-	/** Unsafe version of {@link #glStencilThenCoverStrokePathInstancedNV StencilThenCoverStrokePathInstancedNV} */
-	public static void nglStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int reference, int mask, int coverMode, int transformType, long transformValues) {
-		long __functionAddress = GL.getCapabilities().glStencilThenCoverStrokePathInstancedNV;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPIIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, reference, mask, coverMode, transformType, transformValues);
-	}
 
 	/**
 	 * 
@@ -1295,15 +1289,25 @@ public class NVPathRendering {
 	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
 	 * @param transformValues 
 	 */
-	public static void glStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int coverMode, int transformType, ByteBuffer transformValues) {
-		if ( CHECKS ) {
-			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
-		}
-		nglStencilThenCoverStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, reference, mask, coverMode, transformType, memAddress(transformValues));
+	public static void nglStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int reference, int mask, int coverMode, int transformType, long transformValues) {
+		long __functionAddress = GL.getCapabilities().glStencilThenCoverStrokePathInstancedNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIPIIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, reference, mask, coverMode, transformType, transformValues);
 	}
 
-	/** Alternative version of: {@link #glStencilThenCoverStrokePathInstancedNV StencilThenCoverStrokePathInstancedNV} */
+	/**
+	 * 
+	 *
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
+	 * @param paths           
+	 * @param pathBase        
+	 * @param reference       
+	 * @param mask            
+	 * @param coverMode       one of:<br>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}, {@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}, {@link #GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV BOUNDING_BOX_OF_BOUNDING_BOXES_NV}
+	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
+	 * @param transformValues 
+	 */
 	public static void glStencilThenCoverStrokePathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int coverMode, int transformType, FloatBuffer transformValues) {
 		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( CHECKS )
@@ -1313,7 +1317,16 @@ public class NVPathRendering {
 
 	// --- [ glPathGlyphIndexRangeNV ] ---
 
-	/** Unsafe version of {@link #glPathGlyphIndexRangeNV PathGlyphIndexRangeNV} */
+	/**
+	 * 
+	 *
+	 * @param fontTarget            one of:<br>{@link #GL_STANDARD_FONT_NAME_NV STANDARD_FONT_NAME_NV}, {@link #GL_SYSTEM_FONT_NAME_NV SYSTEM_FONT_NAME_NV}, {@link #GL_FILE_NAME_NV FILE_NAME_NV}
+	 * @param fontName              
+	 * @param fontStyle             one or more of:<br>{@link #GL_BOLD_BIT_NV BOLD_BIT_NV}, {@link #GL_ITALIC_BIT_NV ITALIC_BIT_NV}
+	 * @param pathParameterTemplate 
+	 * @param emScale               
+	 * @param baseAndCount          
+	 */
 	public static int nglPathGlyphIndexRangeNV(int fontTarget, long fontName, int fontStyle, int pathParameterTemplate, float emScale, int baseAndCount) {
 		long __functionAddress = GL.getCapabilities().glPathGlyphIndexRangeNV;
 		if ( CHECKS )
@@ -1339,7 +1352,6 @@ public class NVPathRendering {
 
 	// --- [ glProgramPathFragmentInputGenNV ] ---
 
-	/** Unsafe version of {@link #glProgramPathFragmentInputGenNV ProgramPathFragmentInputGenNV} */
 	public static void nglProgramPathFragmentInputGenNV(int program, int location, int genMode, int components, long coeffs) {
 		long __functionAddress = GL.getCapabilities().glProgramPathFragmentInputGenNV;
 		if ( CHECKS )
@@ -1347,13 +1359,6 @@ public class NVPathRendering {
 		callIIIIPV(__functionAddress, program, location, genMode, components, coeffs);
 	}
 
-	public static void glProgramPathFragmentInputGenNV(int program, int location, int genMode, int components, ByteBuffer coeffs) {
-		if ( CHECKS )
-			checkBuffer(coeffs, (genModeToElements(genMode) * components) << 2);
-		nglProgramPathFragmentInputGenNV(program, location, genMode, components, memAddress(coeffs));
-	}
-
-	/** Alternative version of: {@link #glProgramPathFragmentInputGenNV ProgramPathFragmentInputGenNV} */
 	public static void glProgramPathFragmentInputGenNV(int program, int location, int genMode, int components, FloatBuffer coeffs) {
 		if ( CHECKS )
 			checkBuffer(coeffs, genModeToElements(genMode) * components);
@@ -1362,7 +1367,13 @@ public class NVPathRendering {
 
 	// --- [ glGetPathParameterivNV ] ---
 
-	/** Unsafe version of {@link #glGetPathParameterivNV GetPathParameterivNV} */
+	/**
+	 * 
+	 *
+	 * @param path  
+	 * @param pname one of:<br>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}, {@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}, {@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}, {@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}, {@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}, {@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}, {@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}, {@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}, {@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}, {@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}, {@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}, {@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}, {@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}, {@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}, {@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}, {@link #GL_PATH_COMMAND_COUNT_NV PATH_COMMAND_COUNT_NV}, {@link #GL_PATH_COORD_COUNT_NV PATH_COORD_COUNT_NV}, {@link #GL_PATH_DASH_ARRAY_COUNT_NV PATH_DASH_ARRAY_COUNT_NV}, {@link #GL_PATH_COMPUTED_LENGTH_NV PATH_COMPUTED_LENGTH_NV}, {@link #GL_PATH_FILL_BOUNDING_BOX_NV PATH_FILL_BOUNDING_BOX_NV}, {@link #GL_PATH_STROKE_BOUNDING_BOX_NV PATH_STROKE_BOUNDING_BOX_NV}
+	 * @param value 
+	 */
 	public static void nglGetPathParameterivNV(int path, int pname, long value) {
 		long __functionAddress = GL.getCapabilities().glGetPathParameterivNV;
 		if ( CHECKS )
@@ -1377,20 +1388,18 @@ public class NVPathRendering {
 	 * @param pname one of:<br>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}, {@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}, {@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}, {@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}, {@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}, {@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}, {@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}, {@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}, {@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}, {@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}, {@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}, {@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}, {@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}, {@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}, {@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}, {@link #GL_PATH_COMMAND_COUNT_NV PATH_COMMAND_COUNT_NV}, {@link #GL_PATH_COORD_COUNT_NV PATH_COORD_COUNT_NV}, {@link #GL_PATH_DASH_ARRAY_COUNT_NV PATH_DASH_ARRAY_COUNT_NV}, {@link #GL_PATH_COMPUTED_LENGTH_NV PATH_COMPUTED_LENGTH_NV}, {@link #GL_PATH_FILL_BOUNDING_BOX_NV PATH_FILL_BOUNDING_BOX_NV}, {@link #GL_PATH_STROKE_BOUNDING_BOX_NV PATH_STROKE_BOUNDING_BOX_NV}
 	 * @param value 
 	 */
-	public static void glGetPathParameterivNV(int path, int pname, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglGetPathParameterivNV(path, pname, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glGetPathParameterivNV GetPathParameterivNV} */
 	public static void glGetPathParameterivNV(int path, int pname, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglGetPathParameterivNV(path, pname, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #glGetPathParameterivNV GetPathParameterivNV} */
+	/**
+	 * 
+	 *
+	 * @param path  
+	 * @param pname one of:<br>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}, {@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}, {@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}, {@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}, {@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}, {@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}, {@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}, {@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}, {@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}, {@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}, {@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}, {@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}, {@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}, {@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}, {@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}, {@link #GL_PATH_COMMAND_COUNT_NV PATH_COMMAND_COUNT_NV}, {@link #GL_PATH_COORD_COUNT_NV PATH_COORD_COUNT_NV}, {@link #GL_PATH_DASH_ARRAY_COUNT_NV PATH_DASH_ARRAY_COUNT_NV}, {@link #GL_PATH_COMPUTED_LENGTH_NV PATH_COMPUTED_LENGTH_NV}, {@link #GL_PATH_FILL_BOUNDING_BOX_NV PATH_FILL_BOUNDING_BOX_NV}, {@link #GL_PATH_STROKE_BOUNDING_BOX_NV PATH_STROKE_BOUNDING_BOX_NV}
+	 */
 	public static int glGetPathParameteriNV(int path, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1404,7 +1413,13 @@ public class NVPathRendering {
 
 	// --- [ glGetPathParameterfvNV ] ---
 
-	/** Unsafe version of {@link #glGetPathParameterfvNV GetPathParameterfvNV} */
+	/**
+	 * 
+	 *
+	 * @param path  
+	 * @param pname one of:<br>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}, {@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}, {@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}, {@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}, {@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}, {@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}, {@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}, {@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}, {@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}, {@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}, {@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}, {@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}, {@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}, {@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}, {@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}, {@link #GL_PATH_COMMAND_COUNT_NV PATH_COMMAND_COUNT_NV}, {@link #GL_PATH_COORD_COUNT_NV PATH_COORD_COUNT_NV}, {@link #GL_PATH_DASH_ARRAY_COUNT_NV PATH_DASH_ARRAY_COUNT_NV}, {@link #GL_PATH_COMPUTED_LENGTH_NV PATH_COMPUTED_LENGTH_NV}, {@link #GL_PATH_FILL_BOUNDING_BOX_NV PATH_FILL_BOUNDING_BOX_NV}, {@link #GL_PATH_STROKE_BOUNDING_BOX_NV PATH_STROKE_BOUNDING_BOX_NV}
+	 * @param value 
+	 */
 	public static void nglGetPathParameterfvNV(int path, int pname, long value) {
 		long __functionAddress = GL.getCapabilities().glGetPathParameterfvNV;
 		if ( CHECKS )
@@ -1419,20 +1434,18 @@ public class NVPathRendering {
 	 * @param pname one of:<br>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}, {@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}, {@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}, {@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}, {@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}, {@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}, {@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}, {@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}, {@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}, {@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}, {@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}, {@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}, {@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}, {@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}, {@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}, {@link #GL_PATH_COMMAND_COUNT_NV PATH_COMMAND_COUNT_NV}, {@link #GL_PATH_COORD_COUNT_NV PATH_COORD_COUNT_NV}, {@link #GL_PATH_DASH_ARRAY_COUNT_NV PATH_DASH_ARRAY_COUNT_NV}, {@link #GL_PATH_COMPUTED_LENGTH_NV PATH_COMPUTED_LENGTH_NV}, {@link #GL_PATH_FILL_BOUNDING_BOX_NV PATH_FILL_BOUNDING_BOX_NV}, {@link #GL_PATH_STROKE_BOUNDING_BOX_NV PATH_STROKE_BOUNDING_BOX_NV}
 	 * @param value 
 	 */
-	public static void glGetPathParameterfvNV(int path, int pname, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglGetPathParameterfvNV(path, pname, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glGetPathParameterfvNV GetPathParameterfvNV} */
 	public static void glGetPathParameterfvNV(int path, int pname, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglGetPathParameterfvNV(path, pname, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #glGetPathParameterfvNV GetPathParameterfvNV} */
+	/**
+	 * 
+	 *
+	 * @param path  
+	 * @param pname one of:<br>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}, {@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}, {@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}, {@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}, {@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}, {@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}, {@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}, {@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}, {@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}, {@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}, {@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}, {@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}, {@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}, {@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}, {@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}, {@link #GL_PATH_COMMAND_COUNT_NV PATH_COMMAND_COUNT_NV}, {@link #GL_PATH_COORD_COUNT_NV PATH_COORD_COUNT_NV}, {@link #GL_PATH_DASH_ARRAY_COUNT_NV PATH_DASH_ARRAY_COUNT_NV}, {@link #GL_PATH_COMPUTED_LENGTH_NV PATH_COMPUTED_LENGTH_NV}, {@link #GL_PATH_FILL_BOUNDING_BOX_NV PATH_FILL_BOUNDING_BOX_NV}, {@link #GL_PATH_STROKE_BOUNDING_BOX_NV PATH_STROKE_BOUNDING_BOX_NV}
+	 */
 	public static float glGetPathParameterfNV(int path, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1446,7 +1459,6 @@ public class NVPathRendering {
 
 	// --- [ glGetPathCommandsNV ] ---
 
-	/** Unsafe version of {@link #glGetPathCommandsNV GetPathCommandsNV} */
 	public static void nglGetPathCommandsNV(int path, long commands) {
 		long __functionAddress = GL.getCapabilities().glGetPathCommandsNV;
 		if ( CHECKS )
@@ -1463,7 +1475,6 @@ public class NVPathRendering {
 
 	// --- [ glGetPathCoordsNV ] ---
 
-	/** Unsafe version of {@link #glGetPathCoordsNV GetPathCoordsNV} */
 	public static void nglGetPathCoordsNV(int path, long coords) {
 		long __functionAddress = GL.getCapabilities().glGetPathCoordsNV;
 		if ( CHECKS )
@@ -1471,14 +1482,6 @@ public class NVPathRendering {
 		callIPV(__functionAddress, path, coords);
 	}
 
-	public static void glGetPathCoordsNV(int path, ByteBuffer coords) {
-		if ( CHECKS )
-			if ( DEBUG )
-				checkBuffer(coords, (glGetPathParameteriNV(path, GL_PATH_COORD_COUNT_NV)) << 2);
-		nglGetPathCoordsNV(path, memAddress(coords));
-	}
-
-	/** Alternative version of: {@link #glGetPathCoordsNV GetPathCoordsNV} */
 	public static void glGetPathCoordsNV(int path, FloatBuffer coords) {
 		if ( CHECKS )
 			if ( DEBUG )
@@ -1488,7 +1491,6 @@ public class NVPathRendering {
 
 	// --- [ glGetPathDashArrayNV ] ---
 
-	/** Unsafe version of {@link #glGetPathDashArrayNV GetPathDashArrayNV} */
 	public static void nglGetPathDashArrayNV(int path, long dashArray) {
 		long __functionAddress = GL.getCapabilities().glGetPathDashArrayNV;
 		if ( CHECKS )
@@ -1496,14 +1498,6 @@ public class NVPathRendering {
 		callIPV(__functionAddress, path, dashArray);
 	}
 
-	public static void glGetPathDashArrayNV(int path, ByteBuffer dashArray) {
-		if ( CHECKS )
-			if ( DEBUG )
-				checkBuffer(dashArray, (glGetPathParameteriNV(path, GL_PATH_DASH_ARRAY_COUNT_NV)) << 2);
-		nglGetPathDashArrayNV(path, memAddress(dashArray));
-	}
-
-	/** Alternative version of: {@link #glGetPathDashArrayNV GetPathDashArrayNV} */
 	public static void glGetPathDashArrayNV(int path, FloatBuffer dashArray) {
 		if ( CHECKS )
 			if ( DEBUG )
@@ -1512,14 +1506,6 @@ public class NVPathRendering {
 	}
 
 	// --- [ glGetPathMetricsNV ] ---
-
-	/** Unsafe version of {@link #glGetPathMetricsNV GetPathMetricsNV} */
-	public static void nglGetPathMetricsNV(int metricQueryMask, int numPaths, int pathNameType, long paths, int pathBase, int stride, long metrics) {
-		long __functionAddress = GL.getCapabilities().glGetPathMetricsNV;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIIPIIPV(__functionAddress, metricQueryMask, numPaths, pathNameType, paths, pathBase, stride, metrics);
-	}
 
 	/**
 	 * 
@@ -1532,15 +1518,23 @@ public class NVPathRendering {
 	 * @param stride          
 	 * @param metrics         
 	 */
-	public static void glGetPathMetricsNV(int metricQueryMask, int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int stride, ByteBuffer metrics) {
-		if ( CHECKS ) {
-			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(metrics, (numPaths * (stride == 0 ? Integer.bitCount(metricQueryMask) : (stride >> 2))) << 2);
-		}
-		nglGetPathMetricsNV(metricQueryMask, numPaths, pathNameType, memAddress(paths), pathBase, stride, memAddress(metrics));
+	public static void nglGetPathMetricsNV(int metricQueryMask, int numPaths, int pathNameType, long paths, int pathBase, int stride, long metrics) {
+		long __functionAddress = GL.getCapabilities().glGetPathMetricsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIIPIIPV(__functionAddress, metricQueryMask, numPaths, pathNameType, paths, pathBase, stride, metrics);
 	}
 
-	/** Alternative version of: {@link #glGetPathMetricsNV GetPathMetricsNV} */
+	/**
+	 * 
+	 *
+	 * @param metricQueryMask one or more of:<br>{@link #GL_GLYPH_WIDTH_BIT_NV GLYPH_WIDTH_BIT_NV}, {@link #GL_GLYPH_HEIGHT_BIT_NV GLYPH_HEIGHT_BIT_NV}, {@link #GL_GLYPH_HORIZONTAL_BEARING_X_BIT_NV GLYPH_HORIZONTAL_BEARING_X_BIT_NV}, {@link #GL_GLYPH_HORIZONTAL_BEARING_Y_BIT_NV GLYPH_HORIZONTAL_BEARING_Y_BIT_NV}, {@link #GL_GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV}, {@link #GL_GLYPH_VERTICAL_BEARING_X_BIT_NV GLYPH_VERTICAL_BEARING_X_BIT_NV}, {@link #GL_GLYPH_VERTICAL_BEARING_Y_BIT_NV GLYPH_VERTICAL_BEARING_Y_BIT_NV}, {@link #GL_GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV}, {@link #GL_GLYPH_HAS_KERNING_BIT_NV GLYPH_HAS_KERNING_BIT_NV}, {@link #GL_FONT_X_MIN_BOUNDS_BIT_NV FONT_X_MIN_BOUNDS_BIT_NV}, {@link #GL_FONT_Y_MIN_BOUNDS_BIT_NV FONT_Y_MIN_BOUNDS_BIT_NV}, {@link #GL_FONT_X_MAX_BOUNDS_BIT_NV FONT_X_MAX_BOUNDS_BIT_NV}, {@link #GL_FONT_Y_MAX_BOUNDS_BIT_NV FONT_Y_MAX_BOUNDS_BIT_NV}, {@link #GL_FONT_UNITS_PER_EM_BIT_NV FONT_UNITS_PER_EM_BIT_NV}, {@link #GL_FONT_ASCENDER_BIT_NV FONT_ASCENDER_BIT_NV}, {@link #GL_FONT_DESCENDER_BIT_NV FONT_DESCENDER_BIT_NV}, {@link #GL_FONT_HEIGHT_BIT_NV FONT_HEIGHT_BIT_NV}, {@link #GL_FONT_MAX_ADVANCE_WIDTH_BIT_NV FONT_MAX_ADVANCE_WIDTH_BIT_NV}, {@link #GL_FONT_MAX_ADVANCE_HEIGHT_BIT_NV FONT_MAX_ADVANCE_HEIGHT_BIT_NV}, {@link #GL_FONT_UNDERLINE_POSITION_BIT_NV FONT_UNDERLINE_POSITION_BIT_NV}, {@link #GL_FONT_UNDERLINE_THICKNESS_BIT_NV FONT_UNDERLINE_THICKNESS_BIT_NV}, {@link #GL_FONT_HAS_KERNING_BIT_NV FONT_HAS_KERNING_BIT_NV}, {@link #GL_FONT_NUM_GLYPH_INDICES_BIT_NV FONT_NUM_GLYPH_INDICES_BIT_NV}
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
+	 * @param paths           
+	 * @param pathBase        
+	 * @param stride          
+	 * @param metrics         
+	 */
 	public static void glGetPathMetricsNV(int metricQueryMask, int pathNameType, ByteBuffer paths, int pathBase, int stride, FloatBuffer metrics) {
 		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( CHECKS )
@@ -1550,7 +1544,15 @@ public class NVPathRendering {
 
 	// --- [ glGetPathMetricRangeNV ] ---
 
-	/** Unsafe version of {@link #glGetPathMetricRangeNV GetPathMetricRangeNV} */
+	/**
+	 * 
+	 *
+	 * @param metricQueryMask one or more of:<br>{@link #GL_GLYPH_WIDTH_BIT_NV GLYPH_WIDTH_BIT_NV}, {@link #GL_GLYPH_HEIGHT_BIT_NV GLYPH_HEIGHT_BIT_NV}, {@link #GL_GLYPH_HORIZONTAL_BEARING_X_BIT_NV GLYPH_HORIZONTAL_BEARING_X_BIT_NV}, {@link #GL_GLYPH_HORIZONTAL_BEARING_Y_BIT_NV GLYPH_HORIZONTAL_BEARING_Y_BIT_NV}, {@link #GL_GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV}, {@link #GL_GLYPH_VERTICAL_BEARING_X_BIT_NV GLYPH_VERTICAL_BEARING_X_BIT_NV}, {@link #GL_GLYPH_VERTICAL_BEARING_Y_BIT_NV GLYPH_VERTICAL_BEARING_Y_BIT_NV}, {@link #GL_GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV}, {@link #GL_GLYPH_HAS_KERNING_BIT_NV GLYPH_HAS_KERNING_BIT_NV}, {@link #GL_FONT_X_MIN_BOUNDS_BIT_NV FONT_X_MIN_BOUNDS_BIT_NV}, {@link #GL_FONT_Y_MIN_BOUNDS_BIT_NV FONT_Y_MIN_BOUNDS_BIT_NV}, {@link #GL_FONT_X_MAX_BOUNDS_BIT_NV FONT_X_MAX_BOUNDS_BIT_NV}, {@link #GL_FONT_Y_MAX_BOUNDS_BIT_NV FONT_Y_MAX_BOUNDS_BIT_NV}, {@link #GL_FONT_UNITS_PER_EM_BIT_NV FONT_UNITS_PER_EM_BIT_NV}, {@link #GL_FONT_ASCENDER_BIT_NV FONT_ASCENDER_BIT_NV}, {@link #GL_FONT_DESCENDER_BIT_NV FONT_DESCENDER_BIT_NV}, {@link #GL_FONT_HEIGHT_BIT_NV FONT_HEIGHT_BIT_NV}, {@link #GL_FONT_MAX_ADVANCE_WIDTH_BIT_NV FONT_MAX_ADVANCE_WIDTH_BIT_NV}, {@link #GL_FONT_MAX_ADVANCE_HEIGHT_BIT_NV FONT_MAX_ADVANCE_HEIGHT_BIT_NV}, {@link #GL_FONT_UNDERLINE_POSITION_BIT_NV FONT_UNDERLINE_POSITION_BIT_NV}, {@link #GL_FONT_UNDERLINE_THICKNESS_BIT_NV FONT_UNDERLINE_THICKNESS_BIT_NV}, {@link #GL_FONT_HAS_KERNING_BIT_NV FONT_HAS_KERNING_BIT_NV}, {@link #GL_FONT_NUM_GLYPH_INDICES_BIT_NV FONT_NUM_GLYPH_INDICES_BIT_NV}
+	 * @param firstPathName   
+	 * @param numPaths        
+	 * @param stride          
+	 * @param metrics         
+	 */
 	public static void nglGetPathMetricRangeNV(int metricQueryMask, int firstPathName, int numPaths, int stride, long metrics) {
 		long __functionAddress = GL.getCapabilities().glGetPathMetricRangeNV;
 		if ( CHECKS )
@@ -1567,13 +1569,6 @@ public class NVPathRendering {
 	 * @param stride          
 	 * @param metrics         
 	 */
-	public static void glGetPathMetricRangeNV(int metricQueryMask, int firstPathName, int numPaths, int stride, ByteBuffer metrics) {
-		if ( CHECKS )
-			checkBuffer(metrics, (numPaths * (stride == 0 ? Integer.bitCount(metricQueryMask) : (stride >> 2))) << 2);
-		nglGetPathMetricRangeNV(metricQueryMask, firstPathName, numPaths, stride, memAddress(metrics));
-	}
-
-	/** Alternative version of: {@link #glGetPathMetricRangeNV GetPathMetricRangeNV} */
 	public static void glGetPathMetricRangeNV(int metricQueryMask, int firstPathName, int numPaths, int stride, FloatBuffer metrics) {
 		if ( CHECKS )
 			checkBuffer(metrics, numPaths * (stride == 0 ? Integer.bitCount(metricQueryMask) : (stride >> 2)));
@@ -1581,14 +1576,6 @@ public class NVPathRendering {
 	}
 
 	// --- [ glGetPathSpacingNV ] ---
-
-	/** Unsafe version of {@link #glGetPathSpacingNV GetPathSpacingNV} */
-	public static void nglGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, long paths, int pathBase, float advanceScale, float kerningScale, int transformType, long returnedSpacing) {
-		long __functionAddress = GL.getCapabilities().glGetPathSpacingNV;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIIPIFFIPV(__functionAddress, pathListMode, numPaths, pathNameType, paths, pathBase, advanceScale, kerningScale, transformType, returnedSpacing);
-	}
 
 	/**
 	 * 
@@ -1603,15 +1590,25 @@ public class NVPathRendering {
 	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}
 	 * @param returnedSpacing 
 	 */
-	public static void glGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, ByteBuffer paths, int pathBase, float advanceScale, float kerningScale, int transformType, ByteBuffer returnedSpacing) {
-		if ( CHECKS ) {
-			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(returnedSpacing, ((numPaths - 1) * (transformType == GL_TRANSLATE_X_NV ? 1 : 2)) << 2);
-		}
-		nglGetPathSpacingNV(pathListMode, numPaths, pathNameType, memAddress(paths), pathBase, advanceScale, kerningScale, transformType, memAddress(returnedSpacing));
+	public static void nglGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, long paths, int pathBase, float advanceScale, float kerningScale, int transformType, long returnedSpacing) {
+		long __functionAddress = GL.getCapabilities().glGetPathSpacingNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIIPIFFIPV(__functionAddress, pathListMode, numPaths, pathNameType, paths, pathBase, advanceScale, kerningScale, transformType, returnedSpacing);
 	}
 
-	/** Alternative version of: {@link #glGetPathSpacingNV GetPathSpacingNV} */
+	/**
+	 * 
+	 *
+	 * @param pathListMode    one of:<br>{@link #GL_ACCUM_ADJACENT_PAIRS_NV ACCUM_ADJACENT_PAIRS_NV}, {@link #GL_ADJACENT_PAIRS_NV ADJACENT_PAIRS_NV}, {@link #GL_FIRST_TO_REST_NV FIRST_TO_REST_NV}
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
+	 * @param paths           
+	 * @param pathBase        
+	 * @param advanceScale    
+	 * @param kerningScale    
+	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}
+	 * @param returnedSpacing 
+	 */
 	public static void glGetPathSpacingNV(int pathListMode, int pathNameType, ByteBuffer paths, int pathBase, float advanceScale, float kerningScale, int transformType, FloatBuffer returnedSpacing) {
 		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( CHECKS )
@@ -1621,7 +1618,13 @@ public class NVPathRendering {
 
 	// --- [ glGetPathColorGenivNV ] ---
 
-	/** Unsafe version of {@link #glGetPathColorGenivNV GetPathColorGenivNV} */
+	/**
+	 * 
+	 *
+	 * @param color one of:<br>{@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link #GL_PRIMARY_COLOR_NV PRIMARY_COLOR_NV}, {@link #GL_SECONDARY_COLOR_NV SECONDARY_COLOR_NV}
+	 * @param pname one of:<br>{@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV}, {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV}, {@link #GL_PATH_GEN_COLOR_FORMAT_NV PATH_GEN_COLOR_FORMAT_NV}
+	 * @param value 
+	 */
 	public static void nglGetPathColorGenivNV(int color, int pname, long value) {
 		long __functionAddress = GL.getCapabilities().glGetPathColorGenivNV;
 		if ( CHECKS )
@@ -1636,20 +1639,18 @@ public class NVPathRendering {
 	 * @param pname one of:<br>{@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV}, {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV}, {@link #GL_PATH_GEN_COLOR_FORMAT_NV PATH_GEN_COLOR_FORMAT_NV}
 	 * @param value 
 	 */
-	public static void glGetPathColorGenivNV(int color, int pname, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglGetPathColorGenivNV(color, pname, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glGetPathColorGenivNV GetPathColorGenivNV} */
 	public static void glGetPathColorGenivNV(int color, int pname, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglGetPathColorGenivNV(color, pname, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #glGetPathColorGenivNV GetPathColorGenivNV} */
+	/**
+	 * 
+	 *
+	 * @param color one of:<br>{@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link #GL_PRIMARY_COLOR_NV PRIMARY_COLOR_NV}, {@link #GL_SECONDARY_COLOR_NV SECONDARY_COLOR_NV}
+	 * @param pname one of:<br>{@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV}, {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV}, {@link #GL_PATH_GEN_COLOR_FORMAT_NV PATH_GEN_COLOR_FORMAT_NV}
+	 */
 	public static int glGetPathColorGeniNV(int color, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1663,7 +1664,13 @@ public class NVPathRendering {
 
 	// --- [ glGetPathColorGenfvNV ] ---
 
-	/** Unsafe version of {@link #glGetPathColorGenfvNV GetPathColorGenfvNV} */
+	/**
+	 * 
+	 *
+	 * @param color one of:<br>{@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link #GL_PRIMARY_COLOR_NV PRIMARY_COLOR_NV}, {@link #GL_SECONDARY_COLOR_NV SECONDARY_COLOR_NV}
+	 * @param pname one of:<br>{@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV}, {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV}, {@link #GL_PATH_GEN_COLOR_FORMAT_NV PATH_GEN_COLOR_FORMAT_NV}
+	 * @param value 
+	 */
 	public static void nglGetPathColorGenfvNV(int color, int pname, long value) {
 		long __functionAddress = GL.getCapabilities().glGetPathColorGenfvNV;
 		if ( CHECKS )
@@ -1678,20 +1685,18 @@ public class NVPathRendering {
 	 * @param pname one of:<br>{@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV}, {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV}, {@link #GL_PATH_GEN_COLOR_FORMAT_NV PATH_GEN_COLOR_FORMAT_NV}
 	 * @param value 
 	 */
-	public static void glGetPathColorGenfvNV(int color, int pname, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglGetPathColorGenfvNV(color, pname, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glGetPathColorGenfvNV GetPathColorGenfvNV} */
 	public static void glGetPathColorGenfvNV(int color, int pname, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglGetPathColorGenfvNV(color, pname, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #glGetPathColorGenfvNV GetPathColorGenfvNV} */
+	/**
+	 * 
+	 *
+	 * @param color one of:<br>{@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link #GL_PRIMARY_COLOR_NV PRIMARY_COLOR_NV}, {@link #GL_SECONDARY_COLOR_NV SECONDARY_COLOR_NV}
+	 * @param pname one of:<br>{@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV}, {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV}, {@link #GL_PATH_GEN_COLOR_FORMAT_NV PATH_GEN_COLOR_FORMAT_NV}
+	 */
 	public static float glGetPathColorGenfNV(int color, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1705,7 +1710,13 @@ public class NVPathRendering {
 
 	// --- [ glGetPathTexGenivNV ] ---
 
-	/** Unsafe version of {@link #glGetPathTexGenivNV GetPathTexGenivNV} */
+	/**
+	 * 
+	 *
+	 * @param texCoordSet 
+	 * @param pname       {@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV} {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV} {@link #GL_PATH_GEN_COMPONENTS_NV PATH_GEN_COMPONENTS_NV}
+	 * @param value       
+	 */
 	public static void nglGetPathTexGenivNV(int texCoordSet, int pname, long value) {
 		long __functionAddress = GL.getCapabilities().glGetPathTexGenivNV;
 		if ( CHECKS )
@@ -1720,20 +1731,18 @@ public class NVPathRendering {
 	 * @param pname       {@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV} {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV} {@link #GL_PATH_GEN_COMPONENTS_NV PATH_GEN_COMPONENTS_NV}
 	 * @param value       
 	 */
-	public static void glGetPathTexGenivNV(int texCoordSet, int pname, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglGetPathTexGenivNV(texCoordSet, pname, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glGetPathTexGenivNV GetPathTexGenivNV} */
 	public static void glGetPathTexGenivNV(int texCoordSet, int pname, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglGetPathTexGenivNV(texCoordSet, pname, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #glGetPathTexGenivNV GetPathTexGenivNV} */
+	/**
+	 * 
+	 *
+	 * @param texCoordSet 
+	 * @param pname       {@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV} {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV} {@link #GL_PATH_GEN_COMPONENTS_NV PATH_GEN_COMPONENTS_NV}
+	 */
 	public static int glGetPathTexGeniNV(int texCoordSet, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1747,7 +1756,13 @@ public class NVPathRendering {
 
 	// --- [ glGetPathTexGenfvNV ] ---
 
-	/** Unsafe version of {@link #glGetPathTexGenfvNV GetPathTexGenfvNV} */
+	/**
+	 * 
+	 *
+	 * @param texCoordSet 
+	 * @param pname       {@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV} {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV} {@link #GL_PATH_GEN_COMPONENTS_NV PATH_GEN_COMPONENTS_NV}
+	 * @param value       
+	 */
 	public static void nglGetPathTexGenfvNV(int texCoordSet, int pname, long value) {
 		long __functionAddress = GL.getCapabilities().glGetPathTexGenfvNV;
 		if ( CHECKS )
@@ -1762,20 +1777,18 @@ public class NVPathRendering {
 	 * @param pname       {@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV} {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV} {@link #GL_PATH_GEN_COMPONENTS_NV PATH_GEN_COMPONENTS_NV}
 	 * @param value       
 	 */
-	public static void glGetPathTexGenfvNV(int texCoordSet, int pname, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglGetPathTexGenfvNV(texCoordSet, pname, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glGetPathTexGenfvNV GetPathTexGenfvNV} */
 	public static void glGetPathTexGenfvNV(int texCoordSet, int pname, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglGetPathTexGenfvNV(texCoordSet, pname, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #glGetPathTexGenfvNV GetPathTexGenfvNV} */
+	/**
+	 * 
+	 *
+	 * @param texCoordSet 
+	 * @param pname       {@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV} {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV} {@link #GL_PATH_GEN_COMPONENTS_NV PATH_GEN_COMPONENTS_NV}
+	 */
 	public static float glGetPathTexGenfNV(int texCoordSet, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1816,7 +1829,6 @@ public class NVPathRendering {
 
 	// --- [ glPointAlongPathNV ] ---
 
-	/** Unsafe version of {@link #glPointAlongPathNV PointAlongPathNV} */
 	public static boolean nglPointAlongPathNV(int path, int startSegment, int numSegments, float distance, long x, long y, long tangentX, long tangentY) {
 		long __functionAddress = GL.getCapabilities().glPointAlongPathNV;
 		if ( CHECKS )
@@ -1824,17 +1836,6 @@ public class NVPathRendering {
 		return callIIIFPPPPZ(__functionAddress, path, startSegment, numSegments, distance, x, y, tangentX, tangentY);
 	}
 
-	public static boolean glPointAlongPathNV(int path, int startSegment, int numSegments, float distance, ByteBuffer x, ByteBuffer y, ByteBuffer tangentX, ByteBuffer tangentY) {
-		if ( CHECKS ) {
-			if ( x != null ) checkBuffer(x, 1 << 2);
-			if ( y != null ) checkBuffer(y, 1 << 2);
-			if ( tangentX != null ) checkBuffer(tangentX, 1 << 2);
-			if ( tangentY != null ) checkBuffer(tangentY, 1 << 2);
-		}
-		return nglPointAlongPathNV(path, startSegment, numSegments, distance, memAddressSafe(x), memAddressSafe(y), memAddressSafe(tangentX), memAddressSafe(tangentY));
-	}
-
-	/** Alternative version of: {@link #glPointAlongPathNV PointAlongPathNV} */
 	public static boolean glPointAlongPathNV(int path, int startSegment, int numSegments, float distance, FloatBuffer x, FloatBuffer y, FloatBuffer tangentX, FloatBuffer tangentY) {
 		if ( CHECKS ) {
 			if ( x != null ) checkBuffer(x, 1);
@@ -1847,7 +1848,12 @@ public class NVPathRendering {
 
 	// --- [ glMatrixLoad3x2fNV ] ---
 
-	/** Unsafe version of {@link #glMatrixLoad3x2fNV MatrixLoad3x2fNV} */
+	/**
+	 * 
+	 *
+	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
+	 * @param m          
+	 */
 	public static void nglMatrixLoad3x2fNV(int matrixMode, long m) {
 		long __functionAddress = GL.getCapabilities().glMatrixLoad3x2fNV;
 		if ( CHECKS )
@@ -1861,13 +1867,6 @@ public class NVPathRendering {
 	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
 	 * @param m          
 	 */
-	public static void glMatrixLoad3x2fNV(int matrixMode, ByteBuffer m) {
-		if ( CHECKS )
-			checkBuffer(m, 6 << 2);
-		nglMatrixLoad3x2fNV(matrixMode, memAddress(m));
-	}
-
-	/** Alternative version of: {@link #glMatrixLoad3x2fNV MatrixLoad3x2fNV} */
 	public static void glMatrixLoad3x2fNV(int matrixMode, FloatBuffer m) {
 		if ( CHECKS )
 			checkBuffer(m, 6);
@@ -1876,7 +1875,12 @@ public class NVPathRendering {
 
 	// --- [ glMatrixLoad3x3fNV ] ---
 
-	/** Unsafe version of {@link #glMatrixLoad3x3fNV MatrixLoad3x3fNV} */
+	/**
+	 * 
+	 *
+	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
+	 * @param m          
+	 */
 	public static void nglMatrixLoad3x3fNV(int matrixMode, long m) {
 		long __functionAddress = GL.getCapabilities().glMatrixLoad3x3fNV;
 		if ( CHECKS )
@@ -1890,13 +1894,6 @@ public class NVPathRendering {
 	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
 	 * @param m          
 	 */
-	public static void glMatrixLoad3x3fNV(int matrixMode, ByteBuffer m) {
-		if ( CHECKS )
-			checkBuffer(m, 9 << 2);
-		nglMatrixLoad3x3fNV(matrixMode, memAddress(m));
-	}
-
-	/** Alternative version of: {@link #glMatrixLoad3x3fNV MatrixLoad3x3fNV} */
 	public static void glMatrixLoad3x3fNV(int matrixMode, FloatBuffer m) {
 		if ( CHECKS )
 			checkBuffer(m, 9);
@@ -1905,7 +1902,12 @@ public class NVPathRendering {
 
 	// --- [ glMatrixLoadTranspose3x3fNV ] ---
 
-	/** Unsafe version of {@link #glMatrixLoadTranspose3x3fNV MatrixLoadTranspose3x3fNV} */
+	/**
+	 * 
+	 *
+	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
+	 * @param m          
+	 */
 	public static void nglMatrixLoadTranspose3x3fNV(int matrixMode, long m) {
 		long __functionAddress = GL.getCapabilities().glMatrixLoadTranspose3x3fNV;
 		if ( CHECKS )
@@ -1919,13 +1921,6 @@ public class NVPathRendering {
 	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
 	 * @param m          
 	 */
-	public static void glMatrixLoadTranspose3x3fNV(int matrixMode, ByteBuffer m) {
-		if ( CHECKS )
-			checkBuffer(m, 9 << 2);
-		nglMatrixLoadTranspose3x3fNV(matrixMode, memAddress(m));
-	}
-
-	/** Alternative version of: {@link #glMatrixLoadTranspose3x3fNV MatrixLoadTranspose3x3fNV} */
 	public static void glMatrixLoadTranspose3x3fNV(int matrixMode, FloatBuffer m) {
 		if ( CHECKS )
 			checkBuffer(m, 9);
@@ -1934,7 +1929,12 @@ public class NVPathRendering {
 
 	// --- [ glMatrixMult3x2fNV ] ---
 
-	/** Unsafe version of {@link #glMatrixMult3x2fNV MatrixMult3x2fNV} */
+	/**
+	 * 
+	 *
+	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
+	 * @param m          
+	 */
 	public static void nglMatrixMult3x2fNV(int matrixMode, long m) {
 		long __functionAddress = GL.getCapabilities().glMatrixMult3x2fNV;
 		if ( CHECKS )
@@ -1948,13 +1948,6 @@ public class NVPathRendering {
 	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
 	 * @param m          
 	 */
-	public static void glMatrixMult3x2fNV(int matrixMode, ByteBuffer m) {
-		if ( CHECKS )
-			checkBuffer(m, 6 << 2);
-		nglMatrixMult3x2fNV(matrixMode, memAddress(m));
-	}
-
-	/** Alternative version of: {@link #glMatrixMult3x2fNV MatrixMult3x2fNV} */
 	public static void glMatrixMult3x2fNV(int matrixMode, FloatBuffer m) {
 		if ( CHECKS )
 			checkBuffer(m, 6);
@@ -1963,7 +1956,12 @@ public class NVPathRendering {
 
 	// --- [ glMatrixMult3x3fNV ] ---
 
-	/** Unsafe version of {@link #glMatrixMult3x3fNV MatrixMult3x3fNV} */
+	/**
+	 * 
+	 *
+	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
+	 * @param m          
+	 */
 	public static void nglMatrixMult3x3fNV(int matrixMode, long m) {
 		long __functionAddress = GL.getCapabilities().glMatrixMult3x3fNV;
 		if ( CHECKS )
@@ -1977,13 +1975,6 @@ public class NVPathRendering {
 	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
 	 * @param m          
 	 */
-	public static void glMatrixMult3x3fNV(int matrixMode, ByteBuffer m) {
-		if ( CHECKS )
-			checkBuffer(m, 9 << 2);
-		nglMatrixMult3x3fNV(matrixMode, memAddress(m));
-	}
-
-	/** Alternative version of: {@link #glMatrixMult3x3fNV MatrixMult3x3fNV} */
 	public static void glMatrixMult3x3fNV(int matrixMode, FloatBuffer m) {
 		if ( CHECKS )
 			checkBuffer(m, 9);
@@ -1992,7 +1983,12 @@ public class NVPathRendering {
 
 	// --- [ glMatrixMultTranspose3x3fNV ] ---
 
-	/** Unsafe version of {@link #glMatrixMultTranspose3x3fNV MatrixMultTranspose3x3fNV} */
+	/**
+	 * 
+	 *
+	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
+	 * @param m          
+	 */
 	public static void nglMatrixMultTranspose3x3fNV(int matrixMode, long m) {
 		long __functionAddress = GL.getCapabilities().glMatrixMultTranspose3x3fNV;
 		if ( CHECKS )
@@ -2006,13 +2002,6 @@ public class NVPathRendering {
 	 * @param matrixMode one of:<br>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}, {@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}
 	 * @param m          
 	 */
-	public static void glMatrixMultTranspose3x3fNV(int matrixMode, ByteBuffer m) {
-		if ( CHECKS )
-			checkBuffer(m, 9 << 2);
-		nglMatrixMultTranspose3x3fNV(matrixMode, memAddress(m));
-	}
-
-	/** Alternative version of: {@link #glMatrixMultTranspose3x3fNV MatrixMultTranspose3x3fNV} */
 	public static void glMatrixMultTranspose3x3fNV(int matrixMode, FloatBuffer m) {
 		if ( CHECKS )
 			checkBuffer(m, 9);
@@ -2021,7 +2010,6 @@ public class NVPathRendering {
 
 	// --- [ glGetProgramResourcefvNV ] ---
 
-	/** Unsafe version of {@link #glGetProgramResourcefvNV GetProgramResourcefvNV} */
 	public static void nglGetProgramResourcefvNV(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourcefvNV;
 		if ( CHECKS )
@@ -2029,16 +2017,6 @@ public class NVPathRendering {
 		callIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
 	}
 
-	public static void glGetProgramResourcefvNV(int program, int programInterface, int index, int propCount, ByteBuffer props, int bufSize, ByteBuffer length, ByteBuffer params) {
-		if ( CHECKS ) {
-			checkBuffer(props, propCount << 2);
-			checkBuffer(params, bufSize << 2);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetProgramResourcefvNV(program, programInterface, index, propCount, memAddress(props), bufSize, memAddressSafe(length), memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetProgramResourcefvNV GetProgramResourcefvNV} */
 	public static void glGetProgramResourcefvNV(int program, int programInterface, int index, IntBuffer props, IntBuffer length, FloatBuffer params) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);

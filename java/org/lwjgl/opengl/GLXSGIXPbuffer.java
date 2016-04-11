@@ -86,7 +86,15 @@ public class GLXSGIXPbuffer {
 
 	// --- [ glXCreateGLXPbufferSGIX ] ---
 
-	/** Unsafe version of {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
+	/**
+	 * Creates a single GLXPbuffer and returns its XID.
+	 *
+	 * @param display     the connection to the X server
+	 * @param config      the {@code GLXFBConfig}
+	 * @param width       the pbuffer width
+	 * @param height      the pbuffer height
+	 * @param attrib_list an optional null-terminated list of attributes
+	 */
 	public static long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateGLXPbufferSGIX;
 		if ( CHECKS ) {
@@ -106,13 +114,6 @@ public class GLXSGIXPbuffer {
 	 * @param height      the pbuffer height
 	 * @param attrib_list an optional null-terminated list of attributes
 	 */
-	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list);
-		return nglXCreateGLXPbufferSGIX(display, config, width, height, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
 	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
@@ -139,7 +140,14 @@ public class GLXSGIXPbuffer {
 
 	// --- [ glXQueryGLXPbufferSGIX ] ---
 
-	/** Unsafe version of {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
+	/**
+	 * Queries an attribute associated with a GLXPbuffer.
+	 *
+	 * @param display   the connection to the X server
+	 * @param pbuf      the pbuffer being queried
+	 * @param attribute the attribute to query
+	 * @param value     returns the attribute value
+	 */
 	public static void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryGLXPbufferSGIX;
 		if ( CHECKS ) {
@@ -158,13 +166,6 @@ public class GLXSGIXPbuffer {
 	 * @param attribute the attribute to query
 	 * @param value     returns the attribute value
 	 */
-	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
 	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -192,7 +193,13 @@ public class GLXSGIXPbuffer {
 
 	// --- [ glXGetSelectedEventSGIX ] ---
 
-	/** Unsafe version of {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX} */
+	/**
+	 * Returns which GLX events are selected for a GLXdrawable.
+	 *
+	 * @param display  the connection to the X server
+	 * @param drawable the GLXDrawable
+	 * @param mask     returns the selection mask
+	 */
 	public static void nglXGetSelectedEventSGIX(long display, long drawable, long mask) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetSelectedEventSGIX;
 		if ( CHECKS ) {
@@ -210,13 +217,6 @@ public class GLXSGIXPbuffer {
 	 * @param drawable the GLXDrawable
 	 * @param mask     returns the selection mask
 	 */
-	public static void glXGetSelectedEventSGIX(long display, long drawable, ByteBuffer mask) {
-		if ( CHECKS )
-			checkBuffer(mask, 1 << POINTER_SHIFT);
-		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask));
-	}
-
-	/** Alternative version of: {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX} */
 	public static void glXGetSelectedEventSGIX(long display, long drawable, PointerBuffer mask) {
 		if ( CHECKS )
 			checkBuffer(mask, 1);

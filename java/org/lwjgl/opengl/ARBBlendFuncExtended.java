@@ -54,7 +54,14 @@ public class ARBBlendFuncExtended {
 
 	// --- [ glBindFragDataLocationIndexed ] ---
 
-	/** Unsafe version of {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
+	/**
+	 * Binds a user-defined varying out variable to a fragment shader color number and index.
+	 *
+	 * @param program     the name of the program containing varying out variable whose binding to modify
+	 * @param colorNumber the color number to bind the user-defined varying out variable to
+	 * @param index       the index of the color input to bind the user-defined varying out variable to
+	 * @param name        the name of the user-defined varying out variable whose binding to modify
+	 */
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = GL.getCapabilities().glBindFragDataLocationIndexed;
 		if ( CHECKS )
@@ -76,7 +83,14 @@ public class ARBBlendFuncExtended {
 		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
+	/**
+	 * Binds a user-defined varying out variable to a fragment shader color number and index.
+	 *
+	 * @param program     the name of the program containing varying out variable whose binding to modify
+	 * @param colorNumber the color number to bind the user-defined varying out variable to
+	 * @param index       the index of the color input to bind the user-defined varying out variable to
+	 * @param name        the name of the user-defined varying out variable whose binding to modify
+	 */
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -89,7 +103,12 @@ public class ARBBlendFuncExtended {
 
 	// --- [ glGetFragDataIndex ] ---
 
-	/** Unsafe version of {@link #glGetFragDataIndex GetFragDataIndex} */
+	/**
+	 * Queries the bindings of color indices to user-defined varying out variables.
+	 *
+	 * @param program the name of the program containing varying out variable whose binding to query
+	 * @param name    the name of the user-defined varying out variable whose index to query
+	 */
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetFragDataIndex;
 		if ( CHECKS )
@@ -109,7 +128,12 @@ public class ARBBlendFuncExtended {
 		return nglGetFragDataIndex(program, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetFragDataIndex GetFragDataIndex} */
+	/**
+	 * Queries the bindings of color indices to user-defined varying out variables.
+	 *
+	 * @param program the name of the program containing varying out variable whose binding to query
+	 * @param name    the name of the user-defined varying out variable whose index to query
+	 */
 	public static int glGetFragDataIndex(int program, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

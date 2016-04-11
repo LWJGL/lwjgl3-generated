@@ -53,7 +53,6 @@ public class EXTDiscardFramebuffer {
 
 	// --- [ glDiscardFramebufferEXT ] ---
 
-	/** Unsafe version of {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
 	public static void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments) {
 		long __functionAddress = GLES.getCapabilities().glDiscardFramebufferEXT;
 		if ( CHECKS )
@@ -61,18 +60,10 @@ public class EXTDiscardFramebuffer {
 		callIIPV(__functionAddress, target, numAttachments, attachments);
 	}
 
-	public static void glDiscardFramebufferEXT(int target, int numAttachments, ByteBuffer attachments) {
-		if ( CHECKS )
-			checkBuffer(attachments, numAttachments << 2);
-		nglDiscardFramebufferEXT(target, numAttachments, memAddress(attachments));
-	}
-
-	/** Alternative version of: {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
 	public static void glDiscardFramebufferEXT(int target, IntBuffer attachments) {
 		nglDiscardFramebufferEXT(target, attachments.remaining(), memAddress(attachments));
 	}
 
-	/** Single value version of: {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
 	public static void glDiscardFramebufferEXT(int target, int attachment) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

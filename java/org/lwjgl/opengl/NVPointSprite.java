@@ -72,7 +72,6 @@ public class NVPointSprite {
 
 	// --- [ glPointParameterivNV ] ---
 
-	/** Unsafe version of {@link #glPointParameterivNV PointParameterivNV} */
 	public static void nglPointParameterivNV(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glPointParameterivNV;
 		if ( CHECKS )
@@ -80,13 +79,6 @@ public class NVPointSprite {
 		callIPV(__functionAddress, pname, params);
 	}
 
-	public static void glPointParameterivNV(int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglPointParameterivNV(pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glPointParameterivNV PointParameterivNV} */
 	public static void glPointParameterivNV(int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);

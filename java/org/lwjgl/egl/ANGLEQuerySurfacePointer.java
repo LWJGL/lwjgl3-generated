@@ -34,7 +34,6 @@ public class ANGLEQuerySurfacePointer {
 
 	// --- [ eglQuerySurfacePointerANGLE ] ---
 
-	/** Unsafe version of {@link #eglQuerySurfacePointerANGLE QuerySurfacePointerANGLE} */
 	public static int neglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQuerySurfacePointerANGLE;
 		if ( CHECKS ) {
@@ -45,13 +44,6 @@ public class ANGLEQuerySurfacePointer {
 		return callPPIPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
-	public static int eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << POINTER_SHIFT);
-		return neglQuerySurfacePointerANGLE(dpy, surface, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQuerySurfacePointerANGLE QuerySurfacePointerANGLE} */
 	public static int eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);

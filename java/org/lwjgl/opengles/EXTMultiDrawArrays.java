@@ -35,7 +35,6 @@ public class EXTMultiDrawArrays {
 
 	// --- [ glMultiDrawArraysEXT ] ---
 
-	/** Unsafe version of {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
 	public static void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysEXT;
 		if ( CHECKS )
@@ -43,15 +42,6 @@ public class EXTMultiDrawArrays {
 		callIPPIV(__functionAddress, mode, first, count, primcount);
 	}
 
-	public static void glMultiDrawArraysEXT(int mode, ByteBuffer first, ByteBuffer count, int primcount) {
-		if ( CHECKS ) {
-			checkBuffer(first, primcount << 2);
-			checkBuffer(count, primcount << 2);
-		}
-		nglMultiDrawArraysEXT(mode, memAddress(first), memAddress(count), primcount);
-	}
-
-	/** Alternative version of: {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
 	public static void glMultiDrawArraysEXT(int mode, IntBuffer first, IntBuffer count) {
 		if ( CHECKS )
 			checkBuffer(count, first.remaining());
@@ -60,7 +50,6 @@ public class EXTMultiDrawArrays {
 
 	// --- [ glMultiDrawElementsEXT ] ---
 
-	/** Unsafe version of {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
 	public static void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsEXT;
 		if ( CHECKS )
@@ -68,15 +57,6 @@ public class EXTMultiDrawArrays {
 		callIPIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
-	public static void glMultiDrawElementsEXT(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount) {
-		if ( CHECKS ) {
-			checkBuffer(count, primcount << 2);
-			checkBuffer(indices, primcount << POINTER_SHIFT);
-		}
-		nglMultiDrawElementsEXT(mode, memAddress(count), type, memAddress(indices), primcount);
-	}
-
-	/** Alternative version of: {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
 	public static void glMultiDrawElementsEXT(int mode, IntBuffer count, int type, PointerBuffer indices) {
 		if ( CHECKS )
 			checkBuffer(indices, count.remaining());

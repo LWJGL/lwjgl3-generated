@@ -169,7 +169,20 @@ public class ARBShaderObjects {
 
 	// --- [ glShaderSourceARB ] ---
 
-	/** Unsafe version of {@link #glShaderSourceARB ShaderSourceARB} */
+	/**
+	 * Sets the source code for the specified shader object {@code shaderObj} to the text strings in the {@code string} array. If the object previously had
+	 * source code loaded into it, it is completely replaced.
+	 * 
+	 * <p>The strings that are loaded into a shader object are expected to form the source code for a valid shader as defined in the OpenGL Shading Language
+	 * Specification.</p>
+	 *
+	 * @param shaderObj the shader object
+	 * @param count     the number of strings in the array
+	 * @param string    an array of pointers to one or more, optionally null terminated, character strings that make up the source code
+	 * @param length    an array with the number of charARBs in each string (the string length). Each element in this array can be set to negative one (or smaller),
+	 *                  indicating that its accompanying string is null terminated. If {@code length} is set to {@code NULL}, all strings in the {@code string} argument are
+	 *                  considered null terminated.
+	 */
 	public static void nglShaderSourceARB(int shaderObj, int count, long string, long length) {
 		long __functionAddress = GL.getCapabilities().glShaderSourceARB;
 		if ( CHECKS )
@@ -185,28 +198,27 @@ public class ARBShaderObjects {
 	 * Specification.</p>
 	 *
 	 * @param shaderObj the shader object
-	 * @param count     the number of strings in the array
 	 * @param string    an array of pointers to one or more, optionally null terminated, character strings that make up the source code
 	 * @param length    an array with the number of charARBs in each string (the string length). Each element in this array can be set to negative one (or smaller),
 	 *                  indicating that its accompanying string is null terminated. If {@code length} is set to {@code NULL}, all strings in the {@code string} argument are
 	 *                  considered null terminated.
 	 */
-	public static void glShaderSourceARB(int shaderObj, int count, ByteBuffer string, ByteBuffer length) {
-		if ( CHECKS ) {
-			checkBuffer(string, count << POINTER_SHIFT);
-			if ( length != null ) checkBuffer(length, count << 2);
-		}
-		nglShaderSourceARB(shaderObj, count, memAddress(string), memAddressSafe(length));
-	}
-
-	/** Alternative version of: {@link #glShaderSourceARB ShaderSourceARB} */
 	public static void glShaderSourceARB(int shaderObj, PointerBuffer string, IntBuffer length) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, string.remaining());
 		nglShaderSourceARB(shaderObj, string.remaining(), memAddress(string), memAddressSafe(length));
 	}
 
-	/** Array version of: {@link #glShaderSourceARB ShaderSourceARB} */
+	/**
+	 * Sets the source code for the specified shader object {@code shaderObj} to the text strings in the {@code string} array. If the object previously had
+	 * source code loaded into it, it is completely replaced.
+	 * 
+	 * <p>The strings that are loaded into a shader object are expected to form the source code for a valid shader as defined in the OpenGL Shading Language
+	 * Specification.</p>
+	 *
+	 * @param shaderObj the shader object
+	 * @param string    an array of pointers to one or more, optionally null terminated, character strings that make up the source code
+	 */
 	public static void glShaderSourceARB(int shaderObj, CharSequence... string) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -218,7 +230,16 @@ public class ARBShaderObjects {
 		}
 	}
 
-	/** Single string version of: {@link #glShaderSourceARB ShaderSourceARB} */
+	/**
+	 * Sets the source code for the specified shader object {@code shaderObj} to the text strings in the {@code string} array. If the object previously had
+	 * source code loaded into it, it is completely replaced.
+	 * 
+	 * <p>The strings that are loaded into a shader object are expected to form the source code for a valid shader as defined in the OpenGL Shading Language
+	 * Specification.</p>
+	 *
+	 * @param shaderObj the shader object
+	 * @param string    an array of pointers to one or more, optionally null terminated, character strings that make up the source code
+	 */
 	public static void glShaderSourceARB(int shaderObj, CharSequence string) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -494,7 +515,13 @@ public class ARBShaderObjects {
 
 	// --- [ glUniform1fvARB ] ---
 
-	/** Unsafe version of {@link #glUniform1fvARB Uniform1fvARB} */
+	/**
+	 * Loads floating-point values {@code count} times into a uniform location defined as an array of float values.
+	 *
+	 * @param location the uniform variable location
+	 * @param count    the number of float values to load
+	 * @param value    the values to load
+	 */
 	public static void nglUniform1fvARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1fvARB;
 		if ( CHECKS )
@@ -506,23 +533,21 @@ public class ARBShaderObjects {
 	 * Loads floating-point values {@code count} times into a uniform location defined as an array of float values.
 	 *
 	 * @param location the uniform variable location
-	 * @param count    the number of float values to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform1fvARB(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, count << 2);
-		nglUniform1fvARB(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform1fvARB Uniform1fvARB} */
 	public static void glUniform1fvARB(int location, FloatBuffer value) {
 		nglUniform1fvARB(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2fvARB ] ---
 
-	/** Unsafe version of {@link #glUniform2fvARB Uniform2fvARB} */
+	/**
+	 * Loads floating-point values {@code count} times into a uniform location defined as an array of vec2 vectors.
+	 *
+	 * @param location the uniform variable location
+	 * @param count    the number of vec2 vectors to load
+	 * @param value    the values to load
+	 */
 	public static void nglUniform2fvARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2fvARB;
 		if ( CHECKS )
@@ -534,23 +559,21 @@ public class ARBShaderObjects {
 	 * Loads floating-point values {@code count} times into a uniform location defined as an array of vec2 vectors.
 	 *
 	 * @param location the uniform variable location
-	 * @param count    the number of vec2 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform2fvARB(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 1) << 2);
-		nglUniform2fvARB(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform2fvARB Uniform2fvARB} */
 	public static void glUniform2fvARB(int location, FloatBuffer value) {
 		nglUniform2fvARB(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3fvARB ] ---
 
-	/** Unsafe version of {@link #glUniform3fvARB Uniform3fvARB} */
+	/**
+	 * Loads floating-point values {@code count} times into a uniform location defined as an array of vec3 vectors.
+	 *
+	 * @param location the uniform variable location
+	 * @param count    the number of vec3 vectors to load
+	 * @param value    the values to load
+	 */
 	public static void nglUniform3fvARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3fvARB;
 		if ( CHECKS )
@@ -562,23 +585,21 @@ public class ARBShaderObjects {
 	 * Loads floating-point values {@code count} times into a uniform location defined as an array of vec3 vectors.
 	 *
 	 * @param location the uniform variable location
-	 * @param count    the number of vec3 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform3fvARB(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 3) << 2);
-		nglUniform3fvARB(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform3fvARB Uniform3fvARB} */
 	public static void glUniform3fvARB(int location, FloatBuffer value) {
 		nglUniform3fvARB(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4fvARB ] ---
 
-	/** Unsafe version of {@link #glUniform4fvARB Uniform4fvARB} */
+	/**
+	 * Loads floating-point values {@code count} times into a uniform location defined as an array of vec4 vectors.
+	 *
+	 * @param location the uniform variable location
+	 * @param count    the number of vec4 vectors to load
+	 * @param value    the values to load
+	 */
 	public static void nglUniform4fvARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4fvARB;
 		if ( CHECKS )
@@ -590,23 +611,21 @@ public class ARBShaderObjects {
 	 * Loads floating-point values {@code count} times into a uniform location defined as an array of vec4 vectors.
 	 *
 	 * @param location the uniform variable location
-	 * @param count    the number of vec4 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform4fvARB(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglUniform4fvARB(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform4fvARB Uniform4fvARB} */
 	public static void glUniform4fvARB(int location, FloatBuffer value) {
 		nglUniform4fvARB(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniform1ivARB ] ---
 
-	/** Unsafe version of {@link #glUniform1ivARB Uniform1ivARB} */
+	/**
+	 * Loads integer values {@code count} times into a uniform location defined as an array of integer values.
+	 *
+	 * @param location the uniform variable location
+	 * @param count    the number of integer values to load
+	 * @param value    the values to load
+	 */
 	public static void nglUniform1ivARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1ivARB;
 		if ( CHECKS )
@@ -618,23 +637,21 @@ public class ARBShaderObjects {
 	 * Loads integer values {@code count} times into a uniform location defined as an array of integer values.
 	 *
 	 * @param location the uniform variable location
-	 * @param count    the number of integer values to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform1ivARB(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, count << 2);
-		nglUniform1ivARB(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform1ivARB Uniform1ivARB} */
 	public static void glUniform1ivARB(int location, IntBuffer value) {
 		nglUniform1ivARB(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2ivARB ] ---
 
-	/** Unsafe version of {@link #glUniform2ivARB Uniform2ivARB} */
+	/**
+	 * Loads integer values {@code count} times into a uniform location defined as an array of ivec2 vectors.
+	 *
+	 * @param location the uniform variable location
+	 * @param count    the number of ivec2 vectors to load
+	 * @param value    the values to load
+	 */
 	public static void nglUniform2ivARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2ivARB;
 		if ( CHECKS )
@@ -646,23 +663,21 @@ public class ARBShaderObjects {
 	 * Loads integer values {@code count} times into a uniform location defined as an array of ivec2 vectors.
 	 *
 	 * @param location the uniform variable location
-	 * @param count    the number of ivec2 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform2ivARB(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 1) << 2);
-		nglUniform2ivARB(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform2ivARB Uniform2ivARB} */
 	public static void glUniform2ivARB(int location, IntBuffer value) {
 		nglUniform2ivARB(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3ivARB ] ---
 
-	/** Unsafe version of {@link #glUniform3ivARB Uniform3ivARB} */
+	/**
+	 * Loads integer values {@code count} times into a uniform location defined as an array of ivec3 vectors.
+	 *
+	 * @param location the uniform variable location
+	 * @param count    the number of ivec3 vectors to load
+	 * @param value    the values to load
+	 */
 	public static void nglUniform3ivARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3ivARB;
 		if ( CHECKS )
@@ -674,23 +689,21 @@ public class ARBShaderObjects {
 	 * Loads integer values {@code count} times into a uniform location defined as an array of ivec3 vectors.
 	 *
 	 * @param location the uniform variable location
-	 * @param count    the number of ivec3 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform3ivARB(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 3) << 2);
-		nglUniform3ivARB(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform3ivARB Uniform3ivARB} */
 	public static void glUniform3ivARB(int location, IntBuffer value) {
 		nglUniform3ivARB(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4ivARB ] ---
 
-	/** Unsafe version of {@link #glUniform4ivARB Uniform4ivARB} */
+	/**
+	 * Loads integer values {@code count} times into a uniform location defined as an array of ivec4 vectors.
+	 *
+	 * @param location the uniform variable location
+	 * @param count    the number of ivec4 vectors to load
+	 * @param value    the values to load
+	 */
 	public static void nglUniform4ivARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4ivARB;
 		if ( CHECKS )
@@ -702,23 +715,22 @@ public class ARBShaderObjects {
 	 * Loads integer values {@code count} times into a uniform location defined as an array of ivec4 vectors.
 	 *
 	 * @param location the uniform variable location
-	 * @param count    the number of ivec4 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform4ivARB(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglUniform4ivARB(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform4ivARB Uniform4ivARB} */
 	public static void glUniform4ivARB(int location, IntBuffer value) {
 		nglUniform4ivARB(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2fvARB ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2fvARB UniformMatrix2fvARB} */
+	/**
+	 * Loads a 2x2 matrix of floating-point values {@code count} times into a uniform location defined as a matrix or an array of matrices.
+	 *
+	 * @param location  the uniform variable location
+	 * @param count     the number of 2x2 matrices to load
+	 * @param transpose if {@link GL11#GL_FALSE FALSE}, the matrix is specified in column major order, otherwise in row major order
+	 * @param value     the matrix values to load
+	 */
 	public static void nglUniformMatrix2fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2fvARB;
 		if ( CHECKS )
@@ -730,24 +742,23 @@ public class ARBShaderObjects {
 	 * Loads a 2x2 matrix of floating-point values {@code count} times into a uniform location defined as a matrix or an array of matrices.
 	 *
 	 * @param location  the uniform variable location
-	 * @param count     the number of 2x2 matrices to load
 	 * @param transpose if {@link GL11#GL_FALSE FALSE}, the matrix is specified in column major order, otherwise in row major order
 	 * @param value     the matrix values to load
 	 */
-	public static void glUniformMatrix2fvARB(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglUniformMatrix2fvARB(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix2fvARB UniformMatrix2fvARB} */
 	public static void glUniformMatrix2fvARB(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix2fvARB(location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3fvARB ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3fvARB UniformMatrix3fvARB} */
+	/**
+	 * Loads a 3x3 matrix of floating-point values {@code count} times into a uniform location defined as a matrix or an array of matrices.
+	 *
+	 * @param location  the uniform variable location
+	 * @param count     the number of 3x3 matrices to load
+	 * @param transpose if {@link GL11#GL_FALSE FALSE}, the matrix is specified in column major order, otherwise in row major order
+	 * @param value     the matrix values to load
+	 */
 	public static void nglUniformMatrix3fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3fvARB;
 		if ( CHECKS )
@@ -759,24 +770,23 @@ public class ARBShaderObjects {
 	 * Loads a 3x3 matrix of floating-point values {@code count} times into a uniform location defined as a matrix or an array of matrices.
 	 *
 	 * @param location  the uniform variable location
-	 * @param count     the number of 3x3 matrices to load
 	 * @param transpose if {@link GL11#GL_FALSE FALSE}, the matrix is specified in column major order, otherwise in row major order
 	 * @param value     the matrix values to load
 	 */
-	public static void glUniformMatrix3fvARB(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 9) << 2);
-		nglUniformMatrix3fvARB(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix3fvARB UniformMatrix3fvARB} */
 	public static void glUniformMatrix3fvARB(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix3fvARB(location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4fvARB ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4fvARB UniformMatrix4fvARB} */
+	/**
+	 * Loads a 4x4 matrix of floating-point values {@code count} times into a uniform location defined as a matrix or an array of matrices.
+	 *
+	 * @param location  the uniform variable location
+	 * @param count     the number of 4x4 matrices to load
+	 * @param transpose if {@link GL11#GL_FALSE FALSE}, the matrix is specified in column major order, otherwise in row major order
+	 * @param value     the matrix values to load
+	 */
 	public static void nglUniformMatrix4fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4fvARB;
 		if ( CHECKS )
@@ -788,24 +798,22 @@ public class ARBShaderObjects {
 	 * Loads a 4x4 matrix of floating-point values {@code count} times into a uniform location defined as a matrix or an array of matrices.
 	 *
 	 * @param location  the uniform variable location
-	 * @param count     the number of 4x4 matrices to load
 	 * @param transpose if {@link GL11#GL_FALSE FALSE}, the matrix is specified in column major order, otherwise in row major order
 	 * @param value     the matrix values to load
 	 */
-	public static void glUniformMatrix4fvARB(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 4) << 2);
-		nglUniformMatrix4fvARB(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix4fvARB UniformMatrix4fvARB} */
 	public static void glUniformMatrix4fvARB(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4fvARB(location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glGetObjectParameterfvARB ] ---
 
-	/** Unsafe version of {@link #glGetObjectParameterfvARB GetObjectParameterfvARB} */
+	/**
+	 * Returns object specific parameter values.
+	 *
+	 * @param obj    the object to query
+	 * @param pname  the parameter to query
+	 * @param params a buffer in which to return the parameter value
+	 */
 	public static void nglGetObjectParameterfvARB(int obj, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetObjectParameterfvARB;
 		if ( CHECKS )
@@ -820,13 +828,6 @@ public class ARBShaderObjects {
 	 * @param pname  the parameter to query
 	 * @param params a buffer in which to return the parameter value
 	 */
-	public static void glGetObjectParameterfvARB(int obj, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetObjectParameterfvARB(obj, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetObjectParameterfvARB GetObjectParameterfvARB} */
 	public static void glGetObjectParameterfvARB(int obj, int pname, FloatBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
@@ -835,7 +836,13 @@ public class ARBShaderObjects {
 
 	// --- [ glGetObjectParameterivARB ] ---
 
-	/** Unsafe version of {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
+	/**
+	 * Returns object specific parameter values.
+	 *
+	 * @param obj    the object to query
+	 * @param pname  the parameter to query. One of:<br>{@link #GL_OBJECT_TYPE_ARB OBJECT_TYPE_ARB}, {@link #GL_OBJECT_SUBTYPE_ARB OBJECT_SUBTYPE_ARB}, {@link #GL_OBJECT_DELETE_STATUS_ARB OBJECT_DELETE_STATUS_ARB}, {@link #GL_OBJECT_COMPILE_STATUS_ARB OBJECT_COMPILE_STATUS_ARB}, {@link #GL_OBJECT_LINK_STATUS_ARB OBJECT_LINK_STATUS_ARB}, {@link #GL_OBJECT_VALIDATE_STATUS_ARB OBJECT_VALIDATE_STATUS_ARB}, {@link #GL_OBJECT_INFO_LOG_LENGTH_ARB OBJECT_INFO_LOG_LENGTH_ARB}, {@link #GL_OBJECT_ATTACHED_OBJECTS_ARB OBJECT_ATTACHED_OBJECTS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB}, {@link #GL_OBJECT_SHADER_SOURCE_LENGTH_ARB OBJECT_SHADER_SOURCE_LENGTH_ARB}
+	 * @param params a buffer in which to return the parameter value
+	 */
 	public static void nglGetObjectParameterivARB(int obj, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetObjectParameterivARB;
 		if ( CHECKS )
@@ -850,20 +857,18 @@ public class ARBShaderObjects {
 	 * @param pname  the parameter to query. One of:<br>{@link #GL_OBJECT_TYPE_ARB OBJECT_TYPE_ARB}, {@link #GL_OBJECT_SUBTYPE_ARB OBJECT_SUBTYPE_ARB}, {@link #GL_OBJECT_DELETE_STATUS_ARB OBJECT_DELETE_STATUS_ARB}, {@link #GL_OBJECT_COMPILE_STATUS_ARB OBJECT_COMPILE_STATUS_ARB}, {@link #GL_OBJECT_LINK_STATUS_ARB OBJECT_LINK_STATUS_ARB}, {@link #GL_OBJECT_VALIDATE_STATUS_ARB OBJECT_VALIDATE_STATUS_ARB}, {@link #GL_OBJECT_INFO_LOG_LENGTH_ARB OBJECT_INFO_LOG_LENGTH_ARB}, {@link #GL_OBJECT_ATTACHED_OBJECTS_ARB OBJECT_ATTACHED_OBJECTS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB}, {@link #GL_OBJECT_SHADER_SOURCE_LENGTH_ARB OBJECT_SHADER_SOURCE_LENGTH_ARB}
 	 * @param params a buffer in which to return the parameter value
 	 */
-	public static void glGetObjectParameterivARB(int obj, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetObjectParameterivARB(obj, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
 	public static void glGetObjectParameterivARB(int obj, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetObjectParameterivARB(obj, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
+	/**
+	 * Returns object specific parameter values.
+	 *
+	 * @param obj   the object to query
+	 * @param pname the parameter to query. One of:<br>{@link #GL_OBJECT_TYPE_ARB OBJECT_TYPE_ARB}, {@link #GL_OBJECT_SUBTYPE_ARB OBJECT_SUBTYPE_ARB}, {@link #GL_OBJECT_DELETE_STATUS_ARB OBJECT_DELETE_STATUS_ARB}, {@link #GL_OBJECT_COMPILE_STATUS_ARB OBJECT_COMPILE_STATUS_ARB}, {@link #GL_OBJECT_LINK_STATUS_ARB OBJECT_LINK_STATUS_ARB}, {@link #GL_OBJECT_VALIDATE_STATUS_ARB OBJECT_VALIDATE_STATUS_ARB}, {@link #GL_OBJECT_INFO_LOG_LENGTH_ARB OBJECT_INFO_LOG_LENGTH_ARB}, {@link #GL_OBJECT_ATTACHED_OBJECTS_ARB OBJECT_ATTACHED_OBJECTS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB}, {@link #GL_OBJECT_SHADER_SOURCE_LENGTH_ARB OBJECT_SHADER_SOURCE_LENGTH_ARB}
+	 */
 	public static int glGetObjectParameteriARB(int obj, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -876,14 +881,6 @@ public class ARBShaderObjects {
 	}
 
 	// --- [ glGetInfoLogARB ] ---
-
-	/** Unsafe version of {@link #glGetInfoLogARB GetInfoLogARB} */
-	public static void nglGetInfoLogARB(int obj, int maxLength, long length, long infoLog) {
-		long __functionAddress = GL.getCapabilities().glGetInfoLogARB;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPPV(__functionAddress, obj, maxLength, length, infoLog);
-	}
 
 	/**
 	 * A string that contains information about the last link or validation attempt and last compilation attempt are kept per program or shader object. This
@@ -905,22 +902,55 @@ public class ARBShaderObjects {
 	 *                  {@code length} is {@code NULL} then the GL ignores this parameter.
 	 * @param infoLog   a buffer in which to return the info log
 	 */
-	public static void glGetInfoLogARB(int obj, int maxLength, ByteBuffer length, ByteBuffer infoLog) {
-		if ( CHECKS ) {
-			checkBuffer(infoLog, maxLength);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetInfoLogARB(obj, maxLength, memAddressSafe(length), memAddress(infoLog));
+	public static void nglGetInfoLogARB(int obj, int maxLength, long length, long infoLog) {
+		long __functionAddress = GL.getCapabilities().glGetInfoLogARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIPPV(__functionAddress, obj, maxLength, length, infoLog);
 	}
 
-	/** Alternative version of: {@link #glGetInfoLogARB GetInfoLogARB} */
+	/**
+	 * A string that contains information about the last link or validation attempt and last compilation attempt are kept per program or shader object. This
+	 * string is called the info log and can be obtained with this command.
+	 * 
+	 * <p>This string will be null terminated. The number of characters in the info log is given by {@link #GL_OBJECT_INFO_LOG_LENGTH_ARB OBJECT_INFO_LOG_LENGTH_ARB}, which can be queried with
+	 * {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code obj} is a shader object, the returned info log will either be an empty string or it will contain
+	 * information about the last compilation attempt for that object. If {@code obj} is a program object, the returned info log will either be an empty string
+	 * or it will contain information about the last link attempt or last validation attempt for that object. If {@code obj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}
+	 * or {@link #GL_SHADER_OBJECT_ARB SHADER_OBJECT_ARB}, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If an error occurred, the return parameters {@code length} and {@code infoLog}
+	 * will be unmodified.</p>
+	 * 
+	 * <p>The info log is typically only useful during application development and an application should not expect different OpenGL implementations to produce
+	 * identical info logs.</p>
+	 *
+	 * @param obj     the shader object to query
+	 * @param length  the actual number of characters written by the GL into {@code infoLog} is returned in {@code length}, excluding the null termination. If
+	 *                {@code length} is {@code NULL} then the GL ignores this parameter.
+	 * @param infoLog a buffer in which to return the info log
+	 */
 	public static void glGetInfoLogARB(int obj, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetInfoLogARB(obj, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
-	/** String return version of: {@link #glGetInfoLogARB GetInfoLogARB} */
+	/**
+	 * A string that contains information about the last link or validation attempt and last compilation attempt are kept per program or shader object. This
+	 * string is called the info log and can be obtained with this command.
+	 * 
+	 * <p>This string will be null terminated. The number of characters in the info log is given by {@link #GL_OBJECT_INFO_LOG_LENGTH_ARB OBJECT_INFO_LOG_LENGTH_ARB}, which can be queried with
+	 * {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code obj} is a shader object, the returned info log will either be an empty string or it will contain
+	 * information about the last compilation attempt for that object. If {@code obj} is a program object, the returned info log will either be an empty string
+	 * or it will contain information about the last link attempt or last validation attempt for that object. If {@code obj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}
+	 * or {@link #GL_SHADER_OBJECT_ARB SHADER_OBJECT_ARB}, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If an error occurred, the return parameters {@code length} and {@code infoLog}
+	 * will be unmodified.</p>
+	 * 
+	 * <p>The info log is typically only useful during application development and an application should not expect different OpenGL implementations to produce
+	 * identical info logs.</p>
+	 *
+	 * @param obj       the shader object to query
+	 * @param maxLength the maximum number of characters the GL is allowed to write into {@code infoLog}
+	 */
 	public static String glGetInfoLogARB(int obj, int maxLength) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		ByteBuffer infoLog = memAlloc(maxLength);
@@ -934,7 +964,22 @@ public class ARBShaderObjects {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetInfoLogARB GetInfoLogARB} */
+	/**
+	 * A string that contains information about the last link or validation attempt and last compilation attempt are kept per program or shader object. This
+	 * string is called the info log and can be obtained with this command.
+	 * 
+	 * <p>This string will be null terminated. The number of characters in the info log is given by {@link #GL_OBJECT_INFO_LOG_LENGTH_ARB OBJECT_INFO_LOG_LENGTH_ARB}, which can be queried with
+	 * {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code obj} is a shader object, the returned info log will either be an empty string or it will contain
+	 * information about the last compilation attempt for that object. If {@code obj} is a program object, the returned info log will either be an empty string
+	 * or it will contain information about the last link attempt or last validation attempt for that object. If {@code obj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}
+	 * or {@link #GL_SHADER_OBJECT_ARB SHADER_OBJECT_ARB}, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If an error occurred, the return parameters {@code length} and {@code infoLog}
+	 * will be unmodified.</p>
+	 * 
+	 * <p>The info log is typically only useful during application development and an application should not expect different OpenGL implementations to produce
+	 * identical info logs.</p>
+	 *
+	 * @param obj the shader object to query
+	 */
 	public static String glGetInfoLogARB(int obj) {
 		int maxLength = glGetObjectParameteriARB(obj, GL_OBJECT_INFO_LOG_LENGTH_ARB);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -951,7 +996,16 @@ public class ARBShaderObjects {
 
 	// --- [ glGetAttachedObjectsARB ] ---
 
-	/** Unsafe version of {@link #glGetAttachedObjectsARB GetAttachedObjectsARB} */
+	/**
+	 * Returns the handles of objects attached to {@code containerObj} in {@code obj}. . The number of objects attached to {@code containerObj} is given by
+	 * {@link #GL_OBJECT_ATTACHED_OBJECTS_ARB OBJECT_ATTACHED_OBJECTS_ARB}, which can be queried with {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code containerObj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}, the
+	 * error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If an error occurred, the return parameters {@code count} and {@code obj} will be unmodified.
+	 *
+	 * @param containerObj the container object to query
+	 * @param maxCount     the maximum number of handles the GL is allowed to write into {@code obj}
+	 * @param count        a buffer in which to return the actual number of object handles written by the GL into {@code obj}. If {@code NULL} then the GL ignores this parameter.
+	 * @param obj          a buffer in which to return the attached object handles
+	 */
 	public static void nglGetAttachedObjectsARB(int containerObj, int maxCount, long count, long obj) {
 		long __functionAddress = GL.getCapabilities().glGetAttachedObjectsARB;
 		if ( CHECKS )
@@ -965,19 +1019,9 @@ public class ARBShaderObjects {
 	 * error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If an error occurred, the return parameters {@code count} and {@code obj} will be unmodified.
 	 *
 	 * @param containerObj the container object to query
-	 * @param maxCount     the maximum number of handles the GL is allowed to write into {@code obj}
 	 * @param count        a buffer in which to return the actual number of object handles written by the GL into {@code obj}. If {@code NULL} then the GL ignores this parameter.
 	 * @param obj          a buffer in which to return the attached object handles
 	 */
-	public static void glGetAttachedObjectsARB(int containerObj, int maxCount, ByteBuffer count, ByteBuffer obj) {
-		if ( CHECKS ) {
-			checkBuffer(obj, maxCount << 2);
-			if ( count != null ) checkBuffer(count, 1 << 2);
-		}
-		nglGetAttachedObjectsARB(containerObj, maxCount, memAddressSafe(count), memAddress(obj));
-	}
-
-	/** Alternative version of: {@link #glGetAttachedObjectsARB GetAttachedObjectsARB} */
 	public static void glGetAttachedObjectsARB(int containerObj, IntBuffer count, IntBuffer obj) {
 		if ( CHECKS )
 			if ( count != null ) checkBuffer(count, 1);
@@ -986,7 +1030,22 @@ public class ARBShaderObjects {
 
 	// --- [ glGetUniformLocationARB ] ---
 
-	/** Unsafe version of {@link #glGetUniformLocationARB GetUniformLocationARB} */
+	/**
+	 * Returns the location of uniform variable {@code name}. {@code name} has to be a null terminated string, without white space. The value of -1 will be
+	 * returned if {@code name} does not correspond to an active uniform variable name in {@code programObj} or if {@code name} starts with the reserved prefix
+	 * "gl_". If {@code programObj} has not been successfully linked, or if {@code programObj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}, the error
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. The location of a uniform variable does not change until the next link command is issued.
+	 * 
+	 * <p>A valid {@code name} cannot be a structure, an array of structures, or a subcomponent of a vector or a matrix. In order to identify a valid {@code name},
+	 * the "." (dot) and "[]" operators can be used in {@code name} to operate on a structure or to operate on an array.</p>
+	 * 
+	 * <p>The first element of a uniform array is identified using the name of the uniform array appended with "[0]". Except if the last part of the string
+	 * {@code name} indicates a uniform array, then the location of the first element of that array can be retrieved by either using the name of the uniform
+	 * array, or the name of the uniform array appended with "[0]".</p>
+	 *
+	 * @param programObj the program object to query
+	 * @param name       the name of the uniform variable whose location is to be queried
+	 */
 	public static int nglGetUniformLocationARB(int programObj, long name) {
 		long __functionAddress = GL.getCapabilities().glGetUniformLocationARB;
 		if ( CHECKS )
@@ -1016,7 +1075,22 @@ public class ARBShaderObjects {
 		return nglGetUniformLocationARB(programObj, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetUniformLocationARB GetUniformLocationARB} */
+	/**
+	 * Returns the location of uniform variable {@code name}. {@code name} has to be a null terminated string, without white space. The value of -1 will be
+	 * returned if {@code name} does not correspond to an active uniform variable name in {@code programObj} or if {@code name} starts with the reserved prefix
+	 * "gl_". If {@code programObj} has not been successfully linked, or if {@code programObj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}, the error
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. The location of a uniform variable does not change until the next link command is issued.
+	 * 
+	 * <p>A valid {@code name} cannot be a structure, an array of structures, or a subcomponent of a vector or a matrix. In order to identify a valid {@code name},
+	 * the "." (dot) and "[]" operators can be used in {@code name} to operate on a structure or to operate on an array.</p>
+	 * 
+	 * <p>The first element of a uniform array is identified using the name of the uniform array appended with "[0]". Except if the last part of the string
+	 * {@code name} indicates a uniform array, then the location of the first element of that array can be retrieved by either using the name of the uniform
+	 * array, or the name of the uniform array appended with "[0]".</p>
+	 *
+	 * @param programObj the program object to query
+	 * @param name       the name of the uniform variable whose location is to be queried
+	 */
 	public static int glGetUniformLocationARB(int programObj, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1028,14 +1102,6 @@ public class ARBShaderObjects {
 	}
 
 	// --- [ glGetActiveUniformARB ] ---
-
-	/** Unsafe version of {@link #glGetActiveUniformARB GetActiveUniformARB} */
-	public static void nglGetActiveUniformARB(int programObj, int index, int maxLength, long length, long size, long type, long name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformARB;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIIPPPPV(__functionAddress, programObj, index, maxLength, length, size, type, name);
-	}
 
 	/**
 	 * Determines which of the declared uniform variables are active and their sizes and types.
@@ -1070,17 +1136,45 @@ public class ARBShaderObjects {
 	 * @param type       a buffer in which to return the uniform type
 	 * @param name       a buffer in which to return the uniform name
 	 */
-	public static void glGetActiveUniformARB(int programObj, int index, int maxLength, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( CHECKS ) {
-			checkBuffer(name, maxLength);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-			checkBuffer(size, 1 << 2);
-			checkBuffer(type, 1 << 2);
-		}
-		nglGetActiveUniformARB(programObj, index, maxLength, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
+	public static void nglGetActiveUniformARB(int programObj, int index, int maxLength, long length, long size, long type, long name) {
+		long __functionAddress = GL.getCapabilities().glGetActiveUniformARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIIPPPPV(__functionAddress, programObj, index, maxLength, length, size, type, name);
 	}
 
-	/** Alternative version of: {@link #glGetActiveUniformARB GetActiveUniformARB} */
+	/**
+	 * Determines which of the declared uniform variables are active and their sizes and types.
+	 * 
+	 * <p>This command provides information about the uniform selected by {@code index}. The {@code index} of 0 selects the first active uniform, and
+	 * {@code index} of {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB} - 1 selects the last active uniform. The value of {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB} can be queried with
+	 * {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code index} is greater than or equal to {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB}, the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated.</p>
+	 * 
+	 * <p>If an error occurred, the return parameters {@code length}, {@code size}, {@code type} and {@code name} will be unmodified.</p>
+	 * 
+	 * <p>The returned uniform name can be the name of built-in uniform state as well. The length of the longest uniform name in {@code programObj} is given by
+	 * {@link #GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB}, which can be queried with {@link #glGetObjectParameteriARB GetObjectParameteriARB}.</p>
+	 * 
+	 * <p>Each uniform variable, declared in a shader, is broken down into one or more strings using the "." (dot) and "[]" operators, if necessary, to the point
+	 * that it is legal to pass each string back into {@link #glGetUniformLocationARB GetUniformLocationARB}. Each of these strings constitutes one active uniform, and each string is
+	 * assigned an index.</p>
+	 * 
+	 * <p>If one or more elements of an array are active, GetActiveUniformARB will return the name of the array in {@code name}, subject to the restrictions
+	 * listed above. The type of the array is returned in {@code type}. The {@code size} parameter contains the highest array element index used, plus one. The
+	 * compiler or linker determines the highest index used. There will be only one active uniform reported by the GL per uniform array.</p>
+	 * 
+	 * <p>This command will return as much information about active uniforms as possible. If no information is available, {@code length} will be set to zero and
+	 * {@code name} will be an empty string. This situation could arise if GetActiveUniformARB is issued after a failed link.</p>
+	 *
+	 * @param programObj a handle to a program object for which the command {@link #glLinkProgramARB LinkProgramARB} has been issued in the past. It is not necessary for {@code programObj} to have
+	 *                   been linked successfully. The link could have failed because the number of active uniforms exceeded the limit.
+	 * @param index      the uniform index
+	 * @param length     a buffer in which to return the actual number of characters written by the GL into {@code name}. This count excludes the null termination. If
+	 *                   {@code length} is {@code NULL} then the GL ignores this parameter.
+	 * @param size       a buffer in which to return the uniform size. The size is in units of the type returned in {@code type}.
+	 * @param type       a buffer in which to return the uniform type
+	 * @param name       a buffer in which to return the uniform name
+	 */
 	public static void glGetActiveUniformARB(int programObj, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
@@ -1090,7 +1184,36 @@ public class ARBShaderObjects {
 		nglGetActiveUniformARB(programObj, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
-	/** String return version of: {@link #glGetActiveUniformARB GetActiveUniformARB} */
+	/**
+	 * Determines which of the declared uniform variables are active and their sizes and types.
+	 * 
+	 * <p>This command provides information about the uniform selected by {@code index}. The {@code index} of 0 selects the first active uniform, and
+	 * {@code index} of {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB} - 1 selects the last active uniform. The value of {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB} can be queried with
+	 * {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code index} is greater than or equal to {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB}, the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated.</p>
+	 * 
+	 * <p>If an error occurred, the return parameters {@code length}, {@code size}, {@code type} and {@code name} will be unmodified.</p>
+	 * 
+	 * <p>The returned uniform name can be the name of built-in uniform state as well. The length of the longest uniform name in {@code programObj} is given by
+	 * {@link #GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB}, which can be queried with {@link #glGetObjectParameteriARB GetObjectParameteriARB}.</p>
+	 * 
+	 * <p>Each uniform variable, declared in a shader, is broken down into one or more strings using the "." (dot) and "[]" operators, if necessary, to the point
+	 * that it is legal to pass each string back into {@link #glGetUniformLocationARB GetUniformLocationARB}. Each of these strings constitutes one active uniform, and each string is
+	 * assigned an index.</p>
+	 * 
+	 * <p>If one or more elements of an array are active, GetActiveUniformARB will return the name of the array in {@code name}, subject to the restrictions
+	 * listed above. The type of the array is returned in {@code type}. The {@code size} parameter contains the highest array element index used, plus one. The
+	 * compiler or linker determines the highest index used. There will be only one active uniform reported by the GL per uniform array.</p>
+	 * 
+	 * <p>This command will return as much information about active uniforms as possible. If no information is available, {@code length} will be set to zero and
+	 * {@code name} will be an empty string. This situation could arise if GetActiveUniformARB is issued after a failed link.</p>
+	 *
+	 * @param programObj a handle to a program object for which the command {@link #glLinkProgramARB LinkProgramARB} has been issued in the past. It is not necessary for {@code programObj} to have
+	 *                   been linked successfully. The link could have failed because the number of active uniforms exceeded the limit.
+	 * @param index      the uniform index
+	 * @param maxLength  the maximum number of characters the GL is allowed to write into {@code name}.
+	 * @param size       a buffer in which to return the uniform size. The size is in units of the type returned in {@code type}.
+	 * @param type       a buffer in which to return the uniform type
+	 */
 	public static String glGetActiveUniformARB(int programObj, int index, int maxLength, IntBuffer size, IntBuffer type) {
 		if ( CHECKS ) {
 			checkBuffer(size, 1);
@@ -1107,7 +1230,35 @@ public class ARBShaderObjects {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformARB GetActiveUniformARB} */
+	/**
+	 * Determines which of the declared uniform variables are active and their sizes and types.
+	 * 
+	 * <p>This command provides information about the uniform selected by {@code index}. The {@code index} of 0 selects the first active uniform, and
+	 * {@code index} of {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB} - 1 selects the last active uniform. The value of {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB} can be queried with
+	 * {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code index} is greater than or equal to {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB}, the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated.</p>
+	 * 
+	 * <p>If an error occurred, the return parameters {@code length}, {@code size}, {@code type} and {@code name} will be unmodified.</p>
+	 * 
+	 * <p>The returned uniform name can be the name of built-in uniform state as well. The length of the longest uniform name in {@code programObj} is given by
+	 * {@link #GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB}, which can be queried with {@link #glGetObjectParameteriARB GetObjectParameteriARB}.</p>
+	 * 
+	 * <p>Each uniform variable, declared in a shader, is broken down into one or more strings using the "." (dot) and "[]" operators, if necessary, to the point
+	 * that it is legal to pass each string back into {@link #glGetUniformLocationARB GetUniformLocationARB}. Each of these strings constitutes one active uniform, and each string is
+	 * assigned an index.</p>
+	 * 
+	 * <p>If one or more elements of an array are active, GetActiveUniformARB will return the name of the array in {@code name}, subject to the restrictions
+	 * listed above. The type of the array is returned in {@code type}. The {@code size} parameter contains the highest array element index used, plus one. The
+	 * compiler or linker determines the highest index used. There will be only one active uniform reported by the GL per uniform array.</p>
+	 * 
+	 * <p>This command will return as much information about active uniforms as possible. If no information is available, {@code length} will be set to zero and
+	 * {@code name} will be an empty string. This situation could arise if GetActiveUniformARB is issued after a failed link.</p>
+	 *
+	 * @param programObj a handle to a program object for which the command {@link #glLinkProgramARB LinkProgramARB} has been issued in the past. It is not necessary for {@code programObj} to have
+	 *                   been linked successfully. The link could have failed because the number of active uniforms exceeded the limit.
+	 * @param index      the uniform index
+	 * @param size       a buffer in which to return the uniform size. The size is in units of the type returned in {@code type}.
+	 * @param type       a buffer in which to return the uniform type
+	 */
 	public static String glGetActiveUniformARB(int programObj, int index, IntBuffer size, IntBuffer type) {
 		int maxLength = glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB);
 		if ( CHECKS ) {
@@ -1127,7 +1278,13 @@ public class ARBShaderObjects {
 
 	// --- [ glGetUniformfvARB ] ---
 
-	/** Unsafe version of {@link #glGetUniformfvARB GetUniformfvARB} */
+	/**
+	 * Returns the floating-point value or values of a uniform.
+	 *
+	 * @param programObj the program object to query
+	 * @param location   the uniform variable location
+	 * @param params     a buffer in which to return the uniform values
+	 */
 	public static void nglGetUniformfvARB(int programObj, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformfvARB;
 		if ( CHECKS )
@@ -1142,20 +1299,18 @@ public class ARBShaderObjects {
 	 * @param location   the uniform variable location
 	 * @param params     a buffer in which to return the uniform values
 	 */
-	public static void glGetUniformfvARB(int programObj, int location, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetUniformfvARB(programObj, location, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetUniformfvARB GetUniformfvARB} */
 	public static void glGetUniformfvARB(int programObj, int location, FloatBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformfvARB(programObj, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformfvARB GetUniformfvARB} */
+	/**
+	 * Returns the floating-point value or values of a uniform.
+	 *
+	 * @param programObj the program object to query
+	 * @param location   the uniform variable location
+	 */
 	public static float glGetUniformfARB(int programObj, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1169,7 +1324,13 @@ public class ARBShaderObjects {
 
 	// --- [ glGetUniformivARB ] ---
 
-	/** Unsafe version of {@link #glGetUniformivARB GetUniformivARB} */
+	/**
+	 * Returns the integer value or values of a uniform.
+	 *
+	 * @param programObj the program object to query
+	 * @param location   the uniform variable location
+	 * @param params     a buffer in which to return the uniform values
+	 */
 	public static void nglGetUniformivARB(int programObj, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformivARB;
 		if ( CHECKS )
@@ -1184,20 +1345,18 @@ public class ARBShaderObjects {
 	 * @param location   the uniform variable location
 	 * @param params     a buffer in which to return the uniform values
 	 */
-	public static void glGetUniformivARB(int programObj, int location, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetUniformivARB(programObj, location, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetUniformivARB GetUniformivARB} */
 	public static void glGetUniformivARB(int programObj, int location, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformivARB(programObj, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformivARB GetUniformivARB} */
+	/**
+	 * Returns the integer value or values of a uniform.
+	 *
+	 * @param programObj the program object to query
+	 * @param location   the uniform variable location
+	 */
 	public static int glGetUniformiARB(int programObj, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1210,14 +1369,6 @@ public class ARBShaderObjects {
 	}
 
 	// --- [ glGetShaderSourceARB ] ---
-
-	/** Unsafe version of {@link #glGetShaderSourceARB GetShaderSourceARB} */
-	public static void nglGetShaderSourceARB(int obj, int maxLength, long length, long source) {
-		long __functionAddress = GL.getCapabilities().glGetShaderSourceARB;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIPPV(__functionAddress, obj, maxLength, length, source);
-	}
 
 	/**
 	 * Returns the string making up the source code for a shader object.
@@ -1232,22 +1383,41 @@ public class ARBShaderObjects {
 	 *                  {@code length} is {@code NULL} then the GL ignores this parameter.
 	 * @param source    a buffer in which to return the shader object source
 	 */
-	public static void glGetShaderSourceARB(int obj, int maxLength, ByteBuffer length, ByteBuffer source) {
-		if ( CHECKS ) {
-			checkBuffer(source, maxLength);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetShaderSourceARB(obj, maxLength, memAddressSafe(length), memAddress(source));
+	public static void nglGetShaderSourceARB(int obj, int maxLength, long length, long source) {
+		long __functionAddress = GL.getCapabilities().glGetShaderSourceARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIPPV(__functionAddress, obj, maxLength, length, source);
 	}
 
-	/** Alternative version of: {@link #glGetShaderSourceARB GetShaderSourceARB} */
+	/**
+	 * Returns the string making up the source code for a shader object.
+	 * 
+	 * <p>The string {@code source} is a concatenation of the strings passed to OpenGL using {@link #glShaderSourceARB ShaderSourceARB}. The length of this concatenation is given by
+	 * {@link #GL_OBJECT_SHADER_SOURCE_LENGTH_ARB OBJECT_SHADER_SOURCE_LENGTH_ARB}, which can be queried with {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code obj} is not of type {@link #GL_SHADER_OBJECT_ARB SHADER_OBJECT_ARB}, the error
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If an error occurred, the return parameters {@code length} and {@code source} will be unmodified.</p>
+	 *
+	 * @param obj    the shader object to query
+	 * @param length a buffer in which to return the actual number of characters written by the GL into {@code source}, excluding the null termination. If
+	 *               {@code length} is {@code NULL} then the GL ignores this parameter.
+	 * @param source a buffer in which to return the shader object source
+	 */
 	public static void glGetShaderSourceARB(int obj, IntBuffer length, ByteBuffer source) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetShaderSourceARB(obj, source.remaining(), memAddressSafe(length), memAddress(source));
 	}
 
-	/** String return version of: {@link #glGetShaderSourceARB GetShaderSourceARB} */
+	/**
+	 * Returns the string making up the source code for a shader object.
+	 * 
+	 * <p>The string {@code source} is a concatenation of the strings passed to OpenGL using {@link #glShaderSourceARB ShaderSourceARB}. The length of this concatenation is given by
+	 * {@link #GL_OBJECT_SHADER_SOURCE_LENGTH_ARB OBJECT_SHADER_SOURCE_LENGTH_ARB}, which can be queried with {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code obj} is not of type {@link #GL_SHADER_OBJECT_ARB SHADER_OBJECT_ARB}, the error
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If an error occurred, the return parameters {@code length} and {@code source} will be unmodified.</p>
+	 *
+	 * @param obj       the shader object to query
+	 * @param maxLength the maximum number of characters the GL is allowed to write into {@code source}
+	 */
 	public static String glGetShaderSourceARB(int obj, int maxLength) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		ByteBuffer source = memAlloc(maxLength);
@@ -1261,7 +1431,15 @@ public class ARBShaderObjects {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetShaderSourceARB GetShaderSourceARB} */
+	/**
+	 * Returns the string making up the source code for a shader object.
+	 * 
+	 * <p>The string {@code source} is a concatenation of the strings passed to OpenGL using {@link #glShaderSourceARB ShaderSourceARB}. The length of this concatenation is given by
+	 * {@link #GL_OBJECT_SHADER_SOURCE_LENGTH_ARB OBJECT_SHADER_SOURCE_LENGTH_ARB}, which can be queried with {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code obj} is not of type {@link #GL_SHADER_OBJECT_ARB SHADER_OBJECT_ARB}, the error
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If an error occurred, the return parameters {@code length} and {@code source} will be unmodified.</p>
+	 *
+	 * @param obj the shader object to query
+	 */
 	public static String glGetShaderSourceARB(int obj) {
 		int maxLength = glGetObjectParameteriARB(obj, GL_OBJECT_SHADER_SOURCE_LENGTH_ARB);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();

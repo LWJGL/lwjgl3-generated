@@ -80,7 +80,6 @@ public class NVPixelDataRange {
 
 	// --- [ glPixelDataRangeNV ] ---
 
-	/** Unsafe version of {@link #glPixelDataRangeNV PixelDataRangeNV} */
 	public static void nglPixelDataRangeNV(int target, int length, long pointer) {
 		long __functionAddress = GL.getCapabilities().glPixelDataRangeNV;
 		if ( CHECKS )
@@ -88,13 +87,6 @@ public class NVPixelDataRange {
 		callIIPV(__functionAddress, target, length, pointer);
 	}
 
-	public static void glPixelDataRangeNV(int target, int length, ByteBuffer pointer) {
-		if ( CHECKS )
-			checkBuffer(pointer, length);
-		nglPixelDataRangeNV(target, length, memAddress(pointer));
-	}
-
-	/** Alternative version of: {@link #glPixelDataRangeNV PixelDataRangeNV} */
 	public static void glPixelDataRangeNV(int target, ByteBuffer pointer) {
 		nglPixelDataRangeNV(target, pointer.remaining(), memAddress(pointer));
 	}

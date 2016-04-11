@@ -193,7 +193,17 @@ public class GL31 {
 
 	// --- [ glDrawElementsInstanced ] ---
 
-	/** Unsafe version of {@link #glDrawElementsInstanced DrawElementsInstanced} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Draws multiple instances of a set of elements.
+	 *
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param count     the number of elements to be rendered
+	 * @param type      the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices   the ByteBuffer containing the indices to be rendered
+	 * @param primcount the number of instances of the specified range of indices to be rendered
+	 */
 	public static void nglDrawElementsInstanced(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstanced;
 		if ( CHECKS )
@@ -212,43 +222,67 @@ public class GL31 {
 	 * @param indices   the ByteBuffer containing the indices to be rendered
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
-	public static void glDrawElementsInstanced(int mode, int count, int type, ByteBuffer indices, int primcount) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsInstanced(mode, count, type, memAddress(indices), primcount);
-	}
-
-	/** Buffer object offset version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
-	public static void glDrawElementsInstanced(int mode, int count, int type, long indicesOffset, int primcount) {
+	public static void glDrawElementsInstanced(int mode, int count, int type, long indices, int primcount) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawElementsInstanced(mode, count, type, indicesOffset, primcount);
+		nglDrawElementsInstanced(mode, count, type, indices, primcount);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Draws multiple instances of a set of elements.
+	 *
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param type      the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indices   the ByteBuffer containing the indices to be rendered
+	 * @param primcount the number of instances of the specified range of indices to be rendered
+	 */
 	public static void glDrawElementsInstanced(int mode, int type, ByteBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstanced(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Draws multiple instances of a set of elements.
+	 *
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices   the ByteBuffer containing the indices to be rendered
+	 * @param primcount the number of instances of the specified range of indices to be rendered
+	 */
 	public static void glDrawElementsInstanced(int mode, ByteBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Draws multiple instances of a set of elements.
+	 *
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices   the ByteBuffer containing the indices to be rendered
+	 * @param primcount the number of instances of the specified range of indices to be rendered
+	 */
 	public static void glDrawElementsInstanced(int mode, ShortBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Draws multiple instances of a set of elements.
+	 *
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indices   the ByteBuffer containing the indices to be rendered
+	 * @param primcount the number of instances of the specified range of indices to be rendered
+	 */
 	public static void glDrawElementsInstanced(int mode, IntBuffer indices, int primcount) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -341,7 +375,16 @@ public class GL31 {
 
 	// --- [ glGetUniformIndices ] ---
 
-	/** Unsafe version of {@link #glGetUniformIndices GetUniformIndices} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformIndices.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the indices of a number of uniforms within a program object
+	 *
+	 * @param program        the name of a program containing uniforms whose indices to query
+	 * @param uniformCount   the number of uniforms whose indices to query
+	 * @param uniformNames   an array of pointers to buffers containing the names of the queried uniforms
+	 * @param uniformIndices an array that will receive the indices of the uniforms
+	 */
 	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
 		long __functionAddress = GL.getCapabilities().glGetUniformIndices;
 		if ( CHECKS )
@@ -355,26 +398,24 @@ public class GL31 {
 	 * Retrieves the indices of a number of uniforms within a program object
 	 *
 	 * @param program        the name of a program containing uniforms whose indices to query
-	 * @param uniformCount   the number of uniforms whose indices to query
 	 * @param uniformNames   an array of pointers to buffers containing the names of the queried uniforms
 	 * @param uniformIndices an array that will receive the indices of the uniforms
 	 */
-	public static void glGetUniformIndices(int program, int uniformCount, ByteBuffer uniformNames, ByteBuffer uniformIndices) {
-		if ( CHECKS ) {
-			checkBuffer(uniformNames, uniformCount << POINTER_SHIFT);
-			checkBuffer(uniformIndices, uniformCount << 2);
-		}
-		nglGetUniformIndices(program, uniformCount, memAddress(uniformNames), memAddress(uniformIndices));
-	}
-
-	/** Alternative version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static void glGetUniformIndices(int program, PointerBuffer uniformNames, IntBuffer uniformIndices) {
 		if ( CHECKS )
 			checkBuffer(uniformIndices, uniformNames.remaining());
 		nglGetUniformIndices(program, uniformNames.remaining(), memAddress(uniformNames), memAddress(uniformIndices));
 	}
 
-	/** Array version of: {@link #glGetUniformIndices GetUniformIndices} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformIndices.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the indices of a number of uniforms within a program object
+	 *
+	 * @param program        the name of a program containing uniforms whose indices to query
+	 * @param uniformNames   an array of pointers to buffers containing the names of the queried uniforms
+	 * @param uniformIndices an array that will receive the indices of the uniforms
+	 */
 	public static void glGetUniformIndices(int program, CharSequence[] uniformNames, IntBuffer uniformIndices) {
 		if ( CHECKS )
 			checkBuffer(uniformIndices, uniformNames.length);
@@ -388,7 +429,13 @@ public class GL31 {
 		}
 	}
 
-	/** Single uniformName version of: {@link #glGetUniformIndices GetUniformIndices} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformIndices.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the indices of a number of uniforms within a program object
+	 *
+	 * @param program the name of a program containing uniforms whose indices to query
+	 */
 	public static int glGetUniformIndices(int program, CharSequence uniformName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -404,7 +451,17 @@ public class GL31 {
 
 	// --- [ glGetActiveUniformsiv ] ---
 
-	/** Unsafe version of {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniforms.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns information about several active uniform variables for the specified program object.
+	 *
+	 * @param program        the program object to be queried
+	 * @param uniformCount   the number of elements in the array of indices {@code uniformIndices} and the number of parameters written to {@code params} upon successful return
+	 * @param uniformIndices an array of {@code uniformCount} integers containing the indices of uniforms within {@code program}
+	 * @param pname          the property of the each uniform in {@code uniformIndices} that should be written into the corresponding element of {@code params}
+	 * @param params         an array of {@code uniformCount} integers which are to receive the value of {@code pname} for each uniform in {@code uniformIndices}
+	 */
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformsiv;
 		if ( CHECKS )
@@ -418,27 +475,24 @@ public class GL31 {
 	 * Returns information about several active uniform variables for the specified program object.
 	 *
 	 * @param program        the program object to be queried
-	 * @param uniformCount   the number of elements in the array of indices {@code uniformIndices} and the number of parameters written to {@code params} upon successful return
 	 * @param uniformIndices an array of {@code uniformCount} integers containing the indices of uniforms within {@code program}
 	 * @param pname          the property of the each uniform in {@code uniformIndices} that should be written into the corresponding element of {@code params}
 	 * @param params         an array of {@code uniformCount} integers which are to receive the value of {@code pname} for each uniform in {@code uniformIndices}
 	 */
-	public static void glGetActiveUniformsiv(int program, int uniformCount, ByteBuffer uniformIndices, int pname, ByteBuffer params) {
-		if ( CHECKS ) {
-			checkBuffer(uniformIndices, uniformCount << 2);
-			checkBuffer(params, uniformCount << 2);
-		}
-		nglGetActiveUniformsiv(program, uniformCount, memAddress(uniformIndices), pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
 	public static void glGetActiveUniformsiv(int program, IntBuffer uniformIndices, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, uniformIndices.remaining());
 		nglGetActiveUniformsiv(program, uniformIndices.remaining(), memAddress(uniformIndices), pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniforms.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns information about several active uniform variables for the specified program object.
+	 *
+	 * @param program the program object to be queried
+	 * @param pname   the property of the each uniform in {@code uniformIndices} that should be written into the corresponding element of {@code params}
+	 */
 	public static int glGetActiveUniformsi(int program, int uniformIndex, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -453,7 +507,17 @@ public class GL31 {
 
 	// --- [ glGetActiveUniformName ] ---
 
-	/** Unsafe version of {@link #glGetActiveUniformName GetActiveUniformName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an active uniform.
+	 *
+	 * @param program      the program containing the active uniform index {@code uniformIndex}
+	 * @param uniformIndex the index of the active uniform whose name to query
+	 * @param bufSize      the size of the buffer, in units of {@code GLchar}, of the buffer whose address is specified in {@code uniformName}
+	 * @param length       the address of a variable that will receive the number of characters that were or would have been written to the buffer addressed by {@code uniformName}
+	 * @param uniformName  the address of a buffer into which the GL will place the name of the active uniform at {@code uniformIndex} within {@code program}
+	 */
 	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformName;
 		if ( CHECKS )
@@ -468,26 +532,24 @@ public class GL31 {
 	 *
 	 * @param program      the program containing the active uniform index {@code uniformIndex}
 	 * @param uniformIndex the index of the active uniform whose name to query
-	 * @param bufSize      the size of the buffer, in units of {@code GLchar}, of the buffer whose address is specified in {@code uniformName}
 	 * @param length       the address of a variable that will receive the number of characters that were or would have been written to the buffer addressed by {@code uniformName}
 	 * @param uniformName  the address of a buffer into which the GL will place the name of the active uniform at {@code uniformIndex} within {@code program}
 	 */
-	public static void glGetActiveUniformName(int program, int uniformIndex, int bufSize, ByteBuffer length, ByteBuffer uniformName) {
-		if ( CHECKS ) {
-			checkBuffer(uniformName, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetActiveUniformName(program, uniformIndex, bufSize, memAddressSafe(length), memAddress(uniformName));
-	}
-
-	/** Alternative version of: {@link #glGetActiveUniformName GetActiveUniformName} */
 	public static void glGetActiveUniformName(int program, int uniformIndex, IntBuffer length, ByteBuffer uniformName) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetActiveUniformName(program, uniformIndex, uniformName.remaining(), memAddressSafe(length), memAddress(uniformName));
 	}
 
-	/** String return version of: {@link #glGetActiveUniformName GetActiveUniformName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an active uniform.
+	 *
+	 * @param program      the program containing the active uniform index {@code uniformIndex}
+	 * @param uniformIndex the index of the active uniform whose name to query
+	 * @param bufSize      the size of the buffer, in units of {@code GLchar}, of the buffer whose address is specified in {@code uniformName}
+	 */
 	public static String glGetActiveUniformName(int program, int uniformIndex, int bufSize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -500,7 +562,14 @@ public class GL31 {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformName GetActiveUniformName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the name of an active uniform.
+	 *
+	 * @param program      the program containing the active uniform index {@code uniformIndex}
+	 * @param uniformIndex the index of the active uniform whose name to query
+	 */
 	public static String glGetActiveUniformName(int program, int uniformIndex) {
 		int bufSize = glGetActiveUniformsi(program, uniformIndex, GL_UNIFORM_NAME_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -516,7 +585,14 @@ public class GL31 {
 
 	// --- [ glGetUniformBlockIndex ] ---
 
-	/** Unsafe version of {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformBlockIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the index of a named uniform block.
+	 *
+	 * @param program          the name of a program containing the uniform block
+	 * @param uniformBlockName an array of characters to containing the name of the uniform block whose index to retrieve
+	 */
 	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
 		long __functionAddress = GL.getCapabilities().glGetUniformBlockIndex;
 		if ( CHECKS )
@@ -538,7 +614,14 @@ public class GL31 {
 		return nglGetUniformBlockIndex(program, memAddress(uniformBlockName));
 	}
 
-	/** CharSequence version of: {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformBlockIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the index of a named uniform block.
+	 *
+	 * @param program          the name of a program containing the uniform block
+	 * @param uniformBlockName an array of characters to containing the name of the uniform block whose index to retrieve
+	 */
 	public static int glGetUniformBlockIndex(int program, CharSequence uniformBlockName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -551,7 +634,16 @@ public class GL31 {
 
 	// --- [ glGetActiveUniformBlockiv ] ---
 
-	/** Unsafe version of {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlock.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries information about an active uniform block.
+	 *
+	 * @param program           the name of a program containing the uniform block
+	 * @param uniformBlockIndex the index of the uniform block within {@code program}
+	 * @param pname             the name of the parameter to query. One of:<br>{@link #GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}, {@link #GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}, {@link #GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}
+	 * @param params            the address of a variable to receive the result of the query
+	 */
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockiv;
 		if ( CHECKS )
@@ -569,20 +661,21 @@ public class GL31 {
 	 * @param pname             the name of the parameter to query. One of:<br>{@link #GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}, {@link #GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}, {@link #GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}
 	 * @param params            the address of a variable to receive the result of the query
 	 */
-	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
 	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlock.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries information about an active uniform block.
+	 *
+	 * @param program           the name of a program containing the uniform block
+	 * @param uniformBlockIndex the index of the uniform block within {@code program}
+	 * @param pname             the name of the parameter to query. One of:<br>{@link #GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}, {@link #GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}, {@link #GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}
+	 */
 	public static int glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -596,7 +689,17 @@ public class GL31 {
 
 	// --- [ glGetActiveUniformBlockName ] ---
 
-	/** Unsafe version of {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlockName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the name of an active uniform block.
+	 *
+	 * @param program           the name of a program containing the uniform block
+	 * @param uniformBlockIndex the index of the uniform block within {@code program}
+	 * @param bufSize           the size of the buffer addressed by {@code uniformBlockName}
+	 * @param length            the address of a variable to receive the number of characters that were written to {@code uniformBlockName}
+	 * @param uniformBlockName  an array of characters to receive the name of the uniform block at {@code uniformBlockIndex}
+	 */
 	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockName;
 		if ( CHECKS )
@@ -611,26 +714,24 @@ public class GL31 {
 	 *
 	 * @param program           the name of a program containing the uniform block
 	 * @param uniformBlockIndex the index of the uniform block within {@code program}
-	 * @param bufSize           the size of the buffer addressed by {@code uniformBlockName}
 	 * @param length            the address of a variable to receive the number of characters that were written to {@code uniformBlockName}
 	 * @param uniformBlockName  an array of characters to receive the name of the uniform block at {@code uniformBlockIndex}
 	 */
-	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, ByteBuffer length, ByteBuffer uniformBlockName) {
-		if ( CHECKS ) {
-			checkBuffer(uniformBlockName, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, memAddressSafe(length), memAddress(uniformBlockName));
-	}
-
-	/** Alternative version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, IntBuffer length, ByteBuffer uniformBlockName) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetActiveUniformBlockName(program, uniformBlockIndex, uniformBlockName.remaining(), memAddressSafe(length), memAddress(uniformBlockName));
 	}
 
-	/** String return version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlockName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the name of an active uniform block.
+	 *
+	 * @param program           the name of a program containing the uniform block
+	 * @param uniformBlockIndex the index of the uniform block within {@code program}
+	 * @param bufSize           the size of the buffer addressed by {@code uniformBlockName}
+	 */
 	public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -643,7 +744,14 @@ public class GL31 {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlockName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Retrieves the name of an active uniform block.
+	 *
+	 * @param program           the name of a program containing the uniform block
+	 * @param uniformBlockIndex the index of the uniform block within {@code program}
+	 */
 	public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex) {
 		int bufSize = glGetActiveUniformBlocki(program, uniformBlockIndex, GL_UNIFORM_BLOCK_NAME_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();

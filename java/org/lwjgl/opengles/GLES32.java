@@ -453,7 +453,40 @@ public class GLES32 {
 
 	// --- [ glDebugMessageControl ] ---
 
-	/** Unsafe version of {@link #glDebugMessageControl DebugMessageControl} */
+	/**
+	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
+	 * 
+	 * <p>If {@code enabled} is {@link GLES20#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GLES20#GL_FALSE FALSE}, then those messages will be disabled.</p>
+	 * 
+	 * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
+	 * ways:</p>
+	 * 
+	 * <ul>
+	 * <li>If {@code source}, {@code type}, or {@code severity} is {@link GLES20#GL_DONT_CARE DONT_CARE}, the messages from all sources, of all types, or of all severities are
+	 * referenced respectively.</li>
+	 * <li>When values other than {@link GLES20#GL_DONT_CARE DONT_CARE} are specified, all messages whose source, type, or severity match the specified {@code source}, {@code type},
+	 * or {@code severity} respectively will be referenced.</li>
+	 * <li>If {@code count} is greater than zero, then {@code ids} is an array of {@code count} message IDs for the specified combination of {@code source} and
+	 * {@code type}. In this case, if {@code source} or {@code type} is {@link GLES20#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GLES20#GL_DONT_CARE DONT_CARE}, the error
+	 * {@link GLES20#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</li>
+	 * </ul>
+	 * 
+	 * <p>Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
+	 * 
+	 * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
+	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
+	 * single call, and individually disabling all messages from that source using their types and IDs.</p>
+	 * 
+	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are
+	 * disabled.</p>
+	 *
+	 * @param source   the source of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}, {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}
+	 * @param type     the type of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
+	 * @param severity the severity of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
+	 * @param count    the length of the array {@code ids}
+	 * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
+	 * @param enabled  whether the selected messages should be enabled or disabled
+	 */
 	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = GLES.getCapabilities().glDebugMessageControl;
 		if ( CHECKS )
@@ -491,22 +524,45 @@ public class GLES32 {
 	 * @param source   the source of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}, {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}
 	 * @param type     the type of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
 	 * @param severity the severity of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
-	 * @param count    the length of the array {@code ids}
 	 * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
-	public static void glDebugMessageControl(int source, int type, int severity, int count, ByteBuffer ids, boolean enabled) {
-		if ( CHECKS )
-			checkBuffer(ids, count << 2);
-		nglDebugMessageControl(source, type, severity, count, memAddress(ids), enabled);
-	}
-
-	/** Alternative version of: {@link #glDebugMessageControl DebugMessageControl} */
 	public static void glDebugMessageControl(int source, int type, int severity, IntBuffer ids, boolean enabled) {
 		nglDebugMessageControl(source, type, severity, ids.remaining(), memAddress(ids), enabled);
 	}
 
-	/** Single value version of: {@link #glDebugMessageControl DebugMessageControl} */
+	/**
+	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
+	 * 
+	 * <p>If {@code enabled} is {@link GLES20#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GLES20#GL_FALSE FALSE}, then those messages will be disabled.</p>
+	 * 
+	 * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
+	 * ways:</p>
+	 * 
+	 * <ul>
+	 * <li>If {@code source}, {@code type}, or {@code severity} is {@link GLES20#GL_DONT_CARE DONT_CARE}, the messages from all sources, of all types, or of all severities are
+	 * referenced respectively.</li>
+	 * <li>When values other than {@link GLES20#GL_DONT_CARE DONT_CARE} are specified, all messages whose source, type, or severity match the specified {@code source}, {@code type},
+	 * or {@code severity} respectively will be referenced.</li>
+	 * <li>If {@code count} is greater than zero, then {@code ids} is an array of {@code count} message IDs for the specified combination of {@code source} and
+	 * {@code type}. In this case, if {@code source} or {@code type} is {@link GLES20#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GLES20#GL_DONT_CARE DONT_CARE}, the error
+	 * {@link GLES20#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</li>
+	 * </ul>
+	 * 
+	 * <p>Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
+	 * 
+	 * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
+	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
+	 * single call, and individually disabling all messages from that source using their types and IDs.</p>
+	 * 
+	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are
+	 * disabled.</p>
+	 *
+	 * @param source   the source of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}, {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}
+	 * @param type     the type of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
+	 * @param severity the severity of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
+	 * @param enabled  whether the selected messages should be enabled or disabled
+	 */
 	public static void glDebugMessageControl(int source, int type, int severity, int id, boolean enabled) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -519,7 +575,25 @@ public class GLES32 {
 
 	// --- [ glDebugMessageInsert ] ---
 
-	/** Unsafe version of {@link #glDebugMessageInsert DebugMessageInsert} */
+	/**
+	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
+	 * signals about specific render system events.
+	 * 
+	 * <p>The value of {@code id} specifies the ID for the message and {@code severity} indicates its severity level as defined by the caller. The string
+	 * {@code buf} contains the string representation of the message. The parameter {@code length} contains the number of characters in {@code buf}. If
+	 * {@code length} is negative, it is implied that {@code buf} contains a null terminated string. The error {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} will be generated if the
+	 * number of characters in {@code buf}, excluding the null terminator when {@code length} is negative, is not less than the value of
+	 * {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 * 
+	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
+	 *
+	 * @param source   the source of the debug message to insert. One of:<br>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}, {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}
+	 * @param type     the type of the debug message insert. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
+	 * @param id       the user-supplied identifier of the message to insert. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
+	 * @param severity the severity of the debug messages to insert
+	 * @param length   the length of the string contained in the character array whose address is given by {@code message}
+	 * @param message  a character array containing the message to insert
+	 */
 	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = GLES.getCapabilities().glDebugMessageInsert;
 		if ( CHECKS )
@@ -543,21 +617,30 @@ public class GLES32 {
 	 * @param type     the type of the debug message insert. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
 	 * @param id       the user-supplied identifier of the message to insert. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
 	 * @param severity the severity of the debug messages to insert
-	 * @param length   the length of the string contained in the character array whose address is given by {@code message}
 	 * @param message  a character array containing the message to insert
 	 */
-	public static void glDebugMessageInsert(int source, int type, int id, int severity, int length, ByteBuffer message) {
-		if ( CHECKS )
-			checkBuffer(message, length);
-		nglDebugMessageInsert(source, type, id, severity, length, memAddress(message));
-	}
-
-	/** Alternative version of: {@link #glDebugMessageInsert DebugMessageInsert} */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, ByteBuffer message) {
 		nglDebugMessageInsert(source, type, id, severity, message.remaining(), memAddress(message));
 	}
 
-	/** CharSequence version of: {@link #glDebugMessageInsert DebugMessageInsert} */
+	/**
+	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
+	 * signals about specific render system events.
+	 * 
+	 * <p>The value of {@code id} specifies the ID for the message and {@code severity} indicates its severity level as defined by the caller. The string
+	 * {@code buf} contains the string representation of the message. The parameter {@code length} contains the number of characters in {@code buf}. If
+	 * {@code length} is negative, it is implied that {@code buf} contains a null terminated string. The error {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} will be generated if the
+	 * number of characters in {@code buf}, excluding the null terminator when {@code length} is negative, is not less than the value of
+	 * {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 * 
+	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
+	 *
+	 * @param source   the source of the debug message to insert. One of:<br>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}, {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}
+	 * @param type     the type of the debug message insert. One of:<br>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}, {@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}, {@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}, {@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}, {@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}
+	 * @param id       the user-supplied identifier of the message to insert. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}, {@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}, {@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}
+	 * @param severity the severity of the debug messages to insert
+	 * @param message  a character array containing the message to insert
+	 */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, CharSequence message) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -611,14 +694,6 @@ public class GLES32 {
 
 	// --- [ glGetDebugMessageLog ] ---
 
-	/** Unsafe version of {@link #glGetDebugMessageLog GetDebugMessageLog} */
-	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
-		long __functionAddress = GLES.getCapabilities().glGetDebugMessageLog;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
-	}
-
 	/**
 	 * Retrieves messages from the debug message log.
 	 * 
@@ -652,19 +727,45 @@ public class GLES32 {
 	 * @param lengths    an array of variables to receive the lengths of the received messages
 	 * @param messageLog an array of characters that will receive the messages
 	 */
-	public static int glGetDebugMessageLog(int count, int bufsize, ByteBuffer sources, ByteBuffer types, ByteBuffer ids, ByteBuffer severities, ByteBuffer lengths, ByteBuffer messageLog) {
-		if ( CHECKS ) {
-			if ( messageLog != null ) checkBuffer(messageLog, bufsize);
-			if ( sources != null ) checkBuffer(sources, count << 2);
-			if ( types != null ) checkBuffer(types, count << 2);
-			if ( ids != null ) checkBuffer(ids, count << 2);
-			if ( severities != null ) checkBuffer(severities, count << 2);
-			if ( lengths != null ) checkBuffer(lengths, count << 2);
-		}
-		return nglGetDebugMessageLog(count, bufsize, memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
+	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
+		long __functionAddress = GLES.getCapabilities().glGetDebugMessageLog;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
 	}
 
-	/** Alternative version of: {@link #glGetDebugMessageLog GetDebugMessageLog} */
+	/**
+	 * Retrieves messages from the debug message log.
+	 * 
+	 * <p>This function fetches a maximum of {@code count} messages from the message log, and will return the number of messages successfully fetched.</p>
+	 * 
+	 * <p>Messages will be fetched from the log in order of oldest to newest. Those messages that were fetched will be removed from the log.</p>
+	 * 
+	 * <p>The sources, types, severities, IDs, and string lengths of fetched messages will be stored in the application-provided arrays {@code sources},
+	 * {@code types}, {@code severities}, {@code ids}, and {@code lengths}, respectively. The application is responsible for allocating enough space for each
+	 * array to hold up to {@code count} elements. The string representations of all fetched messages are stored in the {@code messageLog} array. If multiple
+	 * messages are fetched, their strings are concatenated into the same {@code messageLog} array and will be separated by single null terminators. The last
+	 * string in the array will also be null-terminated. The maximum size of {@code messageLog}, including the space used by all null terminators, is given by
+	 * {@code bufSize}. If {@code bufSize} is less than zero and {@code messageLog} is not {@code NULL}, an {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error will be generated. If a message's
+	 * string, including its null terminator, can not fully fit within the {@code messageLog} array's remaining space, then that message and any subsequent
+	 * messages will not be fetched and will remain in the log. The string lengths stored in the array {@code lengths} include the space for the null terminator of each string.</p>
+	 * 
+	 * <p>Any or all of the arrays {@code sources}, {@code types}, {@code ids}, {@code severities}, {@code lengths} and {@code messageLog} can also be null
+	 * pointers, which causes the attributes for such arrays to be discarded when messages are fetched, however those messages will still be removed from the
+	 * log. Thus to simply delete up to {@code count} messages from the message log while ignoring their attributes, the application can call the function with
+	 * null pointers for all attribute arrays.</p>
+	 * 
+	 * <p>If the context was created without the {@link #GL_CONTEXT_FLAG_DEBUG_BIT CONTEXT_FLAG_DEBUG_BIT}, then the GL can opt to never add messages to the message log so GetDebugMessageLog will
+	 * always return zero.</p>
+	 *
+	 * @param count      the number of debug messages to retrieve from the log
+	 * @param sources    an array of variables to receive the sources of the retrieved messages
+	 * @param types      an array of variables to receive the types of the retrieved messages
+	 * @param ids        an array of unsigned integers to receive the ids of the retrieved messages
+	 * @param severities an array of variables to receive the severites of the retrieved messages
+	 * @param lengths    an array of variables to receive the lengths of the received messages
+	 * @param messageLog an array of characters that will receive the messages
+	 */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
 		if ( CHECKS ) {
 			if ( sources != null ) checkBuffer(sources, count);
@@ -678,7 +779,6 @@ public class GLES32 {
 
 	// --- [ glGetPointerv ] ---
 
-	/** Unsafe version of {@link #glGetPointerv GetPointerv} */
 	public static void nglGetPointerv(int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetPointerv;
 		if ( CHECKS )
@@ -686,20 +786,12 @@ public class GLES32 {
 		callIPV(__functionAddress, pname, params);
 	}
 
-	public static void glGetPointerv(int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << POINTER_SHIFT);
-		nglGetPointerv(pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetPointerv GetPointerv} */
 	public static void glGetPointerv(int pname, PointerBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetPointerv(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetPointerv GetPointerv} */
 	public static long glGetPointer(int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -713,7 +805,24 @@ public class GLES32 {
 
 	// --- [ glPushDebugGroup ] ---
 
-	/** Unsafe version of {@link #glPushDebugGroup PushDebugGroup} */
+	/**
+	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
+	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
+	 * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link #GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}, and
+	 * {@code severity} {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
+	 * volume of debug output of the debug group previously residing on the top of the debug group stack. Because debug groups are strictly hierarchical, any
+	 * additional control of the debug output volume will only apply within the active debug group and the debug groups pushed on top of the active debug
+	 * group.
+	 * 
+	 * <p>An {@link GLES20#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION} nor {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}. An
+	 * {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator,
+	 * is not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 *
+	 * @param source  the source of the debug message. One of:<br>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}
+	 * @param id      the identifier of the message
+	 * @param length  the length of the message to be sent to the debug output stream
+	 * @param message a string containing the message to be sent to the debug output stream
+	 */
 	public static void nglPushDebugGroup(int source, int id, int length, long message) {
 		long __functionAddress = GLES.getCapabilities().glPushDebugGroup;
 		if ( CHECKS )
@@ -736,21 +845,29 @@ public class GLES32 {
 	 *
 	 * @param source  the source of the debug message. One of:<br>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}
 	 * @param id      the identifier of the message
-	 * @param length  the length of the message to be sent to the debug output stream
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
-	public static void glPushDebugGroup(int source, int id, int length, ByteBuffer message) {
-		if ( CHECKS )
-			checkBuffer(message, length);
-		nglPushDebugGroup(source, id, length, memAddress(message));
-	}
-
-	/** Alternative version of: {@link #glPushDebugGroup PushDebugGroup} */
 	public static void glPushDebugGroup(int source, int id, ByteBuffer message) {
 		nglPushDebugGroup(source, id, message.remaining(), memAddress(message));
 	}
 
-	/** CharSequence version of: {@link #glPushDebugGroup PushDebugGroup} */
+	/**
+	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
+	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
+	 * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link #GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}, and
+	 * {@code severity} {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
+	 * volume of debug output of the debug group previously residing on the top of the debug group stack. Because debug groups are strictly hierarchical, any
+	 * additional control of the debug output volume will only apply within the active debug group and the debug groups pushed on top of the active debug
+	 * group.
+	 * 
+	 * <p>An {@link GLES20#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION} nor {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}. An
+	 * {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator,
+	 * is not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 *
+	 * @param source  the source of the debug message. One of:<br>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}
+	 * @param id      the identifier of the message
+	 * @param message a string containing the message to be sent to the debug output stream
+	 */
 	public static void glPushDebugGroup(int source, int id, CharSequence message) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -783,7 +900,14 @@ public class GLES32 {
 
 	// --- [ glObjectLabel ] ---
 
-	/** Unsafe version of {@link #glObjectLabel ObjectLabel} */
+	/**
+	 * Labels a named object identified within a namespace.
+	 *
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param name       the name of the object to label
+	 * @param length     the length of the label to be used for the object
+	 * @param label      a string containing the label to assign to the object
+	 */
 	public static void nglObjectLabel(int identifier, int name, int length, long label) {
 		long __functionAddress = GLES.getCapabilities().glObjectLabel;
 		if ( CHECKS )
@@ -796,21 +920,19 @@ public class GLES32 {
 	 *
 	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
 	 * @param name       the name of the object to label
-	 * @param length     the length of the label to be used for the object
 	 * @param label      a string containing the label to assign to the object
 	 */
-	public static void glObjectLabel(int identifier, int name, int length, ByteBuffer label) {
-		if ( CHECKS )
-			checkBuffer(label, length);
-		nglObjectLabel(identifier, name, length, memAddress(label));
-	}
-
-	/** Alternative version of: {@link #glObjectLabel ObjectLabel} */
 	public static void glObjectLabel(int identifier, int name, ByteBuffer label) {
 		nglObjectLabel(identifier, name, label.remaining(), memAddress(label));
 	}
 
-	/** CharSequence version of: {@link #glObjectLabel ObjectLabel} */
+	/**
+	 * Labels a named object identified within a namespace.
+	 *
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param name       the name of the object to label
+	 * @param label      a string containing the label to assign to the object
+	 */
 	public static void glObjectLabel(int identifier, int name, CharSequence label) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -824,7 +946,15 @@ public class GLES32 {
 
 	// --- [ glGetObjectLabel ] ---
 
-	/** Unsafe version of {@link #glGetObjectLabel GetObjectLabel} */
+	/**
+	 * Retrieves the label of a named object identified within a namespace.
+	 *
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param name       the name of the object whose label to retrieve
+	 * @param bufSize    the length of the buffer whose address is in {@code label}
+	 * @param length     the address of a variable to receive the length of the object label
+	 * @param label      a string that will receive the object label
+	 */
 	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = GLES.getCapabilities().glGetObjectLabel;
 		if ( CHECKS )
@@ -837,26 +967,22 @@ public class GLES32 {
 	 *
 	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
 	 * @param name       the name of the object whose label to retrieve
-	 * @param bufSize    the length of the buffer whose address is in {@code label}
 	 * @param length     the address of a variable to receive the length of the object label
 	 * @param label      a string that will receive the object label
 	 */
-	public static void glGetObjectLabel(int identifier, int name, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( CHECKS ) {
-			checkBuffer(label, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetObjectLabel(identifier, name, bufSize, memAddressSafe(length), memAddress(label));
-	}
-
-	/** Alternative version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
-	/** String return version of: {@link #glGetObjectLabel GetObjectLabel} */
+	/**
+	 * Retrieves the label of a named object identified within a namespace.
+	 *
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param name       the name of the object whose label to retrieve
+	 * @param bufSize    the length of the buffer whose address is in {@code label}
+	 */
 	public static String glGetObjectLabel(int identifier, int name, int bufSize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -869,7 +995,12 @@ public class GLES32 {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetObjectLabel GetObjectLabel} */
+	/**
+	 * Retrieves the label of a named object identified within a namespace.
+	 *
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param name       the name of the object whose label to retrieve
+	 */
 	public static String glGetObjectLabel(int identifier, int name) {
 		int bufSize = GLES20.glGetInteger(GL_MAX_LABEL_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -885,7 +1016,13 @@ public class GLES32 {
 
 	// --- [ glObjectPtrLabel ] ---
 
-	/** Unsafe version of {@link #glObjectPtrLabel ObjectPtrLabel} */
+	/**
+	 * Labels a sync object identified by a pointer.
+	 *
+	 * @param ptr    a pointer identifying a sync object
+	 * @param length the length of the label to be used for the object
+	 * @param label  a string containing the label to assign to the object
+	 */
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = GLES.getCapabilities().glObjectPtrLabel;
 		if ( CHECKS ) {
@@ -898,22 +1035,19 @@ public class GLES32 {
 	/**
 	 * Labels a sync object identified by a pointer.
 	 *
-	 * @param ptr    a pointer identifying a sync object
-	 * @param length the length of the label to be used for the object
-	 * @param label  a string containing the label to assign to the object
+	 * @param ptr   a pointer identifying a sync object
+	 * @param label a string containing the label to assign to the object
 	 */
-	public static void glObjectPtrLabel(long ptr, int length, ByteBuffer label) {
-		if ( CHECKS )
-			checkBuffer(label, length);
-		nglObjectPtrLabel(ptr, length, memAddress(label));
-	}
-
-	/** Alternative version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, ByteBuffer label) {
 		nglObjectPtrLabel(ptr, label.remaining(), memAddress(label));
 	}
 
-	/** CharSequence version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
+	/**
+	 * Labels a sync object identified by a pointer.
+	 *
+	 * @param ptr   a pointer identifying a sync object
+	 * @param label a string containing the label to assign to the object
+	 */
 	public static void glObjectPtrLabel(long ptr, CharSequence label) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -927,7 +1061,14 @@ public class GLES32 {
 
 	// --- [ glGetObjectPtrLabel ] ---
 
-	/** Unsafe version of {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
+	/**
+	 * Retrieves the label of a sync object identified by a pointer.
+	 *
+	 * @param ptr     the name of the sync object whose label to retrieve
+	 * @param bufSize the length of the buffer whose address is in {@code label}
+	 * @param length  a variable to receive the length of the object label
+	 * @param label   a string that will receive the object label
+	 */
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = GLES.getCapabilities().glGetObjectPtrLabel;
 		if ( CHECKS ) {
@@ -940,27 +1081,22 @@ public class GLES32 {
 	/**
 	 * Retrieves the label of a sync object identified by a pointer.
 	 *
-	 * @param ptr     the name of the sync object whose label to retrieve
-	 * @param bufSize the length of the buffer whose address is in {@code label}
-	 * @param length  a variable to receive the length of the object label
-	 * @param label   a string that will receive the object label
+	 * @param ptr    the name of the sync object whose label to retrieve
+	 * @param length a variable to receive the length of the object label
+	 * @param label  a string that will receive the object label
 	 */
-	public static void glGetObjectPtrLabel(long ptr, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( CHECKS ) {
-			checkBuffer(label, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetObjectPtrLabel(ptr, bufSize, memAddressSafe(length), memAddress(label));
-	}
-
-	/** Alternative version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
-	/** String return version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
+	/**
+	 * Retrieves the label of a sync object identified by a pointer.
+	 *
+	 * @param ptr     the name of the sync object whose label to retrieve
+	 * @param bufSize the length of the buffer whose address is in {@code label}
+	 */
 	public static String glGetObjectPtrLabel(long ptr, int bufSize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -973,7 +1109,11 @@ public class GLES32 {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
+	/**
+	 * Retrieves the label of a sync object identified by a pointer.
+	 *
+	 * @param ptr the name of the sync object whose label to retrieve
+	 */
 	public static String glGetObjectPtrLabel(long ptr) {
 		int bufSize = GLES20.glGetInteger(GL_MAX_LABEL_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1061,7 +1201,6 @@ public class GLES32 {
 
 	// --- [ glDrawElementsBaseVertex ] ---
 
-	/** Unsafe version of {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsBaseVertex;
 		if ( CHECKS )
@@ -1069,43 +1208,30 @@ public class GLES32 {
 		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
-	public static void glDrawElementsBaseVertex(int mode, int count, int type, ByteBuffer indices, int basevertex) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsBaseVertex(mode, count, type, memAddress(indices), basevertex);
-	}
-
-	/** Buffer object offset version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
-	public static void glDrawElementsBaseVertex(int mode, int count, int type, long indicesOffset, int basevertex) {
+	public static void glDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawElementsBaseVertex(mode, count, type, indicesOffset, basevertex);
+		nglDrawElementsBaseVertex(mode, count, type, indices, basevertex);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, ByteBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, ShortBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -1114,7 +1240,6 @@ public class GLES32 {
 
 	// --- [ glDrawRangeElementsBaseVertex ] ---
 
-	/** Unsafe version of {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = GLES.getCapabilities().glDrawRangeElementsBaseVertex;
 		if ( CHECKS )
@@ -1122,43 +1247,30 @@ public class GLES32 {
 		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
-	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, ByteBuffer indices, int basevertex) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, memAddress(indices), basevertex);
-	}
-
-	/** Buffer object offset version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
-	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indicesOffset, int basevertex) {
+	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indicesOffset, basevertex);
+		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
 	}
 
-	/** Alternative version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ByteBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ShortBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -1167,7 +1279,6 @@ public class GLES32 {
 
 	// --- [ glDrawElementsInstancedBaseVertex ] ---
 
-	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int instancecount, int basevertex) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseVertex;
 		if ( CHECKS )
@@ -1175,43 +1286,30 @@ public class GLES32 {
 		callIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
 	}
 
-	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, ByteBuffer indices, int instancecount, int basevertex) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsInstancedBaseVertex(mode, count, type, memAddress(indices), instancecount, basevertex);
-	}
-
-	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
-	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indicesOffset, int instancecount, int basevertex) {
+	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int instancecount, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawElementsInstancedBaseVertex(mode, count, type, indicesOffset, instancecount, basevertex);
+		nglDrawElementsInstancedBaseVertex(mode, count, type, indices, instancecount, basevertex);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int instancecount, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount, basevertex);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ByteBuffer indices, int instancecount, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount, basevertex);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ShortBuffer indices, int instancecount, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount, basevertex);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int instancecount, int basevertex) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -1298,7 +1396,18 @@ public class GLES32 {
 
 	// --- [ glReadnPixels ] ---
 
-	/** Unsafe version of {@link #glReadnPixels ReadnPixels} */
+	/**
+	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x       the left pixel coordinate
+	 * @param y       the lower pixel coordinate
+	 * @param width   the number of pixels to read in the x-dimension
+	 * @param height  the number of pixels to read in the y-dimension
+	 * @param format  the pixel format
+	 * @param type    the pixel type
+	 * @param bufSize the maximum number of bytes to write into {@code data}
+	 * @param pixels  a buffer in which to place the returned pixel data
+	 */
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixels;
 		if ( CHECKS )
@@ -1318,22 +1427,23 @@ public class GLES32 {
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
-	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer pixels) {
-		if ( CHECKS ) {
-			checkBuffer(pixels, bufSize);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
-		nglReadnPixels(x, y, width, height, format, type, bufSize, memAddress(pixels));
-	}
-
-	/** Buffer object offset version of: {@link #glReadnPixels ReadnPixels} */
-	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixelsOffset) {
+	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglReadnPixels(x, y, width, height, format, type, bufSize, pixelsOffset);
+		nglReadnPixels(x, y, width, height, format, type, bufSize, pixels);
 	}
 
-	/** Alternative version of: {@link #glReadnPixels ReadnPixels} */
+	/**
+	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x      the left pixel coordinate
+	 * @param y      the lower pixel coordinate
+	 * @param width  the number of pixels to read in the x-dimension
+	 * @param height the number of pixels to read in the y-dimension
+	 * @param format the pixel format
+	 * @param type   the pixel type
+	 * @param pixels a buffer in which to place the returned pixel data
+	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -1363,7 +1473,14 @@ public class GLES32 {
 
 	// --- [ glGetnUniformfv ] ---
 
-	/** Unsafe version of {@link #glGetnUniformfv GetnUniformfv} */
+	/**
+	 * Returns the value or values of a uniform of the default uniform block.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 * @param bufSize  the maximum number of bytes to write to {@code params}
+	 * @param params   the buffer in which to place the returned data
+	 */
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformfv;
 		if ( CHECKS )
@@ -1376,21 +1493,18 @@ public class GLES32 {
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformfv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetnUniformfv(program, location, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetnUniformfv GetnUniformfv} */
 	public static void glGetnUniformfv(int program, int location, FloatBuffer params) {
 		nglGetnUniformfv(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformfv GetnUniformfv} */
+	/**
+	 * Returns the value or values of a uniform of the default uniform block.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 */
 	public static float glGetnUniformf(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1404,7 +1518,14 @@ public class GLES32 {
 
 	// --- [ glGetnUniformiv ] ---
 
-	/** Unsafe version of {@link #glGetnUniformiv GetnUniformiv} */
+	/**
+	 * Integer version of {@link #glGetnUniformfv GetnUniformfv}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 * @param bufSize  the maximum number of bytes to write to {@code params}
+	 * @param params   the buffer in which to place the returned data
+	 */
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformiv;
 		if ( CHECKS )
@@ -1417,21 +1538,18 @@ public class GLES32 {
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformiv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetnUniformiv(program, location, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetnUniformiv GetnUniformiv} */
 	public static void glGetnUniformiv(int program, int location, FloatBuffer params) {
 		nglGetnUniformiv(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformiv GetnUniformiv} */
+	/**
+	 * Integer version of {@link #glGetnUniformfv GetnUniformfv}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 */
 	public static float glGetnUniformi(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1445,7 +1563,14 @@ public class GLES32 {
 
 	// --- [ glGetnUniformuiv ] ---
 
-	/** Unsafe version of {@link #glGetnUniformuiv GetnUniformuiv} */
+	/**
+	 * Unsigned version of {@link #glGetnUniformiv GetnUniformiv}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 * @param bufSize  the maximum number of bytes to write to {@code params}
+	 * @param params   the buffer in which to place the returned data
+	 */
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformuiv;
 		if ( CHECKS )
@@ -1458,21 +1583,18 @@ public class GLES32 {
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformuiv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetnUniformuiv(program, location, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetnUniformuiv GetnUniformuiv} */
 	public static void glGetnUniformuiv(int program, int location, FloatBuffer params) {
 		nglGetnUniformuiv(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformuiv GetnUniformuiv} */
+	/**
+	 * Unsigned version of {@link #glGetnUniformiv GetnUniformiv}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 */
 	public static float glGetnUniformui(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1504,7 +1626,6 @@ public class GLES32 {
 
 	// --- [ glTexParameterIiv ] ---
 
-	/** Unsafe version of {@link #glTexParameterIiv TexParameterIiv} */
 	public static void nglTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glTexParameterIiv;
 		if ( CHECKS )
@@ -1512,16 +1633,10 @@ public class GLES32 {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glTexParameterIiv(int target, int pname, ByteBuffer params) {
-		nglTexParameterIiv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTexParameterIiv TexParameterIiv} */
 	public static void glTexParameterIiv(int target, int pname, IntBuffer params) {
 		nglTexParameterIiv(target, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTexParameterIiv TexParameterIiv} */
 	public static void glTexParameterIi(int target, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1534,7 +1649,6 @@ public class GLES32 {
 
 	// --- [ glTexParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glTexParameterIuiv TexParameterIuiv} */
 	public static void nglTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glTexParameterIuiv;
 		if ( CHECKS )
@@ -1542,16 +1656,10 @@ public class GLES32 {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glTexParameterIuiv(int target, int pname, ByteBuffer params) {
-		nglTexParameterIuiv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTexParameterIuiv TexParameterIuiv} */
 	public static void glTexParameterIuiv(int target, int pname, IntBuffer params) {
 		nglTexParameterIuiv(target, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTexParameterIuiv TexParameterIuiv} */
 	public static void glTexParameterIui(int target, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1564,7 +1672,6 @@ public class GLES32 {
 
 	// --- [ glGetTexParameterIiv ] ---
 
-	/** Unsafe version of {@link #glGetTexParameterIiv GetTexParameterIiv} */
 	public static void nglGetTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameterIiv;
 		if ( CHECKS )
@@ -1572,20 +1679,12 @@ public class GLES32 {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetTexParameterIiv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTexParameterIiv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTexParameterIiv GetTexParameterIiv} */
 	public static void glGetTexParameterIiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIiv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIiv GetTexParameterIiv} */
 	public static int glGetTexParameterIi(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1599,7 +1698,6 @@ public class GLES32 {
 
 	// --- [ glGetTexParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
 	public static void nglGetTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameterIuiv;
 		if ( CHECKS )
@@ -1607,20 +1705,12 @@ public class GLES32 {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetTexParameterIuiv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTexParameterIuiv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
 	public static void glGetTexParameterIuiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIuiv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
 	public static int glGetTexParameterIui(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1634,7 +1724,6 @@ public class GLES32 {
 
 	// --- [ glSamplerParameterIiv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameterIiv SamplerParameterIiv} */
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterIiv;
 		if ( CHECKS )
@@ -1642,16 +1731,10 @@ public class GLES32 {
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
-	public static void glSamplerParameterIiv(int sampler, int pname, ByteBuffer params) {
-		nglSamplerParameterIiv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glSamplerParameterIiv SamplerParameterIiv} */
 	public static void glSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		nglSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glSamplerParameterIiv SamplerParameterIiv} */
 	public static void glSamplerParameterIi(int sampler, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1664,7 +1747,6 @@ public class GLES32 {
 
 	// --- [ glSamplerParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterIuiv;
 		if ( CHECKS )
@@ -1672,16 +1754,10 @@ public class GLES32 {
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
-	public static void glSamplerParameterIuiv(int sampler, int pname, ByteBuffer params) {
-		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
 	public static void glSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
 	public static void glSamplerParameterIui(int sampler, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1694,7 +1770,6 @@ public class GLES32 {
 
 	// --- [ glGetSamplerParameterIiv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIiv;
 		if ( CHECKS )
@@ -1702,20 +1777,12 @@ public class GLES32 {
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
-	public static void glGetSamplerParameterIiv(int sampler, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static void glGetSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static int glGetSamplerParameterIi(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1729,7 +1796,6 @@ public class GLES32 {
 
 	// --- [ glGetSamplerParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIuiv;
 		if ( CHECKS )
@@ -1737,20 +1803,12 @@ public class GLES32 {
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
-	public static void glGetSamplerParameterIuiv(int sampler, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static int glGetSamplerParameterIui(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

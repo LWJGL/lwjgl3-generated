@@ -50,7 +50,6 @@ public class EXTDebugLabel {
 
 	// --- [ glLabelObjectEXT ] ---
 
-	/** Unsafe version of {@link #glLabelObjectEXT LabelObjectEXT} */
 	public static void nglLabelObjectEXT(int type, int object, int length, long label) {
 		long __functionAddress = GLES.getCapabilities().glLabelObjectEXT;
 		if ( CHECKS )
@@ -58,18 +57,10 @@ public class EXTDebugLabel {
 		callIIIPV(__functionAddress, type, object, length, label);
 	}
 
-	public static void glLabelObjectEXT(int type, int object, int length, ByteBuffer label) {
-		if ( CHECKS )
-			checkBuffer(label, length);
-		nglLabelObjectEXT(type, object, length, memAddress(label));
-	}
-
-	/** Alternative version of: {@link #glLabelObjectEXT LabelObjectEXT} */
 	public static void glLabelObjectEXT(int type, int object, ByteBuffer label) {
 		nglLabelObjectEXT(type, object, label.remaining(), memAddress(label));
 	}
 
-	/** CharSequence version of: {@link #glLabelObjectEXT LabelObjectEXT} */
 	public static void glLabelObjectEXT(int type, int object, CharSequence label) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -83,7 +74,6 @@ public class EXTDebugLabel {
 
 	// --- [ glGetObjectLabelEXT ] ---
 
-	/** Unsafe version of {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
 	public static void nglGetObjectLabelEXT(int type, int object, int bufSize, long length, long label) {
 		long __functionAddress = GLES.getCapabilities().glGetObjectLabelEXT;
 		if ( CHECKS )
@@ -91,22 +81,12 @@ public class EXTDebugLabel {
 		callIIIPPV(__functionAddress, type, object, bufSize, length, label);
 	}
 
-	public static void glGetObjectLabelEXT(int type, int object, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( CHECKS ) {
-			checkBuffer(label, bufSize);
-			checkBuffer(length, 1 << 2);
-		}
-		nglGetObjectLabelEXT(type, object, bufSize, memAddress(length), memAddress(label));
-	}
-
-	/** Alternative version of: {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
 	public static void glGetObjectLabelEXT(int type, int object, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
 			checkBuffer(length, 1);
 		nglGetObjectLabelEXT(type, object, label.remaining(), memAddress(length), memAddress(label));
 	}
 
-	/** String return version of: {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
 	public static String glGetObjectLabelEXT(int type, int object, int bufSize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

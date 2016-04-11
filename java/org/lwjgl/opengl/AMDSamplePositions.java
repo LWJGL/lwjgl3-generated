@@ -40,7 +40,6 @@ public class AMDSamplePositions {
 
 	// --- [ glSetMultisamplefvAMD ] ---
 
-	/** Unsafe version of {@link #glSetMultisamplefvAMD SetMultisamplefvAMD} */
 	public static void nglSetMultisamplefvAMD(int pname, int index, long val) {
 		long __functionAddress = GL.getCapabilities().glSetMultisamplefvAMD;
 		if ( CHECKS )
@@ -48,13 +47,6 @@ public class AMDSamplePositions {
 		callIIPV(__functionAddress, pname, index, val);
 	}
 
-	public static void glSetMultisamplefvAMD(int pname, int index, ByteBuffer val) {
-		if ( CHECKS )
-			checkBuffer(val, 2 << 2);
-		nglSetMultisamplefvAMD(pname, index, memAddress(val));
-	}
-
-	/** Alternative version of: {@link #glSetMultisamplefvAMD SetMultisamplefvAMD} */
 	public static void glSetMultisamplefvAMD(int pname, int index, FloatBuffer val) {
 		if ( CHECKS )
 			checkBuffer(val, 2);

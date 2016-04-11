@@ -40,7 +40,6 @@ public class NVStreamSync {
 
 	// --- [ eglCreateStreamSyncNV ] ---
 
-	/** Unsafe version of {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
 	public static long neglCreateStreamSyncNV(long dpy, long stream, int type, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateStreamSyncNV;
 		if ( CHECKS ) {
@@ -51,13 +50,6 @@ public class NVStreamSync {
 		return callPPIPP(__functionAddress, dpy, stream, type, attrib_list);
 	}
 
-	public static long eglCreateStreamSyncNV(long dpy, long stream, int type, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreateStreamSyncNV(dpy, stream, type, memAddress(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
 	public static long eglCreateStreamSyncNV(long dpy, long stream, int type, IntBuffer attrib_list) {
 		if ( CHECKS )
 			checkNT(attrib_list, EGL10.EGL_NONE);

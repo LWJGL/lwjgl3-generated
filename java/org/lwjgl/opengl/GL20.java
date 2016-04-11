@@ -203,7 +203,7 @@ public class GL20 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateProgram.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-Creates a program object.
+	 * Creates a program object.
 	 */
 	public static int glCreateProgram() {
 		long __functionAddress = GL.getCapabilities().glCreateProgram;
@@ -341,7 +341,21 @@ Creates a program object.
 
 	// --- [ glShaderSource ] ---
 
-	/** Unsafe version of {@link #glShaderSource ShaderSource} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glShaderSource.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Sets the source code in {@code shader} to the source code in the array of strings specified by {@code strings}. Any source code previously stored in the
+	 * shader object is completely replaced. The number of strings in the array is specified by {@code count}. If {@code length} is {@code NULL}, each string is
+	 * assumed to be null terminated. If {@code length} is a value other than {@code NULL}, it points to an array containing a string length for each of the
+	 * corresponding elements of {@code strings}. Each element in the length array may contain the length of the corresponding string (the null character is not
+	 * counted as part of the string length) or a value less than 0 to indicate that the string is null terminated. The source code strings are not scanned or
+	 * parsed at this time; they are simply copied into the specified shader object.
+	 *
+	 * @param shader  the shader object whose source code is to be replaced
+	 * @param count   the number of elements in the string and length arrays
+	 * @param strings an array of pointers to strings containing the source code to be loaded into the shader
+	 * @param length  an array of string lengths
+	 */
 	public static void nglShaderSource(int shader, int count, long strings, long length) {
 		long __functionAddress = GL.getCapabilities().glShaderSource;
 		if ( CHECKS )
@@ -360,26 +374,28 @@ Creates a program object.
 	 * parsed at this time; they are simply copied into the specified shader object.
 	 *
 	 * @param shader  the shader object whose source code is to be replaced
-	 * @param count   the number of elements in the string and length arrays
 	 * @param strings an array of pointers to strings containing the source code to be loaded into the shader
 	 * @param length  an array of string lengths
 	 */
-	public static void glShaderSource(int shader, int count, ByteBuffer strings, ByteBuffer length) {
-		if ( CHECKS ) {
-			checkBuffer(strings, count << POINTER_SHIFT);
-			if ( length != null ) checkBuffer(length, count << 2);
-		}
-		nglShaderSource(shader, count, memAddress(strings), memAddressSafe(length));
-	}
-
-	/** Alternative version of: {@link #glShaderSource ShaderSource} */
 	public static void glShaderSource(int shader, PointerBuffer strings, IntBuffer length) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, strings.remaining());
 		nglShaderSource(shader, strings.remaining(), memAddress(strings), memAddressSafe(length));
 	}
 
-	/** Array version of: {@link #glShaderSource ShaderSource} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glShaderSource.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Sets the source code in {@code shader} to the source code in the array of strings specified by {@code strings}. Any source code previously stored in the
+	 * shader object is completely replaced. The number of strings in the array is specified by {@code count}. If {@code length} is {@code NULL}, each string is
+	 * assumed to be null terminated. If {@code length} is a value other than {@code NULL}, it points to an array containing a string length for each of the
+	 * corresponding elements of {@code strings}. Each element in the length array may contain the length of the corresponding string (the null character is not
+	 * counted as part of the string length) or a value less than 0 to indicate that the string is null terminated. The source code strings are not scanned or
+	 * parsed at this time; they are simply copied into the specified shader object.
+	 *
+	 * @param shader  the shader object whose source code is to be replaced
+	 * @param strings an array of pointers to strings containing the source code to be loaded into the shader
+	 */
 	public static void glShaderSource(int shader, CharSequence... strings) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -391,7 +407,18 @@ Creates a program object.
 		}
 	}
 
-	/** Single string version of: {@link #glShaderSource ShaderSource} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glShaderSource.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Sets the source code in {@code shader} to the source code in the array of strings specified by {@code strings}. Any source code previously stored in the
+	 * shader object is completely replaced. The number of strings in the array is specified by {@code count}. If {@code length} is {@code NULL}, each string is
+	 * assumed to be null terminated. If {@code length} is a value other than {@code NULL}, it points to an array containing a string length for each of the
+	 * corresponding elements of {@code strings}. Each element in the length array may contain the length of the corresponding string (the null character is not
+	 * counted as part of the string length) or a value less than 0 to indicate that the string is null terminated. The source code strings are not scanned or
+	 * parsed at this time; they are simply copied into the specified shader object.
+	 *
+	 * @param shader the shader object whose source code is to be replaced
+	 */
 	public static void glShaderSource(int shader, CharSequence string) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -617,7 +644,15 @@ Creates a program object.
 
 	// --- [ glUniform1fv ] ---
 
-	/** Unsafe version of {@link #glUniform1fv Uniform1fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single float uniform variable or a float uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform1fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1fv;
 		if ( CHECKS )
@@ -631,23 +666,23 @@ Creates a program object.
 	 * Specifies the value of a single float uniform variable or a float uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform1fv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, count << 2);
-		nglUniform1fv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform1fv Uniform1fv} */
 	public static void glUniform1fv(int location, FloatBuffer value) {
 		nglUniform1fv(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2fv ] ---
 
-	/** Unsafe version of {@link #glUniform2fv Uniform2fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single vec2 uniform variable or a vec2 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform2fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2fv;
 		if ( CHECKS )
@@ -661,23 +696,23 @@ Creates a program object.
 	 * Specifies the value of a single vec2 uniform variable or a vec2 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform2fv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 1) << 2);
-		nglUniform2fv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform2fv Uniform2fv} */
 	public static void glUniform2fv(int location, FloatBuffer value) {
 		nglUniform2fv(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3fv ] ---
 
-	/** Unsafe version of {@link #glUniform3fv Uniform3fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single vec3 uniform variable or a vec3 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform3fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3fv;
 		if ( CHECKS )
@@ -691,23 +726,23 @@ Creates a program object.
 	 * Specifies the value of a single vec3 uniform variable or a vec3 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform3fv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 3) << 2);
-		nglUniform3fv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform3fv Uniform3fv} */
 	public static void glUniform3fv(int location, FloatBuffer value) {
 		nglUniform3fv(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4fv ] ---
 
-	/** Unsafe version of {@link #glUniform4fv Uniform4fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single vec4 uniform variable or a vec4 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform4fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4fv;
 		if ( CHECKS )
@@ -721,23 +756,23 @@ Creates a program object.
 	 * Specifies the value of a single vec4 uniform variable or a vec4 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform4fv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglUniform4fv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform4fv Uniform4fv} */
 	public static void glUniform4fv(int location, FloatBuffer value) {
 		nglUniform4fv(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniform1iv ] ---
 
-	/** Unsafe version of {@link #glUniform1iv Uniform1iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single int uniform variable or a int uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform1iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1iv;
 		if ( CHECKS )
@@ -751,23 +786,23 @@ Creates a program object.
 	 * Specifies the value of a single int uniform variable or a int uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform1iv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, count << 2);
-		nglUniform1iv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform1iv Uniform1iv} */
 	public static void glUniform1iv(int location, IntBuffer value) {
 		nglUniform1iv(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2iv ] ---
 
-	/** Unsafe version of {@link #glUniform2iv Uniform2iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single ivec2 uniform variable or an ivec2 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform2iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2iv;
 		if ( CHECKS )
@@ -781,23 +816,23 @@ Creates a program object.
 	 * Specifies the value of a single ivec2 uniform variable or an ivec2 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform2iv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 1) << 2);
-		nglUniform2iv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform2iv Uniform2iv} */
 	public static void glUniform2iv(int location, IntBuffer value) {
 		nglUniform2iv(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3iv ] ---
 
-	/** Unsafe version of {@link #glUniform3iv Uniform3iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single ivec3 uniform variable or an ivec3 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform3iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3iv;
 		if ( CHECKS )
@@ -811,23 +846,23 @@ Creates a program object.
 	 * Specifies the value of a single ivec3 uniform variable or an ivec3 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform3iv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 3) << 2);
-		nglUniform3iv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform3iv Uniform3iv} */
 	public static void glUniform3iv(int location, IntBuffer value) {
 		nglUniform3iv(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4iv ] ---
 
-	/** Unsafe version of {@link #glUniform4iv Uniform4iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single ivec4 uniform variable or an ivec4 uniform variable array for the current program object.
+	 *
+	 * @param location the location of the uniform variable to be modified
+	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniform4iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4iv;
 		if ( CHECKS )
@@ -841,23 +876,24 @@ Creates a program object.
 	 * Specifies the value of a single ivec4 uniform variable or an ivec4 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform4iv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglUniform4iv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform4iv Uniform4iv} */
 	public static void glUniform4iv(int location, IntBuffer value) {
 		nglUniform4iv(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2fv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2fv UniformMatrix2fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single mat2 uniform variable or a mat2 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2fv;
 		if ( CHECKS )
@@ -871,24 +907,25 @@ Creates a program object.
 	 * Specifies the value of a single mat2 uniform variable or a mat2 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniformMatrix2fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglUniformMatrix2fv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix2fv UniformMatrix2fv} */
 	public static void glUniformMatrix2fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix2fv(location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3fv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3fv UniformMatrix3fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single mat3 uniform variable or a mat3 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3fv;
 		if ( CHECKS )
@@ -902,24 +939,25 @@ Creates a program object.
 	 * Specifies the value of a single mat3 uniform variable or a mat3 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniformMatrix3fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 9) << 2);
-		nglUniformMatrix3fv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix3fv UniformMatrix3fv} */
 	public static void glUniformMatrix3fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix3fv(location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4fv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4fv UniformMatrix4fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the value of a single mat4 uniform variable or a mat4 uniform variable array for the current program object.
+	 *
+	 * @param location  the location of the uniform variable to be modified
+	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
+	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
+	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 */
 	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4fv;
 		if ( CHECKS )
@@ -933,24 +971,24 @@ Creates a program object.
 	 * Specifies the value of a single mat4 uniform variable or a mat4 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniformMatrix4fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 4) << 2);
-		nglUniformMatrix4fv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix4fv UniformMatrix4fv} */
 	public static void glUniformMatrix4fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4fv(location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glGetShaderiv ] ---
 
-	/** Unsafe version of {@link #glGetShaderiv GetShaderiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShader.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns a parameter from a shader object.
+	 *
+	 * @param shader the shader object to be queried
+	 * @param pname  the object parameter. One of:<br>{@link #GL_SHADER_TYPE SHADER_TYPE}, {@link #GL_DELETE_STATUS DELETE_STATUS}, {@link #GL_COMPILE_STATUS COMPILE_STATUS}, {@link #GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}, {@link #GL_SHADER_SOURCE_LENGTH SHADER_SOURCE_LENGTH}
+	 * @param params the requested object parameter
+	 */
 	public static void nglGetShaderiv(int shader, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetShaderiv;
 		if ( CHECKS )
@@ -967,20 +1005,20 @@ Creates a program object.
 	 * @param pname  the object parameter. One of:<br>{@link #GL_SHADER_TYPE SHADER_TYPE}, {@link #GL_DELETE_STATUS DELETE_STATUS}, {@link #GL_COMPILE_STATUS COMPILE_STATUS}, {@link #GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}, {@link #GL_SHADER_SOURCE_LENGTH SHADER_SOURCE_LENGTH}
 	 * @param params the requested object parameter
 	 */
-	public static void glGetShaderiv(int shader, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetShaderiv(shader, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetShaderiv GetShaderiv} */
 	public static void glGetShaderiv(int shader, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetShaderiv(shader, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetShaderiv GetShaderiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShader.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns a parameter from a shader object.
+	 *
+	 * @param shader the shader object to be queried
+	 * @param pname  the object parameter. One of:<br>{@link #GL_SHADER_TYPE SHADER_TYPE}, {@link #GL_DELETE_STATUS DELETE_STATUS}, {@link #GL_COMPILE_STATUS COMPILE_STATUS}, {@link #GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}, {@link #GL_SHADER_SOURCE_LENGTH SHADER_SOURCE_LENGTH}
+	 */
 	public static int glGetShaderi(int shader, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -994,7 +1032,15 @@ Creates a program object.
 
 	// --- [ glGetProgramiv ] ---
 
-	/** Unsafe version of {@link #glGetProgramiv GetProgramiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgram.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns a parameter from a program object.
+	 *
+	 * @param program the program object to be queried
+	 * @param pname   the object parameter. One of:<br>{@link #GL_DELETE_STATUS DELETE_STATUS}, {@link #GL_LINK_STATUS LINK_STATUS}, {@link #GL_VALIDATE_STATUS VALIDATE_STATUS}, {@link #GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}, {@link #GL_ATTACHED_SHADERS ATTACHED_SHADERS}, {@link #GL_ACTIVE_ATTRIBUTES ACTIVE_ATTRIBUTES}, {@link #GL_ACTIVE_ATTRIBUTE_MAX_LENGTH ACTIVE_ATTRIBUTE_MAX_LENGTH}, {@link #GL_ACTIVE_UNIFORMS ACTIVE_UNIFORMS}, {@link #GL_ACTIVE_UNIFORM_MAX_LENGTH ACTIVE_UNIFORM_MAX_LENGTH}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_MODE TRANSFORM_FEEDBACK_BUFFER_MODE}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYINGS TRANSFORM_FEEDBACK_VARYINGS}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCKS ACTIVE_UNIFORM_BLOCKS}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH}, {@link GL32#GL_GEOMETRY_VERTICES_OUT GEOMETRY_VERTICES_OUT}, {@link GL32#GL_GEOMETRY_INPUT_TYPE GEOMETRY_INPUT_TYPE}, {@link GL32#GL_GEOMETRY_OUTPUT_TYPE GEOMETRY_OUTPUT_TYPE}, {@link GL41#GL_PROGRAM_BINARY_LENGTH PROGRAM_BINARY_LENGTH}, {@link GL42#GL_ACTIVE_ATOMIC_COUNTER_BUFFERS ACTIVE_ATOMIC_COUNTER_BUFFERS}, {@link GL43#GL_COMPUTE_WORK_GROUP_SIZE COMPUTE_WORK_GROUP_SIZE}
+	 * @param params  the requested object parameter
+	 */
 	public static void nglGetProgramiv(int program, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramiv;
 		if ( CHECKS )
@@ -1011,20 +1057,20 @@ Creates a program object.
 	 * @param pname   the object parameter. One of:<br>{@link #GL_DELETE_STATUS DELETE_STATUS}, {@link #GL_LINK_STATUS LINK_STATUS}, {@link #GL_VALIDATE_STATUS VALIDATE_STATUS}, {@link #GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}, {@link #GL_ATTACHED_SHADERS ATTACHED_SHADERS}, {@link #GL_ACTIVE_ATTRIBUTES ACTIVE_ATTRIBUTES}, {@link #GL_ACTIVE_ATTRIBUTE_MAX_LENGTH ACTIVE_ATTRIBUTE_MAX_LENGTH}, {@link #GL_ACTIVE_UNIFORMS ACTIVE_UNIFORMS}, {@link #GL_ACTIVE_UNIFORM_MAX_LENGTH ACTIVE_UNIFORM_MAX_LENGTH}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_MODE TRANSFORM_FEEDBACK_BUFFER_MODE}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYINGS TRANSFORM_FEEDBACK_VARYINGS}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCKS ACTIVE_UNIFORM_BLOCKS}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH}, {@link GL32#GL_GEOMETRY_VERTICES_OUT GEOMETRY_VERTICES_OUT}, {@link GL32#GL_GEOMETRY_INPUT_TYPE GEOMETRY_INPUT_TYPE}, {@link GL32#GL_GEOMETRY_OUTPUT_TYPE GEOMETRY_OUTPUT_TYPE}, {@link GL41#GL_PROGRAM_BINARY_LENGTH PROGRAM_BINARY_LENGTH}, {@link GL42#GL_ACTIVE_ATOMIC_COUNTER_BUFFERS ACTIVE_ATOMIC_COUNTER_BUFFERS}, {@link GL43#GL_COMPUTE_WORK_GROUP_SIZE COMPUTE_WORK_GROUP_SIZE}
 	 * @param params  the requested object parameter
 	 */
-	public static void glGetProgramiv(int program, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetProgramiv(program, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetProgramiv GetProgramiv} */
 	public static void glGetProgramiv(int program, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramiv(program, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetProgramiv GetProgramiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgram.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns a parameter from a program object.
+	 *
+	 * @param program the program object to be queried
+	 * @param pname   the object parameter. One of:<br>{@link #GL_DELETE_STATUS DELETE_STATUS}, {@link #GL_LINK_STATUS LINK_STATUS}, {@link #GL_VALIDATE_STATUS VALIDATE_STATUS}, {@link #GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}, {@link #GL_ATTACHED_SHADERS ATTACHED_SHADERS}, {@link #GL_ACTIVE_ATTRIBUTES ACTIVE_ATTRIBUTES}, {@link #GL_ACTIVE_ATTRIBUTE_MAX_LENGTH ACTIVE_ATTRIBUTE_MAX_LENGTH}, {@link #GL_ACTIVE_UNIFORMS ACTIVE_UNIFORMS}, {@link #GL_ACTIVE_UNIFORM_MAX_LENGTH ACTIVE_UNIFORM_MAX_LENGTH}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_MODE TRANSFORM_FEEDBACK_BUFFER_MODE}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYINGS TRANSFORM_FEEDBACK_VARYINGS}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCKS ACTIVE_UNIFORM_BLOCKS}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH}, {@link GL32#GL_GEOMETRY_VERTICES_OUT GEOMETRY_VERTICES_OUT}, {@link GL32#GL_GEOMETRY_INPUT_TYPE GEOMETRY_INPUT_TYPE}, {@link GL32#GL_GEOMETRY_OUTPUT_TYPE GEOMETRY_OUTPUT_TYPE}, {@link GL41#GL_PROGRAM_BINARY_LENGTH PROGRAM_BINARY_LENGTH}, {@link GL42#GL_ACTIVE_ATOMIC_COUNTER_BUFFERS ACTIVE_ATOMIC_COUNTER_BUFFERS}, {@link GL43#GL_COMPUTE_WORK_GROUP_SIZE COMPUTE_WORK_GROUP_SIZE}
+	 */
 	public static int glGetProgrami(int program, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1038,7 +1084,16 @@ Creates a program object.
 
 	// --- [ glGetShaderInfoLog ] ---
 
-	/** Unsafe version of {@link #glGetShaderInfoLog GetShaderInfoLog} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderInfoLog.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the information log for a shader object.
+	 *
+	 * @param shader    the shader object whose information log is to be queried
+	 * @param maxLength the size of the character buffer for storing the returned information log
+	 * @param length    the length of the string returned in {@code infoLog} (excluding the null terminator)
+	 * @param infoLog   an array of characters that is used to return the information log
+	 */
 	public static void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog) {
 		long __functionAddress = GL.getCapabilities().glGetShaderInfoLog;
 		if ( CHECKS )
@@ -1051,27 +1106,24 @@ Creates a program object.
 	 * 
 	 * Returns the information log for a shader object.
 	 *
-	 * @param shader    the shader object whose information log is to be queried
-	 * @param maxLength the size of the character buffer for storing the returned information log
-	 * @param length    the length of the string returned in {@code infoLog} (excluding the null terminator)
-	 * @param infoLog   an array of characters that is used to return the information log
+	 * @param shader  the shader object whose information log is to be queried
+	 * @param length  the length of the string returned in {@code infoLog} (excluding the null terminator)
+	 * @param infoLog an array of characters that is used to return the information log
 	 */
-	public static void glGetShaderInfoLog(int shader, int maxLength, ByteBuffer length, ByteBuffer infoLog) {
-		if ( CHECKS ) {
-			checkBuffer(infoLog, maxLength);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetShaderInfoLog(shader, maxLength, memAddressSafe(length), memAddress(infoLog));
-	}
-
-	/** Alternative version of: {@link #glGetShaderInfoLog GetShaderInfoLog} */
 	public static void glGetShaderInfoLog(int shader, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetShaderInfoLog(shader, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
-	/** String return version of: {@link #glGetShaderInfoLog GetShaderInfoLog} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderInfoLog.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the information log for a shader object.
+	 *
+	 * @param shader    the shader object whose information log is to be queried
+	 * @param maxLength the size of the character buffer for storing the returned information log
+	 */
 	public static String glGetShaderInfoLog(int shader, int maxLength) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		ByteBuffer infoLog = memAlloc(maxLength);
@@ -1085,7 +1137,13 @@ Creates a program object.
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetShaderInfoLog GetShaderInfoLog} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderInfoLog.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the information log for a shader object.
+	 *
+	 * @param shader the shader object whose information log is to be queried
+	 */
 	public static String glGetShaderInfoLog(int shader) {
 		int maxLength = glGetShaderi(shader, GL_INFO_LOG_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1102,7 +1160,16 @@ Creates a program object.
 
 	// --- [ glGetProgramInfoLog ] ---
 
-	/** Unsafe version of {@link #glGetProgramInfoLog GetProgramInfoLog} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramInfoLog.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the information log for a program object.
+	 *
+	 * @param program   the program object whose information log is to be queried
+	 * @param maxLength the size of the character buffer for storing the returned information log
+	 * @param length    the length of the string returned in {@code infoLog} (excluding the null terminator)
+	 * @param infoLog   an array of characters that is used to return the information log
+	 */
 	public static void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog) {
 		long __functionAddress = GL.getCapabilities().glGetProgramInfoLog;
 		if ( CHECKS )
@@ -1115,27 +1182,24 @@ Creates a program object.
 	 * 
 	 * Returns the information log for a program object.
 	 *
-	 * @param program   the program object whose information log is to be queried
-	 * @param maxLength the size of the character buffer for storing the returned information log
-	 * @param length    the length of the string returned in {@code infoLog} (excluding the null terminator)
-	 * @param infoLog   an array of characters that is used to return the information log
+	 * @param program the program object whose information log is to be queried
+	 * @param length  the length of the string returned in {@code infoLog} (excluding the null terminator)
+	 * @param infoLog an array of characters that is used to return the information log
 	 */
-	public static void glGetProgramInfoLog(int program, int maxLength, ByteBuffer length, ByteBuffer infoLog) {
-		if ( CHECKS ) {
-			checkBuffer(infoLog, maxLength);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetProgramInfoLog(program, maxLength, memAddressSafe(length), memAddress(infoLog));
-	}
-
-	/** Alternative version of: {@link #glGetProgramInfoLog GetProgramInfoLog} */
 	public static void glGetProgramInfoLog(int program, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramInfoLog(program, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
-	/** String return version of: {@link #glGetProgramInfoLog GetProgramInfoLog} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramInfoLog.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the information log for a program object.
+	 *
+	 * @param program   the program object whose information log is to be queried
+	 * @param maxLength the size of the character buffer for storing the returned information log
+	 */
 	public static String glGetProgramInfoLog(int program, int maxLength) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		ByteBuffer infoLog = memAlloc(maxLength);
@@ -1149,7 +1213,13 @@ Creates a program object.
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetProgramInfoLog GetProgramInfoLog} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramInfoLog.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the information log for a program object.
+	 *
+	 * @param program the program object whose information log is to be queried
+	 */
 	public static String glGetProgramInfoLog(int program) {
 		int maxLength = glGetProgrami(program, GL_INFO_LOG_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1166,7 +1236,16 @@ Creates a program object.
 
 	// --- [ glGetAttachedShaders ] ---
 
-	/** Unsafe version of {@link #glGetAttachedShaders GetAttachedShaders} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetAttachedShaders.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the shader objects attached to a program object.
+	 *
+	 * @param program  the program object to be queried
+	 * @param maxCount the size of the array for storing the returned object names
+	 * @param count    the number of names actually returned in {@code shaders}
+	 * @param shaders  an array that is used to return the names of attached shader objects
+	 */
 	public static void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
 		long __functionAddress = GL.getCapabilities().glGetAttachedShaders;
 		if ( CHECKS )
@@ -1179,20 +1258,10 @@ Creates a program object.
 	 * 
 	 * Returns the shader objects attached to a program object.
 	 *
-	 * @param program  the program object to be queried
-	 * @param maxCount the size of the array for storing the returned object names
-	 * @param count    the number of names actually returned in {@code shaders}
-	 * @param shaders  an array that is used to return the names of attached shader objects
+	 * @param program the program object to be queried
+	 * @param count   the number of names actually returned in {@code shaders}
+	 * @param shaders an array that is used to return the names of attached shader objects
 	 */
-	public static void glGetAttachedShaders(int program, int maxCount, ByteBuffer count, ByteBuffer shaders) {
-		if ( CHECKS ) {
-			checkBuffer(shaders, maxCount << 2);
-			if ( count != null ) checkBuffer(count, 1 << 2);
-		}
-		nglGetAttachedShaders(program, maxCount, memAddressSafe(count), memAddress(shaders));
-	}
-
-	/** Alternative version of: {@link #glGetAttachedShaders GetAttachedShaders} */
 	public static void glGetAttachedShaders(int program, IntBuffer count, IntBuffer shaders) {
 		if ( CHECKS )
 			if ( count != null ) checkBuffer(count, 1);
@@ -1201,7 +1270,14 @@ Creates a program object.
 
 	// --- [ glGetUniformLocation ] ---
 
-	/** Unsafe version of {@link #glGetUniformLocation GetUniformLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the location of a uniform variable.
+	 *
+	 * @param program the program object to be queried
+	 * @param name    a null terminated string containing the name of the uniform variable whose location is to be queried
+	 */
 	public static int nglGetUniformLocation(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetUniformLocation;
 		if ( CHECKS )
@@ -1223,7 +1299,14 @@ Creates a program object.
 		return nglGetUniformLocation(program, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetUniformLocation GetUniformLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the location of a uniform variable.
+	 *
+	 * @param program the program object to be queried
+	 * @param name    a null terminated string containing the name of the uniform variable whose location is to be queried
+	 */
 	public static int glGetUniformLocation(int program, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1235,14 +1318,6 @@ Creates a program object.
 	}
 
 	// --- [ glGetActiveUniform ] ---
-
-	/** Unsafe version of {@link #glGetActiveUniform GetActiveUniform} */
-	public static void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniform;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
-	}
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1257,17 +1332,25 @@ Creates a program object.
 	 * @param type      the data type of the uniform variable
 	 * @param name      a null terminated string containing the name of the uniform variable
 	 */
-	public static void glGetActiveUniform(int program, int index, int maxLength, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( CHECKS ) {
-			checkBuffer(name, maxLength);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-			checkBuffer(size, 1 << 2);
-			checkBuffer(type, 1 << 2);
-		}
-		nglGetActiveUniform(program, index, maxLength, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
+	public static void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name) {
+		long __functionAddress = GL.getCapabilities().glGetActiveUniform;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
 	}
 
-	/** Alternative version of: {@link #glGetActiveUniform GetActiveUniform} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns information about an active uniform variable for the specified program object.
+	 *
+	 * @param program the program object to be queried
+	 * @param index   the index of the uniform variable to be queried
+	 * @param length  the number of characters actually written by OpenGL in the string indicated by {@code name} (excluding the null terminator) if a value other than NULL is passed
+	 * @param size    the size of the uniform variable
+	 * @param type    the data type of the uniform variable
+	 * @param name    a null terminated string containing the name of the uniform variable
+	 */
 	public static void glGetActiveUniform(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
@@ -1277,7 +1360,17 @@ Creates a program object.
 		nglGetActiveUniform(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
-	/** String return version of: {@link #glGetActiveUniform GetActiveUniform} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns information about an active uniform variable for the specified program object.
+	 *
+	 * @param program   the program object to be queried
+	 * @param index     the index of the uniform variable to be queried
+	 * @param maxLength the maximum number of characters OpenGL is allowed to write in the character buffer indicated by {@code name}
+	 * @param size      the size of the uniform variable
+	 * @param type      the data type of the uniform variable
+	 */
 	public static String glGetActiveUniform(int program, int index, int maxLength, IntBuffer size, IntBuffer type) {
 		if ( CHECKS ) {
 			checkBuffer(size, 1);
@@ -1294,7 +1387,16 @@ Creates a program object.
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniform GetActiveUniform} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns information about an active uniform variable for the specified program object.
+	 *
+	 * @param program the program object to be queried
+	 * @param index   the index of the uniform variable to be queried
+	 * @param size    the size of the uniform variable
+	 * @param type    the data type of the uniform variable
+	 */
 	public static String glGetActiveUniform(int program, int index, IntBuffer size, IntBuffer type) {
 		int maxLength = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
 		if ( CHECKS ) {
@@ -1314,7 +1416,15 @@ Creates a program object.
 
 	// --- [ glGetUniformfv ] ---
 
-	/** Unsafe version of {@link #glGetUniformfv GetUniformfv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the float value(s) of a uniform variable.
+	 *
+	 * @param program  the program object to be queried
+	 * @param location the location of the uniform variable to be queried
+	 * @param params   the value of the specified uniform variable
+	 */
 	public static void nglGetUniformfv(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformfv;
 		if ( CHECKS )
@@ -1331,20 +1441,20 @@ Creates a program object.
 	 * @param location the location of the uniform variable to be queried
 	 * @param params   the value of the specified uniform variable
 	 */
-	public static void glGetUniformfv(int program, int location, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetUniformfv(program, location, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetUniformfv GetUniformfv} */
 	public static void glGetUniformfv(int program, int location, FloatBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformfv(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformfv GetUniformfv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the float value(s) of a uniform variable.
+	 *
+	 * @param program  the program object to be queried
+	 * @param location the location of the uniform variable to be queried
+	 */
 	public static float glGetUniformf(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1358,7 +1468,15 @@ Creates a program object.
 
 	// --- [ glGetUniformiv ] ---
 
-	/** Unsafe version of {@link #glGetUniformiv GetUniformiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the int value(s) of a uniform variable.
+	 *
+	 * @param program  the program object to be queried
+	 * @param location the location of the uniform variable to be queried
+	 * @param params   the value of the specified uniform variable
+	 */
 	public static void nglGetUniformiv(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformiv;
 		if ( CHECKS )
@@ -1375,20 +1493,20 @@ Creates a program object.
 	 * @param location the location of the uniform variable to be queried
 	 * @param params   the value of the specified uniform variable
 	 */
-	public static void glGetUniformiv(int program, int location, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetUniformiv(program, location, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetUniformiv GetUniformiv} */
 	public static void glGetUniformiv(int program, int location, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformiv(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformiv GetUniformiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the int value(s) of a uniform variable.
+	 *
+	 * @param program  the program object to be queried
+	 * @param location the location of the uniform variable to be queried
+	 */
 	public static int glGetUniformi(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1402,7 +1520,16 @@ Creates a program object.
 
 	// --- [ glGetShaderSource ] ---
 
-	/** Unsafe version of {@link #glGetShaderSource GetShaderSource} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderSource.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the source code string from a shader object.
+	 *
+	 * @param shader    the shader object to be queried
+	 * @param maxLength the size of the character buffer for storing the returned source code string
+	 * @param length    the length of the string returned in source (excluding the null terminator)
+	 * @param source    an array of characters that is used to return the source code string
+	 */
 	public static void nglGetShaderSource(int shader, int maxLength, long length, long source) {
 		long __functionAddress = GL.getCapabilities().glGetShaderSource;
 		if ( CHECKS )
@@ -1415,27 +1542,24 @@ Creates a program object.
 	 * 
 	 * Returns the source code string from a shader object.
 	 *
-	 * @param shader    the shader object to be queried
-	 * @param maxLength the size of the character buffer for storing the returned source code string
-	 * @param length    the length of the string returned in source (excluding the null terminator)
-	 * @param source    an array of characters that is used to return the source code string
+	 * @param shader the shader object to be queried
+	 * @param length the length of the string returned in source (excluding the null terminator)
+	 * @param source an array of characters that is used to return the source code string
 	 */
-	public static void glGetShaderSource(int shader, int maxLength, ByteBuffer length, ByteBuffer source) {
-		if ( CHECKS ) {
-			checkBuffer(source, maxLength);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetShaderSource(shader, maxLength, memAddressSafe(length), memAddress(source));
-	}
-
-	/** Alternative version of: {@link #glGetShaderSource GetShaderSource} */
 	public static void glGetShaderSource(int shader, IntBuffer length, ByteBuffer source) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetShaderSource(shader, source.remaining(), memAddressSafe(length), memAddress(source));
 	}
 
-	/** String return version of: {@link #glGetShaderSource GetShaderSource} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderSource.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the source code string from a shader object.
+	 *
+	 * @param shader    the shader object to be queried
+	 * @param maxLength the size of the character buffer for storing the returned source code string
+	 */
 	public static String glGetShaderSource(int shader, int maxLength) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		ByteBuffer source = memAlloc(maxLength);
@@ -1449,7 +1573,13 @@ Creates a program object.
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetShaderSource GetShaderSource} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderSource.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the source code string from a shader object.
+	 *
+	 * @param shader the shader object to be queried
+	 */
 	public static String glGetShaderSource(int shader) {
 		int maxLength = glGetShaderi(shader, GL_SHADER_SOURCE_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1708,7 +1838,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib1fv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib1fv VertexAttrib1fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib1f VertexAttrib1f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib1fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1fv;
 		if ( CHECKS )
@@ -1724,13 +1861,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib1fv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 2);
-		nglVertexAttrib1fv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib1fv VertexAttrib1fv} */
 	public static void glVertexAttrib1fv(int index, FloatBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -1739,7 +1869,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib1sv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib1sv VertexAttrib1sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib1s VertexAttrib1s}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib1sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1sv;
 		if ( CHECKS )
@@ -1755,13 +1892,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib1sv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 1);
-		nglVertexAttrib1sv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib1sv VertexAttrib1sv} */
 	public static void glVertexAttrib1sv(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -1770,7 +1900,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib1dv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib1dv VertexAttrib1dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib1d VertexAttrib1d}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib1dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1dv;
 		if ( CHECKS )
@@ -1786,13 +1923,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib1dv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 3);
-		nglVertexAttrib1dv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib1dv VertexAttrib1dv} */
 	public static void glVertexAttrib1dv(int index, DoubleBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -1801,7 +1931,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib2fv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib2fv VertexAttrib2fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib2f VertexAttrib2f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib2fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2fv;
 		if ( CHECKS )
@@ -1817,13 +1954,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib2fv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 2);
-		nglVertexAttrib2fv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib2fv VertexAttrib2fv} */
 	public static void glVertexAttrib2fv(int index, FloatBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -1832,7 +1962,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib2sv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib2sv VertexAttrib2sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib2s VertexAttrib2s}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib2sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2sv;
 		if ( CHECKS )
@@ -1848,13 +1985,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib2sv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 1);
-		nglVertexAttrib2sv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib2sv VertexAttrib2sv} */
 	public static void glVertexAttrib2sv(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -1863,7 +1993,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib2dv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib2dv VertexAttrib2dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib2d VertexAttrib2d}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib2dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2dv;
 		if ( CHECKS )
@@ -1879,13 +2016,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib2dv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 3);
-		nglVertexAttrib2dv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib2dv VertexAttrib2dv} */
 	public static void glVertexAttrib2dv(int index, DoubleBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -1894,7 +2024,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib3fv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib3fv VertexAttrib3fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib3f VertexAttrib3f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib3fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3fv;
 		if ( CHECKS )
@@ -1910,13 +2047,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib3fv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 2);
-		nglVertexAttrib3fv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib3fv VertexAttrib3fv} */
 	public static void glVertexAttrib3fv(int index, FloatBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -1925,7 +2055,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib3sv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib3sv VertexAttrib3sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib3s VertexAttrib3s}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib3sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3sv;
 		if ( CHECKS )
@@ -1941,13 +2078,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib3sv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 1);
-		nglVertexAttrib3sv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib3sv VertexAttrib3sv} */
 	public static void glVertexAttrib3sv(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -1956,7 +2086,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib3dv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib3dv VertexAttrib3dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib3d VertexAttrib3d}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib3dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3dv;
 		if ( CHECKS )
@@ -1972,13 +2109,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib3dv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 3);
-		nglVertexAttrib3dv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib3dv VertexAttrib3dv} */
 	public static void glVertexAttrib3dv(int index, DoubleBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -1987,7 +2117,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4fv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4fv VertexAttrib4fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4fv;
 		if ( CHECKS )
@@ -2003,13 +2140,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4fv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttrib4fv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4fv VertexAttrib4fv} */
 	public static void glVertexAttrib4fv(int index, FloatBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -2018,7 +2148,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4sv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4sv VertexAttrib4sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib4s VertexAttrib4s}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4sv;
 		if ( CHECKS )
@@ -2034,13 +2171,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4sv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglVertexAttrib4sv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4sv VertexAttrib4sv} */
 	public static void glVertexAttrib4sv(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -2049,7 +2179,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4dv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4dv VertexAttrib4dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib4d VertexAttrib4d}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4dv;
 		if ( CHECKS )
@@ -2065,13 +2202,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4dv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 3);
-		nglVertexAttrib4dv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4dv VertexAttrib4dv} */
 	public static void glVertexAttrib4dv(int index, DoubleBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -2080,7 +2210,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4iv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4iv VertexAttrib4iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Integer pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4iv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4iv;
 		if ( CHECKS )
@@ -2096,13 +2233,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4iv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttrib4iv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4iv VertexAttrib4iv} */
 	public static void glVertexAttrib4iv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -2111,7 +2241,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4bv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4bv VertexAttrib4bv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4b.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Byte pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4bv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4bv;
 		if ( CHECKS )
@@ -2135,7 +2272,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4ubv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4ubv VertexAttrib4ubv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4ub.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Pointer version of {@link #glVertexAttrib4Nub VertexAttrib4Nub}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4ubv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4ubv;
 		if ( CHECKS )
@@ -2159,7 +2303,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4usv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4usv VertexAttrib4usv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Unsigned short pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4usv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4usv;
 		if ( CHECKS )
@@ -2175,13 +2326,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4usv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglVertexAttrib4usv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4usv VertexAttrib4usv} */
 	public static void glVertexAttrib4usv(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -2190,7 +2334,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4uiv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Unsigned int pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4uiv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4uiv;
 		if ( CHECKS )
@@ -2206,13 +2357,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4uiv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttrib4uiv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
 	public static void glVertexAttrib4uiv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -2221,7 +2365,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nbv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4Nbv VertexAttrib4Nbv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nb.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Normalized byte pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4Nbv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nbv;
 		if ( CHECKS )
@@ -2245,7 +2396,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nsv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Normalized short pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4Nsv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nsv;
 		if ( CHECKS )
@@ -2261,13 +2419,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4Nsv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglVertexAttrib4Nsv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
 	public static void glVertexAttrib4Nsv(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -2276,7 +2427,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Niv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Normalized int pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4Niv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Niv;
 		if ( CHECKS )
@@ -2292,13 +2450,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4Niv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttrib4Niv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
 	public static void glVertexAttrib4Niv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -2307,7 +2458,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nubv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4Nubv VertexAttrib4Nubv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nub.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Normalized unsigned byte pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4Nubv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nubv;
 		if ( CHECKS )
@@ -2331,7 +2489,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nusv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Normalized unsigned short pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4Nusv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nusv;
 		if ( CHECKS )
@@ -2347,13 +2512,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4Nusv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglVertexAttrib4Nusv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
 	public static void glVertexAttrib4Nusv(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -2362,7 +2520,14 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nuiv ] ---
 
-	/** Unsafe version of {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Normalized unsigned int pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
+	 *
+	 * @param index the index of the generic vertex attribute to be modified
+	 * @param v     the vertex attribute buffer
+	 */
 	public static void nglVertexAttrib4Nuiv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nuiv;
 		if ( CHECKS )
@@ -2378,13 +2543,6 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4Nuiv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttrib4Nuiv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
 	public static void glVertexAttrib4Nuiv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -2393,7 +2551,20 @@ Creates a program object.
 
 	// --- [ glVertexAttribPointer ] ---
 
-	/** Unsafe version of {@link #glVertexAttribPointer VertexAttribPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the location and organization of a vertex attribute array.
+	 *
+	 * @param index      the index of the generic vertex attribute to be modified
+	 * @param size       the number of values per vertex that are stored in the array. The initial value is 4. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param type       the data type of each component in the array. The initial value is GL_FLOAT. One of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}, {@link GL41#GL_FIXED FIXED}
+	 * @param normalized whether fixed-point data values should be normalized or converted directly as fixed-point values when they are accessed
+	 * @param stride     the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+	 *                   the array. The initial value is 0.
+	 * @param pointer    the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+	 *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+	 */
 	public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
 		if ( CHECKS )
@@ -2421,11 +2592,24 @@ Creates a program object.
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
-	/** Buffer object offset version of: {@link #glVertexAttribPointer VertexAttribPointer} */
-	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointerOffset) {
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies the location and organization of a vertex attribute array.
+	 *
+	 * @param index      the index of the generic vertex attribute to be modified
+	 * @param size       the number of values per vertex that are stored in the array. The initial value is 4. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param type       the data type of each component in the array. The initial value is GL_FLOAT. One of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}, {@link GL41#GL_FIXED FIXED}
+	 * @param normalized whether fixed-point data values should be normalized or converted directly as fixed-point values when they are accessed
+	 * @param stride     the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+	 *                   the array. The initial value is 0.
+	 * @param pointer    the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+	 *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+	 */
+	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
-		nglVertexAttribPointer(index, size, type, normalized, stride, pointerOffset);
+		nglVertexAttribPointer(index, size, type, normalized, stride, pointer);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
@@ -2483,7 +2667,15 @@ Creates a program object.
 
 	// --- [ glBindAttribLocation ] ---
 
-	/** Unsafe version of {@link #glBindAttribLocation BindAttribLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindAttribLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Associates a generic vertex attribute index with a named attribute variable.
+	 *
+	 * @param program the program object in which the association is to be made
+	 * @param index   the index of the generic vertex attribute to be bound
+	 * @param name    a null terminated string containing the name of the vertex shader attribute variable to which {@code index} is to be bound
+	 */
 	public static void nglBindAttribLocation(int program, int index, long name) {
 		long __functionAddress = GL.getCapabilities().glBindAttribLocation;
 		if ( CHECKS )
@@ -2506,7 +2698,15 @@ Creates a program object.
 		nglBindAttribLocation(program, index, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glBindAttribLocation BindAttribLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindAttribLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Associates a generic vertex attribute index with a named attribute variable.
+	 *
+	 * @param program the program object in which the association is to be made
+	 * @param index   the index of the generic vertex attribute to be bound
+	 * @param name    a null terminated string containing the name of the vertex shader attribute variable to which {@code index} is to be bound
+	 */
 	public static void glBindAttribLocation(int program, int index, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2518,14 +2718,6 @@ Creates a program object.
 	}
 
 	// --- [ glGetActiveAttrib ] ---
-
-	/** Unsafe version of {@link #glGetActiveAttrib GetActiveAttrib} */
-	public static void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveAttrib;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
-	}
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2541,17 +2733,26 @@ Creates a program object.
 	 * @param type      the data type of the attribute variable
 	 * @param name      a null terminated string containing the name of the attribute variable
 	 */
-	public static void glGetActiveAttrib(int program, int index, int maxLength, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( CHECKS ) {
-			checkBuffer(name, maxLength);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-			checkBuffer(size, 1 << 2);
-			checkBuffer(type, 1 << 2);
-		}
-		nglGetActiveAttrib(program, index, maxLength, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
+	public static void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name) {
+		long __functionAddress = GL.getCapabilities().glGetActiveAttrib;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
 	}
 
-	/** Alternative version of: {@link #glGetActiveAttrib GetActiveAttrib} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns information about an active attribute variable for the specified program object.
+	 *
+	 * @param program the program object to be queried
+	 * @param index   the index of the attribute variable to be queried
+	 * @param length  the number of characters actually written by OpenGL in the string indicated by {@code name} (excluding the null terminator) if a value other than
+	 *                {@code NULL} is passed
+	 * @param size    the size of the attribute variable
+	 * @param type    the data type of the attribute variable
+	 * @param name    a null terminated string containing the name of the attribute variable
+	 */
 	public static void glGetActiveAttrib(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
@@ -2561,7 +2762,17 @@ Creates a program object.
 		nglGetActiveAttrib(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
-	/** String return version of: {@link #glGetActiveAttrib GetActiveAttrib} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns information about an active attribute variable for the specified program object.
+	 *
+	 * @param program   the program object to be queried
+	 * @param index     the index of the attribute variable to be queried
+	 * @param maxLength the maximum number of characters OpenGL is allowed to write in the character buffer indicated by {@code name}
+	 * @param size      the size of the attribute variable
+	 * @param type      the data type of the attribute variable
+	 */
 	public static String glGetActiveAttrib(int program, int index, int maxLength, IntBuffer size, IntBuffer type) {
 		if ( CHECKS ) {
 			checkBuffer(size, 1);
@@ -2578,7 +2789,16 @@ Creates a program object.
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttrib GetActiveAttrib} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns information about an active attribute variable for the specified program object.
+	 *
+	 * @param program the program object to be queried
+	 * @param index   the index of the attribute variable to be queried
+	 * @param size    the size of the attribute variable
+	 * @param type    the data type of the attribute variable
+	 */
 	public static String glGetActiveAttrib(int program, int index, IntBuffer size, IntBuffer type) {
 		int maxLength = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
 		if ( CHECKS ) {
@@ -2598,7 +2818,14 @@ Creates a program object.
 
 	// --- [ glGetAttribLocation ] ---
 
-	/** Unsafe version of {@link #glGetAttribLocation GetAttribLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetAttribLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the location of an attribute variable.
+	 *
+	 * @param program the program object to be queried
+	 * @param name    a null terminated string containing the name of the attribute variable whose location is to be queried
+	 */
 	public static int nglGetAttribLocation(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetAttribLocation;
 		if ( CHECKS )
@@ -2620,7 +2847,14 @@ Creates a program object.
 		return nglGetAttribLocation(program, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetAttribLocation GetAttribLocation} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetAttribLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the location of an attribute variable.
+	 *
+	 * @param program the program object to be queried
+	 * @param name    a null terminated string containing the name of the attribute variable whose location is to be queried
+	 */
 	public static int glGetAttribLocation(int program, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2633,7 +2867,15 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribiv ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribiv GetVertexAttribiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the integer value of a generic vertex attribute parameter.
+	 *
+	 * @param index  the generic vertex attribute parameter to be queried
+	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. One of:<br>{@link GL15#GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING VERTEX_ATTRIB_ARRAY_BUFFER_BINDING}, {@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED VERTEX_ATTRIB_ARRAY_ENABLED}, {@link #GL_VERTEX_ATTRIB_ARRAY_SIZE VERTEX_ATTRIB_ARRAY_SIZE}, {@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE VERTEX_ATTRIB_ARRAY_STRIDE}, {@link #GL_VERTEX_ATTRIB_ARRAY_TYPE VERTEX_ATTRIB_ARRAY_TYPE}, {@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED VERTEX_ATTRIB_ARRAY_NORMALIZED}, {@link #GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}, {@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}, {@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}
+	 * @param params returns the requested data
+	 */
 	public static void nglGetVertexAttribiv(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribiv;
 		if ( CHECKS )
@@ -2650,20 +2892,20 @@ Creates a program object.
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. One of:<br>{@link GL15#GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING VERTEX_ATTRIB_ARRAY_BUFFER_BINDING}, {@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED VERTEX_ATTRIB_ARRAY_ENABLED}, {@link #GL_VERTEX_ATTRIB_ARRAY_SIZE VERTEX_ATTRIB_ARRAY_SIZE}, {@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE VERTEX_ATTRIB_ARRAY_STRIDE}, {@link #GL_VERTEX_ATTRIB_ARRAY_TYPE VERTEX_ATTRIB_ARRAY_TYPE}, {@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED VERTEX_ATTRIB_ARRAY_NORMALIZED}, {@link #GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}, {@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}, {@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribiv(int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetVertexAttribiv(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribiv GetVertexAttribiv} */
 	public static void glGetVertexAttribiv(int index, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribiv(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribiv GetVertexAttribiv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the integer value of a generic vertex attribute parameter.
+	 *
+	 * @param index the generic vertex attribute parameter to be queried
+	 * @param pname the symbolic name of the vertex attribute parameter to be queried. One of:<br>{@link GL15#GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING VERTEX_ATTRIB_ARRAY_BUFFER_BINDING}, {@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED VERTEX_ATTRIB_ARRAY_ENABLED}, {@link #GL_VERTEX_ATTRIB_ARRAY_SIZE VERTEX_ATTRIB_ARRAY_SIZE}, {@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE VERTEX_ATTRIB_ARRAY_STRIDE}, {@link #GL_VERTEX_ATTRIB_ARRAY_TYPE VERTEX_ATTRIB_ARRAY_TYPE}, {@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED VERTEX_ATTRIB_ARRAY_NORMALIZED}, {@link #GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}, {@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}, {@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}
+	 */
 	public static int glGetVertexAttribi(int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2677,7 +2919,15 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribfv ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribfv GetVertexAttribfv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Float version of {@link #glGetVertexAttribiv GetVertexAttribiv}.
+	 *
+	 * @param index  the generic vertex attribute parameter to be queried
+	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
+	 * @param params returns the requested data
+	 */
 	public static void nglGetVertexAttribfv(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribfv;
 		if ( CHECKS )
@@ -2694,13 +2944,6 @@ Creates a program object.
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribfv(int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 4 << 2);
-		nglGetVertexAttribfv(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribfv GetVertexAttribfv} */
 	public static void glGetVertexAttribfv(int index, int pname, FloatBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 4);
@@ -2709,7 +2952,15 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribdv ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribdv GetVertexAttribdv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Double version of {@link #glGetVertexAttribiv GetVertexAttribiv}.
+	 *
+	 * @param index  the generic vertex attribute parameter to be queried
+	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
+	 * @param params returns the requested data
+	 */
 	public static void nglGetVertexAttribdv(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribdv;
 		if ( CHECKS )
@@ -2726,13 +2977,6 @@ Creates a program object.
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribdv(int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 4 << 3);
-		nglGetVertexAttribdv(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribdv GetVertexAttribdv} */
 	public static void glGetVertexAttribdv(int index, int pname, DoubleBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 4);
@@ -2741,7 +2985,15 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribPointerv ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the address of the specified generic vertex attribute pointer.
+	 *
+	 * @param index   the generic vertex attribute parameter to be queried
+	 * @param pname   the symbolic name of the generic vertex attribute parameter to be returned. Must be:<br>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER VERTEX_ATTRIB_ARRAY_POINTER}
+	 * @param pointer the pointer value
+	 */
 	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribPointerv;
 		if ( CHECKS )
@@ -2758,20 +3010,20 @@ Creates a program object.
 	 * @param pname   the symbolic name of the generic vertex attribute parameter to be returned. Must be:<br>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER VERTEX_ATTRIB_ARRAY_POINTER}
 	 * @param pointer the pointer value
 	 */
-	public static void glGetVertexAttribPointerv(int index, int pname, ByteBuffer pointer) {
-		if ( CHECKS )
-			checkBuffer(pointer, 1 << POINTER_SHIFT);
-		nglGetVertexAttribPointerv(index, pname, memAddress(pointer));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
 	public static void glGetVertexAttribPointerv(int index, int pname, PointerBuffer pointer) {
 		if ( CHECKS )
 			checkBuffer(pointer, 1);
 		nglGetVertexAttribPointerv(index, pname, memAddress(pointer));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns the address of the specified generic vertex attribute pointer.
+	 *
+	 * @param index the generic vertex attribute parameter to be queried
+	 * @param pname the symbolic name of the generic vertex attribute parameter to be returned. Must be:<br>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER VERTEX_ATTRIB_ARRAY_POINTER}
+	 */
 	public static long glGetVertexAttribPointer(int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2785,7 +3037,14 @@ Creates a program object.
 
 	// --- [ glDrawBuffers ] ---
 
-	/** Unsafe version of {@link #glDrawBuffers DrawBuffers} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies a list of color buffers to be drawn into.
+	 *
+	 * @param n    the number of buffers in {@code bufs}
+	 * @param bufs an array of symbolic constants specifying the buffers into which fragment colors or data values will be written. One of:<br>{@link GL11#GL_NONE NONE}, {@link GL11#GL_FRONT_LEFT FRONT_LEFT}, {@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}, {@link GL11#GL_BACK_LEFT BACK_LEFT}, {@link GL11#GL_BACK_RIGHT BACK_RIGHT}, {@link GL11#GL_AUX0 AUX0}, {@link GL11#GL_AUX1 AUX1}, {@link GL11#GL_AUX2 AUX2}, {@link GL11#GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
+	 */
 	public static void nglDrawBuffers(int n, long bufs) {
 		long __functionAddress = GL.getCapabilities().glDrawBuffers;
 		if ( CHECKS )
@@ -2798,21 +3057,17 @@ Creates a program object.
 	 * 
 	 * Specifies a list of color buffers to be drawn into.
 	 *
-	 * @param n    the number of buffers in {@code bufs}
 	 * @param bufs an array of symbolic constants specifying the buffers into which fragment colors or data values will be written. One of:<br>{@link GL11#GL_NONE NONE}, {@link GL11#GL_FRONT_LEFT FRONT_LEFT}, {@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}, {@link GL11#GL_BACK_LEFT BACK_LEFT}, {@link GL11#GL_BACK_RIGHT BACK_RIGHT}, {@link GL11#GL_AUX0 AUX0}, {@link GL11#GL_AUX1 AUX1}, {@link GL11#GL_AUX2 AUX2}, {@link GL11#GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
-	public static void glDrawBuffers(int n, ByteBuffer bufs) {
-		if ( CHECKS )
-			checkBuffer(bufs, n << 2);
-		nglDrawBuffers(n, memAddress(bufs));
-	}
-
-	/** Alternative version of: {@link #glDrawBuffers DrawBuffers} */
 	public static void glDrawBuffers(IntBuffer bufs) {
 		nglDrawBuffers(bufs.remaining(), memAddress(bufs));
 	}
 
-	/** Single value version of: {@link #glDrawBuffers DrawBuffers} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies a list of color buffers to be drawn into.
+	 */
 	public static void glDrawBuffers(int buf) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

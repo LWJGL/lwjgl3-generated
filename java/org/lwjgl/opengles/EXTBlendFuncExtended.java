@@ -63,7 +63,6 @@ public class EXTBlendFuncExtended {
 
 	// --- [ glBindFragDataLocationIndexedEXT ] ---
 
-	/** Unsafe version of {@link #glBindFragDataLocationIndexedEXT BindFragDataLocationIndexedEXT} */
 	public static void nglBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, long name) {
 		long __functionAddress = GLES.getCapabilities().glBindFragDataLocationIndexedEXT;
 		if ( CHECKS )
@@ -77,7 +76,6 @@ public class EXTBlendFuncExtended {
 		nglBindFragDataLocationIndexedEXT(program, colorNumber, index, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glBindFragDataLocationIndexedEXT BindFragDataLocationIndexedEXT} */
 	public static void glBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -90,7 +88,6 @@ public class EXTBlendFuncExtended {
 
 	// --- [ glGetFragDataIndexEXT ] ---
 
-	/** Unsafe version of {@link #glGetFragDataIndexEXT GetFragDataIndexEXT} */
 	public static int nglGetFragDataIndexEXT(int program, long name) {
 		long __functionAddress = GLES.getCapabilities().glGetFragDataIndexEXT;
 		if ( CHECKS )
@@ -104,7 +101,6 @@ public class EXTBlendFuncExtended {
 		return nglGetFragDataIndexEXT(program, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetFragDataIndexEXT GetFragDataIndexEXT} */
 	public static int glGetFragDataIndexEXT(int program, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -117,7 +113,6 @@ public class EXTBlendFuncExtended {
 
 	// --- [ glBindFragDataLocationEXT ] ---
 
-	/** Unsafe version of {@link #glBindFragDataLocationEXT BindFragDataLocationEXT} */
 	public static void nglBindFragDataLocationEXT(int program, int colorNumber, long name) {
 		long __functionAddress = GLES.getCapabilities().glBindFragDataLocationEXT;
 		if ( CHECKS )
@@ -131,7 +126,6 @@ public class EXTBlendFuncExtended {
 		nglBindFragDataLocationEXT(program, colorNumber, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glBindFragDataLocationEXT BindFragDataLocationEXT} */
 	public static void glBindFragDataLocationEXT(int program, int colorNumber, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -144,7 +138,6 @@ public class EXTBlendFuncExtended {
 
 	// --- [ glGetProgramResourceLocationIndexEXT ] ---
 
-	/** Unsafe version of {@link #glGetProgramResourceLocationIndexEXT GetProgramResourceLocationIndexEXT} */
 	public static int nglGetProgramResourceLocationIndexEXT(int program, int programInterface, long name) {
 		long __functionAddress = GLES.getCapabilities().glGetProgramResourceLocationIndexEXT;
 		if ( CHECKS )
@@ -158,7 +151,6 @@ public class EXTBlendFuncExtended {
 		return nglGetProgramResourceLocationIndexEXT(program, programInterface, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetProgramResourceLocationIndexEXT GetProgramResourceLocationIndexEXT} */
 	public static int glGetProgramResourceLocationIndexEXT(int program, int programInterface, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

@@ -44,7 +44,16 @@ public class KHREGLImage {
 
 	// --- [ clCreateFromEGLImageKHR ] ---
 
-	/** Unsafe version of {@link #clCreateFromEGLImageKHR CreateFromEGLImageKHR} */
+	/**
+	 * Creates an {@code EGLImage} target of type {@code cl_mem} from the {@code EGLImage} source provided as {@code image}.
+	 *
+	 * @param context     
+	 * @param display     an {@code EGLDisplay}
+	 * @param image       an {@code EGLImageKHR}
+	 * @param flags       a bit-field that is used to specify usage information about the memory object being created
+	 * @param properties  a list of property names and their corresponding values
+	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
+	 */
 	public static long nclCreateFromEGLImageKHR(long context, long display, long image, long flags, long properties, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromEGLImageKHR;
 		if ( CHECKS ) {
@@ -66,15 +75,6 @@ public class KHREGLImage {
 	 * @param properties  a list of property names and their corresponding values
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 */
-	public static long clCreateFromEGLImageKHR(long context, long display, long image, long flags, ByteBuffer properties, ByteBuffer errcode_ret) {
-		if ( CHECKS ) {
-			if ( properties != null ) checkNTP(properties);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
-		}
-		return nclCreateFromEGLImageKHR(context, display, image, flags, memAddressSafe(properties), memAddressSafe(errcode_ret));
-	}
-
-	/** Alternative version of: {@link #clCreateFromEGLImageKHR CreateFromEGLImageKHR} */
 	public static long clCreateFromEGLImageKHR(long context, long display, long image, long flags, PointerBuffer properties, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
 			if ( properties != null ) checkNT(properties);
@@ -84,16 +84,6 @@ public class KHREGLImage {
 	}
 
 	// --- [ clEnqueueAcquireEGLObjectsKHR ] ---
-
-	/** Unsafe version of {@link #clEnqueueAcquireEGLObjectsKHR EnqueueAcquireEGLObjectsKHR} */
-	public static int nclEnqueueAcquireEGLObjectsKHR(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = CL.getICD().clEnqueueAcquireEGLObjectsKHR;
-		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
-		}
-		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
-	}
 
 	/**
 	 * Acquires OpenCL memory objects that have been created from EGL resources. The EGL objects are acquired by the OpenCL context associated with
@@ -111,16 +101,29 @@ public class KHREGLImage {
 	 *                                complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
 	 *                                {@code event_wait_list} array.
 	 */
-	public static int clEnqueueAcquireEGLObjectsKHR(long command_queue, int num_objects, ByteBuffer mem_objects, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
+	public static int nclEnqueueAcquireEGLObjectsKHR(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
+		long __functionAddress = CL.getICD().clEnqueueAcquireEGLObjectsKHR;
 		if ( CHECKS ) {
-			checkBuffer(mem_objects, num_objects << POINTER_SHIFT);
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
-			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
+			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
 		}
-		return nclEnqueueAcquireEGLObjectsKHR(command_queue, num_objects, memAddress(mem_objects), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
-	/** Alternative version of: {@link #clEnqueueAcquireEGLObjectsKHR EnqueueAcquireEGLObjectsKHR} */
+	/**
+	 * Acquires OpenCL memory objects that have been created from EGL resources. The EGL objects are acquired by the OpenCL context associated with
+	 * {@code command_queue} and can therefore be used by all command-queues associated with the OpenCL context.
+	 *
+	 * @param command_queue   a valid command-queue
+	 * @param mem_objects     a pointer to a list of OpenCL memory objects that were created from EGL resources, within the context associated with {@code command_queue}
+	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event           Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                        {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                        complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                        {@code event_wait_list} array.
+	 */
 	public static int clEnqueueAcquireEGLObjectsKHR(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
@@ -128,16 +131,6 @@ public class KHREGLImage {
 	}
 
 	// --- [ clEnqueueReleaseEGLObjectsKHR ] ---
-
-	/** Unsafe version of {@link #clEnqueueReleaseEGLObjectsKHR EnqueueReleaseEGLObjectsKHR} */
-	public static int nclEnqueueReleaseEGLObjectsKHR(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
-		long __functionAddress = CL.getICD().clEnqueueReleaseEGLObjectsKHR;
-		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
-		}
-		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
-	}
 
 	/**
 	 * Releases OpenCL memory objects that have been created from EGL resources. The EGL objects are released by the OpenCL context associated with
@@ -155,15 +148,30 @@ public class KHREGLImage {
 	 *                                complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
 	 *                                {@code event_wait_list} array.
 	 */
-	public static int clEnqueueReleaseEGLObjectsKHR(long command_queue, int num_objects, ByteBuffer mem_objects, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
+	public static int nclEnqueueReleaseEGLObjectsKHR(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
+		long __functionAddress = CL.getICD().clEnqueueReleaseEGLObjectsKHR;
 		if ( CHECKS ) {
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
-			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
+			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
 		}
-		return nclEnqueueReleaseEGLObjectsKHR(command_queue, num_objects, memAddress(mem_objects), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
-	/** Alternative version of: {@link #clEnqueueReleaseEGLObjectsKHR EnqueueReleaseEGLObjectsKHR} */
+	/**
+	 * Releases OpenCL memory objects that have been created from EGL resources. The EGL objects are released by the OpenCL context associated with
+	 * {@code command_queue}.
+	 *
+	 * @param command_queue   a valid command-queue
+	 * @param num_objects     the number of memory objects to be released in {@code mem_objects}
+	 * @param mem_objects     a pointer to a list of OpenCL memory objects that were created from EGL resources, within the context associated with {@code command_queue}
+	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event           Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                        {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                        complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                        {@code event_wait_list} array.
+	 */
 	public static int clEnqueueReleaseEGLObjectsKHR(long command_queue, int num_objects, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);

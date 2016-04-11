@@ -53,7 +53,6 @@ public class OESGetProgramBinary {
 
 	// --- [ glGetProgramBinaryOES ] ---
 
-	/** Unsafe version of {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
 	public static void nglGetProgramBinaryOES(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = GLES.getCapabilities().glGetProgramBinaryOES;
 		if ( CHECKS )
@@ -61,16 +60,6 @@ public class OESGetProgramBinary {
 		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
-	public static void glGetProgramBinaryOES(int program, int bufSize, ByteBuffer length, ByteBuffer binaryFormat, ByteBuffer binary) {
-		if ( CHECKS ) {
-			checkBuffer(binary, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-			checkBuffer(binaryFormat, 1 << 2);
-		}
-		nglGetProgramBinaryOES(program, bufSize, memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
-	}
-
-	/** Alternative version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
 	public static void glGetProgramBinaryOES(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
 		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
@@ -81,7 +70,6 @@ public class OESGetProgramBinary {
 
 	// --- [ glProgramBinaryOES ] ---
 
-	/** Unsafe version of {@link #glProgramBinaryOES ProgramBinaryOES} */
 	public static void nglProgramBinaryOES(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = GLES.getCapabilities().glProgramBinaryOES;
 		if ( CHECKS )
@@ -89,13 +77,6 @@ public class OESGetProgramBinary {
 		callIIPIV(__functionAddress, program, binaryFormat, binary, length);
 	}
 
-	public static void glProgramBinaryOES(int program, int binaryFormat, ByteBuffer binary, int length) {
-		if ( CHECKS )
-			checkBuffer(binary, length);
-		nglProgramBinaryOES(program, binaryFormat, memAddress(binary), length);
-	}
-
-	/** Alternative version of: {@link #glProgramBinaryOES ProgramBinaryOES} */
 	public static void glProgramBinaryOES(int program, int binaryFormat, ByteBuffer binary) {
 		nglProgramBinaryOES(program, binaryFormat, memAddress(binary), binary.remaining());
 	}

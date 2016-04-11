@@ -240,7 +240,12 @@ public class AL10 {
 
 	// --- [ alGetBooleanv ] ---
 
-	/** Unsafe version of {@link #alGetBooleanv GetBooleanv} */
+	/**
+	 * Pointer version of {@link #alGetBoolean GetBoolean}.
+	 *
+	 * @param paramName the parameter to query
+	 * @param dest      a buffer that will receive the parameter values
+	 */
 	public static void nalGetBooleanv(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetBooleanv;
 		invokeIPV(__functionAddress, paramName, dest);
@@ -260,7 +265,12 @@ public class AL10 {
 
 	// --- [ alGetIntegerv ] ---
 
-	/** Unsafe version of {@link #alGetIntegerv GetIntegerv} */
+	/**
+	 * Pointer version of {@link #alGetInteger GetInteger}.
+	 *
+	 * @param paramName the parameter to query
+	 * @param dest      a buffer that will receive the parameter values
+	 */
 	public static void nalGetIntegerv(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetIntegerv;
 		invokeIPV(__functionAddress, paramName, dest);
@@ -272,13 +282,6 @@ public class AL10 {
 	 * @param paramName the parameter to query
 	 * @param dest      a buffer that will receive the parameter values
 	 */
-	public static void alGetIntegerv(int paramName, ByteBuffer dest) {
-		if ( CHECKS )
-			checkBuffer(dest, 1 << 2);
-		nalGetIntegerv(paramName, memAddress(dest));
-	}
-
-	/** Alternative version of: {@link #alGetIntegerv GetIntegerv} */
 	public static void alGetIntegerv(int paramName, IntBuffer dest) {
 		if ( CHECKS )
 			checkBuffer(dest, 1);
@@ -287,7 +290,12 @@ public class AL10 {
 
 	// --- [ alGetFloatv ] ---
 
-	/** Unsafe version of {@link #alGetFloatv GetFloatv} */
+	/**
+	 * Pointer version of {@link #alGetFloat GetFloat}.
+	 *
+	 * @param paramName the parameter to query
+	 * @param dest      a buffer that will receive the parameter values
+	 */
 	public static void nalGetFloatv(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetFloatv;
 		invokeIPV(__functionAddress, paramName, dest);
@@ -299,13 +307,6 @@ public class AL10 {
 	 * @param paramName the parameter to query
 	 * @param dest      a buffer that will receive the parameter values
 	 */
-	public static void alGetFloatv(int paramName, ByteBuffer dest) {
-		if ( CHECKS )
-			checkBuffer(dest, 1 << 2);
-		nalGetFloatv(paramName, memAddress(dest));
-	}
-
-	/** Alternative version of: {@link #alGetFloatv GetFloatv} */
 	public static void alGetFloatv(int paramName, FloatBuffer dest) {
 		if ( CHECKS )
 			checkBuffer(dest, 1);
@@ -314,7 +315,12 @@ public class AL10 {
 
 	// --- [ alGetDoublev ] ---
 
-	/** Unsafe version of {@link #alGetDoublev GetDoublev} */
+	/**
+	 * Pointer version of {@link #alGetDouble GetDouble}.
+	 *
+	 * @param paramName the parameter to query
+	 * @param dest      a buffer that will receive the parameter values
+	 */
 	public static void nalGetDoublev(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetDoublev;
 		invokeIPV(__functionAddress, paramName, dest);
@@ -326,13 +332,6 @@ public class AL10 {
 	 * @param paramName the parameter to query
 	 * @param dest      a buffer that will receive the parameter values
 	 */
-	public static void alGetDoublev(int paramName, ByteBuffer dest) {
-		if ( CHECKS )
-			checkBuffer(dest, 1 << 3);
-		nalGetDoublev(paramName, memAddress(dest));
-	}
-
-	/** Alternative version of: {@link #alGetDoublev GetDoublev} */
 	public static void alGetDoublev(int paramName, DoubleBuffer dest) {
 		if ( CHECKS )
 			checkBuffer(dest, 1);
@@ -341,7 +340,11 @@ public class AL10 {
 
 	// --- [ alGetString ] ---
 
-	/** Unsafe version of {@link #alGetString GetString} */
+	/**
+	 * Returns the string value of the specified parameter
+	 *
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_VENDOR VENDOR}, {@link #AL_VERSION VERSION}, {@link #AL_RENDERER RENDERER}, {@link #AL_EXTENSIONS EXTENSIONS}
+	 */
 	public static long nalGetString(int paramName) {
 		long __functionAddress = AL.getCapabilities().alGetString;
 		return invokeIP(__functionAddress, paramName);
@@ -492,7 +495,12 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alListenerfv ] ---
 
-	/** Unsafe version of {@link #alListenerfv Listenerfv} */
+	/**
+	 * Pointer version of {@link #alListenerf Listenerf}.
+	 *
+	 * @param paramName the parameter to modify
+	 * @param values    the parameter values
+	 */
 	public static void nalListenerfv(int paramName, long values) {
 		long __functionAddress = AL.getCapabilities().alListenerfv;
 		invokeIPV(__functionAddress, paramName, values);
@@ -504,13 +512,6 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param paramName the parameter to modify
 	 * @param values    the parameter values
 	 */
-	public static void alListenerfv(int paramName, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalListenerfv(paramName, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alListenerfv Listenerfv} */
 	public static void alListenerfv(int paramName, FloatBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -519,7 +520,12 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetListenerf ] ---
 
-	/** Unsafe version of {@link #alGetListenerf GetListenerf} */
+	/**
+	 * Returns the float value of a listener parameter.
+	 *
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 * @param value     the parameter value
+	 */
 	public static void nalGetListenerf(int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetListenerf;
 		invokeIPV(__functionAddress, paramName, value);
@@ -531,20 +537,17 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value     the parameter value
 	 */
-	public static void alGetListenerf(int paramName, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetListenerf(paramName, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetListenerf GetListenerf} */
 	public static void alGetListenerf(int paramName, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetListenerf(paramName, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetListenerf GetListenerf} */
+	/**
+	 * Returns the float value of a listener parameter.
+	 *
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 */
 	public static float alGetListenerf(int paramName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -558,7 +561,12 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetListeneri ] ---
 
-	/** Unsafe version of {@link #alGetListeneri GetListeneri} */
+	/**
+	 * Returns the integer value of a listener parameter.
+	 *
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 * @param value     the parameter value
+	 */
 	public static void nalGetListeneri(int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetListeneri;
 		invokeIPV(__functionAddress, paramName, value);
@@ -570,20 +578,17 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value     the parameter value
 	 */
-	public static void alGetListeneri(int paramName, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetListeneri(paramName, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetListeneri GetListeneri} */
 	public static void alGetListeneri(int paramName, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetListeneri(paramName, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetListeneri GetListeneri} */
+	/**
+	 * Returns the integer value of a listener parameter.
+	 *
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 */
 	public static int alGetListeneri(int paramName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -597,7 +602,14 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetListener3f ] ---
 
-	/** Unsafe version of {@link #alGetListener3f GetListener3f} */
+	/**
+	 * Returns the 3 dimensional values of a listener parameter.
+	 *
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 * @param value1    the first parameter value
+	 * @param value2    the second parameter value
+	 * @param value3    the third parameter value
+	 */
 	public static void nalGetListener3f(int paramName, long value1, long value2, long value3) {
 		long __functionAddress = AL.getCapabilities().alGetListener3f;
 		invokeIPPPV(__functionAddress, paramName, value1, value2, value3);
@@ -611,16 +623,6 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param value2    the second parameter value
 	 * @param value3    the third parameter value
 	 */
-	public static void alGetListener3f(int paramName, ByteBuffer value1, ByteBuffer value2, ByteBuffer value3) {
-		if ( CHECKS ) {
-			checkBuffer(value1, 1 << 2);
-			checkBuffer(value2, 1 << 2);
-			checkBuffer(value3, 1 << 2);
-		}
-		nalGetListener3f(paramName, memAddress(value1), memAddress(value2), memAddress(value3));
-	}
-
-	/** Alternative version of: {@link #alGetListener3f GetListener3f} */
 	public static void alGetListener3f(int paramName, FloatBuffer value1, FloatBuffer value2, FloatBuffer value3) {
 		if ( CHECKS ) {
 			checkBuffer(value1, 1);
@@ -632,7 +634,12 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetListenerfv ] ---
 
-	/** Unsafe version of {@link #alGetListenerfv GetListenerfv} */
+	/**
+	 * Returns float values of a listener parameter.
+	 *
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 * @param values    the parameter values
+	 */
 	public static void nalGetListenerfv(int paramName, long values) {
 		long __functionAddress = AL.getCapabilities().alGetListenerfv;
 		invokeIPV(__functionAddress, paramName, values);
@@ -644,13 +651,6 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param values    the parameter values
 	 */
-	public static void alGetListenerfv(int paramName, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetListenerfv(paramName, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetListenerfv GetListenerfv} */
 	public static void alGetListenerfv(int paramName, FloatBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -659,7 +659,12 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGenSources ] ---
 
-	/** Unsafe version of {@link #alGenSources GenSources} */
+	/**
+	 * Requests a number of source names.
+	 *
+	 * @param n        the number of source names to generated
+	 * @param srcNames the buffer that will receive the source names
+	 */
 	public static void nalGenSources(int n, long srcNames) {
 		long __functionAddress = AL.getCapabilities().alGenSources;
 		invokeIPV(__functionAddress, n, srcNames);
@@ -668,21 +673,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	/**
 	 * Requests a number of source names.
 	 *
-	 * @param n        the number of source names to generated
 	 * @param srcNames the buffer that will receive the source names
 	 */
-	public static void alGenSources(int n, ByteBuffer srcNames) {
-		if ( CHECKS )
-			checkBuffer(srcNames, n << 2);
-		nalGenSources(n, memAddress(srcNames));
-	}
-
-	/** Alternative version of: {@link #alGenSources GenSources} */
 	public static void alGenSources(IntBuffer srcNames) {
 		nalGenSources(srcNames.remaining(), memAddress(srcNames));
 	}
 
-	/** Single return value version of: {@link #alGenSources GenSources} */
+	/** Requests a number of source names. */
 	public static int alGenSources() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -696,7 +693,12 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alDeleteSources ] ---
 
-	/** Unsafe version of {@link #alDeleteSources DeleteSources} */
+	/**
+	 * Requests the deletion of a number of sources.
+	 *
+	 * @param n       the number of sources to delete
+	 * @param sources the sources to delete
+	 */
 	public static void nalDeleteSources(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alDeleteSources;
 		invokeIPV(__functionAddress, n, sources);
@@ -705,21 +707,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	/**
 	 * Requests the deletion of a number of sources.
 	 *
-	 * @param n       the number of sources to delete
 	 * @param sources the sources to delete
 	 */
-	public static void alDeleteSources(int n, ByteBuffer sources) {
-		if ( CHECKS )
-			checkBuffer(sources, n << 2);
-		nalDeleteSources(n, memAddress(sources));
-	}
-
-	/** Alternative version of: {@link #alDeleteSources DeleteSources} */
 	public static void alDeleteSources(IntBuffer sources) {
 		nalDeleteSources(sources.remaining(), memAddress(sources));
 	}
 
-	/** Single value version of: {@link #alDeleteSources DeleteSources} */
+	/** Requests the deletion of a number of sources. */
 	public static void alDeleteSources(int source) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -774,7 +768,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alSourcefv ] ---
 
-	/** Unsafe version of {@link #alSourcefv Sourcefv} */
+	/**
+	 * Pointer version of {@link #alSourcef Sourcef}.
+	 *
+	 * @param source the source to modify
+	 * @param param  the parameter to modify
+	 * @param values the parameter values
+	 */
 	public static void nalSourcefv(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alSourcefv;
 		invokeIIPV(__functionAddress, source, param, values);
@@ -787,13 +787,6 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param param  the parameter to modify
 	 * @param values the parameter values
 	 */
-	public static void alSourcefv(int source, int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalSourcefv(source, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alSourcefv Sourcefv} */
 	public static void alSourcefv(int source, int param, FloatBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -816,7 +809,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetSourcef ] ---
 
-	/** Unsafe version of {@link #alGetSourcef GetSourcef} */
+	/**
+	 * Returns the float value of the specified source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param value  the parameter value
+	 */
 	public static void nalGetSourcef(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcef;
 		invokeIIPV(__functionAddress, source, param, value);
@@ -829,20 +828,18 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param value  the parameter value
 	 */
-	public static void alGetSourcef(int source, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetSourcef(source, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetSourcef GetSourcef} */
 	public static void alGetSourcef(int source, int param, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetSourcef(source, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetSourcef GetSourcef} */
+	/**
+	 * Returns the float value of the specified source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 */
 	public static float alGetSourcef(int source, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -856,7 +853,15 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetSource3f ] ---
 
-	/** Unsafe version of {@link #alGetSource3f GetSource3f} */
+	/**
+	 * Returns the 3 dimensional values of the specified source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param v1     the first parameter value
+	 * @param v2     the second parameter value
+	 * @param v3     the third parameter value
+	 */
 	public static void nalGetSource3f(int source, int param, long v1, long v2, long v3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3f;
 		invokeIIPPPV(__functionAddress, source, param, v1, v2, v3);
@@ -871,16 +876,6 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param v2     the second parameter value
 	 * @param v3     the third parameter value
 	 */
-	public static void alGetSource3f(int source, int param, ByteBuffer v1, ByteBuffer v2, ByteBuffer v3) {
-		if ( CHECKS ) {
-			checkBuffer(v1, 1 << 2);
-			checkBuffer(v2, 1 << 2);
-			checkBuffer(v3, 1 << 2);
-		}
-		nalGetSource3f(source, param, memAddress(v1), memAddress(v2), memAddress(v3));
-	}
-
-	/** Alternative version of: {@link #alGetSource3f GetSource3f} */
 	public static void alGetSource3f(int source, int param, FloatBuffer v1, FloatBuffer v2, FloatBuffer v3) {
 		if ( CHECKS ) {
 			checkBuffer(v1, 1);
@@ -892,7 +887,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetSourcefv ] ---
 
-	/** Unsafe version of {@link #alGetSourcefv GetSourcefv} */
+	/**
+	 * Returns the float values of the specified source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param values the parameter values
+	 */
 	public static void nalGetSourcefv(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcefv;
 		invokeIIPV(__functionAddress, source, param, values);
@@ -905,13 +906,6 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param values the parameter values
 	 */
-	public static void alGetSourcefv(int source, int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetSourcefv(source, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetSourcefv GetSourcefv} */
 	public static void alGetSourcefv(int source, int param, FloatBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -920,7 +914,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetSourcei ] ---
 
-	/** Unsafe version of {@link #alGetSourcei GetSourcei} */
+	/**
+	 * Returns the integer value of the specified source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param value  the parameter value
+	 */
 	public static void nalGetSourcei(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei;
 		invokeIIPV(__functionAddress, source, param, value);
@@ -933,20 +933,18 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param value  the parameter value
 	 */
-	public static void alGetSourcei(int source, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetSourcei(source, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetSourcei GetSourcei} */
 	public static void alGetSourcei(int source, int param, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetSourcei(source, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetSourcei GetSourcei} */
+	/**
+	 * Returns the integer value of the specified source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 */
 	public static int alGetSourcei(int source, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -960,7 +958,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetSourceiv ] ---
 
-	/** Unsafe version of {@link #alGetSourceiv GetSourceiv} */
+	/**
+	 * Returns the integer values of the specified source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param values the parameter values
+	 */
 	public static void nalGetSourceiv(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourceiv;
 		invokeIIPV(__functionAddress, source, param, values);
@@ -973,13 +977,6 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param values the parameter values
 	 */
-	public static void alGetSourceiv(int source, int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetSourceiv(source, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetSourceiv GetSourceiv} */
 	public static void alGetSourceiv(int source, int param, IntBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -988,7 +985,17 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alSourceQueueBuffers ] ---
 
-	/** Unsafe version of {@link #alSourceQueueBuffers SourceQueueBuffers} */
+	/**
+	 * Queues up one or multiple buffer names to the specified source.
+	 * 
+	 * <p>The buffers will be queued in the sequence in which they appear in the array. This command is legal on a source in any playback state (to allow for
+	 * streaming, queuing has to be possible on a AL_PLAYING source). All buffers in a queue must have the same format and attributes, with the exception of
+	 * the {@code NULL} buffer (i.e., 0) which can always be queued.</p>
+	 *
+	 * @param sourceName  the target source
+	 * @param numBuffers  the number of buffers to queue
+	 * @param bufferNames the buffer names
+	 */
 	public static void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alSourceQueueBuffers;
 		invokeIIPV(__functionAddress, sourceName, numBuffers, bufferNames);
@@ -1002,21 +1009,21 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * the {@code NULL} buffer (i.e., 0) which can always be queued.</p>
 	 *
 	 * @param sourceName  the target source
-	 * @param numBuffers  the number of buffers to queue
 	 * @param bufferNames the buffer names
 	 */
-	public static void alSourceQueueBuffers(int sourceName, int numBuffers, ByteBuffer bufferNames) {
-		if ( CHECKS )
-			checkBuffer(bufferNames, numBuffers << 2);
-		nalSourceQueueBuffers(sourceName, numBuffers, memAddress(bufferNames));
-	}
-
-	/** Alternative version of: {@link #alSourceQueueBuffers SourceQueueBuffers} */
 	public static void alSourceQueueBuffers(int sourceName, IntBuffer bufferNames) {
 		nalSourceQueueBuffers(sourceName, bufferNames.remaining(), memAddress(bufferNames));
 	}
 
-	/** Single value version of: {@link #alSourceQueueBuffers SourceQueueBuffers} */
+	/**
+	 * Queues up one or multiple buffer names to the specified source.
+	 * 
+	 * <p>The buffers will be queued in the sequence in which they appear in the array. This command is legal on a source in any playback state (to allow for
+	 * streaming, queuing has to be possible on a AL_PLAYING source). All buffers in a queue must have the same format and attributes, with the exception of
+	 * the {@code NULL} buffer (i.e., 0) which can always be queued.</p>
+	 *
+	 * @param sourceName the target source
+	 */
 	public static void alSourceQueueBuffers(int sourceName, int bufferName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1029,7 +1036,18 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alSourceUnqueueBuffers ] ---
 
-	/** Unsafe version of {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
+	/**
+	 * Removes a number of buffer entries that have finished processing, in the order of apperance, from the queue of the specified source.
+	 * 
+	 * <p>Once a queue entry for a buffer has been appended to a queue and is pending processing, it should not be changed. Removal of a given queue entry is not
+	 * possible unless either the source is stopped (in which case then entire queue is considered processed), or if the queue entry has already been processed
+	 * (AL_PLAYING or AL_PAUSED source). A playing source will enter the AL_STOPPED state if it completes playback of the last buffer in its queue (the same
+	 * behavior as when a single buffer has been attached to a source and has finished playback).</p>
+	 *
+	 * @param sourceName  the target source
+	 * @param numEntries  the number of buffers to unqueue
+	 * @param bufferNames the buffer names
+	 */
 	public static void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alSourceUnqueueBuffers;
 		invokeIIPV(__functionAddress, sourceName, numEntries, bufferNames);
@@ -1044,21 +1062,22 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * behavior as when a single buffer has been attached to a source and has finished playback).</p>
 	 *
 	 * @param sourceName  the target source
-	 * @param numEntries  the number of buffers to unqueue
 	 * @param bufferNames the buffer names
 	 */
-	public static void alSourceUnqueueBuffers(int sourceName, int numEntries, ByteBuffer bufferNames) {
-		if ( CHECKS )
-			checkBuffer(bufferNames, numEntries << 2);
-		nalSourceUnqueueBuffers(sourceName, numEntries, memAddress(bufferNames));
-	}
-
-	/** Alternative version of: {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
 	public static void alSourceUnqueueBuffers(int sourceName, IntBuffer bufferNames) {
 		nalSourceUnqueueBuffers(sourceName, bufferNames.remaining(), memAddress(bufferNames));
 	}
 
-	/** Single return value version of: {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
+	/**
+	 * Removes a number of buffer entries that have finished processing, in the order of apperance, from the queue of the specified source.
+	 * 
+	 * <p>Once a queue entry for a buffer has been appended to a queue and is pending processing, it should not be changed. Removal of a given queue entry is not
+	 * possible unless either the source is stopped (in which case then entire queue is considered processed), or if the queue entry has already been processed
+	 * (AL_PLAYING or AL_PAUSED source). A playing source will enter the AL_STOPPED state if it completes playback of the last buffer in its queue (the same
+	 * behavior as when a single buffer has been attached to a source and has finished playback).</p>
+	 *
+	 * @param sourceName the target source
+	 */
 	public static int alSourceUnqueueBuffers(int sourceName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1139,7 +1158,12 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alSourcePlayv ] ---
 
-	/** Unsafe version of {@link #alSourcePlayv SourcePlayv} */
+	/**
+	 * Pointer version of {@link #alSourcePlay SourcePlay}.
+	 *
+	 * @param n       the number of sources to play
+	 * @param sources the sources to play
+	 */
 	public static void nalSourcePlayv(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourcePlayv;
 		invokeIPV(__functionAddress, n, sources);
@@ -1148,23 +1172,20 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	/**
 	 * Pointer version of {@link #alSourcePlay SourcePlay}.
 	 *
-	 * @param n       the number of sources to play
 	 * @param sources the sources to play
 	 */
-	public static void alSourcePlayv(int n, ByteBuffer sources) {
-		if ( CHECKS )
-			checkBuffer(sources, n << 2);
-		nalSourcePlayv(n, memAddress(sources));
-	}
-
-	/** Alternative version of: {@link #alSourcePlayv SourcePlayv} */
 	public static void alSourcePlayv(IntBuffer sources) {
 		nalSourcePlayv(sources.remaining(), memAddress(sources));
 	}
 
 	// --- [ alSourcePausev ] ---
 
-	/** Unsafe version of {@link #alSourcePausev SourcePausev} */
+	/**
+	 * Pointer version of {@link #alSourcePause SourcePause}.
+	 *
+	 * @param n       the number of sources to pause
+	 * @param sources the sources to pause
+	 */
 	public static void nalSourcePausev(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourcePausev;
 		invokeIPV(__functionAddress, n, sources);
@@ -1173,23 +1194,20 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	/**
 	 * Pointer version of {@link #alSourcePause SourcePause}.
 	 *
-	 * @param n       the number of sources to pause
 	 * @param sources the sources to pause
 	 */
-	public static void alSourcePausev(int n, ByteBuffer sources) {
-		if ( CHECKS )
-			checkBuffer(sources, n << 2);
-		nalSourcePausev(n, memAddress(sources));
-	}
-
-	/** Alternative version of: {@link #alSourcePausev SourcePausev} */
 	public static void alSourcePausev(IntBuffer sources) {
 		nalSourcePausev(sources.remaining(), memAddress(sources));
 	}
 
 	// --- [ alSourceStopv ] ---
 
-	/** Unsafe version of {@link #alSourceStopv SourceStopv} */
+	/**
+	 * Pointer version of {@link #alSourceStop SourceStop}.
+	 *
+	 * @param n       the number of sources to stop
+	 * @param sources the sources to stop
+	 */
 	public static void nalSourceStopv(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourceStopv;
 		invokeIPV(__functionAddress, n, sources);
@@ -1198,23 +1216,20 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	/**
 	 * Pointer version of {@link #alSourceStop SourceStop}.
 	 *
-	 * @param n       the number of sources to stop
 	 * @param sources the sources to stop
 	 */
-	public static void alSourceStopv(int n, ByteBuffer sources) {
-		if ( CHECKS )
-			checkBuffer(sources, n << 2);
-		nalSourceStopv(n, memAddress(sources));
-	}
-
-	/** Alternative version of: {@link #alSourceStopv SourceStopv} */
 	public static void alSourceStopv(IntBuffer sources) {
 		nalSourceStopv(sources.remaining(), memAddress(sources));
 	}
 
 	// --- [ alSourceRewindv ] ---
 
-	/** Unsafe version of {@link #alSourceRewindv SourceRewindv} */
+	/**
+	 * Pointer version of {@link #alSourceRewind SourceRewind}.
+	 *
+	 * @param n       the number of sources to rewind
+	 * @param sources the sources to rewind
+	 */
 	public static void nalSourceRewindv(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourceRewindv;
 		invokeIPV(__functionAddress, n, sources);
@@ -1223,23 +1238,20 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	/**
 	 * Pointer version of {@link #alSourceRewind SourceRewind}.
 	 *
-	 * @param n       the number of sources to rewind
 	 * @param sources the sources to rewind
 	 */
-	public static void alSourceRewindv(int n, ByteBuffer sources) {
-		if ( CHECKS )
-			checkBuffer(sources, n << 2);
-		nalSourceRewindv(n, memAddress(sources));
-	}
-
-	/** Alternative version of: {@link #alSourceRewindv SourceRewindv} */
 	public static void alSourceRewindv(IntBuffer sources) {
 		nalSourceRewindv(sources.remaining(), memAddress(sources));
 	}
 
 	// --- [ alGenBuffers ] ---
 
-	/** Unsafe version of {@link #alGenBuffers GenBuffers} */
+	/**
+	 * Requests a number of buffer names.
+	 *
+	 * @param n           the number of buffer names to generate
+	 * @param bufferNames the buffer that will receive the buffer names
+	 */
 	public static void nalGenBuffers(int n, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alGenBuffers;
 		invokeIPV(__functionAddress, n, bufferNames);
@@ -1248,21 +1260,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	/**
 	 * Requests a number of buffer names.
 	 *
-	 * @param n           the number of buffer names to generate
 	 * @param bufferNames the buffer that will receive the buffer names
 	 */
-	public static void alGenBuffers(int n, ByteBuffer bufferNames) {
-		if ( CHECKS )
-			checkBuffer(bufferNames, n << 2);
-		nalGenBuffers(n, memAddress(bufferNames));
-	}
-
-	/** Alternative version of: {@link #alGenBuffers GenBuffers} */
 	public static void alGenBuffers(IntBuffer bufferNames) {
 		nalGenBuffers(bufferNames.remaining(), memAddress(bufferNames));
 	}
 
-	/** Single return value version of: {@link #alGenBuffers GenBuffers} */
+	/** Requests a number of buffer names. */
 	public static int alGenBuffers() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1276,7 +1280,12 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alDeleteBuffers ] ---
 
-	/** Unsafe version of {@link #alDeleteBuffers DeleteBuffers} */
+	/**
+	 * Requests the deletion of a number of buffers.
+	 *
+	 * @param n           the number of buffers to delete
+	 * @param bufferNames the buffers to delete
+	 */
 	public static void nalDeleteBuffers(int n, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alDeleteBuffers;
 		invokeIPV(__functionAddress, n, bufferNames);
@@ -1285,21 +1294,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	/**
 	 * Requests the deletion of a number of buffers.
 	 *
-	 * @param n           the number of buffers to delete
 	 * @param bufferNames the buffers to delete
 	 */
-	public static void alDeleteBuffers(int n, ByteBuffer bufferNames) {
-		if ( CHECKS )
-			checkBuffer(bufferNames, n << 2);
-		nalDeleteBuffers(n, memAddress(bufferNames));
-	}
-
-	/** Alternative version of: {@link #alDeleteBuffers DeleteBuffers} */
 	public static void alDeleteBuffers(IntBuffer bufferNames) {
 		nalDeleteBuffers(bufferNames.remaining(), memAddress(bufferNames));
 	}
 
-	/** Single value version of: {@link #alDeleteBuffers DeleteBuffers} */
+	/** Requests the deletion of a number of buffers. */
 	public static void alDeleteBuffers(int bufferName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1324,7 +1325,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetBufferf ] ---
 
-	/** Unsafe version of {@link #alGetBufferf GetBufferf} */
+	/**
+	 * Returns the float value of the specified buffer parameter.
+	 *
+	 * @param bufferName the buffer to query
+	 * @param paramName  the parameter to query. One of:<br>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
+	 * @param value      the parameter value
+	 */
 	public static void nalGetBufferf(int bufferName, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferf;
 		invokeIIPV(__functionAddress, bufferName, paramName, value);
@@ -1337,20 +1344,18 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param paramName  the parameter to query. One of:<br>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
 	 * @param value      the parameter value
 	 */
-	public static void alGetBufferf(int bufferName, int paramName, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetBufferf(bufferName, paramName, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetBufferf GetBufferf} */
 	public static void alGetBufferf(int bufferName, int paramName, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetBufferf(bufferName, paramName, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetBufferf GetBufferf} */
+	/**
+	 * Returns the float value of the specified buffer parameter.
+	 *
+	 * @param bufferName the buffer to query
+	 * @param paramName  the parameter to query. One of:<br>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
+	 */
 	public static float alGetBufferf(int bufferName, int paramName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1364,7 +1369,13 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetBufferi ] ---
 
-	/** Unsafe version of {@link #alGetBufferi GetBufferi} */
+	/**
+	 * Returns the integer value of the specified buffer parameter.
+	 *
+	 * @param bufferName the buffer to query
+	 * @param paramName  the parameter to query. One of:<br>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
+	 * @param value      the parameter value
+	 */
 	public static void nalGetBufferi(int bufferName, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferi;
 		invokeIIPV(__functionAddress, bufferName, paramName, value);
@@ -1377,20 +1388,18 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param paramName  the parameter to query. One of:<br>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
 	 * @param value      the parameter value
 	 */
-	public static void alGetBufferi(int bufferName, int paramName, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetBufferi(bufferName, paramName, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetBufferi GetBufferi} */
 	public static void alGetBufferi(int bufferName, int paramName, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetBufferi(bufferName, paramName, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetBufferi GetBufferi} */
+	/**
+	 * Returns the integer value of the specified buffer parameter.
+	 *
+	 * @param bufferName the buffer to query
+	 * @param paramName  the parameter to query. One of:<br>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
+	 */
 	public static int alGetBufferi(int bufferName, int paramName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1404,7 +1413,28 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alBufferData ] ---
 
-	/** Unsafe version of {@link #alBufferData BufferData} */
+	/**
+	 * Sets the sample data of the specified buffer.
+	 * 
+	 * <p>The data specified is copied to an internal software, or if possible, hardware buffer. The implementation is free to apply decompression, conversion,
+	 * resampling, and filtering as needed.</p>
+	 * 
+	 * <p>8-bit data is expressed as an unsigned value over the range 0 to 255, 128 being an audio output level of zero.</p>
+	 * 
+	 * <p>16-bit data is expressed as a signed value over the range -32768 to 32767, 0 being an audio output level of zero. Byte order for 16-bit values is
+	 * determined by the native format of the CPU.</p>
+	 * 
+	 * <p>Stereo data is expressed in an interleaved format, left channel sample followed by the right channel sample.</p>
+	 * 
+	 * <p>Buffers containing audio data with more than one channel will be played without 3D spatialization features – these formats are normally used for
+	 * background music.</p>
+	 *
+	 * @param bufferName the buffer to modify
+	 * @param format     the data format. One of:<br>{@link #AL_FORMAT_MONO8 FORMAT_MONO8}, {@link #AL_FORMAT_MONO16 FORMAT_MONO16}, {@link #AL_FORMAT_STEREO8 FORMAT_STEREO8}, {@link #AL_FORMAT_STEREO16 FORMAT_STEREO16}
+	 * @param data       the sample data
+	 * @param size       the data buffer size, in bytes
+	 * @param frequency  the data frequency
+	 */
 	public static void nalBufferData(int bufferName, int format, long data, int size, int frequency) {
 		long __functionAddress = AL.getCapabilities().alBufferData;
 		invokeIIPIIV(__functionAddress, bufferName, format, data, size, frequency);
@@ -1429,16 +1459,8 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * @param bufferName the buffer to modify
 	 * @param format     the data format. One of:<br>{@link #AL_FORMAT_MONO8 FORMAT_MONO8}, {@link #AL_FORMAT_MONO16 FORMAT_MONO16}, {@link #AL_FORMAT_STEREO8 FORMAT_STEREO8}, {@link #AL_FORMAT_STEREO16 FORMAT_STEREO16}
 	 * @param data       the sample data
-	 * @param size       the data buffer size, in bytes
 	 * @param frequency  the data frequency
 	 */
-	public static void alBufferData(int bufferName, int format, ByteBuffer data, int size, int frequency) {
-		if ( CHECKS )
-			checkBuffer(data, size);
-		nalBufferData(bufferName, format, memAddress(data), size, frequency);
-	}
-
-	/** Alternative version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, ByteBuffer data, int frequency) {
 		nalBufferData(bufferName, format, memAddress(data), data.remaining(), frequency);
 	}
@@ -1460,7 +1482,11 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetEnumValue ] ---
 
-	/** Unsafe version of {@link #alGetEnumValue GetEnumValue} */
+	/**
+	 * Returns the enumeration value of the specified enum.
+	 *
+	 * @param enumName the enum name
+	 */
 	public static int nalGetEnumValue(long enumName) {
 		long __functionAddress = AL.getCapabilities().alGetEnumValue;
 		return invokePI(__functionAddress, enumName);
@@ -1477,7 +1503,11 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 		return nalGetEnumValue(memAddress(enumName));
 	}
 
-	/** CharSequence version of: {@link #alGetEnumValue GetEnumValue} */
+	/**
+	 * Returns the enumeration value of the specified enum.
+	 *
+	 * @param enumName the enum name
+	 */
 	public static int alGetEnumValue(CharSequence enumName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1490,7 +1520,17 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetProcAddress ] ---
 
-	/** Unsafe version of {@link #alGetProcAddress GetProcAddress} */
+	/**
+	 * Retrieves extension entry points.
+	 * 
+	 * <p>Returns {@code NULL} if no entry point with the name funcName can be found. Implementations are free to return {@code NULL} if an entry point is present, but not
+	 * applicable for the current context. However the specification does not guarantee this behavior.</p>
+	 * 
+	 * <p>Applications can use alGetProcAddress to obtain core API entry points, not just extensions. This is the recommended way to dynamically load and unload
+	 * OpenAL DLL's as sound drivers.</p>
+	 *
+	 * @param funcName the function name
+	 */
 	public static long nalGetProcAddress(long funcName) {
 		long __functionAddress = AL.getCapabilities().alGetProcAddress;
 		return invokePP(__functionAddress, funcName);
@@ -1513,7 +1553,17 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 		return nalGetProcAddress(memAddress(funcName));
 	}
 
-	/** CharSequence version of: {@link #alGetProcAddress GetProcAddress} */
+	/**
+	 * Retrieves extension entry points.
+	 * 
+	 * <p>Returns {@code NULL} if no entry point with the name funcName can be found. Implementations are free to return {@code NULL} if an entry point is present, but not
+	 * applicable for the current context. However the specification does not guarantee this behavior.</p>
+	 * 
+	 * <p>Applications can use alGetProcAddress to obtain core API entry points, not just extensions. This is the recommended way to dynamically load and unload
+	 * OpenAL DLL's as sound drivers.</p>
+	 *
+	 * @param funcName the function name
+	 */
 	public static long alGetProcAddress(CharSequence funcName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1526,7 +1576,14 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alIsExtensionPresent ] ---
 
-	/** Unsafe version of {@link #alIsExtensionPresent IsExtensionPresent} */
+	/**
+	 * Verifies that a given extension is available for the current context and the device it is associated with.
+	 * 
+	 * <p>Invalid and unsupported string tokens return ALC_FALSE. {@code extName} is not case sensitive – the implementation will convert the name to all
+	 * upper-case internally (and will express extension names in upper-case).</p>
+	 *
+	 * @param extName the extension name
+	 */
 	public static boolean nalIsExtensionPresent(long extName) {
 		long __functionAddress = AL.getCapabilities().alIsExtensionPresent;
 		return invokePZ(__functionAddress, extName);
@@ -1546,7 +1603,14 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 		return nalIsExtensionPresent(memAddress(extName));
 	}
 
-	/** CharSequence version of: {@link #alIsExtensionPresent IsExtensionPresent} */
+	/**
+	 * Verifies that a given extension is available for the current context and the device it is associated with.
+	 * 
+	 * <p>Invalid and unsupported string tokens return ALC_FALSE. {@code extName} is not case sensitive – the implementation will convert the name to all
+	 * upper-case internally (and will express extension names in upper-case).</p>
+	 *
+	 * @param extName the extension name
+	 */
 	public static boolean alIsExtensionPresent(CharSequence extName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

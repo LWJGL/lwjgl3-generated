@@ -384,7 +384,6 @@ public class GLES30 {
 
 	// --- [ glDrawRangeElements ] ---
 
-	/** Unsafe version of {@link #glDrawRangeElements DrawRangeElements} */
 	public static void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices) {
 		long __functionAddress = GLES.getCapabilities().glDrawRangeElements;
 		if ( CHECKS )
@@ -392,43 +391,30 @@ public class GLES30 {
 		callIIIIIPV(__functionAddress, mode, start, end, count, type, indices);
 	}
 
-	public static void glDrawRangeElements(int mode, int start, int end, int count, int type, ByteBuffer indices) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawRangeElements(mode, start, end, count, type, memAddress(indices));
-	}
-
-	/** Buffer object offset version of: {@link #glDrawRangeElements DrawRangeElements} */
-	public static void glDrawRangeElements(int mode, int start, int end, int count, int type, long indicesOffset) {
+	public static void glDrawRangeElements(int mode, int start, int end, int count, int type, long indices) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawRangeElements(mode, start, end, count, type, indicesOffset);
+		nglDrawRangeElements(mode, start, end, count, type, indices);
 	}
 
-	/** Alternative version of: {@link #glDrawRangeElements DrawRangeElements} */
 	public static void glDrawRangeElements(int mode, int start, int end, int type, ByteBuffer indices) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElements(mode, start, end, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices));
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElements DrawRangeElements} */
 	public static void glDrawRangeElements(int mode, int start, int end, ByteBuffer indices) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices));
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElements DrawRangeElements} */
 	public static void glDrawRangeElements(int mode, int start, int end, ShortBuffer indices) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices));
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElements DrawRangeElements} */
 	public static void glDrawRangeElements(int mode, int start, int end, IntBuffer indices) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -437,7 +423,6 @@ public class GLES30 {
 
 	// --- [ glTexImage3D ] ---
 
-	/** Unsafe version of {@link #glTexImage3D TexImage3D} */
 	public static void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3D;
 		if ( CHECKS )
@@ -451,11 +436,10 @@ public class GLES30 {
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** Buffer object offset version of: {@link #glTexImage3D TexImage3D} */
-	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixelsOffset) {
+	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixelsOffset);
+		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTexImage3D TexImage3D} */
@@ -481,7 +465,6 @@ public class GLES30 {
 
 	// --- [ glTexSubImage3D ] ---
 
-	/** Unsafe version of {@link #glTexSubImage3D TexSubImage3D} */
 	public static void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3D;
 		if ( CHECKS )
@@ -495,11 +478,10 @@ public class GLES30 {
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** Buffer object offset version of: {@link #glTexSubImage3D TexSubImage3D} */
-	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixelsOffset) {
+	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixelsOffset);
+		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTexSubImage3D TexSubImage3D} */
@@ -534,7 +516,6 @@ public class GLES30 {
 
 	// --- [ glCompressedTexImage3D ] ---
 
-	/** Unsafe version of {@link #glCompressedTexImage3D CompressedTexImage3D} */
 	public static void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = GLES.getCapabilities().glCompressedTexImage3D;
 		if ( CHECKS )
@@ -542,22 +523,12 @@ public class GLES30 {
 		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
-	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			if ( data != null ) checkBuffer(data, imageSize);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, memAddressSafe(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTexImage3D CompressedTexImage3D} */
-	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long dataOffset) {
+	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, dataOffset);
+		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTexImage3D CompressedTexImage3D} */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -566,7 +537,6 @@ public class GLES30 {
 
 	// --- [ glCompressedTexSubImage3D ] ---
 
-	/** Unsafe version of {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
 	public static void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = GLES.getCapabilities().glCompressedTexSubImage3D;
 		if ( CHECKS )
@@ -574,22 +544,12 @@ public class GLES30 {
 		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
-	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			checkBuffer(data, imageSize);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, memAddress(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
-	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long dataOffset) {
+	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset);
+		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -598,7 +558,6 @@ public class GLES30 {
 
 	// --- [ glGenQueries ] ---
 
-	/** Unsafe version of {@link #glGenQueries GenQueries} */
 	public static void nglGenQueries(int n, long ids) {
 		long __functionAddress = GLES.getCapabilities().glGenQueries;
 		if ( CHECKS )
@@ -606,18 +565,10 @@ public class GLES30 {
 		callIPV(__functionAddress, n, ids);
 	}
 
-	public static void glGenQueries(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglGenQueries(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glGenQueries GenQueries} */
 	public static void glGenQueries(IntBuffer ids) {
 		nglGenQueries(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single return value version of: {@link #glGenQueries GenQueries} */
 	public static int glGenQueries() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -631,7 +582,6 @@ public class GLES30 {
 
 	// --- [ glDeleteQueries ] ---
 
-	/** Unsafe version of {@link #glDeleteQueries DeleteQueries} */
 	public static void nglDeleteQueries(int n, long ids) {
 		long __functionAddress = GLES.getCapabilities().glDeleteQueries;
 		if ( CHECKS )
@@ -639,18 +589,10 @@ public class GLES30 {
 		callIPV(__functionAddress, n, ids);
 	}
 
-	public static void glDeleteQueries(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglDeleteQueries(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glDeleteQueries DeleteQueries} */
 	public static void glDeleteQueries(IntBuffer ids) {
 		nglDeleteQueries(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single value version of: {@link #glDeleteQueries DeleteQueries} */
 	public static void glDeleteQueries(int id) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -690,7 +632,6 @@ public class GLES30 {
 
 	// --- [ glGetQueryiv ] ---
 
-	/** Unsafe version of {@link #glGetQueryiv GetQueryiv} */
 	public static void nglGetQueryiv(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetQueryiv;
 		if ( CHECKS )
@@ -698,20 +639,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetQueryiv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetQueryiv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryiv GetQueryiv} */
 	public static void glGetQueryiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryiv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryiv GetQueryiv} */
 	public static int glGetQueryi(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -725,7 +658,6 @@ public class GLES30 {
 
 	// --- [ glGetQueryObjectuiv ] ---
 
-	/** Unsafe version of {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
 	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetQueryObjectuiv;
 		if ( CHECKS )
@@ -733,20 +665,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, id, pname, params);
 	}
 
-	public static void glGetQueryObjectuiv(int id, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetQueryObjectuiv(id, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
 	public static void glGetQueryObjectuiv(int id, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectuiv(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
 	public static int glGetQueryObjectui(int id, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -769,7 +693,6 @@ public class GLES30 {
 
 	// --- [ glGetBufferPointerv ] ---
 
-	/** Unsafe version of {@link #glGetBufferPointerv GetBufferPointerv} */
 	public static void nglGetBufferPointerv(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetBufferPointerv;
 		if ( CHECKS )
@@ -777,20 +700,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetBufferPointerv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << POINTER_SHIFT);
-		nglGetBufferPointerv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetBufferPointerv GetBufferPointerv} */
 	public static void glGetBufferPointerv(int target, int pname, PointerBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferPointerv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferPointerv GetBufferPointerv} */
 	public static long glGetBufferPointer(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -804,7 +719,6 @@ public class GLES30 {
 
 	// --- [ glDrawBuffers ] ---
 
-	/** Unsafe version of {@link #glDrawBuffers DrawBuffers} */
 	public static void nglDrawBuffers(int n, long bufs) {
 		long __functionAddress = GLES.getCapabilities().glDrawBuffers;
 		if ( CHECKS )
@@ -812,18 +726,10 @@ public class GLES30 {
 		callIPV(__functionAddress, n, bufs);
 	}
 
-	public static void glDrawBuffers(int n, ByteBuffer bufs) {
-		if ( CHECKS )
-			checkBuffer(bufs, n << 2);
-		nglDrawBuffers(n, memAddress(bufs));
-	}
-
-	/** Alternative version of: {@link #glDrawBuffers DrawBuffers} */
 	public static void glDrawBuffers(IntBuffer bufs) {
 		nglDrawBuffers(bufs.remaining(), memAddress(bufs));
 	}
 
-	/** Single value version of: {@link #glDrawBuffers DrawBuffers} */
 	public static void glDrawBuffers(int buf) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -836,7 +742,6 @@ public class GLES30 {
 
 	// --- [ glUniformMatrix2x3fv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2x3fv UniformMatrix2x3fv} */
 	public static void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix2x3fv;
 		if ( CHECKS )
@@ -844,20 +749,12 @@ public class GLES30 {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix2x3fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 6) << 2);
-		nglUniformMatrix2x3fv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix2x3fv UniformMatrix2x3fv} */
 	public static void glUniformMatrix2x3fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix2x3fv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x2fv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3x2fv UniformMatrix3x2fv} */
 	public static void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix3x2fv;
 		if ( CHECKS )
@@ -865,20 +762,12 @@ public class GLES30 {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix3x2fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 6) << 2);
-		nglUniformMatrix3x2fv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix3x2fv UniformMatrix3x2fv} */
 	public static void glUniformMatrix3x2fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix3x2fv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2x4fv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2x4fv UniformMatrix2x4fv} */
 	public static void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix2x4fv;
 		if ( CHECKS )
@@ -886,20 +775,12 @@ public class GLES30 {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix2x4fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 3) << 2);
-		nglUniformMatrix2x4fv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix2x4fv UniformMatrix2x4fv} */
 	public static void glUniformMatrix2x4fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix2x4fv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x2fv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4x2fv UniformMatrix4x2fv} */
 	public static void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix4x2fv;
 		if ( CHECKS )
@@ -907,20 +788,12 @@ public class GLES30 {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix4x2fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 3) << 2);
-		nglUniformMatrix4x2fv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix4x2fv UniformMatrix4x2fv} */
 	public static void glUniformMatrix4x2fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4x2fv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x4fv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3x4fv UniformMatrix3x4fv} */
 	public static void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix3x4fv;
 		if ( CHECKS )
@@ -928,20 +801,12 @@ public class GLES30 {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix3x4fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 12) << 2);
-		nglUniformMatrix3x4fv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix3x4fv UniformMatrix3x4fv} */
 	public static void glUniformMatrix3x4fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix3x4fv(location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x3fv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4x3fv UniformMatrix4x3fv} */
 	public static void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniformMatrix4x3fv;
 		if ( CHECKS )
@@ -949,13 +814,6 @@ public class GLES30 {
 		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
-	public static void glUniformMatrix4x3fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 12) << 2);
-		nglUniformMatrix4x3fv(location, count, transpose, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniformMatrix4x3fv UniformMatrix4x3fv} */
 	public static void glUniformMatrix4x3fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4x3fv(location, value.remaining() / 12, transpose, memAddress(value));
 	}
@@ -989,7 +847,6 @@ public class GLES30 {
 
 	// --- [ glMapBufferRange ] ---
 
-	/** Unsafe version of {@link #glMapBufferRange MapBufferRange} */
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
 		long __functionAddress = GLES.getCapabilities().glMapBufferRange;
 		if ( CHECKS )
@@ -1002,7 +859,6 @@ public class GLES30 {
 		return memByteBuffer(__result, (int)length);
 	}
 
-	/** Alternative version of: {@link #glMapBufferRange MapBufferRange} */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapBufferRange(target, offset, length, access);
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
@@ -1028,7 +884,6 @@ public class GLES30 {
 
 	// --- [ glDeleteVertexArrays ] ---
 
-	/** Unsafe version of {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = GLES.getCapabilities().glDeleteVertexArrays;
 		if ( CHECKS )
@@ -1036,18 +891,10 @@ public class GLES30 {
 		callIPV(__functionAddress, n, arrays);
 	}
 
-	public static void glDeleteVertexArrays(int n, ByteBuffer arrays) {
-		if ( CHECKS )
-			checkBuffer(arrays, n << 2);
-		nglDeleteVertexArrays(n, memAddress(arrays));
-	}
-
-	/** Alternative version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(IntBuffer arrays) {
 		nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays));
 	}
 
-	/** Single value version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(int array) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1060,7 +907,6 @@ public class GLES30 {
 
 	// --- [ glGenVertexArrays ] ---
 
-	/** Unsafe version of {@link #glGenVertexArrays GenVertexArrays} */
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = GLES.getCapabilities().glGenVertexArrays;
 		if ( CHECKS )
@@ -1068,18 +914,10 @@ public class GLES30 {
 		callIPV(__functionAddress, n, arrays);
 	}
 
-	public static void glGenVertexArrays(int n, ByteBuffer arrays) {
-		if ( CHECKS )
-			checkBuffer(arrays, n << 2);
-		nglGenVertexArrays(n, memAddress(arrays));
-	}
-
-	/** Alternative version of: {@link #glGenVertexArrays GenVertexArrays} */
 	public static void glGenVertexArrays(IntBuffer arrays) {
 		nglGenVertexArrays(arrays.remaining(), memAddress(arrays));
 	}
 
-	/** Single return value version of: {@link #glGenVertexArrays GenVertexArrays} */
 	public static int glGenVertexArrays() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1102,7 +940,6 @@ public class GLES30 {
 
 	// --- [ glGetIntegeri_v ] ---
 
-	/** Unsafe version of {@link #glGetIntegeri_v GetIntegeri_v} */
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = GLES.getCapabilities().glGetIntegeri_v;
 		if ( CHECKS )
@@ -1110,20 +947,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, target, index, data);
 	}
 
-	public static void glGetIntegeri_v(int target, int index, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, 1 << 2);
-		nglGetIntegeri_v(target, index, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #glGetIntegeri_v GetIntegeri_v} */
 	public static void glGetIntegeri_v(int target, int index, IntBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetIntegeri_v(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetIntegeri_v GetIntegeri_v} */
 	public static int glGetIntegeri(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1173,7 +1002,6 @@ public class GLES30 {
 
 	// --- [ glTransformFeedbackVaryings ] ---
 
-	/** Unsafe version of {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode) {
 		long __functionAddress = GLES.getCapabilities().glTransformFeedbackVaryings;
 		if ( CHECKS )
@@ -1181,18 +1009,10 @@ public class GLES30 {
 		callIIPIV(__functionAddress, program, count, varyings, bufferMode);
 	}
 
-	public static void glTransformFeedbackVaryings(int program, int count, ByteBuffer varyings, int bufferMode) {
-		if ( CHECKS )
-			checkBuffer(varyings, count << POINTER_SHIFT);
-		nglTransformFeedbackVaryings(program, count, memAddress(varyings), bufferMode);
-	}
-
-	/** Alternative version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, PointerBuffer varyings, int bufferMode) {
 		nglTransformFeedbackVaryings(program, varyings.remaining(), memAddress(varyings), bufferMode);
 	}
 
-	/** Array version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence[] varyings, int bufferMode) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1204,7 +1024,6 @@ public class GLES30 {
 		}
 	}
 
-	/** Single varying version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence varying, int bufferMode) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1218,7 +1037,6 @@ public class GLES30 {
 
 	// --- [ glGetTransformFeedbackVarying ] ---
 
-	/** Unsafe version of {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = GLES.getCapabilities().glGetTransformFeedbackVarying;
 		if ( CHECKS )
@@ -1226,17 +1044,6 @@ public class GLES30 {
 		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
-	public static void glGetTransformFeedbackVarying(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( CHECKS ) {
-			checkBuffer(name, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-			checkBuffer(size, 1 << 2);
-			checkBuffer(type, 1 << 2);
-		}
-		nglGetTransformFeedbackVarying(program, index, bufSize, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
-	}
-
-	/** Alternative version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static void glGetTransformFeedbackVarying(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
@@ -1246,7 +1053,6 @@ public class GLES30 {
 		nglGetTransformFeedbackVarying(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
-	/** String return version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static String glGetTransformFeedbackVarying(int program, int index, int bufSize, IntBuffer size, IntBuffer type) {
 		if ( CHECKS ) {
 			checkBuffer(size, 1);
@@ -1263,7 +1069,6 @@ public class GLES30 {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static String glGetTransformFeedbackVarying(int program, int index, IntBuffer size, IntBuffer type) {
 		int bufSize = GLES20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH);
 		if ( CHECKS ) {
@@ -1283,7 +1088,6 @@ public class GLES30 {
 
 	// --- [ glVertexAttribIPointer ] ---
 
-	/** Unsafe version of {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribIPointer;
 		if ( CHECKS )
@@ -1297,11 +1101,10 @@ public class GLES30 {
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
-	/** Buffer object offset version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
-	public static void glVertexAttribIPointer(int index, int size, int type, int stride, long pointerOffset) {
+	public static void glVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, true);
-		nglVertexAttribIPointer(index, size, type, stride, pointerOffset);
+		nglVertexAttribIPointer(index, size, type, stride, pointer);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
@@ -1320,7 +1123,6 @@ public class GLES30 {
 
 	// --- [ glGetVertexAttribIiv ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribIiv GetVertexAttribIiv} */
 	public static void nglGetVertexAttribIiv(int index, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetVertexAttribIiv;
 		if ( CHECKS )
@@ -1328,20 +1130,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
-	public static void glGetVertexAttribIiv(int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetVertexAttribIiv(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv} */
 	public static void glGetVertexAttribIiv(int index, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribIiv(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv} */
 	public static int glGetVertexAttribIi(int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1355,7 +1149,6 @@ public class GLES30 {
 
 	// --- [ glGetVertexAttribIuiv ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribIuiv GetVertexAttribIuiv} */
 	public static void nglGetVertexAttribIuiv(int index, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetVertexAttribIuiv;
 		if ( CHECKS )
@@ -1363,20 +1156,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, index, pname, params);
 	}
 
-	public static void glGetVertexAttribIuiv(int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetVertexAttribIuiv(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribIuiv GetVertexAttribIuiv} */
 	public static void glGetVertexAttribIuiv(int index, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribIuiv(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribIuiv GetVertexAttribIuiv} */
 	public static int glGetVertexAttribIui(int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1408,7 +1193,6 @@ public class GLES30 {
 
 	// --- [ glVertexAttribI4iv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4iv VertexAttribI4iv} */
 	public static void nglVertexAttribI4iv(int index, long v) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribI4iv;
 		if ( CHECKS )
@@ -1416,13 +1200,6 @@ public class GLES30 {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribI4iv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttribI4iv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI4iv VertexAttribI4iv} */
 	public static void glVertexAttribI4iv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -1431,7 +1208,6 @@ public class GLES30 {
 
 	// --- [ glVertexAttribI4uiv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4uiv VertexAttribI4uiv} */
 	public static void nglVertexAttribI4uiv(int index, long v) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribI4uiv;
 		if ( CHECKS )
@@ -1439,13 +1215,6 @@ public class GLES30 {
 		callIPV(__functionAddress, index, v);
 	}
 
-	public static void glVertexAttribI4uiv(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttribI4uiv(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI4uiv VertexAttribI4uiv} */
 	public static void glVertexAttribI4uiv(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -1454,7 +1223,6 @@ public class GLES30 {
 
 	// --- [ glGetUniformuiv ] ---
 
-	/** Unsafe version of {@link #glGetUniformuiv GetUniformuiv} */
 	public static void nglGetUniformuiv(int program, int location, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetUniformuiv;
 		if ( CHECKS )
@@ -1462,20 +1230,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, program, location, params);
 	}
 
-	public static void glGetUniformuiv(int program, int location, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetUniformuiv(program, location, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetUniformuiv GetUniformuiv} */
 	public static void glGetUniformuiv(int program, int location, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformuiv(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformuiv GetUniformuiv} */
 	public static int glGetUniformui(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1489,7 +1249,6 @@ public class GLES30 {
 
 	// --- [ glGetFragDataLocation ] ---
 
-	/** Unsafe version of {@link #glGetFragDataLocation GetFragDataLocation} */
 	public static int nglGetFragDataLocation(int program, long name) {
 		long __functionAddress = GLES.getCapabilities().glGetFragDataLocation;
 		if ( CHECKS )
@@ -1503,7 +1262,6 @@ public class GLES30 {
 		return nglGetFragDataLocation(program, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetFragDataLocation GetFragDataLocation} */
 	public static int glGetFragDataLocation(int program, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1552,7 +1310,6 @@ public class GLES30 {
 
 	// --- [ glUniform1uiv ] ---
 
-	/** Unsafe version of {@link #glUniform1uiv Uniform1uiv} */
 	public static void nglUniform1uiv(int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniform1uiv;
 		if ( CHECKS )
@@ -1560,20 +1317,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, location, count, value);
 	}
 
-	public static void glUniform1uiv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, count << 2);
-		nglUniform1uiv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform1uiv Uniform1uiv} */
 	public static void glUniform1uiv(int location, IntBuffer value) {
 		nglUniform1uiv(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2uiv ] ---
 
-	/** Unsafe version of {@link #glUniform2uiv Uniform2uiv} */
 	public static void nglUniform2uiv(int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniform2uiv;
 		if ( CHECKS )
@@ -1581,20 +1330,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, location, count, value);
 	}
 
-	public static void glUniform2uiv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 1) << 2);
-		nglUniform2uiv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform2uiv Uniform2uiv} */
 	public static void glUniform2uiv(int location, IntBuffer value) {
 		nglUniform2uiv(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3uiv ] ---
 
-	/** Unsafe version of {@link #glUniform3uiv Uniform3uiv} */
 	public static void nglUniform3uiv(int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniform3uiv;
 		if ( CHECKS )
@@ -1602,20 +1343,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, location, count, value);
 	}
 
-	public static void glUniform3uiv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 3) << 2);
-		nglUniform3uiv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform3uiv Uniform3uiv} */
 	public static void glUniform3uiv(int location, IntBuffer value) {
 		nglUniform3uiv(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4uiv ] ---
 
-	/** Unsafe version of {@link #glUniform4uiv Uniform4uiv} */
 	public static void nglUniform4uiv(int location, int count, long value) {
 		long __functionAddress = GLES.getCapabilities().glUniform4uiv;
 		if ( CHECKS )
@@ -1623,20 +1356,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, location, count, value);
 	}
 
-	public static void glUniform4uiv(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglUniform4uiv(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform4uiv Uniform4uiv} */
 	public static void glUniform4uiv(int location, IntBuffer value) {
 		nglUniform4uiv(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glClearBufferiv ] ---
 
-	/** Unsafe version of {@link #glClearBufferiv ClearBufferiv} */
 	public static void nglClearBufferiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = GLES.getCapabilities().glClearBufferiv;
 		if ( CHECKS )
@@ -1644,13 +1369,6 @@ public class GLES30 {
 		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
-	public static void glClearBufferiv(int buffer, int drawbuffer, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglClearBufferiv(buffer, drawbuffer, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glClearBufferiv ClearBufferiv} */
 	public static void glClearBufferiv(int buffer, int drawbuffer, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -1659,7 +1377,6 @@ public class GLES30 {
 
 	// --- [ glClearBufferuiv ] ---
 
-	/** Unsafe version of {@link #glClearBufferuiv ClearBufferuiv} */
 	public static void nglClearBufferuiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = GLES.getCapabilities().glClearBufferuiv;
 		if ( CHECKS )
@@ -1667,13 +1384,6 @@ public class GLES30 {
 		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
-	public static void glClearBufferuiv(int buffer, int drawbuffer, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglClearBufferuiv(buffer, drawbuffer, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glClearBufferuiv ClearBufferuiv} */
 	public static void glClearBufferuiv(int buffer, int drawbuffer, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -1682,7 +1392,6 @@ public class GLES30 {
 
 	// --- [ glClearBufferfv ] ---
 
-	/** Unsafe version of {@link #glClearBufferfv ClearBufferfv} */
 	public static void nglClearBufferfv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = GLES.getCapabilities().glClearBufferfv;
 		if ( CHECKS )
@@ -1690,13 +1399,6 @@ public class GLES30 {
 		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
-	public static void glClearBufferfv(int buffer, int drawbuffer, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglClearBufferfv(buffer, drawbuffer, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glClearBufferfv ClearBufferfv} */
 	public static void glClearBufferfv(int buffer, int drawbuffer, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -1714,7 +1416,6 @@ public class GLES30 {
 
 	// --- [ glGetStringi ] ---
 
-	/** Unsafe version of {@link #glGetStringi GetStringi} */
 	public static long nglGetStringi(int name, int index) {
 		long __functionAddress = GLES.getCapabilities().glGetStringi;
 		if ( CHECKS )
@@ -1738,7 +1439,6 @@ public class GLES30 {
 
 	// --- [ glGetUniformIndices ] ---
 
-	/** Unsafe version of {@link #glGetUniformIndices GetUniformIndices} */
 	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
 		long __functionAddress = GLES.getCapabilities().glGetUniformIndices;
 		if ( CHECKS )
@@ -1746,15 +1446,6 @@ public class GLES30 {
 		callIIPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
 	}
 
-	public static void glGetUniformIndices(int program, int uniformCount, ByteBuffer uniformNames, ByteBuffer uniformIndices) {
-		if ( CHECKS ) {
-			checkBuffer(uniformNames, uniformCount << POINTER_SHIFT);
-			checkBuffer(uniformIndices, uniformCount << 2);
-		}
-		nglGetUniformIndices(program, uniformCount, memAddress(uniformNames), memAddress(uniformIndices));
-	}
-
-	/** Alternative version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static void glGetUniformIndices(int program, PointerBuffer uniformNames, IntBuffer uniformIndices) {
 		if ( CHECKS )
 			checkBuffer(uniformIndices, uniformNames.remaining());
@@ -1763,7 +1454,6 @@ public class GLES30 {
 
 	// --- [ glGetActiveUniformsiv ] ---
 
-	/** Unsafe version of {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetActiveUniformsiv;
 		if ( CHECKS )
@@ -1771,15 +1461,6 @@ public class GLES30 {
 		callIIPIPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
 	}
 
-	public static void glGetActiveUniformsiv(int program, int uniformCount, ByteBuffer uniformIndices, int pname, ByteBuffer params) {
-		if ( CHECKS ) {
-			checkBuffer(uniformIndices, uniformCount << 2);
-			checkBuffer(params, uniformCount << 2);
-		}
-		nglGetActiveUniformsiv(program, uniformCount, memAddress(uniformIndices), pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
 	public static void glGetActiveUniformsiv(int program, IntBuffer uniformIndices, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, uniformIndices.remaining());
@@ -1788,7 +1469,6 @@ public class GLES30 {
 
 	// --- [ glGetUniformBlockIndex ] ---
 
-	/** Unsafe version of {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
 	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
 		long __functionAddress = GLES.getCapabilities().glGetUniformBlockIndex;
 		if ( CHECKS )
@@ -1802,7 +1482,6 @@ public class GLES30 {
 		return nglGetUniformBlockIndex(program, memAddress(uniformBlockName));
 	}
 
-	/** CharSequence version of: {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
 	public static int glGetUniformBlockIndex(int program, CharSequence uniformBlockName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1815,7 +1494,6 @@ public class GLES30 {
 
 	// --- [ glGetActiveUniformBlockiv ] ---
 
-	/** Unsafe version of {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetActiveUniformBlockiv;
 		if ( CHECKS )
@@ -1823,20 +1501,12 @@ public class GLES30 {
 		callIIIPV(__functionAddress, program, uniformBlockIndex, pname, params);
 	}
 
-	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
 	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
 	public static int glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1850,7 +1520,6 @@ public class GLES30 {
 
 	// --- [ glGetActiveUniformBlockName ] ---
 
-	/** Unsafe version of {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
 		long __functionAddress = GLES.getCapabilities().glGetActiveUniformBlockName;
 		if ( CHECKS )
@@ -1858,22 +1527,12 @@ public class GLES30 {
 		callIIIPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
 	}
 
-	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, ByteBuffer length, ByteBuffer uniformBlockName) {
-		if ( CHECKS ) {
-			checkBuffer(uniformBlockName, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, memAddressSafe(length), memAddress(uniformBlockName));
-	}
-
-	/** Alternative version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, IntBuffer length, ByteBuffer uniformBlockName) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetActiveUniformBlockName(program, uniformBlockIndex, uniformBlockName.remaining(), memAddressSafe(length), memAddress(uniformBlockName));
 	}
 
-	/** String return version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1886,7 +1545,6 @@ public class GLES30 {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex) {
 		int bufSize = glGetActiveUniformBlocki(program, uniformBlockIndex, GL_UNIFORM_BLOCK_NAME_LENGTH);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1920,7 +1578,6 @@ public class GLES30 {
 
 	// --- [ glDrawElementsInstanced ] ---
 
-	/** Unsafe version of {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void nglDrawElementsInstanced(int mode, int count, int type, long indices, int instancecount) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstanced;
 		if ( CHECKS )
@@ -1928,43 +1585,30 @@ public class GLES30 {
 		callIIIPIV(__functionAddress, mode, count, type, indices, instancecount);
 	}
 
-	public static void glDrawElementsInstanced(int mode, int count, int type, ByteBuffer indices, int instancecount) {
-		if ( CHECKS ) {
-			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsInstanced(mode, count, type, memAddress(indices), instancecount);
-	}
-
-	/** Buffer object offset version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
-	public static void glDrawElementsInstanced(int mode, int count, int type, long indicesOffset, int instancecount) {
+	public static void glDrawElementsInstanced(int mode, int count, int type, long indices, int instancecount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		nglDrawElementsInstanced(mode, count, type, indicesOffset, instancecount);
+		nglDrawElementsInstanced(mode, count, type, indices, instancecount);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void glDrawElementsInstanced(int mode, int type, ByteBuffer indices, int instancecount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstanced(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void glDrawElementsInstanced(int mode, ByteBuffer indices, int instancecount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstanced(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void glDrawElementsInstanced(int mode, ShortBuffer indices, int instancecount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstanced(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void glDrawElementsInstanced(int mode, IntBuffer indices, int instancecount) {
 		if ( CHECKS )
 			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -2026,7 +1670,6 @@ public class GLES30 {
 
 	// --- [ glGetInteger64v ] ---
 
-	/** Unsafe version of {@link #glGetInteger64v GetInteger64v} */
 	public static void nglGetInteger64v(int pname, long data) {
 		long __functionAddress = GLES.getCapabilities().glGetInteger64v;
 		if ( CHECKS )
@@ -2034,20 +1677,12 @@ public class GLES30 {
 		callIPV(__functionAddress, pname, data);
 	}
 
-	public static void glGetInteger64v(int pname, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, 1 << 3);
-		nglGetInteger64v(pname, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #glGetInteger64v GetInteger64v} */
 	public static void glGetInteger64v(int pname, LongBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetInteger64v(pname, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetInteger64v GetInteger64v} */
 	public static long glGetInteger64(int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2061,7 +1696,6 @@ public class GLES30 {
 
 	// --- [ glGetSynciv ] ---
 
-	/** Unsafe version of {@link #glGetSynciv GetSynciv} */
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = GLES.getCapabilities().glGetSynciv;
 		if ( CHECKS ) {
@@ -2071,22 +1705,12 @@ public class GLES30 {
 		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
-	public static void glGetSynciv(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
-		if ( CHECKS ) {
-			checkBuffer(values, bufSize << 2);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
-	}
-
-	/** Alternative version of: {@link #glGetSynciv GetSynciv} */
 	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetSynciv GetSynciv} */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
@@ -2102,7 +1726,6 @@ public class GLES30 {
 
 	// --- [ glGetInteger64i_v ] ---
 
-	/** Unsafe version of {@link #glGetInteger64i_v GetInteger64i_v} */
 	public static void nglGetInteger64i_v(int target, int index, long data) {
 		long __functionAddress = GLES.getCapabilities().glGetInteger64i_v;
 		if ( CHECKS )
@@ -2110,20 +1733,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, target, index, data);
 	}
 
-	public static void glGetInteger64i_v(int target, int index, ByteBuffer data) {
-		if ( CHECKS )
-			checkBuffer(data, 1 << 3);
-		nglGetInteger64i_v(target, index, memAddress(data));
-	}
-
-	/** Alternative version of: {@link #glGetInteger64i_v GetInteger64i_v} */
 	public static void glGetInteger64i_v(int target, int index, LongBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetInteger64i_v(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetInteger64i_v GetInteger64i_v} */
 	public static long glGetInteger64i(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2137,7 +1752,6 @@ public class GLES30 {
 
 	// --- [ glGetBufferParameteri64v ] ---
 
-	/** Unsafe version of {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
 	public static void nglGetBufferParameteri64v(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetBufferParameteri64v;
 		if ( CHECKS )
@@ -2145,20 +1759,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetBufferParameteri64v(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetBufferParameteri64v(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
 	public static void glGetBufferParameteri64v(int target, int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferParameteri64v(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
 	public static long glGetBufferParameteri64(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2172,7 +1778,6 @@ public class GLES30 {
 
 	// --- [ glGenSamplers ] ---
 
-	/** Unsafe version of {@link #glGenSamplers GenSamplers} */
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = GLES.getCapabilities().glGenSamplers;
 		if ( CHECKS )
@@ -2180,18 +1785,10 @@ public class GLES30 {
 		callIPV(__functionAddress, count, samplers);
 	}
 
-	public static void glGenSamplers(int count, ByteBuffer samplers) {
-		if ( CHECKS )
-			checkBuffer(samplers, count << 2);
-		nglGenSamplers(count, memAddress(samplers));
-	}
-
-	/** Alternative version of: {@link #glGenSamplers GenSamplers} */
 	public static void glGenSamplers(IntBuffer samplers) {
 		nglGenSamplers(samplers.remaining(), memAddress(samplers));
 	}
 
-	/** Single return value version of: {@link #glGenSamplers GenSamplers} */
 	public static int glGenSamplers() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2205,7 +1802,6 @@ public class GLES30 {
 
 	// --- [ glDeleteSamplers ] ---
 
-	/** Unsafe version of {@link #glDeleteSamplers DeleteSamplers} */
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = GLES.getCapabilities().glDeleteSamplers;
 		if ( CHECKS )
@@ -2213,18 +1809,10 @@ public class GLES30 {
 		callIPV(__functionAddress, count, samplers);
 	}
 
-	public static void glDeleteSamplers(int count, ByteBuffer samplers) {
-		if ( CHECKS )
-			checkBuffer(samplers, count << 2);
-		nglDeleteSamplers(count, memAddress(samplers));
-	}
-
-	/** Alternative version of: {@link #glDeleteSamplers DeleteSamplers} */
 	public static void glDeleteSamplers(IntBuffer samplers) {
 		nglDeleteSamplers(samplers.remaining(), memAddress(samplers));
 	}
 
-	/** Single value version of: {@link #glDeleteSamplers DeleteSamplers} */
 	public static void glDeleteSamplers(int sampler) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2264,7 +1852,6 @@ public class GLES30 {
 
 	// --- [ glSamplerParameteriv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameteriv SamplerParameteriv} */
 	public static void nglSamplerParameteriv(int sampler, int pname, long param) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameteriv;
 		if ( CHECKS )
@@ -2272,11 +1859,6 @@ public class GLES30 {
 		callIIPV(__functionAddress, sampler, pname, param);
 	}
 
-	public static void glSamplerParameteriv(int sampler, int pname, ByteBuffer param) {
-		nglSamplerParameteriv(sampler, pname, memAddress(param));
-	}
-
-	/** Alternative version of: {@link #glSamplerParameteriv SamplerParameteriv} */
 	public static void glSamplerParameteriv(int sampler, int pname, IntBuffer param) {
 		nglSamplerParameteriv(sampler, pname, memAddress(param));
 	}
@@ -2292,7 +1874,6 @@ public class GLES30 {
 
 	// --- [ glSamplerParameterfv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameterfv SamplerParameterfv} */
 	public static void nglSamplerParameterfv(int sampler, int pname, long param) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterfv;
 		if ( CHECKS )
@@ -2300,18 +1881,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, sampler, pname, param);
 	}
 
-	public static void glSamplerParameterfv(int sampler, int pname, ByteBuffer param) {
-		nglSamplerParameterfv(sampler, pname, memAddress(param));
-	}
-
-	/** Alternative version of: {@link #glSamplerParameterfv SamplerParameterfv} */
 	public static void glSamplerParameterfv(int sampler, int pname, FloatBuffer param) {
 		nglSamplerParameterfv(sampler, pname, memAddress(param));
 	}
 
 	// --- [ glGetSamplerParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameteriv;
 		if ( CHECKS )
@@ -2319,20 +1894,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
-	public static void glGetSamplerParameteriv(int sampler, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static void glGetSamplerParameteriv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static int glGetSamplerParameteri(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2346,7 +1913,6 @@ public class GLES30 {
 
 	// --- [ glGetSamplerParameterfv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterfv;
 		if ( CHECKS )
@@ -2354,20 +1920,12 @@ public class GLES30 {
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
-	public static void glGetSamplerParameterfv(int sampler, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static void glGetSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static float glGetSamplerParameterf(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2399,7 +1957,6 @@ public class GLES30 {
 
 	// --- [ glDeleteTransformFeedbacks ] ---
 
-	/** Unsafe version of {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = GLES.getCapabilities().glDeleteTransformFeedbacks;
 		if ( CHECKS )
@@ -2407,18 +1964,10 @@ public class GLES30 {
 		callIPV(__functionAddress, n, ids);
 	}
 
-	public static void glDeleteTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglDeleteTransformFeedbacks(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(IntBuffer ids) {
 		nglDeleteTransformFeedbacks(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single value version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(int id) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2431,7 +1980,6 @@ public class GLES30 {
 
 	// --- [ glGenTransformFeedbacks ] ---
 
-	/** Unsafe version of {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = GLES.getCapabilities().glGenTransformFeedbacks;
 		if ( CHECKS )
@@ -2439,18 +1987,10 @@ public class GLES30 {
 		callIPV(__functionAddress, n, ids);
 	}
 
-	public static void glGenTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( CHECKS )
-			checkBuffer(ids, n << 2);
-		nglGenTransformFeedbacks(n, memAddress(ids));
-	}
-
-	/** Alternative version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static void glGenTransformFeedbacks(IntBuffer ids) {
 		nglGenTransformFeedbacks(ids.remaining(), memAddress(ids));
 	}
 
-	/** Single return value version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static int glGenTransformFeedbacks() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2491,7 +2031,6 @@ public class GLES30 {
 
 	// --- [ glGetProgramBinary ] ---
 
-	/** Unsafe version of {@link #glGetProgramBinary GetProgramBinary} */
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = GLES.getCapabilities().glGetProgramBinary;
 		if ( CHECKS )
@@ -2499,16 +2038,6 @@ public class GLES30 {
 		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
-	public static void glGetProgramBinary(int program, int bufSize, ByteBuffer length, ByteBuffer binaryFormat, ByteBuffer binary) {
-		if ( CHECKS ) {
-			checkBuffer(binary, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-			checkBuffer(binaryFormat, 1 << 2);
-		}
-		nglGetProgramBinary(program, bufSize, memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
-	}
-
-	/** Alternative version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static void glGetProgramBinary(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
 		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
@@ -2519,7 +2048,6 @@ public class GLES30 {
 
 	// --- [ glProgramBinary ] ---
 
-	/** Unsafe version of {@link #glProgramBinary ProgramBinary} */
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = GLES.getCapabilities().glProgramBinary;
 		if ( CHECKS )
@@ -2527,13 +2055,6 @@ public class GLES30 {
 		callIIPIV(__functionAddress, program, binaryFormat, binary, length);
 	}
 
-	public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary, int length) {
-		if ( CHECKS )
-			checkBuffer(binary, length);
-		nglProgramBinary(program, binaryFormat, memAddress(binary), length);
-	}
-
-	/** Alternative version of: {@link #glProgramBinary ProgramBinary} */
 	public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary) {
 		nglProgramBinary(program, binaryFormat, memAddress(binary), binary.remaining());
 	}
@@ -2549,7 +2070,6 @@ public class GLES30 {
 
 	// --- [ glInvalidateFramebuffer ] ---
 
-	/** Unsafe version of {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
 		long __functionAddress = GLES.getCapabilities().glInvalidateFramebuffer;
 		if ( CHECKS )
@@ -2557,18 +2077,10 @@ public class GLES30 {
 		callIIPV(__functionAddress, target, numAttachments, attachments);
 	}
 
-	public static void glInvalidateFramebuffer(int target, int numAttachments, ByteBuffer attachments) {
-		if ( CHECKS )
-			checkBuffer(attachments, numAttachments << 2);
-		nglInvalidateFramebuffer(target, numAttachments, memAddress(attachments));
-	}
-
-	/** Alternative version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, IntBuffer attachments) {
 		nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments));
 	}
 
-	/** Single value version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, int attachment) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2581,7 +2093,6 @@ public class GLES30 {
 
 	// --- [ glInvalidateSubFramebuffer ] ---
 
-	/** Unsafe version of {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = GLES.getCapabilities().glInvalidateSubFramebuffer;
 		if ( CHECKS )
@@ -2589,18 +2100,10 @@ public class GLES30 {
 		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
 	}
 
-	public static void glInvalidateSubFramebuffer(int target, int numAttachments, ByteBuffer attachments, int x, int y, int width, int height) {
-		if ( CHECKS )
-			checkBuffer(attachments, numAttachments << 2);
-		nglInvalidateSubFramebuffer(target, numAttachments, memAddress(attachments), x, y, width, height);
-	}
-
-	/** Alternative version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void glInvalidateSubFramebuffer(int target, IntBuffer attachments, int x, int y, int width, int height) {
 		nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height);
 	}
 
-	/** Single value version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2631,7 +2134,6 @@ public class GLES30 {
 
 	// --- [ glGetInternalformativ ] ---
 
-	/** Unsafe version of {@link #glGetInternalformativ GetInternalformativ} */
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetInternalformativ;
 		if ( CHECKS )
@@ -2639,18 +2141,10 @@ public class GLES30 {
 		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
-	public static void glGetInternalformativ(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, bufSize << 2);
-		nglGetInternalformativ(target, internalformat, pname, bufSize, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetInternalformativ GetInternalformativ} */
 	public static void glGetInternalformativ(int target, int internalformat, int pname, IntBuffer params) {
 		nglGetInternalformativ(target, internalformat, pname, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInternalformativ GetInternalformativ} */
 	public static int glGetInternalformati(int target, int internalformat, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

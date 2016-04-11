@@ -328,7 +328,17 @@ public class CGL {
 
 	// --- [ CGLChoosePixelFormat ] ---
 
-	/** Unsafe version of {@link #CGLChoosePixelFormat ChoosePixelFormat} */
+	/**
+	 * Creates a pixel format object that satisfies the constraints of the specified buffer and renderer attributes.
+	 *
+	 * @param attribs a 0 terminated array that contains a list of buffer and renderer attributes. Attributes can be Boolean or integer. If an attribute is integer, you
+	 *                must supply the desired value immediately following the attribute. If the attribute is Boolean, do not supply a value because its presence in the
+	 *                attributes array implies a true value. One of:<br>{@link #kCGLPFAAllRenderers PFAAllRenderers}, {@link #kCGLPFATripleBuffer PFATripleBuffer}, {@link #kCGLPFADoubleBuffer PFADoubleBuffer}, {@link #kCGLPFAStereo PFAStereo}, {@link #kCGLPFAColorSize PFAColorSize}, {@link #kCGLPFAAlphaSize PFAAlphaSize}, {@link #kCGLPFADepthSize PFADepthSize}, {@link #kCGLPFAStencilSize PFAStencilSize}, {@link #kCGLPFAMinimumPolicy PFAMinimumPolicy}, {@link #kCGLPFAMaximumPolicy PFAMaximumPolicy}, {@link #kCGLPFASampleBuffers PFASampleBuffers}, {@link #kCGLPFASamples PFASamples}, {@link #kCGLPFAColorFloat PFAColorFloat}, {@link #kCGLPFAMultisample PFAMultisample}, {@link #kCGLPFASupersample PFASupersample}, {@link #kCGLPFASampleAlpha PFASampleAlpha}, {@link #kCGLPFARendererID PFARendererID}, {@link #kCGLPFASingleRenderer PFASingleRenderer}, {@link #kCGLPFANoRecovery PFANoRecovery}, {@link #kCGLPFAAccelerated PFAAccelerated}, {@link #kCGLPFAClosestPolicy PFAClosestPolicy}, {@link #kCGLPFABackingStore PFABackingStore}, {@link #kCGLPFABackingVolatile PFABackingVolatile}, {@link #kCGLPFADisplayMask PFADisplayMask}, {@link #kCGLPFAAllowOfflineRenderers PFAAllowOfflineRenderers}, {@link #kCGLPFAAcceleratedCompute PFAAcceleratedCompute}, {@link #kCGLPFAOpenGLProfile PFAOpenGLProfile}, {@link #kCGLPFASupportsAutomaticGraphicsSwitching PFASupportsAutomaticGraphicsSwitching}, {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}, {@link #kCGLPFAAuxBuffers PFAAuxBuffers}, {@link #kCGLPFAAccumSize PFAAccumSize}, {@link #kCGLPFAOffScreen PFAOffScreen}, {@link #kCGLPFAAuxDepthStencil PFAAuxDepthStencil}, {@link #kCGLPFAWindow PFAWindow}, {@link #kCGLPFACompliant PFACompliant}, {@link #kCGLPFAPBuffer PFAPBuffer}, {@link #kCGLPFARemotePBuffer PFARemotePBuffer}, {@link #kCGLPFARobust PFARobust}, {@link #kCGLPFAMPSafe PFAMPSafe}, {@link #kCGLPFAMultiScreen PFAMultiScreen}, {@link #kCGLPFAFullScreen PFAFullScreen}
+	 * @param pix     the memory address of a pixel format object. On return, points to a new pixel format object that contains pixel format information and a list of
+	 *                virtual screens. If there are no pixel formats or virtual screens that satisfy the constraints of the buffer and renderer attributes, the value of
+	 *                pix is set to {@code NULL}.
+	 * @param npix    on return, points to the number of virtual screens referenced by pix. If pix is {@code NULL}, the value of {@code npix} is set to 0.
+	 */
 	public static int nCGLChoosePixelFormat(long attribs, long pix, long npix) {
 		long __functionAddress = Functions.ChoosePixelFormat;
 		return callPPPI(__functionAddress, attribs, pix, npix);
@@ -345,15 +355,6 @@ public class CGL {
 	 *                pix is set to {@code NULL}.
 	 * @param npix    on return, points to the number of virtual screens referenced by pix. If pix is {@code NULL}, the value of {@code npix} is set to 0.
 	 */
-	public static int CGLChoosePixelFormat(ByteBuffer attribs, ByteBuffer pix, ByteBuffer npix) {
-		if ( CHECKS ) {
-			if ( pix != null ) checkBuffer(pix, 1 << POINTER_SHIFT);
-			checkBuffer(npix, 1 << 2);
-		}
-		return nCGLChoosePixelFormat(memAddress(attribs), memAddressSafe(pix), memAddress(npix));
-	}
-
-	/** Alternative version of: {@link #CGLChoosePixelFormat ChoosePixelFormat} */
 	public static int CGLChoosePixelFormat(IntBuffer attribs, PointerBuffer pix, IntBuffer npix) {
 		if ( CHECKS ) {
 			if ( pix != null ) checkBuffer(pix, 1);
@@ -378,7 +379,14 @@ public class CGL {
 
 	// --- [ CGLDescribePixelFormat ] ---
 
-	/** Unsafe version of {@link #CGLDescribePixelFormat DescribePixelFormat} */
+	/**
+	 * Retrieves the values of an attribute associated with a pixel format object.
+	 *
+	 * @param pix     the pixel format object to query
+	 * @param pix_num the virtual screen number whose attribute value you want to retrieve. This value must be between 0 and the number of virtual screens minus one.
+	 * @param attrib  the attribute whose value you want to obtain. One of:<br>{@link #kCGLPFAAllRenderers PFAAllRenderers}, {@link #kCGLPFATripleBuffer PFATripleBuffer}, {@link #kCGLPFADoubleBuffer PFADoubleBuffer}, {@link #kCGLPFAStereo PFAStereo}, {@link #kCGLPFAColorSize PFAColorSize}, {@link #kCGLPFAAlphaSize PFAAlphaSize}, {@link #kCGLPFADepthSize PFADepthSize}, {@link #kCGLPFAStencilSize PFAStencilSize}, {@link #kCGLPFAMinimumPolicy PFAMinimumPolicy}, {@link #kCGLPFAMaximumPolicy PFAMaximumPolicy}, {@link #kCGLPFASampleBuffers PFASampleBuffers}, {@link #kCGLPFASamples PFASamples}, {@link #kCGLPFAColorFloat PFAColorFloat}, {@link #kCGLPFAMultisample PFAMultisample}, {@link #kCGLPFASupersample PFASupersample}, {@link #kCGLPFASampleAlpha PFASampleAlpha}, {@link #kCGLPFARendererID PFARendererID}, {@link #kCGLPFASingleRenderer PFASingleRenderer}, {@link #kCGLPFANoRecovery PFANoRecovery}, {@link #kCGLPFAAccelerated PFAAccelerated}, {@link #kCGLPFAClosestPolicy PFAClosestPolicy}, {@link #kCGLPFABackingStore PFABackingStore}, {@link #kCGLPFABackingVolatile PFABackingVolatile}, {@link #kCGLPFADisplayMask PFADisplayMask}, {@link #kCGLPFAAllowOfflineRenderers PFAAllowOfflineRenderers}, {@link #kCGLPFAAcceleratedCompute PFAAcceleratedCompute}, {@link #kCGLPFAOpenGLProfile PFAOpenGLProfile}, {@link #kCGLPFASupportsAutomaticGraphicsSwitching PFASupportsAutomaticGraphicsSwitching}, {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}, {@link #kCGLPFAAuxBuffers PFAAuxBuffers}, {@link #kCGLPFAAccumSize PFAAccumSize}, {@link #kCGLPFAOffScreen PFAOffScreen}, {@link #kCGLPFAAuxDepthStencil PFAAuxDepthStencil}, {@link #kCGLPFAWindow PFAWindow}, {@link #kCGLPFACompliant PFACompliant}, {@link #kCGLPFAPBuffer PFAPBuffer}, {@link #kCGLPFARemotePBuffer PFARemotePBuffer}, {@link #kCGLPFARobust PFARobust}, {@link #kCGLPFAMPSafe PFAMPSafe}, {@link #kCGLPFAMultiScreen PFAMultiScreen}, {@link #kCGLPFAFullScreen PFAFullScreen}
+	 * @param value   on return, points to the value of the attribute
+	 */
 	public static int nCGLDescribePixelFormat(long pix, int pix_num, int attrib, long value) {
 		long __functionAddress = Functions.DescribePixelFormat;
 		if ( CHECKS )
@@ -394,13 +402,6 @@ public class CGL {
 	 * @param attrib  the attribute whose value you want to obtain. One of:<br>{@link #kCGLPFAAllRenderers PFAAllRenderers}, {@link #kCGLPFATripleBuffer PFATripleBuffer}, {@link #kCGLPFADoubleBuffer PFADoubleBuffer}, {@link #kCGLPFAStereo PFAStereo}, {@link #kCGLPFAColorSize PFAColorSize}, {@link #kCGLPFAAlphaSize PFAAlphaSize}, {@link #kCGLPFADepthSize PFADepthSize}, {@link #kCGLPFAStencilSize PFAStencilSize}, {@link #kCGLPFAMinimumPolicy PFAMinimumPolicy}, {@link #kCGLPFAMaximumPolicy PFAMaximumPolicy}, {@link #kCGLPFASampleBuffers PFASampleBuffers}, {@link #kCGLPFASamples PFASamples}, {@link #kCGLPFAColorFloat PFAColorFloat}, {@link #kCGLPFAMultisample PFAMultisample}, {@link #kCGLPFASupersample PFASupersample}, {@link #kCGLPFASampleAlpha PFASampleAlpha}, {@link #kCGLPFARendererID PFARendererID}, {@link #kCGLPFASingleRenderer PFASingleRenderer}, {@link #kCGLPFANoRecovery PFANoRecovery}, {@link #kCGLPFAAccelerated PFAAccelerated}, {@link #kCGLPFAClosestPolicy PFAClosestPolicy}, {@link #kCGLPFABackingStore PFABackingStore}, {@link #kCGLPFABackingVolatile PFABackingVolatile}, {@link #kCGLPFADisplayMask PFADisplayMask}, {@link #kCGLPFAAllowOfflineRenderers PFAAllowOfflineRenderers}, {@link #kCGLPFAAcceleratedCompute PFAAcceleratedCompute}, {@link #kCGLPFAOpenGLProfile PFAOpenGLProfile}, {@link #kCGLPFASupportsAutomaticGraphicsSwitching PFASupportsAutomaticGraphicsSwitching}, {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}, {@link #kCGLPFAAuxBuffers PFAAuxBuffers}, {@link #kCGLPFAAccumSize PFAAccumSize}, {@link #kCGLPFAOffScreen PFAOffScreen}, {@link #kCGLPFAAuxDepthStencil PFAAuxDepthStencil}, {@link #kCGLPFAWindow PFAWindow}, {@link #kCGLPFACompliant PFACompliant}, {@link #kCGLPFAPBuffer PFAPBuffer}, {@link #kCGLPFARemotePBuffer PFARemotePBuffer}, {@link #kCGLPFARobust PFARobust}, {@link #kCGLPFAMPSafe PFAMPSafe}, {@link #kCGLPFAMultiScreen PFAMultiScreen}, {@link #kCGLPFAFullScreen PFAFullScreen}
 	 * @param value   on return, points to the value of the attribute
 	 */
-	public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return nCGLDescribePixelFormat(pix, pix_num, attrib, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #CGLDescribePixelFormat DescribePixelFormat} */
 	public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -459,7 +460,18 @@ public class CGL {
 
 	// --- [ CGLQueryRendererInfo ] ---
 
-	/** Unsafe version of {@link #CGLQueryRendererInfo QueryRendererInfo} */
+	/**
+	 * Creates a renderer information object that contains properties and values for renderers able to drive all the specified displays in a given display
+	 * mask.
+	 *
+	 * @param display_mask a bit field that contains the bitwise OR of OpenGL display masks returned by the CGDisplayIDToOpenGLDisplayMask function. If you want to obtain
+	 *                     information for all renderers in the system you must call CGLQueryRendererInfo once for each display bit.
+	 * @param rend         the memory address of a renderer information object. On return, points to a renderer information object that describes all renderers that are able
+	 *                     to drive the displays specified by the {@code display_mask} parameter. If {@code display_mask} does not specify any displays, the value of
+	 *                     {@code rend} is set to {@code NULL}. You must call {@link #CGLDestroyRendererInfo DestroyRendererInfo} when you no longer need this object.
+	 * @param nrend        on return, points to the number of renderers described in the renderer information object. If {@code display_mask} does not specify any displays,
+	 *                     the value of {@code nrend} is set to 0.
+	 */
 	public static int nCGLQueryRendererInfo(int display_mask, long rend, long nrend) {
 		long __functionAddress = Functions.QueryRendererInfo;
 		return callIPPI(__functionAddress, display_mask, rend, nrend);
@@ -477,15 +489,6 @@ public class CGL {
 	 * @param nrend        on return, points to the number of renderers described in the renderer information object. If {@code display_mask} does not specify any displays,
 	 *                     the value of {@code nrend} is set to 0.
 	 */
-	public static int CGLQueryRendererInfo(int display_mask, ByteBuffer rend, ByteBuffer nrend) {
-		if ( CHECKS ) {
-			checkBuffer(rend, 1 << POINTER_SHIFT);
-			checkBuffer(nrend, 1 << 2);
-		}
-		return nCGLQueryRendererInfo(display_mask, memAddress(rend), memAddress(nrend));
-	}
-
-	/** Alternative version of: {@link #CGLQueryRendererInfo QueryRendererInfo} */
 	public static int CGLQueryRendererInfo(int display_mask, PointerBuffer rend, IntBuffer nrend) {
 		if ( CHECKS ) {
 			checkBuffer(rend, 1);
@@ -510,7 +513,18 @@ public class CGL {
 
 	// --- [ CGLDescribeRenderer ] ---
 
-	/** Unsafe version of {@link #CGLDescribeRenderer DescribeRenderer} */
+	/**
+	 * Obtains the value associated with a renderer property.
+	 *
+	 * @param rend     an opaque renderer information object that contains a description of the renderer capabilities you want to inspect. You can obtain a renderer
+	 *                 information object by calling the function {@link #CGLQueryRendererInfo QueryRendererInfo}. You must call {@link #CGLDestroyRendererInfo DestroyRendererInfo} when you no longer need this
+	 *                 object.
+	 * @param rend_num the index of the renderer inside the renderer information object — a value between 0 and the number of renderers minus one. The number of renderers
+	 *                 can be obtained by calling {@link #CGLDescribeRenderer DescribeRenderer}, passing in {@code rend}, renderer number 0, and the renderer property
+	 *                 {@link #kCGLRPRendererCount RPRendererCount}.
+	 * @param prop     the renderer property whose value you want to obtain. One of:<br>{@link #kCGLRPOffScreen RPOffScreen}, {@link #kCGLRPRendererID RPRendererID}, {@link #kCGLRPAccelerated RPAccelerated}, {@link #kCGLRPBackingStore RPBackingStore}, {@link #kCGLRPWindow RPWindow}, {@link #kCGLRPCompliant RPCompliant}, {@link #kCGLRPDisplayMask RPDisplayMask}, {@link #kCGLRPBufferModes RPBufferModes}, {@link #kCGLRPColorModes RPColorModes}, {@link #kCGLRPAccumModes RPAccumModes}, {@link #kCGLRPDepthModes RPDepthModes}, {@link #kCGLRPStencilModes RPStencilModes}, {@link #kCGLRPMaxAuxBuffers RPMaxAuxBuffers}, {@link #kCGLRPMaxSampleBuffers RPMaxSampleBuffers}, {@link #kCGLRPMaxSamples RPMaxSamples}, {@link #kCGLRPSampleModes RPSampleModes}, {@link #kCGLRPSampleAlpha RPSampleAlpha}, {@link #kCGLRPVideoMemory RPVideoMemory}, {@link #kCGLRPTextureMemory RPTextureMemory}, {@link #kCGLRPGPUVertProcCapable RPGPUVertProcCapable}, {@link #kCGLRPGPUFragProcCapable RPGPUFragProcCapable}, {@link #kCGLRPRendererCount RPRendererCount}, {@link #kCGLRPOnline RPOnline}, {@link #kCGLRPAcceleratedCompute RPAcceleratedCompute}, {@link #kCGLRPVideoMemoryMegabytes RPVideoMemoryMegabytes}, {@link #kCGLRPTextureMemoryMegabytes RPTextureMemoryMegabytes}, {@link #kCGLRPRobust RPRobust}, {@link #kCGLRPMPSafe RPMPSafe}, {@link #kCGLRPMultiScreen RPMultiScreen}, {@link #kCGLRPFullScreen RPFullScreen}
+	 * @param value    on return, points to the value of the requested property
+	 */
 	public static int nCGLDescribeRenderer(long rend, int rend_num, int prop, long value) {
 		long __functionAddress = Functions.DescribeRenderer;
 		if ( CHECKS )
@@ -530,13 +544,6 @@ public class CGL {
 	 * @param prop     the renderer property whose value you want to obtain. One of:<br>{@link #kCGLRPOffScreen RPOffScreen}, {@link #kCGLRPRendererID RPRendererID}, {@link #kCGLRPAccelerated RPAccelerated}, {@link #kCGLRPBackingStore RPBackingStore}, {@link #kCGLRPWindow RPWindow}, {@link #kCGLRPCompliant RPCompliant}, {@link #kCGLRPDisplayMask RPDisplayMask}, {@link #kCGLRPBufferModes RPBufferModes}, {@link #kCGLRPColorModes RPColorModes}, {@link #kCGLRPAccumModes RPAccumModes}, {@link #kCGLRPDepthModes RPDepthModes}, {@link #kCGLRPStencilModes RPStencilModes}, {@link #kCGLRPMaxAuxBuffers RPMaxAuxBuffers}, {@link #kCGLRPMaxSampleBuffers RPMaxSampleBuffers}, {@link #kCGLRPMaxSamples RPMaxSamples}, {@link #kCGLRPSampleModes RPSampleModes}, {@link #kCGLRPSampleAlpha RPSampleAlpha}, {@link #kCGLRPVideoMemory RPVideoMemory}, {@link #kCGLRPTextureMemory RPTextureMemory}, {@link #kCGLRPGPUVertProcCapable RPGPUVertProcCapable}, {@link #kCGLRPGPUFragProcCapable RPGPUFragProcCapable}, {@link #kCGLRPRendererCount RPRendererCount}, {@link #kCGLRPOnline RPOnline}, {@link #kCGLRPAcceleratedCompute RPAcceleratedCompute}, {@link #kCGLRPVideoMemoryMegabytes RPVideoMemoryMegabytes}, {@link #kCGLRPTextureMemoryMegabytes RPTextureMemoryMegabytes}, {@link #kCGLRPRobust RPRobust}, {@link #kCGLRPMPSafe RPMPSafe}, {@link #kCGLRPMultiScreen RPMultiScreen}, {@link #kCGLRPFullScreen RPFullScreen}
 	 * @param value    on return, points to the value of the requested property
 	 */
-	public static int CGLDescribeRenderer(long rend, int rend_num, int prop, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return nCGLDescribeRenderer(rend, rend_num, prop, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #CGLDescribeRenderer DescribeRenderer} */
 	public static int CGLDescribeRenderer(long rend, int rend_num, int prop, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -545,7 +552,16 @@ public class CGL {
 
 	// --- [ CGLCreateContext ] ---
 
-	/** Unsafe version of {@link #CGLCreateContext CreateContext} */
+	/**
+	 * Creates a CGL rendering context.
+	 *
+	 * @param pix   a pixel format object created by calling the function {@link #CGLChoosePixelFormat ChoosePixelFormat}
+	 * @param share the rendering context with which to share the OpenGL object state — including texture objects, programs and shader display lists, vertex array
+	 *              objects, vertex buffer objects, pixel buffer objects, and frame buffer objects — and the object state associated which each of these object types.
+	 *              Pass {@code NULL} to indicate that no sharing is to take place.
+	 * @param ctx   the memory address of a context object. On return, points to a new context object with the buffers and attributes specified by the {@code pix}
+	 *              parameter. If the context can not be created as specified, the value of {@code ctx} is set to {@code NULL}.
+	 */
 	public static int nCGLCreateContext(long pix, long share, long ctx) {
 		long __functionAddress = Functions.CreateContext;
 		if ( CHECKS ) {
@@ -565,13 +581,6 @@ public class CGL {
 	 * @param ctx   the memory address of a context object. On return, points to a new context object with the buffers and attributes specified by the {@code pix}
 	 *              parameter. If the context can not be created as specified, the value of {@code ctx} is set to {@code NULL}.
 	 */
-	public static int CGLCreateContext(long pix, long share, ByteBuffer ctx) {
-		if ( CHECKS )
-			checkBuffer(ctx, 1 << POINTER_SHIFT);
-		return nCGLCreateContext(pix, share, memAddress(ctx));
-	}
-
-	/** Alternative version of: {@link #CGLCreateContext CreateContext} */
 	public static int CGLCreateContext(long pix, long share, PointerBuffer ctx) {
 		if ( CHECKS )
 			checkBuffer(ctx, 1);
@@ -689,7 +698,34 @@ public class CGL {
 
 	// --- [ CGLCreatePBuffer ] ---
 
-	/** Unsafe version of {@link #CGLCreatePBuffer CreatePBuffer} */
+	/**
+	 * Creates a pixel buffer of the specified size, compatible with the specified texture target.
+	 * 
+	 * <p>This function does not have any knowledge of OpenGL contexts or pixel format objects and does not specifically allocate the storage needed for the
+	 * actual pixel buffer. These operations occur when you call the function {@link #CGLSetPBuffer SetPBuffer}.</p>
+	 * 
+	 * <p>You can determine the dimensional limits of a pixel buffer by calling the OpenGL function glGetInteger. You can find the maximum size supported by
+	 * querying GL_MAX_VIEWPORT_DIMS and the minimum size by querying GL_MIN_PBUFFER_VIEWPORT_DIMS_APPLE, which returns two integer values (similar to
+	 * GL_MAX_VIEWPORT_DIMS). All pixel buffer dimensions that you request with the function aglCreatePBuffer should fall within these limits (inclusively)
+	 * and should comply with any limitations imposed by the texture target you select.</p>
+	 * 
+	 * <p>The maximum viewport size supported in OS X is quite large. You should take into consideration the amount of video or system memory required to support
+	 * the requested pixel buffer size, including additional memory needed for multiple buffers and options such as multisampling.</p>
+	 * 
+	 * <p>Starting in OS X v10.5, pixel buffer objects are reference counted. Pixel buffer objects are created with a reference count of 1 and are destroyed when
+	 * the last reference to the object is released.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param width          the width, in pixels, of the pixel buffer
+	 * @param height         the height, in pixels, of the pixel buffer
+	 * @param target         a constant that specifies the type of the pixel buffer target texture. One of:<br>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}
+	 * @param internalFormat a constant that specifies the internal color format of the pixel buffer. The format controls whether the alpha channel of the pixel buffer is used
+	 *                       for texturing operations. One of:<br>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA}
+	 * @param max_level      the maximum level of mipmap detail allowable. Pass 0 for a pixel buffer that is not using mipmaps. The value passed should never exceed the actual
+	 *                       maximum number of mipmap levels that can be represented with the given width and height.
+	 * @param pbuffer        on return, points to a new pixel buffer object
+	 */
 	public static int nCGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, long pbuffer) {
 		long __functionAddress = Functions.CreatePBuffer;
 		return callIIIIIPI(__functionAddress, width, height, target, internalFormat, max_level, pbuffer);
@@ -723,13 +759,6 @@ public class CGL {
 	 *                       maximum number of mipmap levels that can be represented with the given width and height.
 	 * @param pbuffer        on return, points to a new pixel buffer object
 	 */
-	public static int CGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, ByteBuffer pbuffer) {
-		if ( CHECKS )
-			checkBuffer(pbuffer, 1 << POINTER_SHIFT);
-		return nCGLCreatePBuffer(width, height, target, internalFormat, max_level, memAddress(pbuffer));
-	}
-
-	/** Alternative version of: {@link #CGLCreatePBuffer CreatePBuffer} */
 	public static int CGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, PointerBuffer pbuffer) {
 		if ( CHECKS )
 			checkBuffer(pbuffer, 1);
@@ -756,7 +785,22 @@ public class CGL {
 
 	// --- [ CGLDescribePBuffer ] ---
 
-	/** Unsafe version of {@link #CGLDescribePBuffer DescribePBuffer} */
+	/**
+	 * Retrieves information that describes the specified pixel buffer object.
+	 * 
+	 * <p>The width, height, texture target, and internal texture color format of a pixel buffer object are set at its creation and cannot be changed without
+	 * destroying and recreating the object. The level is set when the pixel buffer object is attached to a rendering context by calling the function
+	 * {@link #CGLSetPBuffer SetPBuffer}.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param obj            a pointer to the pixel buffer object
+	 * @param width          on return, points to the width, in pixels, of the pixel buffer
+	 * @param height         on return, points to the height, in pixels, of the pixel buffer
+	 * @param target         on return, points to a constant that specifies the pixel buffer texture target
+	 * @param internalFormat on return, points to a constant that specifies the internal color format of the pixel buffer
+	 * @param mipmap         on return, points to the mipmap level of the pixel buffer or 0 if it doesn't use mipmaps
+	 */
 	public static int nCGLDescribePBuffer(long obj, long width, long height, long target, long internalFormat, long mipmap) {
 		long __functionAddress = Functions.DescribePBuffer;
 		if ( CHECKS )
@@ -780,18 +824,6 @@ public class CGL {
 	 * @param internalFormat on return, points to a constant that specifies the internal color format of the pixel buffer
 	 * @param mipmap         on return, points to the mipmap level of the pixel buffer or 0 if it doesn't use mipmaps
 	 */
-	public static int CGLDescribePBuffer(long obj, ByteBuffer width, ByteBuffer height, ByteBuffer target, ByteBuffer internalFormat, ByteBuffer mipmap) {
-		if ( CHECKS ) {
-			checkBuffer(width, 1 << 2);
-			checkBuffer(height, 1 << 2);
-			checkBuffer(target, 1 << 2);
-			checkBuffer(internalFormat, 1 << 2);
-			checkBuffer(mipmap, 1 << 2);
-		}
-		return nCGLDescribePBuffer(obj, memAddress(width), memAddress(height), memAddress(target), memAddress(internalFormat), memAddress(mipmap));
-	}
-
-	/** Alternative version of: {@link #CGLDescribePBuffer DescribePBuffer} */
 	public static int CGLDescribePBuffer(long obj, IntBuffer width, IntBuffer height, IntBuffer target, IntBuffer internalFormat, IntBuffer mipmap) {
 		if ( CHECKS ) {
 			checkBuffer(width, 1);
@@ -900,7 +932,28 @@ public class CGL {
 
 	// --- [ CGLSetOffScreen ] ---
 
-	/** Unsafe version of {@link #CGLSetOffScreen SetOffScreen} */
+	/**
+	 * Attaches a rendering context to an offscreen buffer.
+	 * 
+	 * <p>Before calling this function, you must set up the rendering context using a pixel format object created with the kCGLPFAOffScreen attribute. For more
+	 * information about kCGLPFAOffScreen, see Buffer and Renderer Attributes.</p>
+	 * 
+	 * <p>After calling this function, subsequent OpenGL drawing is rendered into the offscreen buffer and the viewport of the rendering context is set to the
+	 * full size of the offscreen area.</p>
+	 * 
+	 * <p>To exit offscreen mode, call {@link #CGLClearDrawable ClearDrawable}.</p>
+	 * 
+	 * <p>To obtain functionality similar to offscreen mode on renderers that do not support it, attach the context to a hidden window and use the OpenGL
+	 * function glReadPixels.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param ctx      a rendering context
+	 * @param width    the width, in pixels, of the offscreen buffer
+	 * @param height   the height, in pixels, of the offscreen buffer
+	 * @param rowbytes the number of bytes per row of the offscreen buffer, which must be greater than or equal to width times bytes per pixel
+	 * @param baseaddr a pointer to a block of memory to use as the offscreen buffer. The size of the memory must be at least {@code rowbytes*height} bytes.
+	 */
 	public static int nCGLSetOffScreen(long ctx, int width, int height, int rowbytes, long baseaddr) {
 		long __functionAddress = Functions.SetOffScreen;
 		if ( CHECKS )
@@ -938,7 +991,21 @@ public class CGL {
 
 	// --- [ CGLGetOffScreen ] ---
 
-	/** Unsafe version of {@link #CGLGetOffScreen GetOffScreen} */
+	/**
+	 * Retrieves an offscreen buffer and its parameters for a specified rendering context.
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param ctx      a rendering context
+	 * @param width    on return, points to the width, in pixels, of the offscreen buffer. If the rendering context is not attached to an offscreen drawable object, the
+	 *                 value of width is set to 0.
+	 * @param height   on return, points to the height, in pixels, of the offscreen buffer. If the rendering context is not attached to an offscreen drawable object, the
+	 *                 value of height is set to 0.
+	 * @param rowbytes on return, points to the number of bytes per row of the offscreen buffer. If the context is not attached to an offscreen drawable object, the value
+	 *                 of rowbytes is set to 0.
+	 * @param baseaddr on return, points to the base address of the offscreen buffer. If the context is not attached to an offscreen drawable object, the value of
+	 *                 {@code baseaddr} is set to {@code NULL}.
+	 */
 	public static int nCGLGetOffScreen(long ctx, long width, long height, long rowbytes, long baseaddr) {
 		long __functionAddress = Functions.GetOffScreen;
 		if ( CHECKS )
@@ -961,17 +1028,6 @@ public class CGL {
 	 * @param baseaddr on return, points to the base address of the offscreen buffer. If the context is not attached to an offscreen drawable object, the value of
 	 *                 {@code baseaddr} is set to {@code NULL}.
 	 */
-	public static int CGLGetOffScreen(long ctx, ByteBuffer width, ByteBuffer height, ByteBuffer rowbytes, ByteBuffer baseaddr) {
-		if ( CHECKS ) {
-			checkBuffer(width, 1 << 2);
-			checkBuffer(height, 1 << 2);
-			checkBuffer(rowbytes, 1 << 2);
-			checkBuffer(baseaddr, 1 << POINTER_SHIFT);
-		}
-		return nCGLGetOffScreen(ctx, memAddress(width), memAddress(height), memAddress(rowbytes), memAddress(baseaddr));
-	}
-
-	/** Alternative version of: {@link #CGLGetOffScreen GetOffScreen} */
 	public static int CGLGetOffScreen(long ctx, IntBuffer width, IntBuffer height, IntBuffer rowbytes, PointerBuffer baseaddr) {
 		if ( CHECKS ) {
 			checkBuffer(width, 1);
@@ -1086,7 +1142,18 @@ public class CGL {
 
 	// --- [ CGLGetPBuffer ] ---
 
-	/** Unsafe version of {@link #CGLGetPBuffer GetPBuffer} */
+	/**
+	 * Retrieves a pixel buffer and its parameters for a specified rendering context.
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param ctx     a rendering context
+	 * @param pbuffer on return, points to the pixel buffer object attached to the rendering context
+	 * @param face    on return, points to the cube map face that is set if the pixel buffer texture target type is {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}; otherwise 0 for all other
+	 *                texture target types.
+	 * @param level   on return, points to the current mipmap level for drawing
+	 * @param screen  on return, points to the current virtual screen number, as set by the last valid call to {@link #CGLSetPBuffer SetPBuffer}
+	 */
 	public static int nCGLGetPBuffer(long ctx, long pbuffer, long face, long level, long screen) {
 		long __functionAddress = Functions.GetPBuffer;
 		if ( CHECKS )
@@ -1106,17 +1173,6 @@ public class CGL {
 	 * @param level   on return, points to the current mipmap level for drawing
 	 * @param screen  on return, points to the current virtual screen number, as set by the last valid call to {@link #CGLSetPBuffer SetPBuffer}
 	 */
-	public static int CGLGetPBuffer(long ctx, ByteBuffer pbuffer, ByteBuffer face, ByteBuffer level, ByteBuffer screen) {
-		if ( CHECKS ) {
-			checkBuffer(pbuffer, 1 << POINTER_SHIFT);
-			checkBuffer(face, 1 << 2);
-			checkBuffer(level, 1 << 2);
-			checkBuffer(screen, 1 << 2);
-		}
-		return nCGLGetPBuffer(ctx, memAddress(pbuffer), memAddress(face), memAddress(level), memAddress(screen));
-	}
-
-	/** Alternative version of: {@link #CGLGetPBuffer GetPBuffer} */
 	public static int CGLGetPBuffer(long ctx, PointerBuffer pbuffer, IntBuffer face, IntBuffer level, IntBuffer screen) {
 		if ( CHECKS ) {
 			checkBuffer(pbuffer, 1);
@@ -1196,7 +1252,13 @@ public class CGL {
 
 	// --- [ CGLIsEnabled ] ---
 
-	/** Unsafe version of {@link #CGLIsEnabled IsEnabled} */
+	/**
+	 * Reports whether an option is enabled for a rendering context.
+	 *
+	 * @param ctx    a rendering context
+	 * @param pname  the option to query. One of:<br>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
+	 * @param enable on return, enable is set to true if the option is enabled
+	 */
 	public static int nCGLIsEnabled(long ctx, int pname, long enable) {
 		long __functionAddress = Functions.IsEnabled;
 		if ( CHECKS )
@@ -1211,13 +1273,6 @@ public class CGL {
 	 * @param pname  the option to query. One of:<br>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
 	 * @param enable on return, enable is set to true if the option is enabled
 	 */
-	public static int CGLIsEnabled(long ctx, int pname, ByteBuffer enable) {
-		if ( CHECKS )
-			checkBuffer(enable, 1 << 2);
-		return nCGLIsEnabled(ctx, pname, memAddress(enable));
-	}
-
-	/** Alternative version of: {@link #CGLIsEnabled IsEnabled} */
 	public static int CGLIsEnabled(long ctx, int pname, IntBuffer enable) {
 		if ( CHECKS )
 			checkBuffer(enable, 1);
@@ -1226,7 +1281,13 @@ public class CGL {
 
 	// --- [ CGLSetParameter ] ---
 
-	/** Unsafe version of {@link #CGLSetParameter SetParameter} */
+	/**
+	 * Sets the value of a rendering context parameter.
+	 *
+	 * @param ctx    a rendering context
+	 * @param pname  the parameter whose value you want to set. One of:<br>{@link #kCGLCPSwapRectangle CPSwapRectangle}, {@link #kCGLCPSwapInterval CPSwapInterval}, {@link #kCGLCPDispatchTableSize CPDispatchTableSize}, {@link #kCGLCPClientStorage CPClientStorage}, {@link #kCGLCPSurfaceTexture CPSurfaceTexture}, {@link #kCGLCPSurfaceOrder CPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources CPReclaimResources}, {@link #kCGLCPCurrentRendererID CPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable CPHasDrawable}, {@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}
+	 * @param params a pointer to the value to set the parameter to
+	 */
 	public static int nCGLSetParameter(long ctx, int pname, long params) {
 		long __functionAddress = Functions.SetParameter;
 		if ( CHECKS )
@@ -1241,20 +1302,18 @@ public class CGL {
 	 * @param pname  the parameter whose value you want to set. One of:<br>{@link #kCGLCPSwapRectangle CPSwapRectangle}, {@link #kCGLCPSwapInterval CPSwapInterval}, {@link #kCGLCPDispatchTableSize CPDispatchTableSize}, {@link #kCGLCPClientStorage CPClientStorage}, {@link #kCGLCPSurfaceTexture CPSurfaceTexture}, {@link #kCGLCPSurfaceOrder CPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources CPReclaimResources}, {@link #kCGLCPCurrentRendererID CPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable CPHasDrawable}, {@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}
 	 * @param params a pointer to the value to set the parameter to
 	 */
-	public static int CGLSetParameter(long ctx, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		return nCGLSetParameter(ctx, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #CGLSetParameter SetParameter} */
 	public static int CGLSetParameter(long ctx, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		return nCGLSetParameter(ctx, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #CGLSetParameter SetParameter} */
+	/**
+	 * Sets the value of a rendering context parameter.
+	 *
+	 * @param ctx   a rendering context
+	 * @param pname the parameter whose value you want to set. One of:<br>{@link #kCGLCPSwapRectangle CPSwapRectangle}, {@link #kCGLCPSwapInterval CPSwapInterval}, {@link #kCGLCPDispatchTableSize CPDispatchTableSize}, {@link #kCGLCPClientStorage CPClientStorage}, {@link #kCGLCPSurfaceTexture CPSurfaceTexture}, {@link #kCGLCPSurfaceOrder CPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources CPReclaimResources}, {@link #kCGLCPCurrentRendererID CPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable CPHasDrawable}, {@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}
+	 */
 	public static int CGLSetParameter(long ctx, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1267,7 +1326,13 @@ public class CGL {
 
 	// --- [ CGLGetParameter ] ---
 
-	/** Unsafe version of {@link #CGLGetParameter GetParameter} */
+	/**
+	 * Retrieves the value of a rendering context parameter.
+	 *
+	 * @param ctx    a rendering context
+	 * @param pname  the parameter whose value you want to retrieve. One of:<br>{@link #kCGLCPSwapRectangle CPSwapRectangle}, {@link #kCGLCPSwapInterval CPSwapInterval}, {@link #kCGLCPDispatchTableSize CPDispatchTableSize}, {@link #kCGLCPClientStorage CPClientStorage}, {@link #kCGLCPSurfaceTexture CPSurfaceTexture}, {@link #kCGLCPSurfaceOrder CPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources CPReclaimResources}, {@link #kCGLCPCurrentRendererID CPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable CPHasDrawable}, {@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}
+	 * @param params on return, points to the value of the parameter
+	 */
 	public static int nCGLGetParameter(long ctx, int pname, long params) {
 		long __functionAddress = Functions.GetParameter;
 		if ( CHECKS )
@@ -1282,13 +1347,6 @@ public class CGL {
 	 * @param pname  the parameter whose value you want to retrieve. One of:<br>{@link #kCGLCPSwapRectangle CPSwapRectangle}, {@link #kCGLCPSwapInterval CPSwapInterval}, {@link #kCGLCPDispatchTableSize CPDispatchTableSize}, {@link #kCGLCPClientStorage CPClientStorage}, {@link #kCGLCPSurfaceTexture CPSurfaceTexture}, {@link #kCGLCPSurfaceOrder CPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources CPReclaimResources}, {@link #kCGLCPCurrentRendererID CPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable CPHasDrawable}, {@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}
 	 * @param params on return, points to the value of the parameter
 	 */
-	public static int CGLGetParameter(long ctx, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		return nCGLGetParameter(ctx, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #CGLGetParameter GetParameter} */
 	public static int CGLGetParameter(long ctx, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
@@ -1319,7 +1377,16 @@ public class CGL {
 
 	// --- [ CGLGetVirtualScreen ] ---
 
-	/** Unsafe version of {@link #CGLGetVirtualScreen GetVirtualScreen} */
+	/**
+	 * Gets the current virtual screen number associated with a rendering context.
+	 * 
+	 * <p>The current virtual screen can change when a drawable object is moved or resized across graphics device boundaries. A change in the current virtual
+	 * screen can affect the return values of some OpenGL functions and in most cases also means that the renderer has changed.</p>
+	 *
+	 * @param ctx    a rendering context
+	 * @param screen on return, points to the virtual screen associated with the context. The value is always 0 on a single-display system and –1 if the function fails
+	 *               for any reason.
+	 */
 	public static int nCGLGetVirtualScreen(long ctx, long screen) {
 		long __functionAddress = Functions.GetVirtualScreen;
 		if ( CHECKS )
@@ -1337,13 +1404,6 @@ public class CGL {
 	 * @param screen on return, points to the virtual screen associated with the context. The value is always 0 on a single-display system and –1 if the function fails
 	 *               for any reason.
 	 */
-	public static int CGLGetVirtualScreen(long ctx, ByteBuffer screen) {
-		if ( CHECKS )
-			checkBuffer(screen, 1 << 2);
-		return nCGLGetVirtualScreen(ctx, memAddress(screen));
-	}
-
-	/** Alternative version of: {@link #CGLGetVirtualScreen GetVirtualScreen} */
 	public static int CGLGetVirtualScreen(long ctx, IntBuffer screen) {
 		if ( CHECKS )
 			checkBuffer(screen, 1);
@@ -1366,7 +1426,12 @@ public class CGL {
 
 	// --- [ CGLSetGlobalOption ] ---
 
-	/** Unsafe version of {@link #CGLSetGlobalOption SetGlobalOption} */
+	/**
+	 * Sets the value of a global option.
+	 *
+	 * @param pname  the name of the option whose value you want to set. One of:<br>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}, {@link #kCGLGOClearFormatCache GOClearFormatCache}, {@link #kCGLGORetainRenderers GORetainRenderers}, {@link #kCGLGOResetLibrary GOResetLibrary}, {@link #kCGLGOUseErrorHandler GOUseErrorHandler}, {@link #kCGLGOUseBuildCache GOUseBuildCache}
+	 * @param params the value to set the option to
+	 */
 	public static int nCGLSetGlobalOption(int pname, long params) {
 		long __functionAddress = Functions.SetGlobalOption;
 		return callIPI(__functionAddress, pname, params);
@@ -1378,20 +1443,17 @@ public class CGL {
 	 * @param pname  the name of the option whose value you want to set. One of:<br>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}, {@link #kCGLGOClearFormatCache GOClearFormatCache}, {@link #kCGLGORetainRenderers GORetainRenderers}, {@link #kCGLGOResetLibrary GOResetLibrary}, {@link #kCGLGOUseErrorHandler GOUseErrorHandler}, {@link #kCGLGOUseBuildCache GOUseBuildCache}
 	 * @param params the value to set the option to
 	 */
-	public static int CGLSetGlobalOption(int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		return nCGLSetGlobalOption(pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #CGLSetGlobalOption SetGlobalOption} */
 	public static int CGLSetGlobalOption(int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		return nCGLSetGlobalOption(pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #CGLSetGlobalOption SetGlobalOption} */
+	/**
+	 * Sets the value of a global option.
+	 *
+	 * @param pname the name of the option whose value you want to set. One of:<br>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}, {@link #kCGLGOClearFormatCache GOClearFormatCache}, {@link #kCGLGORetainRenderers GORetainRenderers}, {@link #kCGLGOResetLibrary GOResetLibrary}, {@link #kCGLGOUseErrorHandler GOUseErrorHandler}, {@link #kCGLGOUseBuildCache GOUseBuildCache}
+	 */
 	public static int CGLSetGlobalOption(int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1404,7 +1466,12 @@ public class CGL {
 
 	// --- [ CGLGetGlobalOption ] ---
 
-	/** Unsafe version of {@link #CGLGetGlobalOption GetGlobalOption} */
+	/**
+	 * Retrieves the value of a global option.
+	 *
+	 * @param pname  the name of the option whose value you want to get. One of:<br>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}, {@link #kCGLGOClearFormatCache GOClearFormatCache}, {@link #kCGLGORetainRenderers GORetainRenderers}, {@link #kCGLGOResetLibrary GOResetLibrary}, {@link #kCGLGOUseErrorHandler GOUseErrorHandler}, {@link #kCGLGOUseBuildCache GOUseBuildCache}
+	 * @param params on return, a pointer to the value of the option
+	 */
 	public static int nCGLGetGlobalOption(int pname, long params) {
 		long __functionAddress = Functions.GetGlobalOption;
 		return callIPI(__functionAddress, pname, params);
@@ -1416,13 +1483,6 @@ public class CGL {
 	 * @param pname  the name of the option whose value you want to get. One of:<br>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}, {@link #kCGLGOClearFormatCache GOClearFormatCache}, {@link #kCGLGORetainRenderers GORetainRenderers}, {@link #kCGLGOResetLibrary GOResetLibrary}, {@link #kCGLGOUseErrorHandler GOUseErrorHandler}, {@link #kCGLGOUseBuildCache GOUseBuildCache}
 	 * @param params on return, a pointer to the value of the option
 	 */
-	public static int CGLGetGlobalOption(int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		return nCGLGetGlobalOption(pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #CGLGetGlobalOption GetGlobalOption} */
 	public static int CGLGetGlobalOption(int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
@@ -1468,7 +1528,12 @@ public class CGL {
 
 	// --- [ CGLGetVersion ] ---
 
-	/** Unsafe version of {@link #CGLGetVersion GetVersion} */
+	/**
+	 * Gets the major and minor version numbers of the CGL library.
+	 *
+	 * @param majorvers on return, points to the major version number of the CGL library
+	 * @param minorvers on return, points to the minor version number of the CGL library
+	 */
 	public static void nCGLGetVersion(long majorvers, long minorvers) {
 		long __functionAddress = Functions.GetVersion;
 		callPPV(__functionAddress, majorvers, minorvers);
@@ -1480,15 +1545,6 @@ public class CGL {
 	 * @param majorvers on return, points to the major version number of the CGL library
 	 * @param minorvers on return, points to the minor version number of the CGL library
 	 */
-	public static void CGLGetVersion(ByteBuffer majorvers, ByteBuffer minorvers) {
-		if ( CHECKS ) {
-			checkBuffer(majorvers, 1 << 2);
-			checkBuffer(minorvers, 1 << 2);
-		}
-		nCGLGetVersion(memAddress(majorvers), memAddress(minorvers));
-	}
-
-	/** Alternative version of: {@link #CGLGetVersion GetVersion} */
 	public static void CGLGetVersion(IntBuffer majorvers, IntBuffer minorvers) {
 		if ( CHECKS ) {
 			checkBuffer(majorvers, 1);
@@ -1499,7 +1555,11 @@ public class CGL {
 
 	// --- [ CGLErrorString ] ---
 
-	/** Unsafe version of {@link #CGLErrorString ErrorString} */
+	/**
+	 * Returns a string that describes the specified result code.
+	 *
+	 * @param error the CGL result code constant returned from a CGL function. One of:<br>{@link #kCGLNoError NoError}, {@link #kCGLBadAttribute BadAttribute}, {@link #kCGLBadProperty BadProperty}, {@link #kCGLBadPixelFormat BadPixelFormat}, {@link #kCGLBadRendererInfo BadRendererInfo}, {@link #kCGLBadContext BadContext}, {@link #kCGLBadDrawable BadDrawable}, {@link #kCGLBadDisplay BadDisplay}, {@link #kCGLBadState BadState}, {@link #kCGLBadValue BadValue}, {@link #kCGLBadMatch BadMatch}, {@link #kCGLBadEnumeration BadEnumeration}, {@link #kCGLBadOffScreen BadOffScreen}, {@link #kCGLBadFullScreen BadFullScreen}, {@link #kCGLBadWindow BadWindow}, {@link #kCGLBadAddress BadAddress}, {@link #kCGLBadCodeModule BadCodeModule}, {@link #kCGLBadAlloc BadAlloc}, {@link #kCGLBadConnection BadConnection}
+	 */
 	public static long nCGLErrorString(int error) {
 		long __functionAddress = Functions.ErrorString;
 		return callIP(__functionAddress, error);

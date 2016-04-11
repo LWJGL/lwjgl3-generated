@@ -374,7 +374,12 @@ public class ARBFramebufferObject {
 
 	// --- [ glDeleteRenderbuffers ] ---
 
-	/** Unsafe version of {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
+	/**
+	 * Deletes renderbuffer objects.
+	 *
+	 * @param n             the number of renderbuffer objects to be deleted
+	 * @param renderbuffers an array containing {@code n} renderbuffer objects to be deleted
+	 */
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffers;
 		if ( CHECKS )
@@ -385,21 +390,13 @@ public class ARBFramebufferObject {
 	/**
 	 * Deletes renderbuffer objects.
 	 *
-	 * @param n             the number of renderbuffer objects to be deleted
 	 * @param renderbuffers an array containing {@code n} renderbuffer objects to be deleted
 	 */
-	public static void glDeleteRenderbuffers(int n, ByteBuffer renderbuffers) {
-		if ( CHECKS )
-			checkBuffer(renderbuffers, n << 2);
-		nglDeleteRenderbuffers(n, memAddress(renderbuffers));
-	}
-
-	/** Alternative version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(IntBuffer renderbuffers) {
 		nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
 	}
 
-	/** Single value version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
+	/** Deletes renderbuffer objects. */
 	public static void glDeleteRenderbuffers(int renderbuffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -412,7 +409,12 @@ public class ARBFramebufferObject {
 
 	// --- [ glGenRenderbuffers ] ---
 
-	/** Unsafe version of {@link #glGenRenderbuffers GenRenderbuffers} */
+	/**
+	 * Generates renderbuffer object names.
+	 *
+	 * @param n             the number of renderbuffer object names to generate
+	 * @param renderbuffers a buffer in which the generated renderbuffer object names are stored
+	 */
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glGenRenderbuffers;
 		if ( CHECKS )
@@ -423,21 +425,13 @@ public class ARBFramebufferObject {
 	/**
 	 * Generates renderbuffer object names.
 	 *
-	 * @param n             the number of renderbuffer object names to generate
 	 * @param renderbuffers a buffer in which the generated renderbuffer object names are stored
 	 */
-	public static void glGenRenderbuffers(int n, ByteBuffer renderbuffers) {
-		if ( CHECKS )
-			checkBuffer(renderbuffers, n << 2);
-		nglGenRenderbuffers(n, memAddress(renderbuffers));
-	}
-
-	/** Alternative version of: {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static void glGenRenderbuffers(IntBuffer renderbuffers) {
 		nglGenRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
 	}
 
-	/** Single return value version of: {@link #glGenRenderbuffers GenRenderbuffers} */
+	/** Generates renderbuffer object names. */
 	public static int glGenRenderbuffers() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -488,7 +482,13 @@ public class ARBFramebufferObject {
 
 	// --- [ glGetRenderbufferParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
+	/**
+	 * Retrieves information about a bound renderbuffer object.
+	 *
+	 * @param target the target of the query operation. Must be:<br>{@link #GL_RENDERBUFFER RENDERBUFFER}
+	 * @param pname  the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br>{@link #GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}, {@link #GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}, {@link #GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}, {@link #GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}, {@link #GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}, {@link #GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}, {@link #GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}, {@link #GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}, {@link #GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}, {@link #GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}
+	 * @param params an array to receive the value of the queried parameter
+	 */
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameteriv;
 		if ( CHECKS )
@@ -503,20 +503,18 @@ public class ARBFramebufferObject {
 	 * @param pname  the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br>{@link #GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}, {@link #GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}, {@link #GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}, {@link #GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}, {@link #GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}, {@link #GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}, {@link #GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}, {@link #GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}, {@link #GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}, {@link #GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}
 	 * @param params an array to receive the value of the queried parameter
 	 */
-	public static void glGetRenderbufferParameteriv(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static void glGetRenderbufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
+	/**
+	 * Retrieves information about a bound renderbuffer object.
+	 *
+	 * @param target the target of the query operation. Must be:<br>{@link #GL_RENDERBUFFER RENDERBUFFER}
+	 * @param pname  the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br>{@link #GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}, {@link #GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}, {@link #GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}, {@link #GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}, {@link #GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}, {@link #GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}, {@link #GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}, {@link #GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}, {@link #GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}, {@link #GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}
+	 */
 	public static int glGetRenderbufferParameteri(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -559,7 +557,12 @@ public class ARBFramebufferObject {
 
 	// --- [ glDeleteFramebuffers ] ---
 
-	/** Unsafe version of {@link #glDeleteFramebuffers DeleteFramebuffers} */
+	/**
+	 * Deletes framebuffer objects.
+	 *
+	 * @param n            the number of framebuffer objects to be deleted
+	 * @param framebuffers an array containing {@code n} framebuffer objects to be deleted
+	 */
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteFramebuffers;
 		if ( CHECKS )
@@ -570,21 +573,13 @@ public class ARBFramebufferObject {
 	/**
 	 * Deletes framebuffer objects.
 	 *
-	 * @param n            the number of framebuffer objects to be deleted
 	 * @param framebuffers an array containing {@code n} framebuffer objects to be deleted
 	 */
-	public static void glDeleteFramebuffers(int n, ByteBuffer framebuffers) {
-		if ( CHECKS )
-			checkBuffer(framebuffers, n << 2);
-		nglDeleteFramebuffers(n, memAddress(framebuffers));
-	}
-
-	/** Alternative version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void glDeleteFramebuffers(IntBuffer framebuffers) {
 		nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
 	}
 
-	/** Single value version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
+	/** Deletes framebuffer objects. */
 	public static void glDeleteFramebuffers(int framebuffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -597,7 +592,12 @@ public class ARBFramebufferObject {
 
 	// --- [ glGenFramebuffers ] ---
 
-	/** Unsafe version of {@link #glGenFramebuffers GenFramebuffers} */
+	/**
+	 * Generates framebuffer object names.
+	 *
+	 * @param n            the number of framebuffer object names to generate
+	 * @param framebuffers a buffer in which the generated framebuffer object names are stored
+	 */
 	public static void nglGenFramebuffers(int n, long framebuffers) {
 		long __functionAddress = GL.getCapabilities().glGenFramebuffers;
 		if ( CHECKS )
@@ -608,21 +608,13 @@ public class ARBFramebufferObject {
 	/**
 	 * Generates framebuffer object names.
 	 *
-	 * @param n            the number of framebuffer object names to generate
 	 * @param framebuffers a buffer in which the generated framebuffer object names are stored
 	 */
-	public static void glGenFramebuffers(int n, ByteBuffer framebuffers) {
-		if ( CHECKS )
-			checkBuffer(framebuffers, n << 2);
-		nglGenFramebuffers(n, memAddress(framebuffers));
-	}
-
-	/** Alternative version of: {@link #glGenFramebuffers GenFramebuffers} */
 	public static void glGenFramebuffers(IntBuffer framebuffers) {
 		nglGenFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
 	}
 
-	/** Single return value version of: {@link #glGenFramebuffers GenFramebuffers} */
+	/** Generates framebuffer object names. */
 	public static int glGenFramebuffers() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -740,7 +732,14 @@ public class ARBFramebufferObject {
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
+	/**
+	 * Retrievees information about attachments of a bound framebuffer object.
+	 *
+	 * @param target     the target of the query operation. One of:<br>{@link #GL_FRAMEBUFFER FRAMEBUFFER}, {@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}
+	 * @param attachment the attachment within {@code target}. One of:<br>{@link #GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link #GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link #GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link #GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link #GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link #GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link #GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link #GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link #GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link #GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link #GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link #GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link #GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link #GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link #GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link #GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link GL30#GL_COLOR_ATTACHMENT16 COLOR_ATTACHMENT16}, {@link GL30#GL_COLOR_ATTACHMENT17 COLOR_ATTACHMENT17}, {@link GL30#GL_COLOR_ATTACHMENT18 COLOR_ATTACHMENT18}, {@link GL30#GL_COLOR_ATTACHMENT19 COLOR_ATTACHMENT19}, {@link GL30#GL_COLOR_ATTACHMENT20 COLOR_ATTACHMENT20}, {@link GL30#GL_COLOR_ATTACHMENT21 COLOR_ATTACHMENT21}, {@link GL30#GL_COLOR_ATTACHMENT22 COLOR_ATTACHMENT22}, {@link GL30#GL_COLOR_ATTACHMENT23 COLOR_ATTACHMENT23}, {@link GL30#GL_COLOR_ATTACHMENT24 COLOR_ATTACHMENT24}, {@link GL30#GL_COLOR_ATTACHMENT25 COLOR_ATTACHMENT25}, {@link GL30#GL_COLOR_ATTACHMENT26 COLOR_ATTACHMENT26}, {@link GL30#GL_COLOR_ATTACHMENT27 COLOR_ATTACHMENT27}, {@link GL30#GL_COLOR_ATTACHMENT28 COLOR_ATTACHMENT28}, {@link GL30#GL_COLOR_ATTACHMENT29 COLOR_ATTACHMENT29}, {@link GL30#GL_COLOR_ATTACHMENT30 COLOR_ATTACHMENT30}, {@link GL30#GL_COLOR_ATTACHMENT31 COLOR_ATTACHMENT31}, {@link #GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link #GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link #GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
+	 * @param pname      the parameter of {@code attachment} to query. One of:<br>{@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
+	 * @param params     an array to receive the value of the queried parameter
+	 */
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameteriv;
 		if ( CHECKS )
@@ -756,20 +755,19 @@ public class ARBFramebufferObject {
 	 * @param pname      the parameter of {@code attachment} to query. One of:<br>{@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
 	 * @param params     an array to receive the value of the queried parameter
 	 */
-	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
+	/**
+	 * Retrievees information about attachments of a bound framebuffer object.
+	 *
+	 * @param target     the target of the query operation. One of:<br>{@link #GL_FRAMEBUFFER FRAMEBUFFER}, {@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}
+	 * @param attachment the attachment within {@code target}. One of:<br>{@link #GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link #GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link #GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link #GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link #GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link #GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link #GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link #GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link #GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link #GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link #GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link #GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link #GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link #GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link #GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link #GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link GL30#GL_COLOR_ATTACHMENT16 COLOR_ATTACHMENT16}, {@link GL30#GL_COLOR_ATTACHMENT17 COLOR_ATTACHMENT17}, {@link GL30#GL_COLOR_ATTACHMENT18 COLOR_ATTACHMENT18}, {@link GL30#GL_COLOR_ATTACHMENT19 COLOR_ATTACHMENT19}, {@link GL30#GL_COLOR_ATTACHMENT20 COLOR_ATTACHMENT20}, {@link GL30#GL_COLOR_ATTACHMENT21 COLOR_ATTACHMENT21}, {@link GL30#GL_COLOR_ATTACHMENT22 COLOR_ATTACHMENT22}, {@link GL30#GL_COLOR_ATTACHMENT23 COLOR_ATTACHMENT23}, {@link GL30#GL_COLOR_ATTACHMENT24 COLOR_ATTACHMENT24}, {@link GL30#GL_COLOR_ATTACHMENT25 COLOR_ATTACHMENT25}, {@link GL30#GL_COLOR_ATTACHMENT26 COLOR_ATTACHMENT26}, {@link GL30#GL_COLOR_ATTACHMENT27 COLOR_ATTACHMENT27}, {@link GL30#GL_COLOR_ATTACHMENT28 COLOR_ATTACHMENT28}, {@link GL30#GL_COLOR_ATTACHMENT29 COLOR_ATTACHMENT29}, {@link GL30#GL_COLOR_ATTACHMENT30 COLOR_ATTACHMENT30}, {@link GL30#GL_COLOR_ATTACHMENT31 COLOR_ATTACHMENT31}, {@link #GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link #GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link #GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
+	 * @param pname      the parameter of {@code attachment} to query. One of:<br>{@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
+	 */
 	public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

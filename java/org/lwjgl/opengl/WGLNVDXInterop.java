@@ -139,7 +139,20 @@ public class WGLNVDXInterop {
 
 	// --- [ wglDXLockObjectsNV ] ---
 
-	/** Unsafe version of {@link #wglDXLockObjectsNV DXLockObjectsNV} */
+	/**
+	 * Before a GL object which is associated with a DirectX resource may be used, it must be locked with this function.
+	 * 
+	 * <p>A return value of TRUE indicates that all objects were successfully locked.  A return value of FALSE indicates an error. If the function returns FALSE,
+	 * none of the objects will be locked.</p>
+	 * 
+	 * <p>Attempting to access an interop object via GL when the object is not locked, or attempting to access the DirectX resource through the DirectX API when
+	 * it is locked by GL, will result in undefined behavior and may result in data corruption or program termination. Likewise, passing invalid interop device
+	 * or object handles to this function has undefined results, including program termination.</p>
+	 *
+	 * @param device  the GL/DirectX interop device handle
+	 * @param count   the number of objects to lock
+	 * @param objects an array of {@code count} interop objects
+	 */
 	public static int nwglDXLockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXLockObjectsNV;
 		if ( CHECKS ) {
@@ -160,23 +173,21 @@ public class WGLNVDXInterop {
 	 * or object handles to this function has undefined results, including program termination.</p>
 	 *
 	 * @param device  the GL/DirectX interop device handle
-	 * @param count   the number of objects to lock
 	 * @param objects an array of {@code count} interop objects
 	 */
-	public static int wglDXLockObjectsNV(long device, int count, ByteBuffer objects) {
-		if ( CHECKS )
-			checkBuffer(objects, count << POINTER_SHIFT);
-		return nwglDXLockObjectsNV(device, count, memAddress(objects));
-	}
-
-	/** Alternative version of: {@link #wglDXLockObjectsNV DXLockObjectsNV} */
 	public static int wglDXLockObjectsNV(long device, PointerBuffer objects) {
 		return nwglDXLockObjectsNV(device, objects.remaining(), memAddress(objects));
 	}
 
 	// --- [ wglDXUnlockObjectsNV ] ---
 
-	/** Unsafe version of {@link #wglDXUnlockObjectsNV DXUnlockObjectsNV} */
+	/**
+	 * Return control of an object to DirectX.
+	 *
+	 * @param device  the GL/DirectX interop device handle
+	 * @param count   the number of objects to unlock
+	 * @param objects an array of {@code count} interop objects
+	 */
 	public static int nwglDXUnlockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXUnlockObjectsNV;
 		if ( CHECKS ) {
@@ -190,16 +201,8 @@ public class WGLNVDXInterop {
 	 * Return control of an object to DirectX.
 	 *
 	 * @param device  the GL/DirectX interop device handle
-	 * @param count   the number of objects to unlock
 	 * @param objects an array of {@code count} interop objects
 	 */
-	public static int wglDXUnlockObjectsNV(long device, int count, ByteBuffer objects) {
-		if ( CHECKS )
-			checkBuffer(objects, count << POINTER_SHIFT);
-		return nwglDXUnlockObjectsNV(device, count, memAddress(objects));
-	}
-
-	/** Alternative version of: {@link #wglDXUnlockObjectsNV DXUnlockObjectsNV} */
 	public static int wglDXUnlockObjectsNV(long device, PointerBuffer objects) {
 		return nwglDXUnlockObjectsNV(device, objects.remaining(), memAddress(objects));
 	}

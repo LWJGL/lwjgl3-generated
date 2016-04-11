@@ -179,7 +179,12 @@ public class ARBSync {
 
 	// --- [ glGetInteger64v ] ---
 
-	/** Unsafe version of {@link #glGetInteger64v GetInteger64v} */
+	/**
+	 * Returns the 64bit integer value or values of a selected parameter.
+	 *
+	 * @param pname  the parameter value to be returned
+	 * @param params the value or values of the specified parameter
+	 */
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetInteger64v;
 		if ( CHECKS )
@@ -193,20 +198,17 @@ public class ARBSync {
 	 * @param pname  the parameter value to be returned
 	 * @param params the value or values of the specified parameter
 	 */
-	public static void glGetInteger64v(int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 3);
-		nglGetInteger64v(pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetInteger64v GetInteger64v} */
 	public static void glGetInteger64v(int pname, LongBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInteger64v GetInteger64v} */
+	/**
+	 * Returns the 64bit integer value or values of a selected parameter.
+	 *
+	 * @param pname the parameter value to be returned
+	 */
 	public static long glGetInteger64(int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -220,7 +222,15 @@ public class ARBSync {
 
 	// --- [ glGetSynciv ] ---
 
-	/** Unsafe version of {@link #glGetSynciv GetSynciv} */
+	/**
+	 * Queries the properties of a sync object.
+	 *
+	 * @param sync    the sync object whose properties to query
+	 * @param pname   the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
+	 * @param bufSize the size of the buffer whose address is given in {@code values}
+	 * @param length  the address of an variable to receive the number of integers placed in {@code values}
+	 * @param values  the address of an array to receive the values of the queried parameter
+	 */
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = GL.getCapabilities().glGetSynciv;
 		if ( CHECKS ) {
@@ -233,28 +243,24 @@ public class ARBSync {
 	/**
 	 * Queries the properties of a sync object.
 	 *
-	 * @param sync    the sync object whose properties to query
-	 * @param pname   the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
-	 * @param bufSize the size of the buffer whose address is given in {@code values}
-	 * @param length  the address of an variable to receive the number of integers placed in {@code values}
-	 * @param values  the address of an array to receive the values of the queried parameter
+	 * @param sync   the sync object whose properties to query
+	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
+	 * @param length the address of an variable to receive the number of integers placed in {@code values}
+	 * @param values the address of an array to receive the values of the queried parameter
 	 */
-	public static void glGetSynciv(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
-		if ( CHECKS ) {
-			checkBuffer(values, bufSize << 2);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
-	}
-
-	/** Alternative version of: {@link #glGetSynciv GetSynciv} */
 	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetSynciv GetSynciv} */
+	/**
+	 * Queries the properties of a sync object.
+	 *
+	 * @param sync   the sync object whose properties to query
+	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
+	 * @param length the address of an variable to receive the number of integers placed in {@code values}
+	 */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);

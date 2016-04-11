@@ -58,7 +58,13 @@ public class STBEasyFont {
 
 	// --- [ stb_easy_font_width ] ---
 
-	/** JNI method for {@link #stb_easy_font_width easy_font_width} */
+	/**
+	 * Takes a string and returns the horizontal size.
+	 *
+	 * @param text an ASCII string
+	 *
+	 * @return the horizontal size, in pixels
+	 */
 	public static native int nstb_easy_font_width(long text);
 
 	/**
@@ -74,7 +80,13 @@ public class STBEasyFont {
 		return nstb_easy_font_width(memAddress(text));
 	}
 
-	/** CharSequence version of: {@link #stb_easy_font_width easy_font_width} */
+	/**
+	 * Takes a string and returns the horizontal size.
+	 *
+	 * @param text an ASCII string
+	 *
+	 * @return the horizontal size, in pixels
+	 */
 	public static int stb_easy_font_width(CharSequence text) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -87,7 +99,13 @@ public class STBEasyFont {
 
 	// --- [ stb_easy_font_height ] ---
 
-	/** JNI method for {@link #stb_easy_font_height easy_font_height} */
+	/**
+	 * Takes a string and returns the vertical size (which can vary if {@code text} has newlines).
+	 *
+	 * @param text an ASCII string
+	 *
+	 * @return the vertical size, in pixels
+	 */
 	public static native int nstb_easy_font_height(long text);
 
 	/**
@@ -103,7 +121,13 @@ public class STBEasyFont {
 		return nstb_easy_font_height(memAddress(text));
 	}
 
-	/** CharSequence version of: {@link #stb_easy_font_height easy_font_height} */
+	/**
+	 * Takes a string and returns the vertical size (which can vary if {@code text} has newlines).
+	 *
+	 * @param text an ASCII string
+	 *
+	 * @return the vertical size, in pixels
+	 */
 	public static int stb_easy_font_height(CharSequence text) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -115,9 +139,6 @@ public class STBEasyFont {
 	}
 
 	// --- [ stb_easy_font_print ] ---
-
-	/** JNI method for {@link #stb_easy_font_print easy_font_print} */
-	public static native int nstb_easy_font_print(float x, float y, long text, long color, long vertex_buffer, int vbuf_size);
 
 	/**
 	 * Takes a string (which can contain '\n') and fills out a vertex buffer with renderable data to draw the string. Output data assumes increasing x is
@@ -150,16 +171,38 @@ color:uint8[4]</code></pre>
 	 *
 	 * @return the number of quads
 	 */
-	public static int stb_easy_font_print(float x, float y, ByteBuffer text, ByteBuffer color, ByteBuffer vertex_buffer, int vbuf_size) {
-		if ( CHECKS ) {
-			checkNT1(text);
-			if ( color != null ) checkBuffer(color, 4);
-			checkBuffer(vertex_buffer, vbuf_size);
-		}
-		return nstb_easy_font_print(x, y, memAddress(text), memAddressSafe(color), memAddress(vertex_buffer), vbuf_size);
-	}
+	public static native int nstb_easy_font_print(float x, float y, long text, long color, long vertex_buffer, int vbuf_size);
 
-	/** Alternative version of: {@link #stb_easy_font_print easy_font_print} */
+	/**
+	 * Takes a string (which can contain '\n') and fills out a vertex buffer with renderable data to draw the string. Output data assumes increasing x is
+	 * rightwards, increasing y is downwards.
+	 * 
+	 * <p>The vertex data is divided into quads, i.e. there are four vertices in the vertex buffer for each quad.</p>
+	 * 
+	 * <p>The vertices are stored in an interleaved format:</p>
+	 * 
+	 * <pre><code>x:float
+y:float
+z:float
+color:uint8[4]</code></pre>
+	 * 
+	 * <p>You can ignore z and color if you get them from elsewhere. This format was chosen in the hopes it would make it easier for you to reuse existing
+	 * buffer-drawing code.</p>
+	 * 
+	 * <p>If you pass in {@code NULL} for color, it becomes {@code 255,255,255,255}.</p>
+	 * 
+	 * <p>If the buffer isn't large enough, it will truncate. Expect it to use an average of ~270 bytes per character.</p>
+	 * 
+	 * <p>If your API doesn't draw quads, build a reusable index list that allows you to render quads as indexed triangles.</p>
+	 *
+	 * @param x             the x offset
+	 * @param y             the y offset
+	 * @param text          an ASCII string
+	 * @param color         the text color, in RGBA (4 bytes)
+	 * @param vertex_buffer a pointer to memory in which to store the vertex data
+	 *
+	 * @return the number of quads
+	 */
 	public static int stb_easy_font_print(float x, float y, ByteBuffer text, ByteBuffer color, ByteBuffer vertex_buffer) {
 		if ( CHECKS ) {
 			checkNT1(text);
@@ -168,7 +211,36 @@ color:uint8[4]</code></pre>
 		return nstb_easy_font_print(x, y, memAddress(text), memAddressSafe(color), memAddress(vertex_buffer), vertex_buffer.remaining());
 	}
 
-	/** CharSequence version of: {@link #stb_easy_font_print easy_font_print} */
+	/**
+	 * Takes a string (which can contain '\n') and fills out a vertex buffer with renderable data to draw the string. Output data assumes increasing x is
+	 * rightwards, increasing y is downwards.
+	 * 
+	 * <p>The vertex data is divided into quads, i.e. there are four vertices in the vertex buffer for each quad.</p>
+	 * 
+	 * <p>The vertices are stored in an interleaved format:</p>
+	 * 
+	 * <pre><code>x:float
+y:float
+z:float
+color:uint8[4]</code></pre>
+	 * 
+	 * <p>You can ignore z and color if you get them from elsewhere. This format was chosen in the hopes it would make it easier for you to reuse existing
+	 * buffer-drawing code.</p>
+	 * 
+	 * <p>If you pass in {@code NULL} for color, it becomes {@code 255,255,255,255}.</p>
+	 * 
+	 * <p>If the buffer isn't large enough, it will truncate. Expect it to use an average of ~270 bytes per character.</p>
+	 * 
+	 * <p>If your API doesn't draw quads, build a reusable index list that allows you to render quads as indexed triangles.</p>
+	 *
+	 * @param x             the x offset
+	 * @param y             the y offset
+	 * @param text          an ASCII string
+	 * @param color         the text color, in RGBA (4 bytes)
+	 * @param vertex_buffer a pointer to memory in which to store the vertex data
+	 *
+	 * @return the number of quads
+	 */
 	public static int stb_easy_font_print(float x, float y, CharSequence text, ByteBuffer color, ByteBuffer vertex_buffer) {
 		if ( CHECKS )
 			if ( color != null ) checkBuffer(color, 4);

@@ -37,7 +37,6 @@ public class EXTGPUProgramParameters {
 
 	// --- [ glProgramEnvParameters4fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramEnvParameters4fvEXT ProgramEnvParameters4fvEXT} */
 	public static void nglProgramEnvParameters4fvEXT(int target, int index, int count, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameters4fvEXT;
 		if ( CHECKS )
@@ -45,20 +44,12 @@ public class EXTGPUProgramParameters {
 		callIIIPV(__functionAddress, target, index, count, params);
 	}
 
-	public static void glProgramEnvParameters4fvEXT(int target, int index, int count, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, (count << 2) << 2);
-		nglProgramEnvParameters4fvEXT(target, index, count, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glProgramEnvParameters4fvEXT ProgramEnvParameters4fvEXT} */
 	public static void glProgramEnvParameters4fvEXT(int target, int index, FloatBuffer params) {
 		nglProgramEnvParameters4fvEXT(target, index, params.remaining() >> 2, memAddress(params));
 	}
 
 	// --- [ glProgramLocalParameters4fvEXT ] ---
 
-	/** Unsafe version of {@link #glProgramLocalParameters4fvEXT ProgramLocalParameters4fvEXT} */
 	public static void nglProgramLocalParameters4fvEXT(int target, int index, int count, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameters4fvEXT;
 		if ( CHECKS )
@@ -66,13 +57,6 @@ public class EXTGPUProgramParameters {
 		callIIIPV(__functionAddress, target, index, count, params);
 	}
 
-	public static void glProgramLocalParameters4fvEXT(int target, int index, int count, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, (count << 2) << 2);
-		nglProgramLocalParameters4fvEXT(target, index, count, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glProgramLocalParameters4fvEXT ProgramLocalParameters4fvEXT} */
 	public static void glProgramLocalParameters4fvEXT(int target, int index, FloatBuffer params) {
 		nglProgramLocalParameters4fvEXT(target, index, params.remaining() >> 2, memAddress(params));
 	}

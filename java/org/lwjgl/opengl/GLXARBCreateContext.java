@@ -50,7 +50,34 @@ public class GLXARBCreateContext {
 
 	// --- [ glXCreateContextAttribsARB ] ---
 
-	/** Unsafe version of {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
+	/**
+	 * Creates an OpenGL rendering context.
+	 * 
+	 * <p>If {@code glXCreateContextAttribsARB} succeeds, it initializes the context to the initial state defined by the OpenGL specification, and returns a
+	 * handle to it. This handle can be used to render to any GLX surface (window, pixmap, or pbuffer) compatible with {@code config}, subject to constraints
+	 * imposed by the OpenGL API version of the context.</p>
+	 * 
+	 * <p>If {@code share_context} is not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code share_context}, all
+	 * other contexts {@code share_context} already shares with, and the newly created context. An arbitrary number of {@code GLXContexts} can share data in
+	 * this fashion. The server context state for all sharing contexts must exist in a single address space.</p>
+	 *
+	 * @param display       the connection to the X server
+	 * @param config        the {@code GLXFBConfig}
+	 * @param share_context if not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code share_context}, all other contexts
+	 *                      {@code share_context} already shares with, and the newly created context. An arbitrary number of GLXContexts can share data in this fashion. The
+	 *                      server context state for all sharing contexts must exist in a single address space.
+	 * @param direct        direct rendering is requested if {@code direct} is {@code True}, and indirect rendering if {@code direct} is {@code False}. If
+	 *                      {@code direct} is {@code True}, the implementation may nonetheless create an indirect rendering context if any of the following conditions hold:
+	 *                      
+	 *                      <ul>
+	 *                      <li>The implementation does not support direct rendering.</li>
+	 *                      <li>{@code display} is not a local X server.</li>
+	 *                      <li>Implementation-dependent limits on the number of direct rendering contexts that can be supported simultaneously are exceeded.</li>
+	 *                      </ul>
+	 *                      
+	 *                      <p>Use {@link GLX#glXIsDirect IsDirect} to determine whether or not a request for a direct rendering context succeeded.</p>
+	 * @param attrib_list   an optional list of attributes for the context, terminated with {@code None}
+	 */
 	public static long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
 		if ( CHECKS ) {
@@ -89,13 +116,6 @@ public class GLXARBCreateContext {
 	 *                      <p>Use {@link GLX#glXIsDirect IsDirect} to determine whether or not a request for a direct rendering context succeeded.</p>
 	 * @param attrib_list   an optional list of attributes for the context, terminated with {@code None}
 	 */
-	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list);
-		return nglXCreateContextAttribsARB(display, config, share_context, direct, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);

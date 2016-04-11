@@ -69,7 +69,12 @@ public class NVFramebufferMixedSamples {
 
 	// --- [ glCoverageModulationTableNV ] ---
 
-	/** Unsafe version of {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
+	/**
+	 * 
+	 *
+	 * @param n The size of the coverage modulation table. Must be equal to the value of COVERAGE_MODULATION_TABLE_SIZE_NV.
+	 * @param v 
+	 */
 	public static void nglCoverageModulationTableNV(int n, long v) {
 		long __functionAddress = GL.getCapabilities().glCoverageModulationTableNV;
 		if ( CHECKS )
@@ -83,18 +88,12 @@ public class NVFramebufferMixedSamples {
 	 * @param n The size of the coverage modulation table. Must be equal to the value of COVERAGE_MODULATION_TABLE_SIZE_NV.
 	 * @param v 
 	 */
-	public static void glCoverageModulationTableNV(int n, ByteBuffer v) {
-		nglCoverageModulationTableNV(n, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
 	public static void glCoverageModulationTableNV(int n, FloatBuffer v) {
 		nglCoverageModulationTableNV(n, memAddress(v));
 	}
 
 	// --- [ glGetCoverageModulationTableNV ] ---
 
-	/** Unsafe version of {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
 	public static void nglGetCoverageModulationTableNV(int bufsize, long v) {
 		long __functionAddress = GL.getCapabilities().glGetCoverageModulationTableNV;
 		if ( CHECKS )
@@ -102,11 +101,6 @@ public class NVFramebufferMixedSamples {
 		callIPV(__functionAddress, bufsize, v);
 	}
 
-	public static void glGetCoverageModulationTableNV(int bufsize, ByteBuffer v) {
-		nglGetCoverageModulationTableNV(bufsize, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
 	public static void glGetCoverageModulationTableNV(int bufsize, FloatBuffer v) {
 		nglGetCoverageModulationTableNV(bufsize, memAddress(v));
 	}

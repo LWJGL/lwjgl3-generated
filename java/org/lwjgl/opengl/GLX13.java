@@ -94,7 +94,13 @@ public class GLX13 {
 
 	// --- [ glXGetFBConfigs ] ---
 
-	/** Unsafe version of {@link #glXGetFBConfigs GetFBConfigs} */
+	/**
+	 * Returns the list of all GLXFBConfigs that are available on the specified screen.
+	 *
+	 * @param display   the connection to the X server
+	 * @param screen    the screen number
+	 * @param nelements returns the number of GLXFBConfigs in the returned list
+	 */
 	public static long nglXGetFBConfigs(long display, int screen, long nelements) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigs;
 		if ( CHECKS ) {
@@ -123,7 +129,14 @@ public class GLX13 {
 
 	// --- [ glXChooseFBConfig ] ---
 
-	/** Unsafe version of {@link #glXChooseFBConfig ChooseFBConfig} */
+	/**
+	 * Returns a list of GLXFBConfigs that match a list of attributes.
+	 *
+	 * @param display     the connection to the X server
+	 * @param screen      the screen number
+	 * @param attrib_list a list of attributes terminated with {@code None}
+	 * @param nelements   returns the number of GLXFBConfigs matched
+	 */
 	public static long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfig;
 		if ( CHECKS ) {
@@ -140,26 +153,12 @@ public class GLX13 {
 	 * @param screen      the screen number
 	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
-	public static PointerBuffer glXChooseFBConfig(long display, int screen, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		IntBuffer nelements = stack.callocInt(1);
-		try {
-			long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), memAddress(nelements));
-			return memPointerBuffer(__result, nelements.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
-	/** Alternative version of: {@link #glXChooseFBConfig ChooseFBConfig} */
 	public static PointerBuffer glXChooseFBConfig(long display, int screen, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
 		IntBuffer nelements = stack.callocInt(1);
+		try {
 			long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), memAddress(nelements));
 			return memPointerBuffer(__result, nelements.get(0));
 		} finally {
@@ -169,7 +168,14 @@ public class GLX13 {
 
 	// --- [ glXGetFBConfigAttrib ] ---
 
-	/** Unsafe version of {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
+	/**
+	 * Queries the value of a GLX attribute for a GLXFBConfig.
+	 *
+	 * @param display   the connection to the X server
+	 * @param config    the GLXFBConfig being queried
+	 * @param attribute the attribute to query
+	 * @param value     the attribute value
+	 */
 	public static int nglXGetFBConfigAttrib(long display, long config, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttrib;
 		if ( CHECKS ) {
@@ -188,13 +194,6 @@ public class GLX13 {
 	 * @param attribute the attribute to query
 	 * @param value     the attribute value
 	 */
-	public static int glXGetFBConfigAttrib(long display, long config, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return nglXGetFBConfigAttrib(display, config, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
 	public static int glXGetFBConfigAttrib(long display, long config, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -203,7 +202,12 @@ public class GLX13 {
 
 	// --- [ glXGetVisualFromFBConfig ] ---
 
-	/** Unsafe version of {@link #glXGetVisualFromFBConfig GetVisualFromFBConfig} */
+	/**
+	 * Retrieves the associated visual of a GLXFBConfig.
+	 *
+	 * @param display the connection to the X server
+	 * @param config  the GLXFBConfig
+	 */
 	public static long nglXGetVisualFromFBConfig(long display, long config) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetVisualFromFBConfig;
 		if ( CHECKS ) {
@@ -227,7 +231,14 @@ public class GLX13 {
 
 	// --- [ glXCreateWindow ] ---
 
-	/** Unsafe version of {@link #glXCreateWindow CreateWindow} */
+	/**
+	 * Create an onscreen rendering area from an X Window and a desired GLXFBConfig.
+	 *
+	 * @param display     the connection to the X server
+	 * @param config      the GLXFBConfig
+	 * @param win         the X Window
+	 * @param attrib_list a list of attributes terminated with {@code None}
+	 */
 	public static long nglXCreateWindow(long display, long config, long win, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateWindow;
 		if ( CHECKS ) {
@@ -246,13 +257,6 @@ public class GLX13 {
 	 * @param win         the X Window
 	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
-	public static long glXCreateWindow(long display, long config, long win, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list);
-		return nglXCreateWindow(display, config, win, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #glXCreateWindow CreateWindow} */
 	public static long glXCreateWindow(long display, long config, long win, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
@@ -261,7 +265,14 @@ public class GLX13 {
 
 	// --- [ glXCreatePixmap ] ---
 
-	/** Unsafe version of {@link #glXCreatePixmap CreatePixmap} */
+	/**
+	 * Creates a GLXPixmap offscreen rendering area from an X Pixmap and a desired GLXFBConfig.
+	 *
+	 * @param display     the connection to the X server
+	 * @param config      the GLXFBConfig
+	 * @param pixmap      the X Pixmap
+	 * @param attrib_list a list of attributes terminated with {@code None}
+	 */
 	public static long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePixmap;
 		if ( CHECKS ) {
@@ -280,13 +291,6 @@ public class GLX13 {
 	 * @param pixmap      the X Pixmap
 	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
-	public static long glXCreatePixmap(long display, long config, long pixmap, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list);
-		return nglXCreatePixmap(display, config, pixmap, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #glXCreatePixmap CreatePixmap} */
 	public static long glXCreatePixmap(long display, long config, long pixmap, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
@@ -313,7 +317,13 @@ public class GLX13 {
 
 	// --- [ glXCreatePbuffer ] ---
 
-	/** Unsafe version of {@link #glXCreatePbuffer CreatePbuffer} */
+	/**
+	 * Creates a GLXPbuffer from a GLXFBConfig.
+	 *
+	 * @param display     the connection to the X server
+	 * @param config      the GLXFBConfig
+	 * @param attrib_list a list of attributes terminated with {@code None}
+	 */
 	public static long nglXCreatePbuffer(long display, long config, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePbuffer;
 		if ( CHECKS ) {
@@ -331,13 +341,6 @@ public class GLX13 {
 	 * @param config      the GLXFBConfig
 	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
-	public static long glXCreatePbuffer(long display, long config, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list);
-		return nglXCreatePbuffer(display, config, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #glXCreatePbuffer CreatePbuffer} */
 	public static long glXCreatePbuffer(long display, long config, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
@@ -364,7 +367,14 @@ public class GLX13 {
 
 	// --- [ glXQueryDrawable ] ---
 
-	/** Unsafe version of {@link #glXQueryDrawable QueryDrawable} */
+	/**
+	 * Queries an attribute associated with a GLXDrawable.
+	 *
+	 * @param display   the connection to the X server
+	 * @param draw      the GLXDrawable being queried
+	 * @param attribute the attribute to query
+	 * @param value     returns the attribute value
+	 */
 	public static void nglXQueryDrawable(long display, long draw, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryDrawable;
 		if ( CHECKS ) {
@@ -383,13 +393,6 @@ public class GLX13 {
 	 * @param attribute the attribute to query
 	 * @param value     returns the attribute value
 	 */
-	public static void glXQueryDrawable(long display, long draw, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nglXQueryDrawable(display, draw, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glXQueryDrawable QueryDrawable} */
 	public static void glXQueryDrawable(long display, long draw, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -448,7 +451,14 @@ public class GLX13 {
 
 	// --- [ glXQueryContext ] ---
 
-	/** Unsafe version of {@link #glXQueryContext QueryContext} */
+	/**
+	 * Queries the value of a GLXContext attribute.
+	 *
+	 * @param display   the connection to the X server
+	 * @param ctx       the GLXContext being queried
+	 * @param attribute the attribute to query
+	 * @param value     returns the attribute value
+	 */
 	public static int nglXQueryContext(long display, long ctx, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContext;
 		if ( CHECKS ) {
@@ -467,13 +477,6 @@ public class GLX13 {
 	 * @param attribute the attribute to query
 	 * @param value     returns the attribute value
 	 */
-	public static int glXQueryContext(long display, long ctx, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		return nglXQueryContext(display, ctx, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glXQueryContext QueryContext} */
 	public static int glXQueryContext(long display, long ctx, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
@@ -501,7 +504,13 @@ public class GLX13 {
 
 	// --- [ glXGetSelectedEvent ] ---
 
-	/** Unsafe version of {@link #glXGetSelectedEvent GetSelectedEvent} */
+	/**
+	 * Returns which GLX events are selected for a GLXDrawable.
+	 *
+	 * @param display    the connection to the X server
+	 * @param draw       the GLXDrawable
+	 * @param event_mask returns the selection mask
+	 */
 	public static void nglXGetSelectedEvent(long display, long draw, long event_mask) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetSelectedEvent;
 		if ( CHECKS ) {
@@ -519,11 +528,6 @@ public class GLX13 {
 	 * @param draw       the GLXDrawable
 	 * @param event_mask returns the selection mask
 	 */
-	public static void glXGetSelectedEvent(long display, long draw, ByteBuffer event_mask) {
-		nglXGetSelectedEvent(display, draw, memAddress(event_mask));
-	}
-
-	/** Alternative version of: {@link #glXGetSelectedEvent GetSelectedEvent} */
 	public static void glXGetSelectedEvent(long display, long draw, PointerBuffer event_mask) {
 		nglXGetSelectedEvent(display, draw, memAddress(event_mask));
 	}

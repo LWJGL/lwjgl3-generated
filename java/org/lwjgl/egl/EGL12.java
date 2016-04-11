@@ -78,7 +78,6 @@ public class EGL12 {
 
 	// --- [ eglCreatePbufferFromClientBuffer ] ---
 
-	/** Unsafe version of {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer} */
 	public static long neglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePbufferFromClientBuffer;
 		if ( CHECKS ) {
@@ -90,13 +89,6 @@ public class EGL12 {
 		return callPIPPPP(__functionAddress, dpy, buftype, buffer, config, attrib_list);
 	}
 
-	public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return neglCreatePbufferFromClientBuffer(dpy, buftype, buffer, config, memAddressSafe(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer} */
 	public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);

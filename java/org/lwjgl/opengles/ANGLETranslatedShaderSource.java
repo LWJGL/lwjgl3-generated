@@ -43,7 +43,6 @@ public class ANGLETranslatedShaderSource {
 
 	// --- [ glGetTranslatedShaderSourceANGLE ] ---
 
-	/** Unsafe version of {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
 	public static void nglGetTranslatedShaderSourceANGLE(int shader, int bufsize, long length, long source) {
 		long __functionAddress = GLES.getCapabilities().glGetTranslatedShaderSourceANGLE;
 		if ( CHECKS )
@@ -51,22 +50,12 @@ public class ANGLETranslatedShaderSource {
 		callIIPPV(__functionAddress, shader, bufsize, length, source);
 	}
 
-	public static void glGetTranslatedShaderSourceANGLE(int shader, int bufsize, ByteBuffer length, ByteBuffer source) {
-		if ( CHECKS ) {
-			checkBuffer(source, bufsize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetTranslatedShaderSourceANGLE(shader, bufsize, memAddressSafe(length), memAddress(source));
-	}
-
-	/** Alternative version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
 	public static void glGetTranslatedShaderSourceANGLE(int shader, IntBuffer length, ByteBuffer source) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetTranslatedShaderSourceANGLE(shader, source.remaining(), memAddressSafe(length), memAddress(source));
 	}
 
-	/** String return version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
 	public static String glGetTranslatedShaderSourceANGLE(int shader, int bufsize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		ByteBuffer source = memAlloc(bufsize);
@@ -80,7 +69,6 @@ public class ANGLETranslatedShaderSource {
 		}
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
 	public static String glGetTranslatedShaderSourceANGLE(int shader) {
 		int bufsize = GLES20.glGetShaderi(shader, GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();

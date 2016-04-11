@@ -91,7 +91,14 @@ public class CoreFoundation {
 
 	// --- [ CFRetain ] ---
 
-	/** JNI method for {@link #CFRetain} */
+	/**
+	 * Retains a Core Foundation object.
+	 * 
+	 * <p>You should retain a Core Foundation object when you receive it from elsewhere (that is, you did not create or copy it) and you want it to persist. If
+	 * you retain a Core Foundation object you are responsible for releasing it.</p>
+	 *
+	 * @param cf the CFType object to retain
+	 */
 	public static native long nCFRetain(long cf);
 
 	/**
@@ -110,7 +117,14 @@ public class CoreFoundation {
 
 	// --- [ CFRelease ] ---
 
-	/** JNI method for {@link #CFRelease} */
+	/**
+	 * Releases a Core Foundation object.
+	 * 
+	 * <p>If the retain count of {@code cf} becomes zero the memory allocated to the object is deallocated and the object is destroyed. If you create, copy, or
+	 * explicitly retain (see the {@link #CFRetain} function) a Core Foundation object, you are responsible for releasing it when you no longer need it.</p>
+	 *
+	 * @param cf the CFType object to release
+	 */
 	public static native void nCFRelease(long cf);
 
 	/**
@@ -129,7 +143,12 @@ public class CoreFoundation {
 
 	// --- [ CFBundleCreate ] ---
 
-	/** JNI method for {@link #CFBundleCreate} */
+	/**
+	 * Creates a {@code CFBundle} object.
+	 *
+	 * @param allocator the allocator to use to allocate memory for the new object. Pass {@code NULL} or {@code kCFAllocatorDefault} to use the current default allocator.
+	 * @param bundleURL the location of the bundle for which to create a {@code CFBundle} object
+	 */
 	public static native long nCFBundleCreate(long allocator, long bundleURL);
 
 	/**
@@ -146,7 +165,12 @@ public class CoreFoundation {
 
 	// --- [ CFBundleGetFunctionPointerForName ] ---
 
-	/** JNI method for {@link #CFBundleGetFunctionPointerForName} */
+	/**
+	 * Returns a pointer to a function in a bundle’s executable code using the function name as the search key.
+	 *
+	 * @param bundle       the bundle to examine
+	 * @param functionName the name of the function to locate
+	 */
 	public static native long nCFBundleGetFunctionPointerForName(long bundle, long functionName);
 
 	/**
@@ -165,7 +189,13 @@ public class CoreFoundation {
 
 	// --- [ CFStringCreateWithCString ] ---
 
-	/** JNI method for {@link #CFStringCreateWithCString} */
+	/**
+	 * Creates an immutable string from a C string.
+	 *
+	 * @param allocator the allocator to use to allocate memory for the new object. Pass {@code NULL} or {@code kCFAllocatorDefault} to use the current default allocator.
+	 * @param cStr      the {@code NULL}-terminated C string to be used to create the {@code CFString} object. The string must use an 8-bit encoding.
+	 * @param encoding  the encoding of the characters in the C string. The encoding must specify an 8-bit encoding. One of:<br>{@link #kCFStringEncodingMacRoman}, {@link #kCFStringEncodingWindowsLatin1}, {@link #kCFStringEncodingISOLatin1}, {@link #kCFStringEncodingNextStepLatin}, {@link #kCFStringEncodingASCII}, {@link #kCFStringEncodingUnicode}, {@link #kCFStringEncodingUTF8}, {@link #kCFStringEncodingNonLossyASCII}, {@link #kCFStringEncodingUTF16}, {@link #kCFStringEncodingUTF16BE}, {@link #kCFStringEncodingUTF16LE}, {@link #kCFStringEncodingUTF32}, {@link #kCFStringEncodingUTF32BE}, {@link #kCFStringEncodingUTF32LE}
+	 */
 	public static native long nCFStringCreateWithCString(long allocator, long cStr, int encoding);
 
 	/**
@@ -181,7 +211,16 @@ public class CoreFoundation {
 
 	// --- [ CFStringCreateWithCStringNoCopy ] ---
 
-	/** JNI method for {@link #CFStringCreateWithCStringNoCopy} */
+	/**
+	 * Creates a CFString object from an external C string buffer that might serve as the backing store for the object.
+	 *
+	 * @param allocator           the allocator to use to allocate memory for the new object. Pass {@code NULL} or {@code kCFAllocatorDefault} to use the current default allocator.
+	 * @param cStr                the {@code NULL}-terminated C string to be used to create the {@code CFString} object. The string must use an 8-bit encoding.
+	 * @param encoding            the encoding of the characters in the C string. The encoding must specify an 8-bit encoding. One of:<br>{@link #kCFStringEncodingMacRoman}, {@link #kCFStringEncodingWindowsLatin1}, {@link #kCFStringEncodingISOLatin1}, {@link #kCFStringEncodingNextStepLatin}, {@link #kCFStringEncodingASCII}, {@link #kCFStringEncodingUnicode}, {@link #kCFStringEncodingUTF8}, {@link #kCFStringEncodingNonLossyASCII}, {@link #kCFStringEncodingUTF16}, {@link #kCFStringEncodingUTF16BE}, {@link #kCFStringEncodingUTF16LE}, {@link #kCFStringEncodingUTF32}, {@link #kCFStringEncodingUTF32BE}, {@link #kCFStringEncodingUTF32LE}
+	 * @param contentsDeallocator the {@code CFAllocator} object to use to deallocate the external string buffer when it is no longer needed. You can pass {@code NULL} or
+	 *                            {@code kCFAllocatorDefault} to request the default allocator for this purpose. If the buffer does not need to be deallocated, or if you want to
+	 *                            assume responsibility for deallocating the buffer (and not have the {@code CFString} object deallocate it), pass {@code kCFAllocatorNull}.
+	 */
 	public static native long nCFStringCreateWithCStringNoCopy(long allocator, long cStr, int encoding, long contentsDeallocator);
 
 	/**
@@ -200,7 +239,16 @@ public class CoreFoundation {
 
 	// --- [ CFURLCreateWithFileSystemPath ] ---
 
-	/** JNI method for {@link #CFURLCreateWithFileSystemPath} */
+	/**
+	 * Creates a {@code CFURL} object using a local file system path string.
+	 *
+	 * @param allocator   the allocator to use to allocate memory for the new object. Pass {@code NULL} or {@code kCFAllocatorDefault} to use the current default allocator.
+	 * @param filePath    the path string to convert to a {@code CFURL} object. If {@code filePath} is not absolute, the resulting URL will be considered relative to the
+	 *                    current working directory (evaluated when this function is being invoked).
+	 * @param pathStyle   the operating system path style used in {@code filePath}. One of:<br>{@link #kCFURLPOSIXPathStyle}, {@link #kCFURLHFSPathStyle}, {@link #kCFURLWindowsPathStyle}
+	 * @param isDirectory a Boolean value that specifies whether filePath is treated as a directory path when resolving against relative path components. Pass true if the
+	 *                    pathname indicates a directory, false otherwise.
+	 */
 	public static native long nCFURLCreateWithFileSystemPath(long allocator, long filePath, long pathStyle, boolean isDirectory);
 
 	/**

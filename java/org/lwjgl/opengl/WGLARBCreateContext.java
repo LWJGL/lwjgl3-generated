@@ -51,7 +51,18 @@ public class WGLARBCreateContext {
 
 	// --- [ wglCreateContextAttribsARB ] ---
 
-	/** Unsafe version of {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
+	/**
+	 * Creates an OpenGL context.
+	 * 
+	 * <p>If {@code shareContext} is not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code shareContext}, all
+	 * other contexts {@code shareContext} already shares with, and the newly created context. An arbitrary number of contexts can share data in this fashion.</p>
+	 *
+	 * @param hdc          
+	 * @param shareContext 
+	 * @param attribList   a list of attributes for the context. The list consists of a sequence of &lt;name, value&gt; pairs terminated by the value 0. If an attribute is not
+	 *                     specified in {@code attribList}, then the default value is used instead. If an attribute is specified more than once, then the last value specified
+	 *                     is used.
+	 */
 	public static long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateContextAttribsARB;
 		if ( CHECKS ) {
@@ -73,13 +84,6 @@ public class WGLARBCreateContext {
 	 *                     specified in {@code attribList}, then the default value is used instead. If an attribute is specified more than once, then the last value specified
 	 *                     is used.
 	 */
-	public static long wglCreateContextAttribsARB(long hdc, long shareContext, ByteBuffer attribList) {
-		if ( CHECKS )
-			if ( attribList != null ) checkNT4(attribList);
-		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList));
-	}
-
-	/** Alternative version of: {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, IntBuffer attribList) {
 		if ( CHECKS )
 			if ( attribList != null ) checkNT(attribList);

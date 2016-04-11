@@ -49,7 +49,6 @@ public class KHRPartialUpdate {
 
 	// --- [ eglSetDamageRegionKHR ] ---
 
-	/** Unsafe version of {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
 	public static int neglSetDamageRegionKHR(long dpy, long surface, long rects, int n_rects) {
 		long __functionAddress = EGL.getCapabilities().eglSetDamageRegionKHR;
 		if ( CHECKS ) {
@@ -60,13 +59,6 @@ public class KHRPartialUpdate {
 		return callPPPII(__functionAddress, dpy, surface, rects, n_rects);
 	}
 
-	public static int eglSetDamageRegionKHR(long dpy, long surface, ByteBuffer rects, int n_rects) {
-		if ( CHECKS )
-			if ( rects != null ) checkBuffer(rects, n_rects << 2);
-		return neglSetDamageRegionKHR(dpy, surface, memAddressSafe(rects), n_rects);
-	}
-
-	/** Alternative version of: {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
 	public static int eglSetDamageRegionKHR(long dpy, long surface, IntBuffer rects) {
 		return neglSetDamageRegionKHR(dpy, surface, memAddressSafe(rects), rects == null ? 0 : rects.remaining());
 	}

@@ -56,7 +56,14 @@ public class OVRUtil {
 
 	// --- [ ovr_Detect ] ---
 
-	/** JNI method for {@link #ovr_Detect _Detect} */
+	/**
+	 * Detects Oculus Runtime and Device Status.
+	 * 
+	 * <p>Checks for Oculus Runtime and Oculus HMD device status without loading the LibOVRRT shared library. This may be called before {@link OVR#ovr_Initialize _Initialize} to help
+	 * decide whether or not to initialize LibOVR.</p>
+	 *
+	 * @param timeoutMilliseconds a timeout to wait for HMD to be attached or 0 to poll
+	 */
 	public static native void novr_Detect(int timeoutMilliseconds, long __result);
 
 	/**
@@ -73,7 +80,15 @@ public class OVRUtil {
 
 	// --- [ ovrMatrix4f_Projection ] ---
 
-	/** JNI method for {@link #ovrMatrix4f_Projection Matrix4f_Projection} */
+	/**
+	 * Used to generate projection from {@code ovrEyeDesc::Fov}.
+	 *
+	 * @param fov                the {@link OVRFovPort} to use
+	 * @param znear              distance to near Z limit
+	 * @param zfar               distance to far Z limit
+	 * @param projectionModFlags a combination of the {@code ovrProjectionModifier} flags. One or more of:<br>{@link #ovrProjection_None Projection_None}, {@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}, {@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}, {@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}
+	 * @param __result           the calculated projection matrix
+	 */
 	public static native void novrMatrix4f_Projection(long fov, float znear, float zfar, int projectionModFlags, long __result);
 
 	/**
@@ -91,7 +106,13 @@ public class OVRUtil {
 
 	// --- [ ovrTimewarpProjectionDesc_FromProjection ] ---
 
-	/** JNI method for {@link #ovrTimewarpProjectionDesc_FromProjection TimewarpProjectionDesc_FromProjection} */
+	/**
+	 * Extracts the required data from the result of {@link #ovrMatrix4f_Projection Matrix4f_Projection}.
+	 *
+	 * @param projection         the project matrix from which to extract {@link OVRTimewarpProjectionDesc}
+	 * @param projectionModFlags a combination of the ovrProjectionModifier flags. One or more of:<br>{@link #ovrProjection_None Projection_None}, {@link #ovrProjection_RightHanded Projection_RightHanded}, {@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}, {@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}, {@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}
+	 * @param __result           the extracted ovrTimewarpProjectionDesc
+	 */
 	public static native void novrTimewarpProjectionDesc_FromProjection(long projection, int projectionModFlags, long __result);
 
 	/**
@@ -107,7 +128,17 @@ public class OVRUtil {
 
 	// --- [ ovrMatrix4f_OrthoSubProjection ] ---
 
-	/** JNI method for {@link #ovrMatrix4f_OrthoSubProjection Matrix4f_OrthoSubProjection} */
+	/**
+	 * Generates an orthographic sub-projection.
+	 * 
+	 * <p>Used for 2D rendering, Y is down.</p>
+	 *
+	 * @param projection      the perspective matrix that the orthographic matrix is derived from
+	 * @param orthoScale      equal to {@code 1.0f / pixelsPerTanAngleAtCenter}
+	 * @param orthoDistance   equal to the distance from the camera in meters, such as 0.8m
+	 * @param HmdToEyeOffsetX the offset of the eye from the center
+	 * @param __result        the calculated projection matrix
+	 */
 	public static native void novrMatrix4f_OrthoSubProjection(long projection, long orthoScale, float orthoDistance, float HmdToEyeOffsetX, long __result);
 
 	/**
@@ -127,7 +158,15 @@ public class OVRUtil {
 
 	// --- [ ovr_CalcEyePoses ] ---
 
-	/** JNI method for {@link #ovr_CalcEyePoses _CalcEyePoses} */
+	/**
+	 * Computes offset eye poses based on {@code headPose} returned by {@link OVRTrackingState}.
+	 *
+	 * @param headPose       indicates the HMD position and orientation to use for the calculation
+	 * @param HmdToEyeOffset can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
+	 *                       average of the two vectors for both eyes.
+	 * @param outEyePoses    if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovr_SubmitFrame _SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
+	 *                       {@link OVRLayerEyeFovDepth}{@code ::RenderPose}
+	 */
 	public static native void novr_CalcEyePoses(long headPose, long HmdToEyeOffset, long outEyePoses);
 
 	/**
@@ -149,7 +188,22 @@ public class OVRUtil {
 
 	// --- [ ovr_GetEyePoses ] ---
 
-	/** JNI method for {@link #ovr_GetEyePoses _GetEyePoses} */
+	/**
+	 * Returns the predicted head pose in {@code outHmdTrackingState} and offset eye poses in {@code outEyePoses}.
+	 * 
+	 * <p>This is a thread-safe function where caller should increment {@code frameIndex} with every frame and pass that index where applicable to functions
+	 * called on the rendering thread. Assuming {@code outEyePoses} are used for rendering, it should be passed as a part of {@link OVRLayerEyeFov}. The caller does
+	 * not need to worry about applying {@code HmdToEyeOffset} to the returned {@code outEyePoses} variables.</p>
+	 *
+	 * @param session             an {@code ovrSession} previously returned by {@link OVR#ovr_Create _Create}
+	 * @param frameIndex          the targeted frame index, or 0 to refer to one frame after the last time {@link OVR#ovr_SubmitFrame _SubmitFrame} was called
+	 * @param latencyMarker       Specifies that this call is the point in time where the "App-to-Mid-Photon" latency timer starts from. If a given {@code ovrLayer} provides
+	 *                            "SensorSampleTimestamp", that will override the value stored here.
+	 * @param HmdToEyeOffset      can be {@link OVREyeRenderDesc}{@code .HmdToEyeOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
+	 *                            average of the two vectors for both eyes.
+	 * @param outEyePoses         the predicted eye poses
+	 * @param outSensorSampleTime the time when this function was called. May be NULL, in which case it is ignored.
+	 */
 	public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long HmdToEyeOffset, long outEyePoses, long outSensorSampleTime);
 
 	/**
@@ -168,16 +222,6 @@ public class OVRUtil {
 	 * @param outEyePoses         the predicted eye poses
 	 * @param outSensorSampleTime the time when this function was called. May be NULL, in which case it is ignored.
 	 */
-	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer HmdToEyeOffset, OVRPosef.Buffer outEyePoses, ByteBuffer outSensorSampleTime) {
-		if ( CHECKS ) {
-			checkPointer(session);
-			checkBuffer(HmdToEyeOffset, 2);
-			checkBuffer(outEyePoses, 2);
-		}
-		novr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyeOffset.address(), outEyePoses.address(), memAddressSafe(outSensorSampleTime));
-	}
-
-	/** Alternative version of: {@link #ovr_GetEyePoses _GetEyePoses} */
 	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer HmdToEyeOffset, OVRPosef.Buffer outEyePoses, DoubleBuffer outSensorSampleTime) {
 		if ( CHECKS ) {
 			checkPointer(session);
@@ -189,7 +233,16 @@ public class OVRUtil {
 
 	// --- [ ovrPosef_FlipHandedness ] ---
 
-	/** JNI method for {@link #ovrPosef_FlipHandedness Posef_FlipHandedness} */
+	/**
+	 * Tracking poses provided by the SDK come in a right-handed coordinate system. If an application is passing in {@link #ovrProjection_LeftHanded Projection_LeftHanded} into
+	 * {@link #ovrMatrix4f_Projection Matrix4f_Projection}, then it should also use this function to flip the HMD tracking poses to be left-handed.
+	 * 
+	 * <p>While this utility function is intended to convert a left-handed OVRPosef into a right-handed coordinate system, it will also work for converting
+	 * right-handed to left-handed since the flip operation is the same for both cases.</p>
+	 *
+	 * @param inPose  a pose that is right-handed
+	 * @param outPose the pose that is requested to be left-handed (can be the same pointer to {@code inPose})
+	 */
 	public static native void novrPosef_FlipHandedness(long inPose, long outPose);
 
 	/**

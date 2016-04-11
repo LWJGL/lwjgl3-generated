@@ -49,7 +49,6 @@ public class KHRCLEvent2 {
 
 	// --- [ eglCreateSync64KHR ] ---
 
-	/** Unsafe version of {@link #eglCreateSync64KHR CreateSync64KHR} */
 	public static long neglCreateSync64KHR(long dpy, int type, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateSync64KHR;
 		if ( CHECKS ) {
@@ -59,13 +58,6 @@ public class KHRCLEvent2 {
 		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
-	public static long eglCreateSync64KHR(long dpy, int type, ByteBuffer attrib_list) {
-		if ( CHECKS )
-			checkNTP(attrib_list, EGL10.EGL_NONE);
-		return neglCreateSync64KHR(dpy, type, memAddress(attrib_list));
-	}
-
-	/** Alternative version of: {@link #eglCreateSync64KHR CreateSync64KHR} */
 	public static long eglCreateSync64KHR(long dpy, int type, PointerBuffer attrib_list) {
 		if ( CHECKS )
 			checkNT(attrib_list, EGL10.EGL_NONE);

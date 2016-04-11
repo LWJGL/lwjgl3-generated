@@ -59,14 +59,6 @@ public class ARBBufferStorage {
 
 	// --- [ glBufferStorage ] ---
 
-	/** Unsafe version of {@link #glBufferStorage BufferStorage} */
-	public static void nglBufferStorage(int target, long size, long data, int flags) {
-		long __functionAddress = GL.getCapabilities().glBufferStorage;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIPPIV(__functionAddress, target, size, data, flags);
-	}
-
 	/**
 	 * Creates the data store of a buffer object.
 	 * 
@@ -118,13 +110,62 @@ public class ARBBufferStorage {
 	 *               
 	 *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
-	public static void glBufferStorage(int target, long size, ByteBuffer data, int flags) {
+	public static void nglBufferStorage(int target, long size, long data, int flags) {
+		long __functionAddress = GL.getCapabilities().glBufferStorage;
 		if ( CHECKS )
-			if ( data != null ) checkBuffer(data, size);
-		nglBufferStorage(target, size, memAddressSafe(data), flags);
+			checkFunctionAddress(__functionAddress);
+		callIPPIV(__functionAddress, target, size, data, flags);
 	}
 
-	/** Alternative version of: {@link #glBufferStorage BufferStorage} */
+	/**
+	 * Creates the data store of a buffer object.
+	 * 
+	 * <p>The data store of the buffer object bound to {@code target} is allocated as a result of a call to this function and cannot be de-allocated until the
+	 * buffer is deleted with a call to {@link GL15#glDeleteBuffers DeleteBuffers}. Such a store may not be re-allocated through further calls to {@code BufferStorage}
+	 * or {@link GL15#glBufferData BufferData}.</p>
+	 * 
+	 * <p>{@code BufferStorage} deletes any existing data store. If any portion of the buffer object is mapped in the current context or any context current to
+	 * another thread, it is as though {@link GL15#glUnmapBuffer UnmapBuffer} is executed in each such context prior to deleting the existing data store.</p>
+	 *
+	 * @param target the buffer object target. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
+	 * @param size   the size of the data store in basic machine units
+	 * @param flags  the bitwise {@code OR} of flags describing the intended usage of the buffer object's data store by the application. Valid flags and their meanings
+	 *               are as follows:
+	 *               
+	 *               <ul>
+	 *               <li>{@link #GL_DYNAMIC_STORAGE_BIT DYNAMIC_STORAGE_BIT} &ndash; The contents of the data store may be updated after creation through calls to
+	 *               {@link GL15#glBufferSubData BufferSubData}. If this bit is not set, the buffer content may not be directly updated by the client. The {@code data}
+	 *               argument may be used to specify the initial content of the buffer's data store regardless of the presence of the {@link #GL_DYNAMIC_STORAGE_BIT DYNAMIC_STORAGE_BIT}.
+	 *               Regardless of the presence of this bit, buffers may always be updated with server-side calls such as {@link GL31#glCopyBufferSubData CopyBufferSubData} and
+	 *               {@link GL43#glClearBufferSubData ClearBufferSubData}.</li>
+	 *               <li>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} &ndash; The buffer's data store may be mapped by the client for read access and a pointer in the client's address space
+	 *               obtained that may be read from.</li>
+	 *               <li>{@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT} &ndash; The buffer's data store may be mapped by the client for write access and a pointer in the client's address
+	 *               space obtained that may be written to.</li>
+	 *               <li>{@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT} &ndash; The client may request that the server read from or write to the buffer while it is mapped. The client's
+	 *               pointer to the data store remains valid so long as the data store is mapped, even during execution of drawing or dispatch commands.</li>
+	 *               <li>{@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} &ndash; Shared access to buffers that are simultaneously mapped for client access and are used by the server will be
+	 *               coherent, so long as that mapping is performed using MapBufferRange. That is, data written to the store by either the client or server will be
+	 *               immediately visible to the other with no further action taken by the application. In particular:
+	 *               
+	 *               <ul>
+	 *               <li>If {@code MAP_COHERENT_BIT} is not set and the client performs a write followed by a call to the {@link GL42#glMemoryBarrier MemoryBarrier} command with
+	 *               the {@link #GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT CLIENT_MAPPED_BUFFER_BARRIER_BIT} set, then in subsequent commands the server will see the writes.</li>
+	 *               <li>If {@code MAP_COHERENT_BIT} is set and the client performs a write, then in subsequent commands the server will see the writes.</li>
+	 *               <li>If {@code MAP_COHERENT_BIT} is not set and the server performs a write, the application must call {@link GL42#glMemoryBarrier MemoryBarrier} with the
+	 *               {@link #GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT CLIENT_MAPPED_BUFFER_BARRIER_BIT} set and then call {@link GL32#glFenceSync FenceSync} with {@link GL32#GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE} (or
+	 *               {@link GL11#glFinish Finish}). Then the CPU will see the writes after the sync is complete.</li>
+	 *               <li>If {@code MAP_COHERENT_BIT} is set and the server does a write, the app must call {@link GL32#glFenceSync FenceSync} with
+	 *               {@link GL32#GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE} (or {@link GL11#glFinish Finish}). Then the CPU will see the writes after the sync is complete.</li>
+	 *               </ul></li>
+	 *               <li>{@link #GL_CLIENT_STORAGE_BIT CLIENT_STORAGE_BIT} &ndash; When all other criteria for the buffer storage allocation are met, this bit may be used by an
+	 *               implementation to determine whether to use storage that is local to the server or to the client to serve as the backing store for the buffer.</li>
+	 *               </ul>
+	 *               
+	 *               <p>If {@code flags} contains {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.</p>
+	 *               
+	 *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
+	 */
 	public static void glBufferStorage(int target, long size, int flags) {
 		nglBufferStorage(target, size, NULL, flags);
 	}
@@ -155,14 +196,6 @@ public class ARBBufferStorage {
 	}
 
 	// --- [ glNamedBufferStorageEXT ] ---
-
-	/** Unsafe version of {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
-	public static void nglNamedBufferStorageEXT(int buffer, long size, long data, int flags) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		callIPPIV(__functionAddress, buffer, size, data, flags);
-	}
 
 	/**
 	 * Behaves similarly to {@link #glBufferStorage BufferStorage}, except that the buffer whose storage is to be defined is specified by {@code buffer} rather than by the current
@@ -209,13 +242,56 @@ public class ARBBufferStorage {
 	 *               
 	 *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
-	public static void glNamedBufferStorageEXT(int buffer, long size, ByteBuffer data, int flags) {
+	public static void nglNamedBufferStorageEXT(int buffer, long size, long data, int flags) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
 		if ( CHECKS )
-			if ( data != null ) checkBuffer(data, size);
-		nglNamedBufferStorageEXT(buffer, size, memAddressSafe(data), flags);
+			checkFunctionAddress(__functionAddress);
+		callIPPIV(__functionAddress, buffer, size, data, flags);
 	}
 
-	/** Alternative version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
+	/**
+	 * Behaves similarly to {@link #glBufferStorage BufferStorage}, except that the buffer whose storage is to be defined is specified by {@code buffer} rather than by the current
+	 * binding to {@code target}.
+	 *
+	 * @param buffer the buffer object
+	 * @param size   the size of the data store in basic machine units
+	 * @param flags  the bitwise {@code OR} of flags describing the intended usage of the buffer object's data store by the application. Valid flags and their meanings
+	 *               are as follows:
+	 *               
+	 *               <ul>
+	 *               <li>{@link #GL_DYNAMIC_STORAGE_BIT DYNAMIC_STORAGE_BIT} &ndash; The contents of the data store may be updated after creation through calls to
+	 *               {@link GL15#glBufferSubData BufferSubData}. If this bit is not set, the buffer content may not be directly updated by the client. The {@code data}
+	 *               argument may be used to specify the initial content of the buffer's data store regardless of the presence of the {@link #GL_DYNAMIC_STORAGE_BIT DYNAMIC_STORAGE_BIT}.
+	 *               Regardless of the presence of this bit, buffers may always be updated with server-side calls such as {@link GL31#glCopyBufferSubData CopyBufferSubData} and
+	 *               {@link GL43#glClearBufferSubData ClearBufferSubData}.</li>
+	 *               <li>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} &ndash; The buffer's data store may be mapped by the client for read access and a pointer in the client's address space
+	 *               obtained that may be read from.</li>
+	 *               <li>{@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT} &ndash; The buffer's data store may be mapped by the client for write access and a pointer in the client's address
+	 *               space obtained that may be written to.</li>
+	 *               <li>{@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT} &ndash; The client may request that the server read from or write to the buffer while it is mapped. The client's
+	 *               pointer to the data store remains valid so long as the data store is mapped, even during execution of drawing or dispatch commands.</li>
+	 *               <li>{@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} &ndash; Shared access to buffers that are simultaneously mapped for client access and are used by the server will be
+	 *               coherent, so long as that mapping is performed using MapBufferRange. That is, data written to the store by either the client or server will be
+	 *               immediately visible to the other with no further action taken by the application. In particular:
+	 *               
+	 *               <ul>
+	 *               <li>If {@code MAP_COHERENT_BIT} is not set and the client performs a write followed by a call to the {@link GL42#glMemoryBarrier MemoryBarrier} command with
+	 *               the {@link #GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT CLIENT_MAPPED_BUFFER_BARRIER_BIT} set, then in subsequent commands the server will see the writes.</li>
+	 *               <li>If {@code MAP_COHERENT_BIT} is set and the client performs a write, then in subsequent commands the server will see the writes.</li>
+	 *               <li>If {@code MAP_COHERENT_BIT} is not set and the server performs a write, the application must call {@link GL42#glMemoryBarrier MemoryBarrier} with the
+	 *               {@link #GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT CLIENT_MAPPED_BUFFER_BARRIER_BIT} set and then call {@link GL32#glFenceSync FenceSync} with {@link GL32#GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE} (or
+	 *               {@link GL11#glFinish Finish}). Then the CPU will see the writes after the sync is complete.</li>
+	 *               <li>If {@code MAP_COHERENT_BIT} is set and the server does a write, the app must call {@link GL32#glFenceSync FenceSync} with
+	 *               {@link GL32#GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE} (or {@link GL11#glFinish Finish}). Then the CPU will see the writes after the sync is complete.</li>
+	 *               </ul></li>
+	 *               <li>{@link #GL_CLIENT_STORAGE_BIT CLIENT_STORAGE_BIT} &ndash; When all other criteria for the buffer storage allocation are met, this bit may be used by an
+	 *               implementation to determine whether to use storage that is local to the server or to the client to serve as the backing store for the buffer.</li>
+	 *               </ul>
+	 *               
+	 *               <p>If {@code flags} contains {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.</p>
+	 *               
+	 *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
+	 */
 	public static void glNamedBufferStorageEXT(int buffer, long size, int flags) {
 		nglNamedBufferStorageEXT(buffer, size, NULL, flags);
 	}

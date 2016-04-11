@@ -155,7 +155,12 @@ public class WGLARBRenderTexture {
 
 	// --- [ wglSetPbufferAttribARB ] ---
 
-	/** Unsafe version of {@link #wglSetPbufferAttribARB SetPbufferAttribARB} */
+	/**
+	 * Sets an attribute to the specified pbuffer.
+	 *
+	 * @param pbuffer    a pbuffer handle
+	 * @param attribList a 0-terminated list of attribute {type, value} pairs containing integer values
+	 */
 	public static int nwglSetPbufferAttribARB(long pbuffer, long attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglSetPbufferAttribARB;
 		if ( CHECKS ) {
@@ -171,13 +176,6 @@ public class WGLARBRenderTexture {
 	 * @param pbuffer    a pbuffer handle
 	 * @param attribList a 0-terminated list of attribute {type, value} pairs containing integer values
 	 */
-	public static int wglSetPbufferAttribARB(long pbuffer, ByteBuffer attribList) {
-		if ( CHECKS )
-			if ( attribList != null ) checkNT4(attribList);
-		return nwglSetPbufferAttribARB(pbuffer, memAddressSafe(attribList));
-	}
-
-	/** Alternative version of: {@link #wglSetPbufferAttribARB SetPbufferAttribARB} */
 	public static int wglSetPbufferAttribARB(long pbuffer, IntBuffer attribList) {
 		if ( CHECKS )
 			if ( attribList != null ) checkNT(attribList);

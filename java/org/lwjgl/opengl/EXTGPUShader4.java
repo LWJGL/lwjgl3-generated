@@ -255,7 +255,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI1ivEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
+	/**
+	 * Pointer version of {@link #glVertexAttribI1iEXT VertexAttribI1iEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI1ivEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1ivEXT;
 		if ( CHECKS )
@@ -269,13 +274,6 @@ public class EXTGPUShader4 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI1ivEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 2);
-		nglVertexAttribI1ivEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
 	public static void glVertexAttribI1ivEXT(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -284,7 +282,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI2ivEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
+	/**
+	 * Pointer version of {@link #glVertexAttribI2iEXT VertexAttribI2iEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI2ivEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2ivEXT;
 		if ( CHECKS )
@@ -298,13 +301,6 @@ public class EXTGPUShader4 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI2ivEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 2);
-		nglVertexAttribI2ivEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
 	public static void glVertexAttribI2ivEXT(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -313,7 +309,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI3ivEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
+	/**
+	 * Pointer version of {@link #glVertexAttribI3iEXT VertexAttribI3iEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI3ivEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3ivEXT;
 		if ( CHECKS )
@@ -327,13 +328,6 @@ public class EXTGPUShader4 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI3ivEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 2);
-		nglVertexAttribI3ivEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
 	public static void glVertexAttribI3ivEXT(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -342,7 +336,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4ivEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
+	/**
+	 * Pointer version of {@link #glVertexAttribI4iEXT VertexAttribI4iEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4ivEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4ivEXT;
 		if ( CHECKS )
@@ -356,13 +355,6 @@ public class EXTGPUShader4 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI4ivEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttribI4ivEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
 	public static void glVertexAttribI4ivEXT(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -371,7 +363,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI1uivEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
+	/**
+	 * Pointer version of {@link #glVertexAttribI1uiEXT VertexAttribI1uiEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI1uivEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1uivEXT;
 		if ( CHECKS )
@@ -385,13 +382,6 @@ public class EXTGPUShader4 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI1uivEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 2);
-		nglVertexAttribI1uivEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
 	public static void glVertexAttribI1uivEXT(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -400,7 +390,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI2uivEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
+	/**
+	 * Pointer version of {@link #glVertexAttribI2uiEXT VertexAttribI2uiEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI2uivEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2uivEXT;
 		if ( CHECKS )
@@ -414,13 +409,6 @@ public class EXTGPUShader4 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI2uivEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 2);
-		nglVertexAttribI2uivEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
 	public static void glVertexAttribI2uivEXT(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -429,7 +417,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI3uivEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
+	/**
+	 * Pointer version of {@link #glVertexAttribI3uiEXT VertexAttribI3uiEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI3uivEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3uivEXT;
 		if ( CHECKS )
@@ -443,13 +436,6 @@ public class EXTGPUShader4 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI3uivEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 2);
-		nglVertexAttribI3uivEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
 	public static void glVertexAttribI3uivEXT(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -458,7 +444,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4uivEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
+	/**
+	 * Pointer version of {@link #glVertexAttribI4uiEXT VertexAttribI4uiEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4uivEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4uivEXT;
 		if ( CHECKS )
@@ -472,13 +463,6 @@ public class EXTGPUShader4 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI4uivEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttribI4uivEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
 	public static void glVertexAttribI4uivEXT(int index, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -487,7 +471,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4bvEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4bvEXT VertexAttribI4bvEXT} */
+	/**
+	 * Byte version of {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4bvEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4bvEXT;
 		if ( CHECKS )
@@ -509,7 +498,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4svEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
+	/**
+	 * Short version of {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4svEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4svEXT;
 		if ( CHECKS )
@@ -523,13 +517,6 @@ public class EXTGPUShader4 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI4svEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglVertexAttribI4svEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
 	public static void glVertexAttribI4svEXT(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -538,7 +525,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4ubvEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4ubvEXT VertexAttribI4ubvEXT} */
+	/**
+	 * Byte version of {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4ubvEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4ubvEXT;
 		if ( CHECKS )
@@ -560,7 +552,12 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4usvEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
+	/**
+	 * Short version of {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param v     the pure integer vertex attribute buffer
+	 */
 	public static void nglVertexAttribI4usvEXT(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4usvEXT;
 		if ( CHECKS )
@@ -574,13 +571,6 @@ public class EXTGPUShader4 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
-	public static void glVertexAttribI4usvEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglVertexAttribI4usvEXT(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
 	public static void glVertexAttribI4usvEXT(int index, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -589,7 +579,17 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribIPointerEXT ] ---
 
-	/** Unsafe version of {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
+	/**
+	 * Specifies the location and organization of a pure integer vertex attribute array.
+	 *
+	 * @param index   the index of the pure integer generic vertex attribute to be modified
+	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param type    the data type of each component in the array. One of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+	 *                the array. The initial value is 0.
+	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+	 */
 	public static void nglVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIPointerEXT;
 		if ( CHECKS )
@@ -614,11 +614,21 @@ public class EXTGPUShader4 {
 		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
 
-	/** Buffer object offset version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
-	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointerOffset) {
+	/**
+	 * Specifies the location and organization of a pure integer vertex attribute array.
+	 *
+	 * @param index   the index of the pure integer generic vertex attribute to be modified
+	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param type    the data type of each component in the array. One of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+	 *                the array. The initial value is 0.
+	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+	 */
+	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
-		nglVertexAttribIPointerEXT(index, size, type, stride, pointerOffset);
+		nglVertexAttribIPointerEXT(index, size, type, stride, pointer);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
@@ -637,7 +647,13 @@ public class EXTGPUShader4 {
 
 	// --- [ glGetVertexAttribIivEXT ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
+	/**
+	 * Returns the value of a pure integer generic vertex attribute parameter.
+	 *
+	 * @param index  the index of the pure integer generic vertex attribute to be modified
+	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
+	 * @param params returns the requested data
+	 */
 	public static void nglGetVertexAttribIivEXT(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribIivEXT;
 		if ( CHECKS )
@@ -652,20 +668,18 @@ public class EXTGPUShader4 {
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribIivEXT(int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 4 << 2);
-		nglGetVertexAttribIivEXT(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
 	public static void glGetVertexAttribIivEXT(int index, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribIivEXT(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
+	/**
+	 * Returns the value of a pure integer generic vertex attribute parameter.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param pname the symbolic name of the vertex attribute parameter to be queried
+	 */
 	public static int glGetVertexAttribIiEXT(int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -679,7 +693,13 @@ public class EXTGPUShader4 {
 
 	// --- [ glGetVertexAttribIuivEXT ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
+	/**
+	 * Unsigned version of {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT}.
+	 *
+	 * @param index  the index of the pure integer generic vertex attribute to be modified
+	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
+	 * @param params returns the requested data
+	 */
 	public static void nglGetVertexAttribIuivEXT(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribIuivEXT;
 		if ( CHECKS )
@@ -694,20 +714,18 @@ public class EXTGPUShader4 {
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribIuivEXT(int index, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 4 << 2);
-		nglGetVertexAttribIuivEXT(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
 	public static void glGetVertexAttribIuivEXT(int index, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribIuivEXT(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
+	/**
+	 * Unsigned version of {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT}.
+	 *
+	 * @param index the index of the pure integer generic vertex attribute to be modified
+	 * @param pname the symbolic name of the vertex attribute parameter to be queried
+	 */
 	public static int glGetVertexAttribIuiEXT(int index, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -721,7 +739,6 @@ public class EXTGPUShader4 {
 
 	// --- [ glGetUniformuivEXT ] ---
 
-	/** Unsafe version of {@link #glGetUniformuivEXT GetUniformuivEXT} */
 	public static void nglGetUniformuivEXT(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformuivEXT;
 		if ( CHECKS )
@@ -729,20 +746,12 @@ public class EXTGPUShader4 {
 		callIIPV(__functionAddress, program, location, params);
 	}
 
-	public static void glGetUniformuivEXT(int program, int location, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetUniformuivEXT(program, location, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetUniformuivEXT GetUniformuivEXT} */
 	public static void glGetUniformuivEXT(int program, int location, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformuivEXT(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformuivEXT GetUniformuivEXT} */
 	public static int glGetUniformuiEXT(int program, int location) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -756,7 +765,6 @@ public class EXTGPUShader4 {
 
 	// --- [ glBindFragDataLocationEXT ] ---
 
-	/** Unsafe version of {@link #glBindFragDataLocationEXT BindFragDataLocationEXT} */
 	public static void nglBindFragDataLocationEXT(int program, int color, long name) {
 		long __functionAddress = GL.getCapabilities().glBindFragDataLocationEXT;
 		if ( CHECKS )
@@ -770,7 +778,6 @@ public class EXTGPUShader4 {
 		nglBindFragDataLocationEXT(program, color, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glBindFragDataLocationEXT BindFragDataLocationEXT} */
 	public static void glBindFragDataLocationEXT(int program, int color, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -783,7 +790,6 @@ public class EXTGPUShader4 {
 
 	// --- [ glGetFragDataLocationEXT ] ---
 
-	/** Unsafe version of {@link #glGetFragDataLocationEXT GetFragDataLocationEXT} */
 	public static int nglGetFragDataLocationEXT(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetFragDataLocationEXT;
 		if ( CHECKS )
@@ -797,7 +803,6 @@ public class EXTGPUShader4 {
 		return nglGetFragDataLocationEXT(program, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #glGetFragDataLocationEXT GetFragDataLocationEXT} */
 	public static int glGetFragDataLocationEXT(int program, CharSequence name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -846,7 +851,6 @@ public class EXTGPUShader4 {
 
 	// --- [ glUniform1uivEXT ] ---
 
-	/** Unsafe version of {@link #glUniform1uivEXT Uniform1uivEXT} */
 	public static void nglUniform1uivEXT(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1uivEXT;
 		if ( CHECKS )
@@ -854,20 +858,12 @@ public class EXTGPUShader4 {
 		callIIPV(__functionAddress, location, count, value);
 	}
 
-	public static void glUniform1uivEXT(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, count << 2);
-		nglUniform1uivEXT(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform1uivEXT Uniform1uivEXT} */
 	public static void glUniform1uivEXT(int location, IntBuffer value) {
 		nglUniform1uivEXT(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2uivEXT ] ---
 
-	/** Unsafe version of {@link #glUniform2uivEXT Uniform2uivEXT} */
 	public static void nglUniform2uivEXT(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2uivEXT;
 		if ( CHECKS )
@@ -875,20 +871,12 @@ public class EXTGPUShader4 {
 		callIIPV(__functionAddress, location, count, value);
 	}
 
-	public static void glUniform2uivEXT(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 1) << 2);
-		nglUniform2uivEXT(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform2uivEXT Uniform2uivEXT} */
 	public static void glUniform2uivEXT(int location, IntBuffer value) {
 		nglUniform2uivEXT(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3uivEXT ] ---
 
-	/** Unsafe version of {@link #glUniform3uivEXT Uniform3uivEXT} */
 	public static void nglUniform3uivEXT(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3uivEXT;
 		if ( CHECKS )
@@ -896,20 +884,12 @@ public class EXTGPUShader4 {
 		callIIPV(__functionAddress, location, count, value);
 	}
 
-	public static void glUniform3uivEXT(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count * 3) << 2);
-		nglUniform3uivEXT(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform3uivEXT Uniform3uivEXT} */
 	public static void glUniform3uivEXT(int location, IntBuffer value) {
 		nglUniform3uivEXT(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4uivEXT ] ---
 
-	/** Unsafe version of {@link #glUniform4uivEXT Uniform4uivEXT} */
 	public static void nglUniform4uivEXT(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4uivEXT;
 		if ( CHECKS )
@@ -917,13 +897,6 @@ public class EXTGPUShader4 {
 		callIIPV(__functionAddress, location, count, value);
 	}
 
-	public static void glUniform4uivEXT(int location, int count, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, (count << 2) << 2);
-		nglUniform4uivEXT(location, count, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #glUniform4uivEXT Uniform4uivEXT} */
 	public static void glUniform4uivEXT(int location, IntBuffer value) {
 		nglUniform4uivEXT(location, value.remaining() >> 2, memAddress(value));
 	}

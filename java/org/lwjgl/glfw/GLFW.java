@@ -618,7 +618,25 @@ public class GLFW {
 
 	// --- [ glfwGetVersion ] ---
 
-	/** Unsafe version of {@link #glfwGetVersion GetVersion} */
+	/**
+	 * Retrieves the major, minor and revision numbers of the GLFW library. It is intended for when you are using GLFW as a shared library and want to ensure
+	 * that you are using the minimum required version.
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>Any or all of the version arguments may be {@code NULL}.</li>
+	 * <li>This function always succeeds.</li>
+	 * <li>This function may be called before {@link #glfwInit Init}.</li>
+	 * <li>This function may be called from any thread.</li>
+	 * </ul>
+	 *
+	 * @param major where to store the major version number, or {@code NULL}
+	 * @param minor where to store the minor version number, or {@code NULL}
+	 * @param rev   where to store the revision number, or {@code NULL}
+	 *
+	 * @since version 1.0
+	 */
 	public static void nglfwGetVersion(long major, long minor, long rev) {
 		long __functionAddress = Functions.GetVersion;
 		invokePPPV(__functionAddress, major, minor, rev);
@@ -643,16 +661,6 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static void glfwGetVersion(ByteBuffer major, ByteBuffer minor, ByteBuffer rev) {
-		if ( CHECKS ) {
-			if ( major != null ) checkBuffer(major, 1 << 2);
-			if ( minor != null ) checkBuffer(minor, 1 << 2);
-			if ( rev != null ) checkBuffer(rev, 1 << 2);
-		}
-		nglfwGetVersion(memAddressSafe(major), memAddressSafe(minor), memAddressSafe(rev));
-	}
-
-	/** Alternative version of: {@link #glfwGetVersion GetVersion} */
 	public static void glfwGetVersion(IntBuffer major, IntBuffer minor, IntBuffer rev) {
 		if ( CHECKS ) {
 			if ( major != null ) checkBuffer(major, 1);
@@ -664,7 +672,26 @@ public class GLFW {
 
 	// --- [ glfwGetVersionString ] ---
 
-	/** Unsafe version of {@link #glfwGetVersionString GetVersionString} */
+	/**
+	 * Returns the compile-time generated version string of the GLFW library binary. It describes the version, platform, compiler and any platform-specific
+	 * compile-time options. It should not be confused with the OpenGL or OpenGL ES version string, queried with {@code glGetString}.
+	 * 
+	 * <p><b>Do not use the version string</b> to parse the GLFW library version. The {@link #glfwGetVersion GetVersion} function already provides the version of the library binary
+	 * in numerical format.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>This function always succeeds.</li>
+	 * <li>This function may be called before {@link #glfwInit Init}.</li>
+	 * <li>This function may be called from any thread.</li>
+	 * <li>The returned string is static and compile-time generated.</li>
+	 * </ul>
+	 *
+	 * @return the ASCII encoded GLFW version string
+	 *
+	 * @since version 3.0
+	 */
 	public static long nglfwGetVersionString() {
 		long __functionAddress = Functions.GetVersionString;
 		return invokeP(__functionAddress);
@@ -728,7 +755,21 @@ public class GLFW {
 
 	// --- [ glfwGetMonitors ] ---
 
-	/** Unsafe version of {@link #glfwGetMonitors GetMonitors} */
+	/**
+	 * Returns an array of handles for all currently connected monitors. The primary monitor is always first in the returned array. If no monitors were found,
+	 * this function returns {@code NULL}.
+	 * 
+	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is guaranteed to be valid only until the monitor configuration
+	 * changes or the library is terminated.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param count where to store the number of monitors in the returned array. This is set to zero if an error occurred.
+	 *
+	 * @return an array of monitor handlers, or {@code NULL} if no monitors were found or if an error occured
+	 *
+	 * @since version 3.0
+	 */
 	public static long nglfwGetMonitors(long count) {
 		long __functionAddress = Functions.GetMonitors;
 		return invokePP(__functionAddress, count);
@@ -778,7 +819,19 @@ public class GLFW {
 
 	// --- [ glfwGetMonitorPos ] ---
 
-	/** Unsafe version of {@link #glfwGetMonitorPos GetMonitorPos} */
+	/**
+	 * Returns the position, in screen coordinates, of the upper-left corner of the specified monitor.
+	 * 
+	 * <p>Any or all of the position arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} position arguments will be set to zero.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param monitor the monitor to query
+	 * @param xpos    where to store the monitor x-coordinate, or {@code NULL}
+	 * @param ypos    where to store the monitor y-coordinate, or {@code NULL}
+	 *
+	 * @since version 3.0
+	 */
 	public static void nglfwGetMonitorPos(long monitor, long xpos, long ypos) {
 		long __functionAddress = Functions.GetMonitorPos;
 		if ( CHECKS )
@@ -799,15 +852,6 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static void glfwGetMonitorPos(long monitor, ByteBuffer xpos, ByteBuffer ypos) {
-		if ( CHECKS ) {
-			if ( xpos != null ) checkBuffer(xpos, 1 << 2);
-			if ( ypos != null ) checkBuffer(ypos, 1 << 2);
-		}
-		nglfwGetMonitorPos(monitor, memAddressSafe(xpos), memAddressSafe(ypos));
-	}
-
-	/** Alternative version of: {@link #glfwGetMonitorPos GetMonitorPos} */
 	public static void glfwGetMonitorPos(long monitor, IntBuffer xpos, IntBuffer ypos) {
 		if ( CHECKS ) {
 			if ( xpos != null ) checkBuffer(xpos, 1);
@@ -818,7 +862,28 @@ public class GLFW {
 
 	// --- [ glfwGetMonitorPhysicalSize ] ---
 
-	/** Unsafe version of {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
+	/**
+	 * Returns the size, in millimetres, of the display area of the specified monitor.
+	 * 
+	 * <p>Some systems do not provide accurate monitor size information, either because the monitor
+	 * <a href="https://en.wikipedia.org/wiki/Extended_display_identification_data">EDID</a> data is incorrect or because the driver does not report it
+	 * accurately.</p>
+	 * 
+	 * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li><b>Windows</b>: The OS calculates the returned physical size from the current resolution and system DPI instead of querying the monitor EDID data.</li>
+	 * </ul>
+	 *
+	 * @param monitor  the monitor to query
+	 * @param widthMM  where to store the width, in millimetres, of the monitor's display area, or {@code NULL}
+	 * @param heightMM where to store the height, in millimetres, of the monitor's display area, or {@code NULL}
+	 *
+	 * @since version 3.0
+	 */
 	public static void nglfwGetMonitorPhysicalSize(long monitor, long widthMM, long heightMM) {
 		long __functionAddress = Functions.GetMonitorPhysicalSize;
 		if ( CHECKS )
@@ -848,15 +913,6 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static void glfwGetMonitorPhysicalSize(long monitor, ByteBuffer widthMM, ByteBuffer heightMM) {
-		if ( CHECKS ) {
-			if ( widthMM != null ) checkBuffer(widthMM, 1 << 2);
-			if ( heightMM != null ) checkBuffer(heightMM, 1 << 2);
-		}
-		nglfwGetMonitorPhysicalSize(monitor, memAddressSafe(widthMM), memAddressSafe(heightMM));
-	}
-
-	/** Alternative version of: {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
 	public static void glfwGetMonitorPhysicalSize(long monitor, IntBuffer widthMM, IntBuffer heightMM) {
 		if ( CHECKS ) {
 			if ( widthMM != null ) checkBuffer(widthMM, 1);
@@ -867,7 +923,21 @@ public class GLFW {
 
 	// --- [ glfwGetMonitorName ] ---
 
-	/** Unsafe version of {@link #glfwGetMonitorName GetMonitorName} */
+	/**
+	 * Returns a human-readable name, encoded as UTF-8, of the specified monitor. The name typically reflects the make and model of the monitor and is not
+	 * guaranteed to be unique among the connected monitors.
+	 * 
+	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified monitor is disconnected or the
+	 * library is terminated.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param monitor the monitor to query
+	 *
+	 * @return the UTF-8 encoded name of the monitor, or {@code NULL} if an error occured
+	 *
+	 * @since version 3.0
+	 */
 	public static long nglfwGetMonitorName(long monitor) {
 		long __functionAddress = Functions.GetMonitorName;
 		if ( CHECKS )
@@ -916,7 +986,22 @@ public class GLFW {
 
 	// --- [ glfwGetVideoModes ] ---
 
-	/** Unsafe version of {@link #glfwGetVideoModes GetVideoModes} */
+	/**
+	 * Returns an array of all video modes supported by the specified monitor. The returned array is sorted in ascending order, first by color bit depth (the
+	 * sum of all channel depths) and then by resolution area (the product of width and height).
+	 * 
+	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified monitor is disconnected, this
+	 * function is called again for that monitor or the library is terminated.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param monitor the monitor to query
+	 * @param count   where to store the number of video modes in the returned array. This is set to zero if an error occurred.
+	 *
+	 * @return an array of video modes, or {@code NULL} if an error occured
+	 *
+	 * @since version 1.0
+	 */
 	public static long nglfwGetVideoModes(long monitor, long count) {
 		long __functionAddress = Functions.GetVideoModes;
 		if ( CHECKS )
@@ -953,7 +1038,21 @@ public class GLFW {
 
 	// --- [ glfwGetVideoMode ] ---
 
-	/** Unsafe version of {@link #glfwGetVideoMode GetVideoMode} */
+	/**
+	 * Returns the current video mode of the specified monitor. If you have created a full screen window for that monitor, the return value will depend on
+	 * whether that window is iconified.
+	 * 
+	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified monitor is disconnected or the
+	 * library is terminated.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param monitor the monitor to query
+	 *
+	 * @return the current mode of the monitor, or {@code NULL} if an error occurred
+	 *
+	 * @since version 3.0
+	 */
 	public static long nglfwGetVideoMode(long monitor) {
 		long __functionAddress = Functions.GetVideoMode;
 		if ( CHECKS )
@@ -1003,7 +1102,20 @@ public class GLFW {
 
 	// --- [ glfwGetGammaRamp ] ---
 
-	/** Unsafe version of {@link #glfwGetGammaRamp GetGammaRamp} */
+	/**
+	 * Returns the current gamma ramp of the specified monitor.
+	 * 
+	 * <p>The returned structure and its arrays are allocated and freed by GLFW. You should not free them yourself. They are valid until the specified monitor is
+	 * disconnected, this function is called again for that monitor or the library is terminated.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param monitor the monitor to query
+	 *
+	 * @return the current gamma ramp, or {@code NULL} if an error occurred
+	 *
+	 * @since version 3.0
+	 */
 	public static long nglfwGetGammaRamp(long monitor) {
 		long __functionAddress = Functions.GetGammaRamp;
 		if ( CHECKS )
@@ -1032,7 +1144,24 @@ public class GLFW {
 
 	// --- [ glfwSetGammaRamp ] ---
 
-	/** Unsafe version of {@link #glfwSetGammaRamp SetGammaRamp} */
+	/**
+	 * Sets the current gamma ramp for the specified monitor. The original gamma ramp for that monitor is saved by GLFW the first time this function is called
+	 * and is restored by {@link #glfwTerminate Terminate}.
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>Gamma ramp sizes other than 256 are not supported by all hardware</li>
+	 * <li><b>Windows</b>: The gamma ramp size must be 256.</li>
+	 * <li>The specified gamma ramp is copied before this function returns.</li>
+	 * </ul>
+	 *
+	 * @param monitor the monitor whose gamma ramp to set
+	 * @param ramp    the gamma ramp to use
+	 *
+	 * @since version 3.0
+	 */
 	public static void nglfwSetGammaRamp(long monitor, long ramp) {
 		long __functionAddress = Functions.SetGammaRamp;
 		if ( CHECKS ) {
@@ -1136,7 +1265,75 @@ public class GLFW {
 
 	// --- [ glfwCreateWindow ] ---
 
-	/** Unsafe version of {@link #glfwCreateWindow CreateWindow} */
+	/**
+	 * Creates a window and its associated OpenGL or OpenGL ES context. Most of the options controlling how the window and its context should be created are
+	 * specified with window hints.
+	 * 
+	 * <p>Successful creation does not change which context is current. Before you can use the newly created context, you need to make it current. For information
+	 * about the {@code share} parameter, see <a href="http://www.glfw.org/docs/latest/context.html#context_sharing">context sharing</a>.</p>
+	 * 
+	 * <p>The created window, framebuffer and context may differ from what you requested, as not all parameters and hints are hard constraints. This includes the
+	 * size of the window, especially for full screen windows. To query the actual attributes of the created window, framebuffer and context, use queries like
+	 * {@link #glfwGetWindowAttrib GetWindowAttrib} and {@link #glfwGetWindowSize GetWindowSize} and {@link #glfwGetFramebufferSize GetFramebufferSize}.</p>
+	 * 
+	 * <p>To create a full screen window, you need to specify the monitor the window will cover. If no monitor is specified, the window will be windowed mode.
+	 * Unless you have a way for the user to choose a specific monitor, it is recommended that you pick the primary monitor. For more information on how to
+	 * query connected monitors, see <a href="http://www.glfw.org/docs/latest/monitor.html#monitor_monitors">monitors</a>.</p>
+	 * 
+	 * <p>For full screen windows, the specified size becomes the resolution of the window's <i>desired video mode</i>. As long as a full screen window is not
+	 * iconified, the supported video mode most closely matching the desired video mode is set for the specified monitor. For more information about full
+	 * screen windows, including the creation of so called <i>windowed full screen</i> or <i>borderless full screen</i> windows, see
+	 * <a href="http://www.glfw.org/docs/latest/window.html#window_windowed_full_screen">full screen</a>.</p>
+	 * 
+	 * <p>By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially
+	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its <a href="http://www.glfw.org/docs/latest/window.html#window_pos">position</a> and then
+	 * <a href="http://www.glfw.org/docs/latest/window.html#window_hide">show</a> it.</p>
+	 * 
+	 * <p>As long as at least one full screen window is not iconified, the screensaver is prohibited from starting.</p>
+	 * 
+	 * <p>Window systems put limits on window sizes. Very large or very small window dimensions may be overridden by the window system on creation. Check the
+	 * actual <a href="http://www.glfw.org/docs/latest/window.html#window_size">size</a> after creation.</p>
+	 * 
+	 * <p>The <a href="http://www.glfw.org/docs/latest/window.html#buffer_swap">swap interval</a> is not set during window creation and the initial value may vary
+	 * depending on driver settings and defaults.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
+	 * <li><b>Windows</b>: Window creation will fail if the Microsoft GDI software OpenGL implementation is the only one available.</li>
+	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the icon for the window. If no such icon
+	 * is present, the {@code IDI_WINLOGO} icon will be used instead.</li>
+	 * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
+	 * <li><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
+	 * icon. Also, the first time a window is opened the menu bar is populated with common commands like Hide, Quit and About. The (minimal) about dialog
+	 * uses information from the application's bundle. For more information on bundles, see the
+	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
+	 * Developer Library.</li>
+	 * <li><b>OS X</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
+	 * minimal about dialog with information from the application's bundle. The menu bar can be disabled with a
+	 * <a href="http://www.glfw.org/docs/latest/compile.html#compile_options_osx">compile-time option</a>.</li>
+	 * <li><b>OS X</b>: On OS X 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
+	 * {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For more information, see
+	 * <a href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High
+	 * Resolution Guidelines for OS X</a> in the Mac Developer Library.</li>
+	 * <li><b>X11</b>: There is no mechanism for setting the window icon yet.</li>
+	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
+	 * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
+	 * to query the final size, position or other attributes directly after window creation.</li>
+	 * </ul>
+	 *
+	 * @param width   the desired width, in screen coordinates, of the window
+	 * @param height  the desired height, in screen coordinates, of the window
+	 * @param title   initial, UTF-8 encoded window title
+	 * @param monitor the monitor to use for fullscreen mode, or {@code NULL} for windowed mode
+	 * @param share   the window whose context to share resources with, or {@code NULL} to not share resources
+	 *
+	 * @return the handle of the created window, or {@code NULL} if an error occurred
+	 *
+	 * @since version 1.0
+	 */
 	public static long nglfwCreateWindow(int width, int height, long title, long monitor, long share) {
 		long __functionAddress = Functions.CreateWindow;
 		return invokeIIPPPP(__functionAddress, width, height, title, monitor, share);
@@ -1218,7 +1415,75 @@ public class GLFW {
 		return nglfwCreateWindow(width, height, memAddress(title), monitor, share);
 	}
 
-	/** CharSequence version of: {@link #glfwCreateWindow CreateWindow} */
+	/**
+	 * Creates a window and its associated OpenGL or OpenGL ES context. Most of the options controlling how the window and its context should be created are
+	 * specified with window hints.
+	 * 
+	 * <p>Successful creation does not change which context is current. Before you can use the newly created context, you need to make it current. For information
+	 * about the {@code share} parameter, see <a href="http://www.glfw.org/docs/latest/context.html#context_sharing">context sharing</a>.</p>
+	 * 
+	 * <p>The created window, framebuffer and context may differ from what you requested, as not all parameters and hints are hard constraints. This includes the
+	 * size of the window, especially for full screen windows. To query the actual attributes of the created window, framebuffer and context, use queries like
+	 * {@link #glfwGetWindowAttrib GetWindowAttrib} and {@link #glfwGetWindowSize GetWindowSize} and {@link #glfwGetFramebufferSize GetFramebufferSize}.</p>
+	 * 
+	 * <p>To create a full screen window, you need to specify the monitor the window will cover. If no monitor is specified, the window will be windowed mode.
+	 * Unless you have a way for the user to choose a specific monitor, it is recommended that you pick the primary monitor. For more information on how to
+	 * query connected monitors, see <a href="http://www.glfw.org/docs/latest/monitor.html#monitor_monitors">monitors</a>.</p>
+	 * 
+	 * <p>For full screen windows, the specified size becomes the resolution of the window's <i>desired video mode</i>. As long as a full screen window is not
+	 * iconified, the supported video mode most closely matching the desired video mode is set for the specified monitor. For more information about full
+	 * screen windows, including the creation of so called <i>windowed full screen</i> or <i>borderless full screen</i> windows, see
+	 * <a href="http://www.glfw.org/docs/latest/window.html#window_windowed_full_screen">full screen</a>.</p>
+	 * 
+	 * <p>By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially
+	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its <a href="http://www.glfw.org/docs/latest/window.html#window_pos">position</a> and then
+	 * <a href="http://www.glfw.org/docs/latest/window.html#window_hide">show</a> it.</p>
+	 * 
+	 * <p>As long as at least one full screen window is not iconified, the screensaver is prohibited from starting.</p>
+	 * 
+	 * <p>Window systems put limits on window sizes. Very large or very small window dimensions may be overridden by the window system on creation. Check the
+	 * actual <a href="http://www.glfw.org/docs/latest/window.html#window_size">size</a> after creation.</p>
+	 * 
+	 * <p>The <a href="http://www.glfw.org/docs/latest/window.html#buffer_swap">swap interval</a> is not set during window creation and the initial value may vary
+	 * depending on driver settings and defaults.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
+	 * <li><b>Windows</b>: Window creation will fail if the Microsoft GDI software OpenGL implementation is the only one available.</li>
+	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the icon for the window. If no such icon
+	 * is present, the {@code IDI_WINLOGO} icon will be used instead.</li>
+	 * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
+	 * <li><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
+	 * icon. Also, the first time a window is opened the menu bar is populated with common commands like Hide, Quit and About. The (minimal) about dialog
+	 * uses information from the application's bundle. For more information on bundles, see the
+	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
+	 * Developer Library.</li>
+	 * <li><b>OS X</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
+	 * minimal about dialog with information from the application's bundle. The menu bar can be disabled with a
+	 * <a href="http://www.glfw.org/docs/latest/compile.html#compile_options_osx">compile-time option</a>.</li>
+	 * <li><b>OS X</b>: On OS X 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
+	 * {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For more information, see
+	 * <a href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High
+	 * Resolution Guidelines for OS X</a> in the Mac Developer Library.</li>
+	 * <li><b>X11</b>: There is no mechanism for setting the window icon yet.</li>
+	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
+	 * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
+	 * to query the final size, position or other attributes directly after window creation.</li>
+	 * </ul>
+	 *
+	 * @param width   the desired width, in screen coordinates, of the window
+	 * @param height  the desired height, in screen coordinates, of the window
+	 * @param title   initial, UTF-8 encoded window title
+	 * @param monitor the monitor to use for fullscreen mode, or {@code NULL} for windowed mode
+	 * @param share   the window whose context to share resources with, or {@code NULL} to not share resources
+	 *
+	 * @return the handle of the created window, or {@code NULL} if an error occurred
+	 *
+	 * @since version 1.0
+	 */
 	public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
 		EventLoop.OffScreen.check();
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1298,7 +1563,18 @@ public class GLFW {
 
 	// --- [ glfwSetWindowTitle ] ---
 
-	/** Unsafe version of {@link #glfwSetWindowTitle SetWindowTitle} */
+	/**
+	 * Sets the window title, encoded as UTF-8, of the specified window.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 * 
+	 * <p><b>OS X</b>: The window title will not be updated until the next time you process events.</p>
+	 *
+	 * @param window the window whose title to change
+	 * @param title  the UTF-8 encoded window title
+	 *
+	 * @since version 1.0
+	 */
 	public static void nglfwSetWindowTitle(long window, long title) {
 		long __functionAddress = Functions.SetWindowTitle;
 		if ( CHECKS )
@@ -1324,7 +1600,18 @@ public class GLFW {
 		nglfwSetWindowTitle(window, memAddress(title));
 	}
 
-	/** CharSequence version of: {@link #glfwSetWindowTitle SetWindowTitle} */
+	/**
+	 * Sets the window title, encoded as UTF-8, of the specified window.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 * 
+	 * <p><b>OS X</b>: The window title will not be updated until the next time you process events.</p>
+	 *
+	 * @param window the window whose title to change
+	 * @param title  the UTF-8 encoded window title
+	 *
+	 * @since version 1.0
+	 */
 	public static void glfwSetWindowTitle(long window, CharSequence title) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1337,7 +1624,29 @@ public class GLFW {
 
 	// --- [ glfwSetWindowIcon ] ---
 
-	/** Unsafe version of {@link #glfwSetWindowIcon SetWindowIcon} */
+	/**
+	 * Sets the icon for the specified window.
+	 * 
+	 * <p>This function sets the icon of the specified window. If passed an array of candidate images, those of or closest to the sizes desired by the system are
+	 * selected. If no images are specified, the window reverts to its default icon.</p>
+	 * 
+	 * <p>The desired image sizes varies depending on platform and system settings. The selected images will be rescaled as needed. Good sizes include 16x16,
+	 * 32x32 and 48x48.</p>
+	 * 
+	 * <p>The specified image data is copied before this function returns.</p>
+	 * 
+	 * <p><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's icon. For more
+	 * information on bundles, see the <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming
+	 * Guide</a> in the Mac Developer Library.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose icon to set
+	 * @param count  the number of images in the specified array, or zero to revert to the default window icon
+	 * @param images the images to create the icon from. This is ignored if count is zero.
+	 *
+	 * @since version 3.2
+	 */
 	public static void nglfwSetWindowIcon(long window, int count, long images) {
 		long __functionAddress = Functions.SetWindowIcon;
 		if ( CHECKS ) {
@@ -1365,25 +1674,29 @@ public class GLFW {
 	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the window whose icon to set
-	 * @param count  the number of images in the specified array, or zero to revert to the default window icon
 	 * @param images the images to create the icon from. This is ignored if count is zero.
 	 *
 	 * @since version 3.2
 	 */
-	public static void glfwSetWindowIcon(long window, int count, GLFWImage.Buffer images) {
-		if ( CHECKS )
-			if ( images != null ) checkBuffer(images, count);
-		nglfwSetWindowIcon(window, count, images == null ? NULL : images.address());
-	}
-
-	/** Alternative version of: {@link #glfwSetWindowIcon SetWindowIcon} */
 	public static void glfwSetWindowIcon(long window, GLFWImage.Buffer images) {
 		nglfwSetWindowIcon(window, images == null ? 0 : images.remaining(), images == null ? NULL : images.address());
 	}
 
 	// --- [ glfwGetWindowPos ] ---
 
-	/** Unsafe version of {@link #glfwGetWindowPos GetWindowPos} */
+	/**
+	 * Retrieves the position, in screen coordinates, of the upper-left corner of the client area of the specified window.
+	 * 
+	 * <p>Any or all of the position arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} position arguments will be set to zero.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window to query
+	 * @param xpos   where to store the x-coordinate of the upper-left corner of the client area, or {@code NULL}
+	 * @param ypos   where to store the y-coordinate of the upper-left corner of the client area, or {@code NULL}
+	 *
+	 * @since version 3.0
+	 */
 	public static void nglfwGetWindowPos(long window, long xpos, long ypos) {
 		long __functionAddress = Functions.GetWindowPos;
 		if ( CHECKS )
@@ -1404,15 +1717,6 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static void glfwGetWindowPos(long window, ByteBuffer xpos, ByteBuffer ypos) {
-		if ( CHECKS ) {
-			if ( xpos != null ) checkBuffer(xpos, 1 << 2);
-			if ( ypos != null ) checkBuffer(ypos, 1 << 2);
-		}
-		nglfwGetWindowPos(window, memAddressSafe(xpos), memAddressSafe(ypos));
-	}
-
-	/** Alternative version of: {@link #glfwGetWindowPos GetWindowPos} */
 	public static void glfwGetWindowPos(long window, IntBuffer xpos, IntBuffer ypos) {
 		if ( CHECKS ) {
 			if ( xpos != null ) checkBuffer(xpos, 1);
@@ -1449,7 +1753,20 @@ public class GLFW {
 
 	// --- [ glfwGetWindowSize ] ---
 
-	/** Unsafe version of {@link #glfwGetWindowSize GetWindowSize} */
+	/**
+	 * Retrieves the size, in screen coordinates, of the client area of the specified window. If you wish to retrieve the size of the framebuffer of the
+	 * window in pixels, see {@link #glfwGetFramebufferSize GetFramebufferSize}.
+	 * 
+	 * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose size to retrieve
+	 * @param width  where to store the width, in screen coordinates, of the client area, or {@code NULL}
+	 * @param height where to store the height, in screen coordinates, of the client area, or {@code NULL}
+	 *
+	 * @since version 1.0
+	 */
 	public static void nglfwGetWindowSize(long window, long width, long height) {
 		long __functionAddress = Functions.GetWindowSize;
 		if ( CHECKS )
@@ -1471,15 +1788,6 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static void glfwGetWindowSize(long window, ByteBuffer width, ByteBuffer height) {
-		if ( CHECKS ) {
-			if ( width != null ) checkBuffer(width, 1 << 2);
-			if ( height != null ) checkBuffer(height, 1 << 2);
-		}
-		nglfwGetWindowSize(window, memAddressSafe(width), memAddressSafe(height));
-	}
-
-	/** Alternative version of: {@link #glfwGetWindowSize GetWindowSize} */
 	public static void glfwGetWindowSize(long window, IntBuffer width, IntBuffer height) {
 		if ( CHECKS ) {
 			if ( width != null ) checkBuffer(width, 1);
@@ -1570,7 +1878,20 @@ public class GLFW {
 
 	// --- [ glfwGetFramebufferSize ] ---
 
-	/** Unsafe version of {@link #glfwGetFramebufferSize GetFramebufferSize} */
+	/**
+	 * Retrieves the size, in pixels, of the framebuffer of the specified window. If you wish to retrieve the size of the window in screen coordinates, see
+	 * {@link #glfwGetWindowSize GetWindowSize}.
+	 * 
+	 * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose framebuffer to query
+	 * @param width  where to store the width, in pixels, of the framebuffer, or {@code NULL}
+	 * @param height where to store the height, in pixels, of the framebuffer, or {@code NULL}
+	 *
+	 * @since version 3.0
+	 */
 	public static void nglfwGetFramebufferSize(long window, long width, long height) {
 		long __functionAddress = Functions.GetFramebufferSize;
 		if ( CHECKS )
@@ -1592,15 +1913,6 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static void glfwGetFramebufferSize(long window, ByteBuffer width, ByteBuffer height) {
-		if ( CHECKS ) {
-			if ( width != null ) checkBuffer(width, 1 << 2);
-			if ( height != null ) checkBuffer(height, 1 << 2);
-		}
-		nglfwGetFramebufferSize(window, memAddressSafe(width), memAddressSafe(height));
-	}
-
-	/** Alternative version of: {@link #glfwGetFramebufferSize GetFramebufferSize} */
 	public static void glfwGetFramebufferSize(long window, IntBuffer width, IntBuffer height) {
 		if ( CHECKS ) {
 			if ( width != null ) checkBuffer(width, 1);
@@ -1611,7 +1923,26 @@ public class GLFW {
 
 	// --- [ glfwGetWindowFrameSize ] ---
 
-	/** Unsafe version of {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
+	/**
+	 * Retrieves the size, in screen coordinates, of each edge of the frame of the specified window. This size includes the title bar, if the window has one.
+	 * The size of the frame may vary depending on the <a href="http://www.glfw.org/docs/latest/window.html#window-hints_wnd">window-related hints</a> used to
+	 * create it.
+	 * 
+	 * <p>Because this function retrieves the size of each window frame edge and not the offset along a particular coordinate axis, the retrieved values will
+	 * always be zero or positive.</p>
+	 * 
+	 * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose frame size to query
+	 * @param left   where to store the size, in screen coordinates, of the left edge of the window frame, or {@code NULL}
+	 * @param top    where to store the size, in screen coordinates, of the top edge of the window frame, or {@code NULL}
+	 * @param right  where to store the size, in screen coordinates, of the right edge of the window frame, or {@code NULL}
+	 * @param bottom where to store the size, in screen coordinates, of the bottom edge of the window frame, or {@code NULL}
+	 *
+	 * @since version 3.1
+	 */
 	public static void nglfwGetWindowFrameSize(long window, long left, long top, long right, long bottom) {
 		long __functionAddress = Functions.GetWindowFrameSize;
 		if ( CHECKS )
@@ -1639,17 +1970,6 @@ public class GLFW {
 	 *
 	 * @since version 3.1
 	 */
-	public static void glfwGetWindowFrameSize(long window, ByteBuffer left, ByteBuffer top, ByteBuffer right, ByteBuffer bottom) {
-		if ( CHECKS ) {
-			if ( left != null ) checkBuffer(left, 1 << 2);
-			if ( top != null ) checkBuffer(top, 1 << 2);
-			if ( right != null ) checkBuffer(right, 1 << 2);
-			if ( bottom != null ) checkBuffer(bottom, 1 << 2);
-		}
-		nglfwGetWindowFrameSize(window, memAddressSafe(left), memAddressSafe(top), memAddressSafe(right), memAddressSafe(bottom));
-	}
-
-	/** Alternative version of: {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
 	public static void glfwGetWindowFrameSize(long window, IntBuffer left, IntBuffer top, IntBuffer right, IntBuffer bottom) {
 		if ( CHECKS ) {
 			if ( left != null ) checkBuffer(left, 1);
@@ -2256,7 +2576,50 @@ public class GLFW {
 
 	// --- [ glfwGetKeyName ] ---
 
-	/** Unsafe version of {@link #glfwGetKeyName GetKeyName} */
+	/**
+	 * Returns the localized name of the specified printable key. This is intended for displaying key bindings to the user.
+	 * 
+	 * <p>If the key is {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}, the scancode is used instead, otherwise the scancode is ignored. If a non-printable key or (if the key is {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}) a
+	 * scancode that maps to a non-printable key is specified, this function returns {@code NULL}.</p>
+	 * 
+	 * <p>The printable keys are:</p>
+	 * 
+	 * <ul>
+	 * <li>{@link #GLFW_KEY_APOSTROPHE KEY_APOSTROPHE}</li>
+	 * <li>{@link #GLFW_KEY_COMMA KEY_COMMA}</li>
+	 * <li>{@link #GLFW_KEY_MINUS KEY_MINUS}</li>
+	 * <li>{@link #GLFW_KEY_PERIOD KEY_PERIOD}</li>
+	 * <li>{@link #GLFW_KEY_SLASH KEY_SLASH}</li>
+	 * <li>{@link #GLFW_KEY_SEMICOLON KEY_SEMICOLON}</li>
+	 * <li>{@link #GLFW_KEY_EQUAL KEY_EQUAL}</li>
+	 * <li>{@link #GLFW_KEY_LEFT_BRACKET KEY_LEFT_BRACKET}</li>
+	 * <li>{@link #GLFW_KEY_RIGHT_BRACKET KEY_RIGHT_BRACKET}</li>
+	 * <li>{@link #GLFW_KEY_BACKSLASH KEY_BACKSLASH}</li>
+	 * <li>{@link #GLFW_KEY_WORLD_1 KEY_WORLD_1}</li>
+	 * <li>{@link #GLFW_KEY_WORLD_2 KEY_WORLD_2}</li>
+	 * <li>{@link #GLFW_KEY_0 KEY_0} to {@link #GLFW_KEY_9 KEY_9}</li>
+	 * <li>{@link #GLFW_KEY_A KEY_A} to {@link #GLFW_KEY_Z KEY_Z}</li>
+	 * <li>{@link #GLFW_KEY_KP_0 KEY_KP_0} to {@link #GLFW_KEY_KP_9 KEY_KP_9}</li>
+	 * <li>{@link #GLFW_KEY_KP_DECIMAL KEY_KP_DECIMAL}</li>
+	 * <li>{@link #GLFW_KEY_KP_DIVIDE KEY_KP_DIVIDE}</li>
+	 * <li>{@link #GLFW_KEY_KP_MULTIPLY KEY_KP_MULTIPLY}</li>
+	 * <li>{@link #GLFW_KEY_KP_SUBTRACT KEY_KP_SUBTRACT}</li>
+	 * <li>{@link #GLFW_KEY_KP_ADD KEY_KP_ADD}</li>
+	 * <li>{@link #GLFW_KEY_KP_EQUAL KEY_KP_EQUAL}</li>
+	 * </ul>
+	 * 
+	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the next call to {@link #glfwGetKeyName GetKeyName}, or until the
+	 * library is terminated.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param key      the key to query, or {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}
+	 * @param scancode the scancode of the key to query
+	 *
+	 * @return the localized name of the key, or {@code NULL}
+	 *
+	 * @since version 3.2
+	 */
 	public static long nglfwGetKeyName(int key, int scancode) {
 		long __functionAddress = Functions.GetKeyName;
 		return invokeIIP(__functionAddress, key, scancode);
@@ -2375,7 +2738,25 @@ public class GLFW {
 
 	// --- [ glfwGetCursorPos ] ---
 
-	/** Unsafe version of {@link #glfwGetCursorPos GetCursorPos} */
+	/**
+	 * Returns the position of the cursor, in screen coordinates, relative to the upper-left corner of the client area of the specified window.
+	 * 
+	 * <p>If the cursor is disabled (with {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED}) then the cursor position is unbounded and limited only by the minimum and maximum values of a
+	 * <b>double</b>.</p>
+	 * 
+	 * <p>The coordinates can be converted to their integer equivalents with the {@link Math#floor} function. Casting directly to an integer type works for positive
+	 * coordinates, but fails for negative ones.</p>
+	 * 
+	 * <p>Any or all of the position arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} position arguments will be set to zero.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the desired window
+	 * @param xpos   where to store the cursor x-coordinate, relative to the left edge of the client area, or {@code NULL}
+	 * @param ypos   where to store the cursor y-coordinate, relative to the to top edge of the client area, or {@code NULL}.
+	 *
+	 * @since version 1.0
+	 */
 	public static void nglfwGetCursorPos(long window, long xpos, long ypos) {
 		long __functionAddress = Functions.GetCursorPos;
 		if ( CHECKS )
@@ -2402,15 +2783,6 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static void glfwGetCursorPos(long window, ByteBuffer xpos, ByteBuffer ypos) {
-		if ( CHECKS ) {
-			if ( xpos != null ) checkBuffer(xpos, 1 << 3);
-			if ( ypos != null ) checkBuffer(ypos, 1 << 3);
-		}
-		nglfwGetCursorPos(window, memAddressSafe(xpos), memAddressSafe(ypos));
-	}
-
-	/** Alternative version of: {@link #glfwGetCursorPos GetCursorPos} */
 	public static void glfwGetCursorPos(long window, DoubleBuffer xpos, DoubleBuffer ypos) {
 		if ( CHECKS ) {
 			if ( xpos != null ) checkBuffer(xpos, 1);
@@ -2453,7 +2825,32 @@ public class GLFW {
 
 	// --- [ glfwCreateCursor ] ---
 
-	/** Unsafe version of {@link #glfwCreateCursor CreateCursor} */
+	/**
+	 * Creates a new custom cursor image that can be set for a window with {@link #glfwSetCursor SetCursor}. The cursor can be destroyed with {@link #glfwDestroyCursor DestroyCursor}. Any remaining
+	 * cursors are destroyed by {@link #glfwTerminate Terminate}.
+	 * 
+	 * <p>The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight bits per channel. They are arranged canonically as packed sequential rows,
+	 * starting from the top-left corner.</p>
+	 * 
+	 * <p>The cursor hotspot is specified in pixels, relative to the upper-left corner of the cursor image. Like all other coordinate systems in GLFW, the X-axis
+	 * points to the right and the Y-axis points down.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>This function must not be called from a callback.</li>
+	 * <li>The specified image data is copied before this function returns.</li>
+	 * </ul>
+	 *
+	 * @param image the desired cursor image
+	 * @param xhot  the desired x-coordinate, in pixels, of the cursor hotspot
+	 * @param yhot  the desired y-coordinate, in pixels, of the cursor hotspot
+	 *
+	 * @return the handle of the created cursor, or {@code NULL} if an error occurred
+	 *
+	 * @since version 3.1
+	 */
 	public static long nglfwCreateCursor(long image, int xhot, int yhot) {
 		long __functionAddress = Functions.CreateCursor;
 		if ( CHECKS )
@@ -2783,7 +3180,24 @@ public class GLFW {
 
 	// --- [ glfwGetJoystickAxes ] ---
 
-	/** Unsafe version of {@link #glfwGetJoystickAxes GetJoystickAxes} */
+	/**
+	 * Returns the values of all axes of the specified joystick. Each element in the array is a value between -1.0 and 1.0.
+	 * 
+	 * <p>Querying a joystick slot with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+	 * presence.</p>
+	 * 
+	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
+	 * function is called again for that joystick or the library is terminated.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param joy   the joystick to query
+	 * @param count where to store the number of axis values in the returned array. This is set to zero if an error occurred.
+	 *
+	 * @return an array of axis values, or {@code NULL} if the joystick is not present
+	 *
+	 * @since version 2.2
+	 */
 	public static long nglfwGetJoystickAxes(int joy, long count) {
 		long __functionAddress = Functions.GetJoystickAxes;
 		return invokeIPP(__functionAddress, joy, count);
@@ -2819,7 +3233,24 @@ public class GLFW {
 
 	// --- [ glfwGetJoystickButtons ] ---
 
-	/** Unsafe version of {@link #glfwGetJoystickButtons GetJoystickButtons} */
+	/**
+	 * Returns the state of all buttons of the specified joystick. Each element in the array is either {@link #GLFW_PRESS PRESS} or {@link #GLFW_RELEASE RELEASE}.
+	 * 
+	 * <p>Querying a joystick slot with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+	 * presence.</p>
+	 * 
+	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
+	 * function is called again for that joystick or the library is terminated.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param joy   the joystick to query
+	 * @param count where to store the number of button states in the returned array. This is set to zero if an error occurred.
+	 *
+	 * @return an array of button states, or {@code NULL} if the joystick is not present
+	 *
+	 * @since version 2.2
+	 */
 	public static long nglfwGetJoystickButtons(int joy, long count) {
 		long __functionAddress = Functions.GetJoystickButtons;
 		return invokeIPP(__functionAddress, joy, count);
@@ -2855,7 +3286,23 @@ public class GLFW {
 
 	// --- [ glfwGetJoystickName ] ---
 
-	/** Unsafe version of {@link #glfwGetJoystickName GetJoystickName} */
+	/**
+	 * Returns the name, encoded as UTF-8, of the specified joystick.
+	 * 
+	 * <p>Querying a joystick slot with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+	 * presence.</p>
+	 * 
+	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
+	 * function is called again for that joystick or the library is terminated.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param joy the joystick to query
+	 *
+	 * @return the UTF-8 encoded name of the joystick, or {@code NULL} if the joystick is not present
+	 *
+	 * @since version 3.0
+	 */
 	public static long nglfwGetJoystickName(int joy) {
 		long __functionAddress = Functions.GetJoystickName;
 		return invokeIP(__functionAddress, joy);
@@ -2905,7 +3352,18 @@ public class GLFW {
 
 	// --- [ glfwSetClipboardString ] ---
 
-	/** Unsafe version of {@link #glfwSetClipboardString SetClipboardString} */
+	/**
+	 * Sets the system clipboard to the specified, UTF-8 encoded string.
+	 * 
+	 * <p>The specified string is copied before this function returns.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window that will own the clipboard contents
+	 * @param string a UTF-8 encoded string
+	 *
+	 * @since version 3.0
+	 */
 	public static void nglfwSetClipboardString(long window, long string) {
 		long __functionAddress = Functions.SetClipboardString;
 		if ( CHECKS )
@@ -2931,7 +3389,18 @@ public class GLFW {
 		nglfwSetClipboardString(window, memAddress(string));
 	}
 
-	/** CharSequence version of: {@link #glfwSetClipboardString SetClipboardString} */
+	/**
+	 * Sets the system clipboard to the specified, UTF-8 encoded string.
+	 * 
+	 * <p>The specified string is copied before this function returns.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window that will own the clipboard contents
+	 * @param string a UTF-8 encoded string
+	 *
+	 * @since version 3.0
+	 */
 	public static void glfwSetClipboardString(long window, CharSequence string) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2944,7 +3413,27 @@ public class GLFW {
 
 	// --- [ glfwGetClipboardString ] ---
 
-	/** Unsafe version of {@link #glfwGetClipboardString GetClipboardString} */
+	/**
+	 * Returns the contents of the system clipboard, if it contains or is convertible to a UTF-8 encoded string. If the clipboard is empty or if its contents
+	 * cannot be converted, {@code NULL} is returned and a {@link #GLFW_FORMAT_UNAVAILABLE FORMAT_UNAVAILABLE} error is generated.
+	 * 
+	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the next call to {@link #glfwGetClipboardString GetClipboardString} or
+	 * {@link #glfwSetClipboardString SetClipboardString}, or until the library is terminated.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li>The returned string is allocated and freed by GLFW.  You should not free it yourself.</li>
+	 * <li>The returned string is valid only until the next call to {@link #glfwGetClipboardString GetClipboardString} or {@link #glfwSetClipboardString SetClipboardString}.</li>
+	 * </ul>
+	 *
+	 * @param window the window that will request the clipboard contents
+	 *
+	 * @return the contents of the clipboard as a UTF-8 encoded string, or {@code NULL} if an error occurred
+	 *
+	 * @since version 3.0
+	 */
 	public static long nglfwGetClipboardString(long window) {
 		long __functionAddress = Functions.GetClipboardString;
 		if ( CHECKS )
@@ -3152,7 +3641,26 @@ public class GLFW {
 
 	// --- [ glfwExtensionSupported ] ---
 
-	/** Unsafe version of {@link #glfwExtensionSupported ExtensionSupported} */
+	/**
+	 * Returns whether the specified <a href="http://www.glfw.org/docs/latest/context.html#context_glext">API extension</a> is supported by the current
+	 * OpenGL or OpenGL ES context. It searches both for client API extension and context creation API extensions.
+	 * 
+	 * <p>A context must be current on the calling thread. Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
+	 * 
+	 * <p>As this functions retrieves and searches one or more extension strings each call, it is recommended that you cache its results if it is going to be used
+	 * frequently. The extension strings will not change during the lifetime of a context, so there is no danger in doing this.</p>
+	 * 
+	 * <p>This function does not apply to Vulkan. If you are using Vulkan, see {@link GLFWVulkan#glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions},
+	 * {@code vkEnumerateInstanceExtensionProperties} and {@code vkEnumerateDeviceExtensionProperties} instead.</p>
+	 * 
+	 * <p>This function may be called from any thread.</p>
+	 *
+	 * @param extension the ASCII encoded name of the extension
+	 *
+	 * @return {@link #GLFW_TRUE TRUE} if the extension is available, or {@link #GLFW_FALSE FALSE} otherwise
+	 *
+	 * @since version 1.0
+	 */
 	public static int nglfwExtensionSupported(long extension) {
 		long __functionAddress = Functions.ExtensionSupported;
 		return invokePI(__functionAddress, extension);
@@ -3184,7 +3692,26 @@ public class GLFW {
 		return nglfwExtensionSupported(memAddress(extension));
 	}
 
-	/** CharSequence version of: {@link #glfwExtensionSupported ExtensionSupported} */
+	/**
+	 * Returns whether the specified <a href="http://www.glfw.org/docs/latest/context.html#context_glext">API extension</a> is supported by the current
+	 * OpenGL or OpenGL ES context. It searches both for client API extension and context creation API extensions.
+	 * 
+	 * <p>A context must be current on the calling thread. Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
+	 * 
+	 * <p>As this functions retrieves and searches one or more extension strings each call, it is recommended that you cache its results if it is going to be used
+	 * frequently. The extension strings will not change during the lifetime of a context, so there is no danger in doing this.</p>
+	 * 
+	 * <p>This function does not apply to Vulkan. If you are using Vulkan, see {@link GLFWVulkan#glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions},
+	 * {@code vkEnumerateInstanceExtensionProperties} and {@code vkEnumerateDeviceExtensionProperties} instead.</p>
+	 * 
+	 * <p>This function may be called from any thread.</p>
+	 *
+	 * @param extension the ASCII encoded name of the extension
+	 *
+	 * @return {@link #GLFW_TRUE TRUE} if the extension is available, or {@link #GLFW_FALSE FALSE} otherwise
+	 *
+	 * @since version 1.0
+	 */
 	public static int glfwExtensionSupported(CharSequence extension) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -3197,7 +3724,31 @@ public class GLFW {
 
 	// --- [ glfwGetProcAddress ] ---
 
-	/** Unsafe version of {@link #glfwGetProcAddress GetProcAddress} */
+	/**
+	 * Returns the address of the specified OpenGL or OpenGL ES <a href="http://www.glfw.org/docs/latest/context.html#context_glext">core or extension
+	 * function</a>, if it is supported by the current context.
+	 * 
+	 * <p>A context must be current on the calling thread.  Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
+	 * 
+	 * <p>This function does not apply to Vulkan. If you are rendering with Vulkan, {@link GLFWVulkan#glfwGetInstanceProcAddress GetInstanceProcAddress}, {@code vkGetInstanceProcAddr} and
+	 * {@code vkGetDeviceProcAddr} instead.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>The address of a given function is not guaranteed to be the same between contexts.</li>
+	 * <li>This function may return a non-{@code NULL} address despite the associated version or extension not being available. Always check the context version or
+	 * extension string first.</li>
+	 * <li>The returned function pointer is valid until the context is destroyed or the library is terminated.</li>
+	 * <li>This function may be called from any thread.</li>
+	 * </ul>
+	 *
+	 * @param procname the ASCII encoded name of the function
+	 *
+	 * @return the address of the function, or {@code NULL} if an error occured
+	 *
+	 * @since version 1.0
+	 */
 	public static long nglfwGetProcAddress(long procname) {
 		long __functionAddress = Functions.GetProcAddress;
 		return invokePP(__functionAddress, procname);
@@ -3234,7 +3785,31 @@ public class GLFW {
 		return nglfwGetProcAddress(memAddress(procname));
 	}
 
-	/** CharSequence version of: {@link #glfwGetProcAddress GetProcAddress} */
+	/**
+	 * Returns the address of the specified OpenGL or OpenGL ES <a href="http://www.glfw.org/docs/latest/context.html#context_glext">core or extension
+	 * function</a>, if it is supported by the current context.
+	 * 
+	 * <p>A context must be current on the calling thread.  Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
+	 * 
+	 * <p>This function does not apply to Vulkan. If you are rendering with Vulkan, {@link GLFWVulkan#glfwGetInstanceProcAddress GetInstanceProcAddress}, {@code vkGetInstanceProcAddr} and
+	 * {@code vkGetDeviceProcAddr} instead.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>The address of a given function is not guaranteed to be the same between contexts.</li>
+	 * <li>This function may return a non-{@code NULL} address despite the associated version or extension not being available. Always check the context version or
+	 * extension string first.</li>
+	 * <li>The returned function pointer is valid until the context is destroyed or the library is terminated.</li>
+	 * <li>This function may be called from any thread.</li>
+	 * </ul>
+	 *
+	 * @param procname the ASCII encoded name of the function
+	 *
+	 * @return the address of the function, or {@code NULL} if an error occured
+	 *
+	 * @since version 1.0
+	 */
 	public static long glfwGetProcAddress(CharSequence procname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

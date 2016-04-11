@@ -58,7 +58,6 @@ public class EXTTextureBorderClamp {
 
 	// --- [ glTexParameterIivEXT ] ---
 
-	/** Unsafe version of {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	public static void nglTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glTexParameterIivEXT;
 		if ( CHECKS )
@@ -66,13 +65,6 @@ public class EXTTextureBorderClamp {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glTexParameterIivEXT(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglTexParameterIivEXT(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	public static void glTexParameterIivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
@@ -81,7 +73,6 @@ public class EXTTextureBorderClamp {
 
 	// --- [ glTexParameterIuivEXT ] ---
 
-	/** Unsafe version of {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	public static void nglTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glTexParameterIuivEXT;
 		if ( CHECKS )
@@ -89,13 +80,6 @@ public class EXTTextureBorderClamp {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglTexParameterIuivEXT(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	public static void glTexParameterIuivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
@@ -104,7 +88,6 @@ public class EXTTextureBorderClamp {
 
 	// --- [ glGetTexParameterIivEXT ] ---
 
-	/** Unsafe version of {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static void nglGetTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameterIivEXT;
 		if ( CHECKS )
@@ -112,20 +95,12 @@ public class EXTTextureBorderClamp {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetTexParameterIivEXT(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTexParameterIivEXT(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static void glGetTexParameterIivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static int glGetTexParameterIiEXT(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -139,7 +114,6 @@ public class EXTTextureBorderClamp {
 
 	// --- [ glGetTexParameterIuivEXT ] ---
 
-	/** Unsafe version of {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static void nglGetTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameterIuivEXT;
 		if ( CHECKS )
@@ -147,20 +121,12 @@ public class EXTTextureBorderClamp {
 		callIIPV(__functionAddress, target, pname, params);
 	}
 
-	public static void glGetTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetTexParameterIuivEXT(target, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static void glGetTexParameterIuivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIuivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static int glGetTexParameterIuiEXT(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -174,7 +140,6 @@ public class EXTTextureBorderClamp {
 
 	// --- [ glSamplerParameterIivEXT ] ---
 
-	/** Unsafe version of {@link #glSamplerParameterIivEXT SamplerParameterIivEXT} */
 	public static void nglSamplerParameterIivEXT(int sampler, int pname, long param) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterIivEXT;
 		if ( CHECKS )
@@ -182,13 +147,6 @@ public class EXTTextureBorderClamp {
 		callIIPV(__functionAddress, sampler, pname, param);
 	}
 
-	public static void glSamplerParameterIivEXT(int sampler, int pname, ByteBuffer param) {
-		if ( CHECKS )
-			checkBuffer(param, 1 << 2);
-		nglSamplerParameterIivEXT(sampler, pname, memAddress(param));
-	}
-
-	/** Alternative version of: {@link #glSamplerParameterIivEXT SamplerParameterIivEXT} */
 	public static void glSamplerParameterIivEXT(int sampler, int pname, IntBuffer param) {
 		if ( CHECKS )
 			checkBuffer(param, 1);
@@ -197,7 +155,6 @@ public class EXTTextureBorderClamp {
 
 	// --- [ glSamplerParameterIuivEXT ] ---
 
-	/** Unsafe version of {@link #glSamplerParameterIuivEXT SamplerParameterIuivEXT} */
 	public static void nglSamplerParameterIuivEXT(int sampler, int pname, long param) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterIuivEXT;
 		if ( CHECKS )
@@ -205,13 +162,6 @@ public class EXTTextureBorderClamp {
 		callIIPV(__functionAddress, sampler, pname, param);
 	}
 
-	public static void glSamplerParameterIuivEXT(int sampler, int pname, ByteBuffer param) {
-		if ( CHECKS )
-			checkBuffer(param, 1 << 2);
-		nglSamplerParameterIuivEXT(sampler, pname, memAddress(param));
-	}
-
-	/** Alternative version of: {@link #glSamplerParameterIuivEXT SamplerParameterIuivEXT} */
 	public static void glSamplerParameterIuivEXT(int sampler, int pname, IntBuffer param) {
 		if ( CHECKS )
 			checkBuffer(param, 1);
@@ -220,7 +170,6 @@ public class EXTTextureBorderClamp {
 
 	// --- [ glGetSamplerParameterIivEXT ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameterIivEXT GetSamplerParameterIivEXT} */
 	public static void nglGetSamplerParameterIivEXT(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIivEXT;
 		if ( CHECKS )
@@ -228,20 +177,12 @@ public class EXTTextureBorderClamp {
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
-	public static void glGetSamplerParameterIivEXT(int sampler, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameterIivEXT(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetSamplerParameterIivEXT GetSamplerParameterIivEXT} */
 	public static void glGetSamplerParameterIivEXT(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIivEXT(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameterIivEXT GetSamplerParameterIivEXT} */
 	public static int glGetSamplerParameterIiEXT(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -255,7 +196,6 @@ public class EXTTextureBorderClamp {
 
 	// --- [ glGetSamplerParameterIuivEXT ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameterIuivEXT GetSamplerParameterIuivEXT} */
 	public static void nglGetSamplerParameterIuivEXT(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIuivEXT;
 		if ( CHECKS )
@@ -263,20 +203,12 @@ public class EXTTextureBorderClamp {
 		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
-	public static void glGetSamplerParameterIuivEXT(int sampler, int pname, ByteBuffer params) {
-		if ( CHECKS )
-			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameterIuivEXT(sampler, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetSamplerParameterIuivEXT GetSamplerParameterIuivEXT} */
 	public static void glGetSamplerParameterIuivEXT(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIuivEXT(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameterIuivEXT GetSamplerParameterIuivEXT} */
 	public static int glGetSamplerParameterIuiEXT(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

@@ -58,7 +58,22 @@ public class SOFTLoopback {
 
 	// --- [ alcLoopbackOpenDeviceSOFT ] ---
 
-	/** Unsafe version of {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
+	/**
+	 * Loopback devices provide a way for applications to "read back" rendered audio without it being sent to an actual audio device. It allows applications to
+	 * render audio as fast or slow as it needs, making it suitable for non-real-time rendering, and so it can be passed to an audio codec or something for
+	 * further processing.
+	 * 
+	 * <p>To open a loopback device, use this function.</p>
+	 * 
+	 * <p>A loopback device behaves largely the same as a playback device. You may query playback state and error codes, and create contexts, which can then be
+	 * set as current to generate sources and buffers like normal.</p>
+	 * 
+	 * <p>Note that loopback devices do not have either the {@link ALC10#ALC_SYNC SYNC} or {@link ALC10#ALC_REFRESH REFRESH} attributes. Attempting to query them will result in an {@link ALC10#ALC_INVALID_ENUM INVALID_ENUM}
+	 * error.</p>
+	 *
+	 * @param deviceName which device or device driver to use for subsequent rendering. This may be {@code NULL} for an implementation-defined default, otherwise it must be a
+	 *                   valid name returned by enumeration (and further must be a device capable of loopback rendering).
+	 */
 	public static long nalcLoopbackOpenDeviceSOFT(long deviceName) {
 		long __functionAddress = ALC.getICD().alcLoopbackOpenDeviceSOFT;
 		if ( CHECKS )
@@ -88,7 +103,22 @@ public class SOFTLoopback {
 		return nalcLoopbackOpenDeviceSOFT(memAddressSafe(deviceName));
 	}
 
-	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
+	/**
+	 * Loopback devices provide a way for applications to "read back" rendered audio without it being sent to an actual audio device. It allows applications to
+	 * render audio as fast or slow as it needs, making it suitable for non-real-time rendering, and so it can be passed to an audio codec or something for
+	 * further processing.
+	 * 
+	 * <p>To open a loopback device, use this function.</p>
+	 * 
+	 * <p>A loopback device behaves largely the same as a playback device. You may query playback state and error codes, and create contexts, which can then be
+	 * set as current to generate sources and buffers like normal.</p>
+	 * 
+	 * <p>Note that loopback devices do not have either the {@link ALC10#ALC_SYNC SYNC} or {@link ALC10#ALC_REFRESH REFRESH} attributes. Attempting to query them will result in an {@link ALC10#ALC_INVALID_ENUM INVALID_ENUM}
+	 * error.</p>
+	 *
+	 * @param deviceName which device or device driver to use for subsequent rendering. This may be {@code NULL} for an implementation-defined default, otherwise it must be a
+	 *                   valid name returned by enumeration (and further must be a device capable of loopback rendering).
+	 */
 	public static long alcLoopbackOpenDeviceSOFT(CharSequence deviceName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -123,7 +153,14 @@ public class SOFTLoopback {
 
 	// --- [ alcRenderSamplesSOFT ] ---
 
-	/** Unsafe version of {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	/**
+	 * The state of various objects on loopback devices (including processed buffers and source offsets) is processed only when new samples are rendered. To
+	 * render samples, use this function.
+	 *
+	 * @param device  the loopback device which samples are rendered from, using its contexts and associated buffers and sources
+	 * @param buffer  the buffer to write to
+	 * @param samples the number of sample frames to render
+	 */
 	public static void nalcRenderSamplesSOFT(long device, long buffer, int samples) {
 		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
 		if ( CHECKS ) {

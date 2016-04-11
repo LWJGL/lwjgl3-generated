@@ -65,7 +65,14 @@ public class ALC10 {
 
 	// --- [ alcOpenDevice ] ---
 
-	/** Unsafe version of {@link #alcOpenDevice OpenDevice} */
+	/**
+	 * Allows the application to connect to a device.
+	 * 
+	 * <p>If the function returns {@code NULL}, then no sound driver/device has been found. The argument is a null terminated string that requests a certain device or
+	 * device configuration. If {@code NULL} is specified, the implementation will provide an implementation specific default.</p>
+	 *
+	 * @param deviceSpecifier the requested device or device configuration
+	 */
 	public static long nalcOpenDevice(long deviceSpecifier) {
 		long __functionAddress = ALC.getICD().alcOpenDevice;
 		return invokePP(__functionAddress, deviceSpecifier);
@@ -85,7 +92,14 @@ public class ALC10 {
 		return nalcOpenDevice(memAddressSafe(deviceSpecifier));
 	}
 
-	/** CharSequence version of: {@link #alcOpenDevice OpenDevice} */
+	/**
+	 * Allows the application to connect to a device.
+	 * 
+	 * <p>If the function returns {@code NULL}, then no sound driver/device has been found. The argument is a null terminated string that requests a certain device or
+	 * device configuration. If {@code NULL} is specified, the implementation will provide an implementation specific default.</p>
+	 *
+	 * @param deviceSpecifier the requested device or device configuration
+	 */
 	public static long alcOpenDevice(CharSequence deviceSpecifier) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -115,7 +129,12 @@ public class ALC10 {
 
 	// --- [ alcCreateContext ] ---
 
-	/** Unsafe version of {@link #alcCreateContext CreateContext} */
+	/**
+	 * Creates an AL context.
+	 *
+	 * @param deviceHandle a valid device
+	 * @param attrList     null or a zero terminated list of integer pairs composed of valid ALC attribute tokens and requested values. One of:<br>{@link #ALC_FREQUENCY FREQUENCY}, {@link #ALC_REFRESH REFRESH}, {@link #ALC_SYNC SYNC}, {@link ALC11#ALC_MONO_SOURCES MONO_SOURCES}, {@link ALC11#ALC_STEREO_SOURCES STEREO_SOURCES}
+	 */
 	public static long nalcCreateContext(long deviceHandle, long attrList) {
 		long __functionAddress = ALC.getICD().alcCreateContext;
 		if ( CHECKS )
@@ -129,13 +148,6 @@ public class ALC10 {
 	 * @param deviceHandle a valid device
 	 * @param attrList     null or a zero terminated list of integer pairs composed of valid ALC attribute tokens and requested values. One of:<br>{@link #ALC_FREQUENCY FREQUENCY}, {@link #ALC_REFRESH REFRESH}, {@link #ALC_SYNC SYNC}, {@link ALC11#ALC_MONO_SOURCES MONO_SOURCES}, {@link ALC11#ALC_STEREO_SOURCES STEREO_SOURCES}
 	 */
-	public static long alcCreateContext(long deviceHandle, ByteBuffer attrList) {
-		if ( CHECKS )
-			if ( attrList != null ) checkNT4(attrList);
-		return nalcCreateContext(deviceHandle, memAddressSafe(attrList));
-	}
-
-	/** Alternative version of: {@link #alcCreateContext CreateContext} */
 	public static long alcCreateContext(long deviceHandle, IntBuffer attrList) {
 		if ( CHECKS )
 			if ( attrList != null ) checkNT(attrList);
@@ -238,7 +250,15 @@ public class ALC10 {
 
 	// --- [ alcIsExtensionPresent ] ---
 
-	/** Unsafe version of {@link #alcIsExtensionPresent IsExtensionPresent} */
+	/**
+	 * Verifies that a given extension is available for the current context and the device it is associated with.
+	 * 
+	 * <p>Invalid and unsupported string tokens return ALC_FALSE. A {@code NULL} deviceHandle is acceptable. {@code extName} is not case sensitive – the implementation
+	 * will convert the name to all upper-case internally (and will express extension names in upper-case).</p>
+	 *
+	 * @param deviceHandle the device to query
+	 * @param extName      the extension name
+	 */
 	public static boolean nalcIsExtensionPresent(long deviceHandle, long extName) {
 		long __functionAddress = ALC.getICD().alcIsExtensionPresent;
 		return invokePPZ(__functionAddress, deviceHandle, extName);
@@ -259,7 +279,15 @@ public class ALC10 {
 		return nalcIsExtensionPresent(deviceHandle, memAddress(extName));
 	}
 
-	/** CharSequence version of: {@link #alcIsExtensionPresent IsExtensionPresent} */
+	/**
+	 * Verifies that a given extension is available for the current context and the device it is associated with.
+	 * 
+	 * <p>Invalid and unsupported string tokens return ALC_FALSE. A {@code NULL} deviceHandle is acceptable. {@code extName} is not case sensitive – the implementation
+	 * will convert the name to all upper-case internally (and will express extension names in upper-case).</p>
+	 *
+	 * @param deviceHandle the device to query
+	 * @param extName      the extension name
+	 */
 	public static boolean alcIsExtensionPresent(long deviceHandle, CharSequence extName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -272,7 +300,18 @@ public class ALC10 {
 
 	// --- [ alcGetProcAddress ] ---
 
-	/** Unsafe version of {@link #alcGetProcAddress GetProcAddress} */
+	/**
+	 * Retrieves extension entry points.
+	 * 
+	 * <p>The application is expected to verify the applicability of an extension or core function entry point before requesting it by name, by use of
+	 * {@link #alcIsExtensionPresent IsExtensionPresent}.</p>
+	 * 
+	 * <p>Entry points can be device specific, but are not context specific. Using a {@code NULL} device handle does not guarantee that the entry point is returned,
+	 * even if available for one of the available devices.</p>
+	 *
+	 * @param deviceHandle the device to query
+	 * @param funcName     the function name
+	 */
 	public static long nalcGetProcAddress(long deviceHandle, long funcName) {
 		long __functionAddress = ALC.getICD().alcGetProcAddress;
 		return invokePPP(__functionAddress, deviceHandle, funcName);
@@ -296,7 +335,18 @@ public class ALC10 {
 		return nalcGetProcAddress(deviceHandle, memAddress(funcName));
 	}
 
-	/** CharSequence version of: {@link #alcGetProcAddress GetProcAddress} */
+	/**
+	 * Retrieves extension entry points.
+	 * 
+	 * <p>The application is expected to verify the applicability of an extension or core function entry point before requesting it by name, by use of
+	 * {@link #alcIsExtensionPresent IsExtensionPresent}.</p>
+	 * 
+	 * <p>Entry points can be device specific, but are not context specific. Using a {@code NULL} device handle does not guarantee that the entry point is returned,
+	 * even if available for one of the available devices.</p>
+	 *
+	 * @param deviceHandle the device to query
+	 * @param funcName     the function name
+	 */
 	public static long alcGetProcAddress(long deviceHandle, CharSequence funcName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -309,7 +359,15 @@ public class ALC10 {
 
 	// --- [ alcGetEnumValue ] ---
 
-	/** Unsafe version of {@link #alcGetEnumValue GetEnumValue} */
+	/**
+	 * Returns extension enum values.
+	 * 
+	 * <p>Enumeration/token values are device independent, but tokens defined for extensions might not be present for a given device. Using a {@code NULL} handle is
+	 * legal, but only the tokens defined by the AL core are guaranteed. Availability of extension tokens depends on the ALC extension.</p>
+	 *
+	 * @param deviceHandle the device to query
+	 * @param enumName     the enum name
+	 */
 	public static int nalcGetEnumValue(long deviceHandle, long enumName) {
 		long __functionAddress = ALC.getICD().alcGetEnumValue;
 		return invokePPI(__functionAddress, deviceHandle, enumName);
@@ -330,7 +388,15 @@ public class ALC10 {
 		return nalcGetEnumValue(deviceHandle, memAddress(enumName));
 	}
 
-	/** CharSequence version of: {@link #alcGetEnumValue GetEnumValue} */
+	/**
+	 * Returns extension enum values.
+	 * 
+	 * <p>Enumeration/token values are device independent, but tokens defined for extensions might not be present for a given device. Using a {@code NULL} handle is
+	 * legal, but only the tokens defined by the AL core are guaranteed. Availability of extension tokens depends on the ALC extension.</p>
+	 *
+	 * @param deviceHandle the device to query
+	 * @param enumName     the enum name
+	 */
 	public static int alcGetEnumValue(long deviceHandle, CharSequence enumName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -360,7 +426,14 @@ public class ALC10 {
 
 	// --- [ alcGetString ] ---
 
-	/** Unsafe version of {@link #alcGetString GetString} */
+	/**
+	 * Obtains string value(s) from ALC.
+	 * 
+	 * <p><b>LWJGL note</b>: Use {@link ALUtil#getStringList} for those tokens that return multiple values.</p>
+	 *
+	 * @param deviceHandle the device to query
+	 * @param token        the information to query. One of:<br>{@link #ALC_DEFAULT_DEVICE_SPECIFIER DEFAULT_DEVICE_SPECIFIER}, {@link #ALC_DEVICE_SPECIFIER DEVICE_SPECIFIER}, {@link #ALC_EXTENSIONS EXTENSIONS}, {@link ALC11#ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER CAPTURE_DEFAULT_DEVICE_SPECIFIER}, {@link ALC11#ALC_CAPTURE_DEVICE_SPECIFIER CAPTURE_DEVICE_SPECIFIER}
+	 */
 	public static long nalcGetString(long deviceHandle, int token) {
 		long __functionAddress = ALC.getICD().alcGetString;
 		return invokePIP(__functionAddress, deviceHandle, token);
@@ -381,7 +454,14 @@ public class ALC10 {
 
 	// --- [ alcGetIntegerv ] ---
 
-	/** Unsafe version of {@link #alcGetIntegerv GetIntegerv} */
+	/**
+	 * Obtains integer value(s) from ALC.
+	 *
+	 * @param deviceHandle the device to query
+	 * @param token        the information to query. One of:<br>{@link #ALC_MAJOR_VERSION MAJOR_VERSION}, {@link #ALC_MINOR_VERSION MINOR_VERSION}, {@link #ALC_ATTRIBUTES_SIZE ATTRIBUTES_SIZE}, {@link #ALC_ALL_ATTRIBUTES ALL_ATTRIBUTES}, {@link ALC11#ALC_CAPTURE_SAMPLES CAPTURE_SAMPLES}
+	 * @param size         the size of the {@code dest} buffer
+	 * @param dest         the destination buffer
+	 */
 	public static void nalcGetIntegerv(long deviceHandle, int token, int size, long dest) {
 		long __functionAddress = ALC.getICD().alcGetIntegerv;
 		invokePIIPV(__functionAddress, deviceHandle, token, size, dest);
@@ -392,21 +472,18 @@ public class ALC10 {
 	 *
 	 * @param deviceHandle the device to query
 	 * @param token        the information to query. One of:<br>{@link #ALC_MAJOR_VERSION MAJOR_VERSION}, {@link #ALC_MINOR_VERSION MINOR_VERSION}, {@link #ALC_ATTRIBUTES_SIZE ATTRIBUTES_SIZE}, {@link #ALC_ALL_ATTRIBUTES ALL_ATTRIBUTES}, {@link ALC11#ALC_CAPTURE_SAMPLES CAPTURE_SAMPLES}
-	 * @param size         the size of the {@code dest} buffer
 	 * @param dest         the destination buffer
 	 */
-	public static void alcGetIntegerv(long deviceHandle, int token, int size, ByteBuffer dest) {
-		if ( CHECKS )
-			checkBuffer(dest, size << 2);
-		nalcGetIntegerv(deviceHandle, token, size, memAddress(dest));
-	}
-
-	/** Alternative version of: {@link #alcGetIntegerv GetIntegerv} */
 	public static void alcGetIntegerv(long deviceHandle, int token, IntBuffer dest) {
 		nalcGetIntegerv(deviceHandle, token, dest.remaining(), memAddress(dest));
 	}
 
-	/** Single return value version of: {@link #alcGetIntegerv GetIntegerv} */
+	/**
+	 * Obtains integer value(s) from ALC.
+	 *
+	 * @param deviceHandle the device to query
+	 * @param token        the information to query. One of:<br>{@link #ALC_MAJOR_VERSION MAJOR_VERSION}, {@link #ALC_MINOR_VERSION MINOR_VERSION}, {@link #ALC_ATTRIBUTES_SIZE ATTRIBUTES_SIZE}, {@link #ALC_ALL_ATTRIBUTES ALL_ATTRIBUTES}, {@link ALC11#ALC_CAPTURE_SAMPLES CAPTURE_SAMPLES}
+	 */
 	public static int alcGetInteger(long deviceHandle, int token) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

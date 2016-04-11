@@ -33,7 +33,6 @@ public class QCOMExtendedGet2 {
 
 	// --- [ glExtGetShadersQCOM ] ---
 
-	/** Unsafe version of {@link #glExtGetShadersQCOM ExtGetShadersQCOM} */
 	public static void nglExtGetShadersQCOM(long shaders, int maxShaders, long numShaders) {
 		long __functionAddress = GLES.getCapabilities().glExtGetShadersQCOM;
 		if ( CHECKS )
@@ -41,15 +40,6 @@ public class QCOMExtendedGet2 {
 		callPIPV(__functionAddress, shaders, maxShaders, numShaders);
 	}
 
-	public static void glExtGetShadersQCOM(ByteBuffer shaders, int maxShaders, ByteBuffer numShaders) {
-		if ( CHECKS ) {
-			if ( shaders != null ) checkBuffer(shaders, maxShaders << 2);
-			if ( numShaders != null ) checkBuffer(numShaders, 1 << 2);
-		}
-		nglExtGetShadersQCOM(memAddressSafe(shaders), maxShaders, memAddressSafe(numShaders));
-	}
-
-	/** Alternative version of: {@link #glExtGetShadersQCOM ExtGetShadersQCOM} */
 	public static void glExtGetShadersQCOM(IntBuffer shaders, IntBuffer numShaders) {
 		if ( CHECKS )
 			if ( numShaders != null ) checkBuffer(numShaders, 1);
@@ -58,7 +48,6 @@ public class QCOMExtendedGet2 {
 
 	// --- [ glExtGetProgramsQCOM ] ---
 
-	/** Unsafe version of {@link #glExtGetProgramsQCOM ExtGetProgramsQCOM} */
 	public static void nglExtGetProgramsQCOM(long programs, int maxPrograms, long numPrograms) {
 		long __functionAddress = GLES.getCapabilities().glExtGetProgramsQCOM;
 		if ( CHECKS )
@@ -66,15 +55,6 @@ public class QCOMExtendedGet2 {
 		callPIPV(__functionAddress, programs, maxPrograms, numPrograms);
 	}
 
-	public static void glExtGetProgramsQCOM(ByteBuffer programs, int maxPrograms, ByteBuffer numPrograms) {
-		if ( CHECKS ) {
-			if ( programs != null ) checkBuffer(programs, maxPrograms << 2);
-			if ( numPrograms != null ) checkBuffer(numPrograms, 1 << 2);
-		}
-		nglExtGetProgramsQCOM(memAddressSafe(programs), maxPrograms, memAddressSafe(numPrograms));
-	}
-
-	/** Alternative version of: {@link #glExtGetProgramsQCOM ExtGetProgramsQCOM} */
 	public static void glExtGetProgramsQCOM(IntBuffer programs, IntBuffer numPrograms) {
 		if ( CHECKS )
 			if ( numPrograms != null ) checkBuffer(numPrograms, 1);
@@ -92,7 +72,6 @@ public class QCOMExtendedGet2 {
 
 	// --- [ glExtGetProgramBinarySourceQCOM ] ---
 
-	/** Unsafe version of {@link #glExtGetProgramBinarySourceQCOM ExtGetProgramBinarySourceQCOM} */
 	public static void nglExtGetProgramBinarySourceQCOM(int program, int shadertype, long source, long length) {
 		long __functionAddress = GLES.getCapabilities().glExtGetProgramBinarySourceQCOM;
 		if ( CHECKS )
@@ -100,13 +79,6 @@ public class QCOMExtendedGet2 {
 		callIIPPV(__functionAddress, program, shadertype, source, length);
 	}
 
-	public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, ByteBuffer length) {
-		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		nglExtGetProgramBinarySourceQCOM(program, shadertype, memAddressSafe(source), memAddressSafe(length));
-	}
-
-	/** Alternative version of: {@link #glExtGetProgramBinarySourceQCOM ExtGetProgramBinarySourceQCOM} */
 	public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, IntBuffer length) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);

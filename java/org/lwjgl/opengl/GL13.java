@@ -227,7 +227,21 @@ public class GL13 {
 
 	// --- [ glCompressedTexImage3D ] ---
 
-	/** Unsafe version of {@link #glCompressedTexImage3D CompressedTexImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies a three-dimensional texture image in a compressed format.
+	 *
+	 * @param target         the target texture. One of:<br>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}, {@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}, {@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}
+	 * @param level          the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param internalformat the format of the compressed image data. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param width          the width of the texture image
+	 * @param height         the height of the texture image
+	 * @param depth          the depth of the texture image
+	 * @param border         must be 0
+	 * @param imageSize      the number of unsigned bytes of image data starting at the address specified by {@code data}
+	 * @param data           a pointer to the compressed image data
+	 */
 	public static void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = GL.getCapabilities().glCompressedTexImage3D;
 		if ( CHECKS )
@@ -250,22 +264,26 @@ public class GL13 {
 	 * @param imageSize      the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 * @param data           a pointer to the compressed image data
 	 */
-	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			if ( data != null ) checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, memAddressSafe(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTexImage3D CompressedTexImage3D} */
-	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long dataOffset) {
+	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, dataOffset);
+		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTexImage3D CompressedTexImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies a three-dimensional texture image in a compressed format.
+	 *
+	 * @param target         the target texture. One of:<br>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}, {@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}, {@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}
+	 * @param level          the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param internalformat the format of the compressed image data. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param width          the width of the texture image
+	 * @param height         the height of the texture image
+	 * @param depth          the depth of the texture image
+	 * @param border         must be 0
+	 * @param data           a pointer to the compressed image data
+	 */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -274,7 +292,20 @@ public class GL13 {
 
 	// --- [ glCompressedTexImage2D ] ---
 
-	/** Unsafe version of {@link #glCompressedTexImage2D CompressedTexImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies a two-dimensional texture image in a compressed format.
+	 *
+	 * @param target         the target texture. One of:<br>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link #GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}, {@link #GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}
+	 * @param level          the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param internalformat the format of the compressed image data. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param width          the width of the texture image
+	 * @param height         the height of the texture image
+	 * @param border         must be 0
+	 * @param imageSize      the number of unsigned bytes of image data starting at the address specified by {@code data}
+	 * @param data           a pointer to the compressed image data
+	 */
 	public static void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		long __functionAddress = GL.getCapabilities().glCompressedTexImage2D;
 		if ( CHECKS )
@@ -296,22 +327,25 @@ public class GL13 {
 	 * @param imageSize      the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 * @param data           a pointer to the compressed image data
 	 */
-	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			if ( data != null ) checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, memAddressSafe(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTexImage2D CompressedTexImage2D} */
-	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long dataOffset) {
+	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, dataOffset);
+		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTexImage2D CompressedTexImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies a two-dimensional texture image in a compressed format.
+	 *
+	 * @param target         the target texture. One of:<br>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link #GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}, {@link #GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}
+	 * @param level          the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param internalformat the format of the compressed image data. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param width          the width of the texture image
+	 * @param height         the height of the texture image
+	 * @param border         must be 0
+	 * @param data           a pointer to the compressed image data
+	 */
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, ByteBuffer data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -320,7 +354,19 @@ public class GL13 {
 
 	// --- [ glCompressedTexImage1D ] ---
 
-	/** Unsafe version of {@link #glCompressedTexImage1D CompressedTexImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies a one-dimensional texture image in a compressed format.
+	 *
+	 * @param target         the target texture. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}
+	 * @param level          the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param internalformat the format of the compressed image data. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param width          the width of the texture image
+	 * @param border         must be 0
+	 * @param imageSize      the number of unsigned bytes of image data starting at the address specified by {@code data}
+	 * @param data           a pointer to the compressed image data
+	 */
 	public static void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		long __functionAddress = GL.getCapabilities().glCompressedTexImage1D;
 		if ( CHECKS )
@@ -341,22 +387,24 @@ public class GL13 {
 	 * @param imageSize      the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 * @param data           a pointer to the compressed image data
 	 */
-	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			if ( data != null ) checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, memAddressSafe(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTexImage1D CompressedTexImage1D} */
-	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long dataOffset) {
+	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, dataOffset);
+		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTexImage1D CompressedTexImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Specifies a one-dimensional texture image in a compressed format.
+	 *
+	 * @param target         the target texture. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}
+	 * @param level          the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param internalformat the format of the compressed image data. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param width          the width of the texture image
+	 * @param border         must be 0
+	 * @param data           a pointer to the compressed image data
+	 */
 	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, ByteBuffer data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -365,7 +413,23 @@ public class GL13 {
 
 	// --- [ glCompressedTexSubImage3D ] ---
 
-	/** Unsafe version of {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Respecifies only a cubic subregion of an existing 3D texel array, with incoming data stored in a specific compressed image format.
+	 *
+	 * @param target    the target texture. One of:<br>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}
+	 * @param level     the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset   a texel offset in the x direction within the texture array
+	 * @param yoffset   a texel offset in the y direction within the texture array
+	 * @param zoffset   a texel offset in the z direction within the texture array
+	 * @param width     the width of the texture subimage
+	 * @param height    the height of the texture subimage
+	 * @param depth     the depth of the texture subimage
+	 * @param format    the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
+	 * @param data      a pointer to the compressed image data
+	 */
 	public static void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage3D;
 		if ( CHECKS )
@@ -390,22 +454,28 @@ public class GL13 {
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 * @param data      a pointer to the compressed image data
 	 */
-	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, memAddress(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
-	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long dataOffset) {
+	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset);
+		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Respecifies only a cubic subregion of an existing 3D texel array, with incoming data stored in a specific compressed image format.
+	 *
+	 * @param target  the target texture. One of:<br>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}
+	 * @param level   the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset a texel offset in the x direction within the texture array
+	 * @param yoffset a texel offset in the y direction within the texture array
+	 * @param zoffset a texel offset in the z direction within the texture array
+	 * @param width   the width of the texture subimage
+	 * @param height  the height of the texture subimage
+	 * @param depth   the depth of the texture subimage
+	 * @param format  the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param data    a pointer to the compressed image data
+	 */
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -414,7 +484,21 @@ public class GL13 {
 
 	// --- [ glCompressedTexSubImage2D ] ---
 
-	/** Unsafe version of {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Respecifies only a rectangular subregion of an existing 2D texel array, with incoming data stored in a specific compressed image format.
+	 *
+	 * @param target    the target texture. One of:<br>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link #GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
+	 * @param level     the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset   a texel offset in the x direction within the texture array
+	 * @param yoffset   a texel offset in the y direction within the texture array
+	 * @param width     the width of the texture subimage
+	 * @param height    the height of the texture subimage
+	 * @param format    the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
+	 * @param data      a pointer to the compressed image data
+	 */
 	public static void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage2D;
 		if ( CHECKS )
@@ -437,22 +521,26 @@ public class GL13 {
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 * @param data      a pointer to the compressed image data
 	 */
-	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, memAddress(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
-	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long dataOffset) {
+	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, dataOffset);
+		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Respecifies only a rectangular subregion of an existing 2D texel array, with incoming data stored in a specific compressed image format.
+	 *
+	 * @param target  the target texture. One of:<br>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link #GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
+	 * @param level   the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset a texel offset in the x direction within the texture array
+	 * @param yoffset a texel offset in the y direction within the texture array
+	 * @param width   the width of the texture subimage
+	 * @param height  the height of the texture subimage
+	 * @param format  the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param data    a pointer to the compressed image data
+	 */
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -461,7 +549,19 @@ public class GL13 {
 
 	// --- [ glCompressedTexSubImage1D ] ---
 
-	/** Unsafe version of {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Respecifies only a subregion of an existing 1D texel array, with incoming data stored in a specific compressed image format.
+	 *
+	 * @param target    the target texture. Must be:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}
+	 * @param level     the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset   a texel offset in the x direction within the texture array
+	 * @param width     the width of the texture subimage
+	 * @param format    the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
+	 * @param data      a pointer to the compressed image data
+	 */
 	public static void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage1D;
 		if ( CHECKS )
@@ -482,22 +582,24 @@ public class GL13 {
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 * @param data      a pointer to the compressed image data
 	 */
-	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, ByteBuffer data) {
-		if ( CHECKS ) {
-			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
-		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, memAddress(data));
-	}
-
-	/** Buffer object offset version of: {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
-	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long dataOffset) {
+	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, dataOffset);
+		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data);
 	}
 
-	/** Alternative version of: {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Respecifies only a subregion of an existing 1D texel array, with incoming data stored in a specific compressed image format.
+	 *
+	 * @param target  the target texture. Must be:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}
+	 * @param level   the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param xoffset a texel offset in the x direction within the texture array
+	 * @param width   the width of the texture subimage
+	 * @param format  the format of the compressed image data stored at address {@code data}. One of:<br>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionASTCLDR}
+	 * @param data    a pointer to the compressed image data
+	 */
 	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, ByteBuffer data) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -506,7 +608,15 @@ public class GL13 {
 
 	// --- [ glGetCompressedTexImage ] ---
 
-	/** Unsafe version of {@link #glGetCompressedTexImage GetCompressedTexImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns a compressed texture image.
+	 *
+	 * @param target the target texture. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}
+	 * @param level  the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param pixels a buffer in which to return the compressed texture image
+	 */
 	public static void nglGetCompressedTexImage(int target, int level, long pixels) {
 		long __functionAddress = GL.getCapabilities().glGetCompressedTexImage;
 		if ( CHECKS )
@@ -532,11 +642,19 @@ public class GL13 {
 		nglGetCompressedTexImage(target, level, memAddress(pixels));
 	}
 
-	/** Buffer object offset version of: {@link #glGetCompressedTexImage GetCompressedTexImage} */
-	public static void glGetCompressedTexImage(int target, int level, long pixelsOffset) {
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns a compressed texture image.
+	 *
+	 * @param target the target texture. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}
+	 * @param level  the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param pixels a buffer in which to return the compressed texture image
+	 */
+	public static void glGetCompressedTexImage(int target, int level, long pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglGetCompressedTexImage(target, level, pixelsOffset);
+		nglGetCompressedTexImage(target, level, pixels);
 	}
 
 	// --- [ glSampleCoverage ] ---
@@ -673,7 +791,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord1fv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord1fv MultiTexCoord1fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord1f MultiTexCoord1f}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord1fv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1fv;
 		if ( CHECKS )
@@ -689,13 +814,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1fv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 2);
-		nglMultiTexCoord1fv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord1fv MultiTexCoord1fv} */
 	public static void glMultiTexCoord1fv(int texture, FloatBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -704,7 +822,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord1sv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord1sv MultiTexCoord1sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord1s MultiTexCoord1s}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord1sv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1sv;
 		if ( CHECKS )
@@ -720,13 +845,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1sv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 1);
-		nglMultiTexCoord1sv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord1sv MultiTexCoord1sv} */
 	public static void glMultiTexCoord1sv(int texture, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -735,7 +853,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord1iv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord1iv MultiTexCoord1iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord1i MultiTexCoord1i}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord1iv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1iv;
 		if ( CHECKS )
@@ -751,13 +876,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1iv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 2);
-		nglMultiTexCoord1iv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord1iv MultiTexCoord1iv} */
 	public static void glMultiTexCoord1iv(int texture, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -766,7 +884,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord1dv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord1dv MultiTexCoord1dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord1d MultiTexCoord1d}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord1dv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1dv;
 		if ( CHECKS )
@@ -782,13 +907,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1dv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 1 << 3);
-		nglMultiTexCoord1dv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord1dv MultiTexCoord1dv} */
 	public static void glMultiTexCoord1dv(int texture, DoubleBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 1);
@@ -869,7 +987,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord2fv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord2fv MultiTexCoord2fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord2f MultiTexCoord2f}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord2fv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2fv;
 		if ( CHECKS )
@@ -885,13 +1010,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2fv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 2);
-		nglMultiTexCoord2fv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord2fv MultiTexCoord2fv} */
 	public static void glMultiTexCoord2fv(int texture, FloatBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -900,7 +1018,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord2sv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord2sv MultiTexCoord2sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord2s MultiTexCoord2s}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord2sv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2sv;
 		if ( CHECKS )
@@ -916,13 +1041,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2sv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 1);
-		nglMultiTexCoord2sv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord2sv MultiTexCoord2sv} */
 	public static void glMultiTexCoord2sv(int texture, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -931,7 +1049,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord2iv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord2iv MultiTexCoord2iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord2i MultiTexCoord2i}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord2iv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2iv;
 		if ( CHECKS )
@@ -947,13 +1072,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2iv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 2);
-		nglMultiTexCoord2iv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord2iv MultiTexCoord2iv} */
 	public static void glMultiTexCoord2iv(int texture, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -962,7 +1080,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord2dv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord2dv MultiTexCoord2dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord2d MultiTexCoord2d}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord2dv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2dv;
 		if ( CHECKS )
@@ -978,13 +1103,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2dv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 2 << 3);
-		nglMultiTexCoord2dv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord2dv MultiTexCoord2dv} */
 	public static void glMultiTexCoord2dv(int texture, DoubleBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 2);
@@ -1069,7 +1187,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord3fv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord3fv MultiTexCoord3fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord3f MultiTexCoord3f}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord3fv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3fv;
 		if ( CHECKS )
@@ -1085,13 +1210,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3fv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 2);
-		nglMultiTexCoord3fv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord3fv MultiTexCoord3fv} */
 	public static void glMultiTexCoord3fv(int texture, FloatBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -1100,7 +1218,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord3sv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord3sv MultiTexCoord3sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord3s MultiTexCoord3s}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord3sv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3sv;
 		if ( CHECKS )
@@ -1116,13 +1241,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3sv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 1);
-		nglMultiTexCoord3sv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord3sv MultiTexCoord3sv} */
 	public static void glMultiTexCoord3sv(int texture, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -1131,7 +1249,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord3iv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord3iv MultiTexCoord3iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord3i MultiTexCoord3i}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord3iv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3iv;
 		if ( CHECKS )
@@ -1147,13 +1272,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3iv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 2);
-		nglMultiTexCoord3iv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord3iv MultiTexCoord3iv} */
 	public static void glMultiTexCoord3iv(int texture, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -1162,7 +1280,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord3dv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord3dv MultiTexCoord3dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord3d MultiTexCoord3d}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord3dv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3dv;
 		if ( CHECKS )
@@ -1178,13 +1303,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3dv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 3 << 3);
-		nglMultiTexCoord3dv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord3dv MultiTexCoord3dv} */
 	public static void glMultiTexCoord3dv(int texture, DoubleBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 3);
@@ -1273,7 +1391,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord4fv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord4fv MultiTexCoord4fv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord4f MultiTexCoord4f}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord4fv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4fv;
 		if ( CHECKS )
@@ -1289,13 +1414,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4fv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglMultiTexCoord4fv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord4fv MultiTexCoord4fv} */
 	public static void glMultiTexCoord4fv(int texture, FloatBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -1304,7 +1422,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord4sv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord4sv MultiTexCoord4sv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord4s MultiTexCoord4s}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord4sv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4sv;
 		if ( CHECKS )
@@ -1320,13 +1445,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4sv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 1);
-		nglMultiTexCoord4sv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord4sv MultiTexCoord4sv} */
 	public static void glMultiTexCoord4sv(int texture, ShortBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -1335,7 +1453,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord4iv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord4iv MultiTexCoord4iv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord4i MultiTexCoord4i}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord4iv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4iv;
 		if ( CHECKS )
@@ -1351,13 +1476,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4iv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglMultiTexCoord4iv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord4iv MultiTexCoord4iv} */
 	public static void glMultiTexCoord4iv(int texture, IntBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -1366,7 +1484,14 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord4dv ] ---
 
-	/** Unsafe version of {@link #glMultiTexCoord4dv MultiTexCoord4dv} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glMultiTexCoord4d MultiTexCoord4d}.
+	 *
+	 * @param texture the coordinate set to be modified
+	 * @param v       the texture coordinate buffer
+	 */
 	public static void nglMultiTexCoord4dv(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4dv;
 		if ( CHECKS )
@@ -1382,13 +1507,6 @@ public class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4dv(int texture, ByteBuffer v) {
-		if ( CHECKS )
-			checkBuffer(v, 4 << 3);
-		nglMultiTexCoord4dv(texture, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glMultiTexCoord4dv MultiTexCoord4dv} */
 	public static void glMultiTexCoord4dv(int texture, DoubleBuffer v) {
 		if ( CHECKS )
 			checkBuffer(v, 4);
@@ -1397,7 +1515,22 @@ public class GL13 {
 
 	// --- [ glLoadTransposeMatrixf ] ---
 
-	/** Unsafe version of {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Sets the current matrix to a 4 &times; 4 matrix in row-major order.
+	 * 
+	 * <p>The matrix is stored as 16 consecutive values, i.e. as:</p>
+	 * 
+	 * <table class="lwjgl matrix">
+	 * <tr><td>a1</td><td>a2</td><td>a3</td><td>a4</td></tr>
+	 * <tr><td>a5</td><td>a6</td><td>a7</td><td>a8</td></tr>
+	 * <tr><td>a9</td><td>a10</td><td>a11</td><td>a12</td></tr>
+	 * <tr><td>a13</td><td>a14</td><td>a15</td><td>a16</td></tr>
+	 * </table>
+	 *
+	 * @param m the matrix data
+	 */
 	public static void nglLoadTransposeMatrixf(long m) {
 		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixf;
 		if ( CHECKS )
@@ -1421,13 +1554,6 @@ public class GL13 {
 	 *
 	 * @param m the matrix data
 	 */
-	public static void glLoadTransposeMatrixf(ByteBuffer m) {
-		if ( CHECKS )
-			checkBuffer(m, 16 << 2);
-		nglLoadTransposeMatrixf(memAddress(m));
-	}
-
-	/** Alternative version of: {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
 	public static void glLoadTransposeMatrixf(FloatBuffer m) {
 		if ( CHECKS )
 			checkBuffer(m, 16);
@@ -1436,7 +1562,13 @@ public class GL13 {
 
 	// --- [ glLoadTransposeMatrixd ] ---
 
-	/** Unsafe version of {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Double version of {@link #glLoadTransposeMatrixf LoadTransposeMatrixf}.
+	 *
+	 * @param m the matrix data
+	 */
 	public static void nglLoadTransposeMatrixd(long m) {
 		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixd;
 		if ( CHECKS )
@@ -1451,13 +1583,6 @@ public class GL13 {
 	 *
 	 * @param m the matrix data
 	 */
-	public static void glLoadTransposeMatrixd(ByteBuffer m) {
-		if ( CHECKS )
-			checkBuffer(m, 16 << 3);
-		nglLoadTransposeMatrixd(memAddress(m));
-	}
-
-	/** Alternative version of: {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
 	public static void glLoadTransposeMatrixd(DoubleBuffer m) {
 		if ( CHECKS )
 			checkBuffer(m, 16);
@@ -1466,7 +1591,13 @@ public class GL13 {
 
 	// --- [ glMultTransposeMatrixf ] ---
 
-	/** Unsafe version of {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Multiplies the current matrix with a 4 &times; 4 matrix in row-major order. See {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} for details.
+	 *
+	 * @param m the matrix data
+	 */
 	public static void nglMultTransposeMatrixf(long m) {
 		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixf;
 		if ( CHECKS )
@@ -1481,13 +1612,6 @@ public class GL13 {
 	 *
 	 * @param m the matrix data
 	 */
-	public static void glMultTransposeMatrixf(ByteBuffer m) {
-		if ( CHECKS )
-			checkBuffer(m, 16 << 2);
-		nglMultTransposeMatrixf(memAddress(m));
-	}
-
-	/** Alternative version of: {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
 	public static void glMultTransposeMatrixf(FloatBuffer m) {
 		if ( CHECKS )
 			checkBuffer(m, 16);
@@ -1496,7 +1620,13 @@ public class GL13 {
 
 	// --- [ glMultTransposeMatrixd ] ---
 
-	/** Unsafe version of {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Double version of {@link #glMultTransposeMatrixf MultTransposeMatrixf}.
+	 *
+	 * @param m the matrix data
+	 */
 	public static void nglMultTransposeMatrixd(long m) {
 		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixd;
 		if ( CHECKS )
@@ -1511,13 +1641,6 @@ public class GL13 {
 	 *
 	 * @param m the matrix data
 	 */
-	public static void glMultTransposeMatrixd(ByteBuffer m) {
-		if ( CHECKS )
-			checkBuffer(m, 16 << 3);
-		nglMultTransposeMatrixd(memAddress(m));
-	}
-
-	/** Alternative version of: {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
 	public static void glMultTransposeMatrixd(DoubleBuffer m) {
 		if ( CHECKS )
 			checkBuffer(m, 16);

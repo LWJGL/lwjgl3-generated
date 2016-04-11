@@ -57,7 +57,6 @@ public class KHRStreamFIFO {
 
 	// --- [ eglQueryStreamTimeKHR ] ---
 
-	/** Unsafe version of {@link #eglQueryStreamTimeKHR QueryStreamTimeKHR} */
 	public static int neglQueryStreamTimeKHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryStreamTimeKHR;
 		if ( CHECKS ) {
@@ -68,13 +67,6 @@ public class KHRStreamFIFO {
 		return callPPIPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
-	public static int eglQueryStreamTimeKHR(long dpy, long stream, int attribute, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 3);
-		return neglQueryStreamTimeKHR(dpy, stream, attribute, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #eglQueryStreamTimeKHR QueryStreamTimeKHR} */
 	public static int eglQueryStreamTimeKHR(long dpy, long stream, int attribute, LongBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);

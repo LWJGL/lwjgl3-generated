@@ -70,7 +70,6 @@ public class EXTShaderPixelLocalStorage2 {
 
 	// --- [ glClearPixelLocalStorageuiEXT ] ---
 
-	/** Unsafe version of {@link #glClearPixelLocalStorageuiEXT ClearPixelLocalStorageuiEXT} */
 	public static void nglClearPixelLocalStorageuiEXT(int offset, int n, long values) {
 		long __functionAddress = GLES.getCapabilities().glClearPixelLocalStorageuiEXT;
 		if ( CHECKS )
@@ -78,13 +77,6 @@ public class EXTShaderPixelLocalStorage2 {
 		callIIPV(__functionAddress, offset, n, values);
 	}
 
-	public static void glClearPixelLocalStorageuiEXT(int offset, int n, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, n << 2);
-		nglClearPixelLocalStorageuiEXT(offset, n, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #glClearPixelLocalStorageuiEXT ClearPixelLocalStorageuiEXT} */
 	public static void glClearPixelLocalStorageuiEXT(int offset, IntBuffer values) {
 		nglClearPixelLocalStorageuiEXT(offset, values.remaining(), memAddress(values));
 	}

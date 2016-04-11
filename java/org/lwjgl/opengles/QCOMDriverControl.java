@@ -41,7 +41,6 @@ public class QCOMDriverControl {
 
 	// --- [ glGetDriverControlsQCOM ] ---
 
-	/** Unsafe version of {@link #glGetDriverControlsQCOM GetDriverControlsQCOM} */
 	public static void nglGetDriverControlsQCOM(long num, int size, long driverControls) {
 		long __functionAddress = GLES.getCapabilities().glGetDriverControlsQCOM;
 		if ( CHECKS )
@@ -49,15 +48,6 @@ public class QCOMDriverControl {
 		callPIPV(__functionAddress, num, size, driverControls);
 	}
 
-	public static void glGetDriverControlsQCOM(ByteBuffer num, int size, ByteBuffer driverControls) {
-		if ( CHECKS ) {
-			if ( num != null ) checkBuffer(num, 1 << 2);
-			if ( driverControls != null ) checkBuffer(driverControls, size << 2);
-		}
-		nglGetDriverControlsQCOM(memAddressSafe(num), size, memAddressSafe(driverControls));
-	}
-
-	/** Alternative version of: {@link #glGetDriverControlsQCOM GetDriverControlsQCOM} */
 	public static void glGetDriverControlsQCOM(IntBuffer num, IntBuffer driverControls) {
 		if ( CHECKS )
 			if ( num != null ) checkBuffer(num, 1);
@@ -66,7 +56,6 @@ public class QCOMDriverControl {
 
 	// --- [ glGetDriverControlStringQCOM ] ---
 
-	/** Unsafe version of {@link #glGetDriverControlStringQCOM GetDriverControlStringQCOM} */
 	public static void nglGetDriverControlStringQCOM(int driverControl, int bufSize, long length, long driverControlString) {
 		long __functionAddress = GLES.getCapabilities().glGetDriverControlStringQCOM;
 		if ( CHECKS )
@@ -74,22 +63,12 @@ public class QCOMDriverControl {
 		callIIPPV(__functionAddress, driverControl, bufSize, length, driverControlString);
 	}
 
-	public static void glGetDriverControlStringQCOM(int driverControl, int bufSize, ByteBuffer length, ByteBuffer driverControlString) {
-		if ( CHECKS ) {
-			if ( driverControlString != null ) checkBuffer(driverControlString, bufSize);
-			if ( length != null ) checkBuffer(length, 1 << 2);
-		}
-		nglGetDriverControlStringQCOM(driverControl, bufSize, memAddressSafe(length), memAddressSafe(driverControlString));
-	}
-
-	/** Alternative version of: {@link #glGetDriverControlStringQCOM GetDriverControlStringQCOM} */
 	public static void glGetDriverControlStringQCOM(int driverControl, IntBuffer length, ByteBuffer driverControlString) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetDriverControlStringQCOM(driverControl, driverControlString == null ? 0 : driverControlString.remaining(), memAddressSafe(length), memAddressSafe(driverControlString));
 	}
 
-	/** String return version of: {@link #glGetDriverControlStringQCOM GetDriverControlStringQCOM} */
 	public static String glGetDriverControlStringQCOM(int driverControl, int bufSize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

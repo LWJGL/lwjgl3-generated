@@ -85,7 +85,6 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glCreateShaderProgramEXT ] ---
 
-	/** Unsafe version of {@link #glCreateShaderProgramEXT CreateShaderProgramEXT} */
 	public static int nglCreateShaderProgramEXT(int type, long string) {
 		long __functionAddress = GL.getCapabilities().glCreateShaderProgramEXT;
 		if ( CHECKS )
@@ -99,7 +98,6 @@ public class EXTSeparateShaderObjects {
 		return nglCreateShaderProgramEXT(type, memAddress(string));
 	}
 
-	/** CharSequence version of: {@link #glCreateShaderProgramEXT CreateShaderProgramEXT} */
 	public static int glCreateShaderProgramEXT(int type, CharSequence string) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

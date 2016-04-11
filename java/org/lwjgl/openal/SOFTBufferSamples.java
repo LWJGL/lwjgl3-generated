@@ -111,7 +111,28 @@ public class SOFTBufferSamples {
 
 	// --- [ alBufferSamplesSOFT ] ---
 
-	/** Unsafe version of {@link #alBufferSamplesSOFT BufferSamplesSOFT} */
+	/**
+	 * Removes a buffer's sample data and replaces it with new data. The named {@code buffer} must be a buffer ID returned by {@link AL10#alGenBuffers GenBuffers}, and not
+	 * currently be attached to or queued on a source. The given {@code samplerate} is the number of sample frames per second the data will play at, and the
+	 * {@code internalformat} is the storage format used. The number of uncompressed sample frames to load is specified by {@code samples}.
+	 * 
+	 * <p>The {@code channels} and {@code type} parameters specify the channel configuration and sample type of the provided data. The samples will be converted
+	 * to the internal storage format as needed, however the channel configuration must match the channel configuration of the storage format or an
+	 * {@link AL10#AL_INVALID_ENUM INVALID_ENUM} error will be generated.</p>
+	 * 
+	 * <p>The {@code data} pointer should hold enough data as specified by the {@code channels}, {@code type}, and {@code samples} parameters, and will be copied
+	 * and converted into the buffer's storage. It may also be {@code NULL}, in which case the stored data will be undefined.</p>
+	 * 
+	 * <p>If {@link SOFTLoopPoints SOFT_loop_points} is supported, a successful call will reset the start and end loop points to 0 and {@code samples} respectively.</p>
+	 *
+	 * @param buffer         the buffer ID
+	 * @param samplerate     the number of sample frames per second the data will play at
+	 * @param internalformat the internal format. One of:<br>{@link #AL_MONO8_SOFT MONO8_SOFT}, {@link #AL_MONO16_SOFT MONO16_SOFT}, {@link #AL_MONO32F_SOFT MONO32F_SOFT}, {@link #AL_STEREO8_SOFT STEREO8_SOFT}, {@link #AL_STEREO16_SOFT STEREO16_SOFT}, {@link #AL_STEREO32F_SOFT STEREO32F_SOFT}, {@link #AL_QUAD8_SOFT QUAD8_SOFT}, {@link #AL_QUAD16_SOFT QUAD16_SOFT}, {@link #AL_QUAD32F_SOFT QUAD32F_SOFT}, {@link #AL_REAR8_SOFT REAR8_SOFT}, {@link #AL_REAR16_SOFT REAR16_SOFT}, {@link #AL_REAR32F_SOFT REAR32F_SOFT}, {@link #AL_5POINT1_8_SOFT 5POINT1_8_SOFT}, {@link #AL_5POINT1_16_SOFT 5POINT1_16_SOFT}, {@link #AL_5POINT1_32F_SOFT 5POINT1_32F_SOFT}, {@link #AL_6POINT1_8_SOFT 6POINT1_8_SOFT}, {@link #AL_6POINT1_16_SOFT 6POINT1_16_SOFT}, {@link #AL_6POINT1_32F_SOFT 6POINT1_32F_SOFT}, {@link #AL_7POINT1_8_SOFT 7POINT1_8_SOFT}, {@link #AL_7POINT1_16_SOFT 7POINT1_16_SOFT}, {@link #AL_7POINT1_32F_SOFT 7POINT1_32F_SOFT}
+	 * @param samples        the number of uncompressed sample frames to load
+	 * @param channels       the channel configuration of the provided data. One of:<br>{@link #AL_MONO_SOFT MONO_SOFT}, {@link #AL_STEREO_SOFT STEREO_SOFT}, {@link #AL_QUAD_SOFT QUAD_SOFT}, {@link #AL_REAR_SOFT REAR_SOFT}, {@link #AL_5POINT1_SOFT 5POINT1_SOFT}, {@link #AL_6POINT1_SOFT 6POINT1_SOFT}, {@link #AL_7POINT1_SOFT 7POINT1_SOFT}
+	 * @param type           the type of the provided data. One of:<br>{@link #AL_BYTE_SOFT BYTE_SOFT}, {@link #AL_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #AL_SHORT_SOFT SHORT_SOFT}, {@link #AL_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #AL_INT_SOFT INT_SOFT}, {@link #AL_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #AL_FLOAT_SOFT FLOAT_SOFT}, {@link #AL_DOUBLE_SOFT DOUBLE_SOFT}, {@link #AL_BYTE3_SOFT BYTE3_SOFT}, {@link #AL_UNSIGNED_BYTE3_SOFT UNSIGNED_BYTE3_SOFT}
+	 * @param data           the buffer data
+	 */
 	public static void nalBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, long data) {
 		long __functionAddress = AL.getCapabilities().alBufferSamplesSOFT;
 		if ( CHECKS )
@@ -164,7 +185,24 @@ public class SOFTBufferSamples {
 
 	// --- [ alBufferSubSamplesSOFT ] ---
 
-	/** Unsafe version of {@link #alBufferSubSamplesSOFT BufferSubSamplesSOFT} */
+	/**
+	 * Update a buffer with new data. {@code buffer} is the ID of the buffer to modify. {@code offset} is the first sample frame in the internal storage to be
+	 * modified, and {@code samples} is the number of sample frames to modify. They must not extend beyond the existing internal storage length. The
+	 * {@code channels} and {@code type} parameters specify the channel configuration and sample type of the provided data buffer, specified by {@code data},
+	 * which will be copied and converted to the buffer's storage format. As with {@link #alBufferSamplesSOFT BufferSamplesSOFT}, the channel configuration must match the storage
+	 * format's channel configuration or an {@link AL10#AL_INVALID_ENUM INVALID_ENUM} error will be generated.
+	 * 
+	 * <p>When modifying a buffer that's playing on a source, an application must take care to not modify the section that is currently being played. The
+	 * read-only source attributes {@link #AL_BYTE_RW_OFFSETS_SOFT BYTE_RW_OFFSETS_SOFT} and {@link #AL_SAMPLE_RW_OFFSETS_SOFT SAMPLE_RW_OFFSETS_SOFT} may be used to retrieve the read and write cursor offsets. Behavior is
+	 * undefined if an attempt is made to modify buffer data between the read and write offsets.</p>
+	 *
+	 * @param buffer   the buffer ID
+	 * @param offset   the first sample frame in the internal storage to be modified
+	 * @param samples  the number of sample frames to modify
+	 * @param channels the channel configuration of the provided data. One of:<br>{@link #AL_MONO_SOFT MONO_SOFT}, {@link #AL_STEREO_SOFT STEREO_SOFT}, {@link #AL_QUAD_SOFT QUAD_SOFT}, {@link #AL_REAR_SOFT REAR_SOFT}, {@link #AL_5POINT1_SOFT 5POINT1_SOFT}, {@link #AL_6POINT1_SOFT 6POINT1_SOFT}, {@link #AL_7POINT1_SOFT 7POINT1_SOFT}
+	 * @param type     the type of the provided data. One of:<br>{@link #AL_BYTE_SOFT BYTE_SOFT}, {@link #AL_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #AL_SHORT_SOFT SHORT_SOFT}, {@link #AL_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #AL_INT_SOFT INT_SOFT}, {@link #AL_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #AL_FLOAT_SOFT FLOAT_SOFT}, {@link #AL_DOUBLE_SOFT DOUBLE_SOFT}, {@link #AL_BYTE3_SOFT BYTE3_SOFT}, {@link #AL_UNSIGNED_BYTE3_SOFT UNSIGNED_BYTE3_SOFT}
+	 * @param data     the buffer data
+	 */
 	public static void nalBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
 		long __functionAddress = AL.getCapabilities().alBufferSubSamplesSOFT;
 		if ( CHECKS )
@@ -196,7 +234,19 @@ public class SOFTBufferSamples {
 
 	// --- [ alGetBufferSamplesSOFT ] ---
 
-	/** Unsafe version of {@link #alGetBufferSamplesSOFT GetBufferSamplesSOFT} */
+	/**
+	 * Reads the number of sample frames, given by {@code samples}, starting at {@code offset}, and converts them to the channel configuration and sample type
+	 * specified by {@code channels} and {@code type}, before writing to the provided {@code data} buffer pointer. An {@link AL10#AL_INVALID_VALUE INVALID_VALUE} error is generated if
+	 * {@code offset} and {@code samples} reach beyond the range of the buffer. The channel configuration must match the internal storage format's channel
+	 * configuration, or else an {@link AL10#AL_INVALID_ENUM INVALID_ENUM} error will be generated.
+	 *
+	 * @param buffer   the buffer to read
+	 * @param offset   the sample frame offset
+	 * @param samples  the number of sample frames to read
+	 * @param channels the target channel configuration. One of:<br>{@link #AL_MONO_SOFT MONO_SOFT}, {@link #AL_STEREO_SOFT STEREO_SOFT}, {@link #AL_QUAD_SOFT QUAD_SOFT}, {@link #AL_REAR_SOFT REAR_SOFT}, {@link #AL_5POINT1_SOFT 5POINT1_SOFT}, {@link #AL_6POINT1_SOFT 6POINT1_SOFT}, {@link #AL_7POINT1_SOFT 7POINT1_SOFT}
+	 * @param type     the target sample type. One of:<br>{@link #AL_BYTE_SOFT BYTE_SOFT}, {@link #AL_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #AL_SHORT_SOFT SHORT_SOFT}, {@link #AL_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #AL_INT_SOFT INT_SOFT}, {@link #AL_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #AL_FLOAT_SOFT FLOAT_SOFT}, {@link #AL_DOUBLE_SOFT DOUBLE_SOFT}, {@link #AL_BYTE3_SOFT BYTE3_SOFT}, {@link #AL_UNSIGNED_BYTE3_SOFT UNSIGNED_BYTE3_SOFT}
+	 * @param data     thr buffer to write to
+	 */
 	public static void nalGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
 		long __functionAddress = AL.getCapabilities().alGetBufferSamplesSOFT;
 		if ( CHECKS )

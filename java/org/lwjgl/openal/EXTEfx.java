@@ -662,7 +662,12 @@ public class EXTEfx {
 
 	// --- [ alGenEffects ] ---
 
-	/** Unsafe version of {@link #alGenEffects GenEffects} */
+	/**
+	 * Requests a number of effects.
+	 *
+	 * @param n       the number of effects be to generated
+	 * @param effects the buffer that will receive the effects
+	 */
 	public static void nalGenEffects(int n, long effects) {
 		long __functionAddress = AL.getCapabilities().alGenEffects;
 		if ( CHECKS )
@@ -673,21 +678,13 @@ public class EXTEfx {
 	/**
 	 * Requests a number of effects.
 	 *
-	 * @param n       the number of effects be to generated
 	 * @param effects the buffer that will receive the effects
 	 */
-	public static void alGenEffects(int n, ByteBuffer effects) {
-		if ( CHECKS )
-			checkBuffer(effects, n << 2);
-		nalGenEffects(n, memAddress(effects));
-	}
-
-	/** Alternative version of: {@link #alGenEffects GenEffects} */
 	public static void alGenEffects(IntBuffer effects) {
 		nalGenEffects(effects.remaining(), memAddress(effects));
 	}
 
-	/** Single return value version of: {@link #alGenEffects GenEffects} */
+	/** Requests a number of effects. */
 	public static int alGenEffects() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -701,7 +698,12 @@ public class EXTEfx {
 
 	// --- [ alDeleteEffects ] ---
 
-	/** Unsafe version of {@link #alDeleteEffects DeleteEffects} */
+	/**
+	 * Deletes a number of effects.
+	 *
+	 * @param n       the number of effects be to deleted
+	 * @param effects the effect to delete
+	 */
 	public static void nalDeleteEffects(int n, long effects) {
 		long __functionAddress = AL.getCapabilities().alDeleteEffects;
 		if ( CHECKS )
@@ -712,21 +714,13 @@ public class EXTEfx {
 	/**
 	 * Deletes a number of effects.
 	 *
-	 * @param n       the number of effects be to deleted
 	 * @param effects the effect to delete
 	 */
-	public static void alDeleteEffects(int n, ByteBuffer effects) {
-		if ( CHECKS )
-			checkBuffer(effects, n << 2);
-		nalDeleteEffects(n, memAddress(effects));
-	}
-
-	/** Alternative version of: {@link #alDeleteEffects DeleteEffects} */
 	public static void alDeleteEffects(IntBuffer effects) {
 		nalDeleteEffects(effects.remaining(), memAddress(effects));
 	}
 
-	/** Single value version of: {@link #alDeleteEffects DeleteEffects} */
+	/** Deletes a number of effects. */
 	public static void alDeleteEffects(int effect) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -769,7 +763,13 @@ public class EXTEfx {
 
 	// --- [ alEffectiv ] ---
 
-	/** Unsafe version of {@link #alEffectiv Effectiv} */
+	/**
+	 * Pointer version of {@link #alEffecti Effecti}.
+	 *
+	 * @param effect the effect to modify
+	 * @param param  the parameter to modify
+	 * @param values the parameter values
+	 */
 	public static void nalEffectiv(int effect, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alEffectiv;
 		if ( CHECKS )
@@ -784,11 +784,6 @@ public class EXTEfx {
 	 * @param param  the parameter to modify
 	 * @param values the parameter values
 	 */
-	public static void alEffectiv(int effect, int param, ByteBuffer values) {
-		nalEffectiv(effect, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alEffectiv Effectiv} */
 	public static void alEffectiv(int effect, int param, IntBuffer values) {
 		nalEffectiv(effect, param, memAddress(values));
 	}
@@ -811,7 +806,13 @@ public class EXTEfx {
 
 	// --- [ alEffectfv ] ---
 
-	/** Unsafe version of {@link #alEffectfv Effectfv} */
+	/**
+	 * Pointer version of {@link #alEffectf Effectf}.
+	 *
+	 * @param effect the effect to modify
+	 * @param param  the parameter to modify
+	 * @param values the parameter values
+	 */
 	public static void nalEffectfv(int effect, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alEffectfv;
 		if ( CHECKS )
@@ -826,18 +827,19 @@ public class EXTEfx {
 	 * @param param  the parameter to modify
 	 * @param values the parameter values
 	 */
-	public static void alEffectfv(int effect, int param, ByteBuffer values) {
-		nalEffectfv(effect, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alEffectfv Effectfv} */
 	public static void alEffectfv(int effect, int param, FloatBuffer values) {
 		nalEffectfv(effect, param, memAddress(values));
 	}
 
 	// --- [ alGetEffecti ] ---
 
-	/** Unsafe version of {@link #alGetEffecti GetEffecti} */
+	/**
+	 * Returns the integer value of the specified effect parameter.
+	 *
+	 * @param effect the effect to query
+	 * @param param  the parameter to query
+	 * @param value  the parameter value
+	 */
 	public static void nalGetEffecti(int effect, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetEffecti;
 		if ( CHECKS )
@@ -852,20 +854,18 @@ public class EXTEfx {
 	 * @param param  the parameter to query
 	 * @param value  the parameter value
 	 */
-	public static void alGetEffecti(int effect, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetEffecti(effect, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetEffecti GetEffecti} */
 	public static void alGetEffecti(int effect, int param, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetEffecti(effect, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetEffecti GetEffecti} */
+	/**
+	 * Returns the integer value of the specified effect parameter.
+	 *
+	 * @param effect the effect to query
+	 * @param param  the parameter to query
+	 */
 	public static int alGetEffecti(int effect, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -879,7 +879,13 @@ public class EXTEfx {
 
 	// --- [ alGetEffectiv ] ---
 
-	/** Unsafe version of {@link #alGetEffectiv GetEffectiv} */
+	/**
+	 * Returns the integer values of the specified effect parameter.
+	 *
+	 * @param effect the effect to query
+	 * @param param  the parameter to query
+	 * @param values the parameter values
+	 */
 	public static void nalGetEffectiv(int effect, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetEffectiv;
 		if ( CHECKS )
@@ -894,13 +900,6 @@ public class EXTEfx {
 	 * @param param  the parameter to query
 	 * @param values the parameter values
 	 */
-	public static void alGetEffectiv(int effect, int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetEffectiv(effect, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetEffectiv GetEffectiv} */
 	public static void alGetEffectiv(int effect, int param, IntBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -909,7 +908,13 @@ public class EXTEfx {
 
 	// --- [ alGetEffectf ] ---
 
-	/** Unsafe version of {@link #alGetEffectf GetEffectf} */
+	/**
+	 * Returns the float value of the specified effect parameter.
+	 *
+	 * @param effect the effect to query
+	 * @param param  the parameter to query
+	 * @param value  the parameter value
+	 */
 	public static void nalGetEffectf(int effect, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetEffectf;
 		if ( CHECKS )
@@ -924,20 +929,18 @@ public class EXTEfx {
 	 * @param param  the parameter to query
 	 * @param value  the parameter value
 	 */
-	public static void alGetEffectf(int effect, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetEffectf(effect, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetEffectf GetEffectf} */
 	public static void alGetEffectf(int effect, int param, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetEffectf(effect, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetEffectf GetEffectf} */
+	/**
+	 * Returns the float value of the specified effect parameter.
+	 *
+	 * @param effect the effect to query
+	 * @param param  the parameter to query
+	 */
 	public static float alGetEffectf(int effect, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -951,7 +954,13 @@ public class EXTEfx {
 
 	// --- [ alGetEffectfv ] ---
 
-	/** Unsafe version of {@link #alGetEffectfv GetEffectfv} */
+	/**
+	 * Returns the float values of the specified effect parameter.
+	 *
+	 * @param effect the effect to query
+	 * @param param  the parameter to query
+	 * @param values the parameter values
+	 */
 	public static void nalGetEffectfv(int effect, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetEffectfv;
 		if ( CHECKS )
@@ -966,13 +975,6 @@ public class EXTEfx {
 	 * @param param  the parameter to query
 	 * @param values the parameter values
 	 */
-	public static void alGetEffectfv(int effect, int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetEffectfv(effect, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetEffectfv GetEffectfv} */
 	public static void alGetEffectfv(int effect, int param, FloatBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -981,7 +983,12 @@ public class EXTEfx {
 
 	// --- [ alGenFilters ] ---
 
-	/** Unsafe version of {@link #alGenFilters GenFilters} */
+	/**
+	 * Requests a number of filters.
+	 *
+	 * @param n       the number of filters be to generated
+	 * @param filters the buffer that will receive the filters
+	 */
 	public static void nalGenFilters(int n, long filters) {
 		long __functionAddress = AL.getCapabilities().alGenFilters;
 		if ( CHECKS )
@@ -992,21 +999,13 @@ public class EXTEfx {
 	/**
 	 * Requests a number of filters.
 	 *
-	 * @param n       the number of filters be to generated
 	 * @param filters the buffer that will receive the filters
 	 */
-	public static void alGenFilters(int n, ByteBuffer filters) {
-		if ( CHECKS )
-			checkBuffer(filters, n << 2);
-		nalGenFilters(n, memAddress(filters));
-	}
-
-	/** Alternative version of: {@link #alGenFilters GenFilters} */
 	public static void alGenFilters(IntBuffer filters) {
 		nalGenFilters(filters.remaining(), memAddress(filters));
 	}
 
-	/** Single return value version of: {@link #alGenFilters GenFilters} */
+	/** Requests a number of filters. */
 	public static int alGenFilters() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1020,7 +1019,12 @@ public class EXTEfx {
 
 	// --- [ alDeleteFilters ] ---
 
-	/** Unsafe version of {@link #alDeleteFilters DeleteFilters} */
+	/**
+	 * Deletes a number of filters.
+	 *
+	 * @param n       the number of filters be to deleted
+	 * @param filters the filter to delete
+	 */
 	public static void nalDeleteFilters(int n, long filters) {
 		long __functionAddress = AL.getCapabilities().alDeleteFilters;
 		if ( CHECKS )
@@ -1031,21 +1035,13 @@ public class EXTEfx {
 	/**
 	 * Deletes a number of filters.
 	 *
-	 * @param n       the number of filters be to deleted
 	 * @param filters the filter to delete
 	 */
-	public static void alDeleteFilters(int n, ByteBuffer filters) {
-		if ( CHECKS )
-			checkBuffer(filters, n << 2);
-		nalDeleteFilters(n, memAddress(filters));
-	}
-
-	/** Alternative version of: {@link #alDeleteFilters DeleteFilters} */
 	public static void alDeleteFilters(IntBuffer filters) {
 		nalDeleteFilters(filters.remaining(), memAddress(filters));
 	}
 
-	/** Single value version of: {@link #alDeleteFilters DeleteFilters} */
+	/** Deletes a number of filters. */
 	public static void alDeleteFilters(int filter) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1088,7 +1084,13 @@ public class EXTEfx {
 
 	// --- [ alFilteriv ] ---
 
-	/** Unsafe version of {@link #alFilteriv Filteriv} */
+	/**
+	 * Pointer version of {@link #alFilteri Filteri}.
+	 *
+	 * @param filter the filter to modify
+	 * @param param  the parameter to modify
+	 * @param values the parameter values
+	 */
 	public static void nalFilteriv(int filter, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alFilteriv;
 		if ( CHECKS )
@@ -1103,11 +1105,6 @@ public class EXTEfx {
 	 * @param param  the parameter to modify
 	 * @param values the parameter values
 	 */
-	public static void alFilteriv(int filter, int param, ByteBuffer values) {
-		nalFilteriv(filter, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alFilteriv Filteriv} */
 	public static void alFilteriv(int filter, int param, IntBuffer values) {
 		nalFilteriv(filter, param, memAddress(values));
 	}
@@ -1130,7 +1127,13 @@ public class EXTEfx {
 
 	// --- [ alFilterfv ] ---
 
-	/** Unsafe version of {@link #alFilterfv Filterfv} */
+	/**
+	 * Pointer version of {@link #alFilterf Filterf}.
+	 *
+	 * @param filter the filter to modify
+	 * @param param  the parameter to modify
+	 * @param values the parameter values
+	 */
 	public static void nalFilterfv(int filter, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alFilterfv;
 		if ( CHECKS )
@@ -1145,18 +1148,19 @@ public class EXTEfx {
 	 * @param param  the parameter to modify
 	 * @param values the parameter values
 	 */
-	public static void alFilterfv(int filter, int param, ByteBuffer values) {
-		nalFilterfv(filter, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alFilterfv Filterfv} */
 	public static void alFilterfv(int filter, int param, FloatBuffer values) {
 		nalFilterfv(filter, param, memAddress(values));
 	}
 
 	// --- [ alGetFilteri ] ---
 
-	/** Unsafe version of {@link #alGetFilteri GetFilteri} */
+	/**
+	 * Returns the integer value of the specified filter parameter.
+	 *
+	 * @param filter the filter to query
+	 * @param param  the parameter to query
+	 * @param value  the parameter value
+	 */
 	public static void nalGetFilteri(int filter, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetFilteri;
 		if ( CHECKS )
@@ -1171,20 +1175,18 @@ public class EXTEfx {
 	 * @param param  the parameter to query
 	 * @param value  the parameter value
 	 */
-	public static void alGetFilteri(int filter, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetFilteri(filter, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetFilteri GetFilteri} */
 	public static void alGetFilteri(int filter, int param, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetFilteri(filter, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetFilteri GetFilteri} */
+	/**
+	 * Returns the integer value of the specified filter parameter.
+	 *
+	 * @param filter the filter to query
+	 * @param param  the parameter to query
+	 */
 	public static int alGetFilteri(int filter, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1198,7 +1200,13 @@ public class EXTEfx {
 
 	// --- [ alGetFilteriv ] ---
 
-	/** Unsafe version of {@link #alGetFilteriv GetFilteriv} */
+	/**
+	 * Returns the integer values of the specified filter parameter.
+	 *
+	 * @param filter the filter to query
+	 * @param param  the parameter to query
+	 * @param values the parameter values
+	 */
 	public static void nalGetFilteriv(int filter, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetFilteriv;
 		if ( CHECKS )
@@ -1213,13 +1221,6 @@ public class EXTEfx {
 	 * @param param  the parameter to query
 	 * @param values the parameter values
 	 */
-	public static void alGetFilteriv(int filter, int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetFilteriv(filter, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetFilteriv GetFilteriv} */
 	public static void alGetFilteriv(int filter, int param, IntBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -1228,7 +1229,13 @@ public class EXTEfx {
 
 	// --- [ alGetFilterf ] ---
 
-	/** Unsafe version of {@link #alGetFilterf GetFilterf} */
+	/**
+	 * Returns the float value of the specified filter parameter.
+	 *
+	 * @param filter the effect to query
+	 * @param param  the parameter to query
+	 * @param value  the parameter value
+	 */
 	public static void nalGetFilterf(int filter, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetFilterf;
 		if ( CHECKS )
@@ -1243,20 +1250,18 @@ public class EXTEfx {
 	 * @param param  the parameter to query
 	 * @param value  the parameter value
 	 */
-	public static void alGetFilterf(int filter, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetFilterf(filter, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetFilterf GetFilterf} */
 	public static void alGetFilterf(int filter, int param, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetFilterf(filter, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetFilterf GetFilterf} */
+	/**
+	 * Returns the float value of the specified filter parameter.
+	 *
+	 * @param filter the effect to query
+	 * @param param  the parameter to query
+	 */
 	public static float alGetFilterf(int filter, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1270,7 +1275,13 @@ public class EXTEfx {
 
 	// --- [ alGetFilterfv ] ---
 
-	/** Unsafe version of {@link #alGetFilterfv GetFilterfv} */
+	/**
+	 * Returns the float values of the specified filter parameter.
+	 *
+	 * @param filter the effect to query
+	 * @param param  the parameter to query
+	 * @param values the parameter values
+	 */
 	public static void nalGetFilterfv(int filter, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetFilterfv;
 		if ( CHECKS )
@@ -1285,13 +1296,6 @@ public class EXTEfx {
 	 * @param param  the parameter to query
 	 * @param values the parameter values
 	 */
-	public static void alGetFilterfv(int filter, int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetFilterfv(filter, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetFilterfv GetFilterfv} */
 	public static void alGetFilterfv(int filter, int param, FloatBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -1300,7 +1304,12 @@ public class EXTEfx {
 
 	// --- [ alGenAuxiliaryEffectSlots ] ---
 
-	/** Unsafe version of {@link #alGenAuxiliaryEffectSlots GenAuxiliaryEffectSlots} */
+	/**
+	 * Requests a number of effect slots.
+	 *
+	 * @param n           the number of effect slots be to generated
+	 * @param effectSlots the buffer that will receive the effect slots
+	 */
 	public static void nalGenAuxiliaryEffectSlots(int n, long effectSlots) {
 		long __functionAddress = AL.getCapabilities().alGenAuxiliaryEffectSlots;
 		if ( CHECKS )
@@ -1311,21 +1320,13 @@ public class EXTEfx {
 	/**
 	 * Requests a number of effect slots.
 	 *
-	 * @param n           the number of effect slots be to generated
 	 * @param effectSlots the buffer that will receive the effect slots
 	 */
-	public static void alGenAuxiliaryEffectSlots(int n, ByteBuffer effectSlots) {
-		if ( CHECKS )
-			checkBuffer(effectSlots, n << 2);
-		nalGenAuxiliaryEffectSlots(n, memAddress(effectSlots));
-	}
-
-	/** Alternative version of: {@link #alGenAuxiliaryEffectSlots GenAuxiliaryEffectSlots} */
 	public static void alGenAuxiliaryEffectSlots(IntBuffer effectSlots) {
 		nalGenAuxiliaryEffectSlots(effectSlots.remaining(), memAddress(effectSlots));
 	}
 
-	/** Single return value version of: {@link #alGenAuxiliaryEffectSlots GenAuxiliaryEffectSlots} */
+	/** Requests a number of effect slots. */
 	public static int alGenAuxiliaryEffectSlots() {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1339,7 +1340,12 @@ public class EXTEfx {
 
 	// --- [ alDeleteAuxiliaryEffectSlots ] ---
 
-	/** Unsafe version of {@link #alDeleteAuxiliaryEffectSlots DeleteAuxiliaryEffectSlots} */
+	/**
+	 * Deletes a number of effect slots.
+	 *
+	 * @param n           the number of effect slots be to deleted
+	 * @param effectSlots the effectSlot to delete
+	 */
 	public static void nalDeleteAuxiliaryEffectSlots(int n, long effectSlots) {
 		long __functionAddress = AL.getCapabilities().alDeleteAuxiliaryEffectSlots;
 		if ( CHECKS )
@@ -1350,21 +1356,13 @@ public class EXTEfx {
 	/**
 	 * Deletes a number of effect slots.
 	 *
-	 * @param n           the number of effect slots be to deleted
 	 * @param effectSlots the effectSlot to delete
 	 */
-	public static void alDeleteAuxiliaryEffectSlots(int n, ByteBuffer effectSlots) {
-		if ( CHECKS )
-			checkBuffer(effectSlots, n << 2);
-		nalDeleteAuxiliaryEffectSlots(n, memAddress(effectSlots));
-	}
-
-	/** Alternative version of: {@link #alDeleteAuxiliaryEffectSlots DeleteAuxiliaryEffectSlots} */
 	public static void alDeleteAuxiliaryEffectSlots(IntBuffer effectSlots) {
 		nalDeleteAuxiliaryEffectSlots(effectSlots.remaining(), memAddress(effectSlots));
 	}
 
-	/** Single value version of: {@link #alDeleteAuxiliaryEffectSlots DeleteAuxiliaryEffectSlots} */
+	/** Deletes a number of effect slots. */
 	public static void alDeleteAuxiliaryEffectSlots(int effectSlot) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1407,7 +1405,13 @@ public class EXTEfx {
 
 	// --- [ alAuxiliaryEffectSlotiv ] ---
 
-	/** Unsafe version of {@link #alAuxiliaryEffectSlotiv AuxiliaryEffectSlotiv} */
+	/**
+	 * Pointer version of {@link #alAuxiliaryEffectSloti AuxiliaryEffectSloti}.
+	 *
+	 * @param effectSlot the effect slot to modify
+	 * @param param      the parameter to modify
+	 * @param values     the parameter values
+	 */
 	public static void nalAuxiliaryEffectSlotiv(int effectSlot, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotiv;
 		if ( CHECKS )
@@ -1422,11 +1426,6 @@ public class EXTEfx {
 	 * @param param      the parameter to modify
 	 * @param values     the parameter values
 	 */
-	public static void alAuxiliaryEffectSlotiv(int effectSlot, int param, ByteBuffer values) {
-		nalAuxiliaryEffectSlotiv(effectSlot, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alAuxiliaryEffectSlotiv AuxiliaryEffectSlotiv} */
 	public static void alAuxiliaryEffectSlotiv(int effectSlot, int param, IntBuffer values) {
 		nalAuxiliaryEffectSlotiv(effectSlot, param, memAddress(values));
 	}
@@ -1449,7 +1448,13 @@ public class EXTEfx {
 
 	// --- [ alAuxiliaryEffectSlotfv ] ---
 
-	/** Unsafe version of {@link #alAuxiliaryEffectSlotfv AuxiliaryEffectSlotfv} */
+	/**
+	 * Pointer version of {@link #alAuxiliaryEffectSlotf AuxiliaryEffectSlotf}.
+	 *
+	 * @param effectSlot the effect slot to modify
+	 * @param param      the parameter to modify
+	 * @param values     the parameter values
+	 */
 	public static void nalAuxiliaryEffectSlotfv(int effectSlot, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotfv;
 		if ( CHECKS )
@@ -1464,18 +1469,19 @@ public class EXTEfx {
 	 * @param param      the parameter to modify
 	 * @param values     the parameter values
 	 */
-	public static void alAuxiliaryEffectSlotfv(int effectSlot, int param, ByteBuffer values) {
-		nalAuxiliaryEffectSlotfv(effectSlot, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alAuxiliaryEffectSlotfv AuxiliaryEffectSlotfv} */
 	public static void alAuxiliaryEffectSlotfv(int effectSlot, int param, FloatBuffer values) {
 		nalAuxiliaryEffectSlotfv(effectSlot, param, memAddress(values));
 	}
 
 	// --- [ alGetAuxiliaryEffectSloti ] ---
 
-	/** Unsafe version of {@link #alGetAuxiliaryEffectSloti GetAuxiliaryEffectSloti} */
+	/**
+	 * Returns the integer value of the specified effect slot parameter.
+	 *
+	 * @param effectSlot the effect slot to query
+	 * @param param      the parameter to query
+	 * @param value      the parameter value
+	 */
 	public static void nalGetAuxiliaryEffectSloti(int effectSlot, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSloti;
 		if ( CHECKS )
@@ -1490,20 +1496,18 @@ public class EXTEfx {
 	 * @param param      the parameter to query
 	 * @param value      the parameter value
 	 */
-	public static void alGetAuxiliaryEffectSloti(int effectSlot, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetAuxiliaryEffectSloti(effectSlot, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetAuxiliaryEffectSloti GetAuxiliaryEffectSloti} */
 	public static void alGetAuxiliaryEffectSloti(int effectSlot, int param, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetAuxiliaryEffectSloti(effectSlot, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetAuxiliaryEffectSloti GetAuxiliaryEffectSloti} */
+	/**
+	 * Returns the integer value of the specified effect slot parameter.
+	 *
+	 * @param effectSlot the effect slot to query
+	 * @param param      the parameter to query
+	 */
 	public static int alGetAuxiliaryEffectSloti(int effectSlot, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1517,7 +1521,13 @@ public class EXTEfx {
 
 	// --- [ alGetAuxiliaryEffectSlotiv ] ---
 
-	/** Unsafe version of {@link #alGetAuxiliaryEffectSlotiv GetAuxiliaryEffectSlotiv} */
+	/**
+	 * Returns the integer values of the specified effect slot parameter.
+	 *
+	 * @param effectSlot the effect slot to query
+	 * @param param      the parameter to query
+	 * @param values     the parameter values
+	 */
 	public static void nalGetAuxiliaryEffectSlotiv(int effectSlot, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotiv;
 		if ( CHECKS )
@@ -1532,13 +1542,6 @@ public class EXTEfx {
 	 * @param param      the parameter to query
 	 * @param values     the parameter values
 	 */
-	public static void alGetAuxiliaryEffectSlotiv(int effectSlot, int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetAuxiliaryEffectSlotiv(effectSlot, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotiv GetAuxiliaryEffectSlotiv} */
 	public static void alGetAuxiliaryEffectSlotiv(int effectSlot, int param, IntBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);
@@ -1547,7 +1550,13 @@ public class EXTEfx {
 
 	// --- [ alGetAuxiliaryEffectSlotf ] ---
 
-	/** Unsafe version of {@link #alGetAuxiliaryEffectSlotf GetAuxiliaryEffectSlotf} */
+	/**
+	 * Returns the float value of the specified filter parameter.
+	 *
+	 * @param effectSlot the effect slot to query
+	 * @param param      the parameter to query
+	 * @param value      the parameter value
+	 */
 	public static void nalGetAuxiliaryEffectSlotf(int effectSlot, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotf;
 		if ( CHECKS )
@@ -1562,20 +1571,18 @@ public class EXTEfx {
 	 * @param param      the parameter to query
 	 * @param value      the parameter value
 	 */
-	public static void alGetAuxiliaryEffectSlotf(int effectSlot, int param, ByteBuffer value) {
-		if ( CHECKS )
-			checkBuffer(value, 1 << 2);
-		nalGetAuxiliaryEffectSlotf(effectSlot, param, memAddress(value));
-	}
-
-	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotf GetAuxiliaryEffectSlotf} */
 	public static void alGetAuxiliaryEffectSlotf(int effectSlot, int param, FloatBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetAuxiliaryEffectSlotf(effectSlot, param, memAddress(value));
 	}
 
-	/** Single return value version of: {@link #alGetAuxiliaryEffectSlotf GetAuxiliaryEffectSlotf} */
+	/**
+	 * Returns the float value of the specified filter parameter.
+	 *
+	 * @param effectSlot the effect slot to query
+	 * @param param      the parameter to query
+	 */
 	public static float alGetAuxiliaryEffectSlotf(int effectSlot, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1589,7 +1596,13 @@ public class EXTEfx {
 
 	// --- [ alGetAuxiliaryEffectSlotfv ] ---
 
-	/** Unsafe version of {@link #alGetAuxiliaryEffectSlotfv GetAuxiliaryEffectSlotfv} */
+	/**
+	 * Returns the float values of the specified effect slot parameter.
+	 *
+	 * @param effectSlot the effect to query
+	 * @param param      the parameter to query
+	 * @param values     the parameter values
+	 */
 	public static void nalGetAuxiliaryEffectSlotfv(int effectSlot, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotfv;
 		if ( CHECKS )
@@ -1604,13 +1617,6 @@ public class EXTEfx {
 	 * @param param      the parameter to query
 	 * @param values     the parameter values
 	 */
-	public static void alGetAuxiliaryEffectSlotfv(int effectSlot, int param, ByteBuffer values) {
-		if ( CHECKS )
-			checkBuffer(values, 1 << 2);
-		nalGetAuxiliaryEffectSlotfv(effectSlot, param, memAddress(values));
-	}
-
-	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotfv GetAuxiliaryEffectSlotfv} */
 	public static void alGetAuxiliaryEffectSlotfv(int effectSlot, int param, FloatBuffer values) {
 		if ( CHECKS )
 			checkBuffer(values, 1);

@@ -53,7 +53,27 @@ public class ARBDrawIndirect {
 
 	// --- [ glDrawArraysIndirect ] ---
 
-	/** Unsafe version of {@link #glDrawArraysIndirect DrawArraysIndirect} */
+	/**
+	 * Renders primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>{@code glDrawArraysIndirect} behaves similarly to {@link GL42#glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance}, except that the parameters to
+	 * glDrawArraysInstancedBaseInstance are stored in memory at the address given by {@code indirect}.</p>
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint first;
+    uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
+} DrawArraysIndirectCommand;
+
+const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
+glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre>
+	 *
+	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indirect a structure containing the draw parameters
+	 */
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
 		long __functionAddress = GL.getCapabilities().glDrawArraysIndirect;
 		if ( CHECKS )
@@ -90,11 +110,31 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		nglDrawArraysIndirect(mode, memAddress(indirect));
 	}
 
-	/** Buffer object offset version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
-	public static void glDrawArraysIndirect(int mode, long indirectOffset) {
+	/**
+	 * Renders primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>{@code glDrawArraysIndirect} behaves similarly to {@link GL42#glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance}, except that the parameters to
+	 * glDrawArraysInstancedBaseInstance are stored in memory at the address given by {@code indirect}.</p>
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint first;
+    uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
+} DrawArraysIndirectCommand;
+
+const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
+glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre>
+	 *
+	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param indirect a structure containing the draw parameters
+	 */
+	public static void glDrawArraysIndirect(int mode, long indirect) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglDrawArraysIndirect(mode, indirectOffset);
+		nglDrawArraysIndirect(mode, indirect);
 	}
 
 	/** IntBuffer version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
@@ -108,7 +148,41 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glDrawElementsIndirect ] ---
 
-	/** Unsafe version of {@link #glDrawElementsIndirect DrawElementsIndirect} */
+	/**
+	 * Renders indexed primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>{@code glDrawElementsIndirect} behaves similarly to {@link GL42#glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance}, execpt that the parameters to
+	 * glDrawElementsInstancedBaseVertexBaseInstance are stored in memory at the address given by {@code indirect}.</p>
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint firstIndex;
+    uint baseVertex;
+    uint baseInstance;
+} DrawElementsIndirectCommand;</code></pre>
+	 * 
+	 * <p>{@code glDrawElementsIndirect} is equivalent to:</p>
+	 * 
+	 * <pre><code>void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
+    const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
+    glDrawElementsInstancedBaseVertexBaseInstance(
+        mode,
+        cmd->count,
+        type,
+        cmd->firstIndex + size-of-type,
+        cmd->primCount,
+        cmd->baseVertex,
+        cmd->baseInstance
+    );
+}</code></pre>
+	 *
+	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param type     the type of data in the buffer bound to the {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER} binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indirect the address of a structure containing the draw parameters
+	 */
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
 		long __functionAddress = GL.getCapabilities().glDrawElementsIndirect;
 		if ( CHECKS )
@@ -159,11 +233,45 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		nglDrawElementsIndirect(mode, type, memAddress(indirect));
 	}
 
-	/** Buffer object offset version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
-	public static void glDrawElementsIndirect(int mode, int type, long indirectOffset) {
+	/**
+	 * Renders indexed primitives from array data, taking parameters from memory.
+	 * 
+	 * <p>{@code glDrawElementsIndirect} behaves similarly to {@link GL42#glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance}, execpt that the parameters to
+	 * glDrawElementsInstancedBaseVertexBaseInstance are stored in memory at the address given by {@code indirect}.</p>
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
+	 * 
+	 * <pre><code>typedef struct {
+    uint count;
+    uint primCount;
+    uint firstIndex;
+    uint baseVertex;
+    uint baseInstance;
+} DrawElementsIndirectCommand;</code></pre>
+	 * 
+	 * <p>{@code glDrawElementsIndirect} is equivalent to:</p>
+	 * 
+	 * <pre><code>void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
+    const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
+    glDrawElementsInstancedBaseVertexBaseInstance(
+        mode,
+        cmd->count,
+        type,
+        cmd->firstIndex + size-of-type,
+        cmd->primCount,
+        cmd->baseVertex,
+        cmd->baseInstance
+    );
+}</code></pre>
+	 *
+	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param type     the type of data in the buffer bound to the {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER} binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param indirect the address of a structure containing the draw parameters
+	 */
+	public static void glDrawElementsIndirect(int mode, int type, long indirect) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglDrawElementsIndirect(mode, type, indirectOffset);
+		nglDrawElementsIndirect(mode, type, indirect);
 	}
 
 	/** IntBuffer version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
