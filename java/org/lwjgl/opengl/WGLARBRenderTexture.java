@@ -124,7 +124,7 @@ public class WGLARBRenderTexture {
 	 * the size of the  texture components are derived from attributes of pbuffer  specified by {@code pbuffer}.
 	 *
 	 * @param pbuffer a pbuffer handle
-	 * @param buffer  the target buffer. One of:<br>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}, {@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}, {@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}, {@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}, {@link #WGL_AUX0_ARB AUX0_ARB}, WGL_AUX[1-9]_ARB
+	 * @param buffer  the target buffer. One of:<br><table><tr><td>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}</td><td>{@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}</td><td>{@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}</td><td>{@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}</td><td>{@link #WGL_AUX0_ARB AUX0_ARB}</td><td>WGL_AUX[1-9]_ARB</td></tr></table>
 	 */
 	public static int wglBindTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglBindTexImageARB;
@@ -142,7 +142,7 @@ public class WGLARBRenderTexture {
 	 * bound as textures.
 	 *
 	 * @param pbuffer a pbuffer handle
-	 * @param buffer  the target buffer. One of:<br>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}, {@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}, {@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}, {@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}, {@link #WGL_AUX0_ARB AUX0_ARB}, WGL_AUX[1-9]_ARB
+	 * @param buffer  the target buffer. One of:<br><table><tr><td>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}</td><td>{@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}</td><td>{@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}</td><td>{@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}</td><td>{@link #WGL_AUX0_ARB AUX0_ARB}</td><td>WGL_AUX[1-9]_ARB</td></tr></table>
 	 */
 	public static int wglReleaseTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglReleaseTexImageARB;

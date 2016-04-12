@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code queueFlags} &ndash; contains flags indicating the capabilities of the queues in this queue family</li>
+ * <li>{@code queueFlags} &ndash; contains flags indicating the capabilities of the queues in this queue family. One or more of:<br><table><tr><td>{@link VK10#VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT}</td><td>{@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED}</td><td>{@link VK10#VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT}</td><td>{@link VK10#VK_QUEUE_SPARSE_BINDING_BIT QUEUE_SPARSE_BINDING_BIT}</td></tr><tr><td>{@link VK10#VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT}</td></tr></table></li>
  * <li>{@code queueCount} &ndash; the unsigned integer count of queues in this queue family</li>
  * <li>{@code timestampValidBits} &ndash; the unsigned integer count of meaningful bits in the timestamps written via {@link VK10#vkCmdWriteTimestamp CmdWriteTimestamp}</li>
  * <li>{@code minImageTransferGranularity} &ndash; the minimum granularity supported for image transfer operations on the queues in this queue family</li>

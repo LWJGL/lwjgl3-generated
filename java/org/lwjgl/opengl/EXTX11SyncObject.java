@@ -50,7 +50,7 @@ public class EXTX11SyncObject {
 	/**
 	 * Creates a GL sync object of the type {@code external_sync_type} based on the object referred to by {@code external_sync}.
 	 *
-	 * @param external_sync_type the external sync object type. Must be:<br>{@link #GL_SYNC_X11_FENCE_EXT SYNC_X11_FENCE_EXT}
+	 * @param external_sync_type the external sync object type. Must be:<br><table><tr><td>{@link #GL_SYNC_X11_FENCE_EXT SYNC_X11_FENCE_EXT}</td></tr></table>
 	 * @param external_sync      the external sync object. Must be the XID of a valid X11 Synchronization Fence object
 	 * @param flags              Must be 0.
 	 */

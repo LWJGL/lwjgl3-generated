@@ -218,7 +218,7 @@ public class ARBBindlessTexture {
 	 * the texture it references is not necessarily considered resident for the purposes of the {@link GL11#glAreTexturesResident AreTexturesResident} command.</p>
 	 *
 	 * @param handle the image handle
-	 * @param access the access type. One of:<br>{@link GL15#GL_READ_ONLY READ_ONLY}, {@link GL15#GL_WRITE_ONLY WRITE_ONLY}, {@link GL15#GL_READ_WRITE READ_WRITE}
+	 * @param access the access type. One of:<br><table><tr><td>{@link GL15#GL_READ_ONLY READ_ONLY}</td><td>{@link GL15#GL_WRITE_ONLY WRITE_ONLY}</td><td>{@link GL15#GL_READ_WRITE READ_WRITE}</td></tr></table>
 	 */
 	public static void glMakeImageHandleResidentARB(long handle, int access) {
 		long __functionAddress = GL.getCapabilities().glMakeImageHandleResidentARB;

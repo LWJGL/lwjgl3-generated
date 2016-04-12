@@ -145,7 +145,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static native long nstbi_load(long filename, long x, long y, long comp, int req_comp);
 
@@ -176,7 +176,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static ByteBuffer stbi_load(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
@@ -216,7 +216,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static ByteBuffer stbi_load(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
@@ -244,7 +244,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static native long nstbi_load_from_memory(long buffer, int len, long x, long y, long comp, int req_comp);
 
@@ -255,7 +255,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static ByteBuffer stbi_load_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
@@ -283,7 +283,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static native long nstbi_load_from_callbacks(long clbk, long user, long x, long y, long comp, int req_comp);
 
@@ -301,7 +301,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static ByteBuffer stbi_load_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
@@ -323,7 +323,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static native long nstbi_loadf(long filename, long x, long y, long comp, int req_comp);
 
@@ -334,7 +334,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static FloatBuffer stbi_loadf(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
@@ -354,7 +354,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static FloatBuffer stbi_loadf(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
@@ -382,7 +382,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static native long nstbi_loadf_from_memory(long buffer, int len, long x, long y, long comp, int req_comp);
 
@@ -393,7 +393,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static FloatBuffer stbi_loadf_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
@@ -415,7 +415,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static native long nstbi_loadf_from_callbacks(long clbk, long user, long x, long y, long comp, int req_comp);
 
@@ -427,7 +427,7 @@ public class STBImage {
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
 	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
+	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
 	public static FloatBuffer stbi_loadf_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {

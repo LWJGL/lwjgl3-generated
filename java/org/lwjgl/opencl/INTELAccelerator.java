@@ -198,7 +198,7 @@ public class INTELAccelerator {
 	 * Returns information about the accelerator object.
 	 *
 	 * @param accelerator          the accelerator object being queried
-	 * @param param_name           the information to query. One of:<br>{@link #CL_ACCELERATOR_DESCRIPTOR_INTEL ACCELERATOR_DESCRIPTOR_INTEL}, {@link #CL_ACCELERATOR_REFERENCE_COUNT_INTEL ACCELERATOR_REFERENCE_COUNT_INTEL}, {@link #CL_ACCELERATOR_CONTEXT_INTEL ACCELERATOR_CONTEXT_INTEL}, {@link #CL_ACCELERATOR_TYPE_INTEL ACCELERATOR_TYPE_INTEL}
+	 * @param param_name           the information to query. One of:<br><table><tr><td>{@link #CL_ACCELERATOR_DESCRIPTOR_INTEL ACCELERATOR_DESCRIPTOR_INTEL}</td><td>{@link #CL_ACCELERATOR_REFERENCE_COUNT_INTEL ACCELERATOR_REFERENCE_COUNT_INTEL}</td></tr><tr><td>{@link #CL_ACCELERATOR_CONTEXT_INTEL ACCELERATOR_CONTEXT_INTEL}</td><td>{@link #CL_ACCELERATOR_TYPE_INTEL ACCELERATOR_TYPE_INTEL}</td></tr></table>
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -226,7 +226,7 @@ public class INTELAccelerator {
 	 * Returns information about the accelerator object.
 	 *
 	 * @param accelerator          the accelerator object being queried
-	 * @param param_name           the information to query. One of:<br>{@link #CL_ACCELERATOR_DESCRIPTOR_INTEL ACCELERATOR_DESCRIPTOR_INTEL}, {@link #CL_ACCELERATOR_REFERENCE_COUNT_INTEL ACCELERATOR_REFERENCE_COUNT_INTEL}, {@link #CL_ACCELERATOR_CONTEXT_INTEL ACCELERATOR_CONTEXT_INTEL}, {@link #CL_ACCELERATOR_TYPE_INTEL ACCELERATOR_TYPE_INTEL}
+	 * @param param_name           the information to query. One of:<br><table><tr><td>{@link #CL_ACCELERATOR_DESCRIPTOR_INTEL ACCELERATOR_DESCRIPTOR_INTEL}</td><td>{@link #CL_ACCELERATOR_REFERENCE_COUNT_INTEL ACCELERATOR_REFERENCE_COUNT_INTEL}</td></tr><tr><td>{@link #CL_ACCELERATOR_CONTEXT_INTEL ACCELERATOR_CONTEXT_INTEL}</td><td>{@link #CL_ACCELERATOR_TYPE_INTEL ACCELERATOR_TYPE_INTEL}</td></tr></table>
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *

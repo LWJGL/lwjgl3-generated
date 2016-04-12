@@ -34,7 +34,7 @@ public class SSE3 {
 	 * is less precise, but much faster and is typically used in applications like streaming media when minute differences in quality are essentially
 	 * undetectable.</p>
 	 *
-	 * @param mode the denormals are zero mode. One of:<br>{@link #_MM_DENORMALS_ZERO_MASK DENORMALS_ZERO_MASK}, {@link #_MM_DENORMALS_ZERO_ON DENORMALS_ZERO_ON}, {@link #_MM_DENORMALS_ZERO_OFF DENORMALS_ZERO_OFF}
+	 * @param mode the denormals are zero mode. One of:<br><table><tr><td>{@link #_MM_DENORMALS_ZERO_MASK DENORMALS_ZERO_MASK}</td><td>{@link #_MM_DENORMALS_ZERO_ON DENORMALS_ZERO_ON}</td><td>{@link #_MM_DENORMALS_ZERO_OFF DENORMALS_ZERO_OFF}</td></tr></table>
 	 */
 	public static native void _MM_SET_DENORMALS_ZERO_MODE(int mode);
 

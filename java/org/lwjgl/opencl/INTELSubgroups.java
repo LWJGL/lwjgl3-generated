@@ -68,7 +68,7 @@ public class INTELSubgroups {
 	 * @param device               identifies a specific device in the list of devices associated with {@code kernel}. The list of devices is the list of devices in the OpenCL
 	 *                             context that is associated with {@code kernel}. If the list of devices associated with {@code kernel} is a single device, {@code device} can be a
 	 *                             {@code NULL} value.
-	 * @param param_name           specifies the information to query. One of:<br>{@link #CL_KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE_KHR KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE_KHR}, {@link #CL_KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR}
+	 * @param param_name           specifies the information to query. One of:<br><table><tr><td>{@link #CL_KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE_KHR KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE_KHR}</td><td>{@link #CL_KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR}</td></tr></table>
 	 * @param input_value_size     specifies the size in bytes of memory pointed to by {@code input_value}. This size must be equal to the size of the input type.
 	 * @param input_value          a pointer to memory where the appropriate parameterization of the query is passed from. If {@code input_value} is {@code NULL} it is ignored.
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
@@ -91,7 +91,7 @@ public class INTELSubgroups {
 	 * @param device               identifies a specific device in the list of devices associated with {@code kernel}. The list of devices is the list of devices in the OpenCL
 	 *                             context that is associated with {@code kernel}. If the list of devices associated with {@code kernel} is a single device, {@code device} can be a
 	 *                             {@code NULL} value.
-	 * @param param_name           specifies the information to query. One of:<br>{@link #CL_KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE_KHR KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE_KHR}, {@link #CL_KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR}
+	 * @param param_name           specifies the information to query. One of:<br><table><tr><td>{@link #CL_KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE_KHR KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE_KHR}</td><td>{@link #CL_KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR}</td></tr></table>
 	 * @param input_value          a pointer to memory where the appropriate parameterization of the query is passed from. If {@code input_value} is {@code NULL} it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.

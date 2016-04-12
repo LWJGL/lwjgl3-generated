@@ -124,7 +124,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO}</li>
  * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; a bitfield of {@code VkPipelineCreateFlagBits} controlling how the pipeline will be generated</li>
+ * <li>{@code flags} &ndash; a bitfield of {@code VkPipelineCreateFlagBits} controlling how the pipeline will be generated. One or more of:<br><table><tr><td>{@link VK10#VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT}</td><td>{@link VK10#VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT}</td></tr><tr><td>{@link VK10#VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT}</td></tr></table></li>
  * <li>{@code stageCount} &ndash; the number of entries in the {@code pStages} array</li>
  * <li>{@code pStages} &ndash; 
  * an array of size {@code stageCount} structures of type {@link VkPipelineShaderStageCreateInfo} describing the set of the shader stages to be included in the

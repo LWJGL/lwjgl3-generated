@@ -45,7 +45,7 @@ public class ARBTextureBufferRange {
 	/**
 	 * Binds a range of a buffer's data store to a buffer texture.
 	 *
-	 * @param target         the target of the operation. Must be:<br>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}
+	 * @param target         the target of the operation. Must be:<br><table><tr><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr></table>
 	 * @param internalformat the internal format of the data in the store belonging to {@code buffer}
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 * @param offset         the offset of the start of the range of the buffer's data store to attach
@@ -64,7 +64,7 @@ public class ARBTextureBufferRange {
 	 * DSA version of {@link #glTexBufferRange TexBufferRange}.
 	 *
 	 * @param texture        the texture object
-	 * @param target         the target of the operation. Must be:<br>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}
+	 * @param target         the target of the operation. Must be:<br><table><tr><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr></table>
 	 * @param internalformat the internal format of the data in the store belonging to {@code buffer}
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 * @param offset         the offset of the start of the range of the buffer's data store to attach

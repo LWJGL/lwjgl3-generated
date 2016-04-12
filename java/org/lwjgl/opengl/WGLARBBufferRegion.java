@@ -46,7 +46,7 @@ public class WGLARBBufferRegion {
 	 * @param hdc        the device context for the device on which the buffer region is created
 	 * @param layerPlane the layer plane. Positive values identify overlay planes, negative values identify underlay planes. A value of 0 identifies the main plane.
 	 * @param type       a bitwise OR of any of the following values indicating which buffers can be saved or restored.  Multiple bits can be set and may result in better
-	 *                   performance if multiple buffers are saved or restored. One of:<br>{@link #WGL_FRONT_COLOR_BUFFER_BIT_ARB FRONT_COLOR_BUFFER_BIT_ARB}, {@link #WGL_BACK_COLOR_BUFFER_BIT_ARB BACK_COLOR_BUFFER_BIT_ARB}, {@link #WGL_DEPTH_BUFFER_BIT_ARB DEPTH_BUFFER_BIT_ARB}, {@link #WGL_STENCIL_BUFFER_BIT_ARB STENCIL_BUFFER_BIT_ARB}
+	 *                   performance if multiple buffers are saved or restored. One of:<br><table><tr><td>{@link #WGL_FRONT_COLOR_BUFFER_BIT_ARB FRONT_COLOR_BUFFER_BIT_ARB}</td><td>{@link #WGL_BACK_COLOR_BUFFER_BIT_ARB BACK_COLOR_BUFFER_BIT_ARB}</td><td>{@link #WGL_DEPTH_BUFFER_BIT_ARB DEPTH_BUFFER_BIT_ARB}</td></tr><tr><td>{@link #WGL_STENCIL_BUFFER_BIT_ARB STENCIL_BUFFER_BIT_ARB}</td></tr></table>
 	 */
 	public static long wglCreateBufferRegionARB(long hdc, int layerPlane, int type) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateBufferRegionARB;

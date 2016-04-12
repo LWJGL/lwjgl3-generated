@@ -84,9 +84,9 @@ public class INTELVAAPIMediaSharing {
 	 * Queries the OpenCL devices corresponding to a VA API display.
 	 *
 	 * @param platform           the platform ID returned by {@link CL10#clGetPlatformIDs GetPlatformIDs}
-	 * @param media_adapter_type the type of {@code media_adapter}. Must be:<br>{@link #CL_VA_API_DISPLAY_INTEL VA_API_DISPLAY_INTEL}
+	 * @param media_adapter_type the type of {@code media_adapter}. Must be:<br><table><tr><td>{@link #CL_VA_API_DISPLAY_INTEL VA_API_DISPLAY_INTEL}</td></tr></table>
 	 * @param media_adapter      the media adapter whose corresponding OpenCL devices are being queried
-	 * @param media_adapter_set  one of:<br>{@link #CL_PREFERRED_DEVICES_FOR_VA_API_INTEL PREFERRED_DEVICES_FOR_VA_API_INTEL}, {@link #CL_ALL_DEVICES_FOR_VA_API_INTEL ALL_DEVICES_FOR_VA_API_INTEL}
+	 * @param media_adapter_set  one of:<br><table><tr><td>{@link #CL_PREFERRED_DEVICES_FOR_VA_API_INTEL PREFERRED_DEVICES_FOR_VA_API_INTEL}</td><td>{@link #CL_ALL_DEVICES_FOR_VA_API_INTEL ALL_DEVICES_FOR_VA_API_INTEL}</td></tr></table>
 	 * @param num_entries        the number of cl_device_id entries that can be added to {@code devices}. If {@code devices} is not {@code NULL} then {@code num_entries} must be greater
 	 *                           than zero.
 	 * @param devices            returns a list of OpenCL devices found. The {@code cl_device_id} values returned in {@code devices} can be used to identify a specific OpenCL
@@ -108,9 +108,9 @@ public class INTELVAAPIMediaSharing {
 	 * Queries the OpenCL devices corresponding to a VA API display.
 	 *
 	 * @param platform           the platform ID returned by {@link CL10#clGetPlatformIDs GetPlatformIDs}
-	 * @param media_adapter_type the type of {@code media_adapter}. Must be:<br>{@link #CL_VA_API_DISPLAY_INTEL VA_API_DISPLAY_INTEL}
+	 * @param media_adapter_type the type of {@code media_adapter}. Must be:<br><table><tr><td>{@link #CL_VA_API_DISPLAY_INTEL VA_API_DISPLAY_INTEL}</td></tr></table>
 	 * @param media_adapter      the media adapter whose corresponding OpenCL devices are being queried
-	 * @param media_adapter_set  one of:<br>{@link #CL_PREFERRED_DEVICES_FOR_VA_API_INTEL PREFERRED_DEVICES_FOR_VA_API_INTEL}, {@link #CL_ALL_DEVICES_FOR_VA_API_INTEL ALL_DEVICES_FOR_VA_API_INTEL}
+	 * @param media_adapter_set  one of:<br><table><tr><td>{@link #CL_PREFERRED_DEVICES_FOR_VA_API_INTEL PREFERRED_DEVICES_FOR_VA_API_INTEL}</td><td>{@link #CL_ALL_DEVICES_FOR_VA_API_INTEL ALL_DEVICES_FOR_VA_API_INTEL}</td></tr></table>
 	 * @param devices            returns a list of OpenCL devices found. The {@code cl_device_id} values returned in {@code devices} can be used to identify a specific OpenCL
 	 *                           device. If {@code devices} is {@code NULL}, this argument is ignored. The number of OpenCL devices returned is the minimum of the value specified by
 	 *                           {@code num_entries} and the number of OpenCL devices corresponding to {@code media_adapter}.
@@ -128,7 +128,7 @@ public class INTELVAAPIMediaSharing {
 	 * Creates an OpenCL 2D image object from a VA API media surface or a plane of a VA API media surface.
 	 *
 	 * @param context     a valid OpenCL context created from a VA API display
-	 * @param flags       a bit-field that is used to specify usage information. One of:<br>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}
+	 * @param flags       a bit-field that is used to specify usage information. One of:<br><table><tr><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td></tr></table>
 	 * @param surface     a pointer to the VA API surface to share
 	 * @param plane       the plane of {@code surface} to share, for planar formats. For non-planar formats, {@code plane} must be 0.
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
@@ -146,7 +146,7 @@ public class INTELVAAPIMediaSharing {
 	 * Creates an OpenCL 2D image object from a VA API media surface or a plane of a VA API media surface.
 	 *
 	 * @param context     a valid OpenCL context created from a VA API display
-	 * @param flags       a bit-field that is used to specify usage information. One of:<br>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}
+	 * @param flags       a bit-field that is used to specify usage information. One of:<br><table><tr><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td></tr></table>
 	 * @param surface     a pointer to the VA API surface to share
 	 * @param plane       the plane of {@code surface} to share, for planar formats. For non-planar formats, {@code plane} must be 0.
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.

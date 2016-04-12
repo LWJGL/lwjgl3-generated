@@ -104,7 +104,7 @@ public class ARBGeometryShader4 {
 	 * components of all active varying variables exceeds {@link #GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_ARB MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_ARB}.</p>
 	 *
 	 * @param program the program object
-	 * @param pname   the parameter to set. One of:<br>{@link #GL_GEOMETRY_VERTICES_OUT_ARB GEOMETRY_VERTICES_OUT_ARB}, {@link #GL_GEOMETRY_INPUT_TYPE_ARB GEOMETRY_INPUT_TYPE_ARB}, {@link #GL_GEOMETRY_OUTPUT_TYPE_ARB GEOMETRY_OUTPUT_TYPE_ARB}
+	 * @param pname   the parameter to set. One of:<br><table><tr><td>{@link #GL_GEOMETRY_VERTICES_OUT_ARB GEOMETRY_VERTICES_OUT_ARB}</td><td>{@link #GL_GEOMETRY_INPUT_TYPE_ARB GEOMETRY_INPUT_TYPE_ARB}</td><td>{@link #GL_GEOMETRY_OUTPUT_TYPE_ARB GEOMETRY_OUTPUT_TYPE_ARB}</td></tr></table>
 	 * @param value   the value being set
 	 */
 	public static void glProgramParameteriARB(int program, int pname, int value) {
@@ -131,7 +131,7 @@ public class ARBGeometryShader4 {
 	 * <p>If {@code texture} is the name of a three-dimensional texture, cube map texture, or one- or two-dimensional array texture, the texture level attached to
 	 * the framebuffer attachment point is an array of images, and the framebuffer attachment is considered layered.</p>
 	 *
-	 * @param target     the render target. Must be:<br>{@link ARBFramebufferObject#GL_FRAMEBUFFER FRAMEBUFFER}
+	 * @param target     the render target. Must be:<br><table><tr><td>{@link ARBFramebufferObject#GL_FRAMEBUFFER FRAMEBUFFER}</td></tr></table>
 	 * @param attachment must be one of the attachments points of the framebuffer
 	 * @param texture    the texture object name
 	 * @param level      the texture level
@@ -153,7 +153,7 @@ public class ARBGeometryShader4 {
 	 * texture object.  The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated unless {@code texture} is zero or the name of a three-dimensional or one- or
 	 * two-dimensional array texture.</p>
 	 *
-	 * @param target     the render target. Must be:<br>{@link ARBFramebufferObject#GL_FRAMEBUFFER FRAMEBUFFER}
+	 * @param target     the render target. Must be:<br><table><tr><td>{@link ARBFramebufferObject#GL_FRAMEBUFFER FRAMEBUFFER}</td></tr></table>
 	 * @param attachment must be one of the attachments points of the framebuffer
 	 * @param texture    the texture object name
 	 * @param level      the texture level
@@ -175,11 +175,11 @@ public class ARBGeometryShader4 {
 	 * <p>If {@code texture} is non-zero, the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated if {@code texture} is not the name of a texture object. The error
 	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated unless {@code texture} is zero or the name of a cube map texture.</p>
 	 *
-	 * @param target     the render target. Must be:<br>{@link ARBFramebufferObject#GL_FRAMEBUFFER FRAMEBUFFER}
+	 * @param target     the render target. Must be:<br><table><tr><td>{@link ARBFramebufferObject#GL_FRAMEBUFFER FRAMEBUFFER}</td></tr></table>
 	 * @param attachment must be one of the attachments points of the framebuffer
 	 * @param texture    the texture object name
 	 * @param level      the texture level
-	 * @param face       the cube map face. One of:<br>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}
+	 * @param face       the cube map face. One of:<br><table><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}</td></tr></table>
 	 */
 	public static void glFramebufferTextureFaceARB(int target, int attachment, int texture, int level, int face) {
 		long __functionAddress = GL.getCapabilities().glFramebufferTextureFaceARB;

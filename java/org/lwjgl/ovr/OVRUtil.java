@@ -86,7 +86,7 @@ public class OVRUtil {
 	 * @param fov                the {@link OVRFovPort} to use
 	 * @param znear              distance to near Z limit
 	 * @param zfar               distance to far Z limit
-	 * @param projectionModFlags a combination of the {@code ovrProjectionModifier} flags. One or more of:<br>{@link #ovrProjection_None Projection_None}, {@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}, {@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}, {@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}
+	 * @param projectionModFlags a combination of the {@code ovrProjectionModifier} flags. One or more of:<br><table><tr><td>{@link #ovrProjection_None Projection_None}</td><td>{@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}</td><td>{@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}</td></tr><tr><td>{@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}</td></tr></table>
 	 * @param __result           the calculated projection matrix
 	 */
 	public static native void novrMatrix4f_Projection(long fov, float znear, float zfar, int projectionModFlags, long __result);
@@ -97,7 +97,7 @@ public class OVRUtil {
 	 * @param fov                the {@link OVRFovPort} to use
 	 * @param znear              distance to near Z limit
 	 * @param zfar               distance to far Z limit
-	 * @param projectionModFlags a combination of the {@code ovrProjectionModifier} flags. One or more of:<br>{@link #ovrProjection_None Projection_None}, {@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}, {@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}, {@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}
+	 * @param projectionModFlags a combination of the {@code ovrProjectionModifier} flags. One or more of:<br><table><tr><td>{@link #ovrProjection_None Projection_None}</td><td>{@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}</td><td>{@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}</td></tr><tr><td>{@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}</td></tr></table>
 	 * @param __result           the calculated projection matrix
 	 */
 	public static void ovrMatrix4f_Projection(OVRFovPort fov, float znear, float zfar, int projectionModFlags, OVRMatrix4f __result) {
@@ -110,7 +110,7 @@ public class OVRUtil {
 	 * Extracts the required data from the result of {@link #ovrMatrix4f_Projection Matrix4f_Projection}.
 	 *
 	 * @param projection         the project matrix from which to extract {@link OVRTimewarpProjectionDesc}
-	 * @param projectionModFlags a combination of the ovrProjectionModifier flags. One or more of:<br>{@link #ovrProjection_None Projection_None}, {@link #ovrProjection_RightHanded Projection_RightHanded}, {@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}, {@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}, {@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}
+	 * @param projectionModFlags a combination of the ovrProjectionModifier flags. One or more of:<br><table><tr><td>{@link #ovrProjection_None Projection_None}</td><td>{@link #ovrProjection_RightHanded Projection_RightHanded}</td><td>{@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}</td></tr><tr><td>{@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}</td><td>{@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}</td></tr></table>
 	 * @param __result           the extracted ovrTimewarpProjectionDesc
 	 */
 	public static native void novrTimewarpProjectionDesc_FromProjection(long projection, int projectionModFlags, long __result);
@@ -119,7 +119,7 @@ public class OVRUtil {
 	 * Extracts the required data from the result of {@link #ovrMatrix4f_Projection Matrix4f_Projection}.
 	 *
 	 * @param projection         the project matrix from which to extract {@link OVRTimewarpProjectionDesc}
-	 * @param projectionModFlags a combination of the ovrProjectionModifier flags. One or more of:<br>{@link #ovrProjection_None Projection_None}, {@link #ovrProjection_RightHanded Projection_RightHanded}, {@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}, {@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}, {@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}
+	 * @param projectionModFlags a combination of the ovrProjectionModifier flags. One or more of:<br><table><tr><td>{@link #ovrProjection_None Projection_None}</td><td>{@link #ovrProjection_RightHanded Projection_RightHanded}</td><td>{@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}</td></tr><tr><td>{@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}</td><td>{@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}</td></tr></table>
 	 * @param __result           the extracted ovrTimewarpProjectionDesc
 	 */
 	public static void ovrTimewarpProjectionDesc_FromProjection(OVRMatrix4f projection, int projectionModFlags, OVRTimewarpProjectionDesc __result) {

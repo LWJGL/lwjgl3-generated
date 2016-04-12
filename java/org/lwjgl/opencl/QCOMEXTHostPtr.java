@@ -66,7 +66,7 @@ public class QCOMEXTHostPtr {
 	 * @param image_width          width of the image in image elements (pixels)
 	 * @param image_height         height of the image in image elements (pixels)
 	 * @param image_format         format of the image
-	 * @param param_name           the parameter to query. One of:<br>{@link CL10#CL_IMAGE_ROW_PITCH IMAGE_ROW_PITCH}, {@link CL10#CL_IMAGE_SLICE_PITCH IMAGE_SLICE_PITCH}, {@link #CL_IMAGE_ROW_ALIGNMENT_QCOM IMAGE_ROW_ALIGNMENT_QCOM}, {@link #CL_IMAGE_SLICE_ALIGNMENT_QCOM IMAGE_SLICE_ALIGNMENT_QCOM}
+	 * @param param_name           the parameter to query. One of:<br><table><tr><td>{@link CL10#CL_IMAGE_ROW_PITCH IMAGE_ROW_PITCH}</td><td>{@link CL10#CL_IMAGE_SLICE_PITCH IMAGE_SLICE_PITCH}</td><td>{@link #CL_IMAGE_ROW_ALIGNMENT_QCOM IMAGE_ROW_ALIGNMENT_QCOM}</td></tr><tr><td>{@link #CL_IMAGE_SLICE_ALIGNMENT_QCOM IMAGE_SLICE_ALIGNMENT_QCOM}</td></tr></table>
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -88,7 +88,7 @@ public class QCOMEXTHostPtr {
 	 * @param image_width          width of the image in image elements (pixels)
 	 * @param image_height         height of the image in image elements (pixels)
 	 * @param image_format         format of the image
-	 * @param param_name           the parameter to query. One of:<br>{@link CL10#CL_IMAGE_ROW_PITCH IMAGE_ROW_PITCH}, {@link CL10#CL_IMAGE_SLICE_PITCH IMAGE_SLICE_PITCH}, {@link #CL_IMAGE_ROW_ALIGNMENT_QCOM IMAGE_ROW_ALIGNMENT_QCOM}, {@link #CL_IMAGE_SLICE_ALIGNMENT_QCOM IMAGE_SLICE_ALIGNMENT_QCOM}
+	 * @param param_name           the parameter to query. One of:<br><table><tr><td>{@link CL10#CL_IMAGE_ROW_PITCH IMAGE_ROW_PITCH}</td><td>{@link CL10#CL_IMAGE_SLICE_PITCH IMAGE_SLICE_PITCH}</td><td>{@link #CL_IMAGE_ROW_ALIGNMENT_QCOM IMAGE_ROW_ALIGNMENT_QCOM}</td></tr><tr><td>{@link #CL_IMAGE_SLICE_ALIGNMENT_QCOM IMAGE_SLICE_ALIGNMENT_QCOM}</td></tr></table>
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 */

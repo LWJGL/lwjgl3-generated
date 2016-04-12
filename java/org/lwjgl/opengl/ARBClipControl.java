@@ -56,8 +56,8 @@ public class ARBClipControl {
 	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if ClipControl is executed between the execution of {@link GL11#glBegin Begin} and the corresponding
 	 * execution of {@link GL11#glEnd End}.</p>
 	 *
-	 * @param origin the clip origin. One of:<br>{@link GL20#GL_LOWER_LEFT LOWER_LEFT}, {@link GL20#GL_UPPER_LEFT UPPER_LEFT}
-	 * @param depth  the clip depth mode. One of:<br>{@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}, {@link #GL_ZERO_TO_ONE ZERO_TO_ONE}
+	 * @param origin the clip origin. One of:<br><table><tr><td>{@link GL20#GL_LOWER_LEFT LOWER_LEFT}</td><td>{@link GL20#GL_UPPER_LEFT UPPER_LEFT}</td></tr></table>
+	 * @param depth  the clip depth mode. One of:<br><table><tr><td>{@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}</td><td>{@link #GL_ZERO_TO_ONE ZERO_TO_ONE}</td></tr></table>
 	 */
 	public static void glClipControl(int origin, int depth) {
 		long __functionAddress = GL.getCapabilities().glClipControl;

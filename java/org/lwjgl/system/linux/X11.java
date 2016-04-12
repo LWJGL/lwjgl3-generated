@@ -598,7 +598,7 @@ public class X11 {
 	 * @param height       the window height
 	 * @param border_width the border width
 	 * @param depth        the window's depth. A depth of {@link #CopyFromParent} means the depth is taken from the parent.
-	 * @param windowClass  the created window's class. One of:<br>{@link #InputOutput}, {@link #InputOnly}, {@link #CopyFromParent}
+	 * @param windowClass  the created window's class. One of:<br><table><tr><td>{@link #InputOutput}</td><td>{@link #InputOnly}</td><td>{@link #CopyFromParent}</td></tr></table>
 	 * @param visual       the visual type. A visual of {@link #CopyFromParent} means the visual type is taken from the parent.
 	 * @param valuemask    which window attributes are defined in the attributes argument. This mask is the bitwise inclusive OR of the valid attribute mask bits. If
 	 *                     {@code valuemask} is zero, the attributes are ignored and are not referenced.
@@ -631,7 +631,7 @@ public class X11 {
 	 * @param height       the window height
 	 * @param border_width the border width
 	 * @param depth        the window's depth. A depth of {@link #CopyFromParent} means the depth is taken from the parent.
-	 * @param windowClass  the created window's class. One of:<br>{@link #InputOutput}, {@link #InputOnly}, {@link #CopyFromParent}
+	 * @param windowClass  the created window's class. One of:<br><table><tr><td>{@link #InputOutput}</td><td>{@link #InputOnly}</td><td>{@link #CopyFromParent}</td></tr></table>
 	 * @param visual       the visual type. A visual of {@link #CopyFromParent} means the visual type is taken from the parent.
 	 * @param valuemask    which window attributes are defined in the attributes argument. This mask is the bitwise inclusive OR of the valid attribute mask bits. If
 	 *                     {@code valuemask} is zero, the attributes are ignored and are not referenced.

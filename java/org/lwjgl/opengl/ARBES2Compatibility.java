@@ -104,7 +104,7 @@ public class ARBES2Compatibility {
 	/**
 	 * Retrieves the range and precision for numeric formats supported by the shader compiler.
 	 *
-	 * @param shadertype    the type of shader whose precision to query. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}
+	 * @param shadertype    the type of shader whose precision to query. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td></tr></table>
 	 * @param precisiontype the numeric format whose precision and range to query
 	 * @param range         the address of array of two integers into which encodings of the implementation's numeric range are returned
 	 * @param precision     the address of an integer into which the numeric precision of the implementation is written
@@ -119,7 +119,7 @@ public class ARBES2Compatibility {
 	/**
 	 * Retrieves the range and precision for numeric formats supported by the shader compiler.
 	 *
-	 * @param shadertype    the type of shader whose precision to query. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}
+	 * @param shadertype    the type of shader whose precision to query. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td></tr></table>
 	 * @param precisiontype the numeric format whose precision and range to query
 	 * @param range         the address of array of two integers into which encodings of the implementation's numeric range are returned
 	 * @param precision     the address of an integer into which the numeric precision of the implementation is written
@@ -135,7 +135,7 @@ public class ARBES2Compatibility {
 	/**
 	 * Retrieves the range and precision for numeric formats supported by the shader compiler.
 	 *
-	 * @param shadertype    the type of shader whose precision to query. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}
+	 * @param shadertype    the type of shader whose precision to query. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td></tr></table>
 	 * @param precisiontype the numeric format whose precision and range to query
 	 * @param range         the address of array of two integers into which encodings of the implementation's numeric range are returned
 	 */

@@ -131,7 +131,7 @@ public class ARBInvalidateSubdata {
 	/**
 	 * Invalidate the content some or all of a framebuffer object's attachments.
 	 *
-	 * @param target         the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param target         the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
 	 * @param numAttachments the number of entries in the {@code attachments} array
 	 * @param attachments    the address of an array identifying the attachments to be invalidated
 	 */
@@ -145,7 +145,7 @@ public class ARBInvalidateSubdata {
 	/**
 	 * Invalidate the content some or all of a framebuffer object's attachments.
 	 *
-	 * @param target      the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param target      the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
 	 * @param attachments the address of an array identifying the attachments to be invalidated
 	 */
 	public static void glInvalidateFramebuffer(int target, IntBuffer attachments) {
@@ -155,7 +155,7 @@ public class ARBInvalidateSubdata {
 	/**
 	 * Invalidate the content some or all of a framebuffer object's attachments.
 	 *
-	 * @param target the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param target the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
 	 */
 	public static void glInvalidateFramebuffer(int target, int attachment) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -172,7 +172,7 @@ public class ARBInvalidateSubdata {
 	/**
 	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
 	 *
-	 * @param target         the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param target         the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
 	 * @param numAttachments the number of entries in the {@code attachments} array
 	 * @param attachments    an array identifying the attachments to be invalidated
 	 * @param x              the X offset of the region to be invalidated
@@ -190,7 +190,7 @@ public class ARBInvalidateSubdata {
 	/**
 	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
 	 *
-	 * @param target      the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param target      the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
 	 * @param attachments an array identifying the attachments to be invalidated
 	 * @param x           the X offset of the region to be invalidated
 	 * @param y           the Y offset of the region to be invalidated
@@ -204,7 +204,7 @@ public class ARBInvalidateSubdata {
 	/**
 	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
 	 *
-	 * @param target the target to which the framebuffer is attached. One of:<br>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}
+	 * @param target the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
 	 * @param x      the X offset of the region to be invalidated
 	 * @param y      the Y offset of the region to be invalidated
 	 * @param width  the width of the region to be invalidated

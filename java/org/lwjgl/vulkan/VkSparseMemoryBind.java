@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code size} &ndash; the size of the memory region to be bound</li>
  * <li>{@code memory} &ndash; the {@code VkDeviceMemory} object that the range of the resource is bound to</li>
  * <li>{@code memoryOffset} &ndash; the offset into the {@code VkDeviceMemory} object to bind the resource range to</li>
- * <li>{@code flags} &ndash; are sparse memory binding flags</li>
+ * <li>{@code flags} &ndash; are sparse memory binding flags. One or more of:<br><table><tr><td>{@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}</td></tr></table></li>
  * </ul>
  * 
  * <h3>Layout</h3>

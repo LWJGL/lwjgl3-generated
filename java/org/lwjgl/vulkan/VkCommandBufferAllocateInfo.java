@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO}</li>
  * <li>{@code pNext} &ndash; reserved for use by extensions</li>
  * <li>{@code commandPool} &ndash; the name of the command pool that the command buffers allocate their memory from</li>
- * <li>{@code level} &ndash; determines whether the command buffers are primary or secondary command buffers</li>
+ * <li>{@code level} &ndash; determines whether the command buffers are primary or secondary command buffers. One of:<br><table><tr><td>{@link VK10#VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</td><td>{@link VK10#VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</td></tr></table></li>
  * <li>{@code commandBufferCount} &ndash; the number of command buffers to allocate from the pool</li>
  * </ul>
  * 

@@ -73,7 +73,7 @@ public class SOFTHRTF {
 	 * strings are valid until the next enumeration point or the device is closed.</p>
 	 *
 	 * @param device    he same one that previously queried the number of HRTF specifiers
-	 * @param paramName the parameter to query. Must be:<br>{@link #ALC_HRTF_SPECIFIER_SOFT HRTF_SPECIFIER_SOFT}
+	 * @param paramName the parameter to query. Must be:<br><table><tr><td>{@link #ALC_HRTF_SPECIFIER_SOFT HRTF_SPECIFIER_SOFT}</td></tr></table>
 	 * @param index     an index between 0 (inclusive) and the previously-queried HRTF count (exclusive)
 	 */
 	public static long nalcGetStringiSOFT(long device, int paramName, int index) {
@@ -92,7 +92,7 @@ public class SOFTHRTF {
 	 * strings are valid until the next enumeration point or the device is closed.</p>
 	 *
 	 * @param device    he same one that previously queried the number of HRTF specifiers
-	 * @param paramName the parameter to query. Must be:<br>{@link #ALC_HRTF_SPECIFIER_SOFT HRTF_SPECIFIER_SOFT}
+	 * @param paramName the parameter to query. Must be:<br><table><tr><td>{@link #ALC_HRTF_SPECIFIER_SOFT HRTF_SPECIFIER_SOFT}</td></tr></table>
 	 * @param index     an index between 0 (inclusive) and the previously-queried HRTF count (exclusive)
 	 */
 	public static String alcGetStringiSOFT(long device, int paramName, int index) {

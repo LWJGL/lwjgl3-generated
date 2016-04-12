@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code binding} &ndash; the binding number that this structure describes</li>
  * <li>{@code stride} &ndash; the distance in bytes between two consecutive elements within the buffer</li>
- * <li>{@code inputRate} &ndash; a {@code VkVertexInputRate} value that specifies whether vertex attribute addressing is a function of the vertex index or of the instance index</li>
+ * <li>{@code inputRate} &ndash; a {@code VkVertexInputRate} value that specifies whether vertex attribute addressing is a function of the vertex index or of the instance index. One of:<br><table><tr><td>{@link VK10#VK_VERTEX_INPUT_RATE_INSTANCE VERTEX_INPUT_RATE_INSTANCE}</td><td>{@link VK10#VK_VERTEX_INPUT_RATE_VERTEX VERTEX_INPUT_RATE_VERTEX}</td></tr></table></li>
  * </ul>
  * 
  * <h3>Layout</h3>

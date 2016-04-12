@@ -84,7 +84,7 @@ public class ARBTextureBufferObject {
 	 * extracted values are converted to floating-point values. The components of the texture are then converted to an (R,G,B,A) vector, and returned to the
 	 * shader as a four-component result vector with components of the appropriate data type for the texture's internal format.</p>
 	 *
-	 * @param target         the target of the operation. Must be:<br>{@link #GL_TEXTURE_BUFFER_ARB TEXTURE_BUFFER_ARB}
+	 * @param target         the target of the operation. Must be:<br><table><tr><td>{@link #GL_TEXTURE_BUFFER_ARB TEXTURE_BUFFER_ARB}</td></tr></table>
 	 * @param internalformat the sized internal format of the data in the store belonging to {@code buffer}
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */

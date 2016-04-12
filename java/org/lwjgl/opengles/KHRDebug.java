@@ -201,9 +201,9 @@ public class KHRDebug {
 	 * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are
 	 * disabled.</p>
 	 *
-	 * @param source   the source of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}, {@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}, {@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}
-	 * @param type     the type of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}, {@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}, {@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}, {@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}
-	 * @param severity the severity of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}, {@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}, {@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}
+	 * @param source   the source of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
+	 * @param type     the type of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
+	 * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
 	 * @param count    the length of the array {@code ids}
 	 * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
 	 * @param enabled  whether the selected messages should be enabled or disabled
@@ -242,9 +242,9 @@ public class KHRDebug {
 	 * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are
 	 * disabled.</p>
 	 *
-	 * @param source   the source of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}, {@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}, {@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}
-	 * @param type     the type of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}, {@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}, {@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}, {@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}
-	 * @param severity the severity of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}, {@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}, {@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}
+	 * @param source   the source of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
+	 * @param type     the type of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
+	 * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
 	 * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
@@ -279,9 +279,9 @@ public class KHRDebug {
 	 * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are
 	 * disabled.</p>
 	 *
-	 * @param source   the source of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}, {@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}, {@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}
-	 * @param type     the type of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}, {@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}, {@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}, {@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}
-	 * @param severity the severity of debug messages to enable or disable. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}, {@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}, {@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}
+	 * @param source   the source of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
+	 * @param type     the type of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
+	 * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
 	public static void glDebugMessageControlKHR(int source, int type, int severity, int id, boolean enabled) {
@@ -308,9 +308,9 @@ public class KHRDebug {
 	 * 
 	 * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
 	 *
-	 * @param source   the source of the debug message to insert. One of:<br>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}, {@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}, {@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}
-	 * @param type     the type of the debug message insert. One of:<br>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}, {@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}, {@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}, {@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}
-	 * @param id       the user-supplied identifier of the message to insert. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}, {@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}, {@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}
+	 * @param source   the source of the debug message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
+	 * @param type     the type of the debug message insert. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
+	 * @param id       the user-supplied identifier of the message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
 	 * @param severity the severity of the debug messages to insert
 	 * @param length   the length of the string contained in the character array whose address is given by {@code message}
 	 * @param message  a character array containing the message to insert
@@ -334,9 +334,9 @@ public class KHRDebug {
 	 * 
 	 * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
 	 *
-	 * @param source   the source of the debug message to insert. One of:<br>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}, {@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}, {@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}
-	 * @param type     the type of the debug message insert. One of:<br>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}, {@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}, {@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}, {@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}
-	 * @param id       the user-supplied identifier of the message to insert. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}, {@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}, {@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}
+	 * @param source   the source of the debug message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
+	 * @param type     the type of the debug message insert. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
+	 * @param id       the user-supplied identifier of the message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
 	 * @param severity the severity of the debug messages to insert
 	 * @param message  a character array containing the message to insert
 	 */
@@ -356,9 +356,9 @@ public class KHRDebug {
 	 * 
 	 * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
 	 *
-	 * @param source   the source of the debug message to insert. One of:<br>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}, {@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}, {@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}, {@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}, {@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}
-	 * @param type     the type of the debug message insert. One of:<br>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}, {@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}, {@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}, {@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}, {@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}, {@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}
-	 * @param id       the user-supplied identifier of the message to insert. One of:<br>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}, {@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}, {@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}, {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}
+	 * @param source   the source of the debug message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
+	 * @param type     the type of the debug message insert. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
+	 * @param id       the user-supplied identifier of the message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
 	 * @param severity the severity of the debug messages to insert
 	 * @param message  a character array containing the message to insert
 	 */
@@ -539,7 +539,7 @@ public class KHRDebug {
 	 * {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator,
 	 * is not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_KHR MAX_DEBUG_MESSAGE_LENGTH_KHR}.</p>
 	 *
-	 * @param source  the source of the debug message. One of:<br>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}
+	 * @param source  the source of the debug message. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr></table>
 	 * @param id      the identifier of the message
 	 * @param length  the length of the message to be sent to the debug output stream
 	 * @param message a string containing the message to be sent to the debug output stream
@@ -564,7 +564,7 @@ public class KHRDebug {
 	 * {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator,
 	 * is not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_KHR MAX_DEBUG_MESSAGE_LENGTH_KHR}.</p>
 	 *
-	 * @param source  the source of the debug message. One of:<br>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}
+	 * @param source  the source of the debug message. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr></table>
 	 * @param id      the identifier of the message
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
@@ -585,7 +585,7 @@ public class KHRDebug {
 	 * {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator,
 	 * is not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_KHR MAX_DEBUG_MESSAGE_LENGTH_KHR}.</p>
 	 *
-	 * @param source  the source of the debug message. One of:<br>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}, {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}
+	 * @param source  the source of the debug message. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr></table>
 	 * @param id      the identifier of the message
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
@@ -624,7 +624,7 @@ public class KHRDebug {
 	/**
 	 * Labels a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER_KHR BUFFER_KHR}, {@link #GL_SHADER_KHR SHADER_KHR}, {@link #GL_PROGRAM_KHR PROGRAM_KHR}, {@link #GL_QUERY_KHR QUERY_KHR}, {@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}, {@link #GL_SAMPLER_KHR SAMPLER_KHR}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object to label
 	 * @param length     the length of the label to be used for the object
 	 * @param label      a string containing the label to assign to the object
@@ -639,7 +639,7 @@ public class KHRDebug {
 	/**
 	 * Labels a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER_KHR BUFFER_KHR}, {@link #GL_SHADER_KHR SHADER_KHR}, {@link #GL_PROGRAM_KHR PROGRAM_KHR}, {@link #GL_QUERY_KHR QUERY_KHR}, {@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}, {@link #GL_SAMPLER_KHR SAMPLER_KHR}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object to label
 	 * @param label      a string containing the label to assign to the object
 	 */
@@ -650,7 +650,7 @@ public class KHRDebug {
 	/**
 	 * Labels a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER_KHR BUFFER_KHR}, {@link #GL_SHADER_KHR SHADER_KHR}, {@link #GL_PROGRAM_KHR PROGRAM_KHR}, {@link #GL_QUERY_KHR QUERY_KHR}, {@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}, {@link #GL_SAMPLER_KHR SAMPLER_KHR}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object to label
 	 * @param label      a string containing the label to assign to the object
 	 */
@@ -670,7 +670,7 @@ public class KHRDebug {
 	/**
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER_KHR BUFFER_KHR}, {@link #GL_SHADER_KHR SHADER_KHR}, {@link #GL_PROGRAM_KHR PROGRAM_KHR}, {@link #GL_QUERY_KHR QUERY_KHR}, {@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}, {@link #GL_SAMPLER_KHR SAMPLER_KHR}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object whose label to retrieve
 	 * @param bufSize    the length of the buffer whose address is in {@code label}
 	 * @param length     the address of a variable to receive the length of the object label
@@ -686,7 +686,7 @@ public class KHRDebug {
 	/**
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER_KHR BUFFER_KHR}, {@link #GL_SHADER_KHR SHADER_KHR}, {@link #GL_PROGRAM_KHR PROGRAM_KHR}, {@link #GL_QUERY_KHR QUERY_KHR}, {@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}, {@link #GL_SAMPLER_KHR SAMPLER_KHR}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object whose label to retrieve
 	 * @param length     the address of a variable to receive the length of the object label
 	 * @param label      a string that will receive the object label
@@ -700,7 +700,7 @@ public class KHRDebug {
 	/**
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER_KHR BUFFER_KHR}, {@link #GL_SHADER_KHR SHADER_KHR}, {@link #GL_PROGRAM_KHR PROGRAM_KHR}, {@link #GL_QUERY_KHR QUERY_KHR}, {@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}, {@link #GL_SAMPLER_KHR SAMPLER_KHR}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object whose label to retrieve
 	 * @param bufSize    the length of the buffer whose address is in {@code label}
 	 */
@@ -719,7 +719,7 @@ public class KHRDebug {
 	/**
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br>{@link #GL_BUFFER_KHR BUFFER_KHR}, {@link #GL_SHADER_KHR SHADER_KHR}, {@link #GL_PROGRAM_KHR PROGRAM_KHR}, {@link #GL_QUERY_KHR QUERY_KHR}, {@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}, {@link #GL_SAMPLER_KHR SAMPLER_KHR}, {@link GLES20#GL_TEXTURE TEXTURE}, {@link GLES20#GL_RENDERBUFFER RENDERBUFFER}, {@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object whose label to retrieve
 	 */
 	public static String glGetObjectLabelKHR(int identifier, int name) {

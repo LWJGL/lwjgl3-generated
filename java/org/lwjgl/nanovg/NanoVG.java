@@ -654,7 +654,7 @@ public class NanoVG {
 	 * <p>The default line cap is {@link #NVG_BUTT BUTT}.</p>
 	 *
 	 * @param ctx the NanoVG context
-	 * @param cap the line cap to set. One of:<br>{@link #NVG_BUTT BUTT}, {@link #NVG_ROUND ROUND}, {@link #NVG_SQUARE SQUARE}
+	 * @param cap the line cap to set. One of:<br><table><tr><td>{@link #NVG_BUTT BUTT}</td><td>{@link #NVG_ROUND ROUND}</td><td>{@link #NVG_SQUARE SQUARE}</td></tr></table>
 	 */
 	public static native void nnvgLineCap(long ctx, int cap);
 
@@ -664,7 +664,7 @@ public class NanoVG {
 	 * <p>The default line cap is {@link #NVG_BUTT BUTT}.</p>
 	 *
 	 * @param ctx the NanoVG context
-	 * @param cap the line cap to set. One of:<br>{@link #NVG_BUTT BUTT}, {@link #NVG_ROUND ROUND}, {@link #NVG_SQUARE SQUARE}
+	 * @param cap the line cap to set. One of:<br><table><tr><td>{@link #NVG_BUTT BUTT}</td><td>{@link #NVG_ROUND ROUND}</td><td>{@link #NVG_SQUARE SQUARE}</td></tr></table>
 	 */
 	public static void nvgLineCap(long ctx, int cap) {
 		if ( CHECKS )
@@ -680,7 +680,7 @@ public class NanoVG {
 	 * <p>The default line join is {@link #NVG_MITER MITER}.</p>
 	 *
 	 * @param ctx  the NanoVG context
-	 * @param join the line join to set. One of:<br>{@link #NVG_MITER MITER}, {@link #NVG_ROUND ROUND}, {@link #NVG_BEVEL BEVEL}
+	 * @param join the line join to set. One of:<br><table><tr><td>{@link #NVG_MITER MITER}</td><td>{@link #NVG_ROUND ROUND}</td><td>{@link #NVG_BEVEL BEVEL}</td></tr></table>
 	 */
 	public static native void nnvgLineJoin(long ctx, int join);
 
@@ -690,7 +690,7 @@ public class NanoVG {
 	 * <p>The default line join is {@link #NVG_MITER MITER}.</p>
 	 *
 	 * @param ctx  the NanoVG context
-	 * @param join the line join to set. One of:<br>{@link #NVG_MITER MITER}, {@link #NVG_ROUND ROUND}, {@link #NVG_BEVEL BEVEL}
+	 * @param join the line join to set. One of:<br><table><tr><td>{@link #NVG_MITER MITER}</td><td>{@link #NVG_ROUND ROUND}</td><td>{@link #NVG_BEVEL BEVEL}</td></tr></table>
 	 */
 	public static void nvgLineJoin(long ctx, int join) {
 		if ( CHECKS )
@@ -1200,7 +1200,7 @@ public class NanoVG {
 	 *
 	 * @param ctx        the NanoVG context
 	 * @param filename   the image file name
-	 * @param imageFlags the image flags. One of:<br>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}, {@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}, {@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}, {@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}, {@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}
+	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
 	 *
 	 * @return a handle to the image
 	 */
@@ -1211,7 +1211,7 @@ public class NanoVG {
 	 *
 	 * @param ctx        the NanoVG context
 	 * @param filename   the image file name
-	 * @param imageFlags the image flags. One of:<br>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}, {@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}, {@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}, {@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}, {@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}
+	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
 	 *
 	 * @return a handle to the image
 	 */
@@ -1228,7 +1228,7 @@ public class NanoVG {
 	 *
 	 * @param ctx        the NanoVG context
 	 * @param filename   the image file name
-	 * @param imageFlags the image flags. One of:<br>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}, {@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}, {@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}, {@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}, {@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}
+	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
 	 *
 	 * @return a handle to the image
 	 */
@@ -1250,7 +1250,7 @@ public class NanoVG {
 	 * Creates image by loading it from the specified chunk of memory.
 	 *
 	 * @param ctx        the NanoVG context
-	 * @param imageFlags the image flags. One of:<br>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}, {@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}, {@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}, {@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}, {@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}
+	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
 	 * @param data       the image data
 	 * @param ndata      the image data size, in bytes
 	 *
@@ -1262,7 +1262,7 @@ public class NanoVG {
 	 * Creates image by loading it from the specified chunk of memory.
 	 *
 	 * @param ctx        the NanoVG context
-	 * @param imageFlags the image flags. One of:<br>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}, {@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}, {@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}, {@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}, {@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}
+	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
 	 * @param data       the image data
 	 *
 	 * @return a handle to the image
@@ -1281,7 +1281,7 @@ public class NanoVG {
 	 * @param ctx        the NanoVG context
 	 * @param w          the image width
 	 * @param h          the image height
-	 * @param imageFlags the image flags. One of:<br>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}, {@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}, {@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}, {@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}, {@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}
+	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
 	 * @param data       the image data
 	 */
 	public static native int nnvgCreateImageRGBA(long ctx, int w, int h, int imageFlags, long data);
@@ -1292,7 +1292,7 @@ public class NanoVG {
 	 * @param ctx        the NanoVG context
 	 * @param w          the image width
 	 * @param h          the image height
-	 * @param imageFlags the image flags. One of:<br>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}, {@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}, {@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}, {@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}, {@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}
+	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
 	 * @param data       the image data
 	 */
 	public static int nvgCreateImageRGBA(long ctx, int w, int h, int imageFlags, ByteBuffer data) {
@@ -1802,7 +1802,7 @@ public class NanoVG {
 	 * Sets the current sub-path winding.
 	 *
 	 * @param ctx the NanoVG context
-	 * @param dir the sub-path winding. One of:<br>{@link #NVG_CCW CCW}, {@link #NVG_CW CW}
+	 * @param dir the sub-path winding. One of:<br><table><tr><td>{@link #NVG_CCW CCW}</td><td>{@link #NVG_CW CW}</td></tr></table>
 	 */
 	public static native void nnvgPathWinding(long ctx, int dir);
 
@@ -1810,7 +1810,7 @@ public class NanoVG {
 	 * Sets the current sub-path winding.
 	 *
 	 * @param ctx the NanoVG context
-	 * @param dir the sub-path winding. One of:<br>{@link #NVG_CCW CCW}, {@link #NVG_CW CW}
+	 * @param dir the sub-path winding. One of:<br><table><tr><td>{@link #NVG_CCW CCW}</td><td>{@link #NVG_CW CW}</td></tr></table>
 	 */
 	public static void nvgPathWinding(long ctx, int dir) {
 		if ( CHECKS )
@@ -1829,7 +1829,7 @@ public class NanoVG {
 	 * @param r   the arc radius
 	 * @param a0  the arc starting angle, in radians
 	 * @param a1  the arc ending angle, in radians
-	 * @param dir the arc direction. One of:<br>{@link #NVG_CCW CCW}, {@link #NVG_CW CW}
+	 * @param dir the arc direction. One of:<br><table><tr><td>{@link #NVG_CCW CCW}</td><td>{@link #NVG_CW CW}</td></tr></table>
 	 */
 	public static native void nnvgArc(long ctx, float cx, float cy, float r, float a0, float a1, int dir);
 
@@ -1842,7 +1842,7 @@ public class NanoVG {
 	 * @param r   the arc radius
 	 * @param a0  the arc starting angle, in radians
 	 * @param a1  the arc ending angle, in radians
-	 * @param dir the arc direction. One of:<br>{@link #NVG_CCW CCW}, {@link #NVG_CW CW}
+	 * @param dir the arc direction. One of:<br><table><tr><td>{@link #NVG_CCW CCW}</td><td>{@link #NVG_CW CW}</td></tr></table>
 	 */
 	public static void nvgArc(long ctx, float cx, float cy, float r, float a0, float a1, int dir) {
 		if ( CHECKS )
@@ -2246,7 +2246,7 @@ public class NanoVG {
 	 * Sets the text align of current text style.
 	 *
 	 * @param ctx   the NanoVG context
-	 * @param align the text align to set. One of:<br>{@link #NVG_ALIGN_LEFT ALIGN_LEFT}, {@link #NVG_ALIGN_CENTER ALIGN_CENTER}, {@link #NVG_ALIGN_RIGHT ALIGN_RIGHT}, {@link #NVG_ALIGN_TOP ALIGN_TOP}, {@link #NVG_ALIGN_MIDDLE ALIGN_MIDDLE}, {@link #NVG_ALIGN_BOTTOM ALIGN_BOTTOM}, {@link #NVG_ALIGN_BASELINE ALIGN_BASELINE}
+	 * @param align the text align to set. One of:<br><table><tr><td>{@link #NVG_ALIGN_LEFT ALIGN_LEFT}</td><td>{@link #NVG_ALIGN_CENTER ALIGN_CENTER}</td><td>{@link #NVG_ALIGN_RIGHT ALIGN_RIGHT}</td><td>{@link #NVG_ALIGN_TOP ALIGN_TOP}</td><td>{@link #NVG_ALIGN_MIDDLE ALIGN_MIDDLE}</td><td>{@link #NVG_ALIGN_BOTTOM ALIGN_BOTTOM}</td><td>{@link #NVG_ALIGN_BASELINE ALIGN_BASELINE}</td></tr></table>
 	 */
 	public static native void nnvgTextAlign(long ctx, int align);
 
@@ -2254,7 +2254,7 @@ public class NanoVG {
 	 * Sets the text align of current text style.
 	 *
 	 * @param ctx   the NanoVG context
-	 * @param align the text align to set. One of:<br>{@link #NVG_ALIGN_LEFT ALIGN_LEFT}, {@link #NVG_ALIGN_CENTER ALIGN_CENTER}, {@link #NVG_ALIGN_RIGHT ALIGN_RIGHT}, {@link #NVG_ALIGN_TOP ALIGN_TOP}, {@link #NVG_ALIGN_MIDDLE ALIGN_MIDDLE}, {@link #NVG_ALIGN_BOTTOM ALIGN_BOTTOM}, {@link #NVG_ALIGN_BASELINE ALIGN_BASELINE}
+	 * @param align the text align to set. One of:<br><table><tr><td>{@link #NVG_ALIGN_LEFT ALIGN_LEFT}</td><td>{@link #NVG_ALIGN_CENTER ALIGN_CENTER}</td><td>{@link #NVG_ALIGN_RIGHT ALIGN_RIGHT}</td><td>{@link #NVG_ALIGN_TOP ALIGN_TOP}</td><td>{@link #NVG_ALIGN_MIDDLE ALIGN_MIDDLE}</td><td>{@link #NVG_ALIGN_BOTTOM ALIGN_BOTTOM}</td><td>{@link #NVG_ALIGN_BASELINE ALIGN_BASELINE}</td></tr></table>
 	 */
 	public static void nvgTextAlign(long ctx, int align) {
 		if ( CHECKS )

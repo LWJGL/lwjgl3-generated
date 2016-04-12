@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code size} &ndash; the total memory size in bytes in the heap</li>
- * <li>{@code flags} &ndash; a bitmask of {@code VkMemoryHeapFlagBits} attribute flags for the heap</li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkMemoryHeapFlagBits} attribute flags for the heap. One or more of:<br><table><tr><td>{@link VK10#VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT}</td></tr></table></li>
  * </ul>
  * 
  * <h3>Layout</h3>

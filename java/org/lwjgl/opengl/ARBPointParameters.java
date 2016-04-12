@@ -56,7 +56,7 @@ public class ARBPointParameters {
 	/**
 	 * Sets the float value of a pointer parameter.
 	 *
-	 * @param pname the parameter to set. One of:<br>{@link #GL_POINT_SIZE_MIN_ARB POINT_SIZE_MIN_ARB}, {@link #GL_POINT_SIZE_MAX_ARB POINT_SIZE_MAX_ARB}, {@link #GL_POINT_FADE_THRESHOLD_SIZE_ARB POINT_FADE_THRESHOLD_SIZE_ARB}
+	 * @param pname the parameter to set. One of:<br><table><tr><td>{@link #GL_POINT_SIZE_MIN_ARB POINT_SIZE_MIN_ARB}</td><td>{@link #GL_POINT_SIZE_MAX_ARB POINT_SIZE_MAX_ARB}</td><td>{@link #GL_POINT_FADE_THRESHOLD_SIZE_ARB POINT_FADE_THRESHOLD_SIZE_ARB}</td></tr></table>
 	 * @param param the parameter value
 	 */
 	public static void glPointParameterfARB(int pname, float param) {
@@ -71,7 +71,7 @@ public class ARBPointParameters {
 	/**
 	 * Pointer version of {@link #glPointParameterfARB PointParameterfARB}.
 	 *
-	 * @param pname  the parameter to set. Must be:<br>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}
+	 * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}</td></tr></table>
 	 * @param params the parameter value
 	 */
 	public static void nglPointParameterfvARB(int pname, long params) {
@@ -84,7 +84,7 @@ public class ARBPointParameters {
 	/**
 	 * Pointer version of {@link #glPointParameterfARB PointParameterfARB}.
 	 *
-	 * @param pname  the parameter to set. Must be:<br>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}
+	 * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}</td></tr></table>
 	 * @param params the parameter value
 	 */
 	public static void glPointParameterfvARB(int pname, FloatBuffer params) {

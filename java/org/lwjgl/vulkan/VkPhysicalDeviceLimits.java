@@ -138,7 +138,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code maxFramebufferWidth} &ndash; the maximum width for a framebuffer</li>
  * <li>{@code maxFramebufferHeight} &ndash; the maximum height for a framebuffer</li>
  * <li>{@code maxFramebufferLayers} &ndash; the maximum layer count for a layered framebuffer</li>
- * <li>{@code framebufferColorSampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} bits indicating the supported color sample counts for a framebuffer color attachment</li>
+ * <li>{@code framebufferColorSampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} bits indicating the supported color sample counts for a framebuffer color attachment. One or more of:<br><table><tr><td>{@link VK10#VK_SAMPLE_COUNT_16_BIT SAMPLE_COUNT_16_BIT}</td><td>{@link VK10#VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</td><td>{@link VK10#VK_SAMPLE_COUNT_2_BIT SAMPLE_COUNT_2_BIT}</td><td>{@link VK10#VK_SAMPLE_COUNT_32_BIT SAMPLE_COUNT_32_BIT}</td></tr><tr><td>{@link VK10#VK_SAMPLE_COUNT_4_BIT SAMPLE_COUNT_4_BIT}</td><td>{@link VK10#VK_SAMPLE_COUNT_64_BIT SAMPLE_COUNT_64_BIT}</td><td>{@link VK10#VK_SAMPLE_COUNT_8_BIT SAMPLE_COUNT_8_BIT}</td></tr></table></li>
  * <li>{@code framebufferDepthSampleCounts} &ndash; 
  * a bitmask of {@code VkSampleCountFlagBits} bits indicating the supported depth sample counts for a framebuffer depth/stencil attachment, when the
  * format includes a depth component</li>

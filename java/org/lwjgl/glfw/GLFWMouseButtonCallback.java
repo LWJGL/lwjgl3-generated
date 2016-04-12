@@ -56,7 +56,7 @@ public abstract class GLFWMouseButtonCallback extends Closure.V {
 	 *
 	 * @param window the window that received the event
 	 * @param button the mouse button that was pressed or released
-	 * @param action the button action. One of:<br>{@link GLFW#GLFW_PRESS PRESS}, {@link GLFW#GLFW_RELEASE RELEASE}, {@link GLFW#GLFW_REPEAT REPEAT}
+	 * @param action the button action. One of:<br><table><tr><td>{@link GLFW#GLFW_PRESS PRESS}</td><td>{@link GLFW#GLFW_RELEASE RELEASE}</td><td>{@link GLFW#GLFW_REPEAT REPEAT}</td></tr></table>
 	 * @param mods   bitfield describing which modifiers keys were held down
 	 */
 	public abstract void invoke(long window, int button, int action, int mods);

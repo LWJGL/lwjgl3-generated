@@ -40,7 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} &ndash; reserved for future use</li>
  * <li>{@code depthTestEnable} &ndash; controls whether depth testing is enabled</li>
  * <li>{@code depthWriteEnable} &ndash; controls whether depth writes are enabled</li>
- * <li>{@code depthCompareOp} &ndash; the comparison operator used in the depth test</li>
+ * <li>{@code depthCompareOp} &ndash; the comparison operator used in the depth test. One of:<br><table><tr><td>{@link VK10#VK_COMPARE_OP_ALWAYS COMPARE_OP_ALWAYS}</td><td>{@link VK10#VK_COMPARE_OP_EQUAL COMPARE_OP_EQUAL}</td><td>{@link VK10#VK_COMPARE_OP_GREATER COMPARE_OP_GREATER}</td><td>{@link VK10#VK_COMPARE_OP_GREATER_OR_EQUAL COMPARE_OP_GREATER_OR_EQUAL}</td></tr><tr><td>{@link VK10#VK_COMPARE_OP_LESS COMPARE_OP_LESS}</td><td>{@link VK10#VK_COMPARE_OP_LESS_OR_EQUAL COMPARE_OP_LESS_OR_EQUAL}</td><td>{@link VK10#VK_COMPARE_OP_NEVER COMPARE_OP_NEVER}</td><td>{@link VK10#VK_COMPARE_OP_NOT_EQUAL COMPARE_OP_NOT_EQUAL}</td></tr></table></li>
  * <li>{@code depthBoundsTestEnable} &ndash; controls whether depth bounds testing is enabled</li>
  * <li>{@code stencilTestEnable} &ndash; controls whether stencil testing is enabled</li>
  * <li>{@code front} &ndash; control the parameters of the stencil test for front facing primitives</li>

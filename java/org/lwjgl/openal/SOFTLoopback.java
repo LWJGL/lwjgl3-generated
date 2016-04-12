@@ -139,8 +139,8 @@ public class SOFTLoopback {
 	 *
 	 * @param device    the loopback device to query
 	 * @param frequency the sample rate of the rendered audio
-	 * @param channels  the channel configuration used for rendering. One of:<br>{@link #ALC_MONO_SOFT MONO_SOFT}, {@link #ALC_STEREO_SOFT STEREO_SOFT}, {@link #ALC_QUAD_SOFT QUAD_SOFT}, {@link #ALC_5POINT1_SOFT 5POINT1_SOFT}, {@link #ALC_6POINT1_SOFT 6POINT1_SOFT}, {@link #ALC_7POINT1_SOFT 7POINT1_SOFT}
-	 * @param type      sample type of the written audio. One of:<br>{@link #ALC_BYTE_SOFT BYTE_SOFT}, {@link #ALC_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #ALC_SHORT_SOFT SHORT_SOFT}, {@link #ALC_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #ALC_INT_SOFT INT_SOFT}, {@link #ALC_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #ALC_FLOAT_SOFT FLOAT_SOFT}
+	 * @param channels  the channel configuration used for rendering. One of:<br><table><tr><td>{@link #ALC_MONO_SOFT MONO_SOFT}</td><td>{@link #ALC_STEREO_SOFT STEREO_SOFT}</td><td>{@link #ALC_QUAD_SOFT QUAD_SOFT}</td><td>{@link #ALC_5POINT1_SOFT 5POINT1_SOFT}</td><td>{@link #ALC_6POINT1_SOFT 6POINT1_SOFT}</td><td>{@link #ALC_7POINT1_SOFT 7POINT1_SOFT}</td></tr></table>
+	 * @param type      sample type of the written audio. One of:<br><table><tr><td>{@link #ALC_BYTE_SOFT BYTE_SOFT}</td><td>{@link #ALC_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}</td><td>{@link #ALC_SHORT_SOFT SHORT_SOFT}</td><td>{@link #ALC_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}</td><td>{@link #ALC_INT_SOFT INT_SOFT}</td><td>{@link #ALC_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}</td></tr><tr><td>{@link #ALC_FLOAT_SOFT FLOAT_SOFT}</td></tr></table>
 	 */
 	public static boolean alcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type) {
 		long __functionAddress = ALC.getICD().alcIsRenderFormatSupportedSOFT;

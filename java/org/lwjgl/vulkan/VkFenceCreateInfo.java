@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_FENCE_CREATE_INFO STRUCTURE_TYPE_FENCE_CREATE_INFO}</li>
  * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; contains {@code VkFenceCreateFlags} flags defining the initial state and behavior of the fence</li>
+ * <li>{@code flags} &ndash; contains {@code VkFenceCreateFlags} flags defining the initial state and behavior of the fence. One or more of:<br><table><tr><td>{@link VK10#VK_FENCE_CREATE_SIGNALED_BIT FENCE_CREATE_SIGNALED_BIT}</td></tr></table></li>
  * </ul>
  * 
  * <h3>Layout</h3>

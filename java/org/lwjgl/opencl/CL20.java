@@ -139,7 +139,7 @@ public class CL20 {
 	 *                    device type as device type specified when context is created using {@link CL10#clCreateContextFromType CreateContextFromType}.
 	 * @param properties  a list of properties for the command-queue and their corresponding values. Each property name is immediately followed by the corresponding desired
 	 *                    value. The list is terminated with {@code 0}. If a supported property and its value is not specified in properties, its default value will be used.
-	 *                    {@code properties} can be {@code NULL} in which case the default values for supported command-queue properties will be used. One of:<br>{@link CL10#CL_QUEUE_PROPERTIES QUEUE_PROPERTIES}, {@link #CL_QUEUE_SIZE QUEUE_SIZE}
+	 *                    {@code properties} can be {@code NULL} in which case the default values for supported command-queue properties will be used. One of:<br><table><tr><td>{@link CL10#CL_QUEUE_PROPERTIES QUEUE_PROPERTIES}</td><td>{@link #CL_QUEUE_SIZE QUEUE_SIZE}</td></tr></table>
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
 	 * @return a valid non-zero command-queue and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the command-queue is created successfully. Otherwise, it returns a {@code NULL} value
@@ -177,7 +177,7 @@ public class CL20 {
 	 *                    device type as device type specified when context is created using {@link CL10#clCreateContextFromType CreateContextFromType}.
 	 * @param properties  a list of properties for the command-queue and their corresponding values. Each property name is immediately followed by the corresponding desired
 	 *                    value. The list is terminated with {@code 0}. If a supported property and its value is not specified in properties, its default value will be used.
-	 *                    {@code properties} can be {@code NULL} in which case the default values for supported command-queue properties will be used. One of:<br>{@link CL10#CL_QUEUE_PROPERTIES QUEUE_PROPERTIES}, {@link #CL_QUEUE_SIZE QUEUE_SIZE}
+	 *                    {@code properties} can be {@code NULL} in which case the default values for supported command-queue properties will be used. One of:<br><table><tr><td>{@link CL10#CL_QUEUE_PROPERTIES QUEUE_PROPERTIES}</td><td>{@link #CL_QUEUE_SIZE QUEUE_SIZE}</td></tr></table>
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
 	 * @return a valid non-zero command-queue and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the command-queue is created successfully. Otherwise, it returns a {@code NULL} value
@@ -360,7 +360,7 @@ public class CL20 {
 	 * e.g., atomic operations if the device supports them.</p>
 	 *
 	 * @param context   a valid OpenCL context used to create the SVM buffer
-	 * @param flags     a bit-field that is used to specify allocation and usage information. One of:<br>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER}, {@link #CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS}
+	 * @param flags     a bit-field that is used to specify allocation and usage information. One of:<br><table><tr><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link #CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER}</td><td>{@link #CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS}</td></tr></table>
 	 * @param size      the size in bytes of the SVM buffer to be allocated
 	 * @param alignment the minimum alignment in bytes that is required for the newly created buffer's memory region. It must be a power of two up to the largest data type
 	 *                  supported by the OpenCL device. For the full profile, the largest data type is {@code long16}. For the embedded profile, it is {@code long16} if the
@@ -416,7 +416,7 @@ public class CL20 {
 	 * e.g., atomic operations if the device supports them.</p>
 	 *
 	 * @param context   a valid OpenCL context used to create the SVM buffer
-	 * @param flags     a bit-field that is used to specify allocation and usage information. One of:<br>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER}, {@link #CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS}
+	 * @param flags     a bit-field that is used to specify allocation and usage information. One of:<br><table><tr><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link #CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER}</td><td>{@link #CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS}</td></tr></table>
 	 * @param size      the size in bytes of the SVM buffer to be allocated
 	 * @param alignment the minimum alignment in bytes that is required for the newly created buffer's memory region. It must be a power of two up to the largest data type
 	 *                  supported by the OpenCL device. For the full profile, the largest data type is {@code long16}. For the embedded profile, it is {@code long16} if the
@@ -1031,7 +1031,7 @@ public class CL20 {
 	 * default value used is {@link CL10#CL_TRUE TRUE} (system pointers might be passed); otherwise, the default is {@link CL10#CL_FALSE FALSE}.</p>
 	 *
 	 * @param kernel           the kernel object being queried
-	 * @param param_name       the information to be passed to {@code kernel}. One of:<br>{@link #CL_KERNEL_EXEC_INFO_SVM_PTRS KERNEL_EXEC_INFO_SVM_PTRS}, {@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM}
+	 * @param param_name       the information to be passed to {@code kernel}. One of:<br><table><tr><td>{@link #CL_KERNEL_EXEC_INFO_SVM_PTRS KERNEL_EXEC_INFO_SVM_PTRS}</td><td>{@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM}</td></tr></table>
 	 * @param param_value_size the size in bytes of the memory pointed to by {@code param_value}
 	 * @param param_value      a pointer to memory where the appropriate values determined by {@code param_name} are specified
 	 *
@@ -1087,7 +1087,7 @@ public class CL20 {
 	 * default value used is {@link CL10#CL_TRUE TRUE} (system pointers might be passed); otherwise, the default is {@link CL10#CL_FALSE FALSE}.</p>
 	 *
 	 * @param kernel      the kernel object being queried
-	 * @param param_name  the information to be passed to {@code kernel}. One of:<br>{@link #CL_KERNEL_EXEC_INFO_SVM_PTRS KERNEL_EXEC_INFO_SVM_PTRS}, {@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM}
+	 * @param param_name  the information to be passed to {@code kernel}. One of:<br><table><tr><td>{@link #CL_KERNEL_EXEC_INFO_SVM_PTRS KERNEL_EXEC_INFO_SVM_PTRS}</td><td>{@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM}</td></tr></table>
 	 * @param param_value a pointer to memory where the appropriate values determined by {@code param_name} are specified
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:

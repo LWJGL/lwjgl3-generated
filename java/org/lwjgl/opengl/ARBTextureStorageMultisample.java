@@ -41,7 +41,7 @@ public class ARBTextureStorageMultisample {
 	/**
 	 * Specifies storage for a two-dimensional multisample texture.
 	 *
-	 * @param target               the target of the operation. One of:<br>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}
+	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
 	 * @param samples              the number of samples in the texture
 	 * @param internalformat       the sized internal format to be used to store texture image data
 	 * @param width                the width of the texture, in texels
@@ -61,7 +61,7 @@ public class ARBTextureStorageMultisample {
 	/**
 	 * Specifies storage for a two-dimensional multisample array texture.
 	 *
-	 * @param target               the target of the operation. One of:<br>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}
+	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
 	 * @param samples              the number of samples in the texture
 	 * @param internalformat       the sized internal format to be used to store texture image data
 	 * @param width                the width of the texture, in texels
@@ -83,7 +83,7 @@ public class ARBTextureStorageMultisample {
 	 * DSA version of {@link #glTexStorage2DMultisample TexStorage2DMultisample}.
 	 *
 	 * @param texture              the texture object
-	 * @param target               the target of the operation. One of:<br>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}
+	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
 	 * @param samples              the number of samples in the texture
 	 * @param internalformat       the sized internal format to be used to store texture image data
 	 * @param width                the width of the texture, in texels
@@ -104,7 +104,7 @@ public class ARBTextureStorageMultisample {
 	 * DSA version of {@link #glTexStorage3DMultisample TexStorage3DMultisample}.
 	 *
 	 * @param texture              the texture object
-	 * @param target               the target of the operation. One of:<br>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}
+	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
 	 * @param samples              the number of samples in the texture
 	 * @param internalformat       the sized internal format to be used to store texture image data
 	 * @param width                the width of the texture, in texels

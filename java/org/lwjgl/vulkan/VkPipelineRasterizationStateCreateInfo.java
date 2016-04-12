@@ -41,9 +41,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} &ndash; reserved for future use</li>
  * <li>{@code depthClampEnable} &ndash; controls whether to clamp the fragment’s depth values instead of clipping primitives to the z planes of the frustum</li>
  * <li>{@code rasterizerDiscardEnable} &ndash; controls whether primitives are discarded immediately before the rasterization stage</li>
- * <li>{@code polygonMode} &ndash; the triangle rendering mode</li>
- * <li>{@code cullMode} &ndash; the triangle facing direction used for primitive culling</li>
- * <li>{@code frontFace} &ndash; the front-facing triangle orientation to be used for culling</li>
+ * <li>{@code polygonMode} &ndash; the triangle rendering mode. One of:<br><table><tr><td>{@link VK10#VK_POLYGON_MODE_FILL POLYGON_MODE_FILL}</td><td>{@link VK10#VK_POLYGON_MODE_LINE POLYGON_MODE_LINE}</td><td>{@link VK10#VK_POLYGON_MODE_POINT POLYGON_MODE_POINT}</td></tr></table></li>
+ * <li>{@code cullMode} &ndash; the triangle facing direction used for primitive culling. One of:<br><table><tr><td>{@link VK10#VK_CULL_MODE_BACK_BIT CULL_MODE_BACK_BIT}</td><td>{@link VK10#VK_CULL_MODE_FRONT_AND_BACK CULL_MODE_FRONT_AND_BACK}</td><td>{@link VK10#VK_CULL_MODE_FRONT_BIT CULL_MODE_FRONT_BIT}</td><td>{@link VK10#VK_CULL_MODE_NONE CULL_MODE_NONE}</td></tr></table></li>
+ * <li>{@code frontFace} &ndash; the front-facing triangle orientation to be used for culling. One of:<br><table><tr><td>{@link VK10#VK_FRONT_FACE_CLOCKWISE FRONT_FACE_CLOCKWISE}</td><td>{@link VK10#VK_FRONT_FACE_COUNTER_CLOCKWISE FRONT_FACE_COUNTER_CLOCKWISE}</td></tr></table></li>
  * <li>{@code depthBiasEnable} &ndash; controls whether to bias fragment depth values</li>
  * <li>{@code depthBiasConstantFactor} &ndash; a scalar factor controlling the constant depth value added to each fragment</li>
  * <li>{@code depthBiasClamp} &ndash; the maximum (or minimum) depth bias of a fragment</li>

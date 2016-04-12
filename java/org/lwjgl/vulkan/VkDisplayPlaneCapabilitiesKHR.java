@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code supportedAlpha} &ndash; a bitmask describing the supported alpha blending modes</li>
+ * <li>{@code supportedAlpha} &ndash; a bitmask describing the supported alpha blending modes. One or more of:<br><table><tr><td>{@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR}</td><td>{@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR}</td></tr><tr><td>{@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR}</td><td>{@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR}</td></tr></table></li>
  * <li>{@code minSrcPosition} &ndash; the minimum source rect offset supported by this plane using the specified mode</li>
  * <li>{@code maxSrcPosition} &ndash; the maximum source rect offset supported by this plane using the specified mode</li>
  * <li>{@code minSrcExtent} &ndash; the minimum source rect size supported by this plane using the specified mode</li>

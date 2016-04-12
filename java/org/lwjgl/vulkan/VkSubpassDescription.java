@@ -56,7 +56,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code flags} &ndash; reserved for future use</li>
- * <li>{@code pipelineBindPoint} &ndash; a {@code VkPipelineBindPoint} value specifying whether this is a compute or graphics subpass. Currently, only graphics subpasses are supported.</li>
+ * <li>{@code pipelineBindPoint} &ndash; a {@code VkPipelineBindPoint} value specifying whether this is a compute or graphics subpass. Currently, only graphics subpasses are supported. One of:<br><table><tr><td>{@link VK10#VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}</td><td>{@link VK10#VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</td></tr></table></li>
  * <li>{@code inputAttachmentCount} &ndash; the number of input attachments</li>
  * <li>{@code pInputAttachments} &ndash; 
  * an array of {@link VkAttachmentReference} structures that lists which of the render pass’s attachments can be read in the shader during the subpass, and what

@@ -560,7 +560,7 @@ public class OVR {
 	 * 
 	 * <p>This message will be passed back to the application via the {@link OVRLogCallback} if it was registered.</p>
 	 *
-	 * @param level   an {@code ovrLogLevel} constant. One of:<br>{@link #ovrLogLevel_Debug LogLevel_Debug}, {@link #ovrLogLevel_Info LogLevel_Info}, {@link #ovrLogLevel_Error LogLevel_Error}
+	 * @param level   an {@code ovrLogLevel} constant. One of:<br><table><tr><td>{@link #ovrLogLevel_Debug LogLevel_Debug}</td><td>{@link #ovrLogLevel_Info LogLevel_Info}</td><td>{@link #ovrLogLevel_Error LogLevel_Error}</td></tr></table>
 	 * @param message a UTF8-encoded null-terminated string
 	 *
 	 * @return the {@code strlen} of the message or a negative value if the message is too large
@@ -572,7 +572,7 @@ public class OVR {
 	 * 
 	 * <p>This message will be passed back to the application via the {@link OVRLogCallback} if it was registered.</p>
 	 *
-	 * @param level   an {@code ovrLogLevel} constant. One of:<br>{@link #ovrLogLevel_Debug LogLevel_Debug}, {@link #ovrLogLevel_Info LogLevel_Info}, {@link #ovrLogLevel_Error LogLevel_Error}
+	 * @param level   an {@code ovrLogLevel} constant. One of:<br><table><tr><td>{@link #ovrLogLevel_Debug LogLevel_Debug}</td><td>{@link #ovrLogLevel_Info LogLevel_Info}</td><td>{@link #ovrLogLevel_Error LogLevel_Error}</td></tr></table>
 	 * @param message a UTF8-encoded null-terminated string
 	 *
 	 * @return the {@code strlen} of the message or a negative value if the message is too large
@@ -589,7 +589,7 @@ public class OVR {
 	 * 
 	 * <p>This message will be passed back to the application via the {@link OVRLogCallback} if it was registered.</p>
 	 *
-	 * @param level   an {@code ovrLogLevel} constant. One of:<br>{@link #ovrLogLevel_Debug LogLevel_Debug}, {@link #ovrLogLevel_Info LogLevel_Info}, {@link #ovrLogLevel_Error LogLevel_Error}
+	 * @param level   an {@code ovrLogLevel} constant. One of:<br><table><tr><td>{@link #ovrLogLevel_Debug LogLevel_Debug}</td><td>{@link #ovrLogLevel_Info LogLevel_Info}</td><td>{@link #ovrLogLevel_Error LogLevel_Error}</td></tr></table>
 	 * @param message a UTF8-encoded null-terminated string
 	 *
 	 * @return the {@code strlen} of the message or a negative value if the message is too large
@@ -1196,7 +1196,7 @@ public class OVR {
 	 * are at least 8 pixels of padding between them to prevent texture filtering and chromatic aberration causing images to leak between the two eye views.</p>
 	 *
 	 * @param session               an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param eye                   which eye (left or right) to calculate for. One of:<br>{@link #ovrEye_Left Eye_Left}, {@link #ovrEye_Right Eye_Right}
+	 * @param eye                   which eye (left or right) to calculate for. One of:<br><table><tr><td>{@link #ovrEye_Left Eye_Left}</td><td>{@link #ovrEye_Right Eye_Right}</td></tr></table>
 	 * @param fov                   the {@link OVRFovPort} to use
 	 * @param pixelsPerDisplayPixel the ratio of the number of render target pixels to display pixels at the center of distortion. 1.0 is the default value. Lower values can improve
 	 *                              performance, higher values give improved quality.
@@ -1211,7 +1211,7 @@ public class OVR {
 	 * are at least 8 pixels of padding between them to prevent texture filtering and chromatic aberration causing images to leak between the two eye views.</p>
 	 *
 	 * @param session               an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param eye                   which eye (left or right) to calculate for. One of:<br>{@link #ovrEye_Left Eye_Left}, {@link #ovrEye_Right Eye_Right}
+	 * @param eye                   which eye (left or right) to calculate for. One of:<br><table><tr><td>{@link #ovrEye_Left Eye_Left}</td><td>{@link #ovrEye_Right Eye_Right}</td></tr></table>
 	 * @param fov                   the {@link OVRFovPort} to use
 	 * @param pixelsPerDisplayPixel the ratio of the number of render target pixels to display pixels at the center of distortion. 1.0 is the default value. Lower values can improve
 	 *                              performance, higher values give improved quality.
@@ -1229,7 +1229,7 @@ public class OVR {
 	 * Computes the distortion viewport, view adjust, and other rendering parameters for the specified eye.
 	 *
 	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param eyeType  which eye (left or right) for which to perform calculations. One of:<br>{@link #ovrEye_Left Eye_Left}, {@link #ovrEye_Right Eye_Right}
+	 * @param eyeType  which eye (left or right) for which to perform calculations. One of:<br><table><tr><td>{@link #ovrEye_Left Eye_Left}</td><td>{@link #ovrEye_Right Eye_Right}</td></tr></table>
 	 * @param fov      the {@link OVRFovPort} to use.
 	 * @param __result the computed {@link OVREyeRenderDesc} for the given {@code eyeType} and field of view
 	 */
@@ -1239,7 +1239,7 @@ public class OVR {
 	 * Computes the distortion viewport, view adjust, and other rendering parameters for the specified eye.
 	 *
 	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param eyeType  which eye (left or right) for which to perform calculations. One of:<br>{@link #ovrEye_Left Eye_Left}, {@link #ovrEye_Right Eye_Right}
+	 * @param eyeType  which eye (left or right) for which to perform calculations. One of:<br><table><tr><td>{@link #ovrEye_Left Eye_Left}</td><td>{@link #ovrEye_Right Eye_Right}</td></tr></table>
 	 * @param fov      the {@link OVRFovPort} to use.
 	 * @param __result the computed {@link OVREyeRenderDesc} for the given {@code eyeType} and field of view
 	 */

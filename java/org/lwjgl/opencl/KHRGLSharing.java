@@ -65,7 +65,7 @@ public class KHRGLSharing {
 	 *
 	 * @param properties           points to an attribute list whose format and valid contents are identical to the {code properties} argument of {@link CL10#clCreateContext CreateContext}.
 	 *                             {@code properties} must identify a single valid GL context or GL share group object.
-	 * @param param_name           a constant that specifies the GL context information to query. One of:<br>{@link #CL_DEVICES_FOR_GL_CONTEXT_KHR DEVICES_FOR_GL_CONTEXT_KHR}, {@link #CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR CURRENT_DEVICE_FOR_GL_CONTEXT_KHR}
+	 * @param param_name           a constant that specifies the GL context information to query. One of:<br><table><tr><td>{@link #CL_DEVICES_FOR_GL_CONTEXT_KHR DEVICES_FOR_GL_CONTEXT_KHR}</td><td>{@link #CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR CURRENT_DEVICE_FOR_GL_CONTEXT_KHR}</td></tr></table>
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -127,7 +127,7 @@ public class KHRGLSharing {
 	 *
 	 * @param properties           points to an attribute list whose format and valid contents are identical to the {code properties} argument of {@link CL10#clCreateContext CreateContext}.
 	 *                             {@code properties} must identify a single valid GL context or GL share group object.
-	 * @param param_name           a constant that specifies the GL context information to query. One of:<br>{@link #CL_DEVICES_FOR_GL_CONTEXT_KHR DEVICES_FOR_GL_CONTEXT_KHR}, {@link #CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR CURRENT_DEVICE_FOR_GL_CONTEXT_KHR}
+	 * @param param_name           a constant that specifies the GL context information to query. One of:<br><table><tr><td>{@link #CL_DEVICES_FOR_GL_CONTEXT_KHR DEVICES_FOR_GL_CONTEXT_KHR}</td><td>{@link #CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR CURRENT_DEVICE_FOR_GL_CONTEXT_KHR}</td></tr></table>
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *

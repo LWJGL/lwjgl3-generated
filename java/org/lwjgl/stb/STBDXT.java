@@ -43,7 +43,7 @@ public class STBDXT {
 	 * @param dest  a buffer in which to store the compressed block
 	 * @param src   the block to compress
 	 * @param alpha 1 to compress the alpha channel, 0 to ignore it
-	 * @param mode  the compression mode. One of:<br>{@link #STB_DXT_NORMAL DXT_NORMAL}, {@link #STB_DXT_DITHER DXT_DITHER}, {@link #STB_DXT_HIGHQUAL DXT_HIGHQUAL}
+	 * @param mode  the compression mode. One of:<br><table><tr><td>{@link #STB_DXT_NORMAL DXT_NORMAL}</td><td>{@link #STB_DXT_DITHER DXT_DITHER}</td><td>{@link #STB_DXT_HIGHQUAL DXT_HIGHQUAL}</td></tr></table>
 	 */
 	public static native void nstb_compress_dxt_block(long dest, long src, int alpha, int mode);
 
@@ -54,7 +54,7 @@ public class STBDXT {
 	 * @param dest  a buffer in which to store the compressed block
 	 * @param src   the block to compress
 	 * @param alpha 1 to compress the alpha channel, 0 to ignore it
-	 * @param mode  the compression mode. One of:<br>{@link #STB_DXT_NORMAL DXT_NORMAL}, {@link #STB_DXT_DITHER DXT_DITHER}, {@link #STB_DXT_HIGHQUAL DXT_HIGHQUAL}
+	 * @param mode  the compression mode. One of:<br><table><tr><td>{@link #STB_DXT_NORMAL DXT_NORMAL}</td><td>{@link #STB_DXT_DITHER DXT_DITHER}</td><td>{@link #STB_DXT_HIGHQUAL DXT_HIGHQUAL}</td></tr></table>
 	 */
 	public static void stb_compress_dxt_block(ByteBuffer dest, ByteBuffer src, int alpha, int mode) {
 		if ( CHECKS )

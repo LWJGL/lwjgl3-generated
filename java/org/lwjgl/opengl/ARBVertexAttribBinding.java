@@ -100,7 +100,7 @@ public class ARBVertexAttribBinding {
 	 * Specifies the organization of data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
-	 * @param size           the number of values per vertex that are stored in the array. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param size           the number of values per vertex that are stored in the array. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
 	 * @param type           the type of the data stored in the array
 	 * @param normalized     if true then integer data is normalized to the range [-1, 1] or [0, 1] if it is signed or unsigned, respectively. If false then integer data is
 	 *                       directly converted to floating point.
@@ -119,7 +119,7 @@ public class ARBVertexAttribBinding {
 	 * Specifies the organization of pure integer data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
-	 * @param size           the number of values per vertex that are stored in the array. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param size           the number of values per vertex that are stored in the array. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
 	 * @param type           the type of the data stored in the array
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
@@ -136,7 +136,7 @@ public class ARBVertexAttribBinding {
 	 * Specifies the organization of 64-bit double data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
-	 * @param size           the number of values per vertex that are stored in the array. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param size           the number of values per vertex that are stored in the array. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
 	 * @param type           the type of the data stored in the array
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
@@ -202,7 +202,7 @@ public class ARBVertexAttribBinding {
 	 *
 	 * @param vaobj          the vertex array object
 	 * @param attribindex    the generic vertex attribute array being described
-	 * @param size           the number of values per vertex that are stored in the array. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param size           the number of values per vertex that are stored in the array. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
 	 * @param type           the type of the data stored in the array
 	 * @param normalized     if true then integer data is normalized to the range [-1, 1] or [0, 1] if it is signed or unsigned, respectively. If false then integer data is
 	 *                       directly converted to floating point.
@@ -222,7 +222,7 @@ public class ARBVertexAttribBinding {
 	 *
 	 * @param vaobj          the vertex array object
 	 * @param attribindex    the generic vertex attribute array being described
-	 * @param size           the number of values per vertex that are stored in the array. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param size           the number of values per vertex that are stored in the array. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
 	 * @param type           the type of the data stored in the array
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
@@ -240,7 +240,7 @@ public class ARBVertexAttribBinding {
 	 *
 	 * @param vaobj          the vertex array object
 	 * @param attribindex    the generic vertex attribute array being described
-	 * @param size           the number of values per vertex that are stored in the array. One of:<br>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param size           the number of values per vertex that are stored in the array. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
 	 * @param type           the type of the data stored in the array
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */

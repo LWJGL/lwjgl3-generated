@@ -58,18 +58,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} &ndash; reserved for future use</li>
  * <li>{@code magFilter} &ndash; the magnification filter to apply to lookups</li>
  * <li>{@code minFilter} &ndash; the minification filter to apply to lookups</li>
- * <li>{@code mipmapMode} &ndash; the mipmap filter to apply to lookups</li>
- * <li>{@code addressModeU} &ndash; the addressing mode for outside [0..1] range for U coordinate</li>
+ * <li>{@code mipmapMode} &ndash; the mipmap filter to apply to lookups. One of:<br><table><tr><td>{@link VK10#VK_SAMPLER_MIPMAP_MODE_LINEAR SAMPLER_MIPMAP_MODE_LINEAR}</td><td>{@link VK10#VK_SAMPLER_MIPMAP_MODE_NEAREST SAMPLER_MIPMAP_MODE_NEAREST}</td></tr></table></li>
+ * <li>{@code addressModeU} &ndash; the addressing mode for outside [0..1] range for U coordinate. One of:<br><table><tr><td>{@link VK10#VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER}</td><td>{@link VK10#VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE}</td></tr><tr><td>{@link VK10#VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT}</td><td>{@link KHRSamplerMirrorClampToEdge#VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE}</td></tr><tr><td>{@link VK10#VK_SAMPLER_ADDRESS_MODE_REPEAT SAMPLER_ADDRESS_MODE_REPEAT}</td></tr></table></li>
  * <li>{@code addressModeV} &ndash; the addressing mode for outside [0..1] range for V coordinate</li>
  * <li>{@code addressModeW} &ndash; the addressing mode for outside [0..1] range for W coordinate</li>
  * <li>{@code mipLodBias} &ndash; the bias to be added to mipmap LOD calculation and bias provided by image sampling functions in SPIR-V</li>
  * <li>{@code anisotropyEnable} &ndash; is {@link VK10#VK_TRUE TRUE} to enable anisotropic filtering, or {@link VK10#VK_FALSE FALSE} otherwise</li>
  * <li>{@code maxAnisotropy} &ndash; the anisotropy value clamp</li>
  * <li>{@code compareEnable} &ndash; is {@link VK10#VK_TRUE TRUE} to enable comparison against a reference value during lookups, or {@link VK10#VK_FALSE FALSE} otherwise</li>
- * <li>{@code compareOp} &ndash; the comparison function to apply to fetched data before filtering</li>
+ * <li>{@code compareOp} &ndash; the comparison function to apply to fetched data before filtering. One of:<br><table><tr><td>{@link VK10#VK_COMPARE_OP_ALWAYS COMPARE_OP_ALWAYS}</td><td>{@link VK10#VK_COMPARE_OP_EQUAL COMPARE_OP_EQUAL}</td><td>{@link VK10#VK_COMPARE_OP_GREATER COMPARE_OP_GREATER}</td><td>{@link VK10#VK_COMPARE_OP_GREATER_OR_EQUAL COMPARE_OP_GREATER_OR_EQUAL}</td></tr><tr><td>{@link VK10#VK_COMPARE_OP_LESS COMPARE_OP_LESS}</td><td>{@link VK10#VK_COMPARE_OP_LESS_OR_EQUAL COMPARE_OP_LESS_OR_EQUAL}</td><td>{@link VK10#VK_COMPARE_OP_NEVER COMPARE_OP_NEVER}</td><td>{@link VK10#VK_COMPARE_OP_NOT_EQUAL COMPARE_OP_NOT_EQUAL}</td></tr></table></li>
  * <li>{@code minLod} &ndash; the minimum value to which the computed level-of-detail value will be clamped</li>
  * <li>{@code maxLod} &ndash; the maximum value to which the computed level-of-detail value will be clamped</li>
- * <li>{@code borderColor} &ndash; the predefined border color to use</li>
+ * <li>{@code borderColor} &ndash; the predefined border color to use. One of:<br><table><tr><td>{@link VK10#VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK BORDER_COLOR_FLOAT_OPAQUE_BLACK}</td><td>{@link VK10#VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE BORDER_COLOR_FLOAT_OPAQUE_WHITE}</td></tr><tr><td>{@link VK10#VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK BORDER_COLOR_FLOAT_TRANSPARENT_BLACK}</td><td>{@link VK10#VK_BORDER_COLOR_INT_OPAQUE_BLACK BORDER_COLOR_INT_OPAQUE_BLACK}</td></tr><tr><td>{@link VK10#VK_BORDER_COLOR_INT_OPAQUE_WHITE BORDER_COLOR_INT_OPAQUE_WHITE}</td><td>{@link VK10#VK_BORDER_COLOR_INT_TRANSPARENT_BLACK BORDER_COLOR_INT_TRANSPARENT_BLACK}</td></tr></table></li>
  * <li>{@code unnormalizedCoordinates} &ndash; controls whether to use unnormalized or normalized texel coordinates to address texels of the image</li>
  * </ul>
  * 

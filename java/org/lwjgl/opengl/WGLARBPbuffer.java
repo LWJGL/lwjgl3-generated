@@ -169,7 +169,7 @@ public class WGLARBPbuffer {
 	 * Queries an attribute associated with a specific pbuffer.
 	 *
 	 * @param pbuffer   a pbuffer handle
-	 * @param attribute the attribute to query. One of:<br>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}, {@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}, {@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}
+	 * @param attribute the attribute to query. One of:<br><table><tr><td>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}</td><td>{@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}</td><td>{@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}</td></tr></table>
 	 * @param value     the attribute value
 	 */
 	public static int nwglQueryPbufferARB(long pbuffer, int attribute, long value) {
@@ -185,7 +185,7 @@ public class WGLARBPbuffer {
 	 * Queries an attribute associated with a specific pbuffer.
 	 *
 	 * @param pbuffer   a pbuffer handle
-	 * @param attribute the attribute to query. One of:<br>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}, {@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}, {@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}
+	 * @param attribute the attribute to query. One of:<br><table><tr><td>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}</td><td>{@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}</td><td>{@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}</td></tr></table>
 	 * @param value     the attribute value
 	 */
 	public static int wglQueryPbufferARB(long pbuffer, int attribute, IntBuffer value) {

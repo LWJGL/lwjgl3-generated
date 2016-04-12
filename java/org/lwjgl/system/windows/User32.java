@@ -1217,7 +1217,7 @@ public class User32 {
 	 * @param hWnd     a handle to the window
 	 * @param nCmdShow controls how the window is to be shown. This parameter is ignored the first time an application calls {@code ShowWindow}, if the program that
 	 *                 launched the application provides a {@code STARTUPINFO} structure. Otherwise, the first time {@code ShowWindow} is called, the value should be the
-	 *                 value obtained by the {@code WinMain} function in its {@code nCmdShow} parameter. In subsequent calls, this parameter can be one of:<br>{@link #SW_HIDE}, {@link #SW_SHOWNORMAL}, {@link #SW_NORMAL}, {@link #SW_SHOWMINIMIZED}, {@link #SW_SHOWMAXIMIZED}, {@link #SW_MAXIMIZE}, {@link #SW_SHOWNOACTIVATE}, {@link #SW_SHOW}, {@link #SW_MINIMIZE}, {@link #SW_SHOWMINNOACTIVE}, {@link #SW_SHOWNA}, {@link #SW_RESTORE}, {@link #SW_SHOWDEFAULT}, {@link #SW_FORCEMINIMIZE}, {@link #SW_MAX}
+	 *                 value obtained by the {@code WinMain} function in its {@code nCmdShow} parameter. In subsequent calls, this parameter can be one of:<br><table><tr><td>{@link #SW_HIDE}</td><td>{@link #SW_SHOWNORMAL}</td><td>{@link #SW_NORMAL}</td><td>{@link #SW_SHOWMINIMIZED}</td><td>{@link #SW_SHOWMAXIMIZED}</td><td>{@link #SW_MAXIMIZE}</td></tr><tr><td>{@link #SW_SHOWNOACTIVATE}</td><td>{@link #SW_SHOW}</td><td>{@link #SW_MINIMIZE}</td><td>{@link #SW_SHOWMINNOACTIVE}</td><td>{@link #SW_SHOWNA}</td><td>{@link #SW_RESTORE}</td></tr><tr><td>{@link #SW_SHOWDEFAULT}</td><td>{@link #SW_FORCEMINIMIZE}</td><td>{@link #SW_MAX}</td></tr></table>
 	 */
 	public static int ShowWindow(long hWnd, int nCmdShow) {
 		long __functionAddress = Functions.ShowWindow;
@@ -1249,12 +1249,12 @@ public class User32 {
 	 * The topmost window receives the highest rank and is the first window in the Z order.
 	 *
 	 * @param hWnd            a handle to the window
-	 * @param hWndInsertAfter a handle to the window to precede the positioned window in the Z order. This parameter must be a window handle or one of:<br>{@link #HWND_TOP}, {@link #HWND_BOTTOM}, {@link #HWND_TOPMOST}, {@link #HWND_NOTOPMOST}
+	 * @param hWndInsertAfter a handle to the window to precede the positioned window in the Z order. This parameter must be a window handle or one of:<br><table><tr><td>{@link #HWND_TOP}</td><td>{@link #HWND_BOTTOM}</td><td>{@link #HWND_TOPMOST}</td><td>{@link #HWND_NOTOPMOST}</td></tr></table>
 	 * @param X               the new position of the left side of the window, in client coordinates
 	 * @param Y               the new position of the top of the window, in client coordinates
 	 * @param cx              the new width of the window, in pixels
 	 * @param cy              the new height of the window, in pixels
-	 * @param uFlags          the window sizing and positioning flags. One or more of:<br>{@link #SWP_NOSIZE}, {@link #SWP_NOMOVE}, {@link #SWP_NOZORDER}, {@link #SWP_NOREDRAW}, {@link #SWP_NOACTIVATE}, {@link #SWP_FRAMECHANGED}, {@link #SWP_SHOWWINDOW}, {@link #SWP_HIDEWINDOW}, {@link #SWP_NOCOPYBITS}, {@link #SWP_NOOWNERZORDER}, {@link #SWP_NOSENDCHANGING}, {@link #SWP_DRAWFRAME}, {@link #SWP_NOREPOSITION}, {@link #SWP_DEFERERASE}, {@link #SWP_ASYNCWINDOWPOS}
+	 * @param uFlags          the window sizing and positioning flags. One or more of:<br><table><tr><td>{@link #SWP_NOSIZE}</td><td>{@link #SWP_NOMOVE}</td><td>{@link #SWP_NOZORDER}</td><td>{@link #SWP_NOREDRAW}</td><td>{@link #SWP_NOACTIVATE}</td></tr><tr><td>{@link #SWP_FRAMECHANGED}</td><td>{@link #SWP_SHOWWINDOW}</td><td>{@link #SWP_HIDEWINDOW}</td><td>{@link #SWP_NOCOPYBITS}</td><td>{@link #SWP_NOOWNERZORDER}</td></tr><tr><td>{@link #SWP_NOSENDCHANGING}</td><td>{@link #SWP_DRAWFRAME}</td><td>{@link #SWP_NOREPOSITION}</td><td>{@link #SWP_DEFERERASE}</td><td>{@link #SWP_ASYNCWINDOWPOS}</td></tr></table>
 	 */
 	public static native int nSetWindowPos(long __functionAddress, long hWnd, long hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags);
 
@@ -1263,12 +1263,12 @@ public class User32 {
 	 * The topmost window receives the highest rank and is the first window in the Z order.
 	 *
 	 * @param hWnd            a handle to the window
-	 * @param hWndInsertAfter a handle to the window to precede the positioned window in the Z order. This parameter must be a window handle or one of:<br>{@link #HWND_TOP}, {@link #HWND_BOTTOM}, {@link #HWND_TOPMOST}, {@link #HWND_NOTOPMOST}
+	 * @param hWndInsertAfter a handle to the window to precede the positioned window in the Z order. This parameter must be a window handle or one of:<br><table><tr><td>{@link #HWND_TOP}</td><td>{@link #HWND_BOTTOM}</td><td>{@link #HWND_TOPMOST}</td><td>{@link #HWND_NOTOPMOST}</td></tr></table>
 	 * @param X               the new position of the left side of the window, in client coordinates
 	 * @param Y               the new position of the top of the window, in client coordinates
 	 * @param cx              the new width of the window, in pixels
 	 * @param cy              the new height of the window, in pixels
-	 * @param uFlags          the window sizing and positioning flags. One or more of:<br>{@link #SWP_NOSIZE}, {@link #SWP_NOMOVE}, {@link #SWP_NOZORDER}, {@link #SWP_NOREDRAW}, {@link #SWP_NOACTIVATE}, {@link #SWP_FRAMECHANGED}, {@link #SWP_SHOWWINDOW}, {@link #SWP_HIDEWINDOW}, {@link #SWP_NOCOPYBITS}, {@link #SWP_NOOWNERZORDER}, {@link #SWP_NOSENDCHANGING}, {@link #SWP_DRAWFRAME}, {@link #SWP_NOREPOSITION}, {@link #SWP_DEFERERASE}, {@link #SWP_ASYNCWINDOWPOS}
+	 * @param uFlags          the window sizing and positioning flags. One or more of:<br><table><tr><td>{@link #SWP_NOSIZE}</td><td>{@link #SWP_NOMOVE}</td><td>{@link #SWP_NOZORDER}</td><td>{@link #SWP_NOREDRAW}</td><td>{@link #SWP_NOACTIVATE}</td></tr><tr><td>{@link #SWP_FRAMECHANGED}</td><td>{@link #SWP_SHOWWINDOW}</td><td>{@link #SWP_HIDEWINDOW}</td><td>{@link #SWP_NOCOPYBITS}</td><td>{@link #SWP_NOOWNERZORDER}</td></tr><tr><td>{@link #SWP_NOSENDCHANGING}</td><td>{@link #SWP_DRAWFRAME}</td><td>{@link #SWP_NOREPOSITION}</td><td>{@link #SWP_DEFERERASE}</td><td>{@link #SWP_ASYNCWINDOWPOS}</td></tr></table>
 	 */
 	public static int SetWindowPos(long hWnd, long hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags) {
 		long __functionAddress = Functions.SetWindowPos;
@@ -1409,7 +1409,7 @@ public class User32 {
 	 *                      thread messages as posted by {@link #PostMessage} (when the {@code hWnd} parameter is {@code NULL}) or {@code PostThreadMessage}.</p>
 	 * @param wMsgFilterMin the integer value of the lowest message value to be retrieved
 	 * @param wMsgFilterMax the integer value of the highest message value to be retrieved
-	 * @param wRemoveMsg    specifies how messages are to be handled. One of:<br>{@link #PM_NOREMOVE}, {@link #PM_REMOVE}, {@link #PM_NOYIELD}
+	 * @param wRemoveMsg    specifies how messages are to be handled. One of:<br><table><tr><td>{@link #PM_NOREMOVE}</td><td>{@link #PM_REMOVE}</td><td>{@link #PM_NOYIELD}</td></tr></table>
 	 */
 	public static int nPeekMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax, int wRemoveMsg) {
 		long __functionAddress = Functions.PeekMessage;
@@ -1430,7 +1430,7 @@ public class User32 {
 	 *                      thread messages as posted by {@link #PostMessage} (when the {@code hWnd} parameter is {@code NULL}) or {@code PostThreadMessage}.</p>
 	 * @param wMsgFilterMin the integer value of the lowest message value to be retrieved
 	 * @param wMsgFilterMax the integer value of the highest message value to be retrieved
-	 * @param wRemoveMsg    specifies how messages are to be handled. One of:<br>{@link #PM_NOREMOVE}, {@link #PM_REMOVE}, {@link #PM_NOYIELD}
+	 * @param wRemoveMsg    specifies how messages are to be handled. One of:<br><table><tr><td>{@link #PM_NOREMOVE}</td><td>{@link #PM_REMOVE}</td><td>{@link #PM_NOYIELD}</td></tr></table>
 	 */
 	public static int PeekMessage(MSG lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax, int wRemoveMsg) {
 		return nPeekMessage(lpMsg.address(), hWnd, wMsgFilterMin, wMsgFilterMax, wRemoveMsg);
@@ -1844,7 +1844,7 @@ public class User32 {
 	 *
 	 * @param hWnd      a handle to the window and, indirectly, the class to which the window belongs
 	 * @param nIndex    the zero-based offset to the value to be set. Valid values are in the range zero through the number of bytes of extra window memory, minus the size
-	 *                  of an integer. To set any other value, specify one of:<br>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
+	 *                  of an integer. To set any other value, specify one of:<br><table><tr><td>{@link #GWL_WNDPROC}</td><td>{@link #GWL_HINSTANCE}</td><td>{@link #GWL_HWNDPARENT}</td><td>{@link #GWL_STYLE}</td><td>{@link #GWL_EXSTYLE}</td><td>{@link #GWL_USERDATA}</td><td>{@link #GWL_ID}</td></tr></table>
 	 * @param dwNewLong the replacement value
 	 *
 	 * @return the previous value at the given {@code index}
@@ -1856,7 +1856,7 @@ public class User32 {
 	 *
 	 * @param hWnd      a handle to the window and, indirectly, the class to which the window belongs
 	 * @param nIndex    the zero-based offset to the value to be set. Valid values are in the range zero through the number of bytes of extra window memory, minus the size
-	 *                  of an integer. To set any other value, specify one of:<br>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
+	 *                  of an integer. To set any other value, specify one of:<br><table><tr><td>{@link #GWL_WNDPROC}</td><td>{@link #GWL_HINSTANCE}</td><td>{@link #GWL_HWNDPARENT}</td><td>{@link #GWL_STYLE}</td><td>{@link #GWL_EXSTYLE}</td><td>{@link #GWL_USERDATA}</td><td>{@link #GWL_ID}</td></tr></table>
 	 * @param dwNewLong the replacement value
 	 *
 	 * @return the previous value at the given {@code index}
@@ -1875,7 +1875,7 @@ public class User32 {
 	 *
 	 * @param hWnd   a handle to the window and, indirectly, the class to which the window belongs
 	 * @param nIndex the zero-based offset to the value to be set. Valid values are in the range zero through the number of bytes of extra window memory, minus the size
-	 *               of an integer. To set any other value, specify one of:<br>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
+	 *               of an integer. To set any other value, specify one of:<br><table><tr><td>{@link #GWL_WNDPROC}</td><td>{@link #GWL_HINSTANCE}</td><td>{@link #GWL_HWNDPARENT}</td><td>{@link #GWL_STYLE}</td><td>{@link #GWL_EXSTYLE}</td><td>{@link #GWL_USERDATA}</td><td>{@link #GWL_ID}</td></tr></table>
 	 */
 	public static native long nGetWindowLongPtr(long __functionAddress, long hWnd, int nIndex);
 
@@ -1884,7 +1884,7 @@ public class User32 {
 	 *
 	 * @param hWnd   a handle to the window and, indirectly, the class to which the window belongs
 	 * @param nIndex the zero-based offset to the value to be set. Valid values are in the range zero through the number of bytes of extra window memory, minus the size
-	 *               of an integer. To set any other value, specify one of:<br>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
+	 *               of an integer. To set any other value, specify one of:<br><table><tr><td>{@link #GWL_WNDPROC}</td><td>{@link #GWL_HINSTANCE}</td><td>{@link #GWL_HWNDPARENT}</td><td>{@link #GWL_STYLE}</td><td>{@link #GWL_EXSTYLE}</td><td>{@link #GWL_USERDATA}</td><td>{@link #GWL_ID}</td></tr></table>
 	 */
 	public static long GetWindowLongPtr(long hWnd, int nIndex) {
 		long __functionAddress = Functions.GetWindowLongPtr;
@@ -1902,7 +1902,7 @@ public class User32 {
 	 * @param hWnd      a handle to the window and, indirectly, the class to which the window belongs
 	 * @param nIndex    the value to be replaced. To set a value in the extra class memory, specify the positive, zero-based byte offset of the value to be set. Valid
 	 *                  values are in the range zero through the number of bytes of extra class memory, minus eight; for example, if you specified 24 or more bytes of
-	 *                  extra class memory, a value of 16 would be an index to the third integer. To set a value other than the {@link WNDCLASSEX} structure, specify one of:<br>{@link #GCL_MENUNAME}, {@link #GCL_HBRBACKGROUND}, {@link #GCL_HCURSOR}, {@link #GCL_HICON}, {@link #GCL_HMODULE}, {@link #GCL_CBWNDEXTRA}, {@link #GCL_CBCLSEXTRA}, {@link #GCL_WNDPROC}, {@link #GCL_STYLE}, {@link #GCW_ATOM}, {@link #GCL_HICONSM}
+	 *                  extra class memory, a value of 16 would be an index to the third integer. To set a value other than the {@link WNDCLASSEX} structure, specify one of:<br><table><tr><td>{@link #GCL_MENUNAME}</td><td>{@link #GCL_HBRBACKGROUND}</td><td>{@link #GCL_HCURSOR}</td><td>{@link #GCL_HICON}</td><td>{@link #GCL_HMODULE}</td><td>{@link #GCL_CBWNDEXTRA}</td></tr><tr><td>{@link #GCL_CBCLSEXTRA}</td><td>{@link #GCL_WNDPROC}</td><td>{@link #GCL_STYLE}</td><td>{@link #GCW_ATOM}</td><td>{@link #GCL_HICONSM}</td></tr></table>
 	 * @param dwNewLong the replacement value
 	 *
 	 * @return if the function succeeds, the return value is the previous value of the specified offset. If this was not previously set, the return value is zero.
@@ -1918,7 +1918,7 @@ public class User32 {
 	 * @param hWnd      a handle to the window and, indirectly, the class to which the window belongs
 	 * @param nIndex    the value to be replaced. To set a value in the extra class memory, specify the positive, zero-based byte offset of the value to be set. Valid
 	 *                  values are in the range zero through the number of bytes of extra class memory, minus eight; for example, if you specified 24 or more bytes of
-	 *                  extra class memory, a value of 16 would be an index to the third integer. To set a value other than the {@link WNDCLASSEX} structure, specify one of:<br>{@link #GCL_MENUNAME}, {@link #GCL_HBRBACKGROUND}, {@link #GCL_HCURSOR}, {@link #GCL_HICON}, {@link #GCL_HMODULE}, {@link #GCL_CBWNDEXTRA}, {@link #GCL_CBCLSEXTRA}, {@link #GCL_WNDPROC}, {@link #GCL_STYLE}, {@link #GCW_ATOM}, {@link #GCL_HICONSM}
+	 *                  extra class memory, a value of 16 would be an index to the third integer. To set a value other than the {@link WNDCLASSEX} structure, specify one of:<br><table><tr><td>{@link #GCL_MENUNAME}</td><td>{@link #GCL_HBRBACKGROUND}</td><td>{@link #GCL_HCURSOR}</td><td>{@link #GCL_HICON}</td><td>{@link #GCL_HMODULE}</td><td>{@link #GCL_CBWNDEXTRA}</td></tr><tr><td>{@link #GCL_CBCLSEXTRA}</td><td>{@link #GCL_WNDPROC}</td><td>{@link #GCL_STYLE}</td><td>{@link #GCW_ATOM}</td><td>{@link #GCL_HICONSM}</td></tr></table>
 	 * @param dwNewLong the replacement value
 	 *
 	 * @return if the function succeeds, the return value is the previous value of the specified offset. If this was not previously set, the return value is zero.
@@ -1941,7 +1941,7 @@ public class User32 {
 	 * @param nIndex the value to be retrieved. To retrieve a value from the extra class memory, specify the positive, zero-based byte offset of the value to be
 	 *               retrieved. Valid values are in the range zero through the number of bytes of extra class memory, minus eight; for example, if you specified 24 or
 	 *               more bytes of extra class memory, a value of 16 would be an index to the third integer. To retrieve any other value from the {@link WNDCLASSEX}
-	 *               structure, specify one of:<br>{@link #GCL_MENUNAME}, {@link #GCL_HBRBACKGROUND}, {@link #GCL_HCURSOR}, {@link #GCL_HICON}, {@link #GCL_HMODULE}, {@link #GCL_CBWNDEXTRA}, {@link #GCL_CBCLSEXTRA}, {@link #GCL_WNDPROC}, {@link #GCL_STYLE}, {@link #GCW_ATOM}, {@link #GCL_HICONSM}
+	 *               structure, specify one of:<br><table><tr><td>{@link #GCL_MENUNAME}</td><td>{@link #GCL_HBRBACKGROUND}</td><td>{@link #GCL_HCURSOR}</td><td>{@link #GCL_HICON}</td><td>{@link #GCL_HMODULE}</td><td>{@link #GCL_CBWNDEXTRA}</td></tr><tr><td>{@link #GCL_CBCLSEXTRA}</td><td>{@link #GCL_WNDPROC}</td><td>{@link #GCL_STYLE}</td><td>{@link #GCW_ATOM}</td><td>{@link #GCL_HICONSM}</td></tr></table>
 	 */
 	public static native long nGetClassLongPtr(long __functionAddress, long hWnd, int nIndex);
 
@@ -1952,7 +1952,7 @@ public class User32 {
 	 * @param nIndex the value to be retrieved. To retrieve a value from the extra class memory, specify the positive, zero-based byte offset of the value to be
 	 *               retrieved. Valid values are in the range zero through the number of bytes of extra class memory, minus eight; for example, if you specified 24 or
 	 *               more bytes of extra class memory, a value of 16 would be an index to the third integer. To retrieve any other value from the {@link WNDCLASSEX}
-	 *               structure, specify one of:<br>{@link #GCL_MENUNAME}, {@link #GCL_HBRBACKGROUND}, {@link #GCL_HCURSOR}, {@link #GCL_HICON}, {@link #GCL_HMODULE}, {@link #GCL_CBWNDEXTRA}, {@link #GCL_CBCLSEXTRA}, {@link #GCL_WNDPROC}, {@link #GCL_STYLE}, {@link #GCW_ATOM}, {@link #GCL_HICONSM}
+	 *               structure, specify one of:<br><table><tr><td>{@link #GCL_MENUNAME}</td><td>{@link #GCL_HBRBACKGROUND}</td><td>{@link #GCL_HCURSOR}</td><td>{@link #GCL_HICON}</td><td>{@link #GCL_HMODULE}</td><td>{@link #GCL_CBWNDEXTRA}</td></tr><tr><td>{@link #GCL_CBCLSEXTRA}</td><td>{@link #GCL_WNDPROC}</td><td>{@link #GCL_STYLE}</td><td>{@link #GCW_ATOM}</td><td>{@link #GCL_HICONSM}</td></tr></table>
 	 */
 	public static long GetClassLongPtr(long hWnd, int nIndex) {
 		long __functionAddress = Functions.GetClassLongPtr;
@@ -1972,7 +1972,7 @@ public class User32 {
 	 *                transparent.
 	 * @param bAlpha  the alpha value used to describe the opacity of the layered window. When {@code bAlpha} is 0, the window is completely transparent. When
 	 *                {@code bAlpha} is 255, the window is opaque.
-	 * @param dwFlags an action to be taken. One or more of:<br>{@link #LWA_COLORKEY}, {@link #LWA_ALPHA}
+	 * @param dwFlags an action to be taken. One or more of:<br><table><tr><td>{@link #LWA_COLORKEY}</td><td>{@link #LWA_ALPHA}</td></tr></table>
 	 */
 	public static native int nSetLayeredWindowAttributes(long __functionAddress, long hwnd, int crKey, byte bAlpha, int dwFlags);
 
@@ -1985,7 +1985,7 @@ public class User32 {
 	 *                transparent.
 	 * @param bAlpha  the alpha value used to describe the opacity of the layered window. When {@code bAlpha} is 0, the window is completely transparent. When
 	 *                {@code bAlpha} is 255, the window is opaque.
-	 * @param dwFlags an action to be taken. One or more of:<br>{@link #LWA_COLORKEY}, {@link #LWA_ALPHA}
+	 * @param dwFlags an action to be taken. One or more of:<br><table><tr><td>{@link #LWA_COLORKEY}</td><td>{@link #LWA_ALPHA}</td></tr></table>
 	 */
 	public static int SetLayeredWindowAttributes(long hwnd, int crKey, byte bAlpha, int dwFlags) {
 		long __functionAddress = Functions.SetLayeredWindowAttributes;
@@ -2001,7 +2001,7 @@ public class User32 {
 	 *
 	 * @param instance a handle to an instance of the module whose executable file contains the icon to be loaded. This parameter must be {@code NULL} when a standard icon is
 	 *                 being loaded.
-	 * @param iconName the name of the icon resource to be loaded or one of:<br>{@link #IDI_APPLICATION}, {@link #IDI_HAND}, {@link #IDI_QUESTION}, {@link #IDI_EXCLAMATION}, {@link #IDI_ASTERISK}, {@link #IDI_WINLOGO}, {@link #IDI_SHIELD}, {@link #IDI_WARNING}, {@link #IDI_ERROR}, {@link #IDI_INFORMATION}
+	 * @param iconName the name of the icon resource to be loaded or one of:<br><table><tr><td>{@link #IDI_APPLICATION}</td><td>{@link #IDI_HAND}</td><td>{@link #IDI_QUESTION}</td><td>{@link #IDI_EXCLAMATION}</td><td>{@link #IDI_ASTERISK}</td><td>{@link #IDI_WINLOGO}</td></tr><tr><td>{@link #IDI_SHIELD}</td><td>{@link #IDI_WARNING}</td><td>{@link #IDI_ERROR}</td><td>{@link #IDI_INFORMATION}</td></tr></table>
 	 */
 	public static native long nLoadIcon(long __functionAddress, long instance, long iconName);
 
@@ -2010,7 +2010,7 @@ public class User32 {
 	 *
 	 * @param instance a handle to an instance of the module whose executable file contains the icon to be loaded. This parameter must be {@code NULL} when a standard icon is
 	 *                 being loaded.
-	 * @param iconName the name of the icon resource to be loaded or one of:<br>{@link #IDI_APPLICATION}, {@link #IDI_HAND}, {@link #IDI_QUESTION}, {@link #IDI_EXCLAMATION}, {@link #IDI_ASTERISK}, {@link #IDI_WINLOGO}, {@link #IDI_SHIELD}, {@link #IDI_WARNING}, {@link #IDI_ERROR}, {@link #IDI_INFORMATION}
+	 * @param iconName the name of the icon resource to be loaded or one of:<br><table><tr><td>{@link #IDI_APPLICATION}</td><td>{@link #IDI_HAND}</td><td>{@link #IDI_QUESTION}</td><td>{@link #IDI_EXCLAMATION}</td><td>{@link #IDI_ASTERISK}</td><td>{@link #IDI_WINLOGO}</td></tr><tr><td>{@link #IDI_SHIELD}</td><td>{@link #IDI_WARNING}</td><td>{@link #IDI_ERROR}</td><td>{@link #IDI_INFORMATION}</td></tr></table>
 	 */
 	public static long nLoadIcon(long instance, long iconName) {
 		long __functionAddress = Functions.LoadIcon;
@@ -2022,7 +2022,7 @@ public class User32 {
 	 *
 	 * @param instance a handle to an instance of the module whose executable file contains the icon to be loaded. This parameter must be {@code NULL} when a standard icon is
 	 *                 being loaded.
-	 * @param iconName the name of the icon resource to be loaded or one of:<br>{@link #IDI_APPLICATION}, {@link #IDI_HAND}, {@link #IDI_QUESTION}, {@link #IDI_EXCLAMATION}, {@link #IDI_ASTERISK}, {@link #IDI_WINLOGO}, {@link #IDI_SHIELD}, {@link #IDI_WARNING}, {@link #IDI_ERROR}, {@link #IDI_INFORMATION}
+	 * @param iconName the name of the icon resource to be loaded or one of:<br><table><tr><td>{@link #IDI_APPLICATION}</td><td>{@link #IDI_HAND}</td><td>{@link #IDI_QUESTION}</td><td>{@link #IDI_EXCLAMATION}</td><td>{@link #IDI_ASTERISK}</td><td>{@link #IDI_WINLOGO}</td></tr><tr><td>{@link #IDI_SHIELD}</td><td>{@link #IDI_WARNING}</td><td>{@link #IDI_ERROR}</td><td>{@link #IDI_INFORMATION}</td></tr></table>
 	 */
 	public static long LoadIcon(long instance, ByteBuffer iconName) {
 		if ( CHECKS )
@@ -2035,7 +2035,7 @@ public class User32 {
 	 *
 	 * @param instance a handle to an instance of the module whose executable file contains the icon to be loaded. This parameter must be {@code NULL} when a standard icon is
 	 *                 being loaded.
-	 * @param iconName the name of the icon resource to be loaded or one of:<br>{@link #IDI_APPLICATION}, {@link #IDI_HAND}, {@link #IDI_QUESTION}, {@link #IDI_EXCLAMATION}, {@link #IDI_ASTERISK}, {@link #IDI_WINLOGO}, {@link #IDI_SHIELD}, {@link #IDI_WARNING}, {@link #IDI_ERROR}, {@link #IDI_INFORMATION}
+	 * @param iconName the name of the icon resource to be loaded or one of:<br><table><tr><td>{@link #IDI_APPLICATION}</td><td>{@link #IDI_HAND}</td><td>{@link #IDI_QUESTION}</td><td>{@link #IDI_EXCLAMATION}</td><td>{@link #IDI_ASTERISK}</td><td>{@link #IDI_WINLOGO}</td></tr><tr><td>{@link #IDI_SHIELD}</td><td>{@link #IDI_WARNING}</td><td>{@link #IDI_ERROR}</td><td>{@link #IDI_INFORMATION}</td></tr></table>
 	 */
 	public static long LoadIcon(long instance, CharSequence iconName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -2053,7 +2053,7 @@ public class User32 {
 	 * Loads the specified cursor resource from the executable (.EXE) file associated with an application instance.
 	 *
 	 * @param instance   a handle to an instance of the module whose executable file contains the cursor to be loaded.
-	 * @param cursorName the name of the cursor resource to be loaded or one of:<br>{@link #IDC_ARROW}, {@link #IDC_IBEAM}, {@link #IDC_WAIT}, {@link #IDC_CROSS}, {@link #IDC_UPARROW}, {@link #IDC_SIZE}, {@link #IDC_ICON}, {@link #IDC_SIZENWSE}, {@link #IDC_SIZENESW}, {@link #IDC_SIZEWE}, {@link #IDC_SIZENS}, {@link #IDC_SIZEALL}, {@link #IDC_NO}, {@link #IDC_HAND}, {@link #IDC_APPSTARTING}, {@link #IDC_HELP}
+	 * @param cursorName the name of the cursor resource to be loaded or one of:<br><table><tr><td>{@link #IDC_ARROW}</td><td>{@link #IDC_IBEAM}</td><td>{@link #IDC_WAIT}</td><td>{@link #IDC_CROSS}</td><td>{@link #IDC_UPARROW}</td><td>{@link #IDC_SIZE}</td><td>{@link #IDC_ICON}</td><td>{@link #IDC_SIZENWSE}</td></tr><tr><td>{@link #IDC_SIZENESW}</td><td>{@link #IDC_SIZEWE}</td><td>{@link #IDC_SIZENS}</td><td>{@link #IDC_SIZEALL}</td><td>{@link #IDC_NO}</td><td>{@link #IDC_HAND}</td><td>{@link #IDC_APPSTARTING}</td><td>{@link #IDC_HELP}</td></tr></table>
 	 */
 	public static native long nLoadCursor(long __functionAddress, long instance, long cursorName);
 
@@ -2061,7 +2061,7 @@ public class User32 {
 	 * Loads the specified cursor resource from the executable (.EXE) file associated with an application instance.
 	 *
 	 * @param instance   a handle to an instance of the module whose executable file contains the cursor to be loaded.
-	 * @param cursorName the name of the cursor resource to be loaded or one of:<br>{@link #IDC_ARROW}, {@link #IDC_IBEAM}, {@link #IDC_WAIT}, {@link #IDC_CROSS}, {@link #IDC_UPARROW}, {@link #IDC_SIZE}, {@link #IDC_ICON}, {@link #IDC_SIZENWSE}, {@link #IDC_SIZENESW}, {@link #IDC_SIZEWE}, {@link #IDC_SIZENS}, {@link #IDC_SIZEALL}, {@link #IDC_NO}, {@link #IDC_HAND}, {@link #IDC_APPSTARTING}, {@link #IDC_HELP}
+	 * @param cursorName the name of the cursor resource to be loaded or one of:<br><table><tr><td>{@link #IDC_ARROW}</td><td>{@link #IDC_IBEAM}</td><td>{@link #IDC_WAIT}</td><td>{@link #IDC_CROSS}</td><td>{@link #IDC_UPARROW}</td><td>{@link #IDC_SIZE}</td><td>{@link #IDC_ICON}</td><td>{@link #IDC_SIZENWSE}</td></tr><tr><td>{@link #IDC_SIZENESW}</td><td>{@link #IDC_SIZEWE}</td><td>{@link #IDC_SIZENS}</td><td>{@link #IDC_SIZEALL}</td><td>{@link #IDC_NO}</td><td>{@link #IDC_HAND}</td><td>{@link #IDC_APPSTARTING}</td><td>{@link #IDC_HELP}</td></tr></table>
 	 */
 	public static long nLoadCursor(long instance, long cursorName) {
 		long __functionAddress = Functions.LoadCursor;
@@ -2072,7 +2072,7 @@ public class User32 {
 	 * Loads the specified cursor resource from the executable (.EXE) file associated with an application instance.
 	 *
 	 * @param instance   a handle to an instance of the module whose executable file contains the cursor to be loaded.
-	 * @param cursorName the name of the cursor resource to be loaded or one of:<br>{@link #IDC_ARROW}, {@link #IDC_IBEAM}, {@link #IDC_WAIT}, {@link #IDC_CROSS}, {@link #IDC_UPARROW}, {@link #IDC_SIZE}, {@link #IDC_ICON}, {@link #IDC_SIZENWSE}, {@link #IDC_SIZENESW}, {@link #IDC_SIZEWE}, {@link #IDC_SIZENS}, {@link #IDC_SIZEALL}, {@link #IDC_NO}, {@link #IDC_HAND}, {@link #IDC_APPSTARTING}, {@link #IDC_HELP}
+	 * @param cursorName the name of the cursor resource to be loaded or one of:<br><table><tr><td>{@link #IDC_ARROW}</td><td>{@link #IDC_IBEAM}</td><td>{@link #IDC_WAIT}</td><td>{@link #IDC_CROSS}</td><td>{@link #IDC_UPARROW}</td><td>{@link #IDC_SIZE}</td><td>{@link #IDC_ICON}</td><td>{@link #IDC_SIZENWSE}</td></tr><tr><td>{@link #IDC_SIZENESW}</td><td>{@link #IDC_SIZEWE}</td><td>{@link #IDC_SIZENS}</td><td>{@link #IDC_SIZEALL}</td><td>{@link #IDC_NO}</td><td>{@link #IDC_HAND}</td><td>{@link #IDC_APPSTARTING}</td><td>{@link #IDC_HELP}</td></tr></table>
 	 */
 	public static long LoadCursor(long instance, ByteBuffer cursorName) {
 		if ( CHECKS )
@@ -2084,7 +2084,7 @@ public class User32 {
 	 * Loads the specified cursor resource from the executable (.EXE) file associated with an application instance.
 	 *
 	 * @param instance   a handle to an instance of the module whose executable file contains the cursor to be loaded.
-	 * @param cursorName the name of the cursor resource to be loaded or one of:<br>{@link #IDC_ARROW}, {@link #IDC_IBEAM}, {@link #IDC_WAIT}, {@link #IDC_CROSS}, {@link #IDC_UPARROW}, {@link #IDC_SIZE}, {@link #IDC_ICON}, {@link #IDC_SIZENWSE}, {@link #IDC_SIZENESW}, {@link #IDC_SIZEWE}, {@link #IDC_SIZENS}, {@link #IDC_SIZEALL}, {@link #IDC_NO}, {@link #IDC_HAND}, {@link #IDC_APPSTARTING}, {@link #IDC_HELP}
+	 * @param cursorName the name of the cursor resource to be loaded or one of:<br><table><tr><td>{@link #IDC_ARROW}</td><td>{@link #IDC_IBEAM}</td><td>{@link #IDC_WAIT}</td><td>{@link #IDC_CROSS}</td><td>{@link #IDC_UPARROW}</td><td>{@link #IDC_SIZE}</td><td>{@link #IDC_ICON}</td><td>{@link #IDC_SIZENWSE}</td></tr><tr><td>{@link #IDC_SIZENESW}</td><td>{@link #IDC_SIZEWE}</td><td>{@link #IDC_SIZENS}</td><td>{@link #IDC_SIZEALL}</td><td>{@link #IDC_NO}</td><td>{@link #IDC_HAND}</td><td>{@link #IDC_APPSTARTING}</td><td>{@link #IDC_HELP}</td></tr></table>
 	 */
 	public static long LoadCursor(long instance, CharSequence cursorName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -2132,7 +2132,7 @@ public class User32 {
 	/**
 	 * Retrieves the specified system metric or system configuration setting.
 	 *
-	 * @param index the system metric or configuration setting to be retrieved. One of:<br>{@link #SM_CXSCREEN}, {@link #SM_CYSCREEN}, {@link #SM_CXVSCROLL}, {@link #SM_CYHSCROLL}, {@link #SM_CYCAPTION}, {@link #SM_CXBORDER}, {@link #SM_CYBORDER}, {@link #SM_CXDLGFRAME}, {@link #SM_CYDLGFRAME}, {@link #SM_CYVTHUMB}, {@link #SM_CXHTHUMB}, {@link #SM_CXICON}, {@link #SM_CYICON}, {@link #SM_CXCURSOR}, {@link #SM_CYCURSOR}, {@link #SM_CYMENU}, {@link #SM_CXFULLSCREEN}, {@link #SM_CYFULLSCREEN}, {@link #SM_CYKANJIWINDOW}, {@link #SM_MOUSEPRESENT}, {@link #SM_CYVSCROLL}, {@link #SM_CXHSCROLL}, {@link #SM_DEBUG}, {@link #SM_SWAPBUTTON}, {@link #SM_RESERVED1}, {@link #SM_RESERVED2}, {@link #SM_RESERVED3}, {@link #SM_RESERVED4}, {@link #SM_CXMIN}, {@link #SM_CYMIN}, {@link #SM_CXSIZE}, {@link #SM_CYSIZE}, {@link #SM_CXFRAME}, {@link #SM_CYFRAME}, {@link #SM_CXMINTRACK}, {@link #SM_CYMINTRACK}, {@link #SM_CXDOUBLECLK}, {@link #SM_CYDOUBLECLK}, {@link #SM_CXICONSPACING}, {@link #SM_CYICONSPACING}, {@link #SM_MENUDROPALIGNMENT}, {@link #SM_PENWINDOWS}, {@link #SM_DBCSENABLED}, {@link #SM_CMOUSEBUTTONS}, {@link #SM_CXFIXEDFRAME}, {@link #SM_CYFIXEDFRAME}, {@link #SM_CXSIZEFRAME}, {@link #SM_CYSIZEFRAME}, {@link #SM_SECURE}, {@link #SM_CXEDGE}, {@link #SM_CYEDGE}, {@link #SM_CXMINSPACING}, {@link #SM_CYMINSPACING}, {@link #SM_CXSMICON}, {@link #SM_CYSMICON}, {@link #SM_CYSMCAPTION}, {@link #SM_CXSMSIZE}, {@link #SM_CYSMSIZE}, {@link #SM_CXMENUSIZE}, {@link #SM_CYMENUSIZE}, {@link #SM_ARRANGE}, {@link #SM_CXMINIMIZED}, {@link #SM_CYMINIMIZED}, {@link #SM_CXMAXTRACK}, {@link #SM_CYMAXTRACK}, {@link #SM_CXMAXIMIZED}, {@link #SM_CYMAXIMIZED}, {@link #SM_NETWORK}, {@link #SM_CLEANBOOT}, {@link #SM_CXDRAG}, {@link #SM_CYDRAG}, {@link #SM_SHOWSOUNDS}, {@link #SM_CXMENUCHECK}, {@link #SM_CYMENUCHECK}, {@link #SM_SLOWMACHINE}, {@link #SM_MIDEASTENABLED}, {@link #SM_MOUSEWHEELPRESENT}, {@link #SM_XVIRTUALSCREEN}, {@link #SM_YVIRTUALSCREEN}, {@link #SM_CXVIRTUALSCREEN}, {@link #SM_CYVIRTUALSCREEN}, {@link #SM_CMONITORS}, {@link #SM_SAMEDISPLAYFORMAT}, {@link #SM_IMMENABLED}, {@link #SM_REMOTESESSION}, {@link #SM_SHUTTINGDOWN}, {@link #SM_REMOTECONTROL}, {@link #SM_CARETBLINKINGENABLED}, {@link #SM_CXFOCUSBORDER}, {@link #SM_CYFOCUSBORDER}, {@link #SM_TABLETPC}, {@link #SM_MEDIACENTER}, {@link #SM_STARTER}, {@link #SM_SERVERR2}, {@link #SM_MOUSEHORIZONTALWHEELPRESENT}, {@link #SM_CXPADDEDBORDER}, {@link #SM_DIGITIZER}, {@link #SM_MAXIMUMTOUCHES}
+	 * @param index the system metric or configuration setting to be retrieved. One of:<br><table><tr><td>{@link #SM_CXSCREEN}</td><td>{@link #SM_CYSCREEN}</td><td>{@link #SM_CXVSCROLL}</td><td>{@link #SM_CYHSCROLL}</td><td>{@link #SM_CYCAPTION}</td><td>{@link #SM_CXBORDER}</td></tr><tr><td>{@link #SM_CYBORDER}</td><td>{@link #SM_CXDLGFRAME}</td><td>{@link #SM_CYDLGFRAME}</td><td>{@link #SM_CYVTHUMB}</td><td>{@link #SM_CXHTHUMB}</td><td>{@link #SM_CXICON}</td></tr><tr><td>{@link #SM_CYICON}</td><td>{@link #SM_CXCURSOR}</td><td>{@link #SM_CYCURSOR}</td><td>{@link #SM_CYMENU}</td><td>{@link #SM_CXFULLSCREEN}</td><td>{@link #SM_CYFULLSCREEN}</td></tr><tr><td>{@link #SM_CYKANJIWINDOW}</td><td>{@link #SM_MOUSEPRESENT}</td><td>{@link #SM_CYVSCROLL}</td><td>{@link #SM_CXHSCROLL}</td><td>{@link #SM_DEBUG}</td><td>{@link #SM_SWAPBUTTON}</td></tr><tr><td>{@link #SM_RESERVED1}</td><td>{@link #SM_RESERVED2}</td><td>{@link #SM_RESERVED3}</td><td>{@link #SM_RESERVED4}</td><td>{@link #SM_CXMIN}</td><td>{@link #SM_CYMIN}</td></tr><tr><td>{@link #SM_CXSIZE}</td><td>{@link #SM_CYSIZE}</td><td>{@link #SM_CXFRAME}</td><td>{@link #SM_CYFRAME}</td><td>{@link #SM_CXMINTRACK}</td><td>{@link #SM_CYMINTRACK}</td></tr><tr><td>{@link #SM_CXDOUBLECLK}</td><td>{@link #SM_CYDOUBLECLK}</td><td>{@link #SM_CXICONSPACING}</td><td>{@link #SM_CYICONSPACING}</td><td>{@link #SM_MENUDROPALIGNMENT}</td><td>{@link #SM_PENWINDOWS}</td></tr><tr><td>{@link #SM_DBCSENABLED}</td><td>{@link #SM_CMOUSEBUTTONS}</td><td>{@link #SM_CXFIXEDFRAME}</td><td>{@link #SM_CYFIXEDFRAME}</td><td>{@link #SM_CXSIZEFRAME}</td><td>{@link #SM_CYSIZEFRAME}</td></tr><tr><td>{@link #SM_SECURE}</td><td>{@link #SM_CXEDGE}</td><td>{@link #SM_CYEDGE}</td><td>{@link #SM_CXMINSPACING}</td><td>{@link #SM_CYMINSPACING}</td><td>{@link #SM_CXSMICON}</td></tr><tr><td>{@link #SM_CYSMICON}</td><td>{@link #SM_CYSMCAPTION}</td><td>{@link #SM_CXSMSIZE}</td><td>{@link #SM_CYSMSIZE}</td><td>{@link #SM_CXMENUSIZE}</td><td>{@link #SM_CYMENUSIZE}</td></tr><tr><td>{@link #SM_ARRANGE}</td><td>{@link #SM_CXMINIMIZED}</td><td>{@link #SM_CYMINIMIZED}</td><td>{@link #SM_CXMAXTRACK}</td><td>{@link #SM_CYMAXTRACK}</td><td>{@link #SM_CXMAXIMIZED}</td></tr><tr><td>{@link #SM_CYMAXIMIZED}</td><td>{@link #SM_NETWORK}</td><td>{@link #SM_CLEANBOOT}</td><td>{@link #SM_CXDRAG}</td><td>{@link #SM_CYDRAG}</td><td>{@link #SM_SHOWSOUNDS}</td></tr><tr><td>{@link #SM_CXMENUCHECK}</td><td>{@link #SM_CYMENUCHECK}</td><td>{@link #SM_SLOWMACHINE}</td><td>{@link #SM_MIDEASTENABLED}</td><td>{@link #SM_MOUSEWHEELPRESENT}</td><td>{@link #SM_XVIRTUALSCREEN}</td></tr><tr><td>{@link #SM_YVIRTUALSCREEN}</td><td>{@link #SM_CXVIRTUALSCREEN}</td><td>{@link #SM_CYVIRTUALSCREEN}</td><td>{@link #SM_CMONITORS}</td><td>{@link #SM_SAMEDISPLAYFORMAT}</td><td>{@link #SM_IMMENABLED}</td></tr><tr><td>{@link #SM_REMOTESESSION}</td><td>{@link #SM_SHUTTINGDOWN}</td><td>{@link #SM_REMOTECONTROL}</td><td>{@link #SM_CARETBLINKINGENABLED}</td><td>{@link #SM_CXFOCUSBORDER}</td><td>{@link #SM_CYFOCUSBORDER}</td></tr><tr><td>{@link #SM_TABLETPC}</td><td>{@link #SM_MEDIACENTER}</td><td>{@link #SM_STARTER}</td><td>{@link #SM_SERVERR2}</td><td>{@link #SM_MOUSEHORIZONTALWHEELPRESENT}</td><td>{@link #SM_CXPADDEDBORDER}</td></tr><tr><td>{@link #SM_DIGITIZER}</td><td>{@link #SM_MAXIMUMTOUCHES}</td></tr></table>
 	 */
 	public static int GetSystemMetrics(int index) {
 		long __functionAddress = Functions.GetSystemMetrics;
@@ -2151,7 +2151,7 @@ public class User32 {
 	 *
 	 * @param hWnd    the handle of the window being registered. The function fails with {@code ERROR_ACCESS_DENIED} if the calling thread does not own the specified
 	 *                window.
-	 * @param ulFlags a set of bit flags that specify optional modifications. This field may contain 0 or one or more of:<br>{@link #TWF_FINETOUCH}, {@link #TWF_WANTPALM}
+	 * @param ulFlags a set of bit flags that specify optional modifications. This field may contain 0 or one or more of:<br><table><tr><td>{@link #TWF_FINETOUCH}</td><td>{@link #TWF_WANTPALM}</td></tr></table>
 	 *
 	 * @since Windows 7 (desktop apps only)
 	 */
@@ -2167,7 +2167,7 @@ public class User32 {
 	 *
 	 * @param hWnd    the handle of the window being registered. The function fails with {@code ERROR_ACCESS_DENIED} if the calling thread does not own the specified
 	 *                window.
-	 * @param ulFlags a set of bit flags that specify optional modifications. This field may contain 0 or one or more of:<br>{@link #TWF_FINETOUCH}, {@link #TWF_WANTPALM}
+	 * @param ulFlags a set of bit flags that specify optional modifications. This field may contain 0 or one or more of:<br><table><tr><td>{@link #TWF_FINETOUCH}</td><td>{@link #TWF_WANTPALM}</td></tr></table>
 	 *
 	 * @since Windows 7 (desktop apps only)
 	 */
@@ -2336,7 +2336,7 @@ public class User32 {
 	 * Retrieves a handle to the display monitor that has the largest area of intersection with the bounding rectangle of a specified window.
 	 *
 	 * @param hWnd    a handle to the window of interest
-	 * @param dwFlags determines the function's return value if the window does not intersect any display monitor. One of:<br>{@link #MONITOR_DEFAULTTONULL}, {@link #MONITOR_DEFAULTTOPRIMARY}, {@link #MONITOR_DEFAULTTONEAREST}
+	 * @param dwFlags determines the function's return value if the window does not intersect any display monitor. One of:<br><table><tr><td>{@link #MONITOR_DEFAULTTONULL}</td><td>{@link #MONITOR_DEFAULTTOPRIMARY}</td><td>{@link #MONITOR_DEFAULTTONEAREST}</td></tr></table>
 	 */
 	public static long MonitorFromWindow(long hWnd, int dwFlags) {
 		long __functionAddress = Functions.MonitorFromWindow;
@@ -2470,14 +2470,14 @@ public class User32 {
 	 *                       display device. When you call {@code EnumDisplaySettingsEx} with {@code iModeNum} set to a nonzero value, the function returns the information that
 	 *                       was cached the last time the function was called with {@code iModeNum} set to zero.</p>
 	 *                       
-	 *                       <p>This value can be a graphics mode index or one of:<br>{@link #ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS}</p>
+	 *                       <p>This value can be a graphics mode index or one of:<br></p><table><tr><td>{@link #ENUM_CURRENT_SETTINGS}</td><td>{@link #ENUM_REGISTRY_SETTINGS}</td></tr></table>
 	 * @param lpDevMode      a pointer to a {@link DEVMODE} structure into which the function stores information about the specified graphics mode. Before calling
 	 *                       {@code EnumDisplaySettingsEx}, set the {@code dmSize} member to {@link DEVMODE#SIZEOF}, and set the {@code dmDriverExtra} member to indicate the size, in
 	 *                       bytes, of the additional space available to receive private driver data.
 	 *                       
 	 *                       <p>The {@code EnumDisplaySettingsEx} function will populate the {@code dmFields} member of the {@code lpDevMode} and one or more other members of the
 	 *                       {@code DEVMODE} structure. To determine which members were set by the call to {@code EnumDisplaySettingsEx}, inspect the {@code dmFields} bitmask.</p>
-	 * @param dwFlags        this parameter can be one of:<br>{@link #EDS_RAWMODE}, {@link #EDS_ROTATEDMODE}
+	 * @param dwFlags        this parameter can be one of:<br><table><tr><td>{@link #EDS_RAWMODE}</td><td>{@link #EDS_ROTATEDMODE}</td></tr></table>
 	 */
 	public static int nEnumDisplaySettingsEx(long lpszDeviceName, int iModeNum, long lpDevMode, int dwFlags) {
 		long __functionAddress = Functions.EnumDisplaySettingsEx;
@@ -2502,14 +2502,14 @@ public class User32 {
 	 *                       display device. When you call {@code EnumDisplaySettingsEx} with {@code iModeNum} set to a nonzero value, the function returns the information that
 	 *                       was cached the last time the function was called with {@code iModeNum} set to zero.</p>
 	 *                       
-	 *                       <p>This value can be a graphics mode index or one of:<br>{@link #ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS}</p>
+	 *                       <p>This value can be a graphics mode index or one of:<br></p><table><tr><td>{@link #ENUM_CURRENT_SETTINGS}</td><td>{@link #ENUM_REGISTRY_SETTINGS}</td></tr></table>
 	 * @param lpDevMode      a pointer to a {@link DEVMODE} structure into which the function stores information about the specified graphics mode. Before calling
 	 *                       {@code EnumDisplaySettingsEx}, set the {@code dmSize} member to {@link DEVMODE#SIZEOF}, and set the {@code dmDriverExtra} member to indicate the size, in
 	 *                       bytes, of the additional space available to receive private driver data.
 	 *                       
 	 *                       <p>The {@code EnumDisplaySettingsEx} function will populate the {@code dmFields} member of the {@code lpDevMode} and one or more other members of the
 	 *                       {@code DEVMODE} structure. To determine which members were set by the call to {@code EnumDisplaySettingsEx}, inspect the {@code dmFields} bitmask.</p>
-	 * @param dwFlags        this parameter can be one of:<br>{@link #EDS_RAWMODE}, {@link #EDS_ROTATEDMODE}
+	 * @param dwFlags        this parameter can be one of:<br><table><tr><td>{@link #EDS_RAWMODE}</td><td>{@link #EDS_ROTATEDMODE}</td></tr></table>
 	 */
 	public static int EnumDisplaySettingsEx(ByteBuffer lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
 		if ( CHECKS )
@@ -2535,14 +2535,14 @@ public class User32 {
 	 *                       display device. When you call {@code EnumDisplaySettingsEx} with {@code iModeNum} set to a nonzero value, the function returns the information that
 	 *                       was cached the last time the function was called with {@code iModeNum} set to zero.</p>
 	 *                       
-	 *                       <p>This value can be a graphics mode index or one of:<br>{@link #ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS}</p>
+	 *                       <p>This value can be a graphics mode index or one of:<br></p><table><tr><td>{@link #ENUM_CURRENT_SETTINGS}</td><td>{@link #ENUM_REGISTRY_SETTINGS}</td></tr></table>
 	 * @param lpDevMode      a pointer to a {@link DEVMODE} structure into which the function stores information about the specified graphics mode. Before calling
 	 *                       {@code EnumDisplaySettingsEx}, set the {@code dmSize} member to {@link DEVMODE#SIZEOF}, and set the {@code dmDriverExtra} member to indicate the size, in
 	 *                       bytes, of the additional space available to receive private driver data.
 	 *                       
 	 *                       <p>The {@code EnumDisplaySettingsEx} function will populate the {@code dmFields} member of the {@code lpDevMode} and one or more other members of the
 	 *                       {@code DEVMODE} structure. To determine which members were set by the call to {@code EnumDisplaySettingsEx}, inspect the {@code dmFields} bitmask.</p>
-	 * @param dwFlags        this parameter can be one of:<br>{@link #EDS_RAWMODE}, {@link #EDS_ROTATEDMODE}
+	 * @param dwFlags        this parameter can be one of:<br><table><tr><td>{@link #EDS_RAWMODE}</td><td>{@link #EDS_ROTATEDMODE}</td></tr></table>
 	 */
 	public static int EnumDisplaySettingsEx(CharSequence lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -2571,7 +2571,7 @@ public class User32 {
 	 *                       <p>The {@code dmSize} member must be initialized to the size, in bytes, of the {@code DEVMODE} structure. The {@code dmDriverExtra} member must be
 	 *                       initialized to indicate the number of bytes of private driver data following the {@code DEVMODE} structure.</p>
 	 * @param hwnd           reserved; must be {@code NULL}
-	 * @param dwflags        indicates how the graphics mode should be changed. One of:<br>{@link #CDS_UPDATEREGISTRY}, {@link #CDS_TEST}, {@link #CDS_FULLSCREEN}, {@link #CDS_GLOBAL}, {@link #CDS_SET_PRIMARY}, {@link #CDS_VIDEOPARAMETERS}, {@link #CDS_ENABLE_UNSAFE_MODES}, {@link #CDS_DISABLE_UNSAFE_MODES}, {@link #CDS_RESET}, {@link #CDS_RESET_EX}, {@link #CDS_NORESET}
+	 * @param dwflags        indicates how the graphics mode should be changed. One of:<br><table><tr><td>{@link #CDS_UPDATEREGISTRY}</td><td>{@link #CDS_TEST}</td><td>{@link #CDS_FULLSCREEN}</td><td>{@link #CDS_GLOBAL}</td><td>{@link #CDS_SET_PRIMARY}</td></tr><tr><td>{@link #CDS_VIDEOPARAMETERS}</td><td>{@link #CDS_ENABLE_UNSAFE_MODES}</td><td>{@link #CDS_DISABLE_UNSAFE_MODES}</td><td>{@link #CDS_RESET}</td><td>{@link #CDS_RESET_EX}</td></tr><tr><td>{@link #CDS_NORESET}</td></tr></table>
 	 * @param lParam         if {@code flags} is {@link #CDS_VIDEOPARAMETERS}, {@code lParam} is a pointer to a {@code VIDEOPARAMETERS} structure. Otherwise {@code lParam} must be {@code NULL}.
 	 *
 	 * @return one of the following values: {@link #DISP_CHANGE_SUCCESSFUL} {@link #DISP_CHANGE_RESTART} {@link #DISP_CHANGE_FAILED} {@link #DISP_CHANGE_BADMODE} {@link #DISP_CHANGE_NOTUPDATED} {@link #DISP_CHANGE_BADFLAGS} {@link #DISP_CHANGE_BADPARAM} {@link #DISP_CHANGE_BADDUALVIEW}
@@ -2596,7 +2596,7 @@ public class User32 {
 	 *                       <p>The {@code dmSize} member must be initialized to the size, in bytes, of the {@code DEVMODE} structure. The {@code dmDriverExtra} member must be
 	 *                       initialized to indicate the number of bytes of private driver data following the {@code DEVMODE} structure.</p>
 	 * @param hwnd           reserved; must be {@code NULL}
-	 * @param dwflags        indicates how the graphics mode should be changed. One of:<br>{@link #CDS_UPDATEREGISTRY}, {@link #CDS_TEST}, {@link #CDS_FULLSCREEN}, {@link #CDS_GLOBAL}, {@link #CDS_SET_PRIMARY}, {@link #CDS_VIDEOPARAMETERS}, {@link #CDS_ENABLE_UNSAFE_MODES}, {@link #CDS_DISABLE_UNSAFE_MODES}, {@link #CDS_RESET}, {@link #CDS_RESET_EX}, {@link #CDS_NORESET}
+	 * @param dwflags        indicates how the graphics mode should be changed. One of:<br><table><tr><td>{@link #CDS_UPDATEREGISTRY}</td><td>{@link #CDS_TEST}</td><td>{@link #CDS_FULLSCREEN}</td><td>{@link #CDS_GLOBAL}</td><td>{@link #CDS_SET_PRIMARY}</td></tr><tr><td>{@link #CDS_VIDEOPARAMETERS}</td><td>{@link #CDS_ENABLE_UNSAFE_MODES}</td><td>{@link #CDS_DISABLE_UNSAFE_MODES}</td><td>{@link #CDS_RESET}</td><td>{@link #CDS_RESET_EX}</td></tr><tr><td>{@link #CDS_NORESET}</td></tr></table>
 	 * @param lParam         if {@code flags} is {@link #CDS_VIDEOPARAMETERS}, {@code lParam} is a pointer to a {@code VIDEOPARAMETERS} structure. Otherwise {@code lParam} must be {@code NULL}.
 	 *
 	 * @return one of the following values: {@link #DISP_CHANGE_SUCCESSFUL} {@link #DISP_CHANGE_RESTART} {@link #DISP_CHANGE_FAILED} {@link #DISP_CHANGE_BADMODE} {@link #DISP_CHANGE_NOTUPDATED} {@link #DISP_CHANGE_BADFLAGS} {@link #DISP_CHANGE_BADPARAM} {@link #DISP_CHANGE_BADDUALVIEW}
@@ -2622,7 +2622,7 @@ public class User32 {
 	 *                       <p>The {@code dmSize} member must be initialized to the size, in bytes, of the {@code DEVMODE} structure. The {@code dmDriverExtra} member must be
 	 *                       initialized to indicate the number of bytes of private driver data following the {@code DEVMODE} structure.</p>
 	 * @param hwnd           reserved; must be {@code NULL}
-	 * @param dwflags        indicates how the graphics mode should be changed. One of:<br>{@link #CDS_UPDATEREGISTRY}, {@link #CDS_TEST}, {@link #CDS_FULLSCREEN}, {@link #CDS_GLOBAL}, {@link #CDS_SET_PRIMARY}, {@link #CDS_VIDEOPARAMETERS}, {@link #CDS_ENABLE_UNSAFE_MODES}, {@link #CDS_DISABLE_UNSAFE_MODES}, {@link #CDS_RESET}, {@link #CDS_RESET_EX}, {@link #CDS_NORESET}
+	 * @param dwflags        indicates how the graphics mode should be changed. One of:<br><table><tr><td>{@link #CDS_UPDATEREGISTRY}</td><td>{@link #CDS_TEST}</td><td>{@link #CDS_FULLSCREEN}</td><td>{@link #CDS_GLOBAL}</td><td>{@link #CDS_SET_PRIMARY}</td></tr><tr><td>{@link #CDS_VIDEOPARAMETERS}</td><td>{@link #CDS_ENABLE_UNSAFE_MODES}</td><td>{@link #CDS_DISABLE_UNSAFE_MODES}</td><td>{@link #CDS_RESET}</td><td>{@link #CDS_RESET_EX}</td></tr><tr><td>{@link #CDS_NORESET}</td></tr></table>
 	 * @param lParam         if {@code flags} is {@link #CDS_VIDEOPARAMETERS}, {@code lParam} is a pointer to a {@code VIDEOPARAMETERS} structure. Otherwise {@code lParam} must be {@code NULL}.
 	 *
 	 * @return one of the following values: {@link #DISP_CHANGE_SUCCESSFUL} {@link #DISP_CHANGE_RESTART} {@link #DISP_CHANGE_FAILED} {@link #DISP_CHANGE_BADMODE} {@link #DISP_CHANGE_NOTUPDATED} {@link #DISP_CHANGE_BADFLAGS} {@link #DISP_CHANGE_BADPARAM} {@link #DISP_CHANGE_BADDUALVIEW}

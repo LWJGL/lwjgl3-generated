@@ -99,7 +99,7 @@ public class ARBShadingLanguageInclude {
 	 * <p>After calling NamedStringARB, the contents of {@code string} are associated with the tree location corresponding to {@code name}. If a string is already
 	 * associated with that tree location, it will be replaced with the new {@code string}.</p>
 	 *
-	 * @param type      the string type. Must be:<br>{@link #GL_SHADER_INCLUDE_ARB SHADER_INCLUDE_ARB}
+	 * @param type      the string type. Must be:<br><table><tr><td>{@link #GL_SHADER_INCLUDE_ARB SHADER_INCLUDE_ARB}</td></tr></table>
 	 * @param namelen   the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
 	 * @param name      the name associated with the string
 	 * @param stringlen the number of characters in {@code string}. If negative, {@code string} is considered to be a null-terminated string.
@@ -118,7 +118,7 @@ public class ARBShadingLanguageInclude {
 	 * <p>After calling NamedStringARB, the contents of {@code string} are associated with the tree location corresponding to {@code name}. If a string is already
 	 * associated with that tree location, it will be replaced with the new {@code string}.</p>
 	 *
-	 * @param type   the string type. Must be:<br>{@link #GL_SHADER_INCLUDE_ARB SHADER_INCLUDE_ARB}
+	 * @param type   the string type. Must be:<br><table><tr><td>{@link #GL_SHADER_INCLUDE_ARB SHADER_INCLUDE_ARB}</td></tr></table>
 	 * @param name   the name associated with the string
 	 * @param string an arbitrary string of characters
 	 */
@@ -132,7 +132,7 @@ public class ARBShadingLanguageInclude {
 	 * <p>After calling NamedStringARB, the contents of {@code string} are associated with the tree location corresponding to {@code name}. If a string is already
 	 * associated with that tree location, it will be replaced with the new {@code string}.</p>
 	 *
-	 * @param type   the string type. Must be:<br>{@link #GL_SHADER_INCLUDE_ARB SHADER_INCLUDE_ARB}
+	 * @param type   the string type. Must be:<br><table><tr><td>{@link #GL_SHADER_INCLUDE_ARB SHADER_INCLUDE_ARB}</td></tr></table>
 	 * @param name   the name associated with the string
 	 * @param string an arbitrary string of characters
 	 */
@@ -371,7 +371,7 @@ public class ARBShadingLanguageInclude {
 	 *
 	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
 	 * @param name    the name associated with the string
-	 * @param pname   the parameter to query. One of:<br>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}, {@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}
+	 * @param pname   the parameter to query. One of:<br><table><tr><td>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}</td><td>{@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}</td></tr></table>
 	 * @param params  a buffer in which to place the returned value
 	 */
 	public static void nglGetNamedStringivARB(int namelen, long name, int pname, long params) {
@@ -385,7 +385,7 @@ public class ARBShadingLanguageInclude {
 	 * Returns properties of the named string whose tree location corresponds to {@code name}.
 	 *
 	 * @param name   the name associated with the string
-	 * @param pname  the parameter to query. One of:<br>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}, {@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}
+	 * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}</td><td>{@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}</td></tr></table>
 	 * @param params a buffer in which to place the returned value
 	 */
 	public static void glGetNamedStringivARB(ByteBuffer name, int pname, IntBuffer params) {
@@ -398,7 +398,7 @@ public class ARBShadingLanguageInclude {
 	 * Returns properties of the named string whose tree location corresponds to {@code name}.
 	 *
 	 * @param name   the name associated with the string
-	 * @param pname  the parameter to query. One of:<br>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}, {@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}
+	 * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}</td><td>{@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}</td></tr></table>
 	 * @param params a buffer in which to place the returned value
 	 */
 	public static void glGetNamedStringivARB(CharSequence name, int pname, IntBuffer params) {
@@ -418,7 +418,7 @@ public class ARBShadingLanguageInclude {
 	 * Returns properties of the named string whose tree location corresponds to {@code name}.
 	 *
 	 * @param name  the name associated with the string
-	 * @param pname the parameter to query. One of:<br>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}, {@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}
+	 * @param pname the parameter to query. One of:<br><table><tr><td>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}</td><td>{@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}</td></tr></table>
 	 */
 	public static int glGetNamedStringiARB(CharSequence name, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();

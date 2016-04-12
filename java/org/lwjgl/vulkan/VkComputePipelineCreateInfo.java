@@ -51,7 +51,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO}</li>
  * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; provides options for pipeline creation, and is of type {@code VkPipelineCreateFlagBits}</li>
+ * <li>{@code flags} &ndash; provides options for pipeline creation, and is of type {@code VkPipelineCreateFlagBits}. One or more of:<br><table><tr><td>{@link VK10#VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT}</td><td>{@link VK10#VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT}</td></tr><tr><td>{@link VK10#VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT}</td></tr></table></li>
  * <li>{@code stage} &ndash; a {@link VkPipelineShaderStageCreateInfo} describing the compute shader</li>
  * <li>{@code layout} &ndash; the description of binding locations used by both the pipeline and descriptor sets used with the pipeline</li>
  * <li>{@code basePipelineHandle} &ndash; a pipeline to derive from</li>

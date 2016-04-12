@@ -95,7 +95,7 @@ public class INTELMapTexture {
 	 *
 	 * @param texture the texture to map
 	 * @param level   the mipmap level-of-detail of the texture
-	 * @param access  the type of access that will be performed by the application. One of:<br>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}, {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}
+	 * @param access  the type of access that will be performed by the application. One of:<br><table><tr><td>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}</td><td>{@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}</td></tr></table>
 	 * @param stride  returns the distance in bytes between subsequent rows in the texture
 	 * @param layout  returns the internal layout of the texture in the graphics memory
 	 */
@@ -114,7 +114,7 @@ public class INTELMapTexture {
 	 *
 	 * @param texture the texture to map
 	 * @param level   the mipmap level-of-detail of the texture
-	 * @param access  the type of access that will be performed by the application. One of:<br>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}, {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}
+	 * @param access  the type of access that will be performed by the application. One of:<br><table><tr><td>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}</td><td>{@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}</td></tr></table>
 	 * @param stride  returns the distance in bytes between subsequent rows in the texture
 	 * @param layout  returns the internal layout of the texture in the graphics memory
 	 */
@@ -135,7 +135,7 @@ public class INTELMapTexture {
 	 *
 	 * @param texture the texture to map
 	 * @param level   the mipmap level-of-detail of the texture
-	 * @param access  the type of access that will be performed by the application. One of:<br>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}, {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}
+	 * @param access  the type of access that will be performed by the application. One of:<br><table><tr><td>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}</td><td>{@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}</td></tr></table>
 	 * @param stride  returns the distance in bytes between subsequent rows in the texture
 	 * @param layout  returns the internal layout of the texture in the graphics memory
 	 */
@@ -157,7 +157,7 @@ public class INTELMapTexture {
 	 *
 	 * @param texture the texture to map
 	 * @param level   the mipmap level-of-detail of the texture
-	 * @param access  the type of access that will be performed by the application. One of:<br>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}, {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}
+	 * @param access  the type of access that will be performed by the application. One of:<br><table><tr><td>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}</td><td>{@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}</td></tr></table>
 	 * @param stride  returns the distance in bytes between subsequent rows in the texture
 	 * @param layout  returns the internal layout of the texture in the graphics memory
 	 */

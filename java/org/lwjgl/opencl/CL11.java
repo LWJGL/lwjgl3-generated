@@ -108,7 +108,7 @@ public class CL11 {
 	 *                           imply any additional copies when the sub-buffer is created from buffer. If the {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}
 	 *                           or {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} values are not specified in flags, they are inherited from the corresponding memory access qualifiers
 	 *                           associated with buffer.</p>
-	 * @param buffer_create_type the type of buffer object to be created. Must be:<br>{@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}
+	 * @param buffer_create_type the type of buffer object to be created. Must be:<br><table><tr><td>{@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}</td></tr></table>
 	 * @param buffer_create_info details about the buffer object to be created.
 	 *                           
 	 *                           <p>When {@code buffer_create_type} is {@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}, then {@code buffer_create_info} is a pointer to a {@link CLBufferRegion}
@@ -161,7 +161,7 @@ public class CL11 {
 	 *                           imply any additional copies when the sub-buffer is created from buffer. If the {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}
 	 *                           or {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} values are not specified in flags, they are inherited from the corresponding memory access qualifiers
 	 *                           associated with buffer.</p>
-	 * @param buffer_create_type the type of buffer object to be created. Must be:<br>{@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}
+	 * @param buffer_create_type the type of buffer object to be created. Must be:<br><table><tr><td>{@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}</td></tr></table>
 	 * @param buffer_create_info details about the buffer object to be created.
 	 *                           
 	 *                           <p>When {@code buffer_create_type} is {@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}, then {@code buffer_create_info} is a pointer to a {@link CLBufferRegion}
@@ -949,7 +949,7 @@ clReleaseMemObject(buf2);</code></pre>
 	 *                                   execution status values for an event will be called in the exact order that the execution status of a command changes. Furthermore, it should be
 	 *                                   noted that receiving a call back for an event with a status other than {@link CL10#CL_COMPLETE COMPLETE}, in no way implies that the memory model or
 	 *                                   execution model as defined by the OpenCL specification has changed. For example, it is not valid to assume that a corresponding memory transfer has
-	 *                                   completed unless the event is in a state {@link CL10#CL_COMPLETE COMPLETE}. One of:<br>{@link CL10#CL_SUBMITTED SUBMITTED}, {@link CL10#CL_RUNNING RUNNING}, {@link CL10#CL_COMPLETE COMPLETE}
+	 *                                   completed unless the event is in a state {@link CL10#CL_COMPLETE COMPLETE}. One of:<br><table><tr><td>{@link CL10#CL_SUBMITTED SUBMITTED}</td><td>{@link CL10#CL_RUNNING RUNNING}</td><td>{@link CL10#CL_COMPLETE COMPLETE}</td></tr></table>
 	 * @param pfn_notify                 the event callback function that can be registered by the application. This callback function may be called asynchronously by the OpenCL
 	 *                                   implementation. It is the application's responsibility to ensure that the callback function is thread-safe.
 	 * @param user_data                  will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.

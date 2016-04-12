@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code r} &ndash; the value placed in the r component of the output vector</li>
+ * <li>{@code r} &ndash; the value placed in the r component of the output vector. One of:<br><table><tr><td>{@link VK10#VK_COMPONENT_SWIZZLE_A COMPONENT_SWIZZLE_A}</td><td>{@link VK10#VK_COMPONENT_SWIZZLE_B COMPONENT_SWIZZLE_B}</td><td>{@link VK10#VK_COMPONENT_SWIZZLE_G COMPONENT_SWIZZLE_G}</td></tr><tr><td>{@link VK10#VK_COMPONENT_SWIZZLE_IDENTITY COMPONENT_SWIZZLE_IDENTITY}</td><td>{@link VK10#VK_COMPONENT_SWIZZLE_ONE COMPONENT_SWIZZLE_ONE}</td><td>{@link VK10#VK_COMPONENT_SWIZZLE_R COMPONENT_SWIZZLE_R}</td></tr><tr><td>{@link VK10#VK_COMPONENT_SWIZZLE_ZERO COMPONENT_SWIZZLE_ZERO}</td></tr></table></li>
  * <li>{@code g} &ndash; the value placed in the g component of the output vector</li>
  * <li>{@code b} &ndash; the value placed in the b component of the output vector</li>
  * <li>{@code a} &ndash; the value placed in the a component of the output vector</li>

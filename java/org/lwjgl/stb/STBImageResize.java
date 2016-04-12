@@ -244,7 +244,7 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
@@ -271,7 +271,7 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
@@ -298,8 +298,8 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
-	 * @param edge_wrap_mode         the edge wrap mode. One of:<br>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}, {@link #STBIR_EDGE_REFLECT EDGE_REFLECT}, {@link #STBIR_EDGE_WRAP EDGE_WRAP}, {@link #STBIR_EDGE_ZERO EDGE_ZERO}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
+	 * @param edge_wrap_mode         the edge wrap mode. One of:<br><table><tr><td>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</td><td>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</td><td>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</td><td>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</td></tr></table>
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
@@ -318,8 +318,8 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
-	 * @param edge_wrap_mode         the edge wrap mode. One of:<br>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}, {@link #STBIR_EDGE_REFLECT EDGE_REFLECT}, {@link #STBIR_EDGE_WRAP EDGE_WRAP}, {@link #STBIR_EDGE_ZERO EDGE_ZERO}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
+	 * @param edge_wrap_mode         the edge wrap mode. One of:<br><table><tr><td>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</td><td>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</td><td>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</td><td>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</td></tr></table>
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
@@ -346,10 +346,10 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
-	 * @param edge_wrap_mode         the edge wrap mode. One of:<br>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}, {@link #STBIR_EDGE_REFLECT EDGE_REFLECT}, {@link #STBIR_EDGE_WRAP EDGE_WRAP}, {@link #STBIR_EDGE_ZERO EDGE_ZERO}
-	 * @param filter                 the scale filter. One of:<br>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}, {@link #STBIR_FILTER_BOX FILTER_BOX}, {@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}, {@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}, {@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}, {@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
+	 * @param edge_wrap_mode         the edge wrap mode. One of:<br><table><tr><td>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</td><td>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</td><td>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</td><td>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</td></tr></table>
+	 * @param filter                 the scale filter. One of:<br><table><tr><td>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}</td><td>{@link #STBIR_FILTER_BOX FILTER_BOX}</td><td>{@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}</td><td>{@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}</td><td>{@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}</td></tr><tr><td>{@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}</td></tr></table>
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 *
 	 * @return 1 on success, 0 on failure
@@ -369,10 +369,10 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
-	 * @param edge_wrap_mode         the edge wrap mode. One of:<br>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}, {@link #STBIR_EDGE_REFLECT EDGE_REFLECT}, {@link #STBIR_EDGE_WRAP EDGE_WRAP}, {@link #STBIR_EDGE_ZERO EDGE_ZERO}
-	 * @param filter                 the scale filter. One of:<br>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}, {@link #STBIR_FILTER_BOX FILTER_BOX}, {@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}, {@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}, {@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}, {@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
+	 * @param edge_wrap_mode         the edge wrap mode. One of:<br><table><tr><td>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</td><td>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</td><td>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</td><td>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</td></tr></table>
+	 * @param filter                 the scale filter. One of:<br><table><tr><td>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}</td><td>{@link #STBIR_FILTER_BOX FILTER_BOX}</td><td>{@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}</td><td>{@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}</td><td>{@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}</td></tr><tr><td>{@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}</td></tr></table>
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 *
 	 * @return 1 on success, 0 on failure
@@ -398,10 +398,10 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
-	 * @param edge_wrap_mode         the edge wrap mode. One of:<br>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}, {@link #STBIR_EDGE_REFLECT EDGE_REFLECT}, {@link #STBIR_EDGE_WRAP EDGE_WRAP}, {@link #STBIR_EDGE_ZERO EDGE_ZERO}
-	 * @param filter                 the scale filter. One of:<br>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}, {@link #STBIR_FILTER_BOX FILTER_BOX}, {@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}, {@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}, {@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}, {@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
+	 * @param edge_wrap_mode         the edge wrap mode. One of:<br><table><tr><td>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</td><td>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</td><td>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</td><td>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</td></tr></table>
+	 * @param filter                 the scale filter. One of:<br><table><tr><td>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}</td><td>{@link #STBIR_FILTER_BOX FILTER_BOX}</td><td>{@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}</td><td>{@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}</td><td>{@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}</td></tr><tr><td>{@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}</td></tr></table>
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
@@ -428,10 +428,10 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
-	 * @param edge_wrap_mode         the edge wrap mode. One of:<br>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}, {@link #STBIR_EDGE_REFLECT EDGE_REFLECT}, {@link #STBIR_EDGE_WRAP EDGE_WRAP}, {@link #STBIR_EDGE_ZERO EDGE_ZERO}
-	 * @param filter                 the scale filter. One of:<br>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}, {@link #STBIR_FILTER_BOX FILTER_BOX}, {@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}, {@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}, {@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}, {@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
+	 * @param edge_wrap_mode         the edge wrap mode. One of:<br><table><tr><td>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</td><td>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</td><td>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</td><td>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</td></tr></table>
+	 * @param filter                 the scale filter. One of:<br><table><tr><td>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}</td><td>{@link #STBIR_FILTER_BOX FILTER_BOX}</td><td>{@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}</td><td>{@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}</td><td>{@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}</td></tr><tr><td>{@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}</td></tr></table>
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 *
 	 * @return 1 on success, 0 on failure
@@ -451,10 +451,10 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
-	 * @param edge_wrap_mode         the edge wrap mode. One of:<br>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}, {@link #STBIR_EDGE_REFLECT EDGE_REFLECT}, {@link #STBIR_EDGE_WRAP EDGE_WRAP}, {@link #STBIR_EDGE_ZERO EDGE_ZERO}
-	 * @param filter                 the scale filter. One of:<br>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}, {@link #STBIR_FILTER_BOX FILTER_BOX}, {@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}, {@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}, {@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}, {@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
+	 * @param edge_wrap_mode         the edge wrap mode. One of:<br><table><tr><td>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</td><td>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</td><td>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</td><td>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</td></tr></table>
+	 * @param filter                 the scale filter. One of:<br><table><tr><td>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}</td><td>{@link #STBIR_FILTER_BOX FILTER_BOX}</td><td>{@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}</td><td>{@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}</td><td>{@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}</td></tr><tr><td>{@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}</td></tr></table>
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 *
 	 * @return 1 on success, 0 on failure
@@ -480,10 +480,10 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
-	 * @param edge_wrap_mode         the edge wrap mode. One of:<br>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}, {@link #STBIR_EDGE_REFLECT EDGE_REFLECT}, {@link #STBIR_EDGE_WRAP EDGE_WRAP}, {@link #STBIR_EDGE_ZERO EDGE_ZERO}
-	 * @param filter                 the scale filter. One of:<br>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}, {@link #STBIR_FILTER_BOX FILTER_BOX}, {@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}, {@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}, {@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}, {@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
+	 * @param edge_wrap_mode         the edge wrap mode. One of:<br><table><tr><td>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</td><td>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</td><td>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</td><td>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</td></tr></table>
+	 * @param filter                 the scale filter. One of:<br><table><tr><td>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}</td><td>{@link #STBIR_FILTER_BOX FILTER_BOX}</td><td>{@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}</td><td>{@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}</td><td>{@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}</td></tr><tr><td>{@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}</td></tr></table>
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
@@ -510,10 +510,10 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
-	 * @param edge_wrap_mode         the edge wrap mode. One of:<br>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}, {@link #STBIR_EDGE_REFLECT EDGE_REFLECT}, {@link #STBIR_EDGE_WRAP EDGE_WRAP}, {@link #STBIR_EDGE_ZERO EDGE_ZERO}
-	 * @param filter                 the scale filter. One of:<br>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}, {@link #STBIR_FILTER_BOX FILTER_BOX}, {@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}, {@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}, {@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}, {@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
+	 * @param edge_wrap_mode         the edge wrap mode. One of:<br><table><tr><td>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</td><td>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</td><td>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</td><td>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</td></tr></table>
+	 * @param filter                 the scale filter. One of:<br><table><tr><td>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}</td><td>{@link #STBIR_FILTER_BOX FILTER_BOX}</td><td>{@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}</td><td>{@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}</td><td>{@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}</td></tr><tr><td>{@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}</td></tr></table>
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 *
 	 * @return 1 on success, 0 on failure
@@ -533,10 +533,10 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
-	 * @param edge_wrap_mode         the edge wrap mode. One of:<br>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}, {@link #STBIR_EDGE_REFLECT EDGE_REFLECT}, {@link #STBIR_EDGE_WRAP EDGE_WRAP}, {@link #STBIR_EDGE_ZERO EDGE_ZERO}
-	 * @param filter                 the scale filter. One of:<br>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}, {@link #STBIR_FILTER_BOX FILTER_BOX}, {@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}, {@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}, {@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}, {@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
+	 * @param edge_wrap_mode         the edge wrap mode. One of:<br><table><tr><td>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</td><td>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</td><td>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</td><td>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</td></tr></table>
+	 * @param filter                 the scale filter. One of:<br><table><tr><td>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}</td><td>{@link #STBIR_FILTER_BOX FILTER_BOX}</td><td>{@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}</td><td>{@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}</td><td>{@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}</td></tr><tr><td>{@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}</td></tr></table>
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 *
 	 * @return 1 on success, 0 on failure
@@ -562,10 +562,10 @@ public class STBImageResize {
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
-	 * @param edge_wrap_mode         the edge wrap mode. One of:<br>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}, {@link #STBIR_EDGE_REFLECT EDGE_REFLECT}, {@link #STBIR_EDGE_WRAP EDGE_WRAP}, {@link #STBIR_EDGE_ZERO EDGE_ZERO}
-	 * @param filter                 the scale filter. One of:<br>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}, {@link #STBIR_FILTER_BOX FILTER_BOX}, {@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}, {@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}, {@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}, {@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
+	 * @param edge_wrap_mode         the edge wrap mode. One of:<br><table><tr><td>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</td><td>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</td><td>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</td><td>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</td></tr></table>
+	 * @param filter                 the scale filter. One of:<br><table><tr><td>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT}</td><td>{@link #STBIR_FILTER_BOX FILTER_BOX}</td><td>{@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE}</td><td>{@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE}</td><td>{@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM}</td></tr><tr><td>{@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL}</td></tr></table>
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
@@ -590,15 +590,15 @@ public class STBImageResize {
 	 * @param output_w               the resized image width
 	 * @param output_h               the resized image height
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
-	 * @param datatype               the image data type. One of:<br>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}, {@link #STBIR_TYPE_UINT16 TYPE_UINT16}, {@link #STBIR_TYPE_UINT32 TYPE_UINT32}, {@link #STBIR_TYPE_FLOAT TYPE_FLOAT}
+	 * @param datatype               the image data type. One of:<br><table><tr><td>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}</td><td>{@link #STBIR_TYPE_UINT16 TYPE_UINT16}</td><td>{@link #STBIR_TYPE_UINT32 TYPE_UINT32}</td><td>{@link #STBIR_TYPE_FLOAT TYPE_FLOAT}</td></tr></table>
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
 	 * @param edge_mode_horizontal   the horizontal edge wrap mode
 	 * @param edge_mode_vertical     the vertical edge wrap mode
 	 * @param filter_horizontal      the horizontal scale filter
 	 * @param filter_vertical        the vertical scale filter
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 *
 	 * @return 1 on success, 0 on failure
@@ -616,15 +616,15 @@ public class STBImageResize {
 	 * @param output_w               the resized image width
 	 * @param output_h               the resized image height
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
-	 * @param datatype               the image data type. One of:<br>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}, {@link #STBIR_TYPE_UINT16 TYPE_UINT16}, {@link #STBIR_TYPE_UINT32 TYPE_UINT32}, {@link #STBIR_TYPE_FLOAT TYPE_FLOAT}
+	 * @param datatype               the image data type. One of:<br><table><tr><td>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}</td><td>{@link #STBIR_TYPE_UINT16 TYPE_UINT16}</td><td>{@link #STBIR_TYPE_UINT32 TYPE_UINT32}</td><td>{@link #STBIR_TYPE_FLOAT TYPE_FLOAT}</td></tr></table>
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
 	 * @param edge_mode_horizontal   the horizontal edge wrap mode
 	 * @param edge_mode_vertical     the vertical edge wrap mode
 	 * @param filter_horizontal      the horizontal scale filter
 	 * @param filter_vertical        the vertical scale filter
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 *
 	 * @return 1 on success, 0 on failure
@@ -644,15 +644,15 @@ public class STBImageResize {
 	 * @param output_w               the resized image width
 	 * @param output_h               the resized image height
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
-	 * @param datatype               the image data type. One of:<br>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}, {@link #STBIR_TYPE_UINT16 TYPE_UINT16}, {@link #STBIR_TYPE_UINT32 TYPE_UINT32}, {@link #STBIR_TYPE_FLOAT TYPE_FLOAT}
+	 * @param datatype               the image data type. One of:<br><table><tr><td>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}</td><td>{@link #STBIR_TYPE_UINT16 TYPE_UINT16}</td><td>{@link #STBIR_TYPE_UINT32 TYPE_UINT32}</td><td>{@link #STBIR_TYPE_FLOAT TYPE_FLOAT}</td></tr></table>
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
 	 * @param edge_mode_horizontal   the horizontal edge wrap mode
 	 * @param edge_mode_vertical     the vertical edge wrap mode
 	 * @param filter_horizontal      the horizontal scale filter
 	 * @param filter_vertical        the vertical scale filter
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
@@ -673,15 +673,15 @@ public class STBImageResize {
 	 * @param output_w               the resized image width
 	 * @param output_h               the resized image height
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
-	 * @param datatype               the image data type. One of:<br>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}, {@link #STBIR_TYPE_UINT16 TYPE_UINT16}, {@link #STBIR_TYPE_UINT32 TYPE_UINT32}, {@link #STBIR_TYPE_FLOAT TYPE_FLOAT}
+	 * @param datatype               the image data type. One of:<br><table><tr><td>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}</td><td>{@link #STBIR_TYPE_UINT16 TYPE_UINT16}</td><td>{@link #STBIR_TYPE_UINT32 TYPE_UINT32}</td><td>{@link #STBIR_TYPE_FLOAT TYPE_FLOAT}</td></tr></table>
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
 	 * @param edge_mode_horizontal   the horizontal edge wrap mode
 	 * @param edge_mode_vertical     the vertical edge wrap mode
 	 * @param filter_horizontal      the horizontal scale filter
 	 * @param filter_vertical        the vertical scale filter
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 * @param x_scale                horizontal scale for subpixel correctness
 	 * @param y_scale                vertical scale for subpixel correctness
@@ -703,15 +703,15 @@ public class STBImageResize {
 	 * @param output_w               the resized image width
 	 * @param output_h               the resized image height
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
-	 * @param datatype               the image data type. One of:<br>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}, {@link #STBIR_TYPE_UINT16 TYPE_UINT16}, {@link #STBIR_TYPE_UINT32 TYPE_UINT32}, {@link #STBIR_TYPE_FLOAT TYPE_FLOAT}
+	 * @param datatype               the image data type. One of:<br><table><tr><td>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}</td><td>{@link #STBIR_TYPE_UINT16 TYPE_UINT16}</td><td>{@link #STBIR_TYPE_UINT32 TYPE_UINT32}</td><td>{@link #STBIR_TYPE_FLOAT TYPE_FLOAT}</td></tr></table>
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
 	 * @param edge_mode_horizontal   the horizontal edge wrap mode
 	 * @param edge_mode_vertical     the vertical edge wrap mode
 	 * @param filter_horizontal      the horizontal scale filter
 	 * @param filter_vertical        the vertical scale filter
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 * @param x_scale                horizontal scale for subpixel correctness
 	 * @param y_scale                vertical scale for subpixel correctness
@@ -735,15 +735,15 @@ public class STBImageResize {
 	 * @param output_w               the resized image width
 	 * @param output_h               the resized image height
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
-	 * @param datatype               the image data type. One of:<br>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}, {@link #STBIR_TYPE_UINT16 TYPE_UINT16}, {@link #STBIR_TYPE_UINT32 TYPE_UINT32}, {@link #STBIR_TYPE_FLOAT TYPE_FLOAT}
+	 * @param datatype               the image data type. One of:<br><table><tr><td>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}</td><td>{@link #STBIR_TYPE_UINT16 TYPE_UINT16}</td><td>{@link #STBIR_TYPE_UINT32 TYPE_UINT32}</td><td>{@link #STBIR_TYPE_FLOAT TYPE_FLOAT}</td></tr></table>
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
 	 * @param edge_mode_horizontal   the horizontal edge wrap mode
 	 * @param edge_mode_vertical     the vertical edge wrap mode
 	 * @param filter_horizontal      the horizontal scale filter
 	 * @param filter_vertical        the vertical scale filter
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param x_scale                horizontal scale for subpixel correctness
 	 * @param y_scale                vertical scale for subpixel correctness
 	 * @param x_offset               horizontal offset for subpixel correctness
@@ -768,15 +768,15 @@ public class STBImageResize {
 	 * @param output_w               the resized image width
 	 * @param output_h               the resized image height
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
-	 * @param datatype               the image data type. One of:<br>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}, {@link #STBIR_TYPE_UINT16 TYPE_UINT16}, {@link #STBIR_TYPE_UINT32 TYPE_UINT32}, {@link #STBIR_TYPE_FLOAT TYPE_FLOAT}
+	 * @param datatype               the image data type. One of:<br><table><tr><td>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}</td><td>{@link #STBIR_TYPE_UINT16 TYPE_UINT16}</td><td>{@link #STBIR_TYPE_UINT32 TYPE_UINT32}</td><td>{@link #STBIR_TYPE_FLOAT TYPE_FLOAT}</td></tr></table>
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
 	 * @param edge_mode_horizontal   the horizontal edge wrap mode
 	 * @param edge_mode_vertical     the vertical edge wrap mode
 	 * @param filter_horizontal      the horizontal scale filter
 	 * @param filter_vertical        the vertical scale filter
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 * @param s0                     the left texture coordinate of the region to scale
 	 * @param t0                     the top texture coordinate of the region to scale
@@ -798,15 +798,15 @@ public class STBImageResize {
 	 * @param output_w               the resized image width
 	 * @param output_h               the resized image height
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
-	 * @param datatype               the image data type. One of:<br>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}, {@link #STBIR_TYPE_UINT16 TYPE_UINT16}, {@link #STBIR_TYPE_UINT32 TYPE_UINT32}, {@link #STBIR_TYPE_FLOAT TYPE_FLOAT}
+	 * @param datatype               the image data type. One of:<br><table><tr><td>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}</td><td>{@link #STBIR_TYPE_UINT16 TYPE_UINT16}</td><td>{@link #STBIR_TYPE_UINT32 TYPE_UINT32}</td><td>{@link #STBIR_TYPE_FLOAT TYPE_FLOAT}</td></tr></table>
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
 	 * @param edge_mode_horizontal   the horizontal edge wrap mode
 	 * @param edge_mode_vertical     the vertical edge wrap mode
 	 * @param filter_horizontal      the horizontal scale filter
 	 * @param filter_vertical        the vertical scale filter
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param alloc_context          pointer to the allocation context
 	 * @param s0                     the left texture coordinate of the region to scale
 	 * @param t0                     the top texture coordinate of the region to scale
@@ -830,15 +830,15 @@ public class STBImageResize {
 	 * @param output_w               the resized image width
 	 * @param output_h               the resized image height
 	 * @param output_stride_in_bytes the offset between successive rows of the resized image data in memory, in bytes. You can specify 0 to mean packed continuously in memory
-	 * @param datatype               the image data type. One of:<br>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}, {@link #STBIR_TYPE_UINT16 TYPE_UINT16}, {@link #STBIR_TYPE_UINT32 TYPE_UINT32}, {@link #STBIR_TYPE_FLOAT TYPE_FLOAT}
+	 * @param datatype               the image data type. One of:<br><table><tr><td>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}</td><td>{@link #STBIR_TYPE_UINT16 TYPE_UINT16}</td><td>{@link #STBIR_TYPE_UINT32 TYPE_UINT32}</td><td>{@link #STBIR_TYPE_FLOAT TYPE_FLOAT}</td></tr></table>
 	 * @param num_channels           the number of channels in the image (e.g. RGB=3, RGBA=4)
 	 * @param alpha_channel          the alpha channel index, or {@link #STBIR_ALPHA_CHANNEL_NONE ALPHA_CHANNEL_NONE} if there is no alpha channel
-	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}, {@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}
+	 * @param flags                  the alpha channel flags. 0 will propably do the right thing if you're not sure what the flags mean. One of:<br><table><tr><td>{@link #STBIR_FLAG_ALPHA_PREMULTIPLIED FLAG_ALPHA_PREMULTIPLIED}</td><td>{@link #STBIR_FLAG_ALPHA_USES_COLORSPACE FLAG_ALPHA_USES_COLORSPACE}</td></tr></table>
 	 * @param edge_mode_horizontal   the horizontal edge wrap mode
 	 * @param edge_mode_vertical     the vertical edge wrap mode
 	 * @param filter_horizontal      the horizontal scale filter
 	 * @param filter_vertical        the vertical scale filter
-	 * @param space                  the image colorspace. One of:<br>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}, {@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}
+	 * @param space                  the image colorspace. One of:<br><table><tr><td>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</td><td>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</td></tr></table>
 	 * @param s0                     the left texture coordinate of the region to scale
 	 * @param t0                     the top texture coordinate of the region to scale
 	 * @param s1                     the right texture coordinate of the region to scale

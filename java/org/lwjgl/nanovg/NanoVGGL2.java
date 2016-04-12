@@ -94,7 +94,7 @@ public class NanoVGGL2 {
 	 * <p>An OpenGL 2.0+ context must be current in the current thread when this function is called and the returned NanoVG context may only be used in the
 	 * thread in which that OpenGL context is current.</p>
 	 *
-	 * @param flags the context flags. One of:<br>{@link #NVG_ANTIALIAS ANTIALIAS}, {@link #NVG_STENCIL_STROKES STENCIL_STROKES}, {@link #NVG_DEBUG DEBUG}
+	 * @param flags the context flags. One of:<br><table><tr><td>{@link #NVG_ANTIALIAS ANTIALIAS}</td><td>{@link #NVG_STENCIL_STROKES STENCIL_STROKES}</td><td>{@link #NVG_DEBUG DEBUG}</td></tr></table>
 	 */
 	public static native long nvgCreateGL2(int flags);
 

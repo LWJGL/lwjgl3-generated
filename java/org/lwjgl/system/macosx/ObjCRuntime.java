@@ -3565,7 +3565,7 @@ public class ObjCRuntime {
 	 * @param object the source object for the association
 	 * @param key    the key for the association
 	 * @param value  the value to associate with the key {@code key} for {@code object}. Pass {@link #nil} to clear an existing association.
-	 * @param policy the policy for the association. One of:<br>{@link #OBJC_ASSOCIATION_ASSIGN}, {@link #OBJC_ASSOCIATION_RETAIN_NONATOMIC}, {@link #OBJC_ASSOCIATION_COPY_NONATOMIC}, {@link #OBJC_ASSOCIATION_RETAIN}, {@link #OBJC_ASSOCIATION_COPY}
+	 * @param policy the policy for the association. One of:<br><table><tr><td>{@link #OBJC_ASSOCIATION_ASSIGN}</td><td>{@link #OBJC_ASSOCIATION_RETAIN_NONATOMIC}</td><td>{@link #OBJC_ASSOCIATION_COPY_NONATOMIC}</td></tr><tr><td>{@link #OBJC_ASSOCIATION_RETAIN}</td><td>{@link #OBJC_ASSOCIATION_COPY}</td></tr></table>
 	 */
 	public static void objc_setAssociatedObject(long object, long key, long value, long policy) {
 		long __functionAddress = Functions.objc_setAssociatedObject;

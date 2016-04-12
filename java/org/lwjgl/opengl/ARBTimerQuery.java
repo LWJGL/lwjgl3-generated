@@ -58,7 +58,7 @@ public class ARBTimerQuery {
 	 * Records the GL time into a query object after all previous commands have reached the GL server but have not yet necessarily executed.
 	 *
 	 * @param id     the name of a query object into which to record the GL time
-	 * @param target the counter to query. Must be:<br>{@link #GL_TIMESTAMP TIMESTAMP}
+	 * @param target the counter to query. Must be:<br><table><tr><td>{@link #GL_TIMESTAMP TIMESTAMP}</td></tr></table>
 	 */
 	public static void glQueryCounter(int id, int target) {
 		long __functionAddress = GL.getCapabilities().glQueryCounter;
@@ -73,7 +73,7 @@ public class ARBTimerQuery {
 	 * Returns the 64bit integer value of query object parameter.
 	 *
 	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}, {@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}
+	 * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
 	 * @param params the requested data
 	 */
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
@@ -87,7 +87,7 @@ public class ARBTimerQuery {
 	 * Returns the 64bit integer value of query object parameter.
 	 *
 	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}, {@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}
+	 * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjecti64v(int id, int pname, LongBuffer params) {
@@ -100,7 +100,7 @@ public class ARBTimerQuery {
 	 * Returns the 64bit integer value of query object parameter.
 	 *
 	 * @param id    the name of a query object
-	 * @param pname the symbolic name of a query object parameter. One of:<br>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}, {@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}
+	 * @param pname the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
 	 */
 	public static long glGetQueryObjecti64(int id, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();

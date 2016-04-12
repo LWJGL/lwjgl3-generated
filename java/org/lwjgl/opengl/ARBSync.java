@@ -82,7 +82,7 @@ public class ARBSync {
 	/**
 	 * Creates a new sync object and inserts it into the GL command stream.
 	 *
-	 * @param condition the condition that must be met to set the sync object's state to signaled. Must be:<br>{@link #GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE}
+	 * @param condition the condition that must be met to set the sync object's state to signaled. Must be:<br><table><tr><td>{@link #GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE}</td></tr></table>
 	 * @param flags     a bitwise combination of flags controlling the behavior of the sync object. No flags are presently defined for this operation and {@code flags} must
 	 *                  be zero.
 	 */
@@ -141,7 +141,7 @@ public class ARBSync {
 	 * </ul>
 	 *
 	 * @param sync    the sync object whose status to wait on
-	 * @param flags   a bitfield controlling the command flushing behavior. One or more of:<br>0, {@link #GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}
+	 * @param flags   a bitfield controlling the command flushing behavior. One or more of:<br><table><tr><td>0</td><td>{@link #GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}</td></tr></table>
 	 * @param timeout the timeout, specified in nanoseconds, for which the implementation should wait for {@code sync} to become signaled
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
@@ -165,8 +165,8 @@ public class ARBSync {
 	 * <p>If an error occurs, {@code glWaitSync} does not cause the GL server to block.</p>
 	 *
 	 * @param sync    the sync object whose status to wait on
-	 * @param flags   a bitfield controlling the command flushing behavior. Must be:<br>0
-	 * @param timeout the timeout that the server should wait before continuing. Must be:<br>{@link #GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}
+	 * @param flags   a bitfield controlling the command flushing behavior. Must be:<br><table><tr><td>0</td></tr></table>
+	 * @param timeout the timeout that the server should wait before continuing. Must be:<br><table><tr><td>{@link #GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}</td></tr></table>
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = GL.getCapabilities().glWaitSync;
@@ -226,7 +226,7 @@ public class ARBSync {
 	 * Queries the properties of a sync object.
 	 *
 	 * @param sync    the sync object whose properties to query
-	 * @param pname   the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
+	 * @param pname   the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br><table><tr><td>{@link #GL_OBJECT_TYPE OBJECT_TYPE}</td><td>{@link #GL_SYNC_CONDITION SYNC_CONDITION}</td><td>{@link #GL_SYNC_STATUS SYNC_STATUS}</td><td>{@link #GL_SYNC_FLAGS SYNC_FLAGS}</td></tr></table>
 	 * @param bufSize the size of the buffer whose address is given in {@code values}
 	 * @param length  the address of an variable to receive the number of integers placed in {@code values}
 	 * @param values  the address of an array to receive the values of the queried parameter
@@ -244,7 +244,7 @@ public class ARBSync {
 	 * Queries the properties of a sync object.
 	 *
 	 * @param sync   the sync object whose properties to query
-	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
+	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br><table><tr><td>{@link #GL_OBJECT_TYPE OBJECT_TYPE}</td><td>{@link #GL_SYNC_CONDITION SYNC_CONDITION}</td><td>{@link #GL_SYNC_STATUS SYNC_STATUS}</td><td>{@link #GL_SYNC_FLAGS SYNC_FLAGS}</td></tr></table>
 	 * @param length the address of an variable to receive the number of integers placed in {@code values}
 	 * @param values the address of an array to receive the values of the queried parameter
 	 */
@@ -258,7 +258,7 @@ public class ARBSync {
 	 * Queries the properties of a sync object.
 	 *
 	 * @param sync   the sync object whose properties to query
-	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
+	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br><table><tr><td>{@link #GL_OBJECT_TYPE OBJECT_TYPE}</td><td>{@link #GL_SYNC_CONDITION SYNC_CONDITION}</td><td>{@link #GL_SYNC_STATUS SYNC_STATUS}</td><td>{@link #GL_SYNC_FLAGS SYNC_FLAGS}</td></tr></table>
 	 * @param length the address of an variable to receive the number of integers placed in {@code values}
 	 */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {

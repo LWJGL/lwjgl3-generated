@@ -357,7 +357,7 @@ public class CL12 {
 	 *
 	 * @param in_device       the device to be partitioned
 	 * @param properties      specifies how {@code in_device} is to be partition described by a partition name and its corresponding value. Each partition name is immediately
-	 *                        followed by the corresponding desired value. The list is terminated with 0. Only one partitioning scheme can be specified in {@code properties}. One of:<br>{@link #CL_DEVICE_PARTITION_EQUALLY DEVICE_PARTITION_EQUALLY}, {@link #CL_DEVICE_PARTITION_BY_COUNTS DEVICE_PARTITION_BY_COUNTS}, {@link #CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN DEVICE_PARTITION_BY_AFFINITY_DOMAIN}
+	 *                        followed by the corresponding desired value. The list is terminated with 0. Only one partitioning scheme can be specified in {@code properties}. One of:<br><table><tr><td>{@link #CL_DEVICE_PARTITION_EQUALLY DEVICE_PARTITION_EQUALLY}</td><td>{@link #CL_DEVICE_PARTITION_BY_COUNTS DEVICE_PARTITION_BY_COUNTS}</td></tr><tr><td>{@link #CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN DEVICE_PARTITION_BY_AFFINITY_DOMAIN}</td></tr></table>
 	 * @param num_devices     the size of memory pointed to by {@code out_devices} specified as the number of {@code cl_device_id} entries.
 	 * @param out_devices     the buffer where the OpenCL sub-devices will be returned. If {@code out_devices} is {@code NULL}, this argument is ignored. If {@code out_devices} is not
 	 *                        {@code NULL}, {@code num_devices} must be greater than or equal to the number of sub-devices that device may be partitioned into according to the
@@ -411,7 +411,7 @@ public class CL12 {
 	 *
 	 * @param in_device       the device to be partitioned
 	 * @param properties      specifies how {@code in_device} is to be partition described by a partition name and its corresponding value. Each partition name is immediately
-	 *                        followed by the corresponding desired value. The list is terminated with 0. Only one partitioning scheme can be specified in {@code properties}. One of:<br>{@link #CL_DEVICE_PARTITION_EQUALLY DEVICE_PARTITION_EQUALLY}, {@link #CL_DEVICE_PARTITION_BY_COUNTS DEVICE_PARTITION_BY_COUNTS}, {@link #CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN DEVICE_PARTITION_BY_AFFINITY_DOMAIN}
+	 *                        followed by the corresponding desired value. The list is terminated with 0. Only one partitioning scheme can be specified in {@code properties}. One of:<br><table><tr><td>{@link #CL_DEVICE_PARTITION_EQUALLY DEVICE_PARTITION_EQUALLY}</td><td>{@link #CL_DEVICE_PARTITION_BY_COUNTS DEVICE_PARTITION_BY_COUNTS}</td></tr><tr><td>{@link #CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN DEVICE_PARTITION_BY_AFFINITY_DOMAIN}</td></tr></table>
 	 * @param out_devices     the buffer where the OpenCL sub-devices will be returned. If {@code out_devices} is {@code NULL}, this argument is ignored. If {@code out_devices} is not
 	 *                        {@code NULL}, {@code num_devices} must be greater than or equal to the number of sub-devices that device may be partitioned into according to the
 	 *                        partitioning scheme specified in {@code properties}.
@@ -469,7 +469,7 @@ public class CL12 {
 	 *                     but are inherited from the corresponding memory access qualifiers associated with buffer. If {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} is specified in the
 	 *                     memory access qualifier values associated with buffer it does not imply any additional copies when the sub-buffer is created from buffer. If the
 	 *                     {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} values are not specified in {@code flags}, they
-	 *                     are inherited from the corresponding memory access qualifiers associated with buffer. One of:<br>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}</p>
+	 *                     are inherited from the corresponding memory access qualifiers associated with buffer. One of:<br></p><table><tr><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}</td><td>{@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}</td></tr><tr><td>{@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}</td><td>{@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}</td><td>{@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}</td><td>{@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}</td></tr></table>
 	 * @param image_format a pointer to a {@link CLImageFormat} structure that describes format properties of the image to be allocated
 	 * @param image_desc   a pointer to a {@link CLImageDesc} structure that describes type and dimensions of the image to be allocated
 	 * @param host_ptr     a pointer to the image data that may already be allocated by the application. Refer to table below for a description of how large the buffer that
@@ -547,7 +547,7 @@ public class CL12 {
 	 *                     but are inherited from the corresponding memory access qualifiers associated with buffer. If {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} is specified in the
 	 *                     memory access qualifier values associated with buffer it does not imply any additional copies when the sub-buffer is created from buffer. If the
 	 *                     {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} values are not specified in {@code flags}, they
-	 *                     are inherited from the corresponding memory access qualifiers associated with buffer. One of:<br>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}</p>
+	 *                     are inherited from the corresponding memory access qualifiers associated with buffer. One of:<br></p><table><tr><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}</td><td>{@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}</td></tr><tr><td>{@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}</td><td>{@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}</td><td>{@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}</td><td>{@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}</td></tr></table>
 	 * @param image_format a pointer to a {@link CLImageFormat} structure that describes format properties of the image to be allocated
 	 * @param image_desc   a pointer to a {@link CLImageDesc} structure that describes type and dimensions of the image to be allocated
 	 * @param host_ptr     a pointer to the image data that may already be allocated by the application. Refer to table below for a description of how large the buffer that
@@ -1402,7 +1402,7 @@ public class CL12 {
 	 * @param kernel               specifies the kernel object being queried
 	 * @param arg_indx             the argument index. Arguments to the kernel are referred by indices that go from 0 for the leftmost argument to {@code n - 1}, where {@code n} is
 	 *                             the total number of arguments declared by a kernel.
-	 * @param param_name           the argument information to query. One of:<br>{@link #CL_KERNEL_ARG_ADDRESS_QUALIFIER KERNEL_ARG_ADDRESS_QUALIFIER}, {@link #CL_KERNEL_ARG_ACCESS_QUALIFIER KERNEL_ARG_ACCESS_QUALIFIER}, {@link #CL_KERNEL_ARG_TYPE_NAME KERNEL_ARG_TYPE_NAME}, {@link #CL_KERNEL_ARG_TYPE_QUALIFIER KERNEL_ARG_TYPE_QUALIFIER}, {@link #CL_KERNEL_ARG_NAME KERNEL_ARG_NAME}
+	 * @param param_name           the argument information to query. One of:<br><table><tr><td>{@link #CL_KERNEL_ARG_ADDRESS_QUALIFIER KERNEL_ARG_ADDRESS_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_ACCESS_QUALIFIER KERNEL_ARG_ACCESS_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_TYPE_NAME KERNEL_ARG_TYPE_NAME}</td></tr><tr><td>{@link #CL_KERNEL_ARG_TYPE_QUALIFIER KERNEL_ARG_TYPE_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_NAME KERNEL_ARG_NAME}</td></tr></table>
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -1434,7 +1434,7 @@ public class CL12 {
 	 * @param kernel               specifies the kernel object being queried
 	 * @param arg_indx             the argument index. Arguments to the kernel are referred by indices that go from 0 for the leftmost argument to {@code n - 1}, where {@code n} is
 	 *                             the total number of arguments declared by a kernel.
-	 * @param param_name           the argument information to query. One of:<br>{@link #CL_KERNEL_ARG_ADDRESS_QUALIFIER KERNEL_ARG_ADDRESS_QUALIFIER}, {@link #CL_KERNEL_ARG_ACCESS_QUALIFIER KERNEL_ARG_ACCESS_QUALIFIER}, {@link #CL_KERNEL_ARG_TYPE_NAME KERNEL_ARG_TYPE_NAME}, {@link #CL_KERNEL_ARG_TYPE_QUALIFIER KERNEL_ARG_TYPE_QUALIFIER}, {@link #CL_KERNEL_ARG_NAME KERNEL_ARG_NAME}
+	 * @param param_name           the argument information to query. One of:<br><table><tr><td>{@link #CL_KERNEL_ARG_ADDRESS_QUALIFIER KERNEL_ARG_ADDRESS_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_ACCESS_QUALIFIER KERNEL_ARG_ACCESS_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_TYPE_NAME KERNEL_ARG_TYPE_NAME}</td></tr><tr><td>{@link #CL_KERNEL_ARG_TYPE_QUALIFIER KERNEL_ARG_TYPE_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_NAME KERNEL_ARG_NAME}</td></tr></table>
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
@@ -1707,7 +1707,7 @@ public class CL12 {
 	 *                                {@code command_queue} or to the host if the {@link #CL_MIGRATE_MEM_OBJECT_HOST MIGRATE_MEM_OBJECT_HOST} has been specified.
 	 * @param num_mem_objects         the number of memory objects specified in {@code mem_objects}
 	 * @param mem_objects             a pointer to a list of memory objects
-	 * @param flags                   a bit-field that is used to specify migration options. One of:<br>{@link #CL_MIGRATE_MEM_OBJECT_HOST MIGRATE_MEM_OBJECT_HOST}, {@link #CL_MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED}
+	 * @param flags                   a bit-field that is used to specify migration options. One of:<br><table><tr><td>{@link #CL_MIGRATE_MEM_OBJECT_HOST MIGRATE_MEM_OBJECT_HOST}</td><td>{@link #CL_MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED}</td></tr></table>
 	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
 	 * @param event_wait_list         a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                                does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
@@ -1761,7 +1761,7 @@ public class CL12 {
 	 * @param command_queue   a valid command-queue. The specified set of memory objects in {@code mem_objects} will be migrated to the OpenCL device associated with
 	 *                        {@code command_queue} or to the host if the {@link #CL_MIGRATE_MEM_OBJECT_HOST MIGRATE_MEM_OBJECT_HOST} has been specified.
 	 * @param mem_objects     a pointer to a list of memory objects
-	 * @param flags           a bit-field that is used to specify migration options. One of:<br>{@link #CL_MIGRATE_MEM_OBJECT_HOST MIGRATE_MEM_OBJECT_HOST}, {@link #CL_MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED}
+	 * @param flags           a bit-field that is used to specify migration options. One of:<br><table><tr><td>{@link #CL_MIGRATE_MEM_OBJECT_HOST MIGRATE_MEM_OBJECT_HOST}</td><td>{@link #CL_MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED}</td></tr></table>
 	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                        {@code event_wait_list} and {@code command_queue} must be the same.

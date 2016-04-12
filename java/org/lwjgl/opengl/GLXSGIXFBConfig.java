@@ -171,7 +171,7 @@ public class GLXSGIXFBConfig {
 	 *
 	 * @param display     the connection to the X server
 	 * @param config      the {@code GLXFBConfigSGIX}
-	 * @param render_type the render type. One of:<br>{@link #GLX_RGBA_TYPE_SGIX RGBA_TYPE_SGIX}, {@link #GLX_COLOR_INDEX_TYPE_SGIX COLOR_INDEX_TYPE_SGIX}
+	 * @param render_type the render type. One of:<br><table><tr><td>{@link #GLX_RGBA_TYPE_SGIX RGBA_TYPE_SGIX}</td><td>{@link #GLX_COLOR_INDEX_TYPE_SGIX COLOR_INDEX_TYPE_SGIX}</td></tr></table>
 	 * @param share_list  the GLX context to share objects with
 	 * @param direct      direct rendering request
 	 */

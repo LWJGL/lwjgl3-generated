@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code aspectMask} &ndash; a {@code VkImageAspectFlags} specifying which aspects of the image the properties apply to</li>
  * <li>{@code imageGranularity} &ndash; the width, height, and depth of the sparse image block in texels or compressed texel blocks</li>
- * <li>{@code flags} &ndash; a {@code VkSparseImageFormatFlagBits} bitmask specifying additional information about the sparse resource</li>
+ * <li>{@code flags} &ndash; a {@code VkSparseImageFormatFlagBits} bitmask specifying additional information about the sparse resource. One or more of:<br><table><tr><td>{@link VK10#VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT}</td></tr><tr><td>{@link VK10#VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT}</td></tr><tr><td>{@link VK10#VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT}</td></tr></table></li>
  * </ul>
  * 
  * <h3>Layout</h3>

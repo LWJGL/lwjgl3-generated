@@ -70,7 +70,7 @@ public class ARBMultisample {
 	 * is ANDed with the fragment coverage.</p>
 	 *
 	 * @param value  the desired coverage value
-	 * @param invert if true, the temporary coverage is inverted. One of:<br>{@link GL11#GL_TRUE TRUE}, {@link GL11#GL_FALSE FALSE}
+	 * @param invert if true, the temporary coverage is inverted. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td></tr></table>
 	 */
 	public static void glSampleCoverageARB(float value, boolean invert) {
 		long __functionAddress = GL.getCapabilities().glSampleCoverageARB;
