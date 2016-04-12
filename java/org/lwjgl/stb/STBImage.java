@@ -587,6 +587,11 @@ public class STBImage {
 		nstbi_image_free(memAddress(retval_from_stbi_load));
 	}
 
+	/** FloatBuffer version of: {@link #stbi_image_free image_free} */
+	public static void stbi_image_free(FloatBuffer retval_from_stbi_load) {
+		nstbi_image_free(memAddress(retval_from_stbi_load));
+	}
+
 	// --- [ stbi_info ] ---
 
 	/**
