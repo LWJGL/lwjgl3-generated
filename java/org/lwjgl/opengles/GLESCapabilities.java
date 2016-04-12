@@ -868,6 +868,8 @@ public final class GLESCapabilities {
 	public final boolean GL_EXT_blend_minmax;
 	/** When true, {@link EXTBufferStorage} is supported. */
 	public final boolean GL_EXT_buffer_storage;
+	/** When true, {@link EXTClipCullDistance} is supported. */
+	public final boolean GL_EXT_clip_cull_distance;
 	/**
 	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_color_buffer_float.txt">EXT_color_buffer_float</a> extension is supported.
 	 * 
@@ -976,6 +978,8 @@ public final class GLESCapabilities {
 	public final boolean GL_EXT_post_depth_coverage;
 	/** When true, {@link EXTPrimitiveBoundingBox} is supported. */
 	public final boolean GL_EXT_primitive_bounding_box;
+	/** When true, {@link EXTProtectedTextures} is supported. */
+	public final boolean GL_EXT_protected_textures;
 	/** When true, {@link EXTPVRTCSRGB} is supported. */
 	public final boolean GL_EXT_pvrtc_sRGB;
 	/** When true, {@link EXTRasterMultisample} is supported. */
@@ -2609,6 +2613,7 @@ public final class GLESCapabilities {
 		GL_EXT_blend_func_extended = ext.contains("GL_EXT_blend_func_extended") && GLES.checkExtension("GL_EXT_blend_func_extended", EXTBlendFuncExtended.isAvailable(this));
 		GL_EXT_blend_minmax = ext.contains("GL_EXT_blend_minmax");
 		GL_EXT_buffer_storage = ext.contains("GL_EXT_buffer_storage") && GLES.checkExtension("GL_EXT_buffer_storage", EXTBufferStorage.isAvailable(this));
+		GL_EXT_clip_cull_distance = ext.contains("GL_EXT_clip_cull_distance");
 		GL_EXT_color_buffer_float = ext.contains("GL_EXT_color_buffer_float");
 		GL_EXT_color_buffer_half_float = ext.contains("GL_EXT_color_buffer_half_float");
 		GL_EXT_copy_image = ext.contains("GL_EXT_copy_image") && GLES.checkExtension("GL_EXT_copy_image", EXTCopyImage.isAvailable(this));
@@ -2635,6 +2640,7 @@ public final class GLESCapabilities {
 		GL_EXT_polygon_offset_clamp = ext.contains("GL_EXT_polygon_offset_clamp") && GLES.checkExtension("GL_EXT_polygon_offset_clamp", EXTPolygonOffsetClamp.isAvailable(this));
 		GL_EXT_post_depth_coverage = ext.contains("GL_EXT_post_depth_coverage");
 		GL_EXT_primitive_bounding_box = ext.contains("GL_EXT_primitive_bounding_box") && GLES.checkExtension("GL_EXT_primitive_bounding_box", EXTPrimitiveBoundingBox.isAvailable(this));
+		GL_EXT_protected_textures = ext.contains("GL_EXT_protected_textures");
 		GL_EXT_pvrtc_sRGB = ext.contains("GL_EXT_pvrtc_sRGB");
 		GL_EXT_raster_multisample = ext.contains("GL_EXT_raster_multisample") && GLES.checkExtension("GL_EXT_raster_multisample", EXTRasterMultisample.isAvailable(this));
 		GL_EXT_read_format_bgra = ext.contains("GL_EXT_read_format_bgra");
