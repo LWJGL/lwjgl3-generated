@@ -339,11 +339,11 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 	/** Sets the specified value to the {@code viewportCount} field of the specified {@code struct}. */
 	public static void nviewportCount(long struct, int value) { memPutInt(struct + VkPipelineViewportStateCreateInfo.VIEWPORTCOUNT, value); }
 	/** Unsafe version of {@link #pViewports(VkViewport.Buffer) pViewports}. */
-	public static void npViewports(long struct, VkViewport.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS, addressSafe(value)); nviewportCount(struct, value == null ? 0 : value.remaining()); }
+	public static void npViewports(long struct, VkViewport.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS, addressSafe(value)); if ( value != null ) nviewportCount(struct, value.remaining()); }
 	/** Sets the specified value to the {@code scissorCount} field of the specified {@code struct}. */
 	public static void nscissorCount(long struct, int value) { memPutInt(struct + VkPipelineViewportStateCreateInfo.SCISSORCOUNT, value); }
 	/** Unsafe version of {@link #pScissors(VkRect2D.Buffer) pScissors}. */
-	public static void npScissors(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS, addressSafe(value)); nscissorCount(struct, value == null ? 0 : value.remaining()); }
+	public static void npScissors(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS, addressSafe(value)); if ( value != null ) nscissorCount(struct, value.remaining()); }
 
 	// -----------------------------------
 
