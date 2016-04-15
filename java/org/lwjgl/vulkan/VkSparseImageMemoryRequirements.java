@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code formatProperties} &ndash; the format properties</li>
- * <li>{@code imageMipTailFirstLod} &ndash; the first mip level at which subresources are included in the mip tail region</li>
+ * <li>{@code imageMipTailFirstLod} &ndash; the first mip level at which image subresources are included in the mip tail region</li>
  * <li>{@code imageMipTailSize} &ndash; the memory size (in bytes) of the mip tail region</li>
  * <li>{@code imageMipTailOffset} &ndash; he opaque memory offset used with {@link VkSparseImageOpaqueMemoryBindInfo} to bind the mip tail region(s)</li>
  * <li>{@code imageMipTailStride} &ndash; 

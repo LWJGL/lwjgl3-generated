@@ -17,13 +17,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSubresourceLayout.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSubresourceLayout">Vulkan Specification</a>
  * 
- * <p>Contains information about the layout of a subresource (mipLevel/arrayLayer) of an image created with linear tiling.</p>
+ * <p>Contains information about the layout of an image subresource (mipLevel/arrayLayer) of an image created with linear tiling.</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code offset} &ndash; the byte offset from the start of the image where the subresource begins</li>
- * <li>{@code size} &ndash; the size in bytes of the subresource</li>
+ * <li>{@code offset} &ndash; the byte offset from the start of the image where the image subresource begins</li>
+ * <li>{@code size} &ndash; the size in bytes of the image subresource</li>
  * <li>{@code rowPitch} &ndash; the number of bytes between each row of texels in an image</li>
  * <li>{@code arrayPitch} &ndash; the number of bytes between each array layer of an image</li>
  * <li>{@code depthPitch} &ndash; the number of bytes between each slice of 3D image</li>

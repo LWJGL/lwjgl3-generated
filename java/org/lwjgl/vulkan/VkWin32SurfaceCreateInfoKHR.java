@@ -20,6 +20,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Contains information about how a surface for a Win32 window should be created.</p>
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link #STRUCTURE_TYPE_WIN_SURFACE_CREATE_INFO_KHR}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * </ul>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>

@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageSubresource.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageSubresource">Vulkan Specification</a>
  * 
- * <p>Selects a specific image of a subresource (mipLevel/arrayLayer) of an image created with linear tiling.</p>
+ * <p>Selects a specific image of an image subresource (mipLevel/arrayLayer) of an image created with linear tiling.</p>
  * 
  * <h5>Valid Usage</h5>
  * 

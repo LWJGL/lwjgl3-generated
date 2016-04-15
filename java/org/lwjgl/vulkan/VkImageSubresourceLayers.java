@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageSubresourceLayers.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageSubresourceLayers">Vulkan Specification</a>
  * 
- * <p>Specifies a subresource of an image.</p>
+ * <p>Specifies an image subresource of an image.</p>
  * 
  * <h5>Valid Usage</h5>
  * 

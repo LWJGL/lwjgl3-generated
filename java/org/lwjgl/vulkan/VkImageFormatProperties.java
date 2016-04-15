@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code maxMipLevels} &ndash; the maximum number of mipmap levels</li>
  * <li>{@code maxArrayLayers} &ndash; the maximum number of array layers</li>
  * <li>{@code sampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} specifying all the supported sample counts for this image. One or more of:<br><table><tr><td>{@link VK10#VK_SAMPLE_COUNT_16_BIT SAMPLE_COUNT_16_BIT}</td><td>{@link VK10#VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</td><td>{@link VK10#VK_SAMPLE_COUNT_2_BIT SAMPLE_COUNT_2_BIT}</td><td>{@link VK10#VK_SAMPLE_COUNT_32_BIT SAMPLE_COUNT_32_BIT}</td></tr><tr><td>{@link VK10#VK_SAMPLE_COUNT_4_BIT SAMPLE_COUNT_4_BIT}</td><td>{@link VK10#VK_SAMPLE_COUNT_64_BIT SAMPLE_COUNT_64_BIT}</td><td>{@link VK10#VK_SAMPLE_COUNT_8_BIT SAMPLE_COUNT_8_BIT}</td></tr></table></li>
- * <li>{@code maxResourceSize} &ndash; the maximum total image size in bytes, inclusive of all subresources</li>
+ * <li>{@code maxResourceSize} &ndash; the maximum total image size in bytes, inclusive of all image subresources</li>
  * </ul>
  * 
  * <h3>Layout</h3>

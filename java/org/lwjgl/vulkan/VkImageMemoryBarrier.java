@@ -18,8 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageMemoryBarrier.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageMemoryBarrier">Vulkan Specification</a>
  * 
- * <p>Specifies an image memory barrier. This type of barrier only applies to memory accesses involving a specific subresource range of the specified image
- * object. That is, a memory dependency formed from a image memory barrier is scoped to the specified subresources of the image. It is also used to
+ * <p>Specifies an image memory barrier. This type of barrier only applies to memory accesses involving a specific image subresource range of the specified
+ * image object. That is, a memory dependency formed from a image memory barrier is scoped to the specified subresources of the image. It is also used to
  * perform a layout transition for an image subresource range, or to transfer ownership of an image subresource range from one queue family to another.</p>
  * 
  * <h5>Valid Usage</h5>
@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * either both be {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED}, or both be a valid queue family</li>
  * <li>If {@code image} was created with a sharing mode of {@link VK10#VK_SHARING_MODE_EXCLUSIVE SHARING_MODE_EXCLUSIVE}, and {@code srcQueueFamilyIndex} and {@code dstQueueFamilyIndex} are
  * valid queue families, at least one of them <b>must</b> be the same as the family of the queue that will execute this barrier</li>
- * <li>{@code subresourceRange} <b>must</b> be a valid subresource range for the image</li>
+ * <li>{@code subresourceRange} <b>must</b> be a valid image subresource range for the image</li>
  * <li>If {@code image} has a depth/stencil format with both depth and stencil components, then {@code aspectMask} member of {@code subresourceRange}
  * <b>must</b> include both {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} and {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}</li>
  * <li>If either {@code oldLayout} or {@code newLayout} is {@link VK10#VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL} then {@code image} <b>must</b> have been created with
@@ -74,7 +74,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * the queue family that is acquiring ownership of the image subresource(s) from another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of
  * ownership)</li>
  * <li>{@code image} &ndash; a handle to the image whose backing memory is affected by the barrier</li>
- * <li>{@code subresourceRange} &ndash; describes an area of the backing memory for image, as well as the set of subresources whose image layouts are modified</li>
+ * <li>{@code subresourceRange} &ndash; describes an area of the backing memory for image, as well as the set of image subresources whose image layouts are modified</li>
  * </ul>
  * 
  * <h3>Layout</h3>

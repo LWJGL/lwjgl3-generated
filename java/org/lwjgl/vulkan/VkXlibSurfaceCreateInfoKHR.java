@@ -20,6 +20,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Contains information about how a surface for a X11 window should be created.</p>
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link KHRXlibSurface#VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code dpy} <b>must</b> be a pointer to a {@code Display} value</li>
+ * </ul>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>

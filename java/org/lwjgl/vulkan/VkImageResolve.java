@@ -34,9 +34,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code srcSubresource} &ndash; a {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the source image data</li>
+ * <li>{@code srcSubresource} &ndash; a {@link VkImageSubresourceLayers} structure specifying the image subresource of the image used for the source image data</li>
  * <li>{@code srcOffset} &ndash; selects the initial x, y, and z offsets in texels of the sub-region of the source image data</li>
- * <li>{@code dstSubresource} &ndash; a {@link VkImageSubresourceLayers} structure specifying the subresource of the image used for the destination image data</li>
+ * <li>{@code dstSubresource} &ndash; a {@link VkImageSubresourceLayers} structure specifying the image subresource of the image used for the destination image data</li>
  * <li>{@code dstOffset} &ndash; selects the initial x, y, and z offsets in texels of the sub-region of the destination image data</li>
  * <li>{@code extent} &ndash; the size in texels of the source image to resolve in width, height and depth</li>
  * </ul>

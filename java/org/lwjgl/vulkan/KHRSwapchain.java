@@ -439,7 +439,7 @@ public class KHRSwapchain {
 	 * <p>If a swapchain has enough presentable images, applications <b>can</b> acquire multiple images without an intervening {@link #vkQueuePresentKHR QueuePresentKHR}. Applications <b>can</b>
 	 * present images in a different order than the order in which they were acquired.</p>
 	 * 
-	 * <p>If {@code timeout} is 0, {@code vkAcquireNextImageKHR} will not block, but will either succeed or return {@link VK10#VK_TIMEOUT TIMEOUT}. If {@code timeout} is
+	 * <p>If {@code timeout} is 0, {@code vkAcquireNextImageKHR} will not block, but will either succeed or return {@link VK10#VK_NOT_READY NOT_READY}. If {@code timeout} is
 	 * {@code UINT64_MAX}, the function will not return until an image is acquired from the presentation engine. Other values for {@code timeout} will cause
 	 * the function to return when an image becomes available, or when the specified number of nanoseconds have passed (in which case it will return
 	 * {@link VK10#VK_TIMEOUT TIMEOUT}). An error can also cause {@code vkAcquireNextImageKHR} to return early.</p>
@@ -613,7 +613,7 @@ public class KHRSwapchain {
 	 * <p>If a swapchain has enough presentable images, applications <b>can</b> acquire multiple images without an intervening {@link #vkQueuePresentKHR QueuePresentKHR}. Applications <b>can</b>
 	 * present images in a different order than the order in which they were acquired.</p>
 	 * 
-	 * <p>If {@code timeout} is 0, {@code vkAcquireNextImageKHR} will not block, but will either succeed or return {@link VK10#VK_TIMEOUT TIMEOUT}. If {@code timeout} is
+	 * <p>If {@code timeout} is 0, {@code vkAcquireNextImageKHR} will not block, but will either succeed or return {@link VK10#VK_NOT_READY NOT_READY}. If {@code timeout} is
 	 * {@code UINT64_MAX}, the function will not return until an image is acquired from the presentation engine. Other values for {@code timeout} will cause
 	 * the function to return when an image becomes available, or when the specified number of nanoseconds have passed (in which case it will return
 	 * {@link VK10#VK_TIMEOUT TIMEOUT}). An error can also cause {@code vkAcquireNextImageKHR} to return early.</p>

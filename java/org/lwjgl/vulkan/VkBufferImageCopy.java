@@ -60,7 +60,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code bufferOffset} &ndash; the offset in bytes from the start of the buffer object where the image data is copied from or to</li>
  * <li>{@code bufferRowLength} &ndash; the buffer row length</li>
  * <li>{@code bufferImageHeight} &ndash; the buffer image height</li>
- * <li>{@code imageSubresource} &ndash; a {@link VkImageSubresourceLayers} used to specify the specific subresources of the image used for the source or destination image data</li>
+ * <li>{@code imageSubresource} &ndash; a {@link VkImageSubresourceLayers} used to specify the specific image subresources of the image used for the source or destination image data</li>
  * <li>{@code imageOffset} &ndash; selects the initial x, y, z offsets in texels of the sub-region of the source or destination image data</li>
  * <li>{@code imageExtent} &ndash; the size in texels of the image to copy in width, height and depth</li>
  * </ul>

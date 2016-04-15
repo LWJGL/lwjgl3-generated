@@ -800,10 +800,10 @@ public class VK10 {
 	/** Timestamp query. */
 	public static final int VK_QUERY_TYPE_TIMESTAMP = 2;
 
-	/** Specifies that access to any range or subresource of the object will be exclusive to a single queue family at a time. */
+	/** Specifies that access to any range or image subresource of the object will be exclusive to a single queue family at a time. */
 	public static final int VK_SHARING_MODE_EXCLUSIVE = 0;
 
-	/** Specifies that concurrent access to any range or subresource of the object from multiple queue families is supported. */
+	/** Specifies that concurrent access to any range or image subresource of the object from multiple queue families is supported. */
 	public static final int VK_SHARING_MODE_CONCURRENT = 1;
 
 	/**
@@ -816,38 +816,38 @@ public class VK10 {
 	public static final int VK_IMAGE_LAYOUT_GENERAL = 1;
 
 	/**
-	 * <b>must</b> only be used as a color or resolve attachment in a {@code VkFramebuffer}. This layout is valid only for subresources of images created with
-	 * the {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} usage bit enabled.
+	 * <b>must</b> only be used as a color or resolve attachment in a {@code VkFramebuffer}. This layout is valid only for image subresources of images created
+	 * with the {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} usage bit enabled.
 	 */
 	public static final int VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL = 2;
 
 	/**
-	 * <b>must</b> only be used as a depth/stencil attachment in a {@code VkFramebuffer}. This layout is valid only for subresources of images created with the
-	 * {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled.
+	 * <b>must</b> only be used as a depth/stencil attachment in a {@code VkFramebuffer}. This layout is valid only for image subresources of images created
+	 * with the {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled.
 	 */
 	public static final int VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL = 3;
 
 	/**
 	 * <b>must</b> only be used as a read-only depth/stencil attachment in a {@code VkFramebuffer} and/or as a read-only image in a shader (which <b>can</b> be read as
-	 * a sampled image, combined image/sampler and/or input attachment). This layout is valid only for subresources of images created with both the
+	 * a sampled image, combined image/sampler and/or input attachment). This layout is valid only for image subresources of images created with both the
 	 * {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled.
 	 */
 	public static final int VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL = 4;
 
 	/**
 	 * <b>must</b> only be used as a read-only image in a shader (which <b>can</b> be read as a sampled image, combined image/sampler and/or input attachment). This
-	 * layout is valid only for subresources of images created with the {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} usage bit enabled.
+	 * layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} usage bit enabled.
 	 */
 	public static final int VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL = 5;
 
 	/**
 	 * <b>must</b> only be used as a source image of a transfer command (see the definition of {@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}). This layout is valid only for
-	 * subresources of images created with the {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage bit enabled.
+	 * image subresources of images created with the {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage bit enabled.
 	 */
 	public static final int VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL = 6;
 
 	/**
-	 * <b>must</b> only be used as a destination image of a transfer command. This layout is valid only for subresources of images created with the
+	 * <b>must</b> only be used as a destination image of a transfer command. This layout is valid only for image subresources of images created with the
 	 * {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage bit enabled.
 	 */
 	public static final int VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL = 7;
@@ -1537,12 +1537,15 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	/** Indicates that the image will be backed using sparse memory binding. */
 	public static final int VK_IMAGE_CREATE_SPARSE_BINDING_BIT = 0x1;
 
-	/** Indicates that the image <b>can</b> be partially backed using sparse memory binding. */
+	/**
+	 * Indicates that the image <b>can</b> be partially backed using sparse memory binding. Images created with this flag <b>must</b> also be created with the
+	 * {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} flag.
+	 */
 	public static final int VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT = 0x2;
 
 	/**
 	 * Indicates that the image will be backed using sparse memory binding with memory ranges that might also simultaneously be backing another image (or
-	 * another portion of the same image). Sparse images created with this flag <b>must</b> also be created with the {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}.
+	 * another portion of the same image). Images created with this flag <b>must</b> also be created with the {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} flag.
 	 */
 	public static final int VK_IMAGE_CREATE_SPARSE_ALIASED_BIT = 0x4;
 
@@ -1843,12 +1846,15 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	/** Indicates that the buffer will be backed using sparse memory binding. */
 	public static final int VK_BUFFER_CREATE_SPARSE_BINDING_BIT = 0x1;
 
-	/** Indicates that the buffer <b>can</b> be partially backed using sparse memory binding. */
+	/**
+	 * Indicates that the buffer <b>can</b> be partially backed using sparse memory binding. Buffers created with this flag <b>must</b> also be created with the
+	 * {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} flag.
+	 */
 	public static final int VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT = 0x2;
 
 	/**
 	 * Iindicates that the buffer will be backed using sparse memory binding with memory ranges that might also simultaneously be backing another buffer
-	 * (or another portion of the same buffer).
+	 * (or another portion of the same buffer). Buffers created with this flag <b>must</b> also be created with the {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} flag.
 	 */
 	public static final int VK_BUFFER_CREATE_SPARSE_ALIASED_BIT = 0x4;
 
@@ -1959,7 +1965,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * 
 	 * <ul>
 	 * <li>Multiple attachments being assigned the same image view as part of framebuffer creation.</li>
-	 * <li>Attachments using distinct image views that correspond to the same subresource of an image.</li>
+	 * <li>Attachments using distinct image views that correspond to the same image subresource of an image.</li>
 	 * <li>Attachments using views of distinct image subresources which are bound to overlapping memory.</li>
 	 * </ul>
 	 * 
@@ -6087,8 +6093,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkBufferCreateInfo} structure</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pBuffer} <b>must</b> be a pointer to a {@code VkBuffer} handle</li>
-	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} or {@link #VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}, creating this
-	 * {@code VkBuffer} <b>must not</b> cause the total required sparse memory for all currently valid sparse resources on the device to exceed
+	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkBuffer} <b>must not</b> cause the
+	 * total required sparse memory for all currently valid sparse resources on the device to exceed
 	 * {@link VkPhysicalDeviceLimits}{@code ::sparseAddressSpaceSize}</li>
 	 * </ul>
 	 *
@@ -6121,8 +6127,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkBufferCreateInfo} structure</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pBuffer} <b>must</b> be a pointer to a {@code VkBuffer} handle</li>
-	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} or {@link #VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}, creating this
-	 * {@code VkBuffer} <b>must not</b> cause the total required sparse memory for all currently valid sparse resources on the device to exceed
+	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkBuffer} <b>must not</b> cause the
+	 * total required sparse memory for all currently valid sparse resources on the device to exceed
 	 * {@link VkPhysicalDeviceLimits}{@code ::sparseAddressSpaceSize}</li>
 	 * </ul>
 	 *
@@ -6367,8 +6373,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkImageCreateInfo} structure</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pImage} <b>must</b> be a pointer to a {@code VkImage} handle</li>
-	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} or {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}, creating this
-	 * {@code VkImage} <b>must not</b> cause the total required sparse memory for all currently valid sparse resources on the device to exceed
+	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkImage} <b>must not</b> cause the
+	 * total required sparse memory for all currently valid sparse resources on the device to exceed
 	 * {@link VkPhysicalDeviceLimits}{@code ::sparseAddressSpaceSize}</li>
 	 * </ul>
 	 *
@@ -6401,8 +6407,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkImageCreateInfo} structure</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pImage} <b>must</b> be a pointer to a {@code VkImage} handle</li>
-	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} or {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}, creating this
-	 * {@code VkImage} <b>must not</b> cause the total required sparse memory for all currently valid sparse resources on the device to exceed
+	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkImage} <b>must not</b> cause the
+	 * total required sparse memory for all currently valid sparse resources on the device to exceed
 	 * {@link VkPhysicalDeviceLimits}{@code ::sparseAddressSpaceSize}</li>
 	 * </ul>
 	 *
@@ -6493,7 +6499,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetImageSubresourceLayout.html">Khronos Reference Page</a></p>
 	 * 
-	 * Queries the layout of a subresource (mipLevel/arrayLayer) of an image created with linear tiling.
+	 * Queries the layout of an image subresource (mipLevel/arrayLayer) of an image created with linear tiling.
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -6510,7 +6516,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 *
 	 * @param device       the logical device that owns the image
 	 * @param image        the image whose layout is being queried
-	 * @param pSubresource a pointer to a {@link VkImageSubresource} structure selecting a specific image for the subresource
+	 * @param pSubresource a pointer to a {@link VkImageSubresource} structure selecting a specific image for the image subresource
 	 * @param pLayout      points to a {@link VkSubresourceLayout} structure in which the layout is returned
 	 */
 	public static void nvkGetImageSubresourceLayout(VkDevice device, long image, long pSubresource, long pLayout) {
@@ -6521,7 +6527,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetImageSubresourceLayout.html">Khronos Reference Page</a></p>
 	 * 
-	 * Queries the layout of a subresource (mipLevel/arrayLayer) of an image created with linear tiling.
+	 * Queries the layout of an image subresource (mipLevel/arrayLayer) of an image created with linear tiling.
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -6538,7 +6544,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 *
 	 * @param device       the logical device that owns the image
 	 * @param image        the image whose layout is being queried
-	 * @param pSubresource a pointer to a {@link VkImageSubresource} structure selecting a specific image for the subresource
+	 * @param pSubresource a pointer to a {@link VkImageSubresource} structure selecting a specific image for the image subresource
 	 * @param pLayout      points to a {@link VkSubresourceLayout} structure in which the layout is returned
 	 */
 	public static void vkGetImageSubresourceLayout(VkDevice device, long image, VkImageSubresource pSubresource, VkSubresourceLayout pLayout) {
@@ -10760,13 +10766,13 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <p>Copying to or from block-compressed images is typically done in multiples of the block. For this reason the {@code extent} <b>must</b> be a multiple of the
 	 * block dimension. There is one exception to this rule which is required to handle compressed images created with dimensions that are not a multiple of
 	 * the block dimensions. If the {@code srcImage is} compressed and if {@code extent.width} is not a multiple of the block width then
-	 * {@code (extent.width + srcOffset.x)} <b>must</b> equal the subresource width, if {@code extent.height} is not a multiple of the block height then
-	 * {@code (extent.height + srcOffset.y)} <b>must</b> equal the subresource height and if {@code extent.depth} is not a multiple of the block depth then
-	 * {@code (extent.depth + srcOffset.z)} <b>must</b> equal the subresource depth. Similarily if the {@code dstImage} is compressed and if {@code extent.width} is
-	 * not a multiple of the block width then {@code (extent.width + dstOffset.x)} <b>must</b> equal the subresource width, if {@code extent.height} is not a
-	 * multiple of the block height then {@code (extent.height + dstOffset.y)} <b>must</b> equal the subresource height and if {@code extent.depth} is not a
-	 * multiple of the block depth then {@code (extent.depth + dstOffset.z)} <b>must</b> equal the subresource depth. This allows the last block of the image in
-	 * each non-multiple dimension to be included as a source or target of the copy.</p>
+	 * {@code (extent.width + srcOffset.x)} <b>must</b> equal the image subresource width, if {@code extent.height} is not a multiple of the block height then
+	 * {@code (extent.height + srcOffset.y)} <b>must</b> equal the image subresource height and if {@code extent.depth} is not a multiple of the block depth then
+	 * {@code (extent.depth + srcOffset.z)} <b>must</b> equal the image subresource depth. Similarily if the {@code dstImage} is compressed and if
+	 * {@code extent.width} is not a multiple of the block width then {@code (extent.width + dstOffset.x)} <b>must</b> equal the image subresource width, if
+	 * {@code extent.height} is not a multiple of the block height then {@code (extent.height + dstOffset.y)} <b>must</b> equal the image subresource height and if
+	 * {@code extent.depth} is not a multiple of the block depth then {@code (extent.depth + dstOffset.z)} <b>must</b> equal the image subresource depth. This
+	 * allows the last block of the image in each non-multiple dimension to be included as a source or target of the copy.</p>
 	 * 
 	 * <p>{@code vkCmdCopyImage} <b>can</b> be used to copy image data between multisample images, but both images <b>must</b> have the same number of samples.</p>
 	 * 
@@ -10789,12 +10795,12 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
-	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
-	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The {@code VkFormat} of each of {@code srcImage} and {@code dstImage} <b>must</b> be compatible, as defined below</li>
 	 * <li>The sample count of {@code srcImage} and {@code dstImage} <b>must</b> match</li>
@@ -10853,13 +10859,13 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <p>Copying to or from block-compressed images is typically done in multiples of the block. For this reason the {@code extent} <b>must</b> be a multiple of the
 	 * block dimension. There is one exception to this rule which is required to handle compressed images created with dimensions that are not a multiple of
 	 * the block dimensions. If the {@code srcImage is} compressed and if {@code extent.width} is not a multiple of the block width then
-	 * {@code (extent.width + srcOffset.x)} <b>must</b> equal the subresource width, if {@code extent.height} is not a multiple of the block height then
-	 * {@code (extent.height + srcOffset.y)} <b>must</b> equal the subresource height and if {@code extent.depth} is not a multiple of the block depth then
-	 * {@code (extent.depth + srcOffset.z)} <b>must</b> equal the subresource depth. Similarily if the {@code dstImage} is compressed and if {@code extent.width} is
-	 * not a multiple of the block width then {@code (extent.width + dstOffset.x)} <b>must</b> equal the subresource width, if {@code extent.height} is not a
-	 * multiple of the block height then {@code (extent.height + dstOffset.y)} <b>must</b> equal the subresource height and if {@code extent.depth} is not a
-	 * multiple of the block depth then {@code (extent.depth + dstOffset.z)} <b>must</b> equal the subresource depth. This allows the last block of the image in
-	 * each non-multiple dimension to be included as a source or target of the copy.</p>
+	 * {@code (extent.width + srcOffset.x)} <b>must</b> equal the image subresource width, if {@code extent.height} is not a multiple of the block height then
+	 * {@code (extent.height + srcOffset.y)} <b>must</b> equal the image subresource height and if {@code extent.depth} is not a multiple of the block depth then
+	 * {@code (extent.depth + srcOffset.z)} <b>must</b> equal the image subresource depth. Similarily if the {@code dstImage} is compressed and if
+	 * {@code extent.width} is not a multiple of the block width then {@code (extent.width + dstOffset.x)} <b>must</b> equal the image subresource width, if
+	 * {@code extent.height} is not a multiple of the block height then {@code (extent.height + dstOffset.y)} <b>must</b> equal the image subresource height and if
+	 * {@code extent.depth} is not a multiple of the block depth then {@code (extent.depth + dstOffset.z)} <b>must</b> equal the image subresource depth. This
+	 * allows the last block of the image in each non-multiple dimension to be included as a source or target of the copy.</p>
 	 * 
 	 * <p>{@code vkCmdCopyImage} <b>can</b> be used to copy image data between multisample images, but both images <b>must</b> have the same number of samples.</p>
 	 * 
@@ -10882,12 +10888,12 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
-	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
-	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The {@code VkFormat} of each of {@code srcImage} and {@code dstImage} <b>must</b> be compatible, as defined below</li>
 	 * <li>The sample count of {@code srcImage} and {@code dstImage} <b>must</b> match</li>
@@ -10942,15 +10948,15 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linear tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally
 	 * tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
-	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>{@code dstImage} <b>must</b> use a format that supports {@link #VK_FORMAT_FEATURE_BLIT_DST_BIT FORMAT_FEATURE_BLIT_DST_BIT}, which is indicated by
 	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linear tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally
 	 * tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
-	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The sample count of {@code srcImage} and {@code dstImage} <b>must</b> both be equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
 	 * <li>If either of {@code srcImage} or {@code dstImage} was created with a signed integer {@code VkFormat}, the other <b>must</b> also have been created with a
@@ -11011,15 +11017,15 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linear tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally
 	 * tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
-	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>{@code dstImage} <b>must</b> use a format that supports {@link #VK_FORMAT_FEATURE_BLIT_DST_BIT FORMAT_FEATURE_BLIT_DST_BIT}, which is indicated by
 	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linear tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally
 	 * tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
-	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The sample count of {@code srcImage} and {@code dstImage} <b>must</b> both be equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
 	 * <li>If either of {@code srcImage} or {@code dstImage} was created with a signed integer {@code VkFormat}, the other <b>must</b> also have been created with a
@@ -11078,8 +11084,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code srcBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
-	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * </ul>
 	 * 
@@ -11129,8 +11135,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code srcBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
-	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * </ul>
 	 * 
@@ -11179,8 +11185,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code srcImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
-	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * </ul>
@@ -11230,8 +11236,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code srcImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
-	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * </ul>
@@ -11413,10 +11419,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
 	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
-	 * <li>{@code imageLayout} <b>must</b> specify the layout of the subresource ranges of {@code image} specified in {@code pRanges} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
+	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11429,9 +11435,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param image         the image to be cleared
 	 * @param imageLayout   the current layout of the image subresource ranges to be cleared. One of:<br><table><tr><td>{@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</td><td>{@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}</td></tr></table>
 	 * @param pColor        a pointer to a {@link VkClearColorValue} structure that contains the values the image subresource ranges will be cleared to
-	 * @param rangeCount    the number of subresource range structures in {@code pRanges}
+	 * @param rangeCount    the number of image subresource range structures in {@code pRanges}
 	 * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared. The
-	 *                      {@code aspectMask} of all subresource ranges <b>must</b> only include {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}.
+	 *                      {@code aspectMask} of all image subresource ranges <b>must</b> only include {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}.
 	 */
 	public static void nvkCmdClearColorImage(VkCommandBuffer commandBuffer, long image, int imageLayout, long pColor, int rangeCount, long pRanges) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdClearColorImage;
@@ -11459,10 +11465,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
 	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
-	 * <li>{@code imageLayout} <b>must</b> specify the layout of the subresource ranges of {@code image} specified in {@code pRanges} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
+	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11476,7 +11482,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param imageLayout   the current layout of the image subresource ranges to be cleared. One of:<br><table><tr><td>{@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</td><td>{@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}</td></tr></table>
 	 * @param pColor        a pointer to a {@link VkClearColorValue} structure that contains the values the image subresource ranges will be cleared to
 	 * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared. The
-	 *                      {@code aspectMask} of all subresource ranges <b>must</b> only include {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}.
+	 *                      {@code aspectMask} of all image subresource ranges <b>must</b> only include {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}.
 	 */
 	public static void vkCmdClearColorImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearColorValue pColor, VkImageSubresourceRange.Buffer pRanges) {
 		nvkCmdClearColorImage(commandBuffer, image, imageLayout, pColor.address(), pRanges.remaining(), pRanges.address());
@@ -11503,10 +11509,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
 	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
-	 * <li>{@code imageLayout} <b>must</b> specify the layout of the subresource ranges of {@code image} specified in {@code pRanges} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
+	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11545,10 +11551,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
 	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
-	 * <li>{@code imageLayout} <b>must</b> specify the layout of the subresource ranges of {@code image} specified in {@code pRanges} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
+	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11561,9 +11567,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param image         the image to be cleared
 	 * @param imageLayout   the current layout of the image subresource ranges to be cleared. One of:<br><table><tr><td>{@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</td><td>{@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}</td></tr></table>
 	 * @param pDepthStencil a pointer to a {@link VkClearDepthStencilValue} structure that contains the values the depth and stencil image subresource ranges will be cleared to
-	 * @param rangeCount    the number of subresource range structures in {@code pRanges}
+	 * @param rangeCount    the number of image subresource range structures in {@code pRanges}
 	 * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared. The
-	 *                      {@code aspectMask} of each subresource range in {@code pRanges} <b>can</b> include {@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} if the image format has a depth component, and
+	 *                      {@code aspectMask} of each image subresource range in {@code pRanges} <b>can</b> include {@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} if the image format has a depth component, and
 	 *                      {@link #VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} if the image format has a stencil component. {@code pDepthStencil} is a pointer to a {@link VkClearDepthStencilValue} structure
 	 *                      that contains the values the image subresource ranges will be cleared to.
 	 */
@@ -11591,10 +11597,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
 	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
-	 * <li>{@code imageLayout} <b>must</b> specify the layout of the subresource ranges of {@code image} specified in {@code pRanges} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
+	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11608,7 +11614,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param imageLayout   the current layout of the image subresource ranges to be cleared. One of:<br><table><tr><td>{@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</td><td>{@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}</td></tr></table>
 	 * @param pDepthStencil a pointer to a {@link VkClearDepthStencilValue} structure that contains the values the depth and stencil image subresource ranges will be cleared to
 	 * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared. The
-	 *                      {@code aspectMask} of each subresource range in {@code pRanges} <b>can</b> include {@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} if the image format has a depth component, and
+	 *                      {@code aspectMask} of each image subresource range in {@code pRanges} <b>can</b> include {@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} if the image format has a depth component, and
 	 *                      {@link #VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} if the image format has a stencil component. {@code pDepthStencil} is a pointer to a {@link VkClearDepthStencilValue} structure
 	 *                      that contains the values the image subresource ranges will be cleared to.
 	 */
@@ -11635,10 +11641,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
 	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
-	 * <li>{@code imageLayout} <b>must</b> specify the layout of the subresource ranges of {@code image} specified in {@code pRanges} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
+	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11782,11 +11788,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have a sample count equal to any valid sample count value other than {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
 	 * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
-	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}, {@code dstImage} <b>must</b> have been created with a {@code format}
 	 * that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in
@@ -11840,11 +11846,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have a sample count equal to any valid sample count value other than {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
 	 * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
-	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}, {@code dstImage} <b>must</b> have been created with a {@code format}
 	 * that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in
@@ -11896,11 +11902,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have a sample count equal to any valid sample count value other than {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
 	 * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
-	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the subresources of {@code srcImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the subresources of {@code dstImage} specified in {@code pRegions} at the time this command is
-	 * executed on a {@code VkDevice}</li>
+	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this
+	 * command is executed on a {@code VkDevice}</li>
 	 * <li>{@code dstImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}, {@code dstImage} <b>must</b> have been created with a {@code format}
 	 * that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in
