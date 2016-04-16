@@ -5,50 +5,35 @@
  */
 package org.lwjgl.glfw;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetKeyCallback SetKeyCallback} method. */
-public abstract class GLFWKeyCallback extends Closure.V {
+public abstract class GLFWKeyCallback extends Callback.V {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(5);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.glfw.GLFWKeyCallback");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_DEFAULT,
-			CIF, ffi_type_void,
-			ARGS, ffi_type_pointer, ffi_type_sint32, ffi_type_sint32, ffi_type_sint32, ffi_type_sint32
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWKeyCallback");
 
 	protected GLFWKeyCallback() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_DEFAULT + "(piiii)v", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 1 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 2 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 3 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 4 + args))
+			dcbArgPointer(args),
+			dcbArgInt(args),
+			dcbArgInt(args),
+			dcbArgInt(args),
+			dcbArgInt(args)
 		);
 	}
 
@@ -75,7 +60,7 @@ public abstract class GLFWKeyCallback extends Closure.V {
 	 *
 	 * @return the {@link GLFWKeyCallback} instance
 	 */
-	public static GLFWKeyCallback create(final SAM sam) {
+	public static GLFWKeyCallback create(SAM sam) {
 		return new GLFWKeyCallback() {
 			@Override
 			public void invoke(long window, int key, int scancode, int action, int mods) {
@@ -89,5 +74,5 @@ public abstract class GLFWKeyCallback extends Closure.V {
 		glfwSetKeyCallback(window, this);
 		return this;
 	}
-	
+
 }

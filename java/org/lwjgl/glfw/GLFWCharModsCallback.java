@@ -5,48 +5,33 @@
  */
 package org.lwjgl.glfw;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCharModsCallback SetCharModsCallback} method. */
-public abstract class GLFWCharModsCallback extends Closure.V {
+public abstract class GLFWCharModsCallback extends Callback.V {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(3);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.glfw.GLFWCharModsCallback");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_DEFAULT,
-			CIF, ffi_type_void,
-			ARGS, ffi_type_pointer, ffi_type_uint32, ffi_type_sint32
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWCharModsCallback");
 
 	protected GLFWCharModsCallback() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_DEFAULT + "(pii)v", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 1 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 2 + args))
+			dcbArgPointer(args),
+			dcbArgInt(args),
+			dcbArgInt(args)
 		);
 	}
 
@@ -71,7 +56,7 @@ public abstract class GLFWCharModsCallback extends Closure.V {
 	 *
 	 * @return the {@link GLFWCharModsCallback} instance
 	 */
-	public static GLFWCharModsCallback create(final SAM sam) {
+	public static GLFWCharModsCallback create(SAM sam) {
 		return new GLFWCharModsCallback() {
 			@Override
 			public void invoke(long window, int codepoint, int mods) {
@@ -85,5 +70,5 @@ public abstract class GLFWCharModsCallback extends Closure.V {
 		glfwSetCharModsCallback(window, this);
 		return this;
 	}
-	
+
 }

@@ -5,46 +5,31 @@
  */
 package org.lwjgl.glfw;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowCloseCallback SetWindowCloseCallback} method. */
-public abstract class GLFWWindowCloseCallback extends Closure.V {
+public abstract class GLFWWindowCloseCallback extends Callback.V {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(1);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.glfw.GLFWWindowCloseCallback");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_DEFAULT,
-			CIF, ffi_type_void,
-			ARGS, ffi_type_pointer
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWWindowCloseCallback");
 
 	protected GLFWWindowCloseCallback() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_DEFAULT + "(p)v", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args))
+			dcbArgPointer(args)
 		);
 	}
 
@@ -67,7 +52,7 @@ public abstract class GLFWWindowCloseCallback extends Closure.V {
 	 *
 	 * @return the {@link GLFWWindowCloseCallback} instance
 	 */
-	public static GLFWWindowCloseCallback create(final SAM sam) {
+	public static GLFWWindowCloseCallback create(SAM sam) {
 		return new GLFWWindowCloseCallback() {
 			@Override
 			public void invoke(long window) {
@@ -81,5 +66,5 @@ public abstract class GLFWWindowCloseCallback extends Closure.V {
 		glfwSetWindowCloseCallback(window, this);
 		return this;
 	}
-	
+
 }

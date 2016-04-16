@@ -5,46 +5,35 @@
  */
 package org.lwjgl.stb;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
+
+import java.nio.*;
+
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be set to the {@code read} field of the {@link STBIIOCallbacks} struct. */
-public abstract class STBIReadCallback extends Closure.I {
+public abstract class STBIReadCallback extends Callback.I {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(3);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.stb.STBIReadCallback");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_DEFAULT,
-			CIF, ffi_type_sint32,
-			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_sint32
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.stb.STBIReadCallback");
 
 	protected STBIReadCallback() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_DEFAULT + "(ppi)i", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected int callback(long args) {
 		return invoke(
-			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 2 + args))
+			dcbArgPointer(args),
+			dcbArgPointer(args),
+			dcbArgInt(args)
 		);
 	}
 
@@ -71,7 +60,7 @@ public abstract class STBIReadCallback extends Closure.I {
 	 *
 	 * @return the {@link STBIReadCallback} instance
 	 */
-	public static STBIReadCallback create(final SAM sam) {
+	public static STBIReadCallback create(SAM sam) {
 		return new STBIReadCallback() {
 			@Override
 			public int invoke(long user, long data, int size) {
@@ -106,7 +95,7 @@ public abstract class STBIReadCallback extends Closure.I {
 	 *
 	 * @return the {@link STBIReadCallback} instance
 	 */
-	public static STBIReadCallback createBuffer(final SAMBuffer sam) {
+	public static STBIReadCallback createBuffer(SAMBuffer sam) {
 		return new STBIReadCallback() {
 			@Override
 			public int invoke(long user, long data, int size) {
@@ -114,5 +103,5 @@ public abstract class STBIReadCallback extends Closure.I {
 			}
 		};
 	}
-	
+
 }

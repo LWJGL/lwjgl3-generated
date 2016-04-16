@@ -5,48 +5,33 @@
  */
 package org.lwjgl.glfw;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetScrollCallback SetScrollCallback} method. */
-public abstract class GLFWScrollCallback extends Closure.V {
+public abstract class GLFWScrollCallback extends Callback.V {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(3);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.glfw.GLFWScrollCallback");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_DEFAULT,
-			CIF, ffi_type_void,
-			ARGS, ffi_type_pointer, ffi_type_double, ffi_type_double
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWScrollCallback");
 
 	protected GLFWScrollCallback() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_DEFAULT + "(pdd)v", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetDouble(memGetAddress(POINTER_SIZE * 1 + args)),
-			memGetDouble(memGetAddress(POINTER_SIZE * 2 + args))
+			dcbArgPointer(args),
+			dcbArgDouble(args),
+			dcbArgDouble(args)
 		);
 	}
 
@@ -71,7 +56,7 @@ public abstract class GLFWScrollCallback extends Closure.V {
 	 *
 	 * @return the {@link GLFWScrollCallback} instance
 	 */
-	public static GLFWScrollCallback create(final SAM sam) {
+	public static GLFWScrollCallback create(SAM sam) {
 		return new GLFWScrollCallback() {
 			@Override
 			public void invoke(long window, double xoffset, double yoffset) {
@@ -85,5 +70,5 @@ public abstract class GLFWScrollCallback extends Closure.V {
 		glfwSetScrollCallback(window, this);
 		return this;
 	}
-	
+
 }

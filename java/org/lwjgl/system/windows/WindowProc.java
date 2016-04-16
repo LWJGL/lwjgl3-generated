@@ -5,47 +5,32 @@
  */
 package org.lwjgl.system.windows;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** An application-defined function that processes messages sent to a window. */
-public abstract class WindowProc extends Closure.P {
+public abstract class WindowProc extends Callback.P {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(4);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.system.windows.WindowProc");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_SYSTEM,
-			CIF, ffi_type_pointer,
-			ARGS, ffi_type_pointer, ffi_type_uint32, ffi_type_pointer, ffi_type_pointer
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.system.windows.WindowProc");
 
 	protected WindowProc() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_SYSTEM + "(pipp)p", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected long callback(long args) {
 		return invoke(
-			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 1 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 2 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 3 + args))
+			dcbArgPointer(args),
+			dcbArgInt(args),
+			dcbArgPointer(args),
+			dcbArgPointer(args)
 		);
 	}
 
@@ -71,7 +56,7 @@ public abstract class WindowProc extends Closure.P {
 	 *
 	 * @return the {@link WindowProc} instance
 	 */
-	public static WindowProc create(final SAM sam) {
+	public static WindowProc create(SAM sam) {
 		return new WindowProc() {
 			@Override
 			public long invoke(long hwnd, int uMsg, long wParam, long lParam) {

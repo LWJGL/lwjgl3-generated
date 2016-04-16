@@ -5,52 +5,37 @@
  */
 package org.lwjgl.glfw;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import java.io.PrintStream;
-import java.lang.reflect.Field;
 import java.util.Map;
 import org.lwjgl.system.APIUtil;
 
 import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.system.MemoryUtil.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetErrorCallback SetErrorCallback} method. */
-public abstract class GLFWErrorCallback extends Closure.V {
+public abstract class GLFWErrorCallback extends Callback.V {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(2);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.glfw.GLFWErrorCallback");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_DEFAULT,
-			CIF, ffi_type_void,
-			ARGS, ffi_type_sint32, ffi_type_pointer
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWErrorCallback");
 
 	protected GLFWErrorCallback() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_DEFAULT + "(ip)v", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetInt(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args))
+			dcbArgInt(args),
+			dcbArgPointer(args)
 		);
 	}
 
@@ -74,7 +59,7 @@ public abstract class GLFWErrorCallback extends Closure.V {
 	 *
 	 * @return the {@link GLFWErrorCallback} instance
 	 */
-	public static GLFWErrorCallback create(final SAM sam) {
+	public static GLFWErrorCallback create(SAM sam) {
 		return new GLFWErrorCallback() {
 			@Override
 			public void invoke(int error, long description) {
@@ -108,7 +93,7 @@ public abstract class GLFWErrorCallback extends Closure.V {
 	 *
 	 * @return the {@link GLFWErrorCallback} instance
 	 */
-	public static GLFWErrorCallback createString(final SAMString sam) {
+	public static GLFWErrorCallback createString(SAMString sam) {
 		return new GLFWErrorCallback() {
 			@Override
 			public void invoke(int error, long description) {
@@ -133,18 +118,13 @@ public abstract class GLFWErrorCallback extends Closure.V {
 	 *
 	 * @return the GLFWerrorCallback
 	 */
-	public static GLFWErrorCallback createPrint(final PrintStream stream) {
+	public static GLFWErrorCallback createPrint(PrintStream stream) {
 		return new GLFWErrorCallback() {
-			private final Map<Integer, String> ERROR_CODES = apiClassTokens(new TokenFilter() {
-				@Override
-				public boolean accept(Field field, int value) {
-					return 0x10000 < value && value < 0x20000;
-				}
-			}, null, GLFW.class);
+			private Map<Integer, String> ERROR_CODES = apiClassTokens((field, value) -> 0x10000 < value && value < 0x20000, null, GLFW.class);
 
 			@Override
 			public void invoke(int error, long description) {
-				String msg = memUTF8(description);
+				String msg = getDescription(description);
 
 				stream.printf("[LWJGL] %s error\n", ERROR_CODES.get(error));
 				stream.println("\tDescription : " + msg);
@@ -167,7 +147,7 @@ public abstract class GLFWErrorCallback extends Closure.V {
 		return new GLFWErrorCallback() {
 			@Override
 			public void invoke(int error, long description) {
-				throw new IllegalStateException(String.format("GLFW error [0x%X]: %s", error, memUTF8(description)));
+				throw new IllegalStateException(String.format("GLFW error [0x%X]: %s", error, getDescription(description)));
 			}
 		};
 	}

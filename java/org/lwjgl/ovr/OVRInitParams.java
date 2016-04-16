@@ -103,7 +103,7 @@ public class OVRInitParams extends Struct {
 	/** Returns the function address at the {@code LogCallback} field. */
 	public long LogCallback() { return nLogCallback(address()); }
 	/** Returns the {@code OVRLogCallback} instance at the {@code LogCallback} field. */
-	public OVRLogCallback LogCallbackClosure() { return nLogCallbackClosure(address()); }
+	public OVRLogCallback LogCallbackCallback() { return nLogCallbackCallback(address()); }
 	/** Returns the value of the {@code UserData} field. */
 	public long UserData() { return nUserData(address()); }
 	/** Returns the value of the {@code ConnectionTimeoutMS} field. */
@@ -291,8 +291,8 @@ public class OVRInitParams extends Struct {
 	public static int nRequestedMinorVersion(long struct) { return memGetInt(struct + OVRInitParams.REQUESTEDMINORVERSION); }
 	/** Unsafe version of {@link #LogCallback}. */
 	public static long nLogCallback(long struct) { return memGetAddress(struct + OVRInitParams.LOGCALLBACK); }
-	/** Unsafe version of {@link #LogCallbackClosure}. */
-	public static OVRLogCallback nLogCallbackClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(nLogCallback(struct)); }
+	/** Unsafe version of {@link #LogCallbackCallback}. */
+	public static OVRLogCallback nLogCallbackCallback(long struct) { return Callback.create(nLogCallback(struct)); }
 	/** Unsafe version of {@link #UserData}. */
 	public static long nUserData(long struct) { return memGetAddress(struct + OVRInitParams.USERDATA); }
 	/** Unsafe version of {@link #ConnectionTimeoutMS}. */
@@ -358,7 +358,7 @@ public class OVRInitParams extends Struct {
 		/** Returns the function address at the {@code LogCallback} field. */
 		public long LogCallback() { return OVRInitParams.nLogCallback(address()); }
 		/** Returns the {@code OVRLogCallback} instance at the {@code LogCallback} field. */
-		public OVRLogCallback LogCallbackClosure() { return OVRInitParams.nLogCallbackClosure(address()); }
+		public OVRLogCallback LogCallbackCallback() { return OVRInitParams.nLogCallbackCallback(address()); }
 		/** Returns the value of the {@code UserData} field. */
 		public long UserData() { return OVRInitParams.nUserData(address()); }
 		/** Returns the value of the {@code ConnectionTimeoutMS} field. */

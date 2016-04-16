@@ -5,49 +5,36 @@
  */
 package org.lwjgl.egl;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
+
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link KHRDebug#eglDebugMessageControlKHR DebugMessageControlKHR} method. */
-public abstract class EGLDebugMessageKHRCallback extends Closure.V {
+public abstract class EGLDebugMessageKHRCallback extends Callback.V {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(6);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.egl.EGLDebugMessageKHRCallback");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_SYSTEM,
-			CIF, ffi_type_void,
-			ARGS, ffi_type_uint32, ffi_type_pointer, ffi_type_sint32, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.egl.EGLDebugMessageKHRCallback");
 
 	protected EGLDebugMessageKHRCallback() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_SYSTEM + "(ipippp)v", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetInt(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 2 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 3 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 4 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 5 + args))
+			dcbArgInt(args),
+			dcbArgPointer(args),
+			dcbArgInt(args),
+			dcbArgPointer(args),
+			dcbArgPointer(args),
+			dcbArgPointer(args)
 		);
 	}
 
@@ -81,7 +68,7 @@ public abstract class EGLDebugMessageKHRCallback extends Closure.V {
 	 *
 	 * @return the {@link EGLDebugMessageKHRCallback} instance
 	 */
-	public static EGLDebugMessageKHRCallback create(final SAM sam) {
+	public static EGLDebugMessageKHRCallback create(SAM sam) {
 		return new EGLDebugMessageKHRCallback() {
 			@Override
 			public void invoke(int error, long command, int messageType, long threadLabel, long objectLabel, long message) {
@@ -128,7 +115,7 @@ public abstract class EGLDebugMessageKHRCallback extends Closure.V {
 	 *
 	 * @return the {@link EGLDebugMessageKHRCallback} instance
 	 */
-	public static EGLDebugMessageKHRCallback createString(final SAMString sam) {
+	public static EGLDebugMessageKHRCallback createString(SAMString sam) {
 		return new EGLDebugMessageKHRCallback() {
 			@Override
 			public void invoke(int error, long command, int messageType, long threadLabel, long objectLabel, long message) {
@@ -136,5 +123,5 @@ public abstract class EGLDebugMessageKHRCallback extends Closure.V {
 			}
 		};
 	}
-	
+
 }

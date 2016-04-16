@@ -5,49 +5,34 @@
  */
 package org.lwjgl.glfw;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import org.lwjgl.opengl.GL11;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback} method. */
-public abstract class GLFWCursorEnterCallback extends Closure.V {
+public abstract class GLFWCursorEnterCallback extends Callback.V {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(2);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.glfw.GLFWCursorEnterCallback");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_DEFAULT,
-			CIF, ffi_type_void,
-			ARGS, ffi_type_pointer, ffi_type_sint32
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWCursorEnterCallback");
 
 	protected GLFWCursorEnterCallback() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_DEFAULT + "(pi)v", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 1 + args))
+			dcbArgPointer(args),
+			dcbArgInt(args)
 		);
 	}
 
@@ -71,7 +56,7 @@ public abstract class GLFWCursorEnterCallback extends Closure.V {
 	 *
 	 * @return the {@link GLFWCursorEnterCallback} instance
 	 */
-	public static GLFWCursorEnterCallback create(final SAM sam) {
+	public static GLFWCursorEnterCallback create(SAM sam) {
 		return new GLFWCursorEnterCallback() {
 			@Override
 			public void invoke(long window, int entered) {
@@ -85,5 +70,5 @@ public abstract class GLFWCursorEnterCallback extends Closure.V {
 		glfwSetCursorEnterCallback(window, this);
 		return this;
 	}
-	
+
 }

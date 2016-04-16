@@ -138,7 +138,7 @@ public class WNDCLASSEX extends Struct {
 	/** Returns the function address at the {@code lpfnWndProc} field. */
 	public long lpfnWndProc() { return nlpfnWndProc(address()); }
 	/** Returns the {@code WindowProc} instance at the {@code lpfnWndProc} field. */
-	public WindowProc lpfnWndProcClosure() { return nlpfnWndProcClosure(address()); }
+	public WindowProc lpfnWndProcCallback() { return nlpfnWndProcCallback(address()); }
 	/** Returns the value of the {@code cbClsExtra} field. */
 	public int cbClsExtra() { return ncbClsExtra(address()); }
 	/** Returns the value of the {@code cbWndExtra} field. */
@@ -372,8 +372,8 @@ public class WNDCLASSEX extends Struct {
 	public static int nstyle(long struct) { return memGetInt(struct + WNDCLASSEX.STYLE); }
 	/** Unsafe version of {@link #lpfnWndProc}. */
 	public static long nlpfnWndProc(long struct) { return memGetAddress(struct + WNDCLASSEX.LPFNWNDPROC); }
-	/** Unsafe version of {@link #lpfnWndProcClosure}. */
-	public static WindowProc nlpfnWndProcClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(nlpfnWndProc(struct)); }
+	/** Unsafe version of {@link #lpfnWndProcCallback}. */
+	public static WindowProc nlpfnWndProcCallback(long struct) { return Callback.create(nlpfnWndProc(struct)); }
 	/** Unsafe version of {@link #cbClsExtra}. */
 	public static int ncbClsExtra(long struct) { return memGetInt(struct + WNDCLASSEX.CBCLSEXTRA); }
 	/** Unsafe version of {@link #cbWndExtra}. */
@@ -499,7 +499,7 @@ public class WNDCLASSEX extends Struct {
 		/** Returns the function address at the {@code lpfnWndProc} field. */
 		public long lpfnWndProc() { return WNDCLASSEX.nlpfnWndProc(address()); }
 		/** Returns the {@code WindowProc} instance at the {@code lpfnWndProc} field. */
-		public WindowProc lpfnWndProcClosure() { return WNDCLASSEX.nlpfnWndProcClosure(address()); }
+		public WindowProc lpfnWndProcCallback() { return WNDCLASSEX.nlpfnWndProcCallback(address()); }
 		/** Returns the value of the {@code cbClsExtra} field. */
 		public int cbClsExtra() { return WNDCLASSEX.ncbClsExtra(address()); }
 		/** Returns the value of the {@code cbWndExtra} field. */

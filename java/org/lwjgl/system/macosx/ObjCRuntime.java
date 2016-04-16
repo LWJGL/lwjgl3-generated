@@ -31,8 +31,8 @@ long NSThread = objc_getClass("NSThread");
 long currentThread = invokePPP(objc_msgSend, NSThread, sel_getUid("currentThread"));</code></pre>
  * 
  * <p>The safe way to use objc_msgSend in C code is to cast it to an appropriate function pointer. This is exactly what the
- * {@link org.lwjgl.system.JNI JNI} class does. If a particular function signature is not available, {@link org.lwjgl.system.libffi.LibFFI LibFFI} may
- * be used to invoke it.</p>
+ * {@link org.lwjgl.system.JNI JNI} class does. If a particular function signature is not available, {@link org.lwjgl.system.dyncall.DynCall DynCall}
+ * may be used to invoke it.</p>
  * 
  * <p>The functions not exposed are:</p>
  * 

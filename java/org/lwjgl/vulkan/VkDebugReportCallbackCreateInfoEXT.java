@@ -108,7 +108,7 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 	/** Returns the function address at the {@code pfnCallback} field. */
 	public long pfnCallback() { return npfnCallback(address()); }
 	/** Returns the {@code VkDebugReportCallbackEXT} instance at the {@code pfnCallback} field. */
-	public VkDebugReportCallbackEXT pfnCallbackClosure() { return npfnCallbackClosure(address()); }
+	public VkDebugReportCallbackEXT pfnCallbackCallback() { return npfnCallbackCallback(address()); }
 	/** Returns the value of the {@code pUserData} field. */
 	public long pUserData() { return npUserData(address()); }
 
@@ -296,8 +296,8 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 	public static int nflags(long struct) { return memGetInt(struct + VkDebugReportCallbackCreateInfoEXT.FLAGS); }
 	/** Unsafe version of {@link #pfnCallback}. */
 	public static long npfnCallback(long struct) { return memGetAddress(struct + VkDebugReportCallbackCreateInfoEXT.PFNCALLBACK); }
-	/** Unsafe version of {@link #pfnCallbackClosure}. */
-	public static VkDebugReportCallbackEXT npfnCallbackClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(npfnCallback(struct)); }
+	/** Unsafe version of {@link #pfnCallbackCallback}. */
+	public static VkDebugReportCallbackEXT npfnCallbackCallback(long struct) { return Callback.create(npfnCallback(struct)); }
 	/** Unsafe version of {@link #pUserData}. */
 	public static long npUserData(long struct) { return memGetAddress(struct + VkDebugReportCallbackCreateInfoEXT.PUSERDATA); }
 
@@ -383,7 +383,7 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 		/** Returns the function address at the {@code pfnCallback} field. */
 		public long pfnCallback() { return VkDebugReportCallbackCreateInfoEXT.npfnCallback(address()); }
 		/** Returns the {@code VkDebugReportCallbackEXT} instance at the {@code pfnCallback} field. */
-		public VkDebugReportCallbackEXT pfnCallbackClosure() { return VkDebugReportCallbackCreateInfoEXT.npfnCallbackClosure(address()); }
+		public VkDebugReportCallbackEXT pfnCallbackCallback() { return VkDebugReportCallbackCreateInfoEXT.npfnCallbackCallback(address()); }
 		/** Returns the value of the {@code pUserData} field. */
 		public long pUserData() { return VkDebugReportCallbackCreateInfoEXT.npUserData(address()); }
 

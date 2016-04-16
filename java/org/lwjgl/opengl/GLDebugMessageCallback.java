@@ -5,50 +5,37 @@
  */
 package org.lwjgl.opengl;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
+
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link GL43#glDebugMessageCallback} and {@link KHRDebug#glDebugMessageCallback} methods. */
-public abstract class GLDebugMessageCallback extends Closure.V {
+public abstract class GLDebugMessageCallback extends Callback.V {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(7);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.opengl.GLDebugMessageCallback");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_SYSTEM,
-			CIF, ffi_type_void,
-			ARGS, ffi_type_uint32, ffi_type_uint32, ffi_type_uint32, ffi_type_uint32, ffi_type_sint32, ffi_type_pointer, ffi_type_pointer
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.opengl.GLDebugMessageCallback");
 
 	protected GLDebugMessageCallback() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_SYSTEM + "(iiiiipp)v", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetInt(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 1 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 2 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 3 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 4 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 5 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 6 + args))
+			dcbArgInt(args),
+			dcbArgInt(args),
+			dcbArgInt(args),
+			dcbArgInt(args),
+			dcbArgInt(args),
+			dcbArgPointer(args),
+			dcbArgPointer(args)
 		);
 	}
 
@@ -77,7 +64,7 @@ public abstract class GLDebugMessageCallback extends Closure.V {
 	 *
 	 * @return the {@link GLDebugMessageCallback} instance
 	 */
-	public static GLDebugMessageCallback create(final SAM sam) {
+	public static GLDebugMessageCallback create(SAM sam) {
 		return new GLDebugMessageCallback() {
 			@Override
 			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
@@ -112,7 +99,7 @@ public abstract class GLDebugMessageCallback extends Closure.V {
 	 *
 	 * @return the {@link GLDebugMessageCallback} instance
 	 */
-	public static GLDebugMessageCallback createString(final SAMString sam) {
+	public static GLDebugMessageCallback createString(SAMString sam) {
 		return new GLDebugMessageCallback() {
 			@Override
 			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
@@ -120,5 +107,5 @@ public abstract class GLDebugMessageCallback extends Closure.V {
 			}
 		};
 	}
-	
+
 }

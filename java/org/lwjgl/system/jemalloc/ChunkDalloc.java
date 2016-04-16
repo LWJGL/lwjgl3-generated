@@ -5,47 +5,32 @@
  */
 package org.lwjgl.system.jemalloc;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-public abstract class ChunkDalloc extends Closure.Z {
+public abstract class ChunkDalloc extends Callback.Z {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(4);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.system.jemalloc.ChunkDalloc");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_DEFAULT,
-			CIF, ffi_type_uint8,
-			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_uint8, ffi_type_uint32
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.system.jemalloc.ChunkDalloc");
 
 	protected ChunkDalloc() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_DEFAULT + "(ppBi)B", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected boolean callback(long args) {
 		return invoke(
-			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args)),
-			memGetBoolean(memGetAddress(POINTER_SIZE * 2 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 3 + args))
+			dcbArgPointer(args),
+			dcbArgPointer(args),
+			dcbArgBool(args) != 0,
+			dcbArgInt(args)
 		);
 	}
 
@@ -71,7 +56,7 @@ public abstract class ChunkDalloc extends Closure.Z {
 	 *
 	 * @return the {@link ChunkDalloc} instance
 	 */
-	public static ChunkDalloc create(final SAM sam) {
+	public static ChunkDalloc create(SAM sam) {
 		return new ChunkDalloc() {
 			@Override
 			public boolean invoke(long chunk, long size, boolean committed, int arena_ind) {

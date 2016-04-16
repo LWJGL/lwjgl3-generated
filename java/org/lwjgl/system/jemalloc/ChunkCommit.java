@@ -5,48 +5,33 @@
  */
 package org.lwjgl.system.jemalloc;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-public abstract class ChunkCommit extends Closure.Z {
+public abstract class ChunkCommit extends Callback.Z {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(5);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.system.jemalloc.ChunkCommit");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_DEFAULT,
-			CIF, ffi_type_uint8,
-			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_uint32
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.system.jemalloc.ChunkCommit");
 
 	protected ChunkCommit() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_DEFAULT + "(ppppi)B", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected boolean callback(long args) {
 		return invoke(
-			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 2 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 3 + args)),
-			memGetInt(memGetAddress(POINTER_SIZE * 4 + args))
+			dcbArgPointer(args),
+			dcbArgPointer(args),
+			dcbArgPointer(args),
+			dcbArgPointer(args),
+			dcbArgInt(args)
 		);
 	}
 
@@ -73,7 +58,7 @@ public abstract class ChunkCommit extends Closure.Z {
 	 *
 	 * @return the {@link ChunkCommit} instance
 	 */
-	public static ChunkCommit create(final SAM sam) {
+	public static ChunkCommit create(SAM sam) {
 		return new ChunkCommit() {
 			@Override
 			public boolean invoke(long chunk, long size, long offset, long length, int arena_ind) {

@@ -5,44 +5,29 @@
  */
 package org.lwjgl.stb;
 
-import java.nio.*;
-
-import org.lwjgl.*;
-import org.lwjgl.system.libffi.*;
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.libffi.LibFFI.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct. */
-public abstract class STBIEOFCallback extends Closure.I {
+public abstract class STBIEOFCallback extends Callback.I {
 
-	private static final FFICIF        CIF  = apiClosureCIF();
-	private static final PointerBuffer ARGS = apiClosureArgs(1);
-
-	private static final long CLASSPATH = apiClosureText("org.lwjgl.stb.STBIEOFCallback");
-
-	static {
-		prepareCIF(
-			CALL_CONVENTION_DEFAULT,
-			CIF, ffi_type_sint32,
-			ARGS, ffi_type_pointer
-		);
-	}
+	private static final long CLASSPATH = apiCallbackText("org.lwjgl.stb.STBIEOFCallback");
 
 	protected STBIEOFCallback() {
-		super(CIF, CLASSPATH);
+		super(CALL_CONVENTION_DEFAULT + "(p)i", CLASSPATH);
 	}
 
 	/**
-	 * Will be called from a libffi closure invocation. Decodes the arguments and passes them to {@link #invoke}.
+	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
 	 *
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
 	protected int callback(long args) {
 		return invoke(
-			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args))
+			dcbArgPointer(args)
 		);
 	}
 
@@ -67,7 +52,7 @@ public abstract class STBIEOFCallback extends Closure.I {
 	 *
 	 * @return the {@link STBIEOFCallback} instance
 	 */
-	public static STBIEOFCallback create(final SAM sam) {
+	public static STBIEOFCallback create(SAM sam) {
 		return new STBIEOFCallback() {
 			@Override
 			public int invoke(long user) {
