@@ -8,6 +8,7 @@ package org.lwjgl.system.linux;
 import java.nio.*;
 
 import org.lwjgl.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
@@ -15,6 +16,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /** Native bindings to libX11. */
 public class X11 {

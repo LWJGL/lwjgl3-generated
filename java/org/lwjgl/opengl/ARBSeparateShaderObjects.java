@@ -8,13 +8,13 @@ package org.lwjgl.opengl;
 import java.nio.*;
 
 import org.lwjgl.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/separate_shader_objects.txt">ARB_separate_shader_objects</a> extension.

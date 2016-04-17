@@ -8,13 +8,13 @@ package org.lwjgl.opencl;
 import java.nio.*;
 
 import org.lwjgl.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /** The core OpenCL 1.2 functionality. */
 public class CL12 {

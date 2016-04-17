@@ -8,12 +8,10 @@ package org.lwjgl.egl;
 import java.nio.*;
 
 import org.lwjgl.*;
-import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/NV/EGL_NV_stream_metadata.txt">NV_stream_metadata</a> extension.

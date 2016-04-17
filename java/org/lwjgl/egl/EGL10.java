@@ -8,13 +8,13 @@ package org.lwjgl.egl;
 import java.nio.*;
 
 import org.lwjgl.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /** The core EGL 1.0 functionality. */
 public class EGL10 {

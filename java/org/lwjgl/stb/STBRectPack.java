@@ -5,8 +5,6 @@
  */
 package org.lwjgl.stb;
 
-import java.nio.*;
-
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;

@@ -8,12 +8,12 @@ package org.lwjgl.stb;
 import java.nio.*;
 
 import org.lwjgl.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to stb_truetype.h from the <a href="https://github.com/nothings/stb">stb library</a>.

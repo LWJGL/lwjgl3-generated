@@ -8,12 +8,10 @@ package org.lwjgl.opencl;
 import java.nio.*;
 
 import org.lwjgl.*;
-import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/khr/cl_khr_egl_image.txt">khr_egl_image</a> extension.

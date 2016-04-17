@@ -5,13 +5,10 @@
  */
 package org.lwjgl.system.windows;
 
-import java.nio.*;
-
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to wingdi.h and gdi32.dll. */

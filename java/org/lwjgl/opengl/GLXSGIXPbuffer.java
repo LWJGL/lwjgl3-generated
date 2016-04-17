@@ -8,12 +8,10 @@ package org.lwjgl.opengl;
 import java.nio.*;
 
 import org.lwjgl.*;
-import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/SGIX/pbuffer.txt">GLX_SGIX_pbuffer</a> extension.
