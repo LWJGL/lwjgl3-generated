@@ -124,13 +124,13 @@ public class WGLARBRenderTexture {
 	 * @param pbuffer a pbuffer handle
 	 * @param buffer  the target buffer. One of:<br><table><tr><td>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}</td><td>{@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}</td><td>{@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}</td><td>{@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}</td><td>{@link #WGL_AUX0_ARB AUX0_ARB}</td><td>WGL_AUX[1-9]_ARB</td></tr></table>
 	 */
-	public static int wglBindTexImageARB(long pbuffer, int buffer) {
+	public static boolean wglBindTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglBindTexImageARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
 		}
-		return callPII(__functionAddress, pbuffer, buffer);
+		return callPII(__functionAddress, pbuffer, buffer) != 0;
 	}
 
 	// --- [ wglReleaseTexImageARB ] ---
@@ -142,13 +142,13 @@ public class WGLARBRenderTexture {
 	 * @param pbuffer a pbuffer handle
 	 * @param buffer  the target buffer. One of:<br><table><tr><td>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}</td><td>{@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}</td><td>{@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}</td><td>{@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}</td><td>{@link #WGL_AUX0_ARB AUX0_ARB}</td><td>WGL_AUX[1-9]_ARB</td></tr></table>
 	 */
-	public static int wglReleaseTexImageARB(long pbuffer, int buffer) {
+	public static boolean wglReleaseTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglReleaseTexImageARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
 		}
-		return callPII(__functionAddress, pbuffer, buffer);
+		return callPII(__functionAddress, pbuffer, buffer) != 0;
 	}
 
 	// --- [ wglSetPbufferAttribARB ] ---
@@ -174,10 +174,10 @@ public class WGLARBRenderTexture {
 	 * @param pbuffer    a pbuffer handle
 	 * @param attribList a 0-terminated list of attribute {type, value} pairs containing integer values
 	 */
-	public static int wglSetPbufferAttribARB(long pbuffer, IntBuffer attribList) {
+	public static boolean wglSetPbufferAttribARB(long pbuffer, IntBuffer attribList) {
 		if ( CHECKS )
 			if ( attribList != null ) checkNT(attribList);
-		return nwglSetPbufferAttribARB(pbuffer, memAddressSafe(attribList));
+		return nwglSetPbufferAttribARB(pbuffer, memAddressSafe(attribList)) != 0;
 	}
 
 }

@@ -306,8 +306,8 @@ public class GDI32 {
 	 * @param pixelFormatDescriptor a {@link PIXELFORMATDESCRIPTOR} structure that contains the logical pixel format specification. The system's metafile component uses this structure
 	 *                              to record the logical pixel format specification. The structure has no other effect upon the behavior of the SetPixelFormat function.
 	 */
-	public static int SetPixelFormat(long hdc, int pixelFormat, PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
-		return nSetPixelFormat(hdc, pixelFormat, pixelFormatDescriptor == null ? NULL : pixelFormatDescriptor.address());
+	public static boolean SetPixelFormat(long hdc, int pixelFormat, PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
+		return nSetPixelFormat(hdc, pixelFormat, pixelFormatDescriptor == null ? NULL : pixelFormatDescriptor.address()) != 0;
 	}
 
 	// --- [ SwapBuffers ] ---
@@ -326,11 +326,11 @@ public class GDI32 {
 	 * @param dc a device context. If the current pixel format for the window referenced by this device context includes a back buffer, the function exchanges the
 	 *           front and back buffers.
 	 */
-	public static int SwapBuffers(long dc) {
+	public static boolean SwapBuffers(long dc) {
 		long __functionAddress = Functions.SwapBuffers;
 		if ( CHECKS )
 			checkPointer(dc);
-		return nSwapBuffers(__functionAddress, dc);
+		return nSwapBuffers(__functionAddress, dc) != 0;
 	}
 
 }

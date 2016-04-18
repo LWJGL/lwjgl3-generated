@@ -52,14 +52,14 @@ public class WGLNVCopyImage {
 	 * @param height    the number of texels to copy in the y-dimension
 	 * @param depth     the number of texels to copy in the z-dimension
 	 */
-	public static int wglCopyImageSubDataNV(long srcRC, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstRC, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
+	public static boolean wglCopyImageSubDataNV(long srcRC, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstRC, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCopyImageSubDataNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(srcRC);
 			checkPointer(dstRC);
 		}
-		return callPIIIIIIPIIIIIIIIII(__functionAddress, srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
+		return callPIIIIIIPIIIIIIIIII(__functionAddress, srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth) != 0;
 	}
 
 }

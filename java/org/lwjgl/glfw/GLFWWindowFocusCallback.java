@@ -32,7 +32,7 @@ public abstract class GLFWWindowFocusCallback extends Callback.V {
 	protected void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
-			dcbArgInt(args)
+			dcbArgInt(args) != 0
 		);
 	}
 
@@ -42,11 +42,11 @@ public abstract class GLFWWindowFocusCallback extends Callback.V {
 	 * @param window  the window that was focused or defocused
 	 * @param focused {@link GL11#GL_TRUE} if the window was focused, or {@link GL11#GL_FALSE} if it was defocused
 	 */
-	public abstract void invoke(long window, int focused);
+	public abstract void invoke(long window, boolean focused);
 
 	/** A functional interface for {@link GLFWWindowFocusCallback}. */
 	public interface SAM {
-		void invoke(long window, int focused);
+		void invoke(long window, boolean focused);
 	}
 
 	/**
@@ -59,7 +59,7 @@ public abstract class GLFWWindowFocusCallback extends Callback.V {
 	public static GLFWWindowFocusCallback create(SAM sam) {
 		return new GLFWWindowFocusCallback() {
 			@Override
-			public void invoke(long window, int focused) {
+			public void invoke(long window, boolean focused) {
 				sam.invoke(window, focused);
 			}
 		};

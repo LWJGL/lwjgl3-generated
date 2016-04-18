@@ -58,9 +58,9 @@ public class GLFWVulkan {
 	 *
 	 * @since version 3.2
 	 */
-	public static int glfwVulkanSupported() {
+	public static boolean glfwVulkanSupported() {
 		long __functionAddress = Functions.VulkanSupported;
-		return invokeI(__functionAddress);
+		return invokeI(__functionAddress) != 0;
 	}
 
 	// --- [ glfwGetRequiredInstanceExtensions ] ---
@@ -264,9 +264,9 @@ public class GLFWVulkan {
 	 *
 	 * @since version 3.2
 	 */
-	public static int glfwGetPhysicalDevicePresentationSupport(VkInstance instance, VkPhysicalDevice device, int queuefamily) {
+	public static boolean glfwGetPhysicalDevicePresentationSupport(VkInstance instance, VkPhysicalDevice device, int queuefamily) {
 		long __functionAddress = Functions.GetPhysicalDevicePresentationSupport;
-		return invokePPII(__functionAddress, instance.address(), device.address(), queuefamily);
+		return invokePPII(__functionAddress, instance.address(), device.address(), queuefamily) != 0;
 	}
 
 	// --- [ glfwCreateWindowSurface ] ---

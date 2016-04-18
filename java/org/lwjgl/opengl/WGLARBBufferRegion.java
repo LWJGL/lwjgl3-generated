@@ -89,13 +89,13 @@ public class WGLARBBufferRegion {
 	 * @param width  the source rectangle width
 	 * @param height the source rectangle height
 	 */
-	public static int wglSaveBufferRegionARB(long region, int x, int y, int width, int height) {
+	public static boolean wglSaveBufferRegionARB(long region, int x, int y, int width, int height) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglSaveBufferRegionARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(region);
 		}
-		return callPIIIII(__functionAddress, region, x, y, width, height);
+		return callPIIIII(__functionAddress, region, x, y, width, height) != 0;
 	}
 
 	// --- [ wglRestoreBufferRegionARB ] ---
@@ -111,13 +111,13 @@ public class WGLARBBufferRegion {
 	 * @param xSrc   the buffer region x-coordinate for the source of the data
 	 * @param ySrc   the buffer region y-coordinate for the source of the data
 	 */
-	public static int wglRestoreBufferRegionARB(long region, int x, int y, int width, int height, int xSrc, int ySrc) {
+	public static boolean wglRestoreBufferRegionARB(long region, int x, int y, int width, int height, int xSrc, int ySrc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglRestoreBufferRegionARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(region);
 		}
-		return callPIIIIIII(__functionAddress, region, x, y, width, height, xSrc, ySrc);
+		return callPIIIIIII(__functionAddress, region, x, y, width, height, xSrc, ySrc) != 0;
 	}
 
 }

@@ -70,8 +70,8 @@ public class WGLNVGPUAffinity {
 	 * @param gpuIndex an index value that specifies a GPU
 	 * @param gpu      returns a handle for GPU number {@code gpuIndex}. The first GPU will be index 0.
 	 */
-	public static int wglEnumGpusNV(int gpuIndex, PointerBuffer gpu) {
-		return nwglEnumGpusNV(gpuIndex, memAddress(gpu));
+	public static boolean wglEnumGpusNV(int gpuIndex, PointerBuffer gpu) {
+		return nwglEnumGpusNV(gpuIndex, memAddress(gpu)) != 0;
 	}
 
 	// --- [ wglEnumGpuDevicesNV ] ---
@@ -99,8 +99,8 @@ public class WGLNVGPUAffinity {
 	 * @param deviceIndex an index value that specifies a display device, supported by {@code gpu}, to query. The first display device will be index 0.
 	 * @param gpuDevice   a {@link GPU_DEVICE} structure which will receive information about the display device at index {@code deviceIndex}.
 	 */
-	public static int wglEnumGpuDevicesNV(long gpu, int deviceIndex, GPU_DEVICE gpuDevice) {
-		return nwglEnumGpuDevicesNV(gpu, deviceIndex, gpuDevice.address());
+	public static boolean wglEnumGpuDevicesNV(long gpu, int deviceIndex, GPU_DEVICE gpuDevice) {
+		return nwglEnumGpuDevicesNV(gpu, deviceIndex, gpuDevice.address()) != 0;
 	}
 
 	// --- [ wglCreateAffinityDCNV ] ---
@@ -171,8 +171,8 @@ public class WGLNVGPUAffinity {
 	 * @param gpuIndex   an index value of the GPU handle in the affinity mask of {@code affinityDC} to query
 	 * @param gpu        returns a handle for  GPU number {@code gpuIndex}. The first GPU will be at index 0.
 	 */
-	public static int wglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, PointerBuffer gpu) {
-		return nwglEnumGpusFromAffinityDCNV(affinityDC, gpuIndex, memAddress(gpu));
+	public static boolean wglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, PointerBuffer gpu) {
+		return nwglEnumGpusFromAffinityDCNV(affinityDC, gpuIndex, memAddress(gpu)) != 0;
 	}
 
 	// --- [ wglDeleteDCNV ] ---
@@ -182,13 +182,13 @@ public class WGLNVGPUAffinity {
 	 *
 	 * @param hdc a handle of an affinity-DC to delete
 	 */
-	public static int wglDeleteDCNV(long hdc) {
+	public static boolean wglDeleteDCNV(long hdc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDeleteDCNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
 		}
-		return callPI(__functionAddress, hdc);
+		return callPI(__functionAddress, hdc) != 0;
 	}
 
 }

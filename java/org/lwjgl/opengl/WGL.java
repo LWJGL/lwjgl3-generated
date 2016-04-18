@@ -128,13 +128,13 @@ public class WGL {
 	 * @param mask which groups of the {@code src} rendering state are to be copied to {@code dst}. It contains the bitwise-OR of the same symbolic names that are
 	 *             passed to the {@link GL11#glPushAttrib PushAttrib} function. You can use {@link GL11#GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS} to copy all the rendering state information.
 	 */
-	public static int wglCopyContext(long src, long dst, int mask) {
+	public static boolean wglCopyContext(long src, long dst, int mask) {
 		long __functionAddress = Functions.CopyContext;
 		if ( CHECKS ) {
 			checkPointer(src);
 			checkPointer(dst);
 		}
-		return callPPII(__functionAddress, src, dst, mask);
+		return callPPII(__functionAddress, src, dst, mask) != 0;
 	}
 
 	// --- [ wglDeleteContext ] ---
@@ -144,11 +144,11 @@ public class WGL {
 	 *
 	 * @param context handle to an OpenGL rendering context that the function will delete
 	 */
-	public static int wglDeleteContext(long context) {
+	public static boolean wglDeleteContext(long context) {
 		long __functionAddress = Functions.DeleteContext;
 		if ( CHECKS )
 			checkPointer(context);
-		return callPI(__functionAddress, context);
+		return callPI(__functionAddress, context) != 0;
 	}
 
 	// --- [ wglGetCurrentContext ] ---
@@ -219,9 +219,9 @@ public class WGL {
 	 *              makes the calling thread's current rendering context no longer current, and releases the device context that is used by the rendering context. In
 	 *              this case, {@code hdc} is ignored.
 	 */
-	public static int wglMakeCurrent(long hdc, long hglrc) {
+	public static boolean wglMakeCurrent(long hdc, long hglrc) {
 		long __functionAddress = Functions.MakeCurrent;
-		return callPPI(__functionAddress, hdc, hglrc);
+		return callPPI(__functionAddress, hdc, hglrc) != 0;
 	}
 
 	// --- [ wglShareLists ] ---
@@ -233,13 +233,13 @@ public class WGL {
 	 * @param hglrc2 the OpenGL rendering context to share display lists with {@code hglrc1}. The {@code hglrc2} parameter should not contain any existing display lists
 	 *               when {@code wglShareLists} is called.
 	 */
-	public static int wglShareLists(long hglrc1, long hglrc2) {
+	public static boolean wglShareLists(long hglrc1, long hglrc2) {
 		long __functionAddress = Functions.ShareLists;
 		if ( CHECKS ) {
 			checkPointer(hglrc1);
 			checkPointer(hglrc2);
 		}
-		return callPPI(__functionAddress, hglrc1, hglrc2);
+		return callPPI(__functionAddress, hglrc1, hglrc2) != 0;
 	}
 
 	// --- [ wglUseFontBitmaps ] ---
@@ -255,11 +255,11 @@ public class WGL {
 	 * @param count    the number of glyphs in the run of glyphs that will be used to form glyph bitmap display lists. The function creates count display lists, one for each glyph in the run.
 	 * @param listBase the starting display list
 	 */
-	public static int wglUseFontBitmaps(long hdc, int first, int count, int listBase) {
+	public static boolean wglUseFontBitmaps(long hdc, int first, int count, int listBase) {
 		long __functionAddress = Functions.UseFontBitmaps;
 		if ( CHECKS )
 			checkPointer(hdc);
-		return callPIIII(__functionAddress, hdc, first, count, listBase);
+		return callPIIII(__functionAddress, hdc, first, count, listBase) != 0;
 	}
 
 	// --- [ wglUseFontOutlines ] ---
@@ -321,8 +321,8 @@ public class WGL {
 	 * @param glyphMetrics an array of {@code count} {@link GLYPHMETRICSFLOAT} structures that is to receive the metrics of the glyphs. When {@code glyphMetrics} is {@code NULL}, no
 	 *                     glyph metrics are returned.
 	 */
-	public static int wglUseFontOutlines(long hdc, int first, int listBase, float deviation, float extrusion, int format, GLYPHMETRICSFLOAT.Buffer glyphMetrics) {
-		return nwglUseFontOutlines(hdc, first, glyphMetrics == null ? 0 : glyphMetrics.remaining(), listBase, deviation, extrusion, format, glyphMetrics == null ? NULL : glyphMetrics.address());
+	public static boolean wglUseFontOutlines(long hdc, int first, int listBase, float deviation, float extrusion, int format, GLYPHMETRICSFLOAT.Buffer glyphMetrics) {
+		return nwglUseFontOutlines(hdc, first, glyphMetrics == null ? 0 : glyphMetrics.remaining(), listBase, deviation, extrusion, format, glyphMetrics == null ? NULL : glyphMetrics.address()) != 0;
 	}
 
 }

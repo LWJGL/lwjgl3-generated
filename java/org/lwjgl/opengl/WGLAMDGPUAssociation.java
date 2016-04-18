@@ -208,13 +208,13 @@ public class WGLAMDGPUAssociation {
 	 *
 	 * @param hglrc a valid associated context created by calling {@link #wglCreateAssociatedContextAMD CreateAssociatedContextAMD}
 	 */
-	public static int wglDeleteAssociatedContextAMD(long hglrc) {
+	public static boolean wglDeleteAssociatedContextAMD(long hglrc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDeleteAssociatedContextAMD;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hglrc);
 		}
-		return callPI(__functionAddress, hglrc);
+		return callPI(__functionAddress, hglrc) != 0;
 	}
 
 	// --- [ wglMakeAssociatedContextCurrentAMD ] ---
@@ -224,13 +224,13 @@ public class WGLAMDGPUAssociation {
 	 *
 	 * @param hglrc a context handle created by calling {@link #wglCreateAssociatedContextAMD CreateAssociatedContextAMD}
 	 */
-	public static int wglMakeAssociatedContextCurrentAMD(long hglrc) {
+	public static boolean wglMakeAssociatedContextCurrentAMD(long hglrc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglMakeAssociatedContextCurrentAMD;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hglrc);
 		}
-		return callPI(__functionAddress, hglrc);
+		return callPI(__functionAddress, hglrc) != 0;
 	}
 
 	// --- [ wglGetCurrentAssociatedContextAMD ] ---

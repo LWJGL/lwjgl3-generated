@@ -32,7 +32,7 @@ public abstract class GLFWCursorEnterCallback extends Callback.V {
 	protected void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
-			dcbArgInt(args)
+			dcbArgInt(args) != 0
 		);
 	}
 
@@ -42,11 +42,11 @@ public abstract class GLFWCursorEnterCallback extends Callback.V {
 	 * @param window  the window that received the event
 	 * @param entered {@link GL11#GL_TRUE} if the cursor entered the window's client area, or {@link GL11#GL_FALSE} if it left it
 	 */
-	public abstract void invoke(long window, int entered);
+	public abstract void invoke(long window, boolean entered);
 
 	/** A functional interface for {@link GLFWCursorEnterCallback}. */
 	public interface SAM {
-		void invoke(long window, int entered);
+		void invoke(long window, boolean entered);
 	}
 
 	/**
@@ -59,7 +59,7 @@ public abstract class GLFWCursorEnterCallback extends Callback.V {
 	public static GLFWCursorEnterCallback create(SAM sam) {
 		return new GLFWCursorEnterCallback() {
 			@Override
-			public void invoke(long window, int entered) {
+			public void invoke(long window, boolean entered) {
 				sam.invoke(window, entered);
 			}
 		};

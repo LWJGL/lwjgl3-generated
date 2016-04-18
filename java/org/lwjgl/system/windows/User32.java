@@ -1039,10 +1039,10 @@ public class User32 {
 	 *                    word of {@code lpClassName}; the high-order word must be zero.
 	 * @param hInstance   a handle to the instance of the module that created the class
 	 */
-	public static int UnregisterClass(ByteBuffer lpClassName, long hInstance) {
+	public static boolean UnregisterClass(ByteBuffer lpClassName, long hInstance) {
 		if ( CHECKS )
 			checkNT2(lpClassName);
-		return nUnregisterClass(memAddress(lpClassName), hInstance);
+		return nUnregisterClass(memAddress(lpClassName), hInstance) != 0;
 	}
 
 	/**
@@ -1054,11 +1054,11 @@ public class User32 {
 	 *                    word of {@code lpClassName}; the high-order word must be zero.
 	 * @param hInstance   a handle to the instance of the module that created the class
 	 */
-	public static int UnregisterClass(CharSequence lpClassName, long hInstance) {
+	public static boolean UnregisterClass(CharSequence lpClassName, long hInstance) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer lpClassNameEncoded = stack.UTF16(lpClassName);
-			return nUnregisterClass(memAddress(lpClassNameEncoded), hInstance);
+			return nUnregisterClass(memAddress(lpClassNameEncoded), hInstance) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -1184,11 +1184,11 @@ public class User32 {
 	 *
 	 * @param hWnd a handle to the window to be destroyed
 	 */
-	public static int DestroyWindow(long hWnd) {
+	public static boolean DestroyWindow(long hWnd) {
 		long __functionAddress = Functions.DestroyWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return nDestroyWindow(__functionAddress, hWnd);
+		return nDestroyWindow(__functionAddress, hWnd) != 0;
 	}
 
 	// --- [ DefWindowProc ] ---
@@ -1219,11 +1219,11 @@ public class User32 {
 	 *                 launched the application provides a {@code STARTUPINFO} structure. Otherwise, the first time {@code ShowWindow} is called, the value should be the
 	 *                 value obtained by the {@code WinMain} function in its {@code nCmdShow} parameter. In subsequent calls, this parameter can be one of:<br><table><tr><td>{@link #SW_HIDE}</td><td>{@link #SW_SHOWNORMAL}</td><td>{@link #SW_NORMAL}</td><td>{@link #SW_SHOWMINIMIZED}</td><td>{@link #SW_SHOWMAXIMIZED}</td><td>{@link #SW_MAXIMIZE}</td></tr><tr><td>{@link #SW_SHOWNOACTIVATE}</td><td>{@link #SW_SHOW}</td><td>{@link #SW_MINIMIZE}</td><td>{@link #SW_SHOWMINNOACTIVE}</td><td>{@link #SW_SHOWNA}</td><td>{@link #SW_RESTORE}</td></tr><tr><td>{@link #SW_SHOWDEFAULT}</td><td>{@link #SW_FORCEMINIMIZE}</td><td>{@link #SW_MAX}</td></tr></table>
 	 */
-	public static int ShowWindow(long hWnd, int nCmdShow) {
+	public static boolean ShowWindow(long hWnd, int nCmdShow) {
 		long __functionAddress = Functions.ShowWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPII(__functionAddress, hWnd, nCmdShow);
+		return callPII(__functionAddress, hWnd, nCmdShow) != 0;
 	}
 
 	// --- [ UpdateWindow ] ---
@@ -1235,11 +1235,11 @@ public class User32 {
 	 *
 	 * @param hWnd handle to the window to be updated
 	 */
-	public static int UpdateWindow(long hWnd) {
+	public static boolean UpdateWindow(long hWnd) {
 		long __functionAddress = Functions.UpdateWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPI(__functionAddress, hWnd);
+		return callPI(__functionAddress, hWnd) != 0;
 	}
 
 	// --- [ SetWindowPos ] ---
@@ -1270,11 +1270,11 @@ public class User32 {
 	 * @param cy              the new height of the window, in pixels
 	 * @param uFlags          the window sizing and positioning flags. One or more of:<br><table><tr><td>{@link #SWP_NOSIZE}</td><td>{@link #SWP_NOMOVE}</td><td>{@link #SWP_NOZORDER}</td><td>{@link #SWP_NOREDRAW}</td><td>{@link #SWP_NOACTIVATE}</td></tr><tr><td>{@link #SWP_FRAMECHANGED}</td><td>{@link #SWP_SHOWWINDOW}</td><td>{@link #SWP_HIDEWINDOW}</td><td>{@link #SWP_NOCOPYBITS}</td><td>{@link #SWP_NOOWNERZORDER}</td></tr><tr><td>{@link #SWP_NOSENDCHANGING}</td><td>{@link #SWP_DRAWFRAME}</td><td>{@link #SWP_NOREPOSITION}</td><td>{@link #SWP_DEFERERASE}</td><td>{@link #SWP_ASYNCWINDOWPOS}</td></tr></table>
 	 */
-	public static int SetWindowPos(long hWnd, long hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags) {
+	public static boolean SetWindowPos(long hWnd, long hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags) {
 		long __functionAddress = Functions.SetWindowPos;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return nSetWindowPos(__functionAddress, hWnd, hWndInsertAfter, X, Y, cx, cy, uFlags);
+		return nSetWindowPos(__functionAddress, hWnd, hWndInsertAfter, X, Y, cx, cy, uFlags) != 0;
 	}
 
 	// --- [ SetWindowText ] ---
@@ -1309,10 +1309,10 @@ public class User32 {
 	 * @param hWnd     a handle to the window or control whose text is to be changed
 	 * @param lpString the new title or control text
 	 */
-	public static int SetWindowText(long hWnd, ByteBuffer lpString) {
+	public static boolean SetWindowText(long hWnd, ByteBuffer lpString) {
 		if ( CHECKS )
 			checkNT2(lpString);
-		return nSetWindowText(hWnd, memAddress(lpString));
+		return nSetWindowText(hWnd, memAddress(lpString)) != 0;
 	}
 
 	/**
@@ -1322,11 +1322,11 @@ public class User32 {
 	 * @param hWnd     a handle to the window or control whose text is to be changed
 	 * @param lpString the new title or control text
 	 */
-	public static int SetWindowText(long hWnd, CharSequence lpString) {
+	public static boolean SetWindowText(long hWnd, CharSequence lpString) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer lpStringEncoded = stack.UTF16(lpString);
-			return nSetWindowText(hWnd, memAddress(lpStringEncoded));
+			return nSetWindowText(hWnd, memAddress(lpStringEncoded)) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -1389,8 +1389,8 @@ public class User32 {
 	 * @param wMsgFilterMin the integer value of the lowest message value to be retrieved
 	 * @param wMsgFilterMax the integer value of the highest message value to be retrieved
 	 */
-	public static int GetMessage(MSG lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax) {
-		return nGetMessage(lpMsg.address(), hWnd, wMsgFilterMin, wMsgFilterMax);
+	public static boolean GetMessage(MSG lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax) {
+		return nGetMessage(lpMsg.address(), hWnd, wMsgFilterMin, wMsgFilterMax) != 0;
 	}
 
 	// --- [ PeekMessage ] ---
@@ -1432,8 +1432,8 @@ public class User32 {
 	 * @param wMsgFilterMax the integer value of the highest message value to be retrieved
 	 * @param wRemoveMsg    specifies how messages are to be handled. One of:<br><table><tr><td>{@link #PM_NOREMOVE}</td><td>{@link #PM_REMOVE}</td><td>{@link #PM_NOYIELD}</td></tr></table>
 	 */
-	public static int PeekMessage(MSG lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax, int wRemoveMsg) {
-		return nPeekMessage(lpMsg.address(), hWnd, wMsgFilterMin, wMsgFilterMax, wRemoveMsg);
+	public static boolean PeekMessage(MSG lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax, int wRemoveMsg) {
+		return nPeekMessage(lpMsg.address(), hWnd, wMsgFilterMin, wMsgFilterMax, wRemoveMsg) != 0;
 	}
 
 	// --- [ TranslateMessage ] ---
@@ -1457,8 +1457,8 @@ public class User32 {
 	 * @param lpMsg an {@link MSG} structure that contains message information retrieved from the calling thread's message queue by using the {@link #GetMessage} or {@link #PeekMessage}
 	 *              function.
 	 */
-	public static int TranslateMessage(MSG lpMsg) {
-		return nTranslateMessage(lpMsg.address());
+	public static boolean TranslateMessage(MSG lpMsg) {
+		return nTranslateMessage(lpMsg.address()) != 0;
 	}
 
 	// --- [ WaitMessage ] ---
@@ -1473,9 +1473,9 @@ public class User32 {
 	 * Yields control to other threads when a thread has no other messages in its message queue. The WaitMessage function suspends the thread and does not
 	 * return until a new message is placed in the thread's message queue.
 	 */
-	public static int WaitMessage() {
+	public static boolean WaitMessage() {
 		long __functionAddress = Functions.WaitMessage;
-		return nWaitMessage(__functionAddress);
+		return nWaitMessage(__functionAddress) != 0;
 	}
 
 	// --- [ DispatchMessage ] ---
@@ -1533,9 +1533,9 @@ public class User32 {
 	 * @param wParam additional message-specific information
 	 * @param lParam additional message-specific information
 	 */
-	public static int PostMessage(long hWnd, int Msg, long wParam, long lParam) {
+	public static boolean PostMessage(long hWnd, int Msg, long wParam, long lParam) {
 		long __functionAddress = Functions.PostMessage;
-		return nPostMessage(__functionAddress, hWnd, Msg, wParam, lParam);
+		return nPostMessage(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
 	}
 
 	// --- [ SendMessage ] ---
@@ -1570,11 +1570,11 @@ public class User32 {
 	 * @param wParam additional message-specific information
 	 * @param lParam additional message-specific information
 	 */
-	public static int SendMessage(long hWnd, int Msg, long wParam, long lParam) {
+	public static boolean SendMessage(long hWnd, int Msg, long wParam, long lParam) {
 		long __functionAddress = Functions.SendMessage;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return nSendMessage(__functionAddress, hWnd, Msg, wParam, lParam);
+		return nSendMessage(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
 	}
 
 	// --- [ AdjustWindowRectEx ] ---
@@ -1619,8 +1619,8 @@ public class User32 {
 	 * @param bMenu     indicates whether the window has a menu
 	 * @param dwExStyle the extended window style of the window whose required size is to be calculated
 	 */
-	public static int AdjustWindowRectEx(RECT lpRect, int dwStyle, int bMenu, int dwExStyle) {
-		return nAdjustWindowRectEx(lpRect.address(), dwStyle, bMenu, dwExStyle);
+	public static boolean AdjustWindowRectEx(RECT lpRect, int dwStyle, boolean bMenu, int dwExStyle) {
+		return nAdjustWindowRectEx(lpRect.address(), dwStyle, bMenu ? 1 : 0, dwExStyle) != 0;
 	}
 
 	// --- [ GetWindowRect ] ---
@@ -1655,8 +1655,8 @@ public class User32 {
 	 * @param hWnd   a handle to the window
 	 * @param lpRect a pointer to a {@link RECT} structure that receives the screen coordinates of the upper-left and lower-right corners of the window
 	 */
-	public static int GetWindowRect(long hWnd, RECT lpRect) {
-		return nGetWindowRect(hWnd, lpRect.address());
+	public static boolean GetWindowRect(long hWnd, RECT lpRect) {
+		return nGetWindowRect(hWnd, lpRect.address()) != 0;
 	}
 
 	// --- [ MoveWindow ] ---
@@ -1689,11 +1689,11 @@ public class User32 {
 	 *                 of any kind occurs. This applies to the client area, the nonclient area (including the title bar and scroll bars), and any part of the parent
 	 *                 window uncovered as a result of moving a child window.
 	 */
-	public static int MoveWindow(long hWnd, int X, int Y, int nWidth, int nHeight, int bRepaint) {
+	public static boolean MoveWindow(long hWnd, int X, int Y, int nWidth, int nHeight, boolean bRepaint) {
 		long __functionAddress = Functions.MoveWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return nMoveWindow(__functionAddress, hWnd, X, Y, nWidth, nHeight, bRepaint);
+		return nMoveWindow(__functionAddress, hWnd, X, Y, nWidth, nHeight, bRepaint ? 1 : 0) != 0;
 	}
 
 	// --- [ GetWindowPlacement ] ---
@@ -1734,8 +1734,8 @@ public class User32 {
 	 *                <p>Before calling {@code GetWindowPlacement}, set the length member to {@link WINDOWPLACEMENT#SIZEOF}. {@code GetWindowPlacement} fails if
 	 *                {@code lpwndpl->length} is not set correctly.</p>
 	 */
-	public static int GetWindowPlacement(long hWnd, WINDOWPLACEMENT lpwndpl) {
-		return nGetWindowPlacement(hWnd, lpwndpl.address());
+	public static boolean GetWindowPlacement(long hWnd, WINDOWPLACEMENT lpwndpl) {
+		return nGetWindowPlacement(hWnd, lpwndpl.address()) != 0;
 	}
 
 	// --- [ SetWindowPlacement ] ---
@@ -1776,8 +1776,8 @@ public class User32 {
 	 *                <p>Before calling {@code SetWindowPlacement}, set the {@code length} member of the {@code WINDOWPLACEMENT} structure to {@link WINDOWPLACEMENT#SIZEOF}.
 	 *                {@code SetWindowPlacement} fails if the length member is not set correctly.</p>
 	 */
-	public static int SetWindowPlacement(long hWnd, WINDOWPLACEMENT lpwndpl) {
-		return nSetWindowPlacement(hWnd, lpwndpl.address());
+	public static boolean SetWindowPlacement(long hWnd, WINDOWPLACEMENT lpwndpl) {
+		return nSetWindowPlacement(hWnd, lpwndpl.address()) != 0;
 	}
 
 	// --- [ IsWindowVisible ] ---
@@ -1787,11 +1787,11 @@ public class User32 {
 	 *
 	 * @param hWnd a handle to the window to be tested
 	 */
-	public static int IsWindowVisible(long hWnd) {
+	public static boolean IsWindowVisible(long hWnd) {
 		long __functionAddress = Functions.IsWindowVisible;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPI(__functionAddress, hWnd);
+		return callPI(__functionAddress, hWnd) != 0;
 	}
 
 	// --- [ IsIconic ] ---
@@ -1801,11 +1801,11 @@ public class User32 {
 	 *
 	 * @param hWnd a handle to the window to be tested
 	 */
-	public static int IsIconic(long hWnd) {
+	public static boolean IsIconic(long hWnd) {
 		long __functionAddress = Functions.IsIconic;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPI(__functionAddress, hWnd);
+		return callPI(__functionAddress, hWnd) != 0;
 	}
 
 	// --- [ IsZoomed ] ---
@@ -1815,11 +1815,11 @@ public class User32 {
 	 *
 	 * @param hWnd a handle to the window to be tested
 	 */
-	public static int IsZoomed(long hWnd) {
+	public static boolean IsZoomed(long hWnd) {
 		long __functionAddress = Functions.IsZoomed;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPI(__functionAddress, hWnd);
+		return callPI(__functionAddress, hWnd) != 0;
 	}
 
 	// --- [ BringWindowToTop ] ---
@@ -1830,11 +1830,11 @@ public class User32 {
 	 *
 	 * @param hWnd a handle to the window to bring to the top of the Z order
 	 */
-	public static int BringWindowToTop(long hWnd) {
+	public static boolean BringWindowToTop(long hWnd) {
 		long __functionAddress = Functions.BringWindowToTop;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPI(__functionAddress, hWnd);
+		return callPI(__functionAddress, hWnd) != 0;
 	}
 
 	// --- [ SetWindowLongPtr ] ---
@@ -1987,11 +1987,11 @@ public class User32 {
 	 *                {@code bAlpha} is 255, the window is opaque.
 	 * @param dwFlags an action to be taken. One or more of:<br><table><tr><td>{@link #LWA_COLORKEY}</td><td>{@link #LWA_ALPHA}</td></tr></table>
 	 */
-	public static int SetLayeredWindowAttributes(long hwnd, int crKey, byte bAlpha, int dwFlags) {
+	public static boolean SetLayeredWindowAttributes(long hwnd, int crKey, byte bAlpha, int dwFlags) {
 		long __functionAddress = Functions.SetLayeredWindowAttributes;
 		if ( CHECKS )
 			checkPointer(hwnd);
-		return nSetLayeredWindowAttributes(__functionAddress, hwnd, crKey, bAlpha, dwFlags);
+		return nSetLayeredWindowAttributes(__functionAddress, hwnd, crKey, bAlpha, dwFlags) != 0;
 	}
 
 	// --- [ LoadIcon ] ---
@@ -2171,13 +2171,13 @@ public class User32 {
 	 *
 	 * @since Windows 7 (desktop apps only)
 	 */
-	public static int RegisterTouchWindow(long hWnd, int ulFlags) {
+	public static boolean RegisterTouchWindow(long hWnd, int ulFlags) {
 		long __functionAddress = Functions.RegisterTouchWindow;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hWnd);
 		}
-		return nRegisterTouchWindow(__functionAddress, hWnd, ulFlags);
+		return nRegisterTouchWindow(__functionAddress, hWnd, ulFlags) != 0;
 	}
 
 	// --- [ UnregisterTouchWindow ] ---
@@ -2198,13 +2198,13 @@ public class User32 {
 	 *
 	 * @since Windows 7 (desktop apps only)
 	 */
-	public static int UnregisterTouchWindow(long hWnd) {
+	public static boolean UnregisterTouchWindow(long hWnd) {
 		long __functionAddress = Functions.UnregisterTouchWindow;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hWnd);
 		}
-		return nUnregisterTouchWindow(__functionAddress, hWnd);
+		return nUnregisterTouchWindow(__functionAddress, hWnd) != 0;
 	}
 
 	// --- [ IsTouchWindow ] ---
@@ -2236,8 +2236,8 @@ public class User32 {
 	 *
 	 * @since Windows 7 (desktop apps only)
 	 */
-	public static int IsTouchWindow(long hWnd, IntBuffer pulFlags) {
-		return nIsTouchWindow(hWnd, memAddressSafe(pulFlags));
+	public static boolean IsTouchWindow(long hWnd, IntBuffer pulFlags) {
+		return nIsTouchWindow(hWnd, memAddressSafe(pulFlags)) != 0;
 	}
 
 	// --- [ GetTouchInputInfo ] ---
@@ -2295,8 +2295,8 @@ public class User32 {
 	 *
 	 * @since Windows 7 (desktop apps only)
 	 */
-	public static int GetTouchInputInfo(long hTouchInput, TOUCHINPUT.Buffer pInputs, int cbSize) {
-		return nGetTouchInputInfo(hTouchInput, pInputs.remaining(), pInputs.address(), cbSize);
+	public static boolean GetTouchInputInfo(long hTouchInput, TOUCHINPUT.Buffer pInputs, int cbSize) {
+		return nGetTouchInputInfo(hTouchInput, pInputs.remaining(), pInputs.address(), cbSize) != 0;
 	}
 
 	// --- [ CloseTouchInputHandle ] ---
@@ -2321,13 +2321,13 @@ public class User32 {
 	 *
 	 * @since Windows 7 (desktop apps only)
 	 */
-	public static int CloseTouchInputHandle(long hTouchInput) {
+	public static boolean CloseTouchInputHandle(long hTouchInput) {
 		long __functionAddress = Functions.CloseTouchInputHandle;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hTouchInput);
 		}
-		return nCloseTouchInputHandle(__functionAddress, hTouchInput);
+		return nCloseTouchInputHandle(__functionAddress, hTouchInput) != 0;
 	}
 
 	// --- [ MonitorFromWindow ] ---
@@ -2372,8 +2372,8 @@ public class User32 {
 	 *                 <p>You must set the {@code cbSize} member of the structure to {@link MONITORINFOEX#SIZEOF} before calling the {@code GetMonitorInfo} function. Doing so lets
 	 *                 the function determine the type of structure you are passing to it.</p>
 	 */
-	public static int GetMonitorInfo(long hMonitor, MONITORINFOEX lpmi) {
-		return nGetMonitorInfo(hMonitor, lpmi.address());
+	public static boolean GetMonitorInfo(long hMonitor, MONITORINFOEX lpmi) {
+		return nGetMonitorInfo(hMonitor, lpmi.address()) != 0;
 	}
 
 	// --- [ EnumDisplayDevices ] ---
@@ -2417,10 +2417,10 @@ public class User32 {
 	 *                        {@code lpDisplayDevice}. The resulting device interface name can be used with SetupAPI functions and serves as a link between GDI monitor devices
 	 *                        and SetupAPI monitor devices.
 	 */
-	public static int EnumDisplayDevices(ByteBuffer lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
+	public static boolean EnumDisplayDevices(ByteBuffer lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
 		if ( CHECKS )
 			if ( lpDevice != null ) checkNT2(lpDevice);
-		return nEnumDisplayDevices(memAddressSafe(lpDevice), iDevNum, lpDisplayDevice.address(), dwFlags);
+		return nEnumDisplayDevices(memAddressSafe(lpDevice), iDevNum, lpDisplayDevice.address(), dwFlags) != 0;
 	}
 
 	/**
@@ -2440,11 +2440,11 @@ public class User32 {
 	 *                        {@code lpDisplayDevice}. The resulting device interface name can be used with SetupAPI functions and serves as a link between GDI monitor devices
 	 *                        and SetupAPI monitor devices.
 	 */
-	public static int EnumDisplayDevices(CharSequence lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
+	public static boolean EnumDisplayDevices(CharSequence lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer lpDeviceEncoded = lpDevice == null ? null : stack.UTF16(lpDevice);
-			return nEnumDisplayDevices(memAddressSafe(lpDeviceEncoded), iDevNum, lpDisplayDevice.address(), dwFlags);
+			return nEnumDisplayDevices(memAddressSafe(lpDeviceEncoded), iDevNum, lpDisplayDevice.address(), dwFlags) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2511,10 +2511,10 @@ public class User32 {
 	 *                       {@code DEVMODE} structure. To determine which members were set by the call to {@code EnumDisplaySettingsEx}, inspect the {@code dmFields} bitmask.</p>
 	 * @param dwFlags        this parameter can be one of:<br><table><tr><td>{@link #EDS_RAWMODE}</td><td>{@link #EDS_ROTATEDMODE}</td></tr></table>
 	 */
-	public static int EnumDisplaySettingsEx(ByteBuffer lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
+	public static boolean EnumDisplaySettingsEx(ByteBuffer lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
 		if ( CHECKS )
 			if ( lpszDeviceName != null ) checkNT2(lpszDeviceName);
-		return nEnumDisplaySettingsEx(memAddressSafe(lpszDeviceName), iModeNum, lpDevMode.address(), dwFlags);
+		return nEnumDisplaySettingsEx(memAddressSafe(lpszDeviceName), iModeNum, lpDevMode.address(), dwFlags) != 0;
 	}
 
 	/**
@@ -2544,11 +2544,11 @@ public class User32 {
 	 *                       {@code DEVMODE} structure. To determine which members were set by the call to {@code EnumDisplaySettingsEx}, inspect the {@code dmFields} bitmask.</p>
 	 * @param dwFlags        this parameter can be one of:<br><table><tr><td>{@link #EDS_RAWMODE}</td><td>{@link #EDS_ROTATEDMODE}</td></tr></table>
 	 */
-	public static int EnumDisplaySettingsEx(CharSequence lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
+	public static boolean EnumDisplaySettingsEx(CharSequence lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer lpszDeviceNameEncoded = lpszDeviceName == null ? null : stack.UTF16(lpszDeviceName);
-			return nEnumDisplaySettingsEx(memAddressSafe(lpszDeviceNameEncoded), iModeNum, lpDevMode.address(), dwFlags);
+			return nEnumDisplaySettingsEx(memAddressSafe(lpszDeviceNameEncoded), iModeNum, lpDevMode.address(), dwFlags) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}

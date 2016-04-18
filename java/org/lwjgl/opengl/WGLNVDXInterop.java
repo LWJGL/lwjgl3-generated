@@ -46,14 +46,14 @@ public class WGLNVDXInterop {
 	 * @param dxObject    a pointer to the DirectX resource that will be shared
 	 * @param shareHandle the share handle that the OS generated for the resource
 	 */
-	public static int wglDXSetResourceShareHandleNV(long dxObject, long shareHandle) {
+	public static boolean wglDXSetResourceShareHandleNV(long dxObject, long shareHandle) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXSetResourceShareHandleNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dxObject);
 			checkPointer(shareHandle);
 		}
-		return callPPI(__functionAddress, dxObject, shareHandle);
+		return callPPI(__functionAddress, dxObject, shareHandle) != 0;
 	}
 
 	// --- [ wglDXOpenDeviceNV ] ---
@@ -74,13 +74,13 @@ public class WGLNVDXInterop {
 
 	// --- [ wglDXCloseDeviceNV ] ---
 
-	public static int wglDXCloseDeviceNV(long device) {
+	public static boolean wglDXCloseDeviceNV(long device) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXCloseDeviceNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		return callPI(__functionAddress, device);
+		return callPI(__functionAddress, device) != 0;
 	}
 
 	// --- [ wglDXRegisterObjectNV ] ---
@@ -106,14 +106,14 @@ public class WGLNVDXInterop {
 
 	// --- [ wglDXUnregisterObjectNV ] ---
 
-	public static int wglDXUnregisterObjectNV(long device, long object) {
+	public static boolean wglDXUnregisterObjectNV(long device, long object) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXUnregisterObjectNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 			checkPointer(object);
 		}
-		return callPPI(__functionAddress, device, object);
+		return callPPI(__functionAddress, device, object) != 0;
 	}
 
 	// --- [ wglDXObjectAccessNV ] ---
@@ -124,13 +124,13 @@ public class WGLNVDXInterop {
 	 * @param object the GL/DirectX interop object
 	 * @param access the new access mode. One of:<br><table><tr><td>{@link #WGL_ACCESS_READ_ONLY_NV ACCESS_READ_ONLY_NV}</td><td>{@link #WGL_ACCESS_READ_WRITE_NV ACCESS_READ_WRITE_NV}</td><td>{@link #WGL_ACCESS_WRITE_DISCARD_NV ACCESS_WRITE_DISCARD_NV}</td></tr></table>
 	 */
-	public static int wglDXObjectAccessNV(long object, int access) {
+	public static boolean wglDXObjectAccessNV(long object, int access) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXObjectAccessNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(object);
 		}
-		return callPII(__functionAddress, object, access);
+		return callPII(__functionAddress, object, access) != 0;
 	}
 
 	// --- [ wglDXLockObjectsNV ] ---
@@ -171,8 +171,8 @@ public class WGLNVDXInterop {
 	 * @param device  the GL/DirectX interop device handle
 	 * @param objects an array of {@code count} interop objects
 	 */
-	public static int wglDXLockObjectsNV(long device, PointerBuffer objects) {
-		return nwglDXLockObjectsNV(device, objects.remaining(), memAddress(objects));
+	public static boolean wglDXLockObjectsNV(long device, PointerBuffer objects) {
+		return nwglDXLockObjectsNV(device, objects.remaining(), memAddress(objects)) != 0;
 	}
 
 	// --- [ wglDXUnlockObjectsNV ] ---
@@ -199,8 +199,8 @@ public class WGLNVDXInterop {
 	 * @param device  the GL/DirectX interop device handle
 	 * @param objects an array of {@code count} interop objects
 	 */
-	public static int wglDXUnlockObjectsNV(long device, PointerBuffer objects) {
-		return nwglDXUnlockObjectsNV(device, objects.remaining(), memAddress(objects));
+	public static boolean wglDXUnlockObjectsNV(long device, PointerBuffer objects) {
+		return nwglDXUnlockObjectsNV(device, objects.remaining(), memAddress(objects)) != 0;
 	}
 
 }

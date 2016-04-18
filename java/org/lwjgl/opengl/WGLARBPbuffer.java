@@ -152,13 +152,13 @@ public class WGLARBPbuffer {
 	 *
 	 * @param pbuffer a pbuffer handle
 	 */
-	public static int wglDestroyPbufferARB(long pbuffer) {
+	public static boolean wglDestroyPbufferARB(long pbuffer) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDestroyPbufferARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
 		}
-		return callPI(__functionAddress, pbuffer);
+		return callPI(__functionAddress, pbuffer) != 0;
 	}
 
 	// --- [ wglQueryPbufferARB ] ---
@@ -186,10 +186,10 @@ public class WGLARBPbuffer {
 	 * @param attribute the attribute to query. One of:<br><table><tr><td>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}</td><td>{@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}</td><td>{@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}</td></tr></table>
 	 * @param value     the attribute value
 	 */
-	public static int wglQueryPbufferARB(long pbuffer, int attribute, IntBuffer value) {
+	public static boolean wglQueryPbufferARB(long pbuffer, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
-		return nwglQueryPbufferARB(pbuffer, attribute, memAddress(value));
+		return nwglQueryPbufferARB(pbuffer, attribute, memAddress(value)) != 0;
 	}
 
 }

@@ -44,11 +44,11 @@ public class WGLEXTSwapControl {
 	 *
 	 * @param interval the minimum number of video frames that are displayed before a buffer swap will occur
 	 */
-	public static int wglSwapIntervalEXT(int interval) {
+	public static boolean wglSwapIntervalEXT(int interval) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglSwapIntervalEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callII(__functionAddress, interval);
+		return callII(__functionAddress, interval) != 0;
 	}
 
 	// --- [ wglGetSwapIntervalEXT ] ---

@@ -32,7 +32,7 @@ public abstract class GLFWWindowIconifyCallback extends Callback.V {
 	protected void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
-			dcbArgInt(args)
+			dcbArgInt(args) != 0
 		);
 	}
 
@@ -42,11 +42,11 @@ public abstract class GLFWWindowIconifyCallback extends Callback.V {
 	 * @param window    the window that was iconified or restored.
 	 * @param iconified {@link GL11#GL_TRUE} if the window was iconified, or {@link GL11#GL_FALSE} if it was restored
 	 */
-	public abstract void invoke(long window, int iconified);
+	public abstract void invoke(long window, boolean iconified);
 
 	/** A functional interface for {@link GLFWWindowIconifyCallback}. */
 	public interface SAM {
-		void invoke(long window, int iconified);
+		void invoke(long window, boolean iconified);
 	}
 
 	/**
@@ -59,7 +59,7 @@ public abstract class GLFWWindowIconifyCallback extends Callback.V {
 	public static GLFWWindowIconifyCallback create(SAM sam) {
 		return new GLFWWindowIconifyCallback() {
 			@Override
-			public void invoke(long window, int iconified) {
+			public void invoke(long window, boolean iconified) {
 				sam.invoke(window, iconified);
 			}
 		};

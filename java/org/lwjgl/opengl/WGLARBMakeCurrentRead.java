@@ -62,7 +62,7 @@ public class WGLARBMakeCurrentRead {
 	 * @param readDC the "read" device context
 	 * @param hglrc  the OpenGL context
 	 */
-	public static int wglMakeContextCurrentARB(long drawDC, long readDC, long hglrc) {
+	public static boolean wglMakeContextCurrentARB(long drawDC, long readDC, long hglrc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglMakeContextCurrentARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
@@ -70,7 +70,7 @@ public class WGLARBMakeCurrentRead {
 			checkPointer(readDC);
 			checkPointer(hglrc);
 		}
-		return callPPPI(__functionAddress, drawDC, readDC, hglrc);
+		return callPPPI(__functionAddress, drawDC, readDC, hglrc) != 0;
 	}
 
 	// --- [ wglGetCurrentReadDCARB ] ---

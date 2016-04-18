@@ -228,10 +228,10 @@ public class WinBase {
 	 *
 	 * @param handle a handle to the loaded library module
 	 */
-	public static int FreeLibrary(long handle) {
+	public static boolean FreeLibrary(long handle) {
 		if ( CHECKS )
 			checkPointer(handle);
-		return nFreeLibrary(handle);
+		return nFreeLibrary(handle) != 0;
 	}
 
 }

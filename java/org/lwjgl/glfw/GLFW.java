@@ -589,9 +589,9 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static int glfwInit() {
+	public static boolean glfwInit() {
 		long __functionAddress = Functions.Init;
-		return invokeI(__functionAddress);
+		return invokeI(__functionAddress) != 0;
 	}
 
 	// --- [ glfwTerminate ] ---
@@ -1535,11 +1535,11 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static int glfwWindowShouldClose(long window) {
+	public static boolean glfwWindowShouldClose(long window) {
 		long __functionAddress = Functions.WindowShouldClose;
 		if ( CHECKS )
 			checkPointer(window);
-		return invokePI(__functionAddress, window);
+		return invokePI(__functionAddress, window) != 0;
 	}
 
 	// --- [ glfwSetWindowShouldClose ] ---
@@ -1555,11 +1555,11 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static void glfwSetWindowShouldClose(long window, int value) {
+	public static void glfwSetWindowShouldClose(long window, boolean value) {
 		long __functionAddress = Functions.SetWindowShouldClose;
 		if ( CHECKS )
 			checkPointer(window);
-		invokePIV(__functionAddress, window, value);
+		invokePIV(__functionAddress, window, value ? 1 : 0);
 	}
 
 	// --- [ glfwSetWindowTitle ] ---
@@ -3687,10 +3687,10 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static int glfwExtensionSupported(ByteBuffer extension) {
+	public static boolean glfwExtensionSupported(ByteBuffer extension) {
 		if ( CHECKS )
 			checkNT1(extension);
-		return nglfwExtensionSupported(memAddress(extension));
+		return nglfwExtensionSupported(memAddress(extension)) != 0;
 	}
 
 	/**
@@ -3713,11 +3713,11 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static int glfwExtensionSupported(CharSequence extension) {
+	public static boolean glfwExtensionSupported(CharSequence extension) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer extensionEncoded = stack.ASCII(extension);
-			return nglfwExtensionSupported(memAddress(extensionEncoded));
+			return nglfwExtensionSupported(memAddress(extensionEncoded)) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
